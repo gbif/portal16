@@ -471,7 +471,42 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
-
+        .state('dataRepository', {
+            parent: 'localization',
+            url: '/data-repository',
+            views: {
+                main: {
+                    templateUrl: '/api/template/tools/dataRepository.html?v=' + BUILD_VERSION,
+                    controller: 'dataRepositoryCtrl',
+                    controllerAs: 'dataRepository'
+                }
+            }
+        })
+        .state('dataRepositoryUpload', {
+            parent: 'dataRepository',
+            url: '/upload',
+            templateUrl: '/api/template/tools/dataRepository/upload.html?v=' + BUILD_VERSION,
+            controller: 'dataRepositoryUploadCtrl',
+            controllerAs: 'dataRepositoryUpload'
+        })
+        .state('dataRepositoryAbout', {
+            parent: 'dataRepository',
+            url: '/about',
+            templateUrl: '/api/template/tools/dataRepository/about.html?v=' + BUILD_VERSION,
+            controller: 'dataRepositoryAboutCtrl',
+            controllerAs: 'dataRepositoryAbout'
+        })
+        .state('dataRepositoryKey', {
+            parent: 'localization',
+            url: '/data-repository/upload/:key',
+            views: {
+                main: {
+                    templateUrl: '/api/template/tools/dataRepository/key.html?v=' + BUILD_VERSION,
+                    controller: 'dataRepositoryKeyCtrl',
+                    controllerAs: 'dataRepositoryKey'
+                }
+            }
+        })
 
 
         //theGbifNetworkCtrl

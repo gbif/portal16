@@ -1,0 +1,56 @@
+<form name="eoi.publisherForm"
+      ng-submit="eoi.publisherForm.$valid && eoi.createOrganization()">
+    <div>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">New upload</span>
+                    <span class="md-subhead">Good meta data is essential for .... lorem ipsum something goes here that others know how to write</span>
+                </md-card-title-text>
+            </md-card-title>
+
+            <md-card-content>
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <md-button id="uploadButton" class="md-raised md-primary"> Choose Files </md-button>
+                    </md-input-container>
+                    <md-input-container flex="100">
+                        <label>Upload from url - useful for large files</label>
+                        <input name="contactFirstName" ng-model="eoi.form.pointOfContact.firstName">
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Title</label>
+                        <input required name="contactFirstName" ng-model="eoi.form.pointOfContact.firstName">
+                        <div ng-messages="eoi.publisherForm.contactFirstName.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Description</label>
+                        <textarea required ng-model="eoi.form.description" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                        <div class="hint discreet--very small">Briefly describe the your upload - to that others will know ...</div>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>License</label>
+                        <md-select ng-model="ctrl.userState">
+                            <md-option><em>CC 0</em></md-option>
+                            <md-option><em>CC attribution</em></md-option>
+                            <md-option><em>CC none comercial</em></md-option>
+                            <md-option><em>Etc</em></md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-align="end" flex>
+                    <md-button type="submit" class="md-raised md-primary" ng-click="eoi.submitAttempted = true">Upload archive</md-button>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</form>

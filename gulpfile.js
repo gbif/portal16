@@ -73,7 +73,7 @@ gulp.task('watch', ['browser-sync'], function () {
         path.join(config.paths.src, '/**/*.css')
     ], ['styles-reload']);
 
-    gulp.watch([config.js.client.watch], ['scripts-reload'/*, 'client-lint'*/]); //, 'dataRepo', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home'//removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
+    gulp.watch([config.js.client.watch], ['scripts-reload', 'dataRepo'/*, 'client-lint'*/]); //, 'dataRepo', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home'//removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
 
     gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], ['templates']).on('change', browserSync.reload);
 

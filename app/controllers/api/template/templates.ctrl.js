@@ -195,3 +195,19 @@ router.get('/tools/dataValidator/results/termsFrequency.html', function (req, re
 router.get('/tools/dataValidator/validationResults.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/validationResults.html');
 });
+
+router.get('/tools/dataRepository.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/dataRepository.template.nunjucks');
+});
+
+router.get('/tools/dataRepository/upload.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/upload/dataRepositoryUpload.template.nunjucks');
+});
+
+router.get('/tools/dataRepository/about.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/about/dataRepositoryAbout.template.nunjucks');
+});
+
+router.get('/tools/dataRepository/key.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/upload/key/dataRepositoryKey.template.nunjucks');
+});

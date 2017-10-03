@@ -1,0 +1,61 @@
+<div class="horizontal-stripe light-background">
+    <div class="container--narrow">
+        <section>
+            <p class="text-error">To do this we need an endpoint that allows searching and filtering uploads. filters as a minimum on user</p>
+            <div class="m-b-05">
+                <form class="search-box" ng-submit="dataRepository.search()">
+                    <input type="text"
+                           autocomplete="off"
+                           ng-model="dataRepository.q"
+                           placeholder="{{ 'stdTerms.search' | translate }}"
+                           Xng-keydown="dataRepository.closeOnEsc($event)">
+                    <a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"
+                       ng-click="dataRepository.search()">
+                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    </a>
+                </form>
+            </div>
+            <div class="m-b-1 filter-buttons">
+                <a href="" class="gb-button--brand" translate="stdTerms.all"></a>
+                <a href="" class="gb-button--discreet">My uploads</a>
+            </div>
+            <div>
+                <div>
+                    <div ng-repeat="result in dataRepository.uploads.results">
+                        <div class="card m-b-05 searchCard">
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                    <h3 class="searchCard__headline">
+                                        <a ui-sref="dataRepositoryKey({key:92876})">{{result.title}}</a>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="card__stripe">
+                                <div class="card__content clearfix">
+                                    <p>
+                                        {{result.description}}
+                                    </p>
+                                    <p class="small discreet--very">
+                                        {{result.created}} - 5 files - Archive size 4.5mb
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <uib-pagination
+                            total-items="dataRepository.uploads.count"
+                            ng-model="dataRepository.currentPage"
+                            max-size="dataRepository.maxSize"
+                            items-per-page="dataRepository.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="dataRepository.pageChanged()"
+                            ng-show="dataRepository.uploads.count > dataRepository.limit">
+                    </uib-pagination>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
