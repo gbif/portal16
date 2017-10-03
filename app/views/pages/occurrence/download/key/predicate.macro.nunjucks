@@ -35,6 +35,11 @@
                 {% endfor %}
             </ol>
         </div>
+    {% elseif p.type == 'isNotNull' %}
+        <div class="leaf">
+            <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) | capitalize $}</span>
+            <span class="node-value discreet--very">{$ __('downloadKey.predicate.isNotNull') $}</span>
+        </div>
     {% elseif p.type == 'within' %}
         <div class="leaf">
             <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) | capitalize $}</span>

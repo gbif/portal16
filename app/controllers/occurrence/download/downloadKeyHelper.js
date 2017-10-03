@@ -23,6 +23,9 @@ function addChildKeys(predicate) {
             predicate.key = 'GEOMETRY';
             predicate.value = predicate.geometry;
         }
+        if (predicate.type == 'isNotNull') {
+            predicate.key = predicate.parameter;
+        }
         predicate._childKeys = predicate.key;
     } else if(predicate.predicate) {
         var child = addChildKeys(predicate.predicate);
@@ -199,6 +202,7 @@ function addpredicateResolveTasks(predicate, config, tasks, __mf) {
 
 //given a predicate and a resolver configuration then translate the enum into something readable. fx "above 500 meters"
 function resolveEnum(predicate, config, __mf) {
+    console.log(predicate.type);
     if (intervalTypes.indexOf(predicate.key) !== -1 ) {
         if (predicate.type == 'between') {
             predicate.value = __mf(config.valueTranslation + predicate.type, {from: predicate.from, to: predicate.to})
@@ -209,6 +213,8 @@ function resolveEnum(predicate, config, __mf) {
         } else {
             predicate.value = __mf(config.valueTranslation + predicate.type, {from: predicate.value, to: predicate.value})
         }
+    } else if (predicate.type == 'isNotNull') {
+        predicate.value = 'isNotNull';
     } else if (predicate.type == 'in') {
         predicate.values = predicate.values.map(function(e){
             return __mf(config.valueTranslation + e)

@@ -1,0 +1,17 @@
+<div class="horizontal-stripe light-background seperator ng-cloak">
+    <div class="container--narrow">
+        <p class="text-error">
+            To do this we need an endpoint that accepts both URLs, file system links? and uploading files. Validating the sparse meta data. and returns a DOI.
+        </p>
+        <p class="text-error">
+            We also need auth. If the role for this is already exposed in the registry, then just exposing that for the interface. The repo api should validate the json token for validity. We need of course to use the same secret
+        </p>
+        <div>
+            {% include "./form.nunjucks" %}
+        </div>
+    </div>
+    <div class="container--narrow" ng-if="eoi.state.submissionComplete">
+        {#{% include "./postform/failedSubmit.nunjucks" %}#}
+        {#{% include "./postform/submitted.nunjucks" %}#}
+    </div>
+</div>

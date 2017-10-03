@@ -30,7 +30,9 @@ function decorate(participant) {
 function getOrderedListOfPeople(relations, allContacts) {
     let contacts = _.clone(allContacts),
         people;
-
+    if (!contacts) {
+        return [];
+    }
     //add relation to contacts
     relations.forEach(function (relation) {
         let person = contacts[relation.personId];

@@ -1385,7 +1385,8 @@
       },
       "and": "and",
       "or": "or",
-      "not": "not"
+      "not": "not",
+      "isNotNull": "Is defined"
     }
   },
   "network": {
@@ -2492,7 +2493,8 @@
     "hasCoordinate": "has coordinate",
     "repatriated": "repatriated",
     "typeStatus": "type status",
-    "geometry": "geometry"
+    "geometry": "geometry",
+    "publishingOrg": "publisher"
   },
   "enums": {
     "cms": {

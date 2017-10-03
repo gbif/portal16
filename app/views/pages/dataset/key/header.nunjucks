@@ -12,8 +12,8 @@
                 <h1 class="text-center">
                     <span ng-class="{'text-error': datasetKey.dataset.deleted}">{{ datasetKey.dataset.title }}</span>
                 </h1>
-                <p class="source">
-                    Published by <a class="source underline" ng-href="/publisher/{{ datasetKey.dataset.publishingOrganizationKey }}">
+                <p ng-class="{'text-error': datasetKey.dataset.deleted, source: !datasetKey.dataset.deleted}">
+                    Published by <a class="inherit underline" ng-href="/publisher/{{ datasetKey.dataset.publishingOrganizationKey }}">
                         {{ datasetKey.publisher.title }}
                     </a>
                     <span class="source" ng-if="datasetKey.parentDataset.title"> - This dataset is a constituent of <a class="source underline" ng-href="/dataset/{{ datasetKey.parentDataset.key }}">{{ datasetKey.parentDataset.title }}</a></span>
@@ -34,7 +34,8 @@
                     </ol>
                 </div>
                 <p class="text-error" ng-if="datasetKey.dataset.deleted">
-                    This dataset was deleted {{ datasetKey.dataset.deleted | amDateFormat:'D MMMM YYYY' }}
+                    This dataset was deleted {{ datasetKey.dataset.deleted | amDateFormat:'D MMMM YYYY' }}.
+                    <span ng-if="datasetKey.duplicateOfDataset">It is likely replaced by <a class="inherit underline" ui-sref="datasetKey({key: datasetKey.duplicateOfDataset.key})">{{ datasetKey.duplicateOfDataset.title }}</a></span>
                 </p>
             </header>
         </div>

@@ -38,7 +38,7 @@ router.get('/issues', function (req, res) {
 
         //query github for issues with the extracted page identifier in the title
         ghsearch.issues({
-            q: item + ' is:issue is:open label:content label:"public relevance" in:body+repo:' + credentials.repository,
+            q: item + ' is:issue is:open label:"public relevance" in:body+repo:' + credentials.repository,
             sort: 'created', //'reactions-+1',
             order: 'desc',
             per_page: 5
@@ -62,7 +62,51 @@ router.get('/issues', function (req, res) {
             }
         });
     }
+});
 
+router.get('/issues/search', function (req, res) {
+    let item = req.query.item,
+        client = github.client({
+            username: credentials.user,
+            password: credentials.password
+        }),
+        ghsearch = client.search();
+
+    //if no item is provided or is is the root in default language then do not show comments
+    if (!item) {
+        res.json({
+            incomplete_results: false,
+            total_count: 0,
+            item: []
+        });
+    } else {
+
+        //query github for issues with the extracted page identifier in the title
+        ghsearch.issues({
+            q: item + ' is:issue is:open in:body+repo:' + credentials.repository,
+            sort: 'created', //'reactions-+1',
+            order: 'desc',
+            per_page: 5
+        }, function (err, data) {
+            if (err) {
+                res.status(500);
+                res.json();
+            } else {
+                //trim list of issues to send less info to the client
+                data.items = _.map(data.items, function (o) {
+                    return {
+                        url: o.html_url,
+                        title: o.title,
+                        created_at: o.created_at,
+                        comments: o.comments
+                    }
+                });
+                //link to all the issues for this page item
+                data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open in:body');
+                res.json(data);
+            }
+        });
+    }
 });
 
 

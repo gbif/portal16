@@ -11,23 +11,22 @@
             <div layout="row">
                 <div flex="100">
                     <md-radio-group ng-model="eoi.form.suggestedNodeKey">
+                        <md-radio-button value="other" class="md-primary" ng-if="!eoi.suggestedCountryNode">Help me with endorsement</md-radio-button>
                         <md-radio-button ng-show="eoi.suggestedCountryNode" value="{{ eoi.suggestedCountryNode.key }}" class="md-primary">{{ eoi.suggestedCountryNode.title }} <span class="discreet--very">suggested</span></md-radio-button>
                         <md-radio-button ng-show="eoi.suggestedNonCountryNode" value="{{ eoi.suggestedNonCountryNode.key }}" class="md-primary">{{ eoi.suggestedNonCountryNode.title }} </md-radio-button>
-
-                        <md-radio-button value="other" class="md-primary" ng-if="!eoi.suggestedCountryNode">Help me with endorsement</md-radio-button>
-
-
+                        <md-radio-button value="{{ eoi.MAGIC_OBIS_KEY }}" class="md-primary">
+                            Request endorsement for OBIS related data
+                        </md-radio-button>
 
                     </md-radio-group>
 
                     <div layout="column">
-                        <span class="md-subhead">{{ (eoi.suggestedCountryNode !== undefined) ? 'Another node' :  'A node' }} I am affiliated with:</span>
-
+                        <p>Or select another associated organisation:</p>
                         <md-input-container flex="50">
                             <label>Click to select</label>
 
 
-                            <md-select  name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
+                            <md-select name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
                                 <md-option><em>None</em></md-option>
                                 <md-option ng-repeat="participant in eoi.nonCountryParticipants" ng-value="participant.id">
                                     {{participant.name}}

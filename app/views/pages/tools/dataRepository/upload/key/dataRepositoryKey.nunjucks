@@ -1,0 +1,5 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block scripts %}
+    <script src="/js/base/pages/dataRepository.js?v={$ BUILD_VERSION $}"></script>
+{% endblock %}

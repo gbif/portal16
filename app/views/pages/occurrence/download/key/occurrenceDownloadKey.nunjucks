@@ -58,7 +58,7 @@
                                                     <a href="{$ download.record.downloadLink $}" class="gb-button--brand">{$ __('stdTerms.download') $}</a>
                                                 </span>
                                                 {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download.record.status === 'SUSPENDED'%}
-                                                <span class="gb-button--flat gb-button--loader pull-right m-t-0">
+                                                <span class="gb-button--flat gb-button--loader m-t-0">
                                                     <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                                                     {$ __('downloadKey.status.' + download.record.status) $}
                                                 </span>
@@ -157,7 +157,7 @@
                                                 {% endif %}
                                             </dl>
                                             <p class="m-t-05">
-                                                Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">datause agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.
+                                                Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">data user agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.
                                             </p>
                                         </div>
                                     {% endif %}
@@ -219,7 +219,7 @@
             <div class="horizontal-stripe bare-background">
                 <span class="relative-anchor-offset"><a id="datasets"></a></span>
                 <div class="container--normal">
-                    <h4>{$ __n('downloadKey.nConstituentDatasets', download.datasets.count, {count: download.datasets.count | locInt(gb.locales.current)}) $}</h4>
+                    <p class="small discreet text-uppercase">{$ __n('downloadKey.nConstituentDatasets', download.datasets.count, {count: download.datasets.count | locInt(gb.locales.current)}) $}</p>
                     <div class="card">
                         <div class="card__stripe">
                             <div class="stripeList">

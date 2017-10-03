@@ -5,11 +5,16 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/tools/data-repository', function (req, res) {
-    res.render('pages/tools/dataRepo/dataRepo', {
+router.get('/data-repository', renderTemplate);
+router.get('/data-repository/about', renderTemplate);
+router.get('/data-repository/upload', renderTemplate);
+router.get('/data-repository/upload/:key', renderTemplate);
+
+function renderTemplate(req, res) {
+    res.render('pages/tools/dataRepository/dataRepository', {
         _meta: {
             title: 'Data repository',
             noIndex: true
         }
     });
-});
+}

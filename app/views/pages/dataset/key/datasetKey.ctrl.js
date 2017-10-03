@@ -20,7 +20,7 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
+function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -31,10 +31,13 @@ function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, Specie
     vm.dataset = DatasetExtended.get({key: vm.key});
     vm.metrics = DatasetMetrics.get({key: vm.key});
     vm.processSummary = DatasetProcessSummary.get({key: vm.key});
+    vm.currentCrawlingStatus = DatasetCurrentCrawlingStatus.get({key: vm.key});
     vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
     vm.isPartOfCOL = constantKeys.dataset.col === vm.key;
     vm.isBackbone = constantKeys.dataset.backbone === vm.key;
     vm.literature = ResourceSearch.query({contentType: 'literature', gbifDatasetKey: vm.key, limit: 0});
+
+    vm.profile = $sessionStorage.user;
 
     vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({dataset_key: vm.key, media_type: 'StillImage'});
@@ -70,6 +73,9 @@ function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, Specie
             vm.host = Publisher.get({id: vm.installation.organizationKey});
         });
         vm.parentDataset = Dataset.get({id: vm.dataset.parentDatasetKey});
+        if (vm.dataset.duplicateOfDatasetKey) {
+            vm.duplicateOfDataset = Dataset.get({id: vm.dataset.duplicateOfDatasetKey});
+        }
         vm.coverages = geoJsonFromCoverage(vm.dataset.geographicCoverages);
         vm.originalArchive = getOriginalDarwinCoreArchive(vm.dataset.endpoints);
         vm.dataset._endpoints = _.filter(vm.dataset.endpoints, 'url');
@@ -81,8 +87,17 @@ function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, Specie
         });
         vm.projectEmpty = !vm.dataset.project || (!vm.dataset.project.studyAreaDescription && !vm.dataset.project.designDescription && !vm.dataset.project.funding);
         vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.dataset.col === vm.dataset.parentDatasetKey;
+        checkIfUserIsContact();
     });
 
+    function checkIfUserIsContact() {
+        if (vm.profile.email) {
+            var contacts = _.get(vm.dataset, 'contacts', []);
+            vm.matchedContact = _.find(contacts, function(contact){
+                return contact.email == vm.profile.email || contact.email.indexOf(vm.profile.email) > -1;
+            });
+        }
+    }
 
     function getOriginalDarwinCoreArchive(endpoints) {
         endpoints = endpoints || [];

@@ -1,0 +1,40 @@
+<div class="site-content">
+    <div class="site-content__page light-background">
+        <div>
+            <article class="wrapper-horizontal-stripes countryKey">
+
+                {# header #}
+                <div class="horizontal-stripe article-header white-background p-b-0">
+                    <div class="container--desktop">
+                        <div class="row">
+                            <header class="col-xs-12 text-center">
+                                <nav class="article-header__category article-header__category--deep">
+                                    <span class="article-header__category__upper">Repository</span>
+                                    <span class="article-header__category__lower">Upload</span>
+                                </nav>
+                                <h1 class="text-center">
+                                    <span>{{ dataRepositoryKey.upload.title }}</span>
+                                </h1>
+                                <div class="m-t-1">
+                                    <a href="https://10.15468/dl.crdskg" class="doi"><span>DOI</span><span>10.15468/dl.crdskg</span></a>
+                                </div>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="horizontal-stripe white-background">
+                    <div class="container--normal">
+                        <p class="text-error">
+                            To do this we need an endpoint that resolves uploaded keys. download should be possible. Citation resolving should also work here. Previews?
+                        </p>
+
+                        <p>{{ dataRepositoryKey.upload.description }}</p>
+                        <p class="discreet">Other informatioin about the upload - files, sizes. Option to download. doi. citations</p>
+                        <p class="discreet">Previews if possible</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

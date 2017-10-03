@@ -25,6 +25,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('NodeCountry', function ($resource, env) {
+            return $resource(env.dataApi + 'node/country/:countryCode', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('NodeDatasets', function ($resource, env) {
             return $resource(env.dataApi + 'node/:id/dataset', null, {
                     'query': {
