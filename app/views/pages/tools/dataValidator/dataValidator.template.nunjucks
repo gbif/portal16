@@ -5,6 +5,13 @@
 
                 {% include "./header.nunjucks" %}
 
+                <div id="tabsScrollable">
+                    {% include "./nav.nunjucks" %}
+                </div>
+                <div class="tabs-fixed-container" id="tabsFixedContainer" ng-init="vm.attachTabListener()">
+                    {% include "./nav.nunjucks" %}
+                </div>
+
                 {#<div id="tabsScrollable">#}
                     {#{% include "./nav.nunjucks" %}#}
                 {#</div>#}
@@ -63,9 +70,14 @@
 
                         </div>
                     </div>
-                    {% include "./intro/intro.nunjucks" %}
 
-                    {% include "./main/main.nunjucks" %}
+                    <div ng-if="vm.$state.is('dataValidatorKey')">
+                        {% include "./intro/intro.nunjucks" %}
+
+                        {% include "./main/main.nunjucks" %}
+
+                    </div>
+
                 </div>
 
                 <div ui-view>

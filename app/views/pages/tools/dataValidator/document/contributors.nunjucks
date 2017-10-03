@@ -1,0 +1,11 @@
+<section class="horizontal-stripe--paddingless dataset-key__contributors" ng-if="vm.originators.length > 0">
+    <div>
+        <a href="" id="contributors"></a>
+        <div class="anchor-block--tabs" id="contributorsBlock">
+            <h3>Contributors</h3>
+            <div class="contactsCard card">
+                <contact contact-info="contact" ng-repeat="contact in vm.originators "></contact>
+            </div>
+        </div>
+    </div>
+</section>

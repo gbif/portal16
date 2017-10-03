@@ -1,0 +1,61 @@
+<span class="relative-anchor-offset"><a name="menu"></a></span>
+
+<nav class="submenu submenu--tabs" id="submenu" ng-init="vm.attachMenuListener()">
+    <ul class="nav-parts">
+        <li class="part-name">
+            {#<h3><a href="#" class="inherit">Content</a></h3>#}
+            <ul class="nav-chapters">
+                {#<li class="nav-chapter" du-scrollspy="summary">#}
+                    {#<a href="#summary">Summary</a>#}
+                {#</li>#}
+                <li class="nav-chapter" du-scrollspy="descriptionBlock" ng-if="vm.eml.description">
+                    <a href="#description" translate="dataset.description" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="purposeBlock" ng-if="vm.eml.purpose">
+                    <a href="#purpose" translate="dataset.purpose" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="temporalCoveragesBlock"
+                    ng-if="vm.eml.temporalCoverages.length > 0">
+                    <a href="#temporalCoverages" translate="dataset.temporalCoverages" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="geographicCoveragesBlock"
+                    ng-if="vm.eml.geographicCoverages.length > 0">
+                    <a href="#geographicCoverages" translate="dataset.geographicCoverages" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="taxonomicCoveragesBlock" ng-if="vm.eml._computedValues.taxonomicCoverages.length > 0">
+                    <a href="#taxonomicCoverages" translate="dataset.taxonomicCoverages" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="methodologyBlock" ng-if="vm.eml.samplingDescription">
+                    <a href="#methodology" translate="dataset.methodology" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="additionalInfoBlock" ng-if="vm.eml.additionalInfo">
+                    <a href="#additionalInfo" translate="dataset.additionalInfo" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="bibliographyBlock"
+                    ng-if="vm.eml.bibliographicCitations.length > 0">
+                    <a href="#bibliography" translate="dataset.bibliography" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="contributorsBlock"
+                    ng-if="vm.eml._computedValues.contributors.all.length > 0">
+                    <a href="#contributors" translate="dataset.contributors" class="text-capitalize"></a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="dataDescriptionBlock"
+                    ng-if="vm.eml.dataLanguage || vm.eml.language || vm.eml.dataDescriptions.length > 0">
+                    <a href="#dataDescription" translate="dataset.dataDescription" class="text-capitalize"></a>
+                </li>
+
+
+
+            </ul>
+        </li>
+    </ul>
+</nav>

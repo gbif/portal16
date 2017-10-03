@@ -74,7 +74,6 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
             vm.startTimestamp = moment(data.startTimestamp).subtract(moment().utcOffset(), 'minutes').fromNow();
             handleValidationSubmitResponse(data);
         }).error(function (err, status, headers) { //data, status, headers, config
-            vm.startTimestamp = moment(data.startTimestamp).subtract(moment().utcOffset(), 'minutes').fromNow();
 
             if((err && err.statusCode === 404 )|| status === 404){
                 handleValidationSubmitResponse(err)
@@ -90,13 +89,14 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
         vm.jobid = $stateParams.jobid;
 
 
-
         loadEvaluationCategory().then(function(){
             vm.getValidationResults(vm.jobid)
 
         })
 
-    };
+    } else if($sessionStorage.gbifRunningValidatonJob){
+        $state.go('dataValidatorKey', {jobid: $sessionStorage.gbifRunningValidatonJob})
+    }
 
     function loadEvaluationCategory() {
        return $http({
@@ -115,6 +115,8 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
         vm.jobStatus = data.status;
 
         if((data.status === "RUNNING"  || data.status === "ACCEPTED" || data.status === "NOT_FOUND") && data.jobId){
+
+
             /* currently the validator webservice may return 404 and then after a few attempts it will return 200
                 We give it 5 attempts before throwing 404
 
@@ -130,9 +132,11 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                 if($state.is('dataValidatorKey')){
 
                     if(data.status === "NOT_FOUND" && vm.retries404 < 1){
+                        delete $sessionStorage.gbifRunningValidatonJob;
+
                         handleWSError(data, 404)
                     } else {
-
+                        $sessionStorage.gbifRunningValidatonJob = data.jobId;
                         // pretend the job is running if we haven´t reached 404 retry limit
                         if(data.status === "NOT_FOUND" && vm.retries404 > 0){
                             vm.jobStatus = "CONTACTING_SERVER";
@@ -152,8 +156,12 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
 
             }, 1000)
         } else if(data.status === "FAILED"){
+            delete $sessionStorage.gbifRunningValidatonJob;
             handleFailedJob(data);
         } else if(data.status === "FINISHED"){
+
+            delete $sessionStorage.gbifRunningValidatonJob;
+
             var port = ($location.port() !== 80 && $location.port() !== 443) ? ":"+$location.port() : "";
 
             vm.jobUrl =   $location.protocol()+"://"+$location.host()+port+$location.path() ;

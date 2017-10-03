@@ -1,0 +1,16 @@
+<section class="horizontal-stripe--paddingless white-background dataset-key__text" ng-if="vm.eml.geographicCoverages.length > 0 ">
+    <div>
+        <a href="" id="geographicCoverages"></a>
+        <div class="anchor-block--tabs" id="geographicCoveragesBlock">
+            <h3>Geographic coverages</h3>
+            <div>
+                <div ng-repeat="geographicCoverage in vm.eml.geographicCoverages">
+                    <div ng-if="geographicCoverage.description" ng-bind-html="geographicCoverage.description"></div>
+                    <div ng-if="geographicCoverage.boundingBox && vm.coverages">
+                        <feature-map style="height:400px" features="vm.coverages" mapstyle="'light'"></feature-map>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

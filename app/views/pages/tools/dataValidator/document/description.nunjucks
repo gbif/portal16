@@ -1,0 +1,16 @@
+<section class="horizontal-stripe--paddingless white-background dataset-key__text" ng-if="vm.eml.description">
+    <div>
+        <a href="" id="description"></a>
+        <div class="anchor-block--tabs" id="descriptionBlock">
+            <div class="stripe-comment-wrapper" ng-if="vm.eml.language !== 'eng'">
+                <div class="stripe-comment">
+                    <div translate="language.{{ vm.eml.language }}"></div>
+                </div>
+            </div>
+            <div>
+                <h3>Description</h3>
+                <div ng-bind-html="vm.eml.description"></div>
+            </div>
+        </div>
+    </div>
+</section>

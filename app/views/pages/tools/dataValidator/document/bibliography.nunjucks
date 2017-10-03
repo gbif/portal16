@@ -1,0 +1,32 @@
+<section class="horizontal-stripe--paddingless dataset-key__bibliography"
+         ng-if="vm.eml.bibliographicCitations.length > 0">
+    <div>
+        <a href="" id="bibliography"></a>
+        <div class="anchor-block--tabs" id="bibliographyBlock">
+            <h3>Bibliography</h3>
+            <div class="dataset-key__bibliography__list small">
+                <ol>
+                    <li ng-repeat="reference in vm.eml.bibliographicCitations">
+                        <div>
+                            {{ reference.text }}
+                        </div>
+                        <div>
+                            <ul class="inline-bullet-list">
+                                <li ng-repeat="identifier in reference._identifiers">
+                                    <a ng-if="identifier.type == 'PDF'" ng-href="{{identifier.ref}}">View article</a>
+                                    <a ng-if="identifier.type == 'DOI'" ng-href="{{identifier.ref}}">View article</a>
+                                    <a ng-if="identifier.type == 'URL'" ng-href="{{identifier.ref}}">View article</a>
+                                    <a ng-if="identifier.type == 'ISSN'" ng-href="{{identifier.ref}}">{{ identifier.text }}</a>
+                                    <span ng-if="identifier.type == 'STR'">{{ identifier.text }}</span>
+                                </li>
+                                <li ng-if="reference._query">
+                                    <a ng-href="{{ reference._query }}">Google scholar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>

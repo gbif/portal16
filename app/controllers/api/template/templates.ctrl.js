@@ -195,3 +195,7 @@ router.get('/tools/dataValidator/results/termsFrequency.html', function (req, re
 router.get('/tools/dataValidator/validationResults.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/validationResults.html');
 });
+
+router.get('/tools/dataValidator/document.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/document/prose.nunjucks');
+});
