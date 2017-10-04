@@ -1,3 +1,4 @@
+<span class="relative-anchor-offset"><a href="" name="faq-search"></a></span>
 <div class="horizontal-stripe light-background">
     <div class="container--narrow">
         <section>
@@ -6,15 +7,32 @@
                     <input type="text"
                            autocomplete="off"
                            ng-model="faq.q"
-                           placeholder="{{ 'stdTerms.search' | translate }}"
-                           Xng-keydown="faq.closeOnEsc($event)">
+                           placeholder="{{ 'stdTerms.search' | translate }}">
                     <a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"
                        ng-click="faq.search()">
                         <span class="sr-only">{$ __('stdTerms.search') $}</span>
                     </a>
                 </form>
             </div>
-            <div>
+
+            <div ng-if="faq.answer">
+                <div class="card m-b-05 searchCard">
+                    <div class="card__stripe">
+                        <div class="card__content">
+                            <h3 class="searchCard__headline">
+                                <a href="">{{faq.answer.title}}</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card__stripe">
+                        <div class="card__content clearfix">
+                            <div ng-bind-html="faq.answer._trustedBody"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="!faq.answer">
                 {#<ng-include src="'/templates/components/loader/loader.html'" ng-if="!faq.hasData()"></ng-include>#}
                 <div ng-if="faq.answers.$resolved">
                     <div ng-repeat="result in faq.answers.results">
@@ -22,16 +40,21 @@
                         <div class="card m-b-05 searchCard">
                             <div class="card__stripe">
                                 <div class="card__content">
+                                    {#<a ui-sref="faq({question:result.identifier, q: undefined, '#': 'faq-search'})" class="pull-right gb-icon-link inherit noUnderline"></a>#}
+                                    {#<a ng-click="faq.expandAnswer(result);" class="pull-right gb-icon-angle-down inherit noUnderline" ng-if="!result._expanded"></a>#}
                                     <h3 class="searchCard__headline">
-                                        <a href="" ng-click="faq.showPopup(result.identifier);">{{result.title}}</a>
+                                        {#<a href="" ng-click="faq.expandAnswer(result);">{{result.title}}</a>#}
+                                        <a ui-sref="faq({question:result.identifier, q: undefined, '#': 'faq-search'})">{{result.title}}</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="card__stripe">
                                 <div class="card__content clearfix">
-                                    <p>
+                                    <p ng-if="!result._expanded">
                                         {{result._summary}}
                                     </p>
+                                    <div ng-bind-html="result._trustedBody" ng-if="result._expanded">
+                                    </div>
                                 </div>
                             </div>
                         </div>
