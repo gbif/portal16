@@ -33,6 +33,9 @@
         <div filter-facet filter-config="species.filters.nameType" filter-state="species.state"
              ng-if="species.state.query.advanced"></div>
 
+        <div filter-facet filter-config="species.filters.origin" filter-state="species.state"
+             ng-if="species.state.query.advanced"></div>
+
         <div class="site-drawer__comment" ng-if="!species.state.query.advanced">
             <div>You are currently searching for species in the GBIF taxonomy. To search other checklists try advanced
                 mode.

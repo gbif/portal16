@@ -110,6 +110,10 @@ const expandConfig = {
         type: 'ENUM',
         translationPath: 'taxon.nameTypeEnum.'
     },
+    ORIGIN: {
+        type: 'ENUM',
+        translationPath: 'taxon.originEnum.'
+    },
     STATUS: {
         type: 'ENUM',
         translationPath: 'taxon.statusEnum.'

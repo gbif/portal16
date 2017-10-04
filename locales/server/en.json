@@ -1265,6 +1265,7 @@
     "issue": "issue",
     "status": "status",
     "nameType": "name type",
+    "origin": "origin",
     "noOccurencesInGbif": "No occurrences in GBIF",
     "viewInGbifBackbone": "View in GBIF backbone",
     "publisherRecord": "Publisher record",
@@ -1316,6 +1317,20 @@
       "ORTHOGRAPHIC_VARIANT": "orthographic variant",
       "HOMONYM": "homonym",
       "PUBLISHED_BEFORE_GENUS": "published earlier than parent name"
+    },
+    "originEnum": {
+      "SOURCE": "source",
+      "DENORMED_CLASSIFICATION": "denormed classification",
+      "VERBATIM_PARENT": "verbatim parent",
+      "VERBATIM_ACCEPTED": "verbatim accepted",
+      "VERBATIM_BASIONYM": "verbatim basionym",
+      "PROPARTE": "proparte",
+      "AUTONYM": "autonym",
+      "IMPLICIT_NAME": "implicit name",
+      "MISSING_ACCEPTED": "missing accepted",
+      "BASIONYM_PLACEHOLDER": "basionym placeholder",
+      "EX_AUTHOR_SYNONYM": "ex author_synonym",
+      "OTHER": "other"
     },
     "statusEnum": {
       "ACCEPTED": "Accepted",
