@@ -1,6 +1,7 @@
 var express = require('express'),
     occurrenceKey = require('./occurrenceKey'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
+    helper = rootRequire('app/models/util/util'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -25,8 +26,8 @@ function renderPage(req, res, next, occurrence) {
         if (req.params.ext == 'debug') {
             res.json(occurrence);
         } else {
-            var angularInitData = occurrenceKey.getAngularInitData(occurrence);
-            res.render('pages/occurrence/key/occurrenceKey', {
+            let angularInitData = occurrenceKey.getAngularInitData(occurrence);
+            let contentItem = {
                 occurrence: occurrence,
                 occurrenceCoreTerms: occurrenceKey.occurrenceCoreTerms,
                 angularInitData: angularInitData,
@@ -36,7 +37,8 @@ function renderPage(req, res, next, occurrence) {
                     hasTools: true,
                     imageCacheUrl: imageCacheUrl
                 }
-            });
+            };
+            helper.renderPage(req, res, next, contentItem, 'pages/occurrence/key/occurrenceKey');
         }
     } catch (e) {
         next(e);

@@ -1,0 +1,16 @@
+<section class="horizontal-stripe bare-background extensions">
+    <div class="container--normal">
+        <div class="row">
+            <div class="col-xs-12">
+                <h5 class="card-header">Citation</h5>
+                <div class="card card--spaced">
+                    <div class="card__content">
+                        <div>
+                            {$ occurrence.dataset.citation.text $} {$ _meta.domain $}/occurrence/{$ occurrence.record.key $}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
