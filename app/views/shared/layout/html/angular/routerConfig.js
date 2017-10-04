@@ -294,7 +294,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('faq', {
             parent: 'localization',
-            url: '/faq2?question',
+            url: '/faq2?question&q',
             views: {
                 main: {
                     templateUrl: '/api/template/faq.html?v=' + BUILD_VERSION,
@@ -531,52 +531,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
-
-
-
-        //theGbifNetworkCtrl
-
-        //.state('countryParticipant', {
-        //    parent: 'country',
-        //    url: '/participant?offset_datasets&offset_endorsed',
-        //    templateUrl: '/templates/pages/country/key/participant/countryParticipant.html?v=' + BUILD_VERSION,
-        //    controller: 'countryParticipantCtrl',
-        //    controllerAs: 'countryParticipant'
-        //})
-        //.state('programmeProjects', {
-        //    parent: 'localization',
-        //    url: '/programme2/:key/projects/:title',
-        //    views: {
-        //        main: {
-        //            templateUrl: '/templates/pages/resource/key/programme/projects/projects.html',
-        //            controller: 'programmeProjectsCtrl',
-        //            controllerAs: 'programmeProjects'
-        //        }
-        //    }
-        //})
-        //.state('programmeNews', {
-        //    parent: 'localization',
-        //    url: '/programme2/:key/news/:title',
-        //    views: {
-        //        main: {
-        //            templateUrl: '/templates/pages/resource/key/programme/news/news.html',
-        //            controller: 'programmeNewsCtrl',
-        //            controllerAs: 'programmeNews'
-        //        }
-        //    }
-        //})
-        //.state('programmeEvents', {
-        //    parent: 'localization',
-        //    url: '/programme2/:key/events/:title',
-        //    views: {
-        //        main: {
-        //            templateUrl: '/templates/pages/resource/key/programme/events/events.html',
-        //            controller: 'programmeEventsCtrl',
-        //            controllerAs: 'programmeEvents'
-        //        }
-        //    }
-        //})
-
     ;
 
     //if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');

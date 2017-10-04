@@ -18,6 +18,7 @@
         {% include('./details/details.nunjucks') %}
         {% include('./media/media.nunjucks') %}
         {% include('./extensions/extensions.nunjucks') %}
+        {% include('./citation.nunjucks') %}
 
     </article>
 {% endblock %}

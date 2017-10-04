@@ -1,6 +1,10 @@
 var express = require('express'),
     occurrenceKey = require('./occurrenceKey'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
+    helper = rootRequire('app/models/util/util'),
+    request = require('requestretry'),
+    querystring = require('querystring'),
+    apiConfig = require('../../../models/gbifdata/apiConfig'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -20,13 +24,25 @@ router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
     });
 });
 
+router.get('/occurrence/first', function (req, res, next) {
+    occurrenceSearchFirst(req.query).then(function (resp) {
+        if (resp.count > 0) {
+            res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/' + resp.results[0].key);
+        } else {
+            next();
+        }
+    }, function (err) {
+        next(err);
+    });
+});
+
 function renderPage(req, res, next, occurrence) {
     try {
         if (req.params.ext == 'debug') {
             res.json(occurrence);
         } else {
-            var angularInitData = occurrenceKey.getAngularInitData(occurrence);
-            res.render('pages/occurrence/key/occurrenceKey', {
+            let angularInitData = occurrenceKey.getAngularInitData(occurrence);
+            let contentItem = {
                 occurrence: occurrence,
                 occurrenceCoreTerms: occurrenceKey.occurrenceCoreTerms,
                 angularInitData: angularInitData,
@@ -36,9 +52,24 @@ function renderPage(req, res, next, occurrence) {
                     hasTools: true,
                     imageCacheUrl: imageCacheUrl
                 }
-            });
+            };
+            helper.renderPage(req, res, next, contentItem, 'pages/occurrence/key/occurrenceKey');
         }
     } catch (e) {
         next(e);
     }
+}
+
+async function occurrenceSearchFirst(query) {
+    let baseRequest = {
+        url: apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query),
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    let response = await request(baseRequest);
+    if (response.statusCode != 200) {
+        throw response;
+    }
+    return response.body;
 }

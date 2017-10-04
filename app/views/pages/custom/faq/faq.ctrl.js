@@ -8,20 +8,25 @@ angular
     .controller('faqCtrl', faqCtrl);
 
 /** @ngInject */
-function faqCtrl($scope, HelpService, Page, $state, $stateParams, $http, ResourceSearch) {
+function faqCtrl($sce, Page, $state, $stateParams, ResourceSearch, ResourceItem, $location, $anchorScroll) {
     var vm = this;
     vm.limit = 50;
     vm.maxSize = 5;
     vm.offset = 0;
-    vm.state = HelpService.getState();
     vm.question = $stateParams.question;
+    vm.q = $stateParams.q;
+    vm.answers = ResourceSearch.query({q: vm.q, contentType: 'help', limit: vm.limit, offset: vm.offset});
 
-    vm.q;
-
-    vm.search = function () {
-        vm.answers = ResourceSearch.query({q: vm.q, contentType: 'help', limit: vm.limit, offset: vm.offset});
+    vm.search = function() {
+        vm.answer = undefined;
+        if (_.isString(vm.q) && vm.q.indexOf('question:') == 0) {
+            vm.linkToAnswer(vm.q.substr(9));
+        } else {
+            $location.hash('');
+            $state.go('.', {question: undefined, q: vm.q}, {inherit: true, notify: true, reload: false});
+        }
     };
-    vm.search();
+    window.scrollTo(0, 0);
 
     vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;
@@ -33,27 +38,40 @@ function faqCtrl($scope, HelpService, Page, $state, $stateParams, $http, Resourc
         vm.question = $stateParams.question;
     }
 
-    vm.showPopup = function(question) {
-        $state.go('.', {question: question}, {inherit: true, notify: false, reload: false});
-        HelpService.updateState(true, question);
+    vm.linkToAnswer = function(identifier) {
+        $state.go('.', {question: identifier, q: undefined, '#':'faq-search'}, {inherit: true, notify: true, reload: true});
     };
 
-    vm.closePopup = function(){
-        vm.question = undefined;
-        $state.go('.', {question: undefined}, {inherit: false, notify: false, reload: false});
+    vm.expandAnswer = function(question) {
+        vm.helpItem = ResourceItem.query({
+            contentType: 'help',
+            identifier: question.identifier,
+            locale: $stateParams.locale
+        });
+        vm.helpItem.$promise.then(function (resp) {
+            question._trustedBody = $sce.trustAsHtml(resp.body);
+            question._expanded = true;
+        }).catch(function () {
+            vm.failed = true;
+            vm.loading = false;
+        });
     };
-
-    $scope.$watchCollection(function () {
-        return vm.state;
-    }, function () {
-        vm.show = vm.state.open;
-        if (!vm.show) {
-            vm.closePopup();
-        }
-    });
 
     if (vm.question) {
-        vm.showPopup(vm.question);
+        vm.q = 'question:' + vm.question;
+        vm.helpItem = ResourceItem.query({
+            contentType: 'help',
+            identifier: vm.question,
+            locale: $stateParams.locale
+        });
+        vm.helpItem.$promise.then(function (resp) {
+            $anchorScroll();
+            vm.answer = resp;
+            vm.answer._trustedBody = $sce.trustAsHtml(resp.body);
+        }).catch(function () {
+            vm.failed = true;
+            vm.loading = false;
+        });
     }
 }
 

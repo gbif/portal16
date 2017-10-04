@@ -35,7 +35,7 @@ function gbHelpOverlayDirective() {
             vm.failed = false;
             vm.trustedBody = undefined;
             vm.helpItem = undefined;
-            console.log('sdf');
+
             if (vm.isCms) {
                 vm.loading = true;
                 vm.helpItem = ResourceItem.query({
