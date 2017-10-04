@@ -471,6 +471,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
+
+
+        .state('dataValidatorKeyDocument', {
+            parent: 'dataValidatorKey',
+            url: '/document',
+            templateUrl: '/api/template/tools/dataValidator/document.html?v=' + BUILD_VERSION,
+            controller: 'dataValidatorDocumentCtrl',
+            controllerAs: 'vm'
+        })
+
+
         .state('dataRepository', {
             parent: 'localization',
             url: '/data-repository',

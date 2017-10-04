@@ -33,3 +33,18 @@ router.get('/tools/data-validator/:jobid', function (req, res) {
         jobId: req.params.jobid
     });
 });
+
+
+router.get('/tools/data-validator/:jobid', render);
+router.get('/tools/data-validator/:jobid/document', render);
+
+
+function render(req, res, next) {
+    res.render('pages/tools/dataValidator/dataValidator', {
+        _meta: {
+            title: 'Data validator',
+            noIndex: true
+        },
+        jobId: req.params.jobid
+    });
+}

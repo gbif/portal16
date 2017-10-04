@@ -348,6 +348,8 @@ require('../../../pages/custom/contactUs/directory/contactDirectory.ctrl');
 require('../../../pages/custom/faq/faq.ctrl');
 
 require('../../../pages/tools/dataValidator/dataValidator.ctrl');
+require('../../../pages/tools/dataValidator/document/dataValidatorDocument.ctrl');
+
 
 
 require('./angular/publisher.resource');

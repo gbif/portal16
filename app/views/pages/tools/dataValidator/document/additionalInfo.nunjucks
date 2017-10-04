@@ -1,0 +1,9 @@
+<section class="horizontal-stripe--paddingless dataset-key__text" ng-if="datasetKey.dataset.additionalInfo">
+    <div>
+        <a href="" id="additionalInfo"></a>
+        <div class="anchor-block--tabs" id="additionalInfoBlock">
+            <h3>Additional info</h3>
+            <div ng-bind-html="vm.eml.additionalInfo"></div>
+        </div>
+    </div>
+</section>

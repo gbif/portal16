@@ -1,0 +1,38 @@
+<div class="submenu-wrapper ng-cloak" id="submenuWrapper">
+    <div id="dataset__prose">
+        <section class="horizontal-stripe--paddingless white-background">
+            <div class="container--desktop">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <div>
+                            {% include('./submenu.nunjucks') %}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-9 body-text">
+                        <div>
+                            <div class="body-text">
+                                <div class="container--narrow ">
+                                    {% include "./description.nunjucks" %}
+                                    {% include "./purpose.nunjucks" %}
+                                    {% include "./temporalCoverages.nunjucks" %}
+                                    {% include "./geographicCoverages.nunjucks" %}
+                                    {% include "./taxonomicCoverages.nunjucks" %}
+                                    {% include "./samplingDescription.nunjucks" %}
+                                    {% include "./additionalInfo.nunjucks" %}
+                                    {% include "./bibliography.nunjucks" %}
+                                    {% include "./contributors.nunjucks" %}
+                                </div>
+                            </div>
+                            <div class="white-background p-t-1">
+                                <div class="container--narrow seperator m-t-1">
+                                    {% include "./dataDescription.nunjucks" %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

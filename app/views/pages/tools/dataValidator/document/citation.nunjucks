@@ -1,0 +1,11 @@
+<section class="horizontal-stripe--paddingless dataset-key__citation" style="height:100vh; min-height: 200px;" ng-if="vm.eml.citation.text">
+    <div>
+        <a href="" id="citation"></a>
+        <div class="anchor-block--tabs" id="citationBlock">
+            <h4>Citation</h4>
+            <div class="small">
+                {{ vm.eml.citation.text }}
+            </div>
+        </div>
+    </div>
+</section>

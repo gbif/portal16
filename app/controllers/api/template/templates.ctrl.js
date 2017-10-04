@@ -196,6 +196,10 @@ router.get('/tools/dataValidator/validationResults.html', function (req, res, ne
     helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/validationResults.html');
 });
 
+router.get('/tools/dataValidator/document.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/document/prose.nunjucks');
+});
+
 router.get('/tools/dataRepository.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/dataRepository.template.nunjucks');
 });
