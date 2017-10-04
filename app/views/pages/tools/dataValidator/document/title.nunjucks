@@ -1,0 +1,11 @@
+<section class="horizontal-stripe--paddingless dataset-key__contributors small" ng-if="vm.eml.title ">
+    <div>
+        <a href="" id="dataTitle"></a>
+        <div class="anchor-block--tabs" id="dataTitleBlock">
+            <div>
+                <h3>Title</h3>
+                <h4 ng-bind-html="vm.eml.title"></h4>
+            </div>
+        </div>
+    </div>
+</section>

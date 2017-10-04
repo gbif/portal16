@@ -8,6 +8,9 @@
                 {#<li class="nav-chapter" du-scrollspy="summary">#}
                     {#<a href="#summary">Summary</a>#}
                 {#</li>#}
+                <li class="nav-chapter" du-scrollspy="dataTitleBlock" ng-if="vm.eml.title">
+                    <a href="#dataTitle" translate="dataset.title" class="text-capitalize"></a>
+                </li>
                 <li class="nav-chapter" du-scrollspy="descriptionBlock" ng-if="vm.eml.description">
                     <a href="#description" translate="dataset.description" class="text-capitalize"></a>
                 </li>

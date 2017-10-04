@@ -73,7 +73,16 @@
     &__idField {
      font-weight 700
     }
+    &__bottomSpacer {
+        min-height: "calc(100vh - %s)" % $navBar_height
+    }
+    
+    &__clickable-links > a {
+        pointer-events:all;
+    }
 }
+
+
 
 .termFrequencyStats {
     &__circle {

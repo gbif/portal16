@@ -24,19 +24,14 @@ router.get('/tools/data-validator-test', function (req, res) {
     });
 });
 
-router.get('/tools/data-validator/:jobid', function (req, res) {
-    res.render('pages/tools/dataValidator/dataValidator', {
-        _meta: {
-            title: 'Data validator',
-            noIndex: true
-        },
-        jobId: req.params.jobid
-    });
-});
+
 
 
 router.get('/tools/data-validator/:jobid', render);
 router.get('/tools/data-validator/:jobid/document', render);
+router.get('/tools/data-validator/:jobid/extensions', render);
+router.get('/tools/data-validator/:jobid/about', render);
+
 
 
 function render(req, res, next) {

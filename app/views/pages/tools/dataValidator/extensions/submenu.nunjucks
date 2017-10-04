@@ -1,0 +1,22 @@
+<span class="relative-anchor-offset"><a name="menu"></a></span>
+
+<nav class="submenu submenu--tabs validator--tabs" id="submenu" ng-init="vm.attachMenuListener()">
+    <ul class="nav-parts">
+        <li class="part-name">
+            {#<h3><a href="#" class="inherit">Content</a></h3>#}
+            <ul class="nav-chapters">
+                <li class="nav-chapter" du-scrollspy="{{ extension.title}}Block" ng-repeat="extension in vm.extensions">
+                    <a ng-href="#{{extension.title}}"  class="text-uppercase">{{extension.title}}</a>
+
+                </li>
+
+                    </ul>
+                </li>
+
+
+
+
+            </ul>
+        </li>
+    </ul>
+</nav>

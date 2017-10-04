@@ -12,6 +12,7 @@
                         <div>
                             <div class="body-text">
                                 <div class="container--narrow ">
+                                    {% include "./title.nunjucks" %}
                                     {% include "./description.nunjucks" %}
                                     {% include "./purpose.nunjucks" %}
                                     {% include "./temporalCoverages.nunjucks" %}
@@ -29,6 +30,8 @@
 
                                 </div>
                             </div>
+                            <div class="dataValidator__bottomSpacer"></div>
+
                         </div>
                     </div>
                 </div>
