@@ -233,6 +233,10 @@ function mapWidgetDirective(BUILD_VERSION) {
             var slider = element[0].querySelector('.time-slider__slider');
             var years = element[0].querySelector('.time-slider__years');
 
+            if (startYear == endYear) {
+                vm.singleYearSpan = startYear;
+                return;
+            }
             noUiSlider.create(slider, {
                 start: [startYear, endYear],
                 step: 1,

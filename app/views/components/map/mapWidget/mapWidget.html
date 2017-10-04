@@ -49,9 +49,10 @@
                     <div ng-class="{'mapWidget__controlsArea__section__content': vm.styleBreaks.current == 0}">
                         <div class="time-slider time-slider__card">
                             <div class="gb-btn-group time-slider__buttons">
+                                <label ng-if="vm.singleYearSpan" uib-btn-radio="true" ng-model="vm.allYears">Year {{ vm.singleYearSpan }}</label>
                                 <label ng-model="vm.allYears" uib-btn-radio="true"
-                                       ng-change="vm.updateFilters()">Any year</label>
-                                <label ng-model="vm.allYears" uib-btn-radio="false"
+                                       ng-change="vm.updateFilters()" ng-if="!vm.singleYearSpan">Any year</label>
+                                <label ng-model="vm.allYears" uib-btn-radio="false" ng-if="!vm.singleYearSpan"
                                        ng-change="vm.updateFilters()"><span class="time-slider__years"></span></label>
                             </div>
                             <div class="time-slider__container">
