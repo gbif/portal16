@@ -53,7 +53,7 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
     vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.key, issue: 'TAXON_MATCH_NONE', limit: 0});
     vm.withYear = OccurrenceSearch.query({dataset_key: vm.key, year: '*,3000', limit: 0});
 
-    vm.taxa = SpeciesSearch.query({dataset_key: vm.key, facet: 'status', limit: 0});
+    vm.taxa = SpeciesSearch.query({dataset_key: vm.key, origin: 'SOURCE', facet: 'status', limit: 0});
     vm.stats = {};
     vm.taxa.$promise.then(function(){
         vm.stats.accepted = _.get(vm.taxa, 'facets.STATUS.counts.ACCEPTED.count', 0);

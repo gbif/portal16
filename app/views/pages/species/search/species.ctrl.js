@@ -95,6 +95,14 @@ function speciesCtrl($state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUI
         filter: SpeciesFilter
     };
 
+    vm.filters.origin = {
+        queryKey: 'origin',
+        facetKey: 'ORIGIN',
+        title: 'origin',
+        translationPrefix: 'taxon',
+        filter: SpeciesFilter
+    };
+
     vm.toggleAdvanced = function () {
         SpeciesFilter.updateParam('advanced', vm.state.query.advanced);
     };

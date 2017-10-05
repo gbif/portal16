@@ -18,7 +18,7 @@ angular
             constituent_key: undefined
         };
 
-        var availableFacets = ['rank', 'dataset_key', 'constituent_key', 'highertaxon_key', 'name_type', 'status', 'issue'];
+        var availableFacets = ['rank', 'dataset_key', 'constituent_key', 'highertaxon_key', 'name_type', 'status', 'issue', 'origin'];
         var facets = [];
         availableFacets.forEach(function (facet) {
             facets.push(facet);

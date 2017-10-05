@@ -18,7 +18,7 @@
 
                             <li class="tab tab-right ng-cloak" ng-if="datasetKey.taxa.count > 0">
                                         <span>
-                                            <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced:true})" class="gb-button--primary">
+                                            <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, origin: 'SOURCE', advanced:true})" class="gb-button--primary">
                                                 {{ datasetKey.taxa.count | localNumber }}
                                                 <span class="gb-button--primary__label">
                                                     Records
