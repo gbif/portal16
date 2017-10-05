@@ -2329,19 +2329,19 @@
       "SPREADSHEET": "Spreadsheet (.xlsx)"
     },
     "fileType": {
-      "title": "File type",
-      "CORE": {"title" : "Core type"},
+      "title": "Row type",
+      "CORE": {"title" : "Core"},
       "EXTENSION": {"title" : "Extensions"},
       "METADATA": {
         "description" : "Metadata describing the data in EML (Ecological Metadata Language)",
-        "title": "Metadata"
+        "title": "Metadata document"
         },
       "META_DESCRIPTOR" : {
         "description" : "Metadata describing how the data is structured (columns, ids etc)",
-        "title": "Meta description"
+        "title": "Meta descriptor"
         }
     },
-    "receivedMediaType": "Mime Type",
+    "receivedMediaType": "Media Type",
     "validationProfile": {
       "title": "Validation Profile",
       "GBIF_INDEXING_PROFILE": "GBIF Indexing Profile"

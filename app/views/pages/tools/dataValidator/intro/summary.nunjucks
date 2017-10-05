@@ -51,10 +51,10 @@
                    <table class="table dataValidator__summaryTable">
 
                        <tbody>
-                       <tr ng-repeat="(issueCat, issues) in vm.validationResults.summary.issueTypesFound">
-                           <td class="categoryTitle">{{ 'validation.category.'+issueCat | translate }}</td>
+                       <tr ng-repeat="category in vm.validationResults.summary.issueTypesFoundSorted">
+                           <td class="categoryTitle">{{ 'validation.category.'+category.key | translate }}</td>
                        <td >
-                           <span ng-repeat="issue in issues" class="badge badge--{{issue.severity | lowercase }}">{{ (issueCat === 'OCC_INTERPRETATION_BASED') ? "occurrenceIssue."+issue.id : (issueCat === 'CLB_INTERPRETATION_BASED')?  "taxon.issueEnum."+issue.id : "validation.issueType."+issue.id | translate }}</span>
+                           <span ng-repeat="issue in category.issues" class="badge badge--{{issue.severity | lowercase }}">{{ (category.key === 'OCC_INTERPRETATION_BASED') ? "occurrenceIssue."+issue.id : (category.key === 'CLB_INTERPRETATION_BASED')?  "taxon.issueEnum."+issue.id : "validation.issueType."+issue.id | translate }}</span>
 
                        </td>
                        </tr>
@@ -111,7 +111,7 @@
                     </dd>
                 </div>
                 <div>
-                    <dt class="text-capitalize">Data type</dt>
+                    <dt class="text-capitalize">Core row type</dt>
                     <dd >
                         {{ (vm.coreDataType) ? vm.dwcextensions[vm.coreDataType].title : 'validation.unknown' | translate }}
                     </dd>

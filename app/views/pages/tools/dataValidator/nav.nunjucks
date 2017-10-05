@@ -3,42 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="tabs__wrapper">
-                    {#<div class="tabs__actions">#}
-                        {#<ul>#}
-                            {#<li class="tab tab-right ng-cloak" ng-if="datasetKey.dataset.type == 'OCCURRENCE' || datasetKey.dataset.type == 'SAMPLING_EVENT' || datasetKey.occurrences.count > 0">#}
-                                        {#<span>#}
-                                            {#<a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="gb-button--brand">#}
-                                                {#{{ datasetKey.occurrences.count | localNumber }}#}
-                                                {#<span class="gb-button--brand__label">#}
-                                                    {#Occurrences#}
-                                                {#</span>#}
-                                            {#</a>#}
-                                        {#</span>#}
-                            {#</li>#}
 
-                            {#<li class="tab tab-right ng-cloak" ng-if="datasetKey.taxa.count > 0">#}
-                                        {#<span>#}
-                                            {#<a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced:true})" class="gb-button--primary">#}
-                                                {#{{ datasetKey.taxa.count | localNumber }}#}
-                                                {#<span class="gb-button--primary__label">#}
-                                                    {#Records#}
-                                                {#</span>#}
-                                            {#</a>#}
-                                        {#</span>#}
-                            {#</li>#}
-
-                            {#<li class="tab tab-right ng-cloak" ng-if="datasetKey.literature.count > 0">#}
-                                        {#<span>#}
-                                            {#<a ui-sref="resourceSearchList({gbifDatasetKey:datasetKey.key, contentType: 'literature'})" class="gb-button--dark">#}
-                                                {#{{ datasetKey.literature.count | localNumber }}#}
-                                                {#<span translate="stdTerms.citations" translate-values="{ NUMBER: datasetKey.literature.count }">#}
-                                                    {#Citations#}
-                                                {#</span>#}
-                                            {#</a>#}
-                                        {#</span>#}
-                            {#</li>#}
-                        {#</ul>#}
-                    {#</div>#}
                     <nav class="tabs tabs--noBorder">
                         <ul>
 

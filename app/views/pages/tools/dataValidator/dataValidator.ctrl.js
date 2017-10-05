@@ -292,7 +292,54 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
 
         _.each(vm.validationResults.summary.issueTypesFound, function(val, key){
                 vm.validationResults.summary.issueTypesFound[key] =  _.values(sortIssues(val));
+        });
+
+        vm.validationResults.summary.issueTypesFoundSorted = _.sortBy(_.map(vm.validationResults.summary.issueTypesFound, function(value, key) {
+            return { key: key, issues: value };
+        }),
+        function(r){
+
+            switch (r.key) {
+                case 'RESOURCE_STRUCTURE':
+                    return 0;
+                case 'RESOURCE_INTEGRITY':
+                    return 1;
+                case 'RECORD_STRUCTURE':
+                    return 2;
+                case 'METADATA_CONTENT':
+                    return 3;
+                case 'OCC_INTERPRETATION_BASED':
+                    return 4;
+                case 'CLB_INTERPRETATION_BASED':
+                    return 5;
+
+
+            }
+
+        });
+
+
+        var test;
+
+        vm.validationResults.results =  _.sortBy(vm.validationResults.results, function(r){
+            switch (r.fileType) {
+                case 'META_DESCRIPTOR':
+                    return 0;
+                case 'METADATA':
+                    return 1;
+                case 'CORE':
+                    return 2;
+                case 'EXTENSION':
+                    return 3;
+
+
+            }
+
+
         })
+
+
+
 
 
 
