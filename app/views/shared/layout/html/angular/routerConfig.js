@@ -462,10 +462,10 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('dataValidatorAbout', {
             parent: 'dataValidator',
-            url: '/about/:jobid?',
+            url: '/about',
             templateUrl: '/api/template/tools/dataValidator/about.html?v=' + BUILD_VERSION,
             controller: 'dataValidatorAboutCtrl',
-            controllerAs: 'vm'
+            controllerAs: 'dataValidatorAbout'
         })
         .state('dataValidatorExtensions', {
             parent: 'dataValidator',
@@ -484,6 +484,20 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                     controllerAs: 'vm'
                 }
             }
+        })
+        .state('dataValidatorExtensionsKey', {
+            parent: 'dataValidatorKey',
+            url: '/extensions',
+            templateUrl: '/api/template/tools/dataValidator/extensions.html?v=' + BUILD_VERSION,
+            controller: 'dwcExtensionsCtrl',
+            controllerAs: 'vm'
+        })
+        .state('dataValidatorAboutKey', {
+            parent: 'dataValidatorKey',
+            url: '/about',
+            templateUrl: '/api/template/tools/dataValidator/about.html?v=' + BUILD_VERSION,
+            controller: 'dataValidatorAboutCtrl',
+            controllerAs: 'dataValidatorAbout'
         })
         .state('dataValidatorKeyDocument', {
             parent: 'dataValidatorKey',

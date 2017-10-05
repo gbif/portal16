@@ -6,10 +6,10 @@ angular
 
 /** @ngInject */
 function dataValidatorAboutCtrl($stateParams) {
-    var vm = this;
-    vm.test = 'about test';
+    var dataValidatorAbout = this;
+    dataValidatorAbout.test = 'about test';
     if($stateParams.jobid){
-        vm.jobid = $stateParams.jobid;
+        dataValidatorAbout.jobid = $stateParams.jobid;
 }
 }
 
