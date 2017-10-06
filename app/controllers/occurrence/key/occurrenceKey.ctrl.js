@@ -24,6 +24,11 @@ router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
     });
 });
 
+router.get('/occurrence/:key(\\d+)/verbatim', function (req, res, next) {
+    var key = req.params.key;
+    res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/' + key);
+});
+
 router.get('/occurrence/first', function (req, res, next) {
     occurrenceSearchFirst(req.query).then(function (resp) {
         if (resp.count > 0) {
