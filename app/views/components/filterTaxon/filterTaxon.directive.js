@@ -156,6 +156,7 @@ function filterTaxonDirective(BUILD_VERSION) {
 
         vm.remove = function (key) {
             vm.query.splice(vm.query.indexOf(key), 1);
+           delete vm.usedKeys[key];
             vm.apply();
         };
 
