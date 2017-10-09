@@ -8,7 +8,7 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/faq2', function (req, res, next) {
+router.get('/faq', function (req, res, next) {
     helper.renderPage(req, res, next, {
         _meta: {
             title: 'FAQ'
