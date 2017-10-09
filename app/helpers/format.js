@@ -215,11 +215,11 @@ function localizeLink(url, urlPrefix) {
 
 function sanitizeTrusted(dirty) {
     dirty = dirty || '';
-    var allowedTags = ['img', 'h2', 'iframe'];
+    var allowedTags = ['img', 'h2', 'iframe', 'span'];
     let clean = sanitizeHtml(dirty, {
             allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
             allowedAttributes: {
-                '*': ['href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen']
+                '*': ['href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen', 'gb-help', 'gb-help-options']
             }
             //exclusiveFilter: function (frame) {
             //    return frame.tag === 'p' && !frame.text.trim(); //PROBLEM: removes p tags with image in it if there is no text
@@ -262,7 +262,7 @@ function sanitize(dirty, additionalAllowedTags) {
     let clean = sanitizeHtml(dirty, {
             allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
             allowedAttributes: {
-                '*': ['href', 'name', 'target', 'src', 'class']
+                '*': ['href', 'name', 'target', 'src', 'class', 'gb-help', 'gb-help-options']
             },
             exclusiveFilter: function (frame) {
                 return frame.tag === 'p' && !frame.text.trim();
@@ -276,9 +276,7 @@ function addPortalClasses(raw) {
     raw = raw || '';
     let clean = sanitizeHtml(raw, {
             allowedTags: false,
-            allowedAttributes: {
-                '*': ['style', 'href', 'name', 'target', 'src', 'class', 'frameborder', 'width', 'height', 'allowfullscreen']
-            },
+            allowedAttributes: false,
             transformTags: {
                 'table': sanitizeHtml.simpleTransform('table', {class: 'table'})
             }
