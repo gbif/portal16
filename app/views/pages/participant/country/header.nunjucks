@@ -13,7 +13,9 @@
                 <div ng-if="countryKey.country.$resolved" class="ng-cloak">
                     <div translate="participationStatus.description.{{ countryKey.country.participant.participationStatus }}" translate-values="{REGION: ('region.' + countryKey.country.participant.gbifRegion | translate)}" ng-if="countryKey.country.participant.participationStatus"></div>
                 </div>
-                <div class="small discreet--very" translate="stdTerms.countryNamingDisclaimer"></div>
+                {#<div class="small discreet--very" translate="stdTerms.countryNamingDisclaimer"></div>#}
+                <div class="small discreet--very" ng-bind-html="'stdTerms.countryNamingDisclaimer' | translate | md2html"></div>
+
             </header>
         </div>
     </div>
