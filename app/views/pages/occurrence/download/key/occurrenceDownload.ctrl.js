@@ -31,22 +31,6 @@ function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $l
         $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
     };
 
-    vm.openAboutStorage = function (format) {
-        $uibModal.open({
-            animation: true,
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            templateUrl: 'downloadKeyStorageInfo.html',
-            controller: 'infoModalInstanceCtrl',
-            controllerAs: '$ctrl',
-            resolve: {
-                format: function () {
-                    return format;
-                }
-            }
-        });
-    };
-
     vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;
         $location.hash('datasets');
