@@ -2027,7 +2027,7 @@
     },
     "year": {
       "equals": "is from {from}",
-      "between": "between start {from} and end of {to}",
+      "between": "between start of {from} and end of {to}",
       "lessThanOrEquals": "before end of {to}",
       "greaterThanOrEquals": "after start of {from}",
       "invalid": "invalid",
