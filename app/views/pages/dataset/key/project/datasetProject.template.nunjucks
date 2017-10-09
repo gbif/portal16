@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card__content container--narrow p-b-1">
 
-                    <span ng-if="datasetKey.dataset.project.identifier" class="pull-right discreet--very small">Project id: <a ui-sref="resourceSearchList({q: datasetKey.dataset.project.identifier, contentType: 'project'})">{{ datasetKey.dataset.project.identifier }}</a></span>
+                    <span ng-if="datasetKey.dataset.project.identifier" class="pull-right discreet--very small">Project id: <a ui-sref='resourceSearchList({q: "\"" + datasetKey.dataset.project.identifier + "\"", contentType: "project"})'>{{ datasetKey.dataset.project.identifier }}</a></span>
                     <h3>
                         {{ datasetKey.dataset.project.title }}
                     </h3>

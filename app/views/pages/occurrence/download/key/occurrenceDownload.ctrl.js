@@ -22,7 +22,7 @@ function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $l
         });
 
     if (vm.doi) {
-        vm.literature = ResourceSearch.query({contentType: 'literature', q: vm.doi});
+        vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"'});
     }
 
     vm.openHelpdesk = function () {
