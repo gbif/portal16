@@ -12,12 +12,31 @@ router.get('/', function (req, res) {
     res.redirect(302, '/developer/summary');
 });
 
-router.get('/:page', function (req, res, next) {
-    renderPage(req, res, next, _.lowerCase(req.params.page));
+router.get('/summary', function (req, res, next) {
+    renderPage(req, res, next, 'summary');
+});
+
+router.get('/registry', function (req, res, next) {
+    renderPage(req, res, next, 'registry');
+});
+
+router.get('/species', function (req, res, next) {
+    renderPage(req, res, next, 'species');
+});
+
+router.get('/occurrence', function (req, res, next) {
+    renderPage(req, res, next, 'occurrence');
+});
+
+router.get('/maps', function (req, res, next) {
+    renderPage(req, res, next, 'maps');
+});
+
+router.get('/news', function (req, res, next) {
+    renderPage(req, res, next, 'news');
 });
 
 function renderPage(req, res, next, page) {
-
     var title = (page === 'summary') ? 'GBIF REST API' :'GBIF ' + _.camelCase(page) + ' API';
     try {
         res.render('pages/developer/' + page, {
