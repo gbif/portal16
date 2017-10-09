@@ -20,7 +20,7 @@
                     <div class="card__stripe">
                         <div class="card__content">
                             <h3 class="searchCard__headline">
-                                <a href="">{{faq.answer.title}}</a>
+                                {{faq.answer.title}}
                             </h3>
                         </div>
                     </div>
@@ -36,15 +36,12 @@
                 {#<ng-include src="'/templates/components/loader/loader.html'" ng-if="!faq.hasData()"></ng-include>#}
                 <div ng-if="faq.answers.$resolved">
                     <div ng-repeat="result in faq.answers.results">
-                        {#<ng-include src="'/api/template/search/helpResult.html?v=' + portal.BUILD_VERSION"></ng-include>#}
                         <div class="card m-b-05 searchCard">
                             <div class="card__stripe">
                                 <div class="card__content">
-                                    {#<a ui-sref="faq({question:result.identifier, q: undefined, '#': 'faq-search'})" class="pull-right gb-icon-link inherit noUnderline"></a>#}
-                                    {#<a ng-click="faq.expandAnswer(result);" class="pull-right gb-icon-angle-down inherit noUnderline" ng-if="!result._expanded"></a>#}
+                                    <a ui-sref="faq({question:result.identifier, q: undefined})" class="pull-right gb-icon-link inherit noUnderline"></a>
                                     <h3 class="searchCard__headline">
-                                        {#<a href="" ng-click="faq.expandAnswer(result);">{{result.title}}</a>#}
-                                        <a ui-sref="faq({question:result.identifier, q: undefined, '#': 'faq-search'})">{{result.title}}</a>
+                                        <a ng-if="!result._expanded" href="" gb-help gb-help-options="{identifier: result.identifier, hideIcon: true}">{{result.title}}</a>
                                     </h3>
                                 </div>
                             </div>
@@ -53,8 +50,6 @@
                                     <p ng-if="!result._expanded">
                                         {{result._summary}}
                                     </p>
-                                    <div ng-bind-html="result._trustedBody" ng-if="result._expanded">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -74,5 +69,10 @@
                 </div>
             </div>
         </section>
+
+        <div class="emptyInfo">
+            <p>These are some of the most frequently asked questions about GBIF and GBIF.org. Please contact us if your questions aren’t answered here.</p>
+            <a href="" class="gb-button--discreet" translate="stdTerms.contactHelpdesk" ng-click="faq.openHelpdesk()"></a>
+        </div>
     </div>
 </div>

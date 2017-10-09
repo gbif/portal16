@@ -294,7 +294,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('faq', {
             parent: 'localization',
-            url: '/faq2?question&q',
+            url: '/faq?question&q',
             views: {
                 main: {
                     templateUrl: '/api/template/faq.html?v=' + BUILD_VERSION,

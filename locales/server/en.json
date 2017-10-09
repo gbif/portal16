@@ -2632,6 +2632,9 @@
     "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.",
     "imageLicenseInfo": "Be aware that licenses applied to images may differ from those applied to occurrence records"
   },
+  "faq": {
+    "description": "These are some of the most frequently asked questions about GBIF and GBIF.org. Please contact us if your questions aren’t answered here."
+  },
   "phrases": {
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."

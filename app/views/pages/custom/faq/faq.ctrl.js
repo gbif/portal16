@@ -8,7 +8,7 @@ angular
     .controller('faqCtrl', faqCtrl);
 
 /** @ngInject */
-function faqCtrl($sce, Page, $state, $stateParams, ResourceSearch, ResourceItem, $location, $anchorScroll) {
+function faqCtrl($sce, $rootScope, NAV_EVENTS, Page, $state, $stateParams, ResourceSearch, ResourceItem, $location, $anchorScroll) {
     var vm = this;
     vm.limit = 50;
     vm.maxSize = 5;
@@ -39,22 +39,11 @@ function faqCtrl($sce, Page, $state, $stateParams, ResourceSearch, ResourceItem,
     }
 
     vm.linkToAnswer = function(identifier) {
-        $state.go('.', {question: identifier, q: undefined, '#':'faq-search'}, {inherit: true, notify: true, reload: true});
+        $state.go('.', {question: identifier, q: undefined}, {inherit: true, notify: true, reload: true});
     };
 
-    vm.expandAnswer = function(question) {
-        vm.helpItem = ResourceItem.query({
-            contentType: 'help',
-            identifier: question.identifier,
-            locale: $stateParams.locale
-        });
-        vm.helpItem.$promise.then(function (resp) {
-            question._trustedBody = $sce.trustAsHtml(resp.body);
-            question._expanded = true;
-        }).catch(function () {
-            vm.failed = true;
-            vm.loading = false;
-        });
+    vm.openHelpdesk = function () {
+        $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
     };
 
     if (vm.question) {
