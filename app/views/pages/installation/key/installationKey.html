@@ -10,9 +10,12 @@
                                 <nav class="article-header__category">
                                     <span class="article-header__category__upper" translate="stdTerms.installation"></span>
                                 </nav>
-                                <h1>
+                                <h1 ng-class="{'text-error': installationKey.installation.deleted}">
                                     {{ installationKey.installation.title }}
                                 </h1>
+                                <p class="text-error text-center" ng-if="installationKey.installation.deleted">
+                                    This installation was deleted {{ installationKey.installation.deleted | amDateFormat:'D MMMM YYYY' }}
+                                </p>
                             </header>
                         </div>
                     </div>
