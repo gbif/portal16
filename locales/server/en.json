@@ -2027,15 +2027,15 @@
     },
     "year": {
       "equals": "is {from}",
-      "between": "between {from} and {to}",
-      "lessThanOrEquals": "before {to}",
-      "greaterThanOrEquals": "after {from}",
+      "between": "between start of {from} and end of {to}",
+      "lessThanOrEquals": "before end of {to}",
+      "greaterThanOrEquals": "after start of {from}",
       "invalid": "invalid",
       "select": {
         "equals": "is",
         "between": "between",
-        "lessThanOrEquals": "before",
-        "greaterThanOrEquals": "after"
+        "lessThanOrEquals": "before end of",
+        "greaterThanOrEquals": "after start of"
       }
     }
   },

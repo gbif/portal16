@@ -66,7 +66,7 @@
                                         </li>
                                         <li class="tab tab-right ng-cloak" ng-if="downloadKey.literature.count > 0">
                                             <span>
-                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q={{  downloadKey.doi }}' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
+                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{  downloadKey.doi }}"' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
                                             </span>
                                         </li>
                                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
@@ -144,7 +144,6 @@
                                                     <dt class="text-capitalize">{$ __('downloadKey.file') $}</dt>
                                                     <dd>
                                                         <span>{$ download.record.size | formatByte $} {$ __('downloadFormat.' + download.record.request.format) $}</span>
-                                                        <a href="" ng-click="downloadKey.openAboutStorage()" class="downloadKey__storageTeaser">{$ __('downloadKey.storageDurationTeaser') $}</a>
                                                     </dd>
                                                 </div>
                                                 <div>
@@ -159,6 +158,7 @@
                                             <p class="m-t-05">
                                                 Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">data user agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.
                                             </p>
+                                            <p><span gb-help="for-how-long-will-does-gbif-store-downloads">{$ __('downloadKey.storageDurationTeaser') $}</span></p>
                                         </div>
                                     {% endif %}
                                 </div>
@@ -263,26 +263,5 @@
 
         {% endif %}
     </article>
-
-    <script type="text/ng-template" id="downloadKeyStorageInfo.html">
-        <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.ok()"></a>
-        <div class="gb-modal-header">
-            <span class="modal-title body-text" id="modal-title">{$  __('downloadKey.infoAboutStorage.title') $}</span>
-        </div>
-        <div class="gb-modal-body" id="modal-body">
-            <div class="gb-modal-body__content white-background">
-                <p>
-                    {$ __('downloadKey.infoAboutStorage.paragraphA') $}
-                </p>
-                <p>
-                    {$  __('downloadKey.infoAboutStorage.paragraphB') $}
-                </p>
-            </div>
-        </div>
-        <div class="gb-modal-footer">
-            <a href="" class="gb-button--flat text-uppercase" type="button" ng-click="$ctrl.ok()">{$  __('stdTerms.ok') $}</a>
-        </div>
-    </script>
-
 
 {% endblock %}
