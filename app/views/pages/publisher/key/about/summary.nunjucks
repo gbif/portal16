@@ -53,6 +53,13 @@
                         </dd>
                     </div>
 
+                    <div ng-if="publisherKey.publisher.country">
+                        <dt class="text-capitalize">Country</dt>
+                        <dd>
+                            <a ui-sref="countrySummary({key:publisherKey.publisher.country})">{{ 'country.' + publisherKey.publisher.country | translate }}</a>
+                        </dd>
+                    </div>
+
                     <div ng-if="publisherKey.hostStats.datasetCount" class="m-t-1">
                         <dt class="text-capitalize">Hosting</dt>
                         <dd>
