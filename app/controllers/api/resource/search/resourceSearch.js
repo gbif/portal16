@@ -8,7 +8,7 @@ const _ = require('lodash'),
     elasticContentful = rootRequire('config/config').elasticContentful,
     filterHelper = require('./filter');
 
-let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', '_gbifDOIs'],
+let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 var client = new elasticsearch.Client({
@@ -94,8 +94,11 @@ function buildQuery(query) {
         };
 
     if (query.q) {
-        query.q = query.q.toLowerCase();//.replace(/\s/g, '+');
-        _.set(body, 'query.bool.must[0].simple_query_string.query', query.q);
+        query.q = query.q.toLowerCase();//.replace(/\s/g, '+');// + '*';
+        //_.set(body, 'query.bool.must[0].simple_query_string.query', query.q);
+        _.set(body, 'query.bool.must[0].match._all.query', query.q);
+        _.set(body, 'query.bool.must[0].match._all.operator', 'and');
+        _.set(body, 'query.bool.must[0].match._all.fuzziness', '2');
     } else {
         _.set(body, 'query.bool.must[0].match_all', {});
     }
@@ -229,11 +232,11 @@ function buildQuery(query) {
                 "boost": "5",
                 "functions": [
                     {
-                        "filter": { "match": { "keywords": query.q } },
+                        "filter": { "match": { "keywords": {"query": query.q } } },
                         "weight": 100
                     },
                     {
-                        "filter": { "match": { "title.*": query.q } },
+                        "filter": { "match": { "title": {"query": query.q } } },
                         "weight": 20
                     }
                 ],
