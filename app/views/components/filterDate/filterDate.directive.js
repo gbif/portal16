@@ -29,6 +29,7 @@ function filterDateDirective(BUILD_VERSION) {
     function filterDate($scope, $filter) {
         var vm = this;
         vm.months = [1,2,3,4,5,6,7,8,9,10,11,12];
+        vm.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
         vm.options = ['between', 'equals', 'lessThanOrEquals', 'greaterThanOrEquals'];
         vm.intervals = [];
         vm.collapsed = vm.filterConfig.collapsed !== false;
@@ -95,7 +96,7 @@ function filterDateDirective(BUILD_VERSION) {
             if (!date) {
                 return undefined;
             } else {
-                return date.year + '-' + pad(date.month,2);
+                return (date.day) ? date.year + '-' + pad(date.month,2)+'-'+ pad(date.day,2): date.year + '-' + pad(date.month,2);
             }
         }
 

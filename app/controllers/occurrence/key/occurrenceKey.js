@@ -86,6 +86,7 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
         if (e.source !== 'DwcTerm' && e.source !== 'DcTerm' && typeof whiteList[e.simpleName] === 'undefined') {
             return;
         }
+
         if ( notEmpty(occurrence.record[e.simpleName]) || notEmpty(occurrence.verbatim[e.qualifiedName])) {
             usedTerms.push(e);
             let group = e.group || 'other';

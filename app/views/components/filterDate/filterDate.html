@@ -40,12 +40,19 @@
                 <select ng-model="vm.dates.from.month" ng-change="vm.stringifyQuery()">
                     <option value="{{month}}" ng-repeat="month in vm.months" translate="month.{{month}}">{{month}}</option>
                 </select>
+                <select ng-model="vm.dates.from.day" ng-change="vm.stringifyQuery()">
+                    <option value="{{day}}" ng-repeat="day in vm.days" >{{day}}</option>
+                </select>
+
             </div>
             <div ng-if="vm.dates.type === 'between'">
                 <div>and</div>
                 <input type="number" ng-model="vm.dates.to.year" min="1000" max="9999" pattern="\d{4}" step="1" ng-change="vm.change()" ng-blur="vm.stringifyQuery()"/>
                 <select ng-model="vm.dates.to.month" ng-change="vm.stringifyQuery()">
                     <option value="{{month}}" ng-repeat="month in vm.months" translate="month.{{month}}">{{month}}</option>
+                </select>
+                <select ng-model="vm.dates.to.day" ng-change="vm.stringifyQuery()">
+                    <option value="{{day}}" ng-repeat="day in vm.days" >{{day}}</option>
                 </select>
             </div>
         </div>
