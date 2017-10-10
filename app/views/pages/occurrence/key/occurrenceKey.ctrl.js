@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
+    parseGeometry = require('wellknown'),
     globeCreator = require('../../../components/map/basic/globe');
 
 angular
@@ -206,8 +207,27 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             lat: data.decimalLatitude,
             lng: data.decimalLongitude
         };
+        var geom;
+        if(data.footprintWKT){
 
-        if (data.coordinateUncertaintyInMeters > 50) {
+            try {
+                var geojsonGeometry = parseStringToWKTs(data.footprintWKT);
+
+                leafletData.getMap('occurrenceMap').then(function(map){
+
+                    L.GeoJSON.geometryToLayer(geojsonGeometry).addTo(map);
+                })
+
+              
+            } catch(err){
+                console.log('Unparsable footprintWKT')
+            }
+
+
+
+        }
+
+        else if (data.coordinateUncertaintyInMeters > 50) {
             vm.paths.c1 = {
                 weight: 2,
                 color: '#ff612f',
@@ -240,6 +260,23 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                 map.scrollWheelZoom.enable();
             });
         });
+    }
+
+    function parseStringToWKTs(str) {
+        var geojsonGeometry;
+        try {
+            geojsonGeometry = parseGeometry(str);
+            if (geojsonGeometry) {
+                return geojsonGeometry
+            } else {
+                throw 'Not valid wkt';
+            }
+        } catch(err) {
+            return {
+                error: 'FAILED_PARSING'
+            }
+        }
+
     }
 
 }

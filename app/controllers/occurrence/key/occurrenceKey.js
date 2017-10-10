@@ -17,7 +17,8 @@ function getAngularInitData(occurrence) {
         'eventDate',
         'taxonKey',
         'lastParsed',
-        'coordinateUncertaintyInMeters'
+        'coordinateUncertaintyInMeters',
+        'footprintWKT'
     ];
     var selectedData = {};
     keys.forEach(function (e) {
