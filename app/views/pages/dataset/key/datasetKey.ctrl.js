@@ -87,6 +87,13 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
         });
         vm.projectEmpty = !vm.dataset.project || (!vm.dataset.project.studyAreaDescription && !vm.dataset.project.designDescription && !vm.dataset.project.funding);
         vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.dataset.col === vm.dataset.parentDatasetKey;
+
+        var projectId = _.get(vm.dataset, 'project.identifier');
+        console.log(projectId);
+        if (projectId) {
+            vm.projects = ResourceSearch.query({contentType: 'project', projectId: projectId, limit: 1});
+        }
+
         checkIfUserIsContact();
     });
 
