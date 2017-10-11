@@ -5,6 +5,7 @@ var format = require('../helpers/format'),
     truncate = require('html-truncate'),
     url = require('url'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true});
+    md.linkify.tlds('fuzzyLink', false);
 
     md.use(require('markdown-it-video'), {
         youtube: {width: 640, height: 390},
