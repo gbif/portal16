@@ -1,4 +1,4 @@
-<section class="horizontal-stripe--paddingless">
+<section class="horizontal-stripe--paddingless" ng-if="!occurrence.hideMap">
     <div class="container-fluid">
         <div class="row">
             <div class="occurrenceKey__map" ng-init="occurrence.setData()">

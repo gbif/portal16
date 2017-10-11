@@ -18,7 +18,8 @@ function getAngularInitData(occurrence) {
         'taxonKey',
         'lastParsed',
         'coordinateUncertaintyInMeters',
-        'footprintWKT'
+        'footprintWKT',
+        'footprintSRS'
     ];
     var selectedData = {};
     keys.forEach(function (e) {

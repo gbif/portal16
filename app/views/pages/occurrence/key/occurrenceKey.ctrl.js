@@ -76,6 +76,9 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
         elevation: undefined
     };
     vm.updateMarkerMessage = function () {
+        if(!vm.markers.taxon){
+            return;
+        }
         var message, weather = '', elevation = '', coordinateUncertainty = '';
 
         if (vm.data.coordinateUncertaintyInMeters) {
@@ -129,12 +132,21 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             vm.expandMore = false;
         }
     });
+    vm.verbatim = gb.occurrenceRecordVerbatim;
+    vm.data = gb.occurrenceRecord;
+
+    if ((typeof vm.data.footprintWKT === 'undefined' || !hasValidOrNoSRS(vm.data)) && (typeof vm.data.decimalLatitude === 'undefined' || typeof vm.data.decimalLongitude === 'undefined')) {
+        vm.hideMap = true;
+
+    } else {
+        vm.hideMap = false;
+    }
+
 
     vm.setData = function () {
         //TODO find a better way to parse required data to controller from server without seperate calls
         //vm.occurrenceCoreTerms = gb.occurrenceCoreTerms;
-        vm.verbatim = gb.occurrenceRecordVerbatim;
-        vm.data = gb.occurrenceRecord;
+
         setMap(vm.data);
         if (typeof vm.data.elevation !== 'undefined') {
             vm.markerMessage.elevation = {
@@ -191,35 +203,56 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             );
         }
     }
+    function hasValidOrNoSRS(data) {
 
-    function setMap(data) {
-        if (typeof data.decimalLatitude === 'undefined' || typeof data.decimalLongitude === 'undefined') {
-            return
+        if(typeof data.footprintSRS === "undefined"){
+            return true;
+        } else  if(data.footprintSRS.toLowerCase().indexOf("wgs84") > -1 || data.footprintSRS.toLowerCase().indexOf("wgs_1984") > -1 || data.footprintSRS.toLowerCase().indexOf("wgs_1984") > -1 || data.footprintSRS.toLowerCase().indexOf("epsg:4326") > -1){
+
+            return true
+        } else {
+
+            return false;
         }
 
-        vm.markers.taxon = {
-            lat: data.decimalLatitude,
-            lng: data.decimalLongitude,
-            focus: false
-        };
-        vm.center = {
-            zoom: 6,
-            lat: data.decimalLatitude,
-            lng: data.decimalLongitude
-        };
-        var geom;
-        if(data.footprintWKT){
+    }
+    function setMap(data) {
 
+
+        if(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined'){
+            vm.markers.taxon = {
+                lat: data.decimalLatitude,
+                lng: data.decimalLongitude,
+                focus: false
+            };
+            vm.center = {
+                zoom: 6,
+                lat: data.decimalLatitude,
+                lng: data.decimalLongitude
+            };
+
+        }
+
+        if(data.footprintWKT && hasValidOrNoSRS(data)){
             try {
                 var geojsonGeometry = parseStringToWKTs(data.footprintWKT);
+                leafletData.getMap('occurrenceMap')
+                .then(function(map){
 
-                leafletData.getMap('occurrenceMap').then(function(map){
+                    var layer = L.GeoJSON.geometryToLayer(geojsonGeometry);
 
-                    L.GeoJSON.geometryToLayer(geojsonGeometry).addTo(map);
+                    layer.addTo(map);
+                    var ext = layer.getBounds();
+                    map.fitBounds(ext);
+                }).catch(function(err){
+                    // no coordinates and the WKT is invalid
+                    vm.hideMap = true;
+                    throw err
                 })
 
               
             } catch(err){
+                console.log(err.message)
                 console.log('Unparsable footprintWKT')
             }
 
