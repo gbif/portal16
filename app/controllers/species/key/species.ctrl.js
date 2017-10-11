@@ -79,7 +79,6 @@ async function speciesSearchFirst(query) {
         json: true,
         fullResponse: true
     };
-    console.log(baseRequest.url);
     let response = await request(baseRequest);
     if (response.statusCode != 200) {
         throw response;
