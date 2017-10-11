@@ -4,7 +4,10 @@ var express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    backboneKey = rootRequire('config/config').publicConstantKeys.dataset.backbone,
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
+    querystring = require('querystring'),
+    request = require('requestretry'),
     _ = require('lodash'),
     router = express.Router();
 
@@ -48,4 +51,37 @@ function renderSpeciesPage(req, res, next) {
             next(err);
         }
     });
+}
+
+router.get('/species/first', function (req, res, next) {
+    if (!req.query.datasetKey) {
+        if (req.query.backboneOnly !== 'false') {
+            req.query.datasetKey = backboneKey;
+        } else {
+            req.query.advanced = 1;
+        }
+    }
+    speciesSearchFirst(req.query).then(function (resp) {
+        if (resp.count == 1) {
+            res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + resp.results[0].key);
+        } else {
+            res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
+        }
+    }, function (err) {
+        next(err);
+    });
+});
+
+async function speciesSearchFirst(query) {
+    let baseRequest = {
+        url: apiConfig.taxonSearch.url + '?' + querystring.stringify(query),
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    let response = await request(baseRequest);
+    if (response.statusCode != 200) {
+        throw response;
+    }
+    return response.body;
 }

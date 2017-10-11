@@ -31,10 +31,10 @@ router.get('/occurrence/:key(\\d+)/verbatim', function (req, res, next) {
 
 router.get('/occurrence/first', function (req, res, next) {
     occurrenceSearchFirst(req.query).then(function (resp) {
-        if (resp.count > 0) {
+        if (resp.count == 1) {
             res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/' + resp.results[0].key);
         } else {
-            next();
+            res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/search?' + querystring.stringify(req.query));
         }
     }, function (err) {
         next(err);
