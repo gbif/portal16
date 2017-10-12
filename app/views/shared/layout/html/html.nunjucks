@@ -21,7 +21,10 @@
 <div class="no-js-enabled" style="display: none"><span>{$ __('help.noJavascriptEnabled') $}</span></div>
 <div class="ie-splash" style="display:none"><span>{$ __('help.isSplashScreen') $}</span></div>
 
-{% include "../partials/navigation/navigation.nunjucks" %}
+{% if not _meta.removeMenu %}
+    {% include "../partials/navigation/navigation.nunjucks" %}
+{% endif %}
+
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">
     {% if not _meta.removeMenu %}
@@ -42,7 +45,9 @@
             </div>
         </div>
     </main>
-    {% include "../partials/footer/footer.nunjucks" %}
+    {% if not _meta.hideFooter %}
+        {% include "../partials/footer/footer.nunjucks" %}
+    {% endif %}
 
     {#{% include "../partials/popups/terms/terms.html" %}#}
     <div terms></div>

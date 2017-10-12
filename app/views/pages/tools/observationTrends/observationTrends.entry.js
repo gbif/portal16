@@ -10,7 +10,7 @@ angular
     .controller('observationTrendsCtrl', observationTrendsCtrl);
 
 /** @ngInject */
-function observationTrendsCtrl($scope, $http, suggestEndpoints, $httpParamSerializer, env, OccurrenceSearch, Regression) {
+function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $httpParamSerializer, env, OccurrenceSearch, Regression) {
     var vm = this;
     vm.lowerTaxon;
     vm.loading = false;
@@ -141,7 +141,8 @@ function observationTrendsCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val.toLowerCase(),
-                limit: 10
+                limit: 10,
+                datasetKey: constantKeys.dataset.backbone
             }
         }).then(function (response) {
             return response.data;
