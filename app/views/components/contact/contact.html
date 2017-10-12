@@ -38,7 +38,7 @@
         <div>
             <ul class="inline-bullet-list" ng-if="vm.contact.homepage">
                 <li ng-repeat="homepage in vm.getAsArray(vm.contact.homepage)" ng-if="homepage">
-                    <a ng-href="{{ homepage }}">{{ homepage }}</a>
+                    <a ng-href="{{ homepage }}" class="breakAll">{{ homepage }}</a>
                 </li>
             </ul>
         </div>
