@@ -14,7 +14,7 @@
     <article class="wrapper-horizontal-stripes downloadKey"
              ng-controller="occurrenceDownloadKeyCtrl as downloadKey"
              ng-init="downloadKey.setInitials({$ download.datasets.offset $},{$ download.datasets.limit $}, '{$ download.record.key $}')">
-        <div class="horizontal-stripe article-header {% if download.isFileAvailable or download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %} article-header--tabbed{% endif %} white-background">
+        <div class="horizontal-stripe article-header {% if download.isFileAvailable or download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download._citationCount > 0 %} article-header--tabbed{% endif %} white-background">
             <div class="container--desktop">
                 <div class="row">
                     <header class="col-xs-12 text-center">
@@ -45,7 +45,7 @@
                     </header>
                 </div>
             </div>
-            {% if download.isFileAvailable or download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
+            {% if download.isFileAvailable or download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download._citationCount > 0 %}
                 <div class="container--normal">
                     <div class="row">
                         <div class="col-xs-12">
@@ -53,22 +53,24 @@
                                 <div class="tabs__actions">
                                     <ul>
                                         <li class="tab tab-right">
-                                            {% if download.record.status === 'SUCCEEDED' %}
+                                            {% if download.record.status === 'SUCCEEDED' and download.isFileAvailable %}
                                                 <span>
                                                     <a href="{$ download.record.downloadLink $}" class="gb-button--brand">{$ __('stdTerms.download') $}</a>
                                                 </span>
-                                                {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download.record.status === 'SUSPENDED'%}
+                                            {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download.record.status === 'SUSPENDED'%}
                                                 <span class="gb-button--flat gb-button--loader m-t-0">
                                                     <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                                                     {$ __('downloadKey.status.' + download.record.status) $}
                                                 </span>
                                             {% endif %}
                                         </li>
-                                        <li class="tab tab-right ng-cloak" ng-if="downloadKey.literature.count > 0">
+                                        {% if download._citationCount %}
+                                        <li class="tab tab-right ng-cloak">
                                             <span>
-                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{  downloadKey.doi }}"' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
+                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{  downloadKey.doi }}"' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: {$ download._citationCount $} }"></a>
                                             </span>
                                         </li>
+                                        {% endif %}
                                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                                             <li class="tab tab-right ng-cloak" ng-if="downloadKey.recentDownload.isRecent && downloadKey.isCancelable">
                                             <span>
