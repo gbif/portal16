@@ -27,7 +27,7 @@
                 <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="'true'" ng-change="vm.apply()" translate="stdTerms.yes">Yes</label>
                 <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="'false'" ng-change="vm.apply()" translate="stdTerms.no">No</label>
             </div>
-            <p translate="{{vm.filterConfig.descriptionTranslation}}"></p>
+            <p translate="{{vm.filterConfig.descriptionTranslation}}" ng-if="vm.filterConfig.descriptionTranslation"></p>
         </div>
 
     </div>

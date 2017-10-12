@@ -2221,12 +2221,10 @@
       "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
     },
     "peerReview": {
-      "title": "Peer review",
-      "description": "Has this been evaluated by others working in the same field"
+      "title": "Peer-Reviewed"
     },
     "openAccess": {
-      "title": "Open access",
-      "description": "We consider an item open access when there are no access restriction. Neither login or payment."
+      "title": "Open access"
     },
     "location": {
       "north": "North",

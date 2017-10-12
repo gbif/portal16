@@ -131,14 +131,12 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
 
     vm.filters.peerReview = {
         titleTranslation: 'filters.peerReview.title',
-        descriptionTranslation: "filters.peerReview.description",
         queryKey: 'peerReview',
         filter: ResourceFilter
     };
 
     vm.filters.openAccess = {
         titleTranslation: 'filters.openAccess.title',
-        descriptionTranslation: "filters.openAccess.description",
         queryKey: 'openAccess',
         filter: ResourceFilter
     };
