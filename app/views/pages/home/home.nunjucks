@@ -52,19 +52,19 @@
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/occurrence/search" class="inherit noUnderline">
                             <h3 class="discreet">Occurrence records</h3>
-                            <div count="{{ portal.dataApi }}occurrence/search">700,000,000</div>
+                            <div count="{{ portal.dataApi }}occurrence/search">850,000,000</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
                             <h3 class="discreet">Datasets</h3>
-                            <div count="{{ portal.dataApi }}dataset/search">30,000</div>
+                            <div count="{{ portal.dataApi }}dataset/search">36,000</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
                             <h3 class="discreet">Publishing institutions</h3>
-                            <div count="{{ portal.dataApi }}organization" subtract="{{ portal.dataApi }}organization/nonPublishing">900</div>
+                            <div count="{{ portal.dataApi }}organization" subtract="{{ portal.dataApi }}organization/nonPublishing">1,100</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
