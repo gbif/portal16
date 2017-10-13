@@ -55,7 +55,7 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//api.gbif.org/v1/',
+        identityApi: identityApi || '//api.gbif-dev.org/v1/',
         crawlerApi: crawlerApi || '//crawler.gbif.org/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif.org',

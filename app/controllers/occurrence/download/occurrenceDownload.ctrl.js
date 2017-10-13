@@ -3,6 +3,7 @@
 var express = require('express'),
     Download = require('../../../models/gbifdata/gbifdata').Download,
     apiConfig = require('../../../models/gbifdata/apiConfig'),
+    resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch'),
     queryResolver = require('./queryResolver'),
     router = express.Router(),
     downloadHelper = require('./downloadKeyHelper');
@@ -31,14 +32,18 @@ function renderDownload(req, res, next, template) {
             download = values[1];
         download.datasets = datasets;
 
-        let promiseList = [downloadHelper.isFileAvailable(download)];
+        let promiseList = [downloadHelper.isFileAvailable(download), resourceSearch.search({contentType: 'literature', q: '"' + download.record.doi + '"', limit: 0}, req.__)];
         try{
             download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
 
             if (!download.record.request.predicate) {
                 download.noFilters = true;
-                Promise.all(promiseList).then(function(){
+                Promise.all(promiseList).then(function(completedPromises){
+                    download._citationCount = completedPromises[1].count;
                     renderPage(req, res, next, download, template);
+                }).catch(function(err){
+                console.log(err);
+                    next(err);
                 });
             } else {
                 downloadHelper.addChildKeys(download.record.request.predicate);
@@ -47,11 +52,13 @@ function renderDownload(req, res, next, template) {
                 download.isSimple = downloadHelper.getSimpleQuery(download.record.request.predicate);
                 downloadHelper.flattenSameType(download.record.request.predicate);
                 downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
-                Promise.all(promiseList).then(function(){
+                Promise.all(promiseList).then(function(completedPromises){
+                    download._citationCount = completedPromises[1].count;
                     renderPage(req, res, next, download, template);
                 });
             }
         } catch(err){
+            console.log(err);
             if (err.type == 'NOT_FOUND') {
                 next();
             } else {

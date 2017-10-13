@@ -58,8 +58,11 @@ function me(req, res) {
  * Updates the user after sanitizing body
  */
 function update(req, res) {
+    //users are not allowed to change username and system settings area
     let user = userModel.getClientUser(req.body);
     user.userName = req.user.userName;
+    user.systemSettings = req.user.systemSettings;
+
     userModel.update(req.user.userName, user)
         .then(function(resp){
             res.json(resp);

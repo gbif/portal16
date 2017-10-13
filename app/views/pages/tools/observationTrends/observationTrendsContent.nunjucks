@@ -6,7 +6,7 @@
         <div>
             <div id="observationTrendsMap" class="observationTrendsMap fillHeight"></div>
         </div>
-        <div class="time-slider time-slider__card ng-cloak" ng-show="observationTrends.lowerTaxon">
+        <div class="time-slider time-slider__card card ng-cloak" ng-show="observationTrends.lowerTaxon">
             <div class="gb-btn-group time-slider__buttons">
                 <label class="active">
                         <span class="time-slider__years">{{ observationTrends.yearRange.start }}

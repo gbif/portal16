@@ -129,6 +129,18 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         }
     };
 
+    vm.filters.peerReview = {
+        titleTranslation: 'filters.peerReview.title',
+        queryKey: 'peerReview',
+        filter: ResourceFilter
+    };
+
+    vm.filters.openAccess = {
+        titleTranslation: 'filters.openAccess.title',
+        queryKey: 'openAccess',
+        filter: ResourceFilter
+    };
+
     vm.openHelpdesk = function () {
         $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});

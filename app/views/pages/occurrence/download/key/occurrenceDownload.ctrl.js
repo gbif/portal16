@@ -8,7 +8,7 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $location, $rootScope, NAV_EVENTS, $uibModal, ResourceSearch, endpoints, $http, $sessionStorage) {
+function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
     var vm = this;
     vm.HUMAN = true;
     vm.maxSize = 5;
@@ -21,9 +21,9 @@ function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $l
             vm.recentDownload = response.data;
         });
 
-    if (vm.doi) {
-        vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"'});
-    }
+    //if (vm.doi) {
+    //    vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"'});
+    //}
 
     vm.openHelpdesk = function () {
         $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});

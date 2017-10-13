@@ -202,7 +202,6 @@ function addpredicateResolveTasks(predicate, config, tasks, __mf) {
 
 //given a predicate and a resolver configuration then translate the enum into something readable. fx "above 500 meters"
 function resolveEnum(predicate, config, __mf) {
-    console.log(predicate.type);
     if (intervalTypes.indexOf(predicate.key) !== -1 ) {
         if (predicate.type == 'between') {
             predicate.value = __mf(config.valueTranslation + predicate.type, {from: predicate.from, to: predicate.to})
