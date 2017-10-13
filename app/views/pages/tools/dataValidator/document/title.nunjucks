@@ -2,10 +2,16 @@
     <div>
         <a href="" id="dataTitle"></a>
         <div class="anchor-block--tabs" id="dataTitleBlock">
-            <div>
+        <div layout="row">
+            <div flex>
                 <h3>Title</h3>
-                <h4 ng-bind-html="vm.eml.title"></h4>
+                <h1 class="m-t-0" ng-bind-html="vm.eml.title"></h1>
             </div>
+
+            <div class="dataValidator__logoImg" ng-if="vm.eml.logoUrl">
+                <img ng-src="{{ vm.eml.logoUrl | imgCache }}" onError="this.style.display = 'none'">
+            </div>
+        </div>
         </div>
     </div>
 </section>

@@ -5,8 +5,8 @@
         <li class="part-name">
             {#<h3><a href="#" class="inherit">Content</a></h3>#}
             <ul class="nav-chapters">
-                <li class="nav-chapter" du-scrollspy="{{ extension.title}}Block" ng-repeat="extension in vm.extensions">
-                    <a ng-href="#{{extension.title}}"  class="text-uppercase">{{extension.title}}</a>
+                <li class="nav-chapter" du-scrollspy="{{ extension.title | spaceToHyphen}}Block" ng-repeat="extension in vm.extensions">
+                    <a ng-href="#{{extension.title | spaceToHyphen}}"  >{{extension.title}}</a>
 
                 </li>
 

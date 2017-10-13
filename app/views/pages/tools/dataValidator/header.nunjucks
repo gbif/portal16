@@ -1,12 +1,21 @@
-<div class="horizontal-stripe article-header white-background">
+<div class="horizontal-stripe article-header white-background" ng-if="!vm.hasError">
     <div class="container--desktop">
         <div class="row">
-            <header class="col-xs-12 text-center">
-                <nav class="article-header__category article-header__category--deep">
+            <header class="col-xs-12 text-center" >
+                <nav class="article-header__category article-header__category--deep" ng-if="!vm.jobid">
                     <span class="article-header__category__upper">Tools</span>
                     <span class="article-header__category__lower">Data validator</span>
                 </nav>
-
+                <nav class="article-header__category article-header__category--deep" ng-if="vm.jobid">
+                    <span class="article-header__category__upper">Validation report</span>
+                    <span class="article-header__category__lower">{{  vm.generatedDate | amDateFormat:'D MMMM YYYY'}}</span>
+                </nav>
+                <h1 class="text-center" ng-if="vm.jobid">
+                    <span ng-class="{'text-error': datasetKey.dataset.deleted}">{{ vm.validationResults.summary.fileName }}</span>
+                </h1>
+                <p ng-class="{'text-error': datasetKey.dataset.deleted, source: !datasetKey.dataset.deleted}" ng-if="vm.jobid">
+                    Report produced by GBIF data validator
+                </p>
             </header>
         </div>
     </div>

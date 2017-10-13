@@ -24,8 +24,6 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
     vm.issuesMap = {};
     vm.remarks = {};
 
-
-
     vm.dwcextensions = DwcExtension.get();
 
     Remarks.then(function (response) {
@@ -72,6 +70,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
 
         ).success(function (data) {
             vm.startTimestamp = moment(data.startTimestamp).subtract(moment().utcOffset(), 'minutes').fromNow();
+            vm.generatedDate = moment(data.startTimestamp);
             handleValidationSubmitResponse(data);
         }).error(function (err, status, headers) { //data, status, headers, config
 
@@ -142,7 +141,10 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                             vm.jobStatus = "CONTACTING_SERVER";
                         }
                         if(data.status === "RUNNING" && data.result){
-                            handleValidationResult(data);
+                            vm.extensions.$promise.then(function(){
+                                handleValidationResult(data);
+
+                            })
                         }
                         vm.getValidationResults($stateParams.jobid)
 
@@ -167,7 +169,6 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
             vm.jobUrl =   $location.protocol()+"://"+$location.host()+port+$location.path() ;
             handleValidationResult(data);
         }
-        //$window.location.href = '/tools/data-validator/' + data.jobId;
     }
 
     var sortIssues = function(issues){
@@ -255,8 +256,10 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                     vm.validationResults.summary.hasIssues = true;
                     vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
                     vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] =  vm.remarks[value.issue] || {severity: "WARNING", id: value.issue};
+
+
                     //rewrite sample to exclude redundant information (e.g. evaluationType)
-                    //TODO to the same thing for issues with non sample
+
                     issueBlock = _.omit(value, 'sample');
                     angular.forEach(value.sample, function(sample) {
                         this.sample = this.sample || [];
@@ -319,7 +322,6 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
         });
 
 
-        var test;
 
         vm.validationResults.results =  _.sortBy(vm.validationResults.results, function(r){
             switch (r.fileType) {

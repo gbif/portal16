@@ -6,14 +6,22 @@ angular
     .controller('dwcExtensionsCtrl', dwcExtensionsCtrl);
 
 /** @ngInject */
-function dwcExtensionsCtrl(DwcExtension, $stateParams) {
+function dwcExtensionsCtrl(DwcExtension, $stateParams, $timeout, $anchorScroll) {
 
     var vm = this;
-    vm.extensions = DwcExtension.get();
-    vm.test = 'about test';
+    vm.extensions = DwcExtension.get()
+
+    vm.extensions.$promise.then(function(){
+        $timeout(function(){
+            $anchorScroll();
+        });
+
+    });
     if($stateParams.jobid){
     vm.jobid = $stateParams.jobid;
     }
+
+
 
     vm.attachTabListener = function () {
         fixedUtil.updateTabs();

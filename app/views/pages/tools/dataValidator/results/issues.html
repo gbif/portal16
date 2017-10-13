@@ -13,7 +13,7 @@
         <div  ng-repeat="issueBlock in issueBlockList">
 
             <a class="badge-composite--{{issueBlock.severity | lowercase }}"
-               ng-click="dataValidator.issueSampleExpanded[issueBlock.issue] = !dataValidator.issueSampleExpanded[issueBlock.issue]">
+               ng-click="vm.issueSampleExpanded[issueBlock.issue] = !dataValidator.issueSampleExpanded[issueBlock.issue]">
 
 
 
@@ -40,7 +40,7 @@
 
 
             <table ng-if="issueBlock.sample" class="table table-bordered table-striped"
-                   ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
+                   ng-show="vm.issueSampleExpanded[issueBlock.issue]">
                 <thead>
                 <tr>
                     <th ng-repeat="issueLine in issueBlock.headers">
@@ -59,8 +59,8 @@
                 </tbody>
             </table>
 
-            <table ng-if="issueBlock.issue !== 'UNKNOWN_TERM' && !(issueBlock.sample || issueBlock.sample.length ===0)" class="table table-bordered table-striped"
-                   ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
+            <table ng-if="issueBlock.issue !== 'UNKNOWN_TERM' && issueBlock.issue !== 'DUPLICATED_TERM' && !(issueBlock.sample || issueBlock.sample.length ===0)" class="table table-bordered table-striped"
+                   ng-show="vm.issueSampleExpanded[issueBlock.issue]">
                 <thead>
                 <tr>
                     <th ng-repeat="(key, val) in issueBlock">
@@ -77,8 +77,8 @@
                 </tbody>
             </table>
 
-            <table ng-if="!(issueBlock.sample || issueBlock.sample.length ===0) && issueBlock.issue === 'UNKNOWN_TERM'" class="table table-bordered table-striped"
-                   ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
+            <table ng-if="!(issueBlock.sample || issueBlock.sample.length ===0) && (issueBlock.issue === 'UNKNOWN_TERM' ||  issueBlock.issue === 'DUPLICATED_TERM')" class="table table-bordered table-striped"
+                   ng-show="vm.issueSampleExpanded[issueBlock.issue]">
                 <thead>
                 <tr>
                     <th ng-repeat="(key, val) in issueBlock.relatedData">
@@ -89,7 +89,10 @@
                 <tbody>
                 <tr>
                     <td ng-repeat="(key, val) in issueBlock.relatedData" class="table-cell--wide">
-                        {{ val }}
+                    <span ng-if="key !== 'rowType'">{{ val }}</span>
+                    <a ng-href="/tools/data-validator/{{vm.jobid}}/extensions#{{vm.dwcextensions[val].title | spaceToHyphen}}" ng-if="key === 'rowType'">{{ vm.dwcextensions[val].title}}</a>
+
+
                     </td>
                 </tr>
                 </tbody>

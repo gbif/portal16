@@ -48,6 +48,11 @@
                 return text.replace(/_/g, '-');
             }
         })
+        .filter('spaceToHyphen', function () {
+            return function (text) {
+                return text.replace(/\s/g, '-');
+            }
+        })
         .filter('flag', function (BUILD_VERSION) {
             return function (countryCode) {
                 if (countryCode) {
