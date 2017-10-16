@@ -6,6 +6,9 @@ var moment = require('moment'),
     camelCase = require('camelcase'),
     _ = require('lodash'),
     Humanize = require('humanize-plus'),
+    querystring = require('querystring');
+    url = require('url');
+    URLSearchParams = require('url').URLSearchParams,
     linkTools = require('./links/links'),
     defaultLanguage = require('../../config/config').defaultLocale;
 
@@ -220,27 +223,44 @@ function sanitizeTrusted(dirty) {
             allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
             allowedAttributes: {
                 '*': ['href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen', 'gb-help', 'gb-help-options']
+            },
+            transformTags: {
+                'a': function (tagName, attr) {
+                    let linkUrl = url.parse(attr.href);
+                    let urlPathname = linkUrl.pathname;
+                    let urlParams = new URLSearchParams(linkUrl.search);
+                    if (urlPathname == '/faq' && urlParams.get('question') && urlParams.get('inline') === 'true') {
+                        return {
+                            tagName: 'span',
+                            attribs: {
+                                'gb-help': urlParams.get('question')
+                            }
+                        };
+                    } else {
+                        return {
+                            tagName: 'a',
+                            attribs: {
+                                'href': attr.href
+                            }
+                        };
+                    }
+                }
+                //'iframe': function (tagName, attr) {
+                //    // My own custom magic goes here
+                //    var innerElement = '<iframe src="' + attr.src + '"/>';
+                //    var w = parseInt(attr.width),
+                //        h = parseInt(attr.height);
+                //    var ratio = w / h;
+                //    return {
+                //        tagName: 'div',
+                //        attribs: {
+                //            class: 'video-container',
+                //            style: 'padding-bottom:60%'
+                //        },
+                //        text: innerElement
+                //    };
+                //}
             }
-            //exclusiveFilter: function (frame) {
-            //    return frame.tag === 'p' && !frame.text.trim(); //PROBLEM: removes p tags with image in it if there is no text
-            //}
-            //transformTags: {
-            //    'iframe': function (tagName, attr) {
-            //        // My own custom magic goes here
-            //        var innerElement = '<iframe src="' + attr.src + '"/>';
-            //        var w = parseInt(attr.width),
-            //            h = parseInt(attr.height);
-            //        var ratio = w / h;
-            //        return {
-            //            tagName: 'div',
-            //            attribs: {
-            //                class: 'video-container',
-            //                style: 'padding-bottom:60%'
-            //            },
-            //            text: innerElement
-            //        };
-            //    }
-            //}
         }
     );
     return clean;
