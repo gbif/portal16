@@ -19,7 +19,7 @@
                     {#{% include "./nav.nunjucks" %}#}
                 {#</div>#}
 
-                <div>
+                <div ng-if="vm.hasUser">
 
                     <div ng-if="vm.hasError" class="emptyInfo--small">
                         <h3 ng-if="vm.hasApiCriticalError" translate="stdTerms.criticalErrorMsg"></h3>
@@ -79,6 +79,10 @@
 
 
 
+                </div>
+
+                <div class="card card--login m-t-1" ng-if="vm.$state.is('dataValidator') && !vm.hasUser">
+                    <div user-login></div>
                 </div>
 
                 <div ui-view>

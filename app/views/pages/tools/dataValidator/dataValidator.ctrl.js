@@ -14,7 +14,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http,  $state,  $sessionStorage) {
+function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_EVENTS) {
     var vm = this;
     vm.$state = $state;
 
@@ -135,6 +135,22 @@ if($sessionStorage.gbifRunningValidatonJob){
     vm.attachMenuListener = function () {
         fixedUtil.updateMenu();
     };
+
+    //keep track of whether the user is logged in or not
+    function setLoginState() {
+        vm.hasUser = !!$sessionStorage.user;
+    }
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+        setLoginState();
+    });
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+        setLoginState();
+    });
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+        setLoginState();
+    });
+    User.loadActiveUser();
+    setLoginState();
 }
 
 module.exports = dataValidatorCtrl;
