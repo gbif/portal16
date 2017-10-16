@@ -1,0 +1,53 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="datasetKey2 light-background">
+            <div class="wrapper-horizontal-stripes" >
+
+                {% include "./header.nunjucks" %}
+
+                <div id="tabsScrollable">
+                    {% include "./nav.nunjucks" %}
+                </div>
+                <div class="tabs-fixed-container" id="tabsFixedContainer" ng-init="vm.attachTabListener()">
+                    {% include "./nav.nunjucks" %}
+                </div>
+
+                {#<div id="tabsScrollable">#}
+                    {#{% include "./nav.nunjucks" %}#}
+                {#</div>#}
+                {#<div class="tabs-fixed-container" id="tabsFixedContainer" ng-init="datasetKey.attachTabListener()">#}
+                    {#{% include "./nav.nunjucks" %}#}
+                {#</div>#}
+
+                <div>
+
+                    <div ng-if="vm.hasError" class="emptyInfo--small">
+                        <h3 ng-if="vm.hasApiCriticalError" translate="stdTerms.criticalErrorMsg"></h3>
+                        <h3 ng-if="vm.hasApi413Error" translate="validation.errors.413"></h3>
+                        <h3 ng-if="vm.hasApi404Error" translate="validation.errors.404"></h3>
+                        <h3 ng-if="vm.hasApi400Error" translate="validation.errors.400"></h3>
+
+                        <button  class="md-raised md-primary md-button md-ink-ripple"
+                                ng-click="vm.$state.go('dataValidator', {}, {reload: true})" translate="validation.backToValidator">
+                        </button>
+
+                    </div>
+
+
+                    <div >
+                        {% include "./intro/intro.nunjucks" %}
+
+                        {% include "./main/main.nunjucks" %}
+
+                    </div>
+
+                </div>
+
+                <div ui-view>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

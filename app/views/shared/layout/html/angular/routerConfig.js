@@ -467,20 +467,20 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'dataValidatorAboutCtrl',
             controllerAs: 'dataValidatorAbout'
         })
-        .state('dataValidatorExtensions', {
-            parent: 'dataValidator',
-            url: '/extensions/:jobid?',
-            templateUrl: '/api/template/tools/dataValidator/extensions.html?v=' + BUILD_VERSION,
-            controller: 'dwcExtensionsCtrl',
-            controllerAs: 'vm'
-        })
+        // .state('dataValidatorExtensions', {
+        //     parent: 'dataValidator',
+        //     url: '/extensions/:jobid?',
+        //     templateUrl: '/api/template/tools/dataValidator/extensions.html?v=' + BUILD_VERSION,
+        //     controller: 'dwcExtensionsCtrl',
+        //     controllerAs: 'vm'
+        // })
         .state('dataValidatorKey', {
             parent: 'localization',
             url: '/tools/data-validator/:jobid',
             views: {
                 main: {
-                    templateUrl: '/api/template/tools/dataValidator.html?v=' + BUILD_VERSION,
-                    controller: 'dataValidatorCtrl',
+                    templateUrl: '/api/template/tools/dataValidatorKey.html?v=' + BUILD_VERSION,
+                    controller: 'dataValidatorKeyCtrl',
                     controllerAs: 'vm'
                 }
             }
@@ -492,13 +492,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'dwcExtensionsCtrl',
             controllerAs: 'vm'
         })
-        .state('dataValidatorAboutKey', {
-            parent: 'dataValidatorKey',
-            url: '/about',
-            templateUrl: '/api/template/tools/dataValidator/about.html?v=' + BUILD_VERSION,
-            controller: 'dataValidatorAboutCtrl',
-            controllerAs: 'dataValidatorAbout'
-        })
+        // .state('dataValidatorAboutKey', {
+        //     parent: 'dataValidatorKey',
+        //     url: '/about',
+        //     templateUrl: '/api/template/tools/dataValidator/about.html?v=' + BUILD_VERSION,
+        //     controller: 'dataValidatorAboutCtrl',
+        //     controllerAs: 'dataValidatorAbout'
+        // })
         .state('dataValidatorKeyDocument', {
             parent: 'dataValidatorKey',
             url: '/document',

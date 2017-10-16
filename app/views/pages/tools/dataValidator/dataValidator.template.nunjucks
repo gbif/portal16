@@ -69,14 +69,15 @@
                             </div>
 
                         </div>
+                        <div ng-if="vm.jobStatus ==='SUBMITTED'">
+                            Processing.....
+                        </div>
+                        <div ng-if="vm.jobStatus ==='FETCHING'">
+                            Fetching.....
+                        </div>
                     </div>
 
-                    <div ng-if="vm.$state.is('dataValidatorKey')">
-                        {% include "./intro/intro.nunjucks" %}
 
-                        {% include "./main/main.nunjucks" %}
-
-                    </div>
 
                 </div>
 
