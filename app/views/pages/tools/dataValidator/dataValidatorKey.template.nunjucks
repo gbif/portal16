@@ -34,7 +34,7 @@
                     </div>
 
 
-                    <div >
+                    <div ng-if="vm.$state.is('dataValidatorKey')">
                         {% include "./intro/intro.nunjucks" %}
 
                         {% include "./main/main.nunjucks" %}

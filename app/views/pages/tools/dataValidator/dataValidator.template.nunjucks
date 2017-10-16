@@ -47,9 +47,9 @@
                             <!-- <p ng-if="speciesLookup.invalidFileFormat">
                                 Invalid file format
                             </p> -->
-                            <div class="text-center m-t-2 ng-cloak" ng-if="speciesLookup.error">
+                            <div class="text-center m-t-2 ng-cloak" ng-if="vm.error">
                                 <p>Cannot read file</p>
-                                <span class="badge badge--error ng-cloak">{{ speciesLookup.error }}</span>
+                                <span class="badge badge--error ng-cloak">{{ vm.error }}</span>
                             </div>
 
                             <div class="text-center m-t-1">
@@ -69,12 +69,10 @@
                             </div>
 
                         </div>
-                        <div ng-if="vm.jobStatus ==='SUBMITTED'">
-                            Processing.....
+                        <div class="m-t-1" ng-if="vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING'" layout="row">
+                           <span flex></span><md-progress-circular></md-progress-circular><span flex></span>
                         </div>
-                        <div ng-if="vm.jobStatus ==='FETCHING'">
-                            Fetching.....
-                        </div>
+
                     </div>
 
 

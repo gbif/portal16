@@ -52,26 +52,7 @@ function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_
             });
     };
 
-    vm.getValidationResults = function(jobid) {
 
-        $http.get(
-            devApiUrl + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
-
-        ).success(function (data) {
-            vm.startTimestamp = moment(data.startTimestamp).subtract(moment().utcOffset(), 'minutes').fromNow();
-            vm.generatedDate = moment(data.startTimestamp);
-            handleValidationSubmitResponse(data);
-        }).error(function (err, status, headers) { //data, status, headers, config
-
-            if((err && err.statusCode === 404 )|| status === 404){
-                handleValidationSubmitResponse(err)
-            } else{
-
-                handleWSError(err, status)
-
-            }
-        });
-    };
 
 if($sessionStorage.gbifRunningValidatonJob){
 
@@ -81,7 +62,6 @@ if($sessionStorage.gbifRunningValidatonJob){
 
     function handleValidationSubmitResponse(data) {
 
-        vm.jobStatus = data.status;
 
         if((data.status !== "FAILED" ) && data.jobId){
 
