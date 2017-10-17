@@ -168,6 +168,10 @@ var apiConfig = {
         url: identityBaseUrl + 'user/changePassword',
         canonical: 'user/changePassword'
     },
+    userFind: {
+        url: identityBaseUrl + 'admin/identity/find',
+        canonical: 'admin/identity/find'
+    },
     clientTileApi: {
         url: clientTileApi
     },
