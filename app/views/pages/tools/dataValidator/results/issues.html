@@ -91,15 +91,15 @@
             <table ng-if="!(issueBlock.sample || issueBlock.sample.length ===0) && (issueBlock.issue === 'UNKNOWN_TERM' ||  issueBlock.issue === 'DUPLICATED_TERM')" class="table table-bordered table-striped m-t-1"
                    ng-show="vm.issueSampleExpanded[issueBlock.issue]">
                 <thead>
-                <tr>
-                    <th ng-repeat="(key, val) in issueBlock.relatedData">
+                <tr >
+                    <th ng-repeat="(key, val) in issueBlock.relatedData[0]">
                         {{ key }}
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td ng-repeat="(key, val) in issueBlock.relatedData" class="table-cell--wide">
+                <tr ng-repeat="row in issueBlock.relatedData">
+                    <td ng-repeat="(key, val) in row" class="table-cell--wide">
                     <span ng-if="key !== 'rowType'">{{ val }}</span>
                     <a ng-href="/tools/data-validator/{{vm.jobid}}/extensions#{{vm.dwcextensions[val].title | spaceToHyphen}}" ng-if="key === 'rowType'">{{ vm.dwcextensions[val].title}}</a>
 

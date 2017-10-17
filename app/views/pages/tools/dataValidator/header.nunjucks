@@ -11,11 +11,12 @@
                     <span class="article-header__category__lower">{{  vm.generatedDate | amDateFormat:'D MMMM YYYY'}}</span>
                 </nav>
                 <h1 class="text-center" ng-if="vm.jobid">
-                    <span ng-class="{'text-error': datasetKey.dataset.deleted}">{{ vm.validationResults.summary.fileName }}</span>
+                    <span >{{ vm.validationResults.summary.fileName }}</span>
                 </h1>
-                <p ng-class="{'text-error': datasetKey.dataset.deleted, source: !datasetKey.dataset.deleted}" ng-if="vm.jobid">
+                <p class="source" ng-if="vm.jobid">
                     Report produced by GBIF data validator
                 </p>
+                <p ng-class="{'m-t-1': (vm.$state.is('dataValidator') || vm.$state.is('dataValidatorAbout') )}">This an early access version. Please report issues and feedback <a href="#" ng-click="vm.toggleFeedback()">here.</a></p>
             </header>
         </div>
     </div>

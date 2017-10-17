@@ -1,7 +1,10 @@
 'use strict';
 var _ = require('lodash'),
 moment = require('moment'),
-    fixedUtil = require('../../dataset/key/main/submenu');
+fixedUtil = require('../../dataset/key/main/submenu');
+
+require('./feedback.service');
+
 
 
 
@@ -13,10 +16,10 @@ angular
     .controller('dataValidatorKeyCtrl', dataValidatorKeyCtrl);
 
 /** @ngInject */
-function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location,  $sessionStorage) {
+function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location,  $sessionStorage, validatorFeedbackService) {
     var vm = this;
     vm.$state = $state;
-
+    vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
     vm.resourceToValidate = {};
 
     vm.issueSampleExpanded = {};
@@ -209,7 +212,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
                         var key = Object.keys(resourceResult.termsFrequency[i])[0];
                         resourceResult.termsFrequency[i].key = key;
                         resourceResult.termsFrequency[i].count = resourceResult.termsFrequency[i][key];
-                        resourceResult.termsFrequency[i].percentage = Math.round((resourceResult.termsFrequency[i].count/ resourceResult.numberOfLines)*100);
+                        resourceResult.termsFrequency[i].percentage = Math.round((resourceResult.termsFrequency[i].count/ resourceResult.numberOfLinesWithData)*100);
 
                     }
 
@@ -218,9 +221,46 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
                 vmResourceResult.issuesMap = {};
                 var issueBlock, issueSample;
+
+               var unknownTermIssueSamples = _.map(_.filter(resourceResult.issues, function(i){
+                return i.issue === "UNKNOWN_TERM"
+               }), function(s){ return s.relatedData})
+            var duplicatedTermIssuesSamples = _.map(_.filter(resourceResult.issues, function(i){
+                return i.issue === "DUPLICATED_TERM"
+            }), function(s){ return s.relatedData})
+
+            resourceResult.issues = _.filter(resourceResult.issues, function(i){
+                return i.issue !== "DUPLICATED_TERM" && i.issue !== "UNKNOWN_TERM";
+            });
+
+                if(unknownTermIssueSamples && unknownTermIssueSamples.length > 0){
+                    resourceResult.issues.push({
+                        issue: "UNKNOWN_TERM",
+                        issueCategory: "RESOURCE_STRUCTURE",
+                        relatedData: unknownTermIssueSamples
+
+                    })
+                }
+
+            if(duplicatedTermIssuesSamples && duplicatedTermIssuesSamples.length > 0){
+                resourceResult.issues.push({
+                    issue: "DUPLICATED_TERM",
+                    issueCategory: "RESOURCE_STRUCTURE",
+                    relatedData: duplicatedTermIssuesSamples
+
+                })
+            }
+
+                //
+                // var grouped = _.groupBy(resourceResult.issues, function(i){
+                //     return (i.issue === "UNKNOWN_TERM" ||  i.issue === "DUPLICATED_TERM") ? i.issue : 'OTHER';
+                // })
+                // if(grouped["UNKNOWN_TERM"]){
+                //
+                // }
                 angular.forEach(resourceResult.issues, function(value) {
                     this[value.issueCategory] = this[value.issueCategory] || [];
-                    if(value.issue === "UNKNOWN_TERM"){
+                    if(value.issue === "UNKNOWN_TERM" || value.issue === "DUPLICATED_TERM"){
                         vm.unknownTermMap[value.relatedData] = true;
                     };
                     value.severity = getIssueSeverity(value.issue);
@@ -240,12 +280,15 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
                         issueSample.allData = _.assign({}, issueSample.issueData, issueSample.relatedData)
                         this.sample.push(issueSample);
                     }, issueBlock);
-                    if(issueBlock.related)
-                    issueBlock.sample = _.sortBy(issueBlock.sample, [function(o) {
 
-                    return (_.isArray(o.relatedData)) ? - Object.keys(o.relatedData).length : 0 }
+                    if(issueBlock.related){
+                        issueBlock.sample = _.sortBy(issueBlock.sample, [function(o) {
 
-                    ]);
+                            return (_.isArray(o.relatedData)) ? - Object.keys(o.relatedData).length : 0 }
+
+                        ]);
+                    }
+
 
 
 
@@ -318,6 +361,8 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
     function handleWSError(data, status) {
 
+        delete $sessionStorage.gbifRunningValidatonJob;
+
         vm.hasError = true;
         switch(status) {
             case 413:
@@ -348,6 +393,9 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     vm.attachMenuListener = function () {
         fixedUtil.updateMenu();
     };
+
+
+
 }
 
 module.exports = dataValidatorKeyCtrl;

@@ -31,8 +31,10 @@ router.get('/dwc/extensions/', function (req, res) {
             var mapped = {};
 
             for (var i=0; i < extensions.length; i++){
+                if(extensions[i].isLatest){
+                    mapped[extensions[i].identifier] = extensions[i];
 
-                mapped[extensions[i].identifier] = extensions[i];
+                }
 
             }
             return res.status(200).json(mapped);

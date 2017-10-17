@@ -4,6 +4,7 @@ moment = require('moment'),
     fixedUtil = require('../../dataset/key/main/submenu');
 
 require('../../../components/fileUpload/fileUpload.directive');
+require('./feedback.service');
 
 
 //only available on dev for now
@@ -14,9 +15,10 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_EVENTS) {
+function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_EVENTS, validatorFeedbackService) {
     var vm = this;
     vm.$state = $state;
+    vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
 
     vm.resourceToValidate = {};
 
