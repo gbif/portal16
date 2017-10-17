@@ -11,6 +11,8 @@ const _ = require('lodash'),
 let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
+var pattern = /([\!\*\+\-\=\<\>\&\|\(\)\[\]\{\}\^\~\?\:\\/"])/g;
+
 var client = new elasticsearch.Client({
     host: elasticContentful
 });
@@ -41,7 +43,7 @@ async function search(requestQuery, __, options) {
 
     options = options || {};
 
-    query.requestTimeout = options.requestTimeout || 10000;
+    query.requestTimeout = options.requestTimeout || 30000;
 
     let resp = await client.search(query);
 
@@ -72,6 +74,10 @@ async function search(requestQuery, __, options) {
     return parsedResult;
 }
 
+function escapedSearchQuery(q){
+    return q.replace(pattern, "\\$1");
+}
+
 function buildQuery(query) {
     //facetMultiselect should work
     //facetLimit seems useful per type
@@ -94,11 +100,23 @@ function buildQuery(query) {
         };
 
     if (query.q) {
-        query.q = query.q.toLowerCase();//.replace(/\s/g, '+');// + '*';
-        //_.set(body, 'query.bool.must[0].simple_query_string.query', query.q);
-        _.set(body, 'query.bool.must[0].match._all.query', query.q);
-        _.set(body, 'query.bool.must[0].match._all.operator', 'and');
-        _.set(body, 'query.bool.must[0].match._all.fuzziness', '2');
+        query.q = escapedSearchQuery(query.q);
+        _.set(body, 'query.bool.must[0].bool.should[0].query_string.query', query.q);
+        _.set(body, 'query.bool.must[0].bool.should[0].query_string.default_operator', 'AND');
+        _.set(body, 'query.bool.must[0].bool.should[0].query_string.fields', ['_all']);
+        _.set(body, 'query.bool.must[0].bool.should[0].query_string.auto_generate_phrase_queries', true);
+        _.set(body, 'query.bool.must[0].bool.should[0].query_string.boost', 100);
+
+        _.set(body, 'query.bool.must[0].bool.should[1].query_string.query', query.q);
+        _.set(body, 'query.bool.must[0].bool.should[1].query_string.default_operator', 'AND');
+        _.set(body, 'query.bool.must[0].bool.should[1].query_string.fields', ['_all']);
+        _.set(body, 'query.bool.must[0].bool.should[1].query_string.boost', 50);
+
+        _.set(body, 'query.bool.must[0].bool.should[2].query_string.query', query.q);
+        _.set(body, 'query.bool.must[0].bool.should[2].query_string.default_operator', 'AND');
+        _.set(body, 'query.bool.must[0].bool.should[2].query_string.fields', ['_all']);
+        _.set(body, 'query.bool.must[0].bool.should[2].query_string.boost', 10);
+        _.set(body, 'query.bool.must[0].bool.should[2].query_string.fuzziness', 2);
     } else {
         _.set(body, 'query.bool.must[0].match_all', {});
     }
@@ -248,10 +266,10 @@ function buildQuery(query) {
 
     searchParams.body = body;
     searchParams.index = 'content';
-    searchParams.body.indices_boost = {
-        literature: 0
-        //article: 3
-    };
+    searchParams.body.indices_boost = [
+        {literature: 1},
+        {'*': 10}
+    ];
     //console.log(JSON.stringify(body, null, 4));
     return searchParams;
 }
