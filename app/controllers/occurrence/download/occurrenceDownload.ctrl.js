@@ -6,6 +6,7 @@ var express = require('express'),
     resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch'),
     queryResolver = require('./queryResolver'),
     router = express.Router(),
+    _ = require('lodash'),
     downloadHelper = require('./downloadKeyHelper');
 
 module.exports = function (app) {
@@ -32,7 +33,8 @@ function renderDownload(req, res, next, template) {
             download = values[1];
         download.datasets = datasets;
 
-        let promiseList = [downloadHelper.isFileAvailable(download), resourceSearch.search({contentType: 'literature', q: '"' + download.record.doi + '"', limit: 0}, req.__)];
+        let downloadDoi = _.get(download, 'record.doi', '').substring(4);
+        let promiseList = [downloadHelper.isFileAvailable(download), resourceSearch.search({contentType: 'literature', q: '"' + downloadDoi + '"', limit: 0}, req.__)];
         try{
             download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
 
