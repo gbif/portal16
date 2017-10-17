@@ -226,25 +226,31 @@ function sanitizeTrusted(dirty) {
             },
             transformTags: {
                 'a': function (tagName, attr) {
-                    let linkUrl = url.parse(attr.href);
-                    let urlPathname = linkUrl.pathname;
-                    let urlParams = new URLSearchParams(linkUrl.search);
-                    if (urlPathname == '/faq' && urlParams.get('question') && urlParams.get('inline') === 'true') {
-                        return {
-                            tagName: 'span',
-                            attribs: {
-                                'gb-help': urlParams.get('question')
-                            }
-                        };
+                    if (attr.href) {
+                        let linkUrl = url.parse(attr.href);
+                        let urlPathname = linkUrl.pathname;
+                        let urlParams = new URLSearchParams(linkUrl.search);
+                        if (urlPathname == '/faq' && urlParams.get('question') && urlParams.get('inline') === 'true') {
+                            return {
+                                tagName: 'span',
+                                attribs: {
+                                    'gb-help': urlParams.get('question')
+                                }
+                            };
+                        } else {
+                            return {
+                                tagName: 'a',
+                                attribs: attr
+                            };
+                        }
                     } else {
                         return {
                             tagName: 'a',
-                            attribs: {
-                                'href': attr.href
-                            }
+                            attribs: attr
                         };
                     }
                 }
+
                 //'iframe': function (tagName, attr) {
                 //    // My own custom magic goes here
                 //    var innerElement = '<iframe src="' + attr.src + '"/>';
