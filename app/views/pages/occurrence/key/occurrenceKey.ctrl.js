@@ -235,18 +235,25 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
 
         if(data.footprintWKT && hasValidOrNoSRS(data)){
             try {
-                var geojsonGeometry = parseStringToWKTs(data.footprintWKT);
+               var geojsonGeometry = parseStringToWKTs(data.footprintWKT);
                 leafletData.getMap('occurrenceMap')
                 .then(function(map){
+                    var layer;
+                    try {
+                        layer = L.GeoJSON.geometryToLayer(geojsonGeometry);
+                        layer.addTo(map);
+                        var ext = layer.getBounds();
+                        map.fitBounds(ext);
+                    } catch(err){
+                        vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
+                        console.log(err.message)
+                        console.log('Unparsable footprintWKT')
+                    }
 
-                    var layer = L.GeoJSON.geometryToLayer(geojsonGeometry);
 
-                    layer.addTo(map);
-                    var ext = layer.getBounds();
-                    map.fitBounds(ext);
                 }).catch(function(err){
                     // no coordinates and the WKT is invalid
-                    vm.hideMap = true;
+                    vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');;
                     throw err
                 })
 

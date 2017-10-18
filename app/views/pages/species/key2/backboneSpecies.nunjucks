@@ -21,7 +21,6 @@
 
 </div>
 
-    <phylo-tree taxon-key=""></phylo-tree>
     <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--narrow">

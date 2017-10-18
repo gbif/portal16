@@ -198,5 +198,45 @@
                 return (!!markdown) ? md(markdown).replace('\n','<br>') : '';
             }
         })
+        .filter('gbifUrlAsRelative', function(){
+            return function(url) {
+                var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
+
+                var result = parse_url.exec(url);
+
+                var host = result[3];
+                var path =  result[5];
+                if(!host){
+                return url;
+                }
+                switch(host) {
+                    case "www.gbif.org":
+                        return "/"+path;
+                        break;
+                    case "gbif.org":
+                        return "/"+path;
+                        break;
+                    case "www.gbif-uat.org":
+                        return "/"+path;
+                        break;
+                    case "gbif-uat.org":
+                        return "/"+path;
+                        break;
+                    case "www.gbif-dev.org":
+                        return "/"+path;
+                        break;
+                    case "gbif-dev.org":
+                        return "/"+path;
+                        break;
+                    default:
+                        return url;
+                }
+
+            }
+        })
+
+
+
+
 
 })();

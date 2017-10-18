@@ -141,11 +141,13 @@ router.get('/templates/the-gbif-network/:region/regionArticle.html', function (r
             helper.renderPage(req, res, next, contentItem, 'pages/theGbifNetwork/regionArticle.nunjucks');
             //  res.json(result);
         })
-        .catch(err =>{
-            console.trace(err);
-            res.status(500);
-            res.send(err.message);
-        })
+        .catch(function(err){
+            if (err.statusCode == 404) {
+                next();
+            } else {
+                next(err);
+            }
+        });
 
 });
 

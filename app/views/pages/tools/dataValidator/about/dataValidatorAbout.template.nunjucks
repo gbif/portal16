@@ -1,1 +1,3 @@
-Some elaborate description from contentful
+<ng-include src="'/templates/data-validator/about.html'" ></ng-include>
+
+

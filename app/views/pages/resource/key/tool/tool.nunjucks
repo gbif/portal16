@@ -20,6 +20,12 @@
                             </div>
                             {% endif %}
 
+                            <div class="article-header__button">
+                                {% if main.fields.primaryLink %}
+                                    <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small">{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
+                                {% endif %}
+                            </div>
+
                         </header>
                     </div>
                 </div>

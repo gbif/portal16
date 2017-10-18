@@ -1,5 +1,8 @@
 var express = require('express'),
-    router = express.Router();
+    router = express.Router(),
+helper = rootRequire('app/models/util/util'),
+
+    resource = require('../../resource/key/resourceKey');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -37,3 +40,27 @@ function render(req, res, next) {
         jobId: req.params.jobid
     });
 }
+
+
+
+
+
+router.get('/templates/data-validator/about.html', function (req, res, next) {
+
+    let urlAlias =  '/data-use/4HJ3sjc8qA2uqgW2wu4IUs/continental-scale-differences-in-leaf-unfolding-strategies';//'/about-data-validator';
+
+    resource.getByAlias(urlAlias, 2, false, res.locals.gb.locales.current)
+        .then(contentItem => {
+
+            helper.renderPage(req, res, next, contentItem, 'pages/tools/dataValidator/about/aboutArticle.nunjucks');
+            //  res.json(result);
+        })
+        .catch(function(err){
+            if (err.statusCode == 404) {
+                next();
+            } else {
+                next(err);
+            }
+        });
+
+});
