@@ -17,7 +17,8 @@ module.exports = {
     removeUnresovable: removeUnresovable,
     getParticipant: getParticipant,
     getHomePage: getHomePage,
-    getByAlias: getByAlias
+    getByAlias: getByAlias,
+    getById: getById
 };
 
 
@@ -44,7 +45,6 @@ function searchContentful(query, depth, isPreview, locale) {
             composedQuery['sys.id'] = query;
         }
         requestPath = urljoin(api, 'spaces', space, 'entries', '?' + querystring.stringify(composedQuery));
-
     var proseRequest = {
         url: requestPath,
         fullResponse: false,
@@ -97,6 +97,18 @@ async function getByAlias(urlAlias, depth, isPreview, locale) {
             }
         }
         let first = decorateFirst(articles);
+    return first;
+}
+
+async function getById(id, depth, isPreview, locale) {
+    let articles = await searchContentful(id, depth, isPreview, locale);
+    if (articles.total == 0) {
+        throw {
+            statusCode: 404,
+            message: 'No such resource'
+        }
+    }
+    let first = decorateFirst(articles);
     return first;
 }
 

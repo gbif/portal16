@@ -44,12 +44,11 @@ function render(req, res, next) {
 
 
 
-
 router.get('/templates/data-validator/about.html', function (req, res, next) {
 
-    let urlAlias =  '/data-use/4HJ3sjc8qA2uqgW2wu4IUs/continental-scale-differences-in-leaf-unfolding-strategies';//'/about-data-validator';
-
-    resource.getByAlias(urlAlias, 2, false, res.locals.gb.locales.current)
+    let contentfulDevId =  '6kTW9r9xio4i4qSSoA2uuE'; //
+    let contentfulProdId =  'XXXXXXXXXXXXXXX'; //
+    resource.getById(contentfulDevId, 2, false, res.locals.gb.locales.current)
         .then(contentItem => {
 
             helper.renderPage(req, res, next, contentItem, 'pages/tools/dataValidator/about/aboutArticle.nunjucks');
