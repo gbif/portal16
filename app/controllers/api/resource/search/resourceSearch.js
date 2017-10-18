@@ -11,8 +11,6 @@ const _ = require('lodash'),
 let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
-var pattern = /([\!\*\+\-\=\<\>\&\|\(\)\[\]\{\}\^\~\?\:\\/"])/g;
-
 var client = new elasticsearch.Client({
     host: elasticContentful
 });
@@ -74,6 +72,7 @@ async function search(requestQuery, __, options) {
     return parsedResult;
 }
 
+let pattern = /([\!\*\+\-\=\<\>\&\|\(\)\[\]\{\}\^\~\?\:\\/"])/g;
 function escapedSearchQuery(q){
     return q.replace(pattern, "\\$1");
 }
@@ -101,22 +100,23 @@ function buildQuery(query) {
 
     if (query.q) {
         query.q = escapedSearchQuery(query.q);
-        _.set(body, 'query.bool.must[0].bool.should[0].query_string.query', query.q);
-        _.set(body, 'query.bool.must[0].bool.should[0].query_string.default_operator', 'AND');
-        _.set(body, 'query.bool.must[0].bool.should[0].query_string.fields', ['_all']);
-        _.set(body, 'query.bool.must[0].bool.should[0].query_string.auto_generate_phrase_queries', true);
-        _.set(body, 'query.bool.must[0].bool.should[0].query_string.boost', 100);
+        _.set(body, 'query.bool.must[0].bool.should[0].match_phrase._all.query', query.q);
+        _.set(body, 'query.bool.must[0].bool.should[0].match_phrase._all.boost', 100);
 
-        _.set(body, 'query.bool.must[0].bool.should[1].query_string.query', query.q);
-        _.set(body, 'query.bool.must[0].bool.should[1].query_string.default_operator', 'AND');
-        _.set(body, 'query.bool.must[0].bool.should[1].query_string.fields', ['_all']);
-        _.set(body, 'query.bool.must[0].bool.should[1].query_string.boost', 50);
+        if (query.q.indexOf('"') == -1) {
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', "and");
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.boost', 50);
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.lenient', true);
 
-        _.set(body, 'query.bool.must[0].bool.should[2].query_string.query', query.q);
-        _.set(body, 'query.bool.must[0].bool.should[2].query_string.default_operator', 'AND');
-        _.set(body, 'query.bool.must[0].bool.should[2].query_string.fields', ['_all']);
-        _.set(body, 'query.bool.must[0].bool.should[2].query_string.boost', 10);
-        _.set(body, 'query.bool.must[0].bool.should[2].query_string.fuzziness', 2);
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', "and");
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.boost', 10);
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.fuzziness', 'AUTO');
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.prefix_length', 3);
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.lenient', true);
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.zero_terms_query', 'all');
+        }
     } else {
         _.set(body, 'query.bool.must[0].match_all', {});
     }
@@ -252,13 +252,13 @@ function buildQuery(query) {
                     {
                         "filter": { "match": { "keywords": {"query": query.q } } },
                         "weight": 100
-                    },
-                    {
-                        "filter": { "match": { "title": {"query": query.q } } },
-                        "weight": 20
                     }
+                    //,{
+                    //    "filter": { "match": { "title": {"query": query.q } } },
+                    //    "weight": 20
+                    //}
                 ],
-                "score_mode": "max",
+                "score_mode": "avg",
                 query: body.query
             }
         };

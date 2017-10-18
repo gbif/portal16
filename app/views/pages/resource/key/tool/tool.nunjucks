@@ -2,7 +2,7 @@
 
 {% block page %}
     <div>
-        <article class="wrapper-horizontal-stripes">
+        <article class="wrapper-horizontal-stripes white-background">
             <div class="horizontal-stripe article-header white-background">
                 <div class="container--desktop">
                     <div class="row">
