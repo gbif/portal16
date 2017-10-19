@@ -25,7 +25,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
     vm.remarks = {};
-
+    vm.criticalIssues = {};
     vm.dwcextensions = DwcExtension.get();
 
     Remarks.then(function (response) {
@@ -35,6 +35,16 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
         });
     });
 
+    $http.get(
+        devApiUrl + 'validator/evaluation/nonindexable'
+
+    ).success(function (data) {
+
+       vm.criticalIssues = _.keyBy(data, function(s) {
+           return s;
+       });
+
+    });
 
 
     vm.getValidationResults = function(jobid) {
@@ -163,9 +173,12 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
     function getIssueSeverity(e) {
 
-                return (vm.remarks[e]) ? vm.remarks[e].severity : "WARNING";
+              //  return (vm.remarks[e]) ? vm.remarks[e].severity : "WARNING";
+        return (vm.remarks[e]) ? vm.remarks[e].severity : (vm.criticalIssues[e]) ? "ERROR" : "WARNING";
 
     };
+
+    vm.getIssueSeverity = getIssueSeverity;
 
     function handleValidationResult(responseData) {
 
@@ -266,7 +279,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
                     value.severity = getIssueSeverity(value.issue);
                     vm.validationResults.summary.hasIssues = true;
                     vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
-                    vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] =  vm.remarks[value.issue] || {severity: "WARNING", id: value.issue};
+                    vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] =  vm.remarks[value.issue] || {severity: getIssueSeverity(value.issue), id: value.issue};
 
 
                     //rewrite sample to exclude redundant information (e.g. evaluationType)
@@ -377,9 +390,10 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
             default:
                 vm.hasApiCriticalError = true;
         }
-        //vm.hasApiCriticalError = true;
-      //  alert("error")
-    }
+
+    };
+
+
 
     function handleFailedJob(data){
         vm.jobStatus = data.status;
