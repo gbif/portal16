@@ -211,7 +211,7 @@ function concatFields(results, fieldsPaths, targetField) {
         fieldsPaths.forEach(function(field){
             let value = _.get(e, field);
             if (_.isString(value)) {
-                concatString += value + ' ';
+                concatString += value + ' … ';
             }
         });
         _.set(e, targetField, concatString);
