@@ -1112,6 +1112,8 @@
     "taxonConceptID": "taxon concept ID",
     "scientificName": "scientific name",
     "acceptedNameUsage": "accepted name usage",
+    "acceptedName" : "accepted name",
+    "appliedName" : "applied name",
     "parentNameUsage": "parent name usage",
     "originalNameUsage": "original name usage",
     "nameAccordingTo": "name according to",

@@ -9,11 +9,23 @@
                             {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 %}   <dd >none</dd>{% endif %}
                         </div>
                     {% endif %}
-                    {% if occurrence.record.taxonRank | isNotEmpty %}
+                    {% if (occurrence.record.taxonRank | isNotEmpty) and occurrence.species.taxonomicStatus !== 'SYNONYM' %}
                         <div>
                             <dt class="text-capitalize">{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
                             <dd><a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
                                     occurrence.record.scientificName $}</a></dd>
+                        </div>
+                    {% endif %}
+                    {% if occurrence.species.taxonomicStatus === 'SYNONYM' %}
+                        <div>
+                            <dt class="text-capitalize">{$ __('ocurrenceFieldNames.appliedName' ) $}</dt>
+                            <dd><a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
+                                    occurrence.record.scientificName $}</a></dd>
+                        </div>
+                        <div>
+                            <dt class="text-capitalize">{$ __('ocurrenceFieldNames.acceptedName' ) $}</dt>
+                            <dd><a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.species.key $}">{$
+                                    occurrence.species.accepted $}</a></dd>
                         </div>
                     {% endif %}
                     {% if occurrence.record.issues.indexOf("TAXON_MATCH_FUZZY") > -1 %}
