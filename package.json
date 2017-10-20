@@ -68,7 +68,6 @@
     "del": "^2.2.0",
     "doi-regex": "^0.1.4",
     "dtrace-provider": "^0.6.0",
-    "earth-topojson": "^1.0.0",
     "elasticsearch": "^12.1.3",
     "email-regex": "^1.0.0",
     "eslint-plugin-angular": "^1.0.0",

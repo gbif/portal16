@@ -183,6 +183,9 @@ var apiConfig = {
     },
     dwcextensions: {
         url: 'http://gbrds.gbif.org/registry/extensions.json'
+    },
+    openTreeOfLife: {
+        url: 'https://api.opentreeoflife.org/v3/'
     }
 };
 
