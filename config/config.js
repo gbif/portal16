@@ -86,7 +86,7 @@ var config = {
         tileApi: tileApi || '//api.gbif-dev.org/v1/map/density/tile.png',
         identityApi: identityApi || '//api.gbif-dev.org/v1/',
         crawlerApi: crawlerApi || '//crawler.gbif-dev.org/',
-        analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
+        analyticsImg: analyticsImg || 'www.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'https://www.gbif-dev.org',
         credentials: credentials || '/etc/portal16/credentials',
         redirects: redirects || '/etc/portal16/redirects',
