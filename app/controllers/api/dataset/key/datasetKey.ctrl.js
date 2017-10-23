@@ -6,13 +6,32 @@ var express = require('express'),
     taxonomicCoverage = require('./taxonomicCoverage'),
     bibliography = require('./bibliography'),
     _ = require('lodash'),
+    datasetUtils = require('./utils'),
     utils = rootRequire('app/helpers/utils'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
+    auth = require('../../../auth/auth.service'),
     request = require('requestretry');
 
 module.exports = function (app) {
     app.use('/api', router);
 };
+
+router.get('/dataset/:key/crawlPermissions', auth.isAuthenticated(), function (req, res, next) {
+    var datasetKey = req.params.key;
+    if (!utils.isGuid(datasetKey)) {
+        next();
+        return;
+    }
+    datasetUtils.hasCrawlPermissions(req.user, datasetKey)
+        .then(function(permissionState){
+            res.json(permissionState);
+        })
+        .catch(function(err){
+            console.log(err);
+            res.status(500);
+            res.send('Unable to get dataset crawling permissions due to a server error');
+        });
+});
 
 router.get('/dataset/:key\.:ext?', function (req, res, next) {
     var datasetKey = req.params.key;
