@@ -147,7 +147,6 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
             }
         }).then(function (response) {
 
-            console.log(" ### OTT ID "+ response.data.ott_id)
             vm.ott_id = response.data.ott_id;
         });
     });

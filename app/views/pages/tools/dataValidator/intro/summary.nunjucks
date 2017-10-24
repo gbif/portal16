@@ -134,7 +134,7 @@
                 <div>
                     <dt class="text-capitalize">Core row type</dt>
                     <dd >
-                        {{ (vm.coreDataType) ? vm.dwcextensions[vm.coreDataType].title : 'validation.unknown' | translate }}
+                        {{ (vm.coreDataType && vm.dwcextensions[vm.coreDataType]) ? vm.dwcextensions[vm.coreDataType].title : vm.coreDataType | translate }}
                     </dd>
                 </div>
 
