@@ -15,8 +15,10 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_EVENTS, validatorFeedbackService) {
+function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_EVENTS, validatorFeedbackService, env) {
     var vm = this;
+    vm.dataApi = env.dataApi;
+
     vm.$state = $state;
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
 
@@ -29,7 +31,7 @@ function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_
         formData.append('file', params.files[0]);
         vm.jobStatus = "SUBMITTED";
         $http({
-            url: devApiUrl + 'validator/jobserver/submit',
+            url: vm.dataApi + 'validator/jobserver/submit',
             method: "POST",
             data: formData,
             transformRequest: angular.identity,
@@ -44,7 +46,7 @@ function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_
     vm.handleFileUrl = function(params) {
 
         vm.jobStatus = "FETCHING";
-        var url = devApiUrl + 'validator/jobserver/submiturl';
+        var url = vm.dataApi + 'validator/jobserver/submiturl';
         $http({url: url, params: params, method : "POST"})
             .success(function (data, status) {
                 handleValidationSubmitResponse(data, status);

@@ -9,15 +9,16 @@ require('./feedback.service');
 
 
 //only available on dev for now
-var devApiUrl = '//api.gbif-dev.org/v1/';
+//var devApiUrl = '//api.gbif-dev.org/v1/';
 
 angular
     .module('portal')
     .controller('dataValidatorKeyCtrl', dataValidatorKeyCtrl);
 
 /** @ngInject */
-function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location,  $sessionStorage, validatorFeedbackService) {
+function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location,  $sessionStorage, validatorFeedbackService, env) {
     var vm = this;
+    vm.dataApi = env.dataApi;
     vm.$state = $state;
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
     vm.resourceToValidate = {};
@@ -36,7 +37,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     });
 
     $http.get(
-        devApiUrl + 'validator/evaluation/nonindexable'
+        vm.dataApi + 'validator/evaluation/nonindexable'
 
     ).success(function (data) {
 
@@ -50,7 +51,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     vm.getValidationResults = function(jobid) {
 
         $http.get(
-            devApiUrl + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
+            vm.dataApi + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
 
         ).success(function (data) {
             vm.startTimestamp = moment(data.startTimestamp).subtract(moment().utcOffset(), 'minutes').fromNow();
@@ -83,7 +84,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
     function loadEvaluationCategory() {
        return $http({
-            url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
+            url: vm.dataApi + 'validator/enumeration/simple/EvaluationCategory'
         }).success(function (data) {
             vm.evaluationCategory = data;
         }).error(function (err, status) { //data, status, headers, config
