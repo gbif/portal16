@@ -13,7 +13,7 @@
                            ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet" translate="taxon.noOccurencesInGbif"></a>
                     </span>
                     <span ng-if="!speciesKey2.occurrences.$resolved">
-                        <a class="gb-button--discreet"><span class="loading"></span> {{ 'stdTerms.occurrences' }}</a>
+                        <a class="gb-button--discreet"><span class="loading"></span> {{ 'stdTerms.occurrences' | translate }}</a>
                     </span>
                     </li>
 
