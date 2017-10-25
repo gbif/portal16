@@ -21,7 +21,7 @@
 
             function decorate(notifications) {
                 notifications.results.forEach(function(e){
-                    e._severity = typeMap[e.type];
+                    e._severity = typeMap[e.notificationType];
                 });
                 notifications.results = _.sortBy(notifications.results, '_severity').reverse();
                 var mostSevere = _.get(_.maxBy(notifications.results, '_severity'), '_severity', 0);
