@@ -35,7 +35,6 @@
             function updateNotifications() {
                 $http.get('/api/notifications', {})
                     .then(function (response) {
-                        console.log(response);
                         var notifications = decorate(response.data);
                         if (notifications.severity.value == 3 && !$sessionStorage.gb_hasBeenNotified) {
                             notifications.alert = true;
