@@ -1,8 +1,14 @@
-<ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.tableLoaded === false"></ng-include>
+<ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.tableLoaded === false && !vm.participantApiError"></ng-include>
+
+<div ng-if="vm.participantApiError" class="emptyInfo--small">
+    <h3  translate="stdTerms.nonCriticalErrorMsg"></h3>
+
+
+</div>
 
 
 
-<div class="participants__table scrollable-y  ng-cloak" ng-show="vm.tableLoaded === true && vm.activeParticipantsDigest.length > 0">
+<div class="participants__table scrollable-y  ng-cloak" ng-show="vm.tableLoaded === true && !vm.participantApiError && vm.activeParticipantsDigest.length > 0">
     <div class="table-container--participant"
         ng-init="sort = {field: 'name', reverse: false };">
         <h4 translate="theGbifNetwork.participant"
@@ -56,6 +62,7 @@
                 </th>
             </tr>
             </thead>
+
             <tbody ng-if="vm.activeParticipantsDigest.length > 0">
             <tr ng-repeat="(index, participant) in vm.activeParticipantsDigest | orderBy:sort.field:sort.Reverse">
                 <td>

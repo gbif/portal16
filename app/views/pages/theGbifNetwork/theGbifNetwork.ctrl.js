@@ -155,6 +155,9 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         }
         if (props && props.countryCode) {
             tasks.digest = CountryDataDigest.get({iso2: props.countryCode}).$promise;
+            tasks.digets.catch(function(err){
+                vm.participantApiError = true;
+            });
         }
 
         $q.all(tasks).then(function(results){
@@ -169,7 +172,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                 vm.digest = results.digest[0];
             }
             vm.digestLoaded = true;
-        });
+        })
 
 
     };
@@ -318,8 +321,9 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                 }
                 vm.activeParticipantsDigest = response;
                 vm.tableLoaded = true;
-            }, function(error) {
-                return error;
+            })
+            .catch(function(err){
+                vm.participantApiError = true;
             });
     }
 

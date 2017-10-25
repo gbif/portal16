@@ -226,7 +226,6 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
                         var key = Object.keys(resourceResult.termsFrequency[i])[0];
                         resourceResult.termsFrequency[i].key = key;
                         resourceResult.termsFrequency[i].count = resourceResult.termsFrequency[i][key];
-                        resourceResult.termsFrequency[i].percentage = Math.round((resourceResult.termsFrequency[i].count/ resourceResult.numberOfLinesWithData)*100);
 
                     }
 

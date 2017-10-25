@@ -2346,7 +2346,7 @@
         "title": "Metadata document"
         },
       "META_DESCRIPTOR" : {
-        "description" : "Metadata describing how the data is structured (columns, ids etc)",
+        "description" : "Semantic annotation describing how the data is structured (files, columns, etc)",
         "title": "Meta descriptor"
         }
     },
@@ -2375,12 +2375,16 @@
       "title": "Term Frequency",
       "term": "Term",
       "count": "Count",
-      "percentage": "Percentage"
+      "percentage": "Percentage",
+      "interpreted" : "Interpreted"
     },
     "interpretedCounts": {
       "date": "Number of interpreted dates",
       "taxon": "Number of rows with interpreted taxon",
       "location": "Number of interpreted coordinates"
+    },
+    "interpretedValueCounts": {
+      "title": "Interpreted value counts"
     },
     "status": {
       "title": "Status",

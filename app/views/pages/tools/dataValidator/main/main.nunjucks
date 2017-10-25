@@ -19,10 +19,9 @@
                                         <div class="anchor-block--tabs click-through" id="{{ resultPerResource.fileName }}Block">
                                         <h2 >{{ resultPerResource.fileName }}</h2>
                                         <div >
-                                            <div class="row" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType === 'METADATA'">
+                                            <div class="row" ng-if="resultPerResource.fileType === 'METADATA'">
                                                 <dl class="inline">
                                                     <div class="col-xs-12">
-                                                        <dt class="text-capitalize" translate="validation.fileType.title"></dt>
                                                         <dd >
                                                             <span translate="validation.fileType.METADATA.title"></span>
                                                             <div class="discreet--very small" translate="validation.fileType.METADATA.description"></div>
@@ -34,10 +33,9 @@
 
                                                 </dl>
                                             </div>
-                                            <div class="row" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType === 'META_DESCRIPTOR'">
+                                            <div class="row" ng-if="resultPerResource.fileType === 'META_DESCRIPTOR'">
                                                 <dl class="inline">
                                                     <div class="col-xs-12">
-                                                        <dt class="text-capitalize" translate="validation.fileType.title"></dt>
                                                         <dd >
                                                             <span translate="validation.fileType.META_DESCRIPTOR.title"></span>
                                                             <div class="discreet--very small" translate="validation.fileType.META_DESCRIPTOR.description"></div>
@@ -49,7 +47,7 @@
 
                                                 </dl>
                                             </div>
-                                            <div class="row" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'">
+                                            <div class="row" ng-if="resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'">
                                                 <dl class="inline">
                                                 <div class="col-xs-12">
                                                     <dt class="text-capitalize" translate="validation.fileType.title"></dt>
@@ -122,8 +120,9 @@
                                             {#</table>#}
                                         </div>
                                         </div>
-                                        <a href="" id="{{ resultPerResource.fileName+'-TermsFrequency'}}" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'"></a>
-                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'">
+
+                                        <a href="" id="{{ resultPerResource.fileName+'-TermsFrequency'}}" ng-if="resultPerResource.termsFrequency && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'"></a>
+                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.termsFrequency  && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'">
                                             {% include('../results/termsFrequency.html') %}
                                         {#<ng-include#}
                                                 {#src="'/api/template/tools/dataValidator/results/termsFrequency.html?v=' + vm.BUILD_VERSION"  ></ng-include>#}
