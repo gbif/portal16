@@ -6,7 +6,6 @@ var angular = require('angular'),
     fixedUtil = require('../../../dataset/key/main/submenu');
 require('../../../../components/map/featureMap/featureMap.directive');
 
-var devApiUrl = '//api.gbif-dev.org/v1/';
 
 
 
@@ -15,16 +14,18 @@ angular
     .controller('dataValidatorDocumentCtrl', dataValidatorDocumentCtrl);
 
 /** @ngInject */
-function dataValidatorDocumentCtrl($http, $state, $stateParams, Page) {
+function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
     var vm = this;
     vm.$state =$state;
+    vm.dataApi = env.dataApi;
+
     Page.setTitle('Data validator');
     Page.drawer(false);
 
     vm.getEML = function(jobid) {
 
         $http.get(
-            devApiUrl + 'validator/jobserver/output/' + jobid +'/DATASET_OBJECT', {params: {nonse: Math.random()}}
+            vm.dataApi + 'validator/jobserver/output/' + jobid +'/DATASET_OBJECT', {params: {nonse: Math.random()}}
 
         ).success(function (data) {
             vm.eml = data.content;
