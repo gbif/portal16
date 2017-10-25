@@ -231,6 +231,10 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
                 }
 
+                if(resourceResult.interpretedValueCounts && _.isEmpty(resourceResult.interpretedValueCounts)) {
+                    delete vmResourceResult.interpretedValueCounts;
+                }
+
 
                 vmResourceResult.issuesMap = {};
                 var issueBlock, issueSample;

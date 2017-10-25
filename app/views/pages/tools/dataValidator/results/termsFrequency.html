@@ -6,7 +6,7 @@
             <th translate="validation.termsFrequency.term"></th>
             <th translate="validation.termsFrequency.count"></th>
             <th translate="validation.termsFrequency.percentage"></th>
-            <th translate="validation.termsFrequency.interpreted"> </th>
+            <th translate="validation.termsFrequency.interpreted" ng-if="resultPerResource.interpretedValueCounts"> </th>
         </tr>
         </thead>
         <tbody>
@@ -33,12 +33,12 @@
                 </span>
                 <span class="termFrequencyStats__percentage">{{ k.count / resultPerResource.numberOfLinesWithData | formatAsPercentage}}%</span>
 
+            </td>
 
 
-            <td>
+            <td ng-if="resultPerResource.interpretedValueCounts">
 
-            <span ng-if="resultPerResource.interpretedValueCounts && resultPerResource.interpretedValueCounts[k.key]"> {{ resultPerResource.interpretedValueCounts[k.key] | localNumber:gb.locale}}</span>
-            <span ng-if="!resultPerResource.interpretedValueCounts || !resultPerResource.interpretedValueCounts[k.key]"> n/a </span>
+            <span ng-if="resultPerResource.interpretedValueCounts[k.key]"> {{ resultPerResource.interpretedValueCounts[k.key] | localNumber:gb.locale}}</span>
             </td>
 
             <!--<div class="termFrequencyStats__circle">-->
@@ -55,7 +55,6 @@
 
                 <!--</div>-->
 
-             </td>
         </tr>
         </tbody>
     </table>
