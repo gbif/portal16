@@ -12,7 +12,12 @@
         </div>
     </div>
 
-<section class="info-pane__content">
+    <div ng-if="vm.participantApiError" class="emptyInfo--small">
+        <h3  translate="stdTerms.nonCriticalErrorMsg"></h3>
+
+
+    </div>
+<section class="info-pane__content" ng-if="!vm.participantApiError">
 
     <ul class="info-pane__header participant-details-list m-b-1">
         <li ng-if="vm.currentParticipantProps.membershipType">

@@ -155,7 +155,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         }
         if (props && props.countryCode) {
             tasks.digest = CountryDataDigest.get({iso2: props.countryCode}).$promise;
-            tasks.digets.catch(function(err){
+            tasks.digest.catch(function(err){
                 vm.participantApiError = true;
             });
         }
@@ -173,6 +173,9 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             }
             vm.digestLoaded = true;
         })
+            .catch(function(err){
+                vm.participantApiError = true;
+            });
 
 
     };

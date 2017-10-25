@@ -93,9 +93,14 @@
                 </span>
         </div>
 
+        <div ng-if="vm.participantApiError" class="emptyInfo--small">
+            <h3  translate="stdTerms.nonCriticalErrorMsg"></h3>
 
+
+        </div>
 
     </section>
+
     <section class="white-background" ng-if="vm.contentfulResourceUrl" ng-include="vm.contentfulResourceUrl">
 
 
