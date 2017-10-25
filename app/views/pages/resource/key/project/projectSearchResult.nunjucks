@@ -22,7 +22,7 @@
             </p>
             <ul class="list-chips">
                 <li ng-repeat="purpose in result.purposes">
-                    <a ng-href="{{ urlPrefix }}/resource/search?contentType=project&purposes={{ purpose }}">{{ 'enums.cms.vocabularyTerms.purposes.' + purpose | translate }}</a>
+                    <a ng-href="{{ urlPrefix }}/resource/search?contentType=project&purposes={{ purpose }}" translate="enums.cms.vocabularyTerms.purposes.{{ purpose }}"></a>
                 </li>
             </ul>
         </div>
