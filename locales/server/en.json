@@ -2522,6 +2522,8 @@
     "repatriated": "repatriated",
     "typeStatus": "type status",
     "geometry": "geometry",
+    "decimalLatitude": "decimal latitude",
+    "decimalLongitude": "decimal longitude",
     "publishingOrg": "publisher"
   },
   "enums": {

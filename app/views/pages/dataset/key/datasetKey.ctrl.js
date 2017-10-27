@@ -89,22 +89,22 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
         vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.dataset.col === vm.dataset.parentDatasetKey;
 
         var projectId = _.get(vm.dataset, 'project.identifier');
-        console.log(projectId);
+
         if (projectId) {
             vm.projects = ResourceSearch.query({contentType: 'project', projectId: projectId, limit: 1});
         }
 
-        checkIfUserIsContact();
+        // checkIfUserIsContact();
     });
 
-    function checkIfUserIsContact() {
-        if (vm.profile.email) {
-            var contacts = _.get(vm.dataset, 'contacts', []);
-            vm.matchedContact = _.find(contacts, function(contact){
-                return contact.email == vm.profile.email || contact.email.indexOf(vm.profile.email) > -1;
-            });
-        }
-    }
+    // function checkIfUserIsContact() {
+    //     if (vm.profile.email) {
+    //         var contacts = _.get(vm.dataset, 'contacts', []);
+    //         vm.matchedContact = _.find(contacts, function(contact){
+    //             return contact.email == vm.profile.email || contact.email.indexOf(vm.profile.email) > -1;
+    //         });
+    //     }
+    // }
 
     function getOriginalDarwinCoreArchive(endpoints) {
         endpoints = endpoints || [];
