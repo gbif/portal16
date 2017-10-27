@@ -50,12 +50,12 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
 
             //once both are in, then set country to users location if not already set
             $q.all([geoip, countryList]).then(function (values) {
-                var isoCode = _.get(values, '[0].countryCode');
+                var isoCode = _.get(values, '[0].data.countryCode');
                 if (isoCode) {
                     var usersCountry = values[1].data.find(function (e) {
                         return e.key === isoCode
                     });
-                    vm.country = vm.country || usersCountry;
+                    vm.country = vm.country || usersCountry.key;
                 }
             });
         };
