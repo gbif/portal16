@@ -24,6 +24,9 @@ var path = require('path'),
             secretariat: '02c40d2a-1cba-4633-90b7-e36e5e97aba8',
             participantNodeManagersCommittee: '7f48e0c8-5c96-49ec-b972-30748e339115',
             'OBIS_NODE_KEY': 'ba0670b9-4186-41e6-8e70-f9cb3065551a'
+        },
+        network: {
+            backboneNetwork: "029f9226-0d8a-4f28-97fe-13180e9eb0e5"
         }
     },
     elasticContentful = yargs.elasticContentful,

@@ -20,7 +20,7 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
+function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -32,7 +32,13 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
     vm.metrics = DatasetMetrics.get({key: vm.key});
     vm.processSummary = DatasetProcessSummary.get({key: vm.key});
     vm.currentCrawlingStatus = DatasetCurrentCrawlingStatus.get({key: vm.key});
-    vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
+    vm.backboneKey = constantKeys.dataset.backbone;
+    vm.backboneNetworkKey = constantKeys.network.backboneNetwork;
+    vm.dataApi = env.dataApi;
+    vm.constituents =  DatasetConstituents.get({key: vm.key, limit: 0});
+
+
+   // vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
     vm.isPartOfCOL = constantKeys.dataset.col === vm.key;
     vm.isBackbone = constantKeys.dataset.backbone === vm.key;
     vm.literature = ResourceSearch.query({contentType: 'literature', gbifDatasetKey: vm.key, limit: 0});

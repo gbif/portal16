@@ -198,6 +198,16 @@ var angular = require('angular');
                     }
                 }
             );
+        })
+        .factory('SpeciesConstituentSearch', function ($resource) {
+            return $resource('/api/species/constituents', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
         });
 
 })();

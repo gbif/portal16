@@ -1,15 +1,23 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+_ = require('lodash');
 
 angular
     .module('portal')
     .controller('datasetConstituentsCtrl', datasetConstituentsCtrl);
 
 /** @ngInject */
-function datasetConstituentsCtrl($stateParams, $state, DatasetConstituents, hotkeys) {
+function datasetConstituentsCtrl($stateParams, $state, DatasetConstituents, hotkeys, constantKeys, env, $http, SpeciesConstituentSearch) {
     var vm = this;
     vm.key = $stateParams.key;
+    vm.backboneKey = constantKeys.dataset.backbone;
+    vm.backboneNetworkKey = constantKeys.network.backboneNetwork;
+    vm.dataApi = env.dataApi;
+    vm.isBackbone = (vm.key === vm.backboneKey);
+    vm.endOfRecords = false;
+    vm.currentPage = 1;
+
 
     function updatePaginationCounts() {
         vm.offset = parseInt($stateParams.offset) || 0;
@@ -20,19 +28,45 @@ function datasetConstituentsCtrl($stateParams, $state, DatasetConstituents, hotk
 
     updatePaginationCounts();
 
+    vm.totalItems = function() {
+        var total = vm.offset + vm.limit;
+        if (!vm.endOfRecords) {
+            total += vm.limit;
+        }
+        return total;
+    };
+
     vm.getConstituents = function () {
         vm.loadingDownloads = true;
         vm.failedToLoadDownloads = false;
-        var constituents = DatasetConstituents.get({key: vm.key, limit: vm.limit, offset: vm.offset});
-        constituents.$promise.then(function (response) {
-            vm.loadingDownloads = false;
-            vm.constituents = response;
-        }, function () {
-            vm.loadingDownloads = false;
-            vm.failedToLoadDownloads = true;
-        });
+         if (vm.key !== vm.backboneKey) {
+             DatasetConstituents.get({key: vm.key, limit: vm.limit, offset: vm.offset}).$promise.then(function (response) {
+                 vm.loadingDownloads = false;
+                 vm.constituents = response;
+             }, function () {
+                 vm.loadingDownloads = false;
+                 vm.failedToLoadDownloads = true;
+             });
+         } else {
+
+             SpeciesConstituentSearch.get({datasetKey: vm.backboneKey, limit: vm.limit, offset: vm.offset}).$promise
+                 .then(function(response){
+                     vm.loadingDownloads = false;
+                     vm.constituents = response;
+
+                 }, function () {
+                     vm.loadingDownloads = false;
+                     vm.failedToLoadDownloads = true;
+                 })
+         }
+
+
     };
     vm.getConstituents();
+
+    vm.hasData = function () {
+        return (vm.constituents) && typeof vm.constituents.endOfRecords !== 'undefined';
+    };
 
     vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;

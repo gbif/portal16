@@ -5,7 +5,7 @@
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
             </div>
 
-            <div ng-if="!datasetConstituents.loadingDownloads && !datasetConstituents.failedToLoadDownloads && datasetConstituents.constituents.count > 0">
+            <div ng-if="!datasetConstituents.isBackbone && !datasetConstituents.loadingDownloads && !datasetConstituents.failedToLoadDownloads && datasetConstituents.constituents.count > 0">
                 <div>
                     <div>
                         <h4 class="small discreet text-uppercase">{{ datasetConstituents.constituents.count | localNumber }} constituent datasets</h4>
@@ -26,6 +26,32 @@
                             boundary-link-numbers="false"
                             rotate="false"
                             ng-change="datasetConstituents.pageChanged()">
+                    </uib-pagination>
+                </div>
+            </div>
+
+
+            <div ng-if="datasetConstituents.isBackbone">
+                <div>
+                    <div>
+                        <h4 class="small discreet text-uppercase">constituent datasets</h4>
+                    </div>
+                </div>
+
+                <div ng-repeat="result in datasetConstituents.constituents.results">
+                    <ng-include src="'/api/template/search/datasetResult.html?v=' + portal.BUILD_VERSION"></ng-include>
+                </div>
+                <div ng-if="datasetConstituents.hasData()">
+                    <uib-pagination
+                            total-items="datasetConstituents.totalItems()"
+                            ng-model="datasetConstituents.currentPage"
+                            max-size="1"
+                            items-per-page="datasetConstituents.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="datasetConstituents.pageChanged()"
+                            ng-show="datasetConstituents.constituents.offset || datasetConstituents.constituents.results.length == datasetConstituents.limit">
                     </uib-pagination>
                 </div>
             </div>
