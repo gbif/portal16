@@ -13,10 +13,7 @@ module.exports = function (app) {
 };
 
 router.get('/geoip', function (req, res) {
-    let referer = req.headers.referer,
-        parsedReferer = url.parse(referer, true),
-        mockIp = _.get(parsedReferer, 'query.mockip'),
-        ip = mockIp || req.clientIp,
+    let ip = getIp(req, res),
         country = getGeoIp(ip);
 
     if (!country) {
@@ -31,16 +28,7 @@ router.get('/geoip', function (req, res) {
 });
 
 router.get('/geoip/country', function (req, res) {
-    let referer = req.headers.referer;
-    if (!referer) {
-        log.error('unable to match ip to country using ip: ' + ip);
-        res.setHeader('Cache-Control', 'no-cache');
-        res.status(404);
-        res.send();
-    }
-    let parsedReferer = url.parse(referer, true),
-        mockIp = _.get(parsedReferer, 'query.mockip'),
-        ip = mockIp || req.clientIp,
+    let ip = getIp(req, res),
         country = getGeoIp(ip),
         countryCode = _.get(country, 'country.iso_code');
 
@@ -58,6 +46,19 @@ router.get('/geoip/country', function (req, res) {
         });
     }
 });
+
+function getIp(req, res) {
+    let referer = _.get(req ,'headers.referer');
+    if (!referer) {
+        res.setHeader('Cache-Control', 'no-cache');
+        res.status(404);
+        res.send();
+    }
+    let parsedReferer = url.parse(referer, true),
+        mockIp = _.get(parsedReferer, 'query.mockip'),
+        ip = mockIp || req.clientIp;
+    return ip;
+}
 
 //We need a better geolocation and service. But that shouldn't be a part of the portal project.
 // No one seems to have time nor interest in implementing such at this point.
