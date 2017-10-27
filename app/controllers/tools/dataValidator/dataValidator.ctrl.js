@@ -48,7 +48,7 @@ router.get('/templates/data-validator/about.html', function (req, res, next) {
 
     let contentfulDevId =  '6kTW9r9xio4i4qSSoA2uuE'; //
     let contentfulProdId =  'zqFvwnIS0oAMwQIKWooAW'; //
-    resource.getById(contentfulDevId, 2, false, res.locals.gb.locales.current)
+    resource.getById(contentfulProdId, 2, false, res.locals.gb.locales.current)
         .then(contentItem => {
 
             helper.renderPage(req, res, next, contentItem, 'pages/tools/dataValidator/about/aboutArticle.nunjucks');
