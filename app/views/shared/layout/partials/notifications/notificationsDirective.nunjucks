@@ -17,7 +17,7 @@
                             <a ng-href="{{ notification.url }}" class="inherit noUnderline">
                                 <h4>{{ notification.title }}</h4>
                                 <p class="small" ng-bind-html="notification.body"></p>
-                                <span class="small underline" ng-if="notification.url">Read more</span>
+                                <span class="small underline" ng-if="notification.url" ng-if="notification.url">Read more</span>
                             </a>
                         </li>
                     </ul>
