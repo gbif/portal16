@@ -3,12 +3,14 @@
     <div class="menubox__wrapper">
         <div class="menubox__top">
             <div class="menubox__header">
-                <a href="" ng-click="vm.gotoRoot()" class="inherit noUnderline menubox__back gb-icon-angle-left"
-                   ng-if="vm.selected"></a>
-                <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
-                <div class="menubox__header__title text-center">
-                    <span ng-if="!vm.selected">{$ __('feedback.intro.title') $}</span>
-                    <span ng-if="vm.selected" translate="feedback.{{ vm.selected }}.title"></span>
+                <div class="menubox__header__title-wrapper">
+                    <a href="" ng-click="vm.gotoRoot()" class="inherit noUnderline menubox__back gb-icon-angle-left"
+                       ng-if="vm.selected"></a>
+                    <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                    <div class="menubox__header__title text-center">
+                        <span ng-if="!vm.selected">{$ __('feedback.intro.title') $}</span>
+                        <span ng-if="vm.selected" translate="feedback.{{ vm.selected }}.title"></span>
+                    </div>
                 </div>
                 <div class="menubox__header__description text-center">
                     <p ng-if="!vm.selected">
