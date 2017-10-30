@@ -1,4 +1,4 @@
-$feedbackPrimaryColor = #94b974// #6599a2 //#1f8ceb //#398194
+$feedbackPrimaryColor = #94b974 // #6599a2 //#1f8ceb //#398194
 $feedbackPrimaryInk = white
 $menuboxBorderRadius = 4px;
 
@@ -43,19 +43,19 @@ $menuboxBorderRadius = 4px;
         }
     }
     &__close, &__back {
-            position absolute
-            top 0
-            font-size 30px
-            margin 0 5px
-            z-index 50
-            &:before {
-                transition background 100ms ease
-                border-radius 50%
-            }
-            &:hover:before {
-                background rgba(0, 0, 0, 0.2)
-            }
+        position absolute
+        top 0
+        font-size 30px
+        margin 0 5px
+        z-index 50
+        &:before {
+            transition background 100ms ease
+            border-radius 50%
         }
+        &:hover:before {
+            background rgba(0, 0, 0, 0.2)
+        }
+    }
     &__close {
         right 0
         text-align right
@@ -140,12 +140,12 @@ $menuboxBorderRadius = 4px;
             }
         }
         &--select {
-            >ul {
+            > ul {
                 padding 0
-                >li {
+                > li {
                     display block
                     border-bottom 1px solid $stripeBorderColor
-                    >a, >div {
+                    > a, > div {
                         display block
                         padding 10px 20px
                         transition background 200ms ease
@@ -296,14 +296,16 @@ $menuboxBorderRadius = 4px;
         right 0
     }
 }
+
 +isAbove($mobile) {
     .menubox {
+        overflow auto
         top vrBlock(2)
         right vrBlock(1)
         left initial
         bottom initial
         width 370px
-        max-height calc(100% - 100px)
+        max-height calc(100% - 50px)
         border-radius $menuboxBorderRadius
         box-shadow 0 5px 150px 20px rgba(0, 0, 0, 0.15)
         &__wrapper {
@@ -312,6 +314,33 @@ $menuboxBorderRadius = 4px;
         }
         &.is-active {
             animation menuboxSlideIn .5s
+        }
+    }
+}
+
+//Exlusive above
+@media screen and (min-width: ($mobile + 1px))  and (max-height: 700px) {
+    .feedback {
+        &.menubox {
+            top 0
+            bottom 0
+            right 0
+            max-height 100%
+        }
+        &.menubox.is-active {
+            animation none
+        }
+        .menubox__header {
+            margin-top vrBlock(2.5)
+            .menubox__header__title-wrapper {
+                background $feedbackPrimaryColor
+                color white
+                border-bottom 1px solid darken($feedbackPrimaryColor, 5)
+                width 370px
+                position fixed
+                top 0
+                right 0
+            }
         }
     }
 }
