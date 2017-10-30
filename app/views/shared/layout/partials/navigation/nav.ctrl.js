@@ -8,7 +8,7 @@ angular
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl(User, $window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) {
+function navCtrl($window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) {
     var vm = this;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
@@ -69,16 +69,16 @@ function navCtrl(User, $window, $http, $location, $rootScope, NAV_EVENTS, AUTH_E
         }
     };
 
-    vm.getIssues = function () {
-        $http.get('/api/feedback/issues?item=' + encodeURIComponent($location.path()), {})
-            .then(function (response) {
-                vm.issuesCount = response.data.total_count;
-            }, function () {
-                vm.issuesCount = undefined;
-                //TODO mark as failure or simply hide
-            });
-    };
-    vm.getIssues();
+    //We get API rate limit errors from Github - so this has been disabled for now. The idea was that issues reported in github would show on the page they were reported on
+    //vm.getIssues = function () {
+    //    $http.get('/api/feedback/issues?item=' + encodeURIComponent($location.path()), {})
+    //        .then(function (response) {
+    //            vm.issuesCount = response.data.total_count;
+    //        }, function () {
+    //            vm.issuesCount = undefined;
+    //        });
+    //};
+    //vm.getIssues();
 
     function updateUser() {
         vm.loginGreeting = _.get($sessionStorage.user, 'userName', 'Login');
