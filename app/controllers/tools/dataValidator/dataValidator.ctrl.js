@@ -1,7 +1,6 @@
 var express = require('express'),
     router = express.Router(),
 helper = rootRequire('app/models/util/util'),
-
     resource = require('../../resource/key/resourceKey');
 
 module.exports = function (app) {
@@ -46,7 +45,6 @@ function render(req, res, next) {
 
 router.get('/templates/data-validator/about.html', function (req, res, next) {
 
-    let contentfulDevId =  '6kTW9r9xio4i4qSSoA2uuE'; //
     let contentfulProdId =  'zqFvwnIS0oAMwQIKWooAW'; //
     resource.getById(contentfulProdId, 2, false, res.locals.gb.locales.current)
         .then(contentItem => {
