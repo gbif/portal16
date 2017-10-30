@@ -270,6 +270,12 @@ function buildQuery(query) {
         {literature: 1},
         {'*': 10}
     ];
+    if (query.q) {
+        searchParams.body.indices_boost = [
+            {literature: 0},
+            {'*': 10}
+        ];
+    }
     //console.log(JSON.stringify(body, null, 4));
     return searchParams;
 }

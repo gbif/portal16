@@ -23,8 +23,21 @@ module.exports = {
     setTokenCookie: setTokenCookie,
     removeTokenCookie: removeTokenCookie,
     setNoCache: setNoCache,
-    isHumanEnough: isHumanEnough
+    isHumanEnough: isHumanEnough,
+    appendUser: appendUser,
+    logUserIn: logUserIn
 };
+
+function setTokenInHeader(req){
+    // allow access_token to be passed through query parameter as well
+    if (req.query && req.query.hasOwnProperty('access_token')) {
+        req.headers.authorization = `Bearer ${req.query.access_token}`;
+    }
+    // IE11 forgets to set Authorization header sometimes. Pull from cookie instead. //mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
+    if (req.query && typeof req.headers.authorization === 'undefined') {
+        req.headers.authorization = `Bearer ${req.cookies.token}`;
+    }
+}
 
 /**
  * Attaches the user object to the request if authenticated
@@ -34,14 +47,15 @@ function isAuthenticated() {
     return compose()
     // Validate jwt
         .use(function (req, res, next) {
-            // allow access_token to be passed through query parameter as well
-            if (req.query && req.query.hasOwnProperty('access_token')) {
-                req.headers.authorization = `Bearer ${req.query.access_token}`;
-            }
-            // IE11 forgets to set Authorization header sometimes. Pull from cookie instead. //mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
-            if (req.query && typeof req.headers.authorization === 'undefined') {
-                req.headers.authorization = `Bearer ${req.cookies.token}`;
-            }
+            //// allow access_token to be passed through query parameter as well
+            //if (req.query && req.query.hasOwnProperty('access_token')) {
+            //    req.headers.authorization = `Bearer ${req.query.access_token}`;
+            //}
+            //// IE11 forgets to set Authorization header sometimes. Pull from cookie instead. //mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
+            //if (req.query && typeof req.headers.authorization === 'undefined') {
+            //    req.headers.authorization = `Bearer ${req.cookies.token}`;
+            //}
+            setTokenInHeader(req);
             validateJwt(req, res, next);
         })
         .use(function (err, req, res, next) {
@@ -73,6 +87,44 @@ function isAuthenticated() {
 }
 
 /**
+ * Append user from token if available - unlike 'isAuthenticated' this does not block the route, but simply appends the user
+ */
+function appendUser() {
+    return compose()
+    // Attach user to request
+        .use(function(req, res, next) {
+            setNoCache(res);
+            setTokenInHeader(req);
+            validateJwt(req, res, function(val) {
+                if(_.isUndefined(val)) {
+                    User.getByUserName(req.user.userName)
+                        .then(user => {
+                            if (user) {
+                                req.user = user;
+                            } else {
+                                removeTokenCookie(res);
+                                delete req.user;
+                            }
+                            next();
+                        })
+                        .catch(function (err) {
+                            if (err.statusCode == 204) {
+                                removeTokenCookie(res);
+                                delete req.user;
+                                next();
+                            } else {
+                                next(err);
+                            }
+                        });
+                } else {
+                    delete req.user;
+                    next();
+                }
+            });
+        });
+}
+
+/**
  * Returns a jwt token signed by the app secret
  */
 function signToken(user, ttl) {
@@ -83,6 +135,13 @@ function signToken(user, ttl) {
         expiresIn: ttl || (60 * 60 * 24 * 7) // time in seconds - 7 days
     });
     return token;
+}
+
+function logUserIn(res, user){
+    let clientUser = User.getClientUser(user);
+    let token = signToken(clientUser);
+    setTokenCookie(res, token);
+    setNoCache(res);
 }
 
 /**

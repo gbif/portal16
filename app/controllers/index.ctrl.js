@@ -6,6 +6,7 @@ let express = require('express'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
     resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch'),
     acceptLanguageParser = require('accept-language-parser'),
+    auth = require('./auth/auth.service'),
     availableLanguagesForHomePage = ['en', 'zh', 'fr', 'ru', 'es', 'pt'];
 
 
@@ -14,6 +15,10 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res, next) {
+    let isPreview = typeof(req.query._preview) !== 'undefined';
+    if (isPreview) {
+        auth.setNoCache(res);
+    }
     if (typeof req.query.q !== 'undefined') {
         //if using the short omni search format gbif.org?q=something then redirect to search
         res.redirect(302, res.locals.gb.locales.urlPrefix + '/search?q=' + req.query.q);
@@ -25,7 +30,7 @@ router.get('/', function (req, res, next) {
         let news = resourceSearch.search({contentType: 'news', limit: 1, homepage: true}, req.__, 5000),
             dataUse = resourceSearch.search({contentType: 'dataUse', limit: 1, homepage: true}, req.__, 5000),
             event = resourceSearch.search({contentType: 'event', limit: 1, homepage: true}, req.__, 5000), //TODO shouldn't events be visible on the home page ? they are all hidden per default
-            homepage = resource.getHomePage(false, homePageLanguage);
+            homepage = resource.getHomePage(isPreview, homePageLanguage);
 
         Promise.all([homepage, news, dataUse, event])
             .then(function (values) {

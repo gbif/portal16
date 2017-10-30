@@ -68,7 +68,7 @@
                     logout.then(function () {
                         delete $sessionStorage.user;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
-                        window.location = '/';
+                        window.location = '/user/profile';
                     }, function () {
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_FAILED);
                     });

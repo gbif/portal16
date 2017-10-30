@@ -1,159 +1,200 @@
-<div class="horizontal-stripe--paddingless white-background">
-    <div class="container--narrow">
-        <!--<div>-->
-            <!--For now your profile information can only be edited via <a href="http://www.gbif.org/user">GBIF.org</a>. Account information is synchronized daily.-->
-        <!--</div>-->
-        <div>
-            <div class="clearfix" ng-if="!userProfile.disableEditing">
-                <div class="switch-group pull-right">
-                    <p class="small" ng-if="!userProfile.inEditMode">Edit profile</p>
-                    <p class="small" ng-if="userProfile.inEditMode">Stop editing</p>
-                    <input id="speciesLookupDiscardInCsv" type="checkbox" ng-model="userProfile.inEditMode"
-                           aria-label="Edit" ng-change="userProfile.editModeChanged()"/>
-                    <label for="speciesLookupDiscardInCsv" class="switch"></label>
+<div class="horizontal-stripe--paddingless light-background seperator">
+    <div class="container--normal">
+
+        <div class="clearfix" ng-if="!userProfile.disableEditing">
+            <div class="switch-group pull-right">
+                <p class="small" ng-if="!userProfile.inEditMode">Edit profile</p>
+                <p class="small" ng-if="userProfile.inEditMode">Stop editing</p>
+                <input id="speciesLookupDiscardInCsv" type="checkbox" ng-model="userProfile.inEditMode"
+                       aria-label="Edit" ng-change="userProfile.editModeChanged()"/>
+                <label for="speciesLookupDiscardInCsv" class="switch"></label>
+            </div>
+        </div>
+
+        <div class="card card--spaced">
+            <div class="card__stripe card__content">
+                <div>
+                    <form class="gb-form" name="userProfile.profileForm" ng-submit="userProfile.updateProfile()">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span>First name</span>
+                                            <input type="text" name="firstName" ng-model="userProfile.profile.firstName"
+                                                   ng-disabled="!userProfile.inEditMode">
+                                        </label>
+                                        <!--<div ng-messages="vm.createUserForm.firstName.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
+                                        <!--<div ng-message="required">Username required</div>-->
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span>Last name</span>
+                                            <input type="text" name="lastName" ng-model="userProfile.profile.lastName"
+                                                   ng-disabled="!userProfile.inEditMode">
+                                        </label>
+                                        <!--<div ng-messages="vm.createUserForm.username.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
+                                        <!--<div ng-message="required">Username required</div>-->
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span>Email</span>
+                                            <input type="text" ng-pattern="userProfile.emailPattern" name="email"
+                                                   required ng-model="userProfile.profile.email"
+                                                   ng-disabled="!userProfile.inEditMode">
+                                        </label>
+                                        <div ng-messages="userProfile.profileForm.email.$error" class="text-error small"
+                                             role="alert" ng-show="userProfile.profileFormInvalid">
+                                            <div ng-message="required">Email required</div>
+                                            <div ng-message="pattern">Please enter a valid email</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span>Country</span>
+                                            <input type="text"
+                                                   required
+                                                   name="country"
+                                                   ng-class="{isInvalid: userProfile.invalidCountry}"
+                                                   autocomplete="off"
+                                                   ng-model="userProfile.profile.settings.country"
+                                                   typeahead-input-formatter="userProfile.formatTypehead(userProfile.searchSuggestions, userProfile.profile.settings.country)"
+                                                   uib-typeahead="suggestion.key as suggestion.title for suggestion in userProfile.searchSuggestions | filter:$viewValue | limitTo:8"
+                                                   typeahead-on-select="userProfile.typeaheadSelect($item, $model, $label, $event)"
+                                                   typeahead-no-results="userProfile.invalidCountry"
+                                                   typeahead-select-on-blur="true"
+                                                   typeahead-editable="false"
+                                                   typeahead-focus-first="true"
+                                                   ng-disabled="!userProfile.inEditMode">
+                                        </label>
+                                        <div ng-messages="userProfile.profileForm.country.$error"
+                                             class="text-error small" role="alert"
+                                             ng-show="userProfile.profileFormInvalid">
+                                            <div ng-message="required">Country required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="clearfix" ng-if="userProfile.inEditMode">
+                            <p class="pull-right">
+                                <span ng-if="userProfile.profileFormInvalid" class="small text-error">
+                                    Invalid profile update
+                                </span>
+                                <button class="pull-right text-uppercase gb-button--flat" type="submit">Save profile
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div ng-if="userProfile.inEditMode">
+                    <form class="gb-form m-t-3" name="userProfile.passwordForm"
+                          ng-submit="userProfile.changePassword()">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span>New password</span>
+                                            <input type="password" required name="newPassword" ng-minlength="6"
+                                                   ng-maxlength="256" ng-model="userProfile.newPassword">
+                                        </label>
+                                        <div ng-messages="userProfile.passwordForm.newPassword.$error"
+                                             class="text-error small" role="alert"
+                                             ng-show="userProfile.passwordFormInvalid">
+                                            <div ng-message="required">Password is required</div>
+                                            <div ng-message="minlength">Password must be 6 characters or more</div>
+                                            <div ng-message="maxlength">You password may not be above 256 characters
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span>Repeat new password</span>
+                                            <input type="password" required name="repeatedPassword"
+                                                   ng-pattern="userProfile.repeatPattern(userProfile.newPassword)"
+                                                   ng-model="userProfile.repeatedPassword">
+                                        </label>
+                                        <div class="text-error small" role="alert"
+                                             ng-show="userProfile.repeatedPassword !== userProfile.newPassword">
+                                            <div>Not identical - please confirm the password</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span>Current password</span>
+                                            <input type="password" required name="oldPassword" required
+                                                   ng-model="userProfile.oldPassword">
+                                        </label>
+                                        <div ng-messages="userProfile.passwordForm.newPassword.$error"
+                                             class="text-error small" role="alert"
+                                             ng-show="userProfile.passwordFormInvalid">
+                                            <div ng-message="required">Password is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6">
+                                    <button class="pull-right m-t-1 text-uppercase gb-button--flat" type="submit">Change
+                                        password
+                                    </button>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                        <div>
+                            <!--<p ng-if="vm.invalidLogin" class="small text-error">-->
+                            <!--Unable to log in. Unknown user or password.-->
+                            <!--</p>-->
+                            <!--<p class="m-t-1">-->
+                            <!--<button class="gb-button&#45;&#45;brand" type="submit">Change password</button>-->
+                            <!--</p>-->
+                            <!--&lt;!&ndash;<p class="small discreet">&ndash;&gt;-->
+                            <!--By signing in you accept GBIFs <a href="http://www.gbif.org/terms/overview">terms</a> and <a href="http://www.gbif.org/terms/privacy-policy">privacy policy</a>.-->
+                            <!--</p>-->
+                        </div>
+                    </form>
                 </div>
             </div>
+            <div class="card__stripe card__stripe--light ng-cloak">
+                <div class="card__content">
+                    <p ng-if="userProfile.provider && userProfile.errorMessage" class="small text-error">
+                        <span translate="profile.connect.failed.{{userProfile.provider}}"></span><br/>
+                        <span translate="profile.error.{{userProfile.errorMessage}}"></span>
+                    </p>
 
-            <div class="m-b-5">
-                <form class="gb-form" name="userProfile.profileForm" ng-submit="userProfile.updateProfile()">
-                    <fieldset>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="gb-form__group">
-                                    <label>
-                                        <span>First name</span>
-                                        <input type="text" name="firstName" ng-model="userProfile.profile.firstName" ng-disabled="!userProfile.inEditMode">
-                                    </label>
-                                    <!--<div ng-messages="vm.createUserForm.firstName.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
-                                        <!--<div ng-message="required">Username required</div>-->
-                                    <!--</div>-->
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="gb-form__group">
-                                    <label>
-                                        <span>Last name</span>
-                                        <input type="text" name="lastName" ng-model="userProfile.profile.lastName" ng-disabled="!userProfile.inEditMode">
-                                    </label>
-                                    <!--<div ng-messages="vm.createUserForm.username.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
-                                        <!--<div ng-message="required">Username required</div>-->
-                                    <!--</div>-->
-                                </div>
-                            </div>
+                    <a href="/auth/facebook/connect" class="gb-button--facebook"
+                       ng-if="userProfile.profile.connectedAcounts && !userProfile.profile.connectedAcounts.facebook"><i></i><span
+                            class="gb-button--facebook__label">Connect with Facebook</span></a>
+                    <a href="/auth/facebook/disconnect" class="gb-button--facebook"
+                       ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.facebook"><i></i><span
+                            class="gb-button--facebook__label">Disconnect Facebook</span></a>
 
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="gb-form__group">
-                                    <label>
-                                        <span>Email</span>
-                                        <input type="text" ng-pattern="userProfile.emailPattern" name="email" required ng-model="userProfile.profile.email" ng-disabled="!userProfile.inEditMode">
-                                    </label>
-                                    <div ng-messages="userProfile.profileForm.email.$error" class="text-error small" role="alert" ng-show="userProfile.profileFormInvalid">
-                                        <div ng-message="required">Email required</div>
-                                        <div ng-message="pattern">Please enter a valid email</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="gb-form__group">
-                                    <label>
-                                        <span>Country</span>
-                                        <input type="text"
-                                               required
-                                               name="country"
-                                               ng-class="{isInvalid: userProfile.invalidCountry}"
-                                               autocomplete="off"
-                                               ng-model="userProfile.profile.settings.country"
-                                               typeahead-input-formatter="userProfile.formatTypehead(userProfile.searchSuggestions, userProfile.profile.settings.country)"
-                                               uib-typeahead="suggestion.key as suggestion.title for suggestion in userProfile.searchSuggestions | filter:$viewValue | limitTo:8"
-                                               typeahead-on-select="userProfile.typeaheadSelect($item, $model, $label, $event)"
-                                               typeahead-no-results="userProfile.invalidCountry"
-                                               typeahead-select-on-blur="true"
-                                               typeahead-editable="false"
-                                               typeahead-focus-first="true"
-                                               ng-disabled="!userProfile.inEditMode">
-                                    </label>
-                                    <div ng-messages="userProfile.profileForm.country.$error" class="text-error small" role="alert" ng-show="userProfile.profileFormInvalid">
-                                        <div ng-message="required">Country required</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <div class="clearfix" ng-if="userProfile.inEditMode">
-                        <p class="pull-right">
-                            <span ng-if="userProfile.profileFormInvalid" class="small text-error">
-                                Invalid profile update
-                            </span>
-                            <button class="pull-right text-uppercase gb-button--flat" type="submit">Save profile</button>
-                        </p>
-                    </div>
-                </form>
+                    <a href="/auth/github/connect" class="gb-button--github"
+                       ng-if="userProfile.profile.connectedAcounts && !userProfile.profile.connectedAcounts.github"><i></i><span
+                            class="gb-button--facebook__label">Connect with Github</span></a>
+                    <a href="/auth/github/disconnect" class="gb-button--github"
+                       ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.github"><i></i><span
+                            class="gb-button--facebook__label">Disconnect Github</span></a>
+                </div>
             </div>
-
-
-            <div ng-if="userProfile.inEditMode">
-                <form class="gb-form" name="userProfile.passwordForm" ng-submit="userProfile.changePassword()">
-                    <fieldset>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="gb-form__group">
-                                    <label>
-                                        <span>New password</span>
-                                        <input type="password" required name="newPassword" ng-minlength="6" ng-maxlength="256" ng-model="userProfile.newPassword">
-                                    </label>
-                                    <div ng-messages="userProfile.passwordForm.newPassword.$error" class="text-error small" role="alert" ng-show="userProfile.passwordFormInvalid">
-                                        <div ng-message="required">Password is required</div>
-                                        <div ng-message="minlength">Password must be 6 characters or more</div>
-                                        <div ng-message="maxlength">You password may not be above 256 characters</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="gb-form__group">
-                                    <label>
-                                        <span>Repeat new password</span>
-                                        <input type="password" required name="repeatedPassword" ng-pattern="userProfile.repeatPattern(userProfile.newPassword)" ng-model="userProfile.repeatedPassword">
-                                    </label>
-                                    <div class="text-error small" role="alert" ng-show="userProfile.repeatedPassword !== userProfile.newPassword">
-                                        <div>Not identical - please confirm the password</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="gb-form__group">
-                                    <label>
-                                        <span>Current password</span>
-                                        <input type="password" required name="oldPassword" required ng-model="userProfile.oldPassword">
-                                    </label>
-                                    <div ng-messages="userProfile.passwordForm.newPassword.$error" class="text-error small" role="alert" ng-show="userProfile.passwordFormInvalid">
-                                        <div ng-message="required">Password is required</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-6">
-                                <button class="pull-right m-t-1 text-uppercase gb-button--flat" type="submit">Change password</button>
-                            </div>
-
-                        </div>
-                    </fieldset>
-                    <div>
-                        <!--<p ng-if="vm.invalidLogin" class="small text-error">-->
-                        <!--Unable to log in. Unknown user or password.-->
-                        <!--</p>-->
-                        <!--<p class="m-t-1">-->
-                            <!--<button class="gb-button&#45;&#45;brand" type="submit">Change password</button>-->
-                        <!--</p>-->
-                        <!--&lt;!&ndash;<p class="small discreet">&ndash;&gt;-->
-                        <!--By signing in you accept GBIFs <a href="http://www.gbif.org/terms/overview">terms</a> and <a href="http://www.gbif.org/terms/privacy-policy">privacy policy</a>.-->
-                        <!--</p>-->
-                    </div>
-                </form>
-            </div>
-            <!--<a href="/auth/facebook/connect?state=%2Fpublisher%2Fsearch" class="gb-button&#45;&#45;primary">connect to facebook</a>-->
-
-
         </div>
+
     </div>
 </div>

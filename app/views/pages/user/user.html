@@ -3,7 +3,8 @@
         <div class="user white-background">
             <article class="wrapper-horizontal-stripes" ng-if="user.profile">
                 <div class="horizontal-stripe white-background">
-                    <div class="container--narrow">
+                    <div class="container--normal">
+                        <img class="pull-right circle" ng-src="{{user.profile.photo | imgCache:60:60 }}" ng-if="user.profile.photo">
                         <div class="m-b-1">
                             <span class="body-text">{{user.profile.userName}}</span>
                             <div class="small">
@@ -13,29 +14,41 @@
                     </div>
                 </div>
                 <div class="horizontal-stripe--paddingless white-background">
-                    <div class="container--narrow">
-                        <nav class="discreetTabs">
-                            <ul>
-                                <li class="tab" ng-class="{isActive: user.$state.is('userProfile') }">
-                                    <a href="" class="tab inherit noUnderline" ui-sref="userProfile()">Profile</a>
-                                </li>
-                                <li class="tab" ng-class="{isActive: user.$state.is('userDownloads') }">
-                                    <a href="" class="tab inherit noUnderline" ui-sref="userDownloads()">Downloads</a>
-                                </li>
-                                <li>
-                                    <a href="" class="tab inherit noUnderline" ng-click="user.logout()">Logout <span class="gb-icon-logout"></span></a>
-                                </li>
-                                <!--<li ng-class="{isActive: vm.active=='SETTINGS'}">-->
-                                <!--<a href="" class="inherit noUnderline" ui-sref="userSettings()" ng-click="vm.active='SETTINGS'">Settings</a>-->
-                                <!--</li>-->
-                            </ul>
-                        </nav>
+                    <div class="container--normal">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tabs__wrapper">
+                                    <nav class="tabs tabs--noBorder">
+                                        <ul>
+                                            <li class="tab" ng-class="{isActive: user.$state.is('userProfile') }">
+                                                <a href="" class="tab inherit noUnderline" ui-sref="userProfile()">Profile</a>
+                                            </li>
+                                            <li class="tab" ng-class="{isActive: user.$state.is('userDownloads') }">
+                                                <a href="" class="tab inherit noUnderline" ui-sref="userDownloads()">Downloads</a>
+                                            </li>
+                                            <li class="tab">
+                                                <!--<a href="" class="tab inherit noUnderline" ng-click="user.logout()">Logout <span class="gb-icon-logout"></span></a>-->
+                                                <a href="" ng-click="user.logout()">
+                                                    <span class="gb-icon-logout"></span>
+                                                <span>
+                                                    Logout
+                                                </span>
+                                                </a>
+                                            </li>
+                                            <!--<li ng-class="{isActive: vm.active=='SETTINGS'}">-->
+                                            <!--<a href="" class="inherit noUnderline" ui-sref="userSettings()" ng-click="vm.active='SETTINGS'">Settings</a>-->
+                                            <!--</li>-->
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div ui-view></div>
             </article>
             <div class="wrapper-horizontal-stripes" ng-if="!user.profile">
-                <div class="horizontal-stripe white-background">
+                <div class="horizontal-stripe light-background">
                     <div class="card card--login">
                         <div user-login></div>
                     </div>

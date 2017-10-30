@@ -8,7 +8,7 @@ angular
     .controller('userProfileCtrl', userProfileCtrl);
 
 /** @ngInject */
-function userProfileCtrl(User, BUILD_VERSION, LOCALE, regexPatterns, $http, toastService) {
+function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, toastService) {
     var vm = this;
     vm.disableEditing = false;
     vm.emailPattern = regexPatterns.email;
@@ -19,6 +19,13 @@ function userProfileCtrl(User, BUILD_VERSION, LOCALE, regexPatterns, $http, toas
         activeUser.then(function (response) {
             vm.profile = response.data;
             vm.original = JSON.parse(JSON.stringify(vm.profile));
+
+            //read flash cookie and remove it
+            var profileFlashInfo = $cookies.get('profileFlashInfo') || "{}";
+            $cookies.remove('profileFlashInfo', {path: '/'});
+            var profileInfo = JSON.parse(profileFlashInfo);
+            vm.errorMessage = profileInfo.error;
+            vm.provider = profileInfo.authProvider;
         }, function () {
             vm.loadingActiveUserFailed = true;
             //TODO handle errors - log out or inform user that the user cannot be loaded

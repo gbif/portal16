@@ -6381,11 +6381,6 @@
       "from": "moment@2.18.1",
       "resolved": "https://registry.npmjs.org/moment/-/moment-2.18.1.tgz"
     },
-    "moment-timezone": {
-      "version": "0.5.13",
-      "from": "moment-timezone@latest",
-      "resolved": "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.13.tgz"
-    },
     "mout": {
       "version": "1.0.0",
       "from": "mout@>=1.0.0 <2.0.0",
@@ -7032,6 +7027,11 @@
       "version": "2.1.1",
       "from": "passport-facebook@latest",
       "resolved": "https://registry.npmjs.org/passport-facebook/-/passport-facebook-2.1.1.tgz"
+    },
+    "passport-github2": {
+      "version": "0.1.11",
+      "from": "passport-github2@>=0.1.11 <0.2.0",
+      "resolved": "https://registry.npmjs.org/passport-github2/-/passport-github2-0.1.11.tgz"
     },
     "passport-http": {
       "version": "0.3.0",

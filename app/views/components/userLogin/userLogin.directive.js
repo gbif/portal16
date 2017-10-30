@@ -25,7 +25,7 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
     return directive;
 
     /** @ngInject */
-    function userLogin($q, $http, User, $scope, AUTH_EVENTS, toastService, $sessionStorage) {
+    function userLogin($cookies, $location, $stateParams, $q, $http, User, $scope, AUTH_EVENTS, toastService, $sessionStorage) {
         var vm = this;
         vm.disableRegistration = false;
         vm.emailPattern = regexPatterns.email;
@@ -38,26 +38,46 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
         vm.challenge;
         vm.verificationFailed = false;
 
+        //read flash cookie and remove it
+        var loginFlashInfo = $cookies.get('loginFlashInfo') || "{}";
+        $cookies.remove('loginFlashInfo', {path: '/'});
+        var loginState = JSON.parse(loginFlashInfo);
+
+        var state = loginState.state;
+        vm.countryCode = loginState.countryCode;
+        vm.username = loginState.userName;
+        vm.authProvider = loginState.authProvider;
+        vm.errorMessage = loginState.error;
+
+        function clearFlashMessage(){
+            vm.errorMessage = undefined;
+        }
+
         vm.getSuggestions = function () {
             //get list of countries
             var countryList = $http.get('/api/country/suggest.json?lang=' + LOCALE + '&v=' + BUILD_VERSION);//TODO needs localization of suggestions
             countryList.then(function (response) {
                 vm.searchSuggestions = response.data;
+                vm.country = vm.countryCode;
+            }).catch(function(){
+                vm.country = vm.countryCode;
             });
 
             //get users estimated location
             var geoip = $http.get('/api/utils/geoip/country');
 
             //once both are in, then set country to users location if not already set
-            $q.all([geoip, countryList]).then(function (values) {
-                var isoCode = _.get(values, '[0].data.countryCode');
-                if (isoCode) {
-                    var usersCountry = values[1].data.find(function (e) {
-                        return e.key === isoCode
-                    });
-                    vm.country = vm.country || usersCountry.key;
-                }
-            });
+            if (!vm.countryCode) {
+                $q.all([geoip, countryList]).then(function (values) {
+                    var isoCode = _.get(values, '[0].data.countryCode');
+                    if (isoCode) {
+                        var usersCountry = values[1].data.find(function (e) {
+                            return e.key === isoCode
+                        });
+                        vm.country = vm.country || usersCountry.key;
+                    }
+                });
+            }
         };
 
         vm.typeaheadSelect = function (item) { //  model, label, event
@@ -72,8 +92,8 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
 
         vm.getSuggestions();
 
-        vm.changeState = function (state) {
-            vm.loginState = vm.createState = vm.loggedinState = vm.resetState = vm.resetMailSentState = false;
+        vm.changeState = function (state, keepErrors) {
+            vm.loginState = vm.createState = vm.loggedinState = vm.resetState = vm.resetMailSentState = vm.externalAuthState = false;
             vm.formInvalid = false;
             vm.invalidLogin = false;
             switch (state) {
@@ -94,8 +114,14 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                 case 'RESET_MAIL_SENT':
                     vm.resetMailSentState = true;
                     break;
+                case 'EXTERNAL_AUTH_STATE':
+                    vm.externalAuthState = true;
+                    break;
                 default:
                     vm.loginState = true;
+            }
+            if (!keepErrors) {
+                clearFlashMessage();
             }
         };
 
@@ -216,16 +242,32 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
             }
         };
 
+        vm.createFromProvider = function(country, userName, provider) {
+            if (vm.createUserExternalAuth.$valid) {
+                window.location = '/auth/' + provider + '/register?countryCode=' + country + '&userName=' + userName;
+            } else {
+                vm.formInvalid = true;
+            }
+        };
+
         function getActiveUser() {
             vm.user = {};
             if ($sessionStorage.user) {
-                vm.changeState('LOGGEDIN');
+                vm.changeState('LOGGEDIN', true);
                 vm.user = $sessionStorage.user;
             } else {
-                vm.changeState('LOGIN');
+                if (state == 'REGISTER') {
+                    if (vm.authProvider) {
+                        vm.changeState('EXTERNAL_AUTH_STATE', true);
+                    } else {
+                        vm.changeState('CREATE', true);
+                    }
+
+                } else {
+                    vm.changeState('LOGIN', true);
+                }
             }
         }
-
         getActiveUser();
 
         vm.logout = function () {
