@@ -149,27 +149,30 @@ function logUserIn(res, user){
  * Sets the token as a secure cookie
  */
 function setTokenCookie(res, token) {
-    res.cookie('token', token,
-        {
-            maxAge: day * 7,
-            secure: isNotDevBuild,
-            httpOnly: true,
-            domain: '.' + topDomain
-        }
-    );
+    var options = {
+        maxAge: day * 7,
+        secure: isNotDevBuild,
+        httpOnly: true
+    };
+    if (topDomain) {
+        options.domain = '.' + topDomain;
+    }
+    res.cookie('token', token, options);
 }
 
 /**
  * Remove token cookie
  */
 function removeTokenCookie(res) {
-    res.cookie('token', '',
-        {
-            maxAge: 1,
-            secure: isNotDevBuild,
-            httpOnly: true
-        }
-    );
+    var options = {
+        maxAge: 1,
+        secure: isNotDevBuild,
+        httpOnly: true
+    };
+    if (topDomain) {
+        options.domain = '.' + topDomain;
+    }
+    res.cookie('token', '', options);
 }
 
 /**

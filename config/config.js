@@ -62,7 +62,7 @@ var config = {
         crawlerApi: crawlerApi || '//crawler.gbif.org/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://localhost:3000',
-        topDomain: '',
+        topDomain: undefined,
         credentials: credentials || '/etc/portal16/credentials',
         redirects: redirects || '/etc/portal16/redirects',
         verification: verification || (rootPath + '/app/models/verification/sample'),

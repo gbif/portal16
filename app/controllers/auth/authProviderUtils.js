@@ -31,7 +31,6 @@ function authCallback(req, res, next, err, profile, info, setProviderValues, pro
         throw new Error('Missing provider or id key');
         return;
     }
-
     auth.setNoCache(res);
     if (err) {
         next(err);
@@ -40,6 +39,7 @@ function authCallback(req, res, next, err, profile, info, setProviderValues, pro
     try {
         //assume that there is always a state associated with the call
         let state = JSON.parse(atob(req.query.state));
+        console.log(state);
         //LOGIN
         if (state.action == 'LOGIN') {
             login(req, res, next, state, profile, providerEnum, identificationKey);
@@ -70,6 +70,7 @@ function login(req, res, next, state, profile, providerEnum, identificationKey){
     //check to see if the profile is linked to any users
     let findQuery = {};
     findQuery[identificationKey] = profile.id;
+    console.log(findQuery);
     User.find(findQuery)
         .then(function(user){
             //the user was found - log in
