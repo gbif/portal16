@@ -7,9 +7,10 @@ angular
     .controller('userCtrl', userCtrl);
 
 /** @ngInject */
-function userCtrl(User, $sessionStorage, $scope, AUTH_EVENTS, $state) {
+function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state) {
     var vm = this;
     vm.$state = $state;
+    Page.setTitle('Profile');
 
     var activeUser = User.loadActiveUser();
     if (activeUser) {

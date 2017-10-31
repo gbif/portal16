@@ -14,6 +14,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/profile', function (req, res, next) {
+    auth.setNoCache(res);
     helper.renderPage(req, res, next, {}, 'pages/user/user');
 });
 router.get('/download', function (req, res, next) {

@@ -21,7 +21,17 @@ module.exports = {
  * Creates a new user
  */
 function create(req, res) {
-    userModel.create(req.body.user)
+    let user = {
+        userName: req.body.user.userName,
+        email: req.body.user.email,
+        password: req.body.user.password,
+        firstName: req.body.user.firstName,
+        lastName: req.body.user.lastName,
+        settings: {
+            country: req.body.user.settings.country
+        }
+    };
+    userModel.create(user)
         .then(function(){
             res.status(201);
             auth.setNoCache(res);

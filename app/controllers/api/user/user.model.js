@@ -13,6 +13,7 @@ module.exports = {
     confirm: confirm,
     login: login,
     getByUserName: getByUserName,
+    find: find,
     update: update,
     resetPassword: resetPassword,
     updateForgottenPassword: updateForgottenPassword,
@@ -83,6 +84,7 @@ async function resetPassword(userNameOrEmail) {
     if (response.statusCode > 299) {
         throw response;
     }
+    console.log(response);
     return response.body;
 }
 
@@ -127,6 +129,18 @@ async function getByUserName(userName) {
     let options = {
         method: 'GET',
         url: apiConfig.userAdmin.url + userName
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function find(query) {
+    let options = {
+        method: 'GET',
+        url: apiConfig.userFind.url + '?' + querystring.stringify(query)
     };
     let response = await authOperations.authenticatedRequest(options);
     if (response.statusCode !== 200) {
@@ -239,7 +253,7 @@ async function changePassword(auth, newPassword) {
 }
 
 function getClientUser(user){
-    //sanitize user somehow? i guess there isn't anything in the response that cannot goe out at this point. later perhaps some configurations that are for internal only
+    //sanitize user somehow? iThere isn't anything in the response that cannot go out at this point. later perhaps some configurations that are for internal only
     return {
         userName: user.userName,
         firstName: user.firstName,
@@ -247,7 +261,12 @@ function getClientUser(user){
         email: user.email,
         settings: {
             country: user.settings.country
-        }
+        },
+        connectedAcounts: {
+            facebook: _.has(user, 'systemSettings["auth.facebook.id"]'),
+            github: _.has(user, 'systemSettings["auth.github.id"]')
+        },
+        photo: _.get(user, 'systemSettings["auth.facebook.photo"]') || _.get(user, 'systemSettings["auth.github.photo"]')
     };
 }
 

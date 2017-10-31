@@ -129,8 +129,28 @@ require('angular-svg-round-progressbar');
     function chartjsConfig(ChartJsProvider) {
         // Configure all charts
         ChartJsProvider.setOptions({
-            chartColors: ['#FF5252', '#FF8A80'],
-            responsive: false
+            //chartColors: ['#61a861', '#803690', '#FF8A80'],
+            chartColors: [
+                {
+                    backgroundColor: '#61a861',
+                    borderColor: '#61a861',
+                    hoverBackgroundColor: '#56bb54',
+                    hoverBorderColor: '#56bb54'
+                },
+                {
+                    backgroundColor: '#65C6BB',
+                    borderColor: '#65C6BB',
+                    hoverBackgroundColor: '#65C6BB',
+                    hoverBorderColor: '#65C6BB'
+                },
+                {
+                    backgroundColor: '#1BBC9B',
+                    borderColor: '#1BBC9B',
+                    hoverBackgroundColor: '#1BBC9B',
+                    hoverBorderColor: '#1BBC9B'
+                }
+            ],
+            responsive: true
         });
         // Configure all line charts
         ChartJsProvider.setOptions('line', {

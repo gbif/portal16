@@ -200,6 +200,9 @@ Filter by Landan Lloyd from the Noun Project - https://thenounproject.com/search
 Data Architecture by MRFA from the Noun Project - https://thenounproject.com/search/?q=family%20tree&i=440017
 Click by Viktor Vorobyev from the Noun Project - https://thenounproject.com/search/?q=mouse%20arrow&i=859256
 youtube by Roman Shvets from the Noun Project - https://thenounproject.com/search/?q=youtube&i=897674
+Table by Arthur Shlain from the Noun Project - https://thenounproject.com/search/?q=excel&i=138432
+Upload by Chinnaking from the Noun Project - https://thenounproject.com/search/?q=upload&i=1195513
+Server by Aybige from the Noun Project - https://thenounproject.com/search/?q=server&i=1283372
 Vimeo by <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 

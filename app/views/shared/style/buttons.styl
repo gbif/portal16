@@ -60,6 +60,42 @@
     }
 }
 
+.gb-button--logo {
+    @extends .gb-button--colored
+    background-color #4267b2
+    &__label {
+        color white
+        vertical-align text-bottom
+    }
+    i {
+        background-image url("/img/social/FB-f-Logo__white_29.png")
+        background-repeat no-repeat
+        background-size contain
+        width 20px
+        height 20px
+        margin-right 10px
+        display inline-block
+        position relative
+        bottom -3px
+    }
+}
+
+.gb-button--facebook {
+    @extends .gb-button--logo
+    background-color #4267b2
+    i {
+        background-image url("/img/social/FB-f-Logo__white_29.png")
+    }
+}
+
+.gb-button--github{
+    @extends .gb-button--logo
+    background-color #555
+    i {
+        background-image url("/img/social/GitHub-Mark-Light-32px.png")
+    }
+}
+
 .gb-button--error {
     @extends .gb-button--colored
     background tomato

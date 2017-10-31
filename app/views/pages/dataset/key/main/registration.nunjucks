@@ -87,8 +87,15 @@
                         <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.lastSuccess">
-                        <dt class="text-capitalize">Last Successful crawl</dt>
-                        <dd>{{ datasetKey.processSummary.lastSuccess.finishedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
+                        <dt class="text-capitalize">Last successful crawl</dt>
+                        <dd>
+                            {{ datasetKey.processSummary.lastSuccess.finishedCrawling | amDateFormat:'D MMMM YYYY' }} <span>({{ datasetKey.processSummary.lastSuccess.finishReason | prettifyEnum }})</span>
+                        </dd>
+                    </div>
+                    <div ng-if="datasetKey.processSummary.lastSuccess.finishReason !== 'NORMAL'">
+                        <dt class="text-capitalize">Last successful crawl with changes</dt>
+                        <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | amDateFormat:'D MMMM YYYY' }} <span>({{ datasetKey.processSummary.lastNormal.finishReason | prettifyEnum }})</span></span>
+                        <span ng-if="!datasetKey.processSummary.lastNormal">Unknown, but none since {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</span>
                     </div>
                     <div ng-if="datasetKey.processSummary.finished > 0">
                         <dt class="text-capitalize">Crawling completion reasons</dt>
@@ -109,7 +116,7 @@
                         <dd>{{ datasetKey.processSummary.analyzedCount }}</dd>
                     </div>
                 </dl>
-                <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Crawled before 2013-11-06</p>
+                <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Crawled before {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</p>
                 <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet">This dataset has no crawl entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>
                 <p class="discreet" ng-if="datasetKey.currentCrawlingStatus.datasetKey">Currently being crawled <span gb-help="time-to-index-dataset"></span></p>
             </div>

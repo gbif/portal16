@@ -38,7 +38,7 @@ router.get('/issues', function (req, res) {
 
         //query github for issues with the extracted page identifier in the title
         ghsearch.issues({
-            q: item + ' is:issue is:open label:"public relevance" in:body+repo:' + credentials.repository,
+            q: item + ' is:issue is:open label:"data content" -label:"Not public relevant" -label:"Under review" in:body+repo:' + credentials.repository,
             sort: 'created', //'reactions-+1',
             order: 'desc',
             per_page: 5
@@ -57,7 +57,7 @@ router.get('/issues', function (req, res) {
                     }
                 });
                 //link to all the issues for this page item
-                data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open label:content -label:"Under review" in:body');
+                data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open label:"data content" -label:"Not public relevant" -label:"Under review" in:body');
                 res.json(data);
             }
         });
