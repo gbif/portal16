@@ -26,6 +26,7 @@ async function getProcessSummary(key) {
     let summary = {
         lastAttempt: undefined,
         lastSuccess: undefined,
+        lastNormal: undefined,
         failuresSinceLastSuccess: 0,
         stats: {
             NORMAL: undefined,
@@ -47,6 +48,11 @@ async function getProcessSummary(key) {
                 summary.lastSuccess = attempt;
             } else if(attempt.finishReason) {
                 summary.failuresSinceLastSuccess++;
+            }
+        }
+        if (!summary.lastNormal) {
+            if (attempt.finishReason == 'NORMAL') {
+                summary.lastNormal = attempt;
             }
         }
         if (attempt.finishReason) {
