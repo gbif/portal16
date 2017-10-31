@@ -115,7 +115,7 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
     function getOriginalDarwinCoreArchive(endpoints) {
         endpoints = endpoints || [];
         return endpoints.find(function (e) {
-            return e.type == 'DWC_ARCHIVE' || e.type == 'BIOCASE';
+            return e.type == 'DWC_ARCHIVE';
         });
     }
 
