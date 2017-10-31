@@ -61,12 +61,14 @@
                             <input type="url" name="fileurl" placeholder="http://example.com/dwca.zip" ng-model="vm.resourceToValidate.fileUrl">
                                 </md-input-container>
                             </div>
+
                             <button type="submit" class="md-raised md-primary md-button md-ink-ripple"
                             ng-click="vm.handleFileUrl(vm.resourceToValidate)">Submit
                             </button>
-
+                                <div class="smaller discreet--very" translate="validation.fileSizeLimit"></div>
                             </form>
                             </div>
+
 
                         </div>
                         <div class="m-t-1" ng-if="vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING'" layout="row">

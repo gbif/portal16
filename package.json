@@ -142,7 +142,7 @@
     "messageformat": "^1.0.2",
     "method-override": "^2.3.0",
     "moment": "^2.18.1",
-    "moment-timezone":"^0.5.13",
+    "moment-timezone": "^0.5.14",
     "ng-infinite-scroll": "^1.2.1",
     "ngstorage": "^0.3.11",
     "node-cache": "^4.1.1",

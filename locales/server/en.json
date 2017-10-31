@@ -2341,6 +2341,7 @@
         "title": "Meta descriptor"
         }
     },
+    "fileSizeLimit": "File size limit: 100 mb",
     "receivedMediaType": "Media Type",
     "validationProfile": {
       "title": "Validation Profile",

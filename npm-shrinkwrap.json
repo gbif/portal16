@@ -6381,6 +6381,11 @@
       "from": "moment@2.18.1",
       "resolved": "https://registry.npmjs.org/moment/-/moment-2.18.1.tgz"
     },
+    "moment-timezone": {
+      "version": "0.5.14",
+      "from": "moment-timezone@latest",
+      "resolved": "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.14.tgz"
+    },
     "mout": {
       "version": "1.0.0",
       "from": "mout@>=1.0.0 <2.0.0",
