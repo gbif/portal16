@@ -16,7 +16,7 @@ let url = apiConfig.newsroom.url+'events/'+req.params.key;
 
     let newReq = http.request(url, function(newRes) {
         let headers = newRes.headers;
-        
+
         headers['content-type'] = 'text/Calendar';
         res.writeHead(newRes.statusCode, headers);
         newRes.pipe(res);

@@ -1,6 +1,6 @@
 'use strict';
 var _ = require('lodash'),
-moment = require('moment'),
+moment = require('moment-timezone'),
 fixedUtil = require('../../dataset/key/main/submenu');
 
 require('./feedback.service');
@@ -54,8 +54,9 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
             vm.dataApi + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
 
         ).success(function (data) {
-            vm.startTimestamp = moment(data.startTimestamp).subtract(moment().utcOffset(), 'minutes').fromNow();
-            vm.generatedDate = moment(data.startTimestamp);
+            vm.startTimestamp = moment.utc(data.startTimestamp).subtract(moment().tz("Europe/Copenhagen").utcOffset(), 'minutes').fromNow()
+            vm.generatedDate = moment.utc(data.startTimestamp).subtract(moment().tz("Europe/Copenhagen").utcOffset(), 'minutes');
+            
             handleValidationSubmitResponse(data);
         }).error(function (err, status, headers) { //data, status, headers, config
 
