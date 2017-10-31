@@ -169,6 +169,7 @@ function removeTokenCookie(res) {
         secure: isNotDevBuild,
         httpOnly: true
     };
+    res.cookie('token', '', options);
     if (topDomain) {
         options.domain = '.' + topDomain;
     }
