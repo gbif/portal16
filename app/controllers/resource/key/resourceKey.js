@@ -18,7 +18,8 @@ module.exports = {
     getParticipant: getParticipant,
     getHomePage: getHomePage,
     getByAlias: getByAlias,
-    getById: getById
+    getById: getById,
+    getFirst: getFirst
 };
 
 
@@ -76,6 +77,7 @@ function decorateFirst(results){
     };
     return contentItem;
 }
+
 async function getParticipant(directoryId, depth, isPreview, locale) {
     let participants = await searchContentful({
             content_type: 'Participant',
@@ -86,17 +88,25 @@ async function getParticipant(directoryId, depth, isPreview, locale) {
 }
 
 async function getByAlias(urlAlias, depth, isPreview, locale) {
-    let articles = await searchContentful({
-            content_type: 'article',
-            'fields.urlAlias': urlAlias
-        }, depth, isPreview, locale);
-        if (articles.total == 0) {
-            throw {
-                statusCode: 404,
-                message: 'No such article'
-            }
+    let query = {
+        content_type: 'article',
+        'fields.urlAlias': urlAlias
+    };
+    return getFirst(query, depth, isPreview, locale);
+}
+
+async function getFirst(query, depth, isPreview, locale) {
+    query = query || {};
+    query.content_type = _.isString(query.content_type) ? query.content_type : 'article';
+
+    let articles = await searchContentful(query, depth, isPreview, locale);
+    if (articles.total == 0) {
+        throw {
+            statusCode: 404,
+            message: 'No such item'
         }
-        let first = decorateFirst(articles);
+    }
+    let first = decorateFirst(articles);
     return first;
 }
 
