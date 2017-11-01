@@ -136,6 +136,7 @@
     "lost": "^6.6.3",
     "mapbox-gl": "^0.28.0",
     "markdown-it": "^8.0.0",
+    "markdown-it-imsize": "^2.0.1",
     "markdown-it-video": "^0.4.0",
     "marked": "https://registry.npmjs.org/marked/-/marked-0.3.6.tgz",
     "maxmind": "^2.1.0",

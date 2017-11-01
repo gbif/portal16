@@ -14,6 +14,8 @@ var format = require('../helpers/format'),
         prezi: {width: 550, height: 400}
     });
 
+    md.use(require('markdown-it-imsize'), { autofill: false });
+
 module.exports = function (nunjucksConfiguration) {
 
     (function () {
