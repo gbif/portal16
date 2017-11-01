@@ -2450,7 +2450,7 @@
     "placeholders": {
       "summary": "Summary",
       "description": "Detailed description",
-      "username": "Your email or Github username (public and optional)"
+      "username": "Your email or Github username (public)"
     },
     "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
     "bugReport": "bug",
