@@ -39,7 +39,6 @@ function filterTaxonDirective(BUILD_VERSION) {
         vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);
 
         vm.usedKeys = {};
-        vm.usedSynonyms = {};
 
         $scope.$watch(function () {
             return vm.filterState.query[vm.queryKey]
@@ -56,34 +55,15 @@ function filterTaxonDirective(BUILD_VERSION) {
             }
         });
 
-        function getFullResource(key, cb) {
-            vm.filterConfig.expand.resource.get({id: key}, cb);
+        function getFullResource(key) {
+            vm.filterConfig.expand.resource.get({id: key}, function (data) {
+                vm.usedKeys[key] = data[vm.filterConfig.search.suggestTitle];
+            });
         }
-
 
         function resolveAllKeys() {
             vm.query.forEach(function (e) {
-                getFullResource(e, function(data){
-
-                    if(data.taxonomicStatus === "SYNONYM" &&  data.acceptedKey && data.accepted){
-
-                        vm.remove(e);
-
-                        vm.usedSynonyms[data.acceptedKey] = data.scientificName;
-
-                        vm.usedKeys[data.acceptedKey] = data.accepted;
-
-                        vm.query.push(data.acceptedKey.toString().toLowerCase());
-                        vm.apply();
-
-                    } else {
-
-                        vm.usedKeys[e] = data[vm.filterConfig.search.suggestTitle];
-
-                    }
-
-
-                });
+                getFullResource(e);
             });
         }
 
@@ -157,43 +137,13 @@ function filterTaxonDirective(BUILD_VERSION) {
             if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
             var searchString = item.key.toString().toLowerCase();
             if (vm.query.indexOf(searchString) < 0) {
-
+                vm.usedKeys[item.key] = item[vm.filterConfig.search.suggestTitle];
+                vm.query.push(searchString);
                 vm.selected = '';
                 if (vm.filterConfig.expand) {
-                    getFullResource(item.key, function (data) {
-
-                        if(data.taxonomicStatus === "SYNONYM" &&  data.acceptedKey && data.accepted){
-
-                            vm.usedSynonyms[data.acceptedKey] = data.scientificName;
-
-                            vm.usedKeys[data.acceptedKey] = data.accepted;
-
-                            var k = data.acceptedKey.toString().toLowerCase();
-                            if(vm.query.indexOf(k) === -1){
-
-                                vm.query.push(k);
-
-                            }
-
-
-                        } else {
-                            vm.usedKeys[item.key] = data[vm.filterConfig.search.suggestTitle];
-
-                                vm.query.push(item.key.toString().toLowerCase());
-
-                        };
-
-                        vm.apply();
-
-
-                    });
-                } else {
-                    vm.usedKeys[item.key] = item[vm.filterConfig.search.suggestTitle];
-                    vm.query.push(searchString);
-                    vm.apply();
+                    getFullResource(item.key);
                 }
-
-
+                vm.apply();
             }
         };
 
@@ -204,11 +154,9 @@ function filterTaxonDirective(BUILD_VERSION) {
         };
 
 
-
         vm.remove = function (key) {
             vm.query.splice(vm.query.indexOf(key), 1);
            delete vm.usedKeys[key];
-            delete vm.usedSynonyms[key];
             vm.apply();
         };
 

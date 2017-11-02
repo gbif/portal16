@@ -17,7 +17,7 @@
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
                              ng-if="vm.filterConfig.facets.hasFacets"></div>
-                        <span ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}" ng-bind-html="(vm.usedSynonyms[key]) ? (vm.usedKeys[key] +'<br>= '+vm.usedSynonyms[key]) : vm.usedKeys[key]"></span>
+                        <span ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}">{{vm.usedKeys[key]}}</span>
                         <span class="filter-group__filter__name__count"
                               ng-if="vm.showFacetCount() && vm.filterState.data.facets">
                             {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
