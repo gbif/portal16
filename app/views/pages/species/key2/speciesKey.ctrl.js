@@ -40,16 +40,18 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.$state = $state;
     vm.BUILD_VERSION = BUILD_VERSION;
 
-
+    vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
     vm.species = Species.get({id: vm.key});
-
+    vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});
     vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
     vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
-
+    vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
     vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 50});
 
 
-
+    vm.images.$promise.then(function(resp){
+        utils.attachImages(resp.results);
+    });
 
     vm.speciesImages.$promise.then(function(resp){
         utils.attachImages(resp.results);
@@ -88,24 +90,6 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
             }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
             getCitesStatus(resp.kingdom, resp.canonicalName);
-            if(!vm.isSynonym){
-                vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});
-                vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
-                vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
-                vm.mapFilter = {taxon_key: vm.key};
-
-            } else {
-                vm.occurrences = OccurrenceSearch.query({taxon_key: vm.species.acceptedKey});
-                vm.images = OccurrenceSearch.query({taxon_key: vm.species.acceptedKey, media_type: 'stillImage', limit: 20});
-                vm.capabilities = MapCapabilities.get({taxonKey: vm.species.acceptedKey});
-                vm.mapFilter = {taxon_key: vm.species.acceptedKey};
-
-            }
-
-            vm.images.$promise.then(function(resp){
-                utils.attachImages(resp.results);
-            });
-
         });
 
 
@@ -185,16 +169,14 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
         }
 
     };
-    vm.species.$promise.then(function(){
-        vm.occurrences.$promise.catch(vm.criticalErrorHandler);
-        vm.images.$promise.catch(vm.nonCriticalErrorHandler);
-        vm.capabilities.$promise.catch(vm.criticalErrorHandler);
-
-    }).catch(vm.criticalErrorHandler);
+    vm.species.$promise.catch(vm.criticalErrorHandler);
     vm.mappedOccurrences.$promise.catch(vm.criticalErrorHandler);
+    vm.occurrences.$promise.catch(vm.criticalErrorHandler);
+    vm.capabilities.$promise.catch(vm.criticalErrorHandler);
 
     vm.vernacularName.$promise.catch(vm.nonCriticalErrorHandler);
     vm.speciesImages.$promise.catch(vm.nonCriticalErrorHandler);
+    vm.images.$promise.catch(vm.nonCriticalErrorHandler);
     vm.descriptions.$promise.catch(vm.nonCriticalErrorHandler);
     vm.combinations.$promise.catch(vm.nonCriticalErrorHandler);
     vm.distributions.$promise.catch(vm.nonCriticalErrorHandler);

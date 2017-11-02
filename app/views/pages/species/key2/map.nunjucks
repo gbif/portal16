@@ -1,8 +1,8 @@
-<div class="container--desktop m-t-1" ng-if="speciesKey2.capabilities && speciesKey2.capabilities.total > 0">
+<div class="container--desktop m-t-1" ng-if="speciesKey2.capabilities.total > 0">
     <h4 class="text-muted small text-uppercase">{{ speciesKey2.capabilities.total | localNumber }}  georeferenced records</h4>
     <div class="card">
-        <div ng-if="speciesKey2.mapFilter">
-            <map-widget filter="speciesKey2.mapFilter"></map-widget>
+        <div ng-if="speciesKey2.key">
+            <map-widget filter="{taxon_key: speciesKey2.key}"></map-widget>
         </div>
     </div>
 </div>
