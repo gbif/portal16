@@ -47,6 +47,12 @@
                 <li>
                     <a class="text-capitalize" ng-href="/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
                 </li>
+                <li ng-if="result.openAccess">
+                    <a class="text-capitalize" ng-href="/resource/search?contentType=literature&openAccess=true" translate="filters.openAccess.title"></a>
+                </li>
+                <li ng-if="result.peerReview">
+                    <a class="text-capitalize" ng-href="/resource/search?contentType=literature&peerReview=true" translate="filters.peerReview.title"></a>
+                </li>
             </ul>
             <div ng-if="result._gbifDOIs.length > 0">
                 <span class="small discreet--very">Data used in study</span>
