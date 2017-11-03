@@ -382,10 +382,10 @@ function mapWidgetDirective(BUILD_VERSION) {
                 E = extent[2];
 
             var str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
-                    .replace(/N/g, N.toFixed(2))
-                    .replace(/S/g, S.toFixed(2))
-                    .replace(/W/g, W.toFixed(2))
-                    .replace(/E/g, E.toFixed(2));
+                    .replace(/N/g, N.toFixed(5))
+                    .replace(/S/g, S.toFixed(5))
+                    .replace(/W/g, W.toFixed(5))
+                    .replace(/E/g, E.toFixed(5));
             //if we are seeing all of earth then do not filter on bounds. TODO, this will be different code for other projections. How to handle that well?
             if (Math.abs(E - W) >= 180) {
                 str = undefined;
