@@ -60,7 +60,7 @@
             <a href="/auth/github/login" class="gb-button--github center-block m-t-05"><i></i><span class="gb-button--facebook__label">Continue with Github</span></a>
         </p>
         <p class="small discreet">
-            By signing in you accept GBIFs <a ng-href="{{ portal.urlPrefix }}/terms">terms</a> and <a ng-href="{{ portal.urlPrefix }}/terms/privacy-policy">privacy policy</a>.
+            By signing in you accept GBIFs <a ng-href="{{ portal.urlPrefix }}/terms" target="_blank">terms</a> and <a ng-href="{{ portal.urlPrefix }}/terms/privacy-policy" target="_blank">privacy policy</a>.
         </p>
     </form>
 
@@ -160,7 +160,7 @@
                 <button type="submit" class="gb-button--brand" ng-click="vm.signup()">Sign up</button>
             </p>
             <p class="small discreet">
-                By creating an account you accept GBIFs <a href="">terms</a> and <a href="">privacy policy</a>.
+                By creating an account you accept GBIFs <a ng-href="{{ portal.urlPrefix }}/terms" target="_blank">terms</a> and <a ng-href="{{ portal.urlPrefix }}/terms/privacy-policy" target="_blank">privacy policy</a>.
             </p>
         </div>
         
