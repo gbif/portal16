@@ -156,6 +156,9 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
 
     function getFeature(coverage) {
         var b = coverage.boundingBox;
+        if (b.minLongitude > b.maxLongitude) {
+            b.maxLongitude += 360;
+        }
         return {
             "type": "Feature",
             "properties": {
