@@ -3,7 +3,6 @@
 var baseConfig = require('../../../config/config'),
     clientTileApi = baseConfig.tileApi,
     baseUrl = baseConfig.serverProtocol + baseConfig.dataApi,
-    crawlerUrl = baseConfig.serverProtocol + baseConfig.crawlerApi,
     identityBaseUrl = baseConfig.serverProtocol + baseConfig.identityApi;
 
 // TODO Establish URL concatenation policy. Always no trailing slash?
@@ -24,7 +23,7 @@ var apiConfig = {
         url: baseUrl + 'dataset/search/'
     },
     crawlingDatasetProcessRunning: {
-        url: crawlerUrl + 'dataset/process/running'
+        url: baseUrl + 'dataset/process/running'
     },
     image: {
         url: baseConfig.dataApi + 'image/unsafe/'
