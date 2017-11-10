@@ -8,8 +8,8 @@ module.exports = function (app) {
     app.use('/api/verification', router);
 };
 
-router.get('/image/:id/:name', function (req, res) {
-    verifier.resolveImageName(req.params.id, req.params.name, function(err, location){
+router.get('/image', function (req, res) {
+    verifier.resolveImageName(req.query.id, function(err, location){
         if (!err) {
             auth.setNoCache(res);
             res.sendFile(location);

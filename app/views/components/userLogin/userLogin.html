@@ -147,12 +147,12 @@
                         </div>
                     </div>
                     <div class="verification__img">
-                        <img ng-src="/api/verification/{{vm.challenge.challenge}}">
+                        <img ng-src="/api/verification/image?id={{vm.challenge.challenge}}">
                     </div>
                 </div>
                 <div class="verification__options">
                     <a hre="" ng-repeat="option in vm.challenge.options" class="verification__img" ng-class="{isSelected: vm.answer[$index]}" ng-click="vm.answer[$index]=!vm.answer[$index]">
-                        <img ng-src="/api/verification/{{option}}">
+                        <img ng-src="/api/verification/image?id={{option}}">
                     </a>
                 </div>
             </div>

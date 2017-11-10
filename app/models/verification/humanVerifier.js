@@ -1,17 +1,16 @@
 "use strict";
 
-var NodeCache = require("node-cache"),
-    randomstring = require("randomstring"),
+var randomstring = require("randomstring"),
     _ = require('lodash'),
     path = require('path'),
+    encrypt = require('./encrypt'),
     Chance = require('chance'),
     chance = new Chance();
 
 module.exports = humanVerifier;
 
 function humanVerifier(conf) {
-    var config = conf,
-        challengeCache = new NodeCache({stdTTL: 60, checkperiod: 10, errorOnMissing: true});
+    var config = conf;
 
     function getRandomImages(group, number, isCorrect) {
         var totalImagesinCategory = group.images.length;
@@ -22,8 +21,10 @@ function humanVerifier(conf) {
             return images.map(function (img) {
                 return {
                     isCorrect: isCorrect,
-                    name: randomstring.generate(5),
-                    img: group.folder + '/' + img
+                    name: encrypt.encryptJSON({
+                        issuedAt: Date.now(),
+                        path: group.folder + '/' + img
+                    })
                 }
             });
         }
@@ -40,14 +41,9 @@ function humanVerifier(conf) {
             cat3 = getRandomImages(categories[2], 3, false),
             images = _.concat(cat2, cat3, cat1),
             queryImage,
-            answer = [],
-            imageMap = {};
+            answer = [];
 
-        //add a mapping between random names and the actual image paths
-        images.forEach(function (e) {
-            imageMap[e.name] = e.img;
-        });
-        queryImage = path.join('image', challenge.id, images.pop().name);
+        queryImage = images.pop().name;
 
         images = chance.shuffle(images);//images should be in a random order
 
@@ -61,7 +57,7 @@ function humanVerifier(conf) {
 
         //reduce images to masked name only
         images = images.map(function (e) {
-            return path.join('image', challenge.id, e.name)
+            return e.name
         });
 
         //create challenge obj to return
@@ -69,59 +65,52 @@ function humanVerifier(conf) {
         challenge.options = images;
 
         //corresponding secret with answers and resolver for image names
-        var challengeSecret = {
+        var answerToken = {
             answer: answer,
-            imageResolver: imageMap
+            issuedAt: Date.now()
         };
 
-        //save challenge answer in a temporary storage that is deleted after around 60 seconds
-        challengeCache.set(challenge.id, challengeSecret, function (err, success) {
-            if (!err && success) {
-                cb(null, challenge);
-            } else {
-                cb('failed to create challenge');
-            }
+        cb(null, {
+            options: images,
+            challenge: queryImage,
+            id: encrypt.encryptJSON(answerToken)
         });
     }
 
     //verify that the answer to the challenge is correct. takes id and array of ids (corresponding to the array)
     //returns true or false
-    function verify(id, answer, cb) {
-        if (!id || !_.isArray(answer) || answer.length != 3) {
-            return cb(false);
-        }
-        challengeCache.get(id, function (err, challenge) {
-            if (!err) {
-                //the challenge should be deleted so there is only one attempt
-                challengeCache.del(id, function () {//err, count
-                    //failure isn't good. if it isn't deleted the user will have two attempts.
-                    //try again? try to overwrite it? flush everything?
-                });
-                //is the responded answer array the same as the one we know to bt the answer
-                let isHumanEnough = _.isEqual(challenge.answer, answer.sort());
-                //response with delay as comparisons are vulnerable to timing attacks - a fixed total delay would of course be better
-                setTimeout(function(){
-                    return cb(isHumanEnough);
-                }, chance.integer({min: 100, max: 200}) );
-            } else {
-                //if something fails, then simply return false for not verified.
+    function verify(encryptedAnswer, answer, cb) {
+        try {
+            if (!encryptedAnswer || !_.isArray(answer) || answer.length != 3) {
                 return cb(false);
             }
-        });
+            var challenge = encrypt.decryptJSON(encryptedAnswer);
+
+            //is the responded answer array the same as the one we know to bt the answer
+            let isHumanEnough = _.isEqual(challenge.answer, answer.sort());
+            //response with delay as comparisons are vulnerable to timing attacks - a fixed total delay would of course be better
+            setTimeout(function () {
+                return cb(isHumanEnough);
+            }, chance.integer({min: 100, max: 200}));
+        } catch(err) {
+            return cb(false);
+        }
     }
 
     /*
      when return challenge img, then names are not the same from time to time. this method resolves the proper name of the file to return
      */
-    function resolveImageName(id, name, cb) {
-        challengeCache.get(id, function (err, challenge) {
-            if (!err) {
-                var imageName = _.get(challenge, 'imageResolver.' + name, '');
-                cb(null, imageName);
+    function resolveImageName(name, cb) {
+        try {
+            var img = encrypt.decryptJSON(name);
+            if (Date.now() - img.issuedAt < 1000 * 60) {
+                cb(null, img.path);
             } else {
                 cb('NOT_FOUND');
             }
-        });
+        } catch (err) {
+            cb('NOT_FOUND');
+        }
     }
 
     return {
@@ -130,5 +119,3 @@ function humanVerifier(conf) {
         resolveImageName: resolveImageName
     }
 }
-
-

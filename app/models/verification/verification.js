@@ -7,8 +7,8 @@ var verificationFolder = rootRequire('config/config').verification,
 module.exports = {
     getChallenge: verifier.getChallenge,
     verify: verifier.verify,
-    resolveImageName: function (id, name, cb) {
-        verifier.resolveImageName(id, name, function (err, name) {
+    resolveImageName: function (name, cb) {
+        verifier.resolveImageName(name, function (err, name) {
             if (name) {
                 name = path.join(verificationFolder, name);
             }
