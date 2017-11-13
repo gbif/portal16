@@ -2,15 +2,17 @@
 
 var chai = require('chai'),
     expect = chai.expect,
+    endpointTest = require('./endpointTest'),
     querystring = require('querystring'),
     request = require('requestretry'),
     randomWords = require('random-words'),
+    async = require('async'),
     Q = require('q'),
     _ = require('lodash'),
     severity = {
-        OK: 0,
-        WARNING: 1,
-        CRITICAL: 2
+        OPERATIONAL: 'OPERATIONAL',
+        SLOW: 'SLOW',
+        CRITICAL: 'CRITICAL'
     },
     unknownError = {
         message: 'Unknown error calling endpoint',
@@ -18,126 +20,167 @@ var chai = require('chai'),
         status: severity.CRITICAL
     };
 
-module.exports = {statusCheck, severity};
 
+function start(config, done, progress, failed) {
+    var tests = createTests(config);
+    startCustom(tests, done, progress, failed);
+}
 
-function check(config) {
-    //check that the configuration is correct
-    config.severity = config.severity || severity.CRITICAL;
-    expect(config.url, 'Missing URL in request').to.be.a('string');
-    expect(config.component, 'Missing component').to.be.a('string');
-    expect(config.severity, 'Invalid severity').to.be.an('number');
+function startCustom(tests, done, progress, failed) {
+    var componentCounts = {};
+    var results = [];
 
-    //configure the request
-    var options = {};
-    options.method = config.method || 'GET';
-    options.json = config.json || true;
-    options.url = config.url;
-    options.maxAttempts = 2;
-    options.retryDelay = 500;
-    options.timeout = 30000;
-    if (config.type == 'MAX_RESPONSE_TIME') {
-        options.timeout = config.val + 500;
-        options.maxAttempts = 1;
-    }
+    tests.forEach(function (t) {
+        var c = t.component ||'OTHER';
+        componentCounts[c] = componentCounts[c] ? componentCounts[c] + 1 : 1
+    });
 
-    if (config.randomWord) {
-        options.url = config.url.replace('RANDOM_WORD', randomWords());
-    }
+    //monitor progress
+    var intervalUpdate = setInterval(function () {
+        var summary = createSummary(results, componentCounts);
+        progress(summary);
+    }, 1000);
 
-    var deferred = Q.defer();
-    var start = new Date(); // process.hrtime() would be more precise for timing but that doesn't work in the client (in case we want this running there as well)
-    request(options, function(err, response){
-        var elapsed = new Date() - start;
+    //run all tests
+    async.each(tests, function (test, callback) {
+        test.start(function (result) {
+            results.push(result);
+            callback();
+        });
+    }, function (err) {
+        clearInterval(intervalUpdate);
+        // if any of the file processing produced an error, err would equal that error
         if (err) {
-            if (err.code == 'ESOCKETTIMEDOUT') {
-                deferred.resolve({
-                    message: 'Response too slow : ' + elapsed,
-                    status: config.severity,
-                    component: config.component,
-                    test: config
-                });
-            } else {
-                deferred.resolve(unknownError);
-            }
+            failed(err);
+        } else {
+            var summary = createSummary(results, componentCounts);
+            done(summary);
         }
-        deferred.resolve(testExpectation(response, elapsed, config));
     });
-    return deferred.promise;
+
+    //report initial state
+    var summary = createSummary(results, componentCounts);
+    progress(summary);
 }
 
-function testExpectation(response, elapsed, test) {
-    try {
-        if (test.type !== 'STATUS' && response.statusCode !== 200) {
-            return {
-                message: 'Unexpected status code: expected 200 but got ' + response.statusCode,
-                status: severity.CRITICAL,
-                component: test.component,
-                test: test
-            }
-        }
-        switch (test.type) {
-            case 'STATUS': expect(response.statusCode, test.message || 'Unexpected status code').to.equal(test.val);
-                break;
-            case 'MAX_RESPONSE_TIME': expect(elapsed, test.message || 'Response too slow').to.be.below(test.val);
-                break;
-            case 'HAVE_PROPERTY': expect(response.body, test.message || 'Missing JSON property').to.have.nested.property(test.key);
-                break;
-            case 'HAVE_VALUE': expect(_.get(response, 'body.' + test.key), test.message || 'Wrong value for key').to.equal(test.val);
-                break;
-            case 'NUMBER_ABOVE': expect(_.get(response, 'body.' + test.key), test.message || 'Wrong count').to.be.above(test.val);
-                break;
-            case 'NUMBER_BELOW': expect(_.get(response, 'body.' + test.key), test.message || 'Wrong count').to.be.below(test.val);
-                break;
-            case 'CONTAIN': expect(JSON.stringify(response.body), test.message || 'Expected string').to.have.string(test.val);
-                break;
-            default:
-                break;
-        }
-        return {
-            status: severity.OK,
-            component: test.component,
-            test: test
-        }
-    } catch(err) {
-        return {
-            message: err.message.substr(0,300),
-            status: test.severity,
-            component: test.component,
-            test: test
-        }
-    }
-}
-
-function statusCheck(tests){
-    var deferred = Q.defer();
-    if (!_.isArray(tests)){
-        tests = [tests];
-    }
-    Q.all(tests.map(function(t){return check(t);})).then(function(results){
-        var summary = summarize(results);
-        deferred.resolve({results, summary});
-    }).catch(function(err){
-        deferred.reject(err);
+function createTests(config) {
+    //map config to runnable tests
+    var tests = config.map(function (c) {
+        return endpointTest.fromConfig(c);
     });
-    return deferred.promise;
+    return tests;
 }
 
-function summarize(results){
+var priorityMap = {
+    OPERATIONAL: 0,
+    SLOW: 1,
+    CRITICAL: 2
+};
+function createSummary(results, componentCounts) {
     var componentMap = {};
-    results.forEach(function(e){
+    var resultCounts = {};
+    results.forEach(function (e) {
         var c = e.component || 'OTHER';
-        componentMap[c] = componentMap[c] || {status: severity.OK};
-        if (componentMap[c].status < e.status) {
-            componentMap[c] = e;
+        resultCounts[c] = resultCounts[c] ? resultCounts[c] + 1 : 1;
+        componentMap[c] = componentMap[c] || {status: 'OPERATIONAL', timestamp: new Date().toISOString()};
+        if (priorityMap[componentMap[c].status] < priorityMap[e.status]) {
+            componentMap[c].status = e.status;
         }
+        if (e.status !== 'OPERATIONAL') {
+            componentMap[c].errors = componentMap[c].errors ||[];
+            componentMap[c].errors.push({
+                message: e.message,
+                details: e.details,
+                timestamps: e.timestamp
+            });
+        }
+
+        componentMap[c].running = resultCounts[c] < componentCounts[c];
     });
-    return componentMap;
+    return {componentMap};
 }
 
 var tests = require('./tests');
-statusCheck(tests).then(function (data) {
-    console.log(data);
-}).catch(function (err) {
-    console.log(err)
-});
+function done(summary) {
+    console.log('done');
+    console.log(summary);
+}
+function progress(summary) {
+    console.log('progress');
+    console.log(summary);
+}
+function failed(summary) {
+    console.log('failed');
+    console.log(summary);
+}
+start(tests, done, progress, failed);
+
+
+
+
+/*
+ 2 version
+ * all tests completed (used for p16 to judge if we want to show a notification)
+ * as tests results come in a method is called with updates
+ they are really just wrappers of the same
+
+ summary in the end
+ status for each API with a status message, time, [test results] (so that one can see details about what failed/was tested for)
+
+ Health.getStatus(done, updates, failed) //failed meaning that the Health code failed. done returns summary. updates returns summary intermediate states
+
+ status can be: testing, operational, operational but slow, failed
+
+ testing: is when the tests are still running (and none has failed)
+ operational: all good
+ operational but slow: all good, but response time slower than expected
+ unstable: required retries to get the data (added by a wrapper that keeps track of history - could be more complex than just retries needed, but offline every 5 minutes)
+ failed: wrong status code, offline or wrong content
+
+ each component (API endpoint or site) test is composed of multiple tests. tests are atomic and can be each of the states (operational, slow, unstable, failed)
+ //p16 or status api could keep track of previous attempts and label APIs as unstable based on how often they fail
+
+ p16 would require services to fail more than once to notify the users
+
+ individual test results
+ test config, resulting status, message (from test config), detailed message (from running test), component name
+
+ ----
+
+
+ runTest(config)
+ test config
+ create and execute request
+ analyse result
+ return result
+
+ run(config, updateCb)
+ runAllTests(transformConifgToTests, updateCb)
+
+ runCustom(customTests, updateCb) {
+ transformConifgToTests()
+ tests = concat with custom tests
+
+ for all tests do:
+ runTest().then(updateCb with tmp summary)
+ .whenAllCompleted(create summary and return it)
+ }
+
+ transformConifgToTests
+ make config into runnable tests
+
+ add custom test. interface: start -> returns promise and specific resolve format (component, time, status, message, details, test description). only throw if all tests should fail.
+ custom tests could fx be
+
+ createSummary([testResults])
+ map test results to their component type.
+ isRunning
+ count how many tests are pending
+ if failed, then label as such else testing
+ label by most severe
+ timestamp,
+ message
+
+ requestLib should work  in client as well.
+ perhaps do a wrapper just to make sure.
+ */
