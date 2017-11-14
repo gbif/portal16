@@ -1,6 +1,3 @@
-/**
- * An endpoint to serve historic weather reports. Used by the occurrence page as supplemental information and not crucial.
- */
 var express = require('express'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     router = express.Router(),

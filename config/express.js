@@ -10,7 +10,7 @@ let express = require('express'),
     bodyparser = require('body-parser'),
     log = rootRequire('config/log');
 
-module.exports = function (app, config) {
+module.exports = function (app, io, config) {
     let env = config.env || 'dev';
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
@@ -86,6 +86,14 @@ module.exports = function (app, config) {
     let controllers = glob.sync(config.root + '/app/controllers/**/*.ctrl.js');
     controllers.forEach(function (controller) {
         require(controller)(app);
+    });
+
+    /**
+     require all socket controllers
+     */
+    let socketsControllers = glob.sync(config.root + '/app/controllers/**/*.socket.js');
+    socketsControllers.forEach(function (socketController) {
+        require(socketController)(io);
     });
 
     // require(config.root + '/app/urlHandling/urlHandling.js')(app); //disable all drupal route handling - as part of the development to move to contentful

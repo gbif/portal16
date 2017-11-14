@@ -1,29 +1,24 @@
 "use strict";
 
-var chai = require('chai'),
-    expect = chai.expect,
-    endpointTest = require('./endpointTest'),
-    querystring = require('querystring'),
-    request = require('requestretry'),
-    randomWords = require('random-words'),
+var endpointTest = require('./endpointTest'),
     async = require('async'),
-    Q = require('q'),
-    _ = require('lodash'),
-    severity = {
+    severity = Object.freeze({
         OPERATIONAL: 'OPERATIONAL',
         SLOW: 'SLOW',
         CRITICAL: 'CRITICAL'
-    },
-    unknownError = {
-        message: 'Unknown error calling endpoint',
-        type: 'STATUS',
-        status: severity.CRITICAL
-    };
+    });
 
+module.exports = {start, startCustom, severity};
 
 function start(config, done, progress, failed) {
     var tests = createTests(config);
     startCustom(tests, done, progress, failed);
+}
+
+function updateProgress(progress, data) {
+    if (typeof progress == 'function') {
+        progress(data);
+    }
 }
 
 function startCustom(tests, done, progress, failed) {
@@ -38,7 +33,7 @@ function startCustom(tests, done, progress, failed) {
     //monitor progress
     var intervalUpdate = setInterval(function () {
         var summary = createSummary(results, componentCounts);
-        progress(summary);
+        updateProgress(progress, summary);
     }, 1000);
 
     //run all tests
@@ -60,7 +55,7 @@ function startCustom(tests, done, progress, failed) {
 
     //report initial state
     var summary = createSummary(results, componentCounts);
-    progress(summary);
+    updateProgress(progress, summary);
 }
 
 function createTests(config) {
@@ -100,20 +95,20 @@ function createSummary(results, componentCounts) {
     return {componentMap};
 }
 
-var tests = require('./tests');
-function done(summary) {
-    console.log('done');
-    console.log(summary);
-}
-function progress(summary) {
-    console.log('progress');
-    console.log(summary);
-}
-function failed(summary) {
-    console.log('failed');
-    console.log(summary);
-}
-start(tests, done, progress, failed);
+//var tests = require('./tests');
+//function done(summary) {
+//    console.log('done');
+//    console.log(summary);
+//}
+//function progress(summary) {
+//    console.log('progress');
+//    console.log(summary);
+//}
+//function failed(summary) {
+//    console.log('failed');
+//    console.log(summary);
+//}
+//start(tests, done, progress, failed);
 
 
 
