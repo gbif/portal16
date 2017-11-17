@@ -262,6 +262,8 @@ require('./portal.ctrl');
 require('../partials/head/head.ctrl');
 require('../partials/head/page.factory');
 
+require('./angular/socket.factory');
+
 require('./angular/index.constants');
 require('./angular/routerConfig');
 
@@ -366,6 +368,8 @@ require('../../../pages/custom/contactUs/contactUs.ctrl');
 require('../../../pages/custom/contactUs/directory/contactDirectory.ctrl');
 
 require('../../../pages/custom/faq/faq.ctrl');
+
+require('../../../pages/health/health.ctrl');
 
 require('../../../pages/tools/dataValidator/dataValidator.ctrl');
 require('../../../pages/tools/dataValidator/dataValidatorKey.ctrl');

@@ -1,0 +1,48 @@
+.circle-char {
+    cursor default
+    display inline-block
+    border-width 1px
+    border-style solid
+    height 18px
+    width 18px
+    text-align center
+    font-size .75rem
+    line-height 16px
+    margin-left 5px
+    position relative
+    top 0px
+    border-radius 50%
+}
+
+.summaryStatus {
+    color white
+    border-radius 2px
+    background $navBar_background_color
+    &--critical, &--warning {
+        background tomato
+    }
+    &__message {
+        font-size 16px
+    }
+    &__updatedAt {
+        color rgba(0,0,0,0.3)
+    }
+}
+
+.status {
+    &--critical {
+        .statusLabel {
+            color tomato
+        }
+    }
+    &--warning {
+        .statusLabel {
+            color $orangePeel
+        }
+    }
+    &--operational {
+        .statusLabel {
+            color $navBar_background_color
+        }
+    }
+}

@@ -2687,6 +2687,49 @@
       }
     }
   },
+  "health": {
+    "statusSummary": {
+      "OPERATIONAL": "All systems operational",
+      "WARNING": "We are experiencing unstable systems",
+      "CRITICAL": "We are having critical issues with our system"
+    },
+    "status": {
+      "OPERATIONAL": "Operational",
+      "WARNING": "Unstable",
+      "CRITICAL": "Not usable at the moment",
+      "INFO": "System update"
+    },
+    "components": {
+      "OCCURRENCE": {
+        "name": "Occurrence API",
+        "tooltip": "E.g. searching and viewing occurrences."
+      },
+      "SPECIES": {
+        "name": "Species API",
+        "tooltip": "E.g. Searching and viewing species, species suggestions"
+      },
+      "REGISTRY": {
+        "name": "Registry API",
+        "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks. "
+      },
+      "CONTENTFUL": {
+        "name": "Content mangement system (external system)",
+        "tooltip": "Dataset, publishers, installations, countries, participants and networks. "
+      },
+      "GITHUB": {
+        "name": "Github (external system)",
+        "tooltip": "Feedback, datasets suggestions"
+      },
+      "CRAWLER": {
+        "name": "Crawling",
+        "tooltip": "For updating datasets - new and old."
+      },
+      "RESOURCE_SEARCH": {
+        "name": "Resource search",
+        "tooltip": "E.g. for searching literature, news."
+      }
+    }
+  },
   "map": {
     "predefined": {
       "CLASSIC_HEX": "Classic hexagons",

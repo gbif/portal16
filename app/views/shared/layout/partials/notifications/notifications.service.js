@@ -11,7 +11,7 @@
 
     angular
         .module('portal')
-        .service('Notifications', function ($http, $rootScope, NOTIFICATIONS, $sessionStorage, $interval) {
+        .service('Notifications', function ($http, $rootScope, NOTIFICATIONS, $sessionStorage, $interval, socket) {
             var typeMap = {BLOCKER: 3, WARNING: 2, INFO: 1};
             var classMap = {
                 3: 'isBlocker',
@@ -19,6 +19,23 @@
                 1: 'isInfo'
             };
 
+            socket.on('statusNotification',function(data) {
+                console.log('message in notification directive!', data);
+                $rootScope.$broadcast(NOTIFICATIONS.CHANGED, {
+                    count: 1,
+                    results: [
+                        {
+                            title: 'sdf',
+                            body: 'sdfgsdf sdfg sdfg',
+                            severity: 'BLOCKER'
+                        }
+                    ],
+                    severity: {
+                        value: 'BLOCKER',
+                        className: 'isBlocker'
+                    }
+                });
+            });
             function decorate(notifications) {
                 notifications.results.forEach(function(e){
                     e._severity = typeMap[e.notificationType];

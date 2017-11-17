@@ -18,11 +18,7 @@
  * like random words, then have random existing species names from the backbone to query for. Both for search and suggest.
  */
 
-var severity = {
-    OPERATIONAL: 'OPERATIONAL',
-    SLOW: 'SLOW',
-    CRITICAL: 'CRITICAL'
-};
+let severity = require('./severity').severity;
 
 var endpoints = {
     v1: 'http://api.gbif.org/v1'
@@ -44,8 +40,8 @@ var tests = [
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 5000,
-        severity: severity.SLOW
+        val: 5,
+        severity: severity.CRITICAL
     },
     {
         url: endpoints.v1 + '/occurrence/search?q={RANDOM_WORD}',
@@ -59,30 +55,32 @@ var tests = [
         component: 'SPECIES',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 3000
+        val: 3,
+        severity: severity.WARNING
     },
     {
         url: endpoints.v1 + '/species/42',
         component: 'SPECIES'
     },
     {
-        url: endpoints.v1 + '/species/suggest?datasetKey=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&limit=10&q=puma+concolor',
+        url: endpoints.v1 + '/species/suggest?datasetKey=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&limit=10&q=puma+concolor+(Linnaeus,+1771)',
         component: 'SPECIES',
         randomWord: true,
         type: 'HAVE_VALUE',
         key: '[0].scientificName',
-        val: 'Puma concolor (Linnaeus, 1771)'
+        val: 'Puma concolor (Linnaeus, 1771) XXX',
+        severity: severity.WARNING
     },
     {
         url: endpoints.v1 + '/dataset/search?q={RANDOM_WORD}',
-        component: 'DATASET',
+        component: 'REGISTRY',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
         val: 3000
     },
     {
         url: endpoints.v1 + '/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
-        component: 'DATASET'
+        component: 'REGISTRY'
     },
     {
         url: 'https://www.contentfulstatus.com/history.json',
@@ -90,6 +88,13 @@ var tests = [
         type: 'HAVE_VALUE',
         key: 'components[0].status',
         val: 'operational'
+    },
+    {
+        url: 'https://status.github.com/api/status.json',
+        component: 'GITHUB',
+        type: 'HAVE_VALUE',
+        key: 'status',
+        val: 'good'
     },
     {
         url: 'https://www.gbif.org/api/resource/search?contentType=dataUse',

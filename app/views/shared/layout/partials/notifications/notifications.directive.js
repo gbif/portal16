@@ -43,6 +43,7 @@ function notificationsDirective(BUILD_VERSION) {
 
         $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
             vm.notifications = notifications;
+            console.log('sdf');
             if (notifications.alert) {
                 vm.isActive = true;
             }

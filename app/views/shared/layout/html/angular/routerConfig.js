@@ -425,22 +425,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'countryResearchCtrl',
             controllerAs: 'countryResearch'
         })
-        //.state('countryTrends', {
-        //   parent: 'country',
-        //   url: '/trends/{direction:(?:about|published)}',
-        //   params: {direction: {squash: true, value: 'about'}},
-        //   templateUrl: '/templates/pages/participant/country/trends.html?v=' + BUILD_VERSION,
-        //   controller: 'countryActivityCtrl',
-        //   controllerAs: 'countryActivity'
-        //})
-        //.state('countryActivity', {
-        //   parent: 'country',
-        //   url: '/activity/{direction:(?:about|published)}',
-        //   params: {direction: {squash: true, value: 'about'}},
-        //   templateUrl: '/templates/pages/participant/country/activity.html?v=' + BUILD_VERSION,
-        //   controller: 'countryActivityCtrl',
-        //   controllerAs: 'countryActivity'
-        //})
+        .state('health', {
+            parent: 'localization',
+            url: '/health',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/health/health.html?v=' + BUILD_VERSION,
+                    controller: 'healthCtrl',
+                    controllerAs: 'health'
+                }
+            }
+        })
         .state('theGbifNetwork', {
 
             url: '/the-gbif-network/:region?',

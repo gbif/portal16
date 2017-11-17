@@ -1,14 +1,11 @@
 "use strict";
 
 var endpointTest = require('./endpointTest'),
-    async = require('async'),
-    severity = Object.freeze({
-        OPERATIONAL: 'OPERATIONAL',
-        SLOW: 'SLOW',
-        CRITICAL: 'CRITICAL'
-    });
+    severity = require('./severity').severity,
+    severityMap = require('./severity').severityMap,
+    async = require('async');
 
-module.exports = {start, startCustom, severity};
+module.exports = {start, startCustom, severity, severityMap};
 
 function start(config, done, progress, failed) {
     var tests = createTests(config);
@@ -66,33 +63,28 @@ function createTests(config) {
     return tests;
 }
 
-var priorityMap = {
-    OPERATIONAL: 0,
-    SLOW: 1,
-    CRITICAL: 2
-};
 function createSummary(results, componentCounts) {
     var componentMap = {};
     var resultCounts = {};
+    var worstStatus = 'OPERATIONAL';
     results.forEach(function (e) {
         var c = e.component || 'OTHER';
         resultCounts[c] = resultCounts[c] ? resultCounts[c] + 1 : 1;
-        componentMap[c] = componentMap[c] || {status: 'OPERATIONAL', timestamp: new Date().toISOString()};
-        if (priorityMap[componentMap[c].status] < priorityMap[e.status]) {
-            componentMap[c].status = e.status;
-        }
+        componentMap[c] = componentMap[c] || {status: 'OPERATIONAL'};
+        componentMap[c].status = severityMap[componentMap[c].status] >= severityMap[e.status] ? componentMap[c].status : e.status;
+        worstStatus = severityMap[worstStatus] >= severityMap[e.status] ? worstStatus : e.status;
+
         if (e.status !== 'OPERATIONAL') {
             componentMap[c].errors = componentMap[c].errors ||[];
             componentMap[c].errors.push({
                 message: e.message,
-                details: e.details,
-                timestamps: e.timestamp
+                details: e.details
             });
         }
 
-        componentMap[c].running = resultCounts[c] < componentCounts[c];
+        componentMap[c].pending = resultCounts[c] < componentCounts[c];
     });
-    return {componentMap};
+    return {components: componentMap, status: worstStatus};
 }
 
 //var tests = require('./tests');

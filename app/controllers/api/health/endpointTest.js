@@ -5,13 +5,10 @@ var chai = require('chai'),
     querystring = require('querystring'),
     request = require('requestretry'),
     randomWords = require('random-words'),
+    severity = require('./severity').severity,
+    severityMap = require('./severity').severityMap,
     Q = require('q'),
     _ = require('lodash'),
-    severity = {
-        OPERATIONAL: 'OPERATIONAL',
-        SLOW: 'SLOW',
-        CRITICAL: 'CRITICAL'
-    },
     unknownError = {
         message: 'Unknown error calling endpoint',
         type: 'STATUS',
@@ -83,7 +80,6 @@ function testExpectation(response, elapsed, test) {
     try {
         if (test.type !== 'STATUS' && response.statusCode !== 200) {
             return {
-                timestamp: Date.now(),
                 message: 'Unexpected status code',
                 details: 'expected 200 but got ' + response.statusCode,
                 status: severity.CRITICAL,
@@ -117,14 +113,12 @@ function testExpectation(response, elapsed, test) {
                 break;
         }
         return {
-            timestamp: Date.now(),
             status: severity.OPERATIONAL,
             component: test.component,
             test: test
         }
     } catch (err) {
         return {
-            timestamp: Date.now(),
             message: test.message,
             details: err.message.substr(0, 300),
             status: test.severity,
