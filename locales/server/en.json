@@ -2739,6 +2739,9 @@
       }
     }
   },
+  "phrases": {
+    "largeFileUploadWarning": "Be aware that large files can take a long time to upload"
+  },
   "map": {
     "predefined": {
       "CLASSIC_HEX": "Classic hexagons",
