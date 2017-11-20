@@ -25,7 +25,7 @@ function notificationsDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function notifications($scope, NAV_EVENTS, NOTIFICATIONS, Notifications) {
+    function notifications($scope, NAV_EVENTS, NOTIFICATIONS, Notifications) { //include service to trigger the service
         var vm = this;
         vm.isActive = false;
 
@@ -43,7 +43,6 @@ function notificationsDirective(BUILD_VERSION) {
 
         $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
             vm.notifications = notifications;
-            console.log('sdf');
             if (notifications.alert) {
                 vm.isActive = true;
             }

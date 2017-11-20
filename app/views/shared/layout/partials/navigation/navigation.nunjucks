@@ -13,7 +13,7 @@
         </a>
 
         <div class="stickyNav__actions">
-            <a href="" class="stickyNav__actions__action gb-icon-notifications stickyNav__actions__action--notification ng-cloak" ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-notifications stickyNav__actions__action--notification ng-cloak" ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0" ng-class="{'is-info': nav.notifications.severity == 'INFO'}"></a>
             <a href="" class="stickyNav__actions__action gb-icon-search2" ng-click="nav.toggleSearch()"></a>
             <a href="" class="stickyNav__actions__action gb-icon-bubble" ng-click="nav.toggleFeedback()" ng-class="{'stickyNav__actions__action--notification': nav.issuesCount}"></a>
             <a href="" class="stickyNav__actions__menu gb-icon-menu" ng-click="nav.toggleMobileMenu()" ng-class="{'gb-icon-close_L': nav.mobileMenuActive, 'gb-icon-menu': !nav.mobileMenuActive}"></a>

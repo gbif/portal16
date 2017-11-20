@@ -5,8 +5,15 @@ let severity = Object.freeze({
     }),
     severityMap = Object.freeze({
         OPERATIONAL: 0,
-        WARNING: 1,
-        CRITICAL: 2
+        INFO: 1,
+        WARNING: 2,
+        CRITICAL: 3
     });
 
-module.exports = {severity, severityMap};
+function getMostSevere(a, b){
+    let typeA = severityMap[a] || 0,
+        typeB = severityMap[b] || 0;
+    return typeA < typeB ? b : a;
+}
+
+module.exports = {severity, severityMap, getMostSevere};

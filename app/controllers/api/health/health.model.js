@@ -3,6 +3,7 @@
 var endpointTest = require('./endpointTest'),
     severity = require('./severity').severity,
     severityMap = require('./severity').severityMap,
+    getMostSevere = require('./severity').getMostSevere,
     async = require('async');
 
 module.exports = {start, startCustom, severity, severityMap};
@@ -66,15 +67,15 @@ function createTests(config) {
 function createSummary(results, componentCounts) {
     var componentMap = {};
     var resultCounts = {};
-    var worstStatus = 'OPERATIONAL';
+    var worstSeverity = 'OPERATIONAL';
     results.forEach(function (e) {
         var c = e.component || 'OTHER';
         resultCounts[c] = resultCounts[c] ? resultCounts[c] + 1 : 1;
-        componentMap[c] = componentMap[c] || {status: 'OPERATIONAL'};
-        componentMap[c].status = severityMap[componentMap[c].status] >= severityMap[e.status] ? componentMap[c].status : e.status;
-        worstStatus = severityMap[worstStatus] >= severityMap[e.status] ? worstStatus : e.status;
+        componentMap[c] = componentMap[c] || {severity: 'OPERATIONAL'};
+        componentMap[c].severity = getMostSevere(componentMap[c].severity, e.severity);//severityMap[componentMap[c].severity] >= severityMap[e.severity] ? componentMap[c].severity : e.severity;
+        worstSeverity = getMostSevere(worstSeverity, e.severity);//severityMap[worstSeverity] >= severityMap[e.severity] ? worstSeverity : e.severity;
 
-        if (e.status !== 'OPERATIONAL') {
+        if (e.severity !== 'OPERATIONAL') {
             componentMap[c].errors = componentMap[c].errors ||[];
             componentMap[c].errors.push({
                 message: e.message,
@@ -84,7 +85,7 @@ function createSummary(results, componentCounts) {
 
         componentMap[c].pending = resultCounts[c] < componentCounts[c];
     });
-    return {components: componentMap, status: worstStatus};
+    return {components: componentMap, severity: worstSeverity};
 }
 
 //var tests = require('./tests');

@@ -5,25 +5,21 @@
  */
 
 var express = require('express'),
-    getStatus = require('./notifications.model');
+    getStatus = require('./notifications.model'),
+    prevHash;
 
 module.exports = function (io) {
 
     setInterval(function () {
         let status = getStatus();
-        if (status.changed) {
+        if (prevHash != status.hash) {
             io.emit('statusNotification', status);
+            prevHash = status.hash;
         }
     }, 5000);
 
     io.on('connection', function (socket) {
-        //a user has connected
         let status = getStatus();
-        console.log('a user connected');
         io.emit('statusNotification', status);
     });
 };
-
-/*
-notifications
-*/

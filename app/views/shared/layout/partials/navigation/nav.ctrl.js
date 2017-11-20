@@ -106,7 +106,6 @@ function navCtrl(User, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionSto
     );
 
     $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
-        console.log(notifications);
         vm.notifications = notifications;
     });
 

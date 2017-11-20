@@ -3,11 +3,11 @@
 let notifications = require('../notifications//notifications.model'),
     tests = require('./tests'),
     health = require('./health.model'),
+    loadModel = require('./load.model'),
     resourceSearch = require('../resource/search/resourceSearch'),
     severity = require('./severity').severity,
-    severityMap = require('./severity').severityMap,
+    getMostSevere = require('./severity').getMostSevere,
     _ = require('lodash'),
-    request = require('requestretry'),
     objectHash = require('object-hash'),
     status = {};
 
@@ -23,28 +23,20 @@ setInterval(function () {
 function update(){
     updateHealth();
     updateMessages();
-}
-
-function getMostSevere(a, b){
-    return severityMap[a] < severityMap[b] ? b : a;
+    updateLoad();
 }
 
 function updateStatus(update) {
-    let prevHash = status.hash;
     status.health = update.health ? update.health : status.health;
     status.messages = update.messages ? update.messages : status.messages;
-    status.status = getMostSevere(_.get(update, 'health.status'), _.get(update, 'messages.status'));
+    status.load = update.load ? update.load : status.load;
+    status.severity = getMostSevere(_.get(status, 'health.severity'), _.get(status, 'messages.severity'));
 
     //test for change
     status.hash = objectHash({
         health: status.health,
         messages: status.messages
     });
-    if (prevHash != status.hash) {
-        status.changed = true;
-    } else {
-        status.changed = false;
-    }
     status.updatedAt = (new Date()).toISOString();
 }
 
@@ -54,27 +46,17 @@ async function updateMessages() {
         let q = {contentType: 'notification', 'start': '*,' + timestamp, 'end': timestamp + ',*'};
         let options = {rawResponse: true};
         let messages = await resourceSearch.search(q, null, options);
-        //let url = 'https://www.gbif.org/api/resource/search?contentType=notification&start=*,' + timestamp;
-        //let messages = await request({
-        //    json: true,
-        //    url: url
-        //});
 
         let messageStatus = messages.results.reduce(function(current, message){
-            return getMostSevere(message.notificationType, current);//severityMap[message.notificationType] < severityMap[current] ? current : message.notificationType;
+            return getMostSevere(message.severity, current);
         }, 'INFO');
 
         updateStatus({
             messages: {
                 list: messages.results,
-                status: messageStatus
+                severity: messageStatus
             }
         });
-        //if (messages.statusCode == 200) {
-        //    updateStatus({messages: messages.body.results})
-        //} else {
-        //    updateStatus({messages: undefined})
-        //}
     } catch(err) {
         console.log(err);
         updateStatus({failure: err});
@@ -96,3 +78,14 @@ function updateHealth() {
     health.start(tests, done, progress, failed);
 }
 
+async function updateLoad() {
+    try {
+        let load = await loadModel.start();
+        updateStatus({
+            load: load
+        });
+    } catch(err) {
+        console.log(err);
+        updateStatus({failure: err});
+    }
+}

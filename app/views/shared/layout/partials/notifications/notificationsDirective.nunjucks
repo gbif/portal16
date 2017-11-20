@@ -13,10 +13,10 @@
             <div class="menubox__section menubox__section--issues">
                 <div class="menubox__section menubox__section--select">
                     <ul>
-                        <li ng-repeat="notification in vm.notifications.results">
+                        <li ng-repeat="notification in vm.notifications.results" class="status--{{ notification.severity | lowercase }}">
                             <a ng-href="{{ notification.url }}" class="inherit noUnderline">
-                                <h4>{{ notification.title }}</h4>
-                                <p class="small" ng-bind-html="notification.body"></p>
+                                <h4 class="statusLabel">{{ notification.title }}</h4>
+                                <div class="small" ng-bind-html="notification.summary | md2html"></div>
                                 <span class="small underline" ng-if="notification.url" ng-if="notification.url">Read more</span>
                             </a>
                         </li>

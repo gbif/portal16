@@ -251,7 +251,19 @@ $articleCategorySeparatorSpacing = 6px
     }
 }
 
+.prose {
+    ul, ol {
+        margin-bottom vrBlock(1)
+    }
+    ul {
+        list-style disc
+    }
+    ol {
+        list-style decimal
+    }
+}
 .body-text {
+    @extends .prose
     font-size 16px
     line-height 1.5
     font-weight normal
@@ -288,16 +300,6 @@ $articleCategorySeparatorSpacing = 6px
         font-weight 500
         font-size 16px
         color #75879c //#586579
-    }
-
-    ul, ol {
-        margin-bottom vrBlock(1)
-    }
-    ul {
-        list-style disc
-    }
-    ol {
-        list-style decimal
     }
     p {
         margin-bottom 1.5em

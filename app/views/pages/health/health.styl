@@ -30,14 +30,9 @@
 }
 
 .status {
-    &--critical {
+    &--critical, &--warning {
         .statusLabel {
             color tomato
-        }
-    }
-    &--warning {
-        .statusLabel {
-            color $orangePeel
         }
     }
     &--operational {
@@ -45,4 +40,12 @@
             color $navBar_background_color
         }
     }
+}
+
+.statusBadge {
+    background $navBar_background_color
+    color white
+    padding 3px 5px
+    border-radius 2px
+    display inline-block
 }

@@ -195,7 +195,7 @@
         })
         .filter('md2html', function(){
             return function(markdown) {
-                return (!!markdown) ? md(markdown).replace('\n','<br>') : '';
+                return (!!markdown) ? md(markdown) : '';
             }
         })
         .filter('gbifUrlAsRelative', function(){

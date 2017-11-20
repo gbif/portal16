@@ -15,6 +15,9 @@ var path = require('path'),
     analyticsImg = yargs.analyticsImg,
     contentfulApi = yargs.contentfulApi,
     contentfulPreviewApi = yargs.contentfulPreviewApi,
+    oozie = yargs.oozie,
+    yarnResourceManager = yargs.yarnResourceManager,
+    elk = yargs.elk,
     publicConstantKeys = {
         dataset: {
             backbone: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
@@ -41,7 +44,8 @@ var path = require('path'),
         'ru': 'ru',
         'pt': 'pt'
     },
-    defaultLocale = 'en';
+    defaultLocale = 'en',
+    userAgent = 'GBIF_WEBSITE';
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
 var config = {
@@ -69,11 +73,15 @@ var config = {
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
         elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',//'http://cms-search.gbif-dev.org:9200/',
+        oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
+        yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
+        elk: elk || '//elk.gbif.org:5601/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
         publicConstantKeys: publicConstantKeys,
-        fbAppId: 1534726343485342
+        fbAppId: 1534726343485342,
+        userAgent: userAgent
     },
     dev: {
         env: env,
@@ -99,11 +107,15 @@ var config = {
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
         elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
+        oozie: oozie || 'http://c5master1-vh.gbif.org:11000/oozie/v2/',
+        yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
+        elk: elk || '//elk.gbif.org:5601/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
         publicConstantKeys: publicConstantKeys,
-        fbAppId: 1534726343485342
+        fbAppId: 1534726343485342,
+        userAgent: userAgent
     },
     uat: {
         env: env,
@@ -129,11 +141,15 @@ var config = {
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
         elasticContentful: elasticContentful || 'http://cms-search.gbif-uat.org:9200/',
+        oozie: oozie || 'http://c5master1-vh.gbif.org:11000/oozie/v2/',
+        yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
+        elk: elk || '//elk.gbif.org:5601/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
         publicConstantKeys: publicConstantKeys,
-        fbAppId: 1534726343485342
+        fbAppId: 1534726343485342,
+        userAgent: userAgent
     },
     prod: {
         env: env,
@@ -159,11 +175,15 @@ var config = {
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
         elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
+        oozie: oozie || 'http://c5master1-vh.gbif.org:11000/oozie/v2/',
+        yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
+        elk: elk || '//elk.gbif.org:5601/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
         publicConstantKeys: publicConstantKeys,
-        fbAppId: 1534726343485342
+        fbAppId: 1534726343485342,
+        userAgent: userAgent
     },
     test: {
         env: env,
@@ -189,11 +209,15 @@ var config = {
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
         elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
+        oozie: oozie || 'http://c5master1-vh.gbif.org:11000/oozie/v2/',
+        yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
+        elk: elk || '//elk.gbif.org:5601/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
         publicConstantKeys: publicConstantKeys,
-        fbAppId: 1534726343485342
+        fbAppId: 1534726343485342,
+        userAgent: userAgent
     }
 };
 

@@ -6,13 +6,13 @@ var chai = require('chai'),
     request = require('requestretry'),
     randomWords = require('random-words'),
     severity = require('./severity').severity,
-    severityMap = require('./severity').severityMap,
+    userAgent = require('../../../../config/config').userAgent,
     Q = require('q'),
     _ = require('lodash'),
     unknownError = {
         message: 'Unknown error calling endpoint',
         type: 'STATUS',
-        status: severity.CRITICAL
+        severity: severity.CRITICAL
     };
 
 module.exports = {fromConfig, check};
@@ -41,6 +41,7 @@ function check(config) {
     options.method = config.method || 'GET';
     options.json = config.json || true;
     options.url = config.url;
+    options.userAgent = 'GBIF_WEBSITE';
     options.maxAttempts = 1;
     options.timeout = 30000;
     if (config.type == 'MAX_RESPONSE_TIME') {
@@ -62,8 +63,8 @@ function check(config) {
         if (err) {
             if (err.code == 'ESOCKETTIMEDOUT') {
                 deferred.resolve({
-                    message: 'Response too slow : ' + elapsed,
-                    status: config.severity,
+                    message: config.message,
+                    severity: config.severity,
                     component: config.component,
                     test: config
                 });
@@ -80,9 +81,8 @@ function testExpectation(response, elapsed, test) {
     try {
         if (test.type !== 'STATUS' && response.statusCode !== 200) {
             return {
-                message: 'Unexpected status code',
-                details: 'expected 200 but got ' + response.statusCode,
-                status: severity.CRITICAL,
+                message: 'Unexpected status code url: ' + test.url,
+                severity: severity.CRITICAL,
                 component: test.component,
                 test: test
             }
@@ -113,15 +113,15 @@ function testExpectation(response, elapsed, test) {
                 break;
         }
         return {
-            status: severity.OPERATIONAL,
+            severity: severity.OPERATIONAL,
             component: test.component,
             test: test
         }
     } catch (err) {
         return {
-            message: test.message,
-            details: err.message.substr(0, 300),
-            status: test.severity,
+            message: test.message || `Failed test. Type: ${test.type} - key: ${test.key} - val: ${test.val}`,
+            //details: err.message.substr(0, 300),
+            severity: test.severity,
             component: test.component,
             test: test
         }

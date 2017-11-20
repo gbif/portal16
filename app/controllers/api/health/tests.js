@@ -1,146 +1,119 @@
-/*
- * ENDPOINTS TO CHECK
- * species search
- * occurrence search,
- * publisher search ?
- * resource/mendeley search, (only possible on network, so portal only for now)
- * downloads get adn create,
- * dataset download activity,
- * regsitry (datasets/organisations)
- * crawler,
- * bid website,
- * contentful,
- * directory,
- * suggest ?
- * maps (capabilities) data older than usual (more than 1 day fx or not updated this night)
- * using kibana logging to estimate load and stability
- *
- * like random words, then have random existing species names from the backbone to query for. Both for search and suggest.
- */
+let severity = require('./severity').severity,
+    config = require('../../../../config/config'),
+    backboneKey = config.publicConstantKeys.dataset.backbone,
+    apiConfig = require('../../../models/gbifdata/apiConfig');
 
-let severity = require('./severity').severity;
-
-var endpoints = {
-    v1: 'http://api.gbif.org/v1'
-};
+//select which es content to query
+let crawlIndexName = 'prod-crawl-*';
+switch (config.dev) {
+    case 'dev':
+        crawlIndexName = 'dev-crawl-*';
+        break;
+    case 'uat':
+        crawlIndexName = 'uat-crawl-*';
+        break;
+    default:
+        crawlIndexName = 'prod-crawl-*';
+}
 var tests = [
     {
-        url: endpoints.v1 + '/occurrence/search',
+        url: apiConfig.occurrenceSearch.url,
         component: 'OCCURRENCE'
     },
     {
-        url: endpoints.v1 + '/occurrence/search?basisOfRecord=NONSENSE',
+        url: apiConfig.occurrenceSearch.url + '?basisOfRecord=NONSENSE',
         component: 'OCCURRENCE',
         type: 'STATUS',
         val: 400,
         message: 'Should fail for nonsensical queries'
     },
     {
-        url: endpoints.v1 + '/occurrence/search?q={RANDOM_WORD}',
+        url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}',
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 5,
-        severity: severity.CRITICAL
+        val: 10000,
+        severity: severity.WARNING,
+        message: 'Should respond with free text query within 10 seconds - else warn'
     },
     {
-        url: endpoints.v1 + '/occurrence/search?q={RANDOM_WORD}',
+        url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}',
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 10000
+        val: 20000,
+        message: 'Should respond with free text query within 20 seconds - else the performance is considered critical'
     },
     {
-        url: endpoints.v1 + '/species/search?q={RANDOM_WORD}',
+        url: apiConfig.taxonSearch.url + '?q={RANDOM_WORD}',
         component: 'SPECIES',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 3,
-        severity: severity.WARNING
+        val: 5000,
+        severity: severity.WARNING,
+        message: 'Should respond with free text query within 25 seconds - else warn'
     },
     {
-        url: endpoints.v1 + '/species/42',
-        component: 'SPECIES'
+        url: apiConfig.taxon.url + '42',
+        component: 'SPECIES',
+        message: 'A specific species key (42) should resolve'
     },
     {
-        url: endpoints.v1 + '/species/suggest?datasetKey=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&limit=10&q=puma+concolor+(Linnaeus,+1771)',
+        url: apiConfig.taxon.url + 'suggest?datasetKey=' + backboneKey + '&limit=10&q=puma+concolor+(Linnaeus,+1771)',
         component: 'SPECIES',
         randomWord: true,
         type: 'HAVE_VALUE',
         key: '[0].scientificName',
-        val: 'Puma concolor (Linnaeus, 1771) XXX',
-        severity: severity.WARNING
+        val: 'Puma concolor (Linnaeus, 1771)',
+        severity: severity.WARNING,
+        message: 'Species suggest should always show the species first when searching for the exact name'
     },
     {
-        url: endpoints.v1 + '/dataset/search?q={RANDOM_WORD}',
+        url: apiConfig.datasetSearch.url + '?q={RANDOM_WORD}',
         component: 'REGISTRY',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 3000
+        val: 5000,
+        message: 'Dataset search should respond within 3 seconds on a search'
     },
     {
-        url: endpoints.v1 + '/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
-        component: 'REGISTRY'
+        url: apiConfig.dataset.url + backboneKey,
+        component: 'REGISTRY',
+        message: 'A specific dataset key should work (backbone)'
     },
     {
         url: 'https://www.contentfulstatus.com/history.json',
         component: 'CONTENTFUL',
         type: 'HAVE_VALUE',
         key: 'components[0].status',
-        val: 'operational'
+        val: 'operational',
+        message: 'The contentful status endpoint should should return "operational" for components[0].status'
     },
     {
         url: 'https://status.github.com/api/status.json',
         component: 'GITHUB',
         type: 'HAVE_VALUE',
         key: 'status',
-        val: 'good'
+        val: 'good',
+        message: 'The Github status endpoint should should return "good"'
     },
     {
-        url: 'https://www.gbif.org/api/resource/search?contentType=dataUse',
+        url: config.domain + '/api/resource/search?contentType=dataUse',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
-        val: 100
+        val: 100,
+        message: 'Resource search should return more than 100 results for a search on content type = data use'
     },
     {
-        url: 'http://elk.gbif.org:5601/elasticsearch/prod-crawl-*/_search?q=log_timestamp:%3E{SECONDS_AGO}',
+        url: apiConfig.elkSearch.url + crawlIndexName + '/_search?q=log_timestamp:%3E{SECONDS_AGO}',
         component: 'CRAWLER',
         secondsAgo: 150,
         type: 'NUMBER_ABOVE',
         key: 'hits.total',
-        val: 0
+        val: 0,
+        message: 'There should be a log entry from the crawler within the last 150 seconds'
     }
 ];
-
-
-//var componentTests = [
-//    {
-//        name: 'OCCURRENCE_API',
-//        url: '/read_more', //optional
-//        tests: [{}]
-//    }
-//];
-//
-//var tests = {
-//    time: '2017-12...',
-//    status: 'OPERATIONAL', //summary state
-//    components: [
-//        {
-//            name: 'OCCURRENCE_API',
-//            url: '/sdf', //optional
-//            status: 'OPERATIONAL',
-//            time: '2017-12...',
-//            running: false,
-//            errors: [
-//                {
-//                    timestamp: '2017...',
-//                    message: 'message number 1',
-//                    details: 'dfgh'
-//                }
-//            ]
-//        }
-//    ]
-//};
 
 module.exports = tests;

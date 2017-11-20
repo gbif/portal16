@@ -2690,6 +2690,7 @@
   "health": {
     "statusSummary": {
       "OPERATIONAL": "All systems operational",
+      "INFO": "All systems operational",
       "WARNING": "We are experiencing unstable systems",
       "CRITICAL": "We are having critical issues with our system"
     },
@@ -2727,6 +2728,14 @@
       "RESOURCE_SEARCH": {
         "name": "Resource search",
         "tooltip": "E.g. for searching literature, news."
+      },
+      "CLUSTER": {
+        "name": "System load",
+        "tooltip": "The backend for handling downloads, crawling end much more."
+      },
+      "DOWNLOAD": {
+        "name": "Downloads",
+        "tooltip": "For handling download jobs and sending users notifications"
       }
     }
   },
