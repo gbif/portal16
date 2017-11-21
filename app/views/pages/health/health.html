@@ -48,10 +48,10 @@
                         <section class="m-t-2">
                             <h3 class="card-header">Automated monitoring</h3>
                             <div class="card card--spaced">
-                                <div class="card__stripe status--{{ component.severity | lowercase }}" ng-repeat="(name, component) in health.status.health.components">
+                                <div class="card__stripe status--{{ component.severity | lowercase }}" ng-repeat="component in health.status.health.components">
                                     <div class="card__content">
-                                        <span translate="health.components.{{ name }}.name"></span>
-                                        <span class="circle-char">? <md-tooltip md-direction="top">{{ 'health.components.' + name + '.tooltip' | translate }}</md-tooltip> </span>
+                                        <span translate="health.components.{{ component.component }}.name"></span>
+                                        <span class="circle-char">? <md-tooltip md-direction="top">{{ 'health.components.' + component.component + '.tooltip' | translate }}</md-tooltip> </span>
                                         <span class="pull-right statusLabel" translate="health.status.{{component.severity}}"></span>
                                     </div>
                                 </div>
@@ -87,9 +87,9 @@
                         <section class="m-t-2" ng-if="health.status.health.severity !== 'OPERATIONAL' && health.isSecretariatUser">
                             <h3 class="card-header">Because you are a secretariat contact</h3>
                             <div class="card card--spaced">
-                                <div class="card__stripe status--{{ component.severity | lowercase }}" ng-repeat="(name, component) in health.status.health.components" ng-if="component.severity !== 'OPERATIONAL'">
+                                <div class="card__stripe status--{{ component.severity | lowercase }}" ng-repeat="component in health.status.health.components" ng-if="component.severity !== 'OPERATIONAL'">
                                     <div class="card__content">
-                                        <p translate="health.components.{{ name }}.name" class="discreet"></p>
+                                        <p translate="health.components.{{ component.component }}.name" class="discreet"></p>
                                         <div class="statusLabel" ng-repeat="error in component.errors">{{error.message}}</div>
                                     </div>
                                 </div>

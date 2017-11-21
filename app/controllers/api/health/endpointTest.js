@@ -61,8 +61,7 @@ function check(config) {
     request(options, function (err, response) {
         var elapsed = new Date() - start;
         if (err) {
-            console.log(err);
-            if (err.code == 'ESOCKETTIMEDOUT') {
+            if (err.code == 'ESOCKETTIMEDOUT' || err.code == 'ETIMEDOUT') {
                 deferred.resolve({
                     message: config.message,
                     severity: config.severity,
