@@ -86,7 +86,7 @@ async function getParticipantByIso(isoCode) {
     if (_.isUndefined(_.get(participantItem, 'id'))) {
         throw {
             statusCode: 404,
-            message: 'No participant with that iso code'
+            message: 'No participant with that iso code: ' + isoCode
         }
     }
     let participant = await getParticipantById(participantItem.id);

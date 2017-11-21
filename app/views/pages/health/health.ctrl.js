@@ -19,8 +19,7 @@ function healthCtrl($http, $scope, HEALTH, User) {
                 vm.loaded = true;
                 vm.status = response.data;
             })
-            .catch(function(err){
-                console.log(err);
+            .catch(function(){
                 vm.failed = true;
             });
     };
@@ -28,7 +27,6 @@ function healthCtrl($http, $scope, HEALTH, User) {
 
     $scope.$on(HEALTH.CHANGED, function (event, status) {
         vm.status = status;
-        console.log(status);
         vm.loaded = true;
         vm.failed = false;
     });
