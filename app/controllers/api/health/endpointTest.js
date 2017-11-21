@@ -61,6 +61,7 @@ function check(config) {
     request(options, function (err, response) {
         var elapsed = new Date() - start;
         if (err) {
+            console.log(err);
             if (err.code == 'ESOCKETTIMEDOUT') {
                 deferred.resolve({
                     message: config.message,
@@ -69,7 +70,12 @@ function check(config) {
                     test: config
                 });
             } else {
-                deferred.resolve(unknownError);
+                deferred.resolve({
+                    message: err.message,
+                    type: 'STATUS',
+                    severity: severity.CRITICAL,
+                    component: config.component
+                });
             }
         }
         deferred.resolve(testExpectation(response, elapsed, config));

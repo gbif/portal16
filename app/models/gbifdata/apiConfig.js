@@ -37,6 +37,12 @@ var apiConfig = {
     image: {
         url: baseConfig.dataApi + 'image/unsafe/'
     },
+    mapCapabilities: {
+        url: baseConfig.serverProtocol + baseConfig.dataApiV2 + 'map/occurrence/density/capabilities.json'
+    },
+    mapOccurrenceDensity: {
+        url: baseConfig.serverProtocol + baseConfig.dataApiV2 + 'map/occurrence/density/'
+    },
     installation: {
         url: baseUrl + 'installation/'
     },

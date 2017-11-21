@@ -2713,6 +2713,10 @@
         "name": "Registry API",
         "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks. "
       },
+      "MAPS": {
+        "name": "Maps API",
+        "tooltip": "For displaying map images and getting info about a map."
+      },
       "CONTENTFUL": {
         "name": "Content mangement system (external system)",
         "tooltip": "Dataset, publishers, installations, countries, participants and networks. "

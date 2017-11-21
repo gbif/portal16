@@ -82,6 +82,24 @@ var tests = [
         message: 'A specific dataset key should work (backbone)'
     },
     {
+        url: apiConfig.mapCapabilities.url + '?taxonKey=42',
+        component: 'MAPS',
+        type: 'NUMBER_ABOVE',
+        key: 'total',
+        val: 100,
+        message: 'Map capabilities for taxonKey 42 should return a json with a total above 100'
+    },
+    {
+        url: apiConfig.mapOccurrenceDensity.url + '0/0/0@1x.png',
+        component: 'MAPS',
+        message: 'Map occurrence density requests should return 200'
+    },
+    {
+        url: config.serverProtocol + config.basemapTileApi + '/4326/omt/2/3/1@1x.png',
+        component: 'MAPS',
+        message: 'Basemap requests should return 200'
+    },
+    {
         url: 'https://www.contentfulstatus.com/history.json',
         component: 'CONTENTFUL',
         type: 'HAVE_VALUE',
