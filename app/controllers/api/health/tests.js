@@ -4,16 +4,19 @@ let severity = require('./severity').severity,
     apiConfig = require('../../../models/gbifdata/apiConfig');
 
 //select which es content to query
-let crawlIndexName = 'prod-crawl-*';
+let crawlIndexName = 'prod-crawl-*',
+    downloadKey = '0000662-160118175350007';
 switch (config.dev) {
     case 'dev':
         crawlIndexName = 'dev-crawl-*';
+        downloadKey = '0000069-171031135223121';
         break;
     case 'uat':
         crawlIndexName = 'uat-crawl-*';
+        downloadKey = '0000046-171108114045140';
         break;
     default:
-        crawlIndexName = 'prod-crawl-*';
+        break;
 }
 var tests = [
     {
@@ -100,7 +103,7 @@ var tests = [
         message: 'Basemap requests should return 200'
     },
     {
-        url: apiConfig.occurrenceDownload.url + '0000662-160118175350007',
+        url: apiConfig.occurrenceDownload.url + downloadKey,
         component: 'DOWNLOAD',
         message: 'download key 0000662-160118175350007 should return 200'
     },
