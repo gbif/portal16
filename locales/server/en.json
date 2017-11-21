@@ -2702,19 +2702,19 @@
     },
     "components": {
       "OCCURRENCE": {
-        "name": "Occurrence API",
+        "name": "Occurrence",
         "tooltip": "E.g. searching and viewing occurrences."
       },
       "SPECIES": {
-        "name": "Species API",
+        "name": "Species",
         "tooltip": "E.g. Searching and viewing species, species suggestions"
       },
       "REGISTRY": {
-        "name": "Registry API",
+        "name": "Registry",
         "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks. "
       },
       "MAPS": {
-        "name": "Maps API",
+        "name": "Maps",
         "tooltip": "For displaying map images and getting info about a map."
       },
       "CONTENTFUL": {

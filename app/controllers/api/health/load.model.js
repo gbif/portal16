@@ -38,8 +38,8 @@ async function clusterLoad() {
     let maxMemory = _.get(result, 'scheduler.schedulerInfo.rootQueue.maxResources.memory', 1);
     let maxCores = _.get(result, 'scheduler.schedulerInfo.rootQueue.maxResources.vCores', 1);
 
-    let usedMemory = _.get(result, 'scheduler.schedulerInfo.rootQueue.usedResources.memory', 1);
-    let usedCores = _.get(result, 'scheduler.schedulerInfo.rootQueue.usedResources.vCores', 1);
+    let usedMemory = _.get(result, 'scheduler.schedulerInfo.rootQueue.usedResources.memory', 0);
+    let usedCores = _.get(result, 'scheduler.schedulerInfo.rootQueue.usedResources.vCores', 0);
 
     let load = Math.max( (usedMemory/maxMemory), (usedCores/maxCores) );
 

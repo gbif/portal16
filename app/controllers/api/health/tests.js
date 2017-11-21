@@ -100,6 +100,19 @@ var tests = [
         message: 'Basemap requests should return 200'
     },
     {
+        url: apiConfig.occurrenceDownload.url + '0000662-160118175350007',
+        component: 'DOWNLOAD',
+        message: 'download key 0000662-160118175350007 should return 200'
+    },
+    {
+        url: apiConfig.occurrenceCancelDownload.url,
+        method: 'POST',
+        component: 'DOWNLOAD',
+        type: 'STATUS',
+        val: 415,
+        message: 'Should return 415 on empty posts to download/request'
+    },
+    {
         url: 'https://www.contentfulstatus.com/history.json',
         component: 'CONTENTFUL',
         type: 'HAVE_VALUE',
