@@ -89,7 +89,7 @@ async function downloadQueue() {
     return {
         component: 'DOWNLOAD',
         load: result.total,
-        severity: result.total > 100 ? 'WARNING' : 'OPERATIONAL'
+        severity: result.total > 200 ? 'WARNING' : 'OPERATIONAL'
     };
 }
 

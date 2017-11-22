@@ -14,37 +14,31 @@
 
     angular
         .module('portal')
-        .service('Notifications', function ($http, $rootScope, NOTIFICATIONS, HEALTH, $sessionStorage, $interval, socket) {
-                socket.on('statusNotification', function (data) {
-                    if (_.get($sessionStorage.health, 'hash') != data.hash) {
-                        //if health changed and to the worse, then broadcast
-                        if (data.severity == 'CRITICAL' && !$sessionStorage.hasSeenHealthAlert) {
-                            $sessionStorage.hasSeenHealthAlert = true;
-                            data._alert = true;
-                        }
-                    }
-                    $rootScope.$broadcast(HEALTH.CHANGED, data);
-                    $rootScope.$broadcast(NOTIFICATIONS.CHANGED, getHealthNotifications(data));
-                    $sessionStorage.health = data;
-                });
+        .service('Notifications', function ($http, $timeout, $rootScope, NOTIFICATIONS, HEALTH, $sessionStorage) {
 
-                function getHealthNotifications(health) {
-                    var notifications = [].concat(_.get(health, 'messages.list', []));
-                    if (_.get(health, 'health.severity') !== 'OPERATIONAL') {
-                        notifications.push({
-                            title: 'We are having endpoint issues',
-                            summary: 'Not all our services is working as expected and the website is likely to behave erradict as a result',
-                            severity: _.get(health, 'health.severity'),
-                            url: '/health'
+                function update() {
+                    $http.get('/api/health/portal?hash=' + _.get($sessionStorage.notifications, 'hash', '_empty'))
+                        .then(function (response) {
+                            if (response.status == 200) {
+                                var notifications = response.data;
+                                if (_.get($sessionStorage.notifications, 'hash') != notifications.hash) {
+                                    $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
+                                    $sessionStorage.notifications = notifications;
+                                }
+                            } else {
+                                var notifications = $sessionStorage.notifications;
+                                notifications.updatedAt = (new Date()).toISOString();
+                                $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
+                            }
+                        })
+                        .catch(function () {
+                            //ignore failure - we will retry shortly anyhow
+                        }).
+                        finally(function(){
+                            $timeout(update, 10000);
                         });
-                    }
-                    return {
-                        count: notifications.length,
-                        results: notifications,
-                        alert: health._alert || false,
-                        severity: health.severity
-                    };
                 }
+                update();
             }
         );
 })();

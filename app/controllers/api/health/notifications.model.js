@@ -11,13 +11,23 @@ let notifications = require('../notifications//notifications.model'),
     _ = require('lodash'),
     objectHash = require('object-hash'),
     NodeCache = require("node-cache"),
-    healthCache = new NodeCache({stdTTL: 600, checkperiod: 120}),
+    healthCache = new NodeCache({stdTTL: 300, checkperiod: 60}),
     status = {};
 
-module.exports = function () {
-    return status
-};
+module.exports = onComplete;
 
+function onComplete() {
+    return new Promise(function(resolve, reject){
+        function check(){
+            if (status.health && status.messages && status.load) {
+                resolve(function(){return status;});
+            } else {
+                setTimeout(check, 2000);
+            }
+        }
+        check();
+    });
+}
 //start by updating status
 update();
 //after that update every 10 seconds

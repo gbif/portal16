@@ -5,14 +5,17 @@ let severity = require('./severity').severity,
 
 //select which es content to query
 let crawlIndexName = 'prod-crawl-*',
+    varnishIndexName = 'prod-varnish-*',
     downloadKey = '0000662-160118175350007';
 switch (config.dev) {
     case 'dev':
         crawlIndexName = 'dev-crawl-*';
+        varnishIndexName = 'dev-varnish-*';
         downloadKey = '0000069-171031135223121';
         break;
     case 'uat':
         crawlIndexName = 'uat-crawl-*';
+        varnishIndexName = 'uat-varnish-*';
         downloadKey = '0000046-171108114045140';
         break;
     default:
@@ -35,26 +38,26 @@ var tests = [
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 10000,
+        val: 15000,
         severity: severity.WARNING,
-        message: 'Should respond with free text query within 10 seconds - else warn'
+        message: 'Should respond with free text query within 15 seconds - else warn'
     },
     {
         url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}',
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 20000,
-        message: 'Should respond with free text query within 20 seconds - else the performance is considered critical'
+        val: 40000,
+        message: 'Should respond with free text query within 40 seconds - else the performance is considered critical'
     },
     {
         url: apiConfig.taxonSearch.url + '?q={RANDOM_WORD}',
         component: 'SPECIES',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 5000,
+        val: 8000,
         severity: severity.WARNING,
-        message: 'Should respond with free text query within 25 seconds - else warn'
+        message: 'Should respond with free text query within 8 seconds - else warn'
     },
     {
         url: apiConfig.taxon.url + '42',
@@ -76,8 +79,8 @@ var tests = [
         component: 'REGISTRY',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 5000,
-        message: 'Dataset search should respond within 3 seconds on a search'
+        val: 6000,
+        message: 'Dataset search should respond within 6 seconds on a search'
     },
     {
         url: apiConfig.dataset.url + backboneKey,
@@ -142,11 +145,21 @@ var tests = [
     {
         url: apiConfig.elkSearch.url + crawlIndexName + '/_search?q=log_timestamp:%3E{SECONDS_AGO}',
         component: 'CRAWLER',
-        secondsAgo: 150,
+        secondsAgo: 180,
         type: 'NUMBER_ABOVE',
         key: 'hits.total',
         val: 0,
         message: 'There should be a log entry from the crawler within the last 150 seconds'
+    },
+    {
+        url: apiConfig.elkSearch.url + varnishIndexName + '/_search?q=response:>499%20AND%20request:("//api.gbif.org/v1/occurrence/search*")%20AND%20@timestamp:>{SECONDS_AGO}',
+        component: 'OCCURRENCE',
+        secondsAgo: 60*5,
+        type: 'NUMBER_BELOW',
+        key: 'hits.total',
+        val: 50,
+        severity: severity.WARNING,
+        message: 'There has been more than 50 errors on occurrence search in the last 5 minutes'
     }
 ];
 

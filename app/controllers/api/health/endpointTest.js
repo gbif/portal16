@@ -43,7 +43,7 @@ function check(config) {
     options.url = config.url;
     options.userAgent = 'GBIF_WEBSITE';
     options.maxAttempts = 1;
-    options.timeout = 30000;
+    options.timeout = 60000;
     if (config.type == 'MAX_RESPONSE_TIME') {
         options.timeout = config.val + 500;
         options.maxAttempts = 1;
@@ -61,7 +61,7 @@ function check(config) {
     request(options, function (err, response) {
         var elapsed = new Date() - start;
         if (err) {
-            if (err.code == 'ESOCKETTIMEDOUT' || err.code == 'ETIMEDOUT') {
+            if (err.code == 'ESOCKETTIMEDOUT') {
                 deferred.resolve({
                     message: config.message,
                     severity: config.severity,
@@ -69,15 +69,19 @@ function check(config) {
                     test: config
                 });
             } else {
+                console.log(err);
+                console.log(response);
+                console.log(config);
                 deferred.resolve({
                     message: err.message,
-                    type: 'STATUS',
-                    severity: severity.CRITICAL,
-                    component: config.component
+                    severity: severity.OPERATIONAL,
+                    component: config.component,
+                    test: config
                 });
             }
+        } else {
+            deferred.resolve(testExpectation(response, elapsed, config));
         }
-        deferred.resolve(testExpectation(response, elapsed, config));
     });
     return deferred.promise;
 }

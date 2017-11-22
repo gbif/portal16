@@ -262,7 +262,7 @@ require('./portal.ctrl');
 require('../partials/head/head.ctrl');
 require('../partials/head/page.factory');
 
-require('./angular/socket.factory');
+//require('./angular/socket.factory');//turns out this scales really badly or at least it didn't scale out of the box. Going back to ajax polling
 
 require('./angular/index.constants');
 require('./angular/routerConfig');

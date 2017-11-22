@@ -8,28 +8,28 @@ angular
     .controller('healthCtrl', healthCtrl);
 
 /** @ngInject */
-function healthCtrl($http, $scope, HEALTH, User) {
+function healthCtrl($http, User, $interval) {
     var vm = this;
 
     vm.status;
     vm.loaded = false;
-    vm.update = function(){
-        vm.healthPromise = $http.get('/api/health')
-            .then(function(response){
-                vm.loaded = true;
-                vm.status = response.data;
+    var hash = '_empty';
+
+    function update() {
+        vm.healthPromise = $http.get('/api/health?hash=' + hash)
+            .then(function (response) {
+                if (response.status == 200) {
+                    hash = response.data.hash;
+                    vm.loaded = true;
+                    vm.status = response.data;
+                }
             })
-            .catch(function(){
+            .catch(function () {
                 vm.failed = true;
             });
-    };
-    vm.update();
-
-    $scope.$on(HEALTH.CHANGED, function (event, status) {
-        vm.status = status;
-        vm.loaded = true;
-        vm.failed = false;
-    });
+    }
+    update();
+    //$interval(update, 5000);
 
     vm.isSecretariatUser = false;
     var activeUser = User.loadActiveUser();

@@ -2741,6 +2741,16 @@
         "name": "Downloads",
         "tooltip": "For handling download jobs and sending users notifications"
       }
+    },
+    "notifications": {
+      "WARNING": {
+        "title": "Services unstable",
+        "summary": "We are currently experiencing slow or unstable services. We apologise for the inconvenience."
+      },
+      "CRITICAL": {
+        "title": "Services unavilable",
+        "summary": "The GBIF services are currently unstable or unavailable"
+      }
     }
   },
   "phrases": {

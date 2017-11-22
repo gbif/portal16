@@ -69,8 +69,6 @@
       rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
 
-{#<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>#}
-
 <!--[if !IE]> -->
 <!-- <![endif]-->
 
