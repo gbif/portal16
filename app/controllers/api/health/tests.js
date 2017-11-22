@@ -154,7 +154,7 @@ var tests = [
     {
         url: apiConfig.elkSearch.url + varnishIndexName + '/_search?q=response:>499%20AND%20request:("//api.gbif.org/v1/occurrence/search*")%20AND%20@timestamp:>{SECONDS_AGO}',
         component: 'OCCURRENCE',
-        secondsAgo: 60*5,
+        secondsAgo: 180,
         type: 'NUMBER_BELOW',
         key: 'hits.total',
         val: 50,

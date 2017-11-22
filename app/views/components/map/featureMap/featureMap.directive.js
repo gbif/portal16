@@ -20,7 +20,7 @@ function featureMapDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/map/featureMap/featureMap.html?v=' + BUILD_VERSION,
         scope: {
             features: '=',
-            mapstyle: '='
+            mapStyle: '='
         },
         link: mapLink,
         controller: featureMap,
@@ -41,13 +41,13 @@ function featureMapDirective(BUILD_VERSION) {
             map,
             featureLayer;
 
-        vm.projection = {
-            epsg: 'EPSG:3857'
+        vm.styleBreaks = {
+            breakpoints: [0, 700],
+            classes: ['isSmall', 'isLarge']
         };
 
         $scope.create = function (element) {
-            map = createMap(element);
-            changeBaseMap(map);
+            map = createMap(element, vm.mapStyle);
             addFeatureLayer();
         };
 
@@ -56,12 +56,6 @@ function featureMapDirective(BUILD_VERSION) {
                 map.scrollWheelZoom.enable();
                 vm.hasInterActedWithMap = true;
             }
-        };
-
-        vm.controls = {
-            filters: false,
-            style: false,
-            projection: false
         };
 
         $scope.$watch(function() { return vm.features; }, function() {
@@ -75,13 +69,23 @@ function featureMapDirective(BUILD_VERSION) {
                 featureLayer = setFeatures(map, vm.features);
             }
         }
+
+        vm.zoomIn = function () {
+            var view = map.getView();
+            view.setZoom(view.getZoom() + 1);
+        };
+
+        vm.zoomOut = function () {
+            var view = map.getView();
+            view.setZoom(view.getZoom() - 1);
+        };
     }
 }
 
 
-function createMap(element) {
+function createMap(element, style) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
-    var baseMapStyle = {style: 'gbif-light'};
+    var baseMapStyle = {style: style || 'gbif-light'};
 
     var interactions = ol.interaction.defaults({altShiftDragRotate:false, pinchRotate:false, mouseWheelZoom:false});
     var map = new ol.Map({
@@ -93,30 +97,28 @@ function createMap(element) {
 
     var currentProjection = projections.EPSG_4326;
     map.setView(currentProjection.getView(0, 0, 1));
-    //if (currentProjection.fitExtent) {
-    //    map.getView().fit(currentProjection.fitExtent, {constrainResolution: false, maxZoom: 12, minZoom: 0});
-    //}
+    if (currentProjection.fitExtent) {
+        map.getView().fit(currentProjection.fitExtent, {constrainResolution: false, maxZoom: 12, minZoom: 0});
+    }
 
     map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {})));
-
-    //var map = L.map(mapElement, {
-    //    crs: L.CRS.EPSG4326,
-    //    scrollWheelZoom: false
-    //});
-    window.map = map;
+    window.featureMap = map;
     return map;
 }
 
-
-function changeBaseMap(map) {
-    // HTTP URL is                            http://{s}.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist
-    //var baseMap = L.tileLayer('https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist', {
-    //    attribution: "&copy; <a href='https://www.cartodb.com/'>CartoDB</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
-    //});
-    //baseMap.addTo(map);
-}
-
 function setFeatures(map, features){
+    var vectorSource = new ol.source.Vector({
+        features: (new ol.format.GeoJSON()).readFeatures(features)
+    });
+    var vectorLayer = new ol.layer.Vector({
+        source: vectorSource,
+        style: styleFunction
+    });
+    map.addLayer(vectorLayer);
+    map.getView().fit(vectorLayer.getSource().getExtent());
+    var currentZoom = map.getView().getZoom();
+    var newZoom = currentZoom > 6 ? currentZoom - 1.5 : currentZoom - 0.5;
+    map.getView().setZoom(Math.max(newZoom, 0));
     //var layer = L.geoJson(features, {
     //    onEachFeature: function (feature, layer) {
     //        layer.bindPopup(JSON.stringify(feature.properties.boundingBox, null, 4));
@@ -126,5 +128,79 @@ function setFeatures(map, features){
     //map.fitBounds(layer.getBounds());
     //return layer;
 }
+
+var image = new ol.style.Circle({
+    radius: 5,
+    fill: null,
+    stroke: new ol.style.Stroke({color: 'darkseagreen', width: 2})
+});
+
+var styles = {
+    'Point': new ol.style.Style({
+        image: image
+    }),
+    'LineString': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'darkseagreen',
+            width: 2
+        })
+    }),
+    'MultiLineString': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'darkseagreen',
+            width: 2
+        })
+    }),
+    'MultiPoint': new ol.style.Style({
+        image: image
+    }),
+    'MultiPolygon': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'darkseagreen',
+            width: 2
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgba(113, 177, 113, 0.1)'
+        })
+    }),
+    'Polygon': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'darkseagreen',
+            width: 2
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgba(113, 177, 113, 0.1)'
+        })
+    }),
+    'GeometryCollection': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'darkseagreen',
+            width: 2
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgba(113, 177, 113, 0.1)'
+        }),
+        image: new ol.style.Circle({
+            radius: 10,
+            fill: null,
+            stroke: new ol.style.Stroke({
+                color: 'darkseagreen'
+            })
+        })
+    }),
+    'Circle': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'darkseagreen',
+            width: 2
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgba(113, 177, 113, 0.1)'
+        })
+    })
+};
+
+var styleFunction = function(feature) {
+    return styles[feature.getGeometry().getType()];
+};
 
 module.exports = featureMapDirective;

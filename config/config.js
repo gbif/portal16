@@ -62,7 +62,7 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        basemapTileApi: basemapTileApi || '//tile.gbif.org',
+        basemapTileApi: basemapTileApi || '//tile.gbif-dev.org',
         identityApi: identityApi || '//api.gbif.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://localhost:3000',
