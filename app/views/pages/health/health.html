@@ -18,8 +18,8 @@
                 <div class="horizontal-stripe light-background">
                     <div class="container--narrow" ng-if="health.loaded && !health.failed">
                         <section>
-                            <div class="card card--spaced summaryStatus summaryStatus--{{ health.status.severity | lowercase }}">
-                                <div class="card__stripe">
+                            <div class="card card--spaced">
+                                <div class="summaryStatus summaryStatus--{{ health.status.severity | lowercase }}">
                                     <div class="card__content">
                                         <span class="summaryStatus__message" translate="health.statusSummary.{{health.status.severity}}"></span>
                                         <span class="pull-right summaryStatus__updatedAt">Updated <time am-time-ago="health.status.updatedAt"></time></span>
