@@ -1,0 +1,109 @@
+"use strict";
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    querystring = require('querystring'),
+    compose = require('composable-middleware'),
+    utils = rootRequire('app/helpers/utils'),
+    request = require('requestretry'),
+    _ = require('lodash');
+
+module.exports = {permissions: getPermissions, isTrustedContact: isTrustedContact};
+
+/**
+ * Is the user a trusted dataset contact
+ * Otherwise returns 401
+ */
+function isTrustedContact() {
+    return compose()
+        .use(function (req, res, next) {
+            var datasetKey = req.params.key;
+            if (!utils.isGuid(datasetKey)) {
+                res.status(401);
+                res.send('Not a trusted dataset contact');
+                return;
+            } else {
+                getPermissions(req.user, datasetKey)
+                    .then(function(permissionStatus){
+                        if (permissionStatus.isTrustedContact) {
+                            next();
+                        } else {
+                            res.status(401);
+                            res.send('Not a trusted dataset contact');
+                        }
+                    })
+                    .catch(function(err){
+                        //TODO log error - this shouldn't happen
+                        res.status(500);
+                        res.send('Validation failed for unknown reasons - this is likely because of failing endpoints');
+                        return;
+                    });
+            }
+        });
+}
+
+async function getPermissions(user, datasetKey){
+    //TODO testing delete this
+    //user.identifiers = {
+    //    orcid: 'http://orcid.org/0000-0003-1691-239X'
+    //};
+    //user.email = 'sama@gbif.es';
+
+    //if (_.get(user, 'roles', []).indexOf('REGISTRY_ADMIN') !== -1) {
+    //    return {
+    //        isTrustedContact: true,
+    //        isTrustedContactReason: 'Is registry admin'
+    //    };
+    //}
+
+    //else check to see if listed as a contact with orcid or email
+    let dataset = await getItem(apiConfig.dataset.url, datasetKey);
+    if (isContact(dataset, user)) {
+        return {
+            isTrustedContact: true,
+            isTrustedContactReason: 'Is dataset contact'
+        };
+    }
+    let publisherPromise = getItem(apiConfig.publisher.url, dataset.publishingOrganizationKey, true);
+    let hostingPromise = getItem(apiConfig.publisher.url, dataset.hostingOrganizationKey, true);
+    let installationPromise = getItem(apiConfig.installation.url, dataset.installationKey, true);
+    let nodePromise = getItem(apiConfig.country.url, dataset.country, true);
+    let otherParties = await Promise.all([publisherPromise, installationPromise, nodePromise, hostingPromise]);
+    for (var i = 0; i < otherParties.length; i++) {
+        let party = otherParties[i];
+        if (isContact(party, user)) {
+            return {
+                isTrustedContact: true,
+                isTrustedContactReason: 'Is contact for associated item : ' + party.title + ' ' + party.key
+            };
+        }
+    }
+    return {
+        isTrustedContact: false
+    };
+}
+
+async function getItem(endpoint, key, optional) {
+    if (!key) {
+        if (optional) return;
+        throw new  Error('missing key in request');
+    }
+    let options = {
+        method: 'GET',
+        url: endpoint + key,
+        fullResponse: true,
+        json: true
+    };
+    let response = await request(options);
+    if (response.statusCode === 200 || (optional && response.statusCode === 404)) {
+        return response.body;
+    }
+    //TODO log it - unless wrong datasetkey then This should never happen and means that the endpoint is either offline or the key is non existing. that would mean referential integrety was broken
+    throw response;
+}
+
+function isContact(item, user) {
+    let contacts = _.get(item, 'contacts', []);
+    let matchedContact = _.find(contacts, function(contact){
+        return contact.email == user.email || contact.email.indexOf(user.email) > -1 || contact.userId == user.orcid || contact.userId.indexOf(user.orcid) > -1;
+    });
+    return matchedContact;
+}

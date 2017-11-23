@@ -6,7 +6,7 @@ var express = require('express'),
     taxonomicCoverage = require('./taxonomicCoverage'),
     bibliography = require('./bibliography'),
     _ = require('lodash'),
-    datasetUtils = require('./utils'),
+    datasetAuth = require('./datasetAuth'),
     utils = rootRequire('app/helpers/utils'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
     auth = require('../../../auth/auth.service'),
@@ -16,13 +16,13 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/dataset/:key/crawlPermissions', auth.isAuthenticated(), function (req, res, next) {
+router.get('/dataset/:key/permissions', auth.isAuthenticated(), function (req, res, next) {
     var datasetKey = req.params.key;
     if (!utils.isGuid(datasetKey)) {
         next();
         return;
     }
-    datasetUtils.hasCrawlPermissions(req.user, datasetKey)
+    datasetAuth.permissions(req.user, datasetKey)
         .then(function(permissionState){
             res.json(permissionState);
         })
@@ -31,6 +31,10 @@ router.get('/dataset/:key/crawlPermissions', auth.isAuthenticated(), function (r
             res.status(500);
             res.send('Unable to get dataset crawling permissions due to a server error');
         });
+});
+
+router.get('/dataset/:key/crawl', auth.isAuthenticated(), datasetAuth.isTrustedContact(), function (req, res, next) {
+    res.send('you are in');
 });
 
 router.get('/dataset/:key\.:ext?', function (req, res, next) {
