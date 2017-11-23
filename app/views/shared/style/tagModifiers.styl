@@ -41,6 +41,12 @@ a.inherit {
         }
     }
 }
+.noUnderline {
+    text-decoration none
+    &:hover, &:focus {
+        text-decoration none
+    }
+}
 
 a {
     -webkit-tap-highlight-color transparent
@@ -63,12 +69,12 @@ a.button {
 }
 
 blockquote {
-    background-color rgba(0, 0, 0, .01)
+    background-color rgba(0, 0, 0, .005)
     padding 20px
     margin 20px 0
-    border 1px solid rgba(0, 0, 0, .1)
-    border-left-width 5px
-    border-left-color $fabButtonColor
+    border 1px solid rgba(0, 0, 0, .08)
+    border-left-width 3px
+    border-left-color $navBar_background_color
     font-size inherit
 }
 

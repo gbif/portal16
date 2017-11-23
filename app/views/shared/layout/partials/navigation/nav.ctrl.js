@@ -17,6 +17,11 @@ function navCtrl(User, Notifications, $window, $rootScope, NAV_EVENTS, AUTH_EVEN
         NAV_EVENTS.toggleUserMenu
     ];
 
+    vm.hasRole = function(roles){
+        roles = _.isString(roles) ? [roles] : roles;
+        return _.intersection(_.get($sessionStorage, 'user.roles', []), roles).length > 0;
+    };
+
     vm.scrollOffset = 0;
     angular.element($window).bind('scroll', function(){
         var offset = this.pageYOffset;

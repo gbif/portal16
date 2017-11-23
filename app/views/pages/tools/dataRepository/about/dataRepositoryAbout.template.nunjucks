@@ -1,1 +1,3 @@
-Some elaborate description from contentful
+<div class="horizontal-stripe white-background">
+    <ng-include src="'/api/resource/tool?content_type=Tool&fields.keywords=Data%20repository'" ></ng-include>
+</div>

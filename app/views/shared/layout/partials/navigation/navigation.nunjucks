@@ -13,7 +13,8 @@
         </a>
 
         <div class="stickyNav__actions">
-            <a href="" class="stickyNav__actions__action gb-icon-notifications stickyNav__actions__action--notification ng-cloak" ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0" ng-class="{'is-info': nav.notifications.severity == 'INFO'}"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-heartbeat stickyNav__actions__action--notification ng-cloak" ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0" ng-class="{'is-info': nav.notifications.severity == 'INFO'}"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-heartbeat ng-cloak" ng-href="{{ portal.urlPrefix }}/health" ng-if="nav.notifications.count == 0"></a>
             <a href="" class="stickyNav__actions__action gb-icon-search2" ng-click="nav.toggleSearch()"></a>
             <a href="" class="stickyNav__actions__action gb-icon-bubble" ng-click="nav.toggleFeedback()" ng-class="{'stickyNav__actions__action--notification': nav.issuesCount}"></a>
             <a href="" class="stickyNav__actions__menu gb-icon-menu" ng-click="nav.toggleMobileMenu()" ng-class="{'gb-icon-close_L': nav.mobileMenuActive, 'gb-icon-menu': !nav.mobileMenuActive}"></a>
@@ -66,7 +67,7 @@
                                             <nav><h2>{$ __('menu.' + category.name) $}</h2>
                                                 <ul class="mainMenu__childItem">
                                                     {% for item in category.items %}
-                                                        <li>
+                                                        <li {% if item.roles %} ng-if='nav.hasRole({$ item.roles | rawJson $})' {% endif %}>
                                                             <a href="{% if item.type != 'EXTERNAL' %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$
                                                                 __('menu.' + item.name) $}
                                                                 {% if item.type == 'EXTERNAL' %}

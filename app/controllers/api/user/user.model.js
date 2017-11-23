@@ -259,6 +259,7 @@ function getClientUser(user){
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
+        roles: user.roles,
         settings: {
             country: user.settings.country
         },

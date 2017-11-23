@@ -2258,6 +2258,7 @@
     "ipt": "IPT",
     "dataValidator": "Data validator",
     "suggestDataset": "Suggest a dataset",
+    "dataRepository": "Data repository",
     "developers": "Users",
     "api": "GBIF API",
     "rgbif": "rgbif",
@@ -2667,7 +2668,8 @@
   },
   "phrases": {
     "defaultPageTitle": "GBIF",
-    "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
+    "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
+    "largeFileUploadWarning": "Be aware that large files can take a long time to upload"
   },
   "species": {
     "distribution": {
@@ -2752,9 +2754,6 @@
         "summary": "The GBIF services are currently unstable or unavailable"
       }
     }
-  },
-  "phrases": {
-    "largeFileUploadWarning": "Be aware that large files can take a long time to upload"
   },
   "map": {
     "predefined": {

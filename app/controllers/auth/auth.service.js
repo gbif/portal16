@@ -130,8 +130,13 @@ function appendUser() {
  */
 function signToken(user, ttl) {
     let tokenContent = {
-        userName: user.userName
+        userName: user.userName,
+        firstName: user.firstName,
+        lastName: user.lastName
     };
+    //if (user.roles) {
+    //    tokenContent.roles = JSON.stringify(user.roles);
+    //}
     let token = jwt.sign(tokenContent, secret, {
         expiresIn: ttl || (60 * 60 * 24 * 7) // time in seconds - 7 days
     });
@@ -152,7 +157,7 @@ function setTokenCookie(res, token) {
     var options = {
         maxAge: day * 7,
         secure: isNotDevBuild,
-        httpOnly: true
+        httpOnly: false
     };
     res.cookie('token', token, options);
 }
@@ -164,7 +169,7 @@ function removeTokenCookie(res) {
     var options = {
         maxAge: 1,
         secure: isNotDevBuild,
-        httpOnly: true
+        httpOnly: false
     };
     res.cookie('token', '', options);
 }

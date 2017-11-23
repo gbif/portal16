@@ -1,0 +1,8 @@
+{% include "../primaryImage.nunjucks" %}
+
+<div class="horizontal-stripe white-background">
+    <div class="container--narrow">
+        {% include "../body.nunjucks" %}
+        {% include "../auxiliary.nunjucks" %}
+    </div>
+</div>

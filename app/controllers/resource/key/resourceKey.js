@@ -98,15 +98,19 @@ async function getByAlias(urlAlias, depth, isPreview, locale) {
 async function getFirst(query, depth, isPreview, locale) {
     query = query || {};
     query.content_type = _.isString(query.content_type) ? query.content_type : 'article';
-
-    let articles = await searchContentful(query, depth, isPreview, locale);
-    if (articles.total == 0) {
+    let response = await searchContentful(query, depth, isPreview, locale);
+    if (_.get(response, 'sys.type') == 'Error') {
+        throw {
+            statusCode: 500
+        }
+    }
+    if (response.total == 0) {
         throw {
             statusCode: 404,
             message: 'No such item'
         }
     }
-    let first = decorateFirst(articles);
+    let first = decorateFirst(response);
     return first;
 }
 
