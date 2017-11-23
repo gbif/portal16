@@ -1,42 +1,21 @@
-<h4 class="text-muted small text-uppercase">Because you are registered as a dataset contact</h4>
-<div class="container-fluid card m-b-1">
-    <div class="row card__content">
-        <div>
-            <dl class="inline">
-                <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-                    <dt class="text-capitalize">Failed attempts since last successful crawl</dt>
-                    <dd>{{ datasetKey.processSummary.failuresSinceLastSuccess }}</dd>
-                </div>
-                <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-                    <dt class="text-capitalize">Last failed attempt</dt>
-                    <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
-                </div>
-                <div ng-if="datasetKey.processSummary.lastSuccess">
-                    <dt class="text-capitalize">Last Successful crawl</dt>
-                    <dd>{{ datasetKey.processSummary.lastSuccess.finishedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
-                </div>
-                <div ng-if="datasetKey.processSummary.finished > 0">
-                    <dt class="text-capitalize">Crawling completion reasons</dt>
-                    <dd>
-                        <ul class="inline-bullet-list">
-                            <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
-                                {{ value/datasetKey.processSummary.finished | formatAsPercentage }}% {{ key | prettifyEnum }}
-                            </li>
-                        </ul>
-                    </dd>
-                </div>
-                <div ng-if="datasetKey.processSummary.unfinished > 0">
-                    <dt class="text-capitalize">Unfinished crawls</dt>
-                    <dd>{{ datasetKey.processSummary.unfinished }}</dd>
-                </div>
-                <div ng-if="datasetKey.processSummary.analyzedCount">
-                    <dt class="text-capitalize">Crawls in total</dt>
-                    <dd>{{ datasetKey.processSummary.analyzedCount }}</dd>
-                </div>
-            </dl>
-            <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Crawled before 2013-11-06</p>
-            <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet">This dataset has no crawl entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>
-            <p class="discreet" ng-if="datasetKey.currentCrawlingStatus.datasetKey">Currently being crawled <span gb-help="time-to-index-dataset"></span></p>
+<h4 class="text-muted small text-uppercase">Because you are trusted contact</h4>
+<div class="card m-b-1">
+    <div class="card__stripe">
+        <div class="clearfix card__content">
+            <div class="pull-left" style="height:150px; width:250px;">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="datasetKey.crawlData" chart-labels="datasetKey.crawlLabels"
+                        chart-options="datasetKey.crawlOptions" chart-colors="datasetKey.crawlColors">
+                </canvas>
+            </div>
+            <div class="pull-left">
+                {% include('../main/crawlInfo.nunjucks') %}
+            </div>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content text-right">
+            <a ng-click="" href="" class="gb-button--flat text-uppercase">Crawl now</a>
         </div>
     </div>
 </div>

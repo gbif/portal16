@@ -194,6 +194,22 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
             }
         };
     }
+
+
+    //vm.crawlLabels = ['Normal', 'Not modified', 'Aborted'];
+    //vm.crawlData = [1, 7, 2];
+    //vm.crawlColors = ['#61a861', '#74b974', '#ff6347']; //yellow '#ffc247'
+    //vm.crawlOptions = {
+    //    responsive: true,
+    //    maintainAspectRatio: false
+    //};
+    //vm.processSummary.$promise.then(function(response){
+    //    var NORMAL = (response.stats.NORMAL || 0);
+    //    var NOT_MODIFIED = (response.stats.NOT_MODIFIED || 0);
+    //    var ABORT = (response.stats.ABORT || 0);
+    //    vm.crawlData = [NORMAL, NOT_MODIFIED, ABORT];
+    //});
+
 }
 
 module.exports = datasetKeyCtrl;
