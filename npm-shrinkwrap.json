@@ -1414,6 +1414,16 @@
       "from": "code-point-at@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz"
     },
+    "codemirror": {
+      "version": "5.32.0",
+      "from": "codemirror@*",
+      "resolved": "https://registry.npmjs.org/codemirror/-/codemirror-5.32.0.tgz"
+    },
+    "codemirror-spell-checker": {
+      "version": "1.1.2",
+      "from": "codemirror-spell-checker@*",
+      "resolved": "https://registry.npmjs.org/codemirror-spell-checker/-/codemirror-spell-checker-1.1.2.tgz"
+    },
     "coffee-script": {
       "version": "1.12.7",
       "from": "coffee-script@>=1.12.4 <2.0.0",
@@ -6538,6 +6548,11 @@
         }
       }
     },
+    "ng-file-upload": {
+      "version": "12.2.13",
+      "from": "ng-file-upload@>=12.2.13 <13.0.0",
+      "resolved": "https://registry.npmjs.org/ng-file-upload/-/ng-file-upload-12.2.13.tgz"
+    },
     "ng-infinite-scroll": {
       "version": "1.3.0",
       "from": "ng-infinite-scroll@>=1.2.1 <2.0.0",
@@ -8123,6 +8138,11 @@
       "from": "simple-is@>=0.2.0 <0.3.0",
       "resolved": "https://registry.npmjs.org/simple-is/-/simple-is-0.2.0.tgz"
     },
+    "simplemde": {
+      "version": "1.11.2",
+      "from": "simplemde@>=1.11.2 <2.0.0",
+      "resolved": "https://registry.npmjs.org/simplemde/-/simplemde-1.11.2.tgz"
+    },
     "slice-ansi": {
       "version": "0.0.4",
       "from": "slice-ansi@0.0.4",
@@ -8971,6 +8991,11 @@
       "version": "0.0.6",
       "from": "typedarray@>=0.0.5 <0.1.0",
       "resolved": "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
+    },
+    "typo-js": {
+      "version": "1.0.3",
+      "from": "typo-js@*",
+      "resolved": "https://registry.npmjs.org/typo-js/-/typo-js-1.0.3.tgz"
     },
     "ua-parser-js": {
       "version": "0.7.12",
