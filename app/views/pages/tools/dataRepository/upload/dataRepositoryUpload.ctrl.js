@@ -9,7 +9,7 @@ angular
     .controller('dataRepositoryUploadCtrl', dataRepositoryUploadCtrl);
 
 /** @ngInject */
-function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout) {
+function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) {
     var vm = this;
     vm.config = {license: ['CC0_1_0', 'CC_BY_4_0', 'CC_BY_NC_4_0']};
     vm.orcidPattern = /^(https?:\/\/orcid.org\/)?(([0-9]{4}-){3}([0-9]{3}[0-9X]))$/;
@@ -97,8 +97,7 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout) {
 
         //start upload
         vm.uploadProcess = Upload.upload({
-            //url: 'http://localhost:3002/upload',
-            url: 'http://api.gbif-dev.org/v1/data_packages/',
+            url: env.dataApi + '/data_packages/',
             headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
             data: {
                 dataPackage: JSON.stringify(data_package),
