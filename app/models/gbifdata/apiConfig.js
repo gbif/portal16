@@ -3,6 +3,7 @@
 var baseConfig = require('../../../config/config'),
     clientTileApi = baseConfig.tileApi,
     baseUrl = baseConfig.serverProtocol + baseConfig.dataApi,
+    registryBaseUrl = baseConfig.serverProtocol + baseConfig.registryApi,
     oozie = baseConfig.serverProtocol + baseConfig.oozie,
     yarnResourceManager = baseConfig.serverProtocol + baseConfig.yarnResourceManager,
     elk = baseConfig.serverProtocol + baseConfig.elk,
@@ -13,6 +14,9 @@ var apiConfig = {
     base: {
         url: baseUrl
     },
+    registryBaseUrl: {
+        url: registryBaseUrl
+    },
     search: {
         url: baseUrl + 'search/'
     },
@@ -20,7 +24,8 @@ var apiConfig = {
         url: baseUrl + 'node/country/'
     },
     dataset: {
-        url: baseUrl + 'dataset/'
+        url: baseUrl + 'dataset/',
+        canonical: 'dataset'
     },
     datasetSearch: {
         url: baseUrl + 'dataset/search/'

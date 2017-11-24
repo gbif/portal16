@@ -41,18 +41,13 @@ function isTrustedContact() {
 }
 
 async function getPermissions(user, datasetKey){
-    //TODO testing delete this
-    //user.identifiers = {
-    //    orcid: 'http://orcid.org/0000-0003-1691-239X'
-    //};
-    //user.email = 'sama@gbif.es';
 
-    //if (_.get(user, 'roles', []).indexOf('REGISTRY_ADMIN') !== -1) {
-    //    return {
-    //        isTrustedContact: true,
-    //        isTrustedContactReason: 'Is registry admin'
-    //    };
-    //}
+    if (_.get(user, 'roles', []).indexOf('REGISTRY_ADMIN') !== -1) {
+        return {
+            isTrustedContact: true,
+            isTrustedContactReason: 'Is registry admin'
+        };
+    }
 
     //else check to see if listed as a contact with orcid or email
     let dataset = await getItem(apiConfig.dataset.url, datasetKey);
@@ -103,7 +98,7 @@ async function getItem(endpoint, key, optional) {
 function isContact(item, user) {
     let contacts = _.get(item, 'contacts', []);
     let matchedContact = _.find(contacts, function(contact){
-        return contact.email == user.email || contact.email.indexOf(user.email) > -1 || contact.userId == user.orcid || contact.userId.indexOf(user.orcid) > -1;
+        return contact.email == user.email || contact.email.indexOf(user.email) > -1;// || contact.userId == user.orcid || contact.userId.indexOf(user.orcid) > -1;
     });
     return matchedContact;
 }

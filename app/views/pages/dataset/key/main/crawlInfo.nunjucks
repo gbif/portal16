@@ -1,7 +1,7 @@
-<dl class="inline">
+<dl class="inline m-b-05">
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
         <dt class="text-capitalize">Failed attempts since last successful crawl</dt>
-        <dd>{{ datasetKey.processSummary.failuresSinceLastSuccess }}</dd>
+        <dd ng-class="{'c-error-badge': datasetKey.processSummary.failuresSinceLastSuccess > 0}">{{ datasetKey.processSummary.failuresSinceLastSuccess }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
         <dt class="text-capitalize">Last failed attempt</dt>
@@ -37,6 +37,5 @@
         <dd>{{ datasetKey.processSummary.analyzedCount }}</dd>
     </div>
 </dl>
-<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Crawled before {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</p>
+<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Last crawled before {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</p>
 <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet">This dataset has no crawl entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>
-<p ng-if="datasetKey.currentCrawlingStatus.datasetKey">Currently being crawled <span gb-help="time-to-index-dataset"></span></p>

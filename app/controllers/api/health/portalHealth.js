@@ -17,6 +17,13 @@ async function getHealth() {
 
     //remove errors that aren't relevant to the portal
     delete status.load;
+
+    //map components for quick look ups in the client
+    status.components = {};
+    status.health.components.map(function(e){
+        status.components[e.component] = e.severity;
+    });
+
     //_.remove(status.health.components, {component: 'CRAWLER'});
     _.remove(status.health.components, {component: 'GITHUB'});
 
@@ -47,7 +54,8 @@ function getNotifications(status) {
     let results = {
         count: notifications.length,
         results: notifications,
-        severity: status.severity
+        severity: status.severity,
+        components: status.components
     };
     results.hash = objectHash(results);
     results.updatedAt = status.updatedAt;
