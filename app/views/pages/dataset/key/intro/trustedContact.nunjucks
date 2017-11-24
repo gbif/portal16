@@ -21,7 +21,7 @@
                     </div>
                     <div>
                         <dt class="text-capitalize">Items in crawl queue</dt>
-                        <dd ng-class="{'c-error-badge': datasetKey.processSummary.failuresSinceLastSuccess > 0}">{{ datasetKey.currentCrawlingStatus.queueLength }}</dd>
+                        <dd>{{ datasetKey.currentCrawlingStatus.queueLength }}</dd>
                     </div>
                 </dl>
             </div>
