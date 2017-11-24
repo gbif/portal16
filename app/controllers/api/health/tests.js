@@ -152,6 +152,12 @@ var tests = [
         message: 'There should be a log entry from the crawler within the last 150 seconds'
     },
     {
+        url: apiConfig.crawlingDatasetProcessRunning.url + '?v={SECONDS_AGO}',
+        component: 'CRAWLER',
+        secondsAgo: 0,
+        message: 'The crawl queue should be available'
+    },
+    {
         url: apiConfig.elkSearch.url + varnishIndexName + '/_search?q=response:>499%20AND%20request:("//api.gbif.org/v1/occurrence/search*")%20AND%20@timestamp:>{SECONDS_AGO}',
         component: 'OCCURRENCE',
         secondsAgo: 180,

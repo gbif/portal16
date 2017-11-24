@@ -20,7 +20,7 @@
                 <dl class="inline m-b-05">
                     <div>
                         <dt class="text-capitalize">Crawler status</dt>
-                        <dd ng-class="{'c-error-badge': datasetKey.componentHealth.CRAWLER !== 'OPERATIONAL'}" translate="health.status.{{datasetKey.componentHealth.CRAWLER}}"></dd>
+                        <dd ng-class="{'c-error-badge': datasetKey.componentHealth.CRAWLER !== 'OPERATIONAL'}" translate="health.status.{{datasetKey.componentHealth.CRAWLER || 'CRITICAL'}}"></dd>
                     </div>
                     <div>
                         <dt class="text-capitalize">Items in crawl queue</dt>

@@ -71,14 +71,14 @@
                                 <div class="card__stripe status--{{ health.status.load.components.CRAWLER.severity | lowercase }}">
                                     <div class="card__content">
                                         <span translate="health.components.CRAWLER.name"></span>
-                                        <span class="pull-right statusLabel">{{ health.status.load.components.CRAWLER.load }} in queue</span>
+                                        <span class="pull-right statusLabel">{{ health.status.load.components.CRAWLER.load || 0 }} in queue</span>
                                     </div>
                                 </div>
 
                                 <div class="card__stripe status--{{ health.status.load.components.DOWNLOAD.severity | lowercase }}">
                                     <div class="card__content">
                                         <span translate="health.components.DOWNLOAD.name"></span>
-                                        <span class="pull-right statusLabel">{{ health.status.load.components.DOWNLOAD.load }} in queue</span>
+                                        <span class="pull-right statusLabel">{{ health.status.load.components.DOWNLOAD.load || 0 }} in queue</span>
                                     </div>
                                 </div>
                             </div>

@@ -29,8 +29,11 @@ async function clusterLoad() {
     };
     let response = await request(options);
     if (response.statusCode != 200) {
-        throw response;
-        return;
+        return {
+            component: 'CLUSTER',
+            error: 'No response',
+            severity: 'CRITICAL'
+        };
     }
     let result = response.body;
 
@@ -58,8 +61,11 @@ async function crawlerLoad() {
     };
     let response = await request(options);
     if (response.statusCode != 200) {
-        throw response;
-        return;
+        return {
+            component: 'CRAWLER',
+            error: 'No response',
+            severity: 'CRITICAL'
+        };
     }
     let result = response.body;
     return {
@@ -82,8 +88,11 @@ async function downloadQueue() {
     };
     let response = await request(options);
     if (response.statusCode != 200) {
-        throw response;
-        return;
+        return {
+            component: 'DOWNLOAD',
+            error: 'No response',
+            severity: 'CRITICAL'
+        };
     }
     let result = response.body;
     return {
