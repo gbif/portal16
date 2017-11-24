@@ -7,7 +7,7 @@ let severity = require('./severity').severity,
 let crawlIndexName = 'prod-crawl-*',
     varnishIndexName = 'prod-varnish-*',
     downloadKey = '0000662-160118175350007';
-switch (config.env) {
+switch (config.healthEnv || config.env) {
     case 'dev':
         crawlIndexName = 'dev-crawl-*';
         varnishIndexName = 'dev-varnish-*';

@@ -51,6 +51,7 @@ var path = require('path'),
 var config = {
     local: {
         env: 'dev',
+        healthEnv: 'prod',
         root: rootPath,
         app: {
             name: 'portal - local'
