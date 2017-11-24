@@ -29,7 +29,7 @@
     </div>
     <div class="card__stripe">
         <div class="card__content text-right" ng-if="!datasetKey.crawlingFailed">
-            <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && datasetKey.crawlingStarted">Crawl now</a>
+            <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && !datasetKey.crawlingStarted">Crawl now</a>
             <a class="gb-button--discreet" href="//crawler.gbif.org/" ng-if="datasetKey.currentCrawlingStatus.isInQueue">Is in crawl queue</a>
             <span class="gb-button--discreet" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && datasetKey.crawlingStarted">Adding to queue</span>
         </div>
