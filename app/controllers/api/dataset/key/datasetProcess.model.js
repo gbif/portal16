@@ -37,6 +37,7 @@ async function getProcessSummary(key) {
         },
         finished: 0,
         unfinished: 0,
+        notStarted: 0,
         analyzedCount: Math.min(limit, attempts.count)
     };
 
@@ -61,6 +62,8 @@ async function getProcessSummary(key) {
             summary.finished++;
         } else if(attempt.startedCrawling && !attempt.finishedCrawling) {
             summary.unfinished++;
+        } else {
+            summary.notStarted++;
         }
     });
 

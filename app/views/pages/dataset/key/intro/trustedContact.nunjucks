@@ -2,17 +2,20 @@
 <div class="card m-b-1 trusted-contact">
     <div class="card__stripe container-fluid">
         <div class="row card__content">
-            <div class="col-md-4 hidden-sm hidden-xs" style="height:150px;" ng-if="datasetKey.processSummary.analyzedCount > 0">
-                <canvas id="doughnut" class="chart chart-doughnut"
-                        chart-data="datasetKey.crawlData" chart-labels="datasetKey.crawlLabels"
-                        chart-options="datasetKey.crawlOptions" chart-colors="datasetKey.crawlColors">
-                </canvas>
+            <div class="col-md-3 hidden-sm hidden-xs" ng-if="datasetKey.processSummary.analyzedCount > 0">
+                <h4 class="card-header text-center">Crawl completion reasons</h4>
+                <div style="height:100px;">
+                    <canvas id="doughnut" class="chart chart-doughnut"
+                            chart-data="datasetKey.crawlData" chart-labels="datasetKey.crawlLabels"
+                            chart-options="datasetKey.crawlOptions" chart-colors="datasetKey.crawlColors">
+                    </canvas>
+                </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="col-xs-12 col-sm-6 col-md-6">
                 <h4 class="card-header">Dataset crawl status</h4>
                 {% include('../main/crawlInfo.nunjucks') %}
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="col-xs-12 col-sm-6 col-md-3">
                 <h4 class="card-header">GBIF crawler status</h4>
                 <dl class="inline m-b-05">
                     <div>

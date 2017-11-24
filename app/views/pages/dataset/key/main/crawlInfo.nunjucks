@@ -34,7 +34,7 @@
     </div>
     <div ng-if="datasetKey.processSummary.analyzedCount">
         <dt class="text-capitalize">Crawls in total</dt>
-        <dd>{{ datasetKey.processSummary.analyzedCount }}</dd>
+        <dd>{{ datasetKey.processSummary.finished }}</dd>
     </div>
 </dl>
 <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Last crawled before {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</p>
