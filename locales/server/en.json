@@ -2693,8 +2693,8 @@
     "statusSummary": {
       "OPERATIONAL": "All systems operational",
       "INFO": "All systems operational",
-      "WARNING": "We are experiencing unstable systems",
-      "CRITICAL": "We are having critical issues with our system"
+      "WARNING": "We are experiencing unstable or slow systems",
+      "CRITICAL": "We are experiencing a partial outage"
     },
     "status": {
       "OPERATIONAL": "Operational",
@@ -2747,11 +2747,11 @@
     "notifications": {
       "WARNING": {
         "title": "Services unstable",
-        "summary": "We are currently experiencing slow or unstable services. We apologise for the inconvenience."
+        "summary": "We are currently experiencing slow or unstable services."
       },
       "CRITICAL": {
-        "title": "Services unavilable",
-        "summary": "The GBIF services are currently unstable or unavailable"
+        "title": "Services unavailable",
+        "summary": "We are experiencing a partial outage"
       }
     }
   },
