@@ -80,6 +80,8 @@ async function getCrawling() {
     let baseRequest = {
         url: apiConfig.crawlingDatasetProcessRunning.url + '?t=' + Date.now(),
         method: 'GET',
+        maxAttempts: 2,
+        retryDelay: 3000,
         json: true,
         fullResponse: true
     };
