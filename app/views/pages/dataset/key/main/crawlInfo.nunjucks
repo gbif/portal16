@@ -14,9 +14,24 @@
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess.finishReason !== 'NORMAL'">
-        <dt class="text-capitalize">Last successful crawl with changes</dt>
-        <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | amDateFormat:'D MMMM YYYY' }} <span>({{ datasetKey.processSummary.lastNormal.finishReason | prettifyEnum }})</span></span>
+        <dt class="text-capitalize">Last crawl with changes</dt>
+        <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | amDateFormat:'D MMMM YYYY' }}</span>
         <span ng-if="!datasetKey.processSummary.lastNormal">Unknown, but none since {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</span>
+    </div>
+    <div ng-if="datasetKey.processSummary.lastDataChange">
+        <dt class="text-capitalize">Last crawl with data change</dt>
+        <dd>
+            {{ datasetKey.processSummary.lastDataChange.finishedCrawling | amDateFormat:'D MMMM YYYY' }}
+        </dd>
+    </div>
+    <div ng-if="datasetKey.processSummary.lastDataChange">
+        <dt class="text-capitalize">Occurrences in last crawl</dt>
+        <dd>
+            <span>
+                {{ datasetKey.processSummary.lastDataChange.fragmentsEmitted | localNumber }}
+                <span ng-class="{'c-error-badge': (((datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) - 1) | MathAbs) > 0.2}">{{ (datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) | formatAsPercentage }}% over crawled </span>
+            </span>
+        </dd>
     </div>
     <div ng-if="datasetKey.processSummary.finished > 0">
         <dt class="text-capitalize">Crawling completion reasons</dt>

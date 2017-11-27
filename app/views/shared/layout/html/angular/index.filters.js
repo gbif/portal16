@@ -143,6 +143,11 @@
                 return (text) ? text.charAt(0).toUpperCase() + '.' : '';
             }
         })
+        .filter('MathAbs', function(){
+            return function(num) {
+                return Math.abs(num);
+            }
+        })
         .filter('formatBytes', function(){
             return function(bytes, decimals, language) {
                 if (bytes == 0) return '0 Bytes';
@@ -161,7 +166,13 @@
                     return percentage;
                 }
                 percentage = 100 * percentage;
-                if (percentage == 100) {
+                if (percentage > 101) {
+                    formatedPercentage = percentage.toFixed();
+                } else if (percentage > 100.1) {
+                    formatedPercentage = percentage.toFixed(1);
+                } else if (percentage > 100) {
+                    formatedPercentage = 100.1;
+                } else if (percentage == 100) {
                     formatedPercentage = 100;
                 } else if (percentage >= 99.9) {
                     formatedPercentage = 99.9;

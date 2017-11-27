@@ -51,7 +51,7 @@ var path = require('path'),
 var config = {
     local: {
         env: 'dev',
-        healthEnv: 'dev',
+        healthEnv: 'prod',
         root: rootPath,
         app: {
             name: 'portal - local'
@@ -60,11 +60,11 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
-        dataApi: dataApi || '//api.gbif-uat.org/v1/',
-        tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',
-        basemapTileApi: basemapTileApi || '//tile.gbif-uat.org',
-        identityApi: identityApi || '//api.gbif-uat.org/v1/',
+        dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
+        dataApi: dataApi || '//api.gbif.org/v1/',
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
+        basemapTileApi: basemapTileApi || '//tile.gbif.org',
+        identityApi: identityApi || '//api.gbif.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://localhost:3000',
         topDomain: undefined,

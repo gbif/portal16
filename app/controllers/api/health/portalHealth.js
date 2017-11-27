@@ -24,7 +24,7 @@ async function getHealth() {
         status.components[e.component] = e.severity;
     });
 
-    //_.remove(status.health.components, {component: 'CRAWLER'});
+    _.remove(status.health.components, {component: 'CRAWLER'});
     _.remove(status.health.components, {component: 'GITHUB'});
 
     //set severity to match the new object

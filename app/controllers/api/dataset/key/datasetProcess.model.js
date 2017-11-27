@@ -28,6 +28,7 @@ async function getProcessSummary(key) {
         lastAttempt: undefined,
         lastSuccess: undefined,
         lastNormal: undefined,
+        lastDataChange: undefined,
         failuresSinceLastSuccess: 0,
         stats: {
             NORMAL: undefined,
@@ -55,6 +56,11 @@ async function getProcessSummary(key) {
         if (!summary.lastNormal) {
             if (attempt.finishReason == 'NORMAL') {
                 summary.lastNormal = attempt;
+            }
+        }
+        if (!summary.lastDataChange) {
+            if (attempt.rawOccurrencesPersistedNew > 0 || attempt.rawOccurrencesPersistedUpdated > 0) {
+                summary.lastDataChange = attempt;
             }
         }
         if (attempt.finishReason) {

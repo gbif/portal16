@@ -1,8 +1,25 @@
+.gb-badge {
+    padding 3px 10px
+    border-radius 3px
+}
+.gb-badge--red {
+    @extends .gb-badge
+    background tomato
+    color white
+}
+.gb-badge--green {
+    @extends .gb-badge
+    background $navBar_background_color
+    color white
+}
+.gb-badge--yellow {
+    @extends .gb-badge
+    background $orangePeel
+    color white
+}
+
 .trusted-contact {
     .c-error-badge {
-        background tomato
-        padding 1px 5px
-        color white
-        border-radius 3px
+        @extends .gb-badge--red
     }
 }
