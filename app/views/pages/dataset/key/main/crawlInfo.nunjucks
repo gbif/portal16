@@ -29,7 +29,7 @@
         <dd>
             <span>
                 {{ datasetKey.processSummary.lastDataChange.fragmentsEmitted | localNumber }}
-                <span ng-class="{'c-error-badge': (((datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) - 1) | MathAbs) > 0.2}">{{ (datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) | formatAsPercentage }}% over crawled </span>
+                <span ng-class="{'c-error-badge': (((datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) - 1) | MathAbs) > 0.2}">Out of sync</span>
             </span>
         </dd>
     </div>
