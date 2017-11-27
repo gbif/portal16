@@ -139,8 +139,8 @@
                              type="file"
                              ngf-model-options="{updateOn: 'change click drop dropUrl paste', allowInvalid: false, debounce: 0}"
                              ngf-multiple="false"
-                             ngf-pattern="'.csv'"
-                             class="drop-box dropArea--small">Drop or select file</div>
+                             ngf-pattern="'.csv,.txt'"
+                             class="drop-box dropArea--small">Drop or select a .csv file</div>
                     </div>
                     <ul class="fileList">
                         <li class="fileList__item" ng-if="dataRepositoryUpload.relatedIdentifiersFile">
@@ -153,7 +153,7 @@
                         <li class="fileList__item">
                             <div class="fileList__item__field fileList__item__icon gb-icon-link"></div>
                             <div class="fileList__item__field fileList__item__field--main">
-                                <input type="url" ng-model="dataRepositoryUpload.relatedIdentifiersUrl" placeholder="e.g. https://doi.org/xxxx/xx.xxxxxx"/>
+                                <input type="url" ng-model="dataRepositoryUpload.relatedIdentifiersUrl" placeholder="e.g. http://myserver.org/files/related.csv"/>
                             </div>
                         </li>
                     </ul>
