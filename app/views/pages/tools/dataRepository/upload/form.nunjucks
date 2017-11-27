@@ -129,7 +129,7 @@
                 {#</div>#}
                 <div class="card__stripe">
                     <div class="card__content seperator--b">
-                        [Some description stating what it means and what formats are expected]
+                        Upload a file describing this datasets relation to other data. See <a href="/tools/datarepo/example.csv">example file</a>. Supported relations are those <a href="http://schema.datacite.org/meta/kernel-3/doc/DataCite-MetadataKernel_v3.1.pdf">supported by Datacite</a>
                     </div>
                     <div class="card__content">
                         <div ngf-drop
