@@ -97,7 +97,7 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
 
         //start upload
         vm.uploadProcess = Upload.upload({
-            url: env.dataApi + '/data_packages/',
+            url: env.dataApi + 'data_packages/',
             headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
             data: {
                 dataPackage: JSON.stringify(data_package),
