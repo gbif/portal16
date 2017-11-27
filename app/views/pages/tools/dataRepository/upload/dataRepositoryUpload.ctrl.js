@@ -82,7 +82,7 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
             return {
                 name: creator.name,
                 identifier: creator.identifier,
-                identifierScheme: 'ORCID',
+                identifierScheme: creator.identifier ? 'ORCID' : undefined,
                 affiliation: creator.affiliation ? [creator.affiliation] : undefined
             }
         });
