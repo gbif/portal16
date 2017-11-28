@@ -41,13 +41,20 @@ function notificationsDirective(BUILD_VERSION) {
             vm.isActive = false;
         };
 
-        $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
+        function updateNotifications(notifications) {
+            if (!_.isObject(notifications)) {
+                return;
+            }
             vm.notifications = notifications;
             if (notifications.severity == 'CRITICAL' && !$sessionStorage.hasSeenHealthAlert) {
                 $sessionStorage.hasSeenHealthAlert = true;
                 vm.isActive = true;
-                console.log('is alert');
             }
+        }
+        updateNotifications($sessionStorage.notifications);
+
+        $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
+            updateNotifications(notifications);
         });
     }
 }

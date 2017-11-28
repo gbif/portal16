@@ -38,9 +38,9 @@ var tests = [
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 15000,
+        val: 20000,
         severity: severity.WARNING,
-        message: 'Should respond with free text query within 15 seconds - else warn'
+        message: 'Should respond with free text query within 20 seconds - else warn'
     },
     {
         url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
@@ -79,8 +79,8 @@ var tests = [
         component: 'REGISTRY',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
-        val: 6000,
-        message: 'Dataset search should respond within 6 seconds on a search'
+        val: 10000,
+        message: 'Dataset search should respond within 10 seconds on a search'
     },
     {
         url: apiConfig.dataset.url + backboneKey + '?cachebust={NOW}',

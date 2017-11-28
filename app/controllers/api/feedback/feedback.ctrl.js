@@ -12,7 +12,17 @@ let express = require('express'),
     feedbackHelper = require('./feedbackHelper'),
     moment = require("moment"),
     router = express.Router(),
+    notificationsComplete = require('../health/notifications.model')(),
     issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
+
+let getStatus;
+notificationsComplete
+    .then(function(getStatusFunction) {
+        getStatus = getStatusFunction;
+    })
+    .catch(function(){
+        //ignore errors
+    });
 
 module.exports = function (app) {
     app.use('/api/feedback', router);
@@ -167,6 +177,9 @@ function createIssue(req, data, cb) {
     try {
         ip = req.clientIp;
         country = _.get(getGeoIp(ip), 'country.iso_code');
+        if (typeof getStatus == 'function') {
+            data._health = _.get(getStatus(), 'severity');
+        }
         description = getDescription(data, agent, referer);
         title = getTitle(data.form.title, data.type, referer);
         labels = getLabels(data, country);

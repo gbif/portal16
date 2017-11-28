@@ -22,13 +22,15 @@
                             if (response.status == 200) {
                                 var notifications = response.data;
                                 if (_.get($sessionStorage.notifications, 'hash') != notifications.hash) {
-                                    $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
                                     $sessionStorage.notifications = notifications;
+                                    $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
                                 }
                             } else {
                                 var notifications = $sessionStorage.notifications;
                                 notifications.updatedAt = (new Date()).toISOString();
-                                $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
+                                $sessionStorage.notifications = notifications;
+                                //don't broadcast for timestamp updates
+                                //$rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
                             }
                         })
                         .catch(function () {
