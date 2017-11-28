@@ -25,7 +25,6 @@ function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
         _.forEach(data.results, function(e){e.call = _.get(e.call, 'title');});
         data.count = data.results.length;
         vm.projects = data;
-        console.log(vm.projects);
     });
 
     ResourceSearch.query({contentType: 'news', programmeTag: vm.key, limit:500}, function(data){
