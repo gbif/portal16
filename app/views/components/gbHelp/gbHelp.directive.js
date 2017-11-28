@@ -11,11 +11,11 @@ angular
     .directive('gbHelp', gbHelpDirective);
 
 /** @ngInject */
-function gbHelpDirective() {
+function gbHelpDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/gbHelp/gbHelp.html',
+        templateUrl: '/templates/components/gbHelp/gbHelp.html?v=' + BUILD_VERSION,
         scope: {
             gbHelp: '@',
             gbHelpOptions: '='
