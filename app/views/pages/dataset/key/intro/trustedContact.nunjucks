@@ -47,7 +47,7 @@
             <a href="" ng-click="datasetKey.showTrustedDatasetDetails = true">
                 <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0">Last crawl a success</span>
                 <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0">Last crawl failed</span>
-                <span class="gb-badge--red inline-block" ng-if="(((datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) - 1) | MathAbs) > 0.2">Out of sync</span>
+                <span class="gb-badge--red inline-block" ng-if="(((datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) - 1) | MathAbs) > 0.1">Out of sync</span>
             </a>
             <div class="pull-right" ng-if="!datasetKey.crawlingFailed">
                 <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && !datasetKey.crawlingStarted">Crawl now</a>
