@@ -5,7 +5,7 @@ angular
     .controller('iptCtrl', iptCtrl);
 
 /** @ngInject */
-function iptCtrl($http, leafletData, mapConstants) {
+function iptCtrl($http, leafletData, env) {
     var vm = this;
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
@@ -13,10 +13,20 @@ function iptCtrl($http, leafletData, mapConstants) {
         crs: L.CRS.EPSG4326
     };
     vm.center = {zoom: 7, lat: 0, lng: 0};
-
+console.log(env);
+    var baseMap = {
+        name: "Classic",
+        url: env.basemapTileApi + "/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-light&srs=EPSG%3A3857",
+        options: {},
+        type: 'xyz',
+        layerOptions: {
+            showOnSelector: false,
+            attribution: "&copy; <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
+        }
+    };
     vm.layers = {
         baselayers: {
-            base: mapConstants.baseLayers.options['grey-4326']
+            base: baseMap
         },
         overlays: {
             installations: {
