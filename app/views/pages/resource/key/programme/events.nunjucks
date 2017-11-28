@@ -8,12 +8,5 @@
             </div>
         </div>
     </div>
-    {#<div class="container--fluid">#}
-        {#<div class="grid">#}
-            {#<div class="grid-item" ng-repeat="result in programmeKey.events.data.results">#}
-                {#<ng-include src="'/api/template/search/eventResult.html?v={$ BUILD_VERSION $}'"></ng-include>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
 </div>
 

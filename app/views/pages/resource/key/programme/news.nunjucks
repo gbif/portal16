@@ -2,36 +2,8 @@
     <div class="container--narrow">
         <div class="row">
             <div class="col-xs-12">
-                <div ng-repeat="result in programmeKey.news.data.results">
-
-                    {# TODO should use the shared template, but since the api result is different so is the template (the elastic search api have changed)#}
-                    {#<ng-include src="'/api/template/search/newsResult.html?v={$ BUILD_VERSION $}'"></ng-include>#}
-
-                    <div class="card m-b-05 searchCard">
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <span class="searchCard__type">{$ __('cms.contentType.news') | capitalize $}</span>
-                                <h3 class="searchCard__headline">
-                                    <a ng-href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
-                                        {{result.title}}
-                                    </a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="card__stripe">
-                            <div class="card__content searchCard__content">
-                                <a href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
-                                    <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + programmeKey.news.data.images[result.primaryImage.sys.id] | encodeURIComponent }}" ng-if="programmeKey.news.data.images[result.primaryImage.sys.id]">
-                                </a>
-                                <p>
-                                    {{result._summary}}
-                                </p>
-                                <p class="discreet--very smaller">
-                                    Published {{ result.createdAt | amDateFormat:'D MMMM YYYY'}}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div ng-repeat="result in programmeKey.news.results">
+                    <ng-include src="'/api/template/search/newsResult.html?v=' + portal.BUILD_VERSION"></ng-include>
                 </div>
             </div>
         </div>

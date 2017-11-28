@@ -7,7 +7,7 @@
                     {{result.title}}
                     <span class="gb-icon-link"></span>
                 </a>
-                <a ng-href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}" ng-if="!result.primaryLink.url">
+                <a ng-href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}" ng-if="!result.primaryLink.url">
                     {{result.title}}
                 </a>
             </h3>
@@ -43,7 +43,7 @@
     <div class="card__stripe" ng-if="!(result.end | isPast)">
         <div class="card__content">
             <a ng-href="/api/newsroom/events/{{result.id}}.ics" class="gb-button--discreet text-uppercase small"><span class="gb-icon-calendar"></span> Add to calendar</a>
-            <a href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}" class="gb-button--flat text-uppercase small" ng-if="result.primaryLink.url">View on GBIF</a>
+            <a href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}" class="gb-button--flat text-uppercase small" ng-if="result.primaryLink.url">View on GBIF</a>
         </div>
     </div>
 </div>
