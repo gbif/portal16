@@ -22,15 +22,17 @@
             </div>
         </div>
     </div>
-    <div class="card__stripe container-fluid" ng-if="datasetKey.showTrustedDatasetDetails">
+    <div class="card__stripe container-fluid clearfix" ng-if="datasetKey.showTrustedDatasetDetails">
         <div class="row card__content">
             <div class="col-md-3 hidden-sm hidden-xs" ng-if="datasetKey.processSummary.analyzedCount > 0">
                 <h4 class="card-header text-center">Crawl completion reasons</h4>
-                <div style="height:100px;">
-                    <canvas id="doughnut" class="chart chart-doughnut"
-                            chart-data="datasetKey.crawlData" chart-labels="datasetKey.crawlLabels"
-                            chart-options="datasetKey.crawlOptions" chart-colors="datasetKey.crawlColors">
-                    </canvas>
+                <div>
+                    <div style="height:100px;">
+                        <canvas id="doughnut" class="chart chart-doughnut"
+                                chart-data="datasetKey.crawlData" chart-labels="datasetKey.crawlLabels"
+                                chart-options="datasetKey.crawlOptions" chart-colors="datasetKey.crawlColors">
+                        </canvas>
+                    </div>
                     <div class="text-center">
                         <ul class="inline-bullet-list">
                             <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
