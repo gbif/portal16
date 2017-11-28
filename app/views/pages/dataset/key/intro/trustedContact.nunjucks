@@ -5,6 +5,23 @@
     </div>
 </div>
 <div class="card m-b-1 trusted-contact">
+    <div class="card__stripe">
+        <div class="card__content clearfix">
+            <a href="" ng-click="datasetKey.showTrustedDatasetDetails = true">
+                <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0">Last crawl a success</span>
+                <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0">Last crawl failed</span>
+                <span class="gb-badge--red inline-block" ng-if="(((datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) - 1) | MathAbs) > 0.1">Out of sync</span>
+            </a>
+            <div class="pull-right" ng-if="!datasetKey.crawlingFailed">
+                <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && !datasetKey.crawlingStarted">Crawl now</a>
+                <a class="gb-button--discreet" href="//crawler.gbif.org/" ng-if="datasetKey.currentCrawlingStatus.isInQueue">Is in crawl queue</a>
+                <span class="gb-button--discreet" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && datasetKey.crawlingStarted">Adding to queue</span>
+            </div>
+            <div class="pull-right" ng-if="datasetKey.crawlingFailed">
+                <span class="text-error text-uppercase">Unable to start crawl</span>
+            </div>
+        </div>
+    </div>
     <div class="card__stripe container-fluid" ng-if="datasetKey.showTrustedDatasetDetails">
         <div class="row card__content">
             <div class="col-md-3 hidden-sm hidden-xs" ng-if="datasetKey.processSummary.analyzedCount > 0">
@@ -39,23 +56,6 @@
                         <dd>{{ datasetKey.currentCrawlingStatus.queueLength }}</dd>
                     </div>
                 </dl>
-            </div>
-        </div>
-    </div>
-    <div class="card__stripe">
-        <div class="card__content clearfix">
-            <a href="" ng-click="datasetKey.showTrustedDatasetDetails = true">
-                <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0">Last crawl a success</span>
-                <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0">Last crawl failed</span>
-                <span class="gb-badge--red inline-block" ng-if="(((datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) - 1) | MathAbs) > 0.1">Out of sync</span>
-            </a>
-            <div class="pull-right" ng-if="!datasetKey.crawlingFailed">
-                <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && !datasetKey.crawlingStarted">Crawl now</a>
-                <a class="gb-button--discreet" href="//crawler.gbif.org/" ng-if="datasetKey.currentCrawlingStatus.isInQueue">Is in crawl queue</a>
-                <span class="gb-button--discreet" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && datasetKey.crawlingStarted">Adding to queue</span>
-            </div>
-            <div class="pull-right" ng-if="datasetKey.crawlingFailed">
-                <span class="text-error text-uppercase">Unable to start crawl</span>
             </div>
         </div>
     </div>
