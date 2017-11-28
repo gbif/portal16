@@ -49,11 +49,12 @@ function check(config) {
         options.maxAttempts = 1;
     }
 
+    options.url = options.url.replace('{NOW}', Date.now());
     if (config.randomWord) {
-        options.url = config.url.replace('{RANDOM_WORD}', randomWords());
+        options.url = options.url.replace('{RANDOM_WORD}', randomWords());
     }
     if (config.secondsAgo) {
-        options.url = config.url.replace('{SECONDS_AGO}', Date.now() - config.secondsAgo*1000);
+        options.url = options.url.replace('{SECONDS_AGO}', Date.now() - config.secondsAgo*1000);
     }
 
     var deferred = Q.defer();

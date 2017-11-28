@@ -23,18 +23,18 @@ switch (config.healthEnv || config.env) {
 }
 var tests = [
     {
-        url: apiConfig.occurrenceSearch.url,
+        url: apiConfig.occurrenceSearch.url + '?cachebust={NOW}',
         component: 'OCCURRENCE'
     },
     {
-        url: apiConfig.occurrenceSearch.url + '?basisOfRecord=NONSENSE',
+        url: apiConfig.occurrenceSearch.url + '?basisOfRecord=NONSENSE&cachebust={NOW}',
         component: 'OCCURRENCE',
         type: 'STATUS',
         val: 400,
         message: 'Should fail for nonsensical queries'
     },
     {
-        url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}',
+        url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
@@ -43,7 +43,7 @@ var tests = [
         message: 'Should respond with free text query within 15 seconds - else warn'
     },
     {
-        url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}',
+        url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
@@ -51,7 +51,7 @@ var tests = [
         message: 'Should respond with free text query within 40 seconds - else the performance is considered critical'
     },
     {
-        url: apiConfig.taxonSearch.url + '?q={RANDOM_WORD}',
+        url: apiConfig.taxonSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
         component: 'SPECIES',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
@@ -60,12 +60,12 @@ var tests = [
         message: 'Should respond with free text query within 8 seconds - else warn'
     },
     {
-        url: apiConfig.taxon.url + '42',
+        url: apiConfig.taxon.url + '42?cachebust={NOW}',
         component: 'SPECIES',
         message: 'A specific species key (42) should resolve'
     },
     {
-        url: apiConfig.taxon.url + 'suggest?datasetKey=' + backboneKey + '&limit=10&q=puma+concolor+(Linnaeus,+1771)',
+        url: apiConfig.taxon.url + 'suggest?datasetKey=' + backboneKey + '&limit=10&q=puma+concolor+(Linnaeus,+1771)&cachebust={NOW}',
         component: 'SPECIES',
         randomWord: true,
         type: 'HAVE_VALUE',
@@ -75,7 +75,7 @@ var tests = [
         message: 'Species suggest should always show the species first when searching for the exact name'
     },
     {
-        url: apiConfig.datasetSearch.url + '?q={RANDOM_WORD}',
+        url: apiConfig.datasetSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
         component: 'REGISTRY',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
@@ -83,12 +83,12 @@ var tests = [
         message: 'Dataset search should respond within 6 seconds on a search'
     },
     {
-        url: apiConfig.dataset.url + backboneKey,
+        url: apiConfig.dataset.url + backboneKey + '?cachebust={NOW}',
         component: 'REGISTRY',
         message: 'A specific dataset key should work (backbone)'
     },
     {
-        url: apiConfig.mapCapabilities.url + '?taxonKey=42',
+        url: apiConfig.mapCapabilities.url + '?taxonKey=42&cachebust={NOW}',
         component: 'MAPS',
         type: 'NUMBER_ABOVE',
         key: 'total',
@@ -96,22 +96,22 @@ var tests = [
         message: 'Map capabilities for taxonKey 42 should return a json with a total above 100'
     },
     {
-        url: apiConfig.mapOccurrenceDensity.url + '0/0/0@1x.png',
+        url: apiConfig.mapOccurrenceDensity.url + '0/0/0@1x.png?cachebust={NOW}',
         component: 'MAPS',
         message: 'Map occurrence density requests should return 200'
     },
     {
-        url: config.serverProtocol + config.basemapTileApi + '/4326/omt/2/3/1@1x.png',
+        url: config.serverProtocol + config.basemapTileApi + '/4326/omt/2/3/1@1x.png?cachebust={NOW}',
         component: 'MAPS',
         message: 'Basemap requests should return 200'
     },
     {
-        url: apiConfig.occurrenceDownload.url + downloadKey,
+        url: apiConfig.occurrenceDownload.url + downloadKey + '?cachebust={NOW}',
         component: 'DOWNLOAD',
         message: 'download key 0000662-160118175350007 should return 200'
     },
     {
-        url: apiConfig.occurrenceCancelDownload.url,
+        url: apiConfig.occurrenceCancelDownload.url + '?cachebust={NOW}',
         method: 'POST',
         component: 'DOWNLOAD',
         type: 'STATUS',
@@ -135,7 +135,7 @@ var tests = [
         message: 'The Github status endpoint should should return "good"'
     },
     {
-        url: config.domain + '/api/resource/search?contentType=dataUse',
+        url: config.domain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
