@@ -41,7 +41,6 @@ function isTrustedContact() {
 }
 
 async function getPermissions(user, datasetKey){
-
     if (_.get(user, 'roles', []).indexOf('REGISTRY_ADMIN') !== -1) {
         return {
             isTrustedContact: true,
@@ -95,10 +94,29 @@ async function getItem(endpoint, key, optional) {
     throw response;
 }
 
+function isMatchingOrcid(orcid, test) {
+    return _.isString(orcid) && _.isString(test) && test.replace(/^http(s)?:\/\/orcid\.org\//, '') === orcid;
+}
+
+function isMatching(shouldBe, testData, matchingFunction) {
+    if (typeof shouldBe === 'undefined' || typeof testData === 'undefined') {
+        return false;
+    }
+    matchingFunction = matchingFunction || function(a, b){return a === b;};
+    if (_.isArray(testData)) {
+        let matchedItem = _.find(testData, function(o){
+            return matchingFunction(shouldBe, o);
+        });
+        return typeof matchedItem !== 'undefined';
+    } else {
+        return matchingFunction(shouldBe, testData);
+    }
+}
+
 function isContact(item, user) {
     let contacts = _.get(item, 'contacts', []);
     let matchedContact = _.find(contacts, function(contact){
-        return contact.email == user.email || contact.email.indexOf(user.email) > -1;// || contact.userId == user.orcid || contact.userId.indexOf(user.orcid) > -1;
+        return isMatching(user.email, contact.email) || isMatching(user.orcid, contact.userId, isMatchingOrcid);
     });
     return matchedContact;
 }
