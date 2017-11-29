@@ -6,8 +6,9 @@ var moment = require('moment'),
     camelCase = require('camelcase'),
     _ = require('lodash'),
     Humanize = require('humanize-plus'),
-    querystring = require('querystring');
-    url = require('url');
+    querystring = require('querystring'),
+    url = require('url'),
+    slug = require("slug"),
     URLSearchParams = require('url').URLSearchParams,
     linkTools = require('./links/links'),
     defaultLanguage = require('../../config/config').defaultLocale;
@@ -39,6 +40,10 @@ function date(date, locale, format) {
         day = moment(date, dateFormats).locale(locale);
     }
     return day.format(format);
+}
+
+function getSlug(str) {
+    return slug(str.toLowerCase());
 }
 
 function dateRange(start, end, showHours, locale) {
@@ -222,7 +227,7 @@ function sanitizeTrusted(dirty) {
     let clean = sanitizeHtml(dirty, {
             allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
             allowedAttributes: {
-                '*': ['href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen', 'gb-help', 'gb-help-options']
+                '*': ['id', 'href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen', 'gb-help', 'gb-help-options']
             },
             transformTags: {
                 'a': function (tagName, attr) {
@@ -343,6 +348,7 @@ module.exports = {
     localizeLinks: localizeLinks,
     localizeLink: localizeLink,
     sanitizeField: sanitizeField,
-    sanitizeArrayField: sanitizeArrayField
+    sanitizeArrayField: sanitizeArrayField,
+    getSlug: getSlug
 };
 
