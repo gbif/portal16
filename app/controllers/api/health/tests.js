@@ -88,6 +88,13 @@ var tests = [
         message: 'A specific dataset key should work (backbone)'
     },
     {
+        url: apiConfig.userLogin.url + '?cachebust={NOW}',
+        component: 'IDENTITY',
+        type: 'STATUS',
+        val: 401,
+        message: 'Expect 401 when requesting login'
+    },
+    {
         url: apiConfig.mapCapabilities.url + '?taxonKey=42&cachebust={NOW}',
         component: 'MAPS',
         type: 'NUMBER_ABOVE',

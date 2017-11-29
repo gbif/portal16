@@ -2713,7 +2713,11 @@
       },
       "REGISTRY": {
         "name": "Registry",
-        "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks. "
+        "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks."
+      },
+      "IDENTITY": {
+        "name": "Identity",
+        "tooltip": "For logging in and out, connecting accounts etc."
       },
       "MAPS": {
         "name": "Maps",

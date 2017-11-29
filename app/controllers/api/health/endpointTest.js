@@ -70,12 +70,10 @@ function check(config) {
                     test: config
                 });
             } else {
-                console.log(err);
-                console.log(response);
-                console.log(config);
+                //TODO worth logging errors of this type
                 deferred.resolve({
                     message: err.message,
-                    severity: severity.OPERATIONAL,
+                    severity: config.severity,
                     component: config.component,
                     test: config
                 });
