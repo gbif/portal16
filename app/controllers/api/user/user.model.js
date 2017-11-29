@@ -265,10 +265,12 @@ function getClientUser(user){
         },
         connectedAcounts: {
             facebook: _.has(user, 'systemSettings["auth.facebook.id"]'),
-            github: _.has(user, 'systemSettings["auth.github.id"]')
+            github: _.has(user, 'systemSettings["auth.github.id"]'),
+            orcid: _.has(user, 'systemSettings["auth.orcid.id"]')
         },
         photo: _.get(user, 'systemSettings["auth.facebook.photo"]') || _.get(user, 'systemSettings["auth.github.photo"]'),
-        githubUserName: _.get(user, 'systemSettings["auth.github.username"]')
+        githubUserName: _.get(user, 'systemSettings["auth.github.username"]'),
+        orcid: _.get(user, 'systemSettings["auth.orcid.id"]')
     };
 }
 

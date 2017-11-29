@@ -22,17 +22,6 @@ module.exports = function (app) {
     app.use('/auth', router);
 };
 
-router.get('/orcid/connect', passport.authenticate('orcid'));
-
-//router.get('/orcid/callback', function (req, res, next) {
-//    passport.authenticate('orcid', {scope: scope}, function (err, user, info) {
-//        //TODO to implement - only to see that it all works and we can get info from orcID
-//        //TODO send to page with option to select username and email and optional password. How to store the userid? encode it as a temporary token?
-//        res.json({err, user, info});
-//    })(req, res, next);
-//});
-
-
 router.get('/orcid/connect', auth.isAuthenticated(), function (req, res, next) {
     let state = {action: 'CONNECT', target: req.headers.referer || '/'};
     let stateB64 = btoa(JSON.stringify(state));
@@ -58,9 +47,10 @@ router.get('/orcid/login', function (req, res, next) {
 
 router.get('/orcid/callback', auth.appendUser(), function (req, res, next) {
     passport.authenticate('orcid', {scope: scope}, function (err, profile, info) {
-        console.log(err, profile, info);
-        res.json({err, profile, info});
-        //authProviderUtils.authCallback(req, res, next, err, profile, info, setProviderValues, 'ORCID', 'auth.orcid.id');
+        if (_.isObject(profile)) {
+            profile.id = profile.orcid;
+        }
+        authProviderUtils.authCallback(req, res, next, err, profile, info, setProviderValues, 'ORCID', 'auth.orcid.id');
     })(req, res, next);
 });
 
@@ -77,7 +67,7 @@ passport.use(new OrcidStrategy({
 
     // orcid will send back the token and params
     function (accessToken, refreshToken, params, profile, done) {
-        // NOTE: `profile` is empty, use `params` instead
-        done(null, {params, accessToken, refreshToken, profile});
+        // NOTE: `profile` is empty, use `params` as profile instead
+        done(null, params, {accessToken, refreshToken, profile});
     })
 );

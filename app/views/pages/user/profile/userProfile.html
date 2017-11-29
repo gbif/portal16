@@ -182,16 +182,23 @@
                     <a href="/auth/facebook/connect" class="gb-button--facebook"
                        ng-if="userProfile.profile.connectedAcounts && !userProfile.profile.connectedAcounts.facebook"><i></i><span
                             class="gb-button--facebook__label">Connect with Facebook</span></a>
-                    <a href="/auth/facebook/disconnect" class="gb-button--facebook"
-                       ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.facebook"><i></i><span
-                            class="gb-button--facebook__label">Disconnect Facebook</span></a>
-
                     <a href="/auth/github/connect" class="gb-button--github"
                        ng-if="userProfile.profile.connectedAcounts && !userProfile.profile.connectedAcounts.github"><i></i><span
                             class="gb-button--facebook__label">Connect with Github</span></a>
-                    <a href="/auth/github/disconnect" class="gb-button--github"
-                       ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.github"><i></i><span
-                            class="gb-button--facebook__label">Disconnect Github</span></a>
+                    <a href="/auth/orcid/connect" class="gb-button--orcid"
+                       ng-if="userProfile.profile.connectedAcounts && !userProfile.profile.connectedAcounts.orcid"><i></i><span
+                            class="gb-button--facebook__label">Connect with ORCiD</span></a>
+                    <div ng-if="userProfile.inEditMode">
+                        <a href="/auth/facebook/disconnect" class="gb-button--facebook m-t-05"
+                           ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.facebook"><i></i><span
+                                class="gb-button--facebook__label">Disconnect Facebook</span></a>
+                        <a href="/auth/github/disconnect" class="gb-button--github m-t-05"
+                           ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.github"><i></i><span
+                                class="gb-button--facebook__label">Disconnect Github</span></a>
+                        <a href="/auth/orcid/disconnect" class="gb-button--orcid m-t-05"
+                           ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.orcid"><i></i><span
+                                class="gb-button--facebook__label">Disconnect ORCiD</span></a>
+                    </div>
                 </div>
             </div>
         </div>
