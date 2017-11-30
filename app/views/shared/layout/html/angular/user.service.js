@@ -15,7 +15,7 @@
         })
         .constant('USER_ROLES', {
             REGISTRY_ADMIN: 'REGISTRY_ADMIN',
-            REPOSITORY_USER: 'REGISTRY_ADMIN'
+            REPOSITORY_USER: 'DATA_REPO_USER'
         });
 
     angular
@@ -30,9 +30,9 @@
                         return;
                     }
                     var user = JSON.parse(Base64.decode(token.split('.')[1]));
-                    //if (user.roles) {
-                    //    user.roles = JSON.parse(user.roles);
-                    //}
+                    if (user.roles) {
+                       user.roles = JSON.parse(user.roles);
+                    }
                     return user;
                 };
 

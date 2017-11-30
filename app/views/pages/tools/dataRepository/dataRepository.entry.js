@@ -14,7 +14,6 @@ angular
 /** @ngInject */
 function dataRepositoryCtrl(User, $scope, AUTH_EVENTS, USER_ROLES, $sessionStorage, $state, DataPackageSearch) {
     var vm = this;
-    var REPO_USER_ROLE = 'REGISTRY_ADMIN';
     vm.$state = $state;
     vm.myUploads = false;
     vm.uploads;
@@ -25,6 +24,15 @@ function dataRepositoryCtrl(User, $scope, AUTH_EVENTS, USER_ROLES, $sessionStora
         vm.username = user ? user.userName : undefined;
     }
     updateUser();
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+        updateUser();
+    });
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+        updateUser();
+    });
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+        updateUser();
+    });
 
     vm.search = function() {
         var apiQuery = {q: vm.q};

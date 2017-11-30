@@ -12,6 +12,7 @@ module.exports = function (app) {
 };
 
 router.get('/basic', function (req, res, next) {
+    auth.setNoCache(res);
     passport.authenticate('basic', {session: false}, function (err, user, info) {
         var error = err || info;
         if (error) {
@@ -20,11 +21,26 @@ router.get('/basic', function (req, res, next) {
         if (!user) {
             return res.status(404).json({message: 'Something went wrong, please try again.'});
         }
-        user = User.getClientUser(user);
-        var token = auth.signToken(user);
-        auth.setTokenCookie(res, token);
-        auth.setNoCache(res);
-        res.json({user});
+        //unfortunately the login api doesn't provide the full user, so we have to get it again
+        User.getByUserName(user.userName)
+            .then(user => {
+                if (user) {
+                    user = User.getClientUser(user);
+                    var token = auth.signToken(user);
+                    auth.setTokenCookie(res, token);
+                    auth.setNoCache(res);
+
+                    res.json({user});
+                } else {
+                    return res.status(404).json({message: 'Something went wrong, please try again.'});
+                }
+            })
+            .catch(function () {
+                //TODO it should never happen that a username that just logged in can now not be found again log error
+                return res.status(404).json({message: 'Something went wrong, please try again.'});
+            });
+
+
     })(req, res, next);
 });
 

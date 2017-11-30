@@ -85,7 +85,7 @@ module.exports = [
           {
             "name": "dataRepository",
             "url": "/data-repository",
-            "roles": ["REGISTRY_ADMIN"]
+            "roles": ["DATA_REPO_USER"]
           }
         ]
       },

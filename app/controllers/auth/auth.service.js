@@ -134,9 +134,9 @@ function signToken(user, ttl) {
         firstName: user.firstName,
         lastName: user.lastName
     };
-    //if (user.roles) {
-    //    tokenContent.roles = JSON.stringify(user.roles);
-    //}
+    if (user.roles) {
+       tokenContent.roles = JSON.stringify(user.roles);
+    }
     let token = jwt.sign(tokenContent, secret, {
         expiresIn: ttl || (60 * 60 * 24 * 7) // time in seconds - 7 days
     });
