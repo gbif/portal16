@@ -211,6 +211,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
 
     vm.selectRegion = function(region) {
+
         vm.showParticipantDetails = false;
         vm.currentRegion = region;
         vm.totalParticipantCount = 0;
@@ -261,12 +262,9 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
     }
 
     // For participant table.
-    if(vm.currentRegion !== 'GLOBAL') {
-        loadParticipantsDigest(vm.currentRegion);
-    } else {
-        vm.tableLoaded = true;
-    };
+
     function loadParticipantsDigest(region) {
+
         vm.tableLoaded = false;
         delete vm.activeParticipantsDigest;
 

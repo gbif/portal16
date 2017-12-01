@@ -74,7 +74,7 @@
         <div class="container--normal" >
 
         <span ng-repeat="participantType in vm.participantTypes" ng-if="participantType !== 'gbif_affiliate'" >
-                    <span class="theGbifNetWork__badges" ng-if="vm.tableLoaded && vm.count[participantType] > 1" ng-cloak>{{ vm.count[participantType] }}<span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.other"></span></span>
+                    <span class="theGbifNetWork__badges" ng-if="vm.tableLoaded && vm.count[participantType] > 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.other"></span></span>
                     <span class="theGbifNetWork__badges" ng-if="vm.tableLoaded && vm.count[participantType] === 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.one"></span></span>
 
                 </span>
