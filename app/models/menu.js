@@ -81,6 +81,11 @@ module.exports = [
           {
             "name": "suggestDataset",
             "url": "/suggest-dataset"
+          },
+          {
+            "name": "dataRepository",
+            "url": "/data-repository",
+            "roles": ["DATA_REPO_USER"]
           }
         ]
       },

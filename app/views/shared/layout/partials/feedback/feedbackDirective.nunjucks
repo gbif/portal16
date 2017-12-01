@@ -181,7 +181,7 @@
                             <span>{$ __('feedback.placeholders.username') $}</span>
                             <input type="text"
                                    ng-model="vm.issue.contact"
-                                   placeholder="{$ __('feedback.placeholders.username') $}">
+                                   placeholder="{$ __('feedback.placeholders.username') $}" ng-required="vm.type.QUESTION == vm.selected">
                         </label>
                     </div>
 

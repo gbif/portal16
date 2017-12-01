@@ -7,6 +7,7 @@ let environment = {
     dataApiV2: config.dataApiV2,
     dataApi: config.dataApi,
     tileApi: config.tileApi,
+    basemapTileApi: config.basemapTileApi,
     analyticsImg: config.analyticsImg,
     imageCache: config.dataApi + 'image/unsafe/',
     mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json'

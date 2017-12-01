@@ -86,7 +86,7 @@ async function getParticipantByIso(isoCode) {
     if (_.isUndefined(_.get(participantItem, 'id'))) {
         throw {
             statusCode: 404,
-            message: 'No participant with that iso code'
+            message: 'No participant with that iso code: ' + isoCode
         }
     }
     let participant = await getParticipantById(participantItem.id);
@@ -111,7 +111,7 @@ async function expandParticipant(participant, locale) {
     expect(participant).to.be.an('object');
     expect(participant).to.have.property('id');
     expect(participant).to.have.property('countryCode');
-    expect(participant).to.have.deep.property('nodes[0].id');
+    expect(participant).to.have.nested.property('nodes[0].id');
 
     //get ids to query for
     let nodeId = _.get(participant, 'nodes[0].id'),

@@ -1,3 +1,15 @@
-<div ng-click="vm.interactionWithMap()">
-    <div class="map-area"></div>
+<!--<div ng-click="vm.interactionWithMap()">-->
+    <!--<div class="map-area"></div>-->
+<!--</div>-->
+
+<div class="mapWidget" element-query="vm.styleBreaks" ng-style="vm.widgetContextStyle">
+    <div class="mapWidget__mapWrapper">
+        <div class="mapWidget__spacer"></div>
+        <div class="mapWidget__mapArea"></div>
+        <div class="mapWidget__progress"></div>
+        <div class="mapWidget__mapButtons">
+            <a href="" ng-click="vm.zoomIn()">+</a>
+            <a href="" ng-click="vm.zoomOut()">-</a>
+        </div>
+    </div>
 </div>

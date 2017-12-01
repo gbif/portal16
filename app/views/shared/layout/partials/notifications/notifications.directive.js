@@ -25,7 +25,7 @@ function notificationsDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function notifications($scope, NAV_EVENTS, NOTIFICATIONS, Notifications) {
+    function notifications($scope, NAV_EVENTS, NOTIFICATIONS, $sessionStorage, Notifications) { //include service to trigger the service
         var vm = this;
         vm.isActive = false;
 
@@ -41,11 +41,20 @@ function notificationsDirective(BUILD_VERSION) {
             vm.isActive = false;
         };
 
-        $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
+        function updateNotifications(notifications) {
+            if (!_.isObject(notifications)) {
+                return;
+            }
             vm.notifications = notifications;
-            if (notifications.alert) {
+            if (notifications.severity == 'CRITICAL' && !$sessionStorage.hasSeenHealthAlert) {
+                $sessionStorage.hasSeenHealthAlert = true;
                 vm.isActive = true;
             }
+        }
+        updateNotifications($sessionStorage.notifications);
+
+        $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
+            updateNotifications(notifications);
         });
     }
 }

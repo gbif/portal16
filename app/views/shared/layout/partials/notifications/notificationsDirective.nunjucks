@@ -5,7 +5,7 @@
             <div class="menubox__header">
                 <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
                 <div class="menubox__header__title text-center">
-                    <span>Notifications</span>
+                    <span>System health</span>
                 </div>
             </div>
         </div>
@@ -13,11 +13,10 @@
             <div class="menubox__section menubox__section--issues">
                 <div class="menubox__section menubox__section--select">
                     <ul>
-                        <li ng-repeat="notification in vm.notifications.results">
-                            <a ng-href="{{ notification.url }}" class="inherit noUnderline">
-                                <h4>{{ notification.title }}</h4>
-                                <p class="small" ng-bind-html="notification.body"></p>
-                                <span class="small underline" ng-if="notification.url" ng-if="notification.url">Read more</span>
+                        <li ng-repeat="notification in vm.notifications.results" class="status--{{ notification.severity | lowercase }}">
+                            <a ng-href="{{ portal.urlPrefix }}/health" class="inherit noUnderline">
+                                <h4 class="statusLabel">{{ notification.title }}</h4>
+                                <div class="small" ng-bind-html="notification.summary | md2html"></div>
                             </a>
                         </li>
                     </ul>

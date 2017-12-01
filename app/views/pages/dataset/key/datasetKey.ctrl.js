@@ -20,7 +20,7 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
+function datasetKeyCtrl($http, $timeout, $interval, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -115,7 +115,7 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
     function getOriginalDarwinCoreArchive(endpoints) {
         endpoints = endpoints || [];
         return endpoints.find(function (e) {
-            return e.type == 'DWC_ARCHIVE' || e.type == 'BIOCASE';
+            return e.type == 'DWC_ARCHIVE';
         });
     }
 
@@ -156,6 +156,9 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
 
     function getFeature(coverage) {
         var b = coverage.boundingBox;
+        if (b.minLongitude > b.maxLongitude) {
+            b.maxLongitude += 360;
+        }
         return {
             "type": "Feature",
             "properties": {
@@ -191,6 +194,64 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
             }
         };
     }
+
+    function checkCrawlStatus() {
+        DatasetCurrentCrawlingStatus.get({key: vm.key}).$promise
+        .then(function(response){
+            vm.currentCrawlingStatus = response;
+            $interval(checkCrawlStatus, 30000, 15);
+        })
+        .catch(function(err){
+            console.log(err);
+        });
+    }
+
+    vm.isTrustedContact = false;
+    function checkIfTrustedContact(){
+        $http.get('/api/dataset/' + vm.key + '/permissions')
+            .then(function(response){
+                vm.componentHealth = _.get($sessionStorage, 'notifications.components');
+                prepareTrustedBrakdown();
+                vm.isTrustedContact = response.data.isTrustedContact;
+            }, function(){
+                //ignore error and simply don't show the user
+            });
+    }
+    checkIfTrustedContact();
+
+    vm.startCrawling = function(){
+        if (vm.crawlingStarted) {
+            return; // to avoid starting it twice
+        }
+        vm.crawlingStarted = true;
+        $http.post('/api/dataset/' + vm.key + '/crawl')
+            .then(function(){
+                vm.crawlingFailed = false;
+                $timeout(checkCrawlStatus, 1000);
+                $interval(checkCrawlStatus, 3000, 2);
+            }, function(){
+                vm.crawlingFailed = true;
+            });
+    };
+
+    function prepareTrustedBrakdown(){
+        vm.crawlLabels = ['Normal', 'Not modified', 'Aborted', 'Aborted by user', 'unknown'];
+        vm.crawlData = [1, 7, 2];
+        vm.crawlColors = ['#61a861', '#74b974', '#ff6347', '#ffc247', '#bbb'];
+        vm.crawlOptions = {
+            responsive: true,
+            maintainAspectRatio: false
+        };
+        vm.processSummary.$promise.then(function(response){
+            var NORMAL = (response.stats.NORMAL || 0);
+            var NOT_MODIFIED = (response.stats.NOT_MODIFIED || 0);
+            var ABORT = (response.stats.ABORT || 0);
+            var USER_ABORT = (response.stats.USER_ABORT || 0);
+            var UNKNOWN = (response.stats.UNKNOWN || 0);
+            vm.crawlData = [NORMAL, NOT_MODIFIED, ABORT, USER_ABORT, UNKNOWN];
+        });
+    }
+
 }
 
 module.exports = datasetKeyCtrl;

@@ -75,6 +75,7 @@ bowerCss.push('node_modules/chartist/dist/chartist.min.css'); //This is wrong, b
 bowerCss.push('node_modules/angular-toastr/dist/angular-toastr.min.css');
 bowerCss.push('node_modules/openlayers/dist/ol.css');
 bowerCss.push('node_modules/angular-material/angular-material.css');
+bowerCss.push('node_modules/simplemde/dist/simplemde.min.css');
 config.bower = {
     cssFiles: bowerCss,
     jsFiles: bowerJs

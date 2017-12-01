@@ -1,0 +1,71 @@
+<section ng-if="dataRepositoryUpload.state != dataRepositoryUpload.states.FILL_FORM">
+    <div class="card card--spaced card--small card--upload">
+
+        <div ng-if="dataRepositoryUpload.state == dataRepositoryUpload.states.UPLOADING">
+            <div class="card__stripe card__content emptyInfo" ng-if="dataRepositoryUpload.progress < 100">
+                <h3 class="">Uploading in progress</h3>
+                <div ng-if="dataRepositoryUpload.progress < 100">
+                    <md-progress-linear md-mode="determinate" value="{{dataRepositoryUpload.progress}}"></md-progress-linear>
+                    <p class="m-t-1">
+                        Hang on while your local files are being uploaded. This may take a while if you are on a slow or unstable internet connection.
+                    </p>
+                </div>
+            </div>
+            <div class="card__stripe card__content emptyInfo" ng-if="dataRepositoryUpload.fileUrls.length > 0 && dataRepositoryUpload.progress == 100">
+                <h3 class="">Uploading external files</h3>
+                <div>
+                    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                    <p class="m-t-1">
+                        Files from URLs are being uploaded. You can leave this page without aborting, but upload errors will only be shown here. Once the upload is ready you can find it in your uploads.
+                    </p>
+                </div>
+            </div>
+            <div class="card__stripe card__content emptyInfo" ng-if="dataRepositoryUpload.fileUrls.length == 0 && dataRepositoryUpload.progress == 100">
+                <h3 class="">Validating upload</h3>
+                <div>
+                    <md-progress-linear md-mode="determinate" value="100"></md-progress-linear>
+                    <p class="m-t-1">
+                        All files have been uploaded. Validating and minting DOI - this shouldn't take long.
+                    </p>
+                </div>
+            </div>
+            <div class="card__stripe card__content clearfix" ng-if="dataRepositoryUpload.progress == 100">
+                <a href="" class="gb-button--flat text-uppercase" ng-click="dataRepositoryUpload.initForm()">New upload</a>
+                <a href="" class="gb-button--brand pull-right">Your uploads</a>
+            </div>
+        </div>
+
+        <div ng-if="dataRepositoryUpload.state == dataRepositoryUpload.states.FAILED_UPLOAD">
+            <div class="card__stripe card__content emptyInfo">
+                <h3 class="">Upload failed</h3>
+                <div>
+                    <md-progress-linear class="md-warn" md-mode="determinate" value="100"></md-progress-linear>
+                    <p class="m-t-1">
+                        The upload failed <br>
+                        <code>{{ dataRepositoryUpload.errorMsg }}</code>
+                    </p>
+                </div>
+            </div>
+            <div class="card__stripe card__content clearfix">
+                <a href="" class="gb-button--flat text-uppercase" ng-click="dataRepositoryUpload.state = dataRepositoryUpload.states.FILL_FORM">Back to edit</a>
+            </div>
+        </div>
+
+        <div ng-if="dataRepositoryUpload.state == dataRepositoryUpload.states.UPLOADED">
+            <div class="card__stripe card__content emptyInfo">
+                <h3 class="">Upload completed</h3>
+                <div>
+                    <md-progress-linear md-mode="determinate" value="100"></md-progress-linear>
+                    <p class="m-t-1">
+                        All files have been successfully uploaded.
+                    </p>
+
+                </div>
+            </div>
+            <div class="card__stripe card__content clearfix">
+                <a href="" class="gb-button--flat" ng-click="dataRepositoryUpload.reload()">New upload</a>
+                <a href="" class="gb-button--brand pull-right" ui-sref="dataRepositoryKey({key:dataRepositoryUpload.result.key})">Go to upload</a>
+            </div>
+        </div>
+    </div>
+</section>

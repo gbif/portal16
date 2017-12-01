@@ -9,30 +9,126 @@
                         <div class="row">
                             <header class="col-xs-12 text-center">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper">Repository</span>
-                                    <span class="article-header__category__lower">Upload</span>
+                                    <a class="article-header__category__upper" href="/data-repository">Repository Upload</a>
+                                    <span class="article-header__category__lower">{{ dataRepositoryKey.upload.created | amDateFormat:'D MMMM YYYY' }}</span>
                                 </nav>
                                 <h1 class="text-center">
                                     <span>{{ dataRepositoryKey.upload.title }}</span>
                                 </h1>
                                 <div class="m-t-1">
-                                    <a href="https://10.15468/dl.crdskg" class="doi"><span>DOI</span><span>10.15468/dl.crdskg</span></a>
+                                    <doi link="{{ dataRepositoryKey.upload.doi }}"></doi>
                                 </div>
                             </header>
                         </div>
                     </div>
                 </div>
-
-                <div class="horizontal-stripe white-background">
-                    <div class="container--normal">
-                        <p class="text-error">
-                            To do this we need an endpoint that resolves uploaded keys. download should be possible. Citation resolving should also work here. Previews?
-                        </p>
-
-                        <p>{{ dataRepositoryKey.upload.description }}</p>
-                        <p class="discreet">Other informatioin about the upload - files, sizes. Option to download. doi. citations</p>
-                        <p class="discreet">Previews if possible</p>
+                <div class="horizontal-stripe--paddingless white-background">
+                    <div class="container--narrow">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tabs__wrapper" ng-class="{invisible: !dataRepositoryKey.citations.count}">
+                                    <div class="tabs__actions">
+                                        <ul>
+                                            <li class="tab tab-right ng-cloak">
+                                                <span>
+                                                    <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{ dataRepositoryKey.upload.doi }}"' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: dataRepositoryKey.citations.count }"></a>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <nav class="tabs tabs--noBorder"></nav>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <div class="horizontal-stripe light-background">
+                    <div class="container--narrow">
+                        <h4 class="card-header">Description</h4>
+                        <div class="card card--spaced">
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                    <div ng-bind-html="dataRepositoryKey.upload.description | md2html"></div>
+                                    <div>
+                                        <h4 class="card-header m-t-1">Citation</h4>
+                                        <div>
+                                            {{ dataRepositoryKey.upload.citation }}
+                                        </div>
+                                        <div ng-if="dataRepositoryKey.upload.creators.length > 0">
+                                            <h4 class="card-header m-t-1">Authors</h4>
+                                            <div>
+                                                <ul class="p-0">
+                                                    <li ng-repeat="creator in dataRepositoryKey.upload.creators">
+                                                        {{ creator.name }}<span ng-repeat="affiliation in creator.affiliation" class="text-italic">{{ $first ? ' - ' : ''}} {{ affiliation }}{{ $last ? '' : ', '}}</span> <a ng-if="creator.identifierScheme == 'ORCID'" ng-href="{{ creator.identifier }}" class="p-l-05"><img src="/img/orcid_16x16.gif" class="orcid-small">{{ creator.identifier }}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__stripe card__stripe--light">
+                                <div class="card__content">
+                                    <h4 class="card-header">Files</h4>
+                                    <div class="card">
+                                        <ul class="fileList">
+                                            <li class="fileList__item" ng-repeat="file in dataRepositoryKey.upload.files">
+                                                <div class="fileList__item__field fileList__item__icon gb-icon-file"></div>
+                                                <div class="fileList__item__field fileList__item__field--main">
+                                                    {{ dataRepositoryKey.guessFileName(file.fileName) }} <span class="discreet--very">{{ file.size | formatBytes}}</span>
+                                                </div>
+                                                <a ng-href="{{ file.fileName }}" class="fileList__item__field fileList__item__action gb-icon-file-download noUnderline"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                    <dl class="inline">
+                                        <div>
+                                            <dt class="text-capitalize">Creation date</dt>
+                                            <dd>
+                                                <span>{{ dataRepositoryKey.upload.created | amDateFormat:'D MMMM YYYY' }}</span>
+                                            </dd>
+                                        </div>
+                                        <div ng-if="dataRepositoryKey.upload.created != dataRepositoryKey.upload.modified">
+                                            <dt class="text-capitalize">Last modified</dt>
+                                            <dd>
+                                                <span>{{ dataRepositoryKey.upload.modified | amDateFormat:'D MMMM YYYY' }}</span>
+                                            </dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">License</dt>
+                                            <dd>
+                                                <span translate="license.{{ dataRepositoryKey.upload.license }}"></span>
+                                            </dd>
+                                        </div>
+                                        <div ng-if="dataRepositoryKey.upload.isIdenticalto">
+                                            <dt class="text-capitalize">Is identical to</dt>
+                                            <dd>
+                                                <doi link="{{ dataRepositoryKey.upload.isIdenticalto }}"></doi>
+                                            </dd>
+                                        </div>
+                                        <div ng-if="dataRepositoryKey.upload.IsNewVersionOf">
+                                            <dt class="text-capitalize">Is new version of</dt>
+                                            <dd>
+                                                <doi link="{{ dataRepositoryKey.upload.IsNewVersionOf }}"></doi>
+                                            </dd>
+                                        </div>
+                                        {#<div ng-if="dataRepositoryKey.upload.IsDerivedFrom">#}
+                                            {#<dt class="text-capitalize">Is derived from</dt>#}
+                                            {#<dd>#}
+                                                {#<a href="">25 other resources</a>#}
+                                            {#</dd>#}
+                                        {#</div>#}
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </article>
         </div>

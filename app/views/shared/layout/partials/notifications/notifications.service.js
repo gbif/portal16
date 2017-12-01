@@ -6,48 +6,42 @@
     angular
         .module('portal')
         .constant('NOTIFICATIONS', {
-            CHANGED: 'CHANGED'
+            CHANGED: 'NOTIFICATIONS_CHANGED'
+        })
+        .constant('HEALTH', {
+            CHANGED: 'HEALTH_CHANGED'
         });
 
     angular
         .module('portal')
-        .service('Notifications', function ($http, $rootScope, NOTIFICATIONS, $sessionStorage, $interval) {
-            var typeMap = {BLOCKER: 3, WARNING: 2, INFO: 1};
-            var classMap = {
-                3: 'isBlocker',
-                2: 'isWarning',
-                1: 'isInfo'
-            };
+        .service('Notifications', function ($http, $timeout, $rootScope, NOTIFICATIONS, HEALTH, $sessionStorage) {
 
-            function decorate(notifications) {
-                notifications.results.forEach(function(e){
-                    e._severity = typeMap[e.notificationType];
-                });
-                notifications.results = _.sortBy(notifications.results, '_severity').reverse();
-                var mostSevere = _.get(_.maxBy(notifications.results, '_severity'), '_severity', 0);
-                notifications.severity = {
-                    value: mostSevere,
-                    className: classMap[mostSevere]
-                };
-                return notifications;
+                function update() {
+                    $http.get('/api/health/portal?hash=' + _.get($sessionStorage.notifications, 'hash', '_empty'))
+                        .then(function (response) {
+                            if (response.status == 200) {
+                                var notifications = response.data;
+                                if (_.get($sessionStorage.notifications, 'hash') != notifications.hash) {
+                                    $sessionStorage.notifications = notifications;
+                                    $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
+                                }
+                            } else {
+                                var notifications = $sessionStorage.notifications;
+                                notifications.updatedAt = (new Date()).toISOString();
+                                $sessionStorage.notifications = notifications;
+                                //don't broadcast for timestamp updates
+                                //$rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
+                            }
+                        })
+                        .catch(function () {
+                            //ignore failure - we will retry shortly anyhow
+                        }).
+                        finally(function(){
+                            $timeout(update, 10000);
+                        });
+                }
+                update();
             }
-
-            function updateNotifications() {
-                $http.get('/api/notifications', {})
-                    .then(function (response) {
-                        var notifications = decorate(response.data);
-                        if (notifications.severity.value == 3 && !$sessionStorage.gb_hasBeenNotified) {
-                            notifications.alert = true;
-                            $sessionStorage.gb_hasBeenNotified = true;
-                        }
-                        $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
-                    }, function () {
-                        //TODO mark as failure or simply hide
-                    });
-            }
-            updateNotifications();
-            $interval(updateNotifications, 120000);
-        }
-    );
+        );
 })();
 

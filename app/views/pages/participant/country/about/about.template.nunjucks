@@ -2,7 +2,7 @@
 
     {% include "./map.nunjucks" %}
 
-    <div class="container--desktop m-b-3 m-t-3 ng-cloak" ng-if="countryKey.occurrenceCount > 0">
+    <div class="container--desktop m-b-3 m-t-3 ng-cloak" ng-if="countryKey.occurrenceCount > 0 && countryKey.kingdomsAbout">
         <div class="taxonBreakdown">
             <div>
                 <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode, taxon_key: kingdom.id})"
@@ -72,7 +72,7 @@
 
 </section>
 
-<section class="light-background p-t-05">
+<section class="light-background p-t-05" ng-if="countryKey.occurrenceCount > 0">
     <div class="container--desktop">
         <h4 class="text-muted small text-uppercase">Trends about {{ 'country.' + countryKey.countryCode | translate }}</h4>
     </div>

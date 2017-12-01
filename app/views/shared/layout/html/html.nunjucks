@@ -62,16 +62,7 @@
     {% endif %}
     window.gb.urlPrefix = '{$ gb.locales.urlPrefix $}';
     window.gb.buildVersion = '{$ BUILD_VERSION $}';
-    
 
-    window.gb.env = {
-        "dataApiV2": "{$ DATA_URL_V2 $}",
-        "dataApi": "{$ DATA_URL $}",
-        "tileApi": "{$ TILE_URL $}",
-        "analyticsImg": "{$ ANALYTICS_IMG $}",
-        "imageCache": "{$ DATA_URL $}image/unsafe/",
-        "mapCapabilities": "{$ DATA_URL_V2 $}map/occurrence/density/capabilities.json"
-    }
 </script>
 
 <script src="/js/environment.js?v={$ BUILD_VERSION $}"></script> {#environment and static keys to avoid having to build those into the script. this will make it easier to port scripts between environments#}

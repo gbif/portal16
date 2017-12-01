@@ -25,18 +25,20 @@ function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
         _.forEach(data.results, function(e){e.call = _.get(e.call, 'title');});
         data.count = data.results.length;
         vm.projects = data;
-        console.log(vm.projects);
     });
 
-    $http.get('/api/resource/key/search', {
-            params: {key: vm.key, type: 'news'}
-        })
-        .then(function (response) {
-            vm.news = response;
-        })
-        .catch(function () {
-            //TODO inform user if wuery fails
-        });
+    ResourceSearch.query({contentType: 'news', programmeTag: vm.key, limit:500}, function(data){
+        vm.news = data;
+    }, function(err){
+        //TODO inform user if query fails
+    });
+
+    //events are still not decorated with programmeTag. Fede intend to add that. when so, this is the cleaner way to get the data. And perhaps the other endpoint can be removed completely.
+    //ResourceSearch.query({contentType: 'event', programmeTag: vm.key, _showPastEvents: true, limit:500}, function(data){
+    //    vm.events = data;
+    //}, function(err){
+    //    //TODO inform user if query fails
+    //});
 
     $http.get('/api/resource/key/search', {
             params: {key: vm.key, type: 'events'}
@@ -48,26 +50,6 @@ function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
         .catch(function () {
             //TODO inform user if wuery fails
         });
-
-    // var pckry;
-    // vm.updateGrid = function(){
-    //     $timeout(function () {
-    //         var elem = document.querySelector('.grid');
-    //         pckry = new Packery( elem, {
-    //             // options
-    //             itemSelector: '.grid-item',
-    //             gutter: 10
-    //         });
-    //     }, 100);
-    //     $timeout(function () {
-    //         var elem = document.querySelector('.grid');
-    //         pckry = new Packery( elem, {
-    //             // options
-    //             itemSelector: '.grid-item',
-    //             gutter: 10
-    //         });
-    //     }, 700);
-    // };
 
     vm.goto = function(url){
         window.location.href = url;

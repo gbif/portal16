@@ -14,6 +14,19 @@ var format = require('../helpers/format'),
         prezi: {width: 550, height: 400}
     });
 
+    md.use(require('markdown-it-imsize'), { autofill: false });
+
+    //adding anchor headers to markdown would be nice, but the problem is the navbar offset
+    //md.use(require('markdown-it-anchor'), {
+    //    level: 1,
+    //    slugify: function(str){return '_' + format.getSlug(str)},
+    //    permalink: true,
+    //    // renderPermalink: (slug, opts, state, permalink) => {},
+    //    permalinkClass: 'gb-icon-link header-anchor inherit noUnderline',
+    //    permalinkSymbol: '',
+    //    permalinkBefore: false
+    //});
+
 module.exports = function (nunjucksConfiguration) {
 
     (function () {

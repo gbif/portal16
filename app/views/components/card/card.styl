@@ -78,6 +78,11 @@ a.card__stripe {
         padding vrBlock(1)
     }
 }
+.card--compact {
+    .card__content {
+        padding vrBlock(0.5)
+    }
+}
 
 .card__content__title {
     margin 4px 0
@@ -110,6 +115,32 @@ a.card__stripe {
     font-size 12px
     font-weight normal
     color $discreetInk
+    margin-top vrBlock(0.5)
+    margin-bottom vrBlock(0.5)
+}
+.card-header--bold {
+    @extends .card-header
+    font-weight 600
+    color #777
+}
+
+.card-head {
+    position relative
+    .card-header, .card-header--bold {
+        display inline-block
+    }
+    .card-menu {
+        margin-top vrBlock(0.5)
+        margin-bottom vrBlock(0.5)
+        color $discreetInk
+        position absolute
+        top 0
+        right 0
+        &__option {
+            display inline-block
+            margin 0 5px
+        }
+    }
 }
 
 @import "cardFigure"

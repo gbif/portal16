@@ -450,7 +450,7 @@ theGbifNetwork.getAllPublishers = nodeUuid => {
                             deferred.reject(e);
                         })
                     );
-                } while (publishers.length < result.count);
+                } while (offset < result.count);
 
                 return Q.all(tasks)
                     .then(() => {

@@ -26,14 +26,6 @@ function parseBody(results) {
     });
 }
 
-function parseBody(results) {
-    results.forEach(function(e){
-        if (e.body) {
-            _.set(e, 'body', md.render(e.body));
-        }
-    });
-}
-
 function stripFields(results) {
     return results.map(function(e){
         return {

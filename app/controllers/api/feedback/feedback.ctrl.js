@@ -12,7 +12,17 @@ let express = require('express'),
     feedbackHelper = require('./feedbackHelper'),
     moment = require("moment"),
     router = express.Router(),
+    notificationsComplete = require('../health/notifications.model')(),
     issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
+
+let getStatus;
+notificationsComplete
+    .then(function(getStatusFunction) {
+        getStatus = getStatusFunction;
+    })
+    .catch(function(){
+        //ignore errors
+    });
 
 module.exports = function (app) {
     app.use('/api/feedback', router);
@@ -167,6 +177,9 @@ function createIssue(req, data, cb) {
     try {
         ip = req.clientIp;
         country = _.get(getGeoIp(ip), 'country.iso_code');
+        if (typeof getStatus == 'function') {
+            data._health = _.get(getStatus(), 'severity');
+        }
         description = getDescription(data, agent, referer);
         title = getTitle(data.form.title, data.type, referer);
         labels = getLabels(data, country);
@@ -214,12 +227,12 @@ function getDescription(data, agent, referer) {
     let contact = data.form.contact,
         now = moment();
 
-    //if (contact && !contact.match(/[@\s]/gi)) { //if defined and not containing @ or spaces then assume it is a github username
-    //    data.__contact = '@' + contact;
-    //} else {
-    //    data.__contact = contact;
-    //}
-    data.__contact = contact; //simply use the raw value instead of prefacing with @ so that the user isn't poked in github
+    if (contact && !contact.match(/[@\s]/gi)) { //if defined and not containing @ or spaces then assume it is a github username
+        data.__contact = '@' + contact;
+    } else {
+        data.__contact = contact;
+    }
+    //data.__contact = contact; //simply use the raw value instead of prefacing with @ so that the user isn't poked in github
 
     //add agent info
     data.__agent = agent.toString();

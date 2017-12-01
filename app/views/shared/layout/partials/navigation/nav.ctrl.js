@@ -8,7 +8,7 @@ angular
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl(User, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) { //notice that the user is included as a dependency only to trigger the call to me endpoint
+function navCtrl(User, Notifications, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) { //notice that the user is included as a dependency only to trigger the call to me endpoint
     var vm = this;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
@@ -16,6 +16,11 @@ function navCtrl(User, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionSto
         NAV_EVENTS.toggleNotifications,
         NAV_EVENTS.toggleUserMenu
     ];
+
+    vm.hasRole = function(roles){
+        roles = _.isString(roles) ? [roles] : roles;
+        return _.intersection(_.get($sessionStorage, 'user.roles', []), roles).length > 0;
+    };
 
     vm.scrollOffset = 0;
     angular.element($window).bind('scroll', function(){
@@ -105,6 +110,7 @@ function navCtrl(User, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionSto
         }
     );
 
+    vm.notifications = $sessionStorage.notifications;
     $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
         vm.notifications = notifications;
     });

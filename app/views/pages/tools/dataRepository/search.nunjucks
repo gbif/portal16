@@ -1,7 +1,6 @@
 <div class="horizontal-stripe light-background">
     <div class="container--narrow">
         <section>
-            <p class="text-error">To do this we need an endpoint that allows searching and filtering uploads. filters as a minimum on user</p>
             <div class="m-b-05">
                 <form class="search-box" ng-submit="dataRepository.search()">
                     <input type="text"
@@ -16,8 +15,13 @@
                 </form>
             </div>
             <div class="m-b-1 filter-buttons">
-                <a href="" class="gb-button--brand" translate="stdTerms.all"></a>
-                <a href="" class="gb-button--discreet">My uploads</a>
+                <a href="" translate="stdTerms.all"
+                    ng-click="dataRepository.myUploads = false; dataRepository.search()"
+                    ng-class="{'gb-button--brand': dataRepository.myUploads==false, 'gb-button--discreet': dataRepository.myUploads==true}"></a>
+                <a href=""
+                    ng-click="dataRepository.myUploads = true; dataRepository.search()"
+                    ng-if="dataRepository.isRepoUser"
+                    ng-class="{'gb-button--brand': dataRepository.myUploads==true, 'gb-button--discreet': dataRepository.myUploads==false}">My uploads</a>
             </div>
             <div>
                 <div>
@@ -26,17 +30,17 @@
                             <div class="card__stripe">
                                 <div class="card__content">
                                     <h3 class="searchCard__headline">
-                                        <a ui-sref="dataRepositoryKey({key:92876})">{{result.title}}</a>
+                                        <a ui-sref="dataRepositoryKey({key:result.key})">{{result.title}}</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="card__stripe">
                                 <div class="card__content clearfix">
                                     <p>
-                                        {{result.description}}
+                                        {{result.description | md2html | stripTags | truncate:300 }}
                                     </p>
                                     <p class="small discreet--very">
-                                        {{result.created}} - 5 files - Archive size 4.5mb
+                                        {{ result.created | amDateFormat:'D MMMM YYYY' }} - {{ result.files.length }} files - Archive size {{ result.size | formatBytes }}
                                     </p>
                                 </div>
                             </div>
@@ -54,6 +58,9 @@
                             ng-change="dataRepository.pageChanged()"
                             ng-show="dataRepository.uploads.count > dataRepository.limit">
                     </uib-pagination>
+                </div>
+                <div class="emptyInfo" ng-if="dataRepository.uploads.count == 0">
+                    <h3>No results</h3>
                 </div>
             </div>
         </section>

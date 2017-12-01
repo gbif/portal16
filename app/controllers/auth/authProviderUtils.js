@@ -31,7 +31,6 @@ function authCallback(req, res, next, err, profile, info, setProviderValues, pro
         throw new Error('Missing provider or id key');
         return;
     }
-
     auth.setNoCache(res);
     if (err) {
         next(err);

@@ -1,1 +1,3 @@
-Some elaborate description from contentful
+<div class="horizontal-stripe white-background">
+    <ng-include src="'/api/resource/tool?content_type=Tool&fields.machineIdentifier=data_repository'" ></ng-include>
+</div>

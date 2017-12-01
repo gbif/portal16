@@ -2258,6 +2258,7 @@
     "ipt": "IPT",
     "dataValidator": "Data validator",
     "suggestDataset": "Suggest a dataset",
+    "dataRepository": "Data repository",
     "developers": "Users",
     "api": "GBIF API",
     "rgbif": "rgbif",
@@ -2450,7 +2451,7 @@
     "placeholders": {
       "summary": "Summary",
       "description": "Detailed description",
-      "username": "Your email or Github username (public and optional)"
+      "username": "Your email or Github username (public)"
     },
     "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
     "bugReport": "bug",
@@ -2667,7 +2668,8 @@
   },
   "phrases": {
     "defaultPageTitle": "GBIF",
-    "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
+    "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
+    "largeFileUploadWarning": "Be aware that large files can take a long time to upload"
   },
   "species": {
     "distribution": {
@@ -2684,6 +2686,76 @@
         "DATA_DEFICIENT": "Data Deficient",
         "NOT_EVALUATED": "Not Evaluated",
         "threatStatus": "Threat status: {status}"
+      }
+    }
+  },
+  "health": {
+    "statusSummary": {
+      "OPERATIONAL": "All systems operational",
+      "INFO": "All systems operational",
+      "WARNING": "We are experiencing unstable or slow systems",
+      "CRITICAL": "We are experiencing a partial outage"
+    },
+    "status": {
+      "OPERATIONAL": "Operational",
+      "WARNING": "Unstable",
+      "CRITICAL": "Not usable",
+      "INFO": "System update"
+    },
+    "components": {
+      "OCCURRENCE": {
+        "name": "Occurrence",
+        "tooltip": "E.g. searching and viewing occurrences."
+      },
+      "SPECIES": {
+        "name": "Species",
+        "tooltip": "E.g. Searching and viewing species, species suggestions"
+      },
+      "REGISTRY": {
+        "name": "Registry",
+        "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks."
+      },
+      "IDENTITY": {
+        "name": "Identity",
+        "tooltip": "For logging in and out, connecting accounts etc."
+      },
+      "MAPS": {
+        "name": "Maps",
+        "tooltip": "For displaying map images and getting info about a map."
+      },
+      "CONTENTFUL": {
+        "name": "Content mangement system (external system)",
+        "tooltip": "Dataset, publishers, installations, countries, participants and networks. "
+      },
+      "GITHUB": {
+        "name": "Github (external system)",
+        "tooltip": "Feedback, datasets suggestions"
+      },
+      "CRAWLER": {
+        "name": "Crawling",
+        "tooltip": "For updating datasets - new and old."
+      },
+      "RESOURCE_SEARCH": {
+        "name": "Resource search",
+        "tooltip": "E.g. for searching literature, news."
+      },
+      "CLUSTER": {
+        "name": "System load",
+        "tooltip": "The backend for handling downloads, crawling end much more."
+      },
+      "DOWNLOAD": {
+        "name": "Downloads",
+        "tooltip": "For handling download jobs and sending users notifications"
+      }
+    },
+    "notifications": {
+      "WARNING": {
+        "title": "Services unstable",
+        "summary": "We are currently experiencing slow or unstable services."
+      },
+      "CRITICAL": {
+        "title": "Services unavailable",
+        "summary": "We are experiencing a partial outage"
       }
     }
   },

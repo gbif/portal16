@@ -7,7 +7,7 @@
                 <div ng-repeat="geographicCoverage in vm.eml.geographicCoverages">
                     <div ng-if="geographicCoverage.description" ng-bind-html="geographicCoverage.description"></div>
                     <div ng-if="geographicCoverage.boundingBox && vm.coverages">
-                        <feature-map style="height:400px" features="vm.coverages" mapstyle="'light'"></feature-map>
+                        <feature-map features="vm.coverages" mapstyle="'light'"></feature-map>
                     </div>
                 </div>
             </div>

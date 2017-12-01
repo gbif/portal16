@@ -1,6 +1,8 @@
 (function () {
     'use strict';
-    var angular = require('angular');
+    var angular = require('angular'),
+        _ = require('lodash'),
+        Base64 = require('js-base64').Base64;
 
     angular
         .module('portal')
@@ -10,12 +12,38 @@
             LOGOUT_FAILED: 'LOGOUT_FAILED',
             LOGIN_SUCCESS: 'LOGIN_SUCCESS',
             LOGIN_FAILURE: 'LOGIN_FAILURE'
+        })
+        .constant('USER_ROLES', {
+            REGISTRY_ADMIN: 'REGISTRY_ADMIN',
+            REPOSITORY_USER: 'DATA_REPO_USER'
         });
 
     angular
         .module('portal')
         .service('User', function ($http, $sessionStorage, $rootScope, AUTH_EVENTS, $cookies, $location, $window) {
                 var that = this;
+                var AUTH_TOKEN_NAME = 'token';
+
+                that.userFromToken = function () {
+                    var token = $cookies.get(AUTH_TOKEN_NAME);
+                    if (!token) {
+                        return;
+                    }
+                    var user = JSON.parse(Base64.decode(token.split('.')[1]));
+                    if (user.roles) {
+                       user.roles = JSON.parse(user.roles);
+                    }
+                    return user;
+                };
+
+                that.hasRole = function (role) {
+                    var user = $sessionStorage.user;
+                    return user && _.get(user, 'roles', []).indexOf(role) != -1;
+                };
+
+                that.getAuthToken = function () {
+                    return $cookies.get(AUTH_TOKEN_NAME);
+                };
 
                 that.loadActiveUser = function () {
                     var activeUser = $http.get('/api/user/me');
@@ -33,6 +61,13 @@
                     if (!$sessionStorage.user) {
                         that.loadActiveUser();
                     }
+                    //else {
+                    //    //check that user stored in session is the same as on the token cookie
+                    //    var tokenUser = that.userFromToken();
+                    //    if (tokenUser.exp*1000 < Date.now() && tokenUser.userName !== $sessionStorage.user.userName) {
+                    //        that.loadActiveUser();
+                    //    }
+                    //}
                 };
 
                 that.createUser = function (body) {

@@ -195,7 +195,6 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                         password: vm.password
                     }
                 };
-                //UNCOMMENT IF USING HUMAN VERIFICATION
                 body.challenge.answer = Object.keys(vm.answer).filter(function (e) {
                     return vm.answer[e];
                 });
@@ -209,14 +208,10 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                     if (err.status === 401) {
                         vm.getChallenge();
                     } else {
-                        //TODO get all possible error tpes from Christian and add them to the translation file
+                        //TODO get all possible error types from Christian and add them to the translation file
                         vm.verification = false;
                         vm.waiting = false;
                         vm.creationFailure = _.get(err, 'data.error');
-                        //toastService.error({
-                        //    message: "We couldn't create your account. Please try again and let us know if the problem persists",
-                        //    feedback: true
-                        //});
                     }
                 });
             } else {

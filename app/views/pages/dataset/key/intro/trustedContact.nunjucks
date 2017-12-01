@@ -1,0 +1,64 @@
+<div class="card-head">
+    <h4 class="card-header--bold">Because you are trusted contact</h4>
+    <div class="card-menu">
+        <a href="" class="card-menu__option inherit noUnderline" ng-click="datasetKey.showTrustedDatasetDetails = !datasetKey.showTrustedDatasetDetails" ng-class="{'gb-icon-unfold-more-horizontal': !datasetKey.showTrustedDatasetDetails, 'gb-icon-unfold-less-horizontal': datasetKey.showTrustedDatasetDetails}"></a>
+    </div>
+</div>
+<div class="card m-b-1 trusted-contact">
+    <div class="card__stripe">
+        <div class="card__content clearfix">
+            <a href="" ng-click="datasetKey.showTrustedDatasetDetails = true">
+                <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0">Last crawl a success</span>
+                <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0">Last crawl failed</span>
+                <span class="gb-badge--red inline-block" ng-if="(((datasetKey.occurrences.count / datasetKey.processSummary.lastDataChange.fragmentsEmitted) - 1) | MathAbs) > 0.1">Out of sync</span>
+            </a>
+            <div class="pull-right" ng-if="!datasetKey.crawlingFailed">
+                <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && !datasetKey.crawlingStarted">Crawl now</a>
+                <a class="gb-button--discreet" href="//crawler.gbif.org/" ng-if="datasetKey.currentCrawlingStatus.isInQueue">Is in crawl queue</a>
+                <span class="gb-button--discreet" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && datasetKey.crawlingStarted">Adding to queue</span>
+            </div>
+            <div class="pull-right" ng-if="datasetKey.crawlingFailed">
+                <span class="text-error text-uppercase">Unable to start crawl</span>
+            </div>
+        </div>
+    </div>
+    <div class="card__stripe container-fluid clearfix" ng-if="datasetKey.showTrustedDatasetDetails">
+        <div class="row card__content">
+            <div class="col-md-3 hidden-sm hidden-xs" ng-if="datasetKey.processSummary.analyzedCount > 0">
+                <h4 class="card-header text-center">Crawl completion reasons</h4>
+                <div>
+                    <div style="height:100px;">
+                        <canvas id="doughnut" class="chart chart-doughnut"
+                                chart-data="datasetKey.crawlData" chart-labels="datasetKey.crawlLabels"
+                                chart-options="datasetKey.crawlOptions" chart-colors="datasetKey.crawlColors">
+                        </canvas>
+                    </div>
+                    <div class="text-center">
+                        <ul class="inline-bullet-list">
+                            <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
+                                {{ value/datasetKey.processSummary.finished | formatAsPercentage }}% {{ key | prettifyEnum }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <h4 class="card-header">Dataset crawl status</h4>
+                {% include('../main/crawlInfo.nunjucks') %}
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <h4 class="card-header">GBIF crawler status</h4>
+                <dl class="inline m-b-05">
+                    <div>
+                        <dt class="text-capitalize">Crawler status</dt>
+                        <dd ng-class="{'c-error-badge': datasetKey.componentHealth.CRAWLER !== 'OPERATIONAL'}" translate="health.status.{{datasetKey.componentHealth.CRAWLER || 'CRITICAL'}}"></dd>
+                    </div>
+                    <div>
+                        <dt class="text-capitalize">Items in crawl queue</dt>
+                        <dd>{{ datasetKey.currentCrawlingStatus.queueLength }}</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

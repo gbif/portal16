@@ -12,8 +12,8 @@
 
         <div  ng-repeat="issueBlock in issueBlockList">
 
-
-
+            <div layout="row">
+<div >
             <span class="badge-composite--{{issueBlock.severity | lowercase }}" ng-if="issueBlock.count">
 
 
@@ -36,10 +36,10 @@
                        translate="occurrenceIssue.{{ issueBlock.issue }}"></span>
                 <span  class="badge badge--{{issueBlock.severity | lowercase }}" ng-if="!issueBlock.count && issueCategory === 'CLB_INTERPRETATION_BASED'"
                        translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>
-
-            <span class="dataValidator__issueQuestion gb-icon-angle-down" ng-click="vm.issueSampleExpanded[issueBlock.issue] = !vm.issueSampleExpanded[issueBlock.issue]"></span>
-
-            <span gb-help gb-help-options="{identifier: 'ISSUE-'+issueBlock.issue}"></span>
+</div>  <!-- comment in when issue help items are in prod contentful-->
+          <!--  <span ng-class="{'gb-icon-unfold-more-horizontal': !vm.issueSampleExpanded[issueBlock.issue], 'gb-icon-unfold-less-horizontal': vm.issueSampleExpanded[issueBlock.issue]}" ng-click="vm.issueSampleExpanded[issueBlock.issue] = !vm.issueSampleExpanded[issueBlock.issue]"></span>
+            -->
+            </div>
 
 
 
@@ -52,10 +52,12 @@
                            <!--translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>-->
                 <!--</a>-->
 
+            <div ng-show="vm.issueSampleExpanded[issueBlock.issue]">
+                <span gb-help gb-help-options="{identifier: 'ISSUE-'+issueBlock.issue}" class="pull-right"></span>
 
 
-            <table ng-if="issueBlock.sample" class="table table-bordered table-striped m-t-1"
-                   ng-show="vm.issueSampleExpanded[issueBlock.issue]">
+                <table ng-if="issueBlock.sample" class="table table-bordered table-striped m-t-1"
+                   >
                 <thead>
                 <tr>
                     <th ng-repeat="issueLine in issueBlock.headers">
@@ -75,7 +77,7 @@
             </table>
 
             <table ng-if="issueBlock.issue !== 'UNKNOWN_TERM' && issueBlock.issue !== 'DUPLICATED_TERM' && !(issueBlock.sample || issueBlock.sample.length ===0)" class="table table-bordered table-striped m-t-1"
-                   ng-show="vm.issueSampleExpanded[issueBlock.issue]">
+                   >
                 <thead>
                 <tr>
                     <th ng-repeat="(key, val) in issueBlock">
@@ -93,7 +95,7 @@
             </table>
 
             <table ng-if="!(issueBlock.sample || issueBlock.sample.length ===0) && (issueBlock.issue === 'UNKNOWN_TERM' ||  issueBlock.issue === 'DUPLICATED_TERM')" class="table table-bordered table-striped m-t-1"
-                   ng-show="vm.issueSampleExpanded[issueBlock.issue]">
+                   >
                 <thead>
                 <tr >
                     <th ng-repeat="(key, val) in issueBlock.relatedData[0]">
@@ -112,6 +114,7 @@
                 </tr>
                 </tbody>
             </table>
+            </div>
         </div>
 
 

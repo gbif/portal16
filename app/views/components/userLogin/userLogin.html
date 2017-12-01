@@ -58,9 +58,10 @@
             <div class="text-uppercase text-center discreet">Or</div>
             <a href="/auth/facebook/login" class="gb-button--facebook center-block m-t-05"><i></i><span class="gb-button--facebook__label">Continue with Facebook</span></a>
             <a href="/auth/github/login" class="gb-button--github center-block m-t-05"><i></i><span class="gb-button--facebook__label">Continue with Github</span></a>
+            <a href="/auth/orcid/login" class="gb-button--orcid center-block m-t-05"><i></i><span class="gb-button--facebook__label">Continue with ORCiD</span></a>
         </p>
         <p class="small discreet">
-            By signing in you accept GBIFs <a ng-href="{{ portal.urlPrefix }}/terms">terms</a> and <a ng-href="{{ portal.urlPrefix }}/terms/privacy-policy">privacy policy</a>.
+            By signing in you accept GBIFs <a ng-href="{{ portal.urlPrefix }}/terms" target="_blank">terms</a> and <a ng-href="{{ portal.urlPrefix }}/terms/privacy-policy" target="_blank">privacy policy</a>.
         </p>
     </form>
 
@@ -147,12 +148,12 @@
                         </div>
                     </div>
                     <div class="verification__img">
-                        <img ng-src="/api/verification/{{vm.challenge.challenge}}">
+                        <img ng-src="/api/verification/image?id={{vm.challenge.challenge}}">
                     </div>
                 </div>
                 <div class="verification__options">
                     <a hre="" ng-repeat="option in vm.challenge.options" class="verification__img" ng-class="{isSelected: vm.answer[$index]}" ng-click="vm.answer[$index]=!vm.answer[$index]">
-                        <img ng-src="/api/verification/{{option}}">
+                        <img ng-src="/api/verification/image?id={{option}}">
                     </a>
                 </div>
             </div>
@@ -160,7 +161,7 @@
                 <button type="submit" class="gb-button--brand" ng-click="vm.signup()">Sign up</button>
             </p>
             <p class="small discreet">
-                By creating an account you accept GBIFs <a href="">terms</a> and <a href="">privacy policy</a>.
+                By creating an account you accept GBIFs <a ng-href="{{ portal.urlPrefix }}/terms" target="_blank">terms</a> and <a ng-href="{{ portal.urlPrefix }}/terms/privacy-policy" target="_blank">privacy policy</a>.
             </p>
         </div>
         

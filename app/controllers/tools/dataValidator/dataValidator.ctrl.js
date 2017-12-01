@@ -46,11 +46,13 @@ function render(req, res, next) {
 router.get('/templates/data-validator/about.html', function (req, res, next) {
 
     let contentfulProdId =  'zqFvwnIS0oAMwQIKWooAW'; //
-    resource.getById(contentfulProdId, 2, false, res.locals.gb.locales.current)
+    let query = {
+        content_type: 'Tool',
+        'fields.keywords': 'validator'
+    };
+    resource.getFirst(query, 2, false, res.locals.gb.locales.current)
         .then(contentItem => {
-
             helper.renderPage(req, res, next, contentItem, 'pages/tools/dataValidator/about/aboutArticle.nunjucks');
-            //  res.json(result);
         })
         .catch(function(err){
             if (err.statusCode == 404) {

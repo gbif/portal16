@@ -1,6 +1,8 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
+
 angular
     .module('portal')
     .directive('feedback', feedbackDirective);
@@ -21,7 +23,7 @@ function feedbackDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function feedback($scope, $location, NAV_EVENTS, $http, IS_TOUCH) {
+    function feedback(User, $sessionStorage, $scope, $location, NAV_EVENTS, $http, IS_TOUCH) {
         var vm = this;
         vm.location = $location.path();
         vm.isActive = false;
@@ -44,6 +46,12 @@ function feedbackDirective(BUILD_VERSION) {
                 vm.isActive = false;
             }
         };
+
+        function updateUser() {
+            vm.userContactInfo = _.get($sessionStorage.user, 'githubUserName');
+            vm.issue.contact = vm.issue.contact || vm.userContactInfo;
+        }
+        updateUser();
 
         $scope.$on(NAV_EVENTS.toggleFeedback, function (event, data) {
             //open feedback on the relevant tab ((question, bug etc.))

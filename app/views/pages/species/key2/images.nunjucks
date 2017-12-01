@@ -1,4 +1,4 @@
-<div class="container--desktop m-t-1" ng-if="speciesKey2.images && speciesKey2.images.count > 0">
+<div class="container--desktop m-t-1" ng-if="speciesKey2.images.count > 0">
     <h4 class="text-muted small text-uppercase">{{ speciesKey2.images.count | localNumber }} occurrence records with images</h4>
     <div class="galleryBar">
         <div>
