@@ -12,6 +12,8 @@
 
         <div  ng-repeat="issueBlock in issueBlockList">
 
+
+
             <span class="badge-composite--{{issueBlock.severity | lowercase }}" ng-if="issueBlock.count">
 
 
@@ -24,7 +26,6 @@
                 <span  class="badge" ng-if="issueCategory === 'CLB_INTERPRETATION_BASED'"
                        translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>
               <span class="badge" > {{  issueBlock.count }}</span>
-
             </span>
 
 
@@ -36,8 +37,11 @@
                 <span  class="badge badge--{{issueBlock.severity | lowercase }}" ng-if="!issueBlock.count && issueCategory === 'CLB_INTERPRETATION_BASED'"
                        translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>
 
+            <span class="dataValidator__issueQuestion gb-icon-angle-down" ng-click="vm.issueSampleExpanded[issueBlock.issue] = !vm.issueSampleExpanded[issueBlock.issue]"></span>
 
-            <a href="" class="smaller" ng-click="vm.issueSampleExpanded[issueBlock.issue] = !vm.issueSampleExpanded[issueBlock.issue]"> details...</a>
+            <span gb-help gb-help-options="{identifier: 'ISSUE-'+issueBlock.issue}"></span>
+
+
 
                 <!--<a class="badge-composite&#45;&#45;{{issueBlock.severity | lowercase }} href="" ng-if="issueCategory === 'OCC_INTERPRETATION_BASED' || issueCategory === 'CLB_INTERPRETATION_BASED'"-->
                    <!--ng-click="dataValidator.issueSampleExpanded[issueBlock.issue] = !dataValidator.issueSampleExpanded[issueBlock.issue]">-->
