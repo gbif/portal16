@@ -1640,11 +1640,11 @@
     "NODES_COMMITTEE_CHAIR": "nodes committee chair",
     "NODES_REGIONAL_REPRESENTATIVE_AFRICA": "nodes regional representative africa",
     "NODES_REGIONAL_REPRESENTATIVE_ASIA": "nodes regional representative asia",
-    "NODES_REGIONAL_REPRESENTATIVE_LATIN_AMERICA": "nodes regional representative Latin America",
+    "NODES_REGIONAL_REPRESENTATIVE_LATIN_AMERICA": "nodes regional representative Latin America and the Caribbean",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_AFRICA": "nodes regional representative deputy africa",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_ASIA": "nodes regional representative deputy asia",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_EUROPE": "nodes regional representative deputy europe",
-    "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA": "nodes regional representative deputy latin america",
+    "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA": "nodes regional representative deputy Latin America and the Caribbean",
     "NODES_REGIONAL_REPRESENTATIVE_EUROPE": "nodes regional representative europe",
     "NODES_REGIONAL_REPRESENTATIVE_NORTH_AMERICA": "nodes regional representative north america",
     "REGIONAL_NODE_REPRESENTATIVE": "regional node representative",
@@ -2054,7 +2054,7 @@
       },
       "nsg": {
         "title": "Nodes Steering Group",
-        "description": "Established in 2011, the Nodes Steering Group (NSG) consists of the chair and vice-chairs of the [Participant Node Managers Committee](/contact-us/directory?group=nodesCommittee) joined by a regional representative from each of GBIF’s six regions ([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)). The NSG’s objectives are to formulate specific recommendations to relevant GBIF bodies based on feedback provided by Participant nodes, and to provide advice on GBIF’s annual work programmes as they relate to the efforts of GBIF nodes."
+        "description": "Established in 2011, the Nodes Steering Group (NSG) consists of the chair and vice-chairs of the [Participant Node Managers Committee](/contact-us/directory?group=nodesCommittee) joined by a regional representative from each of GBIF’s six regions ([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America/Caribbean](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)). The NSG’s objectives are to formulate specific recommendations to relevant GBIF bodies based on feedback provided by Participant nodes, and to provide advice on GBIF’s annual work programmes as they relate to the efforts of GBIF nodes."
       },
       "nodesCommittee": {
         "title": "Node Managers Committee",
@@ -2158,7 +2158,7 @@
     "AFRICA": "Africa",
     "ASIA": "Asia",
     "EUROPE": "Europe",
-    "LATIN_AMERICA": "Latin America",
+    "LATIN_AMERICA": "Latin America and the Caribbean",
     "NORTH_AMERICA": "North America",
     "OCEANIA": "Oceania",
     "select_region": "Select a region"
