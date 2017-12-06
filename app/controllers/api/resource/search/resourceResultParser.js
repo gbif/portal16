@@ -88,7 +88,7 @@ function renderMarkdown(results, fieldsPaths){
     results.forEach(function(e){
         fieldsPaths.forEach(function(field){
             let value = _.get(e, field);
-            if (_.isString(value)) {
+            if (_.isString(value) && field !== 'title') {
                 _.set(e, field, md.render(value));
             } else if (_.isObject(value)) {
                 let transformedValue = _.mapValues(value, function(x){
