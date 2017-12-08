@@ -202,9 +202,22 @@ async function getParsedName(speciesKey) {
 
         return n;
     }
+    else if (name.type == 'OTU' ) {
+        let species = await getSpecies(speciesKey);
 
+        if(species.taxonomicStatus === "SYNONYM"){
+            let accepted = await getSpecies(species.acceptedKey)
+            return name.scientificName + " <i>("+accepted.canonicalName +")</i>";
+
+        } else {
+                let parent = await getSpecies(species.parentKey)
+                return name.scientificName+" <i>("+parent.canonicalName + " sp.)</i>";
+
+        }
+        //return n;
+    }
     //unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
-    else if (name.type == 'OTU' || name.type == 'VIRUS' || name.type == 'PLACEHOLDER') {
+    else if ( name.type == 'VIRUS' || name.type == 'PLACEHOLDER') {
         n = name.scientificName;
         return n;
     }
@@ -228,6 +241,21 @@ async function getParsedName(speciesKey) {
 async function getName(speciesKey) {
     let baseRequest = {
         url: apiConfig.taxon.url + speciesKey + '/name',
+        timeout: 30000,
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    let response = await request(baseRequest);
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function getSpecies(speciesKey) {
+    let baseRequest = {
+        url: apiConfig.taxon.url + speciesKey ,
         timeout: 30000,
         method: 'GET',
         json: true,

@@ -43,7 +43,7 @@ function renderSpeciesPage(req, res, next) {
                 title: taxon.record.scientificName
             }
         };
-        helper.renderPage(req, res, next, contentItem, 'pages/species/key2/seo');
+        helper.renderPage(req, res, next, contentItem, 'pages/species/key/seo');
     }).catch(function(err){
         if (err.type == 'NOT_FOUND') {
             next();
