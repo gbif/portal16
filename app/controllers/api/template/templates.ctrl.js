@@ -116,7 +116,7 @@ router.get('/country/research.html', function (req, res, next) {
 
 
 router.get('/species/key.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/species/key2/speciesKey.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/species/key/speciesKey.template.nunjucks');
 });
 
 router.get('/dataset/key.html', function (req, res, next) {

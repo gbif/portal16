@@ -337,9 +337,9 @@ require('../../../pages/user/confirmUser/confirmUser.ctrl');
 
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 
+//require('../../../pages/species/key/speciesKey.ctrl');
 require('../../../pages/species/key/speciesKey.ctrl');
-require('../../../pages/species/key2/speciesKey.ctrl');
-require('../../../pages/species/key2/references/references.ctrl');
+require('../../../pages/species/key/references/references.ctrl');
 
 require('../../../pages/dataset/search/dataset.ctrl');
 require('../../../pages/dataset/search/table/datasetTable.ctrl');

@@ -1,130 +1,63 @@
-.speciesKey
-    
-    .paragraph-list li
-        display inline
-        margin-right 10px
-    
-    .vernacular-lang
-        color #777
-        font-size: 75%
-    
-    .published-in
-        margin-bottom 10px
-    .badge
-        font-weight 300
-    .map
-        //width $desktop - 30
-        //width inherit
-        margin auto
-        height 0
-        padding-bottom 50%
-        position relative
-        gbmap
-            position absolute
-            top 0
-            height 100%
-            width 100%
-    .db-pedia
-        cite
-            margin-left 5px
-            :before
-                content '\2014 \00A0'
-    .cites
-        background-color MediumTurquoise
-        color black
+.speciesKey2 {
 
-.verbatim-terms
-    dt
-        text-transform: none
+}
 
-small.rank
-    font-size 65%
+//TODO where should this really go - is it a general thing or species specific
+.article-header__source, .source {
+    color darken($navBar_background_color, 15) //#4a8e4a
+}
 
-.alert-stripe
-    margin 0
-    border-top: 1px solid #dbe3e7;
++isAbove($laptop) {
+    .descriptions--columns {
+        columns 2 10px 30px
+    }
+}
 
-.redlist-category-EX
-    background-color black
-    color white
+.verbatim-table--key {
+    width: 33%
+}
 
-.redlist-category-EW
-    background-color rebeccapurple
-    color white
-
-.redlist-category-CR
-    background-color red
-    color black
-
-.redlist-category-EN
-    background-color orange
-    color black
-
-.redlist-category-VU
-    background-color yellow
-    color black
-
-.redlist-category-NT
-    background-color greenyellow
-    color black
-
-.redlist-category-LC
-    background-color green
-    color black
-
-.redlist-category-DD
-    background-color gainsboro
-    color black
-
-.redlist-category-NE
-    background-color white
-    color black
-    border solid 1px
-
-#taxonomy-browser
-    font-weight 300
+.extension-header {
+    margin-bottom: 1px
     margin-top: 20px
+}
+
+.extension-subheader {
+    margin-bottom: 8px;
+}
+
+.jslghtbx {
+    z-index: 31
+}
+
+.checklist-info {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.text-transform__none {
+
+text-transform none !important
+}
+
+.cursor-pointer {
+    cursor pointer
     
-    .paragraph-list li
-        display inline
-        margin-right 10px
-    .search-link
-        font-size 65%
-        color #ccc;
-    .parent
-        margin-left 0px
-    .current-name
-        margin-top 6px
-        margin-top 6px
-        margin-left 10px
-        font-weight 500
-        text-decoration underline
-    .synonym
-        margin-left 20px
-        .sciname
-            font-style italic
-    .taxonchild
-        margin-left 20px
-    a:hover
-        text-decoration underline
-    li
-        margin-bottom 3px
-        text-indent -25px
-        padding-left 25px
+}
 
-$taxonomyWidth := 280px
-.taxonomy-wrapper
-    overflow visible
-    .taxonomy
-        padding 0 20px 0 0
-        width $taxonomyWidth
-        float left
-        position relative
-        a
-            color: inherit
-    .taxonomy-content
-        margin-left $taxonomyWidth
-        width "calc(%s - 2 * %s)" % ($desktop $taxonomyWidth)
+.header-sources {
+    margin-bottom 8px
+}
 
-.speciesKey .taxonomy h3
-    margin-top 0
+.vernacular {
+    font-weight bold
+    display inline-block
+    
+}
+.vernacular:first-letter {
+    
+    text-transform: uppercase;
+    
+}
+
