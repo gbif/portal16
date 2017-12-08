@@ -1,7 +1,7 @@
 "use strict";
 let express = require('express'),
     router = express.Router(),
-    request = require('requestRetry'),
+    request = require('requestretry'),
     _ = require('lodash');
 
 module.exports = function (app) {
