@@ -1,15 +1,14 @@
 <div ng-if="speciesKey2.isNub">
 
 
-    {#{% include "./intro.nunjucks" %}#}
 
-    {% include "./images.nunjucks" %}
+    {% include "../images/occurrenceImages.nunjucks" %}
     <div ng-if="speciesKey2.images.$resolved">
-        {% include "./map.nunjucks" %}
+        {% include "../map/map.nunjucks" %}
     </div>
 
     <div ng-if="!speciesKey2.images.$resolved || !speciesKey2.capabilities.$resolved" class="emptyInfo">
-        <h3>Searching 700+ million records for species data</h3>
+        <h3>Searching 800+ million records for species data</h3>
     </div>
 
     <div class="emptyInfo" ng-if="speciesKey2.failedRequest">
@@ -17,7 +16,7 @@
     </div>
 
 <div class="container--narrow m-t-1">
-    {% include "./warnings.nunjucks" %}
+    {% include "../warnings/warnings.nunjucks" %}
 
 </div>
 
@@ -122,7 +121,7 @@
                     </div>
 
 
-                {% include "./partners.nunjucks" %}
+                {% include "../partners/partners.nunjucks" %}
 
         </div>
 

@@ -7,19 +7,19 @@
         <div class="speciesKey2 light-background" ng-class="{'bare-background': speciesKey2.isNub}" ng-if="speciesKey2.species.$resolved">
             <div class="wrapper-horizontal-stripes">
 
-                {% include "./header.nunjucks" %}
+                {% include "./intro/header.nunjucks" %}
 
-                {% include "./nav.nunjucks" %}
+                {% include "./intro/nav.nunjucks" %}
                 <div ng-if="speciesKey2.hasNonCriticalError" class="emptyInfo--small">
                     <h3 translate="stdTerms.partialPage"></h3>
                     <p translate="stdTerms.nonCriticalErrorMsg"></p>
                 </div>
                 <div ui-view>
-                    {% include "./backboneSpecies.nunjucks" %}
+                    {% include "./speciestypes/backboneSpecies.nunjucks" %}
 
-                    {% include "./nonBackboneSpecies.nunjucks" %}
+                    {% include "./speciestypes/nonBackboneSpecies.nunjucks" %}
 
-                    {% include "./verbatimSpecies.nunjucks" %}
+                    {% include "./speciestypes/verbatimSpecies.nunjucks" %}
                 </div>
             </div>
         </div>

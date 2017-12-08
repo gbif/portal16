@@ -1,14 +1,14 @@
 <div ng-if="!speciesKey2.isNub && !speciesKey2.$state.is('speciesKeyVerbatim')">
 
     <div >
-    {% include "./speciesImages.nunjucks" %}
+    {% include "../images/speciesImages.nunjucks" %}
     </div>
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--narrow">
 
 
-            {% include "./warnings.nunjucks" %}
+            {% include "../warnings/warnings.nunjucks" %}
 
 
             <div class="m-t-1" ng-if="speciesKey2.descriptions.results.length > 0">
