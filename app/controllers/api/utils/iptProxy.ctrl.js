@@ -25,6 +25,8 @@ router.get('/installation/ipt/inventory/dataset', function (req, res) {
     .then(function(response){
         res.header("Content-Type", response.headers['content-type'] || 'application/json');
         res.header("cache-control", 'max-age=0, no-store, must-revalidate');
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.status(response.statusCode);
         res.send(response.body);
     })
