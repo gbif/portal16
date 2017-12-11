@@ -97,7 +97,7 @@
                         Lists all direct child usages for a name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/related", resp="NameUsage List", paging=false, params=["language","datasetKey"], respLink=apiBase+"species/5231190/related") %}
+                        {% call trow(url="/{int}/related", resp="NameUsage List", paging=true, params=["language","datasetKey"], respLink=apiBase+"species/5231190/related") %}
                         Lists all related name usages in other checklists
                         {% endcall %}
 
