@@ -127,7 +127,7 @@ function testExpectation(response, elapsed, test) {
         }
     } catch (err) {
         return {
-            message: test.message + ' URL: ' +  + test.url || `Failed test. Type: ${test.type} - key: ${test.key} - val: ${test.val}`,
+            message: test.message + ' URL: ' + test.url || `Failed test. Type: ${test.type} - key: ${test.key} - val: ${test.val}`,
             severity: test.severity,
             component: test.component,
             test: test

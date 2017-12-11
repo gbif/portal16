@@ -12,7 +12,7 @@ module.exports = {start, startCustom, severity, severityMap};
 
 function start(config, done, progress, failed) {
     var tests = createTests(config);
-    //tests.push(contentfulTest);
+    tests.push(contentfulTest);
     startCustom(tests, done, progress, failed);
 }
 
