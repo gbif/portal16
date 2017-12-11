@@ -16,7 +16,7 @@
             </div>
 
             <div ng-if="faq.answer">
-                <div class="card m-b-05 searchCard">
+                <div class="card card--spaced m-b-05 searchCard">
                     <div class="card__stripe">
                         <div class="card__content">
                             <h3 class="searchCard__headline">
