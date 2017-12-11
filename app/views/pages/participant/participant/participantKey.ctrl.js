@@ -57,6 +57,8 @@ function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, $
     vm.participant.$promise.then(function() {
         if (vm.participant.registryNode) {
             vm.setPageNumbers();
+        } else if(vm.participant._incomplete) {
+            vm.partialResultError = true;
         }
     });
 

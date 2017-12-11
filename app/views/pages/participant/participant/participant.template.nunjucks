@@ -11,8 +11,11 @@
                         {% include "./participantSummary.nunjucks" ignore missing %}
                     </div>
                 </div>
+                <div ng-if="participantKey.participant && participantKey.partialResultError" class="emptyInfo--small">
+                    <h3 translate="stdTerms.nonCriticalErrorMsg"></h3>
 
-                <div class="horizontal-stripe light-background ng-cloak">
+                </div>
+                <div class="horizontal-stripe light-background ng-cloak" ng-if="participantKey.participant.registryNode && participantKey.participant.registryNode.key">
                     {% include "./endorsed.nunjucks" ignore missing %}
                     {% include "./publishedDatasets.nunjucks" ignore missing %}
                 </div>
