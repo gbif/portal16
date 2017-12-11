@@ -26,6 +26,7 @@ console.log(url);
         res.header("Content-Type", response.headers['content-type'] || 'application/json');
         res.header("cache-control", 'max-age=0, no-store, must-revalidate');
         res.header("Access-Control-Allow-Origin", "*");
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.status(response.statusCode);
         res.send(response.body);
@@ -33,7 +34,7 @@ console.log(url);
     .catch(function(err){
         console.log(err);
         res.status(500);
-        res.send('FAILED TO GET DATA');
+        res.send(err);
     });
 
 });
