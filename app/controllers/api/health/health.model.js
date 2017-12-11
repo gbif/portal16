@@ -5,12 +5,14 @@ var endpointTest = require('./endpointTest'),
     severityMap = require('./severity').severityMap,
     _ = require('lodash'),
     getMostSevere = require('./severity').getMostSevere,
+    contentfulTest = require('./contentfulTest'),
     async = require('async');
 
 module.exports = {start, startCustom, severity, severityMap};
 
 function start(config, done, progress, failed) {
     var tests = createTests(config);
+    //tests.push(contentfulTest);
     startCustom(tests, done, progress, failed);
 }
 
