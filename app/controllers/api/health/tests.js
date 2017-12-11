@@ -125,14 +125,15 @@ var tests = [
         val: 415,
         message: 'Should return 415 on empty posts to download/request'
     },
-    {
-        url: 'https://www.contentfulstatus.com/history.json',
-        component: 'CONTENTFUL',
-        type: 'HAVE_VALUE',
-        key: 'components[0].status',
-        val: 'operational',
-        message: 'The contentful status endpoint should should return "operational" for components[0].status'
-    },
+    //{
+    //    url: 'https://www.contentfulstatus.com/history.json',
+    //    component: 'CONTENTFUL',
+    //    type: 'HAVE_VALUE',
+    //    key: 'components[1].status',
+    //    val: 'operational',
+    //    severity: severity.WARNING,
+    //    message: 'The contentful status endpoint should should return "operational" for components[0].status'
+    //},
     {
         url: 'https://status.github.com/api/status.json',
         component: 'GITHUB',

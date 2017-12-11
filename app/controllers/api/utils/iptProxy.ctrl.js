@@ -13,7 +13,12 @@ module.exports = function (app) {
  * But as a temporary measure as registry development is more cumbersome a proxy is added in the website.
  */
 router.get('/installation/ipt/inventory/dataset', function (req, res) {
-    let url = req.query.iptBaseURL + '/inventory/dataset';
+    let url = decodeURIComponent(req.query.iptBaseURL) + '/inventory/dataset';
+
+    res.header("cache-control", 'max-age=0, no-store, must-revalidate');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     request.get({
         url: url,
@@ -24,15 +29,13 @@ router.get('/installation/ipt/inventory/dataset', function (req, res) {
     })
     .then(function(response){
         res.header("Content-Type", response.headers['content-type'] || 'application/json');
-        res.header("cache-control", 'max-age=0, no-store, must-revalidate');
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.status(response.statusCode);
         res.send(response.body);
     })
-    .catch(function(){
+    .catch(function(err){
+        console.log(err);
         res.status(500);
-        res.send('FAILED TO GET DATA');
+        res.send(err);
     });
 
 });
