@@ -1,0 +1,34 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes speciesLookup page--data"
+             ng-controller="nameParserCtrl as nameParser">
+
+        {% include "./matchOverlay.nunjucks" %}
+
+        {% include "./downloadOverlay.nunjucks" %}
+        <a href="" class="speciesLookup__back" onclick="location.reload();return false;"><span class="h1 gb-icon-left-arrow"></span></a>
+        <div class="horizontal-stripe article-header white-background">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">Tools</span>
+                        <span class="article-header__category__lower">Name Parser</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        {% include "./upload.nunjucks" %}
+
+
+        {% include "./curateResults.nunjucks" %}
+
+
+    </article>
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="/js/base/pages/nameParser.js?v={$ BUILD_VERSION $}"></script>
+{% endblock %}

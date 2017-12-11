@@ -1,0 +1,121 @@
+<!-- Lookup keys -->
+<div class="horizontal-stripe--paddingless white-background ng-cloak"
+     ng-if="nameParser.names ">
+    <div class="occurrence-search__table__area">
+        <div class="scrollable-y">
+            <div class="table-container">
+                {{ name }}
+                <table class="table search-table">
+                    <thead>
+                    <tr>
+                        <th class="text-capitalize"
+                            ng-repeat="col in ['scientificName', 'type', 'genusOrAbove', 'specificEpithet', 'infraSpecificEpithet', 'authorship', 'bracketAuthorship', 'parsed', 'authorsParsed', 'canonicalName', 'canonicalNameWithMarker', 'canonicalNameComplete', 'rankMarker']">
+                            <a href=""
+                               ng-click="nameParser.state.sortType = col; nameParser.state.sortReverse = !nameParser.state.sortReverse">
+                                	<span class="inline-block">
+                                		{{ col }}
+                                        <span ng-show="nameParser.state.sortType == col && !nameParser.state.sortReverse"
+                                              class="sortReverse">&#x25B2;</span>
+                						<span ng-show="nameParser.state.sortType == col && nameParser.state.sortReverse"
+                                              class="sortReverse">&#x25BC;</span>
+                                	</span>
+                            </a>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="name in nameParser.names | orderBy:nameParser.state.sortType:nameParser.state.sortReverse | startFrom:nameParser.pagination.currentPage*nameParser.pagination.pageSize-nameParser.pagination.pageSize | limitTo:nameParser.pagination.pageSize">
+                        <td class="table-cell--wide">
+                            <span>{{ name.scientificName }}</span>
+                        </td>
+                        <td class="table-cell--normal">
+                            <span >{{ name.type }}</span>
+
+                        </td>
+
+                        <td class="table-cell--narrow">
+                            <span >{{ name.genusOrAbove }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span >{{ name.specificEpithet }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span >{{ name.infraSpecificEpithet }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span >{{ name.authorship }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span >{{ name.bracketAuthorship }}</span>
+                        </td>
+
+                        <td class="table-cell--narrow">
+                            <span>{{ name.parsed }}</span>
+                        </td>
+
+                        <td class="table-cell--narrow" >
+
+                            <span>{{ name.authorsParsed }}</span>
+
+                        </td>
+
+                        <td class="table-cell--narrow">
+                            <span>{{ name.canonicalName }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span>{{ name.canonicalNameWithMarker }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span>{{ name.canonicalNameComplete }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span>{{ name.rankMarker }}</span>
+                        </td>
+
+
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div>
+                    <uib-pagination
+                            total-items="nameParser.name.length"
+                            ng-model="nameParser.pagination.currentPage"
+                            max-size="5"
+                            items-per-page="nameParser.pagination.pageSize"
+                            class="pagination-sm"
+                            boundary-link-numbers="true"
+                            rotate="true"
+                            ng-change="nameParser.pageChanged()"
+                            ng-show="nameParser.name.length > nameParser.pagination.pageSize">
+                    </uib-pagination>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="clearfix">
+                    <div class="switch-group pull-right">
+                        <p>Exclude unmatched</p>
+                        <input id="nameParserDiscardInCsv" type="checkbox" ng-model="nameParser.exclude"
+                               aria-label="Discard"/>
+                        <label for="nameParserDiscardInCsv" class="switch"></label>
+                    </div>
+                </div>
+
+                <div class="nameParser__generate" ng-if="nameParser.lookupComplete">
+                    <a href="" ng-click="nameParser.generateCsv()" class="text-uppercase pull-right">generate CSV</a>
+                </div>
+                <div ng-if="!nameParser.lookupComplete" class="pull-right discreet">
+                    Parsing names - hang on
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -48,6 +48,10 @@ gulp.task('dataRepo', function () {
 gulp.task('speciesLookup', function () {
     return build('./app/views/pages/tools/speciesLookup/speciesLookup.entry.js', 'pages/speciesLookup.js');
 });
+
+gulp.task('nameParser', function () {
+    return build('./app/views/pages/tools/nameParser/nameParser.entry.js', 'pages/nameParser.js');
+});
 // gulp.task('dataValidator', function () {
 //     return build('./app/views/pages/tools/dataValidator/dataValidator.entry.js', 'pages/dataValidator.js');
 // });
