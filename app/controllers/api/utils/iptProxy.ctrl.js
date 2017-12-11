@@ -13,8 +13,8 @@ module.exports = function (app) {
  * But as a temporary measure as registry development is more cumbersome a proxy is added in the website.
  */
 router.get('/installation/ipt/inventory/dataset', function (req, res) {
-    let url = req.query.iptBaseURL + '/inventory/dataset';
-
+    let url = decodeURIComponent(req.query.iptBaseURL) + '/inventory/dataset';
+console.log(url);
     request.get({
         url: url,
         method: 'GET',
@@ -30,7 +30,8 @@ router.get('/installation/ipt/inventory/dataset', function (req, res) {
         res.status(response.statusCode);
         res.send(response.body);
     })
-    .catch(function(){
+    .catch(function(err){
+        console.log(err);
         res.status(500);
         res.send('FAILED TO GET DATA');
     });
