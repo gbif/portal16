@@ -32,15 +32,15 @@ function reqSerializer(req) {
 
 var logStreams = [];
 
-// It was decided spring 2016 that logging should be to files and a script would be implemented to push to log server.
-// This hasn't been implemented as of dec 2017. console statements are however pushed to log server. So for now we will instead log to console as well as files.
-logStreams.push(
-    {
-        level: 'debug',
-        type: 'raw',
-        stream: prettyStdOut // process.stdout
-    }
-);
+if (loglevel <= loglevels.terminal) {
+    logStreams.push(
+        {
+            level: 'debug',
+            type: 'raw',
+            stream: prettyStdOut // process.stdout
+        }
+    );
+}
 
 if (loglevel <= loglevels.debug) {
     logStreams.push(
@@ -95,6 +95,7 @@ var log = bunyan.createLogger({
 
 
 log.info({state: 'initialising log'}, 'initialising log');
+
 
 module.exports = log;
 
