@@ -58,7 +58,7 @@ router.get('/health/portal', function (req, res) {
         })
         .catch(function(err){
             //TODO log error ?
-            console.log(err);
+            //console.log(err); //TODO log
             res.status(500);
             res.send();
         });

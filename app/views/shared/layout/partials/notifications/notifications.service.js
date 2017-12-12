@@ -14,7 +14,7 @@
 
     angular
         .module('portal')
-        .service('Notifications', function ($http, $timeout, $rootScope, NOTIFICATIONS, HEALTH, $sessionStorage) {
+        .service('Notifications', function (User, USER_ROLES, $window, $http, $timeout, $rootScope, NOTIFICATIONS, HEALTH, $sessionStorage) {
 
                 function update() {
                     $http.get('/api/health/portal?hash=' + _.get($sessionStorage.notifications, 'hash', '_empty'))
@@ -24,6 +24,7 @@
                                 if (_.get($sessionStorage.notifications, 'hash') != notifications.hash) {
                                     $sessionStorage.notifications = notifications;
                                     $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
+                                    pushNotification(notifications);
                                 }
                             } else {
                                 var notifications = $sessionStorage.notifications;
@@ -41,6 +42,27 @@
                         });
                 }
                 update();
+
+                function spawnNotification(body, title) {
+                    var options = {
+                        body: body,
+                        icon: 'http://www.gbif.org/img/logo/GBIF-2015-mark.png'
+                    };
+                    var notification = new Notification(title, options);
+                    notification.onclick = function () {
+                        window.open($window.location.origin + '/health');
+                    };
+                }
+
+                //send push notifications about stability to registry admins that have set there browsers to recieve push notifications
+                function pushNotification(notifications) {
+                    if (("Notification" in window)) {
+                        var isRegistryAdmin = User.hasRole(USER_ROLES.REGISTRY_ADMIN);
+                        if (Notification.permission == 'granted' && isRegistryAdmin && notifications.severity !== 'OPERATIONAL') {
+                            spawnNotification(notifications.severity, 'GBIF system health');
+                        }
+                    }
+                }
             }
         );
 })();
