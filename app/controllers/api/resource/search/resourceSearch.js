@@ -3,9 +3,9 @@
 const _ = require('lodash'),
     elasticsearch = require('elasticsearch'),
     resourceResultParser = require('./resourceResultParser'),
-    contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
-    defaultLocale = rootRequire('config/config').defaultLocale,
-    elasticContentful = rootRequire('config/config').elasticContentful,
+    contentfulLocaleMap = require('../../../../../config/config').contentfulLocaleMap,
+    defaultLocale = require('../../../../../config/config').defaultLocale,
+    elasticContentful = require('../../../../../config/config').elasticContentful,
     filterHelper = require('./filter');
 
 let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId', 'programmeTag'],
