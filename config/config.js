@@ -68,7 +68,7 @@ var config = {
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://localhost:3000',
         topDomain: undefined,
-        credentials: credentials || '/etc/portal16/credentials',
+        credentials: credentials || (rootPath + '/config/mockCredentials.json'), //notice the mock credentials will not work and shouldn't. We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
         redirects: redirects || '/etc/portal16/redirects',
         verification: verification || (rootPath + '/app/models/verification/sample'),
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',

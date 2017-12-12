@@ -1,14 +1,13 @@
 {
   "name": "gbif-portal16",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Weblayer for GBIF Portal 2016",
   "author": "GBIF Secretariat <informatics@gbif.org>",
   "main": "app.js",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=prod node app.js",
-    "redirects": "node node_modules/csvtojson/bin/csvtojson redirectTable.csv > app/middleware/redirects/redirectTable.json",
-    "local": "NODE_ENV=local gulp --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials",
+    "local": "NODE_ENV=local node node_modules/gulp/bin/gulp.js --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials",
     "install": "node node_modules/bower/bin/bower install; mkdir -p reports;",
     "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;"
   },
