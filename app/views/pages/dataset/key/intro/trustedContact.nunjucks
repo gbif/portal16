@@ -27,18 +27,14 @@
             <div class="col-md-3 hidden-sm hidden-xs" ng-if="datasetKey.processSummary.analyzedCount > 0">
                 <h4 class="card-header text-center">Crawl completion reasons</h4>
                 <div>
-                    <div style="height:100px;">
-                        <canvas id="doughnut" class="chart chart-doughnut"
-                                chart-data="datasetKey.crawlData" chart-labels="datasetKey.crawlLabels"
-                                chart-options="datasetKey.crawlOptions" chart-colors="datasetKey.crawlColors">
-                        </canvas>
+                    <div class="processSummary">
+                        <span ng-repeat="recentItem in datasetKey.processSummary.recent" class="processSummary__{{ recentItem.finishReason }}">
+                            <md-tooltip md-direction="top">{{ recentItem.startedCrawling | amDateFormat:'D MMMM YYYY' }} finished: {{ recentItem.finishReason | prettifyEnum }}</md-tooltip>
+                        </span>
+                        <span ng-repeat="recentItem in datasetKey.range(25 - datasetKey.processSummary.recent.length) track by $index" class="processSummary__EMPTY }}"></span>
                     </div>
-                    <div class="text-center">
-                        <ul class="inline-bullet-list">
-                            <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
-                                {{ value/datasetKey.processSummary.finished | formatAsPercentage }}% {{ key | prettifyEnum }}
-                            </li>
-                        </ul>
+                    <div class="discreet--very text-center small m-t-05">
+                        Most recent crawls. Top left is the latest.
                     </div>
                 </div>
             </div>
