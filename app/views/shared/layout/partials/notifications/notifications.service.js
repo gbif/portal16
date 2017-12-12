@@ -56,8 +56,7 @@
 
                 //send push notifications about stability to registry admins that have set there browsers to recieve push notifications
                 function pushNotification(notifications) {
-                    console.log('attempt to send push notification');
-                    if (("Notification" in window)) {
+                    if ("Notification" in window) {
                         var isRegistryAdmin = User.hasRole(USER_ROLES.REGISTRY_ADMIN);
                         if (Notification.permission == 'granted' && isRegistryAdmin && notifications.severity !== 'OPERATIONAL') {
                             spawnNotification(notifications.severity, 'GBIF system health');

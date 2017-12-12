@@ -37,7 +37,7 @@
                 };
 
                 that.hasRole = function (role) {
-                    var user = $sessionStorage.user;
+                    var user = that.userFromToken();
                     return user && _.get(user, 'roles', []).indexOf(role) != -1;
                 };
 
