@@ -36,11 +36,12 @@
                         })
                         .catch(function () {
                             //ignore failure - we will retry shortly anyhow
-                        }).
-                        finally(function(){
-                            window.timeout(update, 10000);
-                        });
+                        }).finally(function () {
+                        //a silly wrapper to avoid a constantly waiting $timeout object that protractor tests will wait for
+                        window.setTimeout(update, 10000);
+                    });
                 }
+
                 update();
 
                 function spawnNotification(body, title) {
