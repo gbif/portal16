@@ -86,6 +86,7 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
                 affiliation: creator.affiliation ? [creator.affiliation] : undefined
             }
         });
+        data_package.shareIn = vm.shareInDataOne ? ['DataOne'] : [];
         var fileUrls = _.map(vm.fileUrls, function (e) {
             return e.val;
         });
