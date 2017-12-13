@@ -1,36 +1,51 @@
 <!-- Select file -->
-<div ng-if="!nameParser.names">
+<div ng-if="!nameParser.names" class="light-background">
 
-    <div layout="row" layout-align="center center" ng-cloak>
-    <span flex></span>
-    <form class="name-area">
-        <md-input-container class="md-block">
-            <label>Paste names to parse here</label>
-            <textarea ng-model="nameParser.inputList" rows="10" md-select-on-focus></textarea>
-        </md-input-container>    </form>
-        <span flex></span>
+    <div layout="row" layout-align="center start" ng-cloak>
+        <div class="nameParser__prose" >
+        <p ng-bind-html="'meta.nameParserDescription' | translate | md2html"></p>
+            <p ng-bind-html="'meta.nameParserRequirements' | translate | md2html"></p>
 
-    </div>
-    <p class="text-center">
-        <button class="gb-button--primary"
-           ng-click="nameParser.parse(nameParser.inputList)">
-Parse        </button>
-
-    </p>
-    <div class="text-center">
-        <div class="speciesLookup__input-file">
-            <input type="file" onchange="angular.element(this).scope().handleFiles(this.files)"/>
-            <a href="">Select file</a>
         </div>
-        <p class="ng-cloak">or</p>
     </div>
-    <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="nameParser.handleDrop">Drop here</p>
-    <!-- <input type="file" id="input" onchange="angular.element(this).scope().handleFiles(this.files)"/> -->
-    <!-- <p ng-if="speciesLookup.invalidFileFormat">
-    	Invalid file format
-    </p> -->
-    <div class="text-center m-t-2 ng-cloak" ng-if="nameParser.error">
-        <p>Cannot read file</p>
-        <span class="badge badge--error ng-cloak">{{ nameParser.error }}</span>
+    <div layout="row" layout-align="center start" layout-padding ng-cloak>
+    <div class="nameParser__name-paste-form" layout-align="start center">
+    <form >
+        <md-input-container class="md-block ">
+            <label>Paste names to parse here</label>
+            <textarea class="nameParser__name-paste-area" ng-model="nameParser.inputList" rows="10" md-select-on-focus></textarea>
+        </md-input-container>
+        <div class="text-center">
+            <button class="gb-button--primary nameParser__parse-button"
+                    ng-click="nameParser.loadNames()" translate="nameParser.loadTestNames">
+                        </button>
+        <button class="gb-button--primary nameParser__parse-button"
+                     ng-click="nameParser.parse(nameParser.inputList)" translate="nameParser.parse">
+                        </button></div>
+
+        </form>
     </div>
+        <div>
+            <div layout="column" layout-align="center center">
+                <div class="nameParser__input-file">
+                    <input type="file" onchange="angular.element(this).scope().handleFiles(this.files)"/>
+                    <a href="">Select file</a>
+                </div>
+                <p class="ng-cloak">or</p>
+            </div>
+            <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="nameParser.handleDrop">Drop here</p>
+            <!-- <input type="file" id="input" onchange="angular.element(this).scope().handleFiles(this.files)"/> -->
+            <!-- <p ng-if="speciesLookup.invalidFileFormat">
+                Invalid file format
+            </p> -->
+            <div class="text-center m-t-2 ng-cloak" ng-if="nameParser.error">
+                <p>Cannot read file</p>
+                <span class="badge badge--error ng-cloak">{{ nameParser.error }}</span>
+            </div>
+        </div>
+
+
+    </div>
+
+
 </div>

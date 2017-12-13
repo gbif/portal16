@@ -1987,8 +1987,9 @@
     "observationTrendsDescription": "A pilot to explore whether relative observation trends for species distribution within GBIF provide useful information for researchers",
     "speciesLookupDescription": "Normalize species names from a CSV file against the GBIF backbone. The file is expected to be have a column called ‘scientificName’ and an optional column ‘kingdom’ and ‘id’.",
     "speciesLookupTitle": "Species name matching",
-    "nameParserTitle": "Scientific name parser",
-    "nameParserDescription": "This is a simple html form to make use of the GBIF name parser. The parser is written in java and based on regular expressions to disect name strings into its components. It does only keep name parts required to reconstruct a full 3-parted name with an optional subgenus, but ignores additional infraspecific parts such as the subspecies given for varieties.",
+    "nameParserTitle": "Name Parser",
+    "nameParserDescription": "This is a simple html form to make use of the GBIF name parser. The parser is written in java and based on regular expressions to disect name strings into its components. It does only keep name parts required to reconstruct a full 3-parted name with an optional subgenus, but ignores additional infraspecific parts such as the subspecies given for varieties. Please see our [API documentation](/developer/species#parser) for details.",
+    "nameParserRequirements": "You can copy paste a list of names, one per row, or upload a text file with a name per line. Uploaded files have to be encoded as utf8!",
     "searchDescription": "Search GBIF.org",
     "searchDescriptionDetail": "for ‘{{searchTerm}}’",
     "iptDescription": "The Integrated Publishing Toolkit (IPT) is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the GBIF network. The IPT can also be configured with either a DataCite or EZID account in order to assign DOIs to datasets transforming it into a data repository."
@@ -2271,6 +2272,7 @@
     "observationTrends": "Relative observation trends",
     "developerBlog": "Developers blog",
     "speciesMatching": "Species matching",
+    "nameParser" : "Name Parser",
     "toolsCatalogue": "Tools catalogue",
     "inside": "Inside GBIF",
     "about": "About",
@@ -2293,6 +2295,11 @@
     "bifaProgramme": "BIFA: Biodiversity Information Fund for Asia",
     "funders": "Funders",
     "governance" : "Governance"
+  },
+  "nameParser": {
+    "loadTestNames":"Load Test Names",
+    "parse": "Parse",
+    "pasteInfo" : "One per line or delimited by the pipe symbol \"|\""
   },
   "validation": {
     "category": {

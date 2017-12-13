@@ -1,39 +1,44 @@
-$speciesLookupActiveColor = #55afce
-.speciesLookup {
-    &__back {
-        position absolute
-        margin 10px
-        top 0
-        color #aaa
+.nameParser {
+
+    &__prose {
+    width 850px
+    margin-top 24px
     }
-    .search-table td>a {
-        color $linkColor
+    &__author-badge {
+        max-width : 134px
     }
-    .search-table tbody tr {
-        cursor initial
-    }
-    &__dropArea {
-        width 200px
-        height 200px
-        background #ddd
-        border-radius 50%
-        margin auto
-        line-height 200px
-        text-align center
-        color white
-        &.over {
-            background tomato
+    &__name-paste-form {
+        width: 650px
+    
+        md-input-container {
+            margin-bottom 0px !important;
         }
+        .md-errors-spacer {
+            min-height 0px !important;
+        }
+    }
+    &__parse-button {
+        min-width 100px
+        margin-top 12px
+    }
+    &__result-table {
+        padding-top 24px
+    }
+    &__name-paste-area {
+        background-color: white !important;
+        line-height: 20px !important;
+    }
+    &__tabs-container {
+        max-width 884px !important
     }
     &__input-file {
         position relative
-        width 250px
         overflow hidden
         margin auto
         a {
-            // background $speciesLookupActiveColor
+        // background $speciesLookupActiveColor
             padding 5px 20px
-            // color #fff
+        // color #fff
             transition all .4s
             width 100%
             text-align center
@@ -52,101 +57,7 @@ $speciesLookupActiveColor = #55afce
             width 100%
         }
     }
-
-    &__default-kingdom {
-        text-align center
-        li {
-            width 80px
-            a.is-active > .h1:before {
-                background #55afce
-                border-radius 50%
-                color white
-            }
-        }
-        > div > * {
-            margin-bottom 10px
-        }
-    }
-    &__raw-table {
-        .table-container {
-            margin auto
-        }
-    }
-    .discreet {
-        color lighten($discreetInk, 40)
+   
     }
 
-    &__overlay {
-        z-index $zContentOverlay
-        height 100%
-        width 100%
-        position absolute
-        background rgba(0, 0, 0, 0.1)
-        &__card {
-            background white
-            width 500px
-            max-width 100%
-            max-height 100%
-            overflow auto
-            margin auto
-            position fixed
-            left calc(50% - 250px)
-            top 10%
-            box-shadow 0 3px 2px rgba(0, 0, 0, 0.2)
-            &__header {
-                padding 10px
-                text-align center
-            }
-            &__suggestions {
-                overflow auto
-                max-height 60vh
-                > div {
-                    padding 10px 20px
-                    &:nth-of-type(even) {
-                        background $alternativeTableRow
-                    }
-                    &:hover {
-                        background darken($alternativeTableRow, 5)
-                    }
-                }
-            }
-            &__download {
-                > div > a {
-                    width 200px
-                    display block
-                    height 200px
-                    background #ddd
-                    border-radius 50%
-                    margin 30px auto
-                    line-height 200px
-                    text-align center
-                    color white
-                    &:hover {
-                        background #bbb
-                        text-decoration none
-                    }
-                    font-size 100px
-                }
-            }
-        }
-    }
-    &__generate {
-        padding 0 10px 20px 10px
-        a {
-            padding 10px 10px
-            &:hover {
-                background #eee
-            }
-        }
-    }
 
-    .pagination-sm > li > a, .pagination-sm > li > span {
-        text-align center
-        min-width 3em
-    }
-    
-    .name-area {
-        width : 400px;
-        background-color : white;
-    }
-}

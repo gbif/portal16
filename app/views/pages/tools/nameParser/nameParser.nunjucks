@@ -1,10 +1,11 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
+
     <article class="wrapper-horizontal-stripes speciesLookup page--data"
              ng-controller="nameParserCtrl as nameParser">
 
-        {% include "./matchOverlay.nunjucks" %}
+
 
         {% include "./downloadOverlay.nunjucks" %}
         <a href="" class="speciesLookup__back" onclick="location.reload();return false;"><span class="h1 gb-icon-left-arrow"></span></a>
@@ -18,12 +19,18 @@
                 </div>
             </div>
         </div>
+        <div id="tabsScrollable">
+            {% include "./nav.nunjucks" %}
+        </div>
 
+        <ng-include src="'/templates/nameparser/about.html'" ng-if="nameParser.$location.path() === '/tools/nameparser/api'"></ng-include>
+
+        <div ng-if="nameParser.$location.path() === '/tools/nameparser'">
         {% include "./upload.nunjucks" %}
 
 
         {% include "./curateResults.nunjucks" %}
-
+        </div>
 
     </article>
 {% endblock %}

@@ -121,6 +121,10 @@ module.exports = [
             "name": "speciesMatching",
             "url": "/tools/species-lookup"
           },
+            {
+                "name": "nameParser",
+                "url": "/tools/nameparser"
+            },
           {
             "name": "observationTrends",
             "url": "/tools/observation-trends"

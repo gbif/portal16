@@ -1,29 +1,24 @@
 'use strict';
 
-var async = require('async');
 
-// require('./droppable.directive');
-
-var Converter = require("csvtojson").Converter;
 
 angular
     .module('portal')
     .controller('nameParserCtrl', nameParserCtrl);
 
 /** @ngInject */
-function nameParserCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantKeys, suggestEndpoints, $timeout) {
+function nameParserCtrl($http, $scope, hotkeys, $location) {
     var vm = this;
-    vm.species = undefined;
     vm.state = {};
     vm.pagination = {
         currentPage: 1,
         pageSize: 20
     };
-    vm.itemToEdit = undefined;
     vm.error;
+    vm.$location = $location;
 
     window.onbeforeunload = function(e) {
-        if (vm.species && vm.species.length > 0) {
+        if (vm.names && vm.names.length > 0) {
             var dialogText = 'By leaving the page you loose your data.';
             e.returnValue = dialogText;
             return dialogText;
@@ -40,14 +35,23 @@ function nameParserCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantK
     };
 
     var isValidFile = function (file) {
-        return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1);
+        return !!file && (file.type == '' ||  file.type == 'text/plain' );
     };
 
     vm.inputList =  "Abies alba Mill.\nGe Nicéville 1895\nStagonospora polyspora M.T. Lucas & Sousa da Câmara 1934\nArthopyrenia hyalospora (Nyl.) R.C. Harris comb. nov";
+    vm.loadNames = function(){
 
+        $http.get('/api/tools/nameparser/names').then(function(response){
+            vm.inputList = response.data;
+        })
+
+    }
     vm.parse = function(list){
-        var entities = list.split('\n');
-            console.log(JSON.stringify(entities));
+
+        var pipeDelimited = list.split('|');
+        var newLineDelimited = list.split('\n');
+
+        var entities = (pipeDelimited.length > newLineDelimited.length) ? pipeDelimited : newLineDelimited;
             $http({
             method: 'POST',
             url: 'http://api.gbif.org/v1/parser/name',
@@ -55,7 +59,6 @@ function nameParserCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantK
             }).then(function(response){
                 vm.names = response.data;
                 vm.lookupComplete = true;
-                console.log(response.data)
             })
 
 
@@ -68,74 +71,17 @@ function nameParserCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantK
         vm.invalidFileFormat = false;
         if (!isValidFile(file)) {
             vm.invalidFileFormat = true;
-            vm.error = 'Invalid file format - the file must be a csv file and all rows must have a scientificName column';
+            vm.error = 'Invalid file format - the file must be a txt file';
             return;
         }
         var reader = new FileReader();
         reader.readAsText(file);
         reader.onload = function () {
-
-            console.log(reader.result)
+            vm.parse(reader.result);
         };
 
     };
 
-
-    vm.defaultKingdom = undefined;
-    vm.setDefaultKingdom = function (kingdom) {
-        if (vm.defaultKingdom == kingdom) {
-            vm.defaultKingdom = undefined
-        }
-        else {
-            vm.defaultKingdom = kingdom;
-        }
-    };
-
-    vm.normalizeAll = function () {
-        vm.pagination.currentPage = 1;
-        vm.processing = true;
-        lookupNames();
-    };
-
-    function lookupName(item, callback) {
-        var query = {
-            verbose: true,
-            name: item.originalName,
-            kingdom: item.preferedKingdom || vm.defaultKingdom
-        };
-        SpeciesMatch.query(query, function (data) {
-            item.match = data;
-            vm.setItem(item, data);
-            callback();
-        }, function () {
-            callback('match went wrong');
-        });
-    }
-
-    function lookupNames() {
-        async.eachLimit(vm.species, 10, lookupName, function (err) {
-            if (err) {
-                //TODO inform the user that not everything could be matched
-            } else {
-                vm.lookupComplete = true;
-            }
-        });
-    }
-
-
-
-
-    vm.getSuggestions = function (val) {
-        return $http.get(suggestEndpoints.taxon, {
-            params: {
-                q: val,
-                datasetKey: constantKeys.dataset.backbone,
-                limit: 10
-            }
-        }).then(function (response) {
-            return response.data;
-        });
-    };
 
 
 
@@ -171,36 +117,12 @@ function nameParserCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantK
         vm.download = true;
     };
 
-    vm.getMatchTypeClass = function (matchType) {
-        if (matchType == 'FUZZY') {
-            return 'badge badge--warning';
-        }
-        if (matchType == 'NONE') {
-            return 'badge badge--error';
-        }
-        if (matchType == 'HIGHERRANK') {
-            return 'badge badge--warning';
-        }
-        if (matchType == 'EXACT') {
-            return 'badge badge--approved';
-        }
-        if (matchType == 'EDITED') {
-            return 'badge badge--info';
-        }
-    };
-
-    vm.getStatusClass = function (status) {
-        if (status == ['ACCEPTED']) {
-            return '';
-        }
-        return 'badge badge--warning';
-    };
 
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
         callback: function () {
-            if (vm.pagination.currentPage * vm.pagination.pageSize < vm.species.length) {
+            if (vm.pagination.currentPage * vm.pagination.pageSize < vm.names.length) {
                 vm.pagination.currentPage += 1;
             }
         }
@@ -215,14 +137,7 @@ function nameParserCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantK
         }
     });
 
-    hotkeys.add({
-        combo: 'esc',
-        description: 'close',
-        allowIn: ['INPUT'],
-        callback: function () {
-            vm.itemToEdit = undefined;
-        }
-    });
+
 
 
 }
