@@ -49,7 +49,7 @@ gulp.task('prod', function (callback) {
         ['scripts'],
         'dataRepo',
         ['speciesLookup'],
-       // ['dataValidator'],
+        ['nameParser'],
         ['observationTrends'],
         ['home'],
         ['ipt'],
