@@ -2,6 +2,7 @@ var bunyan = require('bunyan'),
     fs = require('fs'),
     yargs = require('yargs').argv,
     PrettyStream = require('bunyan-prettystream'),
+    bunyantcp = require('bunyan-logstash-tcp'),
     dir = './log',
     loglevel = yargs.loglevel || 'info';
 
@@ -96,6 +97,21 @@ var log = bunyan.createLogger({
 
 log.info({state: 'initialising log'}, 'initialising log');
 
+var log = bunyan.createLogger({
+    name: 'portal16',
+    streams: [{
+        level: 'error',
+        type: "raw",
+        stream: bunyantcp.createStream({
+            host: 'logstash.gbif.org',
+            port: 5045
+        })
+    }],
+    level: 'error'
+});
+
+log.error('MORTEN WAS HERE');
+log.error({mykey: 'unique24986', myNested: {nestedKey: 2974}}, 'MORTEN WAS HERE');
 
 module.exports = log;
 
