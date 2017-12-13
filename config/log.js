@@ -88,16 +88,14 @@ if (loglevel <= loglevels.error) {
     );
 }
 
-var log = bunyan.createLogger({
-    name: 'portal',
-    serializers: {req: reqSerializer},
-    streams: logStreams
-});
+//var log = bunyan.createLogger({
+//    name: 'portal',
+//    serializers: {req: reqSerializer},
+//    streams: logStreams
+//});
 
 
-log.info({state: 'initialising log'}, 'initialising log');
-
-var log = bunyan.createLogger({
+log = bunyan.createLogger({
     name: 'portal16',
     streams: [{
         level: 'error',
@@ -110,8 +108,7 @@ var log = bunyan.createLogger({
     level: 'error'
 });
 
-log.error('MORTEN WAS HERE');
-log.error({mykey: 'unique24986', myNested: {nestedKey: 2974}}, 'MORTEN WAS HERE');
+//log.info({state: 'initialising log'}, 'initialising log');
 
 module.exports = log;
 
