@@ -188,7 +188,8 @@
             <div class="card card--spaced">
                 <div class="card__stripe">
                     <div class="card__content">
-                        <md-checkbox ng-model="dataRepositoryUpload.confirmTerms" class="md-primary m-b-0">I confirm that I am allow to share this data under the license provided</md-checkbox>
+                        <md-checkbox ng-model="dataRepositoryUpload.confirmTerms" class="md-primary">I confirm that I am allow to share this data under the license provided</md-checkbox>
+                        <md-checkbox ng-model="dataRepositoryUpload.shareInDataOne" class="md-primary m-b-0">This upload should be shared with the DataOne network.</md-checkbox>
                     </div>
                 </div>
                 <div class="card__stripe" ng-if="dataRepositoryUpload.confirmTerms">

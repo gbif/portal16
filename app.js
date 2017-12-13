@@ -2,6 +2,7 @@
 
 var express = require('express'),
     config = require('./config/config');
+    log = config.log;
 
 var app = express(),
     http = require('http').Server(app);
@@ -14,5 +15,5 @@ global.rootRequire = function (name) {
 require('./config/express')(app, config);
 
 http.listen(config.port, function () {
-    console.log('Express server listening on port ' + config.port);
+    log.info('Express server listening on port ' + config.port);
 });

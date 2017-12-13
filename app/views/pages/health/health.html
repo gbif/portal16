@@ -102,7 +102,6 @@
                                 <!--Planned outage 12. May 2017-->
                             <!--</div>-->
                         <!--</section>-->
-
                     </div>
                     <div class="wrapper-horizontal-stripes" ng-if="!health.loaded && !health.failed">
                         <div class="emptyInfo">
@@ -114,6 +113,9 @@
                             <h3>This is ironic - the status page failed. That isn't a good sign.</h3>
                         </div>
                     </div>
+                </div>
+                <div class="discreet--very container--narrow m-b-1" ng-if="health.gitCommit">
+                    Current version: <a ng-href="https://github.com/gbif/portal16/commit/{{health.gitCommit}}" class="inherit">{{health.gitCommit}}</a>
                 </div>
 
 

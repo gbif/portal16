@@ -39,10 +39,17 @@ async function getProcessSummary(key) {
         finished: 0,
         unfinished: 0,
         notStarted: 0,
-        analyzedCount: Math.min(limit, attempts.count)
+        analyzedCount: Math.min(limit, attempts.count),
+        recent: []
     };
 
     attempts.results.forEach(function(attempt){
+        if (summary.recent.length < 25 && attempt.finishReason) {
+            summary.recent.push({
+                finishReason: attempt.finishReason,
+                startedCrawling: attempt.startedCrawling
+            });
+        }
         if (!summary.lastAttempt && attempt.finishReason) {
             summary.lastAttempt = attempt;
         }

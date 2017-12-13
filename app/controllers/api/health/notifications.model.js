@@ -64,7 +64,7 @@ async function updateMessages() {
 
         let messageStatus = messages.results.reduce(function (current, message) {
             return getMostSevere(message.severity, current);
-        }, 'INFO');
+        }, 'OPERATIONAL');
 
         updateStatus({
             messages: {
@@ -73,7 +73,7 @@ async function updateMessages() {
             }
         });
     } catch (err) {
-        console.log(err);
+        //console.log(err); //TODO log
         updateStatus({failure: err});
     }
 }
@@ -95,8 +95,7 @@ function updateHealth() {
     }
 
     function failed(err) {
-        console.log('failed');
-        console.log(err);
+        //console.log(err); //TODO log
         updateStatus({failure: err});
     }
 
@@ -110,7 +109,7 @@ async function updateLoad() {
             load: load
         });
     } catch (err) {
-        console.log(err);
+        //console.log(err); //TODO log;
         updateStatus({failure: err});
     }
 }

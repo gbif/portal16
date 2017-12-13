@@ -23,3 +23,27 @@
         @extends .gb-badge--red
     }
 }
+
+.processSummary {
+    width 120px
+    max-width 100%
+    height 120px
+    margin auto
+    >span {
+        display inline-block
+        width 20%
+        height 20%
+        border 2px solid white
+        float left
+        background tomato
+    }
+    .processSummary__NORMAL {
+        background $navBar_background_color
+    }
+    .processSummary__NOT_MODIFIED{
+        background lighten($navBar_background_color, 10)
+    }
+    .processSummary__EMPTY {
+        background #eee
+    }
+}

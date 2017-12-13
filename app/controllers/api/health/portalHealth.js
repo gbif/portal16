@@ -18,22 +18,20 @@ async function getHealth() {
     //remove errors that aren't relevant to the portal
     delete status.load;
 
+    _.remove(status.health.components, {component: 'CRAWLER'});
+    _.remove(status.health.components, {component: 'GITHUB'});
+
     //map components for quick look ups in the client
     status.components = {};
     status.health.components.map(function(e){
         status.components[e.component] = e.severity;
     });
 
-    _.remove(status.health.components, {component: 'CRAWLER'});
-    _.remove(status.health.components, {component: 'GITHUB'});
-
     //set severity to match the new object
     let max = _.maxBy(status.health.components, function(o) { return severityHelper.severityMap[o.severity]; });
     status.health.severity = max.severity;
     status.severity = severityHelper.getMostSevere(status.health.severity, status.messages.severity);
 
-    //status.random = Math.random();
-    //return status;
     return getNotifications(status);
 }
 

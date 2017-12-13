@@ -131,6 +131,7 @@ var tests = [
         type: 'HAVE_VALUE',
         key: 'status',
         val: 'good',
+        severity: severity.WARNING,
         message: 'The Github status endpoint should should return "good"'
     },
     {

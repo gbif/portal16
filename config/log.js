@@ -2,6 +2,7 @@ var bunyan = require('bunyan'),
     fs = require('fs'),
     yargs = require('yargs').argv,
     PrettyStream = require('bunyan-prettystream'),
+    bunyantcp = require('bunyan-logstash-tcp'),
     dir = './log',
     loglevel = yargs.loglevel || 'info';
 
@@ -87,15 +88,27 @@ if (loglevel <= loglevels.error) {
     );
 }
 
-var log = bunyan.createLogger({
-    name: 'portal',
-    serializers: {req: reqSerializer},
-    streams: logStreams
+//var log = bunyan.createLogger({
+//    name: 'portal',
+//    serializers: {req: reqSerializer},
+//    streams: logStreams
+//});
+
+
+log = bunyan.createLogger({
+    name: 'portal16',
+    streams: [{
+        level: 'error',
+        type: "raw",
+        stream: bunyantcp.createStream({
+            host: 'logstash.gbif.org',
+            port: 5045
+        })
+    }],
+    level: 'error'
 });
 
-
-log.info({state: 'initialising log'}, 'initialising log');
-
+//log.info({state: 'initialising log'}, 'initialising log');
 
 module.exports = log;
 
