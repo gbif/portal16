@@ -1,4 +1,5 @@
 'use strict';
+var env = window.gb.env;
 
 
 
@@ -54,7 +55,7 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
         var entities = (pipeDelimited.length > newLineDelimited.length) ? pipeDelimited : newLineDelimited;
             $http({
             method: 'POST',
-            url: 'http://api.gbif.org/v1/parser/name',
+            url: env.dataApi+'parser/name',
             data: JSON.stringify(entities)
             }).then(function(response){
                 vm.names = response.data;
