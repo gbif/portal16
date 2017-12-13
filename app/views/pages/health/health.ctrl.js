@@ -8,9 +8,9 @@ angular
     .controller('healthCtrl', healthCtrl);
 
 /** @ngInject */
-function healthCtrl($http, User, $interval) {
+function healthCtrl($http, User, $interval, env) {
     var vm = this;
-
+    vm.gitCommit = env.gitCommit;
     vm.status;
     vm.loaded = false;
     var hash = '_empty';

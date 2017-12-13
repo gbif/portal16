@@ -1,6 +1,8 @@
 'use strict';
 var angular = require('angular');
 var env = window.gb.env;
+var gitCommit = require('./gitCommit');
+env.gitCommit = gitCommit.gitCommit;
 
 angular
     .module('portal')
