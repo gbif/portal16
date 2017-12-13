@@ -38,7 +38,7 @@
                             //ignore failure - we will retry shortly anyhow
                         }).
                         finally(function(){
-                            $timeout(update, 10000);
+                            window.timeout(update, 10000);
                         });
                 }
                 update();
