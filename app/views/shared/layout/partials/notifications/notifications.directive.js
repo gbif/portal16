@@ -50,6 +50,9 @@ function notificationsDirective(BUILD_VERSION) {
                 $sessionStorage.hasSeenHealthAlert = true;
                 vm.isActive = true;
             }
+            if (notifications.severity === 'OPERATIONAL') {
+                vm.isActive = false;
+            }
         }
         updateNotifications($sessionStorage.notifications);
 
