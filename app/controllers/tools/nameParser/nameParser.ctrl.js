@@ -33,7 +33,7 @@ router.get('/templates/nameparser/about.html', function (req, res, next) {
     };
     resource.getFirst(query, 2, false, res.locals.gb.locales.current)
         .then(contentItem => {
-            helper.renderPage(req, res, next, contentItem, 'pages/tools/nameparser/about/aboutArticle.nunjucks');
+            helper.renderPage(req, res, next, contentItem, 'pages/tools/nameParser/about/aboutArticle.nunjucks');
         })
         .catch(function(err){
             if (err.statusCode == 404) {
