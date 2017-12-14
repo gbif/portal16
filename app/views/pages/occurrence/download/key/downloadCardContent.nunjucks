@@ -84,9 +84,10 @@
 {% if (download.record.status === 'SUCCEEDED' and not download.isFileDeleted) or download.isSimple %}
 <div class="card__stripe light-background">
     <div class="card__content clearfix">
-        {% if download.record.status === 'SUCCEEDED' and not download.isFileDeleted %}
+        <a href="/occurrence/download/{$ download.record.key $}" class="gb-button--flat text-uppercase pull-right small">Show</a>
+        {#{% if download.record.status === 'SUCCEEDED' and not download.isFileDeleted %}#}
             {#<a href="{$ download.record.downloadLink $}" class="gb-button--flat text-uppercase small">Download</a>#}
-        {% endif %}
+        {#{% endif %}#}
         {% if download.isSimple %}
             <a href="/occurrence/search?{$ download.isSimple $}" class="gb-button--flat text-uppercase pull-right small">Rerun query</a>
         {% endif %}
