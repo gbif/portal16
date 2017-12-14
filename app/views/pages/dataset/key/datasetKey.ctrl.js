@@ -33,6 +33,7 @@ function datasetKeyCtrl($http, $timeout, $interval, $state, $stateParams, $sessi
     vm.processSummary = DatasetProcessSummary.get({key: vm.key});
     vm.currentCrawlingStatus = DatasetCurrentCrawlingStatus.get({key: vm.key});
     vm.backboneKey = constantKeys.dataset.backbone;
+    vm.ebirdKey = constantKeys.dataset.eod;
     vm.backboneNetworkKey = constantKeys.network.backboneNetwork;
     vm.dataApi = env.dataApi;
     vm.constituents =  DatasetConstituents.get({key: vm.key, limit: 0});
@@ -68,6 +69,11 @@ function datasetKeyCtrl($http, $timeout, $interval, $state, $stateParams, $sessi
                             _.get(vm.taxa, 'facets.STATUS.counts.PROPARTE_SYNONYM.count', 0) +
                             _.get(vm.taxa, 'facets.STATUS.counts.HOMOTYPIC_SYNONYM.count', 0);
     });
+
+    //if this dataset is ebird then show a list of publishing countries - relates to https://github.com/gbif/portal16/issues/641 . It has been decided to hardcode a special rule for ebird. An easy generic way would be to always get publishing countries and show the list if larger than 1
+    if (vm.ebirdKey === vm.key) {
+        vm.publishingCountries = OccurrenceSearch.query({dataset_key: vm.key, facet: 'publishing_country', limit: 0, facetLimit: 1000});
+    }
 
     vm.rootElements = SpeciesRoot.get({key: vm.key, limit: 2});
 
@@ -238,26 +244,6 @@ function datasetKeyCtrl($http, $timeout, $interval, $state, $stateParams, $sessi
                 vm.crawlingFailed = true;
             });
     };
-
-    //function prepareTrustedBrakdown(){
-    //    vm.crawlLabels = ['Normal', 'Not modified', 'Aborted', 'Aborted by user', 'unknown'];
-    //    vm.crawlData = [1, 7, 2];
-    //    vm.crawlColors = ['#61a861', '#74b974', '#ff6347', '#ffc247', '#bbb'];
-    //    vm.crawlOptions = {
-    //        responsive: true,
-    //        maintainAspectRatio: false
-    //    };
-    //    vm.processSummary = DatasetProcessSummary.get({key: vm.key, _cacheBust: Date.now()});
-    //    vm.processSummary.$promise.then(function(response){
-    //        var NORMAL = (response.stats.NORMAL || 0);
-    //        var NOT_MODIFIED = (response.stats.NOT_MODIFIED || 0);
-    //        var ABORT = (response.stats.ABORT || 0);
-    //        var USER_ABORT = (response.stats.USER_ABORT || 0);
-    //        var UNKNOWN = (response.stats.UNKNOWN || 0);
-    //        vm.crawlData = [NORMAL, NOT_MODIFIED, ABORT, USER_ABORT, UNKNOWN];
-    //    });
-    //}
-
 }
 
 module.exports = datasetKeyCtrl;
