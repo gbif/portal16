@@ -244,26 +244,6 @@ function datasetKeyCtrl($http, $timeout, $interval, $state, $stateParams, $sessi
                 vm.crawlingFailed = true;
             });
     };
-
-    //function prepareTrustedBrakdown(){
-    //    vm.crawlLabels = ['Normal', 'Not modified', 'Aborted', 'Aborted by user', 'unknown'];
-    //    vm.crawlData = [1, 7, 2];
-    //    vm.crawlColors = ['#61a861', '#74b974', '#ff6347', '#ffc247', '#bbb'];
-    //    vm.crawlOptions = {
-    //        responsive: true,
-    //        maintainAspectRatio: false
-    //    };
-    //    vm.processSummary = DatasetProcessSummary.get({key: vm.key, _cacheBust: Date.now()});
-    //    vm.processSummary.$promise.then(function(response){
-    //        var NORMAL = (response.stats.NORMAL || 0);
-    //        var NOT_MODIFIED = (response.stats.NOT_MODIFIED || 0);
-    //        var ABORT = (response.stats.ABORT || 0);
-    //        var USER_ABORT = (response.stats.USER_ABORT || 0);
-    //        var UNKNOWN = (response.stats.UNKNOWN || 0);
-    //        vm.crawlData = [NORMAL, NOT_MODIFIED, ABORT, USER_ABORT, UNKNOWN];
-    //    });
-    //}
-
 }
 
 module.exports = datasetKeyCtrl;
