@@ -9,6 +9,7 @@ angular
 /** @ngInject */
 function portalCtrl(BUILD_VERSION, env, constantKeys, IS_TOUCH, Page) {
     var vm = this;
+    vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.constantKeys = constantKeys;
     vm.dataApi = env.dataApi;

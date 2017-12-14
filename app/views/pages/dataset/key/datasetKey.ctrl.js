@@ -20,7 +20,7 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl($http, $timeout, $interval, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
+function datasetKeyCtrl($q, $http, $timeout, $interval, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -200,6 +200,15 @@ function datasetKeyCtrl($http, $timeout, $interval, $state, $stateParams, $sessi
             }
         };
     }
+
+    function updateSyncStatus() {
+        $q.all([vm.occurrences.$promise, vm.processSummary.$promise])
+            .then(function(){
+                var offBy = Math.abs((vm.occurrences.count / _.get(vm, 'processSummary.lastDataChange.fragmentsReceived', vm.occurrences.count)) - 1);
+                vm.isOutOfSync = offBy > 0.1
+            });
+    }
+    updateSyncStatus();
 
     vm.range = function(n){
         return new Array(n);

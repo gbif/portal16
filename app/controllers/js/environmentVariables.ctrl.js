@@ -4,6 +4,7 @@ var express = require('express'),
     config = rootRequire('config/config');
     
 let environment = {
+    managementToolsSite: config.managementToolsSite,
     dataApiV2: config.dataApiV2,
     dataApi: config.dataApi,
     tileApi: config.tileApi,
