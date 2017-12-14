@@ -7,7 +7,7 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/tools/nameparser', function (req, res) {
+router.get('/tools/name-parser', function (req, res) {
     res.render('pages/tools/nameParser/nameParser', {
         _meta: {
             title: req.__("meta.nameParserTitle"),
@@ -16,7 +16,7 @@ router.get('/tools/nameparser', function (req, res) {
     });
 });
 
-router.get('/tools/nameparser/api', function (req, res) {
+router.get('/tools/name-parser/about', function (req, res) {
     res.render('pages/tools/nameParser/nameParser', {
         _meta: {
             title: req.__("meta.nameParserTitle"),
@@ -25,7 +25,7 @@ router.get('/tools/nameparser/api', function (req, res) {
     });
 });
 
-router.get('/templates/nameparser/about.html', function (req, res, next) {
+router.get('/templates/name-parser/about.html', function (req, res, next) {
 
     let query = {
         content_type: 'Tool',

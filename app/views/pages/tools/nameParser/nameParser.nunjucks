@@ -23,9 +23,9 @@
             {% include "./nav.nunjucks" %}
         </div>
 
-        <ng-include src="'/templates/nameparser/about.html'" ng-if="nameParser.$location.path() === '/tools/nameparser/api'"></ng-include>
+        <ng-include src="'/templates/name-parser/about.html'" ng-if="nameParser.$location.path() === '/tools/name-parser/about'"></ng-include>
 
-        <div ng-if="nameParser.$location.path() === '/tools/nameparser'">
+        <div ng-if="nameParser.$location.path() === '/tools/name-parser'">
         {% include "./upload.nunjucks" %}
 
 
