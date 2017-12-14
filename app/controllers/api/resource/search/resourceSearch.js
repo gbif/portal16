@@ -413,7 +413,7 @@ let newEventOrSomethingElse = {
                         must: [
                             {
                                 "range": {
-                                    "start": {
+                                    "end": {
                                         "gte": "now"
                                     }
                                 }
@@ -439,7 +439,7 @@ let newEventOrSomethingElse = {
     oldEventOrSomethingElse = _.cloneDeep(newEventOrSomethingElse);
 
 oldEventOrSomethingElse.bool.should[0].bool.must[0].range = {
-    "start": {
+    "end": {
         "lt": "now"
     }
 };
