@@ -42,13 +42,9 @@ require('angular-toastr');
 require('angular-animate');
 require('angular-material');
 require('ng-file-upload');
-
 require('chartjs');
 require('angular-chart.js');
-
-
 require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
-
 require('angular-svg-round-progressbar');
 
 (function () {

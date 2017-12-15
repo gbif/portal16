@@ -8,7 +8,7 @@ angular
     .controller('healthCtrl', healthCtrl);
 
 /** @ngInject */
-function healthCtrl($http, User, $interval, env) {
+function healthCtrl($http, User, env) {
     var vm = this;
     vm.gitCommit = env.gitCommit;
     vm.status;
@@ -29,7 +29,6 @@ function healthCtrl($http, User, $interval, env) {
             });
     }
     update();
-    //$interval(update, 5000);
 
     vm.isSecretariatUser = false;
     var activeUser = User.loadActiveUser();

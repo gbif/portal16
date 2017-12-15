@@ -66,6 +66,7 @@
 </script>
 
 <script src="/js/environment.js?v={$ BUILD_VERSION $}"></script> {#environment and static keys to avoid having to build those into the script. this will make it easier to port scripts between environments#}
+<script src="/js/base/vendor.js?v={$ BUILD_VERSION $}"></script>
 <script src="/js/vendor/vendor.js?v={$ BUILD_VERSION $}"></script>
 <script src="/js/base/custom.js?v={$ BUILD_VERSION $}"></script>
 

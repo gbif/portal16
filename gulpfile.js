@@ -41,6 +41,7 @@ gulp.task('prod', function (callback) {
         // these produce rev'ed files
         // We avoid parallel tasks that could overwrite the rev-manifest.json
         ['assets'],
+        ['build:vendor'],
         ['vendorAssets'],
         ['vendor-styles'],
         ['vendor-scripts'],
@@ -85,7 +86,7 @@ gulp.task('dev', [], function (callback) {
         ['clean-all'],
         // ['revision'],
         ['env-constants'],
-        ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'vendorAssets', 'speciesLookup', 'nameParser', /*'dataValidator', */'ipt', 'observationTrends', 'home', 'dataRepo'],
+        ['build:vendor', 'stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'vendorAssets', 'speciesLookup', 'nameParser', /*'dataValidator', */'ipt', 'observationTrends', 'home', 'dataRepo'],
         ['templates'],
         ['ieStyle'],
         ['watch'],
