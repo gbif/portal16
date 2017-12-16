@@ -71,7 +71,7 @@ var config = {
         domain: 'http://localhost:3000',
         topDomain: undefined,
         credentials: credentials || (rootPath + '/config/mockCredentials.json'), //notice the mock credentials will not work and shouldn't. We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
-        redirects: redirects || '/etc/portal16/redirects',
+        redirects: redirects || (rootPath + '/config/mockRedirects.json'),
         verification: verification || (rootPath + '/app/models/verification/sample'),
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
