@@ -88,27 +88,20 @@ if (loglevel <= loglevels.error) {
     );
 }
 
-//var log = bunyan.createLogger({
-//    name: 'portal',
-//    serializers: {req: reqSerializer},
-//    streams: logStreams
-//});
-
-
-log = bunyan.createLogger({
+var log = bunyan.createLogger({
     name: 'portal16',
-    streams: [{
-        level: 'error',
-        type: "raw",
-        stream: bunyantcp.createStream({
-            host: 'logstash.gbif.org',
-            port: 5045
-        })
-    }],
-    level: 'error'
+    serializers: {req: reqSerializer},
+    streams: logStreams
 });
 
-//log.info({state: 'initialising log'}, 'initialising log');
+log.on('error', function (err, stream) {
+    console.log('Logging failed');
+    console.log(err);
+    console.trace(err);
+});
+
+
+log.info({state: 'initialising log'}, 'initialising log');
 
 module.exports = log;
 
