@@ -160,7 +160,7 @@
             }
         })
         .filter('formatAsPercentage', function(){
-            return function(percentage) {
+            return function(percentage, max) {
                 var formatedPercentage = 0;
                 if (!isFinite(percentage)) {
                     return percentage;
@@ -184,6 +184,9 @@
                     formatedPercentage = percentage.toFixed(2);
                 } else if (percentage < 0.01 && percentage != 0) {
                     formatedPercentage = 0.01;
+                }
+                if (formatedPercentage > max) {
+                    formatedPercentage = max;
                 }
                 return formatedPercentage;
             }
