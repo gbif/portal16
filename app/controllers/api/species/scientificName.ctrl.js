@@ -147,6 +147,31 @@ router.get('/species/:key/name', function (req, res) {
 
 async function getParsedName(speciesKey) {
     let name = await getName(speciesKey);
+
+    if (name.type == 'OTU' ) {
+        let species = await getSpecies(speciesKey);
+
+        if(species.taxonomicStatus === "SYNONYM"){
+            let accepted = await getSpecies(species.acceptedKey)
+            return name.scientificName + " <i>("+accepted.canonicalName +")</i>";
+
+        } else {
+                let parent = await getSpecies(species.parentKey)
+                return name.scientificName+" <i>("+parent.canonicalName + " sp.)</i>";
+
+        }
+        //return n;
+    }
+    //unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
+    else  {
+        return formatName(name)
+    }
+
+
+}
+
+function formatName(name){
+
     var n = '';
 
     if (name.type == 'SCIENTIFIC' || name.type == 'CULTIVAR' || name.type == 'DOUBTFUL') {
@@ -202,20 +227,6 @@ async function getParsedName(speciesKey) {
 
         return n;
     }
-    else if (name.type == 'OTU' ) {
-        let species = await getSpecies(speciesKey);
-
-        if(species.taxonomicStatus === "SYNONYM"){
-            let accepted = await getSpecies(species.acceptedKey)
-            return name.scientificName + " <i>("+accepted.canonicalName +")</i>";
-
-        } else {
-                let parent = await getSpecies(species.parentKey)
-                return name.scientificName+" <i>("+parent.canonicalName + " sp.)</i>";
-
-        }
-        //return n;
-    }
     //unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
     else if ( name.type == 'VIRUS' || name.type == 'PLACEHOLDER') {
         n = name.scientificName;
@@ -235,7 +246,9 @@ async function getParsedName(speciesKey) {
     }
     n += add(name.year);
 
-    return n;
+
+    return n.trim();
+
 }
 
 async function getName(speciesKey) {
@@ -276,3 +289,4 @@ function addNoSpace(value) {
     return value ? value  : '';
 }
 
+module.exports.formatName = formatName;

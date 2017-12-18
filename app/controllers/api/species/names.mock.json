@@ -1,0 +1,100 @@
+{
+"Cortinarius_splendens": {
+  "key": 2885266,
+  "scientificName": "Cortinarius splendens Rob. Henry, 1939",
+  "type": "SCIENTIFIC",
+  "genusOrAbove": "Cortinarius",
+  "specificEpithet": "splendens",
+  "authorship": "Rob. Henry",
+  "year": "1939",
+  "parsed": true,
+  "authorsParsed": true,
+  "canonicalName": "Cortinarius splendens",
+  "canonicalNameWithMarker": "Cortinarius splendens",
+  "canonicalNameComplete": "Cortinarius splendens Rob. Henry, 1939",
+  "rankMarker": "sp."
+},
+
+"Cortinarius" : {
+  "key": 2873027,
+  "scientificName": "Cortinarius (Pers.) Gray, 1821",
+  "type": "SCIENTIFIC",
+  "genusOrAbove": "Cortinarius",
+  "authorship": "Gray",
+  "year": "1821",
+  "bracketAuthorship": "Pers.",
+  "parsed": true,
+  "authorsParsed": true,
+  "canonicalName": "Cortinarius",
+  "canonicalNameWithMarker": "Cortinarius",
+  "canonicalNameComplete": "Cortinarius (Pers.) Gray, 1821",
+  "rankMarker": "gen."
+},
+
+"Cortinariaceae" : {
+  "key": 2872946,
+  "scientificName": "Cortinariaceae",
+  "type": "SCIENTIFIC",
+  "genusOrAbove": "Cortinariaceae",
+  "parsed": true,
+  "authorsParsed": true,
+  "canonicalName": "Cortinariaceae",
+  "canonicalNameWithMarker": "Cortinariaceae",
+  "canonicalNameComplete": "Cortinariaceae",
+  "rankMarker": "fam."
+},
+
+"Elytrigia_juncea_subsp_boreoatlantica_Leymus_arenarius": {
+  "key": 12447575,
+  "scientificName": "Elytrigia juncea subsp. boreoatlantica Ã— Leymus arenarius",
+  "type": "HYBRID",
+  "parsed": false,
+  "authorsParsed": false,
+  "rankMarker": null
+},
+"Pilea_mollis_Moonglow" : {
+  "key": 15992095,
+  "scientificName": "Pilea mollis 'Moonglow'",
+  "type": "CULTIVAR",
+  "genusOrAbove": "Pilea",
+  "specificEpithet": "mollis",
+  "cultivarEpithet": "Moonglow",
+  "parsed": true,
+  "authorsParsed": true,
+  "canonicalName": "Pilea mollis",
+  "canonicalNameWithMarker": "Pilea mollis 'Moonglow'",
+  "canonicalNameComplete": "Pilea mollis 'Moonglow'",
+  "rankMarker": "cv."
+},
+"Riocreuxia_torulosa_var_bolusii" : {
+  "key": 9857456,
+  "scientificName": "Riocreuxia torulosa var. bolusii (N. E. Br.) Masinde",
+  "type": "SCIENTIFIC",
+  "genusOrAbove": "Riocreuxia",
+  "specificEpithet": "torulosa",
+  "infraSpecificEpithet": "bolusii",
+  "authorship": "Masinde",
+  "bracketAuthorship": "N. E. Br.",
+  "parsed": true,
+  "authorsParsed": true,
+  "canonicalName": "Riocreuxia torulosa bolusii",
+  "canonicalNameWithMarker": "Riocreuxia torulosa var. bolusii",
+  "canonicalNameComplete": "Riocreuxia torulosa var. bolusii (N. E. Br.) Masinde",
+  "rankMarker": "var."
+},
+"Candidatus_Protochlamydia_amoebophila" : {
+  "key": 12637045,
+  "scientificName": "Candidatus Protochlamydia amoebophila Collingro et al., 2005",
+  "type": "CANDIDATUS",
+  "genusOrAbove": "Protochlamydia",
+  "specificEpithet": "amoebophila",
+  "authorship": "Collingro et al.",
+  "year": "2005",
+  "parsed": true,
+  "authorsParsed": true,
+  "canonicalName": "Candidatus Protochlamydia amoebophila",
+  "canonicalNameWithMarker": "Candidatus Protochlamydia amoebophila",
+  "canonicalNameComplete": "Candidatus Protochlamydia amoebophila Collingro et al., 2005",
+  "rankMarker": "sp."
+}
+}
