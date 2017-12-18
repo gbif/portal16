@@ -34,7 +34,7 @@ function feedbackDirective(BUILD_VERSION) {
         vm.CONFIRMATION = 'confirmation';
         vm.type = {
             //0 left out to allow falsy test a la : if (vm.type) then ...
-            CONTENT: 'content',
+            CONTENT: 'data content',
             FUNCTIONALITY: 'bug',
             IDEA: 'idea',
             QUESTION: 'question'
