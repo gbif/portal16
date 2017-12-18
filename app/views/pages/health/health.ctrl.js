@@ -11,7 +11,7 @@ angular
 function healthCtrl($http, User, env) {
     var vm = this;
     vm.gitCommit = env.gitCommit;
-    vm.status;
+    vm.status = undefined;
     vm.loaded = false;
     var hash = '_empty';
 
