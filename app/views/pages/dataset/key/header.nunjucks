@@ -21,7 +21,7 @@
                 <div ng-if="datasetKey.dataset._computedValues.contributors.highlighted.length > 0">
                     <ol class="inline-bullet-list">
                         <li ng-repeat="contributor in datasetKey.dataset._computedValues.contributors.highlighted">
-                            <a ng-href="#contributors"
+                            <a ng-href="{{ portal.urlPrefix }}/dataset/{{ datasetKey.key }}#contributors"
                                class="inherit"
                                {#tooltip-placement="bottom"#}
                                {#tooltip-popup-delay="300"#}
