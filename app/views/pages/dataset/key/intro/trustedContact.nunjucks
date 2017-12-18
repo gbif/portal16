@@ -1,5 +1,5 @@
 <div class="card-head">
-    <h4 class="card-header--bold">Because you are trusted contact {{ datasetKey.isOutOfSync }}</h4>
+    <h4 class="card-header--bold">Because you are trusted contact</h4>
     <div class="card-menu">
         <a href="" class="card-menu__option inherit noUnderline" ng-click="datasetKey.showTrustedDatasetDetails = !datasetKey.showTrustedDatasetDetails" ng-class="{'gb-icon-unfold-more-horizontal': !datasetKey.showTrustedDatasetDetails, 'gb-icon-unfold-less-horizontal': datasetKey.showTrustedDatasetDetails}"></a>
     </div>
