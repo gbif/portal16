@@ -40,7 +40,9 @@
                             </p>
                         {% endif %}
                         <div class="m-t-1">
-                            <a href="{$ download.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
+                            {% if download.record.doi %}
+                                <a href="{$ download.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
+                            {% endif %}
                         </div>
                     </header>
                 </div>
@@ -157,10 +159,18 @@
                                                 </div>
                                                 {% endif %}
                                             </dl>
-                                            <p class="m-t-05">
-                                                Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">data user agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.
+                                            <div class="m-t-05">
+                                                <div>Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">data user agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.</div>
+                                                <div>
+                                                <span gb-help="for-how-long-will-does-gbif-store-downloads">{$ __('downloadKey.storageDurationTeaser') $}</span>
+                                                {% if not download.record.doi %}
+                                                    <span gb-help="how-and-when-does-gbif-assign-digital-object-identifiers-dois">This download predates our use of DOIs</span>
+                                                {% endif %}
+                                                </div>
+                                            </div>
+                                            <p>
+
                                             </p>
-                                            <p><span gb-help="for-how-long-will-does-gbif-store-downloads">{$ __('downloadKey.storageDurationTeaser') $}</span></p>
                                         </div>
                                     {% endif %}
                                 </div>
