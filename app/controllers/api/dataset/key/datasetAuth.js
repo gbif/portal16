@@ -116,7 +116,7 @@ function isMatching(shouldBe, testData, matchingFunction) {
 function isContact(item, user) {
     let contacts = _.get(item, 'contacts', []);
     let matchedContact = _.find(contacts, function(contact){
-        return isMatching(user.email, contact.email) || isMatching(user.orcid, contact.userId, isMatchingOrcid);
+        return isMatching(user.email, contact.email) || isMatching(_.get(user, 'systemSettings["auth.orcid.id"]'), contact.userId, isMatchingOrcid);
     });
     return matchedContact;
 }
