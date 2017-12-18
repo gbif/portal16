@@ -100,13 +100,61 @@ gulp.task('home', function () {
 //        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
 //        .pipe(gulp.dest(path.join(config.paths.dist, dest)));
 //}
+//require('./errorLogging'); //TODO temporarily disabled as it isn't tested for DOS and stability
+
+const vendors = ['angular', 'lodash', 'openlayers', 'angular-cookies', 'ngstorage', 'angular-messages', 'angular-ui-router', 'angular-translate', 'angular-moment', 'angular-hotkeys', 'angular-resource', 'angular-aria', 'angular-ui-bootstrap', 'angular-sanitize', 'nouislider-angular', 'angular-animate'];
+const noParseVendors = ['angular',
+    'lodash',
+    'angular-ui-router',
+    'angular-translate',
+    'angular-moment',
+    'angular-leaflet-directive',
+    'angular-hotkeys',
+    'angular-resource',
+    'angular-aria',
+    'angular-ui-bootstrap',
+    'ng-infinite-scroll',
+    'angular-scroll',
+    'angular-sanitize',
+    'nouislider-angular',
+    'chartist',
+    'angular-chartist.js',
+    'chartist-plugin-axistitle',
+    'ngstorage',
+    'angular-cookies',
+    'angular-messages',
+    'angular-toastr',
+    'angular-animate',
+    'angular-material',
+    'ng-file-upload',
+    'chartjs',
+    'angular-chart.js',
+    'checklist-model',
+    'angular-svg-round-progressbar'];
+
+var watchify = require('watchify');
+var assign = require('lodash.assign');
 
 function build(entry, name) {
     var dest = 'js/base';
-    return browserify({
+    var browserifyOptions = {
         entries: entry,
-        debug: true
-    }).bundle()
+        debug: true,
+        noParse: noParseVendors
+    };
+    var opts = assign({}, watchify.args, browserifyOptions);
+
+    // if not a prod build then use watchify to watch the bundle files
+    var b;
+    if (config.isProd) {
+        b = browserify(opts);
+    } else {
+        b = watchify(browserify(opts));
+    }
+
+    return b
+        .external(vendors)
+        .bundle()
         .on('error', function (err) {
             if (!config.isProd) {
                 console.log(err.toString());
@@ -134,3 +182,23 @@ function build(entry, name) {
             path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);
         }));
 }
+
+gulp.task('build:vendor', () => {
+    const b = browserify({
+        debug: true,
+        noParse: vendors
+    });
+
+    // require all libs specified in vendors array
+    vendors.forEach(lib => {
+        b.require(lib);
+    });
+
+    b.bundle()
+        .pipe(source('vendor.js'))
+        .pipe(buffer())
+        .pipe(g.sourcemaps.init({loadMaps: true}))
+        .pipe(g.sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./public/js/base/'))
+    ;
+});

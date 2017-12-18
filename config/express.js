@@ -95,7 +95,11 @@ module.exports = function (app, config) {
     require(config.root + '/app/errors/500.js')(app);
 
     process.on('unhandledRejection', function(reason, p){
-        log.error("Possibly Unhandled Rejection at: Promise ", p, " reason: ", reason);
+        log.error("Unhandled Rejection at root: Promise ", p, " reason: ", reason);
         // There is not much else to do here. Keep track of the logs and make sure this never happens. There should be no unhandled rejections.
+    });
+    process.on('uncaughtException', function(err) {
+      console.log('Caught exception in root: ' + err);
+      throw err;
     });
 };

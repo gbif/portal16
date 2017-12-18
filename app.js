@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express'),
-    config = require('./config/config');
+    config = require('./config/config'),
     log = config.log;
 
 var app = express(),

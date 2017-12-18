@@ -23,7 +23,7 @@
                     </round-progress>
                 </div>
                 <div class="summaryStats__percentage">
-                    <span>{{ ( (datasetKey.occurrences.count - datasetKey.withoutTaxon.count) / datasetKey.occurrences.count) | formatAsPercentage}}%</span>
+                    <span>{{ ( (datasetKey.occurrences.count - datasetKey.withoutTaxon.count) / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
                     <div>With taxon match</div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     </round-progress>
                 </div>
                 <div class="summaryStats__percentage">
-                    <span>{{ ( datasetKey.withCoordinates.count / datasetKey.occurrences.count) | formatAsPercentage}}%</span>
+                    <span>{{ (datasetKey.withCoordinates.count / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
                     <div>With coordinates</div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     </round-progress>
                 </div>
                 <div class="summaryStats__percentage">
-                    <span>{{ ( datasetKey.withYear.count / datasetKey.occurrences.count) | formatAsPercentage}}%</span>
+                    <span>{{ ( datasetKey.withYear.count / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
                     <div>With year</div>
                 </div>
             </div>

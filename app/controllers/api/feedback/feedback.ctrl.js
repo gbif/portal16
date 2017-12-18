@@ -214,7 +214,7 @@ function getTitle(title) {
 }
 
 function getLabels(data, country) {
-    var labels = _.union(['Under review'], _.intersection(['bug', 'idea', 'content', 'question'], [data.type]));
+    var labels = _.union(['Under review'], _.intersection(['bug', 'idea', 'content', 'data content', 'question'], [data.type]));
     if ( (data.type == 'question' || data.type == 'content') && country) {
         labels.push(country);
     }

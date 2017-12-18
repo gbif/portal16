@@ -12,6 +12,7 @@ reports/
 coverage/
 app/views/shared/layout/html/angular/env.json
 app/views/shared/layout/html/angular/constants.json
+app/views/shared/layout/html/angular/gitCommit.json
 app/views/shared/style/bootstrap/.build/
 config/revision.json
 npm-debug.log
