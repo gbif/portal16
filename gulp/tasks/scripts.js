@@ -143,7 +143,14 @@ function build(entry, name) {
         noParse: noParseVendors
     };
     var opts = assign({}, watchify.args, browserifyOptions);
-    var b = watchify(browserify(opts));
+
+    // if not a prod build then use watchify to watch the bundle files
+    var b;
+    if (config.isProd) {
+        b = browserify(opts);
+    } else {
+        b = watchify(browserify(opts));
+    }
 
     return b
         .external(vendors)
@@ -166,7 +173,7 @@ function build(entry, name) {
             loadMaps: true
         })))
         // Add transformation tasks to the pipeline here.
-        .pipe(g.if(config.isProd, g.ngAnnotate(), g.util.noop())) // To not break angular injection when minified
+        .pipe(g.ngAnnotate()) // To not break angular injection when minified
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .on('error', g.util.log)
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
