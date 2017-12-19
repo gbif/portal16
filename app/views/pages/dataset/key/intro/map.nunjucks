@@ -3,7 +3,7 @@
     <div class="card">
         <div ng-if="datasetKey.key">
             {#<gbmap dataset-key="datasetKey.key" mapstyle="'light'"></gbmap>#}
-            <map-widget filter="{dataset_key:datasetKey.key}" style="{suggested: 'DOTS'}"></map-widget>
+            <map-widget filter="{dataset_key:datasetKey.key}" style="{suggested: 'DOTS'}" class="fixedSizes"></map-widget>
         </div>
     </div>
 </div>

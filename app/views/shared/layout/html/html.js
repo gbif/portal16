@@ -53,208 +53,208 @@ require('angular-svg-round-progressbar');
         .module('portal', ['ngMaterial', 'ngAnimate', 'chart.js', 'ngMessages', 'ngCookies', 'ngStorage', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr', 'ngFileUpload']);
 })();
 
-(function () {
-    'use strict';
-    angular
-        .module('portal')
-        .run(runBlock)
-        .config(configBlock)
-        .config(mdTheming)
-        .config(chartjsConfig);
 
-    /** @ngInject */
-    function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { //$log
-        //$log.debug('runBlock end');
-        $translate.use(LOCALE);
-        amMoment.changeLocale(LOCALE);
+angular
+    .module('portal')
+    .run(runBlock)
+    .config(configBlock)
+    .config(mdConfig)
+    .config(chartjsConfig);
 
-        $http({
-            method: 'GET',
-            url: '//timrobertson100.carto.com/api/v1/map?stat_tag=API&config=%7B%22version%22%3A%221.3.0%22%2C%22stat_tag%22%3A%22API%22%2C%22layers%22%3A%5B%7B%22type%22%3A%22cartodb%22%2C%22options%22%3A%7B%22sql%22%3A%22SELECT%20ST_SCALE(the_geom%2C%20111319.44444444444444%2C%20111319.44444444444444)%20AS%20the_geom_webmercator%20FROM%20world_borders_hd_copy%22%2C%22cartocss%22%3A%22%23layer%20%7B%20polygon-fill%3A%20%234D5258%3B%20polygon-opacity%3A%201%3B%20line-width%3A0%7D%22%2C%22cartocss_version%22%3A%222.1.0%22%7D%7D%5D%7D'
-        });
+/** @ngInject */
+function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { //$log
+    //$log.debug('runBlock end');
+    $translate.use(LOCALE);
+    amMoment.changeLocale(LOCALE);
 
-        $rootScope.$on('$stateChangeStart', function(e) {
-            if (window.gb.state > 399) {
-                e.preventDefault();
+    $http({
+        method: 'GET',
+        url: '//timrobertson100.carto.com/api/v1/map?stat_tag=API&config=%7B%22version%22%3A%221.3.0%22%2C%22stat_tag%22%3A%22API%22%2C%22layers%22%3A%5B%7B%22type%22%3A%22cartodb%22%2C%22options%22%3A%7B%22sql%22%3A%22SELECT%20ST_SCALE(the_geom%2C%20111319.44444444444444%2C%20111319.44444444444444)%20AS%20the_geom_webmercator%20FROM%20world_borders_hd_copy%22%2C%22cartocss%22%3A%22%23layer%20%7B%20polygon-fill%3A%20%234D5258%3B%20polygon-opacity%3A%201%3B%20line-width%3A0%7D%22%2C%22cartocss_version%22%3A%222.1.0%22%7D%7D%5D%7D'
+    });
+
+    $rootScope.$on('$stateChangeStart', function(e) {
+        if (window.gb.state > 399) {
+            e.preventDefault();
+        }
+    });
+}
+
+///** @ngInject */
+//function addStateToRoot($rootScope,   $state,   $stateParams) {
+//    // It's very handy to add references to $state and $stateParams to the $rootScope
+//    // so that you can access them from any scope within your applications.For example,
+//    // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+//    // to active whenever 'contacts.list' or one of its decendents is active.
+//    $rootScope.$state = $state;
+//    $rootScope.$stateParams = $stateParams;
+//}
+
+/** @ngInject */
+function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig, $compileProvider) {
+
+    $localStorageProvider.setKeyPrefix('gbif.');
+    $sessionStorageProvider.setKeyPrefix('gbif.');
+    // localStorageServiceProvider
+    //     .setPrefix('gbif')
+    //     .setStorageType('localStorage')
+    //     .setDefaultToCookie(false);
+
+
+
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|webcal):/);
+
+
+
+    angular.extend(toastrConfig, {
+        autoDismiss: false,
+        containerId: 'toast-container',
+        maxOpened: 3,
+        progressBar: true,
+        newestOnTop: true,
+        positionClass: 'toast-bottom-right',
+        preventDuplicates: false,
+        preventOpenDuplicates: true,
+        tapToDismiss: true,
+        target: 'body',
+        timeOut: "10000",
+        extendedTimeOut: "3000"
+    });
+}
+
+/** @ngInject */
+function chartjsConfig(ChartJsProvider) {
+    // Configure all charts
+    ChartJsProvider.setOptions({
+        //chartColors: ['#61a861', '#803690', '#FF8A80'],
+        chartColors: [
+            {
+                backgroundColor: '#61a861',
+                borderColor: '#61a861',
+                hoverBackgroundColor: '#56bb54',
+                hoverBorderColor: '#56bb54'
+            },
+            {
+                backgroundColor: '#65C6BB',
+                borderColor: '#65C6BB',
+                hoverBackgroundColor: '#65C6BB',
+                hoverBorderColor: '#65C6BB'
+            },
+            {
+                backgroundColor: '#1BBC9B',
+                borderColor: '#1BBC9B',
+                hoverBackgroundColor: '#1BBC9B',
+                hoverBorderColor: '#1BBC9B'
             }
-        });
-    }
+        ],
+        responsive: true
+    });
+    // Configure all line charts
+    ChartJsProvider.setOptions('line', {
+        showLines: true
+    });
+    //ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+}
 
-    ///** @ngInject */
-    //function addStateToRoot($rootScope,   $state,   $stateParams) {
-    //    // It's very handy to add references to $state and $stateParams to the $rootScope
-    //    // so that you can access them from any scope within your applications.For example,
-    //    // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
-    //    // to active whenever 'contacts.list' or one of its decendents is active.
-    //    $rootScope.$state = $state;
-    //    $rootScope.$stateParams = $stateParams;
-    //}
+/** @ngInject */
+function mdConfig($mdThemingProvider, $mdGestureProvider) {
+    //https://github.com/angular/material/issues/2365
+    //disable angular materials attempt at mimicing native gestures as it breaks maps
+    $mdGestureProvider.skipClickHijack();
 
-    /** @ngInject */
-    function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig, $compileProvider) {
+    //build with https://angular-md-color.com/#/ based on menu green. plum and tomato
+    var customPrimary = {
+        '50': '#b3d5b3',
+        '100': '#a3cca3',
+        '200': '#92c392',
+        '300': '#82ba82',
+        '400': '#71b171',
+        '500': '#61a861',
+        '600': '#559a55',
+        '700': '#4c8a4c',
+        '800': '#437a43',
+        '900': '#3a693a',
+        'A100': '#c4dec4',
+        'A200': '#d4e7d4',
+        'A400': '#e5f0e5',
+        'A700': '#315931',
+        'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
+        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+    };
+    $mdThemingProvider
+        .definePalette('customPrimary',
+            customPrimary);
 
-        $localStorageProvider.setKeyPrefix('gbif.');
-        $sessionStorageProvider.setKeyPrefix('gbif.');
-        // localStorageServiceProvider
-        //     .setPrefix('gbif')
-        //     .setStorageType('localStorage')
-        //     .setDefaultToCookie(false);
+    var customAccent = {
+        '50': '#313252',
+        '100': '#3a3c62',
+        '200': '#444572',
+        '300': '#4d4f82',
+        '400': '#575992',
+        '500': '#6163a2',
+        '600': '#8183b4',
+        '700': '#9193be',
+        '800': '#a1a2c7',
+        '900': '#b1b2d1',
+        'A100': '#8183b4',
+        'A200': '#7173ab',
+        'A400': '#6163a2',
+        'A700': '#c1c2da',
+        'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
+        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+    };
+    $mdThemingProvider
+        .definePalette('customAccent',
+            customAccent);
 
+    var customWarn = {
+        '50': '#ffcfc6',
+        '100': '#ffb9ad',
+        '200': '#ffa493',
+        '300': '#ff8e7a',
+        '400': '#ff7960',
+        '500': '#ff6347',
+        '600': '#ff4d2d',
+        '700': '#ff3814',
+        '800': '#f92600',
+        '900': '#e02200',
+        'A100': '#ffe5e0',
+        'A200': '#fffaf9',
+        'A400': '#ffffff',
+        'A700': '#c61e00',
+        'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
+        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+    };
+    $mdThemingProvider
+        .definePalette('customWarn',
+            customWarn);
 
+    var customBackground = {
+        '50': '#ffffff',
+        '100': '#ffffff',
+        '200': '#ffffff',
+        '300': '#ffffff',
+        '400': '#ffffff',
+        '500': '#f7f9fa',
+        '600': '#e7edf0',
+        '700': '#d8e1e6',
+        '800': '#c8d6dd',
+        '900': '#b8cad3',
+        'A100': '#ffffff',
+        'A200': '#ffffff',
+        'A400': '#ffffff',
+        'A700': '#a9bec9'
+    };
+    $mdThemingProvider
+        .definePalette('customBackground',
+            customBackground);
 
-        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|webcal):/);
+    $mdThemingProvider.theme('default')
+        .primaryPalette('customPrimary')
+        .accentPalette('customAccent')
+        .warnPalette('customWarn')
+        .backgroundPalette('customBackground')
+}
 
-
-
-        angular.extend(toastrConfig, {
-            autoDismiss: false,
-            containerId: 'toast-container',
-            maxOpened: 3,
-            progressBar: true,
-            newestOnTop: true,
-            positionClass: 'toast-bottom-right',
-            preventDuplicates: false,
-            preventOpenDuplicates: true,
-            tapToDismiss: true,
-            target: 'body',
-            timeOut: "10000",
-            extendedTimeOut: "3000"
-        });
-    }
-
-    /** @ngInject */
-    function chartjsConfig(ChartJsProvider) {
-        // Configure all charts
-        ChartJsProvider.setOptions({
-            //chartColors: ['#61a861', '#803690', '#FF8A80'],
-            chartColors: [
-                {
-                    backgroundColor: '#61a861',
-                    borderColor: '#61a861',
-                    hoverBackgroundColor: '#56bb54',
-                    hoverBorderColor: '#56bb54'
-                },
-                {
-                    backgroundColor: '#65C6BB',
-                    borderColor: '#65C6BB',
-                    hoverBackgroundColor: '#65C6BB',
-                    hoverBorderColor: '#65C6BB'
-                },
-                {
-                    backgroundColor: '#1BBC9B',
-                    borderColor: '#1BBC9B',
-                    hoverBackgroundColor: '#1BBC9B',
-                    hoverBorderColor: '#1BBC9B'
-                }
-            ],
-            responsive: true
-        });
-        // Configure all line charts
-        ChartJsProvider.setOptions('line', {
-            showLines: true
-        });
-        //ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
-    }
-
-    /** @ngInject */
-    function mdTheming($mdThemingProvider) {
-        //build with https://angular-md-color.com/#/ based on menu green. plum and tomato
-        var customPrimary = {
-            '50': '#b3d5b3',
-            '100': '#a3cca3',
-            '200': '#92c392',
-            '300': '#82ba82',
-            '400': '#71b171',
-            '500': '#61a861',
-            '600': '#559a55',
-            '700': '#4c8a4c',
-            '800': '#437a43',
-            '900': '#3a693a',
-            'A100': '#c4dec4',
-            'A200': '#d4e7d4',
-            'A400': '#e5f0e5',
-            'A700': '#315931',
-            'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
-            'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
-        };
-        $mdThemingProvider
-            .definePalette('customPrimary',
-                customPrimary);
-
-        var customAccent = {
-            '50': '#313252',
-            '100': '#3a3c62',
-            '200': '#444572',
-            '300': '#4d4f82',
-            '400': '#575992',
-            '500': '#6163a2',
-            '600': '#8183b4',
-            '700': '#9193be',
-            '800': '#a1a2c7',
-            '900': '#b1b2d1',
-            'A100': '#8183b4',
-            'A200': '#7173ab',
-            'A400': '#6163a2',
-            'A700': '#c1c2da',
-            'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
-            'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
-        };
-        $mdThemingProvider
-            .definePalette('customAccent',
-                customAccent);
-
-        var customWarn = {
-            '50': '#ffcfc6',
-            '100': '#ffb9ad',
-            '200': '#ffa493',
-            '300': '#ff8e7a',
-            '400': '#ff7960',
-            '500': '#ff6347',
-            '600': '#ff4d2d',
-            '700': '#ff3814',
-            '800': '#f92600',
-            '900': '#e02200',
-            'A100': '#ffe5e0',
-            'A200': '#fffaf9',
-            'A400': '#ffffff',
-            'A700': '#c61e00',
-            'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
-            'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
-        };
-        $mdThemingProvider
-            .definePalette('customWarn',
-                customWarn);
-
-        var customBackground = {
-            '50': '#ffffff',
-            '100': '#ffffff',
-            '200': '#ffffff',
-            '300': '#ffffff',
-            '400': '#ffffff',
-            '500': '#f7f9fa',
-            '600': '#e7edf0',
-            '700': '#d8e1e6',
-            '800': '#c8d6dd',
-            '900': '#b8cad3',
-            'A100': '#ffffff',
-            'A200': '#ffffff',
-            'A400': '#ffffff',
-            'A700': '#a9bec9'
-        };
-        $mdThemingProvider
-            .definePalette('customBackground',
-                customBackground);
-
-        $mdThemingProvider.theme('default')
-            .primaryPalette('customPrimary')
-            .accentPalette('customAccent')
-            .warnPalette('customWarn')
-            .backgroundPalette('customBackground')
-
-    }
-
-
-})();
 require('./portal.ctrl');
 require('../partials/head/head.ctrl');
 require('../partials/head/page.factory');
