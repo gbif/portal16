@@ -40,7 +40,7 @@
 
     <div class="card" ng-if="countryKey.countryCapabilities.total > 0">
         <div>
-            <map-widget filter="{country:countryKey.countryCode}"></map-widget>
+            <map-widget filter="{country:countryKey.countryCode}" class="fixedSizes"></map-widget>
         </div>
     </div>
 </section>

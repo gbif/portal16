@@ -2,7 +2,7 @@
     <h4 class="text-muted small text-uppercase">{{ speciesKey2.capabilities.total | localNumber }}  georeferenced records</h4>
     <div class="card">
         <div ng-if="speciesKey2.key">
-            <map-widget filter="{taxon_key: speciesKey2.key}"></map-widget>
+            <map-widget filter="{taxon_key: speciesKey2.key}" class="fixedSizes"></map-widget>
         </div>
     </div>
 </div>
