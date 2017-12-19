@@ -14,7 +14,7 @@ angular
 
 
 /** @ngInject */
-function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService) {
+function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService, $timeout) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
@@ -212,6 +212,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
     vm.selectRegion = function(region) {
 
+        var oldRegion = vm.currentRegion;
         vm.showParticipantDetails = false;
         vm.currentRegion = region;
         vm.totalParticipantCount = 0;
@@ -236,7 +237,10 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
             if (vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS' && vm.currentRegion !== 'GBIF_AFFILIATES') {
 
-                zoomToRegion(region);
+                var latency = (oldRegion === 'PARTICIPANT_ORGANISATIONS' ||  oldRegion === 'GBIF_AFFILIATES') ? 500 : 0;
+              $timeout(function(){
+                  zoomToRegion(region);
+              }, latency)
 
             };
 
@@ -246,7 +250,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
 
         var regionLower = region.toLowerCase().replace('_', '-');
-        $state.go($state.$current, {region: regionLower}, {notify: false});
+        $state.go($state.$current, {region: regionLower}, {notify: false})
 
     };
 
