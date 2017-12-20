@@ -46,18 +46,36 @@ function normalize(result, offset, limit) {
 
         //add facets
         if (_.isObject(result.aggregations)) {
+
+            //add total distincts if available
+            _.filter(Object.keys(result.aggregations), function(e){return _.endsWith(e, '_count')}).forEach(function (key) {
+                let value = _.get(result.aggregations[key], 'value');
+                let aggItem = result.aggregations[key.substr(0, key.length - 6)];
+                if (!aggItem) {
+                    aggItem = {buckets: []};
+                    result.aggregations[key.substr(0, key.length - 6)] = aggItem;
+                }
+                aggItem.cardinality = value;
+            });
+
             Object.keys(result.aggregations).forEach(function (key) {
-                let counts = _.get(result.aggregations[key], 'counts.buckets') || _.get(result.aggregations[key], 'buckets'),
-                facet = {
-                    field: changeCase.constantCase(key),
-                    counts: counts.map(function(e){
-                        return {
-                            name: e.key,
-                            count: e.doc_count
-                        };
-                    })
-                };
-                res.facets.push(facet);
+                let counts = _.get(result.aggregations[key], 'counts.buckets') || _.get(result.aggregations[key], 'buckets');
+                let cardinality = _.get(result.aggregations[key], 'cardinality');
+                if (counts) {
+                    let facet = {
+                        field: changeCase.constantCase(key),
+                        counts: counts.map(function (e) {
+                            return {
+                                name: e.key,
+                                count: e.doc_count
+                            };
+                        })
+                    };
+                    if (cardinality) {
+                        facet.cardinality = cardinality;
+                    }
+                    res.facets.push(facet);
+                }
             });
         }
         return res;

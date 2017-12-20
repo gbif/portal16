@@ -92,7 +92,7 @@
             <div class="menubox__section" ng-if="vm.type.CONTENT == vm.selected">
                 <div ng-if="vm.contentFeedback.type == 'CUSTOM'" class="menubox__section__content">
                     <div ng-if="!vm.forceShowForm">
-                        <p translate="feedback.content.annotate"></p>
+                        <p translate="feedback.data content.annotate"></p>
                         <p class="menubox__section__content__annotate">
                             <a class="gb-button--brand inherit"
                                target="_blank"
@@ -112,7 +112,7 @@
                 <div ng-if="vm.contentFeedback.type == 'MAIL'" class="menubox__section__content">
 
                     <div ng-if="!vm.forceShowForm">
-                        <p translate="feedback.content.contactPerMail"></p>
+                        <p translate="feedback.data content.contactPerMail"></p>
                         {#<p class="menubox__section__content__annotate">#}
                             {#<a class="gb-button--brand inherit"#}
                                {#target="_blank"#}

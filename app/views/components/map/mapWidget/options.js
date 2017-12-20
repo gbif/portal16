@@ -14,12 +14,20 @@ module.exports = {
             query: {style: 'gbif-light'}
         },
         {
+            name: 'LIGHT_DETAILS',
+            query: {style: 'gbif-geyser-en'}
+        },
+        {
             name: 'DARK',
             query: {style: 'gbif-dark'}
         },
         {
+            name: 'DARK_DETAILS',
+            query: {style: 'gbif-tuatara-en'}
+        },
+        {
             name: 'OSM',
-            query: {style: 'osm-bright'}
+            query: {style: 'osm-bright-en'}
         }
     ],
     binning: [
@@ -121,7 +129,7 @@ module.exports = {
             overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}]
         },
         STREETS: {
-            baseMap: {style: 'osm-bright'},
+            baseMap: {style: 'osm-bright-en'},
             overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
                 style: 'orange.marker',
                 bin: 'hex',
@@ -129,7 +137,7 @@ module.exports = {
             }]
         },
         GLACIER: {
-            baseMap: {style: 'gbif-dark'},
+            baseMap: {style: 'gbif-tuatara-en'},
             overlay: [{style: 'glacier.point'}]
         }
     }
