@@ -51,6 +51,10 @@ function normalize(result, offset, limit) {
             _.filter(Object.keys(result.aggregations), function(e){return _.endsWith(e, '_count')}).forEach(function (key) {
                 let value = _.get(result.aggregations[key], 'value');
                 let aggItem = result.aggregations[key.substr(0, key.length - 6)];
+                if (!aggItem) {
+                    aggItem = {buckets: []};
+                    result.aggregations[key.substr(0, key.length - 6)] = aggItem;
+                }
                 aggItem.cardinality = value;
             });
 

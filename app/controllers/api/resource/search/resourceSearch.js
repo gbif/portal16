@@ -73,7 +73,7 @@ async function search(requestQuery, __, options) {
 }
 
 let pattern = /([\!\*\+\-\=\<\>\&\|\(\)\[\]\{\}\^\~\?\:\\/"])/g;
-function escapedSearchQuery(q){
+function escapedSearchQuery(q) {
     return q.replace(pattern, "\\$1");
 }
 
@@ -83,7 +83,7 @@ function buildQuery(query) {
     //ignore facet paing for now as we do not use it
     let from = getInteger(query.offset, 0),
         size = getInteger(query.limit, 20),
-        facetSize = 20,
+        facetSize = getInteger(query.facetLimit, 10),
         showPastEvents = query._showPastEvents === '' || query._showPastEvents === 'true',
         facetMultiselect = query.facetMultiselect === 'true' || query.facetMultiselect === true,
         body = {
@@ -152,13 +152,15 @@ function buildQuery(query) {
         body.aggregations = body.aggregations || {};
         //if no filters then add simple facets without filters
         if (!facetMultiselect || factedFilters.length == 0) {
-            query.facet.forEach(function (facet) {
-                body.aggregations[facet] = {terms: {field: facet, size: facetSize}};
-            });
+            if (facetSize > 0) {
+                query.facet.forEach(function (facet) {
+                    body.aggregations[facet] = {terms: {field: facet, size: facetSize}};
+                });
+            }
             query.facet.forEach(function (facet) {
                 body.aggregations[facet + '_count'] = {cardinality: {field: facet}};
             });
-        } else {
+        } else if (facetSize > 0) {
 
             //faceted filters must be added as post filters, but only if multiselect and have facets and filters
             factedFilters.forEach(function (filter) {
@@ -252,7 +254,7 @@ function buildQuery(query) {
                 "boost": "5",
                 "functions": [
                     {
-                        "filter": { "match": { "keywords": {"query": query.q } } },
+                        "filter": {"match": {"keywords": {"query": query.q}}},
                         "weight": 100
                     }
                     //,{
