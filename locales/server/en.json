@@ -2876,8 +2876,10 @@
     },
     "basemap": {
       "CLASSIC": "Magenta",
-      "LIGHT": "Light",
-      "DARK": "Dark",
+      "LIGHT": "Light (no labels)",
+      "LIGHT_DETAILS": "Light",
+      "DARK": "Dark (no labels)",
+      "DARK_DETAILS": "Dark",
       "OSM": "Roads"
     },
     "bin": {
