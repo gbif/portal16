@@ -1,0 +1,7 @@
+<h4 class="text-muted small text-uppercase m-t-1" ng-if="nameUsages.synonymNameUsages.length > 0">Name usages applied to occurrences in GBIF</h4>
+<section  class="card--references card" ng-if="nameUsages.synonymNameUsages.length > 0">
+
+<div >
+<canvas id="pie"  class="chart chart-doughnut" chart-data="nameUsages.data" chart-labels="nameUsages.labels" chart-colors="nameUsages.colors" chart-options="nameUsages.options" chart-legend="true" type="pie"></canvas>
+</div>
+</section>

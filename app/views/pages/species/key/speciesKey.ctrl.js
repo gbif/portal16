@@ -6,7 +6,7 @@ var angular = require('angular'),
 require('./directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 require('./directives/speciesDatasets.directive.js');
 require('./directives/vernacularNames.directive.js');
-
+require('./directives/nameUsages.directive.js');
 
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
@@ -89,6 +89,8 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                 });
             }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
+
+
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });
 
@@ -109,6 +111,8 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                     taxonKey: resp.key
                 });
                 vm.synonyms.$promise.catch(vm.nonCriticalErrorHandler);
+
+
             }
             if (vm.species.sourceTaxonKey) {
                 vm.sourceTaxon = Species.get({id: vm.species.sourceTaxonKey});
@@ -157,6 +161,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.typeaheadSelect = function (item) { //  model, label, event
         $state.go($state.current, {speciesKey: item.key}, {inherit: false, notify: true, reload: false});
     };
+
 
     vm.hasCriticalError;
     vm.criticalErrorHandler = function () {

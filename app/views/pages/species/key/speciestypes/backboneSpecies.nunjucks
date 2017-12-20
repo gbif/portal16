@@ -20,11 +20,17 @@
 
 </div>
 
+
+
+
     <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--narrow">
 
-                    <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow" ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'} | limitTo: 1">
+            <name-usages species="speciesKey2.species" synonyms="speciesKey2.synonyms" ng.if="speciesKey2.synonyms && speciesKey2.isSpeciesOrBelow"></name-usages>
+
+
+            <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow" ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'} | limitTo: 1">
                         <h4 class="text-muted small text-uppercase">Description</h4>
                         <div class="card">
                             <div class="card__content">
