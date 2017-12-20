@@ -8,7 +8,7 @@ angular
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl(User, Notifications, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) { //notice that the user is included as a dependency only to trigger the call to me endpoint
+function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) { //notice that the user is included as a dependency only to trigger the call to me endpoint
     var vm = this;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
@@ -74,16 +74,15 @@ function navCtrl(User, Notifications, $window, $rootScope, NAV_EVENTS, AUTH_EVEN
         }
     };
 
-    //We get API rate limit errors from Github - so this has been disabled for now. The idea was that issues reported in github would show on the page they were reported on
-    //vm.getIssues = function () {
-    //    $http.get('/api/feedback/issues?item=' + encodeURIComponent($location.path()), {})
-    //        .then(function (response) {
-    //            vm.issuesCount = response.data.total_count;
-    //        }, function () {
-    //            vm.issuesCount = undefined;
-    //        });
-    //};
-    //vm.getIssues();
+    vm.getIssues = function () {
+        $http.get('/api/feedback/content?path=' + encodeURIComponent($location.path()), {})
+            .then(function (response) {
+                vm.commentCount = _.get(response, 'data.comments.count');
+            }, function () {
+                vm.issuesCount = undefined;
+            });
+    };
+    vm.getIssues();
 
     function updateUser() {
         vm.loginGreeting = _.get($sessionStorage.user, 'userName', 'Login');

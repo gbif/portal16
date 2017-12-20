@@ -109,26 +109,12 @@ function feedbackDirective(BUILD_VERSION) {
                     vm.contentFeedback = response.data;
                     vm.associatedDatasetKey = response.data.datasetKey;
                     vm.associatedPublishingOrgKey = response.data.publishingOrgKey;
+                    vm.comments = vm.contentFeedback.comments;
                 }, function () {
                     //TODO failed to get page type
                 });
         };
         vm.updateContentFeedbackType();
-
-        //We get API rate limit errors from Github - so this has been disabled for now. The idea was that issues reported in github would show on the page they were reported on
-        //vm.getIssues = function () {
-        //    $http.get('/api/feedback/issues?item=' + encodeURIComponent($location.path()), {})
-        //        .then(function (response) {
-        //            vm.issues = response.data;
-        //            if (vm.issues.total_count) {
-        //                vm.selected = vm.ISSUES;
-        //            }
-        //        }, function () { // (err)
-        //            vm.issues = {};
-        //            //TODO mark as failure or simply hide
-        //        });
-        //};
-        //vm.getIssues();
 
         vm.getUrl = function() {
             return window.location.href;

@@ -41,29 +41,21 @@
             <div class="menubox__section menubox__section--issues" ng-if="vm.selected == vm.ISSUES">
 
                 <ul>
-                    <li ng-repeat="item in vm.issues.items">
+                    <li ng-repeat="item in vm.comments.results">
                         <article class="card menubox__card">
                             <a class="card__stripe inherit noUnderline" ng-href="{{ item.url }}" target="_blank">
                                 <div class="card__content">
                                     <h5>{{ item.title }}</h5>
                                     <div class="feedback__comment">
-                                        <time am-time-ago="item.created_at"></time>
-                                        <span class="pull-right">
-                                            <span ng-if="!item.comments" translate="feedback.commentsNone"
-                                                  translate-values="{commentCount: item.comments}"></span>
-                                            <span ng-if="item.comments==1" translate="feedback.commentSingular"
-                                                  translate-values="{commentCount: item.comments}"></span>
-                                            <span ng-if="1 < item.comments" translate="feedback.commentPlural"
-                                                  translate-values="{commentCount: item.comments}"></span>
-                                        </span>
+                                        <time am-time-ago="item.createdAt"></time>
                                     </div>
                                 </div>
                             </a>
                         </article>
                     </li>
                 </ul>
-                <div class="menubox__section__content clearfix" ng-if="vm.issues.total_count > vm.issues.items.length">
-                    <a ng-href="{{ vm.issues.issuesUrl }}" target="_blank" class="btn btn-default flat pull-right">{$
+                <div class="menubox__section__content clearfix" ng-if="vm.comments.count > vm.comments.results.length">
+                    <a ng-href="{{ vm.comments.url }}" target="_blank" class="btn btn-default flat pull-right">{$
                         __('stdTerms.seeAll') $}
                     </a>
                 </div>
@@ -73,11 +65,11 @@
             <div class="menubox__section menubox__section--select" ng-if="!vm.selected">
                 <ul>
                     <li ng-repeat="type in vm.type">
-                        <a ng-if="type == vm.type.CONTENT && vm.issues.total_count" href=""
+                        <a ng-if="type == vm.type.CONTENT && vm.comments.count > 0" href=""
                            class="feedback__issuesToggle pull-right"
                            ng-class="{isActive: vm.selected == vm.ISSUES}"
-                           ng-if="vm.issues.total_count" ng-click="vm.selected = vm.ISSUES">
-                            <div class="comment-bubble">{{ vm.issues.total_count }}</div>
+                           ng-click="vm.selected = vm.ISSUES">
+                            <div class="comment-bubble">{{ vm.comments.count }}</div>
                         </a>
                         <a href="" class="inherit" ng-click="vm.toggle(type)">
                             <h4 translate="feedback.{{ type }}.title"></h4>

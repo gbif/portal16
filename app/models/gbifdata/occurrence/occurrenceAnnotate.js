@@ -11,8 +11,15 @@ var config = {
             abbrivation: "iN"
         },
         '57254bd0-8256-11d8-b7ed-b8a03c50a862': {
-            url: "https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?recordURL=" + dataApi + "occurrence/annosys/{{key}}",
-            keys: ['key'],
+            url: 'https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
+            commentsUrl: 'https://annosys.bgbm.fu-berlin.de/AnnoSys/services/records/{{institutionCode}}/{{collectionCode}}/{{catalogNumber}}/annotations',
+            allCommentsUrl: 'https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
+            commentsListField: 'annotations',
+            commentsCountField: 'size',
+            commentTitle: 'motivation',
+            commentCreated: 'time',
+            commentUrlTemplate: 'https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?repositoryURI={{repositoryURI}}',
+            keys: ['key', 'institutionCode', 'collectionCode', 'catalogNumber', 'repositoryURI'],
             name: "AnnoSys",
             abbrivation: "An"
         }
@@ -38,15 +45,31 @@ function getAnnotationUrl(occurrence) {
     if (typeof configTemplate === 'undefined') return undefined;
 
     let url = configTemplate.url;
+    let commentsUrl = configTemplate.commentsUrl;
+    let allCommentsUrl = configTemplate.allCommentsUrl;
     for (var i = 0; i < configTemplate.keys.length; i++) {
         let key = configTemplate.keys[i];
         let val = occurrence[key] || '';
         url = url.replace('{{' + key + '}}', val);
+        if (commentsUrl) {
+            commentsUrl = commentsUrl.replace('{{' + key + '}}', encodeURIComponent(val));
+        }
+        if (allCommentsUrl) {
+            allCommentsUrl = allCommentsUrl.replace('{{' + key + '}}', encodeURIComponent(val));
+        }
     }
     return {
         url: url,
         abbrivation: configTemplate.abbrivation,
-        name: configTemplate.name
+        name: configTemplate.name,
+        commentsUrl: commentsUrl,
+        commentsListField: configTemplate.commentsListField,
+        commentsCountField: configTemplate.commentsCountField,
+        commentTitle: configTemplate.commentTitle,
+        commentCreated: configTemplate.commentCreated,
+        keys: configTemplate.keys,
+        commentUrlTemplate: configTemplate.commentUrlTemplate,
+        allCommentsUrl: allCommentsUrl
     };
 }
 

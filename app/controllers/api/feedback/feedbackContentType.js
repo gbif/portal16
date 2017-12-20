@@ -1,7 +1,8 @@
 "use strict";
 var Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence,
     Node = require('../../../models/gbifdata/gbifdata').Node,
-    getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
+    request = require('requestretry'),
+    getAnnotations = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     _ = require('lodash');
 
 function getFeedbackContentType(path, cb) {
@@ -15,58 +16,89 @@ function getFeedbackContentType(path, cb) {
     var occurrenceRegEx = /^(\/)?occurrence\/[0-9]+$/gi;
     if (path.match(occurrenceRegEx)) {
         //is occurrence - extract id
-        parseOccurrence(path, cb);
+        parseOccurrence(path)
+            .then(function(result){
+                cb(result);
+            })
+            .catch(function(){
+                cb();//fail silently.
+            });
     } else {
         cb();
     }
 }
 
-function parseOccurrence(path, cb) {
+async function parseOccurrence(path) {
     var occurrenceKey,
         contentType = {};
 
     occurrenceKey = path.match(/[0-9]+$/)[0];
 
     //get occurrence, dataset and pubisher based on occurrence key
-    Occurrence.get(occurrenceKey,
+    let occurrence = await Occurrence.get(occurrenceKey,
         {
             expand: ['publisher', 'dataset']
         }
-    ).then(
-        function (occurrence) {
-            // occurrence resolved
-
-            //get endorsing node as node managers want to be cc'ed
-            Node.get(occurrence.publisher.endorsingNodeKey, {}).then(function(node){
-                contentType.ccContacts = getContacts(_.get(node, 'record.contacts', []));
-                // has custom annotation system?
-                occurrence.record._installationKey = occurrence.dataset.installationKey;
-                contentType.annotation = getAnnotation(occurrence.record);
-
-                // get administrative contacts
-                contentType.contacts = getContacts(_.get(occurrence, 'dataset.contacts', []));
-
-                // add the feedback contenttype
-                if (contentType.annotation) {
-                    contentType.type = 'CUSTOM';
-                } else if (contentType.contacts) {
-                    contentType.type = 'MAIL';
-                }
-
-                //add related keys to allow data providers to search for issues related to them
-                contentType.datasetKey = occurrence.record.datasetKey;
-                contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
-
-                cb(contentType);
-            }, function(){
-                //fail silently. If there is no endorsing node or the call fails, then simply ignore it. It isn't essential for usage.
-            });
-        },
-        function () {
-            //failed to get occurrence. Fall back to gbif github report
-            cb();
-        }
     );
+
+    //get endorsing node as node managers want to be cc'ed
+    let node = await Node.get(occurrence.publisher.endorsingNodeKey, {});
+    contentType.ccContacts = getContacts(_.get(node, 'record.contacts', []));
+    // has custom annotation system?
+    occurrence.record._installationKey = occurrence.dataset.installationKey;
+    contentType.annotation = getAnnotations(occurrence.record);
+    let comments = await getComments(contentType.annotation);
+    contentType.comments = comments;
+
+    // get administrative contacts
+    contentType.contacts = getContacts(_.get(occurrence, 'dataset.contacts', []));
+
+    // add the feedback contenttype
+    if (contentType.annotation) {
+        contentType.type = 'CUSTOM';
+    } else if (contentType.contacts) {
+        contentType.type = 'MAIL';
+    }
+
+    //add related keys to allow data providers to search for issues related to them
+    contentType.datasetKey = occurrence.record.datasetKey;
+    contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
+
+    return contentType;
+}
+
+//yet another awful hack to fit Annosys in.
+async function getComments(config) {
+    let options = {
+        url: config.commentsUrl,
+        json: true,
+        maxAttempts: 1
+    };
+
+    let response = await request(options);
+    if (response.statusCode == 200 && _.get(response, 'body.' + config.commentsCountField, 0) > 0) {
+        let comments = {
+            results: response.body[config.commentsListField],
+            count: response.body[config.commentsCountField],
+            url: config.allCommentsUrl
+        };
+
+        comments.results = _.map(_.slice(comments.results, 0, 5), function(comment){
+            var item = {
+                title: comment[config.commentTitle],
+                createdAt: comment[config.commentCreated]
+            };
+            let commentUrl = config.commentUrlTemplate;
+            for (var i = 0; i < config.keys.length; i++) {
+                let key = config.keys[i];
+                let val = comment[key] || '';
+                commentUrl = commentUrl.replace('{{' + key + '}}', val);
+            }
+            item.url = commentUrl;
+            return item;
+        });
+        return comments;
+    }
 }
 
 function getContacts(contacts) {
