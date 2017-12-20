@@ -155,6 +155,9 @@ function buildQuery(query) {
             query.facet.forEach(function (facet) {
                 body.aggregations[facet] = {terms: {field: facet, size: facetSize}};
             });
+            query.facet.forEach(function (facet) {
+                body.aggregations[facet + '_count'] = {cardinality: {field: facet}};
+            });
         } else {
 
             //faceted filters must be added as post filters, but only if multiselect and have facets and filters
@@ -168,7 +171,6 @@ function buildQuery(query) {
             factedFilters.forEach(function (filter) {
                 facetedTermFilters[filter] = getFilter(filter, query[filter]);
             });
-
 
             query.facet.forEach(function (filter) {
                 var allOtherFilters = getAggregationFilter(facetedTermFilters, filter);
