@@ -110,6 +110,9 @@ function feedbackDirective(BUILD_VERSION) {
                     vm.associatedDatasetKey = response.data.datasetKey;
                     vm.associatedPublishingOrgKey = response.data.publishingOrgKey;
                     vm.comments = vm.contentFeedback.comments;
+                    if (_.get(vm, 'comments.count') > 0) {
+                        vm.selected = vm.ISSUES;
+                    }
                 }, function () {
                     //TODO failed to get page type
                 });

@@ -99,6 +99,10 @@ async function getComments(config) {
         });
         return comments;
     }
+    return {
+        count: 0,
+        comments: []
+    };
 }
 
 function getContacts(contacts) {
