@@ -1,8 +1,8 @@
 "use strict";
 var express = require('express'),
     router = express.Router(),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    ranks = rootRequire('app/models/enums/allEnums').rank,
+    apiConfig = require('../../../models/gbifdata/apiConfig'),
+    ranks = require('../../../models/enums/allEnums').rank,
     request = require('requestretry'),
     Q = require('q');
 
