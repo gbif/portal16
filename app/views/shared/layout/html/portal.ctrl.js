@@ -7,7 +7,7 @@ angular
     .controller('portalCtrl', portalCtrl);
 
 /** @ngInject */
-function portalCtrl(BUILD_VERSION, env, constantKeys, IS_TOUCH, Page) {
+function portalCtrl($rootScope, BUILD_VERSION, env, constantKeys, NAV_EVENTS, IS_TOUCH, Page) {
     var vm = this;
     vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
@@ -19,6 +19,10 @@ function portalCtrl(BUILD_VERSION, env, constantKeys, IS_TOUCH, Page) {
     vm.mapCapabilities = env.mapCapabilities;
     vm.IS_TOUCH = IS_TOUCH;
     vm.getDrawer = Page.drawer;
+
+    vm.openHelpdesk = function (type) {
+        $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: type});
+    };
 }
 
 module.exports = portalCtrl;
