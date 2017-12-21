@@ -1,5 +1,8 @@
 "use strict";
 let dataApi = rootRequire('app/models/gbifdata/apiConfig').base.url;
+let env = rootRequire('config/config').env;
+
+let AnnosysBaseUrl = env == 'prod' ? 'https://annosys.bgbm.fu-berlin.de/AnnoSys/' : 'https://annosys.bgbm.fu-berlin.de/AnnoSysTest/';
 
 //TODO make environment dependent to allow for test annotations?
 var config = {
@@ -11,14 +14,14 @@ var config = {
             abbrivation: "iN"
         },
         '57254bd0-8256-11d8-b7ed-b8a03c50a862': {
-            url: 'https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
-            commentsUrl: 'https://annosys.bgbm.fu-berlin.de/AnnoSys/services/records/{{institutionCode}}/{{collectionCode}}/{{catalogNumber}}/annotations',
-            allCommentsUrl: 'https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
+            url: AnnosysBaseUrl + 'AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
+            commentsUrl: AnnosysBaseUrl + 'services/records/{{institutionCode}}/{{collectionCode}}/{{catalogNumber}}/annotations',
+            allCommentsUrl: AnnosysBaseUrl + 'AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
             commentsListField: 'annotations',
             commentsCountField: 'size',
             commentTitle: 'motivation',
             commentCreated: 'time',
-            commentUrlTemplate: 'https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?repositoryURI={{repositoryURI}}',
+            commentUrlTemplate: AnnosysBaseUrl + 'AnnoSys?repositoryURI={{repositoryURI}}',
             keys: ['key', 'institutionCode', 'collectionCode', 'catalogNumber', 'repositoryURI'],
             name: "AnnoSys",
             abbrivation: "An"
