@@ -5,6 +5,7 @@ var express = require('express'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     backboneKey = rootRequire('config/config').publicConstantKeys.dataset.backbone,
+    imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
     querystring = require('querystring'),
     request = require('requestretry'),
@@ -33,14 +34,15 @@ router.get('/species/:key(\\d+)/:ignore', function render(req, res) {
 function renderSpeciesPage(req, res, next) {
     let speciesKey = req.params.key;
     var options = {
-        expand: ['descriptions', 'dataset', 'synonyms', 'combinations', 'media', 'references', 'homonyms', 'vernacular']
+        expand: ['descriptions', 'dataset', 'synonyms', 'combinations', 'media', 'references', 'homonyms', 'vernacular', 'occurrenceImages']
     };
 
     Taxon.get(speciesKey, options).then(function (taxon){
         let contentItem = {
             species: taxon,
             _meta: {
-                title: taxon.record.scientificName
+                title: taxon.record.scientificName,
+                imageCacheUrl: imageCacheUrl
             }
         };
         helper.renderPage(req, res, next, contentItem, 'pages/species/key/seo');
