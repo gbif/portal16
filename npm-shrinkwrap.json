@@ -4705,6 +4705,11 @@
       "from": "header-case@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/header-case/-/header-case-1.0.1.tgz"
     },
+    "highcharts": {
+      "version": "6.0.4",
+      "from": "highcharts@latest",
+      "resolved": "https://registry.npmjs.org/highcharts/-/highcharts-6.0.4.tgz"
+    },
     "hoek": {
       "version": "2.16.3",
       "from": "hoek@>=2.0.0 <3.0.0",

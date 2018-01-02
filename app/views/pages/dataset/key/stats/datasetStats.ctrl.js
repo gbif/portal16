@@ -7,7 +7,7 @@ angular
     .controller('datasetStatsCtrl', datasetStatsCtrl);
 
 /** @ngInject */
-function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
+function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics, Highcharts) {
     var vm = this;
     vm.key = $stateParams.key;
 
@@ -26,6 +26,31 @@ function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
         });
     };
     vm.getDownloads();
+
+    var myChart = Highcharts.chart('container', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        },
+        series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }]
+    });
+
 }
 
 module.exports = datasetStatsCtrl;
