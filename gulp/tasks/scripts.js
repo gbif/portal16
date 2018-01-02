@@ -65,43 +65,6 @@ gulp.task('home', function () {
     return build('./app/views/pages/home/home.entry.js', 'pages/home.js');
 });
 
-//gulp.task('buildOccurrenceKey', function() {
-//    return build(config.js.browserify.occurrenceKey.path, config.js.browserify.occurrenceKey.dest)
-//        .pipe(browserSync.stream());
-//});
-
-//function build2(entry, name) {
-//    var dest = 'js/base';
-//    return browserify({
-//        entries: entry,
-//        debug: true
-//    }).bundle()
-//        .on('error', function (err) {
-//            if (!config.isProd) {
-//                console.log(err.toString());
-//                notifier.notify({
-//                    'title': 'Browserify',
-//                    'message': err.toString()
-//                });
-//            } else {
-//                throw err;
-//            }
-//            this.emit("end");
-//        })
-//        .pipe(source(name))
-//        .pipe(buffer())
-//        .pipe(gulpif(!config.isProd, g.sourcemaps.init({
-//            loadMaps: true
-//        })))
-//        // Add transformation tasks to the pipeline here.
-//        .pipe(g.ngAnnotate()) // To not break angular injection when minified
-//        .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
-//        .on('error', g.util.log)
-//        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
-//        .pipe(gulp.dest(path.join(config.paths.dist, dest)));
-//}
-//require('./errorLogging'); //TODO temporarily disabled as it isn't tested for DOS and stability
-
 const vendors = ['angular', 'lodash', 'openlayers', 'angular-cookies', 'ngstorage', 'angular-messages', 'angular-ui-router', 'angular-translate', 'angular-moment', 'angular-hotkeys', 'angular-resource', 'angular-aria', 'angular-ui-bootstrap', 'angular-sanitize', 'nouislider-angular', 'angular-animate'];
 const noParseVendors = ['angular',
     'lodash',
