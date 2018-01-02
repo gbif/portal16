@@ -1,13 +1,14 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
 
 angular
     .module('portal')
     .controller('portalCtrl', portalCtrl);
 
 /** @ngInject */
-function portalCtrl($rootScope, BUILD_VERSION, env, constantKeys, NAV_EVENTS, IS_TOUCH, Page) {
+function portalCtrl($rootScope, $sessionStorage, BUILD_VERSION, env, constantKeys, NAV_EVENTS, IS_TOUCH, Page) {
     var vm = this;
     vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
@@ -22,6 +23,11 @@ function portalCtrl($rootScope, BUILD_VERSION, env, constantKeys, NAV_EVENTS, IS
 
     vm.openHelpdesk = function (type) {
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: type});
+    };
+
+    vm.hasRole = function(roles){
+        roles = _.isString(roles) ? [roles] : roles;
+        return _.intersection(_.get($sessionStorage, 'user.roles', []), roles).length > 0;
     };
 }
 
