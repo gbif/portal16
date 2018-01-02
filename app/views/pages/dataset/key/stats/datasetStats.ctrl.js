@@ -7,9 +7,11 @@ angular
     .controller('datasetStatsCtrl', datasetStatsCtrl);
 
 /** @ngInject */
-function datasetStatsCtrl($http, $stateParams, env, endpoints) {
+function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
     var vm = this;
     vm.key = $stateParams.key;
+
+    vm.checklistMetrics = DatasetMetrics.get({key: vm.key});
 
     vm.getDownloads = function () {
         vm.loadingDownloads = true;
