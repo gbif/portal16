@@ -19,7 +19,9 @@
                 <div class="card__content">
                     sdf
                 </div>
-                <div id="container" style="width:100%; height:400px;"></div>
+                <occurrence-chart>
+                    sdfgælkj sdfgælkj
+                </occurrence-chart>
             </div>
         </section>
 
