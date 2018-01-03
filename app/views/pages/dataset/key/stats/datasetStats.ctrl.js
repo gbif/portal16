@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+require('./directives/checklistTaxonomyStats.directive.js');
 
 angular
     .module('portal')
@@ -60,6 +61,7 @@ function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics, H
      *
      *
      */
+
     angular.element(document).ready(function () {
         var myChart = Highcharts.chart('container', {
             chart: {

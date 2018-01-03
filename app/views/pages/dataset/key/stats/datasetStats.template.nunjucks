@@ -10,6 +10,10 @@
         </div>
 
         <section ng-if="portal.hasRole('REGISTRY_ADMIN')">
+            <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
+        </section>
+
+       <section ng-if="portal.hasRole('REGISTRY_ADMIN')">
             <h3 class="card-header">Checklist metrics</h3>
             <div class="card">
                 <div class="card__content">
