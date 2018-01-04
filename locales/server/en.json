@@ -1742,6 +1742,15 @@
     "11": "November",
     "12": "December"
   },
+  "day": {
+   "0": "Sunday",
+   "1": "Monday",
+   "2": "Tuesday",
+   "3": "Wednesday",
+   "4": "Thursday",
+   "5": "Friday",
+   "6": "Saturday"
+  },
   "establishmentMeans": {
     "NATIVE": "native",
     "INTRODUCED": "introduced",
@@ -2903,6 +2912,15 @@
     },
     "errors": {
       "413" : "The geometry file is too large to be processed by the data API."
+    },
+    "Highcharts": {
+      "contextButtonTitle" : "Chart context menu",
+      "downloadCSV" : "Download CSV",
+      "downloadJPEG" : "Download JPEG image",
+      "downloadPDF" : "Download PDF document",
+      "downloadPNG": "Download JPEG image",
+      "downloadXLS": "Download XLS"
     }
+
   }
 }
