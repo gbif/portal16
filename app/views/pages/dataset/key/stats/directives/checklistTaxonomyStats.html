@@ -3,7 +3,7 @@
 
     <div class="card__content" ng-if="checklistTaxonomyStats.loading" layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
-        <md-progress-circular></md-progress-circular>
+        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
         <p>Preparing data</p>
 
     </div><span flex></span>

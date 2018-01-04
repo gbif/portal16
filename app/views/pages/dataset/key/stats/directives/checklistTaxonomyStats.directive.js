@@ -22,10 +22,9 @@ function checklistTaxonomyStats() {
     return directive;
 
     /** @ngInject */
-    function checklistTaxonomyStats(Highcharts, DatasetChecklistTaxonomy) {
+    function checklistTaxonomyStats(Highcharts, DatasetChecklistTaxonomy, $filter) {
         var vm = this;
         vm.loading = true;
-
         angular.element(document).ready(function () {
 
             DatasetChecklistTaxonomy.query({key: vm.dataset.key}).$promise
@@ -34,29 +33,62 @@ function checklistTaxonomyStats() {
                         categories = [],
                         data = [],
                         totalCount = 0,
-                        rootRank = "KINGDOM",
-                        rankOrder = ["KINGDOM", "PHYLUM", "CLASS", "ORDER", "FAMILY", "GENUS"],
+                        rankOrder = [],
                         rootRankIndex = 0;
+
+                        if(taxonomy.KINGDOM && taxonomy.KINGDOM.length > 0){
+                            rankOrder.push("KINGDOM")
+                        };
+                    if(taxonomy.PHYLUM && taxonomy.PHYLUM.length > 0){
+                        rankOrder.push("PHYLUM")
+                    }
+                    if(taxonomy.CLASS && taxonomy.CLASS.length > 0){
+                        rankOrder.push("CLASS")
+                    }
+                    if(taxonomy.ORDER && taxonomy.ORDER.length > 0){
+                        rankOrder.push("ORDER")
+                    }
+                    if(taxonomy.FAMILY && taxonomy.FAMILY.length > 0){
+                        rankOrder.push("FAMILY")
+                    }
+                    if(taxonomy.GENUS && taxonomy.GENUS.length > 0){
+                        rankOrder.push("GENUS")
+                    };
+
+                    var rootRank = rankOrder[0];
+
 
                         while(taxonomy[rankOrder[rootRankIndex]].length < 2 ){
                             rootRankIndex ++;
                             rootRank = rankOrder[rootRankIndex];
                         }
-
-                        if(taxonomy[rankOrder[rootRankIndex]].length > 20){
-                            rootRankIndex --;
-                            rootRank = rankOrder[rootRankIndex];
+                        if(rootRankIndex > 0){
+                            if(taxonomy[rankOrder[rootRankIndex]].length > 20 || (!taxonomy[rankOrder[rootRankIndex]][0].children && taxonomy[rankOrder[rootRankIndex -1]][0].children)){
+                                rootRankIndex --;
+                                rootRank = rankOrder[rootRankIndex];
+                            }
                         }
+
 
                     for(var i=0; i< taxonomy[rootRank].length; i++){
 
                         totalCount += taxonomy[rootRank][i]._count;
-                        categories.push(taxonomy[rootRank][i].canonicalName);
+                        if(taxonomy[rootRank][i].canonicalName) {
+                            categories.push(taxonomy[rootRank][i].canonicalName);
+                        } else {
+                            categories.push(taxonomy[rootRank][i].scientificName);
+                        }
+
                         var childData = [];
                         var childCategories = [];
                         if(taxonomy[rootRank][i].children){
                             for(var j=0; j < taxonomy[rootRank][i].children.length; j++ ){
-                                childCategories.push(taxonomy[rootRank][i].children[j].canonicalName)
+                                if(taxonomy[rootRank][i].children[j].canonicalName){
+                                    childCategories.push(taxonomy[rootRank][i].children[j].canonicalName)
+                                } else {
+                                    childCategories.push(taxonomy[rootRank][i].children[j].scientificName)
+                                }
+
                                 childData.push(taxonomy[rootRank][i].children[j]._count)
 
                             }
@@ -150,7 +182,7 @@ function checklistTaxonomyStats() {
                                 formatter: function () {
                                     // display only if larger than 1
                                     return this.y > 1 ? '<b>' + this.point.name + ':</b> ' +
-                                        this.y  : null;
+                                        $filter('localNumber')(this.y , gb.locale)  : null;
                                 }
                             },
                             id: 'versions'
