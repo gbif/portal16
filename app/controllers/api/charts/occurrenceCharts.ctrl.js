@@ -45,7 +45,9 @@ async function getChartData(query) {
     result.facets = facets;
     let chartData = {
         title: getTitle(chartDimension),
+        dimension: chartDimension,
         categories: getCategories(result.facets[0]),
+        categoryKeys: getCategoryKeys(result.facets[0]),
         series: getSerie(result.facets[0])
         //facets: facets
     };
@@ -93,6 +95,10 @@ function getTitle(dimension) {
 
 function getCategories(facet) {
     return _.map(facet.counts, 'displayName');
+}
+
+function getCategoryKeys(facet) {
+    return _.map(facet.counts, 'name');
 }
 
 function getSerie(facet) {

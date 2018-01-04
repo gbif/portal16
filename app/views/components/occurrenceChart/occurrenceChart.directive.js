@@ -34,7 +34,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function occurrenceChart($scope, OccurrenceChartBasic, Highcharts) {
+    function occurrenceChart($state, $scope, OccurrenceChartBasic, Highcharts) {
         var vm = this;
 
         function updateChart(dimension){
@@ -46,7 +46,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     if (vm.myChart) {
                         vm.myChart.destroy();
                     }
-                    vm.myChart = Highcharts.chart(asPieChart(data));
+                    vm.myChart = Highcharts.chart(asBarChart(data));
                 });
         }
 
@@ -73,7 +73,19 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 },
                 plotOptions: {
                     series: {
-                        animation: false
+                        animation: false,
+                        point: {
+                            events: {
+                                click: function() {
+                                    console.log('Category: '+ this.category +', value: '+ this.y);
+                                    var filter = vm.filter || {};
+                                    var q = _.merge({}, filter);
+                                    q[vm.data.dimension] = vm.data.categoryKeys[this.index];
+                                    console.log(q);
+                                    $state.go('occurrenceSearchTable', q);
+                                }
+                            }
+                        }
                     }
                 },
                 bar: {
@@ -117,7 +129,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
             });
             lowIndex = Math.min(20, lowIndex);
             console.log(lowIndex);
-            var majorSerie = serie; 
+            var majorSerie = serie;
             if (lowIndex != -1) {
                 lowIndex = Math.min(lowIndex, 5);
                 majorSerie = serie.slice(0, lowIndex);
