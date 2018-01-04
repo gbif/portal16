@@ -3,7 +3,7 @@
 let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
-    expandFacets = require('./expandFacets'),
+    facetHelper = require('./expandFacets'),
     request = require('requestretry'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring');
@@ -18,6 +18,7 @@ router.get('/basic', function (req, res) {
             res.json(chartData);
         })
         .catch(function (err) {
+            console.trace(err);
             res.status(500);
             res.send(err);
         });
@@ -31,7 +32,8 @@ async function getChartData(query) {
     delete query.dimension;
     query = _.assign({facetLimit: 1000}, query, {limit: 0, facet: chartDimension});
     let result = await getData(query);
-    let facets = await expandFacets(result.facets);
+    facetHelper.populateAllEnums(result.facets);
+    let facets = await facetHelper.expandFacets(result.facets);
     facets[0].total = result.count;
 
     //if secondary dimension then get those
@@ -44,11 +46,13 @@ async function getChartData(query) {
     let chartData = {
         title: getTitle(chartDimension),
         categories: getCategories(result.facets[0]),
-        series: getSerie(result.facets[0]),
-        facets: facets
+        series: getSerie(result.facets[0])
+        //facets: facets
     };
     return chartData;
 }
+
+
 
 async function getSecondDimension(basisFilter, firstDimension, firstValues, secondDimension) {
     let dimensionPromises = firstValues.map(function(fieldValue){
@@ -59,7 +63,7 @@ async function getSecondDimension(basisFilter, firstDimension, firstValues, seco
     });
     let secondaryResults = await Promise.all(dimensionPromises);
     let decorateFacetsPromises = secondaryResults.map(function(result){
-        return expandFacets(result.facets);
+        return facetHelper.expandFacets(result.facets);
     });
     let decoratedFacets = await Promise.all(decorateFacetsPromises);
     decoratedFacets.forEach(function(e, index){

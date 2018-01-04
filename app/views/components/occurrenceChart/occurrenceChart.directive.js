@@ -34,41 +34,132 @@ function occurrenceChartDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function occurrenceChart($scope, $timeout, OccurrenceChartBasic, Highcharts) {
+    function occurrenceChart($scope, OccurrenceChartBasic, Highcharts) {
         var vm = this;
 
-        $scope.create = function (element) {
-            console.log('create');
-            var chartElement= element[0].querySelector('.chartArea');
-
-            OccurrenceChartBasic.query({chartDimension: 'year', facetLimit:100}).$promise
-                .then(function(data){
-                    var myChart = Highcharts.chart(chartElement, {
-                        chart: {
-                            type: 'bar'
-                        },
-                        bar: {
-                            minPointLength: 10
-                        },
-                        title: {
-                            text: data.title
-                        },
-                        xAxis: {
-                            categories: data.categories
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Occurrence count'
-                            },
-                            //type: 'logarithmic',
-                            minorTickInterval: 1
-                        },
-                        series: [{
-                            data: data.series[0].data
-                        }]
-                    });
+        function updateChart(dimension){
+            var filter = vm.filter || {};
+            var q = _.merge({}, filter, {chartDimension: dimension});
+            OccurrenceChartBasic.query(q).$promise
+                .then(function (data) {
+                    vm.data = data;
+                    if (vm.myChart) {
+                        vm.myChart.destroy();
+                    }
+                    vm.myChart = Highcharts.chart(asPieChart(data));
                 });
+        }
 
+        vm.changeDimension = function (dimension) {
+            updateChart(dimension);
+        };
+
+        vm.toggleBarChart = function (isLogaritmic) {
+            vm.myChart.destroy();
+            vm.myChart = Highcharts.chart(asBarChart(vm.data, isLogaritmic));
+        };
+
+        vm.togglePieChart = function () {
+            vm.myChart.destroy();
+            vm.myChart = Highcharts.chart(asPieChart(vm.data));
+        };
+
+        function asBarChart(data, isLogaritmic) {
+            return {
+                chart: {
+                    animation: false,
+                    type: 'bar',
+                    renderTo: vm.chartElement
+                },
+                plotOptions: {
+                    series: {
+                        animation: false
+                    }
+                },
+                bar: {
+                    minPointLength: 10
+                },
+                title: {
+                    text: data.title
+                },
+                xAxis: {
+                    categories: data.categories,
+                    visible: true
+                },
+                yAxis: {
+                    title: {
+                        text: 'Occurrence count'
+                    },
+                    type: isLogaritmic ? 'logarithmic' : 'linear',
+                    minorTickInterval: isLogaritmic ? 1 : undefined,
+                    visible: true
+                },
+                series: [{
+                    data: data.series[0].data
+                }],
+                credits: {
+                    enabled: false
+                }
+            }
+        }
+
+        function asPieChart(data) {
+            var serie = data.series[0].data.map(function (e, i) {
+                return {
+                    name: data.categories[i],
+                    y: e
+                }
+            }).sort(function (a, b) {  return b.y - a.y;  });
+
+            var lowCount = data.series[0].total/50;
+            var lowIndex = _.findIndex(serie, function(a){
+                return a.y < lowCount;
+            });
+            lowIndex = Math.min(20, lowIndex);
+            console.log(lowIndex);
+            var majorSerie = serie; 
+            if (lowIndex != -1) {
+                lowIndex = Math.min(lowIndex, 5);
+                majorSerie = serie.slice(0, lowIndex);
+                var minor = serie.slice(lowIndex);
+                if (minor.length > 0) {
+                    majorSerie.push({y: _.sumBy(minor, 'y'), name: 'other'});
+                }
+            }
+            console.log(majorSerie);
+
+            return {
+                chart: {
+                    animation: false,
+                    type: 'pie',
+                    renderTo: vm.chartElement
+                },
+                plotOptions: {
+                    series: {
+                        animation: false
+                    }
+                },
+                title: {
+                    text: data.title
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                xAxis: {
+                    visible: false
+                },
+                yAxis: {
+                    visible: false
+                },
+                series: [{
+                    data: majorSerie
+                }]
+            };
+        }
+
+        $scope.create = function (element) {
+            vm.chartElement = element[0].querySelector('.chartArea');
+            updateChart('month');
         };
 
         //$scope.$watchCollection(function () {
@@ -84,7 +175,6 @@ function occurrenceChartDirective(BUILD_VERSION) {
 //        basis_of_record:
 //    }
 //};
-
 
 
 /**
