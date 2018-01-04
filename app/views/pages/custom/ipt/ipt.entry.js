@@ -10,7 +10,7 @@ function iptCtrl($http, leafletData, env) {
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
         scrollWheelZoom: false,
-        crs: L.CRS.EPSG4326
+        crs: L.CRS.EPSG3857
     };
     vm.center = {zoom: 7, lat: 0, lng: 0};
 console.log(env);
