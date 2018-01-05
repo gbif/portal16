@@ -33,7 +33,7 @@ angular
         });
 
         // Apply the theme
-        //Highcharts.setOptions(Highcharts.theme);
+        Highcharts.setOptions(Highcharts.theme);
 
         return Highcharts;
     });
