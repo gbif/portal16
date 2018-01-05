@@ -4,6 +4,7 @@ let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     facetHelper = require('./expandFacets'),
+    taxonHelper = require('./occurrenceTaxonHelper'),
     request = require('requestretry'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring');
@@ -24,6 +25,18 @@ router.get('/basic', function (req, res) {
         });
 });
 
+router.get('/frequentTaxa', function (req, res) {
+    taxonHelper.getMostFrequentTaxa(req.query, req.query.percentage || 10)
+        .then(function (chartData) {
+            res.json(chartData);
+        })
+        .catch(function (err) {
+            console.trace(err);
+            res.status(500);
+            res.send(err);
+        });
+});
+
 async function getChartData(query) {
     let chartDimension = query.chartDimension;
     let chartSecondaryDimension = query.chartSecondaryDimension;
@@ -32,7 +45,9 @@ async function getChartData(query) {
     delete query.dimension;
     query = _.assign({facetLimit: 1000}, query, {limit: 0, facet: chartDimension});
     let result = await getData(query);
-    facetHelper.populateAllEnums(result.facets);
+    if (query.allEmums === 'true') {
+        facetHelper.populateAllEnums(result.facets);
+    }
     let facets = await facetHelper.expandFacets(result.facets);
     facets[0].total = result.count;
 
