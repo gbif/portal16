@@ -31,7 +31,7 @@ router.get('/dataset/occurrence/taxonomy/:key', function (req, res) {
 async function getChecklistTaxonomy(key) {
 
     let baseRequest = {
-        url: apiConfig.taxonSearch.url +  '?' + querystring.stringify({datasetKey : key, facet: 'higherTaxonKey', facetLimit : 1000, limit: 0 }),
+        url: apiConfig.taxonSearch.url +  '?' + querystring.stringify({datasetKey : key, facet: 'higherTaxonKey', rank: 'SPECIES', facetLimit : 1000, limit: 0 }),
         method: 'GET',
         json: true,
         fullResponse: true
@@ -44,10 +44,9 @@ async function getChecklistTaxonomy(key) {
     let taxonFacets = response.body.facets[0].counts;
     let promises = _.map(taxonFacets, expandWithTaxon);
     let taxa = await q.all(promises);
-
     let parentMapUnranked = {};
     let parentMap = {};
-    let result = { KINGDOM: [], PHYLUM: [], CLASS: [], ORDER: [], FAMILY: [], GENUS: []};
+    let result = { KINGDOM: [], PHYLUM: [], CLASS: [], ORDER: [], FAMILY: [], GENUS: [], count: response.body.count};
 
     for(var i=0; i < taxa.length; i++){
 

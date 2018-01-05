@@ -22,17 +22,22 @@ function checklistTaxonomyStats() {
     return directive;
 
     /** @ngInject */
-    function checklistTaxonomyStats(Highcharts, DatasetChecklistTaxonomy, $filter) {
+    function checklistTaxonomyStats(Highcharts, DatasetChecklistTaxonomy, $filter, $state) {
         var vm = this;
         vm.loading = true;
+        var MAX_ROOT_LENGTH = 10;
+        var MAX_CHILD_LENGTH = 50;
+
         angular.element(document).ready(function () {
+
 
             DatasetChecklistTaxonomy.query({key: vm.dataset.key}).$promise
                 .then(function(taxonomy){
+                    vm.loading = false;
+                    vm.preparing = true;
                     var colors = Highcharts.getOptions().colors,
                         categories = [],
                         data = [],
-                        totalCount = 0,
                         rankOrder = [],
                         rootRankIndex = 0;
 
@@ -69,10 +74,24 @@ function checklistTaxonomyStats() {
                             }
                         }
 
+                        if(taxonomy[rootRank].length >= MAX_ROOT_LENGTH && taxonomy.KINGDOM.length === 0){
+
+
+
+                            taxonomy.KINGDOM.push({
+                                canonicalName: "Unknown Kingdom",
+                                rank: "KINGDOM",
+                                children : taxonomy[rootRank],
+                                _count: taxonomy.count
+                                })
+                            rootRank = "KINGDOM";
+
+                        }
 
                     for(var i=0; i< taxonomy[rootRank].length; i++){
 
-                        totalCount += taxonomy[rootRank][i]._count;
+                        var MAX_CHILD_LENGTH_LOCAL = Math.round(MAX_CHILD_LENGTH * (taxonomy.count / taxonomy[rootRank][i]._count ));
+
                         if(taxonomy[rootRank][i].canonicalName) {
                             categories.push(taxonomy[rootRank][i].canonicalName);
                         } else {
@@ -81,21 +100,48 @@ function checklistTaxonomyStats() {
 
                         var childData = [];
                         var childCategories = [];
+
+                        var totalChildCount = 0;
+                        var otherCount = 0;
+
                         if(taxonomy[rootRank][i].children){
                             for(var j=0; j < taxonomy[rootRank][i].children.length; j++ ){
-                                if(taxonomy[rootRank][i].children[j].canonicalName){
-                                    childCategories.push(taxonomy[rootRank][i].children[j].canonicalName)
+
+                                totalChildCount += taxonomy[rootRank][i].children[j]._count
+
+                                if(j < MAX_CHILD_LENGTH_LOCAL ){
+                                    if(taxonomy[rootRank][i].children[j].canonicalName){
+                                        childCategories.push(taxonomy[rootRank][i].children[j].canonicalName)
+                                    } else {
+                                        childCategories.push(taxonomy[rootRank][i].children[j].scientificName)
+                                    }
+
+                                    childData.push({y:taxonomy[rootRank][i].children[j]._count, _key: taxonomy[rootRank][i].children[j].key})
+
                                 } else {
-                                    childCategories.push(taxonomy[rootRank][i].children[j].scientificName)
+
+                                    otherCount += taxonomy[rootRank][i].children[j]._count;
+
                                 }
 
-                                childData.push(taxonomy[rootRank][i].children[j]._count)
 
                             }
                         }
+                        otherCount +=  (taxonomy[rootRank][i]._count - totalChildCount);
 
+                        if(totalChildCount < taxonomy[rootRank][i]._count || (taxonomy[rootRank][i].children && taxonomy[rootRank][i].children.length >= MAX_CHILD_LENGTH_LOCAL)){
+
+                            if(taxonomy[rootRank][i].canonicalName) {
+                                var rootRankName = (taxonomy[rootRank][i].canonicalName === "Unknown Kingdom") ? "Other" : "Other "+taxonomy[rootRank][i].canonicalName;
+                                childCategories.push(rootRankName);
+                            } else {
+                                childCategories.push("Other "+taxonomy[rootRank][i].scientificName);
+                            }
+                            childData.push({y: otherCount})
+                        }
                         data.push({
                             y: taxonomy[rootRank][i]._count,
+                            _key: taxonomy[rootRank][i].key,
                             color: colors[i],
                             drilldown: {
                                 color:   colors[i],
@@ -120,20 +166,22 @@ function checklistTaxonomyStats() {
 // Build the data arrays
                     for (i = 0; i < dataLen; i += 1) {
 
-                        // add browser data
+                        // add root taxon data
                         kingdomData.push({
                             name: categories[i],
                             y: data[i].y,
+                            _key: data[i]._key,
                             color: data[i].color
                         });
 
-                        // add version data
+                        // add data for child taxa
                         drillDataLen = data[i].drilldown.data.length;
                         for (j = 0; j < drillDataLen; j += 1) {
                             brightness = 0.2 - (j / drillDataLen) / 5;
                             childData.push({
                                 name: data[i].drilldown.categories[j],
-                                y: data[i].drilldown.data[j],
+                                y: data[i].drilldown.data[j].y,
+                                _key: data[i].drilldown.data[j]._key,
                                 color: Highcharts.Color(data[i].color).brighten(brightness).get()
                             });
                         }
@@ -144,13 +192,14 @@ function checklistTaxonomyStats() {
                         chart: {
                             type: 'pie'
                         },
+                        credits: false,
                         title: {
                             text: 'Number of species by higher Taxon'
                         },
 
                         yAxis: {
                             title: {
-                                text: 'Total percent market share'
+                                text: 'Species count'
                             }
                         },
                         plotOptions: {
@@ -165,10 +214,21 @@ function checklistTaxonomyStats() {
                         series: [{
                             name: 'Species',
                             data: kingdomData,
+                            point:{
+                                events:{
+                                    click: function (event) {
+
+                                        if(this._key){
+                                            $state.go('speciesKey', {speciesKey: this._key})
+                                        }
+
+                                    }
+                                }
+                            },
                             size: '60%',
                             dataLabels: {
                                 formatter: function () {
-                                    return this.y > (totalCount / 10) ? this.point.name : null;
+                                    return this.y > (taxonomy.count / 10) ? this.point.name : null;
                                 },
                                 color: '#ffffff',
                                 distance: -30
@@ -176,6 +236,15 @@ function checklistTaxonomyStats() {
                         }, {
                             name: 'Species',
                             data: childData,
+                            point:{
+                                events:{
+                                    click: function (event) {
+                                        if(this._key){
+                                            $state.go('speciesKey', {speciesKey: this._key})
+                                        }
+                                    }
+                                }
+                            },
                             size: '80%',
                             innerSize: '60%',
                             dataLabels: {
@@ -205,7 +274,7 @@ function checklistTaxonomyStats() {
                     });
 
 
-                vm.loading = false;
+                vm.preparing = false;
 
 
 
