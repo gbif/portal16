@@ -20,6 +20,7 @@ async function getMostFrequentTaxa(filter, percentage) {
     percentage = _.toSafeInteger(Math.max(Math.min(100, percentage), 1));
     let facetLimit = _.toSafeInteger(100/percentage);
     let facetPromises = rankKeys.map(function(e){
+    //let facetPromises = ['taxonKey'].map(function(e){
         return getExpandedFacets(_.merge({}, filter, {facet: e, facetLimit: facetLimit, limit: 0}), percentage)
     });
     let facetResults = await Promise.all(facetPromises);
@@ -73,6 +74,7 @@ function buildTree(facets) {
                     }
                     treeItem.key = item[rankKey];
                     treeItem.scientificName = item[rank];
+                    treeItem.rank = item.rank;
                     if (taxon.count) {
                         treeItem.count = taxon.count;
                         treeItem.percentage = taxon.count/facet.totalCount;

@@ -1,0 +1,15 @@
+<div class="occurrenceTaxonomy">
+    <ng-transclude></ng-transclude>
+    <div>
+        <ul class="occurrenceTaxonomy__root">
+            <li ng-repeat="item in vm.tree">
+                <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline">
+                    <div style="width:{{item.percentage | formatAsPercentage}}%"></div>
+                    <span>{{item.scientificName}}</span><span class="discreet--very">{{item.percentage | formatAsPercentage }}%</span>
+                </a>
+                <div ng-init="children = item.children" ng-include="'/templates/components/occurrenceTaxonomy/partialTree.html'"></div>
+            </li>
+        </ul>
+
+    </div>
+</div>

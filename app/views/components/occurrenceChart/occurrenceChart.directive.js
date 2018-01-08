@@ -34,8 +34,17 @@ function occurrenceChartDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function occurrenceChart($state, $scope, OccurrenceChartBasic, Highcharts) {
+    function occurrenceChart($http, $state, $scope, OccurrenceChartBasic, Highcharts) {
         var vm = this;
+
+        $http.get('/api/chart/occurrence/frequentTaxa?datasetKey=' + vm.filter.datasetKey + '&percentage=2', {})
+            .then(function(response){
+                console.log(response.data.tree);
+                vm.tree = response.data.tree;
+            })
+            .catch(function(err){
+                console.log(err);
+            });
 
         function updateChart(dimension){
             var filter = vm.filter || {};
@@ -131,7 +140,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
             console.log(lowIndex);
             var majorSerie = serie;
             if (lowIndex != -1) {
-                lowIndex = Math.min(lowIndex, 5);
+                lowIndex = Math.max(lowIndex, 5);
                 majorSerie = serie.slice(0, lowIndex);
                 var minor = serie.slice(lowIndex);
                 if (minor.length > 0) {

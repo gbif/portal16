@@ -57,6 +57,12 @@
 
         </div>
 
+        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.queryKey == 'taxon_key'">
+            <occurrence-taxonomy filter="vm.filterConfig.filter.getOccurrenceData().query">
+                <div class="discreet p-t-1">Taxa accounting for more than 2% of the occurrences</div>
+            </occurrence-taxonomy>
+        </div>
+
         <div class="site-drawer__bar" ng-if="vm.filterConfig.expanded && vm.query.length > 0">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="stdTerms.clear">Clear</span>

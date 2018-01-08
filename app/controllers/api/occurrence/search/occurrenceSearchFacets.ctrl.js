@@ -16,7 +16,7 @@ module.exports = function (app) {
 router.get('/occurrence/taxon', function (req, res) {
     //clear all facets and ask for speciesKey facet only
     var type = req.query.type || 'species';
-    if (['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'].indexOf(type) < 0) {
+    if (['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'taxon'].indexOf(type) < 0) {
         res.status(500);
         res.send('Invalid type.');
     }

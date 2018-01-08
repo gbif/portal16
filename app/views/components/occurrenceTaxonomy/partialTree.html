@@ -1,0 +1,15 @@
+<ul class="sub-menu">
+    <li ng-repeat="item in children">
+        <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline">
+            <div style="width:{{item.percentage | formatAsPercentage}}%"></div>
+            <span>{{item.scientificName}}</span><span class="discreet--very">{{item.percentage | formatAsPercentage }}%</span>
+        </a>
+
+        <div ng-switch on="item.children.length > 0">
+            <div ng-switch-when="true">
+                <div ng-init="children = item.children" ng-include="'/templates/components/occurrenceTaxonomy/partialTree.html'"></div>
+            </div>
+        </div>
+
+    </li>
+</ul>
