@@ -58,8 +58,7 @@
         </div>
 
         <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.queryKey == 'taxon_key'">
-            <occurrence-taxonomy filter="vm.filterConfig.filter.getOccurrenceData().query">
-                <div class="discreet p-t-1">Taxa accounting for more than 2% of the occurrences</div>
+            <occurrence-taxonomy filter="vm.filterConfig.filter.getOccurrenceData().query" options="{limit: 20}">
             </occurrence-taxonomy>
         </div>
 

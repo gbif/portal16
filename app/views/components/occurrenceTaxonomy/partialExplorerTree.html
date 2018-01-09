@@ -1,0 +1,15 @@
+<ul class="sub-menu">
+    <li ng-repeat="item in item.children">
+        <div class="pipe"></div>
+        <div class="title">
+            <a ng-if="item.rank !== 'SPECIES'" ng-click="vm.appendTaxa(item)" href="" class="inherit noUnderline">{{item.canonicalName}}</a>
+            <span ng-if="item.rank === 'SPECIES'">{{item.canonicalName}}</span>
+            <a href="" ng-click="vm.search(item.key)" class="discreet--very occurrenceTaxonomy__filter inherit noUnderline">{{item._count | localNumber }}</a>
+        </div>
+        <div ng-include="'/templates/components/occurrenceTaxonomy/partialExplorerTree.html'"></div>
+    </li>
+    <li ng-if="item.expanded && item.children.length == 0">
+        <span ng-if="!item.loading">No immediate children</span>
+        <span ng-if="item.loading" class="loading"></span>
+    </li>
+</ul>

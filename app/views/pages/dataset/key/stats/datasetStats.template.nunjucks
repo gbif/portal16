@@ -19,9 +19,9 @@
                 <div class="card__content">
                     sdf
                 </div>
-                <occurrence-chart filter="{datasetKey: datasetKey.key}">
-                    Comment on chart from caller
-                </occurrence-chart>
+                {#<occurrence-chart filter="{datasetKey: datasetKey.key}">#}
+                    {#Comment on chart from caller#}
+                {#</occurrence-chart>#}
                 <occurrence-taxonomy filter="{datasetKey: datasetKey.key}">
                     Comment on taxonomy from caller
                 </occurrence-taxonomy>
