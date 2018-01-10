@@ -1,6 +1,10 @@
 $treeInset = 0.75em
 .occurrenceTaxonomy {
     overflow auto
+    .loadingNode {
+        padding-left 5px
+        padding-right 5px
+    }
     &__toggle {
         &.title.title>a {
             color inherit
@@ -48,6 +52,12 @@ $treeInset = 0.75em
             left 0
             z-index 1
             overflow hidden
+        }
+    }
+    .title--action {
+        color darken(#f7f7f7, 40)
+        a {
+            color inherit
         }
     }
     ul {

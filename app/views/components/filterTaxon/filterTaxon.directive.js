@@ -50,8 +50,6 @@ function filterTaxonDirective(BUILD_VERSION) {
         $scope.$watchCollection(function () {
             return vm.filterState.query
         }, function (newState, oldState) {
-            console.log('update');
-            console.log(newState);
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && !angular.equals(newState, oldState)) {
                 vm.setFacetSuggestions();
             }

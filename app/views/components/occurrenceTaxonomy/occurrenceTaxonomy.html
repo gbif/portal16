@@ -12,14 +12,28 @@
                     <li ng-repeat="item in vm.fullTree.children">
                         <div class="pipe"></div>
                         <div class="title">
-                            <a ng-click="vm.appendTaxa(item)" href="" class="inherit noUnderline">{{item.canonicalName}}</a>
+                            <a ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item.canonicalName}}</a>
                             <a href="" ng-click="vm.search(item.key)" class="discreet--very occurrenceTaxonomy__filter inherit noUnderline">{{item._count | localNumber }}</a>
                         </div>
                         <div ng-include="'/templates/components/occurrenceTaxonomy/partialExplorerTree.html'"></div>
                     </li>
-                    <li ng-if="item.children.length == 0">
-                        <span ng-if="!item.loading">No immediate children</span>
-                        <span ng-if="item.loading" class="loading"></span>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'LOADING'">
+                        <div class="pipe"></div>
+                        <div class="title title--action loadingNode">
+                            <span class="loading"></span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'MORE'">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <a href="" ng-click="vm.appendTaxa(vm.fullTree)">…</a>
+                        </div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'EMPTY'">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span>No immediate children</span>
+                        </div>
                     </li>
                 </ul>
                 <ul class="hasTreeLines" ng-if="vm.showFrequenyTree">
@@ -34,11 +48,8 @@
                 </ul>
             </li>
         </ul>
-        <div>Only taxa with 7 major Linnean ranks is visible in the tree</div>
     </div>
 
-
-    freqnest
     <!--<ul class="occurrenceTaxonomy__root">-->
         <!--<li>-->
             <!--<div class="pipe"></div>-->
