@@ -2,6 +2,8 @@
 
 var angular = require('angular');
 require('./directives/checklistTaxonomyStats.directive.js');
+require('./directives/occurrenceDatasetTaxonomyStats.directive.js');
+
 require('../../../../components/occurrenceChart/occurrenceChart.directive');
 
 angular

@@ -13,6 +13,10 @@
             <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
         </section>
 
+        <section ng-if="portal.hasRole('REGISTRY_ADMIN')">
+            <occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
+        </section>
+
        <section ng-if="portal.hasRole('REGISTRY_ADMIN')">
             <h3 class="card-header">Checklist metrics</h3>
             <div class="card">

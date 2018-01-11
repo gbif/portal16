@@ -4,6 +4,7 @@ var angular = require('angular');
 var Highcharts = require('highcharts');
 require('highcharts/modules/exporting')(Highcharts);
 require('highcharts/modules/boost')(Highcharts);
+require('highcharts/modules/sunburst')(Highcharts);
 
 angular
     .module('portal')

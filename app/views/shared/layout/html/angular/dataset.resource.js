@@ -93,6 +93,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetOccurrenceTaxonomy', function ($resource) {
+            return $resource('/api/dataset/:key/occurrence/taxonomy', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: true
+                    }
+                }
+            );
+        })
     ;
 
 })();

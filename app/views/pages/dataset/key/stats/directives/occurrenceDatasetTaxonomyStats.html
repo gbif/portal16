@@ -1,0 +1,13 @@
+<h3 class="card-header">Taxonomy</h3>
+<div class="card">
+
+    <div class="card__content" ng-if="occurrenceDatasetTaxonomyStats.loading || occurrenceDatasetTaxonomyStats.preparing" layout="row" layout-align="center center">
+        <span flex></span><div layout="column" layout-align="center center">
+        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+        <p ng-if="occurrenceDatasetTaxonomyStats.preparing">Preparing data</p>
+        <p ng-if="occurrenceDatasetTaxonomyStats.loading">Loading data</p>
+
+    </div><span flex></span>
+    </div>
+    <div id="taxonomyStats" class="taxonomyStatsContainer"></div>
+</div>

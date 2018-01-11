@@ -23,10 +23,128 @@ router.get('/dataset/:key/checklist/taxonomy', function (req, res) {
 
 });
 
-router.get('/dataset/occurrence/taxonomy/:key', function (req, res) {
-    var datasetKey = req.params.key;
+router.get('/dataset/:key/occurrence/taxonomy/', function (req, res) {
+
+    return getOccurrenceDatasetTaxonomy(req.params.key, req.query.taxon_key).then(function(taxa){
+        return res.json(taxa)
+    });
 });
 
+
+async function getOccurrenceDatasetTaxonomy(key, taxon_key) {
+
+    let rankKeys = ['kingdomKey' ,'phylumKey' ,'classKey', 'orderKey', 'familyKey', 'genusKey' ];
+
+
+    let taxon = await expandWithTaxon({name: taxon_key});
+    if (taxon_key) {
+        rankKeys.splice(0 ,  rankKeys.indexOf(taxon.rank.toLowerCase()+"Key") )
+    } else {
+        rankKeys.splice(4, rankKeys.length -4);
+    }
+
+    let rankIndex = _.zipObject(_.map(rankKeys, function(k){
+        return k.split('Key')[0].toUpperCase();
+    }), _.map(rankKeys, function(k){
+
+            return (taxon_key) ? rankKeys.indexOf(k) : rankKeys.indexOf(k) + 1
+    }));
+
+
+    let options = {datasetKey : key, facet: rankKeys,  facetLimit : 1000, limit: 0 };
+
+    if(taxon_key){
+        options.taxon_key = taxon_key;
+    };
+
+    let baseRequest = {
+        url: apiConfig.occurrenceSearch.url +  '?' + querystring.stringify(options),
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+
+    let response = await request(baseRequest);
+    if (response.statusCode > 299) {
+        throw response;
+    }
+    let taxonFacets = response.body.facets;
+
+
+
+    let mapFn = function(taxon){
+
+
+        taxon.name = taxon.canonicalName;
+
+        taxon.id = rankIndex[taxon.rank]+"."+taxon.key;
+
+
+       switch(taxon.rank) {
+           case "SPECIES":
+               taxon.parent = rankIndex.GENUS+"."+taxon.genusKey;
+               break;
+            case "GENUS":
+                taxon.parent = rankIndex.FAMILY+"."+taxon.familyKey;
+                break;
+            case "FAMILY":
+                taxon.parent = rankIndex.ORDER+"."+taxon.orderKey;
+                break;
+            case "ORDER":
+                taxon.parent = (rankIndex.CLASS) ? rankIndex.CLASS +"."+taxon.classKey : "";
+                break;
+            case "CLASS":
+                taxon.parent = rankIndex.PHYLUM+"."+taxon.phylumKey;
+                break;
+            case "PHYLUM":
+                taxon.parent = rankIndex.KINGDOM+"."+taxon.kingdomKey;
+                break;
+            case "KINGDOM":
+               // taxon.id = 1+"."+taxon.key;
+                taxon.parent = "0.0";
+                break;
+
+        }
+
+    }
+    let promises = [];
+    let kingdomOccCount = 0;
+    _.each(taxonFacets, function(facet){
+        promises = promises.concat(_.map(facet.counts, function(c){
+         return expandWithTaxon(c, mapFn).then(function(result){
+                if(result.rank === 'KINGDOM'){
+                    kingdomOccCount += c.count;
+                }
+                result.value = c.count;
+              return  _.pick(result, 'id', 'parent', 'value' , 'name', 'rank');
+          });
+        }));
+    })
+
+    let taxa = await q.all(promises);
+    if(!taxon_key && kingdomOccCount < response.body.count){
+        taxa.push({
+            name: 'Other Kingdoms',
+            parent: '0.0',
+            id: "1.abc",
+            value: response.body.count - kingdomOccCount
+        });
+    };
+    if(!taxon_key){
+        // if theres no root taxon add the whole dataset as root
+        taxa.push({
+            name: 'Entire dataset',
+            parent: '',
+            id: "0.0",
+            value: response.body.count
+        });
+    } else {
+        // add the
+
+    }
+
+    return taxa;
+}
 
 async function getChecklistTaxonomy(key) {
 
@@ -153,7 +271,7 @@ async function getChecklistTaxonomy(key) {
     return result;
 }
 
-async function expandWithTaxon(taxonFacet){
+async function expandWithTaxon(taxonFacet, mapFn){
 
     let taxonRequest = {
         url: apiConfig.taxon.url +  taxonFacet.name,
@@ -163,9 +281,11 @@ async function expandWithTaxon(taxonFacet){
     };
 
     let taxResponse = await request(taxonRequest);
-
-    let taxon = _.pick(taxResponse.body, ['key', 'canonicalName', 'scientificName', 'phylumKey', 'kingdomKey', 'classKey', 'orderKey', 'familyKey', 'parentKey', 'rank', 'synonym']);
+    let taxon = _.pick(taxResponse.body, ['key', 'canonicalName', 'scientificName', 'phylumKey', 'kingdomKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'parentKey', 'rank', 'synonym']);
     taxon._count = taxonFacet.count;
-
+    if(mapFn && typeof mapFn === 'function'){
+        mapFn(taxon)
+    }
     return taxon;
 }
+
