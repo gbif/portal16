@@ -14,17 +14,18 @@
         </section>
 
        <section ng-if="portal.hasRole('REGISTRY_ADMIN')">
-            <h3 class="card-header">Checklist metrics</h3>
+            <h3 class="card-header">Occurrence metrics</h3>
             <div class="card">
+                {#<div class="card__content">#}
+                    {#<h4 class="card-header">Taxonomic distribution of occurrences</h4>#}
+                    {#<occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>#}
+                {#</div>#}
                 <div class="card__content">
-                    sdf
+                    <h4 class="card-header">Months</h4>
+                    <occurrence-chart filter="{datasetKey: datasetKey.key}">
+                        Comment on chart from caller
+                    </occurrence-chart>
                 </div>
-                {#<occurrence-chart filter="{datasetKey: datasetKey.key}">#}
-                    {#Comment on chart from caller#}
-                {#</occurrence-chart>#}
-                <occurrence-taxonomy filter="{datasetKey: datasetKey.key}">
-                    Comment on taxonomy from caller
-                </occurrence-taxonomy>
             </div>
         </section>
 

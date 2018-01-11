@@ -4,24 +4,24 @@
 var angular = require('angular'),
     _ = require('lodash');
 
-require('./occurrenceTaxonomy.resource');
+require('./occurrenceTaxonomyTree.resource');
 
 angular
     .module('portal')
-    .directive('occurrenceTaxonomy', occurrenceTaxonomyDirective);
+    .directive('occurrenceTaxonomyTree', occurrenceTaxonomyTreeDirective);
 
 /** @ngInject */
-function occurrenceTaxonomyDirective(BUILD_VERSION) {
+function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
         transclude: true,
-        templateUrl: '/templates/components/occurrenceTaxonomy/occurrenceTaxonomy.html?v=' + BUILD_VERSION,
+        templateUrl: '/templates/components/occurrenceTaxonomyTree/occurrenceTaxonomyTree.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
             options: '='
         },
         //link: chartLink,
-        controller: occurrenceTaxonomy,
+        controller: occurrenceTaxonomyTree,
         controllerAs: 'vm',
         bindToController: true
     };
@@ -34,8 +34,9 @@ function occurrenceTaxonomyDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function occurrenceTaxonomy($q, Species, $scope, $state, OccurrenceFrequentTaxa, OccurrenceFilter, OccurrenceTaxonSearch) {
+    function occurrenceTaxonomyTree($q, Species, $scope, $state, OccurrenceFrequentTaxa, OccurrenceFilter, OccurrenceTaxonSearch) {
         var vm = this;
+        vm.showFrequenyTree = true;
 
         function updateTree() {
             if (_.get(vm.frequent, '$cancelRequest')) {
@@ -128,18 +129,16 @@ function occurrenceTaxonomyDirective(BUILD_VERSION) {
                 .then(function (data) {
                     item.endOfRecords = data.endOfRecords;
                     updateItemState(item);
-                    //if (data.offset >= item.children.length) {
-                        data.results.forEach(function (e) {
-                            e.children = [];
-                        });
-                        item.children = _.concat(item.children, data.results);
-                        item.childCount = _.sumBy(item.children, '_count');
-                        if (item.children.length == 1 && data.endOfRecords) {
-                            vm.toggleTaxa(item.children[0])
-                        }
-                    //}
+                    data.results.forEach(function (e) {
+                        e.children = [];
+                    });
+                    item.children = _.concat(item.children, data.results);
+                    item.childCount = _.sumBy(item.children, '_count');
+                    if (item.children.length == 1 && data.endOfRecords && item.rank !== 'GENUS') {
+                        vm.toggleTaxa(item.children[0])
+                    }
                 })
-                .catch(function (err) {
+                .catch(function () {
                     if (!item.cancelled) {
                         item.state = 'FAILED';
                     }
@@ -195,4 +194,4 @@ function occurrenceTaxonomyDirective(BUILD_VERSION) {
     }
 }
 
-module.exports = occurrenceTaxonomyDirective;
+module.exports = occurrenceTaxonomyTreeDirective;
