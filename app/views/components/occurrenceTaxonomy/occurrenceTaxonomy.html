@@ -35,6 +35,12 @@
                             <span>No immediate children</span>
                         </div>
                     </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'FAILED'">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span>Failed to load tree</span>
+                        </div>
+                    </li>
                 </ul>
                 <ul class="hasTreeLines" ng-if="vm.showFrequenyTree">
                     <li ng-repeat="item in vm.tree">
@@ -44,6 +50,18 @@
                             <span>{{item.canonicalName}}</span><span class="discreet--very">{{item.percentage | formatAsPercentage }}%</span>
                         </a>
                         <div ng-include="'/templates/components/occurrenceTaxonomy/partialTree.html'"></div>
+                    </li>
+                    <li ng-if="!vm.frequent.$resolved">
+                        <div class="pipe"></div>
+                        <div class="title title--action loadingNode">
+                            <span class="loading"></span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.frequent._failed">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span>Failed to load tree</span>
+                        </div>
                     </li>
                 </ul>
             </li>

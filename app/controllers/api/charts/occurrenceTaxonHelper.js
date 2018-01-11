@@ -113,7 +113,7 @@ function childrenToArray(item) {
             childrenToArray(item.children[key]);
         });
     }
-    item.children = _.values(item.children);
+    item.children = _.orderBy(_.values(item.children), 'count', 'desc');
 }
 
 function getTreePath(taxon){

@@ -33,4 +33,10 @@
             <span class="discreet--very occurrenceTaxonomy__filter">{{ (item._count - item.childCount) | localNumber }}</span>
         </div>
     </li>
+    <li ng-if="item.expanded && item.state == 'FAILED'">
+        <div class="pipe"></div>
+        <div class="title title--action">
+            <span>Failed to load tree</span>
+        </div>
+    </li>
 </ul>

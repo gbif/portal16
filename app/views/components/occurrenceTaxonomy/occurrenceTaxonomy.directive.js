@@ -36,7 +36,6 @@ function occurrenceTaxonomyDirective(BUILD_VERSION) {
     /** @ngInject */
     function occurrenceTaxonomy($q, Species, $scope, $state, OccurrenceFrequentTaxa, OccurrenceFilter, OccurrenceTaxonSearch) {
         var vm = this;
-        vm.fullTree = {children:[], expanded: true};
 
         function updateTree() {
             if (_.get(vm.frequent, '$cancelRequest')) {
@@ -46,13 +45,13 @@ function occurrenceTaxonomyDirective(BUILD_VERSION) {
             var q = _.merge({}, filter, vm.options);
             vm.frequent = OccurrenceFrequentTaxa.query(q);
             vm.tree = undefined;
+            vm.frequent._failed = false;
             vm.frequent.$promise
                 .then(function (data) {
-                    console.log(data.tree);
                     vm.tree = data.tree;
                 })
-                .catch(function (err) {
-                    console.log(err);
+                .catch(function () {
+                    vm.frequent._failed = true;
                 });
         }
 
@@ -69,27 +68,20 @@ function occurrenceTaxonomyDirective(BUILD_VERSION) {
         function asArray(e) {
             if (_.isArray(e)) {
                 return e;
-            } else if(_.isUndefined(e)) {
+            } else if (_.isUndefined(e)) {
                 return [];
             } else {
                 return [e];
             }
         }
 
-        vm.nextRank = function(rank){
+        vm.nextRank = function (rank) {
             if (!rank) {
                 return 'kingdom';
             }
             var nextRank = ranks[ranks.indexOf(rank.toLowerCase()) + 1];
             return nextRank;
         };
-
-        function getRankId(rank) {
-            if (!rank) {
-                rank = '';
-            }
-            return ranks.indexOf(rank.toLowerCase());
-        }
 
         function hasTaxonKey(taxon, key, rank) {
             return taxon[rank.toLowerCase() + 'Key'] === key;
@@ -99,76 +91,82 @@ function occurrenceTaxonomyDirective(BUILD_VERSION) {
             item.expanded = true;
             item.state = 'LOADING';
             var filter = vm.filter || {};
-            //what taxonkey to filter on? this is tricky as there could be an existing filter on one or more taxa. Depending on what node you expand, the existing filter would have to be included partially, fully or not at all.
 
-            /*
-            hvis key i en af eksisterende filters parents:
-                fjern alle eksisterende filters der ikke har denne key
-            ellers er det et dybere liggende barn eller eks eksakt key
-                brug kun denne key
-             */
-
-             var customQuery = {offset: item.children.length, limit: 20};
-             if (item.key) {
-                 var filterKeys = [];
-                 vm.filteredTaxa.forEach(function (taxon) {
-                     if (hasTaxonKey(taxon, item.key, item.rank)) {
-                         filterKeys.push(taxon.key);
-                     }
-                 });
-                 if (filterKeys.length == 0 && item.key) {
-                     filterKeys.push(item.key);
-                 }
-                 customQuery.taxon_key = filterKeys;
+            var customQuery = {offset: item.children.length, limit: 20};
+            if (item.key) {
+                var filterKeys = [];
+                vm.filteredTaxa.forEach(function (taxon) {
+                    if (hasTaxonKey(taxon, item.key, item.rank)) {
+                        filterKeys.push(taxon.key);
+                    }
+                });
+                if (filterKeys.length == 0 && item.key) {
+                    filterKeys.push(item.key);
+                }
+                customQuery.taxon_key = filterKeys;
             }
 
             var rank = item.rank || '';
             var nextRank = vm.nextRank(rank);
             if (!nextRank) {
-                item.state = undefined;
-                item.loading = 'END';
+                item.state = 'END';
                 return;
             }
             customQuery.type = nextRank;
             var query = _.assign({}, filter, customQuery);
-            item.loading = true;
-            OccurrenceTaxonSearch.query(query, function (data) {
-                //item.children = [{scientificName: '234', children: []}, {scientificName: '234', children: []}];
-                data.results.forEach(function(e){
-                    e.children = [];
+
+            if (_.get(vm.taxonSearchPromise, '$cancelRequest')) {
+                vm.taxonSearchPromise.$cancelRequest();
+                updateItemState(vm.loadingItem);
+                vm.loadingItem.cancelled = true;
+            }
+
+            vm.taxonSearchPromise = OccurrenceTaxonSearch.query(query);
+            vm.loadingItem = item;
+            vm.loadingItem.cancelled = false;
+            vm.taxonSearchPromise.$promise
+                .then(function (data) {
+                    item.endOfRecords = data.endOfRecords;
+                    updateItemState(item);
+                    //if (data.offset >= item.children.length) {
+                        data.results.forEach(function (e) {
+                            e.children = [];
+                        });
+                        item.children = _.concat(item.children, data.results);
+                        item.childCount = _.sumBy(item.children, '_count');
+                        if (item.children.length == 1 && data.endOfRecords) {
+                            vm.toggleTaxa(item.children[0])
+                        }
+                    //}
+                })
+                .catch(function (err) {
+                    if (!item.cancelled) {
+                        item.state = 'FAILED';
+                    }
                 });
-                item.children = _.concat(item.children, data.results);
-                item.childCount = _.sumBy(item.children, '_count');
-                if (item.children.length)
-                //item.children.splice(-1, 0, data.results);
-                //item.children.push({scientificName: '234', children: []});
-                item.endOfRecords = data.endOfRecords;
-                item.state = data.endOfRecords ? 'END' : 'MORE';
-                item.loading = false;
-                if (item.children.length == 1 && data.endOfRecords) {
-                    vm.toggleTaxa(item.children[0])
-                }
-            }, function () {
-                //TODO handle request error
-            });
         };
 
+        function updateItemState(item) {
+            item.state = item.endOfRecords ? 'END' : 'MORE';
+        }
+
         function restartTree() {
-            vm.fullTree = {children:[]};
+            vm.fullTree = {children: [], expanded: true};
             //Get taxa that is a part of the filter
-            var filteredTaxaPromises = asArray(vm.filter.taxon_key).map(function(e){
+            var filteredTaxaPromises = asArray(vm.filter.taxon_key).map(function (e) {
                 return Species.get({id: e});
             });
             vm.filteredTaxa = [];
             $q.all(filteredTaxaPromises)
-                .then(function(results){
+                .then(function (results) {
                     vm.filteredTaxa = results;
                     vm.appendTaxa(vm.fullTree);
                 })
-                .catch(function(err){
+                .catch(function (err) {
                     console.log(err);
                 });
         }
+
         restartTree();
 
 
@@ -181,11 +179,6 @@ function occurrenceTaxonomyDirective(BUILD_VERSION) {
                 $state.go('occurrenceSearchTable', q);
             }
         };
-
-        //$scope.create = function (element) {
-        //    vm.chartElement = element[0].querySelector('.chartArea');
-        //    updateChart('month');
-        //};
 
         $scope.$watchCollection(function () {
             return vm.options
