@@ -15,7 +15,7 @@
                     <div>
                         <ul class="list-chips">
                             <li ng-repeat="country in datasetKey.publishingCountries.facets[0].counts">
-                                <a href="{$ gb.locales.urlPrefix $}/occurrence/search?advanced=1&publishing_country={{ country.name }}">{{ 'country.' + country.name | translate }}: {{ country.count | localNumber }}</a>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/search?advanced=1&dataset_key={{ datasetKey.key }}&publishing_country={{ country.name }}">{{ 'country.' + country.name | translate }}: {{ country.count | localNumber }}</a>
                             </li>
                         </ul>
                     </div>

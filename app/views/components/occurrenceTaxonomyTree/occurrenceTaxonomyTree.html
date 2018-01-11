@@ -1,0 +1,76 @@
+<div class="occurrenceTaxonomyTree">
+    <ng-transclude></ng-transclude>
+    <div>
+        <ul class="occurrenceTaxonomyTree__root">
+            <li>
+                <div class="pipe"></div>
+                <div class="title occurrenceTaxonomyTree__toggle">
+                    <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: !vm.showFrequenyTree}">Explore</a>
+                    <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: vm.showFrequenyTree}">Frequent</a>
+                </div>
+                <ul class="hasTreeLines" ng-if="!vm.showFrequenyTree">
+                    <li ng-repeat="item in vm.fullTree.children">
+                        <div class="pipe"></div>
+                        <div class="title">
+                            <a ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item.canonicalName}}</a>
+                            <a href="" ng-click="vm.search(item.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item._count | localNumber }}</a>
+                        </div>
+                        <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialExplorerTree.html'"></div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'LOADING'">
+                        <div class="pipe"></div>
+                        <div class="title title--action loadingNode">
+                            <span class="loading"></span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'MORE'">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <a href="" ng-click="vm.appendTaxa(vm.fullTree)">…</a>
+                        </div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'END' && vm.fullTree.children.length == 0">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span>No occurrences</span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'FAILED'">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span>Failed to load tree</span>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="hasTreeLines" ng-if="vm.showFrequenyTree">
+                    <li ng-repeat="item in vm.tree">
+                        <div class="pipe"></div>
+                        <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline">
+                            <div style="width:{{item.percentage | formatAsPercentage}}%"></div>
+                            <span>{{item.canonicalName}}</span><span class="discreet--very">{{item.percentage | formatAsPercentage }}%</span>
+                        </a>
+                        <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialTree.html'"></div>
+                    </li>
+                    <li ng-if="!vm.frequent.$resolved">
+                        <div class="pipe"></div>
+                        <div class="title title--action loadingNode">
+                            <span class="loading"></span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.frequent.$resolved && vm.tree.length == 0">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span>No occurrences</span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.frequent._failed">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span>Failed to load tree</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

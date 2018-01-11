@@ -1,7 +1,8 @@
-<h3 class="card-header">Taxonomy</h3>
-<div class="card">
+<div class="card__content">
+    <h4 class="card-header">Taxonomy breakdown</h4>
 
-    <div class="card__content" ng-if="checklistTaxonomyStats.loading || checklistTaxonomyStats.preparing" layout="row" layout-align="center center">
+
+    <div  ng-if="checklistTaxonomyStats.loading || checklistTaxonomyStats.preparing" layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
         <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
         <p ng-if="checklistTaxonomyStats.preparing">Preparing data</p>

@@ -1,0 +1,16 @@
+<ul class="sub-menu">
+    <li ng-repeat="item in item.children">
+        <div class="pipe"></div>
+        <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline">
+            <div style="width:{{item.percentage | formatAsPercentage}}%"></div>
+            <span>{{item.canonicalName}}</span><span class="discreet--very">{{item.percentage | formatAsPercentage }}%</span>
+        </a>
+
+        <div ng-switch on="item.children.length > 0">
+            <div ng-switch-when="true">
+                <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialTree.html'"></div>
+            </div>
+        </div>
+
+    </li>
+</ul>

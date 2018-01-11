@@ -9,25 +9,44 @@
             </div>
         </div>
 
-        <section ng-if="portal.hasRole('REGISTRY_ADMIN')">
-            <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
-        </section>
+        <div ng-if="portal.hasRole('REGISTRY_ADMIN')">
 
-        <section ng-if="portal.hasRole('REGISTRY_ADMIN')">
-            <occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
-        </section>
 
-       <section ng-if="portal.hasRole('REGISTRY_ADMIN')">
-            <h3 class="card-header">Checklist metrics</h3>
-            <div class="card">
-                <div class="card__content">
-                    sdf
+            <section ng-if="datasetKey.dataset.type == 'CHECKLIST'" class="m-b-1">
+                <h3 class="card-header">Checklist metrics</h3>
+                <div class="card">
+
+                        <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
+
+                    <div class="card__content seperator">
+                        <h4 class="card-header">Issues</h4>
+                        <div>Something goes here and MORE</div>
+                    </div>
                 </div>
-                <occurrence-chart filter="{datasetKey: datasetKey.key}">
-                    Comment on chart from caller
-                </occurrence-chart>
-            </div>
-        </section>
+            </section>
+
+           <section ng-if="datasetKey.occurrences.count > 0" class="m-b-1">
+                <h3 class="card-header">Occurrence metrics</h3>
+                <div class="card">
+                    <occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
+                    {#<div class="card__content">#}
+                        {#<h4 class="card-header">Taxonomic distribution of occurrences</h4>#}
+                        {#<occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>#}
+                    {#</div>#}
+                    <div class="card__content">
+                        <h4 class="card-header">Months</h4>
+                        <occurrence-chart filter="{datasetKey: datasetKey.key}">
+                            Comment on chart from caller
+                        </occurrence-chart>
+                    </div>
+                    <div class="card__content seperator">
+                        <h4 class="card-header">Other wonderful occurrence stats</h4>
+                        <div>...</div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
 
     </div>
 </section>

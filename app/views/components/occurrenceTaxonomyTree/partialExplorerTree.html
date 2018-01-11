@@ -1,0 +1,42 @@
+<ul class="sub-menu">
+    <li ng-repeat="item in item.children">
+        <div class="pipe"></div>
+        <div class="title">
+            <a ng-if="item.rank !== 'SPECIES'" ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item.canonicalName}}</a>
+            <span ng-if="item.rank === 'SPECIES'">{{item.canonicalName}}</span>
+            <a href="" ng-click="vm.search(item.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item._count | localNumber }}</a>
+        </div>
+        <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialExplorerTree.html'"></div>
+    </li>
+    <li ng-if="item.expanded && item.state == 'LOADING'">
+        <div class="pipe"></div>
+        <div class="title title--action loadingNode">
+            <span class="loading"></span>
+        </div>
+    </li>
+    <li ng-if="item.expanded && item.state == 'MORE'">
+        <div class="pipe"></div>
+        <div class="title title--action">
+            <a href="" ng-click="vm.appendTaxa(item)">…</a>
+        </div>
+    </li>
+    <li ng-if="item.expanded && item.state == 'EMPTY'">
+        <div class="pipe"></div>
+        <div class="title title--action">
+            <span>No immediate children</span>
+        </div>
+    </li>
+    <li ng-if="item.expanded && item.state == 'END' && item.childCount !== item._count">
+        <div class="pipe"></div>
+        <div class="title title--action">
+            <span>Unknown {{vm.nextRank(item.rank)}}</span>
+            <span class="discreet--very occurrenceTaxonomyTree__filter">{{ (item._count - item.childCount) | localNumber }}</span>
+        </div>
+    </li>
+    <li ng-if="item.expanded && item.state == 'FAILED'">
+        <div class="pipe"></div>
+        <div class="title title--action">
+            <span>Failed to load tree</span>
+        </div>
+    </li>
+</ul>

@@ -34,7 +34,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function occurrenceChart($state, $scope, OccurrenceChartBasic, Highcharts) {
+    function occurrenceChart($http, $state, $scope, OccurrenceChartBasic, Highcharts) {
         var vm = this;
 
         function updateChart(dimension){
@@ -131,7 +131,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
             console.log(lowIndex);
             var majorSerie = serie;
             if (lowIndex != -1) {
-                lowIndex = Math.min(lowIndex, 5);
+                lowIndex = Math.max(lowIndex, 5);
                 majorSerie = serie.slice(0, lowIndex);
                 var minor = serie.slice(lowIndex);
                 if (minor.length > 0) {

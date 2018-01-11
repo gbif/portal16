@@ -5,6 +5,7 @@ require('./directives/checklistTaxonomyStats.directive.js');
 require('./directives/occurrenceDatasetTaxonomyStats.directive.js');
 
 require('../../../../components/occurrenceChart/occurrenceChart.directive');
+require('../../../../components/occurrenceTaxonomyTree/occurrenceTaxonomyTree.directive');
 
 angular
     .module('portal')

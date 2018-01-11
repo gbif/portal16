@@ -26,7 +26,7 @@ router.get('/basic', function (req, res) {
 });
 
 router.get('/frequentTaxa', function (req, res) {
-    taxonHelper.getMostFrequentTaxa(req.query, req.query.percentage || 10)
+    taxonHelper.getMostFrequentTaxa(req.query, req.query.percentage, req.query.limit)
         .then(function (chartData) {
             res.json(chartData);
         })

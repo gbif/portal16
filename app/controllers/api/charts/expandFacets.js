@@ -42,6 +42,11 @@ async function expandFacet(facet, __, includeFullObject){
             let translationPath = options[facet.field].translationPath.replace('{VALUE}', f.name);
             f.displayName = __(translationPath);
         });
+        if (options[facet.field].ordering === 'NUMERIC') {
+            facet.counts = _.sortBy(facet.counts, function(e){
+                return _.toSafeInteger(e.name);
+            });
+        }
         return facet;
     } else if (options[facet.field].type == type.KEY) {
         let facetPromises = facet.counts.map(function(item){return addResolveUrl(item, options[facet.field], includeFullObject)});
@@ -103,7 +108,8 @@ let options = {
     MONTH: {
         type: type.ENUM,
         translationPath: 'month.{VALUE}',
-        enums: enums.month
+        enums: enums.month,
+        ordering: 'NUMERIC'
     },
     ISSUE: {
         type: type.ENUM,
