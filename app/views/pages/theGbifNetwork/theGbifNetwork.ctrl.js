@@ -349,7 +349,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                     } else {
                         var picked = false;
                         contact.roles.forEach(function(role){
-                            if (region === 'GLOBAL' && role.role.indexOf('CHAIR') !== -1) {
+                            if (region === 'GLOBAL' && role.role.indexOf('NODES_COMMITTEE') !== -1 && role.role.indexOf('CHAIR') !== -1) {
                                 picked = true
                             }
                             else if(region !== 'GLOBAL' && role.role.indexOf(region) !== -1){
