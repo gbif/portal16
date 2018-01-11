@@ -31,6 +31,21 @@ function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
         });
     };
     vm.getDownloads();
+
+    vm.api = {test: 5};
+    vm.exportOptions = [{
+        textKey: 'printChart',
+        onclick: function () {
+            vm.api.print();
+        }
+    }, {
+        separator: true
+    }, {
+        textKey: 'downloadPNG',
+        onclick: function () {
+            vm.api.exportChart();
+        }
+    }];
 }
 
 module.exports = datasetStatsCtrl;

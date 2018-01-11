@@ -28,24 +28,28 @@
            <section ng-if="datasetKey.occurrences.count > 0" class="m-b-1">
                 <h3 class="card-header">Occurrence metrics</h3>
                 <div class="card">
-                    <occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
-                    {#<div class="card__content">#}
-                        {#<h4 class="card-header">Taxonomic distribution of occurrences</h4>#}
-                        {#<occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>#}
-                    {#</div>#}
-                    <div class="card__content">
-                        <h4 class="card-header">Months</h4>
-                        <occurrence-chart filter="{datasetKey: datasetKey.key}">
-                            Comment on chart from caller
-                        </occurrence-chart>
+                    <div class="card__content seperator">
+                        <h4 class="card-header">Sunburst</h4>
+                        <occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
                     </div>
                     <div class="card__content seperator">
-                        <h4 class="card-header">Other wonderful occurrence stats</h4>
-                        <div>...</div>
+                        <h4 class="card-header">Taxonomic distribution of occurrences</h4>
+                        <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>
                     </div>
+                    <div class="card__content seperator">
+                        <occurrence-chart filter="{datasetKey: datasetKey.key}" api="datasetStats.api"></occurrence-chart>
+                        {#<div>#}
+                            {#<button ng-click="datasetStats.api.print()">print</button>#}
+                            {#<button ng-click="datasetStats.api.png()">png</button>#}
+                        {#</div>#}
+                    </div>
+                    {#<div class="card__content seperator">#}
+                        {#<h4 class="card-header">Other wonderful occurrence stats</h4>#}
+                        {#<div>...</div>#}
+                    {#</div>#}
                 </div>
             </section>
-            
+
         </div>
 
     </div>

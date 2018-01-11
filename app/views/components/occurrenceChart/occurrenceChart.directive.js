@@ -18,7 +18,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/occurrenceChart/occurrenceChart.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
-            chartOptions: '='
+            chartOptions: '=',
+            api: '='
         },
         link: chartLink,
         controller: occurrenceChart,
@@ -37,7 +38,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
     function occurrenceChart($http, $state, $scope, OccurrenceChartBasic, Highcharts) {
         var vm = this;
 
-        function updateChart(dimension){
+        function updateChart(dimension) {
             var filter = vm.filter || {};
             var q = _.merge({}, filter, {chartDimension: dimension});
             OccurrenceChartBasic.query(q).$promise
@@ -76,12 +77,10 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         animation: false,
                         point: {
                             events: {
-                                click: function() {
-                                    console.log('Category: '+ this.category +', value: '+ this.y);
+                                click: function () {
                                     var filter = vm.filter || {};
                                     var q = _.merge({}, filter);
                                     q[vm.data.dimension] = vm.data.categoryKeys[this.index];
-                                    console.log(q);
                                     $state.go('occurrenceSearchTable', q);
                                 }
                             }
@@ -92,7 +91,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     minPointLength: 10
                 },
                 title: {
-                    text: data.title
+                    text: ''//data.title
                 },
                 xAxis: {
                     categories: data.categories,
@@ -111,6 +110,13 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 }],
                 credits: {
                     enabled: false
+                },
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            enabled: false
+                        }
+                    }
                 }
             }
         }
@@ -121,10 +127,12 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     name: data.categories[i],
                     y: e
                 }
-            }).sort(function (a, b) {  return b.y - a.y;  });
+            }).sort(function (a, b) {
+                return b.y - a.y;
+            });
 
-            var lowCount = data.series[0].total/50;
-            var lowIndex = _.findIndex(serie, function(a){
+            var lowCount = data.series[0].total / 50;
+            var lowIndex = _.findIndex(serie, function (a) {
                 return a.y < lowCount;
             });
             lowIndex = Math.min(20, lowIndex);
@@ -152,7 +160,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     }
                 },
                 title: {
-                    text: data.title
+                    text: ''//data.title
                 },
                 tooltip: {
                     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -173,6 +181,19 @@ function occurrenceChartDirective(BUILD_VERSION) {
             vm.chartElement = element[0].querySelector('.chartArea');
             updateChart('month');
         };
+
+        //create API
+        console.log(vm.api);
+        vm.api.print = function () {
+            vm.myChart.print();
+        };
+        vm.api.png = function () {
+            vm.myChart.exportChart();
+        };
+
+        if (Object.freeze) {
+            Object.freeze(vm.api);
+        }
 
         //$scope.$watchCollection(function () {
         //    return vm.filter

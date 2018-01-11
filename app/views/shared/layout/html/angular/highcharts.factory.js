@@ -57,15 +57,16 @@ Highcharts.theme = {
     },
     title: {
         style: {
-            //color: '#E0E0E3',
-            //textTransform: 'uppercase',
-            fontSize: '14px'
+            color: '#666',
+            fill: '#666',
+            textTransform: 'uppercase',
+            fontSize: '12px'
         }
     },
     subtitle: {
         style: {
-            color: '#E0E0E3'
-            //textTransform: 'uppercase'
+            color: '#666',
+            fontSize: '12px'
         }
     },
     //xAxis: {
