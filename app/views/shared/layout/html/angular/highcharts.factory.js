@@ -39,16 +39,16 @@ angular
     });
 
 Highcharts.theme = {
-    colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
+    colors: ['#71b171', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
         '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
     chart: {
-        backgroundColor: {
-            linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-            stops: [
-                [0, '#2a2a2b'],
-                [1, '#3e3e40']
-            ]
-        },
+        //backgroundColor: {
+        //    linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+        //    stops: [
+        //        [0, '#2a2a2b'],
+        //        [1, '#3e3e40']
+        //    ]
+        //},
         style: {
             fontFamily: 'Roboto, sans-serif'
         },
@@ -56,51 +56,51 @@ Highcharts.theme = {
     },
     title: {
         style: {
-            color: '#E0E0E3',
-            textTransform: 'uppercase',
-            fontSize: '20px'
+            //color: '#E0E0E3',
+            //textTransform: 'uppercase',
+            fontSize: '14px'
         }
     },
     subtitle: {
         style: {
-            color: '#E0E0E3',
-            textTransform: 'uppercase'
+            color: '#E0E0E3'
+            //textTransform: 'uppercase'
         }
     },
-    xAxis: {
-        gridLineColor: '#707073',
-        labels: {
-            style: {
-                color: '#E0E0E3'
-            }
-        },
-        lineColor: '#707073',
-        minorGridLineColor: '#505053',
-        tickColor: '#707073',
-        title: {
-            style: {
-                color: '#A0A0A3'
-
-            }
-        }
-    },
-    yAxis: {
-        gridLineColor: '#707073',
-        labels: {
-            style: {
-                color: '#E0E0E3'
-            }
-        },
-        lineColor: '#707073',
-        minorGridLineColor: '#505053',
-        tickColor: '#707073',
-        tickWidth: 1,
-        title: {
-            style: {
-                color: '#A0A0A3'
-            }
-        }
-    },
+    //xAxis: {
+    //    gridLineColor: '#707073',
+    //    labels: {
+    //        style: {
+    //            color: '#E0E0E3'
+    //        }
+    //    },
+    //    lineColor: '#707073',
+    //    minorGridLineColor: '#505053',
+    //    tickColor: '#707073',
+    //    title: {
+    //        style: {
+    //            color: '#A0A0A3'
+    //
+    //        }
+    //    }
+    //},
+    //yAxis: {
+    //    gridLineColor: '#707073',
+    //    labels: {
+    //        style: {
+    //            color: '#E0E0E3'
+    //        }
+    //    },
+    //    lineColor: '#707073',
+    //    minorGridLineColor: '#505053',
+    //    tickColor: '#707073',
+    //    tickWidth: 1,
+    //    title: {
+    //        style: {
+    //            color: '#A0A0A3'
+    //        }
+    //    }
+    //},
     tooltip: {
         backgroundColor: 'rgba(0, 0, 0, 0.85)',
         style: {
@@ -159,9 +159,10 @@ Highcharts.theme = {
 
     navigation: {
         buttonOptions: {
-            symbolStroke: '#DDDDDD',
+            symbolStroke: '#666',
             theme: {
-                fill: '#505053'
+                //fill: '#f00'
+                //fill: '#505053'
             }
         }
     },

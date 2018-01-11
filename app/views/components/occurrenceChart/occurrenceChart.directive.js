@@ -37,15 +37,6 @@ function occurrenceChartDirective(BUILD_VERSION) {
     function occurrenceChart($http, $state, $scope, OccurrenceChartBasic, Highcharts) {
         var vm = this;
 
-        $http.get('/api/chart/occurrence/frequentTaxa?datasetKey=' + vm.filter.datasetKey + '&percentage=2', {})
-            .then(function(response){
-                console.log(response.data.tree);
-                vm.tree = response.data.tree;
-            })
-            .catch(function(err){
-                console.log(err);
-            });
-
         function updateChart(dimension){
             var filter = vm.filter || {};
             var q = _.merge({}, filter, {chartDimension: dimension});
