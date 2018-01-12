@@ -45,16 +45,26 @@ function occurrenceChartDirective(BUILD_VERSION) {
             OccurrenceChartBasic.query(q).$promise
                 .then(function (data) {
                     vm.data = data;
+                    setChartHeight();
+                    vm.chartElement.style.height = vm.chartHeight + 'px';
                     if (vm.myChart) {
                         vm.myChart.destroy();
                     }
 
                     if (vm.options.type == 'BAR') {
                         vm.myChart = Highcharts.chart(asBarChart(data, vm.logScale));
-                    } else if(vm.options.type == 'PIE') {
+                    } else if (vm.options.type == 'PIE') {
                         vm.myChart = Highcharts.chart(asPieChart(data));
                     }
                 });
+        }
+
+        function setChartHeight () {
+            if (vm.options.type == 'BAR') {
+                vm.chartHeight = _.get(vm.data, 'categories.length', 10)*30;
+            } else {
+                vm.chartHeight = 400;
+            }
         }
 
         vm.changeDimension = function (dimension) {
@@ -63,11 +73,15 @@ function occurrenceChartDirective(BUILD_VERSION) {
 
         vm.toggleBarChart = function () {
             vm.myChart.destroy();
+            setChartHeight();
+            vm.chartElement.style.height = vm.chartHeight + 'px';
             vm.myChart = Highcharts.chart(asBarChart(vm.data, vm.logScale));
         };
 
         vm.togglePieChart = function () {
             vm.myChart.destroy();
+            setChartHeight();
+            vm.chartElement.style.height = vm.chartHeight + 'px';
             vm.myChart = Highcharts.chart(asPieChart(vm.data));
         };
 

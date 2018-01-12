@@ -58,16 +58,19 @@
                     </div>
                 </div>
             </section>
-            <div class="">
-                <md-input-container>
-                    <label>Dimension</label>
-                    <md-select ng-model="datasetStats.chartDimension" ng-change="datasetStats.addNewChart(datasetStats.chartDimension)">
-                        <md-option><em>None</em></md-option>
-                        <md-option ng-repeat="field in datasetStats.chartFieldTypes" ng-value="field" Xng-disabled="$index === 1">
-                            {{field}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
+            <div style="border:5px dashed #ddd; padding: 50px; text-align:center; color: #888">
+                <div>
+                    <h3>Add new chart</h3>
+                    <md-input-container>
+                        <label>Dimension</label>
+                        <md-select ng-model="datasetStats.chartDimension" ng-change="datasetStats.addNewChart(datasetStats.chartDimension)">
+                            <md-option><em>None</em></md-option>
+                            <md-option ng-repeat="field in datasetStats.chartFieldTypes" ng-value="field" Xng-disabled="$index === 1">
+                                {{field}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
             </div>
 
         </div>
