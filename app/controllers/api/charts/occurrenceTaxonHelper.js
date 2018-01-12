@@ -19,7 +19,7 @@ async function getMostFrequentTaxa(filter, percentage, limit) {
     //get n most frequent taxa for each major rank
     let facetLimit = limit || 20;
     if (percentage) {
-        percentage = _.toSafeInteger(Math.max(Math.min(100, percentage), 1));
+        percentage = Math.max(Math.min(100, _.toNumber(percentage)), 0.01);
         facetLimit = _.toSafeInteger(100/percentage);
     }
 

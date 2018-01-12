@@ -1,20 +1,15 @@
 <div>
-    <div>
-        <h4 class="card-header text-center inline-block">Occurrences per month</h4>
-        <div class="header-options inline-block pull-right">
-            <a href="" class="gb-icon-filters inherit noUnderline"></a>
-            <a href="" class="gb-icon-more2 inherit noUnderline" ng-click="vm.api.png()"></a>
-            <div></div>
+    <occurrence-chart-header api="vm.api" ng-if="vm.options.showHeader"></occurrence-chart-header>
+    <div class="chartArea" style="width:100%; height:400px;"></div>
+
+    <div class="text-right small" ng-if="vm.options.type == 'BAR'">
+        <div class="gb-btn-group">
+            <label ng-model="vm.logScale" uib-btn-radio="false"
+                   ng-change="vm.toggleBarChart()">Linear</label>
+            <label ng-model="vm.logScale" uib-btn-radio="true"
+                   ng-change="vm.toggleBarChart()">Logarithmic</label>
         </div>
     </div>
-    <div class="chartArea" style="width:100%; height:400px;"></div>
-    <button ng-click="vm.toggleBarChart(false)">Bar</button>
-    <button ng-click="vm.toggleBarChart(true)">Bar logaritmic</button>
-    <button ng-click="vm.togglePieChart()">Pie</button>
 
-    <button ng-click="vm.changeDimension('month')">month</button>
-    <button ng-click="vm.changeDimension('issue')">issue</button>
-    <button ng-click="vm.changeDimension('country')">country</button>
     <ng-transclude></ng-transclude>
-
 </div>

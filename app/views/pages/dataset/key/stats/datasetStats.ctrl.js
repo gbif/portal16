@@ -5,6 +5,7 @@ require('./directives/checklistTaxonomyStats.directive.js');
 require('./directives/occurrenceDatasetTaxonomyStats.directive.js');
 
 require('../../../../components/occurrenceChart/occurrenceChart.directive');
+require('../../../../components/occurrenceChart/occurrenceChartHeader.directive');
 require('../../../../components/occurrenceTaxonomyTree/occurrenceTaxonomyTree.directive');
 
 angular
@@ -32,20 +33,29 @@ function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
     };
     vm.getDownloads();
 
-    vm.api = {test: 5};
-    vm.exportOptions = [{
-        textKey: 'printChart',
-        onclick: function () {
-            vm.api.print();
-        }
-    }, {
-        separator: true
-    }, {
-        textKey: 'downloadPNG',
-        onclick: function () {
-            vm.api.exportChart();
-        }
+    vm.api = {};
+    vm.options = {
+        showHeader: false
+    };
+
+    vm.addNewChart = function(dimension){
+        console.log(dimension);
+        vm.charts.push(
+            {
+                filter: {dataset_key: vm.key},
+                api: {},
+                options: {showHeader: false, dimension: dimension, type: 'PIE'}
+            }
+        );
+    };
+
+    vm.charts = [{
+        filter: {dataset_key: vm.key},
+        api: {},
+        options: {showHeader: false, dimension: 'month', type: 'BAR'}
     }];
+    vm.chartDimension;
+    vm.chartFieldTypes = ['month', 'issue', 'country'];
 }
 
 module.exports = datasetStatsCtrl;

@@ -14,7 +14,7 @@
 
             <section ng-if="datasetKey.dataset.type == 'CHECKLIST'" class="m-b-1">
                 <h3 class="card-header">Checklist metrics</h3>
-                <div class="card">
+                <div class="card card--spaced">
 
                         <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
 
@@ -25,30 +25,50 @@
                 </div>
             </section>
 
-           <section ng-if="datasetKey.occurrences.count > 0" class="m-b-1">
-                <h3 class="card-header">Occurrence metrics</h3>
-                <div class="card">
-                    <div class="card__content seperator">
-                        <h4 class="card-header">Sunburst</h4>
-                        <occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
-                    </div>
-                    <div class="card__content seperator">
-                        <h4 class="card-header">Taxonomic distribution of occurrences</h4>
-                        <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>
-                    </div>
-                    <div class="card__content seperator">
-                        <occurrence-chart filter="{datasetKey: datasetKey.key}" api="datasetStats.api"></occurrence-chart>
+           {#<section ng-if="datasetKey.occurrences.count > 0" class="m-b-1">#}
+                {#<h3 class="card-header">Occurrence metrics</h3>#}
+                {#<div class="card card--spaced">#}
+                    {#<div class="card__content seperator">#}
+                        {#<h4 class="card-header">Sunburst</h4>#}
+                        {#<occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>#}
+                    {#</div>#}
+                    {#<div class="card__content seperator">#}
+                        {#<h4 class="card-header">Taxonomic distribution of occurrences</h4>#}
+                        {#<occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>#}
+                    {#</div>#}
+                    {#<div class="card__content seperator">#}
+                        {#<occurrence-chart filter="{datasetKey: datasetKey.key}" api="datasetStats.api" options="datasetStats.options"></occurrence-chart>#}
                         {#<div>#}
                             {#<button ng-click="datasetStats.api.print()">print</button>#}
                             {#<button ng-click="datasetStats.api.png()">png</button>#}
                         {#</div>#}
-                    </div>
+                    {#</div>#}
                     {#<div class="card__content seperator">#}
                         {#<h4 class="card-header">Other wonderful occurrence stats</h4>#}
                         {#<div>...</div>#}
                     {#</div>#}
+                {#</div>#}
+            {#</section>#}
+
+            <section ng-if="datasetKey.occurrences.count > 0" class="m-b-1" ng-repeat="chart in datasetStats.charts">
+                <occurrence-chart-header api="chart.api"></occurrence-chart-header>
+                <div class="card card--spaced">
+                    <div class="card__content">
+                        <occurrence-chart filter="chart.filter" dimension="chart.dimension" api="chart.api" options="chart.options"></occurrence-chart>
+                    </div>
                 </div>
             </section>
+            <div class="">
+                <md-input-container>
+                    <label>Dimension</label>
+                    <md-select ng-model="datasetStats.chartDimension" ng-change="datasetStats.addNewChart(datasetStats.chartDimension)">
+                        <md-option><em>None</em></md-option>
+                        <md-option ng-repeat="field in datasetStats.chartFieldTypes" ng-value="field" Xng-disabled="$index === 1">
+                            {{field}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
 
         </div>
 

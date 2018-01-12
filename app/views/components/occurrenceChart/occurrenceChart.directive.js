@@ -18,7 +18,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/occurrenceChart/occurrenceChart.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
-            chartOptions: '=',
+            options: '=',
             api: '='
         },
         link: chartLink,
@@ -37,6 +37,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
     /** @ngInject */
     function occurrenceChart($http, $state, $scope, OccurrenceChartBasic, Highcharts) {
         var vm = this;
+        vm.logScale = true;
 
         function updateChart(dimension) {
             var filter = vm.filter || {};
@@ -47,7 +48,12 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     if (vm.myChart) {
                         vm.myChart.destroy();
                     }
-                    vm.myChart = Highcharts.chart(asBarChart(data));
+
+                    if (vm.options.type == 'BAR') {
+                        vm.myChart = Highcharts.chart(asBarChart(data, vm.logScale));
+                    } else if(vm.options.type == 'PIE') {
+                        vm.myChart = Highcharts.chart(asPieChart(data));
+                    }
                 });
         }
 
@@ -55,9 +61,9 @@ function occurrenceChartDirective(BUILD_VERSION) {
             updateChart(dimension);
         };
 
-        vm.toggleBarChart = function (isLogaritmic) {
+        vm.toggleBarChart = function () {
             vm.myChart.destroy();
-            vm.myChart = Highcharts.chart(asBarChart(vm.data, isLogaritmic));
+            vm.myChart = Highcharts.chart(asBarChart(vm.data, vm.logScale));
         };
 
         vm.togglePieChart = function () {
@@ -86,6 +92,9 @@ function occurrenceChartDirective(BUILD_VERSION) {
                             }
                         }
                     }
+                },
+                legend: {
+                    enabled: false
                 },
                 bar: {
                     minPointLength: 10
@@ -136,7 +145,6 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 return a.y < lowCount;
             });
             lowIndex = Math.min(20, lowIndex);
-            console.log(lowIndex);
             var majorSerie = serie;
             if (lowIndex != -1) {
                 lowIndex = Math.max(lowIndex, 5);
@@ -146,7 +154,6 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     majorSerie.push({y: _.sumBy(minor, 'y'), name: 'other'});
                 }
             }
-            console.log(majorSerie);
 
             return {
                 chart: {
@@ -158,6 +165,9 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     series: {
                         animation: false
                     }
+                },
+                credits: {
+                    enabled: false
                 },
                 title: {
                     text: ''//data.title
@@ -173,22 +183,39 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 },
                 series: [{
                     data: majorSerie
-                }]
+                }],
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            enabled: false
+                        }
+                    }
+                }
             };
         }
 
         $scope.create = function (element) {
             vm.chartElement = element[0].querySelector('.chartArea');
-            updateChart('month');
+            updateChart(vm.options.dimension);
         };
 
         //create API
-        console.log(vm.api);
         vm.api.print = function () {
             vm.myChart.print();
         };
         vm.api.png = function () {
             vm.myChart.exportChart();
+        };
+        vm.api.getTitle = function () {
+            return _.get(vm.data, 'title');
+        };
+        vm.api.asPieChart = function () {
+            vm.options.type = 'PIE';
+            return vm.togglePieChart();
+        };
+        vm.api.asBarChart = function () {
+            vm.options.type = 'BAR';
+            return vm.toggleBarChart();
         };
 
         if (Object.freeze) {
