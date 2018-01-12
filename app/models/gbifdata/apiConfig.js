@@ -7,6 +7,7 @@ var baseConfig = require('../../../config/config'),
     oozie = baseConfig.serverProtocol + baseConfig.oozie,
     yarnResourceManager = baseConfig.serverProtocol + baseConfig.yarnResourceManager,
     elk = baseConfig.serverProtocol + baseConfig.elk,
+    publicKibana = baseConfig.serverProtocol + baseConfig.publicKibana,
     identityBaseUrl = baseConfig.serverProtocol + baseConfig.identityApi;
 
 // TODO Establish URL concatenation policy. Always no trailing slash?
@@ -208,6 +209,9 @@ var apiConfig = {
     },
     elkSearch: {
         url: elk + 'elasticsearch/'
+    },
+    publicKibana: {
+        url: publicKibana + '/elasticsearch/_search?'
     }
 };
 

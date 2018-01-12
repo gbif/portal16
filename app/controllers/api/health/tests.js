@@ -4,17 +4,17 @@ let severity = require('./severity').severity,
     apiConfig = require('../../../models/gbifdata/apiConfig');
 
 //select which es content to query
-let crawlIndexName = 'prod-crawl-*',
+let crawlHostName = 'prodcrawler1-vh.gbif.org',
     varnishIndexName = 'prod-varnish-*',
     downloadKey = '0000662-160118175350007';
 switch (config.healthEnv || config.env) {
     case 'dev':
-        crawlIndexName = 'dev-crawl-*';
+        crawlHostName = 'prodcrawler1-vh.gbif-dev.org';
         varnishIndexName = 'dev-varnish-*';
         downloadKey = '0000071-171031135223121';
         break;
     case 'uat':
-        crawlIndexName = 'uat-crawl-*';
+        crawlHostName = 'prodcrawler1-vh.gbif-uat.org';
         varnishIndexName = 'uat-varnish-*';
         downloadKey = '0000046-171108114045140';
         break;
@@ -143,7 +143,7 @@ var tests = [
         message: 'Resource search should return more than 100 results for a search on content type = data use'
     },
     {
-        url: apiConfig.elkSearch.url + crawlIndexName + '/_search?q=log_timestamp:%3E{SECONDS_AGO}',
+        url: apiConfig.publicKibana.url + 'q=HOSTNAME:"' + crawlHostName + '"%20AND%20@timestamp:%3E{SECONDS_AGO}',
         component: 'CRAWLER',
         secondsAgo: 180,
         type: 'NUMBER_ABOVE',

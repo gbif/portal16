@@ -110,7 +110,7 @@ async function getSpeciesImages(taxonKey) {
         //select first image
         for (var i = 0; i < items.body.results.length; i++) {
             if (items.body.results[i].type == 'StillImage') {
-                images.push(items.body.results[i].identifier);
+                images.push(items.body.results[i]);
             }
         }
 
