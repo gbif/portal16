@@ -149,7 +149,7 @@ async function getOccurrenceDatasetTaxonomy(key, taxon_key) {
 async function getChecklistTaxonomy(key) {
 
     let baseRequest = {
-        url: apiConfig.taxonSearch.url +  '?' + querystring.stringify({datasetKey : key, facet: 'higherTaxonKey', rank: 'SPECIES', facetLimit : 1000, limit: 0 }),
+        url: apiConfig.taxonSearch.url +  '?' + querystring.stringify({datasetKey : key, facet: 'higherTaxonKey', rank: 'SPECIES',  facetLimit : 1000, limit: 0 }),
         method: 'GET',
         json: true,
         fullResponse: true
