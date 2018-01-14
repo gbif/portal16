@@ -39,7 +39,6 @@ function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
     };
 
     vm.addNewChart = function(dimension){
-        console.log(dimension);
         vm.charts.push(
             {
                 filter: {dataset_key: vm.key},
@@ -49,11 +48,18 @@ function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
         );
     };
 
-    vm.charts = [{
-        filter: {dataset_key: vm.key},
-        api: {},
-        options: {showHeader: false, dimension: 'month', type: 'BAR'}
-    }];
+    vm.charts = [
+        {
+            filter: {dataset_key: vm.key},
+            api: {},
+            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
+        },
+        {
+            filter: {dataset_key: vm.key},
+            api: {},
+            options: {showHeader: false, dimension: 'basis_of_record', type: 'BAR'}
+        }
+    ];
     vm.chartDimension;
     vm.chartFieldTypes = ['month', 'issue', 'country'];
 }

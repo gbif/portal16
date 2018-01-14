@@ -1,147 +1,66 @@
-<div class="card container-fluid ng-cloak">
-    {#occurrence stats#}
-    <div class="row summaryStats" ng-if="datasetKey.occurrences.count">
-        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
-            <div>
-                <div class="summaryStats__circle summaryStats__circle--occurrences"></div>
-                <div class="summaryStats__percentage">
-                    <span>{{ datasetKey.occurrences.count | localNumber }}</span>
-                    <div>Occurrences</div>
-                </div>
-            </div>
-        </a>
-
-        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key, issue:'TAXON_MATCH_NONE'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="datasetKey.withoutTaxon.$resolved">
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="( 100*(datasetKey.occurrences.count - datasetKey.withoutTaxon.count) / datasetKey.occurrences.count)"
-                            bgcolor="#dbefef"
-                            color="#71b171"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ ( (datasetKey.occurrences.count - datasetKey.withoutTaxon.count) / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
-                    <div>With taxon match</div>
-                </div>
-            </div>
-        </a>
-
-        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key, has_geospatial_issue:false, has_coordinate:true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetKey.withCoordinates.$resolved">
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="( 100*datasetKey.withCoordinates.count / datasetKey.occurrences.count)"
-                            bgcolor="#dbefef"
-                            color="#71b171"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ (datasetKey.withCoordinates.count / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
-                    <div>With coordinates</div>
-                </div>
-            </div>
-        </a>
-
-        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key, year: '*,3000'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetKey.withYear.$resolved">
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="( 100*datasetKey.withYear.count / datasetKey.occurrences.count)"
-                            bgcolor="#dbefef"
-                            color="#71b171"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ ( datasetKey.withYear.count / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
-                    <div>With year</div>
-                </div>
-            </div>
-        </a>
-
-    </div>
-    {#checklist stats#}
-    <div class="row summaryStats" ng-if="datasetKey.taxa.count > 0">
-        <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: 'ACCEPTED'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
-            {#<div>#}
-                {#<div class="summaryStats__circle summaryStats__circle--species"></div>#}
-                {#<div class="summaryStats__percentage">#}
-                    {#<span>{{ datasetKey.stats.accepted | localNumber }}</span>#}
-                    {#<div>Accepted names</div>#}
-                {#</div>#}
-            {#</div>#}
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="100*(datasetKey.stats.accepted / datasetKey.taxa.count)"
-                            bgcolor="#dbefef"
-                            color="#8ab9c1"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ datasetKey.stats.accepted | localNumber }}</span>
-                    <div>Accepted names</div>
-                </div>
-            </div>
-        </a>
-        <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: ['HETEROTYPIC_SYNONYM', 'SYNONYM', 'PROPARTE_SYNONYM', 'HOMOTYPIC_SYNONYM']})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="100*(datasetKey.stats.synonyms / datasetKey.taxa.count)"
-                            bgcolor="#dbefef"
-                            color="#8ab9c1"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ datasetKey.stats.synonyms | localNumber }}</span>
-                    <div>Synonyms</div>
-                </div>
-            </div>
-        </a>
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="!datasetKey.isBackbone">
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="datasetKey.metrics.nubCoveragePct"
-                            bgcolor="#dbefef"
-                            color="#8ab9c1"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ datasetKey.metrics.nubCoveragePct }}%</span>
-                    <div>Overlap with GBIF Backbone</div>
-                </div>
+<div class="row summaryStats" ng-if="datasetKey.occurrences.count">
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <div>
+            <div class="summaryStats__circle summaryStats__circle--occurrences"></div>
+            <div class="summaryStats__percentage">
+                <span>{{ datasetKey.occurrences.count | localNumber }}</span>
+                <div>Occurrences</div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="!datasetKey.isPartOfCOL">
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="datasetKey.metrics.colCoveragePct"
-                            bgcolor="#dbefef"
-                            color="#8ab9c1"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ datasetKey.metrics.colCoveragePct }}%</span>
-                    <div><span>Overlap with Catalogue of Life</span></div>
-                </div>
+    </a>
+
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key, issue:'TAXON_MATCH_NONE'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="datasetKey.withoutTaxon.$resolved">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*(datasetKey.occurrences.count - datasetKey.withoutTaxon.count) / datasetKey.occurrences.count)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( (datasetKey.occurrences.count - datasetKey.withoutTaxon.count) / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
+                <div>With taxon match</div>
             </div>
         </div>
-    </div>
+    </a>
+
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key, has_geospatial_issue:false, has_coordinate:true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetKey.withCoordinates.$resolved">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*datasetKey.withCoordinates.count / datasetKey.occurrences.count)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ (datasetKey.withCoordinates.count / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
+                <div>With coordinates</div>
+            </div>
+        </div>
+    </a>
+
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key, year: '*,3000'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetKey.withYear.$resolved">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*datasetKey.withYear.count / datasetKey.occurrences.count)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( datasetKey.withYear.count / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
+                <div>With year</div>
+            </div>
+        </div>
+    </a>
+
 </div>

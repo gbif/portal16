@@ -11,12 +11,15 @@
 
         <div ng-if="portal.hasRole('REGISTRY_ADMIN')">
 
-
             <section ng-if="datasetKey.dataset.type == 'CHECKLIST'" class="m-b-1">
                 <h3 class="card-header">Checklist metrics</h3>
-                <div class="card card--spaced">
-
+                <div class="card card--spaced--very">
+                    <div class="card__content container-fluid">
+                        {% include('../intro/checklistStats.nunjucks') %}
+                    </div>
+                    <div class="card__content seperator">
                         <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
+                    </div>
 
                     <div class="card__content seperator">
                         <h4 class="card-header">Issues</h4>
@@ -25,53 +28,56 @@
                 </div>
             </section>
 
-           {#<section ng-if="datasetKey.occurrences.count > 0" class="m-b-1">#}
-                {#<h3 class="card-header">Occurrence metrics</h3>#}
-                {#<div class="card card--spaced">#}
-                    {#<div class="card__content seperator">#}
-                        {#<h4 class="card-header">Sunburst</h4>#}
-                        {#<occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>#}
-                    {#</div>#}
-                    {#<div class="card__content seperator">#}
-                        {#<h4 class="card-header">Taxonomic distribution of occurrences</h4>#}
-                        {#<occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>#}
-                    {#</div>#}
-                    {#<div class="card__content seperator">#}
-                        {#<occurrence-chart filter="{datasetKey: datasetKey.key}" api="datasetStats.api" options="datasetStats.options"></occurrence-chart>#}
-                        {#<div>#}
-                            {#<button ng-click="datasetStats.api.print()">print</button>#}
-                            {#<button ng-click="datasetStats.api.png()">png</button>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="card__content seperator">#}
-                        {#<h4 class="card-header">Other wonderful occurrence stats</h4>#}
-                        {#<div>...</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</section>#}
-
-            <section ng-if="datasetKey.occurrences.count > 0" class="m-b-1" ng-repeat="chart in datasetStats.charts">
-                <occurrence-chart-header api="chart.api"></occurrence-chart-header>
-                <div class="card card--spaced">
-                    <div class="card__content">
+           <section ng-if="datasetKey.occurrences.count > 0" class="m-b-1">
+                <h3 class="card-header">Occurrence metrics</h3>
+                <div class="card card--spaced--very">
+                    <div class="card__content container-fluid">
+                        {% include('../intro/stats.nunjucks') %}
+                    </div>
+                    <div class="card__content seperator">
+                        <div ng-init="datasetKey.occurrenceTaxonomy = 'SUNBURST'">
+                            <h4 class="card-header text-center inline-block">Taxonomic distribution of occurrences</h4>
+                            <div class="header-options inline-block pull-right">
+                                <a href="" class="gb-icon-bar-chart inherit noUnderline" ng-click="datasetKey.occurrenceTaxonomy = 'TREE'"></a>
+                                <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="datasetKey.occurrenceTaxonomy = 'SUNBURST'"></a>
+                            </div>
+                        </div>
+                        <div ng-if="datasetKey.occurrenceTaxonomy == 'SUNBURST'">
+                            <occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
+                        </div>
+                        <div ng-if="datasetKey.occurrenceTaxonomy == 'TREE'">
+                            <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>
+                        </div>
+                    </div>
+                    <div ng-if="datasetKey.occurrences.count > 0" class="card__content seperator" ng-repeat="chart in datasetStats.charts">
+                        <occurrence-chart-header api="chart.api"></occurrence-chart-header>
                         <occurrence-chart filter="chart.filter" dimension="chart.dimension" api="chart.api" options="chart.options"></occurrence-chart>
                     </div>
                 </div>
             </section>
-            <div style="border:5px dashed #ddd; padding: 50px; text-align:center; color: #888">
-                <div>
-                    <h3>Add new chart</h3>
-                    <md-input-container>
-                        <label>Dimension</label>
-                        <md-select ng-model="datasetStats.chartDimension" ng-change="datasetStats.addNewChart(datasetStats.chartDimension)">
-                            <md-option><em>None</em></md-option>
-                            <md-option ng-repeat="field in datasetStats.chartFieldTypes" ng-value="field" Xng-disabled="$index === 1">
-                                {{field}}
-                            </md-option>
-                        </md-select>
-                    </md-input-container>
-                </div>
-            </div>
+
+            {#<section ng-if="datasetKey.occurrences.count > 0" class="m-b-1" ng-repeat="chart in datasetStats.charts">#}
+                {#<occurrence-chart-header api="chart.api"></occurrence-chart-header>#}
+                {#<div class="card card--spaced">#}
+                    {#<div class="card__content">#}
+                        {#<occurrence-chart filter="chart.filter" dimension="chart.dimension" api="chart.api" options="chart.options"></occurrence-chart>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</section>#}
+            {#<div style="border:5px dashed #ddd; padding: 50px; text-align:center; color: #888">#}
+                {#<div>#}
+                    {#<h3>Add new chart</h3>#}
+                    {#<md-input-container>#}
+                        {#<label>Dimension</label>#}
+                        {#<md-select ng-model="datasetStats.chartDimension" ng-change="datasetStats.addNewChart(datasetStats.chartDimension)">#}
+                            {#<md-option><em>None</em></md-option>#}
+                            {#<md-option ng-repeat="field in datasetStats.chartFieldTypes" ng-value="field" Xng-disabled="$index === 1">#}
+                                {#{{field}}#}
+                            {#</md-option>#}
+                        {#</md-select>#}
+                    {#</md-input-container>#}
+                {#</div>#}
+            {#</div>#}
 
         </div>
 

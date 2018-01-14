@@ -1,15 +1,22 @@
 <div>
     <occurrence-chart-header api="vm.api" ng-if="vm.options.showHeader"></occurrence-chart-header>
-    <div class="chartArea" style="width:100%;"></div>
+    <div ng-show="vm.data.categories.length > 0">
+        <div class="chartArea" style="width:100%;"></div>
 
-    <div class="text-right small" ng-if="vm.options.type == 'BAR'">
-        <div class="gb-btn-group">
-            <label ng-model="vm.logScale" uib-btn-radio="false"
-                   ng-change="vm.toggleBarChart()">Linear</label>
-            <label ng-model="vm.logScale" uib-btn-radio="true"
-                   ng-change="vm.toggleBarChart()">Logarithmic</label>
+        <div class="text-right small" ng-if="vm.options.type == 'BAR'">
+            <div class="gb-btn-group">
+                <label ng-model="vm.logScale" uib-btn-radio="false"
+                       ng-change="vm.toggleBarChart()">Linear</label>
+                <label ng-model="vm.logScale" uib-btn-radio="true"
+                       ng-change="vm.toggleBarChart()">Logarithmic</label>
+            </div>
         </div>
     </div>
+    <!--<div ng-if="vm.data.categories.length == 1">-->
 
+    <!--</div>-->
+    <div ng-if="vm.data.categories.length == 0" class="emptyInfo--small">
+        <h3>There is no occurrences that meets the criteria</h3>
+    </div>
     <ng-transclude></ng-transclude>
 </div>

@@ -59,11 +59,17 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 });
         }
 
-        function setChartHeight () {
+        function setChartHeight() {
+            var categories = _.get(vm.data, 'categories.length');
             if (vm.options.type == 'BAR') {
-                vm.chartHeight = _.get(vm.data, 'categories.length', 10)*30;
+                categories = categories || 10;
+                vm.chartHeight = categories * 20 + 100;
             } else {
-                vm.chartHeight = 400;
+                if (categories <= 3) {
+                    vm.chartHeight = 300;
+                } else {
+                    vm.chartHeight = 400;
+                }
             }
         }
 
@@ -104,7 +110,10 @@ function occurrenceChartDirective(BUILD_VERSION) {
                                     $state.go('occurrenceSearchTable', q);
                                 }
                             }
-                        }
+                        },
+                        pointWidth: 20,
+                        pointPadding: 0,
+                        groupPadding: 0
                     }
                 },
                 legend: {
@@ -129,6 +138,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     visible: true
                 },
                 series: [{
+                    name: 'Occurrences',
                     data: data.series[0].data
                 }],
                 credits: {
@@ -196,6 +206,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     visible: false
                 },
                 series: [{
+                    name: 'Occurrences',
                     data: majorSerie
                 }],
                 exporting: {
