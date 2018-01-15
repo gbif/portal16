@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div ng-if="datasetKey.occurrenceTaxonomy == 'SUNBURST'">
-                            <occurrence-dataset-taxonomy-stats filter="datasetStats.filter" options="datasetStats.sunburstOptions" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>                        </div>
+                            <occurrence-dataset-taxonomy-stats filter="datasetStats.filter" options="datasetStats.sunburstOptions" ></occurrence-dataset-taxonomy-stats>                        </div>
                         <div ng-if="datasetKey.occurrenceTaxonomy == 'TREE'">
                             <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>
                         </div>

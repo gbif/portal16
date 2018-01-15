@@ -14,6 +14,7 @@ function occurrenceDatasetTaxonomyStats() {
         templateUrl: '/templates/pages/dataset/key/stats/directives/occurrenceDatasetTaxonomyStats.html',
         scope: {},
         controller: occurrenceDatasetTaxonomyStats,
+        link: chartLink,
         controllerAs: 'occurrenceDatasetTaxonomyStats',
         bindToController: {
             filter: '='  ,
@@ -23,10 +24,17 @@ function occurrenceDatasetTaxonomyStats() {
     return directive;
 
     /** @ngInject */
+    function chartLink(scope, element) {//, attrs, ctrl
+        scope.create(element);
+    }
+
+    /** @ngInject */
     function occurrenceDatasetTaxonomyStats(Highcharts, DatasetOccurrenceTaxonomy, $filter, $state, $scope) {
         var vm = this;
         vm.loading = true;
-
+        $scope.create = function (element) {
+            vm.chartElement = element[0].querySelector('.taxonomyStatsContainer');
+        };
 
         var query = vm.filter;
 
@@ -39,7 +47,7 @@ function occurrenceDatasetTaxonomyStats() {
                     vm.loading = false;
                     vm.preparing = true;
 
-                    vm.chart =   paintChart(Highcharts,vm.chartType, taxonomy, function (event) {
+                    vm.chart =   paintChart(Highcharts,  vm.chartElement, vm.chartType, taxonomy, function (event) {
                         if(this.rank === 'ORDER'){
 
                             var splittedKey =  this.id.split(".");
@@ -80,7 +88,7 @@ function occurrenceDatasetTaxonomyStats() {
                     vm.loading = false;
                     vm.preparing = true;
 
-                    vm.chart = paintChart(Highcharts, vm.chartType, taxonomy, function(event){
+                    vm.chart = paintChart(Highcharts,  vm.chartElement, vm.chartType, taxonomy, function(event){
                         var taxon_key = this.id.split(".")[1];
 
                         if(this.rank === 'GENUS'){
@@ -149,10 +157,12 @@ function occurrenceDatasetTaxonomyStats() {
         });
 
 
+
+
     }
 }
 
-function paintChart(Highcharts, type, taxonomy, click){
+function paintChart(Highcharts, elm, type, taxonomy, click){
 
     if(!type){
         type = "sunburst"
@@ -224,7 +234,7 @@ function paintChart(Highcharts, type, taxonomy, click){
             }
         };
     }
-   return Highcharts.chart('taxonomyStats', options);
+   return Highcharts.chart(elm, options);
 }
 
 module.exports = occurrenceDatasetTaxonomyStats;

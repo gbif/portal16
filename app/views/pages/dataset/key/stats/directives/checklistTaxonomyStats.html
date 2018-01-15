@@ -2,7 +2,7 @@
     <h4 class="card-header">Taxonomy breakdown</h4>
 
 
-    <div  ng-if="checklistTaxonomyStats.loading || checklistTaxonomyStats.preparing" layout="row" layout-align="center center">
+    <div  ng-if="(checklistTaxonomyStats.loading || checklistTaxonomyStats.preparing)" layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
         <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
         <p ng-if="checklistTaxonomyStats.preparing">Preparing data</p>
@@ -10,5 +10,10 @@
 
     </div><span flex></span>
     </div>
-    <div id="taxonomyStats"></div>
+    <div class="chartArea" ng-show="checklistTaxonomyStats.hasRankedTaxa"></div>
+    <div  ng-show="!checklistTaxonomyStats.loading && !checklistTaxonomyStats.preparing && !checklistTaxonomyStats.hasRankedTaxa" class="emptyInfo--small">
+            <h3>The checklist has no ranked taxa above Species.</h3>
+
+     </div>
 </div>
+

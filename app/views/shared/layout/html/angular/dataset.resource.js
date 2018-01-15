@@ -85,7 +85,7 @@ var angular = require('angular');
             );
         })
         .factory('DatasetChecklistTaxonomy', function ($resource) {
-            return $resource('/api/dataset/:key/checklist/taxonomy', null, {
+            return $resource('/api/chart/checklist/:key/taxonomy', null, {
                     'query': {
                         method: 'GET',
                         isArray: false

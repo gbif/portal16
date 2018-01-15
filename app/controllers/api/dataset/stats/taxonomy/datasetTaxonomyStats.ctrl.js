@@ -15,10 +15,10 @@ var express = require('express'),
 }; */
 
 module.exports = function (app) {
-    app.use('/api/chart/', router);
+    app.use('/api/chart', router);
 };
 
-router.get('/dataset/:key/checklist/taxonomy', function (req, res) {
+router.get('/checklist/:key/taxonomy', function (req, res) {
     var datasetKey = req.params.key;
     return getChecklistTaxonomy(datasetKey).then(function(taxa){
         return res.json(taxa)
