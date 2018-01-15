@@ -84,35 +84,41 @@ function buildTree(facets) {
     facets.forEach(function (facet) {
         facet.counts.forEach(function (taxon) {
             let item = taxon._resolved;
-            let lastItem = tree;
-            for (var i = 0; i < ranks.length; i++) {
-                let rank = ranks[i];
-                let rankKeyField = rank + 'Key';
-                let rankKey = item[rankKeyField] || 'UNKNOWN';
-                let treeItem;
-                let treePath = `children.${rankKey}`;
-                //console.log(treePath);
-                if (_.has(tree, treePath)) {
-                    treeItem = _.get(lastItem, treePath);
-                } else {
-                    treeItem = {};
-                    _.setWith(lastItem, treePath, treeItem, Object)
-                }
-                treeItem.key = rankKey;
-                treeItem.canonicalName = treeItem.canonicalName || item[rank];
-                treeItem.rank = rank.toUpperCase();
-                if (rank == item.rank.toLowerCase()) {
-                    treeItem.count = taxon.count;
-                    treeItem.percentage = taxon.count / facet.totalCount;
-                    break;
-                }
-                lastItem = treeItem;
-            }
-        });
+            item._count = taxon.count;
+            item.percentage = taxon.count / facet.totalCount;
+            addTaxonToTree(tree, item);
+       });
     });
     //make it easier to traverse by mapping to arrays
-    //childrenToArray(tree);
+    childrenToArray(tree);
     return tree.children;
+}
+
+function addTaxonToTree(tree, taxon) {
+    for (var i = 0; i < ranks.length; i++) {
+        let rank = ranks[i];
+        let rankKeyField = rank + 'Key';
+        let treePath = getTreePath(taxon, rankKeyField);
+        let rankKey = taxon[rankKeyField] || 'UNKNOWN';
+        let treeItem;
+
+        if (_.has(tree, treePath)) {
+            treeItem = _.get(tree, treePath);
+        } else {
+            treeItem = {};
+            _.setWith(tree, treePath, treeItem, Object)
+        }
+
+        treeItem.key = rankKey;
+        treeItem.canonicalName = treeItem.canonicalName || taxon[rank];
+        treeItem.rank = rank.toUpperCase();
+        if (rank == taxon.rank.toLowerCase()) {
+            treeItem.scientificName = taxon.scientificName;
+            treeItem.count = taxon._count;
+            treeItem.percentage= taxon.percentage;
+            break;
+        }
+    }
 }
 
 function childrenToArray(item) {
@@ -124,16 +130,20 @@ function childrenToArray(item) {
     item.children = _.orderBy(_.values(item.children), 'count', 'desc');
 }
 
-function getTreePath(taxon) {
+function getTreePath(taxon, stopRankKeyField) {
     let treePath = '';
-    rankKeys.forEach(function (rankKey) {
-        if (taxon[rankKey]) {
-            if (treePath !== '') {
-                treePath += '.';
-            }
-            treePath += `children.${taxon[rankKey]}`;
+    for (var i = 0; i < rankKeys.length; i++) {
+        let rankKeyField = rankKeys[i];
+        let key = taxon[rankKeyField] || 'UNKNOWN';
+
+        if (treePath !== '') {
+            treePath += '.';
         }
-    });
+        treePath += `children.${key}`;
+        if (rankKeyField === stopRankKeyField) {
+            break;
+        }
+    }
     return treePath;
 }
 
