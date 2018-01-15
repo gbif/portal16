@@ -46,7 +46,7 @@
                         <div ng-if="datasetKey.occurrenceTaxonomy == 'SUNBURST'">
                             <occurrence-dataset-taxonomy-stats filter="datasetStats.filter" options="datasetStats.sunburstOptions" ></occurrence-dataset-taxonomy-stats>                        </div>
                         <div ng-if="datasetKey.occurrenceTaxonomy == 'TREE'">
-                            <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"></occurrence-taxonomy-tree>
+                            <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}" options="{limit:20}"></occurrence-taxonomy-tree>
                         </div>
                     </div>
                     <div ng-if="datasetKey.occurrences.count > 0" class="card__content seperator" ng-repeat="chart in datasetStats.charts">

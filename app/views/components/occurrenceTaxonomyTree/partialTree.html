@@ -1,10 +1,15 @@
 <ul class="sub-menu">
     <li ng-repeat="item in item.children">
         <div class="pipe"></div>
-        <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline">
-            <div style="width:{{item.percentage | formatAsPercentage}}%"></div>
-            <span>{{item.canonicalName}}</span><span class="discreet--very">{{item.percentage | formatAsPercentage }}%</span>
+        <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline" ng-if="item.canonicalName">
+            <div style="width:{{item.percentage | formatAsPercentage}}%" ng-if="item.percentage"></div>
+            <span ng-if="item.canonicalName">{{item.canonicalName}}</span>
+            <span ng-if="!item.canonicalName">incertae sedis</span>
+            <span class="discreet--very" ng-if="item.percentage">{{item.percentage | formatAsPercentage }}%</span>
         </a>
+        <span class="title title--action" ng-if="!item.canonicalName">
+            <span>Unknown {{'taxonRank.' + item.rank | translate}}</span>
+        </span>
 
         <div ng-switch on="item.children.length > 0">
             <div ng-switch-when="true">
