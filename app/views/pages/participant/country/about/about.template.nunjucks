@@ -25,9 +25,9 @@
                 <div class="card">
                     <div class="card__content seperator--b">
                         <div class="card__content__title">
-                            <h3>{{ countryKey.publishingCountriesCount }} countries</h3>
+                            <h3>{{ countryKey.publishingCountriesCount }} countries and areas</h3>
                             <p>
-                                Countries, territories or islands publishing data about {{ 'country.' + countryKey.countryCode | translate }}
+                                Countries and areas publishing data about {{ 'country.' + countryKey.countryCode | translate }}
                             </p>
                         </div>
                     </div>

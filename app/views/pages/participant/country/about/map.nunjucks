@@ -23,7 +23,7 @@
                 <div>
                     <div class="summaryStats__simple__count">{{countryKey.publishingCountriesCount}}</div>
                     <div class="summaryStats__simple__description">
-                        countries contribute data
+                        countries and areas contribute data
                     </div>
                 </div>
             </a>
