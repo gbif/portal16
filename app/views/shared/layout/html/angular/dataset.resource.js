@@ -94,7 +94,7 @@ var angular = require('angular');
             );
         })
         .factory('DatasetOccurrenceTaxonomy', function ($resource) {
-            return $resource('/api/dataset/:key/occurrence/taxonomy', null, {
+            return $resource('/api/chart/occurrence/sunburst', null, {
                     'query': {
                         method: 'GET',
                         isArray: true

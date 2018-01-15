@@ -16,18 +16,19 @@ function occurrenceDatasetTaxonomyStats() {
         controller: occurrenceDatasetTaxonomyStats,
         controllerAs: 'occurrenceDatasetTaxonomyStats',
         bindToController: {
-            dataset: '='
+            filter: '='  ,
+            options: '='
         }
     };
     return directive;
 
     /** @ngInject */
-    function occurrenceDatasetTaxonomyStats(Highcharts, DatasetOccurrenceTaxonomy, $stateParams, $filter, $state) {
+    function occurrenceDatasetTaxonomyStats(Highcharts, DatasetOccurrenceTaxonomy, $filter, $state, $scope) {
         var vm = this;
         vm.loading = true;
 
 
-        var query = {key: vm.dataset.key};
+        var query = vm.filter;
 
         vm.chartType = "sunburst"; // could also work as "treemap", may need some adjustments
 
@@ -41,7 +42,7 @@ function occurrenceDatasetTaxonomyStats() {
                     vm.chart =   paintChart(Highcharts,vm.chartType, taxonomy, function (event) {
                         if(this.rank === 'ORDER'){
 
-                            var splittedKey =    this.id.split(".");
+                            var splittedKey =  this.id.split(".");
 
 
                                 centerTreeAtTAxon(splittedKey[1])
@@ -59,8 +60,17 @@ function occurrenceDatasetTaxonomyStats() {
 
 
             query.taxon_key = taxon_key;
-            $stateParams.taxon_key =  query.taxon_key;
-            $state.go('.', $stateParams, {inherit: true, notify: false, reload: false});
+           // vm.filter.taxon_key =  query.taxon_key;
+
+            vm.options.onZoomToTaxonKey(taxon_key)
+          /*
+            if( !$state.is('occurrenceSearchTable')){
+                    $state.go('.', {'taxon_key': taxon_key, 'dataset_key': vm.filter.datasetKey}, {inherit: true, notify: false, reload: false});
+            }  else {
+
+            // TODO handle occurrence search
+            }     */
+
             vm.loading = true;
             DatasetOccurrenceTaxonomy.query(query).$promise
                 .then(function(taxonomy) {
@@ -74,12 +84,27 @@ function occurrenceDatasetTaxonomyStats() {
                         var taxon_key = this.id.split(".")[1];
 
                         if(this.rank === 'GENUS'){
-                            $state.go('occurrenceSearchTable',{'taxon_key': taxon_key, 'dataset_key': vm.dataset.key});
+                            if( !$state.is('occurrenceSearchTable')){
+
+                                   $state.go('occurrenceSearchTable',{'taxon_key': taxon_key, 'dataset_key': vm.filter.datasetKey});
+                            } else {
+                                // TODO handle occurrence search      
+                            }
+
                         } else if(this.rank === 'ORDER'){
-                            delete $stateParams.taxon_key;
+
+                                vm.options.onDisplayRootTree()  ;
+                    /*     if( !$state.is('occurrenceSearchTable')){
+
+                            delete vm.filter.taxon_key;
                             delete query.taxon_key
                             displayRootTree();
                             $state.go('.', $stateParams, {inherit: true, notify: false, reload: false});
+
+                            } else {
+                                // TODO handle occurrence search 
+
+                            }  */
                         }
 
                     });
@@ -91,9 +116,9 @@ function occurrenceDatasetTaxonomyStats() {
 
         angular.element(document).ready(function () {
 
-            if($stateParams.taxon_key) {
+            if(vm.filter.taxon_key) {
 
-                centerTreeAtTAxon($stateParams.taxon_key)
+                centerTreeAtTAxon(vm.filter.taxon_key)
 
             } else {
                 displayRootTree();
@@ -102,6 +127,25 @@ function occurrenceDatasetTaxonomyStats() {
 
 
 
+        });
+
+
+     /*   $scope.$watchCollection(function () {
+            return vm.options
+        }, function () {
+            updateTree();
+        }); */
+
+        $scope.$watchCollection(function () {
+            return vm.filter
+        }, function () {
+            if(vm.filter.taxon_key) {
+
+                centerTreeAtTAxon(vm.filter.taxon_key)
+
+            } else {
+                displayRootTree();
+            }
         });
 
 

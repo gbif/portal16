@@ -10,8 +10,12 @@ var express = require('express'),
     q = require('q');
 
 
-module.exports = function (app) {
+/*module.exports = function (app) {
     app.use('/api', router);
+}; */
+
+module.exports = function (app) {
+    app.use('/api/chart/', router);
 };
 
 router.get('/dataset/:key/checklist/taxonomy', function (req, res) {
@@ -23,21 +27,22 @@ router.get('/dataset/:key/checklist/taxonomy', function (req, res) {
 
 });
 
-router.get('/dataset/:key/occurrence/taxonomy/', function (req, res) {
-
-    return getOccurrenceDatasetTaxonomy(req.params.key, req.query.taxon_key).then(function(taxa){
+router.get('/occurrence/sunburst', function (req, res) {
+    let query = req.query || {};
+    return getOccurrenceDatasetTaxonomy(query).then(function(taxa){
         return res.json(taxa)
     });
 });
 
 
-async function getOccurrenceDatasetTaxonomy(key, taxon_key) {
+async function getOccurrenceDatasetTaxonomy(query) {
 
     let rankKeys = ['kingdomKey' ,'phylumKey' ,'classKey', 'orderKey', 'familyKey', 'genusKey' ];
 
+    // TODO check if taxon_key is an array, maybe default to array and use [taxon_key] if its an integer
 
-    let taxon = await expandWithTaxon({name: taxon_key});
-    if (taxon_key) {
+    let taxon = await expandWithTaxon({name: query.taxon_key});
+    if (query.taxon_key) {
         rankKeys.splice(0 ,  rankKeys.indexOf(taxon.rank.toLowerCase()+"Key") )
     } else {
         rankKeys.splice(4, rankKeys.length -4);
@@ -47,15 +52,15 @@ async function getOccurrenceDatasetTaxonomy(key, taxon_key) {
         return k.split('Key')[0].toUpperCase();
     }), _.map(rankKeys, function(k){
 
-            return (taxon_key) ? rankKeys.indexOf(k) : rankKeys.indexOf(k) + 1
+            return (query.taxon_key) ? rankKeys.indexOf(k) : rankKeys.indexOf(k) + 1
     }));
 
 
-    let options = {datasetKey : key, facet: rankKeys,  facetLimit : 1000, limit: 0 };
+    let options = _.merge({}, query, {facet: rankKeys,  facetLimit : 1000, limit: 0 });
 
-    if(taxon_key){
+   /* if(taxon_key){
         options.taxon_key = taxon_key;
-    };
+    }; */
 
     let baseRequest = {
         url: apiConfig.occurrenceSearch.url +  '?' + querystring.stringify(options),
@@ -122,7 +127,7 @@ async function getOccurrenceDatasetTaxonomy(key, taxon_key) {
     })
 
     let taxa = await q.all(promises);
-    if(!taxon_key && kingdomOccCount < response.body.count){
+    if(!query.taxon_key && kingdomOccCount < response.body.count){
         taxa.push({
             name: 'Other Kingdoms',
             parent: '0.0',
@@ -130,7 +135,7 @@ async function getOccurrenceDatasetTaxonomy(key, taxon_key) {
             value: response.body.count - kingdomOccCount
         });
     };
-    if(!taxon_key){
+    if(!query.taxon_key){
         // if theres no root taxon add the whole dataset as root
         taxa.push({
             name: 'Entire dataset',

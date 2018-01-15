@@ -12,10 +12,11 @@ angular
     .controller('datasetStatsCtrl', datasetStatsCtrl);
 
 /** @ngInject */
-function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
+function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMetrics) {
     var vm = this;
     vm.key = $stateParams.key;
-
+    vm.taxon_key = $stateParams.taxon_key;
+    vm.filter = {datasetKey: vm.key, taxon_key:  vm.taxon_key};
     vm.checklistMetrics = DatasetMetrics.get({key: vm.key});
 
     vm.getDownloads = function () {
@@ -46,6 +47,20 @@ function datasetStatsCtrl($http, $stateParams, env, endpoints, DatasetMetrics) {
             vm.api.exportChart();
         }
     }];
+
+    vm.sunburstOptions = {
+        onZoomToTaxonKey : function(taxon_key){
+            $state.go('.', {'taxon_key': taxon_key, 'dataset_key': vm.key}, {inherit: true, notify: false, reload: false});
+        },
+        onDisplayRootTree: function(){
+            delete $stateParams.taxon_key;
+            delete vm.taxon_key;
+            delete vm.filter.taxon_key;
+            $state.go('.', {'dataset_key': vm.key}, {inherit: true, notify: false, reload: false});
+        }
+    }
+
+
 }
 
 module.exports = datasetStatsCtrl;

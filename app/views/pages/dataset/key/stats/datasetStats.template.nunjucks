@@ -30,7 +30,7 @@
                 <div class="card">
                     <div class="card__content seperator">
                         <h4 class="card-header">Sunburst</h4>
-                        <occurrence-dataset-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
+                        <occurrence-dataset-taxonomy-stats filter="datasetStats.filter" options="datasetStats.sunburstOptions" ng-if="datasetKey.dataset.type === 'OCCURRENCE'"></occurrence-dataset-taxonomy-stats>
                     </div>
                     <div class="card__content seperator">
                         <h4 class="card-header">Taxonomic distribution of occurrences</h4>
