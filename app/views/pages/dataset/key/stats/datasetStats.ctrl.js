@@ -5,6 +5,7 @@ require('./directives/checklistTaxonomyStats.directive.js');
 require('./directives/occurrenceDatasetTaxonomyStats.directive.js');
 
 require('../../../../components/occurrenceChart/occurrenceChart.directive');
+require('../../../../components/occurrenceChart/occurrenceChartHeader.directive');
 require('../../../../components/occurrenceTaxonomyTree/occurrenceTaxonomyTree.directive');
 
 angular
@@ -33,20 +34,35 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
     };
     vm.getDownloads();
 
-    vm.api = {test: 5};
-    vm.exportOptions = [{
-        textKey: 'printChart',
-        onclick: function () {
-            vm.api.print();
+    vm.api = {};
+    vm.options = {
+        showHeader: false
+    };
+
+    vm.addNewChart = function(dimension){
+        vm.charts.push(
+            {
+                filter: {dataset_key: vm.key},
+                api: {},
+                options: {showHeader: false, dimension: dimension, type: 'PIE'}
+            }
+        );
+    };
+
+    vm.charts = [
+        {
+            filter: {dataset_key: vm.key},
+            api: {},
+            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
+        },
+        {
+            filter: {dataset_key: vm.key},
+            api: {},
+            options: {showHeader: false, dimension: 'basis_of_record', type: 'BAR'}
         }
-    }, {
-        separator: true
-    }, {
-        textKey: 'downloadPNG',
-        onclick: function () {
-            vm.api.exportChart();
-        }
-    }];
+    ];
+    vm.chartDimension;
+    vm.chartFieldTypes = ['month', 'issue', 'country'];
 
     vm.sunburstOptions = {
         onZoomToTaxonKey : function(taxon_key){
@@ -59,6 +75,7 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
             $state.go('.', {'dataset_key': vm.key}, {inherit: true, notify: false, reload: false});
         }
     }
+
 
 
 }
