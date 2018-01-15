@@ -20,7 +20,7 @@ async function getMostFrequentTaxa(filter, percentage, limit) {
     let facetLimit = limit || 20;
     if (percentage) {
         percentage = Math.max(Math.min(100, _.toNumber(percentage)), 0.01);
-        facetLimit = _.toSafeInteger(100/percentage);
+        facetLimit = _.toSafeInteger(100 / percentage);
     }
 
     //let facetPromises = rankKeys.map(function(e){
@@ -28,7 +28,11 @@ async function getMostFrequentTaxa(filter, percentage, limit) {
     //    return getExpandedFacets(_.merge({}, filter, {facet: rankKeys, facetLimit: facetLimit, limit: 0}), percentage)
     //});
     //let facetResults = await Promise.all(facetPromises);
-    let facetResults = await getExpandedFacets(_.merge({}, filter, {facet: rankKeys, facetLimit: facetLimit, limit: 0}), percentage, limit);
+    let facetResults = await getExpandedFacets(_.merge({}, filter, {
+        facet: rankKeys,
+        facetLimit: facetLimit,
+        limit: 0
+    }), percentage, limit);
 
     //return {facetResults};
     return {
@@ -44,7 +48,7 @@ async function getExpandedFacets(query, percentage, limit) {
         limit = 10;
     }
     percentage = percentage || 100;
-    var minimum = result.count * (percentage/100);
+    var minimum = result.count * (percentage / 100);
 
     if (limit) {
         var allFacets = _.concat(...(_.map(result.facets, 'counts')));
@@ -54,7 +58,7 @@ async function getExpandedFacets(query, percentage, limit) {
     }
 
     //prune before resolving. no need to ask for things we will throw away anyhow
-    result.facets.forEach(function(e){
+    result.facets.forEach(function (e) {
         e.totalCount = result.count;
         prune(e, minimum);
     });
@@ -63,7 +67,7 @@ async function getExpandedFacets(query, percentage, limit) {
 }
 
 function prune(facet, minimum) {
-    _.remove(facet.counts, function(n){
+    _.remove(facet.counts, function (n) {
         return n.count < minimum;
     });
 }
@@ -77,48 +81,52 @@ function prune(facet, minimum) {
  */
 function buildTree(facets) {
     let tree = {};
-    facets.forEach(function(facet){
-        facet.counts.forEach(function(taxon){
+    facets.forEach(function (facet) {
+        facet.counts.forEach(function (taxon) {
             let item = taxon._resolved;
-            ranks.forEach(function(rank){
-                let rankKey = rank + 'Key';
-                if (item[rankKey]) {
-                    let treePath = getTreePath(item);
-                    let treeItem;
-                    if (_.has(tree, treePath)) {
-                        treeItem = _.get(tree, treePath);
-                    } else {
-                        treeItem = {};
-                        _.setWith(tree, treePath, treeItem, Object)
-                    }
-                    treeItem.key = item[rankKey];
-                    treeItem.canonicalName = item[rank];
-                    treeItem.rank = item.rank;
-                    if (taxon.count) {
-                        treeItem.count = taxon.count;
-                        treeItem.percentage = taxon.count/facet.totalCount;
-                    }
+            let lastItem = tree;
+            for (var i = 0; i < ranks.length; i++) {
+                let rank = ranks[i];
+                let rankKeyField = rank + 'Key';
+                let rankKey = item[rankKeyField] || 'UNKNOWN';
+                let treeItem;
+                let treePath = `children.${rankKey}`;
+                //console.log(treePath);
+                if (_.has(tree, treePath)) {
+                    treeItem = _.get(lastItem, treePath);
+                } else {
+                    treeItem = {};
+                    _.setWith(lastItem, treePath, treeItem, Object)
                 }
-            });
+                treeItem.key = rankKey;
+                treeItem.canonicalName = treeItem.canonicalName || item[rank];
+                treeItem.rank = rank.toUpperCase();
+                if (rank == item.rank.toLowerCase()) {
+                    treeItem.count = taxon.count;
+                    treeItem.percentage = taxon.count / facet.totalCount;
+                    break;
+                }
+                lastItem = treeItem;
+            }
         });
     });
     //make it easier to traverse by mapping to arrays
-    childrenToArray(tree);
+    //childrenToArray(tree);
     return tree.children;
 }
 
 function childrenToArray(item) {
     if (item.children) {
-        Object.keys(item.children).forEach(function(key){
+        Object.keys(item.children).forEach(function (key) {
             childrenToArray(item.children[key]);
         });
     }
     item.children = _.orderBy(_.values(item.children), 'count', 'desc');
 }
 
-function getTreePath(taxon){
+function getTreePath(taxon) {
     let treePath = '';
-    rankKeys.forEach(function(rankKey){
+    rankKeys.forEach(function (rankKey) {
         if (taxon[rankKey]) {
             if (treePath !== '') {
                 treePath += '.';
