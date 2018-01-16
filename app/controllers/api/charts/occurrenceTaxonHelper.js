@@ -28,21 +28,21 @@ async function getMostFrequentTaxa(filter, percentage, limit) {
     //    return getExpandedFacets(_.merge({}, filter, {facet: rankKeys, facetLimit: facetLimit, limit: 0}), percentage)
     //});
     //let facetResults = await Promise.all(facetPromises);
-    let facetResults = await getExpandedFacets(_.merge({}, filter, {
+    let q = _.merge({}, filter, {
         facet: rankKeys,
         facetLimit: facetLimit,
         limit: 0
-    }), percentage, limit);
-
-    //return {facetResults};
+    });
+    let result = await getExpandedFacets(q);
+    let facetResults = result.facets;
+    let flatFacetList = getFlatFacetList(result, percentage, limit);
     return {
-        tree: buildTree(facetResults)
+        tree: buildTree(flatFacetList),
+        facets: facetResults
     };
 }
 
-async function getExpandedFacets(query, percentage, limit) {
-    let result = await getData(query);
-
+function getFlatFacetList(result, percentage, limit) {
     //decide on a minimum value before pruning. this decision is taken based on the percentage and limit provided
     if (!limit && !percentage) {
         limit = 10;
@@ -57,19 +57,25 @@ async function getExpandedFacets(query, percentage, limit) {
         minimum = Math.min(minimumLimit, minimum);
     }
 
-    //prune before resolving. no need to ask for things we will throw away anyhow
-    result.facets.forEach(function (e) {
-        e.totalCount = result.count;
-        prune(e, minimum);
-    });
-    let facets = await facetHelper.expandFacets(result.facets, undefined, true);
-    return facets;
+    let flattened = flattenAndPrune(result, minimum);
+    return flattened;
 }
 
-function prune(facet, minimum) {
-    _.remove(facet.counts, function (n) {
+async function getExpandedFacets(query) {
+    let result = await getData(query);
+    await facetHelper.expandFacets(result.facets, undefined, true);
+    return result;
+}
+
+function flattenAndPrune(result, minimum) {
+    let flattened = _.concat(..._.map(result.facets, 'counts'));
+    _.remove(flattened, function (n) {
         return n.count < minimum;
     });
+    return {
+        results: flattened,
+        totalCount: result.count
+    };
 }
 
 /**
@@ -79,15 +85,13 @@ function prune(facet, minimum) {
  * }
  * @param facets
  */
-function buildTree(facets) {
+function buildTree(taxons, totalCount) {
     let tree = {};
-    facets.forEach(function (facet) {
-        facet.counts.forEach(function (taxon) {
-            let item = taxon._resolved;
-            item._count = taxon.count;
-            item.percentage = taxon.count / facet.totalCount;
-            addTaxonToTree(tree, item);
-       });
+    taxons.results.forEach(function (taxon) {
+        let item = taxon._resolved;
+        item._count = taxon.count;
+        item.percentage = taxon.count / taxons.totalCount;
+        addTaxonToTree(tree, item);
     });
     //make it easier to traverse by mapping to arrays
     childrenToArray(tree);

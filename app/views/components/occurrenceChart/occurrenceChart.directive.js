@@ -55,6 +55,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         vm.myChart = Highcharts.chart(asBarChart(data, vm.logScale));
                     } else if (vm.options.type == 'PIE') {
                         vm.myChart = Highcharts.chart(asPieChart(data));
+                    } else if (vm.options.type == 'LINE') {
+                        vm.myChart = Highcharts.chart(asLineChart(data));
                     }
                 });
         }
@@ -64,12 +66,14 @@ function occurrenceChartDirective(BUILD_VERSION) {
             if (vm.options.type == 'BAR') {
                 categories = categories || 10;
                 vm.chartHeight = categories * 20 + 100;
-            } else {
+            } else if (vm.options.type == 'PIE') {
                 if (categories <= 3) {
                     vm.chartHeight = 300;
                 } else {
                     vm.chartHeight = 400;
                 }
+            } else {
+                vm.chartHeight = 400;
             }
         }
 
@@ -219,6 +223,77 @@ function occurrenceChartDirective(BUILD_VERSION) {
             };
         }
 
+        function asLineChart(data){
+            let lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 0)}), data.series[0].data);
+            console.log(lineData);
+            return {
+                chart: {
+                    zoomType: 'x',
+                    renderTo: vm.chartElement
+                },
+                title: {
+                    text: ''
+                },
+                subtitle: {
+                    text: document.ontouchstart === undefined ?
+                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Occurrence count'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'area',
+                    name: 'occurrences per year',
+                    data: lineData
+                }],
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            enabled: false
+                        }
+                    }
+                }
+            };
+        }
+
         $scope.create = function (element) {
             vm.chartElement = element[0].querySelector('.chartArea');
             updateChart(vm.options.dimension);
@@ -247,11 +322,11 @@ function occurrenceChartDirective(BUILD_VERSION) {
             Object.freeze(vm.api);
         }
 
-        //$scope.$watchCollection(function () {
-        //    return vm.filter
-        //}, function () {
-        //    //do something when the filter is updated
-        //});
+        $scope.$watchCollection(function () {
+            return vm.filter
+        }, function () {
+            updateChart(vm.options.dimension);
+        });
     }
 }
 

@@ -28,10 +28,10 @@ function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
 
     return directive;
 
-    /** @ngInject */
-    function chartLink(scope, element) {//, attrs, ctrl
-        scope.create(element);
-    }
+    ///** @ngInject */
+    //function chartLink(scope, element) {//, attrs, ctrl
+    //    scope.create(element);
+    //}
 
     /** @ngInject */
     function occurrenceTaxonomyTree($q, Species, $scope, $state, OccurrenceFrequentTaxa, OccurrenceFilter, OccurrenceTaxonSearch) {

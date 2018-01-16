@@ -32,6 +32,18 @@ async function expandFacet(facet, __, includeFullObject){
         options[facet.field] = {type: type.RAW};
     }
 
+
+    //preprocess
+    if (options[facet.field].ordering === 'NUMERIC') {
+        facet.counts = _.sortBy(facet.counts, function(e){
+            return _.toSafeInteger(e.name);
+        });
+    }
+    if (options[facet.field].prune) {
+        _.remove(facet.counts, options[facet.field].prune);
+    }
+
+    //resolve names
     if (options[facet.field].type == type.RAW) {
         facet.counts.forEach(function(f){
             f.displayName = f.name;
@@ -42,11 +54,6 @@ async function expandFacet(facet, __, includeFullObject){
             let translationPath = options[facet.field].translationPath.replace('{VALUE}', f.name);
             f.displayName = __(translationPath);
         });
-        if (options[facet.field].ordering === 'NUMERIC') {
-            facet.counts = _.sortBy(facet.counts, function(e){
-                return _.toSafeInteger(e.name);
-            });
-        }
         return facet;
     } else if (options[facet.field].type == type.KEY) {
         let facetPromises = facet.counts.map(function(item){return addResolveUrl(item, options[facet.field], includeFullObject)});
@@ -111,10 +118,17 @@ let options = {
         enums: enums.month,
         ordering: 'NUMERIC'
     },
+    YEAR: {
+        type: type.RAW,
+        ordering: 'NUMERIC'
+    },
     ISSUE: {
         type: type.ENUM,
         translationPath: 'occurrenceIssue.{VALUE}',
-        enums: enums.occurrenceIssue
+        enums: enums.occurrenceIssue,
+        prune: function(e){
+            return e.name == 'COORDINATE_ROUNDED';
+        }
     },
     COUNTRY: {
         type: type.ENUM,

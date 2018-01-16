@@ -58,7 +58,7 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
         {
             filter: {dataset_key: vm.key},
             api: {},
-            options: {showHeader: false, dimension: 'basis_of_record', type: 'BAR'}
+            options: {showHeader: false, dimension: 'year', type: 'LINE'}
         }
     ];
     vm.chartDimension;

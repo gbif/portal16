@@ -36,17 +36,17 @@
                         {% include('../intro/stats.nunjucks') %}
                     </div>
                     <div class="card__content seperator">
-                        <div ng-init="datasetKey.occurrenceTaxonomy = 'SUNBURST'">
+                        <div ng-init="datasetKey.occurrenceTaxonomy = 'TREE'">
                             <h4 class="card-header text-center inline-block">Taxonomic distribution of occurrences</h4>
                             <div class="header-options inline-block pull-right">
-                                <a href="" class="gb-icon-bar-chart inherit noUnderline" ng-click="datasetKey.occurrenceTaxonomy = 'TREE'"></a>
-                                <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="datasetKey.occurrenceTaxonomy = 'SUNBURST'"></a>
+                                <a href="" class="gb-icon-taxonomy inherit noUnderline" ng-click="datasetKey.occurrenceTaxonomy = 'TREE'"></a>
+                                <a href="" class="gb-icon-donought-chart inherit noUnderline" ng-click="datasetKey.occurrenceTaxonomy = 'SUNBURST'"></a>
                             </div>
                         </div>
                         <div ng-if="datasetKey.occurrenceTaxonomy == 'SUNBURST'">
                             <occurrence-dataset-taxonomy-stats filter="datasetStats.filter" options="datasetStats.sunburstOptions" ></occurrence-dataset-taxonomy-stats>                        </div>
                         <div ng-if="datasetKey.occurrenceTaxonomy == 'TREE'">
-                            <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}" options="{limit:20}"></occurrence-taxonomy-tree>
+                            <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}" options="{limit:10}"></occurrence-taxonomy-tree>
                         </div>
                     </div>
                     <div ng-if="datasetKey.occurrences.count > 0" class="card__content seperator" ng-repeat="chart in datasetStats.charts">
