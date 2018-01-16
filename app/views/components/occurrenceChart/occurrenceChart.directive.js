@@ -374,4 +374,21 @@ function occurrenceChartDirective(BUILD_VERSION) {
  *
  */
 
+/*
+ * Have a fixed set of allowed dimensions that is supported.
+ * for each dimension a set of configuration options
+ *
+ * fx chart options: bar, pie, line, ...
+ * and for each type (or generic) there is defaults/suggestions based on type and data.
+ *
+ * cases:
+ * no data : show text
+ * 1 value : show styled box
+ * few values : pie or bar or column as default. table, line as options
+ * standard : bar or column as default. pie, line, table
+ * many values : line or table as default. bar as option ?
+ *
+ * views could be: pie, bar, line, table, column
+ */
+
 module.exports = occurrenceChartDirective;

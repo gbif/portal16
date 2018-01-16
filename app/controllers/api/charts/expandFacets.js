@@ -127,7 +127,7 @@ let options = {
         translationPath: 'occurrenceIssue.{VALUE}',
         enums: enums.occurrenceIssue,
         prune: function(e){
-            return e.name == 'COORDINATE_ROUNDED';
+            return ['COORDINATE_ROUNDED', 'GEODETIC_DATUM_ASSUMED_WGS84', 'COORDINATE_REPROJECTED'].indexOf(e.name) != -1;
         }
     },
     COUNTRY: {
