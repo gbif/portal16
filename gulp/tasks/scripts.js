@@ -118,18 +118,7 @@ function build(entry, name) {
     return b
         .external(vendors)
         .bundle()
-        .on('error', function (err) {
-            if (!config.isProd) {
-                console.log(err.toString());
-                notifier.notify({
-                    'title': 'Browserify',
-                    'message': err.toString()
-                });
-            } else {
-                throw err;
-            }
-            this.emit("end");
-        })
+        .on('error', config.errorHandler('Browserify'))
         .pipe(source(name))
         .pipe(buffer())
         .pipe(gulpif(!config.isProd, g.sourcemaps.init({
@@ -138,7 +127,7 @@ function build(entry, name) {
         // Add transformation tasks to the pipeline here.
         .pipe(g.ngAnnotate()) // To not break angular injection when minified
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
-        .on('error', g.util.log)
+        .on('error', config.errorHandler('uglify'))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {

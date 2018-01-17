@@ -13,10 +13,10 @@
         </div>
     </div>
     <!--<div ng-if="vm.data.categories.length == 1">-->
-
+        <!--{{vm.data.categories[0]}} {{ vm.data.series[0].data[0] | localNumber }} {{ (vm.data.series[0].data[0] / vm.data.series[0].total) | formatAsPercentage}}%-->
     <!--</div>-->
     <div ng-if="vm.data.categories.length == 0" class="emptyInfo--small">
-        <h3>There is no occurrences that meets the criteria</h3>
+        <h3>Nothing to show</h3>
     </div>
     <ng-transclude></ng-transclude>
 </div>

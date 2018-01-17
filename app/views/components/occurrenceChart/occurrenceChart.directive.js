@@ -55,6 +55,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         vm.myChart = Highcharts.chart(asBarChart(data, vm.logScale));
                     } else if (vm.options.type == 'PIE') {
                         vm.myChart = Highcharts.chart(asPieChart(data));
+                    } else if (vm.options.type == 'LINE') {
+                        vm.myChart = Highcharts.chart(asLineChart(data));
                     }
                 });
         }
@@ -64,12 +66,14 @@ function occurrenceChartDirective(BUILD_VERSION) {
             if (vm.options.type == 'BAR') {
                 categories = categories || 10;
                 vm.chartHeight = categories * 20 + 100;
-            } else {
+            } else if (vm.options.type == 'PIE') {
                 if (categories <= 3) {
                     vm.chartHeight = 300;
                 } else {
                     vm.chartHeight = 400;
                 }
+            } else {
+                vm.chartHeight = 400;
             }
         }
 
@@ -96,7 +100,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 chart: {
                     animation: false,
                     type: 'bar',
-                    renderTo: vm.chartElement
+                    renderTo: vm.chartElement,
+                    className: 'chart-field-' + vm.options.dimension
                 },
                 plotOptions: {
                     series: {
@@ -183,7 +188,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 chart: {
                     animation: false,
                     type: 'pie',
-                    renderTo: vm.chartElement
+                    renderTo: vm.chartElement,
+                    className: 'chart-field-' + vm.options.dimension
                 },
                 plotOptions: {
                     series: {
@@ -208,6 +214,77 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 series: [{
                     name: 'Occurrences',
                     data: majorSerie
+                }],
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            enabled: false
+                        }
+                    }
+                }
+            };
+        }
+
+        function asLineChart(data){
+            var lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 0)}), data.series[0].data);
+            return {
+                chart: {
+                    zoomType: 'x',
+                    renderTo: vm.chartElement,
+                    className: 'chart-field-' + vm.options.dimension
+                },
+                title: {
+                    text: ''
+                },
+                subtitle: {
+                    text: document.ontouchstart === undefined ?
+                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Occurrence count'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'area',
+                    name: 'occurrences per year',
+                    data: lineData
                 }],
                 exporting: {
                     buttons: {
@@ -247,11 +324,11 @@ function occurrenceChartDirective(BUILD_VERSION) {
             Object.freeze(vm.api);
         }
 
-        //$scope.$watchCollection(function () {
-        //    return vm.filter
-        //}, function () {
-        //    //do something when the filter is updated
-        //});
+        $scope.$watchCollection(function () {
+            return vm.filter
+        }, function () {
+            updateChart(vm.options.dimension);
+        });
     }
 }
 
@@ -297,6 +374,23 @@ function occurrenceChartDirective(BUILD_VERSION) {
  *
  * fullscreen? download image/pdf? download csv data? how about citation then?
  *
+ */
+
+/*
+ * Have a fixed set of allowed dimensions that is supported.
+ * for each dimension a set of configuration options
+ *
+ * fx chart options: bar, pie, line, ...
+ * and for each type (or generic) there is defaults/suggestions based on type and data.
+ *
+ * cases:
+ * no data : show text
+ * 1 value : show styled box
+ * few values : pie or bar or column as default. table, line as options
+ * standard : bar or column as default. pie, line, table
+ * many values : line or table as default. bar as option ?
+ *
+ * views could be: pie, bar, line, table, column
  */
 
 module.exports = occurrenceChartDirective;

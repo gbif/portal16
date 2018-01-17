@@ -197,7 +197,11 @@ config.loadRevision = function () {
  */
 config.errorHandler = function (title) {
     return function (err) {
-        gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
+        if (env != 'prod') {
+            gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
+        } else {
+            throw err;
+        }
         this.emit('end');
     };
 };
