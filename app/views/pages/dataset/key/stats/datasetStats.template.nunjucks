@@ -23,7 +23,7 @@
 
                         <div class="card__content seperator" ng-repeat="chart in datasetStats.checklistCharts">
                         <occurrence-chart-header api="chart.api"></occurrence-chart-header>
-                        <checklist-metrics metrics="datasetStats.checklistMetrics" dimension="chart.dimension" api="chart.api" options="chart.options" ><checklist-metrics>
+                        <checklist-metrics metrics="datasetStats.checklistMetrics" dimension="chart.dimension" api="chart.api" options="chart.options" ></checklist-metrics>
                         </div>
                 </div>
             </section>

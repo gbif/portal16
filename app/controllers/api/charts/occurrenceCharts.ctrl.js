@@ -31,7 +31,6 @@ router.get('/frequentTaxa', function (req, res) {
             res.json(chartData);
         })
         .catch(function (err) {
-            console.trace(err);
             res.status(500);
             res.send(err);
         });
@@ -45,6 +44,9 @@ async function getChartData(query) {
     delete query.dimension;
     query = _.assign({facetLimit: 1000}, query, {limit: 0, facet: chartDimension});
     let result = await getData(query);
+    if (result.facets.length == 0) {
+        throw 'No facets from the API';
+    }
     if (query.allEmums === 'true') {
         facetHelper.populateAllEnums(result.facets);
     }
