@@ -45,6 +45,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
             OccurrenceChartBasic.query(q).$promise
                 .then(function (data) {
                     vm.data = data;
+                    vm.logScale = vm.logScale && data.categories.length > 1;
                     setChartHeight();
                     vm.chartElement.style.height = vm.chartHeight + 'px';
                     if (vm.myChart) {
@@ -56,7 +57,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     } else if (vm.options.type == 'PIE') {
                         vm.myChart = Highcharts.chart(asPieChart(data));
                     } else if (vm.options.type == 'LINE') {
-                        vm.myChart = Highcharts.chart(asLineChart(data));
+                        vm.myChart = Highcharts.chart(asLineChart(data, vm.logScale));
                     }
                 });
         }
@@ -95,6 +96,12 @@ function occurrenceChartDirective(BUILD_VERSION) {
             vm.myChart = Highcharts.chart(asPieChart(vm.data));
         };
 
+        function asColumnChart(data, isLogaritmic) {
+            var chartConfig = asBarChart(data, isLogaritmic);
+            chartConfig.chart.type = 'column';
+            return chartConfig;
+        }
+
         function asBarChart(data, isLogaritmic) {
             return {
                 chart: {
@@ -109,10 +116,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         point: {
                             events: {
                                 click: function () {
-                                    var filter = vm.filter || {};
-                                    var q = _.merge({}, filter);
-                                    q[vm.data.dimension] = vm.data.categoryKeys[this.index];
-                                    $state.go('occurrenceSearchTable', q);
+                                    vm.occurrenceSearch(vm.data.categoryKeys[this.index]);
                                 }
                             }
                         },
@@ -193,7 +197,14 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 },
                 plotOptions: {
                     series: {
-                        animation: false
+                        animation: false,
+                        point: {
+                            events: {
+                                click: function () {
+                                    vm.occurrenceSearch(vm.data.categoryKeys[this.index]);
+                                }
+                            }
+                        }
                     }
                 },
                 credits: {
@@ -225,7 +236,17 @@ function occurrenceChartDirective(BUILD_VERSION) {
             };
         }
 
-        function asLineChart(data){
+        vm.occurrenceSearch = function(value) {
+            var filter = vm.filter || {};
+            var q = _.merge({}, filter);
+            q[vm.data.dimension] = value;
+            $state.go('occurrenceSearchTable', q);
+        };
+
+        function asLineChart(data, isLogaritmic){
+            if (data.categories.length < 20) {
+                return asColumnChart(data, isLogaritmic);
+            }
             var lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 0)}), data.series[0].data);
             return {
                 chart: {
@@ -278,7 +299,14 @@ function occurrenceChartDirective(BUILD_VERSION) {
                                 lineWidth: 1
                             }
                         },
-                        threshold: null
+                        threshold: null,
+                        point: {
+                            events: {
+                                click: function () {
+                                    vm.occurrenceSearch(vm.data.categoryKeys[this.index]);
+                                }
+                            }
+                        }
                     }
                 },
                 series: [{
@@ -318,6 +346,12 @@ function occurrenceChartDirective(BUILD_VERSION) {
         vm.api.asBarChart = function () {
             vm.options.type = 'BAR';
             return vm.toggleBarChart();
+        };
+
+        vm.api.getOptions = function () {
+            return {
+                actions: []
+            };
         };
 
         if (Object.freeze) {

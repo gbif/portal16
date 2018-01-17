@@ -23,7 +23,7 @@
 
                         <div class="card__content seperator" ng-repeat="chart in datasetStats.checklistCharts">
                         <occurrence-chart-header api="chart.api"></occurrence-chart-header>
-                        <checklist-metrics metrics="datasetStats.checklistMetrics" dimension="chart.dimension" api="chart.api" options="chart.options" ><checklist-metrics>
+                        <checklist-metrics metrics="datasetStats.checklistMetrics" dimension="chart.dimension" api="chart.api" options="chart.options" ></checklist-metrics>
                         </div>
                 </div>
             </section>
@@ -49,35 +49,22 @@
                             <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}" options="{limit:10}"></occurrence-taxonomy-tree>
                         </div>
                     </div>
-                    <div ng-if="datasetKey.occurrences.count > 0" class="card__content seperator" ng-repeat="chart in datasetStats.charts">
-                        <occurrence-chart-header api="chart.api"></occurrence-chart-header>
-                        <occurrence-chart filter="chart.filter" dimension="chart.dimension" api="chart.api" options="chart.options"></occurrence-chart>
+                    <div ng-if="datasetKey.occurrences.count > 0" class="card__content seperator">
+                        <occurrence-chart-header api="datasetStats.charts[0].api"></occurrence-chart-header>
+                        <occurrence-chart filter="datasetStats.charts[0].filter" dimension="datasetStats.charts[0].dimension" api="datasetStats.charts[0].api" options="datasetStats.charts[0].options"></occurrence-chart>
+                    </div>
+                    <div ng-if="datasetKey.occurrences.count > 0 && datasetKey.withYear.count > 0" class="card__content seperator">
+                        <occurrence-chart-header api="datasetStats.charts[1].api"></occurrence-chart-header>
+                        <occurrence-chart filter="datasetStats.charts[1].filter" dimension="datasetStats.charts[1].dimension" api="datasetStats.charts[1].api" options="datasetStats.charts[1].options"></occurrence-chart>
                     </div>
                 </div>
             </section>
 
-            {#<section ng-if="datasetKey.occurrences.count > 0" class="m-b-1" ng-repeat="chart in datasetStats.charts">#}
-                {#<occurrence-chart-header api="chart.api"></occurrence-chart-header>#}
-                {#<div class="card card--spaced">#}
-                    {#<div class="card__content">#}
-                        {#<occurrence-chart filter="chart.filter" dimension="chart.dimension" api="chart.api" options="chart.options"></occurrence-chart>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</section>#}
-            {#<div style="border:5px dashed #ddd; padding: 50px; text-align:center; color: #888">#}
-                {#<div>#}
-                    {#<h3>Add new chart</h3>#}
-                    {#<md-input-container>#}
-                        {#<label>Dimension</label>#}
-                        {#<md-select ng-model="datasetStats.chartDimension" ng-change="datasetStats.addNewChart(datasetStats.chartDimension)">#}
-                            {#<md-option><em>None</em></md-option>#}
-                            {#<md-option ng-repeat="field in datasetStats.chartFieldTypes" ng-value="field" Xng-disabled="$index === 1">#}
-                                {#{{field}}#}
-                            {#</md-option>#}
-                        {#</md-select>#}
-                    {#</md-input-container>#}
-                {#</div>#}
-            {#</div>#}
+            <div class="row" ng-if="datasetKey.dataset.type == 'METADATA'">
+                <div class="emptyInfo">
+                    <h3>No stats avilable for metadata only datasets</h3>
+                </div>
+            </div>
 
         </div>
 
