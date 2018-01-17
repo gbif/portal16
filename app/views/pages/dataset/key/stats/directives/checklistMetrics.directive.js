@@ -60,19 +60,21 @@ function checklistMetrics() {
                     }), ['count'], ['desc']);
 
                     for (var i = 0; i < sorted.length; i++) {
+                    if(sorted[i].count > 0){
                         data.categories.push(getTranslation(vm.dimension, sorted[i].key));
                         data.series[0].data.push(sorted[i].count);
                         data.series[0].total += sorted[i].count;
-
+                    }
                     }
                     data.title = $translate.instant("datasetMetrics."+vm.dimension);
                     vm.data = data;
 
-                    vm.chartElement.style.height = vm.chartHeight + 'px';
                     if (vm.myChart) {
                         vm.myChart.destroy();
                     }
 
+                    setChartHeight();
+                    vm.chartElement.style.height = vm.chartHeight + 'px';
                     if (vm.options.type == 'BAR') {
                         vm.myChart = Highcharts.chart(asBarChart(vm.data, vm.logScale));
                     } else if (vm.options.type == 'PIE') {
