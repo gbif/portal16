@@ -3,6 +3,8 @@
 var angular = require('angular');
 require('./directives/checklistTaxonomyStats.directive.js');
 require('./directives/occurrenceDatasetTaxonomyStats.directive.js');
+require('./directives/checklistMetrics.directive.js');
+
 
 require('../../../../components/occurrenceChart/occurrenceChart.directive');
 require('../../../../components/occurrenceChart/occurrenceChartHeader.directive');
@@ -64,8 +66,36 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
     vm.chartDimension;
     vm.chartFieldTypes = ['month', 'issue', 'country'];
 
+    vm.checklistCharts = [
+        {
+            dimension: 'countByKingdom',
+            api: {},
+            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
+        },
+        {
+            dimension: 'countByRank',
+            api: {},
+            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
+        },
+        {
+            dimension: 'countByOrigin',
+            api: {},
+            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
+        }, {
+            dimension: 'countByIssue',
+            api: {},
+            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
+        }, {
+            dimension: 'countExtRecordsByExtension',
+            api: {},
+            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
+        },
+        ]
+
+
     vm.sunburstOptions = {
         onZoomToTaxonKey : function(taxon_key){
+
             $state.go('.', {'taxon_key': taxon_key, 'dataset_key': vm.key}, {inherit: true, notify: false, reload: false});
         },
         onDisplayRootTree: function(){
