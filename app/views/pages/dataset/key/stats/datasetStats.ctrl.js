@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+_ = require('lodash');
 require('./directives/checklistTaxonomyStats.directive.js');
 require('./directives/occurrenceDatasetTaxonomyStats.directive.js');
 require('./directives/checklistMetrics.directive.js');
@@ -66,31 +67,47 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
     vm.chartDimension;
     vm.chartFieldTypes = ['month', 'issue', 'country'];
 
-    vm.checklistCharts = [
-        {
-            dimension: 'countByKingdom',
-            api: {},
-            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
-        },
-        {
-            dimension: 'countByRank',
-            api: {},
-            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
-        },
-        {
-            dimension: 'countByOrigin',
-            api: {},
-            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
-        }, {
-            dimension: 'countByIssue',
-            api: {},
-            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
-        }, {
-            dimension: 'countExtRecordsByExtension',
-            api: {},
-            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
-        },
-        ]
+
+    vm.checklistMetrics.$promise.then(function () {
+        vm.checklistCharts = _.filter(_.map(['countByKingdom', 'countByRank', 'countByOrigin', 'countByIssue', 'countExtRecordsByExtension', 'countNamesByLanguage'],
+            function (key) {
+
+                var hasMoreThanOneKey = vm.checklistMetrics[key] && Object.keys(vm.checklistMetrics[key]).length > 0;
+
+                if (!hasMoreThanOneKey) {
+                    return {show: false}
+                }
+
+                var entitiesWithValues = 0;
+
+                angular.forEach(vm.checklistMetrics[key], function (v, k) {
+
+                    if (vm.checklistMetrics[key][k] > 0) {
+                        entitiesWithValues++;
+                    }
+                })
+
+                var type = (['countByOrigin'].indexOf(key) > -1) ? "PIE" : "BAR";
+                return (entitiesWithValues > 1) ?
+                    {
+                        dimension: key,
+                        api: {},
+                        options: {showHeader: false, type: type},
+                        show: true
+                    } :
+                    {
+                        show: false
+
+                    };
+
+
+
+            }), function (e) {
+            return e.show
+        });
+
+    });
+
 
 
     vm.sunburstOptions = {

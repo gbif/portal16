@@ -30,10 +30,18 @@ function checklistMetrics() {
     }
 
     /** @ngInject */
-    function checklistMetrics(Highcharts,  $scope) {
+    function checklistMetrics(Highcharts,  $scope, $translate, $filter) {
         var vm = this;
         vm.logScale = true;
-        vm.options = {type: 'BAR'}
+        if(vm.dimension === "countByIssue"){
+            vm.unit =  "issues";
+        };
+        if(vm.dimension === "countExtRecordsByExtension"){
+            vm.unit =  "extensions";
+        };
+        if(vm.dimension === "countNamesByLanguage"){
+            vm.unit = "names"
+        };
 
         $scope.create = function (element) {
             vm.chartElement = element[0].querySelector('.chartArea');
@@ -43,7 +51,8 @@ function checklistMetrics() {
 
             vm.metrics.$promise.then(function (metrics) {
                 if (vm.metrics[vm.dimension]) {
-                    console.log(vm.metrics[vm.dimension]);
+
+
 
                     var data = {categories: [], series: [{data: [], total: 0}]}
                     var sorted = _.orderBy(_.map(vm.metrics[vm.dimension], function (value, key) {
@@ -51,12 +60,12 @@ function checklistMetrics() {
                     }), ['count'], ['desc']);
 
                     for (var i = 0; i < sorted.length; i++) {
-                        data.categories.push(sorted[i].key);
+                        data.categories.push(getTranslation(vm.dimension, sorted[i].key));
                         data.series[0].data.push(sorted[i].count);
                         data.series[0].total += sorted[i].count;
 
                     }
-                    data.title = vm.dimension;
+                    data.title = $translate.instant("datasetMetrics."+vm.dimension);
                     vm.data = data;
 
                     vm.chartElement.style.height = vm.chartHeight + 'px';
@@ -123,14 +132,14 @@ function checklistMetrics() {
                 },
                 yAxis: {
                     title: {
-                        text: 'Taxon count'
+                        text: (vm.unit || 'Taxon' )+' count'
                     },
                     type: isLogaritmic ? 'logarithmic' : 'linear',
                     minorTickInterval: isLogaritmic ? 1 : undefined,
                     visible: true
                 },
                 series: [{
-                    name: 'Taxa',
+                    name: vm.unit || 'Taxa',
                     data: data.series[0].data
                 }],
                 credits: {
@@ -198,7 +207,7 @@ function checklistMetrics() {
                     visible: false
                 },
                 series: [{
-                    name: 'Taxa',
+                    name: vm.unit || 'Taxa',
                     data: majorSerie
                 }],
                 exporting: {
@@ -210,6 +219,35 @@ function checklistMetrics() {
                 }
             };
         };
+
+        function getTranslation(dimension, key){
+
+            switch (dimension)
+            {
+                case 'countByKingdom':
+                    return $filter('capitalizeFirstLetter')(key.replace("_", " ").toLowerCase());
+                    break;
+                case 'countByRank':
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.'+key));
+                    break;
+                case 'countByOrigin':
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.originEnum.'+key));
+                    break;
+                case 'countByIssue':
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.issueEnum.'+key));
+                    break;
+                case 'countExtRecordsByExtension':
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.'+key));
+                    break;
+                case 'countNamesByLanguage':
+                    return $filter('capitalizeFirstLetter')(key.replace("_", " ").toLowerCase());
+                    break;
+
+
+            };
+
+
+        }
 
         vm.toggleBarChart = function () {
             vm.myChart.destroy();

@@ -1345,7 +1345,26 @@
       "DETERMINATION_SYNONYM": "Determination synonym",
       "DOUBTFUL": "Doubtful",
       "UNKNOWN": "Unknown"
+    },
+    "extensionEnum" : {
+      "DESCRIPTION": "Description",
+      "DISTRIBUTION": "Distribution",
+      "IDENTIFIER": "Identifier",
+      "MULTIMEDIA": "Multimedia",
+      "REFERENCE": "Reference",
+      "SPECIES_PROFILE": "Species profile",
+      "TYPES_AND_SPECIMEN": "Types and specimen",
+      "VERNACULAR_NAME": "Vernacular name"
     }
+  },
+  "datasetMetrics": {
+    "countByKingdom": "Count by kingdom",
+    "countByRank" : "Count by rank",
+    "countNamesByLanguage": "Count names by language",
+    "countExtRecordsByExtension" : "Count extensions by extension type",
+    "countByOrigin" : "Count by origin",
+    "countByIssue" : "Count issues by issue type"
+
   },
   "downloadFormat": {
     "SIMPLE_CSV": "CSV",
