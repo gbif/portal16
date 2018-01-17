@@ -100,7 +100,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 chart: {
                     animation: false,
                     type: 'bar',
-                    renderTo: vm.chartElement
+                    renderTo: vm.chartElement,
+                    className: 'chart-field-' + vm.options.dimension
                 },
                 plotOptions: {
                     series: {
@@ -187,7 +188,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 chart: {
                     animation: false,
                     type: 'pie',
-                    renderTo: vm.chartElement
+                    renderTo: vm.chartElement,
+                    className: 'chart-field-' + vm.options.dimension
                 },
                 plotOptions: {
                     series: {
@@ -228,7 +230,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
             return {
                 chart: {
                     zoomType: 'x',
-                    renderTo: vm.chartElement
+                    renderTo: vm.chartElement,
+                    className: 'chart-field-' + vm.options.dimension
                 },
                 title: {
                     text: ''
