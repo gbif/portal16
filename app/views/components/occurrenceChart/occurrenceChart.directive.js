@@ -224,8 +224,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
         }
 
         function asLineChart(data){
-            let lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 0)}), data.series[0].data);
-            console.log(lineData);
+            var lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 0)}), data.series[0].data);
             return {
                 chart: {
                     zoomType: 'x',
