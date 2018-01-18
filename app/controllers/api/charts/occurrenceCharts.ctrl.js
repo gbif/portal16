@@ -50,6 +50,10 @@ async function getChartData(query) {
     if (query.allEmums === 'true') {
         facetHelper.populateAllEnums(result.facets);
     }
+    //if (query.fillRange === 'true') {
+    //    facetHelper.fillAllInRange(result.facets);
+    //}
+    //return result.facets;
     let facets = await facetHelper.expandFacets(result.facets);
     facets[0].total = result.count;
 
