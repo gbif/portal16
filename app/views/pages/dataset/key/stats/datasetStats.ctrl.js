@@ -110,21 +110,6 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
 
 
 
-    vm.sunburstOptions = {
-        onZoomToTaxonKey : function(taxon_key){
-
-            $state.go('.', {'taxon_key': taxon_key, 'dataset_key': vm.key}, {inherit: true, notify: false, reload: false});
-        },
-        onDisplayRootTree: function(){
-            delete $stateParams.taxon_key;
-            delete vm.taxon_key;
-            delete vm.filter.taxon_key;
-            $state.go('.', {'dataset_key': vm.key}, {inherit: true, notify: false, reload: false});
-        }
-    }
-
-
-
 }
 
 module.exports = datasetStatsCtrl;

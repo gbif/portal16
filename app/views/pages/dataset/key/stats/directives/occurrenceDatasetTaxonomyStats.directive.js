@@ -17,8 +17,7 @@ function occurrenceDatasetTaxonomyStats() {
         link: chartLink,
         controllerAs: 'occurrenceDatasetTaxonomyStats',
         bindToController: {
-            filter: '='  ,
-            options: '='
+            filter: '='
         }
     };
     return directive;
@@ -70,7 +69,7 @@ function occurrenceDatasetTaxonomyStats() {
             query.taxon_key = taxon_key;
            // vm.filter.taxon_key =  query.taxon_key;
 
-            vm.options.onZoomToTaxonKey(taxon_key)
+           // vm.options.onZoomToTaxonKey(taxon_key)
           /*
             if( !$state.is('occurrenceSearchTable')){
                     $state.go('.', {'taxon_key': taxon_key, 'dataset_key': vm.filter.datasetKey}, {inherit: true, notify: false, reload: false});
@@ -101,7 +100,7 @@ function occurrenceDatasetTaxonomyStats() {
 
                         } else if(this.rank === 'ORDER'){
 
-                                vm.options.onDisplayRootTree()  ;
+                               // vm.options.onDisplayRootTree()  ;
                     /*     if( !$state.is('occurrenceSearchTable')){
 
                             delete vm.filter.taxon_key;
@@ -138,23 +137,6 @@ function occurrenceDatasetTaxonomyStats() {
         });
 
 
-     /*   $scope.$watchCollection(function () {
-            return vm.options
-        }, function () {
-            updateTree();
-        }); */
-
-        $scope.$watchCollection(function () {
-            return vm.filter
-        }, function () {
-            if(vm.filter.taxon_key) {
-
-                centerTreeAtTAxon(vm.filter.taxon_key)
-
-            } else {
-                displayRootTree();
-            }
-        });
 
 
 
