@@ -8,7 +8,8 @@ let i18n = rootRequire("config/i18n"),
 
 module.exports = {
     expandFacets: expandFacets,
-    populateAllEnums: populateAllEnums
+    populateAllEnums: populateAllEnums,
+    fillAllInRange: fillAllInRange,
 };
 
 /**
@@ -101,6 +102,33 @@ function populateAllEnums(facets) {
     });
 }
 
+function fillAllInRange(facets) {
+    facets.map(function(facet, index){
+        if (options[facet.field].range) {
+            //fill facet with all integers in range
+            //get min and max
+            let min = _.minBy(facet.counts, function(e){
+                return _.toSafeInteger(e.name)
+            });
+            let max = _.maxBy(facet.counts, function(e){
+                return _.toSafeInteger(e.name)
+            });
+
+            //map counts to obj
+            let facetMap = _.keyBy(facet.counts, 'name');
+
+            let mappedFacets = _.keyBy(facet.counts, 'name');
+            //let filled = options[facet.field].enums.map(function(e){
+            //    return {
+            //        name: e,
+            //        count: _.get(mappedFacets[e], 'count') || 0
+            //    }
+            //});
+            facets[index].counts = mappedFacets;
+        }
+    });
+}
+
 let type = {
     ENUM: 1,
     KEY: 2,
@@ -119,6 +147,7 @@ let options = {
         ordering: 'NUMERIC'
     },
     YEAR: {
+        range: true,
         type: type.RAW,
         ordering: 'NUMERIC'
     },

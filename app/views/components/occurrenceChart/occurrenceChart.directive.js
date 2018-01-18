@@ -74,7 +74,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     vm.chartHeight = 400;
                 }
             } else {
-                vm.chartHeight = 400;
+                vm.chartHeight = 250;
             }
         }
 
@@ -247,9 +247,11 @@ function occurrenceChartDirective(BUILD_VERSION) {
             if (data.categories.length < 20) {
                 return asColumnChart(data, isLogaritmic);
             }
-            var lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 0)}), data.series[0].data);
+
+            var lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 1)}), data.series[0].data);
             return {
                 chart: {
+                    type: 'area',
                     zoomType: 'x',
                     renderTo: vm.chartElement,
                     className: 'chart-field-' + vm.options.dimension
@@ -278,6 +280,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                 },
                 plotOptions: {
                     area: {
+                        trackByArea: true,
                         fillColor: {
                             linearGradient: {
                                 x1: 0,
@@ -303,7 +306,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         point: {
                             events: {
                                 click: function () {
-                                    vm.occurrenceSearch(vm.data.categoryKeys[this.index]);
+                                    vm.occurrenceSearch(data.categoryKeys[this.index]);
                                 }
                             }
                         }
