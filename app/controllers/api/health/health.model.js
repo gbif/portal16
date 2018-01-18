@@ -88,7 +88,7 @@ function createSummary(results, componentCounts) {
         componentMap[c].pending = resultCounts[c] < componentCounts[c];
     });
 
-    let healthComponentsOrder = ['OCCURRENCE', 'SPECIES', 'REGISTRY', 'IDENTITY', 'MAPS', 'DOWNLOAD', 'CRAWLER', 'RESOURCE_SEARCH', 'GITHUB', 'CONTENTFUL'];
+    let healthComponentsOrder = ['OCCURRENCE', 'SPECIES', 'REGISTRY', 'IDENTITY', 'MAPS', 'DOWNLOAD', 'CRAWLER', 'RESOURCE_SEARCH', 'GITHUB', 'CONTENTFUL', 'IMAGE_CACHE'];
     let components = [];
     Object.keys(componentMap).forEach(function(key){
         var c = componentMap[key];

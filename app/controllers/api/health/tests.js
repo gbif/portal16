@@ -166,6 +166,12 @@ var tests = [
         val: 50,
         severity: severity.WARNING,
         message: 'There has been more than 50 errors on occurrence search in the last 5 minutes'
+    },
+    {
+        url:config.serverProtocol + apiConfig.image.url + encodeURIComponent('http://www.gbif.org/img/logo/GBIF-2015.png'),
+        component: 'IMAGE_CACHE',
+        severity: severity.WARNING,
+        message: 'Image cache should return 200 for an image'
     }
 ];
 

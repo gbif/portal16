@@ -2834,6 +2834,10 @@
         "name": "Content mangement system (external system)",
         "tooltip": "Dataset, publishers, installations, countries, participants and networks. "
       },
+      "IMAGE_CACHE": {
+        "name": "Image cache",
+        "tooltip": "Responsible for most images on the website"
+      },
       "GITHUB": {
         "name": "Github (external system)",
         "tooltip": "Feedback, datasets suggestions"
