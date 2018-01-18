@@ -78,32 +78,42 @@ function checklistTaxonomyStats() {
                         if(taxonomy.KINGDOM && taxonomy.KINGDOM.length > 0){
                             vm.hasRankedTaxa = true;
                             rankOrder.push("KINGDOM")
-                        };
+                        }
                     if(taxonomy.PHYLUM && taxonomy.PHYLUM.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("PHYLUM")
-                    }
+                    } else if(taxonomy.PHYLUM.length === 0){
+                        delete taxonomy.PHYLUM;
+                    };
                     if(taxonomy.CLASS && taxonomy.CLASS.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("CLASS")
-                    }
+                    } else if(taxonomy.CLASS.length === 0){
+                        delete taxonomy.CLASS;
+                    };
                     if(taxonomy.ORDER && taxonomy.ORDER.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("ORDER")
-                    }
+                    } else if(taxonomy.ORDER.length === 0){
+                        delete taxonomy.ORDER;
+                    };
                     if(taxonomy.FAMILY && taxonomy.FAMILY.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("FAMILY")
-                    }
+                    } else if(taxonomy.FAMILY.length === 0){
+                        delete taxonomy.FAMILY;
+                    };
                     if(taxonomy.GENUS && taxonomy.GENUS.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("GENUS")
-                    };
+                    } else if(taxonomy.GENUS.length === 0){
+                        delete taxonomy.GENUS;
+                    };;
 
 
                     if(!vm.hasRankedTaxa){
@@ -113,7 +123,7 @@ function checklistTaxonomyStats() {
                         var rootRank = rankOrder[0];
 
 
-                        while (taxonomy[rankOrder[rootRankIndex]] && taxonomy[rankOrder[rootRankIndex]].length < 2) {
+                        while (taxonomy[rankOrder[rootRankIndex]] && taxonomy[rankOrder[rootRankIndex]].length < 2 && rootRankIndex < rankOrder.length -1) {
                             rootRankIndex++;
                             rootRank = rankOrder[rootRankIndex];
                         }
@@ -281,7 +291,6 @@ function checklistTaxonomyStats() {
                                     formatter: function () {
                                         return this.y > (taxonomy.count / 10) ? this.point.name : null;
                                     },
-                                    color: '#ffffff',
                                     distance: -30
                                 }
                             }, {

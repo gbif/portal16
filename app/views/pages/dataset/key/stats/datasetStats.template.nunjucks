@@ -18,7 +18,7 @@
                         {% include('../intro/checklistStats.nunjucks') %}
                     </div>
                     <div class="card__content seperator">
-                        <h4 class="card-header text-center inline-block">Number of species by higher taxon</h4>
+                        <h4 class="card-header text-center inline-block">Number of accepted species by higher taxon</h4>
                         <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
                     </div>
 
