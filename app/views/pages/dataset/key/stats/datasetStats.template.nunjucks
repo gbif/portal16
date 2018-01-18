@@ -18,11 +18,12 @@
                         {% include('../intro/checklistStats.nunjucks') %}
                     </div>
                     <div class="card__content seperator">
+                        <h4 class="card-header text-center inline-block">Number of species by higher taxon</h4>
                         <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
                     </div>
 
                         <div class="card__content seperator" ng-repeat="chart in datasetStats.checklistCharts">
-                        <occurrence-chart-header api="chart.api"></occurrence-chart-header>
+
                         <checklist-metrics metrics="datasetStats.checklistMetrics" dimension="chart.dimension" api="chart.api" options="chart.options" ></checklist-metrics>
                         </div>
                 </div>

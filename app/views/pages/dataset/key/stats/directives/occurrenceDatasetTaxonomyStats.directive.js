@@ -181,7 +181,7 @@ function paintChart(Highcharts, elm, type, taxonomy, click){
         },
         credits: false,
         title: {
-            text: 'Taxonomic distribution of occurrences'
+            text: ''
         },
 
         series: [{

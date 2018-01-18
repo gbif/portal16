@@ -34,6 +34,30 @@ function checklistTaxonomyStats() {
         $scope.create = function (element) {
             vm.chartElement = element[0].querySelector('.chartArea');
         };
+        vm.api = {};
+        //create API
+        vm.api.print = function () {
+            vm.myChart.print();
+        };
+        vm.api.png = function () {
+            vm.myChart.exportChart();
+        };
+        vm.api.getTitle = function () {
+            return _.get(vm.data, 'title');
+        };
+        vm.api.asPieChart = function () {
+            vm.options.type = 'PIE';
+            return vm.togglePieChart();
+        };
+        vm.api.asBarChart = function () {
+            vm.options.type = 'BAR';
+            return vm.toggleBarChart();
+        };
+
+        if (Object.freeze) {
+            Object.freeze(vm.api);
+        }
+
         var MAX_ROOT_LENGTH = 10;
         var MAX_CHILD_LENGTH = 50;
 
@@ -217,13 +241,13 @@ function checklistTaxonomyStats() {
                         }
 
 
-                        Highcharts.chart(vm.chartElement, {
+                 vm.myChart =  Highcharts.chart(vm.chartElement, {
                             chart: {
                                 type: 'pie'
                             },
                             credits: false,
                             title: {
-                                text: 'Number of species by higher Taxon'
+                                text: ''
                             },
 
                             yAxis: {
@@ -283,6 +307,14 @@ function checklistTaxonomyStats() {
                                 },
                                 id: 'versions'
                             }],
+
+                     exporting: {
+                            buttons: {
+                                contextButton: {
+                                    enabled: false
+                                }
+                            }
+                        },
                             responsive: {
                                 rules: [{
                                     condition: {

@@ -103,12 +103,14 @@ function checklistMetrics() {
             }
         }
 
+
         function asBarChart(data, isLogaritmic) {
             return {
                 chart: {
                     animation: false,
                     type: 'bar',
-                    renderTo: vm.chartElement
+                    renderTo: vm.chartElement,
+                    className: (vm.dimension === 'countByIssue')? 'chart-field-issue' : ''
                 },
                 plotOptions: {
                     series: {

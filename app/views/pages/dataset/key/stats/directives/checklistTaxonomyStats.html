@@ -1,6 +1,8 @@
-<div class="card__content">
-    <h4 class="card-header">Taxonomy breakdown</h4>
 
+<div class="header-options inline-block pull-right" ng-show="!checklistTaxonomyStats.loading && !checklistTaxonomyStats.preparing && checklistTaxonomyStats.hasRankedTaxa">
+<md-tooltip>Download PNG</md-tooltip>    <a href=""  class="gb-icon-file-download inherit noUnderline" ng-click="checklistTaxonomyStats.api.png()"></a>
+
+</div>
 
     <div  ng-if="(checklistTaxonomyStats.loading || checklistTaxonomyStats.preparing)" layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
@@ -15,5 +17,4 @@
             <h3>The checklist has no ranked taxa above Species.</h3>
 
      </div>
-</div>
 

@@ -92,7 +92,7 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
                     {
                         dimension: key,
                         api: {},
-                        options: {showHeader: false, type: type},
+                        options: {showHeader: true, type: type},
                         show: true
                     } :
                     {
