@@ -7,7 +7,9 @@
                 <h1 class="giant gb-icon-dodo">404</h1>
                 <p>This page might have existed once, but we can no longer find it.</p>
                 <p>
-                    We have just released an improved and updated GBIF.org, so it is possible some URLs have changed. Please try a search or perhaps visit the legacy website on <a href="http://www-old.gbif.org/">www-old.gbif.org</a>
+                    We released an improved and updated GBIF.org in August 2017, so some URLs may have changed. Please try our much-improved <a href="/search">search</a> to find what you're looking for.
+                    <br/>
+                    If the problem persists, please contact us at <a href="mailto:helpdesk@gbif.org">helpdesk@gbif.org</a>.
                 </p>
             </div>
             <div class="horizontal-stripe">
