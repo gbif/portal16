@@ -41,6 +41,7 @@ function occurrenceDatasetTaxonomyStats() {
 
         function displayRootTree(){
 
+
             DatasetOccurrenceTaxonomy.query(query).$promise
                 .then(function(taxonomy) {
                     vm.loading = false;
@@ -99,7 +100,9 @@ function occurrenceDatasetTaxonomyStats() {
                             }
 
                         } else if(this.rank === 'ORDER'){
+                            delete query.taxon_key;
 
+                            displayRootTree();
                                // vm.options.onDisplayRootTree()  ;
                     /*     if( !$state.is('occurrenceSearchTable')){
 
@@ -136,7 +139,19 @@ function occurrenceDatasetTaxonomyStats() {
 
         });
 
+        //create API
+        vm.api = {};
+        vm.api.print = function () {
+            vm.chart.print();
+        };
+        vm.api.png = function () {
+            vm.chart.exportChart();
+        };
 
+
+        if (Object.freeze) {
+            Object.freeze(vm.api);
+        }
 
 
 
@@ -165,7 +180,13 @@ function paintChart(Highcharts, elm, type, taxonomy, click){
         title: {
             text: ''
         },
-
+        exporting: {
+            buttons: {
+                contextButton: {
+                    enabled: false
+                }
+            }
+        },
         series: [{
             type: type,
             turboThreshold: 0,
