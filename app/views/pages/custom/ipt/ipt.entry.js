@@ -13,7 +13,7 @@ function iptCtrl($http, leafletData, env) {
         crs: L.CRS.EPSG3857
     };
     vm.center = {zoom: 7, lat: 0, lng: 0};
-console.log(env);
+
     var baseMap = {
         name: "Classic",
         url: env.basemapTileApi + "/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-light&srs=EPSG%3A3857",
@@ -44,7 +44,6 @@ console.log(env);
     vm.installations = [];
 
     $http.get('/api/ipt/stats').success(function (data) {
-        console.log(data);
         vm.countryCount = data.countryCount;
         vm.installationCount = data.installationCount;
         L.geoJson(data.geojson, {
