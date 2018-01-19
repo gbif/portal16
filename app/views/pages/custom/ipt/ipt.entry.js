@@ -43,8 +43,11 @@ console.log(env);
     };
     vm.installations = [];
 
-    $http.get('//api.gbif.org/v1/installation/location/IPT_INSTALLATION').success(function (data) {
-        L.geoJson(data, {
+    $http.get('/api/ipt/stats').success(function (data) {
+        console.log(data);
+        vm.countryCount = data.countryCount;
+        vm.installationCount = data.installationCount;
+        L.geoJson(data.geojson, {
             onEachFeature: function (feature) {
                 //get phrase in site language in plural or singular
                 var publisherUrl = '/publisher/';
