@@ -1,11 +1,11 @@
-
+<div class="occ-taxonomy-content">
     <div class="header-options inline-block pull-right">
 
         <a href="" class="gb-icon-file-download  inherit noUnderline" ng-click="occurrenceDatasetTaxonomyStats.api.png()"></a>
     </div>
 
-
-    <div  ng-if="occurrenceDatasetTaxonomyStats.loading || occurrenceDatasetTaxonomyStats.preparing" layout="row" layout-align="center center">
+<div class="occ-taxonomy-overlay" ng-if="occurrenceDatasetTaxonomyStats.loading || occurrenceDatasetTaxonomyStats.preparing">
+    <div ng-class="(occurrenceDatasetTaxonomyStats.chart !== undefined) ? 'occ-taxonomy-overlay-content' : ''"  layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
         <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
         <p ng-if="occurrenceDatasetTaxonomyStats.preparing">Preparing data</p>
@@ -13,6 +13,8 @@
 
     </div><span flex></span>
     </div>
+</div>
     <div class="taxonomyStatsContainer">
     </div>
 
+</div>

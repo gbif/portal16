@@ -4,65 +4,110 @@
         <div class="row" ng-if="!portal.hasRole('REGISTRY_ADMIN')">
             <div class="emptyInfo">
                 <h3>We are rethinking what metrics are most useful to show you</h3>
-                <p>If you have ideas please let us know <a href="https://github.com/gbif/portal16/issues/138">here</a></p>
-                <p>(In the meantime, you can view the previous version <a ng-href="http://www-old.gbif.org/dataset/{{ datasetKey.key }}">here</a>)</p>
+                <p>If you have ideas please let us know <a href="https://github.com/gbif/portal16/issues/138">here</a>
+                </p>
+                <p>(In the meantime, you can view the previous version <a
+                            ng-href="http://www-old.gbif.org/dataset/{{ datasetKey.key }}">here</a>)</p>
             </div>
         </div>
 
         <div ng-if="portal.hasRole('REGISTRY_ADMIN')">
 
-            <section ng-if="datasetKey.dataset.type == 'CHECKLIST'" class="m-b-1">
-                <h3 class="card-header">Checklist metrics</h3>
-                <div class="card card--spaced--very">
-                    <div class="card__content container-fluid">
-                        {% include('../intro/checklistStats.nunjucks') %}
-                    </div>
-                    <div class="card__content seperator">
-                        <h4 class="card-header text-center inline-block">Number of accepted species by higher taxon</h4>
-                        <checklist-taxonomy-stats dataset="datasetKey.dataset" ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
-                    </div>
+            <section ng-if="datasetKey.dataset.type == 'CHECKLIST'" class="section__stats m-b-1">
 
-                        <div class="card__content seperator" ng-repeat="chart in datasetStats.checklistCharts">
+                <div layout-padding>
 
-                        <checklist-metrics metrics="datasetStats.checklistMetrics" dimension="chart.dimension" api="chart.api" options="chart.options" ></checklist-metrics>
-                        </div>
-                </div>
-            </section>
-
-           <section ng-if="datasetKey.occurrences.count > 0" class="m-b-1">
-                <h3 class="card-header">Occurrence metrics</h3>
-
-                <div class="card card--spaced--very">
-                    <div class="card__content container-fluid">
-                        {% include('../intro/stats.nunjucks') %}
-                    </div>
-                    <div class="card__content seperator">
-                        <div ng-init="datasetKey.occurrenceTaxonomy = 'TREE'">
-                            <h4 class="card-header text-center inline-block">Taxonomic distribution of occurrences</h4>
-                            {#<div class="header-options inline-block pull-right">#}
-                                {#<a href="" class="gb-icon-taxonomy inherit noUnderline" ng-click="datasetKey.occurrenceTaxonomy = 'TREE'"></a>#}
-                                {#<a href="" class="gb-icon-donought-chart inherit noUnderline" ng-click="datasetKey.occurrenceTaxonomy = 'SUNBURST'"></a>#}
-                            {#</div>#}
-                        </div>
-                        <div layout="row">
-
-                        <div flex="50">
-                            <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}" options="{limit:10}"></occurrence-taxonomy-tree>
-                        </div >
-                            <div flex="50">
-                                <occurrence-dataset-taxonomy-stats filter="datasetStats.filter"  ></occurrence-dataset-taxonomy-stats>
+                    <div flex="100" >
+                        <h3 class="card-header">Checklist metrics</h3>
+                        <div class="card" layout-padding>
+                            <div class="card__content container-fluid">
+                                {% include('../intro/checklistStats.nunjucks') %}
                             </div>
                         </div>
                     </div>
-                    <div ng-if="datasetKey.occurrences.count > 0" class="card__content seperator">
-                        <occurrence-chart-header api="datasetStats.charts[0].api"></occurrence-chart-header>
-                        <occurrence-chart filter="datasetStats.charts[0].filter" dimension="datasetStats.charts[0].dimension" api="datasetStats.charts[0].api" options="datasetStats.charts[0].options"></occurrence-chart>
-                    </div>
-                    <div ng-if="datasetKey.occurrences.count > 0 && datasetKey.withYear.count > 0" class="card__content seperator">
-                        <occurrence-chart-header api="datasetStats.charts[1].api"></occurrence-chart-header>
-                        <occurrence-chart filter="datasetStats.charts[1].filter" dimension="datasetStats.charts[1].dimension" api="datasetStats.charts[1].api" options="datasetStats.charts[1].options"></occurrence-chart>
+                </div>
+
+
+                <div layout-padding>
+                <div>
+                    <h4 class="card-header text-center inline-block">Number of accepted species by higher taxon</h4>
+                    <div class="card" layout-padding>
+                    <checklist-taxonomy-stats dataset="datasetKey.dataset"
+                                              ng-if="datasetKey.dataset.type === 'CHECKLIST'"></checklist-taxonomy-stats>
                     </div>
                 </div>
+                </div>
+
+
+                <div layout-gt-sm="row" layout-padding layout-wrap>
+
+                    <div flex-gt-sm="50" flex="100" ng-repeat="chart in datasetStats.checklistCharts" class="m-b-2">
+                        <h4 class="card-header text-center inline-block">{{chart.api.getTitle()}}</h4>
+                        <checklist-metrics metrics="datasetStats.checklistMetrics" dimension="chart.dimension"
+                                           api="chart.api" options="chart.options"></checklist-metrics>
+                    </div>
+                </div>
+
+
+
+
+
+            </section>
+
+            <section ng-if="datasetKey.occurrences.count > 0" class="section__stats m-b-1">
+
+            <div layout-padding>
+
+                <div flex="100" >
+                    <h3 class="card-header">Occurrence metrics</h3>
+                <div class="card">
+                    <div class="card__content container-fluid" layout-padding>
+                        {% include('../intro/stats.nunjucks') %}
+                    </div>
+                </div>
+                </div>
+            </div>
+
+                    <div layout-gt-sm="row" layout-padding>
+
+                        <div flex-gt-sm="50" flex="100" >
+                            <h4 class="card-header text-center inline-block">Taxonomic distribution of
+                                occurrences</h4>
+                            <div class="card " layout-fill layout-padding>
+                                <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"
+                                                          options="{limit:10}"></occurrence-taxonomy-tree>
+                            </div>
+                        </div>
+                        <div flex-gt-sm="50" flex="100" >
+                            <h4 class="card-header text-center inline-block">Taxonomic distribution of
+                                occurrences</h4>
+                            <div class="card" layout-fill layout-padding>
+                                <occurrence-dataset-taxonomy-stats
+                                        filter="datasetStats.filter"></occurrence-dataset-taxonomy-stats>
+                            </div>
+                        </div>
+                    </div>
+                <div layout-gt-sm="row" class="m-t-1" layout-padding>
+                    <div ng-if="datasetKey.occurrences.count > 0" flex-gt-sm="50" flex="100" >
+                        <occurrence-chart-header api="datasetStats.charts[0].api"></occurrence-chart-header>
+                        <div class="card " layout-fill layout-padding>
+                        <occurrence-chart filter="datasetStats.charts[0].filter"
+                                          dimension="datasetStats.charts[0].dimension" api="datasetStats.charts[0].api"
+                                          options="datasetStats.charts[0].options" ></occurrence-chart>
+                        </div>
+                    </div>
+                    <div ng-if="datasetKey.occurrences.count > 0 && datasetKey.withYear.count > 0" flex-gt-sm="50" flex="100"
+                         >
+                        <occurrence-chart-header api="datasetStats.charts[1].api"></occurrence-chart-header>
+                        <div class="card " layout-fill layout-padding>
+                        <occurrence-chart filter="datasetStats.charts[1].filter"
+                                          dimension="datasetStats.charts[1].dimension" api="datasetStats.charts[1].api"
+                                          options="datasetStats.charts[1].options" ></occurrence-chart>
+                        </div>
+                    </div>
+
+                </div>
+
             </section>
 
             <div class="row" ng-if="datasetKey.dataset.type == 'METADATA'">

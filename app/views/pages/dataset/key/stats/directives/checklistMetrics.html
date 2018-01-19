@@ -1,15 +1,12 @@
-<div>
-    <h4 class="card-header text-center inline-block">{{checklistMetrics.api.getTitle()}}</h4>
+
+<div class="card" layout-fill layout-padding>
+
     <div class="header-options inline-block pull-right">
         <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="checklistMetrics.api.asPieChart()"></a>
         <a href="" class="gb-icon-bar-chart inherit noUnderline" ng-click="checklistMetrics.api.asBarChart()"></a>
         <a href="" class="gb-icon-file-download  inherit noUnderline" ng-click="checklistMetrics.api.png()"></a>
     </div>
-</div>
-<div class="card__content">
-
-
-    <div class="chartArea" ></div>
+    <div class="chartArea m-b-1" ></div>
     <div class="text-right small" ng-if="checklistMetrics.options.type == 'BAR'">
         <div class="gb-btn-group">
             <label ng-model="checklistMetrics.logScale" uib-btn-radio="false"

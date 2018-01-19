@@ -1,5 +1,22 @@
-.taxonomyStatsContainer {
-    height 450px
-    max-height "calc(100vh - %s)" % ($navBar_height * 3)
+.section__stats{
+    margin: -3px
+}
 
+.occ-taxonomy-content{
+    position: relative;
+    }
+.occ-taxonomy-overlay{position: absolute;left: 0; top: 0; right: 0; bottom: 0;z-index: 2;background-color: rgba(255,255,255,0.8);}
+.occ-taxonomy-overlay-content {
+    position: absolute;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #555;
+}
+
+.taxonomyStatsContainer {
 }
