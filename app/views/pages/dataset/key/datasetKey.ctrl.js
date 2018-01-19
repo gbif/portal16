@@ -20,7 +20,7 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl($q, $http, $timeout, $interval, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
+function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -215,14 +215,22 @@ function datasetKeyCtrl($q, $http, $timeout, $interval, $state, $stateParams, $s
     };
 
     function checkCrawlStatus() {
-        DatasetCurrentCrawlingStatus.get({key: vm.key}).$promise
-        .then(function(response){
-            vm.currentCrawlingStatus = response;
-            $interval(checkCrawlStatus, 30000, 15);
-        })
-        .catch(function(err){
-            console.log(err);
-        });
+        if (vm.crawlingState !== 'FINISHED') {
+            DatasetCurrentCrawlingStatus.get({key: vm.key}).$promise
+                .then(function (response) {
+                    vm.currentCrawlingStatus = response;
+                    $timeout(checkCrawlStatus, 10000);
+                    if (vm.currentCrawlingStatus.isInQueue) {
+                        vm.crawlingState = 'IN_QUEUE';
+                    }
+                    if (!vm.currentCrawlingStatus.isInQueue && vm.crawlingState == 'IN_QUEUE') {
+                        vm.crawlingState = 'FINISHED';
+                    }
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
     }
 
     vm.isTrustedContact = false;
@@ -239,20 +247,24 @@ function datasetKeyCtrl($q, $http, $timeout, $interval, $state, $stateParams, $s
     }
     checkIfTrustedContact();
 
+    vm.crawlingState = 'FINISHED';
     vm.startCrawling = function(){
-        if (vm.crawlingStarted) {
+        if (vm.crawlingState != 'FINISHED') {
             return; // to avoid starting it twice
         }
-        vm.crawlingStarted = true;
+        vm.crawlingState = 'STARTED';
         $http.post('/api/dataset/' + vm.key + '/crawl')
             .then(function(){
-                vm.crawlingFailed = false;
-                $timeout(checkCrawlStatus, 1000);
-                $interval(checkCrawlStatus, 3000, 2);
+                checkCrawlStatus();
             }, function(){
-                vm.crawlingFailed = true;
+                vm.crawlingState = 'FAILED';
             });
     };
+
+    //stop checking for crawl status if the user leaves the page
+    $scope.$on('$stateChangeStart', function(){
+        vm.crawlingState = 'FINISHED';
+    });
 }
 
 module.exports = datasetKeyCtrl;

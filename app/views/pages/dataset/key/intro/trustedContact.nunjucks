@@ -12,13 +12,13 @@
                 <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0">Last crawl failed</span>
                 <span class="gb-badge--red inline-block" ng-if="datasetKey.isOutOfSync">Out of sync</span>
             </a>
-            <div class="pull-right" ng-if="!datasetKey.crawlingFailed">
+            <div class="pull-right" ng-if="datasetKey.crawlingState != 'FAILED'">
                 <a ng-href="{{ portal.env.managementToolsSite }}crawl-history?uuid={{ datasetKey.key }}" class="gb-button--flat text-uppercase">History</a>
-                <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && !datasetKey.crawlingStarted">Crawl now</a>
-                <a class="gb-button--discreet" href="//crawler.gbif.org/" ng-if="datasetKey.currentCrawlingStatus.isInQueue">Is in crawl queue</a>
-                <span class="gb-button--discreet" ng-if="!datasetKey.currentCrawlingStatus.isInQueue && datasetKey.crawlingStarted">Adding to queue</span>
+                <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="datasetKey.crawlingState == 'FINISHED'">Crawl now</a>
+                <a class="gb-button--discreet" href="//crawler.gbif.org/" ng-if="datasetKey.crawlingState == 'IN_QUEUE'">Is in crawl queue</a>
+                <span class="gb-button--discreet" ng-if="datasetKey.crawlingState == 'STARTED'">Adding to queue</span>
             </div>
-            <div class="pull-right" ng-if="datasetKey.crawlingFailed">
+            <div class="pull-right" ng-if="datasetKey.crawlingState == 'FAILED'">
                 <span class="text-error text-uppercase">Unable to start crawl</span>
             </div>
         </div>
