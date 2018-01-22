@@ -13,9 +13,10 @@
 <div class="occ-taxonomy-overlay" ng-if="occurrenceDatasetTaxonomyStats.loading || occurrenceDatasetTaxonomyStats.preparing">
     <div class="occ-taxonomy-overlay-content"  layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
-        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-        <p ng-if="occurrenceDatasetTaxonomyStats.preparing">Preparing data</p>
-        <p ng-if="occurrenceDatasetTaxonomyStats.loading">Loading data</p>
+        <div class="emptyInfo--small">
+            <h3 ng-if="occurrenceDatasetTaxonomyStats.loading">Loading ...</h3>
+            <h3 ng-if="occurrenceDatasetTaxonomyStats.preparing">Preparing ...</h3>
+        </div>
 
     </div><span flex></span>
     </div>

@@ -14,7 +14,7 @@
 
             <section ng-if="datasetKey.dataset.type == 'CHECKLIST'" class="section__stats m-b-1">
 
-                <div layout-padding>
+                <div layout-padding class="m-b-minus-10">
 
                     <div flex="100" >
                         <h3 class="card-header">Checklist metrics</h3>
@@ -27,7 +27,7 @@
                 </div>
 
 
-                <div layout-padding>
+                <div layout-padding class="m-b-minus-10">
                 <div>
 
                     <checklist-taxonomy-stats dataset="datasetKey.dataset"
@@ -53,7 +53,7 @@
 
             <section ng-if="datasetKey.occurrences.count > 0" class="section__stats m-b-1">
 
-            <div layout-padding>
+            <div layout-padding class="m-b-minus-10">
 
                 <div flex="100" >
                     <h3 class="card-header">Occurrence metrics</h3>

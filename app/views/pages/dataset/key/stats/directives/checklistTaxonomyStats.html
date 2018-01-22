@@ -10,9 +10,10 @@
 
     <div  ng-if="(checklistTaxonomyStats.loading || checklistTaxonomyStats.preparing)" layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
-        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-        <p ng-if="checklistTaxonomyStats.preparing">Preparing data</p>
-        <p ng-if="checklistTaxonomyStats.loading">Loading data</p>
+        <div class="emptyInfo--small">
+            <h3 ng-if="checklistTaxonomyStats.loading">Loading ...</h3>
+            <h3 ng-if="checklistTaxonomyStats.preparing">Preparing ...</h3>
+        </div>
 
     </div><span flex></span>
     </div>
