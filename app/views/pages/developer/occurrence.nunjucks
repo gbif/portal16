@@ -151,8 +151,10 @@
                     <h3>Occurrence Downloads</h3>
                     <p>This API provides services to download occurrence records and retrieve information about those
                         downloads.</p>
-                    <p>Occurrence downloads are created asynchronously - the user requests a download and, once
-                        complete, is sent and email with a link to the resulting file.</p>
+                    <p>Occurrence downloads are created asynchronously — the user requests a download and, once
+                        complete, is sent an email with a link to the resulting file.</p>
+                    <p>It is necessary to register as a user of the website to create a download request, and use HTTP authentication
+                        using the username (not the email) and password.</p>
                     <p>Internally we use a Java web service client for the consumption of these HTTP-based, RESTful web
                         services. It may
                         be of interest to those coding against the API, and can be found in the <a
@@ -421,6 +423,19 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"BASIS_OF_RECORD",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"LITERATURE"<br/>
+                                    &nbsp;&nbsp;}<br/>
+                                    }<br/>
+                                </code>
+                                or
+                                <code class="block">
+                                    {<br/>
+                                    &nbsp;&nbsp;"creator":"userName",<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"predicate":<br/>
+                                    &nbsp;&nbsp;{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"key":"HAS_COORDINATE",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"value":"true"<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }<br/>
                                 </code>
