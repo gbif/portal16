@@ -1,8 +1,12 @@
-
-<div class="header-options inline-block pull-right" ng-show="!checklistTaxonomyStats.loading && !checklistTaxonomyStats.preparing && checklistTaxonomyStats.hasRankedTaxa">
-<md-tooltip>Download PNG</md-tooltip>    <a href=""  class="gb-icon-file-download inherit noUnderline" ng-click="checklistTaxonomyStats.api.png()"></a>
+<div>
+<h4 class="card-header text-center inline-block">Number of accepted species by higher taxon</h4>
+<div class="chart-header-options inline-block pull-right" ng-show="!checklistTaxonomyStats.loading && !checklistTaxonomyStats.preparing && checklistTaxonomyStats.hasRankedTaxa">
+    <md-tooltip>Download PNG</md-tooltip>    <a href=""  class="gb-icon-file-download inherit noUnderline" ng-click="checklistTaxonomyStats.api.png()"></a>
 
 </div>
+</div>
+<div class="card" layout-padding>
+
 
     <div  ng-if="(checklistTaxonomyStats.loading || checklistTaxonomyStats.preparing)" layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
@@ -18,3 +22,4 @@
 
      </div>
 
+</div>

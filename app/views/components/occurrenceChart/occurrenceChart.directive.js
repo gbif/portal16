@@ -38,12 +38,13 @@ function occurrenceChartDirective(BUILD_VERSION) {
     function occurrenceChart($http, $state, $scope, OccurrenceChartBasic, Highcharts) {
         var vm = this;
         vm.logScale = true;
-
+        vm.loading = true;
         function updateChart(dimension) {
             var filter = vm.filter || {};
             var q = _.merge({}, filter, {chartDimension: dimension});
             OccurrenceChartBasic.query(q).$promise
                 .then(function (data) {
+                    vm.loading = false;
                     vm.data = data;
                     vm.logScale = vm.logScale && data.categories.length > 1;
                     setChartHeight();

@@ -1,5 +1,5 @@
 <div class="chart chart-field-{{vm.options.dimension}}">
-    <occurrence-chart-header api="vm.api" ng-if="vm.options.showHeader"></occurrence-chart-header>
+    <!--<occurrence-chart-header api="vm.api" ng-if="vm.options.showHeader"></occurrence-chart-header>-->
     <div ng-show="vm.data.categories.length > 1">
         <div class="chartArea" style="width:100%;"></div>
 
@@ -22,6 +22,10 @@
     </div>
     <div ng-if="vm.data.categories.length == 0" class="chart__empty">
         <div>No occurrences with {{vm.options.dimension}}</div>
+    </div>
+    <div  ng-show="vm.loading" class="emptyInfo--small">
+        <h3>Loading ...</h3>
+
     </div>
     <ng-transclude></ng-transclude>
 </div>

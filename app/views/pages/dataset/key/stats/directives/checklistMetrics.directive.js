@@ -47,9 +47,13 @@ function checklistMetrics() {
             vm.chartElement = element[0].querySelector('.chartArea');
         };
 
+        vm.loading = true;
+
         angular.element(document).ready(function () {
 
             vm.metrics.$promise.then(function (metrics) {
+
+                vm.loading = false;
                 if (vm.metrics[vm.dimension]) {
 
 

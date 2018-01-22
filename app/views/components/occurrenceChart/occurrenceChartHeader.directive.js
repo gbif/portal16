@@ -15,7 +15,8 @@ function occurrenceChartHeaderDirective(BUILD_VERSION) {
         transclude: true,
         templateUrl: '/templates/components/occurrenceChart/occurrenceChartHeader.html?v=' + BUILD_VERSION,
         scope: {
-            api: '='
+            api: '=',
+            options: '='
         },
         controller: occurrenceChartHeader,
         controllerAs: 'vm',
