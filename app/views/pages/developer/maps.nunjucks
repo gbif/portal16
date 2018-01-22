@@ -84,7 +84,7 @@
                         The format of the URL is as follows:
                     </p>
                     <p>
-                        <code>https://api.gbif.org/v2/maps/occurrence/{source}/{z}/{x}/{y}{format}?srs={srs}{params}</code>
+                        <code>https://api.gbif.org/v2/map/occurrence/{source}/{z}/{x}/{y}{format}?srs={srs}{params}</code>
                     </p>
                     <p>With the following parameters:
 
