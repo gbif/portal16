@@ -42,6 +42,11 @@ function checklistTaxonomyStats() {
         vm.api.png = function () {
             vm.myChart.exportChart();
         };
+        vm.api.svg = function(){
+            vm.myChart.exportChart({
+                type: 'image/svg+xml'
+            });
+        };
         vm.api.getTitle = function () {
             return _.get(vm.data, 'title');
         };

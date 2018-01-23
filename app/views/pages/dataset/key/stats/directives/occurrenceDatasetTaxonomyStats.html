@@ -2,8 +2,23 @@
 <h4 class="card-header text-center inline-block">Taxonomic distribution of
     occurrences</h4>
 <div class="chart-header-options inline-block pull-right">
+    <md-menu >
+        <a href="" class="gb-icon-file-download  inherit noUnderline"
+           ng-click="$mdMenu.open($event)"
+        ></a>
+        <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
+            <md-menu-item>
+                <md-button ng-click="occurrenceDatasetTaxonomyStats.api.png()">
+                    PNG
+                </md-button>
+            </md-menu-item>
 
-    <a href="" class="gb-icon-file-download  inherit noUnderline" ng-click="occurrenceDatasetTaxonomyStats.api.png()"></a>
+            <md-menu-item>
+                <md-button  ng-click="occurrenceDatasetTaxonomyStats.api.svg()"> SVG
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
 </div>
 </div>
 <div class="card" layout-fill layout-padding>

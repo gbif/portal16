@@ -147,7 +147,11 @@ function occurrenceDatasetTaxonomyStats() {
         vm.api.png = function () {
             vm.chart.exportChart();
         };
-
+        vm.api.svg = function(){
+            vm.chart.exportChart({
+                type: 'image/svg+xml'
+            });
+        };
 
         if (Object.freeze) {
             Object.freeze(vm.api);

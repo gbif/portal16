@@ -252,7 +252,7 @@ function mdConfig($mdThemingProvider, $mdGestureProvider) {
         .primaryPalette('customPrimary')
         .accentPalette('customAccent')
         .warnPalette('customWarn')
-        .backgroundPalette('customBackground')
+      //  .backgroundPalette('customBackground')
 }
 
 require('./portal.ctrl');
