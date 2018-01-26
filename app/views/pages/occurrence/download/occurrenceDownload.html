@@ -168,8 +168,11 @@
                                         <br/>
                                         <span translate="occurrenceDownload.estimatedSize"></span>
                                         <strong>{{
-                                            occDownload.estKbCsv*occDownload.state.table.count*1024 |
+                                            occDownload.estKbCsv*occDownload.state.table.count*occDownload.unzipFactor*1024 |
                                             formatBytes:0:occDownload.state.query.locale }}</strong>
+                                        <span>({{
+                                            occDownload.estKbCsv*occDownload.state.table.count*1024 |
+                                            formatBytes:0:occDownload.state.query.locale }} zipped for download)</span>
                                     </p>
                                 </div>
                                 <div>
@@ -185,8 +188,11 @@
                                         <br/>
                                         <span translate="occurrenceDownload.estimatedSize"></span>
                                         <strong>{{
-                                            occDownload.estKbDwcA*occDownload.state.table.count*1024 |
+                                            occDownload.estKbDwcA*occDownload.state.table.count*occDownload.unzipFactor*1024 |
                                             formatBytes:0:occDownload.state.query.locale }}</strong>
+                                        <span>({{
+                                            occDownload.estKbDwcA*occDownload.state.table.count*1024 |
+                                            formatBytes:0:occDownload.state.query.locale }} zipped for download)</span>
                                     </p>
                                 </div>
                             </div>
@@ -271,6 +277,58 @@
             <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()">Understood</a>
         </div>
     </script>
+
+    <script type="text/ng-template" id="largeDownloadWarning.html">
+        <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
+        <div class="gb-modal-header">
+            <span class="modal-title body-text" id="modal-title">Large download</span>
+        </div>
+        <div class="gb-modal-body" id="modal-body">
+            <div class="gb-modal-body__content horizontal-stripe white-background">
+                <p ng-if="$ctrl.options.filterCount === 0">
+                   <strong> You are requesting a full download of all occurrence data in GBIF.</strong>
+                    This is possible, but you may want to filter the data before downloading. This can be done using our occurrence filters.
+                    These are explained <a href="/news/3K5oLzZXi0yG0SEO8E6c88/top-tip-using-filters-and-facets-on-gbiforg">here</a>
+                </p>
+                <p>
+                    The estimated size of the download is <strong>{{
+                    $ctrl.options.downloadSize |
+                    formatBytes:0:occDownload.state.query.locale }}</strong>
+                </p>
+                <p>
+                    Estimated download times:
+                    <ul>
+                <li ng-repeat="(key, val) in $ctrl.options.downloadSpeed">
+                    {{key}} Mbit connection : <strong>{{val}}</strong>
+                </li>
+            </ul>
+                </p>
+                <p>
+                    Once you have downloaded the file, you will need another <strong>{{$ctrl.options.spaceRequiredForUnzip |
+                    formatBytes:0:occDownload.state.query.locale }}</strong> of free disk space to unzip the data.
+                </p>
+                <p >
+                    The dataset has <strong>{{$ctrl.options.rowCount | localNumber:occDownload.state.query.locale }}</strong> data rows.
+                </p>
+                <p ng-if="$ctrl.options.fileSizeType ==='LARGE' || $ctrl.options.fileSizeType ==='VERY_LARGE' " >
+                    You will not be able to view or analyse the data in excel or similar applications. In order to work with these data, you will need knowledge of e.g. R, Python or Relational databases.
+                </p>
+
+                <p ng-if="$ctrl.options.fileSizeType ==='VERY_LARGE' ">
+                    A dataset of this size is difficult to analyse on your normal desktop computer.
+                    You will probably need access to some sort of distributed computing service.
+                </p>
+            </div>
+        </div>
+        </div>
+        <div class="gb-modal-footer">
+            <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()">Cancel</a>
+            <!--<a href="" class="gb-button&#45;&#45;primary" type="button" ng-click="$ctrl.ok()"-->
+            <!--ng-class="{invisible: !$ctrl.username || !$ctrl.password || !$ctrl.email}">Understood</a>-->
+            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()">Proceed</a>
+        </div>
+    </script>
+
 </div>
 
 

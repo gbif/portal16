@@ -9,12 +9,14 @@
 var angular = require('angular'),
     _ = require('lodash');
 
+require('./DownloadSpeed.service');
+
 angular
     .module('portal')
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
-function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User) {
+function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed) {
     var vm = this;
     vm.stateParams = $state;
     vm.downloadFormats = enums.downloadFormats;
@@ -23,10 +25,16 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
     vm.hasFossils = false;
     vm.defaultIssueLimit = 1000;
     vm.issueLimit = 1000;
+    vm.largeDownloadOffset = 1048576; // above this size, it is not possible to handle it in excel
+    vm.veryLargeDownloadOffset = 50000000; // above this size data wrangling is not trivial, i.e. ordinary databases like access, filemaker etc. will not longer suffice
+    vm.unzipFactor = 6.8; // based on a 47 mb file being 316 mb unzipped
     vm.estKbDwcA = 0.165617009; //based on 111GB for 702777671 occurrences in “DWCA"
     vm.estKbCsv = 0.065414979; //based on 44GB for 705302432 occurrences in CSV
 
     vm.adhocTileApi = env.dataApiV2;
+
+
+
 
     var toCamelCase = function (str) {
         return str.replace(/_([a-z])/g, function (g) {
@@ -174,6 +182,29 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
     });
 
     vm.open = function (format) {
+
+        vm.state.table.$promise.then(function(){
+
+            if(vm.state.table.count > vm.largeDownloadOffset){
+
+
+                vm.openWarningModal(format)
+
+
+            } else {
+
+                vm.openDownloadModal(format)
+
+            }
+
+
+        })
+
+
+    };
+
+    vm.openDownloadModal = function (format) {
+
         var modalInstance = $uibModal.open({
             animation: true,
             ariaLabelledBy: 'modal-title',
@@ -182,8 +213,8 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl',
             resolve: {
-                format: function () {
-                    return format;
+                options: function () {
+                    return {format: format};
                 }
             }
         });
@@ -193,6 +224,59 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
         }, function () {
             //user clicked cancel
         });
+
+
+    };
+
+    vm.openWarningModal = function (format) {
+
+            var filterCount = 0;
+
+            angular.forEach(vm.state.query, function(val, key){
+
+                    if(key !== "locale" && key !== "advanced" && typeof val !== 'undefined'){
+                        filterCount ++;
+                    }
+
+            })
+        vm.state.table.$promise.then(function(){
+
+
+            var size = (format === "SIMPLE_CSV")? vm.estKbCsv : vm.estKbDwcA;
+
+            var fileSizeType = (vm.state.table.count > vm.veryLargeDownloadOffset) ? "VERY_LARGE" : "LARGE";
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'largeDownloadWarning.html',
+                controller: 'ModalInstanceCtrl',
+                controllerAs: '$ctrl',
+                resolve: {
+                    options: function () {
+                        return {
+                            format: format,
+                            downloadSpeed: DownloadSpeed.calculate( size * vm.state.table.count  * 1024),
+                            downloadSize: size * vm.state.table.count  * 1024,
+                            spaceRequiredForUnzip: size * vm.state.table.count  * 1024 * vm.unzipFactor,
+                            filterCount: filterCount,
+                            fileSizeType: fileSizeType,
+                            rowCount: vm.state.table.count
+
+                            };
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                vm.openDownloadModal(format)
+            }, function () {
+                //user clicked cancel
+            });
+
+        })
+
     };
 
     vm.startDownload = function(format, username, password, email) {
@@ -236,19 +320,19 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 }
 
 
-angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInstance, format) {
+angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInstance, options) {
     var $ctrl = this;
     //$ctrl.username;
     //$ctrl.password;
     //$ctrl.email;
-    $ctrl.format = format;
+    $ctrl.options = options;
 
     $ctrl.ok = function () {
         $uibModalInstance.close({
             //username: $ctrl.username,
             //password: $ctrl.password,
             //email: $ctrl.email,
-            format: $ctrl.format
+            format: $ctrl.options.format
         });
     };
 
@@ -256,6 +340,7 @@ angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInst
         $uibModalInstance.dismiss('cancel');
     };
 });
+
 
 
 
