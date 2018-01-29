@@ -83,7 +83,7 @@
 
                         <div ng-show="occDownload.stateParams.params.q" class="download-report__empty">
                             <h2>
-                                Download is only supported for structured search - not for free text queries.
+                                Download is only supported for structured search – not for free text queries.
                             </h2>
                             <p class="m-t-2">
                                 <a href="" class="gb-button--primary" ng-click="occDownload.clearFreeText()">Remove "{{occDownload.stateParams.params.q}}" from query</a>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="download-report__summary" ng-show="occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
                             <div class="card">
-                                <!-- maps need a thumbnail service. That should come soon in agreement with Tim R and Matt B - 16/06/2017. When that comes it makes sense to add this again, but using the thumbnail service.-->
+                                <!-- maps need a thumbnail service. That should come soon in agreement with Tim R and Matt B – 16/06/2017. When that comes it makes sense to add this again, but using the thumbnail service.-->
                                 <!--<div class="download-report__map">-->
                                     <!--<div ng-if="occDownload.loadingThumbnail">-->
                                         <!--<div class="loading"></div>-->
@@ -125,7 +125,7 @@
                                             <dt class="text-capitalize" translate="stdTerms.yearRange">Year range</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showRange" class="loading"></span>
-                                                <span ng-if="occDownload.showRange">{{occDownload.minYear}} - {{occDownload.maxYear}}</span>
+                                                <span ng-if="occDownload.showRange">{{occDownload.minYear}}–{{occDownload.maxYear}}</span>
                                             </dd>
                                         </div>
                                         <div>
@@ -257,7 +257,7 @@
     <script type="text/ng-template" id="myModalContent.html">
         <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
         <div class="gb-modal-header">
-            <span class="modal-title body-text" id="modal-title">Free of cost - not free of responsibilities</span>
+            <span class="modal-title body-text" id="modal-title">Free of cost – not free of responsibilities</span>
         </div>
         <div class="gb-modal-body" id="modal-body">
             <div class="gb-modal-body__content horizontal-stripe white-background">
