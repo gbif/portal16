@@ -67,7 +67,7 @@
 
                             <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyStats')}" ng-if="datasetKey.dataset.type !== 'METADATA'">
                                 <a ui-sref="datasetKeyStats({key:datasetKey.dataset.key})">
-                                    Stats
+                                    Metrics
                                 </a>
                             </li>
 
