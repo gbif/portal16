@@ -2,7 +2,7 @@
     <li ng-repeat="item in item.children">
         <div class="pipe"></div>
         <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline" ng-if="item.canonicalName">
-            <div style="width:{{item.percentage | formatAsPercentage}}%" ng-if="item.percentage"></div>
+            <!--<div style="width:{{item.percentage | formatAsPercentage}}%" ng-if="item.percentage"></div> -->
             <span ng-if="item.canonicalName">{{item.canonicalName}}</span>
             <span ng-if="!item.canonicalName">incertae sedis</span>
             <span class="discreet--very" ng-if="item.percentage">{{item.percentage | formatAsPercentage }}%</span>

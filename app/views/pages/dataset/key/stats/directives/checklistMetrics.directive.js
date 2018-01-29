@@ -30,7 +30,8 @@ function checklistMetrics() {
     }
 
     /** @ngInject */
-    function checklistMetrics(Highcharts,  $scope, $translate, $filter) {
+    function checklistMetrics(Highcharts,  $scope, $translate, $filter, enums) {
+        console.log(enums.rank)
         var vm = this;
         vm.logScale = true;
         if(vm.dimension === "countByIssue"){
@@ -59,9 +60,11 @@ function checklistMetrics() {
 
 
                     var data = {categories: [], series: [{data: [], total: 0}]}
-                    var sorted = _.orderBy(_.map(vm.metrics[vm.dimension], function (value, key) {
+                    var mappedData = _.map(vm.metrics[vm.dimension], function (value, key) {
                         return {key: key, count: value};
-                    }), ['count'], ['desc']);
+                    });
+                    var sorted = (vm.dimension !== 'countByRank') ? _.orderBy(mappedData, ['count'], ['desc']) :
+                        _.sortBy(mappedData, [function(r) { return enums.rank.indexOf(r.key); }]);
 
                     for (var i = 0; i < sorted.length; i++) {
                     if(sorted[i].count > 0){

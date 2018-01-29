@@ -16,7 +16,7 @@ router.get('/dataset/:key', render);
 //router.get('/dataset/:key/taxonomy', render);
 router.get('/dataset/:key/activity', render);
 router.get('/dataset/:key/project', render);
-router.get('/dataset/:key/stats', render);
+router.get('/dataset/:key/metrics', render);
 router.get('/dataset/:key/constituents', render);
 
 function render(req, res, next) {
