@@ -65,7 +65,7 @@
 
                 <div class="m-b-1">
                     <p>
-                        Are you planning to instal and run publishing software (such as the <a href="/ipt" target="_blank">Integrated Publishing Toolkit – IPT</a>) to publish your data directly to GBIF.org?
+                        Are you planning to install and run publishing software (such as the <a href="/ipt" target="_blank">Integrated Publishing Toolkit – IPT</a>) to publish your data directly to GBIF.org?
                     </p>
                     <md-radio-group ng-model="eoi.form.comments.toolPlanned" name="toolPlanned" layout="row" layout-align="start" required>
                         <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>

@@ -13,7 +13,7 @@
                 <label>
                     <input type="checkbox" checked="true" ng-click="vm.remove(q)">
                         <span>
-                            <span ng-if="vm.getParsedQuery(q).type === 'invalid'">{{q}} - invalid date</span>
+                            <span ng-if="vm.getParsedQuery(q).type === 'invalid'">{{q}} – invalid date</span>
                             <span ng-if="vm.getParsedQuery(q).type !== 'invalid'" 
                                 translate="{{vm.filterConfig.intervalTranslation}}{{ vm.getParsedQuery(q).type }}" 
                                 translate-values="{ from: vm.getParsedQuery(q).values[0], to: vm.getParsedQuery(q).values[1]}"></span>
@@ -81,7 +81,7 @@
                     <!--<label>-->
                         <!--<input type="checkbox" checked="true" ng-click="vm.remove(q)">-->
                     <!--<span>-->
-                        <!--<span ng-if="vm.getParsedQuery(q).type === 'invalid'">{{q}} - invalid date</span>-->
+                        <!--<span ng-if="vm.getParsedQuery(q).type === 'invalid'">{{q}} – invalid date</span>-->
                         <!--<span ng-if="vm.getParsedQuery(q).type !== 'invalid'" translate="{{vm.filterConfig.intervalTranslation}}{{ vm.getParsedQuery(q).type }}" translate-values="{ from: vm.getParsedQuery(q).values[0], to: vm.getParsedQuery(q).values[1]}"></span>-->
                     <!--</span>-->
                     <!--</label>-->
