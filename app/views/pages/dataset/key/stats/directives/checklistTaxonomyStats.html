@@ -1,0 +1,42 @@
+<div>
+<h4 class="card-header text-center inline-block">Number of accepted species by higher taxon</h4>
+<div class="chart-header-options inline-block pull-right" ng-show="!checklistTaxonomyStats.loading && !checklistTaxonomyStats.preparing && checklistTaxonomyStats.hasRankedTaxa">
+    <md-menu >
+        <a href="" class="gb-icon-file-download  inherit noUnderline"
+           ng-click="$mdMenu.open($event)"
+        ></a>
+        <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
+            <md-menu-item>
+                <md-button ng-click="checklistTaxonomyStats.api.png()">
+                    PNG
+                </md-button>
+            </md-menu-item>
+
+            <md-menu-item>
+                <md-button  ng-click="checklistTaxonomyStats.api.svg()"> SVG
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+
+</div>
+</div>
+<div class="card" layout-padding>
+
+
+    <div  ng-if="(checklistTaxonomyStats.loading || checklistTaxonomyStats.preparing)" layout="row" layout-align="center center">
+        <span flex></span><div layout="column" layout-align="center center">
+        <div class="emptyInfo--small">
+            <h3 ng-if="checklistTaxonomyStats.loading">Loading ...</h3>
+            <h3 ng-if="checklistTaxonomyStats.preparing">Preparing ...</h3>
+        </div>
+
+    </div><span flex></span>
+    </div>
+    <div class="chartArea" ng-show="checklistTaxonomyStats.hasRankedTaxa"></div>
+    <div  ng-show="!checklistTaxonomyStats.loading && !checklistTaxonomyStats.preparing && !checklistTaxonomyStats.hasRankedTaxa" class="emptyInfo--small">
+            <h3>The checklist has no ranked taxa above Species.</h3>
+
+     </div>
+
+</div>

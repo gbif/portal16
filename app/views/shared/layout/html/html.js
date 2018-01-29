@@ -252,7 +252,7 @@ function mdConfig($mdThemingProvider, $mdGestureProvider) {
         .primaryPalette('customPrimary')
         .accentPalette('customAccent')
         .warnPalette('customWarn')
-        .backgroundPalette('customBackground')
+      //  .backgroundPalette('customBackground')
 }
 
 require('./portal.ctrl');
@@ -290,6 +290,8 @@ require('./angular/network.resource');
 require('./angular/resource.resource');
 require('./angular/resourceFilter.service');
 require('./angular/contentFulResource.resource');
+
+require('./angular/highcharts.factory');
 
 require('./angular/directives/onLoad/onload.directive');
 require('./angular/directives/helpDesk.directive');

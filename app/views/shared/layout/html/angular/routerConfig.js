@@ -146,7 +146,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('datasetKeyStats', {
             parent: 'datasetKey',
-            url: '/stats',
+            url: '/metrics',
             templateUrl: '/api/template/dataset/stats.html?v=' + BUILD_VERSION,
             controller: 'datasetStatsCtrl',
             controllerAs: 'datasetStats'

@@ -1,0 +1,46 @@
+<div >
+<h4 class="card-header text-center inline-block">{{checklistMetrics.api.getTitle()}}</h4>
+<div class="chart-header-options inline-block pull-right" >
+    <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="checklistMetrics.api.asPieChart()"></a>
+    <a href="" class="gb-icon-bar-chart inherit noUnderline" ng-click="checklistMetrics.api.asBarChart()"></a>
+    <md-menu >
+    <a href="" class="gb-icon-file-download  inherit noUnderline"
+       ng-click="$mdMenu.open($event)"
+       ></a>
+        <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
+            <md-menu-item>
+                <md-button ng-click="checklistMetrics.api.png()">
+                    PNG
+                </md-button>
+            </md-menu-item>
+
+            <md-menu-item>
+                <md-button  ng-click="checklistMetrics.api.svg()"> SVG
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</div>
+</div>
+<div class="card" layout-fill layout-padding>
+
+
+    <div class="chartArea m-b-1" ></div>
+    <div class="text-right small" ng-if="checklistMetrics.options.type == 'BAR'">
+        <div class="gb-btn-group">
+            <label ng-model="checklistMetrics.logScale" uib-btn-radio="false"
+                   ng-change="checklistMetrics.toggleBarChart()">Linear</label>
+            <label ng-model="checklistMetrics.logScale" uib-btn-radio="true"
+                   ng-change="checklistMetrics.toggleBarChart()">Logarithmic</label>
+        </div>
+    </div>
+    <div  ng-show="checklistMetrics.loading" class="emptyInfo--small">
+        <h3>Loading ...</h3>
+
+    </div>
+    <div  ng-show="checklistMetrics.hasError" class="emptyInfo--small">
+        <h3>There was an error processing the data</h3>
+
+    </div>
+</div>
+

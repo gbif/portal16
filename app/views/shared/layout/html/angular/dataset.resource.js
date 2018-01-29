@@ -84,6 +84,24 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetChecklistTaxonomy', function ($resource) {
+            return $resource('/api/chart/checklist/:key/taxonomy', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
+        .factory('DatasetOccurrenceTaxonomy', function ($resource) {
+            return $resource('/api/chart/occurrence/sunburst', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: true
+                    }
+                }
+            );
+        })
     ;
 
 })();

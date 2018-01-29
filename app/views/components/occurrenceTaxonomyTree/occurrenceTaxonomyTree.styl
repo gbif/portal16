@@ -1,0 +1,120 @@
+$treeInset = 0.75em
+occurrence-taxonomy-tree {
+    display block
+    overflow auto
+}
+.occurrenceTaxonomyTree {
+    .loadingNode {
+        padding-left 5px
+        padding-right 5px
+    }
+    &__toggle {
+        &.title.title>a {
+            color inherit
+            background inherit !important
+            &.isActive {
+              background #666 !important
+              color white
+            }
+        }
+    }
+    li{
+        position relative
+        padding-left $treeInset
+        margin-left 10px
+        margin-top 0.5em
+    }
+    //a.title:hover {
+    //    background white
+    //}
+    .title {
+        a:hover {
+            background white
+        }
+    }
+    &__filter {
+        border-left 1px solid #dcdcdc
+    }
+    .title {
+        background #f7f7f7
+        border  1px solid #dcdcdc
+        white-space nowrap
+        >a, >span {
+            display inline-block
+            padding 2px 3px
+        }
+        display inline-block
+        position relative
+        margin-top -1px
+        >div {
+            display inline-block
+            position absolute
+            background $navBar_background_color
+            height 3px
+            bottom 0
+            left 0
+            z-index 1
+            overflow hidden
+        }
+    }
+    .title--action {
+        color darken(#f7f7f7, 40)
+        a {
+            color inherit
+        }
+    }
+    ul {
+        //border-left 1px solid rgba(0,0,0,0.1)
+        padding-left 0
+    }
+    .occurrenceTaxonomyTree__root {
+        padding 10px 0
+        border none
+        >li {
+            padding 0
+            margin 0
+        }
+    }
+    .hasTreeLines {
+        .title {
+            &:after {
+                content ''
+                display block
+                height 1px
+                background #dcdcdc
+                width $treeInset
+                position absolute
+                top 0.75em
+                left -($treeInset)
+                z-index 1
+            }
+        }
+        li {
+            >.pipe {
+                width 1px
+                background #dcdcdc
+                position absolute
+                left 0
+                top 0.75em
+                bottom -1.35em
+            }
+            &:first-of-type {
+                >.pipe {
+                    top -.6em
+                }
+            }
+            &:last-of-type {
+                >.pipe {
+                    display none
+                }
+            }
+            &:only-of-type {
+                >.pipe {
+                    display block
+                    bottom initial
+                    height 1.4em
+                }
+            }
+        }
+    }
+}
