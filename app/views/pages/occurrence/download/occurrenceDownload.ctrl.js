@@ -9,7 +9,7 @@
 var angular = require('angular'),
     _ = require('lodash');
 
-require('./DownloadSpeed.service');
+require('./downloadSpeed.service');
 
 angular
     .module('portal')
