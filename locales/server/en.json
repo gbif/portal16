@@ -98,7 +98,7 @@
   "occurrenceDownload": {
     "csvDescription": "Tab delimited CSV. Only contains the data after GBIF interpretation.",
     "dwcaDescription": "The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.",
-    "estimatedSize": "Estimated size",
+    "estimatedSize": "Estimated data size",
     "knownIssues": "Known issues",
     "knownIssuesDescription": "A part of the GBIF processing is to flag occurrences that have suspicious fields",
     "FossilsIncluded": "Fossils",

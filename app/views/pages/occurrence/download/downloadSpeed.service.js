@@ -18,14 +18,17 @@ angular
                 var hourmod = filetime % 3600;
                 var hour = Math.floor(filetime / 3600);
                 var minute = Math.floor(hourmod / 60);
-                var second = Math.floor(filetime % 60);
-                if (hour <= 9)
+                if (hour <= 9) {
                     hour = "0" + hour;
-                if (minute <= 9)
+                }
+
+                if (minute <= 9 && hour !== '00') {
                     minute = "0" + minute;
-                if (second <= 9)
-                    second = "0" + second;
-                var time = (hour !== '00') ? (hour + ":" + minute + ":" + second +" hours") : (minute + ":" + second +" minutes");
+                }
+
+                var minuteTxt = (minute === 1 )? " minute" : " minutes";
+
+                var time = (hour !== '00') ? (hour + ":" + minute  +" hours") : (minute  + minuteTxt);
 
                 result[bandwidth[x]/1000000] = time;
             }
