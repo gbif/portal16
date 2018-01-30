@@ -4,7 +4,7 @@
         <div>
 
             <a ng-repeat="image in speciesKey2.speciesImages.results"  class="galleryBar__img showBroken inherit noUnderline hoverBox">
-                <img ng-src="{{ image.identifier | imgCache:200:150 }}" gb-load data-jslghtbx="{{ image.identifier | imgCache:1200:900 }}" data-jslghtbx-caption="{{ (image.rightsHolder) ? '&copy; '+image.rightsHolder : '&copy; '+image.creator }} {{ (image.license) ? '<br> License: '+image.license : ''}}">
+                <img ng-src="{{ image.identifier | imgCache:200:150 }}" gb-load data-jslghtbx="{{ image.identifier | imgCache }}" data-jslghtbx-caption="{{ (image.rightsHolder) ? '&copy; '+image.rightsHolder : '&copy; '+image.creator }} {{ (image.license) ? '<br> License: '+image.license : ''}}">
 
                 <div class="summary smaller"><span ng-if="image.rightsHolder || image.creator">&copy; {{ (image.rightsHolder) ? image.rightsHolder : image.creator }}</span></div>
 
