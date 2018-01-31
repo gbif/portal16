@@ -27,7 +27,9 @@ function scientificNameDirective() {
         var vm = this;
         vm.parsedName = vm.name;
         SpeciesParsedName.get({id:vm.key}, function(data){
-            vm.parsedName = data.n;
+            if(data.n){
+                vm.parsedName = data.n;
+            }
         }, function(){
             //ignore error and show the plain unformated name
         });

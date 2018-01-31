@@ -35,46 +35,48 @@ function nameUsagesDirective() {
             labels: true,
             legend: {display: true, position: 'bottom'}
         };
+        if(vm.synonyms && vm.synonyms.$promise){
+            vm.synonyms.$promise.then(function () {
+                OccurrenceSearch.query({taxon_key: vm.key, facet: 'taxon_key', limit: 0}).$promise
+                    .then(function (facets) {
+                        var usages = _.find(facets.facets, function (f) {
+                            return f.field = "TAXON_KEY"
+                        }).counts;
 
-        vm.synonyms.$promise.then(function () {
-            OccurrenceSearch.query({taxon_key: vm.key, facet: 'taxon_key', limit: 0}).$promise
-                .then(function (facets) {
-                    var usages = _.find(facets.facets, function (f) {
-                        return f.field = "TAXON_KEY"
-                    }).counts;
-
-                    var totalCount = _.find(usages, function (u) {
-                        return u.name = vm.key;
-                    })
-
-
-                    vm.synonymNameUsages = [];
-                    angular.forEach(vm.synonyms.results, function (s) {
-                        var found = _.find(usages, function (u) {
-                            return u.name === s.key.toString() && vm.species.rank === s.rank;
+                        var totalCount = _.find(usages, function (u) {
+                            return u.name = vm.key;
                         })
-                        if (found) {
-                            found.scientificName = s.scientificName;
-                            vm.synonymNameUsages.push(found)
+
+
+                        vm.synonymNameUsages = [];
+                        angular.forEach(vm.synonyms.results, function (s) {
+                            var found = _.find(usages, function (u) {
+                                return u.name === s.key.toString() && vm.species.rank === s.rank;
+                            })
+                            if (found) {
+                                found.scientificName = s.scientificName;
+                                vm.synonymNameUsages.push(found)
+                            }
+
+                        })
+
+                        var totalMinusAccepted = _.reduce(vm.synonymNameUsages, function (sum, n) {
+                            return sum + parseInt(n.count);
+                        }, 0);
+                        vm.data.push(totalCount.count - totalMinusAccepted);
+                        vm.labels.push(vm.species.scientificName);
+
+                        for (var i = 0; i < vm.synonymNameUsages.length; i++) {
+                            vm.data.push(parseInt(vm.synonymNameUsages[i].count));
+                            vm.labels.push(vm.synonymNameUsages[i].scientificName);
                         }
 
-                    })
 
-                    var totalMinusAccepted = _.reduce(vm.synonymNameUsages, function (sum, n) {
-                        return sum + parseInt(n.count);
-                    }, 0);
-                    vm.data.push(totalCount.count - totalMinusAccepted);
-                    vm.labels.push(vm.species.scientificName);
+                    });
 
-                    for (var i = 0; i < vm.synonymNameUsages.length; i++) {
-                        vm.data.push(parseInt(vm.synonymNameUsages[i].count));
-                        vm.labels.push(vm.synonymNameUsages[i].scientificName);
-                    }
+            })
+        }
 
-
-                });
-
-        })
 
 
     }
