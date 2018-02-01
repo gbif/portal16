@@ -116,7 +116,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
     map.on('click', function(evt) {
 
-
         displayFeatureInfo(evt.pixel);
     });
 

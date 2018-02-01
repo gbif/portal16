@@ -63,11 +63,8 @@
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="identifier in datasetKey.dataset._identifiers">
-                                    <doi link="{{ identifier.identifier }}" ng-if="identifier.type == 'DOI' && (identifier.identifier | startsWith:'doi:')"></doi>
-                                    <a ng-href="{{ identifier.identifier }}" ng-if="identifier.type == 'DOI' && !(identifier.identifier | startsWith:'doi:')">
-                                        {{ identifier.identifier }}
-                                    </a>
-                                    <a ng-href="{{ identifier.identifier }}" ng-if="identifier.type == 'FTP' || identifier.type == 'LSID' || identifier.type == 'URL'">
+                                
+                                    <a ng-href="{{ identifier.identifier }}" ng-if="identifier.type == 'DOI' || identifier.type == 'FTP' || identifier.type == 'LSID' || identifier.type == 'URL'">
                                         {{ identifier.identifier }}
                                     </a>
                                     <span ng-if="identifier.type == 'UNKNOWN'">
