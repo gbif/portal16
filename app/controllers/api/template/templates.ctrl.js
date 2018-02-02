@@ -1,4 +1,5 @@
 var express = require('express'),
+    env = require('../../../../config/config'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router(),
     minute = 60, //cache goes by seconds
@@ -120,7 +121,9 @@ router.get('/species/key.html', function (req, res, next) {
 });
 
 router.get('/dataset/key.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/key/datasetKey.template.nunjucks');
+    helper.renderPage(req, res, next, {
+        kibanaIndex: env.kibanaIndex,
+        publicKibana: env.publicKibana}, 'pages/dataset/key/datasetKey.template.nunjucks');
 });
 
 router.get('/dataset/taxonomy.html', function (req, res, next) {
