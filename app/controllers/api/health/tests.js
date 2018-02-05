@@ -143,7 +143,7 @@ var tests = [
         message: 'Resource search should return more than 100 results for a search on content type = data use'
     },
     {
-        url: apiConfig.publicKibana.url + 'q=HOSTNAME:"' + crawlHostName + '"%20AND%20@timestamp:%3E{SECONDS_AGO}',
+        url: apiConfig.publicKibana.url + 'q=HOSTNAME:"' + crawlHostName + '"%20AND%20service:"crawler-coordinator-cleanup"%20AND%20@timestamp:%3E{SECONDS_AGO}',
         component: 'CRAWLER',
         secondsAgo: 180,
         type: 'NUMBER_ABOVE',
