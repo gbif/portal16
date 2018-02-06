@@ -22,7 +22,7 @@ function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $l
         });
 
     //if (vm.doi) {
-    //    vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"'});
+    //    vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"', limit: 5}); //A hardcoded limit and no pagination for now. Currently we never have a download citet more than once. If this change in the future we ought to add pagination and link more to resource search
     //}
 
     vm.openHelpdesk = function () {
