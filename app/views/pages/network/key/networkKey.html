@@ -10,50 +10,39 @@
                                     <span class="article-header__category__upper"
                                           translate="network.title"></span>
                                     <span class="article-header__category__lower">
-                        Registered {{ networkKey.network.created | amDateFormat:'D MMMM YYYY' }}
-                    </span>
+                                        Registered {{ networkKey.network.created | amDateFormat:'D MMMM YYYY' }}
+                                    </span>
                                 </nav>
                                 <h1>
                                     {{ networkKey.network.title }}
                                 </h1>
                                 <div class="article-header__button"
                                      ng-if="networkKey.network.homepage && networkKey.network.homepage.length > 0">
-
                                     <a ng-href="{{networkKey.network.homepage[0]}}" class="gb-button--discreet small">Visit
                                         homepage</a>
-
-
                                 </div>
                                 <div class="article-header__highlights"
                                      ng-if="networkKey.network.email && networkKey.network.email.length > 0">
                                     <a class="inherit" ng-href="mailto:{{networkKey.network.email[0]}}"><span
                                             class="gb-icon-mail"></span>
                                         Contact
-
                                     </a>
                                 </div>
                             </header>
                         </div>
-
-
                     </div>
                 </div>
                 <section class="horizontal-stripe">
                     <div class="container--narrow">
-                        <div class="container-fluid card card--spaced m-b-1">
-
-
-                            <div class="card__content">
+                        <div class="card m-b-1">
+                            <div class="card__content row">
                                 <div class="col-xs-12 col-sm-6 col-md-8 ">
                                     <div ng-bind-html="networkKey.network.description"></div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-4 " ng-if="networkKey.network.logoUrl">
                                     <img ng-src="{{networkKey.network.logoUrl | imgCache:200}}"
                                          onerror="this.style.display= 'none'">
-
                                     <dl class="inline m-t-05">
-
-
                                         <div clas ng-if="networkKey.network.endpoints.length > 0">
                                             <dt class="text-capitalize">Endpoints</dt>
                                             <dd>
@@ -66,28 +55,19 @@
                                         </div>
                                     </dl>
                                 </div>
-
-
                             </div>
-
-
                         </div>
 
-
-                        <div class="m-b-1 ng-cloak" ng-if="networkKey.datasets.count > 0">
+                        <div class="ng-cloak" ng-if="networkKey.datasets.count > 0">
                             <span class="relative-anchor-offset"><a id="datasets"></a></span>
-                            <h4 class="small discreet text-uppercase" translate="network.participatingDatasets" translate-values="{n: networkKey.datasets.count}">
-
+                            <h4 class="card-header" translate="network.participatingDatasets"
+                                translate-values="{n: networkKey.datasets.count}">
                             </h4>
-
                             <div>
                                 <div ng-show="networkKey.datasets.count > 0">
-
                                     <div ng-repeat="result in networkKey.datasets.results">
-                                        <ng-include
-                                                src="'/api/template/search/datasetResult.html?v=' + networkKey.BUILD_VERSION"></ng-include>
+                                        <ng-include src="'/api/template/search/datasetResult.html?v=' + networkKey.BUILD_VERSION"></ng-include>
                                     </div>
-
                                 </div>
                                 <div ng-if="networkKey.datasets.count > networkKey.limit">
                                     <uib-pagination
@@ -102,11 +82,10 @@
                                     </uib-pagination>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </section>
-
 
             </div>
             <div class="wrapper-horizontal-stripes" ng-if="!networkKey.network.$resolved">
@@ -115,7 +94,5 @@
                 </div>
             </div>
         </div>
-
-        <!--<ng-include src="'/api/template/site/footer.html?v=' + networkKey.BUILD_VERSION"></ng-include>-->
     </div>
 </div>
