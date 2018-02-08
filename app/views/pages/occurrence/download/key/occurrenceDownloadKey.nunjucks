@@ -74,10 +74,10 @@
                                         </li>
                                         {% endif %}
                                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
-                                            <li class="tab tab-right ng-cloak" ng-if="downloadKey.recentDownload.isRecent && downloadKey.isCancelable">
-                                            <span>
-                                                <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)">Cancel</a>
-                                            </span>
+                                            <li class="tab tab-right ng-cloak" ng-if="downloadKey.isUsersDownload && downloadKey.isCancelable">
+                                                <span>
+                                                    <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)">Cancel</a>
+                                                </span>
                                             </li>
                                         {% endif %}
                                     </ul>
@@ -89,6 +89,7 @@
                 </div>
             {% endif %}
         </div>
+
         <div class="horizontal-stripe light-background">
             <div class="container--normal">
                 <section>
@@ -160,7 +161,7 @@
                                         <div>
                                             <div>Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">data user agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.</div>
                                             <div>
-                                            <span gb-help="for-how-long-will-does-gbif-store-downloads">{$ __('downloadKey.storageDurationTeaser') $}</span>
+                                            {#<span gb-help="for-how-long-will-does-gbif-store-downloads">{$ __('downloadKey.storageDurationTeaser') $}</span>#}
                                             {% if not download.record.doi %}
                                                 <span gb-help="how-and-when-does-gbif-assign-digital-object-identifiers-dois">This download predates our use of DOIs</span>
                                             {% endif %}
@@ -168,16 +169,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                {#{% if download._citationCount == 0 %}#}
-                                {#<div class="card__stripe card__stripe--light">#}
+                                {#{% if download.record.eraseAfter %}#}
+                                {#<div class="card__stripe card__stripe--light ng-cloak" xng-if="downloadKey.isUsersDownload">#}
                                     {#<div class="card__content discreet">#}
                                         {#<p class="">#}
                                             {#This download hasn't been cited and will be deleted {$ download.record.eraseAfter | formatDate(gb.locales.current) $}. Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>#}
                                         {#</p>#}
                                         {#<div class="">#}
-                                            {#<a class="gb-button--discreet" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ downloadKey.key }} has been used and cited in: ">Tell us about usage</a>#}
-                                            {#<a href="sdf" class="gb-button--discreet">Postpone deletion</a>#}
-                                            {#<a href="sdf"  class="gb-button--flat text-error text-uppercase pull-right">Delete download</a>#}
+                                            {#<a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ downloadKey.key }} has been used and cited in: ">Tell us about usage</a>#}
+                                            {#{% if download.record.status !== 'FILE_ERASED' %}#}
+                                                {#<a href="sdf" class="gb-button--flat text-uppercase" ng-if="downloadKey.willBeDeletedSoon">Postpone deletion</a>#}
+                                                {#<a href="" ng-click="downloadKey.deleteDownload()" class="gb-button--flat text-error text-uppercase pull-right">Delete download</a>#}
+                                            {#{% endif %}#}
                                         {#</div>#}
                                     {#</div>#}
                                 {#</div>#}
@@ -258,7 +261,7 @@
                                                         <span class="numberBadge {% if dataset.numberRecords >= 1000000 %}numberBadge--millions{% elif dataset.numberRecords >= 1000 %}numberBadge--thousands{% endif %}">{$ dataset.numberRecords | compactInteger $}</span>
                                                     </div>
                                                     <div class="title">
-                                                        {$ dataset.datasetTitle $}
+                                                        {$ dataset.datasetTitle or '[Dataset title missing]' $}
                                                     </div>
                                                     <span class="meta meta--hoverOnly">{$ dataset.datasetDOI $}</span>
                                                     <span class="meta--right meta--hoverOnly">{$ dataset.numberRecords $} records at time of download</span>

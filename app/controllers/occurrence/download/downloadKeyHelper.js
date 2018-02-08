@@ -4,6 +4,9 @@ let _ = require('lodash'),
     Q = require('q'),
     http = require('http'),
     moment = require("moment"),
+    request = require('requestretry'),
+    apiConfig = require('../../../models/gbifdata/apiConfig'),
+    authOperations = require('../../auth/gbifAuthRequest'),
     url = require('url'),
     helper = rootRequire('app/models/util/util'),
     intervalTypes = ['YEAR', 'EVENT_DATE', 'ELEVATION', 'DEPTH'];
@@ -264,6 +267,48 @@ function requestPromise(queryOptions) {
     return deferred.promise;
 }
 
+async function getDownload(key, username) {
+    let options = {
+        method: 'GET',
+        url: apiConfig.occurrenceDownload.url + key,
+        canonicalPath: apiConfig.occurrenceDownload.canonical,
+        userName: username,
+        json: true
+    };
+
+    let response;
+    //if user is logged in then get as auth. Else just use unauthenticated API.
+    if (username) {
+        response = await authOperations.authenticatedRequest(options);
+    } else {
+        response = await request(options);
+    }
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+
+    return response.body;
+}
+
+async function deleteDownload(key, username) {
+    let download = await getDownload(key, username);
+    download.eraseAfter = Date.now();
+    let options = {
+        method: 'PUT',
+        body: download,
+        url: apiConfig.occurrenceDownload.url + key,
+        canonicalPath: apiConfig.occurrenceDownload.canonical,
+        userName: username,
+        json: true
+    };
+    console.log(options);
+    let response = await authOperations.authenticatedRequest(options);
+    console.log(response);
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
 
 function isFileAvailable(download) {
     let creationDate = download.record.created,
@@ -306,5 +351,7 @@ module.exports = {
     addpredicateResolveTasks: addpredicateResolveTasks,
     getResource: getResource,
     isFileAvailable: isFileAvailable,
-    setDepths: setDepths
+    setDepths: setDepths,
+    getDownload: getDownload,
+    deleteDownload: deleteDownload
 };

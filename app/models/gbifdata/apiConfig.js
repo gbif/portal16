@@ -74,7 +74,8 @@ var apiConfig = {
         url: baseUrl + 'occurrence/download/dataset/'
     },
     occurrenceDownload: {
-        url: baseUrl + 'occurrence/download/'
+        url: baseUrl + 'occurrence/download/',
+        canonical: 'occurrence/download/'
     },
     occurrenceDownloadUser: {
         url: baseUrl + 'occurrence/download/user/'

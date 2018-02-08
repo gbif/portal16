@@ -8,7 +8,7 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
+function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
     var vm = this;
     vm.HUMAN = true;
     vm.maxSize = 5;
@@ -56,24 +56,50 @@ function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $l
     };
 
     function getDownload() {
-        $http.get(env.dataApi + 'occurrence/download/' + vm.key, {params: {nonse: Math.random()}})
+        $http.get('/api/occurrence/download/' + vm.key, {params: {nonse: Math.random()}})
             .then(function (response) {
                 vm.download = response.data;
-                if (response.data.status !== 'RUNNING' && response.data.status !== 'PREPARING') {
-                    vm.isCancelable = false;
-                    $timeout(
-                        function(){
-                            location.reload();
-                        }, 5000);
+                parseDeletionDate(vm.download);
+                vm.isUsersDownload = vm.download.request.creator == vm.profile.userName;
+                if (vm.isUsersDownload) {
+                    if (vm.isCancelable && response.data.status !== 'RUNNING' && response.data.status !== 'PREPARING') {
+                        vm.isCancelable = false;
+                        $timeout(
+                            function () {
+                                location.reload();
+                            }, 5000);
+                    } else {
+                        $timeout(getDownload, 3000);
+                        vm.isCancelable = true;
+                    }
                 }
             });
     }
 
     if (vm.downloadState === 'RUNNING' || vm.downloadState === 'PREPARING') {
         vm.isCancelable = true;
-        $interval(getDownload, 3000);
+    }
+    getDownload();
+
+    //is erasure date is within the next N moths, then allow user to postpone the deletion
+    function parseDeletionDate(download) {
+        if (download.eraseAfter) {
+            var pointInFuture = moment().add(6, 'months');
+            vm.willBeDeletedSoon = moment(download.eraseAfter).isBefore(pointInFuture);
+        }
     }
 
+    vm.deleteDownload = function(){
+        //if (vm.isUsersDownload) {
+            $http.post('/api/occurrence/download/' + vm.key + '/delete')
+                .then(function(response){
+                    console.log(response);
+                })
+                .catch(function(err){
+                    console.log(err);
+                });
+        //}
+    }
 }
 
 angular.module('portal').controller('infoModalInstanceCtrl', function ($uibModalInstance) {
