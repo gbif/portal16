@@ -12,6 +12,10 @@
                         {{ datasetKey.dataset.project.title }}
                     </h3>
 
+                    <div xng-if="datasetKey.dataset.project.abstract">
+                        <div ng-bind-html="datasetKey.dataset.project.abstract"></div>
+                    </div>
+
                     <div ng-if="datasetKey.dataset.project.studyAreaDescription">
                         <h4>Study area</h4>
                         <div ng-bind-html="datasetKey.dataset.project.studyAreaDescription"></div>
