@@ -131,7 +131,7 @@
                                             <div>
                                                 <dt class="text-capitalize">{$ __('downloadKey.citation') $}</dt>
                                                 <dd>
-                                                    GBIF Occurrence Download {$ download.record.doi $} accessed via GBIF.org on {$ download.record.created | formatDate(gb.locales.current, 'DD MMM YYYY') $}
+                                                    GBIF.org ({$ download.record.created | formatDate(gb.locales.current, 'DD MMMM YYYY') $}) GBIF Occurrence Download https://doi.org/{$ download.record.doi $}
                                                 </dd>
                                             </div>
                                             {% if download.record.license %}
