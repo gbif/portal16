@@ -15,7 +15,7 @@
             </div>
         </div>
     {% else %}
-        {% if download.isFileDeleted %}
+        {% if download.record.status === 'FILE_ERASED' %}
             <div class="card__content card__content--error seperator--b">
                 <div class="row">
                     <div class="col-xs-12">

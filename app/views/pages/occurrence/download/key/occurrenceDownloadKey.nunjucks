@@ -34,7 +34,7 @@
                                 <span>{$ __n('downloadKey.nOccurrencesDownloaded', download.record.totalRecords, {count: download.record.totalRecords | locInt(gb.locales.current)}) $}</span>
                             {% endif %}
                         </h1>
-                        {% if download.isFileDeleted %}
+                        {% if download.record.status === 'FILE_ERASED' %}
                             <p class="text-error">
                                 {$ __('downloadKey.fileNotAvailable') $}
                             </p>
@@ -119,7 +119,7 @@
                                     <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
                                 </div>
                             {% else %}
-                                {% if download.isFileDeleted %}
+                                {% if download.record.status === 'FILE_ERASED' %}
                                     <div class="card__content card__content--error--large seperator--b">
                                         {$ __('downloadKey.downloadDeleted') $}
                                         <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
@@ -169,50 +169,56 @@
                                         </div>
                                     </div>
                                 </div>
-                                {#{% if download.record.eraseAfter %}#}
-                                {#<div class="card__stripe card__stripe--light ng-cloak" xng-if="downloadKey.isUsersDownload">#}
-                                    {#<div class="card__content discreet">#}
-                                        {#<p class="">#}
-                                            {#This download hasn't been cited and will be deleted {$ download.record.eraseAfter | formatDate(gb.locales.current) $}. Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>#}
-                                        {#</p>#}
-                                        {#<div class="">#}
-                                            {#<a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ downloadKey.key }} has been used and cited in: ">Tell us about usage</a>#}
-                                            {#{% if download.record.status !== 'FILE_ERASED' %}#}
-                                                {#<a href="sdf" class="gb-button--flat text-uppercase" ng-if="downloadKey.willBeDeletedSoon">Postpone deletion</a>#}
-                                                {#<a href="" ng-click="downloadKey.deleteDownload()" class="gb-button--flat text-error text-uppercase pull-right">Delete download</a>#}
-                                            {#{% endif %}#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</div>#}
-                                {#{% endif %}#}
+                                {% if download.record.status === 'SUCCEEDED' and download.record.eraseAfter %}
+                                <div class="card__stripe card__stripe--light">
+                                    <div class="card__content discreet">
+                                        <div class="card">
+                                            <div class="card__stripe">
+                                                <div class="card__content">
+                                                    This download hasn't been cited and is eligible for deletion after {$ download.record.eraseAfter | formatDate(gb.locales.current) $}. Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>.
+                                                </div>
+                                            </div>
+                                            <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">
+                                                <a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download http:{{ portal.env.dataApi }}occurrence/download/{{ downloadKey.key }} has been used and cited in: ">Tell us about usage</a>
+                                                {% if download.record.status !== 'FILE_ERASED' %}
+                                                    <a href="" ng-click="downloadKey.postponeDeletion()" ng-if="downloadKey.willBeDeletedSoon && downloadKey.isUsersDownload" class="gb-button--flat text-uppercase">Postpone deletion</a>
+                                                    <a href="" ng-click="downloadKey.deleteDownload()" ng-if="!downloadKey.readyForDeletion && downloadKey.isUsersDownload" class="gb-button--flat text-error text-uppercase">Delete download</a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
                             {% endif %}
                         </div>
 
-                        <div class="card__content predicateContainer">
-                            {% if not download.noFilters %}
-                                <div class="toggle small">
-                                    <a href="" class="inherit discreet" ng-if="downloadKey.HUMAN"
-                                       ng-click="downloadKey.HUMAN = false">{$  __('downloadKey.apiFilterView') $}</a>
-                                    <a href="" class="inherit discreet ng-cloak" ng-if="!downloadKey.HUMAN"
-                                       ng-click="downloadKey.HUMAN = true">{$  __('downloadKey.humanFilterView') $}</a>
-                                </div>
-                                <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}"
-                                     ng-show="downloadKey.HUMAN">
-                                    {$ predicate.print(download.record.request.predicate, __) $}
-                                </div>
-                                <div ng-show="!downloadKey.HUMAN" class="ng-cloak">
-                                    <div>
-                                        {$ __('downloadKey.apiUsageDescription') $}
-                                        <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') | capitalize $}</a></div>
+                        <div class="card__stripe--light">
+                            <div class="card__content predicateContainer">
+                                {% if not download.noFilters %}
+                                    <div class="toggle small">
+                                        <a href="" class="inherit discreet" ng-if="downloadKey.HUMAN"
+                                           ng-click="downloadKey.HUMAN = false">{$  __('downloadKey.apiFilterView') $}</a>
+                                        <a href="" class="inherit discreet ng-cloak" ng-if="!downloadKey.HUMAN"
+                                           ng-click="downloadKey.HUMAN = true">{$  __('downloadKey.humanFilterView') $}</a>
+                                    </div>
+                                    <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}"
+                                         ng-show="downloadKey.HUMAN">
+                                        {$ predicate.print(download.record.request.predicate, __) $}
+                                    </div>
+                                    <div ng-show="!downloadKey.HUMAN" class="ng-cloak">
+                                        <div>
+                                            {$ __('downloadKey.apiUsageDescription') $}
+                                            <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') | capitalize $}</a></div>
                                         <pre>
                                             <code>
 {$ download.predicateString | safe $}
                                             </code>
                                         </pre>
-                                </div>
-                            {% else %}
-                                {$ __('downloadKey.noFiltersApplied') $}
-                            {% endif %}
+                                    </div>
+                                {% else %}
+                                    {$ __('downloadKey.noFiltersApplied') $}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
 

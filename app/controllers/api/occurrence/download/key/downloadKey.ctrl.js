@@ -28,9 +28,9 @@ router.get('/occurrence/download/:key', auth.appendUser(), function (req, res) {
 router.post('/occurrence/download/:key/delete', auth.isAuthenticated(), function (req, res) {
     auth.setNoCache(res);
     downloadHelper.deleteDownload(req.params.key, _.get(req, 'user.userName'))
-        .then(function(download){
-            //res.status(201);
-            res.json(download);
+        .then(function(){
+            res.status(204);
+            res.send();
         })
         .catch(function(err){
             res.status(err.statusCode || 500);
@@ -41,9 +41,9 @@ router.post('/occurrence/download/:key/delete', auth.isAuthenticated(), function
 router.post('/occurrence/download/:key/postpone', auth.isAuthenticated(), function (req, res) {
     auth.setNoCache(res);
     downloadHelper.postponeDeletion(req.params.key, _.get(req, 'user.userName'))
-        .then(function(download){
-            //res.status(201);
-            res.json(download);
+        .then(function(){
+            res.status(204);
+            res.send();
         })
         .catch(function(err){
             res.status(err.statusCode || 500);

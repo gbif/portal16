@@ -32,16 +32,17 @@ function renderDownload(req, res, next, template) {
         let datasets = values[0],
             download = values[1];
         download.datasets = datasets;
+        download.isFileAvailable = _.get(download, 'record.downloadLink') && _.get(download, 'record.status') !== 'FILE_ERASED';
 
         let downloadDoi = _.get(download, 'record.doi', '').substring(4);
-        let promiseList = [downloadHelper.isFileAvailable(download), resourceSearch.search({contentType: 'literature', q: '"' + downloadDoi + '"', limit: 0}, req.__)];
+        let promiseList = [resourceSearch.search({contentType: 'literature', q: '"' + downloadDoi + '"', limit: 0}, req.__)];
         try{
             download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
 
             if (!download.record.request.predicate) {
                 download.noFilters = true;
                 Promise.all(promiseList).then(function(completedPromises){
-                    download._citationCount = completedPromises[1].count;
+                    download._citationCount = completedPromises[0].count;
                     renderPage(req, res, next, download, template);
                 }).catch(function(err){
                 console.log(err);
@@ -55,7 +56,7 @@ function renderDownload(req, res, next, template) {
                 downloadHelper.flattenSameType(download.record.request.predicate);
                 downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
                 Promise.all(promiseList).then(function(completedPromises){
-                    download._citationCount = completedPromises[1].count;
+                    download._citationCount = completedPromises[0].count;
                     renderPage(req, res, next, download, template);
                 });
             }

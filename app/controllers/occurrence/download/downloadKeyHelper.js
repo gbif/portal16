@@ -291,8 +291,22 @@ async function getDownload(key, username) {
 }
 
 async function deleteDownload(key, username) {
+    let erasureDate = Date.now();
+    let updatedDownload = await (setDownloadErasureDate(key, erasureDate, username));
+    return updatedDownload;
+}
+
+async function postponeDeletion(key, username) {
+    let futureDate = new Date();
+    futureDate.setDate(futureDate.getDate() + 365);
+    let updatedDownload = await (setDownloadErasureDate(key, futureDate, username));
+    return updatedDownload;
+}
+
+async function setDownloadErasureDate(key, erasureDate, username) {
     let download = await getDownload(key, username);
-    download.eraseAfter = Date.now();
+
+    download.eraseAfter = erasureDate;
     let options = {
         method: 'PUT',
         body: download,
@@ -301,46 +315,11 @@ async function deleteDownload(key, username) {
         userName: username,
         json: true
     };
-    console.log(options);
+
     let response = await authOperations.authenticatedRequest(options);
-    console.log(response);
-    if (response.statusCode !== 200) {
+    if (response.statusCode !== '204') {
         throw response;
     }
-    return response.body;
-}
-
-function isFileAvailable(download) {
-    let creationDate = download.record.created,
-        yesterday, created;
-    if (creationDate) {
-        yesterday = moment().subtract(1, 'day');
-        created = moment(download.record.created);
-    }
-
-    var deferred = Q.defer();
-    var fileUrl = _.get(download, 'record.downloadLink'),
-        status = _.get(download, 'record.status', 'KILLED'),
-        options;
-    if (status !== 'SUCCEEDED' || !_.isString(fileUrl)) {
-        download.isFileAvailable = false;
-        deferred.resolve(false);
-    } else {
-        options = {
-            method: 'HEAD',
-            host: url.parse(fileUrl).host,
-            port: 80,
-            path: url.parse(fileUrl).pathname
-        };
-        var req = http.request(options, function (r) {
-            download.isFileAvailable = r.statusCode == 200;
-            //if not available and status==succeeded then is must have been deleted/removed - but to be sure then require creation date to be older than yesterday - we should delete things only just created anyhow
-            download.isFileDeleted = !download.isFileAvailable && creationDate && created.isBefore(yesterday);
-            deferred.resolve(r.statusCode == 200);
-        });
-        req.end();
-    }
-    return deferred.promise;
 }
 
 module.exports = {
@@ -350,8 +329,8 @@ module.exports = {
     getSimpleQuery: getSimpleQuery,
     addpredicateResolveTasks: addpredicateResolveTasks,
     getResource: getResource,
-    isFileAvailable: isFileAvailable,
     setDepths: setDepths,
     getDownload: getDownload,
-    deleteDownload: deleteDownload
+    deleteDownload: deleteDownload,
+    postponeDeletion: postponeDeletion
 };
