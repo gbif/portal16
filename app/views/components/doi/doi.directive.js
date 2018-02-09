@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
 
 angular
     .module('portal')
@@ -10,7 +11,7 @@ angular
 function doiDirective() {
     var directive = {
         restrict: 'E',
-        template: '<a ng-href="https://doi.org/{{ vm.link | limitTo:100:4 }}" class="doi"><span>DOI</span><span>{{ vm.link | limitTo:100:4 }}</span></a>',
+        template: '<a ng-href="https://doi.org/{{ vm.asDoi(vm.link) }}" class="doi"><span>DOI</span><span>{{ vm.asDoi(vm.link) }}</span></a>',
         scope: {
         },
         controller: doiCtrl,
@@ -23,6 +24,10 @@ function doiDirective() {
 
     /** @ngInject */
     function doiCtrl() {
+        var vm = this;
+        vm.asDoi = function() {
+            return vm.link.replace(/^.*(10\.)/, '10.');
+        };
     }
 }
 
