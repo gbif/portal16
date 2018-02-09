@@ -12,7 +12,7 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location,
     var vm = this;
     vm.HUMAN = true;
     vm.maxSize = 5;
-    vm.doi = _.get(gb, 'downloadKey.doi', '').substring(4);
+    vm.doi = _.get(gb, 'downloadKey.doi', '').replace(/^.*(10\.)/, '10.');
     vm.key = gb.downloadKey.key;
     vm.downloadState = gb.downloadKey.status;
     vm.profile = $sessionStorage.user;
