@@ -6,17 +6,17 @@ let severity = require('./severity').severity,
 //select which es content to query
 let crawlHostName = 'prodcrawler1-vh.gbif.org',
     varnishIndexName = 'prod-varnish-*',
-    downloadKey = '0000662-160118175350007';
+    downloadKey = '0000222-130906152512535';
 switch (config.healthEnv || config.env) {
     case 'dev':
-        crawlHostName = 'prodcrawler1-vh.gbif-dev.org';
+        crawlHostName = 'devcrawler-vh.gbif.org';
         varnishIndexName = 'dev-varnish-*';
         downloadKey = '0000071-171031135223121';
         break;
     case 'uat':
-        crawlHostName = 'prodcrawler1-vh.gbif-uat.org';
+        crawlHostName = 'uatcrawler1-vh.gbif.org';
         varnishIndexName = 'uat-varnish-*';
-        downloadKey = '0000046-171108114045140';
+        downloadKey = '0000222-130906152512535';
         break;
     default:
         break;
@@ -115,7 +115,7 @@ var tests = [
     {
         url: apiConfig.occurrenceDownload.url + downloadKey + '?cachebust={NOW}',
         component: 'DOWNLOAD',
-        message: 'download key 0000662-160118175350007 should return 200'
+        message: 'download key ' + downloadKey + ' should return 200'
     },
     {
         url: apiConfig.occurrenceCancelDownload.url + '?cachebust={NOW}',
