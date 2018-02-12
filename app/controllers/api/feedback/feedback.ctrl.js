@@ -1,5 +1,6 @@
 "use strict";
 let express = require('express'),
+    auth = require('../../auth/auth.service'),
     nunjucks = require('nunjucks'),
     github = require('octonode'),
     fs = require('fs'),
@@ -136,7 +137,7 @@ router.get('/content', function (req, res) {
     });
 });
 
-router.post('/bug', function (req, res) {
+router.post('/bug', auth.isAuthenticated(), function (req, res) {
     let formData = req.body.form;
     if (!formData || !isValid(formData)) {
         res.status(400);

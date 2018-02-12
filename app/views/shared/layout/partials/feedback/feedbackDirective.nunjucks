@@ -105,11 +105,6 @@
 
                     <div ng-if="!vm.forceShowForm">
                         <p translate="feedback.data content.contactPerMail"></p>
-                        {#<p class="menubox__section__content__annotate">#}
-                            {#<a class="gb-button--brand inherit"#}
-                               {#target="_blank"#}
-                               {#ng-href="{{ vm.contentFeedback.annotation.url }}">{{ vm.contentFeedback.annotation.name }}</a>#}
-                        {#</p>#}
                         <div class="card m-b-1">
                             <div class="card__content">
                                 <div>
@@ -128,78 +123,81 @@
                     <div ng-if="vm.forceShowForm" class="feedback__comment">We recommend sending a mail to
                         <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">{{ vm.contentFeedback.contacts.firstContact.email }}</a>
                     </div>
-
-
-
-
-                    {#<div class="feedback__comment">#}
-                        {#{$ __('feedback.bugRedirect', '<a href="" ng-click="vm.forceShowForm = true">' +#}
-                            {#__('feedback.bugReport') + '</a>') | safe $}#}
-                    {#</div>#}
                 </div>
             </div>
 
             {# GITHUB FEEDBACK FORM FOR GBIF CONTENT, BUGS AND IDEAS #}
             <div class="menubox__section menubox__section--issue seperator"
                  ng-if="vm.type.QUESTION == vm.selected || vm.type.FUNCTIONALITY == vm.selected || vm.type.IDEA == vm.selected || ( (!vm.contentFeedback.type || vm.forceShowForm) && vm.type.CONTENT == vm.selected)">
-                <form name="vm.functionalityForm" novalidate>
-                    <div class="feedback-input">
-                        <label>
-                            <span>{$ __('feedback.placeholders.summary') $}</span>
-                            <input type="text"
-                                   ng-model="vm.issue.title"
-                                   placeholder="{$ __('feedback.placeholders.summary') $}"
-                                   focus-me="true" required>
-                        </label>
-                    </div>
 
-                    <div class="feedback__textarea">
-                        <label>
-                            <span>{$ __('feedback.placeholders.description') $}</span>
-                            <textarea rows="3"
-                                      ng-model="vm.issue.description"
-                                      placeholder="{$ __('feedback.placeholders.description') $}" ng->
-                            </textarea>
-                            <div class="feedback-input__info" ng-if="!(vm.issue.description.length > 200)">
-                                <a href="https://guides.github.com/features/mastering-markdown/" target="_blank"
-                                   tabindex="-1"
-                                   class="inherit">Markdown</a> support
+                 <div ng-if="!vm.hasUserToken()" class="menubox__section__content">
+                     <p>
+                        Please login to leave feedback. Alternatively you can use <a href="https://github.com/gbif/portal-feedback/issues">Github</a>.
+                     </p>
+                     <p>
+                        Why? Unfortunately we are seeing lots of spam advertisement in our feedback system if we do not require users to login.
+                     </p>
+                 </div>
+                <div ng-if="vm.hasUserToken()">
+                    <form name="vm.functionalityForm" novalidate>
+                        <div class="feedback-input">
+                            <label>
+                                <span>{$ __('feedback.placeholders.summary') $}</span>
+                                <input type="text"
+                                       ng-model="vm.issue.title"
+                                       placeholder="{$ __('feedback.placeholders.summary') $}"
+                                       focus-me="true" required>
+                            </label>
+                        </div>
+
+                        <div class="feedback__textarea">
+                            <label>
+                                <span>{$ __('feedback.placeholders.description') $}</span>
+                                <textarea rows="3"
+                                          ng-model="vm.issue.description"
+                                          placeholder="{$ __('feedback.placeholders.description') $}" ng->
+                                </textarea>
+                                <div class="feedback-input__info" ng-if="!(vm.issue.description.length > 200)">
+                                    <a href="https://guides.github.com/features/mastering-markdown/" target="_blank"
+                                       tabindex="-1"
+                                       class="inherit">Markdown</a> support
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="feedback-input">
+                            <label>
+                                <span>{$ __('feedback.placeholders.username') $}</span>
+                                <input type="text"
+                                       ng-model="vm.issue.contact"
+                                       placeholder="{$ __('feedback.placeholders.username') $}" ng-required="vm.type.QUESTION == vm.selected">
+                            </label>
+                        </div>
+
+                        <div class="menubox__section__content p-t-05">
+
+                            <div class="feedback__comment">
+                                <p>
+                                    {$ __('feedback.issueTracking') |
+                                    insertLinks('https://github.com/gbif/portal-feedback/issues', '_blank') | safe $}
+                                </p>
+                                <p ng-if="vm.type.QUESTION == vm.selected">{$ __('feedback.question.comment') | linkify |
+                                    safe $}</p>
                             </div>
-                        </label>
-                    </div>
-
-                    <div class="feedback-input">
-                        <label>
-                            <span>{$ __('feedback.placeholders.username') $}</span>
-                            <input type="text"
-                                   ng-model="vm.issue.contact"
-                                   placeholder="{$ __('feedback.placeholders.username') $}" ng-required="vm.type.QUESTION == vm.selected">
-                        </label>
-                    </div>
-
-                    <div class="menubox__section__content p-t-05">
-
-                        <div class="feedback__comment">
-                            <p>
-                                {$ __('feedback.issueTracking') |
-                                insertLinks('https://github.com/gbif/portal-feedback/issues', '_blank') | safe $}
-                            </p>
-                            <p ng-if="vm.type.QUESTION == vm.selected">{$ __('feedback.question.comment') | linkify |
-                                safe $}</p>
+                            <div class="clearfix">
+                                <button ng-disabled="!vm.functionalityForm.$valid || vm.state == 'SENDING'" type="submit"
+                                        ng-click="vm.createIssue(vm.issue)"
+                                        class="btn btn-default flat pull-right">{$
+                                    __('tools.suggestDataset.form.submit') $}
+                                </button>
+                            </div>
+                            <div ng-if="vm.state == 'FAILED'" class="feedback__failure">
+                                {$ __('feedback.failure') | insertLinks('https://github.com/gbif/portal-feedback/issues',
+                                '_blank') | safe $}
+                            </div>
                         </div>
-                        <div class="clearfix">
-                            <button ng-disabled="!vm.functionalityForm.$valid || vm.state == 'SENDING'" type="submit"
-                                    ng-click="vm.createIssue(vm.issue)"
-                                    class="btn btn-default flat pull-right">{$
-                                __('tools.suggestDataset.form.submit') $}
-                            </button>
-                        </div>
-                        <div ng-if="vm.state == 'FAILED'" class="feedback__failure">
-                            {$ __('feedback.failure') | insertLinks('https://github.com/gbif/portal-feedback/issues',
-                            '_blank') | safe $}
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
 
 

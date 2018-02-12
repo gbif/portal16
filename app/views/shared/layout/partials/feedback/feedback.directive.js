@@ -121,6 +121,10 @@ function feedbackDirective(BUILD_VERSION) {
 
         vm.getUrl = function() {
             return window.location.href;
+        };
+
+        vm.hasUserToken = function() {
+            return !!User.getAuthToken();
         }
 
     }
