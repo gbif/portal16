@@ -30,6 +30,13 @@
                         return;
                     }
                     var user = JSON.parse(Base64.decode(token.split('.')[1]));
+
+                    //is the token still valid - if not then delete it. This of course is only to ensure the client knows that the token has expired. any authenticated requests would fail anyhow
+                    if (new Date(user.exp*1000).toISOString() < new Date().toISOString()) {
+                        that.logout();
+                        return;
+                    }
+
                     if (user.roles) {
                        user.roles = JSON.parse(user.roles);
                     }
