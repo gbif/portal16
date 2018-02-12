@@ -11,7 +11,8 @@ let environment = {
     basemapTileApi: config.basemapTileApi,
     analyticsImg: config.analyticsImg,
     imageCache: config.dataApi + 'image/unsafe/',
-    mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json'
+    mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json',
+    domain: config.domain
 };
 
 let constantKeys = config.publicConstantKeys;
