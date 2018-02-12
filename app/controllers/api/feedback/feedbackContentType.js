@@ -47,8 +47,11 @@ async function parseOccurrence(path) {
     // has custom annotation system?
     occurrence.record._installationKey = occurrence.dataset.installationKey;
     contentType.annotation = getAnnotations(occurrence.record);
-    let comments = await getComments(contentType.annotation);
-    contentType.comments = comments;
+
+    if (contentType.annotation.commentsUrl) {
+        let comments = await getComments(contentType.annotation);
+        contentType.comments = comments;
+    }
 
     // get administrative contacts
     contentType.contacts = getContacts(_.get(occurrence, 'dataset.contacts', []));
