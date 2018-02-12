@@ -170,12 +170,12 @@
                                     </div>
                                 </div>
                                 {% if download.record.status === 'SUCCEEDED' and download.record.eraseAfter %}
-                                <div class="card__stripe card__stripe--light">
+                                <div class="card__stripe card__stripe--light ng-cloak">
                                     <div class="card__content discreet">
                                         <div class="card">
                                             <div class="card__stripe">
                                                 <div class="card__content">
-                                                    This download hasn't been cited and is eligible for deletion after {$ download.record.eraseAfter | formatDate(gb.locales.current) $}. Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>.
+                                                    <span translate="phrases.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | amDateFormat:'D MMMM YYYY')}"></span> <span>Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>.</span>
                                                 </div>
                                             </div>
                                             <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">

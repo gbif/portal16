@@ -2807,7 +2807,8 @@
   "phrases": {
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
-    "largeFileUploadWarning": "Be aware that large files can take a long time to upload"
+    "largeFileUploadWarning": "Be aware that large files can take a long time to upload",
+    "downloadDeletionWarning": "This download hasn't been cited and is eligible for deletion after {DATE}."
   },
   "species": {
     "distribution": {
