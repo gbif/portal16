@@ -40,9 +40,9 @@ router.get('/dwc/extensions/', function (req, res) {
 
         })
         .catch(function(err){
-            if (err.statusCode !== 200) {
-                throw err;
-            }
+            res.status(500);
+            res.send();
+            console.trace(err);//TODO log properly, but since none is set up the informative logging at the moment is unfortunately console logs
         });
 
 });
