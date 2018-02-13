@@ -2,7 +2,6 @@ var bunyan = require('bunyan'),
     fs = require('fs'),
     yargs = require('yargs').argv,
     PrettyStream = require('bunyan-prettystream'),
-    bunyantcp = require('bunyan-logstash-tcp'),
     dir = './log',
     loglevel = yargs.loglevel || 'info';
 
@@ -23,15 +22,17 @@ if (!fs.existsSync(dir)) {
 var prettyStdOut = new PrettyStream();
 prettyStdOut.pipe(process.stdout);
 
-function reqSerializer(req) {
-    return {
-        method: req.method,
-        url: req.url,
-        headers: req.headers
-    }
-}
-
 var logStreams = [];
+
+if (loglevel > loglevels.terminal) {
+    //always log to console as well - this is done because only console logs currently goes into Kibana
+    logStreams.push(
+        {
+            level: 'debug',
+            stream: process.stdout
+        }
+    );
+}
 
 if (loglevel <= loglevels.terminal) {
     logStreams.push(
@@ -90,7 +91,8 @@ if (loglevel <= loglevels.error) {
 
 var log = bunyan.createLogger({
     name: 'portal16',
-    serializers: {req: reqSerializer},
+    // serializers: {req: reqSerializer},
+    serializers: bunyan.stdSerializers,
     streams: logStreams
 });
 
@@ -104,4 +106,3 @@ log.on('error', function (err, stream) {
 log.info({state: 'initialising log'}, 'initialising log');
 
 module.exports = log;
-
