@@ -3,6 +3,8 @@ let express = require('express'),
     auth = require('../../auth/auth.service'),
     nunjucks = require('nunjucks'),
     github = require('octonode'),
+    encrypt = require('../../../models/verification/encrypt'),
+    config = rootRequire('config/config'),
     fs = require('fs'),
     credentials = rootRequire('config/credentials').portalFeedback,
     useragent = require('useragent'),
@@ -175,13 +177,18 @@ function createIssue(req, data, cb) {
         title,
         labels = [];
 
+    let user = encrypt.encryptJSON({
+        userName: req.user.userName,
+        date: new Date()
+    });
+
     try {
         ip = req.clientIp;
         country = _.get(getGeoIp(ip), 'country.iso_code');
         if (typeof getStatus == 'function') {
             data._health = _.get(getStatus(), 'severity');
         }
-        description = getDescription(data, agent, referer);
+        description = getDescription(data, agent, referer, user);
         title = getTitle(data.form.title, data.type, referer);
         labels = getLabels(data, country);
     } catch (err) {
@@ -223,7 +230,7 @@ function getLabels(data, country) {
 }
 
 
-function getDescription(data, agent, referer) {
+function getDescription(data, agent, referer, user) {
     //add contact type
     let contact = data.form.contact,
         now = moment();
@@ -235,11 +242,10 @@ function getDescription(data, agent, referer) {
     }
     //data.__contact = contact; //simply use the raw value instead of prefacing with @ so that the user isn't poked in github
 
-    //add agent info
     data.__agent = agent.toString();
-
+    data.__user = user;
+    data.__domain = config.domain;
     data.__referer = referer;
-
     data.__fbitem = feedbackHelper.extractIdentifer(referer);
 
     //set timestamps 5 minuttes before and 1 minute after for linking to relevant logs
@@ -250,4 +256,18 @@ function getDescription(data, agent, referer) {
     return nunjucks.renderString(issueTemplateString, data);
 }
 
+router.get('/user/:user', auth.isAuthenticated(), function (req, res) {
+    auth.setNoCache(res);
+    if (!req.user.email.endsWith('@gbif.org')) {
+        res.sendStatus(403); //this test doesn't matter much as the registry requires a login to show the data anyhow
+    } else {
+        let userCode = req.params.user;
+        try {
+            let user = encrypt.decryptJSON(userCode);
+            res.redirect(302, config.registry + '/web/#/user/' + user.userName);
+        } catch(err) {
+            res.sendStatus(500);
+        }
+    }
+});
 
