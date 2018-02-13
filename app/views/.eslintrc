@@ -15,7 +15,7 @@
     "Chartist": true,
     "L": true,
     "angular": true,
-    noUiSlider: true,
-    ga: true
+    "noUiSlider": true,
+    "ga": true
   }
 }
