@@ -30,7 +30,6 @@ function checklistTaxonomyStats() {
     function checklistTaxonomyStats(Highcharts, DatasetChecklistTaxonomy, $filter, $state, $scope) {
         var vm = this;
         vm.loading = true;
-        var w = window;
         $scope.create = function (element) {
             vm.chartElement = element[0].querySelector('.chartArea');
         };

@@ -60,7 +60,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
             vm.generatedDate = moment.utc(data.startTimestamp).subtract(moment().tz("Europe/Copenhagen").utcOffset(), 'minutes');
 
             handleValidationSubmitResponse(data);
-        }).error(function (err, status, headers) { //data, status, headers, config
+        }).error(function (err, status) { //data, status, headers, config
 
             if((err && err.statusCode === 404 )|| status === 404){
                 handleValidationSubmitResponse(err)
@@ -136,7 +136,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
                         }
                         vm.getValidationResults($stateParams.jobid)
 
-                    };
+                    }
 
                 } else if($state.is('dataValidator')){
 
@@ -169,7 +169,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
         },
           function(issue){
               return (issue.count) ? (- parseInt(issue.count)) : 0 ;
-          },
+          }
         ]);
 
 
@@ -180,7 +180,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
               //  return (vm.remarks[e]) ? vm.remarks[e].severity : "WARNING";
         return (vm.remarks[e]) ? vm.remarks[e].severity : (vm.criticalIssues[e]) ? "ERROR" : "WARNING";
 
-    };
+    }
 
     vm.getIssueSeverity = getIssueSeverity;
 
@@ -196,7 +196,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
                     return 1
                 } else {
                     return 0
-                };
+                }
             })
 
             vm.extensionCount = 0;
@@ -282,7 +282,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
                     this[value.issueCategory] = this[value.issueCategory] || [];
                     if(value.issue === "UNKNOWN_TERM" || value.issue === "DUPLICATED_TERM"){
                         vm.unknownTermMap[value.relatedData] = true;
-                    };
+                    }
                     value.severity = getIssueSeverity(value.issue);
                     vm.validationResults.summary.hasIssues = true;
                     vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
@@ -317,7 +317,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
                     } else if(issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData ){
                         issueBlock.headers = Object.keys(issueBlock.sample[0].issueData);
-                    };
+                    }
 
                     this[value.issueCategory].push(issueBlock);
                 }, vmResourceResult.issuesMap);
@@ -398,7 +398,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
                 vm.hasApiCriticalError = true;
         }
 
-    };
+    }
 
 
 
