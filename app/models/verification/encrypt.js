@@ -31,7 +31,7 @@ function encryptJSON(o) {
     try {
         return encrypt(JSON.stringify(o));
     } catch (err) {
-        cb(new Error('Failed to stringify and encrypt json'));
+        throw new Error('Failed to stringify and encrypt json');
     }
 
 }
@@ -40,7 +40,7 @@ function decryptJSON(e) {
     try {
         return JSON.parse(decrypt(e));
     } catch (err) {
-        cb(new Error('Failed to decrypt and parse json'));
+        throw new Error('Failed to decrypt and parse json');
     }
 }
 
