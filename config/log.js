@@ -7,13 +7,15 @@ var bunyan = require('bunyan'),
 
 var loglevels = Object.freeze({
     terminal: 0,
-    debug: 1,
-    info: 2,
-    warn: 3,
-    error: 4
+    trace: 1,
+    debug: 2,
+    info: 3,
+    warn: 4,
+    error: 5,
+    fatal: 6
 });
 
-loglevel = typeof loglevels[loglevel] !== 'undefined' ? loglevels[loglevel] : loglevels.info;
+loglevel = typeof loglevels[loglevel] !== 'undefined' ? loglevel : 'info';
 
 if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
@@ -24,17 +26,27 @@ prettyStdOut.pipe(process.stdout);
 
 var logStreams = [];
 
-if (loglevel > loglevels.terminal) {
+if (loglevels[loglevel] > loglevels.terminal) {
+    logStreams.push(
+        {
+            level: loglevel,
+            type: 'rotating-file',
+            path: './log/portal.log',
+            period: '1d',   // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
+            count: 7        // keep n back copies
+        }
+    );
+
     //always log to console as well - this is done because only console logs currently goes into Kibana
     logStreams.push(
         {
-            level: 'debug',
+            level: loglevel,
             stream: process.stdout
         }
     );
 }
 
-if (loglevel <= loglevels.terminal) {
+if (loglevels[loglevel] == loglevels.terminal) {
     logStreams.push(
         {
             level: 'debug',
@@ -44,54 +56,9 @@ if (loglevel <= loglevels.terminal) {
     );
 }
 
-if (loglevel <= loglevels.debug) {
-    logStreams.push(
-        {
-            level: 'debug',
-            path: './log/debug.log'
-        }
-    );
-}
-
-if (loglevel <= loglevels.info) {
-    logStreams.push(
-        {
-            level: 'info',
-            type: 'rotating-file',
-            path: './log/info.log',
-            period: '1d',   // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
-            count: 7        // keep n back copies
-        }
-    );
-}
-
-if (loglevel <= loglevels.warn) {
-    logStreams.push(
-        {
-            level: 'warn',
-            type: 'rotating-file',
-            path: './log/warn.log',
-            period: '1d',
-            count: 7
-        }
-    );
-}
-
-if (loglevel <= loglevels.error) {
-    logStreams.push(
-        {
-            level: 'error',
-            type: 'rotating-file',
-            path: './log/error.log',
-            period: '1d',
-            count: 7
-        }
-    );
-}
 
 var log = bunyan.createLogger({
     name: 'portal16',
-    // serializers: {req: reqSerializer},
     serializers: bunyan.stdSerializers,
     streams: logStreams
 });
