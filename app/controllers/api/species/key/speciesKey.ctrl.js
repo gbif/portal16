@@ -5,7 +5,8 @@ var express = require('express'),
     Q = require('q'),
     request = require('requestretry'),
     utils = rootRequire('app/helpers/utils'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig');
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    log = require('../../../../../config/log');
 
 module.exports = function (app) {
     app.use('/api', router);
@@ -32,9 +33,11 @@ router.get('/species/:key/combinations', function (req, res) {
 
         })
         .catch(function(err){
-            if (err.statusCode !== 200) {
-                throw response;
-            }
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.sendStatus(status);
+           // res.send(err);
+
         });
 
 });
@@ -54,9 +57,10 @@ router.get('/species/:key/typeSpecimens', function (req, res) {
 
         })
         .catch(function(err){
-            if (err.statusCode !== 200) {
-                throw response;
-            }
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.status(status);
+            res.send(err);
         });
 
 });
@@ -83,6 +87,7 @@ router.get('/species/:key/occurencedatasets', function (req, res) {
             if(parseInt(response.statusCode !== 200)){
                 throw response;
             };
+
 
             var counts = response.body;
             arr = _.map(counts, function(val, key){
@@ -126,15 +131,10 @@ router.get('/species/:key/occurencedatasets', function (req, res) {
 
         })
         .catch(function(err){
-            if (err.statusCode !== 200) {
-                try {
-                    res.sendStatus(err.statusCode);
-                } catch (err) {
-                    res.sendStatus(500);
-                }
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.sendStatus(status);
 
-                throw err;
-            }
         });
 
 });
@@ -196,15 +196,10 @@ router.get('/species/:key/checklistdatasets', function (req, res) {
 
         })
         .catch(function(err){
-            if (err.statusCode !== 200) {
-                try {
-                    res.sendStatus(err.statusCode);
-                } catch (err) {
-                    res.sendStatus(500);
-                }
-
-                throw err;
-            }
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.status(status);
+            res.send(err);
         });
 
 });
