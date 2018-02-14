@@ -67,29 +67,20 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     vm.paths = {};
 
     vm.markerMessage = {
-        template: '<dl class="occurrenceKey__markerMessage">{{coordinateUncertainty}}{{elevation}}{{weather}}</dl>',
+        template: '<dl class="occurrenceKey__markerMessage">{{coordinateUncertainty}}{{elevation}}</dl>',
         coordinateUncertaintyTemplate: '<dt>Coordinate uncertainty</dt><dd>{{coordinateUncertainty}}m</dd>',
-        weatherTemplate: '<dt>Temperature<span>from Forecast.io</span></dt><dd>{{temperatureMin}}&deg;c to {{temperatureMax}}&deg;c</dd>',
         elevationTemplate: '<dt>Elevation<span>{{elevationSource}}</span></dt><dd>{{elevation}}</dd>',
         elevationAccuracyTemplate: '<dt>Elevation<span>{{elevationSource}}</span></dt><dd>{{elevation}} ±{{elevationAccuracy}}m</dd>',
-        weather: undefined,
         elevation: undefined
     };
     vm.updateMarkerMessage = function () {
         if(!vm.markers.taxon){
             return;
         }
-        var message, weather = '', elevation = '', coordinateUncertainty = '';
+        var message, elevation = '', coordinateUncertainty = '';
 
         if (vm.data.coordinateUncertaintyInMeters) {
             coordinateUncertainty = vm.markerMessage.coordinateUncertaintyTemplate.replace('{{coordinateUncertainty}}', vm.data.coordinateUncertaintyInMeters);
-        }
-
-        if (vm.markerMessage.weather && vm.markerMessage.weather.daily && vm.markerMessage.weather.daily.data) {
-            var dayWeather = vm.markerMessage.weather.daily.data[0];
-            var temperatureMin = dayWeather.temperatureMin;
-            var temperatureMax = dayWeather.temperatureMax;
-            weather = vm.markerMessage.weatherTemplate.replace('{{temperatureMin}}', temperatureMin).replace('{{temperatureMax}}', temperatureMax);
         }
 
         if (vm.markerMessage.elevation) {
@@ -103,8 +94,8 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             }
         }
 
-        if (weather || elevation || coordinateUncertainty) {
-            message = vm.markerMessage.template.replace('{{weather}}', weather).replace('{{elevation}}', elevation).replace('{{coordinateUncertainty}}', coordinateUncertainty);
+        if ( elevation || coordinateUncertainty) {
+            message = vm.markerMessage.template.replace('{{elevation}}', elevation).replace('{{coordinateUncertainty}}', coordinateUncertainty);
             vm.markers.taxon.message = message;
         }
     };
@@ -154,55 +145,9 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                 elevationAccuracy: vm.data.elevationAccuracy
             };
             vm.updateMarkerMessage();
-        } else {
-            getElevation(vm.data.decimalLatitude, vm.data.decimalLongitude);
         }
-        getWeather(vm.data.decimalLatitude, vm.data.decimalLongitude, vm.data.eventDate);
     };
 
-    vm.weather = {};
-    function getWeather(lat, lng, date) {
-        if (lat && lng && date) {
-            date = moment(date).unix();
-            var weatherUrl = '/api/weather/' + lat + '/' + lng + '/' + date;
-            $http.get(weatherUrl).then(
-                function (response) {
-                    vm.markerMessage.weather = response.data;
-                    vm.updateMarkerMessage();
-                },
-                function () {
-                    //ignore api errors as this is supplemental data. fail silently
-                }
-            );
-        }
-    }
-
-    function getElevation(lat, lng) {
-        if (lat && lng) {
-            var query = {
-                shape: [
-                    {
-                        lat: lat, lon: lng
-                    }
-                ],
-                range: false
-            };
-
-            var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
-            $http.get(elevationApi).then(
-                function (response) {
-                    vm.markerMessage.elevation = {
-                        elevation: response.data.height[0],
-                        source: 'from Mapzen.com'
-                    };
-                    vm.updateMarkerMessage();
-                },
-                function () {
-                    //ignore api errors as this is supplemental data. fail silently
-                }
-            );
-        }
-    }
     function hasValidOrNoSRS(data) {
 
         if(typeof data.footprintSRS === "undefined"){
@@ -318,7 +263,6 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
         }
 
     }
-
 }
 
 module.exports = occurrenceKeyCtrl;

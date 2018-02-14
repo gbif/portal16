@@ -10,10 +10,10 @@
                 {% for media in occurrence.record.media | limit(5) %}
                     <div class="card-figure">
                         <figure>
-                            <div class="imgContainer">
+                            <a href="{$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
                                 <img src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}"
                                      onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
-                            </div>
+                            </a>
                             <figcaption class="card__content">
                                 <dl class="inline">
                                     {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source', 'license', 'references'] %}
@@ -52,10 +52,10 @@
                         <div class="card-figure" ng-if="occurrence.mediaExpand.isExpanded"
                              ng-class="{isShown:occurrence.mediaExpand.isExpanded}">
                             <figure>
-                                <div class="imgContainer">
+                                <a href="{$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
                                     <img ng-src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}&size=M"
                                          onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
-                                </div>
+                                </a>
                                 <figcaption class="card__content">
                                     <dl class="inline">
                                         {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source'] %}
