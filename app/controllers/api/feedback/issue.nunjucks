@@ -1,10 +1,10 @@
-{% if form.title %}**{$ form.title | striptags $}**{% endif %}
+{% if form.title %}**{$ form.title | quoteLinks | striptags $}**{% endif %}
 
-{% if form.description %}{$ form.description | safe $}{% endif %}
+{% if form.description %}{$ form.description | quoteLinks | safe $}{% endif %}
 
 -----
-{% if __fbitem %}{$ __fbitem $}{% endif %}
-{% if __contact %}User provided contact info: {$ __contact | striptags $}{% endif %}
+
+{% if __contact %}User provided contact info: {$ __contact | quoteLinks | striptags $}{% endif %}
 {% if __agent %}System: {$ __agent $}{% endif %}
 {% if __user %}User: [See in registry]({$ __domain $}/api/feedback/user/{$ __user $}){% endif %}
 {% if __referer %}Referer: {$ __referer | safe $}{% endif %}

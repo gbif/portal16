@@ -40,6 +40,14 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('quoteLinks', function (text) {
+            if (_.isString(text)) {
+                return text.replace(urlRegex(), "'$&'");
+            }
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('formatDate', format.date);
     })();
 

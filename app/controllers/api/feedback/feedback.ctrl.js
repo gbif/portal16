@@ -7,12 +7,12 @@ let express = require('express'),
     config = rootRequire('config/config'),
     fs = require('fs'),
     credentials = rootRequire('config/credentials').portalFeedback,
+    spamHelper = require('../../../models/verification/spam/spam'),
     useragent = require('useragent'),
     feedbackContentType = require('./feedbackContentType'),
     _ = require('lodash'),
     getGeoIp = rootRequire('app/helpers/utils').getGeoIp,
     log = rootRequire('config/log'),
-    feedbackHelper = require('./feedbackHelper'),
     moment = require("moment"),
     router = express.Router(),
     notificationsComplete = require('../health/notifications.model')(),
@@ -30,98 +30,6 @@ notificationsComplete
 module.exports = function (app) {
     app.use('/api/feedback', router);
 };
-
-router.get('/issues', function (req, res) {
-    let queryItem = req.query.item || req.headers.referer,
-        item = feedbackHelper.extractIdentifer(queryItem),
-        client = github.client({
-            username: credentials.user,
-            password: credentials.password
-        }),
-        ghsearch = client.search();
-
-    //if no item is provided or is is the root in default language then do not show comments
-    if (!item) {
-        res.json({
-            incomplete_results: false,
-            total_count: 0,
-            item: []
-        });
-    } else {
-
-        //query github for issues with the extracted page identifier in the title
-        ghsearch.issues({
-            q: item + ' is:issue is:open label:"data content" -label:"Not public relevant" -label:"Under review" in:body+repo:' + credentials.repository,
-            sort: 'created', //'reactions-+1',
-            order: 'desc',
-            per_page: 5
-        }, function (err, data) {
-            if (err) {
-                res.status(500);
-                res.json();
-            } else {
-                //trim list of issues to send less info to the client
-                data.items = _.map(data.items, function (o) {
-                    return {
-                        url: o.html_url,
-                        title: o.title.replace(item, '').trim(),
-                        created_at: o.created_at,
-                        comments: o.comments
-                    }
-                });
-                //link to all the issues for this page item
-                data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open label:"data content" -label:"Not public relevant" -label:"Under review" in:body');
-                res.json(data);
-            }
-        });
-    }
-});
-
-router.get('/issues/search', function (req, res) {
-    let item = req.query.item,
-        client = github.client({
-            username: credentials.user,
-            password: credentials.password
-        }),
-        ghsearch = client.search();
-
-    //if no item is provided or is is the root in default language then do not show comments
-    if (!item) {
-        res.json({
-            incomplete_results: false,
-            total_count: 0,
-            item: []
-        });
-    } else {
-
-        //query github for issues with the extracted page identifier in the title
-        ghsearch.issues({
-            q: item + ' is:issue is:open in:body+repo:' + credentials.repository,
-            sort: 'created', //'reactions-+1',
-            order: 'desc',
-            per_page: 5
-        }, function (err, data) {
-            if (err) {
-                res.status(500);
-                res.json();
-            } else {
-                //trim list of issues to send less info to the client
-                data.items = _.map(data.items, function (o) {
-                    return {
-                        url: o.html_url,
-                        title: o.title,
-                        created_at: o.created_at,
-                        comments: o.comments
-                    }
-                });
-                //link to all the issues for this page item
-                data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open in:body');
-                res.json(data);
-            }
-        });
-    }
-});
-
 
 router.get('/template.html', function (req, res, next) {
     //once promise has been resolved then
@@ -146,6 +54,11 @@ router.post('/bug', auth.isAuthenticated(), function (req, res) {
         res.json({
             error: 'form data missing'
         });
+    } else if (isSpam(req, formData)) {
+        res.status(500);
+        res.json({
+            error: 'unable to post feedback'
+        });
     } else {
         createIssue(req, req.body, function (err, data) {
             if (err) {
@@ -166,6 +79,18 @@ router.post('/bug', auth.isAuthenticated(), function (req, res) {
 function isValid(formData) {
     if (_.isEmpty(formData.title)) return false;
     return true;
+}
+
+function isSpam(req, formData) {
+    let message = {
+        user: req.user,
+        text: formData.description,
+        title: formData.title
+    };
+    if (spamHelper.isSpam(message)) {
+        return true;
+    }
+    return false;
 }
 
 function createIssue(req, data, cb) {
@@ -246,7 +171,6 @@ function getDescription(data, agent, referer, user) {
     data.__user = user;
     data.__domain = config.domain;
     data.__referer = referer;
-    data.__fbitem = feedbackHelper.extractIdentifer(referer);
 
     //set timestamps 5 minuttes before and 1 minute after for linking to relevant logs
     data.__timestamp = {};
