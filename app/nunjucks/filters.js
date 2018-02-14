@@ -42,7 +42,7 @@ module.exports = function (nunjucksConfiguration) {
     (function () {
         nunjucksConfiguration.addFilter('quoteLinks', function (text) {
             if (_.isString(text)) {
-                return text.replace(urlRegex(), "'$&'");
+                return text.replace(urlRegex(), "`$&`");
             }
         });
     })();
