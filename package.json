@@ -47,6 +47,7 @@
     "bunyan": "^1.8.1",
     "bunyan-logstash": "^0.3.4",
     "bunyan-logstash-tcp": "^1.0.0",
+    "bunyan-middleware": "^0.8.0",
     "bunyan-prettystream": "^0.1.3",
     "camelcase": "^4.0.0",
     "chai": "^4.1.2",

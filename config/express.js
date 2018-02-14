@@ -8,7 +8,7 @@ let express = require('express'),
     i18n = require("./i18n"),
     requestIp = require('request-ip'),
     bodyparser = require('body-parser'),
-    log = rootRequire('config/log');
+    log = require('./log');
 
 module.exports = function (app, config) {
     let env = config.env || 'dev';
@@ -27,13 +27,10 @@ module.exports = function (app, config) {
 
     // app.use(favicon(config.root + '/public/img/favicon.ico')); //TODO serve all the icons here. No need to log these. Also take care of apple-icons, touch icons. tile-iscons etc
 
-    ///**
-    // * Log all requests. Including statics.
-    // */
-    //app.use(function (req, res, next) {
-    //    log.info({req: req});
-    //    next();
-    //});
+    /**
+    * Log all requests. Including statics.
+    */
+    require(config.root + '/app/middleware/logging/logging.js').use(app);
 
     app.use(i18n.init);
 
@@ -72,6 +69,13 @@ module.exports = function (app, config) {
         }
     });
 
+    // app.use(function (req, res, next) {
+    //     req.log = log;
+    //     req.log.trace({req: req}, "start");
+    //     next();
+    // });
+
+
     /**
      require all route controllers
      */
@@ -94,12 +98,12 @@ module.exports = function (app, config) {
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);
 
-    process.on('unhandledRejection', function(reason, p){
+    process.on('unhandledRejection', function (reason, p) {
         log.error("Unhandled Rejection at root: Promise ", p, " reason: ", reason);
         // There is not much else to do here. Keep track of the logs and make sure this never happens. There should be no unhandled rejections.
     });
-    process.on('uncaughtException', function(err) {
-      console.log('Caught exception in root: ' + err);
-      throw err;
+    process.on('uncaughtException', function (err) {
+        console.log('Caught exception in root: ' + err);
+        throw err;
     });
 };
