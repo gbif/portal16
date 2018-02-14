@@ -8,7 +8,7 @@ angular
     .controller('portalCtrl', portalCtrl);
 
 /** @ngInject */
-function portalCtrl($rootScope, $sessionStorage, BUILD_VERSION, env, constantKeys, NAV_EVENTS, IS_TOUCH, Page) {
+function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, env, constantKeys, NAV_EVENTS, IS_TOUCH, Page, User) {
     var vm = this;
     vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
@@ -29,6 +29,20 @@ function portalCtrl($rootScope, $sessionStorage, BUILD_VERSION, env, constantKey
         roles = _.isString(roles) ? [roles] : roles;
         return _.intersection(_.get($sessionStorage, 'user.roles', []), roles).length > 0;
     };
+
+    function updateUser() {
+        vm.tokenUser = User.userFromToken();
+    }
+    updateUser();
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+        updateUser();
+    });
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+        updateUser();
+    });
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+        updateUser();
+    });
 }
 
 module.exports = portalCtrl;

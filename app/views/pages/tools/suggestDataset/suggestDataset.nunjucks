@@ -32,9 +32,12 @@
             </div>
         </div>
 
-        <div class="horizontal-stripe light-background">
+        <div class="horizontal-stripe light-background ng-cloak">
             <div class="container--narrow">
-                <div class="row">
+                <div ng-show="!portal.tokenUser">
+                    Due to spam we require a login to suggest a dataset. We are sorry for the inconvenience.
+                </div>
+                <div class="row" ng-show="portal.tokenUser">
                     <div class="col-xs-12" ng-if="suggestDataset.state != 'SUCCESS'">
                         <h4 class="uppercase-first">{$ __('tools.suggestDataset.pleaseDescribeTheDataset') $}</h4>
                         <div class="card">
@@ -264,7 +267,7 @@
                                                                 class="btn btn-default flat">{$
                                                             __('tools.suggestDataset.form.submit') $}
                                                         </button>
-                                                        <div ng-if="suggestDataset.state == 'FAILED'">
+                                                        <div class="text-error" ng-if="suggestDataset.state == 'FAILED'">
                                                             {$ translations.failure | safe $}
                                                         </div>
                                                     </div>

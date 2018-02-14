@@ -1,8 +1,10 @@
 "use strict";
 var express = require('express'),
     nunjucks = require('nunjucks'),
+    auth = require('../../../auth/auth.service'),
     github = require('octonode'),
     credentials = rootRequire('config/credentials').suggestDataset,
+    spamHelper = require('../../../../models/verification/spam/spam'),
     log = rootRequire('config/log'),
     fs = require('fs'),
     _ = require('lodash'),
@@ -14,7 +16,7 @@ module.exports = function (app) {
     app.use('/api/tools/suggest-dataset', router);
 };
 
-router.post('/', function (req, res) {
+router.post('/', auth.isAuthenticated(), function (req, res) {
     let formData = req.body.form;
     if (!formData || !isValid(formData)) {
         res.status(400);
@@ -45,6 +47,17 @@ function isValid(data) {
     return true;
 }
 
+function isSpam(data) {
+    let message = {
+        text: data.body,
+        title: data.title
+    };
+    if (spamHelper.isSpam(message)) {
+        return true;
+    }
+    return false;
+}
+
 function createIssue(data, cb) {
     let description = '',
         labels = [];
@@ -58,6 +71,9 @@ function createIssue(data, cb) {
 
     try {
         description = getDescription(data);
+        if (isSpam({body: description, title: data.title})) {
+            throw new Error('Looks like spam');
+        }
         labels = getLabels(data);
     } catch (err) {
         cb(err);
