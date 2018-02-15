@@ -34,14 +34,14 @@ angular
         };
 
         //for fields where we want faceting and will always ask for all possible. This is the case for most enums
-        var exhaustiveFacetsKeys = ['basis_of_record', 'month', 'type_status', 'issue', 'dataset_key', 'institution_code', 'country', 'media_type', 'license', 'protocol', 'publishing_org'];
+        var exhaustiveFacetsKeys = ['establishment_means', 'basis_of_record', 'month', 'type_status', 'issue', 'dataset_key', 'institution_code', 'country', 'media_type', 'license', 'protocol', 'publishing_org'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function (facet) {
             exhaustiveFacets.push(facet);
         });
 
         //for fields with low cardinality and that isn't enums
-        var multiSelectFacetsKeys = ['dataset_key', 'institution_code', 'basis_of_record', 'country', 'month', 'media_type', 'type_status', 'issue', 'license', 'publishing_org'];
+        var multiSelectFacetsKeys = ['establishment_means', 'dataset_key', 'institution_code', 'basis_of_record', 'country', 'month', 'media_type', 'type_status', 'issue', 'license', 'publishing_org'];
 
         function getOccurrenceState() {
             return state;

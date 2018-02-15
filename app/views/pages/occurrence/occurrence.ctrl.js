@@ -89,18 +89,18 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         }
     };
 
-    //vm.filters.establishmentMeans = {
-    //    titleTranslation: 'ocurrenceFieldNames.establishmentMeans',
-    //    queryKey: 'establishment_means',
-    //    filter: OccurrenceFilter,
-    //    enumTranslationPath: 'establishmentMeans.',
-    //    showAll: true,
-    //    enums: enums.establishmentMeans,
-    //    facets: {
-    //        hasFacets: true,
-    //        facetKey: 'ESTABLISHMENT_MEANS'
-    //    }
-    //};
+    vm.filters.establishmentMeans = {
+       titleTranslation: 'ocurrenceFieldNames.establishmentMeans',
+       queryKey: 'establishment_means',
+       filter: OccurrenceFilter,
+       enumTranslationPath: 'establishmentMeans.',
+       showAll: true,
+       enums: enums.establishmentMeans,
+       facets: {
+           hasFacets: false,
+           facetKey: 'ESTABLISHMENT_MEANS'
+       }
+    };
 
     vm.filters.license = {
         titleTranslation: 'ocurrenceFieldNames.license',
