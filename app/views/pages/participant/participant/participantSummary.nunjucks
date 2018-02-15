@@ -10,7 +10,7 @@
                     <dt>GBIF participant started</dt>
                     <dd class="text-capitalize">{{ participantKey.participant.participant.membershipStart | amDateFormat:'YYYY' }}</dd>
                 </div>
-                <div>
+                <div ng-if="participantKey.participant.participant.gbifRegion">
                     <dt>GBIF region</dt>
                     <dd class="text-capitalize">{{ 'region.' + participantKey.participant.participant.gbifRegion | translate }}</dd>
                 </div>

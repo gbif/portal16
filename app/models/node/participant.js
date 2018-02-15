@@ -110,29 +110,32 @@ async function getParticipantById(id) {
 async function expandParticipant(participant, locale) {
     expect(participant).to.be.an('object');
     expect(participant).to.have.property('id');
-    expect(participant).to.have.property('countryCode');
-    expect(participant).to.have.nested.property('nodes[0].id');
+    // expect(participant).to.have.nested.property('nodes[0].id');
 
     //get ids to query for
     let nodeId = _.get(participant, 'nodes[0].id'),
-        id = participant.id,
-        countryCode = participant.countryCode,
+        id = participant.id;
 
     //get first list of promises
-        prosePromise = resource.getParticipant(id, 2, false, locale),
+    let prosePromise = resource.getParticipant(id, 2, false, locale),
         participantHistoryPromise = signedGet(apiConfig.directoryParticipantPerson.url + '?status=all&participant_id=' + id),
         registryNodePromise = signedGet(apiConfig.node.url + '?identifier=' + id),
-        nodePromise = getNodeById(nodeId),
-        nodeHistoryPromise = signedGet(apiConfig.directoryNodePerson.url + '?status=all&node_id=' + nodeId);
+        promiseList = [prosePromise, participantHistoryPromise, registryNodePromise];
+
+    if (nodeId) {
+        promiseList[getNodeById(nodeId)];
+        promiseList[signedGet(apiConfig.directoryNodePerson.url + '?status=all&node_id=' + nodeId)];
+    }
 
     //wait for them to finish
-    let values = await Promise.all([prosePromise, participantHistoryPromise, nodePromise, nodeHistoryPromise, registryNodePromise]),
+    // let values = await Promise.all([prosePromise, participantHistoryPromise, nodePromise, nodeHistoryPromise, registryNodePromise]),
+    let values = await Promise.all(promiseList), //prosePromise, participantHistoryPromise, registryNodePromise, <nodePromise, nodeHistoryPromise>
     //asign them to nicer names
         prose = values[0],
         participantHistory = values[1],
-        node = values[2],
-        nodeHistory = values[3],
-        registryNode = values[4].results[0];
+        registryNode = values[2].results[0],
+        node = values[3],
+        nodeHistory = values[4];
 
     //get the people historical related to the participant and node
     let peopleIds = _.map(_.concat([], _.get(participantHistory, 'results', []), _.get(nodeHistory, 'results', [])), 'personId'),
@@ -150,7 +153,7 @@ async function expandParticipant(participant, locale) {
         node: node,
         prose: prose,
         contacts: contacts,
-        nodeHistory: nodeHistory.results,
+        nodeHistory: _.get(nodeHistory, 'results', []),
         participantHistory: participantHistory.results,
         registryNode: registryNode,
         type: participant.type,

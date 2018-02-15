@@ -11,7 +11,8 @@
                     <span>{{ participantKey.participant.participant.name }}</span>
                 </h1>
                 <div ng-if="participantKey.participant.$resolved" class="ng-cloak">
-                    <div translate="participationStatus.type.OTHER.description.{{ participantKey.participant.participant.participationStatus }}" translate-values="{REGION: ('region.' + participantKey.participant.participant.gbifRegion | translate)}"></div>
+                    <div ng-if="participantKey.participant.participant.gbifRegion" translate="participationStatus.type.OTHER.description.{{ participantKey.participant.participant.participationStatus }}" translate-values="{REGION: ('region.' + participantKey.participant.participant.gbifRegion | translate)}"></div>
+                    <div ng-if="!participantKey.participant.participant.gbifRegion" translate="participationStatus.type.OTHER.longForm.{{ participantKey.participant.participant.participationStatus }}"></div>
                 </div>
             </header>
         </div>
