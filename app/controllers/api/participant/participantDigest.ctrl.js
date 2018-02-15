@@ -119,7 +119,9 @@ router.get('/participants/digest', (req, res, next) => {
                 res.json(participants);
             })
             .catch(err => {
-                next(err)
+                log.error(err);
+                let status = err.statusCode || 500;
+                res.sendStatus(status);
             });
     // }
 });

@@ -4,7 +4,9 @@ var express = require('express'),
     request = require('requestretry'),
     utils = rootRequire('app/helpers/utils'),
     _ = require('lodash'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig');
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    log = require('../../../../config/log');
+
 
 
 module.exports = function (app) {
@@ -56,9 +58,9 @@ router.get('/otl/ottid', function (req, res) {
 
         })
         .catch(function(err){
-            if (err.statusCode !== 200) {
-                throw err;
-            }
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.sendStatus(status);
         });
 
 });

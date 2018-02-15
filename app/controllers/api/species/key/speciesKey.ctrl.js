@@ -4,7 +4,6 @@ var express = require('express'),
     _ = require('lodash'),
     Q = require('q'),
     request = require('requestretry'),
-    utils = rootRequire('app/helpers/utils'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../../config/log');
 
@@ -12,8 +11,6 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-//TODO: pass into API
-var limit = 250;
 
 
 //router.get('/species/:key/combinations', getCombinations);
@@ -59,8 +56,7 @@ router.get('/species/:key/typeSpecimens', function (req, res) {
         .catch(function(err){
             log.error(err);
             let status = err.statusCode || 500;
-            res.status(status);
-            res.send(err);
+            res.sendStatus(status);
         });
 
 });
@@ -86,7 +82,7 @@ router.get('/species/:key/occurencedatasets', function (req, res) {
 
             if(parseInt(response.statusCode !== 200)){
                 throw response;
-            };
+            }
 
 
             var counts = response.body;
@@ -162,7 +158,7 @@ router.get('/species/:key/checklistdatasets', function (req, res) {
 
             if(parseInt(response.statusCode !== 200)){
                 throw response;
-            };
+            }
 
             var promises = [];
 
@@ -198,8 +194,7 @@ router.get('/species/:key/checklistdatasets', function (req, res) {
         .catch(function(err){
             log.error(err);
             let status = err.statusCode || 500;
-            res.status(status);
-            res.send(err);
+            res.sendStatus(status);
         });
 
 });

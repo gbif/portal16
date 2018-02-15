@@ -3,7 +3,8 @@ var express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     request = require('requestretry'),
-    apiConfig = require('../../../../models/gbifdata/apiConfig');
+    apiConfig = require('../../../../models/gbifdata/apiConfig'),
+    log = require('../../../../../config/log');
 
 const querystring = require('querystring');
 
@@ -30,10 +31,8 @@ router.get('/occurrence/datasets', function (req, res) {
             res.json(result);
         })
         .catch(function(err){
-            res.status(_.get(err, 'errorResponse.statusCode', 500));
-            res.json({
-                body: err
-            });
+            log.error(err);
+            res.sendStatus(_.get(err, 'errorResponse.statusCode', 500));
         });
 });
 

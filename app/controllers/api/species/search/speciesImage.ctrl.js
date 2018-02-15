@@ -3,7 +3,8 @@ var express = require('express'),
     router = express.Router(),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
-    request = require('requestretry');
+    request = require('requestretry'),
+    log = require('../../../../../config/log');
 
 
 module.exports = function (app) {
@@ -23,7 +24,8 @@ router.get('/species/:key/images', function (req, res) {
             let imgList = getImages(response.results);
             res.json(imgList);
         })
-        .catch(function () {
+        .catch(function (err) {
+            log.error(err);
             res.status(500);
             res.send('SERVER FAILURE');
         });
@@ -49,7 +51,7 @@ router.get('/species/:key/occimage', function (req, res) {
             }
         })
         .catch(function (err) {
-            console.log(err)
+            log.error(err);
             res.status(500);
             res.send('SERVER FAILURE');
         });
@@ -69,8 +71,9 @@ router.get('/species/:key/image', function (req, res) {
             }
         })
         .catch(function (err) {
-            res.status(500);
-            res.send('SERVER FAILURE');
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.sendStatus(status);
         });
 });
 

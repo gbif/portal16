@@ -204,8 +204,8 @@ theGbifNetwork.getCountryFacets = () => {
             for (var i = 0; i < occurrenceCounts.length; i++) {
                 countMap[occurrenceCounts[i].name] = {occurrenceFromCount: occurrenceCounts[i].count}
             }
-            ;
-            for (var i = 0; i < datasetCounts.length; i++) {
+            
+            for (i = 0; i < datasetCounts.length; i++) {
                 if (countMap[datasetCounts[i].name]) {
                     countMap[datasetCounts[i].name].datasetFromCount = datasetCounts[i].count;
                 } else {
@@ -279,7 +279,7 @@ theGbifNetwork.getCountryDataCount = (country, facetMap ) => {
         }
     } else {
         country.counts = {occurrenceFromCount: 0, datasetFromCount: 0}
-    };
+    }
 
     return Q.resolve(country);
 

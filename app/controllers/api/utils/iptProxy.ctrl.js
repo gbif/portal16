@@ -2,7 +2,8 @@
 let express = require('express'),
     router = express.Router(),
     request = require('requestretry'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    log = require('../../../../config/log');
 
 module.exports = function (app) {
     app.use('/api', router);
@@ -33,9 +34,8 @@ router.get('/installation/ipt/inventory/dataset', function (req, res) {
         res.send(response.body);
     })
     .catch(function(err){
-        console.log(err);
-        res.status(500);
-        res.send(err);
+        log.error(err);
+        res.sendStatus(500);
     });
 
 });

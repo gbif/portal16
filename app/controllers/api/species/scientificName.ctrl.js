@@ -183,7 +183,7 @@ function formatName(name){
 
                 n += '<i>' + add(name.canonicalNameWithMarker) + '</i>';
             }
-            ;
+            
 
             if (name.infraSpecificEpithet && name.type !== 'CULTIVAR') {
                 n += add(name.rankMarker)
@@ -215,7 +215,7 @@ function formatName(name){
         let candName = name.genusOrAbove;
         if (name.specificEpithet) {
             candName += " "+ name.specificEpithet
-        } ;
+        } 
 
         n += '"<i>Candidatus </i>' + candName + '" ';
     } else if (name.type == 'INFORMAL') {

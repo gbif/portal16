@@ -7,7 +7,8 @@ let express = require('express'),
     taxonHelper = require('./occurrenceTaxonHelper'),
     request = require('requestretry'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    querystring = require('querystring');
+    querystring = require('querystring'),
+    log = require('../../../../config/log');
 
 module.exports = function (app) {
     app.use('/api/chart/occurrence', router);
@@ -19,9 +20,9 @@ router.get('/basic', function (req, res) {
             res.json(chartData);
         })
         .catch(function (err) {
-            console.trace(err);
-            res.status(500);
-            res.send(err);
+            log.error(err);
+            res.sendStatus(500);
+
         });
 });
 
@@ -31,8 +32,8 @@ router.get('/frequentTaxa', function (req, res) {
             res.json(chartData);
         })
         .catch(function (err) {
-            res.status(500);
-            res.send(err);
+            log.error(err);
+            res.sendStatus(500);
         });
 });
 

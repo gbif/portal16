@@ -1,7 +1,6 @@
 var express = require('express'),
-    fs = require('fs'),
     path = require('path'),
-router = express.Router();
+    router = express.Router();
 
 module.exports = function (app) {
     app.use('/api/tools/nameparser', router);
@@ -9,6 +8,6 @@ module.exports = function (app) {
 
 router.get('/names', function (req, res) {
 
-        return res.sendFile(path.join(__dirname, 'names.txt'));
+    return res.sendFile(path.join(__dirname, 'names.txt'));
 
 })
