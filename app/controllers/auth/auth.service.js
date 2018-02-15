@@ -8,7 +8,8 @@ let credentials = rootRequire('config/credentials').directory,
     isNotDevBuild = require('../../../config/config').env !== 'dev', //it is convenient to set cookies on localhost so don't require secure cookies for dev builds
     User = require('../api/user/user.model'),
     _ = require('lodash'),
-    verification = rootRequire('app/models/verification/verification'); //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
+    verification = rootRequire('app/models/verification/verification'), //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
+    log = require('../../../config/log');
 
 let minute = 60000,
     hour =  60*minute,
@@ -62,6 +63,7 @@ function isAuthenticated() {
         .use(function (err, req, res, next) {
             if (err.name === 'UnauthorizedError') {
                 removeTokenCookie(res);
+                log.error('Invalid user token detected.')
                 res.status(401).send('invalid token...');
             } else if (err) {
                 next(err);
