@@ -3,7 +3,7 @@
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">Endorsing node</span>
-                <span class="md-subhead">To support publishers and review data quality all publishers are associated with a GBIF node. Please select one from below.</span>
+                <span class="md-subhead">To support publishers and review data quality all publishers are associated with a GBIF node. Please check the suggestion below, and correct it if needed:</span>
             </md-card-title-text>
         </md-card-title>
 
@@ -15,7 +15,7 @@
                         <md-radio-button ng-show="eoi.suggestedCountryNode" value="{{ eoi.suggestedCountryNode.key }}" class="md-primary">{{ eoi.suggestedCountryNode.title }} <span class="discreet--very">suggested</span></md-radio-button>
                         <md-radio-button ng-show="eoi.suggestedNonCountryNode" value="{{ eoi.suggestedNonCountryNode.key }}" class="md-primary">{{ eoi.suggestedNonCountryNode.title }} </md-radio-button>
                         <md-radio-button value="{{ eoi.MAGIC_OBIS_KEY }}" class="md-primary">
-                            Request endorsement for OBIS related data
+                            Marine data publishers: request endorsement for OBIS (Ocean Biogeographic Information System) related data
                         </md-radio-button>
 
                     </md-radio-group>
