@@ -1,6 +1,7 @@
 'use strict';
 var userModel = require('./user.model'),
-    auth = require('../../auth/auth.service');
+    auth = require('../../auth/auth.service'),
+    log = require('../../../../config/log');
 
 module.exports = {
     create: create,
@@ -175,7 +176,8 @@ function logout(req, res) {
 function handleError(res, statusCode) {
    statusCode = statusCode || 500;
    return function(err) {
-       res.status(err.statusCode || statusCode);
-       res.json(err.body);
+       log.error(err);
+       res.sendStatus(err.statusCode || statusCode);
+
    };
 }

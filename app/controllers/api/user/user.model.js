@@ -85,7 +85,6 @@ async function resetPassword(userNameOrEmail) {
     if (response.statusCode > 299) {
         throw response;
     }
-    console.log(response);
     return response.body;
 }
 
