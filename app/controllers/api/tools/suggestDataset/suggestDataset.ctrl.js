@@ -24,7 +24,7 @@ router.post('/', auth.isAuthenticated(), function (req, res) {
             error: 'form data missing'
         });
     } else {
-        createIssue(req.body.form, function (err, data) {
+        createIssue(req.body.form, req, function (err, data) {
             if (err) {
                 log.error('Could not write feedback to Github issue: ' + err);
                 res.status(400);
@@ -47,10 +47,11 @@ function isValid(data) {
     return true;
 }
 
-function isSpam(data) {
+function isSpam(data, req) {
     let message = {
         text: data.body,
-        title: data.title
+        title: data.title,
+        req: req
     };
     if (spamHelper.isSpam(message)) {
         return true;
@@ -58,7 +59,7 @@ function isSpam(data) {
     return false;
 }
 
-function createIssue(data, cb) {
+function createIssue(data, req, cb) {
     let description = '',
         labels = [];
 
@@ -71,7 +72,11 @@ function createIssue(data, cb) {
 
     try {
         description = getDescription(data);
-        if (isSpam({body: description, title: data.title})) {
+        if (isSpam({
+            body: description || '',
+            title: data.title,
+            req: req
+        })) {
             throw new Error('Looks like spam');
         }
         labels = getLabels(data);

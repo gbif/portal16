@@ -8,6 +8,8 @@
  */
 
  let urlHelper = require('./urlHelper'),
+    _ = require('lodash'),
+    log = rootRequire('config/log'),
     spamTerms = rootRequire('config/spamTerms');
 
  let terms = spamTerms.map(function(e){return e.toLowerCase()});
@@ -17,14 +19,28 @@ module.exports = {
 };
 
 function isSpam(message) {
+    let referer = _.get(message, 'req.headers.referer'),
+        user = _.get(message, 'req.user'),
+        userName = _.get(message, 'req.user.userName');
+
+    if (!_.isString(referer) || (!/^http(s)?:\/\/www\.gbif((-dev)|(-uat))?\.org/.test(referer)) && !referer.startsWith('http://localhost:')) {
+        log.info({module: 'spam', username: userName, referer: referer, title: message.title, text: message.text, reason: 'invalid referer'});
+        return true;
+    }
     for (let i = 0; i < terms.length; i++) {
         let term = terms[i];
-        if (message.text.toLowerCase().indexOf(term) >= 0 || message.title.toLowerCase().indexOf(term) >= 0) {
+        if (testTerm(message.text, term) || testTerm(message.title, term)) {
+            log.info({module: 'spam', username: userName, referer: referer, title: message.title, text: message.text, reason: 'text or title considered spam'});
             return true;
         }
         if (urlHelper.hasDuplicateLinks(message.text, {}, 3)) {
+            log.info({module: 'spam', username: userName, referer: referer, title: message.title, text: message.text, reason: 'duplicate links'});
             return true;
         }
     }
     return false;
+}
+
+function testTerm(str, term) {
+    return str.toLowerCase().replace(/\.,'"`:;\*_-/g, ' ').replace(/\s\s+/g, ' ').indexOf(term) >= 0
 }

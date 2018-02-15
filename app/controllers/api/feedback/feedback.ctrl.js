@@ -83,8 +83,8 @@ function isValid(formData) {
 
 function isSpam(req, formData) {
     let message = {
-        user: req.user,
-        text: formData.description,
+        req: req,
+        text: formData.description || '',
         title: formData.title
     };
     if (spamHelper.isSpam(message)) {

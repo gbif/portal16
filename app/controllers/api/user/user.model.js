@@ -19,6 +19,7 @@ module.exports = {
     updateForgottenPassword: updateForgottenPassword,
     isValidChallenge: isValidChallenge,
     getClientUser: getClientUser,
+    sanitizeUpdatedUser: sanitizeUpdatedUser,
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
     changePassword: changePassword,
@@ -274,39 +275,14 @@ function getClientUser(user){
     };
 }
 
-// async function findById(userName) {
-//     return {
-//         userName: userName,
-//         somevalue: Math.random()
-//     };
-//
-//     // let options = {
-//     //     method: 'GET',
-//     //     url: apiConfig.userID.url
-//     // };
-//     // let response = await authOperations.authenticatedRequest(options);
-//
-//     // if (response.statusCode !== 201) {
-//     //     throw response;
-//     // }
-//     // return response.body;
-// }
-//
-//async function getUserDownloads(cookie, query) {
-//    query = query || {};
-//    expect(cookie, 'user token').to.be.a('string');
-//    expect(query, 'download query').to.be.an('object');
-//
-//    let user = await authOperations.getUserFromToken(cookie);
-//
-//    let options = {
-//        url: apiConfig.occurrenceDownloadUser.url + user.userName + '?' + querystring.stringify(query),
-//        userName: user.userName,
-//        method: 'GET'
-//    };
-//
-//    let previousUserDownloads = await authOperations.authenticatedRequest(options);
-//    return previousUserDownloads;
-//}
-//
-//
+function sanitizeUpdatedUser(user){
+    return {
+        userName: user.userName,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        settings: {
+            country: user.settings.country
+        }
+    };
+}

@@ -69,8 +69,9 @@ function me(req, res) {
  */
 function update(req, res) {
     //users are not allowed to change username and system settings area
-    let user = userModel.getClientUser(req.body);
+    let user = userModel.sanitizeUpdatedUser(req.body);
     user.userName = req.user.userName;
+    user.roles = req.user.roles;
     user.systemSettings = req.user.systemSettings;
 
     userModel.update(req.user.userName, user)
