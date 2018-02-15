@@ -16,7 +16,7 @@ function iptCtrl($http, leafletData, env) {
 
     var baseMap = {
         name: "Classic",
-        url: env.basemapTileApi + "/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-light&srs=EPSG%3A3857",
+        url: env.basemapTileApi + "/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-geyser-en&srs=EPSG%3A3857",
         options: {},
         type: 'xyz',
         layerOptions: {
