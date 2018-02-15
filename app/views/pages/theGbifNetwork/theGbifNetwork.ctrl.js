@@ -4,7 +4,6 @@ require('./theGbifNetworkMap.service');
 
 var angular = require('angular'),
     moment = require('moment'),
-    topojson = require('topojson'),
     _ = require('lodash'),
     ol = require('openlayers');
 
@@ -28,7 +27,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         'OCEANIA': {zoom: 4, lat: -30, lng: 138, extent: [95.724609375, -51.1376953125, 180.275390625, -8.8623046875]}
     };
 
-// ###############################################
+
     var maxZoom = 7;
     var mapElement = document.getElementById('theNetworkMap');
     var currentProjection = GBIFNetworkMapService.get4326();
@@ -39,12 +38,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         ]
     });
 
-    // function onMoveEnd(evt) {
-    //     var map = evt.map;
-    //     var extent = map.getView().calculateExtent(map.getSize());
-    //     console.log(extent);
-    // }
-    // map.on('moveend', onMoveEnd);
+
     map.setView(currentProjection.getView(0, 0, 1, 1, maxZoom));
     if (currentProjection.fitExtent) {
         map.getView().fit(currentProjection.fitExtent);
@@ -80,8 +74,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
         }
     });
-
-
 
 
    map.addLayer(vector);
@@ -127,8 +119,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
     }
 
-//###########################################
-
     vm.membershipType = 'active';
     vm.showChart = false;
     vm.tableLoaded = false;
@@ -154,7 +144,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         }
         if (props && props.countryCode) {
             tasks.digest = CountryDataDigest.get({iso2: props.countryCode}).$promise;
-            tasks.digest.catch(function(err){
+            tasks.digest.catch(function(){
                 vm.participantApiError = true;
             });
         }
@@ -172,13 +162,12 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             }
             vm.digestLoaded = true;
         })
-            .catch(function(err){
+            .catch(function(){
                 vm.participantApiError = true;
             });
 
 
     };
-
 
 
     vm.cleanRoles = function(region){
@@ -195,7 +184,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
     }
 
-
     vm.count = {};
     vm.participantTypes = [
         'voting_participant',
@@ -203,11 +191,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         'other_associate_participant',
         'gbif_affiliate'
     ];
-
-
     vm.query = $stateParams;
-
-
 
     vm.selectRegion = function(region) {
 
@@ -217,18 +201,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         vm.totalParticipantCount = 0;
         delete vm.contentfulResourceUrl;
 
-            var query;
-
-        switch(region) {
-            case 'PARTICIPANT_ORGANISATIONS':
-                query = {'membershipType': 'other_associate_participant'};
-                break;
-            case 'GBIF_AFFILIATES':
-                query = {'membershipType': 'gbif_affiliate'};
-                break;
-            default:
-                query = {'gbifRegion': region };
-        }
 
         loadParticipantsDigest(vm.currentRegion);
 
@@ -241,19 +213,14 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                   zoomToRegion(region);
               }, latency)
 
-            };
-
+            }
 
         vm.contentfulResourceUrl = '/templates/the-gbif-network/'+region.toLowerCase().replace('_', '-')+'/regionArticle.html?v=' + vm.BUILD_VERSION
-
-
-
         var regionLower = region.toLowerCase().replace('_', '-');
         $state.go($state.$current, {region: regionLower}, {notify: false})
 
     };
 
-    //vm.currentRegion = $location.path().split('/')[2];
     vm.currentRegion = $stateParams.region;
     if (vm.currentRegion) {
         vm.currentRegion = vm.currentRegion.toUpperCase().replace('-', '_');
@@ -265,7 +232,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
     }
 
     // For participant table.
-
     function loadParticipantsDigest(region) {
 
         vm.tableLoaded = false;
@@ -282,7 +248,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                 break;
             default:
                 query = {'gbifRegion': region};
-        };
+        }
         var publisherCount = 0;
 
         vm.participantTypes.forEach(function (pType) {
@@ -304,10 +270,10 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
                     if(r.counts && !isNaN(r.counts.occurrenceFromCount)){
                         vm.count.occurrence += r.counts.occurrenceFromCount;
-                    };
+                    }
                     if(r.counts && !isNaN(r.counts.datasetFromCount)){
                         vm.count.dataset += r.counts.datasetFromCount;
-                    };
+                    }
 
                     if (r.hasOwnProperty('endorsedPublishers')) {
                         r.endorsedPublishersSort = r.endorsedPublishers;
@@ -326,7 +292,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                 vm.activeParticipantsDigest = response;
                 vm.tableLoaded = true;
             })
-            .catch(function(err){
+            .catch(function(){
                 vm.participantApiError = true;
             });
     }
@@ -366,7 +332,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
                 })
                 if(region !== 'GLOBAL'){
-                    reps.sort(function(a,b){
+                    reps.sort(function(a){
                         return (_.find(a.roles, function(r){
                             return (r.role.indexOf(region) !== -1 && r.role.indexOf("DEPUTY") !== -1)
                         })) ? 1 : -1;
@@ -390,10 +356,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             vm.toggleStatus[personId] = 'contact--show';
         }
     };
-
-
-
-
 }
 
 module.exports = theGbifNetworkCtrl;

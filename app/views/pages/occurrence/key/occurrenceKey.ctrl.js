@@ -191,21 +191,21 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                         map.fitBounds(ext);
                     } catch(err){
                         vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
-                        console.log(err.message)
-                        console.log('Unparsable footprintWKT')
+                      //  console.log(err.message)
+                     //   console.log('Unparsable footprintWKT')
                     }
 
 
                 }).catch(function(err){
                     // no coordinates and the WKT is invalid
-                    vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');;
+                    vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
                     throw err
                 })
 
               
             } catch(err){
-                console.log(err.message)
-                console.log('Unparsable footprintWKT')
+               // console.log(err.message)
+              //  console.log('Unparsable footprintWKT')
             }
 
 

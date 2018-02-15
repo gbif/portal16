@@ -1,14 +1,10 @@
 'use strict';
-var _ = require('lodash'),
-moment = require('moment'),
-    fixedUtil = require('../../dataset/key/main/submenu');
+
+var fixedUtil = require('../../dataset/key/main/submenu');
 
 require('../../../components/fileUpload/fileUpload.directive');
 require('./feedback.service');
 
-
-//only available on dev for now
-var devApiUrl = '//api.gbif-dev.org/v1/';
 
 angular
     .module('portal')
@@ -51,7 +47,7 @@ function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_
             .success(function (data, status) {
                 handleValidationSubmitResponse(data, status);
             })
-            .error(function (data, status, headers) {
+            .error(function (data, status) {
                 handleWSError(data, status);
             });
     };

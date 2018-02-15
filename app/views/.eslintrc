@@ -16,6 +16,7 @@
     "L": true,
     "angular": true,
     "noUiSlider": true,
-    "ga": true
+    "ga": true,
+    "Lightbox": true
   }
 }
