@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function headCtrl(Page) {
-    let vm = this;
+    var vm = this;
     vm.Page = Page;
 
     vm.getTitle = function(defaultTitle) {

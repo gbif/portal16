@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,17 +9,17 @@ angular
 
 /** @ngInject */
 function redlistDirective() {
-    let directive = {
+    var directive = {
         restrict: 'E',
         template: '<a href="{{vm.link}}" class="badge redlist-category-{{vm.category}}">{{vm.categoryTitle}}</a>',
         scope: {},
         controller: redlistCtrl,
         controllerAs: 'vm',
         bindToController: {
-            name: '@',
-        },
+            name: '@'
+        }
     };
-    let categories = {
+    var categories = {
         'EX': 'Extinct',
         'EW': 'Extinct in the Wild',
         'CR': 'Critically Endangered',
@@ -28,28 +28,28 @@ function redlistDirective() {
         'NT': 'Near Threatened',
         'LC': 'Least Concern',
         'DD': 'Data Deficient',
-        'NE': 'Not Evaluated',
+        'NE': 'Not Evaluated'
     };
-    let legacyCategories = {
+    var legacyCategories = {
         'LR/lc': 'LC',
         'LR/cd': 'LC',
-        'LR/nt': 'NT',
+        'LR/nt': 'NT'
     };
 
     return directive;
 
     /** @ngInject */
     function redlistCtrl(RedlistSpecies) {
-        let vm = this;
+        var vm = this;
         vm.categoryTitle;
         vm.category;
         vm.link;
 
         RedlistSpecies.query({
-            name: vm.name,
+            name: vm.name
 
-        }, function(data) {
-            let iucn = _.head(data.result);
+        }, function (data) {
+            var iucn = _.head(data.result);
             if (iucn) {
                 if (legacyCategories.hasOwnProperty(iucn.category)) {
                     iucn.category = legacyCategories[iucn.category];
@@ -61,7 +61,7 @@ function redlistDirective() {
                 vm.link = '#';
             }
             vm.categoryTitle = categories[vm.category];
-        }, function() {
+        }, function () {
         });
     }
 }

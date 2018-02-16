@@ -1,31 +1,31 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 angular
     .module('portal')
     .directive('directoryPerson', directoryPersonDirective);
 
 /** @ngInject */
 function directoryPersonDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'A',
         templateUrl: '/templates/components/directoryPerson/directoryPerson.html?v=' + BUILD_VERSION,
         scope: {
-            personId: '=',
+            personId: '='
         },
         replace: true,
         controller: directoryPerson,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
     function directoryPerson(DirectoryPerson) {
-        let vm = this;
+        var vm = this;
         vm.person = DirectoryPerson.get({id: vm.personId});
-        vm.person.$promise.catch(function(err) {
+        vm.person.$promise.catch(function(err){
             vm.error = err;
         });
     }

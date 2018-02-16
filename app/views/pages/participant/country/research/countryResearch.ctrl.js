@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,20 +8,20 @@ angular
 
 /** @ngInject */
 function countryResearchCtrl($stateParams, ResourceSearch) {
-    let vm = this;
+    var vm = this;
     vm.countryCode = $stateParams.key;
     vm.limit = 20;
 
-    ResourceSearch.query({countriesOfCoverage: vm.countryCode, contentType: 'literature', limit: vm.limit}, function(data) {
+    ResourceSearch.query({countriesOfCoverage: vm.countryCode, contentType: 'literature', limit: vm.limit}, function (data) {
         vm.literatureAbout = data;
-    }, function() {
-        // TODO handle request error
+    }, function () {
+        //TODO handle request error
     });
 
-    ResourceSearch.query({countriesOfResearcher: vm.countryCode, contentType: 'literature', limit: vm.limit}, function(data) {
+    ResourceSearch.query({countriesOfResearcher: vm.countryCode, contentType: 'literature', limit: vm.limit}, function (data) {
         vm.literatureFrom = data;
-    }, function() {
-        // TODO handle request error
+    }, function () {
+        //TODO handle request error
     });
 }
 

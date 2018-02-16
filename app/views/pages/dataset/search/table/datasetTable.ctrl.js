@@ -6,7 +6,7 @@
  * enum list, multiselect
  */
 'use strict';
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -14,12 +14,12 @@ angular
 
 /** @ngInject */
 function datasetTableCtrl(hotkeys, DatasetFilter, env, BUILD_VERSION) {
-    let vm = this, offset;
+    var vm = this, offset;
     vm.state = DatasetFilter.getState();
     vm.tileApi = env.tileApi;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.featuredDataSets = {
-        nodes: [],
+        nodes: []
     };
 
     //* pagination */
@@ -32,7 +32,7 @@ function datasetTableCtrl(hotkeys, DatasetFilter, env, BUILD_VERSION) {
 
     updatePaginationCounts();
 
-    vm.pageChanged = function() {
+    vm.pageChanged = function () {
         vm.state.query.offset = (vm.currentPage - 1) * vm.limit;
         updatePaginationCounts();
         DatasetFilter.update(vm.state.query);
@@ -44,27 +44,27 @@ function datasetTableCtrl(hotkeys, DatasetFilter, env, BUILD_VERSION) {
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function() {
+        callback: function () {
             if (offset + vm.limit < vm.state.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
             }
-        },
+        }
     });
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function() {
+        callback: function () {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
             }
-        },
+        }
     });
 
 
-    vm.hasData = function() {
-        return typeof vm.state.data.count !== 'undefined';
+    vm.hasData = function () {
+        return typeof vm.state.data.count !== 'undefined'
     };
 
 
@@ -87,6 +87,7 @@ function datasetTableCtrl(hotkeys, DatasetFilter, env, BUILD_VERSION) {
     //     }
     // };
     // vm.getFeatured();
+
 }
 
 module.exports = datasetTableCtrl;

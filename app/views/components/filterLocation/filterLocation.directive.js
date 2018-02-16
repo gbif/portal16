@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     parseGeometry = require('wellknown');
 
 angular
@@ -9,25 +9,25 @@ angular
 
 /** @ngInject */
 function filterLocationDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/filterLocation/filterLocation.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
-            filterConfig: '=',
+            filterConfig: '='
         },
         replace: true,
         controller: filterLocation,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
     function filterLocation($scope, $filter, OccurrenceFilter, $localStorage) {
-        let vm = this;
+        var vm = this;
         vm.inputType = 'BBOX';
         vm.hasCoordinate;
         vm.title = vm.filterConfig.title;
@@ -42,11 +42,12 @@ function filterLocationDirective(BUILD_VERSION) {
         vm.geometrySuggestions = [];
 
 
+
         function addGeometryOption(arr, str, active) {
             arr.push({
                 q: str,
                 valid: isValidWKT(str),
-                active: active,
+                active: active
             });
         }
 
@@ -54,12 +55,12 @@ function filterLocationDirective(BUILD_VERSION) {
             if (!wkt || !isValidWKT(wkt)) {
                 return false;
             }
-            let filters = $localStorage.filters;
+            var filters = $localStorage.filters;
             if (!filters) {
                 filters = [];
             }
             filters.unshift(wkt);
-            filters = $filter('unique')(filters).slice(0, 20);
+            filters = $filter('unique')(filters).slice(0,20);
             vm.geometrySuggestions = filters;
             $localStorage.filters = filters;
             updateGeometrySuggestions();
@@ -67,20 +68,20 @@ function filterLocationDirective(BUILD_VERSION) {
 
         function addSuggestions(queries) {
             queries = queries || [];
-            queries.forEach(function(wkt) {
+            queries.forEach(function(wkt){
                 addGeometrySuggestion(wkt);
             });
         }
 
         function updateGeometrySuggestions() {
-            let filters = [];
+            var filters = [];
             filters = $localStorage.filters;
             if (!filters) {
                 filters = [];
             }
             vm.geometrySuggestions = [];
-            filters.forEach(function(q) {
-                if (vm.query.indexOf(q) < 0) {
+            filters.forEach(function(q){
+                if(vm.query.indexOf(q) < 0) {
                     addGeometryOption(vm.geometrySuggestions, q, false);
                 }
             });
@@ -89,25 +90,25 @@ function filterLocationDirective(BUILD_VERSION) {
         addSuggestions(vm.query);
         updateGeometrySuggestions();
 
-        vm.query.forEach(function(q) {
+        vm.query.forEach(function(q){
             addGeometryOption(vm.geometryOptions, q, true);
         });
 
         vm.getQuery = function() {
-            let geometries = vm.geometryOptions.filter(function(geo) {
+            var geometries = vm.geometryOptions.filter(function(geo){
                 return geo.active;
-            }).map(function(geo) {
+            }).map(function(geo){
                 return geo.q;
             });
             geometries = $filter('unique')(geometries);
             return geometries;
         };
 
-        vm.apply = function() {
-            let filters = {
+        vm.apply = function () {
+            var filters = {
                 has_coordinate: vm.hasCoordinate,
                 has_geospatial_issue: undefined,
-                geometry: vm.getQuery(),
+                geometry: vm.getQuery()
             };
             if (!filters.geometry || filters.geometry.length == 0) {
                 filters.geometry = undefined;
@@ -137,10 +138,10 @@ function filterLocationDirective(BUILD_VERSION) {
         }
 
         vm.addString = function() {
-            let parsingResult = parseStringToWKTs(vm.geometryString);
+            var parsingResult = parseStringToWKTs(vm.geometryString);
             if (parsingResult.geometry) {
                 vm.hasCoordinate = true;
-                $filter('unique')(parsingResult.geometry).forEach(function(q) {
+                $filter('unique')(parsingResult.geometry).forEach(function(q){
                     addGeometrySuggestion(q);
                     addGeometryOption(vm.geometryOptions, q, true);
                 });
@@ -158,33 +159,33 @@ function filterLocationDirective(BUILD_VERSION) {
             vm.apply();
         };
 
-        // vm.getLocationNames = function() {
+        //vm.getLocationNames = function() {
         //    for (var i = 0; i < vm.query; i++) {
         //        $http.get('http://localhost:3003/geometry-description', {});
         //    }
-        // };
+        //};
 
-        $scope.$watch(function() {
-            return vm.filterState.query[vm.queryKey];
-        }, function(newQuery) {
+        $scope.$watch(function () {
+            return vm.filterState.query[vm.queryKey]
+        }, function (newQuery) {
             vm.query = $filter('unique')(newQuery);
             if (vm.query && vm.query.length) {
                 vm.hasCoordinate = true;
                 addSuggestions(vm.query);
             }
             vm.geometryOptions = [];
-            vm.query.forEach(function(q) {
+            vm.query.forEach(function(q){
                 addGeometryOption(vm.geometryOptions, q, true);
             });
             updateGeometrySuggestions();
         });
 
-        vm.removeFromList = function(index) {
+        vm.removeFromList = function (index) {
             vm.geometryOptions.splice(index, 1);
             vm.apply();
         };
 
-        vm.addToList = function(index, geom) {
+        vm.addToList = function (index, geom) {
             vm.hasCoordinate = true;
             addGeometryOption(vm.geometryOptions, geom.q, true);
             if (geom.valid) {
@@ -192,14 +193,16 @@ function filterLocationDirective(BUILD_VERSION) {
             }
             vm.apply();
         };
+
+
     }
 }
 
 module.exports = filterLocationDirective;
 
 function parseStringToWKTs(str) {
-    let i, geojson, feature, wktGeom, leafletGeoJson, wktGeometries = [];
-    // assume geojson
+    var i, geojson, feature, wktGeom, leafletGeoJson, wktGeometries = [];
+    //assume geojson
     try {
         var geojsonGeometry = JSON.parse(str);
         leafletGeoJson = L.geoJson(geojsonGeometry);
@@ -209,8 +212,8 @@ function parseStringToWKTs(str) {
             wktGeom = parseGeometry.stringify(feature);
             wktGeometries.push(wktGeom);
         }
-    } catch (e) {
-        // not a json object. try to parse as wkt
+    } catch(e) {
+        //not a json object. try to parse as wkt
         try {
             geojsonGeometry = parseGeometry(str);
             if (geojsonGeometry) {
@@ -224,19 +227,19 @@ function parseStringToWKTs(str) {
             } else {
                 throw 'Not valid wkt';
             }
-        } catch (err) {
+        } catch(err) {
             return {
-                error: 'FAILED_PARSING',
-            };
+                error: 'FAILED_PARSING'
+            }
         }
     }
     return {
-        geometry: wktGeometries,
+        geometry: wktGeometries
     };
 }
 
 function isValidWKT(str) {
-    let geojsonGeometry = parseGeometry(str);
+    var geojsonGeometry = parseGeometry(str);
     if (geojsonGeometry) {
         return true;
     } else {

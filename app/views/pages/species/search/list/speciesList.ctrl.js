@@ -6,7 +6,7 @@
  * enum list, multiselect
  */
 'use strict';
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -14,7 +14,7 @@ angular
 
 /** @ngInject */
 function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSION) {
-    let vm = this, offset;
+    var vm = this, offset;
     vm.backboneKey = constantKeys.dataset.backbone;
     vm.state = SpeciesFilter.getState();
     vm.tileApi = env.tileApi;
@@ -31,7 +31,7 @@ function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSIO
 
     updatePaginationCounts();
 
-    vm.pageChanged = function() {
+    vm.pageChanged = function () {
         vm.state.query.offset = (vm.currentPage - 1) * vm.limit;
         updatePaginationCounts();
         SpeciesFilter.update(vm.state.query);
@@ -41,27 +41,27 @@ function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSIO
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function() {
+        callback: function () {
             if (offset + vm.limit < vm.state.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
             }
-        },
+        }
     });
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function() {
+        callback: function () {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
             }
-        },
+        }
     });
 
-    vm.getVernacularNameMatch = function(species) {
+    vm.getVernacularNameMatch = function (species) {
         if (species && angular.isArray(species.vernacularNames)) {
-            for (let i = 0; i < species.vernacularNames.length; i++) {
+            for (var i = 0; i < species.vernacularNames.length; i++) {
                 if (species.vernacularNames[i].vernacularName.indexOf('gbifHl') > -1) {
                     return species.vernacularNames[i];
                 }
@@ -71,8 +71,8 @@ function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSIO
     };
 
 
-    vm.hasData = function() {
-        return typeof vm.state.data.count !== 'undefined';
+    vm.hasData = function () {
+        return typeof vm.state.data.count !== 'undefined'
     };
 }
 

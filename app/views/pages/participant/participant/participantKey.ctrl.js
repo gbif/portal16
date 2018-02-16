@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, $state, $stateParams) {
-    let vm = this;
+    var vm = this;
     vm.limit = 5;
     vm.endorsed = {};
     vm.datasets = {};
@@ -18,33 +18,33 @@ function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, $
 
     vm.participant = Participant.get({id: vm.key});
 
-    vm.getEndorsed = function() {
-        vm.participant.$promise.then(function() {
+    vm.getEndorsed = function () {
+        vm.participant.$promise.then(function(){
             NodeEndorsedPublishers.get({id: vm.participant.registryNode.key, limit: vm.limit, offset: vm.offset_endorsed},
-                function(response) {
+                function (response) {
                     vm.endorsed = response;
                 },
-                function() {
-                    // TODO handle errors
+                function () {
+                    //TODO handle errors
                 }
             );
         });
     };
 
-    vm.getDatasets = function() {
-        vm.participant.$promise.then(function() {
+    vm.getDatasets = function () {
+        vm.participant.$promise.then(function(){
             NodeDatasets.get({id: vm.participant.registryNode.key, limit: vm.limit, offset: vm.offset_datasets},
-                function(response) {
+                function (response) {
                     vm.datasets = response;
                 },
-                function() {
-                    // TODO handle errors
+                function () {
+                    //TODO handle errors
                 }
             );
         });
     };
 
-    vm.setPageNumbers = function() {
+    vm.setPageNumbers = function () {
         vm.offset_endorsed = $stateParams.offset_endorsed || 0;
         vm.currentPage_endorsed = Math.floor(vm.offset_endorsed / vm.limit) + 1;
 
@@ -57,21 +57,21 @@ function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, $
     vm.participant.$promise.then(function() {
         if (vm.participant.registryNode) {
             vm.setPageNumbers();
-        } else if (vm.participant._incomplete) {
+        } else if(vm.participant._incomplete) {
             vm.partialResultError = true;
         }
     });
 
-    vm.pageChanged_endorsed = function() {
+    vm.pageChanged_endorsed = function () {
         vm.offset_endorsed = (vm.currentPage_endorsed - 1) * vm.limit;
-        let offset = vm.offset_endorsed == 0 ? undefined : vm.offset_endorsed;
-        $state.go($state.current, {"limit": vm.limit, "offset_endorsed": offset, '#': 'endorsedPublishers'}, {inherit: true, notify: false, reload: true});
+        var offset = vm.offset_endorsed == 0 ? undefined : vm.offset_endorsed;
+        $state.go($state.current, {limit: vm.limit, offset_endorsed: offset, '#': 'endorsedPublishers'}, {inherit: true, notify: false, reload: true});
         vm.getEndorsed();
     };
-    vm.pageChanged_datasets = function() {
+    vm.pageChanged_datasets = function () {
         vm.offset_datasets = (vm.currentPage_datasets - 1) * vm.limit;
-        let offset = vm.offset_datasets == 0 ? undefined : vm.offset_datasets;
-        $state.go($state.current, {"limit": vm.limit, "offset_datasets": offset, '#': 'datasets'}, {inherit: true, notify: false, reload: true});
+        var offset = vm.offset_datasets == 0 ? undefined : vm.offset_datasets;
+        $state.go($state.current, {limit: vm.limit, offset_datasets: offset, '#': 'datasets'}, {inherit: true, notify: false, reload: true});
         vm.getDatasets();
     };
 }

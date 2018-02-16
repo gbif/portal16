@@ -1,5 +1,5 @@
 'use strict';
-let angular = require('angular');
+var angular = require('angular');
 require('./contactsNav');
 
 angular
@@ -8,13 +8,13 @@ angular
 
 /** @ngInject */
 function directoryCtrl(DirectoryContacts) {
-    let vm = this;
+    var vm = this;
     vm.state = {'loaded': false};
 
-    DirectoryContacts.get().$promise.then(function(response) {
+    DirectoryContacts.get().$promise.then(function (response) {
         vm.state.loaded = true;
         return vm.contacts = response;
-    }, function(error) {
+    }, function (error) {
         return error;
     });
 
@@ -22,32 +22,34 @@ function directoryCtrl(DirectoryContacts) {
     vm.searchResults = [];
 
     vm.toggleStatus = {};
-    vm.toggleDetail = function(personId) {
+    vm.toggleDetail = function (personId) {
         // true means show
         if (vm.toggleStatus[personId] && vm.toggleStatus[personId] == 'contact--show') {
             vm.toggleStatus[personId] = false;
-        } else {
+        }
+        else {
             vm.toggleStatus[personId] = 'contact--show';
         }
     };
 
-    vm.selectAddress = function($event) {
+    vm.selectAddress = function ($event) {
         $event.stopPropagation();
     };
 
-    vm.searchOnEnter = function(event) {
+    vm.searchOnEnter = function (event) {
         if (event.which === 13) {
             vm.typeaheadSelect(vm.selected);
         }
     };
 
-    vm.typeaheadSelect = function(item) { //  model, label, event
+    vm.typeaheadSelect = function (item) { //  model, label, event
         if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
-        let searchString = item.key.toString();
+        var searchString = item.key.toString();
         if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
             vm.selected = '';
         }
     };
+
 }
 
 module.exports = directoryCtrl;

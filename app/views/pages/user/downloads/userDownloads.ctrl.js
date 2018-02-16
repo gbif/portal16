@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -9,9 +9,9 @@ angular
 
 /** @ngInject */
 function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $stateParams, User, Page) {
-    let vm = this;
+    var vm = this;
     User.loadActiveUser();
-    Page.setTitle('My downloads');// TODO move into translation file
+    Page.setTitle('My downloads');//TODO move into translation file
     Page.drawer(false);
 
     function updatePaginationCounts() {
@@ -23,37 +23,37 @@ function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $st
 
     updatePaginationCounts();
 
-    vm.getDownloads = function() {
+    vm.getDownloads = function () {
         vm.loadingDownloads = true;
         vm.failedToLoadDownloads = false;
-        let downloads = $http.get(endpoints.userDownloads, {params: {limit: vm.limit, offset: vm.offset, locale: $stateParams.locale}});
-        downloads.then(function(response) {
+        var downloads = $http.get(endpoints.userDownloads, {params: {limit: vm.limit, offset: vm.offset, locale: $stateParams.locale}});
+        downloads.then(function (response) {
             vm.loadingDownloads = false;
             vm.downloads = response.data;
-        }, function() {
+        }, function () {
             vm.loadingDownloads = false;
             vm.failedToLoadDownloads = true;
         });
     };
     vm.getDownloads();
 
-    vm.cancelDownload = function(key) {
-        let cancel = $http.get(endpoints.cancelDownload + key);
-        cancel.then(function() {
+    vm.cancelDownload = function (key) {
+        var cancel = $http.get(endpoints.cancelDownload + key);
+        cancel.then(function () {
             vm.getDownloads();
-        }, function() {
-            // TODO tell user the download fialed to be cancelled
+        }, function () {
+            //TODO tell user the download fialed to be cancelled
         });
     };
 
-    vm.pageChanged = function() {
+    vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;
         $state.go($state.current, {limit: vm.limit, offset: vm.offset}, {inherit: true, notify: true, reload: true});
     };
 
-    vm.openHelpdesk = function() {
+    vm.openHelpdesk = function () {
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
-    };
+    }
 }
 
 module.exports = userDownloadsCtrl;

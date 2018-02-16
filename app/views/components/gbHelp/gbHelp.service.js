@@ -1,14 +1,14 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
-    .service('HelpService', function($state) {
-        let state = {
+    .service('HelpService', function ($state) {
+        var state = {
             identifier: undefined,
             isCms: true,
-            open: false,
+            open: false
         };
 
         return {
@@ -19,6 +19,7 @@ angular
                 state.open = !!open || false;
                 state.identifier = identifier;
                 state.isCms = isCms !== false;
-            },
+            }
         };
+
     });

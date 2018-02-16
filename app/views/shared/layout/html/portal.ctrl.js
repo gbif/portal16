@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, env, constantKeys, NAV_EVENTS, IS_TOUCH, Page, User) {
-    let vm = this;
+    var vm = this;
     vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.constantKeys = constantKeys;
@@ -21,11 +21,11 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     vm.IS_TOUCH = IS_TOUCH;
     vm.getDrawer = Page.drawer;
 
-    vm.openHelpdesk = function(type) {
+    vm.openHelpdesk = function (type) {
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: type});
     };
 
-    vm.hasRole = function(roles) {
+    vm.hasRole = function(roles){
         roles = _.isString(roles) ? [roles] : roles;
         return _.intersection(_.get($sessionStorage, 'user.roles', []), roles).length > 0;
     };
@@ -34,13 +34,13 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
         vm.tokenUser = User.userFromToken();
     }
     updateUser();
-    $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
         updateUser();
     });
-    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
         updateUser();
     });
-    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
         updateUser();
     });
 }

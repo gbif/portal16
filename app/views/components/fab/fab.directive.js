@@ -1,27 +1,27 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 angular
     .module('portal')
     .directive('fab', fabDirective);
 
 /** @ngInject */
 function fabDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/fab/fab.html?v=' + BUILD_VERSION,
         scope: {},
         controller: fab,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
     function fab() {
-        let vm = this;
+        var vm = this;
         vm.isExpanded = false;
     }
 }

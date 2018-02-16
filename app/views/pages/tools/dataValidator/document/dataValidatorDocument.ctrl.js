@@ -1,10 +1,12 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash'),
   //  utils = require('../../../shared/layout/html/utils/utils'),
     fixedUtil = require('../../../dataset/key/main/submenu');
 require('../../../../components/map/featureMap/featureMap.directive');
+
+
 
 
 angular
@@ -13,7 +15,7 @@ angular
 
 /** @ngInject */
 function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
-    let vm = this;
+    var vm = this;
     vm.$state =$state;
     vm.dataApi = env.dataApi;
 
@@ -21,19 +23,20 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
     Page.drawer(false);
 
     vm.getEML = function(jobid) {
+
         $http.get(
             vm.dataApi + 'validator/jobserver/output/' + jobid +'/DATASET_OBJECT', {params: {nonse: Math.random()}}
 
-        ).success(function(data) {
+        ).success(function (data) {
             vm.eml = data.content;
-            console.log(data);
+            console.log(data)
 
             vm.coverages = geoJsonFromCoverage(vm.eml.geographicCoverages);
-            vm.originators = _.filter(vm.eml.contacts, function(c) {
-                return c.type === 'ORIGINATOR'
-            });
+            vm.originators = _.filter(vm.eml.contacts, function(c){
+                return c.type === "ORIGINATOR"
+            })
 
-        }).error(function(err, status, headers) { // data, status, headers, config
+        }).error(function (err, status, headers) { //data, status, headers, config
 
            // TODO
         });
@@ -45,12 +48,12 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
 
 
     function geoJsonFromCoverage(geographicCoverages) {
-        let geoJson = {
-            'type': 'FeatureCollection',
-            'features': [],
+        var geoJson = {
+            "type": "FeatureCollection",
+            "features": []
         };
         if (_.isArray(geographicCoverages)) {
-            geographicCoverages.forEach(function(e) {
+            geographicCoverages.forEach(function (e) {
                 if (!_.get(e, 'boundingBox.globalCoverage', true)) {
                     geoJson.features.push(getFeature(e));
                 }
@@ -63,50 +66,51 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
     }
 
     function getFeature(coverage) {
-        let b = coverage.boundingBox;
+        var b = coverage.boundingBox;
         return {
-            'type': 'Feature',
-            'properties': {
+            "type": "Feature",
+            "properties": {
                 description: coverage.description,
-                boundingBox: coverage.boundingBox,
+                boundingBox: coverage.boundingBox
             },
-            'geometry': {
-                'type': 'Polygon',
-                'coordinates': [
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
                     [
                         [
                             b.minLongitude,
-                            b.minLatitude,
+                            b.minLatitude
                         ],
                         [
                             b.maxLongitude,
-                            b.minLatitude,
+                            b.minLatitude
                         ],
                         [
                             b.maxLongitude,
-                            b.maxLatitude,
+                            b.maxLatitude
                         ],
                         [
                             b.minLongitude,
-                            b.maxLatitude,
+                            b.maxLatitude
                         ],
                         [
                             b.minLongitude,
-                            b.minLatitude,
-                        ],
-                    ],
-                ],
-            },
+                            b.minLatitude
+                        ]
+                    ]
+                ]
+            }
         };
     }
 
-    vm.attachTabListener = function() {
+    vm.attachTabListener = function () {
         fixedUtil.updateTabs();
     };
 
-    vm.attachMenuListener = function() {
+    vm.attachMenuListener = function () {
         fixedUtil.updateMenu();
     };
+
 }
 
 module.exports = dataValidatorDocumentCtrl;

@@ -1,16 +1,17 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('portal')
-        .service('Remarks', function($http, env) {
-            let remarks = $http.get(env.dataApi + 'enumeration/interpretationRemark');
+        .service('Remarks', function ($http, env) {
+            var remarks = $http.get(env.dataApi + 'enumeration/interpretationRemark');
             return remarks;
         });
 })();
+
 
 

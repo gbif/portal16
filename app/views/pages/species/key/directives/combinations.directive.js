@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,30 +8,31 @@ angular
 
 /** @ngInject */
 function combinationsDirective() {
-    let directive = {
+    var directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/combinations.html',
         scope: {},
         controller: combinationsCtrl,
         controllerAs: 'vm',
         bindToController: {
-            key: '@',
-        },
+            key: '@'
+        }
     };
     return directive;
 
     /** @ngInject */
     function combinationsCtrl(SpeciesCombinations) {
-        let vm = this;
+        var vm = this;
         vm.combinations;
 
         SpeciesCombinations.query({
-            id: vm.key,
+            id: vm.key
 
-        }, function(data) {
+        }, function (data) {
             vm.combinations = data;
-        }, function() {
-        });
+
+        }, function () {
+        })
     }
 }
 

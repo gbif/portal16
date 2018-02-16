@@ -5,7 +5,7 @@
  * returns version of IE or false, if browser is not Internet Explorer
  */
 function detectIE() {
-    let ua = window.navigator.userAgent;
+    var ua = window.navigator.userAgent;
 
     // Test values; Uncomment to check result …
 
@@ -21,20 +21,20 @@ function detectIE() {
     // Edge 13
     // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
 
-    let msie = ua.indexOf('MSIE ');
+    var msie = ua.indexOf('MSIE ');
     if (msie > 0) {
         // IE 10 or older => return version number
         return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
     }
 
-    let trident = ua.indexOf('Trident/');
+    var trident = ua.indexOf('Trident/');
     if (trident > 0) {
         // IE 11 => return version number
-        let rv = ua.indexOf('rv:');
+        var rv = ua.indexOf('rv:');
         return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
     }
 
-    let edge = ua.indexOf('Edge/');
+    var edge = ua.indexOf('Edge/');
     if (edge > 0) {
         // Edge (IE 12+) => return version number
         return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);

@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,31 +8,32 @@ angular
 
 /** @ngInject */
 function synonymsDirective() {
-    let directive = {
+    var directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/synonyms.html',
         scope: {},
         controller: synonymsCtrl,
         controllerAs: 'vm',
         bindToController: {
-            key: '@',
-        },
+            key: '@'
+        }
     };
     return directive;
 
     /** @ngInject */
     function synonymsCtrl(SpeciesSynonyms) {
-        let vm = this;
+        var vm = this;
         vm.synonyms;
 
         SpeciesSynonyms.query({
-            id: vm.key,
+            id: vm.key
 
-        }, function(data) {
-            // TODO: order by basionym groups (or do on server?)
+        }, function (data) {
+            //TODO: order by basionym groups (or do on server?)
             vm.synonyms = data.results;
-        }, function() {
-        });
+
+        }, function () {
+        })
     }
 }
 

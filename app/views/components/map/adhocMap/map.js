@@ -1,28 +1,28 @@
 'use strict';
 
-let ol = require('openlayers'),
+var ol = require('openlayers'),
     _ = require('lodash'),
     Progress = require('../mapWidget/progress'),
     projections = require('../mapWidget/projections');
 
 
 module.exports = {
-    createMap: createMap,
+    createMap: createMap
 };
 
 
 function createMap(element, options) {
-    let mapElement = element[0].querySelector('.mapWidget__mapArea');
-    let progressElement = element[0].querySelector('.mapWidget__progress');
-    let progress = new Progress(progressElement);
+    var mapElement = element[0].querySelector('.mapWidget__mapArea');
+    var progressElement = element[0].querySelector('.mapWidget__progress');
+    var progress = new Progress(progressElement);
 
     options = options || {};
-    let baseMapStyle = options.baseMap || {style: 'gbif-classic'};
-    let overlayStyle = options.overlays || [];
-    let filters = options.filters || {};
-    let currentProjection = projections.EPSG_4326;
+    var baseMapStyle = options.baseMap || {style: 'gbif-classic'};
+    var overlayStyle = options.overlays || [];
+    var filters = options.filters || {};
+    var currentProjection = projections.EPSG_4326;
 
-    this.update = function(options) {
+    this.update = function (options) {
         options = options || {};
         baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-classic'};
         overlayStyle = options.overlay || overlayStyle || {};
@@ -32,113 +32,127 @@ function createMap(element, options) {
 
         map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
 
-        filters = _.omitBy(_.clone(filters), function(e) {
+        filters = _.omitBy(_.clone(filters), function(e){
             return _.isUndefined(e);
         });
         if (overlayStyle.length == 0) {
             overlayStyle.push({});
         }
         if (_.isArray(overlayStyle)) {
-            // var isSimple = utils.isSimpleQuery(filters);
-            overlayStyle.forEach(function(overlay) {
+            //var isSimple = utils.isSimpleQuery(filters);
+            overlayStyle.forEach(function (overlay) {
                 map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // if (isSimple) {
+                //if (isSimple) {
                 //    map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // } else {
+                //} else {
                 //    map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // }
+                //}
             });
         }
 
 
-        if (options.fitExtent && options.filters.geometry) {
-            setTimeout(function() {
-                map.getView().fit(ol.proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
 
-                initGeometry(options.filters.geometry);
+        if(options.fitExtent && options.filters.geometry){
+            setTimeout(function(){
+                map.getView().fit(ol.proj.transformExtent(extentFromWKT(options.filters.geometry),'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
+
+                initGeometry(options.filters.geometry)
 
             });
-        } else if (currentProjection.fitExtent) {
+        }
+        else if (currentProjection.fitExtent) {
             map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
         }
+
+
+
     };
 
-    var extentFromWKT = function(wkt) {
-        let format = new ol.format.WKT();
-        if (_.isArray(wkt)) {
-            let coll = new ol.geom.GeometryCollection(wkt.map(function(w) {
+    var extentFromWKT = function(wkt){
+        var format = new ol.format.WKT()
+        if (_.isArray(wkt)){
+            var coll = new ol.geom.GeometryCollection(wkt.map(function(w){
                 return format.readGeometry(w);
-            }));
+            }))
             return coll.getExtent();
         } else {
-            let geom = format.readGeometry(wkt);
+            var geom = format.readGeometry(wkt);
             return geom.getExtent();
         }
+
     };
 
-    let dragAndDropInteraction = new ol.interaction.DragAndDrop({
+    var dragAndDropInteraction = new ol.interaction.DragAndDrop({
         formatConstructors: [
             ol.format.GPX,
             ol.format.GeoJSON,
             ol.format.IGC,
             ol.format.KML,
-            ol.format.TopoJSON,
-        ],
+            ol.format.TopoJSON
+        ]
     });
 
     var map = new ol.Map({
         interactions: ol.interaction.defaults().extend([dragAndDropInteraction]),
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom: false}),
+        controls: ol.control.defaults({zoom:false})
 
     });
 
 
-    let drawLayer;
-    let format = new ol.format.WKT();
+
+
+    var drawLayer;
+    var format = new ol.format.WKT();
 
     function enableDragDrop(cb) {
-        dragAndDropInteraction.on('addfeatures', function(event) {
-            let geometries =[];
-            event.features.forEach(function(f) {
-                let original = f.getGeometry();
+        dragAndDropInteraction.on('addfeatures', function (event) {
 
-                if (typeof original.getPolygons === 'function') {
-                    let polys = original.getPolygons();
-                    for (let i =0; i< polys.length; i++) {
-                        geometries.push(new ol.Feature({geometry: polys[i]}));
+
+            var geometries =[];
+            event.features.forEach(function (f) {
+                var original = f.getGeometry();
+
+                if(typeof original.getPolygons === 'function'){
+                    var polys = original.getPolygons();
+                    for(var i =0; i< polys.length; i++){
+                        geometries.push(new ol.Feature({ geometry:polys[i]}));
                     }
                 } else {
-                    geometries.push(new ol.Feature({geometry: original}));
-                }
-            });
+                    geometries.push(new ol.Feature({ geometry:original}));
 
-            let vectorSource = new ol.source.Vector({
-                features: geometries,
+                }
+
+
+            })
+
+            var vectorSource = new ol.source.Vector({
+                features: geometries
             });
 
 
             drawLayer = new ol.layer.Vector({
-                source: vectorSource,
-            });
+                source: vectorSource
+            })
             map.addLayer(drawLayer);
 
             map.getView().fit(vectorSource.getExtent());
 
 
             setTimeout(function() {
-               let wkt = geometries.map(function(f) {
-                   let w = format.writeGeometry(f.getGeometry());
+               var wkt = geometries.map(function (f) {
+
+                   var w = format.writeGeometry(f.getGeometry());
 
 
                    return w;
-                });
+                })
 
-                if (cb) {
+                if(cb){
                     cb(wkt);
                 }
-            });
+            })
 
 
         });
@@ -168,51 +182,57 @@ function createMap(element, options) {
     //
     // }
 
-    function enableDraw(cb) {
-        let source = new ol.source.Vector({wrapX: false});
-        let draw = new ol.interaction.Draw({
+    function enableDraw(cb){
+
+
+        var source = new ol.source.Vector({wrapX: false});
+        var draw = new ol.interaction.Draw({
             source: source,
             type: 'Circle',
-            geometryFunction: ol.interaction.Draw.createBox(),
+            geometryFunction: ol.interaction.Draw.createBox()
         });
 
         drawLayer = new ol.layer.Vector({
-            source: source,
+            source: source
         });
         map.addLayer(drawLayer);
 
-            map.addInteraction(draw);
+            map.addInteraction(draw)
 
 
-        draw.on('drawend', function(evt) {
+        draw.on('drawend', function(evt){
+
             setTimeout(function() {
-                source.forEachFeature(function(f) {
-                    if (cb) {
+                source.forEachFeature(function (f) {
+                    if(cb){
                        cb(format.writeGeometry(f.getGeometry()));
                     }
                     map.removeInteraction(draw);
-                });
-            });
-            // console.log(evt)
+                })
+            })
+            //console.log(evt)
         });
     }
-    function initGeometry(geometry) {
-        let geometries = [];
+    function initGeometry(geometry){
 
 
-        if (_.isArray(geometry)) {
-            let polys = geometry;
-            for (let i =0; i< polys.length; i++) {
+        var geometries = [];
+
+
+        if(_.isArray(geometry)){
+            var polys = geometry;
+            for(var i =0; i< polys.length; i++){
                 geometries.push(format.readFeature(polys[i], {
                     dataProjection: 'EPSG:4326',
-                    featureProjection: 'EPSG:4326',
+                    featureProjection: 'EPSG:4326'
                 }));
             }
         } else {
             geometries.push(format.readFeature(geometry, {
                 dataProjection: 'EPSG:4326',
-                featureProjection: 'EPSG:4326',
+                featureProjection: 'EPSG:4326'
             }));
+
         }
 
 
@@ -220,17 +240,19 @@ function createMap(element, options) {
                 source: new ol.source.Vector(
                     {
                         wrapX: false,
-                        features: geometries,
+                        features: geometries
 
                         }
-                    ),
+                    )
             });
             map.addLayer(drawLayer);
+
+
     }
 
 
-    function removeDrawnItems() {
-        map.removeLayer(drawLayer);
+    function removeDrawnItems(){
+        map.removeLayer(drawLayer)
     }
     // var testControl = new ol.control.ZoomToExtent({
     //     extent: extentFromWKT(options.filters.geometry)
@@ -238,22 +260,24 @@ function createMap(element, options) {
     // map.addControl(testControl);
     this.update(options);
 
-    this.getViewExtent = function() {
-        let e = map.getView().calculateExtent(map.getSize());
+    this.getViewExtent = function () {
+        var e = map.getView().calculateExtent(map.getSize());
         return ol.proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
     };
 
-    this.getProjection = function() {
+    this.getProjection = function () {
         return currentProjection.name;
     };
 
-    this.getProjectedCoordinate = function(coordinate) {
+    this.getProjectedCoordinate = function (coordinate) {
         return ol.proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
     };
 
-    this.setExtent = function(extent) {
+    this.setExtent = function (extent) {
         map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), map.getSize());
     };
+
+
 
 
     return {
@@ -262,12 +286,12 @@ function createMap(element, options) {
         enableDragDrop: enableDragDrop,
         removeDrawnItems: removeDrawnItems,
         update: this.update,
-        on: function(str, action) {
+        on: function (str, action) {
             return map.on(str, action);
         },
         getViewExtent: this.getViewExtent,
         getProjection: this.getProjection,
         setExtent: this.setExtent,
-        getProjectedCoordinate: this.getProjectedCoordinate,
+        getProjectedCoordinate: this.getProjectedCoordinate
     };
 }

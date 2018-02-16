@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,21 +8,21 @@ angular
 
 /** @ngInject */
 function bboxFilterDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'E',
         transclude: true,
         templateUrl: '/templates/components/filterLocation/bboxFilter/bboxFilter.html?v=' + BUILD_VERSION,
         scope: {},
         controller: bboxFilter,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
     function bboxFilter(OccurrenceFilter, $filter) {
-        let vm = this;
+        var vm = this;
         vm.north = 90;
         vm.south = -90;
         vm.west = -180;
@@ -32,7 +32,7 @@ function bboxFilterDirective(BUILD_VERSION) {
         vm.form = 'bboxFilter';
 
         function getWKT() {
-            let N = vm.north,
+            var N = vm.north,
                 S = vm.south,
                 W = vm.west,
                 E = vm.east;
@@ -42,13 +42,13 @@ function bboxFilterDirective(BUILD_VERSION) {
                 E = 180;
             }
 
-            let hasUndefined = angular.isUndefined(N) || angular.isUndefined(S) || angular.isUndefined(W) || angular.isUndefined(E);
+            var hasUndefined = angular.isUndefined(N) || angular.isUndefined(S) || angular.isUndefined(W) || angular.isUndefined(E);
             if (hasUndefined || W >= E || S >= N || Math.abs(N) > 90 || Math.abs(S) > 90) {
                 vm.invalidInput = true;
                 return false;
             }
 
-            let str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
+            var str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
                     .replace(/N/g, +N.toFixed(3))
                     .replace(/S/g, +S.toFixed(3))
                     .replace(/W/g, +W.toFixed(3))
@@ -57,20 +57,20 @@ function bboxFilterDirective(BUILD_VERSION) {
         }
 
         vm.add = function() {
-            let rectangle = getWKT();
+            var rectangle = getWKT();
             if (rectangle) {
-                let geometries = $filter('unique')([rectangle].concat(vm.state.query.geometry));
+                var geometries = $filter('unique')([rectangle].concat(vm.state.query.geometry));
                 OccurrenceFilter.updateParams({geometry: geometries});
             }
         };
 
-        let format = {
-            to: function(value) {
+        var format = {
+            to: function (value) {
                 return parseInt(value);
             },
-            from: function(value) {
+            from: function (value) {
                 return parseInt(value);
-            },
+            }
         };
 
         vm.sliderLongitude = {
@@ -80,11 +80,11 @@ function bboxFilterDirective(BUILD_VERSION) {
             limit: 360,
             range: {
                 'min': [-359],
-                'max': [359],
+                'max': [359]
             },
             format: format,
             step: 1,
-            connect: true,
+            connect: true
         };
 
         vm.sliderLatitude = {
@@ -93,27 +93,27 @@ function bboxFilterDirective(BUILD_VERSION) {
             behaviour: 'drag',
             range: {
                 'min': [-90],
-                'max': [90],
+                'max': [90]
             },
             format: format,
             step: 1,
-            connect: true,
+            connect: true
         };
 
         vm.latSliderHandlers = {
-            slide: function(values, handle, unencoded) {
+            slide: function (values, handle, unencoded) {
                 vm.south = parseInt(unencoded[0]);
                 vm.north = parseInt(unencoded[1]);
                 vm.invalidInput = false;
-            },
+            }
         };
 
         vm.lngSliderHandlers = {
-            slide: function(values, handle, unencoded) {
+            slide: function (values, handle, unencoded) {
                 vm.west = parseInt(unencoded[0]);
                 vm.east = parseInt(unencoded[1]);
                 vm.invalidInput = false;
-            },
+            }
         };
 
         vm.updateSliders = function() {
@@ -124,6 +124,7 @@ function bboxFilterDirective(BUILD_VERSION) {
             vm.sliderLatitude.start[1] = vm.north;
             vm.invalidInput = false;
         };
+
     }
 }
 

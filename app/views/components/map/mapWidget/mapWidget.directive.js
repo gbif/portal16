@@ -1,12 +1,12 @@
 'use strict';
 
 
-let angular = require('angular'),
+var angular = require('angular'),
     mapController = require('./map'),
     ol = require('openlayers'),
     utils = require('../../../shared/layout/html/utils/utils'),
     options = require('./options'),
-// globeCreator = require('./globe'),
+//globeCreator = require('./globe'),
     moment = require('moment'),
     _ = require('lodash');
 
@@ -17,41 +17,43 @@ angular
 
 /** @ngInject */
 function mapWidgetDirective(BUILD_VERSION) {
-    let directive = {
+
+
+    var directive = {
         restrict: 'E',
         transclude: true,
         templateUrl: '/templates/components/map/mapWidget/mapWidget.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
-            mapStyle: '=',
+            mapStyle: '='
         },
         link: mapLink,
         controller: mapWidget,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element) {// , attrs, ctrl
+    function mapLink(scope, element) {//, attrs, ctrl
         scope.create(element);
     }
 
     /** @ngInject */
     function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, $localStorage) {
-        let vm = this;
+        var vm = this;
         vm.moment = moment;
 
         vm.styleBreaks = {
             breakpoints: [0, 700],
-            classes: ['isSmall', 'isLarge'],
+            classes: ['isSmall', 'isLarge']
         };
         vm.projections = {
             ARCTIC: 'EPSG_3575',
             MERCATOR: 'EPSG_3857',
             PLATE_CAREE: 'EPSG_4326',
-            ANTARCTIC: 'EPSG_3031',
+            ANTARCTIC: 'EPSG_3031'
         };
         vm.activeProjection = vm.projections.PLATE_CAREE;
         vm.activeControl = undefined;
@@ -61,7 +63,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             BOR: 11,
             STYLE: 12,
             YEAR: 13,
-            FILTERS: 14,
+            FILTERS: 14
         };
 
         vm.fullscreen = _.get(vm, 'mapStyle.fullscreen', false);
@@ -79,7 +81,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         if (vm.customMap) {
             vm.selectedBinning = _.find(vm.binningOptions, {
                 name: vm.customMap.binning.name,
-                type: vm.customMap.binning.type,
+                type: vm.customMap.binning.type
             });
             vm.selectedColor = _.find(vm.colorOptions, {name: vm.customMap.color.name, type: vm.customMap.color.type});
             vm.selectedBaseMap = _.find(vm.basemaps, {name: vm.customMap.basemap.name});
@@ -88,18 +90,18 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.predefinedStyles = options.predefined;
         vm.style = $localStorage.selectedMapStyle || 'CLASSIC_HEX';
 
-        vm.updateCustomStyle = function() {
-            let style;
+        vm.updateCustomStyle = function () {
+            var style;
             vm.selectedBinning = vm.selectedBinning || {};
             if (!vm.selectedColor || vm.selectedColor.type != vm.selectedBinning.type) {
-                let colorMatch = _.find(vm.colorOptions, {type: vm.selectedBinning.type, name: vm.prevColorName});
+                var colorMatch = _.find(vm.colorOptions, {type: vm.selectedBinning.type, name: vm.prevColorName});
                 if (!colorMatch) {
                     colorMatch = _.find(vm.colorOptions, {type: vm.selectedBinning.type});
                 }
                 vm.selectedColor = colorMatch;
             }
             if (vm.selectedColor.query) {
-                style = vm.selectedColor.query.map(function(e) {
+                style = vm.selectedColor.query.map(function (e) {
                     return _.assign({style: e}, vm.selectedBinning.query);
                 });
             }
@@ -107,99 +109,99 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.customMap = {
                 baseMap: _.get(vm.selectedBaseMap, 'query') || vm.basemaps[0].query,
                 overlay: style,
-                background: '#e0e0e0',
+                background: '#e0e0e0'
             };
             $localStorage.customMap = {
                 binning: vm.selectedBinning,
                 color: vm.selectedColor,
-                basemap: vm.selectedBaseMap,
+                basemap: vm.selectedBaseMap
             };
             return vm.customMap;
         };
-        vm.composeCustomStyle = function() {
+        vm.composeCustomStyle = function () {
             vm.updateCustomStyle();
             map.update(vm.customMap);
         };
 
         vm.styleOptions = ['CUSTOM'].concat(Object.keys(vm.predefinedStyles));
         vm.basisOfRecord = {};
-        enums.basisOfRecord.forEach(function(bor) {
+        enums.basisOfRecord.forEach(function (bor) {
             vm.basisOfRecord[bor] = false;
         });
-        let map;
+        var map;
 
         vm.allYears = true;
         vm.yearRange = {};
 
-        $scope.create = function(element) {
+        $scope.create = function (element) {
             vm.style = _.get(vm.mapStyle, 'forceSelect') || vm.style || 'CLASSIC_HEX';
-            let activeStyle = vm.predefinedStyles[vm.style];
+            var activeStyle = vm.predefinedStyles[vm.style];
             if (vm.style == 'CUSTOM') {
                 activeStyle = vm.updateCustomStyle();
             }
-            // vm.widgetContextStyle = {
+            //vm.widgetContextStyle = {
             //    background: suggestedStyle.background
-            // };
+            //};
             map = mapController.createMap(element, {
                 baseMap: activeStyle.baseMap,
                 overlay: activeStyle.overlay,
-                filters: getQuery(),
+                filters: getQuery()
             });
 
-            // set up zoom control
-            let zoomInteraction;
+            //set up zoom control
+            var zoomInteraction;
             zoomInteraction = new ol.interaction.MouseWheelZoom();
             zoomInteraction.setActive(false);
             map.map.addInteraction(zoomInteraction);
 
-            let disableZoomTimer;
-            let mapArea = element[0].querySelector('.mapWidget__mapArea');
-            mapArea.addEventListener('click', function(e) {
+            var disableZoomTimer;
+            var mapArea = element[0].querySelector('.mapWidget__mapArea');
+            mapArea.addEventListener('click', function (e) {
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
                 }
             });
-            mapArea.addEventListener('doubleclick', function() {
+            mapArea.addEventListener('doubleclick', function () {
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
                 }
             });
-            mapArea.addEventListener('mouseleave', function() {
-                disableZoomTimer = $timeout(function() {
+            mapArea.addEventListener('mouseleave', function () {
+                disableZoomTimer = $timeout(function () {
                     zoomInteraction.setActive(false);
                 }, 2500);
             });
-            mapArea.addEventListener('mouseenter', function() {
+            mapArea.addEventListener('mouseenter', function () {
                 if (disableZoomTimer) {
                     $timeout.cancel(disableZoomTimer);
                     disableZoomTimer = undefined;
                 }
             });
 
-            let query = _.assign({}, vm.filter);
-            query = _.mapKeys(query, function(value, key) {
+            var query = _.assign({}, vm.filter);
+            query = _.mapKeys(query, function (value, key) {
                 return _.camelCase(key);
             });
 
             vm.capabilities = MapCapabilities.get(query);
-            let zoomAreaPadding = 2;
-            vm.capabilities.$promise.then(function(response) {
-                // only zoom in if the area is less than half the world
+            var zoomAreaPadding = 2;
+            vm.capabilities.$promise.then(function (response) {
+                //only zoom in if the area is less than half the world
                 if (response.maxLng - response.minLng < 180) {
                     map.setExtent([response.minLng, response.minLat, response.maxLng, response.maxLat]);
-                    let v = map.map.getView();// zoom out a bit see https://github.com/gbif/maps/issues/17
+                    var v = map.map.getView();//zoom out a bit see https://github.com/gbif/maps/issues/17
                     v.setZoom(v.getZoom() - 0.5);
                 }
-                // only create the slider if there are any years in the data to filter on
+                //only create the slider if there are any years in the data to filter on
                 if (response.maxYear) {
                     createSlider(element, response.minYear, response.maxYear);
                 }
-            }).catch(function() {
+            }).catch(function () {
                 createSlider(element);
             });
 
-            map.on('moveend', function() {
-                $timeout(function() {
+            map.on('moveend', function () {
+                $timeout(function () {
                     vm.viewBbox = map.getViewExtent();
                     vm.viewBboxWidth = vm.viewBbox[2] - vm.viewBbox[0];
                 }, 0);
@@ -209,10 +211,10 @@ function mapWidgetDirective(BUILD_VERSION) {
                 if (vm.activeControl !== vm.controls.OCCURRENCES) {
                     return;
                 }
-                let coordinate = map.getProjectedCoordinate(e.coordinate);
-                let size = 30;
-                let onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
-                let offset = Math.min(2, Math.max(Math.abs(onePixelOffset[0] - coordinate[0]), Math.abs(onePixelOffset[1] - coordinate[1])));// lazy failsafe for those odd cases in polar projections
+                var coordinate = map.getProjectedCoordinate(e.coordinate);
+                var size = 30;
+                var onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
+                var offset = Math.min(2, Math.max(Math.abs(onePixelOffset[0] - coordinate[0]), Math.abs(onePixelOffset[1] - coordinate[1])));//lazy failsafe for those odd cases in polar projections
                 while (_.isNumber(coordinate[0]) && coordinate[0] < -180) {
                     coordinate[0] = coordinate[0] + 360;
                 }
@@ -228,8 +230,8 @@ function mapWidgetDirective(BUILD_VERSION) {
         function createSlider(element, startYear, endYear) {
             startYear = startYear || 1700;
             endYear = endYear || 2017;
-            let slider = element[0].querySelector('.time-slider__slider');
-            let years = element[0].querySelector('.time-slider__years');
+            var slider = element[0].querySelector('.time-slider__slider');
+            var years = element[0].querySelector('.time-slider__years');
 
             if (startYear == endYear) {
                 vm.singleYearSpan = startYear;
@@ -241,53 +243,53 @@ function mapWidgetDirective(BUILD_VERSION) {
                 connect: true,
                 range: {
                     'min': startYear,
-                    'max': endYear,
-                },
+                    'max': endYear
+                }
             });
-            slider.noUiSlider.on('update', function(vals) {
+            slider.noUiSlider.on('update', function (vals) {
                 // only adjust the range the user can see
                 vm.yearRange.start = Math.floor(vals[0]);
                 vm.yearRange.end = Math.floor(vals[1]);
-                years.innerText = vm.yearRange.start + ' - ' + vm.yearRange.end;
+                years.innerText = vm.yearRange.start + " - " + vm.yearRange.end;
             });
-            slider.noUiSlider.on('start', function() {
-                $scope.$apply(function() {
+            slider.noUiSlider.on('start', function () {
+                $scope.$apply(function () {
                     vm.allYears = false;
                 });
             });
             slider.noUiSlider.on('change', vm.sliderChange);
         }
 
-        vm.setStyle = function(style) {
+        vm.setStyle = function (style) {
             $localStorage.selectedMapStyle = style || 'CLASSIC_HEX';
             if (style == 'CUSTOM') {
                 vm.composeCustomStyle();
             } else {
-                let s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC_HEX;
+                var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC_HEX;
                 vm.widgetContextStyle = {
-                    background: s.background,
+                    background: s.background
                 };
                 map.update(s);
             }
         };
 
-        vm.setProjection = function(epsg) {
+        vm.setProjection = function (epsg) {
             map.update({projection: epsg});
         };
 
-        vm.setFilters = function() {
+        vm.setFilters = function () {
             map.update({filters: {basisOfRecord: 'HUMAN_OBSERVATION', taxonKey: 18}});
         };
 
-        vm.updateFilters = function() {
+        vm.updateFilters = function () {
             map.update({filters: getQuery()});
         };
 
-        vm.clearFilters = function() {
+        vm.clearFilters = function () {
             map.update({filters: {}});
         };
 
-        vm.toggleControl = function(control) {
+        vm.toggleControl = function (control) {
             if (vm.activeControl == control) {
                 vm.activeControl = 0;
             } else {
@@ -295,47 +297,47 @@ function mapWidgetDirective(BUILD_VERSION) {
             }
         };
 
-        vm.toggleFullscreen = function() {
+        vm.toggleFullscreen = function () {
             vm.fullscreen = !vm.fullscreen;
-            $timeout(function() {
+            $timeout(function () {
                 map.map.updateSize();
                 map.map.render();
             }, 100);
         };
 
-        vm.zoomIn = function() {
-            let view = map.map.getView();
+        vm.zoomIn = function () {
+            var view = map.map.getView();
             view.setZoom(view.getZoom() + 1);
         };
 
-        vm.zoomOut = function() {
-            let view = map.map.getView();
+        vm.zoomOut = function () {
+            var view = map.map.getView();
             view.setZoom(view.getZoom() - 1);
         };
 
-        vm.getProjection = function() {
+        vm.getProjection = function () {
             return map ? map.getProjection() : undefined;
         };
 
-        vm.getExploreQuery = function() {
-            let q = getQuery();
+        vm.getExploreQuery = function () {
+            var q = getQuery();
             if (map && map.getProjection() == 'EPSG_4326') {
                 q.geometry = getBoundsAsQueryString();
                 q.has_coordinate = true;
                 q.has_geospatial_issue = false;
             }
-            q = _.mapKeys(q, function(value, key) {
+            q = _.mapKeys(q, function (value, key) {
                 return _.snakeCase(key);
             });
             return $httpParamSerializer(q);
         };
 
-        vm.getClickedQuery = function() {
-            let q = getQuery();
+        vm.getClickedQuery = function () {
+            var q = getQuery();
             q.geometry = vm.clickedGeometry;
             q.has_coordinate = true;
             q.has_geospatial_issue = false;
-            q = _.mapKeys(q, function(value, key) {
+            q = _.mapKeys(q, function (value, key) {
                 return _.snakeCase(key);
             });
             return q;
@@ -344,7 +346,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         /**
          * Make sure that longitude coordinates are within the bounds of the map (dateline wrapping).
          * @param n
-         * @return {number} within the -180 to 180 bounds. -200 will fx wrap to 160
+         * @returns {number} within the -180 to 180 bounds. -200 will fx wrap to 160
          */
         function normalizeLng(extent) {
             while (_.isNumber(extent[2]) && extent[2] < -180) {
@@ -357,10 +359,10 @@ function mapWidgetDirective(BUILD_VERSION) {
         /**
          * cap latitude (north south) to be within -90 to 90. no wrapping as we do not do that when displaying the map
          * @param n
-         * @return {number} -110 will return -90. 92 will return 90
+         * @returns {number} -110 will return -90. 92 will return 90
          */
         function capBounds(n) {
-            let m = typeof n === 'number' ? n : 0;
+            var m = typeof n === 'number' ? n : 0;
             m = Math.min(90, m);
             m = Math.max(-90, m);
             return m;
@@ -368,23 +370,23 @@ function mapWidgetDirective(BUILD_VERSION) {
 
         /**
          * Get the bounds of the map as wkt string.
-         * @return {string} format 'POLYGON((W S,W N,E N,E S,W S))'
+         * @returns {string} format 'POLYGON((W S,W N,E N,E S,W S))'
          */
         function getBoundsAsQueryString() {
             if (!map) return;
-            let extent = map.getViewExtent();
+            var extent = map.getViewExtent();
             extent = normalizeLng(extent);
-            let N = capBounds(extent[3]),
+            var N = capBounds(extent[3]),
                 S = capBounds(extent[1]),
                 W = extent[0],
                 E = extent[2];
 
-            let str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
+            var str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
                     .replace(/N/g, N.toFixed(5))
                     .replace(/S/g, S.toFixed(5))
                     .replace(/W/g, W.toFixed(5))
                     .replace(/E/g, E.toFixed(5));
-            // if we are seeing all of earth then do not filter on bounds. TODO, this will be different code for other projections. How to handle that well?
+            //if we are seeing all of earth then do not filter on bounds. TODO, this will be different code for other projections. How to handle that well?
             if (Math.abs(E - W) >= 180) {
                 str = undefined;
             }
@@ -392,15 +394,15 @@ function mapWidgetDirective(BUILD_VERSION) {
         }
 
         function getQuery() {
-            let query = _.assign({}, vm.filter);
-            query = _.mapKeys(query, function(value, key) {
+            var query = _.assign({}, vm.filter);
+            query = _.mapKeys(query, function (value, key) {
                 return _.camelCase(key);
             });
             if (!vm.allYears && vm.yearRange.start && vm.yearRange.end) {
-                query.year = vm.yearRange.start + ',' + vm.yearRange.end;
+                query.year = vm.yearRange.start + "," + vm.yearRange.end;
             }
-            // basis of record as array
-            let basisOfRecord = Object.keys(vm.basisOfRecord).filter(function(e) {
+            //basis of record as array
+            var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function (e) {
                 return vm.basisOfRecord[e];
             });
             query.basisOfRecord = basisOfRecord;
@@ -410,11 +412,11 @@ function mapWidgetDirective(BUILD_VERSION) {
             return query;
         }
 
-        vm.sliderChange = function(vals) {
+        vm.sliderChange = function (vals) {
             vm.yearRange.start = Math.floor(vals[0]);
             vm.yearRange.end = Math.floor(vals[1]);
             vm.updateFilters();
-            $scope.$apply(function() {
+            $scope.$apply(function () {
                 vm.allYears = false;
             });
         };
@@ -426,10 +428,10 @@ function mapWidgetDirective(BUILD_VERSION) {
             if (vm.occurrenceRequest && vm.occurrenceRequest.$cancelRequest) vm.occurrenceRequest.$cancelRequest();
 
             vm.clickedQuery = getQuery();
-            let decimalLatitudeMin = lat - offset;
-            let decimalLatitudeMax = lat + offset;
-            let decimalLongitudeMin = lng - offset;
-            let decimalLongitudeMax = lng + offset;
+            var decimalLatitudeMin = lat - offset;
+            var decimalLatitudeMax = lat + offset;
+            var decimalLongitudeMin = lng - offset;
+            var decimalLongitudeMax = lng + offset;
             vm.clickedGeometry = 'POLYGON' + '((W S,W N,E N,E S,W S))'
                     .replace(/N/g, decimalLatitudeMin)
                     .replace(/S/g, decimalLatitudeMax)
@@ -451,28 +453,28 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.clickedQuery.clickedGeometry = vm.clickedGeometry;
             vm.clickedQuery.has_geospatial_issue = false;
             vm.clickedQuery.has_coordinate = true;
-            window.location.href = '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
-            // vm.activeControl = vm.controls.OCCURRENCES;
-            // vm.mapMenu.isLoading = true;
-            // vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {
+            window.location.href = "/occurrence/search?" + $httpParamSerializer(vm.getClickedQuery());
+            //vm.activeControl = vm.controls.OCCURRENCES;
+            //vm.mapMenu.isLoading = true;
+            //vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {
             //    utils.attachImages(data.results);
             //    vm.mapMenu.isLoading = false;
             //    vm.mapMenu.occurrences = data;
-            // }, function () {
+            //}, function () {
             //    //TODO error handling
-            // });
+            //});
         }
 
-        $scope.$watchCollection(function() {
-            return vm.filter;
-        }, function() {
+        $scope.$watchCollection(function () {
+            return vm.filter
+        }, function () {
             vm.activeControl = undefined;
             map.update({filters: getQuery()});
         });
 
-        $scope.$watchCollection(function() {
-            return vm.mapStyle;
-        }, function() {
+        $scope.$watchCollection(function () {
+            return vm.mapStyle
+        }, function () {
             if (_.has(vm, 'mapStyle.fullscreen')) {
                 vm.fullscreen = !vm.mapStyle.fullscreen;
                 vm.toggleFullscreen();

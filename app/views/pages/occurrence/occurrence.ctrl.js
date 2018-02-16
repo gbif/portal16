@@ -1,5 +1,5 @@
 'use strict';
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -7,20 +7,20 @@ angular
 
 /** @ngInject */
 function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher) {
-    let vm = this;
+    var vm = this;
     Page.setTitle('Occurrence search');
     Page.drawer(true);
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {};
-    // suggest complex
+    //suggest complex
     vm.filters.scientificName = {
         queryKey: 'taxon_key',
         translationPrefix: 'ocurrenceFieldNames',
         title: 'scientificName',
         suggestEndpoint: suggestEndpoints.taxon,
         defaultParams: {
-            datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+            datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
         },
         suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
         shortName: 'canonicalName',
@@ -28,7 +28,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         placeholder: 'search.taxonSearchPlaceholder',
         expand: true,
         resource: Species,
-        filter: OccurrenceFilter,
+        filter: OccurrenceFilter
     };
 
     vm.filters.dataset = {
@@ -43,10 +43,10 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         placeholder: 'search.datasetSearchPlaceholder',
         expand: false,
         resource: Dataset,
-        filter: OccurrenceFilter,
+        filter: OccurrenceFilter
     };
 
-    // enums
+    //enums
 
     vm.filters.typeStatus = {
         titleTranslation: 'ocurrenceFieldNames.typeStatus',
@@ -58,8 +58,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         reversible: true,
         facets: {
             hasFacets: true,
-            facetKey: 'TYPE_STATUS',
-        },
+            facetKey: 'TYPE_STATUS'
+        }
     };
 
     vm.filters.issue = {
@@ -72,8 +72,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         reversible: true,
         facets: {
             hasFacets: true,
-            facetKey: 'ISSUE',
-        },
+            facetKey: 'ISSUE'
+        }
     };
 
     vm.filters.mediaType = {
@@ -85,8 +85,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         enums: enums.mediaType,
         facets: {
             hasFacets: true,
-            facetKey: 'MEDIA_TYPE',
-        },
+            facetKey: 'MEDIA_TYPE'
+        }
     };
 
     vm.filters.establishmentMeans = {
@@ -98,8 +98,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
        enums: enums.establishmentMeans,
        facets: {
            hasFacets: false,
-           facetKey: 'ESTABLISHMENT_MEANS',
-       },
+           facetKey: 'ESTABLISHMENT_MEANS'
+       }
     };
 
     vm.filters.license = {
@@ -111,11 +111,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         enums: enums.license,
         facets: {
             hasFacets: true,
-            facetKey: 'LICENSE',
-        },
+            facetKey: 'LICENSE'
+        }
     };
 
-    // suggest filters
+    //suggest filters
 
     vm.filters.recordedBy = {
         titleTranslation: 'ocurrenceFieldNames.recordedBy',
@@ -124,11 +124,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.recordedBy',
-            suggestEndpoint: suggestEndpoints.recordedBy,
+            suggestEndpoint: suggestEndpoints.recordedBy
         },
         facets: {
-            facetKey: 'RECORDED_BY',
-        },
+            facetKey: 'RECORDED_BY'
+        }
     };
 
     vm.filters.occurrenceId = {
@@ -138,12 +138,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.occurrenceId',
-            suggestEndpoint: suggestEndpoints.occurrenceId,
+            suggestEndpoint: suggestEndpoints.occurrenceId
         },
         facets: {
             hasFacets: false,
-            facetKey: 'OCCURRENCE_ID',
-        },
+            facetKey: 'OCCURRENCE_ID'
+        }
     };
 
     vm.filters.recordNumber = {
@@ -153,12 +153,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.recordNumber',
-            suggestEndpoint: suggestEndpoints.recordNumber,
+            suggestEndpoint: suggestEndpoints.recordNumber
         },
         facets: {
             hasFacets: false,
-            facetKey: 'RECORD_NUMBER',
-        },
+            facetKey: 'RECORD_NUMBER'
+        }
     };
 
     vm.filters.organismId = {
@@ -168,12 +168,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.organismID',
-            suggestEndpoint: suggestEndpoints.organismId,
+            suggestEndpoint: suggestEndpoints.organismId
         },
         facets: {
             hasFacets: false,
-            facetKey: 'ORGANISM_ID',
-        },
+            facetKey: 'ORGANISM_ID'
+        }
     };
 
     vm.filters.catalogNumber = {
@@ -183,12 +183,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.catalogNumber',
-            suggestEndpoint: suggestEndpoints.catalogNumber,
+            suggestEndpoint: suggestEndpoints.catalogNumber
         },
         facets: {
             hasFacets: false,
-            facetKey: 'CATALOG_NUMBER',
-        },
+            facetKey: 'CATALOG_NUMBER'
+        }
     };
 
     vm.filters.locality = {
@@ -198,12 +198,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.locality',
-            suggestEndpoint: suggestEndpoints.locality,
+            suggestEndpoint: suggestEndpoints.locality
         },
         facets: {
             hasFacets: false,
-            facetKey: 'LOCALITY',
-        },
+            facetKey: 'LOCALITY'
+        }
     };
 
     vm.filters.waterBody = {
@@ -213,12 +213,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.waterBody',
-            suggestEndpoint: suggestEndpoints.waterBody,
+            suggestEndpoint: suggestEndpoints.waterBody
         },
         facets: {
             hasFacets: false,
-            facetKey: 'WATER_BODY',
-        },
+            facetKey: 'WATER_BODY'
+        }
     };
 
     vm.filters.stateProvince = {
@@ -228,12 +228,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.stateProvince',
-            suggestEndpoint: suggestEndpoints.stateProvince,
+            suggestEndpoint: suggestEndpoints.stateProvince
         },
         facets: {
             hasFacets: false,
-            facetKey: 'STATE_PROVINCE',
-        },
+            facetKey: 'STATE_PROVINCE'
+        }
     };
 
 
@@ -243,13 +243,13 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         filter: OccurrenceFilter,
         facets: {
             hasFacets: true,
-            facetKey: 'INSTITUTION_CODE',
+            facetKey: 'INSTITUTION_CODE'
         },
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.institutionCode',
-            suggestEndpoint: suggestEndpoints.institutionCode,
-        },
+            suggestEndpoint: suggestEndpoints.institutionCode
+        }
     };
 
     vm.filters.collectionCode = {
@@ -259,14 +259,14 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.collectionCode',
-            suggestEndpoint: suggestEndpoints.collectionCode,
+            suggestEndpoint: suggestEndpoints.collectionCode
         },
         facets: {
-            facetKey: 'COLLECTION_CODE',
-        },
+            facetKey: 'COLLECTION_CODE'
+        }
     };
 
-    // enums 2
+    //enums 2
     vm.filters.countryCode = {
         titleTranslation: 'ocurrenceFieldNames.country',
         queryKey: 'country',
@@ -276,12 +276,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.TRANSLATE',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.occurrenceState.query.locale,
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.occurrenceState.query.locale
         },
         facets: {
             hasFacets: true,
-            facetKey: 'COUNTRY',
-        },
+            facetKey: 'COUNTRY'
+        }
     };
 
     vm.filters.publishingCountry = {
@@ -292,12 +292,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.TRANSLATE',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.occurrenceState.query.locale,
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.occurrenceState.query.locale
         },
         facets: {
             hasFacets: false,
-            facetKey: 'PUBLISHING_COUNTRY',
-        },
+            facetKey: 'PUBLISHING_COUNTRY'
+        }
     };
 
     vm.filters.basisOfRecord = {
@@ -310,8 +310,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         reversible: true,
         facets: {
             hasFacets: true,
-            facetKey: 'BASIS_OF_RECORD',
-        },
+            facetKey: 'BASIS_OF_RECORD'
+        }
     };
 
     vm.filters.protocol = {
@@ -324,8 +324,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         reversible: true,
         facets: {
             hasFacets: true,
-            facetKey: 'PROTOCOL',
-        },
+            facetKey: 'PROTOCOL'
+        }
     };
 
     vm.filters.month = {
@@ -338,8 +338,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         reversible: true,
         facets: {
             hasFacets: true,
-            facetKey: 'MONTH',
-        },
+            facetKey: 'MONTH'
+        }
     };
 
 
@@ -354,11 +354,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         filter: OccurrenceFilter,
         expand: {
             resource: Dataset,
-            expandedTitle: 'title',
+            expandedTitle: 'title'
         },
         facets: {
             hasFacets: true,
-            facetKey: 'DATASET_KEY',
+            facetKey: 'DATASET_KEY'
         },
         search: {
             isSearchable: true,
@@ -367,8 +367,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
-            suggestKey: 'key',
-        },
+            suggestKey: 'key'
+        }
     };
 
     vm.filters.taxonKey = {
@@ -377,24 +377,24 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         filter: OccurrenceFilter,
         expand: {
             resource: Species,
-            expandedTitle: 'scientificName',
+            expandedTitle: 'scientificName'
         },
         facets: {
             hasFacets: false,
-            facetKey: 'TAXON_KEY',
+            facetKey: 'TAXON_KEY'
         },
         search: {
             isSearchable: true,
             placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.taxon,
             defaultParams: {
-                datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+                datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
             },
             suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'scientificName',
             suggestShortName: 'title',
-            suggestKey: 'key',
-        },
+            suggestKey: 'key'
+        }
     };
 
     vm.filters.publisher = {
@@ -403,11 +403,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         filter: OccurrenceFilter,
         expand: {
             resource: Publisher,
-            expandedTitle: 'title',
+            expandedTitle: 'title'
         },
         facets: {
             hasFacets: true,
-            facetKey: 'PUBLISHING_ORG',
+            facetKey: 'PUBLISHING_ORG'
         },
         search: {
             isSearchable: true,
@@ -416,11 +416,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
-            suggestKey: 'key',
-        },
+            suggestKey: 'key'
+        }
     };
 
-    // intervals
+    //intervals
     vm.filters.year = {
         titleTranslation: 'ocurrenceFieldNames.year',
         intervalTranslation: 'intervals.year.',
@@ -430,8 +430,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
             'min': [1000, 1],
             '10%': [1700, 1],
             '50%': [1960, 1],
-            'max': [new Date().getFullYear()],
-        },
+            'max': [new Date().getFullYear()]
+        }
     };
 
     vm.filters.elevation = {
@@ -442,8 +442,8 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         range: {
             'min': [0, 1],
             '50%': [2500, 1],
-            'max': [9999, 1],
-        },
+            'max': [9999, 1]
+        }
     };
 
     vm.filters.depth = {
@@ -454,95 +454,95 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         range: {
             'min': [0, 1],
             '50%': [2500, 1],
-            'max': [9999, 1],
-        },
+            'max': [9999, 1]
+        }
     };
 
-    // ternary "all, yes, no" aka optional boolean
+    //ternary "all, yes, no" aka optional boolean
     vm.filters.repatriated = {
         titleTranslation: 'filters.repatriation.repatriationFilter',
-        descriptionTranslation: 'filters.repatriation.description',
+        descriptionTranslation: "filters.repatriation.description",
         queryKey: 'repatriated',
-        filter: OccurrenceFilter,
+        filter: OccurrenceFilter
     };
 
-    // dates
+    //dates
     vm.filters.lastInterpreted = {
         titleTranslation: 'ocurrenceFieldNames.lastInterpreted',
         intervalTranslation: 'intervals.year.',
         queryKey: 'last_interpreted',
-        filter: OccurrenceFilter,
+        filter: OccurrenceFilter
     };
 
     vm.filters.eventDate = {
         titleTranslation: 'ocurrenceFieldNames.eventDate',
         intervalTranslation: 'intervals.year.',
         queryKey: 'event_date',
-        filter: OccurrenceFilter,
+        filter: OccurrenceFilter
     };
 
-    // location
+    //location
     vm.filters.location = {
         titleTranslation: 'ocurrenceFieldNames.location',
         filter: OccurrenceFilter,
         queryKey: 'geometry',
-        expanded: false,
+        expanded: false
     };
 
 
-    vm.toggleAdvanced = function() {
+    vm.toggleAdvanced = function () {
         OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
     };
 
-    vm.search = function() {
+    vm.search = function () {
         vm.occurrenceState.query.q = vm.freeTextQuery;
         $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.updateSearch = function() {
+    vm.updateSearch = function () {
         vm.occurrenceState.query.offset = undefined;
         vm.occurrenceState.query.limit = undefined;
         vm.occurrenceState.query.q = vm.freeTextQuery;
         $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: false, reload: false});
     };
-    vm.searchOnEnter = function(event) {
+    vm.searchOnEnter = function (event) {
         if (event.which === 13) {
             vm.updateSearch();
         }
     };
 
-    vm.clearFreetextAndSetFocus = function() {
+    vm.clearFreetextAndSetFocus = function () {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
-    // might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
     hotkeys.add({
         combo: 'alt+f',
         description: 'Site search',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(event) {
+        callback: function (event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
-        },
+        }
     });
 
     hotkeys.add({
         combo: 'alt+enter',
         description: 'Apply',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(event) {
+        callback: function (event) {
             vm.updateSearch();
             event.preventDefault();
-        },
+        }
     });
 
     vm.freeTextSpeciesSuggestion = undefined;
     vm.showFreeTextSpeciesSuggestion = false;
-    vm.testFreeTextForSpeciesName = function() {
+    vm.testFreeTextForSpeciesName = function () {
         vm.freeTextSpeciesSuggestion = SpeciesMatch.query({
             verbose: false,
-            name: vm.occurrenceState.query.q,
-        }, function(response) {
+            name: vm.occurrenceState.query.q
+        }, function (response) {
             if (response.matchType !== 'NONE' && response.confidence > 80) {
                 vm.showFreeTextSpeciesSuggestion = true;
             }
@@ -551,7 +551,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     vm.testFreeTextForSpeciesName();
     vm.freeTextQuery = vm.occurrenceState.query.q;
 
-    vm.addTaxon = function(taxon) {
+    vm.addTaxon = function (taxon) {
         vm.occurrenceState.query.q = '';
         vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
         vm.occurrenceState.query.taxon_key = [taxon.usageKey].concat(vm.occurrenceState.query.taxon_key);
@@ -561,11 +561,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
     };
 
-    $scope.$watch(function() {
+    $scope.$watch(function () {
         return vm.occurrenceState.query.q;
-    }, function() {
+    }, function () {
         vm.freeTextQuery = vm.occurrenceState.query.q;
     });
+
 }
 
 module.exports = occurrenceCtrl;

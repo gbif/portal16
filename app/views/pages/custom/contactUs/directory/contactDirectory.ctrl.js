@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 require('../../../../components/directoryPerson/directoryPerson.directive');
@@ -12,7 +12,7 @@ angular
 
 /** @ngInject */
 function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
-    let vm = this;
+    var vm = this;
     Page.setTitle('Directory');
     Page.drawer(false);
     vm.$state = $state;
@@ -22,31 +22,31 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
         vm.selectedSection = $stateParams.group;
     }
 
-    $http.get('/api/directory/committee/executive_committee').then(function(response) {
+    $http.get('/api/directory/committee/executive_committee').then(function (response) {
         vm.executiveCommittee = response.data;
     });
-    $http.get('/api/directory/committee/science_committee').then(function(response) {
+    $http.get('/api/directory/committee/science_committee').then(function (response) {
         vm.scienceCommittee = response.data;
     });
-    $http.get('/api/directory/committee/budget_committee').then(function(response) {
+    $http.get('/api/directory/committee/budget_committee').then(function (response) {
         vm.budgetCommittee = response.data;
     });
-    $http.get('/api/directory/committee/nodes_committee').then(function(response) {
+    $http.get('/api/directory/committee/nodes_committee').then(function (response) {
         vm.nodesCommittee = response.data;
     });
-    $http.get('/api/directory/committee/nodes_steering_group').then(function(response) {
+    $http.get('/api/directory/committee/nodes_steering_group').then(function (response) {
         vm.nsg = response.data;
     });
-    $http.get('/api/directory/secretariat').then(function(response) {
+    $http.get('/api/directory/secretariat').then(function (response) {
         vm.secretariat = response.data;
     });
     $http.get('/api/directory/participantPeople', {
         params: {
             type: 'COUNTRY',
             participation_status: 'VOTING',
-            limit: 1000,
-        },
-    }).then(function(response) {
+            limit: 1000
+        }
+    }).then(function (response) {
         vm.voting = response.data;
     });
 
@@ -54,9 +54,9 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
         params: {
             type: 'COUNTRY',
             participation_status: 'ASSOCIATE',
-            limit: 1000,
-        },
-    }).then(function(response) {
+            limit: 1000
+        }
+    }).then(function (response) {
         vm.associateCountries = response.data;
     });
 
@@ -64,9 +64,9 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
         params: {
             type: 'OTHER',
             participation_status: 'ASSOCIATE',
-            limit: 1000,
-        },
-    }).then(function(response) {
+            limit: 1000
+        }
+    }).then(function (response) {
         vm.associateParticipants = response.data;
     });
 
@@ -80,12 +80,12 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
         vm.showPerson($stateParams.personId);
     }
 
-    vm.hideModal = function() {
+    vm.hideModal = function(){
         vm.showModal = false;
         $state.go('.', {personId: undefined}, {inherit: true, notify: false, reload: false});
     };
 
-    vm.changeGroup = function(g) {
+    vm.changeGroup = function(g){
         vm.selectedSection = g;
         $state.go('.', {group: g}, {inherit: true, notify: false, reload: false});
     };
@@ -102,7 +102,7 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
             vm.state.sortType = col;
             vm.state.sortReverse = false;
         }
-    };
+    }
 }
 
 module.exports = contactDirectoryCtrl;

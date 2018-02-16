@@ -1,15 +1,15 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
-    .service('PublisherFilter', function($rootScope, $state, $stateParams, PublisherSearch) {
-        let state = {
+    .service('PublisherFilter', function ($rootScope, $state, $stateParams, PublisherSearch) {
+        var state = {
             data: {},
             facetMultiselect: {},
             failedRequest: false,
-            query: $stateParams,
+            query: $stateParams
         };
 
         function getState() {
@@ -17,20 +17,20 @@ angular
         }
 
         $rootScope.$on('$stateChangeSuccess',
-            function(event, toState, toParams) {
+            function (event, toState, toParams) {
                 refreshData(toParams);
             }
         );
 
         function refreshData(query) {
-            let apiQuery;
+            var apiQuery;
             state.query = query || $stateParams;
             apiQuery = angular.copy(state.query);
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
-            state.data = PublisherSearch.query(apiQuery, function() {
+            state.data = PublisherSearch.query(apiQuery, function () {
                 state.failedRequest = false;
-            }, function() {
+            }, function () {
                 state.failedRequest = true;
             });
         }
@@ -51,7 +51,7 @@ angular
             refreshData(state.query);
         }
 
-        // when in not advanced mode then remove parameters from URL that are filled with default values
+        //when in not advanced mode then remove parameters from URL that are filled with default values
         state.query = $stateParams;
         refreshData(state.query);
 
@@ -59,6 +59,7 @@ angular
             getState: getState,
             update: update,
             updateParam: updateParam,
-            refresh: refresh,
+            refresh: refresh
         };
+
     });

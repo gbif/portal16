@@ -1,7 +1,7 @@
 'use strict';
 
-let angular = require('angular');
-let _ = require('lodash');
+var angular = require('angular');
+var _ = require('lodash');
 
 angular
     .module('portal')
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function checklistMetrics() {
-    let directive = {
+    var directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/dataset/key/stats/directives/checklistMetrics.html',
         scope: {},
@@ -20,56 +20,60 @@ function checklistMetrics() {
             metrics: '=',
             dimension: '=',
             api: '=',
-            options: '=',
-        },
+            options: '='
+        }
     };
     return directive;
 
-    function chartLink(scope, element) {// , attrs, ctrl
+    function chartLink(scope, element) {//, attrs, ctrl
         scope.create(element);
     }
 
     /** @ngInject */
-    function checklistMetrics(Highcharts, $scope, $translate, $filter, enums) {
-        console.log(enums.rank);
-        let vm = this;
+    function checklistMetrics(Highcharts,  $scope, $translate, $filter, enums) {
+        console.log(enums.rank)
+        var vm = this;
         vm.logScale = true;
-        if (vm.dimension === 'countByIssue') {
-            vm.unit = "issues";
-        }
-        if(vm.dimension === 'countExtRecordsByExtension') {
-            vm.unit = "extensions";
-        }
-        if(vm.dimension === 'countNamesByLanguage') {
-            vm.unit = 'names'
-        }
+        if(vm.dimension === "countByIssue"){
+            vm.unit =  "issues";
+        };
+        if(vm.dimension === "countExtRecordsByExtension"){
+            vm.unit =  "extensions";
+        };
+        if(vm.dimension === "countNamesByLanguage"){
+            vm.unit = "names"
+        };
 
-        $scope.create = function(element) {
+        $scope.create = function (element) {
             vm.chartElement = element[0].querySelector('.chartArea');
         };
 
         vm.loading = true;
 
-        angular.element(document).ready(function() {
-            vm.metrics.$promise.then(function(metrics) {
+        angular.element(document).ready(function () {
+
+            vm.metrics.$promise.then(function (metrics) {
+
                 vm.loading = false;
                 if (vm.metrics[vm.dimension]) {
-                    let data = {categories: [], series: [{data: [], total: 0}]};
-                    let mappedData = _.map(vm.metrics[vm.dimension], function(value, key) {
+
+
+
+                    var data = {categories: [], series: [{data: [], total: 0}]}
+                    var mappedData = _.map(vm.metrics[vm.dimension], function (value, key) {
                         return {key: key, count: value};
                     });
-                    let sorted = (vm.dimension !== 'countByRank') ? _.orderBy(mappedData, ['count'], ['desc']) :
-                        _.sortBy(mappedData, [function(r) {
- return enums.rank.indexOf(r.key);}]);
+                    var sorted = (vm.dimension !== 'countByRank') ? _.orderBy(mappedData, ['count'], ['desc']) :
+                        _.sortBy(mappedData, [function(r) { return enums.rank.indexOf(r.key); }]);
 
-                    for (let i = 0; i < sorted.length; i++) {
-                    if (sorted[i].count > 0) {
+                    for (var i = 0; i < sorted.length; i++) {
+                    if(sorted[i].count > 0){
                         data.categories.push(getTranslation(vm.dimension, sorted[i].key));
                         data.series[0].data.push(sorted[i].count);
                         data.series[0].total += sorted[i].count;
                     }
                     }
-                    data.title = $translate.instant('datasetMetrics.'+vm.dimension);
+                    data.title = $translate.instant("datasetMetrics."+vm.dimension);
                     vm.data = data;
 
                     if (vm.myChart) {
@@ -83,14 +87,17 @@ function checklistMetrics() {
                     } else if (vm.options.type == 'PIE') {
                         vm.myChart = Highcharts.chart(asPieChart(vm.data));
                     }
+
                 } else {
-                    vm.error = true;
+                    vm.error = true
                 }
             });
+
+
         });
 
         function setChartHeight() {
-            let categories = _.get(vm.data, 'categories.length');
+            var categories = _.get(vm.data, 'categories.length');
             if (vm.options.type == 'BAR') {
                 categories = categories || 10;
                 vm.chartHeight = categories * 20 + 100;
@@ -110,7 +117,7 @@ function checklistMetrics() {
                     animation: false,
                     type: 'bar',
                     renderTo: vm.chartElement,
-                    className: (vm.dimension === 'countByIssue')? 'chart-field-issue' : '',
+                    className: (vm.dimension === 'countByIssue')? 'chart-field-issue' : ''
                 },
                 plotOptions: {
                     series: {
@@ -118,67 +125,67 @@ function checklistMetrics() {
 
                         pointWidth: 20,
                         pointPadding: 0,
-                        groupPadding: 0,
-                    },
+                        groupPadding: 0
+                    }
                 },
                 legend: {
-                    enabled: false,
+                    enabled: false
                 },
                 bar: {
-                    minPointLength: 10,
+                    minPointLength: 10
                 },
                 title: {
-                    text: '',// data.title
+                    text: ''//data.title
                 },
                 xAxis: {
                     categories: data.categories,
-                    visible: true,
+                    visible: true
                 },
                 yAxis: {
                     title: {
-                        text: (vm.unit || 'Taxon' )+' count',
+                        text: (vm.unit || 'Taxon' )+' count'
                     },
                     type: isLogaritmic ? 'logarithmic' : 'linear',
                     minorTickInterval: isLogaritmic ? 1 : undefined,
-                    visible: true,
+                    visible: true
                 },
                 series: [{
                     name: vm.unit || 'Taxa',
-                    data: data.series[0].data,
+                    data: data.series[0].data
                 }],
                 credits: {
-                    enabled: false,
+                    enabled: false
                 },
                 exporting: {
                     buttons: {
                         contextButton: {
-                            enabled: false,
-                        },
-                    },
-                },
-            };
+                            enabled: false
+                        }
+                    }
+                }
+            }
         }
 
         function asPieChart(data) {
-            let serie = data.series[0].data.map(function(e, i) {
+            var serie = data.series[0].data.map(function (e, i) {
                 return {
                     name: data.categories[i],
-                    y: e,
-                };
-            }).sort(function(a, b) {
+                    y: e
+                }
+            }).sort(function (a, b) {
                 return b.y - a.y;
             });
 
-            let lowCount = data.series[0].total / 50;
-            let lowIndex = _.findIndex(serie, function(a) {
+            var lowCount = data.series[0].total / 50;
+            var lowIndex = _.findIndex(serie, function (a) {
                 return a.y < lowCount;
             });
             lowIndex = Math.min(20, lowIndex);
-            let majorSerie = serie;
+            var majorSerie = serie;
             if (lowIndex != -1) {
                 lowIndex = Math.max(lowIndex, 5);
                 majorSerie = serie.slice(0, lowIndex);
-                let minor = serie.slice(lowIndex);
+                var minor = serie.slice(lowIndex);
                 if (minor.length > 0) {
                     majorSerie.push({y: _.sumBy(minor, 'y'), name: 'other'});
                 }
@@ -188,46 +195,48 @@ function checklistMetrics() {
                 chart: {
                     animation: false,
                     type: 'pie',
-                    renderTo: vm.chartElement,
+                    renderTo: vm.chartElement
                 },
                 plotOptions: {
                     series: {
-                        animation: false,
-                    },
+                        animation: false
+                    }
                 },
                 credits: {
-                    enabled: false,
+                    enabled: false
                 },
                 title: {
-                    text: '',// data.title
+                    text: ''//data.title
                 },
                 tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
                 },
                 xAxis: {
-                    visible: false,
+                    visible: false
                 },
                 yAxis: {
-                    visible: false,
+                    visible: false
                 },
                 series: [{
                     name: vm.unit || 'Taxa',
-                    data: majorSerie,
+                    data: majorSerie
                 }],
                 exporting: {
                     buttons: {
                         contextButton: {
-                            enabled: false,
-                        },
-                    },
-                },
+                            enabled: false
+                        }
+                    }
+                }
             };
-        }
+        };
 
-        function getTranslation(dimension, key) {
-            switch (dimension) {
+        function getTranslation(dimension, key){
+
+            switch (dimension)
+            {
                 case 'countByKingdom':
-                    return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
+                    return $filter('capitalizeFirstLetter')(key.replace("_", " ").toLowerCase());
                     break;
                 case 'countByRank':
                     return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.'+key));
@@ -242,46 +251,48 @@ function checklistMetrics() {
                     return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.'+key));
                     break;
                 case 'countNamesByLanguage':
-                    return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
+                    return $filter('capitalizeFirstLetter')(key.replace("_", " ").toLowerCase());
                     break;
-            }
+
+
+            };
 
 
         }
 
-        vm.toggleBarChart = function() {
+        vm.toggleBarChart = function () {
             vm.myChart.destroy();
             setChartHeight();
             vm.chartElement.style.height = vm.chartHeight + 'px';
             vm.myChart = Highcharts.chart(asBarChart(vm.data, vm.logScale));
         };
 
-        vm.togglePieChart = function() {
+        vm.togglePieChart = function () {
             vm.myChart.destroy();
             setChartHeight();
             vm.chartElement.style.height = vm.chartHeight + 'px';
             vm.myChart = Highcharts.chart(asPieChart(vm.data));
         };
-        // create API
-        vm.api.print = function() {
+        //create API
+        vm.api.print = function () {
             vm.myChart.print();
         };
-        vm.api.png = function() {
+        vm.api.png = function () {
             vm.myChart.exportChart();
         };
-        vm.api.svg = function() {
+        vm.api.svg = function(){
             vm.myChart.exportChart({
-                type: 'image/svg+xml',
+                type: 'image/svg+xml'
             });
         };
-        vm.api.getTitle = function() {
+        vm.api.getTitle = function () {
             return _.get(vm.data, 'title');
         };
-        vm.api.asPieChart = function() {
+        vm.api.asPieChart = function () {
             vm.options.type = 'PIE';
             return vm.togglePieChart();
         };
-        vm.api.asBarChart = function() {
+        vm.api.asBarChart = function () {
             vm.options.type = 'BAR';
             return vm.toggleBarChart();
         };
@@ -289,6 +300,7 @@ function checklistMetrics() {
         if (Object.freeze) {
             Object.freeze(vm.api);
         }
+
     }
 }
 

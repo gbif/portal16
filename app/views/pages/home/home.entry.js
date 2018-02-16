@@ -1,6 +1,6 @@
 'use strict';
 
-// var angular = require('angular'); it is required, but included in the main build. We need a better way to load bootstrap controllers async
+//var angular = require('angular'); it is required, but included in the main build. We need a better way to load bootstrap controllers async
 
 angular
     .module('portal')
@@ -8,55 +8,55 @@ angular
 
 /** @ngInject */
 function homeCtrl($http, suggestEndpoints, Page) {
-    let vm = this;
+    var vm = this;
     Page.setTitle('GBIF');
     Page.drawer(false);
     vm.mapView = undefined;
     vm.freeTextQuery;
     vm.mapOptions = {
-        points: true,
+        points: true
     };
     vm.mapFilter = {};
 
     function getLatest() {
-        let geoip = $http.get('/api/utils/geoip/country');
-        geoip.then(function(response) {
+        var geoip = $http.get('/api/utils/geoip/country');
+        geoip.then(function (response) {
             vm.country = response.data;
-            // to avoid too much offset cap latitude
+            //to avoid too much offset cap latitude
             vm.country.location[0] = Math.min(vm.country.location[0], 40);
             vm.country.location[0] = Math.max(vm.country.location[0], -40);
             vm.mapView = {
                 center: [vm.country.location[0], vm.country.location[1]],
-                zoom: 3,
+                zoom: 3
             };
         });
     }
     getLatest();
 
-    vm.getSuggestions = function(val) {
+    vm.getSuggestions = function (val) {
         return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val,
-                limit: 10,
-            },
-        }).then(function(response) {
+                limit: 10
+            }
+        }).then(function (response) {
             return response.data;
         });
     };
 
-    vm.typeaheadSelect = function(item) { //  model, label, event
+    vm.typeaheadSelect = function (item) { //  model, label, event
         vm.mapFilter = {taxon_key: item.key};
     };
 
     vm.searchOnEnter = function() {
-        vm.searchOnEnter = function(event) {
+        vm.searchOnEnter = function (event) {
             if (event.which === 13 && !vm.selectedSpecies) {
                 vm.mapFilter = {};
             }
         };
     };
 
-    vm.updateSearch = function() {
+    vm.updateSearch = function () {
         location.href = '/search?q=' + encodeURIComponent(vm.freeTextQuery);
     };
 }

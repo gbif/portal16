@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash'),
     utils = require('../../../shared/layout/html/utils/utils'),
     fixedUtil = require('./main/submenu');
@@ -8,7 +8,7 @@ let angular = require('angular'),
 require('./project/datasetProject.ctrl');
 require('./stats/datasetStats.ctrl');
 require('./constituents/datasetConstituents.ctrl');
-// require('./taxonomy/datasetTaxonomy.ctrl');
+//require('./taxonomy/datasetTaxonomy.ctrl');
 require('./activity/datasetActivity.ctrl');
 require('../../../components/contact/contact.directive');
 require('../../../components/doi/doi.directive');
@@ -21,7 +21,7 @@ angular
 
 /** @ngInject */
 function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
-    let vm = this;
+    var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
 
@@ -36,7 +36,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     vm.ebirdKey = constantKeys.dataset.eod;
     vm.backboneNetworkKey = constantKeys.network.backboneNetwork;
     vm.dataApi = env.dataApi;
-    vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
+    vm.constituents =  DatasetConstituents.get({key: vm.key, limit: 0});
 
 
    // vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
@@ -48,21 +48,21 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
 
     vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({dataset_key: vm.key, media_type: 'StillImage'});
-    vm.images.$promise.then(function(resp) {
+    vm.images.$promise.then(function (resp) {
         utils.attachImages(resp.results);
     });
     vm.withCoordinates = OccurrenceSearch.query({
         dataset_key: vm.key,
         has_coordinate: true,
         has_geospatial_issue: false,
-        limit: 0,
+        limit: 0
     });
     vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.key, issue: 'TAXON_MATCH_NONE', limit: 0});
     vm.withYear = OccurrenceSearch.query({dataset_key: vm.key, year: '*,3000', limit: 0});
 
     vm.taxa = SpeciesSearch.query({dataset_key: vm.key, origin: 'SOURCE', facet: 'status', limit: 0});
     vm.stats = {};
-    vm.taxa.$promise.then(function() {
+    vm.taxa.$promise.then(function(){
         vm.stats.accepted = _.get(vm.taxa, 'facets.STATUS.counts.ACCEPTED.count', 0);
         vm.stats.synonyms = _.get(vm.taxa, 'facets.STATUS.counts.HETEROTYPIC_SYNONYM.count', 0) +
                             _.get(vm.taxa, 'facets.STATUS.counts.SYNONYM.count', 0) +
@@ -70,18 +70,18 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
                             _.get(vm.taxa, 'facets.STATUS.counts.HOMOTYPIC_SYNONYM.count', 0);
     });
 
-    // if this dataset is ebird then show a list of publishing countries - relates to https://github.com/gbif/portal16/issues/641 . It has been decided to hardcode a special rule for ebird. An easy generic way would be to always get publishing countries and show the list if larger than 1
+    //if this dataset is ebird then show a list of publishing countries - relates to https://github.com/gbif/portal16/issues/641 . It has been decided to hardcode a special rule for ebird. An easy generic way would be to always get publishing countries and show the list if larger than 1
     if (vm.ebirdKey === vm.key) {
         vm.publishingCountries = OccurrenceSearch.query({dataset_key: vm.key, facet: 'publishing_country', limit: 0, facetLimit: 1000});
     }
 
     vm.rootElements = SpeciesRoot.get({key: vm.key, limit: 2});
 
-    vm.dataset.$promise.then(function() {
+    vm.dataset.$promise.then(function () {
         Page.setTitle(vm.dataset.title);
         vm.publisher = Publisher.get({id: vm.dataset.publishingOrganizationKey});
         vm.installation = Installation.get({id: vm.dataset.installationKey});
-        vm.installation.$promise.then(function() {
+        vm.installation.$promise.then(function () {
             vm.host = Publisher.get({id: vm.installation.organizationKey});
         });
         vm.parentDataset = Dataset.get({id: vm.dataset.parentDatasetKey});
@@ -91,16 +91,16 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
         vm.coverages = geoJsonFromCoverage(vm.dataset.geographicCoverages);
         vm.originalArchive = getOriginalDarwinCoreArchive(vm.dataset.endpoints);
         vm.dataset._endpoints = _.filter(vm.dataset.endpoints, 'url');
-        vm.dataset._identifiers = _.filter(vm.dataset.identifiers, function(e) {
+        vm.dataset._identifiers = _.filter(vm.dataset.identifiers, function(e){
             return ['DOI', 'URL', 'LSID', 'FTP', 'UNKNOWN'].indexOf(e.type) > -1;
         });
-        $timeout(function() {
+        $timeout(function(){
             $anchorScroll();
         });
         vm.projectEmpty = !vm.dataset.project || (!vm.dataset.project.studyAreaDescription && !vm.dataset.project.designDescription && !vm.dataset.project.funding);
         vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.dataset.col === vm.dataset.parentDatasetKey;
 
-        let projectId = _.get(vm.dataset, 'project.identifier');
+        var projectId = _.get(vm.dataset, 'project.identifier');
 
         if (projectId) {
             vm.projects = ResourceSearch.query({contentType: 'project', projectId: projectId, limit: 1});
@@ -120,18 +120,18 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
 
     function getOriginalDarwinCoreArchive(endpoints) {
         endpoints = endpoints || [];
-        return endpoints.find(function(e) {
+        return endpoints.find(function (e) {
             return e.type == 'DWC_ARCHIVE';
         });
     }
 
     function geoJsonFromCoverage(geographicCoverages) {
-        let geoJson = {
-            'type': 'FeatureCollection',
-            'features': [],
+        var geoJson = {
+            "type": "FeatureCollection",
+            "features": []
         };
         if (_.isArray(geographicCoverages)) {
-            geographicCoverages.forEach(function(e) {
+            geographicCoverages.forEach(function (e) {
                 if (!_.get(e, 'boundingBox.globalCoverage', true)) {
                     geoJson.features.push(getFeature(e));
                 }
@@ -143,81 +143,81 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
         return false;
     }
 
-    // for adding roles to the authors in the top
-    // vm.getRoles = function (contact) {
+    //for adding roles to the authors in the top
+    //vm.getRoles = function (contact) {
     //    var roles = '';
     //    contact.roles.forEach(function (e, i) {
     //        roles += i === 0 ? e : ', ' + e;
     //    });
     //    return roles;
-    // };
+    //};
 
-    vm.attachTabListener = function() {
+    vm.attachTabListener = function () {
         fixedUtil.updateTabs();
     };
 
-    vm.attachMenuListener = function() {
+    vm.attachMenuListener = function () {
         fixedUtil.updateMenu();
     };
 
     function getFeature(coverage) {
-        let b = coverage.boundingBox;
+        var b = coverage.boundingBox;
         if (b.minLongitude > b.maxLongitude) {
             b.maxLongitude += 360;
         }
         return {
-            'type': 'Feature',
-            'properties': {
+            "type": "Feature",
+            "properties": {
                 description: coverage.description,
-                boundingBox: coverage.boundingBox,
+                boundingBox: coverage.boundingBox
             },
-            'geometry': {
-                'type': 'Polygon',
-                'coordinates': [
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
                     [
                         [
                             b.minLongitude,
-                            b.minLatitude,
+                            b.minLatitude
                         ],
                         [
                             b.maxLongitude,
-                            b.minLatitude,
+                            b.minLatitude
                         ],
                         [
                             b.maxLongitude,
-                            b.maxLatitude,
+                            b.maxLatitude
                         ],
                         [
                             b.minLongitude,
-                            b.maxLatitude,
+                            b.maxLatitude
                         ],
                         [
                             b.minLongitude,
-                            b.minLatitude,
-                        ],
-                    ],
-                ],
-            },
+                            b.minLatitude
+                        ]
+                    ]
+                ]
+            }
         };
     }
 
     function updateSyncStatus() {
         $q.all([vm.occurrences.$promise, vm.processSummary.$promise])
-            .then(function() {
-                let offBy = Math.abs((vm.occurrences.count / _.get(vm, 'processSummary.lastDataChange.fragmentsReceived', vm.occurrences.count)) - 1);
-                vm.isOutOfSync = offBy > 0.1;
+            .then(function(){
+                var offBy = Math.abs((vm.occurrences.count / _.get(vm, 'processSummary.lastDataChange.fragmentsReceived', vm.occurrences.count)) - 1);
+                vm.isOutOfSync = offBy > 0.1
             });
     }
     updateSyncStatus();
 
-    vm.range = function(n) {
+    vm.range = function(n){
         return new Array(n);
     };
 
     function checkCrawlStatus() {
         if (vm.crawlingState !== 'FINISHED') {
             DatasetCurrentCrawlingStatus.get({key: vm.key}).$promise
-                .then(function(response) {
+                .then(function (response) {
                     vm.currentCrawlingStatus = response;
                     $timeout(checkCrawlStatus, 10000);
                     if (vm.currentCrawlingStatus.isInQueue) {
@@ -227,42 +227,42 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
                         vm.crawlingState = 'FINISHED';
                     }
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     console.log(err);
                 });
         }
     }
 
     vm.isTrustedContact = false;
-    function checkIfTrustedContact() {
+    function checkIfTrustedContact(){
         $http.get('/api/dataset/' + vm.key + '/permissions')
-            .then(function(response) {
+            .then(function(response){
                 vm.componentHealth = _.get($sessionStorage, 'notifications.components');
                 vm.processSummary = DatasetProcessSummary.get({key: vm.key, _cacheBust: Date.now()});
-                // prepareTrustedBrakdown();
+                //prepareTrustedBrakdown();
                 vm.isTrustedContact = response.data.isTrustedContact;
-            }, function() {
-                // ignore error and simply don't show the user
+            }, function(){
+                //ignore error and simply don't show the user
             });
     }
     checkIfTrustedContact();
 
     vm.crawlingState = 'FINISHED';
-    vm.startCrawling = function() {
+    vm.startCrawling = function(){
         if (vm.crawlingState != 'FINISHED') {
             return; // to avoid starting it twice
         }
         vm.crawlingState = 'STARTED';
         $http.post('/api/dataset/' + vm.key + '/crawl')
-            .then(function() {
+            .then(function(){
                 checkCrawlStatus();
-            }, function() {
+            }, function(){
                 vm.crawlingState = 'FAILED';
             });
     };
 
-    // stop checking for crawl status if the user leaves the page
-    $scope.$on('$stateChangeStart', function() {
+    //stop checking for crawl status if the user leaves the page
+    $scope.$on('$stateChangeStart', function(){
         vm.crawlingState = 'FINISHED';
     });
 }

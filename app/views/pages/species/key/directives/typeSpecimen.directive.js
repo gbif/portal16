@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function typeSpecimenDirective() {
-    let directive = {
+    var directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/typeSpecimen.html',
         scope: {},
@@ -17,31 +17,32 @@ function typeSpecimenDirective() {
         controllerAs: 'vm',
         bindToController: {
             key: '@',
-            rank: '@',
-        },
+            rank: '@'
+        }
     };
     return directive;
 
     /** @ngInject */
     function typeSpecimenCtrl(OccurrenceTableSearch) {
-        let vm = this;
+        var vm = this;
         vm.specimen;
 
         OccurrenceTableSearch.query({
             taxonKey: vm.key,
-            typeStatus: '*'
+            typeStatus: "*"
 
-        }, function(data) {
+        }, function (data) {
             // remove higher rank matches
             // sort by type
             vm.specimen = _.sortBy(
-                _.filter(data.results, function(o) {
-                    return !_.find(o.issues, function(o) {
+                _.filter(data.results, function (o) {
+                    return !_.find(o.issues, function (o) {
                         return o == 'TAXON_MATCH_HIGHERRANK';
                     }) && o.taxonRank === vm.rank;
                 }), ['typeStatus', 'year', 'occurrenceID']);
-        }, function() {
-        });
+
+        }, function () {
+        })
     }
 }
 

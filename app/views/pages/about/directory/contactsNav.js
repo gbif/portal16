@@ -1,8 +1,8 @@
-module.exports = (function() {
+module.exports = (function () {
     if (document.compatMode == 'CSS1Compat') {
         var navbarHeight = 60;
-        let contactsNavWrapper = document.getElementById('contacts-nav-wrapper');
-        let contactsNav = document.getElementById('contacts-nav');
+        var contactsNavWrapper = document.getElementById('contacts-nav-wrapper');
+        var contactsNav = document.getElementById('contacts-nav');
 
         if (contactsNavWrapper && contactsNav) {
             window.addEventListener('scroll', positionContactsNav);
@@ -11,9 +11,9 @@ module.exports = (function() {
     }
 
     function positionContactsNav() {
-        let contactsNavWrapper = document.getElementById('contacts-nav-wrapper');
-        let contactsNav = document.getElementById('contacts-nav');
-        let contactsNavWrapperPosition = contactsNavWrapper.getBoundingClientRect();
+        var contactsNavWrapper = document.getElementById('contacts-nav-wrapper');
+        var contactsNav = document.getElementById('contacts-nav');
+        var contactsNavWrapperPosition = contactsNavWrapper.getBoundingClientRect();
 
         if (contactsNavWrapperPosition.top < navbarHeight) {
             contactsNav.classList.add('contacts-nav--fixed');
@@ -26,4 +26,5 @@ module.exports = (function() {
             contactsNav.classList.remove('contacts-nav--bottom');
         }
     }
+
 })();

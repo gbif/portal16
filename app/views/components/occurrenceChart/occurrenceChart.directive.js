@@ -1,7 +1,7 @@
 'use strict';
 
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 require('./occurrenceChart.resource');
@@ -12,38 +12,38 @@ angular
 
 /** @ngInject */
 function occurrenceChartDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'E',
         transclude: true,
         templateUrl: '/templates/components/occurrenceChart/occurrenceChart.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
             options: '=',
-            api: '=',
+            api: '='
         },
         link: chartLink,
         controller: occurrenceChart,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
-    function chartLink(scope, element) {// , attrs, ctrl
+    function chartLink(scope, element) {//, attrs, ctrl
         scope.create(element);
     }
 
     /** @ngInject */
     function occurrenceChart($http, $state, $scope, OccurrenceChartBasic, Highcharts) {
-        let vm = this;
+        var vm = this;
         vm.logScale = true;
         vm.loading = true;
         function updateChart(dimension) {
-            let filter = vm.filter || {};
-            let q = _.merge({}, filter, {chartDimension: dimension});
+            var filter = vm.filter || {};
+            var q = _.merge({}, filter, {chartDimension: dimension});
             OccurrenceChartBasic.query(q).$promise
-                .then(function(data) {
+                .then(function (data) {
                     vm.loading = false;
                     vm.data = data;
                     vm.logScale = vm.logScale && data.categories.length > 1;
@@ -64,7 +64,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
         }
 
         function setChartHeight() {
-            let categories = _.get(vm.data, 'categories.length');
+            var categories = _.get(vm.data, 'categories.length');
             if (vm.options.type == 'BAR') {
                 categories = categories || 10;
                 vm.chartHeight = categories * 20 + 100;
@@ -79,18 +79,18 @@ function occurrenceChartDirective(BUILD_VERSION) {
             }
         }
 
-        vm.changeDimension = function(dimension) {
+        vm.changeDimension = function (dimension) {
             updateChart(dimension);
         };
 
-        vm.toggleBarChart = function() {
+        vm.toggleBarChart = function () {
             vm.myChart.destroy();
             setChartHeight();
             vm.chartElement.style.height = vm.chartHeight + 'px';
             vm.myChart = Highcharts.chart(asBarChart(vm.data, vm.logScale));
         };
 
-        vm.togglePieChart = function() {
+        vm.togglePieChart = function () {
             vm.myChart.destroy();
             setChartHeight();
             vm.chartElement.style.height = vm.chartHeight + 'px';
@@ -98,7 +98,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
         };
 
         function asColumnChart(data, isLogaritmic) {
-            let chartConfig = asBarChart(data, isLogaritmic);
+            var chartConfig = asBarChart(data, isLogaritmic);
             chartConfig.chart.type = 'column';
             return chartConfig;
         }
@@ -109,81 +109,81 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     animation: false,
                     type: 'bar',
                     renderTo: vm.chartElement,
-                    className: 'chart-field-' + vm.options.dimension,
+                    className: 'chart-field-' + vm.options.dimension
                 },
                 plotOptions: {
                     series: {
                         animation: false,
                         point: {
                             events: {
-                                click: function() {
+                                click: function () {
                                     vm.occurrenceSearch(vm.data.categoryKeys[this.index]);
-                                },
-                            },
+                                }
+                            }
                         },
                         pointWidth: 20,
                         pointPadding: 0,
-                        groupPadding: 0,
-                    },
+                        groupPadding: 0
+                    }
                 },
                 legend: {
-                    enabled: false,
+                    enabled: false
                 },
                 bar: {
-                    minPointLength: 10,
+                    minPointLength: 10
                 },
                 title: {
-                    text: '',// data.title
+                    text: ''//data.title
                 },
                 xAxis: {
                     categories: data.categories,
-                    visible: true,
+                    visible: true
                 },
                 yAxis: {
                     title: {
-                        text: 'Occurrence count',
+                        text: 'Occurrence count'
                     },
                     type: isLogaritmic ? 'logarithmic' : 'linear',
                     minorTickInterval: isLogaritmic ? 1 : undefined,
-                    visible: true,
+                    visible: true
                 },
                 series: [{
                     name: 'Occurrences',
-                    data: data.series[0].data,
+                    data: data.series[0].data
                 }],
                 credits: {
-                    enabled: false,
+                    enabled: false
                 },
                 exporting: {
                     buttons: {
                         contextButton: {
-                            enabled: false,
-                        },
-                    },
-                },
-            };
+                            enabled: false
+                        }
+                    }
+                }
+            }
         }
 
         function asPieChart(data) {
-            let serie = data.series[0].data.map(function(e, i) {
+            var serie = data.series[0].data.map(function (e, i) {
                 return {
                     name: data.categories[i],
-                    y: e,
-                };
-            }).sort(function(a, b) {
+                    y: e
+                }
+            }).sort(function (a, b) {
                 return b.y - a.y;
             });
 
-            let lowCount = data.series[0].total / 50;
-            let lowIndex = _.findIndex(serie, function(a) {
+            var lowCount = data.series[0].total / 50;
+            var lowIndex = _.findIndex(serie, function (a) {
                 return a.y < lowCount;
             });
             lowIndex = Math.min(20, lowIndex);
-            let majorSerie = serie;
+            var majorSerie = serie;
             if (lowIndex != -1) {
                 lowIndex = Math.max(lowIndex, 5);
                 majorSerie = serie.slice(0, lowIndex);
-                let minor = serie.slice(lowIndex);
+                var minor = serie.slice(lowIndex);
                 if (minor.length > 0) {
                     majorSerie.push({y: _.sumBy(minor, 'y'), name: 'other'});
                 }
@@ -194,92 +194,90 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     animation: false,
                     type: 'pie',
                     renderTo: vm.chartElement,
-                    className: 'chart-field-' + vm.options.dimension,
+                    className: 'chart-field-' + vm.options.dimension
                 },
                 plotOptions: {
                     series: {
                         animation: false,
                         point: {
                             events: {
-                                click: function() {
+                                click: function () {
                                     vm.occurrenceSearch(vm.data.categoryKeys[this.index]);
-                                },
-                            },
-                        },
-                    },
+                                }
+                            }
+                        }
+                    }
                 },
                 credits: {
-                    enabled: false,
+                    enabled: false
                 },
                 title: {
-                    text: '',// data.title
+                    text: ''//data.title
                 },
                 tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
                 },
                 xAxis: {
-                    visible: false,
+                    visible: false
                 },
                 yAxis: {
-                    visible: false,
+                    visible: false
                 },
                 series: [{
                     name: 'Occurrences',
-                    data: majorSerie,
+                    data: majorSerie
                 }],
                 exporting: {
                     buttons: {
                         contextButton: {
-                            enabled: false,
-                        },
-                    },
-                },
+                            enabled: false
+                        }
+                    }
+                }
             };
         }
 
         vm.occurrenceSearch = function(value) {
-            let filter = vm.filter || {};
-            let q = _.merge({}, filter);
+            var filter = vm.filter || {};
+            var q = _.merge({}, filter);
             q[vm.data.dimension] = value;
             $state.go('occurrenceSearchTable', q);
         };
 
-        function asLineChart(data, isLogaritmic) {
+        function asLineChart(data, isLogaritmic){
             if (data.categories.length < 20) {
                 return asColumnChart(data, isLogaritmic);
             }
 
-            let lineData = _.zip(_.map(data.categories, function(e) {
-return Date.UTC(_.toSafeInteger(e), 0, 1)
-}), data.series[0].data);
+            var lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 1)}), data.series[0].data);
             return {
                 chart: {
                     type: 'area',
                     zoomType: 'x',
                     renderTo: vm.chartElement,
-                    className: 'chart-field-' + vm.options.dimension,
+                    className: 'chart-field-' + vm.options.dimension
                 },
                 title: {
-                    text: '',
+                    text: ''
                 },
                 subtitle: {
                     text: document.ontouchstart === undefined ?
-                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in',
+                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
                 },
                 credits: {
-                    enabled: false,
+                    enabled: false
                 },
                 xAxis: {
-                    type: 'datetime',
+                    type: 'datetime'
                 },
                 yAxis: {
                     title: {
-                        text: 'Occurrence count',
+                        text: 'Occurrence count'
                     },
-                    min: 0,
+                    min: 0
                 },
                 legend: {
-                    enabled: false,
+                    enabled: false
                 },
                 plotOptions: {
                     area: {
@@ -289,79 +287,79 @@ return Date.UTC(_.toSafeInteger(e), 0, 1)
                                 x1: 0,
                                 y1: 0,
                                 x2: 0,
-                                y2: 1,
+                                y2: 1
                             },
                             stops: [
                                 [0, Highcharts.getOptions().colors[0]],
-                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')],
-                            ],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+                            ]
                         },
                         marker: {
-                            radius: 2,
+                            radius: 2
                         },
                         lineWidth: 1,
                         states: {
                             hover: {
-                                lineWidth: 1,
-                            },
+                                lineWidth: 1
+                            }
                         },
                         threshold: null,
                         point: {
                             events: {
-                                click: function() {
+                                click: function () {
                                     vm.occurrenceSearch(data.categoryKeys[this.index]);
-                                },
-                            },
-                        },
-                    },
+                                }
+                            }
+                        }
+                    }
                 },
                 series: [{
                     type: 'area',
                     name: 'occurrences per year',
-                    data: lineData,
+                    data: lineData
                 }],
                 exporting: {
                     buttons: {
                         contextButton: {
-                            enabled: false,
-                        },
-                    },
-                },
+                            enabled: false
+                        }
+                    }
+                }
             };
         }
 
-        $scope.create = function(element) {
+        $scope.create = function (element) {
             vm.chartElement = element[0].querySelector('.chartArea');
             updateChart(vm.options.dimension);
         };
 
-        // create API
-        vm.api.print = function() {
+        //create API
+        vm.api.print = function () {
             vm.myChart.print();
         };
-        vm.api.png = function() {
+        vm.api.png = function () {
             vm.myChart.exportChart();
         };
-        vm.api.svg = function() {
+        vm.api.svg = function(){
             vm.myChart.exportChart({
-                type: 'image/svg+xml',
+                type: 'image/svg+xml'
             });
         };
-        vm.api.getTitle = function() {
+        vm.api.getTitle = function () {
             return _.get(vm.data, 'title');
         };
-        vm.api.asPieChart = function() {
+        vm.api.asPieChart = function () {
             vm.options.type = 'PIE';
             return vm.togglePieChart();
         };
-        vm.api.asBarChart = function() {
+        vm.api.asBarChart = function () {
             vm.options.type = 'BAR';
             return vm.toggleBarChart();
         };
 
-        vm.api.getOptions = function() {
+        vm.api.getOptions = function () {
             return {
-                actions: [],
+                actions: []
             };
         };
 
@@ -369,19 +367,19 @@ return Date.UTC(_.toSafeInteger(e), 0, 1)
             Object.freeze(vm.api);
         }
 
-        $scope.$watchCollection(function() {
-            return vm.filter;
-        }, function() {
+        $scope.$watchCollection(function () {
+            return vm.filter
+        }, function () {
             updateChart(vm.options.dimension);
         });
     }
 }
 
-// var options = {
+//var options = {
 //    fields: {
 //        basis_of_record:
 //    }
-// };
+//};
 
 
 /**

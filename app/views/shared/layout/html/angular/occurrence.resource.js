@@ -1,106 +1,107 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('portal')
-        .factory('Occurrence', function($resource, env) {
+        .factory('Occurrence', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/:id', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false,
-                    },
+                        isArray: false
+                    }
                 }
             );
         })
-        .factory('OccurrenceVerbatim', function($resource, env) {
+        .factory('OccurrenceVerbatim', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/:id/verbatim', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false,
-                    },
+                        isArray: false
+                    }
                 }
             );
         })
-        .factory('OccurrenceSearch', function($resource, env) {
+        .factory('OccurrenceSearch', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/search', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
-                        cancellable: true,
-                    },
+                        cancellable: true
+                    }
                 }
             );
         })
-        .factory('OccurrenceTableSearch', function($resource) {
+        .factory('OccurrenceTableSearch', function ($resource) {
             return $resource('/api/occurrence/search', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
-                        cancellable: true,
-                    },
+                        cancellable: true
+                    }
                 }
             );
         })
-        .factory('OccurrenceTaxonSearch', function($resource) {
+        .factory('OccurrenceTaxonSearch', function ($resource) {
             return $resource('/api/occurrence/taxon', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
-                        cancellable: true,
-                    },
+                        cancellable: true
+                    }
                 }
             );
         })
-        .factory('OccurrenceDatasetSearch', function($resource) {
+        .factory('OccurrenceDatasetSearch', function ($resource) {
             return $resource('/api/occurrence/datasets', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
-                        cancellable: true,
-                    },
+                        cancellable: true
+                    }
                 }
             );
         })
         // This service connects to a proxy which returns processed result from /occurrence/download/dataset/:id.
-        .factory('downloadKeyDatasets', function($resource, env) {
+        .factory('downloadKeyDatasets', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/download/:id/datasets');
         })
-        // deprecated metrics API, but in agreement with Tim R, it is to be used for now until we find a better solution that also performs 15/6/2017
-        .factory('OccurrenceCountPublishingCountries', function($resource, env) {
+        //deprecated metrics API, but in agreement with Tim R, it is to be used for now until we find a better solution that also performs 15/6/2017
+        .factory('OccurrenceCountPublishingCountries', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/counts/publishingCountries', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
-                        cancellable: true,
-                    },
+                        cancellable: true
+                    }
                 }
             );
         })
-        .factory('OccurrenceCountCountries', function($resource, env) {
+        .factory('OccurrenceCountCountries', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/counts/countries', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
-                        cancellable: true,
-                    },
+                        cancellable: true
+                    }
                 }
             );
         })
-        .factory('OccurrenceCountDatasets', function($resource, env) {
+        .factory('OccurrenceCountDatasets', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/counts/datasets', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
-                        cancellable: true,
-                    },
+                        cancellable: true
+                    }
                 }
             );
         })
     ;
+
 })();
 
 

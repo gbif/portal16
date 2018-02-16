@@ -1,24 +1,24 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 angular
     .module('portal')
     .directive('searchDrawer', searchDrawerDirective);
 
 /** @ngInject */
 function searchDrawerDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/searchDrawer/searchDrawer.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
-            contentType: '@',
+            contentType: '@'
         },
         replace: true,
         controller: searchDrawer,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
@@ -26,15 +26,15 @@ function searchDrawerDirective(BUILD_VERSION) {
 
     /** @ngInject */
     function searchDrawer($state) {
-        let vm = this;
+        var vm = this;
         vm.isActive = false;
         vm.filter = vm.filter || {};
 
-        vm.getFilterCount = function() {
-            let c = 0;
-            Object.keys(vm.filter.query).forEach(function(e) {
-                let v = vm.filter.query[e];
-                let ignoreParams = ['locale', 'facet', 'offset', 'limit', 'center', 'zoom', 'advanced', 'facetMultiselect', 'has_geospatial_issue', 'contentType'];
+        vm.getFilterCount = function () {
+            var c = 0;
+            Object.keys(vm.filter.query).forEach(function (e) {
+                var v = vm.filter.query[e];
+                var ignoreParams = ['locale', 'facet', 'offset', 'limit', 'center', 'zoom', 'advanced', 'facetMultiselect', 'has_geospatial_issue', 'contentType'];
                 if (typeof v !== 'undefined' && v != '' && ignoreParams.indexOf(e) == -1 && e.indexOf('.facetLimit') == -1) {
                     c += [].concat(v).length;
                 }
@@ -45,9 +45,10 @@ function searchDrawerDirective(BUILD_VERSION) {
             return c;
         };
 
-        vm.clear = function() {
+        vm.clear = function () {
             $state.go('.', {contentType: vm.filter.query.contentType, locale: vm.filter.query.locale}, {inherit: false, notify: true, reload: true});
         };
+
     }
 }
 

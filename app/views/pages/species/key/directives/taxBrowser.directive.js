@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     keys = require('../../../../../helpers/constants').keys;
 
 angular
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function taxBrowserDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/taxBrowser.html?v=' + BUILD_VERSION,
         scope: {},
@@ -18,14 +18,14 @@ function taxBrowserDirective(BUILD_VERSION) {
         bindToController: {
             occ: '@',
             taxonKey: '@',
-            datasetKey: '@',
-        },
+            datasetKey: '@'
+        }
     };
     return directive;
 
     /** @ngInject */
     function taxBrowserCtrl(TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
-        let vm = this;
+        var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
         vm.taxon;
@@ -39,65 +39,70 @@ function taxBrowserDirective(BUILD_VERSION) {
         if (vm.taxonKey) {
             TaxonomyDetail.query({
                 datasetKey: vm.datasetKey,
-                taxonKey: vm.taxonKey,
-            }, function(data) {
+                taxonKey: vm.taxonKey
+            }, function (data) {
                 vm.taxon = data;
 
                 TaxonomyParents.query({
                     datasetKey: vm.datasetKey,
                     taxonKey: vm.taxonKey,
-                    occ: vm.occ,
-                }, function(parents) {
+                    occ: vm.occ
+                }, function (parents) {
                     if (vm.taxon.synonym) {
                         // also add accepted taxon as parent
                         TaxonomyDetail.query({
                             datasetKey: vm.datasetKey,
-                            taxonKey: vm.taxon.acceptedKey,
-                        }, function(acc) {
+                            taxonKey: vm.taxon.acceptedKey
+                        }, function (acc) {
                             parents.push(acc);
                             vm.parents = parents;
-                        }, function() {
+                        }, function () {
                         });
                     } else {
                         vm.parents = parents;
                     }
-                }, function() {
+                }, function () {
                 });
 
                 if (!vm.taxon.synonym) {
                     TaxonomySynonyms.query({
                         datasetKey: vm.datasetKey,
                         taxonKey: vm.taxonKey,
-                        occ: vm.occ,
-                    }, function(data) {
+                        occ: vm.occ
+                    }, function (data) {
                         vm.synonyms = data.results;
                         vm.taxonNumOccurrences = data.numOccurrences;
-                    }, function() {
+                    }, function () {
                     });
 
                     TaxonomyChildren.query({
                         datasetKey: vm.datasetKey,
                         taxonKey: vm.taxonKey,
-                        occ: vm.occ,
-                    }, function(data) {
+                        occ: vm.occ
+                    }, function (data) {
                         vm.children = data.results;
                         vm.taxonNumOccurrences = data.numOccurrences;
-                    }, function() {
-                    });
+                    }, function () {
+                    })
                 }
-            }, function() {
+
+            }, function () {
             });
+
         } else {
             TaxonomyRoot.query({
                 datasetKey: vm.datasetKey,
                 taxonKey: vm.taxonKey,
-                occ: vm.occ,
-            }, function(data) {
+                occ: vm.occ
+            }, function (data) {
                 vm.children = data.results;
-            }, function() {
-            });
+
+
+            }, function () {
+            })
         }
     }
+
 }
 
 module.exports = taxBrowserDirective;

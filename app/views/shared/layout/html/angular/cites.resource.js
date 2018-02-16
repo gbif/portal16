@@ -1,14 +1,15 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('portal')
-        .factory('CitesApi', function($resource) {
+        .factory('CitesApi', function ($resource) {
             return $resource('/api/cites/:kingdom/:name', null, {}
             );
         });
+
 })();

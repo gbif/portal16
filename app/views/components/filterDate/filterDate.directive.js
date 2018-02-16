@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     parseDateQuery = require('./parseDateIntervalQuery');
 
 angular
@@ -9,27 +9,27 @@ angular
 
 /** @ngInject */
 function filterDateDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/filterDate/filterDate.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
-            filterConfig: '=',
+            filterConfig: '='
         },
         replace: true,
         controller: filterDate,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
     function filterDate($scope, $filter) {
-        let vm = this;
-        vm.months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-        vm.days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+        var vm = this;
+        vm.months = [1,2,3,4,5,6,7,8,9,10,11,12];
+        vm.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
         vm.options = ['between', 'equals', 'lessThanOrEquals', 'greaterThanOrEquals'];
         vm.intervals = [];
         vm.collapsed = vm.filterConfig.collapsed !== false;
@@ -38,16 +38,16 @@ function filterDateDirective(BUILD_VERSION) {
         vm.queryKey = vm.filterConfig.queryKey;
 
         vm.intervals = $filter('unique')(vm.filterState.query[vm.queryKey]);
-        vm.dates = {};// parseDateQuery(vm.filterState.query[vm.queryKey]);
+        vm.dates = {};//parseDateQuery(vm.filterState.query[vm.queryKey]);
 
-        // $scope.$watch(function () {
+        //$scope.$watch(function () {
         //    return vm.filterState.query[vm.queryKey]
-        // }, function (newQuery) {
+        //}, function (newQuery) {
         //    updateQuery(newQuery);
-        // });
+        //});
 
         vm.getParsedQuery = function(query) {
-            let interval = parseDateQuery(query);
+            var interval = parseDateQuery(query);
             return interval;
         };
 
@@ -61,20 +61,20 @@ function filterDateDirective(BUILD_VERSION) {
             vm.stringifyQuery();
         };
 
-        vm.clearCurrent = function() {
+        vm.clearCurrent = function () {
             vm.dates.from = {};
             vm.dates.to = {};
             vm.queryString = undefined;
         };
 
-        vm.clear = function() {
+        vm.clear = function () {
             vm.intervals = [];
             vm.clearCurrent();
             vm.apply();
         };
 
         vm.add = function() {
-            let queryString = vm.stringifyQuery();
+            var queryString = vm.stringifyQuery();
             if (queryString) {
                 vm.intervals.push(queryString);
                 vm.clearCurrent();
@@ -82,7 +82,7 @@ function filterDateDirective(BUILD_VERSION) {
             }
         };
 
-        vm.change = function() {
+        vm.change = function () {
             vm.stringifyQuery();
         };
 
@@ -96,13 +96,13 @@ function filterDateDirective(BUILD_VERSION) {
             if (!date) {
                 return undefined;
             } else {
-                return (date.day) ? date.year + '-' + pad(date.month, 2)+'-'+ pad(date.day, 2): date.year + '-' + pad(date.month, 2);
+                return (date.day) ? date.year + '-' + pad(date.month,2)+'-'+ pad(date.day,2): date.year + '-' + pad(date.month,2);
             }
         }
 
-        vm.stringifyQuery = function() {
-            let reg = /^[\d\-\*,]+$/;
-            let stateString = '',
+        vm.stringifyQuery = function(){
+            var reg = /^[\d\-\*,]+$/;
+            var stateString = '',
                 fromStr = getDatePart(vm.dates.from),
                 toStr = getDatePart(vm.dates.to);
             switch (vm.dates.type) {
@@ -127,17 +127,18 @@ function filterDateDirective(BUILD_VERSION) {
 
         vm.selectType(vm.dates.type);
 
-        vm.remove = function(el) {
-            let start = vm.intervals.indexOf(el);
+        vm.remove = function (el) {
+            var start = vm.intervals.indexOf(el);
             if (start >= 0) {
                 vm.intervals.splice(start, 1);
             }
             vm.apply();
         };
 
-        vm.apply = function() {
+        vm.apply = function () {
            vm.filterConfig.filter.updateParam(vm.queryKey, vm.intervals);
         };
+
     }
 }
 

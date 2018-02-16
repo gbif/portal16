@@ -1,20 +1,20 @@
 'use strict';
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
-    .directive('elementQuery', function($window) {
+    .directive('elementQuery', function ($window) {
         return {
             restrict: 'A',
             scope: {
-                elementQuery: '=',
+                elementQuery: '='
             },
-            link: function(scope, element) { // attrs
-                let length = scope.elementQuery.breakpoints.length;
+            link: function (scope, element) { //attrs
+                var length = scope.elementQuery.breakpoints.length;
                 function updateSize() {
-                    let largestIndex = 0,
+                    var largestIndex = 0,
                         width = element[0].clientWidth;
-                    for (let i = 0; i < length; i++) {
+                    for (var i = 0; i < length; i++) {
                         element.removeClass(scope.elementQuery.classes[i]);
                         if (width > scope.elementQuery.breakpoints[i]) {
                             largestIndex = i;
@@ -24,10 +24,10 @@ angular
                     scope.elementQuery.current = largestIndex;
                 }
                 updateSize();
-                angular.element($window).bind('resize', function() {
+                angular.element($window).bind('resize', function(){
                     updateSize();
                 });
-            },
+            }
         };
     });
 

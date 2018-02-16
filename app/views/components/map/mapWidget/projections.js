@@ -1,36 +1,36 @@
-'use strict';
+"use strict";
 
-let ol = require('openlayers'),
+var ol = require('openlayers'),
     proj4 = require('proj4'),
     querystring = require('querystring'),
-    // env = require('../../../shared/layout/html/angular/env'),
+    //env = require('../../../shared/layout/html/angular/env'),
     env = window.gb.env,
     baseMaps = require('./baseMapConfig');
 
 ol.proj.setProj4(proj4);
 
-proj4.defs('EPSG:4326', '+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees');
-proj4.defs('EPSG:3575', '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
-proj4.defs('EPSG:3031', '+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+proj4.defs('EPSG:4326', "+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees");
+proj4.defs("EPSG:3575", "+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs");
+proj4.defs("EPSG:3031", "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs");
 
-// set up projections an dshared variables
-let halfWidth = Math.sqrt(2) * 6371007.2;
-let tile_size = 512;
-let max_zoom = 18;
-let pixel_ratio = parseInt(window.devicePixelRatio) || 1;
+//set up projections an dshared variables
+var halfWidth = Math.sqrt(2) * 6371007.2;
+var tile_size = 512;
+var max_zoom = 18;
+var pixel_ratio = parseInt(window.devicePixelRatio) || 1;
 
 function get4326() {
-    let extent = 180.0;
-    let resolutions = Array(max_zoom + 1).fill().map(function(_, i) {
-        return extent / tile_size / Math.pow(2, i);
+    var extent = 180.0;
+    var resolutions = Array(max_zoom + 1).fill().map(function (_, i) {
+        return extent / tile_size / Math.pow(2, i)
     });
 
-    let tile_grid_16 = new ol.tilegrid.TileGrid({
+    var tile_grid_16 = new ol.tilegrid.TileGrid({
         extent: ol.proj.get('EPSG:4326').getExtent(),
         minZoom: 0,
         maxZoom: max_zoom,
         resolutions: resolutions,
-        tileSize: tile_size,
+        tileSize: tile_size
     });
     return {
         name: 'EPSG_4326',
@@ -38,11 +38,11 @@ function get4326() {
         srs: 'EPSG:4326',
         projection: 'EPSG:4326',
         epsg: 4326,
-        // tile_grid_14: tile_grid_14,
+        //tile_grid_14: tile_grid_14,
         tileGrid: tile_grid_16,
         resolutions: resolutions,
         fitExtent: [-179, -1, 179, 1],
-        getView: function(lat, lon, zoom) {
+        getView: function (lat, lon, zoom) {
             lat = lat || 0;
             lon = lon || 0;
             zoom = zoom || 0;
@@ -51,39 +51,39 @@ function get4326() {
                 minZoom: 0,
                 center: [lon, lat],
                 zoom: zoom,
-                projection: 'EPSG:4326',
-            });
+                projection: 'EPSG:4326'
+            })
         },
-        getBaseLayer: function(params) {
+        getBaseLayer: function (params) {
             return getLayer(baseMaps.EPSG_4326.url, this, params);
         },
-        getOccurrenceLayer: function(params) {
+        getOccurrenceLayer: function (params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
         },
-        getAdhocLayer: function(params) {
-            params.srs = '4326';// only supports this projection
+        getAdhocLayer: function (params) {
+            params.srs = '4326';//only supports this projection
             return getLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
-        },
+        }
     };
 }
 
 
 function get3857() {
-    let tile_grid_16 = ol.tilegrid.createXYZ({
+    var tile_grid_16 = ol.tilegrid.createXYZ({
         minZoom: 0,
         maxZoom: max_zoom,
-        tileSize: tile_size,
+        tileSize: tile_size
     });
     return {
         name: 'EPSG_3857',
         wrapX: true,
         srs: 'EPSG:3857',
-        // projection: 'EPSG:3857',
+        //projection: 'EPSG:3857',
         epsg: 3857,
         tileGrid: tile_grid_16,
-        // resolutions: resolutions,
+        //resolutions: resolutions,
         fitExtent: ol.proj.transformExtent([-90, -75, 90, 75], 'EPSG:4326', 'EPSG:3857'),
-        getView: function(lat, lon, zoom) {
+        getView: function (lat, lon, zoom) {
             lat = lat || 0;
             lon = lon || 0;
             zoom = zoom || 0;
@@ -92,35 +92,35 @@ function get3857() {
                 minZoom: 0,
                 center: [lon, lat],
                 zoom: zoom,
-                projection: 'EPSG:3857',
-            });
+                projection: 'EPSG:3857'
+            })
         },
-        getBaseLayer: function(params) {
+        getBaseLayer: function (params) {
             return getLayer(baseMaps.EPSG_3857.url, this, params);
         },
-        getOccurrenceLayer: function(params) {
+        getOccurrenceLayer: function (params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
-        },
+        }
     };
 }
 
 function get3575() {
-    let extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
-    ol.proj.get('EPSG:3575').setExtent(extent);
-    let resolutions = Array.from(new Array(max_zoom + 1), function(x, i) {
+    var extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
+    ol.proj.get("EPSG:3575").setExtent(extent);
+    var resolutions = Array.from(new Array(max_zoom + 1), function (x, i) {
         return halfWidth / (tile_size * Math.pow(2, i - 1));
     });
 
-    let tile_grid_16 = new ol.tilegrid.TileGrid({
+    var tile_grid_16 = new ol.tilegrid.TileGrid({
         extent: extent,
         origin: [-halfWidth, halfWidth],
         minZoom: 0,
         maxZoom: max_zoom,
         resolutions: resolutions,
-        tileSize: tile_size,
+        tileSize: tile_size
     });
 
-    let getCenter = function() {
+    var getCenter = function () {
         return ol.proj.fromLonLat([0, 89], 'EPSG:3575');
     };
 
@@ -130,46 +130,46 @@ function get3575() {
         srs: 'EPSG:3575',
         projection: 'EPSG:3575',
         epsg: 3575,
-        // tile_grid_14: tile_grid_14,
+        //tile_grid_14: tile_grid_14,
         tileGrid: tile_grid_16,
         resolutions: resolutions,
         fitExtent: extent,
-        getView: function(lat, lon, zoom) {
+        getView: function (lat, lon, zoom) {
             return new ol.View({
                 center: getCenter(lat, lon),
                 projection: ol.proj.get('EPSG:3575'),
                 zoom: zoom || 0,
-                maxResolution: halfWidth / tile_size * 2,
-            });
+                maxResolution: halfWidth / tile_size * 2
+            })
         },
-        getBaseLayer: function(params) {
+        getBaseLayer: function (params) {
             return getLayer(baseMaps.EPSG_3575.url, this, params);
         },
-        getOccurrenceLayer: function(params) {
+        getOccurrenceLayer: function (params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
-        },
+        }
     };
 }
 
 
 function get3031() {
-    let halfWidth = 12367396.2185; // To the Equator
-    let extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
-    ol.proj.get('EPSG:3031').setExtent(extent);
-    let resolutions = Array.from(new Array(max_zoom + 1), function(x, i) {
+    var halfWidth = 12367396.2185; // To the Equator
+    var extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
+    ol.proj.get("EPSG:3031").setExtent(extent);
+    var resolutions = Array.from(new Array(max_zoom + 1), function (x, i) {
         return halfWidth / (tile_size * Math.pow(2, i - 1));
     });
 
-    let tile_grid_16 = new ol.tilegrid.TileGrid({
+    var tile_grid_16 = new ol.tilegrid.TileGrid({
         extent: extent,
         origin: [-halfWidth, halfWidth],
         minZoom: 0,
         maxZoom: max_zoom,
         resolutions: resolutions,
-        tileSize: tile_size,
+        tileSize: tile_size
     });
 
-    let getCenter = function() {
+    var getCenter = function () {
         return ol.proj.fromLonLat([0, -89], 'EPSG:3031');
     };
 
@@ -182,20 +182,20 @@ function get3031() {
         tileGrid: tile_grid_16,
         resolutions: resolutions,
         fitExtent: extent,
-        getView: function(lat, lon, zoom) {
+        getView: function (lat, lon, zoom) {
             return new ol.View({
                 center: getCenter(lat, lon),
                 projection: ol.proj.get('EPSG:3031'),
                 zoom: zoom || 0,
-                maxResolution: halfWidth / tile_size * 2,
-            });
+                maxResolution: halfWidth / tile_size * 2
+            })
         },
-        getBaseLayer: function(params) {
+        getBaseLayer: function (params) {
             return getLayer(baseMaps.EPSG_3031.url, this, params);
         },
-        getOccurrenceLayer: function(params) {
+        getOccurrenceLayer: function (params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
-        },
+        }
     };
 }
 
@@ -203,24 +203,24 @@ function get3031() {
 function getLayer(baseUrl, proj, params) {
     params = params || {};
     params.srs = proj.srs;
-    let progress = params.progress;
+    var progress = params.progress;
     delete params.progress;
-    let source = new ol.source.TileImage({
+    var source = new ol.source.TileImage({
         projection: proj.projection,
         tileGrid: proj.tileGrid,
         tilePixelRatio: pixel_ratio,
         url: baseUrl + querystring.stringify(params),
-        wrapX: proj.wrapX,
+        wrapX: proj.wrapX
     });
     if (progress) {
-        source.on('tileloadstart', function() {
+        source.on('tileloadstart', function () {
             progress.addLoading();
         });
 
-        source.on('tileloadend', function() {
+        source.on('tileloadend', function () {
             progress.addLoaded();
         });
-        source.on('tileloaderror', function() {
+        source.on('tileloaderror', function () {
             progress.addLoaded();
         });
     }
@@ -228,8 +228,8 @@ function getLayer(baseUrl, proj, params) {
     return new ol.layer.Tile({
         extent: proj.extent,
         source: source,
-        useInterimTilesOnError: false,
-        visible: true,
+        useInterimTilesOnError:false,
+        visible: true
     });
 }
 
@@ -237,5 +237,5 @@ module.exports = {
     EPSG_4326: get4326(),
     EPSG_3575: get3575(),
     EPSG_3031: get3031(),
-    EPSG_3857: get3857(),
+    EPSG_3857: get3857()
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function datasetActivityCtrl($http, $state, $stateParams, env, endpoints) {
-    let vm = this;
+    var vm = this;
     vm.key = $stateParams.key;
 
     function updatePaginationCounts() {
@@ -20,26 +20,26 @@ function datasetActivityCtrl($http, $state, $stateParams, env, endpoints) {
 
     updatePaginationCounts();
 
-    vm.getDownloads = function() {
+    vm.getDownloads = function () {
         vm.loadingDownloads = true;
         vm.failedToLoadDownloads = false;
-        let downloads = $http.get(env.dataApi + endpoints.datasetDownloads + vm.key, {params: {limit: vm.limit, offset: vm.offset, locale: $stateParams.locale}});
-        downloads.then(function(response) {
+        var downloads = $http.get(env.dataApi + endpoints.datasetDownloads + vm.key, {params: {limit: vm.limit, offset: vm.offset, locale: $stateParams.locale}});
+        downloads.then(function (response) {
             vm.loadingDownloads = false;
             vm.downloads = response.data;
-        }, function() {
+        }, function () {
             vm.loadingDownloads = false;
             vm.failedToLoadDownloads = true;
         });
     };
     vm.getDownloads();
 
-    vm.pageChanged = function() {
+    vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;
         $state.go($state.current, {limit: vm.limit, offset: vm.offset}, {inherit: true, notify: true, reload: true});
     };
 
-    vm.openHelpdesk = function() {
+    vm.openHelpdesk = function () {
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
     };
 }

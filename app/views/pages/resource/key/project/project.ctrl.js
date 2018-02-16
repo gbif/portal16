@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,31 +9,31 @@ angular
 
 /** @ngInject */
 function projectKeyCtrl(DatasetSearch, $q, env, $http, $location, $rootScope, BUILD_VERSION) {
-    let vm = this;
+    var vm = this;
     vm.projectId = gb.projectId;
     vm.key = gb.projectKey;
     vm.imageCache = env.imageCache;
     vm.tileApi = env.tileApi;
     vm.BUILD_VERSION = BUILD_VERSION;
-    let tabs = ['about', 'news', 'datasets'];
+    var tabs = ['about', 'news', 'datasets'];
 
     if (vm.projectId) {
-        vm.datasets = DatasetSearch.query({projectId: vm.projectId, limit: 500}, function() {
+        vm.datasets = DatasetSearch.query({projectId: vm.projectId, limit: 500}, function () {
             vm.failedRequest = false;
-        }, function() {
+        }, function () {
             vm.failedRequest = true;
         });
     }
 
     vm.news = $http.get('/api/resource/key/search', {
-        params: {key: vm.key, type: 'news'},
+        params: {key: vm.key, type: 'news'}
     });
 
     vm.events = $http.get('/api/resource/key/search', {
-        params: {key: vm.key, type: 'events'},
+        params: {key: vm.key, type: 'events'}
     });
 
-    $q.all([vm.news, vm.events]).then(function(values) {
+    $q.all([vm.news, vm.events]).then(function (values) {
         vm.newsEvents = {};
         vm.newsEvents.results = values[0].data.results.concat(values[1].data.results);
         vm.newsEvents.images = _.assign(values[0].data.images, values[1].data.images);
@@ -45,7 +45,7 @@ function projectKeyCtrl(DatasetSearch, $q, env, $http, $location, $rootScope, BU
     }
     updateTab();
 
-    $rootScope.$on('$locationChangeSuccess', function() {
+    $rootScope.$on('$locationChangeSuccess', function () {
         updateTab();
     });
 }

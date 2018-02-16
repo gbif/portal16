@@ -1,26 +1,26 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
-    .service('SpeciesFilter', function($rootScope, $state, $stateParams, SpeciesSearch, constantKeys) {
-        let state = {
+    .service('SpeciesFilter', function ($rootScope, $state, $stateParams, SpeciesSearch, constantKeys) {
+        var state = {
             data: {},
             failedRequest: false,
-            query: $stateParams,
+            query: $stateParams
         };
 
-        // when in not advanced mode then prefill parameters with default values
-        let advancedDefaults = {
+        //when in not advanced mode then prefill parameters with default values
+        var advancedDefaults = {
             dataset_key: constantKeys.dataset.backbone,
             name_type: undefined,
-            constituent_key: undefined,
+            constituent_key: undefined
         };
 
-        let availableFacets = ['rank', 'dataset_key', 'constituent_key', 'highertaxon_key', 'name_type', 'status', 'issue', 'origin'];
-        let facets = [];
-        availableFacets.forEach(function(facet) {
+        var availableFacets = ['rank', 'dataset_key', 'constituent_key', 'highertaxon_key', 'name_type', 'status', 'issue', 'origin'];
+        var facets = [];
+        availableFacets.forEach(function (facet) {
             facets.push(facet);
         });
 
@@ -29,13 +29,13 @@ angular
         }
 
         $rootScope.$on('$stateChangeSuccess',
-            function(event, toState, toParams) {
+            function (event, toState, toParams) {
                 refreshData(toParams);
             }
         );
 
         function refreshData(query) {
-            let apiQuery;
+            var apiQuery;
             state.query = query || $stateParams;
             state.query.facet = facets;
             state.query['status.facetLimit'] = 100;
@@ -44,21 +44,21 @@ angular
             state.query['rank.facetLimit'] = 100;
             state.query.facetMultiselect = true;
             apiQuery = state.query;
-            // apiQuery.hl = true;
+            //apiQuery.hl = true;
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
 
-            // when in not advanced mode then prefill parameters with default values
+            //when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {
                 apiQuery = angular.copy(state.query);
-                Object.keys(advancedDefaults).forEach(function(keyDefault) {
+                Object.keys(advancedDefaults).forEach(function (keyDefault) {
                     apiQuery[keyDefault] = advancedDefaults[keyDefault];
                 });
             }
 
-            state.data = SpeciesSearch.query(apiQuery, function() {
+            state.data = SpeciesSearch.query(apiQuery, function () {
                 state.failedRequest = false;
-            }, function() {
+            }, function () {
                 state.failedRequest = true;
             });
         }
@@ -76,9 +76,9 @@ angular
         function refresh() {
             state.query.offset = undefined;
 
-            // when in not advanced mode then remove parameters from URL that are filled with default values
+            //when in not advanced mode then remove parameters from URL that are filled with default values
             if (!state.query.advanced) {
-                Object.keys(advancedDefaults).forEach(function(keyDefault) {
+                Object.keys(advancedDefaults).forEach(function (keyDefault) {
                     delete state.query[keyDefault];
                 });
             }
@@ -93,6 +93,7 @@ angular
             getState: getState,
             update: update,
             updateParam: updateParam,
-            refresh: refresh,
+            refresh: refresh
         };
+
     });

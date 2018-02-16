@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 require('./notifications.service');
@@ -11,7 +11,7 @@ angular
 
 /** @ngInject */
 function notificationsDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/api/notifications/template.html?v=' + BUILD_VERSION,
@@ -19,17 +19,17 @@ function notificationsDirective(BUILD_VERSION) {
         replace: true,
         controller: notifications,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
-    function notifications($scope, NAV_EVENTS, NOTIFICATIONS, $sessionStorage, Notifications) { // include service to trigger the service
-        let vm = this;
+    function notifications($scope, NAV_EVENTS, NOTIFICATIONS, $sessionStorage, Notifications) { //include service to trigger the service
+        var vm = this;
         vm.isActive = false;
 
-        $scope.$on(NAV_EVENTS.toggleNotifications, function(event, data) {
+        $scope.$on(NAV_EVENTS.toggleNotifications, function (event, data) {
             if (data.toggle) {
                 vm.isActive = !vm.isActive;
             } else {
@@ -37,7 +37,7 @@ function notificationsDirective(BUILD_VERSION) {
             }
         });
 
-        vm.close = function() {
+        vm.close = function () {
             vm.isActive = false;
         };
 
@@ -56,7 +56,7 @@ function notificationsDirective(BUILD_VERSION) {
         }
         updateNotifications($sessionStorage.notifications);
 
-        $scope.$on(NOTIFICATIONS.CHANGED, function(event, notifications) {
+        $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
             updateNotifications(notifications);
         });
     }

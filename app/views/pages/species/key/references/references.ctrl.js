@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,19 +9,20 @@ angular
 
 /** @ngInject */
 function speciesReferencesCtrl($stateParams, SpeciesReferences) {
-    let vm = this;
+    var vm = this;
     vm.references = [];
 
-    let citeFunc = function(r) {
+    var citeFunc = function (r) {
         return r.citation;
     };
     SpeciesReferences.query({
         id: $stateParams.key,
-        limit: 200,
-    }, function(data) {
+        limit: 200
+    }, function (data) {
         vm.references = _.sortedUniqBy(_.sortBy(data.results, citeFunc), citeFunc);
-    }, function() {
-    });
+
+    }, function () {
+    })
 }
 
 module.exports = speciesReferencesCtrl;

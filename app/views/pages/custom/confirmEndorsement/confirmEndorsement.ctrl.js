@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function confirmEndorsementCtrl($cookies) {
-    // TODO is this inteded for usage?
+    //TODO is this inteded for usage?
 }
 
 module.exports = confirmEndorsementCtrl;

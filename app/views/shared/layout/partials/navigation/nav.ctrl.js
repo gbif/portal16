@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -8,24 +8,24 @@ angular
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) { // notice that the user is included as a dependency only to trigger the call to me endpoint
-    let vm = this;
-    let toggleGroup = [
+function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) { //notice that the user is included as a dependency only to trigger the call to me endpoint
+    var vm = this;
+    var toggleGroup = [
         NAV_EVENTS.toggleSearch,
         NAV_EVENTS.toggleFeedback,
         NAV_EVENTS.toggleNotifications,
-        NAV_EVENTS.toggleUserMenu,
+        NAV_EVENTS.toggleUserMenu
     ];
 
-    vm.hasRole = function(roles) {
+    vm.hasRole = function(roles){
         roles = _.isString(roles) ? [roles] : roles;
         return _.intersection(_.get($sessionStorage, 'user.roles', []), roles).length > 0;
     };
 
     vm.scrollOffset = 0;
-    angular.element($window).bind('scroll', function() {
-        let offset = this.pageYOffset;
-        $timeout(function() {
+    angular.element($window).bind('scroll', function(){
+        var offset = this.pageYOffset;
+        $timeout(function () {
             vm.scrollOffset = offset;
         }, 0);
     });
@@ -34,12 +34,12 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
         if (vm.activeMenu == firstLevelItem) {
             vm.activeMenu = undefined;
         } else {
-            vm.activeMenu = firstLevelItem;
+            vm.activeMenu = firstLevelItem
         }
     };
 
-    vm.openMenu = function(navEvent) {
-        toggleGroup.forEach(function(e) {
+    vm.openMenu = function(navEvent){
+        toggleGroup.forEach(function(e){
             if (e === navEvent) {
                 $rootScope.$broadcast(e, {state: true});
             } else {
@@ -48,23 +48,23 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
         });
     };
 
-    vm.toggleMobileMenu = function() {
+    vm.toggleMobileMenu = function(){
         vm.mobileMenuActive = !vm.mobileMenuActive;
     };
 
-    vm.toggleNotifications = function() {
+    vm.toggleNotifications = function () {
         vm.openMenu(NAV_EVENTS.toggleNotifications);
     };
 
-    vm.toggleFeedback = function() {
+    vm.toggleFeedback = function () {
         vm.openMenu(NAV_EVENTS.toggleFeedback);
     };
 
-    vm.toggleSearch = function() {
+    vm.toggleSearch = function () {
         vm.openMenu(NAV_EVENTS.toggleSearch);
     };
 
-    vm.toggleUserMenu = function() {
+    vm.toggleUserMenu = function () {
         if ($sessionStorage.user) {
             if (!$state.includes('user')) {
                 $window.location = '/user/profile';
@@ -74,11 +74,11 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
         }
     };
 
-    vm.getIssues = function() {
+    vm.getIssues = function () {
         $http.get('/api/feedback/content?path=' + encodeURIComponent($location.path()), {})
-            .then(function(response) {
+            .then(function (response) {
                 vm.commentCount = _.get(response, 'data.comments.count');
-            }, function() {
+            }, function () {
                 vm.issuesCount = undefined;
             });
     };
@@ -88,13 +88,13 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
         vm.loginGreeting = _.get($sessionStorage.user, 'userName', 'Login');
     }
     updateUser();
-    $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
         updateUser();
     });
-    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
         updateUser();
     });
-    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
         updateUser();
     });
 
@@ -102,17 +102,18 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
         {
             combo: ['alt+f', 'alt+space'],
             description: 'Site search',
-            callback: function(event) {
+            callback: function (event) {
                 vm.openMenu(NAV_EVENTS.toggleSearch);
                 event.preventDefault();
-            },
+            }
         }
     );
 
     vm.notifications = $sessionStorage.notifications;
-    $scope.$on(NOTIFICATIONS.CHANGED, function(event, notifications) {
+    $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
         vm.notifications = notifications;
     });
+
 }
 
 module.exports = navCtrl;

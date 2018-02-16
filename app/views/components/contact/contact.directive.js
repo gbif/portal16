@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,22 +9,22 @@ angular
 
 /** @ngInject */
 function contactDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'E',
         templateUrl: '/templates/components/contact/contact.html?v=' + BUILD_VERSION,
         scope: {
-            contactInfo: '=',
+            contactInfo: '='
         },
         controller: contactCtrl,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
     function contactCtrl() {
-        let vm = this;
+        var vm = this;
         vm.contact = vm.contactInfo;
 
         vm.getAsArray = function(value) {
@@ -32,15 +32,15 @@ function contactDirective(BUILD_VERSION) {
         };
 
         vm.getRoles = function(roles) {
-            let r = vm.getAsArray(roles);
-            return _.map(r, function(e) {
+            var r = vm.getAsArray(roles);
+            return _.map(r, function(e){
                 return _.isString(e) ? e : e.role;
             });
         };
 
-        vm.isOrcid = function(userId) {
+        vm.isOrcid = function(userId){
             return userId.indexOf('orcid.org') != -1;
-        };
+        }
     }
 }
 

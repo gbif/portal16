@@ -17,7 +17,7 @@ let config = {
         'ecmaVersion': 8
     },
     rules: {
-        "comma-dangle": [2, 'never'],
+        'comma-dangle': [2, 'never'],
         'no-console': 0, // temporary disabled untli they have been evaluated and perhaps replaced with log statements
         'require-jsdoc': 0,
         'max-len': [2, { "code": 200 }],

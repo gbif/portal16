@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
-    let vm = this;
+    var vm = this;
     vm.HUMAN = true;
     vm.maxSize = 5;
     vm.doi = _.get(gb, 'downloadKey.doi', '').replace(/^.*(10\.)/, '10.');
@@ -17,47 +17,47 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location,
     vm.downloadState = gb.downloadKey.status;
     vm.profile = $sessionStorage.user;
     $http.get('/api/user/isRecentDownload/' + vm.key)
-        .then(function(response) {
+        .then(function (response) {
             vm.recentDownload = response.data;
         });
 
-    // if (vm.doi) {
+    //if (vm.doi) {
     //    vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"', limit: 5}); //A hardcoded limit and no pagination for now. Currently we never have a download citet more than once. If this change in the future we ought to add pagination and link more to resource search
-    // }
+    //}
 
-    vm.openHelpdesk = function() {
+    vm.openHelpdesk = function () {
         $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
         $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
     };
 
-    vm.pageChanged = function() {
+    vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;
         $location.hash('datasets');
-        $scope.$watchCollection($location.search('offset', vm.offset), function() {
+        $scope.$watchCollection($location.search('offset', vm.offset), function () {
             $window.location.reload();
-        });
+        })
     };
 
-    vm.setInitials = function(offset, limit, key) {
+    vm.setInitials = function (offset, limit, key) {
         vm.offset = offset || 0;
         vm.limit = limit;
         vm.key = key;
         vm.currentPage = Math.floor(vm.offset / vm.limit) + 1;
     };
 
-    vm.cancelDownload = function(key) {
-        let cancel = $http.get(endpoints.cancelDownload + key);
-        cancel.then(function() {
+    vm.cancelDownload = function (key) {
+        var cancel = $http.get(endpoints.cancelDownload + key);
+        cancel.then(function () {
             location.reload();
-        }, function(err) {
-            // TODO tell user the download failed to be cancelled
+        }, function (err) {
+            //TODO tell user the download failed to be cancelled
         });
     };
 
     function getDownload() {
         $http.get('/api/occurrence/download/' + vm.key, {params: {nonse: Math.random()}})
-            .then(function(response) {
+            .then(function (response) {
                 vm.download = response.data;
                 parseDeletionDate(vm.download);
                 vm.isUsersDownload = vm.download.request.creator == vm.profile.userName;
@@ -65,7 +65,7 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location,
                     if (response.data.status !== 'RUNNING' && response.data.status !== 'PREPARING') {
                         vm.isCancelable = false;
                         $timeout(
-                            function() {
+                            function () {
                                 location.reload();
                             }, 5000);
                     } else {
@@ -80,44 +80,44 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location,
     }
     getDownload();
 
-    // is erasure date is within the next N moths, then allow user to postpone the deletion
+    //is erasure date is within the next N moths, then allow user to postpone the deletion
     function parseDeletionDate(download) {
         if (download.eraseAfter) {
-            let pointInFuture = moment().add(7, 'months');
+            var pointInFuture = moment().add(7, 'months');
             vm.willBeDeletedSoon = moment(download.eraseAfter).isBefore(pointInFuture);
-            vm.readyForDeletion = moment(download.eraseAfter).isBefore(moment().add(1, 'day'));
+            vm.readyForDeletion  = moment(download.eraseAfter).isBefore(moment().add(1, 'day'));
         }
     }
 
-    vm.deleteDownload = function() {
+    vm.deleteDownload = function(){
         if (vm.isUsersDownload) {
             $http.post('/api/occurrence/download/' + vm.key + '/delete')
-                .then(function(response) {
+                .then(function(response){
                     location.reload();
                 })
-                .catch(function(err) {
+                .catch(function(err){
                     console.log(err);
                 });
         }
     };
 
-    vm.postponeDeletion = function() {
+    vm.postponeDeletion = function(){
         if (vm.isUsersDownload) {
             $http.post('/api/occurrence/download/' + vm.key + '/postpone')
-                .then(function(response) {
+                .then(function(response){
                     location.reload();
                 })
-                .catch(function(err) {
+                .catch(function(err){
                     console.log(err);
                 });
         }
     };
 }
 
-angular.module('portal').controller('infoModalInstanceCtrl', function($uibModalInstance) {
-    let $ctrl = this;
+angular.module('portal').controller('infoModalInstanceCtrl', function ($uibModalInstance) {
+    var $ctrl = this;
 
-    $ctrl.ok = function() {
+    $ctrl.ok = function () {
         $uibModalInstance.close();
     };
 });

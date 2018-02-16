@@ -1,39 +1,37 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 angular
     .module('portal')
     .directive('gbModal', modalDirective);
 
 /** @ngInject */
 function modalDirective(BUILD_VERSION) {
-    let directive = {
+    var directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/modal/modal.html?v=' + BUILD_VERSION,
         scope: {
-            onDismiss: '&',
+            onDismiss: '&'
         },
         replace: true,
         controller: modal,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
     function modal($timeout) {
-        let vm = this;
-        $timeout(function() {
-vm.fadeIn = true;
-}, 0);
-        vm.dismiss = function() {
+        var vm = this;
+        $timeout(function(){vm.fadeIn = true;}, 0);
+        vm.dismiss = function(){
             if (typeof vm.onDismiss == 'function') {
                 vm.fadeIn = false;
                 vm.onDismiss();
             }
-        };
+        }
     }
 }
 

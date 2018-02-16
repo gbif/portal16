@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular'),
+var angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,46 +9,46 @@ angular
 
 /** @ngInject */
 function referencesDirective() {
-    let directive = {
+    var directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/references.html',
         scope: {
             references: '=',
-            key: '@',
+            key: '@'
         },
         controller: referencesCtrl,
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: true
     };
     return directive;
 
     /** @ngInject */
     function referencesCtrl($scope, $state, $stateParams, SpeciesReferences) {
-        let vm = this;
+        var vm = this;
         vm.references = {
             limit: 5,
             offset: 0,
-            endOfRecords: true,
+            endOfRecords: true
         };
-        // vm.limit = 5;
-        // vm.offset = 0;
-        // vm.endOfRecords = false;
+        //vm.limit = 5;
+        //vm.offset = 0;
+        //vm.endOfRecords = false;
 
         function getReferences() {
             SpeciesReferences.query({
                 id: vm.key,
                 limit: vm.references.limit || 5,
-                offset: vm.references.offset || 0,
-            }, function(data) {
-                data.results.forEach(function(e) {
-                    if (_.isString(e.doi) && e.doi.substr(0, 4) !== 'http') {
+                offset: vm.references.offset || 0
+            }, function (data) {
+                data.results.forEach(function(e){
+                    if (_.isString(e.doi) && e.doi.substr(0,4) !== 'http') {
                         e.doi = 'https://doi.org/' + e.doi;
                     }
                 });
                 data.hasResults = data.offset > 0 || data.results.length > 0;
                 vm.references = data;
                 setHeight();
-            }, function() {
+            }, function () {
             });
         }
 
@@ -69,9 +69,9 @@ function referencesDirective() {
             getReferences();
         };
 
-        $scope.$watch(function() {
+        $scope.$watch(function () {
             return vm.key;
-        }, function() {
+        }, function () {
             getReferences(vm.key);
         });
 
@@ -82,9 +82,9 @@ function referencesDirective() {
             }
         }
 
-        vm.getHeight = function() {
+        vm.getHeight = function(){
             return vm.height;
-        };
+        }
     }
 }
 

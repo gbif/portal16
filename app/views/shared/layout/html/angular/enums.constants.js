@@ -1,6 +1,6 @@
-(function() {
+(function () {
     'use strict';
-    let angular = require('angular'),
+    var angular = require('angular'),
         enums = require('../../../../../models/enums/allEnums');
 
     angular

@@ -1,5 +1,5 @@
 'use strict';
-let angular = require('angular');
+var angular = require('angular');
 
 require('../../../components/map/adhocMap/adhocMap.directive');
 
@@ -9,39 +9,40 @@ angular
 
 /** @ngInject */
 function occurrenceMapCtrl($state, $scope, OccurrenceSearch, OccurrenceFilter) {
-    let vm = this;
+    var vm = this;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     vm.count = -1;
     vm.mapMenu = {
         show: false,
-        occurrences: {},
+        occurrences: {}
     };
 
-    let latestData = {};
-    let search = function(query) {
+    var latestData = {};
+    var search = function (query) {
         query = angular.copy(query);
         query.hasCoordinate = 'true';
         query.limit = 0;
         vm.count = -1;
         if (latestData.$cancelRequest) latestData.$cancelRequest();
-        latestData = OccurrenceSearch.query(query, function(data) {
+        latestData = OccurrenceSearch.query(query, function (data) {
             vm.count = data.count;
-        }, function() {
-            // TODO handle request error
+        }, function () {
+            //TODO handle request error
         });
     };
 
-    $scope.$watchCollection(function() {
-        return $state.params;
-    }, function() {
+    $scope.$watchCollection(function () {
+        return $state.params
+    }, function () {
         search(vm.occurrenceState.query);
     });
 
     vm.mapEvents = {
-        filterChange: function(filter) {
+        filterChange: function(filter){
             $state.go($state.current, filter, {inherit: false, notify: true, reload: true});
-        },
+        }
     };
+
 }
 
 module.exports = occurrenceMapCtrl;

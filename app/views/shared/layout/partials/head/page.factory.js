@@ -1,6 +1,6 @@
 'use strict';
 
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -8,19 +8,17 @@ angular
 
 /** @ngInject */
 function pageFactory() {
-    let title = undefined,
+    var title = undefined,
         drawer = false;
     return {
-        title: function() {
- return title;},
-        setTitle: function(newTitle) {
- title = newTitle;},
+        title: function() { return title; },
+        setTitle: function(newTitle) { title = newTitle; },
         drawer: function(drawerBool) {
             if (typeof drawerBool === 'boolean') {
                 drawer = drawerBool;
             }
             return drawer;
-        },
+        }
     };
 }
 

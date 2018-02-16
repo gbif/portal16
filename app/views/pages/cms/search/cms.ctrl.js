@@ -6,7 +6,7 @@
  * enum list, multiselect
  */
 'use strict';
-let angular = require('angular');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -14,7 +14,7 @@ angular
 
 /** @ngInject */
 function cmsCtrl($state, hotkeys, CmsFilter) {
-    let vm = this;
+    var vm = this;
     vm.state = CmsFilter.getState();
 
     vm.filters = {};
@@ -37,8 +37,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'type',
-        },
+            facetKey: 'type'
+        }
     };
 
     vm.filters.language = {
@@ -49,8 +49,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'language',
-        },
+            facetKey: 'language'
+        }
     };
 
     vm.filters.category_data_use = {
@@ -61,8 +61,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_data_use',
-        },
+            facetKey: 'category_data_use'
+        }
     };
 
     vm.filters.category_capacity_enhancement = {
@@ -73,8 +73,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_capacity_enhancement',
-        },
+            facetKey: 'category_capacity_enhancement'
+        }
     };
 
     vm.filters.category_about_gbif = {
@@ -85,8 +85,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_about_gbif',
-        },
+            facetKey: 'category_about_gbif'
+        }
     };
 
     vm.filters.category_audience = {
@@ -97,8 +97,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_audience',
-        },
+            facetKey: 'category_audience'
+        }
     };
 
     vm.filters.category_purpose = {
@@ -109,8 +109,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_purpose',
-        },
+            facetKey: 'category_purpose'
+        }
     };
 
     vm.filters.category_country = {
@@ -121,13 +121,13 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         search: {
             isSearchable: true,
             placeholder: 'country',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale,
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_country',
-        },
+            facetKey: 'category_country'
+        }
     };
 
     vm.filters.category_about_gbif = {
@@ -138,8 +138,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_about_gbif',
-        },
+            facetKey: 'category_about_gbif'
+        }
     };
 
     vm.filters.category_topic = {
@@ -150,8 +150,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_topic',
-        },
+            facetKey: 'category_topic'
+        }
     };
 
     vm.filters.category_literature_year = {
@@ -162,8 +162,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_literature_year',
-        },
+            facetKey: 'category_literature_year'
+        }
     };
 
     vm.filters.category_gbif_region = {
@@ -174,8 +174,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_gbif_region',
-        },
+            facetKey: 'category_gbif_region'
+        }
     };
 
     vm.filters.category_gbif_literature_annotation = {
@@ -186,8 +186,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_gbif_literature_annotation',
-        },
+            facetKey: 'category_gbif_literature_annotation'
+        }
     };
     vm.filters.category_author_from_country = {
         queryKey: 'category_author_from_country',
@@ -197,16 +197,16 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         search: {
             isSearchable: true,
             placeholder: 'country',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale,
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_author_from_country',
-        },
+            facetKey: 'category_author_from_country'
+        }
     };
 
-    vm.search = function() {
+    vm.search = function () {
         // When the search term gets submitted, we don't know how many results
         // will return, so we reset offset if any.
         if (vm.state.query.hasOwnProperty('offset')) {
@@ -215,43 +215,44 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.updateSearch = function() {
+    vm.updateSearch = function () {
         vm.state.query.offset = undefined;
         vm.state.query.limit = undefined;
         $state.go($state.current, vm.state.query, {inherit: false, notify: false, reload: false});
     };
 
-    vm.searchOnEnter = function(event) {
+    vm.searchOnEnter = function (event) {
         if (event.which === 13) {
             vm.updateSearch();
         }
     };
 
-    vm.clearFreetextAndSetFocus = function() {
+    vm.clearFreetextAndSetFocus = function () {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
 
-    // might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
     hotkeys.add({
         combo: 'alt+f',
         description: 'Site search',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(event) {
+        callback: function (event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
-        },
+        }
     });
 
     hotkeys.add({
         combo: 'alt+enter',
         description: 'Apply',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(event) {
+        callback: function (event) {
             vm.updateSearch();
             event.preventDefault();
-        },
+        }
     });
+
 }
 
 module.exports = cmsCtrl;
