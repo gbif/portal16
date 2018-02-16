@@ -53,6 +53,7 @@ function getIp(req, res) {
         res.setHeader('Cache-Control', 'no-cache');
         res.status(404);
         res.send();
+        return;
     }
     let parsedReferer = url.parse(referer, true),
         mockIp = _.get(parsedReferer, 'query.mockip'),
