@@ -123,8 +123,8 @@ async function expandParticipant(participant, locale) {
         promiseList = [prosePromise, participantHistoryPromise, registryNodePromise];
 
     if (nodeId) {
-        promiseList[getNodeById(nodeId)];
-        promiseList[signedGet(apiConfig.directoryNodePerson.url + '?status=all&node_id=' + nodeId)];
+        promiseList.push(getNodeById(nodeId));
+        promiseList.push(signedGet(apiConfig.directoryNodePerson.url + '?status=all&node_id=' + nodeId));
     }
 
     //wait for them to finish
