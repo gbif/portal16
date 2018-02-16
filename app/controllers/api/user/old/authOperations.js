@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const credentials = rootRequire('config/credentials').directory,
     appKey = credentials.appKey,
@@ -11,10 +11,10 @@ const credentials = rootRequire('config/credentials').directory,
     NEWLINE = '\n';
 
 function getUserFromToken(userSessionCookie) {
-    var userRequest = {
+    let userRequest = {
         url: apiConfig.user.url,
-        maxAttempts: 5,   // (default) try 5 times
-        retryDelay: 5000,  // (default) wait for 5s before trying again
+        maxAttempts: 5, // (default) try 5 times
+        retryDelay: 5000, // (default) wait for 5s before trying again
         retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
         timeout: 30000,
         method: 'GET',
@@ -26,7 +26,7 @@ function getUserFromToken(userSessionCookie) {
 }
 
 async function authenticatedRequest(options) {
-    //https://github.com/gbif/gbif-common-ws/blob/master/src/main/java/org/gbif/ws/security/GbifAuthService.java
+    // https://github.com/gbif/gbif-common-ws/blob/master/src/main/java/org/gbif/ws/security/GbifAuthService.java
     expect(options).to.be.an('object');
     expect(['GET', 'POST', 'PUT'], 'request method').to.include(options.method);
     expect('url').to.be.a('string');
@@ -36,8 +36,8 @@ async function authenticatedRequest(options) {
     }
 
     let requestOptions = {
-        maxAttempts: 5,   // (default) try 5 times
-        retryDelay: 5000,  // (default) wait for 5s before trying again
+        maxAttempts: 5, // (default) try 5 times
+        retryDelay: 5000, // (default) wait for 5s before trying again
         retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
         fullResponse: false
     };
@@ -45,7 +45,7 @@ async function authenticatedRequest(options) {
     requestOptions.url = options.url;
     requestOptions.body = options.body;
 
-    var header = createHeader(options);
+    let header = createHeader(options);
     signHeader(requestOptions.method, header);
     requestOptions.headers = header;
 
@@ -56,27 +56,27 @@ async function authenticatedRequest(options) {
 function createHeader(options) {
     options.headers['x-url'] = options.canonicalPath || options.url;
     options.headers['x-gbif-user'] = options.userName || appKey;
-    //if (options.userName) {
+    // if (options.userName) {
     //    options.headers['x-gbif-user'] = options.userName;
-    //}
+    // }
     if (options.method == 'POST' || options.method == 'PUT') {
-        options.headers['Content-MD5'] = crypto.createHash('md5').update(JSON.stringify(options.json)).digest("base64");
+        options.headers['Content-MD5'] = crypto.createHash('md5').update(JSON.stringify(options.json)).digest('base64');
     }
 }
 
 function signHeader(method, headers) {
-    var stringToSign = method + NEWLINE + headers['x-url'] + NEWLINE + 'application/json';
+    let stringToSign = method + NEWLINE + headers['x-url'] + NEWLINE + 'application/json';
     if (headers['Content-MD5']) {
         stringToSign += NEWLINE + headers['Content-MD5'];
     }
     if (headers['x-gbif-user']) {
         stringToSign += NEWLINE + headers['x-gbif-user'];
     }
-    var signature = crypto.createHmac('sha1', secret).update(stringToSign).digest('base64');
+    let signature = crypto.createHmac('sha1', secret).update(stringToSign).digest('base64');
     headers.Authorization = 'GBIF ' + appKey + ':' + signature;
 }
 
-//function authenticatedRequestFromCookie(cookie, options) {
+// function authenticatedRequestFromCookie(cookie, options) {
 //    var deferred = Q.defer();
 //    var userPromise = getUserFromToken(cookie);
 //    userPromise
@@ -94,10 +94,10 @@ function signHeader(method, headers) {
 //            deferred.reject(err);
 //        });
 //    return deferred.promise;
-//}
+// }
 
 module.exports = {
     getUserFromToken: getUserFromToken,
-    //authenticatedRequestFromCookie: authenticatedRequestFromCookie,
+    // authenticatedRequestFromCookie: authenticatedRequestFromCookie,
     authenticatedRequest: authenticatedRequest
 };

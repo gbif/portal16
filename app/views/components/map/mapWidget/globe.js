@@ -1,70 +1,70 @@
 'use strict';
-var d3 = require('d3'),
+let d3 = require('d3'),
     world = require('./world-110m'),
     topojson = require('topojson');
 
 function getPointGeoJson(center) {
     return {
-        "type": "FeatureCollection",
-        "features": [
+        'type': 'FeatureCollection',
+        'features': [
             {
-                "type": "Feature",
-                "properties": {},
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [
                         center.lng,
-                        center.lat
-                    ]
-                }
-            }
-        ]
-    }
+                        center.lat,
+                    ],
+                },
+            },
+        ],
+    };
 }
 
 
-module.exports = function (element, options) {
-    var globeOptions = {};
+module.exports = function(element, options) {
+    let globeOptions = {};
 
-    var width = 70,
+    let width = 70,
         height = width,
         radius = height / 2 - 5,
         scale = radius;
 
-    var projection = d3.geoOrthographic()
+    let projection = d3.geoOrthographic()
         .translate([width / 2, height / 2])
         .scale(scale)
         .clipAngle(90);
 
-    var canvas = d3.select(element)
-        .attr("width", width)
-        .attr("height", height);
+    let canvas = d3.select(element)
+        .attr('width', width)
+        .attr('height', height);
 
-    var context = canvas.node().getContext("2d");
+    let context = canvas.node().getContext('2d');
 
-    var path = d3.geoPath()
+    let path = d3.geoPath()
         .projection(projection)
         .context(context);
 
-    var graticule = d3.geoGraticule();
-    var land = topojson.feature(world, world.objects.land);
+    let graticule = d3.geoGraticule();
+    let land = topojson.feature(world, world.objects.land);
 
 
-    //async version to load world data
-    //var land = {};
-    //d3.json("https://dl.dropboxusercontent.com/u/2718924/world-110m.json", function(error, world) {
+    // async version to load world data
+    // var land = {};
+    // d3.json("https://dl.dropboxusercontent.com/u/2718924/world-110m.json", function(error, world) {
     //  if (error) throw error;
     //  land = topojson.feature(world, world.objects.land);
     //  setCenter(vm.globeOptions.center.lat, vm.globeOptions.center.lng, vm.globeOptions.bounds);
-    //});
+    // });
 
     function updateStyle(opt) {
         opt = opt || {};
-        globeOptions.landColor = opt.land || "#ccc";
-        globeOptions.waterColor = opt.water || "#ccc";
-        globeOptions.graticules = opt.graticules || "#aaa";
-        globeOptions.focus = opt.focus || "rgba(0,0,0,0.3)";
-        globeOptions.border = opt.border || "#999";
+        globeOptions.landColor = opt.land || '#ccc';
+        globeOptions.waterColor = opt.water || '#ccc';
+        globeOptions.graticules = opt.graticules || '#aaa';
+        globeOptions.focus = opt.focus || 'rgba(0,0,0,0.3)';
+        globeOptions.border = opt.border || '#999';
     }
 
 
@@ -75,33 +75,33 @@ module.exports = function (element, options) {
         lat = lat || 0;
         lng = lng || 0;
         zoom = zoom || 0;
-        var rotationLat = Math.min(lat, 60);
+        let rotationLat = Math.min(lat, 60);
         rotationLat = Math.max(rotationLat, -60);
         context.clearRect(0, 0, width, height);
 
         projection.rotate([-lng, -rotationLat]);
 
-        //background
+        // background
         context.beginPath();
         context.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
         context.fillStyle = globeOptions.waterColor;
         context.fill();
 
-        //land mass
+        // land mass
         context.beginPath();
         path(land);
         context.fillStyle = globeOptions.landColor;
         context.fill();
 
-        //graticules
+        // graticules
         context.beginPath();
         path(graticule());
         context.lineWidth = .25;
         context.strokeStyle = globeOptions.graticules;
         context.stroke();
 
-        //point
-        //only show the point if we are zoomed in and within the map
+        // point
+        // only show the point if we are zoomed in and within the map
         if (zoom > 3 && Math.abs(lat) < 90) {
             context.beginPath();
             path(getPointGeoJson({lat: lat, lng: lng}));
@@ -109,7 +109,7 @@ module.exports = function (element, options) {
             context.fill();
         }
 
-        //border
+        // border
         context.beginPath();
         context.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
         context.lineWidth = .5;
@@ -119,6 +119,6 @@ module.exports = function (element, options) {
 
     return {
         setCenter: setCenter,
-        updateStyle: updateStyle
-    }
-}
+        updateStyle: updateStyle,
+    };
+};

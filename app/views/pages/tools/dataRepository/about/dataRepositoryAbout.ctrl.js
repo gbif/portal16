@@ -6,7 +6,7 @@ angular
 
 /** @ngInject */
 function dataRepositoryAboutCtrl() {
-    var vm = this;
+    let vm = this;
     vm.test = 'about test';
 }
 

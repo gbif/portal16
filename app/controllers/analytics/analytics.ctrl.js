@@ -1,57 +1,50 @@
-var express = require('express'),
+let express = require('express'),
     cfg = require('../../../config/config'),
     apiCfg = require('../../models/gbifdata/apiConfig'),
-    _ = require('lodash'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/analytics', router);
 };
 
-router.get('/global', function (req, res, next) {
+router.get('/global', function(req, res, next) {
     renderPage(req, res, next, 'global');
 });
 
-router.get('/country/:country/about', function (req, res, next) {
-    //TODO: make sure iso country exists
+router.get('/country/:country/about', function(req, res, next) {
+    // TODO: make sure iso country exists
     renderPage(req, res, next, 'country/' + req.params.country + '/about', req.params.country, true);
 });
 
-router.get('/country/:country/published', function (req, res, next) {
-    //TODO: make sure publishing country exists in GBIF
+router.get('/country/:country/published', function(req, res, next) {
+    // TODO: make sure publishing country exists in GBIF
     renderPage(req, res, next, 'country/' + req.params.country + '/publishedBy', req.params.country, false);
 });
 
 
 function renderPage(req, res, next, path, country, about) {
-
     let description;
 
-    if (about && country){
-        description =  req.__("meta.analyticsCountry.fromDescription", {country: req.__("country."+country)})  ;
-
-    } else if(country){
-
-        description =  req.__("meta.analyticsCountry.publishedByDescription", {country: req.__("country."+country)})  ;
-
-
+    if (about && country) {
+        description = req.__('meta.analyticsCountry.fromDescription', {country: req.__('country.'+country)});
+    } else if (country) {
+        description = req.__('meta.analyticsCountry.publishedByDescription', {country: req.__('country.'+country)});
     } else {
-        description = req.__("meta.analyticsGlobalDescription");
+        description = req.__('meta.analyticsGlobalDescription');
     }
-
 
 
     try {
         res.render('pages/analytics/analytics', {
             country: country,
             about: about,
-            thumbBase: apiCfg.image.url + "fit-in/300x250/http://" + cfg.analyticsImg + path + "/figure/",
-            imgBase: apiCfg.image.url + "http://" + cfg.analyticsImg + path + "/figure/",
+            thumbBase: apiCfg.image.url + 'fit-in/300x250/http://' + cfg.analyticsImg + path + '/figure/',
+            imgBase: apiCfg.image.url + 'http://' + cfg.analyticsImg + path + '/figure/',
             _meta: {
-                title: req.__("meta.analyticsTitle"),
+                title: req.__('meta.analyticsTitle'),
                 description: description,
-                imageCache: apiCfg.image.url ,
-                image : "http://" + cfg.analyticsImg + path + "/figure/occ_repatriation.png"
+                imageCache: apiCfg.image.url,
+                image: 'http://' + cfg.analyticsImg + path + '/figure/occ_repatriation.png'
             }
         });
     } catch (e) {

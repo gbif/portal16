@@ -1,12 +1,12 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/js/base/shared/signpost.js', function (req, res) {
+router.get('/js/base/shared/signpost.js', function(req, res) {
     res.set('Content-Type', 'application/javascript');
     res.render('shared/signpost', {});
 });

@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
@@ -9,14 +9,14 @@ var express = require('express'),
 
 const querystring = require('querystring');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/occurrence/search', function (req, res) {
+router.get('/occurrence/search', function(req, res) {
     delete req.query.locale;
     delete req.query.advanced;
-    occurrenceSearch(req.query).then(function (data) {
+    occurrenceSearch(req.query).then(function(data) {
         let settings = {
             facets: true,
             query: req.query,
@@ -42,16 +42,15 @@ router.get('/occurrence/search', function (req, res) {
             ],
             expandConfig: expandConfig
         };
-        gbifData.expand.expand(data, settings, res.__, function (err) {
+        gbifData.expand.expand(data, settings, res.__, function(err) {
             if (err) {
-                //TODO handle expansion errors
+                // TODO handle expansion errors
                 res.json(data);
             } else {
                 res.json(data);
             }
         });
-
-    }, function (err) {
+    }, function(err) {
         res.status(_.get(err, 'errorResponse.statusCode', 500));
         res.json({
             body: _.get(err, 'errorResponse.body', err)
@@ -60,15 +59,14 @@ router.get('/occurrence/search', function (req, res) {
 });
 
 function occurrenceSearch(query) {
-    "use strict";
-    var deferred = Q.defer();
-    helper.getApiData(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query), function (err, data) {
+    'use strict';
+    let deferred = Q.defer();
+    helper.getApiData(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query), function(err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
-        }
-        else {
+        } else {
             deferred.reject(err);
         }
     }, {retries: 2, timeoutMilliSeconds: 30000});
@@ -98,6 +96,6 @@ const expandConfig = {
     VERBATIM_RECORD: {
     type: 'TEMPLATE',
     templatedEndpoint: apiConfig.occurrence.url + '{{key}}/verbatim',
-    fromKey: 'key',
+    fromKey: 'key'
     }
 };

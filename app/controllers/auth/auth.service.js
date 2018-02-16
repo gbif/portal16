@@ -1,21 +1,21 @@
 'use strict';
-let credentials = rootRequire('config/credentials').directory,
-    topDomain = rootRequire('config/config').topDomain,
-    secret = credentials.secret,
-    jwt = require('jsonwebtoken'),
-    expressJwt = require('express-jwt'),
-    compose = require('composable-middleware'),
-    isNotDevBuild = require('../../../config/config').env !== 'dev', //it is convenient to set cookies on localhost so don't require secure cookies for dev builds
-    User = require('../api/user/user.model'),
-    _ = require('lodash'),
-    verification = rootRequire('app/models/verification/verification'), //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
-    log = require('../../../config/log');
+let credentials = rootRequire('config/credentials').directory;
+let secret = credentials.secret;
+let jwt = require('jsonwebtoken');
+let expressJwt = require('express-jwt');
+let compose = require('composable-middleware');
+let isNotDevBuild = require('../../../config/config').env !== 'dev';
+// it is convenient to set cookies on localhost so don't require secure cookies for dev builds
+let User = require('../api/user/user.model');
+let _ = require('lodash');
+let verification = rootRequire('app/models/verification/verification');
+// this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
+let log = require('../../../config/log');
+let minute = 60000;
+let hour = 60 * minute;
+let day = 24 * hour;
 
-let minute = 60000,
-    hour =  60*minute,
-    day = 24*hour;
-
-var validateJwt = expressJwt({
+let validateJwt = expressJwt({
     secret: secret
 });
 
@@ -30,12 +30,13 @@ module.exports = {
     logUserIn: logUserIn
 };
 
-function setTokenInHeader(req){
+function setTokenInHeader(req) {
     // allow access_token to be passed through query parameter as well
     if (req.query && req.query.hasOwnProperty('access_token')) {
         req.headers.authorization = `Bearer ${req.query.access_token}`;
     }
-    // IE11 forgets to set Authorization header sometimes. Pull from cookie instead. //mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
+    // IE11 forgets to set Authorization header sometimes. Pull from cookie instead.
+    // mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
     if (req.query && typeof req.headers.authorization === 'undefined') {
         req.headers.authorization = `Bearer ${req.cookies.token}`;
     }
@@ -48,22 +49,22 @@ function setTokenInHeader(req){
 function isAuthenticated() {
     return compose()
     // Validate jwt
-        .use(function (req, res, next) {
-            //// allow access_token to be passed through query parameter as well
-            //if (req.query && req.query.hasOwnProperty('access_token')) {
+        .use(function(req, res, next) {
+            // // allow access_token to be passed through query parameter as well
+            // if (req.query && req.query.hasOwnProperty('access_token')) {
             //    req.headers.authorization = `Bearer ${req.query.access_token}`;
-            //}
-            //// IE11 forgets to set Authorization header sometimes. Pull from cookie instead. //mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
-            //if (req.query && typeof req.headers.authorization === 'undefined') {
+            // }
+            // // IE11 forgets to set Authorization header sometimes. Pull from cookie instead. //mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
+            // if (req.query && typeof req.headers.authorization === 'undefined') {
             //    req.headers.authorization = `Bearer ${req.cookies.token}`;
-            //}
+            // }
             setTokenInHeader(req);
             validateJwt(req, res, next);
         })
-        .use(function (err, req, res, next) {
+        .use(function(err, req, res, next) {
             if (err.name === 'UnauthorizedError') {
                 removeTokenCookie(res);
-                log.error('Invalid user token detected.')
+                log.error('Invalid user token detected.');
                 res.status(401).send('invalid token...');
             } else if (err) {
                 next(err);
@@ -72,17 +73,17 @@ function isAuthenticated() {
             }
         })
         // Attach user to request
-        .use(function (req, res, next) {
+        .use(function(req, res, next) {
             setNoCache(res);
             User.getByUserName(req.user.userName)
-                .then(user => {
+                .then((user) => {
                     if (!user) {
                         return res.status(403).end();
                     }
                     req.user = user;
                     next();
                 })
-                .catch(function (err) {
+                .catch(function(err) {
                     res.status(err.statusCode || 403);
                     res.json({message: 'INVALID'});
                 });
@@ -99,9 +100,9 @@ function appendUser() {
             setNoCache(res);
             setTokenInHeader(req);
             validateJwt(req, res, function(val) {
-                if(_.isUndefined(val)) {
+                if (_.isUndefined(val)) {
                     User.getByUserName(req.user.userName)
-                        .then(user => {
+                        .then((user) => {
                             if (user) {
                                 req.user = user;
                             } else {
@@ -110,7 +111,7 @@ function appendUser() {
                             }
                             next();
                         })
-                        .catch(function (err) {
+                        .catch(function(err) {
                             if (err.statusCode == 204) {
                                 removeTokenCookie(res);
                                 delete req.user;
@@ -145,7 +146,7 @@ function signToken(user, ttl) {
     return token;
 }
 
-function logUserIn(res, user){
+function logUserIn(res, user) {
     let clientUser = User.getClientUser(user);
     let token = signToken(clientUser);
     setTokenCookie(res, token);
@@ -156,7 +157,7 @@ function logUserIn(res, user){
  * Sets the token as a secure cookie
  */
 function setTokenCookie(res, token) {
-    var options = {
+    let options = {
         maxAge: day * 7,
         secure: isNotDevBuild,
         httpOnly: false
@@ -168,7 +169,7 @@ function setTokenCookie(res, token) {
  * Remove token cookie
  */
 function removeTokenCookie(res) {
-    var options = {
+    let options = {
         maxAge: 1,
         secure: isNotDevBuild,
         httpOnly: false
@@ -193,10 +194,10 @@ function setNoCache(res) {
 function isHumanEnough() {
     return compose()
         // Test that the request has a body with a challengeCode and a correct answer
-        .use(function (req, res, next) {
-            let challengeId = _.get(req, 'body.challenge.id'),
-                answer = _.get(req, 'body.challenge.answer');
-            verification.verify(challengeId, answer, function (isHumanEnough) {
+        .use(function(req, res, next) {
+            let challengeId = _.get(req, 'body.challenge.id');
+            let answer = _.get(req, 'body.challenge.answer');
+            verification.verify(challengeId, answer, function(isHumanEnough) {
                 if (isHumanEnough) {
                     next();
                 } else {

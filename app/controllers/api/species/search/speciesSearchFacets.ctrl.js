@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
@@ -9,47 +9,47 @@ var express = require('express'),
 
 const querystring = require('querystring');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/species/constituents', function (req, res) {
-    //clear all facets and ask for speciesKey facet only
+router.get('/species/constituents', function(req, res) {
+    // clear all facets and ask for speciesKey facet only
     // var type = req.query.type || 'species';
     // if (['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'].indexOf(type) < 0) {
     //     res.status(500);
     //     res.send('Invalid type.');
     // }
-    var type = "constituent";
+    let type = 'constituent';
     req.query.facet = type + 'Key';
 
-    //get on emore facet than asked for and use that to test for last
-    var facetLimit = parseInt(req.query.limit) || 20;
-    var offset = parseInt(req.query.offset) || 0;
+    // get on emore facet than asked for and use that to test for last
+    let facetLimit = parseInt(req.query.limit) || 20;
+    let offset = parseInt(req.query.offset) || 0;
     req.query[type + 'Key.facetOffset'] = offset;
     req.query[type + 'Key.facetLimit'] = facetLimit + 1;
 
-    //We do not care about the result count
+    // We do not care about the result count
     req.query.limit = 0;
     req.query.offset = undefined;
 
-    var endOfRecords = false;
-    taxonSearch(req.query).then(function (datasets) {
-        var datasetKeys = _.get(datasets, 'facets[0].counts', []);
+    let endOfRecords = false;
+    taxonSearch(req.query).then(function(datasets) {
+        let datasetKeys = _.get(datasets, 'facets[0].counts', []);
 
-        //only return the amount asked for, and since we addded one to test for last, then remove last
+        // only return the amount asked for, and since we addded one to test for last, then remove last
         if (datasetKeys.length <= facetLimit) {
             endOfRecords = true;
         } else {
             datasetKeys.pop();
         }
 
-        async.map(datasetKeys, function(item, cb){
+        async.map(datasetKeys, function(item, cb) {
             helper.getApiData(apiConfig.dataset.url + item.name, function(err, dataset) {
                 if (err) {
                     cb(err);
                 } else if (typeof dataset.errorType !== 'undefined') {
-                    cb(dataset.errorType)
+                    cb(dataset.errorType);
                 } else {
                     dataset._constituentTaxoncount = item.count;
                     cb(null, dataset);
@@ -59,7 +59,7 @@ router.get('/species/constituents', function (req, res) {
             if (err) {
                 res.json({err: 'failed to look up all keys'});
             } else {
-                var response = {
+                let response = {
                     offset: offset,
                     limit: facetLimit,
                     endOfRecords: endOfRecords,
@@ -68,7 +68,7 @@ router.get('/species/constituents', function (req, res) {
                 res.json(response);
             }
         });
-    }, function (err) {
+    }, function(err) {
         res.status(_.get(err, 'errorResponse.statusCode', 500));
         res.json({
             body: _.get(err, 'errorResponse.body', err)
@@ -77,15 +77,14 @@ router.get('/species/constituents', function (req, res) {
 });
 
 function taxonSearch(query) {
-    "use strict";
-    var deferred = Q.defer();
-    helper.getApiData(apiConfig.taxonSearch.url + '?' + querystring.stringify(query), function (err, data) {
+    'use strict';
+    let deferred = Q.defer();
+    helper.getApiData(apiConfig.taxonSearch.url + '?' + querystring.stringify(query), function(err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
-        }
-        else {
+        } else {
             deferred.reject(err);
         }
     }, {retries: 2, timeoutMilliSeconds: 30000});

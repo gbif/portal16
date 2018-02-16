@@ -4,7 +4,7 @@ const express = require('express'),
     TheGbifNetwork = require('../../../models/gbifdata/theGbifNetwork/theGbifNetwork'),
     log = require('../../../../config/log');
 
-module.exports = app => {
+module.exports = (app) => {
     app.use('/api', router);
 };
 
@@ -14,11 +14,11 @@ router.get('/country/digest/:iso2?', (req, res, next) => {
         iso2 = req.params.iso2.toUpperCase();
     }
     TheGbifNetwork.getCountries(iso2)
-        .then(data => {
+        .then((data) => {
             res.json(data);
         })
-        .catch(err => {
+        .catch((err) => {
             log.error('Error in /api/country/digest controller: ' + err.message);
-            next(err)
+            next(err);
         });
 });

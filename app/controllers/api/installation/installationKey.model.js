@@ -1,5 +1,5 @@
-"use strict";
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+'use strict';
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     format = rootRequire('app/helpers/format'),
     _ = require('lodash'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),

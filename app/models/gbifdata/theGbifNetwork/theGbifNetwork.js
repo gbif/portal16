@@ -22,21 +22,21 @@ let helper = require('../../util/util'),
 
 let language;
 
-let theGbifNetwork = function (record) {
+let theGbifNetwork = function(record) {
     this.record = record;
 };
 
 theGbifNetwork.prototype.record = {};
 
-theGbifNetwork.get = function(res){
+theGbifNetwork.get = function(res) {
     let deferred = Q.defer();
     language = res.locals.gb.locales.current;
 
     getIntro(language)
-        .then(function(text){
+        .then(function(text) {
             deferred.resolve(text);
         })
-        .catch(function(err){
+        .catch(function(err) {
             deferred.reject(err.message + 'at line 27.');
         });
 
@@ -52,10 +52,10 @@ function getIntro(language) {
     // insert intro text for each group.
     let introFile = ['theGbifNetwork/landing/'];
     translationsHelper.getTranslationPromise(introFile, language)
-        .then(function(translation){
+        .then(function(translation) {
             deferred.resolve(translation);
         })
-        .catch(function(err){
+        .catch(function(err) {
             deferred.reject(err.message);
         });
     return deferred.promise;
@@ -65,7 +65,7 @@ function getIntro(language) {
  * Get only counts of network entities (participants, publishers, literature).
  * @param query
  */
-theGbifNetwork.counts = query => {
+theGbifNetwork.counts = (query) => {
     let deferred = Q.defer();
     if (!query.hasOwnProperty('gbifRegion') || query.gbifRegion === undefined) {
         query.gbifRegion = 'GLOBAL';
@@ -80,55 +80,51 @@ theGbifNetwork.counts = query => {
 
         if (typeof value === 'object' && value.hasOwnProperty('literatureAuthorCountries')) {
             deferred.resolve(value);
-        }
-        else {
-
+        } else {
             // retrieve counts
             let count = {};
 
             query.membershipType = 'voting_participant';
             DirectoryParticipants.groupBy(query)
-                .then(result => {
+                .then((result) => {
                     count[query.membershipType] = result.length;
                     query.membershipType = 'associate_country_participant';
                     return DirectoryParticipants.groupBy(query);
                 })
-                .then(result => {
+                .then((result) => {
                     count[query.membershipType] = result.length;
                     query.membershipType = 'other_associate_participant';
                     return DirectoryParticipants.groupBy(query);
                 })
-                .then(result => {
+                .then((result) => {
                     count[query.membershipType] = result.length;
                     query.membershipType = 'gbif_affiliate';
                     return DirectoryParticipants.groupBy(query);
                 })
-                .then(result => {
+                .then((result) => {
                     count[query.membershipType] = result.length;
 
                     // add regional publishers
                     return PublisherRegional.groupBy(query);
                 })
 
-                .then(publishers => {
+                .then((publishers) => {
                     count['publisher'] = publishers.length;
 
                     theGbifNetworkCache.set(cacheId, count, 3600, (err, success) => {
                         if (!err && success) {
                             log.info('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
-                        }
-                        else {
+                        } else {
                             log.error('Variable ' + cacheId + ' failed to cache.');
                         }
                     });
                     deferred.resolve(count);
                 })
-                .catch(e => {
+                .catch((e) => {
                     log.info(e + ' at count().');
                     deferred.reject(e + ' at count().');
                 });
         }
-
     });
 
     return deferred.promise;
@@ -149,29 +145,28 @@ theGbifNetwork.getCountries = (iso2) => {
         failHard: true
     };
 
-    var promises = [helper.getApiDataPromise(requestUrl, options), theGbifNetwork.getCountryFacets()];
+    let promises = [helper.getApiDataPromise(requestUrl, options), theGbifNetwork.getCountryFacets()];
 
     Q.all(promises)
         .then((result) => {
-
-          var  countries = result[0];
-          var  facetMap = result[1];
+          let countries = result[0];
+          let facetMap = result[1];
             let countryTasks = [];
 
             // if iso2 is specified, reduce the countries array.
             if (typeof iso2 !== 'undefined') {
-                countries = countries.filter(country => {
+                countries = countries.filter((country) => {
                     return country.iso2 === iso2;
                 });
             }
 
             countries.forEach((country, i) => {
                 countryTasks.push(theGbifNetwork.getDataCount(country, facetMap)
-                    .then(countryWCount => {
+                    .then((countryWCount) => {
                         countries[i] = countryWCount;
                     })
-                    .catch(e => {
-                        log.info(e + ' at getDataCount().')
+                    .catch((e) => {
+                        log.info(e + ' at getDataCount().');
                     }));
             });
             return Q.all(countryTasks)
@@ -179,7 +174,7 @@ theGbifNetwork.getCountries = (iso2) => {
                     deferred.resolve(countries);
                 });
         })
-        .catch(err => {
+        .catch((err) => {
             deferred.reject(err + ' getCountries().');
         });
 
@@ -188,23 +183,21 @@ theGbifNetwork.getCountries = (iso2) => {
 
 
 theGbifNetwork.getCountryFacets = () => {
-
     let countryFacetUrl = 'search?limit=0&facet=publishingCountry&publishingCountry.facetLimit=1000';
 
     let countryOccurrenceFacets = helper.getApiDataPromise(dataApi.occurrence.url + countryFacetUrl),
         countryDatasetFacets = helper.getApiDataPromise(dataApi.dataset.url + countryFacetUrl);
 
-    var countMap = {};
+    let countMap = {};
 
     return Q.all([countryOccurrenceFacets, countryDatasetFacets])
-        .then(function (facets) {
-
+        .then(function(facets) {
             let occurrenceCounts = facets[0].facets[0].counts;
             let datasetCounts = facets[1].facets[0].counts;
             for (var i = 0; i < occurrenceCounts.length; i++) {
-                countMap[occurrenceCounts[i].name] = {occurrenceFromCount: occurrenceCounts[i].count}
+                countMap[occurrenceCounts[i].name] = {occurrenceFromCount: occurrenceCounts[i].count};
             }
-            
+
             for (i = 0; i < datasetCounts.length; i++) {
                 if (countMap[datasetCounts[i].name]) {
                     countMap[datasetCounts[i].name].datasetFromCount = datasetCounts[i].count;
@@ -215,26 +208,20 @@ theGbifNetwork.getCountryFacets = () => {
 
             return countMap;
         });
-
-
-}
+};
 
 /**
  * Gather specified API calls to digest for counts.
  * @param participant
  */
 theGbifNetwork.getDataCount = (participant, facetMap) => {
-
-
     let deferred = Q.defer();
     let cacheId;
     if (participant.hasOwnProperty('type') && participant.type === 'OTHER') {
         cacheId = 'participant' + participant.id;
-    }
-    else if (participant.hasOwnProperty('type') && participant.type === 'COUNTRY') {
+    } else if (participant.hasOwnProperty('type') && participant.type === 'COUNTRY') {
         cacheId = 'country' + participant.iso2;
-    }
-    else {
+    } else {
         cacheId = 'non_participant_' + participant.iso2;
     }
 
@@ -246,16 +233,14 @@ theGbifNetwork.getDataCount = (participant, facetMap) => {
         }
         if (typeof value === 'object' && value.hasOwnProperty('counts')) {
             deferred.resolve(value);
-        }
-        else {
+        } else {
             return theGbifNetwork[functionName](participant, facetMap)
-                .then(participant => {
+                .then((participant) => {
                     if (participant.hasOwnProperty('counts')) {
                         theGbifNetworkCache.set(cacheId, participant, 3600, (err, success) => {
                             if (!err && success) {
                                 log.info('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
-                            }
-                            else {
+                            } else {
                                 log.error('Variable ' + cacheId + ' failed to cache.');
                             }
                         });
@@ -268,22 +253,19 @@ theGbifNetwork.getDataCount = (participant, facetMap) => {
 };
 
 theGbifNetwork.getCountryDataCount = (country, facetMap ) => {
-
-    if(facetMap[country.iso2]){
+    if (facetMap[country.iso2]) {
         country.counts = facetMap[country.iso2];
 
-        if(typeof country.counts.occurrenceFromCount === 'undefined'){
+        if (typeof country.counts.occurrenceFromCount === 'undefined') {
             country.counts.occurrenceFromCount = 0;
-        } else if(typeof country.counts.datasetFromCount === 'undefined') {
+        } else if (typeof country.counts.datasetFromCount === 'undefined') {
             country.counts.datasetFromCount = 0;
         }
     } else {
-        country.counts = {occurrenceFromCount: 0, datasetFromCount: 0}
+        country.counts = {occurrenceFromCount: 0, datasetFromCount: 0};
     }
 
     return Q.resolve(country);
-
-
 };
 
 
@@ -325,20 +307,20 @@ theGbifNetwork.getCountryDataCount = (country, facetMap ) => {
 //         });
 // };
 
-theGbifNetwork.getOapDataCount = participant => {
+theGbifNetwork.getOapDataCount = (participant) => {
     let deferred = Q.defer();
     let occurrenceFromCount = 0,
         datasetFromCount = 0;
     theGbifNetwork.getNodes(participant.id)
-        .then(nodes => {
+        .then((nodes) => {
             let publishers = [];
             let publisherTasks = [];
-            nodes.forEach(node => {
+            nodes.forEach((node) => {
                 publisherTasks.push(theGbifNetwork.getAllPublishers(node.key)
-                    .then(nodesPublishers => {
+                    .then((nodesPublishers) => {
                         publishers = publishers.concat(nodesPublishers);
                     })
-                    .catch(e => {
+                    .catch((e) => {
                         throw new Error(e);
                     })
                 );
@@ -350,11 +332,11 @@ theGbifNetwork.getOapDataCount = participant => {
                 .then(() => {
                     return publishers;
                 })
-                .catch(e => {
+                .catch((e) => {
                     throw new Error(e);
                 });
         })
-        .then(publishers => {
+        .then((publishers) => {
             let tasks = [];
             let options = {
                 timeoutMilliSeconds: 10000,
@@ -363,18 +345,18 @@ theGbifNetwork.getOapDataCount = participant => {
             };
 
             // add up both dataset and occurrence count.
-            publishers.forEach(pub => {
+            publishers.forEach((pub) => {
                 let url = dataApi.occurrenceSearch.url + '?publishingOrg=' + pub.key;
                 tasks.push(helper.getApiDataPromise(url, options)
-                    .then(result => {
+                    .then((result) => {
                         occurrenceFromCount += result.count;
                         url = dataApi.datasetSearch.url + '?publishingOrg=' + pub.key;
-                        return helper.getApiDataPromise(url, options)
+                        return helper.getApiDataPromise(url, options);
                     })
-                    .then(result => {
+                    .then((result) => {
                         datasetFromCount += result.count;
                     })
-                    .catch(e => {
+                    .catch((e) => {
                         throw new Error(e);
                     })
                 );
@@ -387,33 +369,33 @@ theGbifNetwork.getOapDataCount = participant => {
                     };
                     return participant;
                 })
-                .catch(e => {
+                .catch((e) => {
                     throw new Error(e);
-                })
+                });
         })
-        .then(participant => {
+        .then((participant) => {
             deferred.resolve(participant);
         })
-        .catch(e => {
+        .catch((e) => {
             throw new Error(e);
         });
     return deferred.promise;
 };
 
-theGbifNetwork.getNodes = participantId => {
+theGbifNetwork.getNodes = (participantId) => {
     let deferred = Q.defer();
     let url = dataApi.node.url;
     helper.getApiDataPromise(url, {'qs': {'identifier': participantId}})
-        .then(result => {
+        .then((result) => {
             deferred.resolve(result.results);
         })
-        .catch(e => {
+        .catch((e) => {
             deferred.reject(e);
         });
     return deferred.promise;
 };
 
-theGbifNetwork.getAllPublishers = nodeUuid => {
+theGbifNetwork.getAllPublishers = (nodeUuid) => {
     let deferred = Q.defer(),
         publishers = [],
         limit = 20;
@@ -429,13 +411,12 @@ theGbifNetwork.getAllPublishers = nodeUuid => {
 
     let url = dataApi.node.url + nodeUuid + '/organization';
     helper.getApiDataPromise(url, options)
-        .then(result => {
+        .then((result) => {
             publishers = publishers.concat(result.results);
 
             if (publishers.length === result.count) {
                 deferred.resolve(publishers);
-            }
-            else {
+            } else {
                 let tasks = [],
                     offset = 0;
 
@@ -443,10 +424,10 @@ theGbifNetwork.getAllPublishers = nodeUuid => {
                     offset += 20;
                     options.qs.offset = offset;
                     tasks.push(helper.getApiDataPromise(url, options)
-                        .then(result => {
+                        .then((result) => {
                             publishers = publishers.concat(result.results);
                         })
-                        .catch(e => {
+                        .catch((e) => {
                             deferred.reject(e);
                         })
                     );
@@ -456,12 +437,12 @@ theGbifNetwork.getAllPublishers = nodeUuid => {
                     .then(() => {
                         deferred.resolve(publishers);
                     })
-                    .catch(e => {
+                    .catch((e) => {
                         deferred.reject(e);
                     });
             }
         })
-        .catch(e => {
+        .catch((e) => {
             deferred.reject(e);
         });
     return deferred.promise;
@@ -478,15 +459,14 @@ function processCountResult(name, result) {
     if (result.hasOwnProperty('count')) countObj.count = result.count;
     if (['checklistDatasetAbout', 'checklistDatasetFrom'].indexOf(name) !== -1) {
         return getChecklistMetrics(result.results)
-            .then(usageCount => {
+            .then((usageCount) => {
                 countObj.recordCount = usageCount;
                 return countObj;
             })
-            .catch(e => {
+            .catch((e) => {
                 deferred.reject(e);
             });
-    }
-    else if (['datasetAbout', 'occurrenceContributedBy', 'occurrenceContributingTo'].indexOf(name) !== -1) {
+    } else if (['datasetAbout', 'occurrenceContributedBy', 'occurrenceContributingTo'].indexOf(name) !== -1) {
         let recordCount = 0;
         for (let property in result) {
             if (result.hasOwnProperty(property)) {
@@ -496,12 +476,10 @@ function processCountResult(name, result) {
         countObj.count = Object.keys(result).length;
         countObj.recordCount = recordCount;
         deferred.resolve(countObj);
-    }
-    else if (!isNaN(result)) {
+    } else if (!isNaN(result)) {
         countObj.count = result;
         deferred.resolve(countObj);
-    }
-    else {
+    } else {
         deferred.resolve(countObj);
     }
     return deferred.promise;
@@ -514,9 +492,9 @@ function getChecklistMetrics(results) {
     let deferred = Q.defer();
     let usagesCount = 0;
     let metricsTask = [];
-    results.forEach(result => {
+    results.forEach((result) => {
         metricsTask.push(helper.getApiDataPromise(dataApi.dataset.url + result.key + '/metrics')
-            .then(metrics => {
+            .then((metrics) => {
                 usagesCount += metrics.usagesCount;
             }));
     });
@@ -524,15 +502,15 @@ function getChecklistMetrics(results) {
         .then(() => {
             deferred.resolve(usagesCount);
         })
-        .catch(e => {
+        .catch((e) => {
             deferred.reject(e);
         });
     return deferred.promise;
 }
 
-theGbifNetwork.validateParticipants = participants => {
+theGbifNetwork.validateParticipants = (participants) => {
     let valid = true;
-    participants.forEach(p => {
+    participants.forEach((p) => {
         if (!p.hasOwnProperty('id')) {
             valid = false;
         }

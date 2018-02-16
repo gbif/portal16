@@ -1,37 +1,36 @@
-var moment = require('moment'),
-    sanitizeHtml = require('sanitize-html'),
-    Entities = require('html-entities').AllHtmlEntities,
-    isUrl = require("is-url"),
-    entities = new Entities(),
-    camelCase = require('camelcase'),
-    _ = require('lodash'),
-    Humanize = require('humanize-plus'),
-    querystring = require('querystring'),
-    url = require('url'),
-    slug = require("slug"),
-    URLSearchParams = require('url').URLSearchParams,
-    linkTools = require('./links/links'),
-    defaultLanguage = require('../../config/config').defaultLocale;
+let moment = require('moment');
+let sanitizeHtml = require('sanitize-html');
+let Entities = require('html-entities').AllHtmlEntities;
+let isUrl = require('is-url');
+let entities = new Entities();
+let camelCase = require('camelcase');
+let _ = require('lodash');
+let Humanize = require('humanize-plus');
+let url = require('url');
+let slug = require('slug');
+let URLSearchParams = require('url').URLSearchParams;
+let linkTools = require('./links/links');
+let defaultLanguage = require('../../config/config').defaultLocale;
 
 // GBIF/UN date style
 moment.updateLocale('en', {
     longDateFormat: {
-        LT: "k:mm",
-        LTS: "k:mm:ss",
-        l: "D-MMM-YYYY",
-        L: "DD-MMM-YYYY",
-        ll: "D MMMM YYYY",
-        LL: "D MMMM YYYY",
-        lll: "LT D MMMM YYYY",
-        LLL: "LT D MMMM YYYY",
-        llll: "LT, ddd D MMM YYYY",
-        LLLL: "LT, dddd Do MMMM YYYY"
+        LT: 'k:mm',
+        LTS: 'k:mm:ss',
+        l: 'D-MMM-YYYY',
+        L: 'DD-MMM-YYYY',
+        ll: 'D MMMM YYYY',
+        LL: 'D MMMM YYYY',
+        lll: 'LT D MMMM YYYY',
+        LLL: 'LT D MMMM YYYY',
+        llll: 'LT, ddd D MMM YYYY',
+        LLLL: 'LT, dddd Do MMMM YYYY'
     }
 });
-var dateFormats = ['YYYY-MM', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ'];
+let dateFormats = ['YYYY-MM', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ'];
 
 function date(date, locale, format) {
-    var day;
+    let day;
     locale = locale || defaultLanguage;
     format = _.isUndefined(format) ? 'LL' : format; // localized format http://momentjs.com/docs/#/displaying/format/
     if (!isNaN(Number(date))) {
@@ -47,43 +46,44 @@ function getSlug(str) {
 }
 
 function dateRange(start, end, showHours, locale) {
-    var startDate, endDate;
+    let startDate;
+    let endDate;
     locale = locale || defaultLanguage;
 
-    //parse start date
+    // parse start date
     if (!isNaN(Number(start))) {
         startDate = moment.unix(start).locale(locale);
     } else {
         startDate = moment(start, dateFormats).locale(locale);
     }
 
-    //parse end date
+    // parse end date
     if (!isNaN(Number(end))) {
         endDate = moment.unix(end).locale(locale);
     } else {
         endDate = moment(end, dateFormats).locale(locale);
     }
 
-    //always if all day event, then ignore time a day
+    // always if all day event, then ignore time a day
     if (start === end || !end) {
-        //if same date and time or no enddate then show just start date
+        // if same date and time or no enddate then show just start date
         if (showHours) return startDate.format('D MMMM YYYY HH:mm');
         return startDate.format('D MMMM YYYY');
-    } else if (showHours && startDate.format('D MMMM YYYY') == endDate.format('D MMMM YYYY')) {
-        //if not an all day event, then show full date and time in interval
+    } else if (showHours && startDate.format('D MMMM YYYY') === endDate.format('D MMMM YYYY')) {
+        // if not an all day event, then show full date and time in interval
         // 15 may 2017 13:00 - 17 may 2017 20:00
         return startDate.format('D MMMM YYYY') + ' ' + startDate.format('HH:mm') + ' - ' + endDate.format('HH:mm');
     } else if (showHours) {
-        //10 april 13:30 - 15:50
+        // 10 april 13:30 - 15:50
         return startDate.format('D MMMM YYYY HH:mm') + ' - ' + endDate.format('D MMMM YYYY HH:mm');
     } else if (startDate.year() !== endDate.year()) {
-        //29 december 2017 - 1 january 2018
+        // 29 december 2017 - 1 january 2018
         return startDate.format('D MMM YYYY') + ' - ' + endDate.format('D MMM YYYY');
     } else if (startDate.month() !== endDate.month()) {
         // 29 juni - 2 july 2017
         return startDate.format('D MMM') + ' - ' + endDate.format('D MMM YYYY');
     } else if (startDate.day() !== endDate.day()) {
-        //17-19 may 2016
+        // 17-19 may 2016
         return startDate.format('D') + ' - ' + endDate.format('D MMMM YYYY');
     } else {
         return startDate.format('D MMMM YYYY');
@@ -91,26 +91,27 @@ function dateRange(start, end, showHours, locale) {
 }
 
 function timeRange(start, end) {
-    var startDate, endDate,
-        locale = defaultLanguage;
+    let startDate;
+    let endDate;
+    let locale = defaultLanguage;
 
-    //parse start date
+    // parse start date
     if (!isNaN(Number(start))) {
         startDate = moment.unix(start).locale(locale);
     } else {
         startDate = moment(start, dateFormats).locale(locale);
     }
 
-    //parse end date
+    // parse end date
     if (!isNaN(Number(end))) {
         endDate = moment.unix(end).locale(locale);
     } else {
         endDate = moment(end, dateFormats).locale(locale);
     }
 
-    //always if all day event, then ignore time a day
+    // always if all day event, then ignore time a day
     if (start === end || !end) {
-        //if same date and time or no enddate then show just start date
+        // if same date and time or no enddate then show just start date
         return startDate.format('HH:mm');
     } else {
         return startDate.format('HH:mm') + ' - ' + endDate.format('HH:mm');
@@ -158,9 +159,9 @@ function prettifyLicense(text) {
         return 'UNSPECIFIED';
     }
     let licenses = {
-        "creativecommons.org/publicdomain/zero/1.0/legalcode": "CC0_1_0",
-        "creativecommons.org/licenses/by/4.0/legalcode": "CC_BY_4_0",
-        "creativecommons.org/licenses/by-nc/4.0/legalcode": "CC_BY_NC_4_0"
+        'creativecommons.org/publicdomain/zero/1.0/legalcode': 'CC0_1_0',
+        'creativecommons.org/licenses/by/4.0/legalcode': 'CC_BY_4_0',
+        'creativecommons.org/licenses/by-nc/4.0/legalcode': 'CC_BY_NC_4_0'
     };
     let license = licenses[text.replace(/.*?:\/\//, '')];
     if (!license) {
@@ -171,18 +172,19 @@ function prettifyLicense(text) {
 
 
 /**
- * @param bytes
- * @param decimals
- * @returns {*}
+ * @param {number} bytes - A positive number of bytes
+ * @param {number} decimals - How many decimals to show
+ * @param {string} language - the two letter isocode
+ * @return {string}
  * @see http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
  */
 function formatBytes(bytes, decimals, language) {
-    if (bytes == 0) return '0 Bytes';
-    if (bytes == 1) return '1 Byte';
-    var k = 1000;
-    var dm = decimals || 0;
-    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    var i = Math.floor(Math.log(bytes) / Math.log(k));
+    if (bytes === 0) return '0 Bytes';
+    if (bytes === 1) return '1 Byte';
+    let k = 1000;
+    let dm = decimals || 0;
+    let sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    let i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)).toLocaleString(language) + ' ' + sizes[i];
 }
 
@@ -193,11 +195,11 @@ function compactInteger(nr) {
 function localizeLinks(dirty, urlPrefix) {
     urlPrefix = urlPrefix || '';
     dirty = dirty || '';
-    let clean = sanitizeHtml(dirty, {
+    return sanitizeHtml(dirty, {
             allowedTags: false,
             allowedAttributes: false,
             transformTags: {
-                'a': function (tagName, attr) {
+                'a': function(tagName, attr) {
                     if (!isUrl(attr.href)) {
                         attr.href = urlPrefix +'/' + attr.href.replace(/^\//, '');
                     }
@@ -209,7 +211,6 @@ function localizeLinks(dirty, urlPrefix) {
             }
         }
     );
-    return clean;
 }
 
 function localizeLink(url, urlPrefix) {
@@ -223,19 +224,20 @@ function localizeLink(url, urlPrefix) {
 
 function sanitizeTrusted(dirty) {
     dirty = dirty || '';
-    var allowedTags = ['img', 'h2', 'iframe', 'span'];
-    let clean = sanitizeHtml(dirty, {
+    let allowedTags = ['img', 'h2', 'iframe', 'span'];
+    let clean;
+    clean = sanitizeHtml(dirty, {
             allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
             allowedAttributes: {
                 '*': ['id', 'href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen', 'gb-help', 'gb-help-options']
             },
             transformTags: {
-                'a': function (tagName, attr) {
+                'a': function(tagName, attr) {
                     if (attr.href) {
                         let linkUrl = url.parse(attr.href);
                         let urlPathname = linkUrl.pathname;
                         let urlParams = new URLSearchParams(linkUrl.search);
-                        if (urlPathname == '/faq' && urlParams.get('question') && urlParams.get('inline') === 'true') {
+                        if (urlPathname === '/faq' && urlParams.get('question') && urlParams.get('inline') === 'true') {
                             return {
                                 tagName: 'span',
                                 attribs: {
@@ -256,7 +258,7 @@ function sanitizeTrusted(dirty) {
                     }
                 }
 
-                //'iframe': function (tagName, attr) {
+                // 'iframe': function (tagName, attr) {
                 //    // My own custom magic goes here
                 //    var innerElement = '<iframe src="' + attr.src + '"/>';
                 //    var w = parseInt(attr.width),
@@ -270,7 +272,7 @@ function sanitizeTrusted(dirty) {
                 //        },
                 //        text: innerElement
                 //    };
-                //}
+                // }
             }
         }
     );
@@ -289,13 +291,13 @@ function removeHtml(dirty) {
 
 function sanitize(dirty, additionalAllowedTags) {
     dirty = dirty || '';
-    var allowedTags = additionalAllowedTags ? ['img', 'h2'].concat(additionalAllowedTags) : ['img', 'h2'];
+    let allowedTags = additionalAllowedTags ? ['img', 'h2'].concat(additionalAllowedTags) : ['img', 'h2'];
     let clean = sanitizeHtml(dirty, {
             allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
             allowedAttributes: {
                 '*': ['href', 'name', 'target', 'src', 'class', 'gb-help', 'gb-help-options']
             },
-            exclusiveFilter: function (frame) {
+            exclusiveFilter: function(frame) {
                 return frame.tag === 'p' && !frame.text.trim();
             }
         }
@@ -305,7 +307,8 @@ function sanitize(dirty, additionalAllowedTags) {
 
 function addPortalClasses(raw) {
     raw = raw || '';
-    let clean = sanitizeHtml(raw, {
+    let clean;
+    clean = sanitizeHtml(raw, {
             allowedTags: false,
             allowedAttributes: false,
             transformTags: {
@@ -321,7 +324,9 @@ function sanitizeField(obj, field) {
 }
 
 function sanitizeArrayField(array, field) {
-    array.forEach(function(e){sanitizeField(e, field)});
+    array.forEach(function(e) {
+        sanitizeField(e, field);
+    });
 }
 
 module.exports = {

@@ -8,11 +8,11 @@
 
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     path = require('path'),
     config = rootRequire('config/build'),
     gulpif = require('gulp-if'),
-    rename = require("gulp-rename"),
+    rename = require('gulp-rename'),
     wiredep = require('wiredep'),
     browserSync = require('browser-sync'),
     lost = require('lost'),
@@ -21,23 +21,23 @@ var gulp = require('gulp'),
     g = require('gulp-load-plugins')();
 
 
-gulp.task('stylus-reload', ['bootstrap-style'], function () {
+gulp.task('stylus-reload', ['bootstrap-style'], function() {
     return buildStylus()
         .pipe(browserSync.stream());
 });
 
-gulp.task('stylus', ['bootstrap-style'], function () {
+gulp.task('stylus', ['bootstrap-style'], function() {
     return buildStylus();
 });
 
-gulp.task('bootstrap-style', function () {
+gulp.task('bootstrap-style', function() {
     return gulp.src(config.bootstrap.root)
         .pipe(g.less())
         .pipe(gulp.dest(config.bootstrap.dest));
 });
 
-gulp.task('vendor-styles', function () {
-    var vendor = 'css/vendor';
+gulp.task('vendor-styles', function() {
+    let vendor = 'css/vendor';
     return gulp.src(config.bower.cssFiles, {
         base: vendor
     })
@@ -61,7 +61,7 @@ function buildStylus() {
      *  Order is not guaranteed. This should be okay as there shouldn't be overlap between files.
      *  In case there is a need to have something imported before something else there is the option to name myname.first.styl
      */
-    var injectFiles = gulp.src([
+    let injectFiles = gulp.src([
         path.join(config.paths.src, '/**/*.first.styl'),
         path.join(config.paths.src, '/**/*.second.styl'),
         path.join(config.paths.src, '/**/*.third.styl'),
@@ -72,8 +72,8 @@ function buildStylus() {
         read: false
     });
 
-    var injectOptions = {
-        transform: function (filePath) {
+    let injectOptions = {
+        transform: function(filePath) {
             filePath = filePath.replace(config.paths.src + '/', '');
             return '@import "' + path.join('../..', filePath) + '";';
         },
@@ -82,11 +82,11 @@ function buildStylus() {
         addRootSlash: false
     };
 
-    var processors = [
+    let processors = [
         lost()
     ];
 
-    var dest = 'css/base';
+    let dest = 'css/base';
     return gulp.src([
             path.join(config.paths.src, '/**/*.entry.styl')
         ])
@@ -99,15 +99,15 @@ function buildStylus() {
         .pipe(g.autoprefixer()).on('error', config.errorHandler('Autoprefixer'))
         .pipe(g.postcss(processors))
         .pipe(g.cleanCss())
-        .pipe(rename(function (path) {
+        .pipe(rename(function(path) {
             path.basename = path.basename.replace('.entry', '');
         }))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)));
 }
 
-gulp.task('ieStyle', [], function () {
-    var ieProcessors = [
+gulp.task('ieStyle', [], function() {
+    let ieProcessors = [
         require('postcss-unmq')({
             type: 'screen',
             width: 300,
@@ -121,7 +121,7 @@ gulp.task('ieStyle', [], function () {
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/base/ie')));
 });
 
-gulp.task('styles-reload', [], function (callback) {
+gulp.task('styles-reload', [], function(callback) {
     runSequence(
         ['stylus-reload'],
         ['ieStyle'],

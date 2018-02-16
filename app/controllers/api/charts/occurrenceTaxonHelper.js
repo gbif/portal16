@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-let i18n = rootRequire("config/i18n"),
+let i18n = rootRequire('config/i18n'),
     _ = require('lodash'),
     enums = rootRequire('app/models/enums/allEnums'),
     facetHelper = require('./expandFacets'),
@@ -16,18 +16,18 @@ module.exports = {
 };
 
 async function getMostFrequentTaxa(filter, percentage, limit) {
-    //get n most frequent taxa for each major rank
+    // get n most frequent taxa for each major rank
     let facetLimit = limit || 20;
     if (percentage) {
         percentage = Math.max(Math.min(100, _.toNumber(percentage)), 0.01);
         facetLimit = _.toSafeInteger(100 / percentage);
     }
 
-    //let facetPromises = rankKeys.map(function(e){
-    ////let facetPromises = ['taxonKey'].map(function(e){
+    // let facetPromises = rankKeys.map(function(e){
+    // //let facetPromises = ['taxonKey'].map(function(e){
     //    return getExpandedFacets(_.merge({}, filter, {facet: rankKeys, facetLimit: facetLimit, limit: 0}), percentage)
-    //});
-    //let facetResults = await Promise.all(facetPromises);
+    // });
+    // let facetResults = await Promise.all(facetPromises);
     let q = _.merge({}, filter, {
         facet: rankKeys,
         facetLimit: facetLimit,
@@ -43,17 +43,17 @@ async function getMostFrequentTaxa(filter, percentage, limit) {
 }
 
 function getFlatFacetList(result, percentage, limit) {
-    //decide on a minimum value before pruning. this decision is taken based on the percentage and limit provided
+    // decide on a minimum value before pruning. this decision is taken based on the percentage and limit provided
     if (!limit && !percentage) {
         limit = 10;
     }
     percentage = percentage || 100;
-    var minimum = result.count * (percentage / 100);
+    let minimum = result.count * (percentage / 100);
 
     if (limit) {
-        var allFacets = _.concat(...(_.map(result.facets, 'counts')));
+        let allFacets = _.concat(...(_.map(result.facets, 'counts')));
         allFacets = _.orderBy(allFacets, ['count'], ['desc']);
-        var minimumLimit = _.get(allFacets, '[' + limit + '].count', 0);
+        let minimumLimit = _.get(allFacets, '[' + limit + '].count', 0);
         minimum = Math.min(minimumLimit, minimum);
     }
 
@@ -69,7 +69,7 @@ async function getExpandedFacets(query) {
 
 function flattenAndPrune(result, minimum) {
     let flattened = _.concat(..._.map(result.facets, 'counts'));
-    _.remove(flattened, function (n) {
+    _.remove(flattened, function(n) {
         return n.count < minimum;
     });
     return {
@@ -87,19 +87,19 @@ function flattenAndPrune(result, minimum) {
  */
 function buildTree(taxons, totalCount) {
     let tree = {};
-    taxons.results.forEach(function (taxon) {
+    taxons.results.forEach(function(taxon) {
         let item = taxon._resolved;
         item._count = taxon.count;
         item.percentage = taxon.count / taxons.totalCount;
         addTaxonToTree(tree, item);
     });
-    //make it easier to traverse by mapping to arrays
+    // make it easier to traverse by mapping to arrays
     childrenToArray(tree);
     return tree.children;
 }
 
 function addTaxonToTree(tree, taxon) {
-    for (var i = 0; i < ranks.length; i++) {
+    for (let i = 0; i < ranks.length; i++) {
         let rank = ranks[i];
         let rankKeyField = rank + 'Key';
         let treePath = getTreePath(taxon, rankKeyField);
@@ -110,7 +110,7 @@ function addTaxonToTree(tree, taxon) {
             treeItem = _.get(tree, treePath);
         } else {
             treeItem = {};
-            _.setWith(tree, treePath, treeItem, Object)
+            _.setWith(tree, treePath, treeItem, Object);
         }
 
         treeItem.key = rankKey;
@@ -127,7 +127,7 @@ function addTaxonToTree(tree, taxon) {
 
 function childrenToArray(item) {
     if (item.children) {
-        Object.keys(item.children).forEach(function (key) {
+        Object.keys(item.children).forEach(function(key) {
             childrenToArray(item.children[key]);
         });
     }
@@ -136,7 +136,7 @@ function childrenToArray(item) {
 
 function getTreePath(taxon, stopRankKeyField) {
     let treePath = '';
-    for (var i = 0; i < rankKeys.length; i++) {
+    for (let i = 0; i < rankKeys.length; i++) {
         let rankKeyField = rankKeys[i];
         let key = taxon[rankKeyField] || 'UNKNOWN';
 
@@ -160,7 +160,7 @@ async function getData(query) {
     };
     let response = await request(options);
     if (response.statusCode !== 200) {
-        //TODO log error
+        // TODO log error
         throw 'Internal server error getting data';
     }
     return response.body;

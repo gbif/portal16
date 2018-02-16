@@ -6,7 +6,7 @@
  * enum list, multiselect
  */
 'use strict';
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -14,16 +14,16 @@ angular
 
 /** @ngInject */
 function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
-    var vm = this, offset;
+    let vm = this, offset;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
-    //a pretty print for coordinates.
-    //TODO create as reusable filter/formater 
-    vm.formatCoordinates = function (lat, lng) {
+    // a pretty print for coordinates.
+    // TODO create as reusable filter/formater
+    vm.formatCoordinates = function(lat, lng) {
         if (angular.isUndefined(lat) || angular.isUndefined(lng)) {
             return '';
         } else {
-            var la = $filter('number')(Math.abs(lat), 1) + (lat < 0 ? 'S' : 'N');
-            var lo = $filter('number')(Math.abs(lng), 1) + (lng < 0 ? 'W' : 'E');
+            let la = $filter('number')(Math.abs(lat), 1) + (lat < 0 ? 'S' : 'N');
+            let lo = $filter('number')(Math.abs(lng), 1) + (lng < 0 ? 'W' : 'E');
             return la + ', ' + lo;
         }
     };
@@ -38,7 +38,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
 
     updatePaginationCounts();
 
-    vm.pageChanged = function () {
+    vm.pageChanged = function() {
         vm.occurrenceState.query.offset = (vm.currentPage - 1) * vm.limit;
         OccurrenceFilter.update(vm.occurrenceState.query);
         updatePaginationCounts();
@@ -50,27 +50,27 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (offset + vm.limit < vm.occurrenceState.table.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
             }
-        }
+        },
     });
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
             }
-        }
+        },
     });
 
-    vm.hasData = function () {
+    vm.hasData = function() {
         return typeof vm.occurrenceState.table.count !== 'undefined';
-    }
+    };
 
 }
 

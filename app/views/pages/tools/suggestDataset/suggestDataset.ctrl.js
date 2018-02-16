@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,16 +8,16 @@ angular
 
 /** @ngInject */
 function suggestDatasetCtrl($http) {
-    var vm = this;
+    let vm = this;
     vm.suggestion = {};
     vm.state = 'ENTER';
     vm.referenceId = '';
 
-    vm.createSuggestion = function () {
-        $http.post('/api/tools/suggest-dataset', {form: vm.suggestion}, {}).then(function (response) {
+    vm.createSuggestion = function() {
+        $http.post('/api/tools/suggest-dataset', {form: vm.suggestion}, {}).then(function(response) {
             vm.referenceId = response.data.referenceId;
             vm.state = 'SUCCESS';
-        }, function () {
+        }, function() {
             vm.state = 'FAILED';
         });
     };

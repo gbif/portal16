@@ -1,5 +1,5 @@
-"use strict";
-var Q = require('q'),
+'use strict';
+let Q = require('q'),
     _ = require('lodash'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
@@ -8,7 +8,7 @@ var Q = require('q'),
     Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
 function getAngularInitData(occurrence) {
-    var keys = [
+    let keys = [
         'key',
         'decimalLatitude',
         'decimalLongitude',
@@ -21,8 +21,8 @@ function getAngularInitData(occurrence) {
         'footprintWKT',
         'footprintSRS'
     ];
-    var selectedData = {};
-    keys.forEach(function (e) {
+    let selectedData = {};
+    keys.forEach(function(e) {
         selectedData[e] = occurrence.record[e];
     });
     return selectedData;
@@ -30,9 +30,9 @@ function getAngularInitData(occurrence) {
 
 function getLastNormalCrawled(datasetProcess) {
     if (datasetProcess.count) {
-        for (var i = 0; i < datasetProcess.results.length; i++) {
-            var job = datasetProcess.results[i];
-            if (job.finishReason == 'NORMAL' || job.finishReason == 'NOT_MODIFIED') { //TODO what is the possible values here?
+        for (let i = 0; i < datasetProcess.results.length; i++) {
+            let job = datasetProcess.results[i];
+            if (job.finishReason == 'NORMAL' || job.finishReason == 'NOT_MODIFIED') { // TODO what is the possible values here?
                 return job.finishedCrawling;
             }
         }
@@ -40,7 +40,7 @@ function getLastNormalCrawled(datasetProcess) {
 }
 
 function getLastSync(occurrence) {
-    var dates = [],
+    let dates = [],
         lastNormalCrawl = getLastNormalCrawled(occurrence.datasetProcess);
 
     if (lastNormalCrawl) dates.push(lastNormalCrawl);
@@ -52,9 +52,9 @@ function getLastSync(occurrence) {
 }
 
 function highlight(occurrence) {
-    var highlights = {};
+    let highlights = {};
 
-    //get last successful crawl date
+    // get last successful crawl date
     highlights.lastSynced = getLastSync(occurrence);
 
     return highlights;
@@ -75,7 +75,7 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             'MaterialSample': 8,
             'GeologicalContext': 9
         },
-    //field terms that are to be included independent of their source. that is included these gbif specific terms
+    // field terms that are to be included independent of their source. that is included these gbif specific terms
         whiteList = {
             elevation: true,
             elevationAccuracy: true,
@@ -84,7 +84,7 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             distanceAboveSurface: true,
             distanceAboveSurfaceAccuracy: true
         };
-    terms.forEach(function (e) {
+    terms.forEach(function(e) {
         if (e.source !== 'DwcTerm' && e.source !== 'DcTerm' && typeof whiteList[e.simpleName] === 'undefined') {
             return;
         }
@@ -98,7 +98,7 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
         }
     });
 
-    usedGroups = Array.from(usedGroups).sort(function (a, b) {
+    usedGroups = Array.from(usedGroups).sort(function(a, b) {
         return (groupsOrder[a] || 100) - (groupsOrder[b] || 100);
     });
     return {
@@ -108,18 +108,18 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
     };
 }
 
-function notEmpty(value){
-    return !_.isUndefined(value) && (!_.isObjectLike(value) || !_.isEmpty(value))
+function notEmpty(value) {
+    return !_.isUndefined(value) && (!_.isObjectLike(value) || !_.isEmpty(value));
 }
 
 function getUsedExtensionTerms(verbatim) {
-    var used = {};
+    let used = {};
     if (verbatim.extensions) {
-        Object.keys(verbatim.extensions).forEach(function (extensionType) {
+        Object.keys(verbatim.extensions).forEach(function(extensionType) {
             if (verbatim.extensions[extensionType].length > 0) {
                 used[extensionType] = {};
-                verbatim.extensions[extensionType].forEach(function (extension) {
-                    Object.keys(extension).forEach(function (field) {
+                verbatim.extensions[extensionType].forEach(function(extension) {
+                    Object.keys(extension).forEach(function(field) {
                         used[extensionType][field] = true;
                     });
                 });
@@ -134,17 +134,17 @@ function getUsedExtensionTerms(verbatim) {
 
 
 function getOccurrenceModel(occurrenceKey, __) {
-    var deferred = Q.defer();
-    var getOptions = {
+    let deferred = Q.defer();
+    let getOptions = {
         expand: ['publisher', 'dataset', 'datasetProcess', 'verbatim', 'taxonName', 'species']
     };
 
-    var promises = [
+    let promises = [
         Occurrence.get(occurrenceKey, getOptions),
         occurrenceCoreTerms()
     ];
 
-    Q.all(promises).spread(function (occurrence, occurrenceMeta) {
+    Q.all(promises).spread(function(occurrence, occurrenceMeta) {
         occurrence.highlights = highlight(occurrence);
         occurrence.computedFields = {
             title: getTitle(occurrence, __)
@@ -156,9 +156,9 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrence.fieldsWithDifferences = occurrencIssues.getFieldsWithDifferences(occurrence.record, occurrence.verbatim, occurrence.terms.terms);
         occurrence.usedExtensionFields = getUsedExtensionTerms(occurrence.verbatim);
         deferred.resolve(occurrence);
-    }, function (err) {
+    }, function(err) {
         deferred.reject(err);
-    }).fail(function (err) {
+    }).fail(function(err) {
         deferred.reject(err);
     }).done();
 

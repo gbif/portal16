@@ -3,11 +3,9 @@
  */
 const redirectList = rootRequire('config/redirects'),
     redirectTable = {},
-    _ = require('lodash'),
-    ignoreTrailingSlashes = true,
-    querystring = require('querystring');
+    ignoreTrailingSlashes = true;
 
-redirectList.forEach(function(e){
+redirectList.forEach(function(e) {
     redirectTable[e.incoming] = e.target;
 });
 
@@ -28,21 +26,19 @@ function handleRedirects(req, res, next) {
     }
 }
 
-function removeSlashes(str){
+// function removeSlashes(str) {
+//     let parts = str.split('?');
+//     let path = parts[0];
+//
+//     let query = (parts[1] !== undefined) ? '?'+parts[1] : '';
+//     return path.replace(/(\/)+$/, '') + query;
+// }
 
-    let parts = str.split("?");
+function addTrailingSlash(str) {
+    let parts = str.split('?');
     let path = parts[0];
-
-    let query = (parts[1] !== undefined) ? "?"+parts[1] : "";
-    return path.replace(/(\/)+$/,'') + query;
-}
-
-function addTrailingSlash(str){
-
-    let parts = str.split("?");
-    let path = parts[0];
-    let query = (parts[1] !== undefined) ? "?"+parts[1] : "";
-    return path+"/" + query;
+    let query = (parts[1] !== undefined) ? '?'+parts[1] : '';
+    return path+'/' + query;
 }
 
 

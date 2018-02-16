@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 let _ = require('lodash'),
     request = require('requestretry'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig');
@@ -19,27 +19,31 @@ async function stats() {
         throw response;
     }
 
-    //process results
+    // process results
 
-    //remove everything that isn't an ipt installation
+    // remove everything that isn't an ipt installation
     let installations = _.filter(response.body.results, ['type', 'IPT_INSTALLATION']);
 
-    //decorate installations with their publishers
-    await Promise.all(installations.map(function(e){return decorateWithPublisher(e)}));
+    // decorate installations with their publishers
+    await Promise.all(installations.map(function(e) {
+return decorateWithPublisher(e);
+}));
 
     let countryCount = _.uniqBy(installations, 'country').length;
     let installationCount = installations.length;
     let georeferencedInstallations = _.filter(installations, 'latitude');
     let publisherGroups = _.groupBy(georeferencedInstallations, 'organizationKey');
-    let iptRelatedPublishers = Object.keys(publisherGroups).map(function(e){
+    let iptRelatedPublishers = Object.keys(publisherGroups).map(function(e) {
         let publisher = publisherGroups[e][0];
         publisher.iptInstallations = publisherGroups[e].length;
         return publisher;
     });
 
     let geojson = {
-        "type": "FeatureCollection",
-        "features": iptRelatedPublishers.map(function(e){return getFeature(e)})
+        'type': 'FeatureCollection',
+        'features': iptRelatedPublishers.map(function(e) {
+return getFeature(e);
+})
     };
 
     return {
@@ -73,18 +77,18 @@ async function decorateWithPublisher(installation) {
 
 function getFeature(installation) {
     return {
-            "type": "Feature",
-            "properties": {
-            "key": installation.organizationKey,
-            "title": installation.organizationTitle,
-            "count": installation.iptInstallations
+            'type': 'Feature',
+            'properties': {
+            'key': installation.organizationKey,
+            'title': installation.organizationTitle,
+            'count': installation.iptInstallations
         },
-            "geometry": {
-            "type": "Point",
-            "coordinates": [
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [
                 installation.longitude,
                 installation.latitude
             ]
         }
-    }
+    };
 }

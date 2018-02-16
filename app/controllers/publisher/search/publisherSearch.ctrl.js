@@ -1,7 +1,7 @@
-var express = require('express'),
+let express = require('express'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/publisher', router);
 };
 
@@ -16,11 +16,11 @@ function renderSearch(req, res) {
     });
 }
 
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
     res.redirect(302, './publisher/search');
 });
 
-router.get('/search', function (req, res) {
+router.get('/search', function(req, res) {
     renderSearch(req, res);
 });
 

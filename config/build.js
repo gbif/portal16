@@ -7,7 +7,7 @@
  */
 'use strict';
 
-var path = require('path'),
+let path = require('path'),
     fs = require('fs'),
     wiredep,
     yargs = require('yargs').argv,
@@ -17,7 +17,7 @@ var path = require('path'),
     defaultPort = yargs.port || 3000;
 
 if (gutil.env.prod) {
-    env = 'prod'
+    env = 'prod';
 } else if (gutil.env.test) {
     env = 'test';
 } else if (gutil.env.tdd) {
@@ -33,7 +33,7 @@ function loc(p) {
 /**
  *  The configuration object describing paths for the build and test
  */
-var config = {
+let config = {
     buildType: env,
     isProd: env == 'prod'
 };
@@ -57,21 +57,21 @@ config.paths = {
  */
 config.wiredep = {
     exclude: [],
-    //exclude: [/\/bootstrap\.js$/, /\/bootstrap\.css/],
+    // exclude: [/\/bootstrap\.js$/, /\/bootstrap\.css/],
     directory: './bower_components'
 };
 wiredep = require('wiredep')(config.wiredep);
 
 
-var bowerCss = !wiredep.css ? [] : wiredep.css.map(function (e) {
+let bowerCss = !wiredep.css ? [] : wiredep.css.map(function(e) {
     return path.relative('.', e);
 });
 
-var bowerJs = !wiredep.js ? [] : wiredep.js.map(function (e) {
+let bowerJs = !wiredep.js ? [] : wiredep.js.map(function(e) {
     return path.relative('.', e);
 });
 
-bowerCss.push('node_modules/chartist/dist/chartist.min.css'); //This is wrong, but the minified version is the only that hasn't a source map. I would expect to use the unminified version
+bowerCss.push('node_modules/chartist/dist/chartist.min.css'); // This is wrong, but the minified version is the only that hasn't a source map. I would expect to use the unminified version
 bowerCss.push('node_modules/angular-toastr/dist/angular-toastr.min.css');
 bowerCss.push('node_modules/openlayers/dist/ol.css');
 bowerCss.push('node_modules/angular-material/angular-material.css');
@@ -167,7 +167,7 @@ config.iconfont = {
     paths: [loc('app/assets/icons/used/**/*.svg')],
     dest: loc('app/assets/iconfont'),
     templatePath: [loc('app/assets/icons/fonttemplate.nunjucks.styl')],
-    templateDest: path.join(config.paths.src, '/shared/style/fonts/')//path.join(config.paths.dist, 'iconfont')
+    templateDest: path.join(config.paths.src, '/shared/style/fonts/') // path.join(config.paths.dist, 'iconfont')
 };
 
 
@@ -187,16 +187,16 @@ config.rev = {
     revisionFile: loc('config/revision.json')
 };
 
-config.loadRevision = function () {
-    var revision = JSON.parse(fs.readFileSync('config/revision.json', 'utf8')).revision;
+config.loadRevision = function() {
+    let revision = JSON.parse(fs.readFileSync('config/revision.json', 'utf8')).revision;
     return revision;
 };
 
 /**
  *  Common implementation for an error handler of a Gulp plugin
  */
-config.errorHandler = function (title) {
-    return function (err) {
+config.errorHandler = function(title) {
+    return function(err) {
         if (env != 'prod') {
             gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
         } else {

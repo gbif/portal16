@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 let dataApi = rootRequire('app/models/gbifdata/apiConfig').base.url;
 let env = rootRequire('config/config').env;
 
 let AnnosysBaseUrl = env == 'prod' ? 'https://annosys.bgbm.fu-berlin.de/AnnoSys/' : 'https://annosys.bgbm.fu-berlin.de/AnnoSysTest/';
 
-//TODO make environment dependent to allow for test annotations?
-var config = {
+// TODO make environment dependent to allow for test annotations?
+let config = {
     publisher: {
         '28eb1a3f-1c15-4a95-931a-4af90ecb574d': {
-            url: "{{occurrenceID}}",
+            url: '{{occurrenceID}}',
             keys: ['occurrenceID'],
-            name: "iNaturalist",
-            abbrivation: "iN"
+            name: 'iNaturalist',
+            abbrivation: 'iN'
         },
         '57254bd0-8256-11d8-b7ed-b8a03c50a862': {
             url: AnnosysBaseUrl + 'AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
@@ -23,16 +23,16 @@ var config = {
             commentCreated: 'time',
             commentUrlTemplate: AnnosysBaseUrl + 'AnnoSys?repositoryURI={{repositoryURI}}',
             keys: ['key', 'institutionCode', 'collectionCode', 'catalogNumber', 'repositoryURI'],
-            name: "AnnoSys",
-            abbrivation: "An"
+            name: 'AnnoSys',
+            abbrivation: 'An'
         }
     },
     installation: {
         '2c733a9d-363d-4d66-9aef-3e0f7bc44bec': {
-            url: "{{references}}",
+            url: '{{references}}',
             keys: ['references'],
-            name: "Symbiota",
-            abbrivation: "Sy"
+            name: 'Symbiota',
+            abbrivation: 'Sy'
         }
     }
 };
@@ -50,7 +50,7 @@ function getAnnotationUrl(occurrence) {
     let url = configTemplate.url;
     let commentsUrl = configTemplate.commentsUrl;
     let allCommentsUrl = configTemplate.allCommentsUrl;
-    for (var i = 0; i < configTemplate.keys.length; i++) {
+    for (let i = 0; i < configTemplate.keys.length; i++) {
         let key = configTemplate.keys[i];
         let val = occurrence[key] || '';
         url = url.replace('{{' + key + '}}', val);

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var chai = require('chai'),
+let chai = require('chai'),
     expect = chai.expect,
     querystring = require('querystring'),
     request = require('requestretry'),
@@ -19,25 +19,25 @@ module.exports = {fromConfig, check};
 
 function fromConfig(config) {
     return {
-        start: function (cb) {
-            check(config).then(function(e){
+        start: function(cb) {
+            check(config).then(function(e) {
                 cb(e);
-            }).catch(function(err){
+            }).catch(function(err) {
                 cb();
             });
         },
         component: config.component || 'OTHER'
-    }
+    };
 }
 
 function check(config) {
-    //check that the configuration is correct
+    // check that the configuration is correct
     config.severity = config.severity || severity.CRITICAL;
     expect(config.url, 'Missing URL in request').to.be.a('string');
     expect(config.component, 'Missing component').to.be.a('string');
 
-    //configure the request
-    var options = {};
+    // configure the request
+    let options = {};
     options.method = config.method || 'GET';
     options.json = config.json || true;
     options.url = config.url;
@@ -57,10 +57,10 @@ function check(config) {
         options.url = options.url.replace('{SECONDS_AGO}', Date.now() - config.secondsAgo*1000);
     }
 
-    var deferred = Q.defer();
-    var start = new Date(); // process.hrtime() would be more precise for timing but that doesn't work in the client (in case we want this running there as well)
-    request(options, function (err, response) {
-        var elapsed = new Date() - start;
+    let deferred = Q.defer();
+    let start = new Date(); // process.hrtime() would be more precise for timing but that doesn't work in the client (in case we want this running there as well)
+    request(options, function(err, response) {
+        let elapsed = new Date() - start;
         if (err) {
             if (err.code == 'ESOCKETTIMEDOUT') {
                 deferred.resolve({
@@ -70,7 +70,7 @@ function check(config) {
                     test: config
                 });
             } else {
-                //TODO worth logging errors of this type
+                // TODO worth logging errors of this type
                 deferred.resolve({
                     message: err.message,
                     severity: config.severity,
@@ -93,7 +93,7 @@ function testExpectation(response, elapsed, test) {
                 severity: severity.CRITICAL,
                 component: test.component,
                 test: test
-            }
+            };
         }
         switch (test.type) {
             case 'STATUS':
@@ -124,13 +124,13 @@ function testExpectation(response, elapsed, test) {
             severity: severity.OPERATIONAL,
             component: test.component,
             test: test
-        }
+        };
     } catch (err) {
         return {
             message: test.message + ' URL: ' + test.url || `Failed test. Type: ${test.type} - key: ${test.key} - val: ${test.val}`,
             severity: test.severity,
             component: test.component,
             test: test
-        }
+        };
     }
 }

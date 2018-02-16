@@ -1,30 +1,30 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('Regression', function ($resource, env) {
+        .factory('Regression', function($resource, env) {
             return $resource(env.dataApiV2 + 'map/occurrence/regression', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
-                        cancellable: true
-                    }
+                        cancellable: true,
+                    },
                 }
             );
         })
-        .factory('MapCapabilities', function ($resource, env) {
+        .factory('MapCapabilities', function($resource, env) {
             return $resource(env.mapCapabilities, null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 }
             );
-        })
+        });
 })();
 

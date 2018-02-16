@@ -1,12 +1,10 @@
-"use strict";
+'use strict';
 
-let _ = require('lodash'),
-    User = require('../api/user/user.model'),
-    btoa = require('btoa'),
-    atob = require('atob'),
-    querystring = require('querystring'),
-    auth = require('./auth.service'),
-    crypto = require('crypto');
+let _ = require('lodash');
+let User = require('../api/user/user.model');
+let atob = require('atob');
+let auth = require('./auth.service');
+let crypto = require('crypto');
 
 module.exports = {
     genRandomString: genRandomString,
@@ -26,33 +24,33 @@ module.exports = {
  * @param providerEnum
  * @param identificationKey
  */
-function authCallback(req, res, next, err, profile, info, setProviderValues, providerEnum, identificationKey){
+function authCallback(req, res, next, err, profile, info, setProviderValues, providerEnum, identificationKey) {
     if (!identificationKey || !providerEnum) {
         throw new Error('Missing provider or id key');
-        return;
     }
     auth.setNoCache(res);
-    if (err) {
+    if (!err) {
+        try {
+            // assume that there is always a state associated with the call
+            let state = JSON.parse(atob(req.query.state));
+            // LOGIN
+            if (state.action === 'LOGIN') {
+                login(req, res, next, state, profile, providerEnum, identificationKey);
+            } else if (state.action === 'CONNECT') {
+                connect(req, res, next, state, profile, setProviderValues, providerEnum, identificationKey);
+            } else if (state.action === 'REGISTER') {
+                // next(new Error('registration not supported as the API does not support the flow yet'));
+                register(req, res, next, state, profile, setProviderValues, providerEnum, identificationKey);
+            } else {
+                next(new Error('Invalid callback state'));
+            }
+        } catch (err) {
+            // something went wrong - probably while trying to parse the base 64 encoded state
+            next(err);
+        }
+    } else {
         next(err);
         return;
-    }
-    try {
-        //assume that there is always a state associated with the call
-        let state = JSON.parse(atob(req.query.state));
-        //LOGIN
-        if (state.action == 'LOGIN') {
-            login(req, res, next, state, profile, providerEnum, identificationKey);
-        } else if (state.action == 'CONNECT') {
-            connect(req, res, next, state, profile, setProviderValues, providerEnum, identificationKey);
-        } else if(state.action == 'REGISTER'){
-            //next(new Error('registration not supported as the API does not support the flow yet'));
-            register(req, res, next, state, profile, setProviderValues, providerEnum, identificationKey);
-        } else {
-            next(new Error('Invalid callback state'))
-        }
-    } catch(err){
-        //something went wrong - probably while trying to parse the base 64 encoded state
-        next(err);
     }
 }
 
@@ -65,31 +63,31 @@ function authCallback(req, res, next, err, profile, info, setProviderValues, pro
  * @param state
  * @param profile
  */
-function login(req, res, next, state, profile, providerEnum, identificationKey){
-    //check to see if the profile is linked to any users
+function login(req, res, next, state, profile, providerEnum, identificationKey) {
+    // check to see if the profile is linked to any users
     let findQuery = {};
     findQuery[identificationKey] = profile.id;
     User.find(findQuery)
-        .then(function(user){
-            //the user was found - log in
+        .then(function(user) {
+            // the user was found - log in
             auth.logUserIn(res, user);
             res.redirect(302, state.target);
         })
-        .catch(function(err){
+        .catch(function(err) {
             if (err.statusCode == 204) {
-                //the profile isn't known to us
-                //tell the user to login and connect
+                // the profile isn't known to us
+                // tell the user to login and connect
                 res.cookie('loginFlashInfo', JSON.stringify({authProvider: providerEnum, error: 'LOGIN_UNKNOWN'}),
                     {
-                        maxAge: 60000,//1 minute
+                        maxAge: 60000, // 1 minute
                         secure: false,
                         httpOnly: false
                     }
                 );
                 res.redirect(302, '/user/profile');
             } else {
-                //something went wrong while searching for the user - this shouldn't happen and is likely an API failure or an app secret error
-                //we cannot do anything but show an error message to the user
+                // something went wrong while searching for the user - this shouldn't happen and is likely an API failure or an app secret error
+                // we cannot do anything but show an error message to the user
                 next(err);
             }
         });
@@ -103,39 +101,39 @@ function login(req, res, next, state, profile, providerEnum, identificationKey){
  * @param state
  * @param profile
  */
-function connect(req, res, next, state, profile, setProviderValues, providerEnum, identificationKey){
-    //ensure user is logged in before connecting accounts
+function connect(req, res, next, state, profile, setProviderValues, providerEnum, identificationKey) {
+    // ensure user is logged in before connecting accounts
     if (req.user) {
-        //check if the profile is already connected to another account
+        // check if the profile is already connected to another account
         let findQuery = {};
         findQuery[identificationKey] = profile.id;
         User.find(findQuery)
-            .then(function(user){
-                //the profile is already connected to another user account
+            .then(function(user) {
+                // the profile is already connected to another user account
                 res.cookie('profileFlashInfo', JSON.stringify({authProvider: providerEnum, error: 'PROVIDER_ACCOUNT_ALREADY_IN_USE'}),
                     {
-                        maxAge: 60000,//1 minute
+                        maxAge: 60000, // 1 minute
                         secure: false,
                         httpOnly: false
                     }
                 );
                 res.redirect(302, '/user/profile');
             })
-            .catch(function(err){
+            .catch(function(err) {
                 if (err.statusCode == 204) {
-                    //the profile isn't in our systems
-                    //connect it to the user account
+                    // the profile isn't in our systems
+                    // connect it to the user account
                     setProviderValues(req.user, profile);
                     User.update(req.user.userName, req.user);
                     res.redirect(302, state.target || '/');
                 } else {
-                    //something went wrong while searching for the user - this shouldn't happen and is likely an API failure or an app secret error
-                    //we cannot do anything but show an error message to the user
+                    // something went wrong while searching for the user - this shouldn't happen and is likely an API failure or an app secret error
+                    // we cannot do anything but show an error message to the user
                     next(err);
                 }
             });
     } else {
-        next(new Error('user is not logged in while trying to connect accounts'))
+        next(new Error('user is not logged in while trying to connect accounts'));
     }
 }
 
@@ -147,7 +145,7 @@ function connect(req, res, next, state, profile, setProviderValues, providerEnum
  * @param state
  * @param profile
  */
-async function register(req, res, next, state, profile, setProviderValues, providerEnum, identificationKey){
+async function register(req, res, next, state, profile, setProviderValues, providerEnum, identificationKey) {
     let regState = await validateRegistration(req.user, state, profile, identificationKey);
     let query = {
         state: 'REGISTER',
@@ -174,7 +172,6 @@ async function register(req, res, next, state, profile, setProviderValues, provi
         case 'CREATE_ACCOUNT':
             createAccount(req, res, next, state, profile, regState, setProviderValues, identificationKey);
             return;
-            break;
         case 'FAILED':
             break;
         default:
@@ -184,7 +181,7 @@ async function register(req, res, next, state, profile, setProviderValues, provi
 
     res.cookie('loginFlashInfo', JSON.stringify(query),
         {
-            maxAge: 60000,//1 minute
+            maxAge: 60000, // 1 minute
             secure: false,
             httpOnly: false
         }
@@ -201,12 +198,12 @@ async function register(req, res, next, state, profile, setProviderValues, provi
  * @param profile
  * @param regState
  */
-function createAccount(req, res, next, state, profile, regState, setProviderValues, identificationKey){
-    let displayName = profile.displayName,
-        firstName,
-        lastName;
+function createAccount(req, res, next, state, profile, regState, setProviderValues, identificationKey) {
+    let displayName = profile.displayName;
+    let firstName;
+    let lastName;
 
-    //if no name given then try to guess it from the display name by splitting it in 2
+    // if no name given then try to guess it from the display name by splitting it in 2
     if (displayName) {
         let firstSpace = displayName.trim().indexOf(' ');
         if (firstSpace > 0) {
@@ -214,7 +211,7 @@ function createAccount(req, res, next, state, profile, regState, setProviderValu
             lastName = displayName.substr(firstSpace).trim();
         }
     }
-    //Create our user - System settings can not be set at creation time
+    // Create our user - System settings can not be set at creation time
     let user = {
         userName: state.userName,
         email: regState.email,
@@ -226,39 +223,39 @@ function createAccount(req, res, next, state, profile, regState, setProviderValu
         }
     };
     _.set(user, 'systemSettings["' + identificationKey + '"]', profile.id);
-    setProviderValues(user, profile);//save values specific to that auth provider
+    setProviderValues(user, profile);// save values specific to that auth provider
     User.create(user)
-        .then(function(){
-            //TODO why is the API only returning a fraction of the user on create?
-            auth.logUserIn(res, user);//might make better sense to user the returned user from the API, but currently it only returns a fraction of the user object
+        .then(function() {
+            // TODO why is the API only returning a fraction of the user on create?
+            auth.logUserIn(res, user);// might make better sense to user the returned user from the API, but currently it only returns a fraction of the user object
             res.redirect(302, state.target || '/');
-        }).catch(function(err){
+        }).catch(function(err) {
         next(err);
     });
 }
 
-async function optionalGetByUserName(userName){
+async function optionalGetByUserName(userName) {
     try {
         let user = await User.getByUserName(userName);
         return user;
-    } catch(err) {
+    } catch (err) {
         if (err.statusCode == 204) {
             return;
         } else {
-            throw(err);
+            throw (err);
         }
     }
 }
 
-async function optionalFind(query){
+async function optionalFind(query) {
     try {
         let user = await User.find(query);
         return user;
-    } catch(err) {
+    } catch (err) {
         if (err.statusCode == 204) {
             return;
         } else {
-            throw(err);
+            throw (err);
         }
     }
 }
@@ -268,10 +265,10 @@ async function optionalFind(query){
  * @function
  * @param {number} length - Length of the random string.
  */
-function genRandomString(length){
+function genRandomString(length) {
     return crypto.randomBytes(Math.ceil(length/2))
         .toString('hex') /** convert to hexadecimal format */
-        .slice(0,length);   /** return required number of characters */
+        .slice(0, length); /** return required number of characters */
 }
 
 async function validateRegistration(loggedInUser, state, profile, identificationKey) {
@@ -281,13 +278,13 @@ async function validateRegistration(loggedInUser, state, profile, identification
             user: loggedInUser
         };
     }
-    try{
-        //check to see if the user is already registered - if so then just login
+    try {
+        // check to see if the user is already registered - if so then just login
         let profileId = _.get(profile, 'id');
         let profileEmails = _.get(profile, 'emails', []);
         let profileEmail = _.get(profileEmails, '[0].value');
 
-        if(!profileEmail) {
+        if (!profileEmail) {
             return {
                 status: 'NO_EMAIL_PROVIDED'
             };
@@ -302,10 +299,10 @@ async function validateRegistration(loggedInUser, state, profile, identification
                 user: existingProfile
             };
         }
-        //unknown user from the auth provider
+        // unknown user from the auth provider
 
-        //check emails
-        for (var i = 0; i < profileEmails.length; i++){
+        // check emails
+        for (let i = 0; i < profileEmails.length; i++) {
             let email = profileEmails[i];
             let knownEmailUser = await optionalGetByUserName(email.value);
             if (knownEmailUser) {
@@ -315,8 +312,8 @@ async function validateRegistration(loggedInUser, state, profile, identification
                 };
             }
         }
-        //no users registered with the email returned by the auth provider
-        //check to see that the username isn't taken
+        // no users registered with the email returned by the auth provider
+        // check to see that the username isn't taken
         let takenUserName = await optionalGetByUserName(state.userName);
         if (takenUserName) {
             return {
@@ -328,8 +325,7 @@ async function validateRegistration(loggedInUser, state, profile, identification
             status: 'CREATE_ACCOUNT',
             email: profileEmail
         };
-
-    } catch(err){
+    } catch (err) {
         return {
             status: 'FAILED',
             error: err

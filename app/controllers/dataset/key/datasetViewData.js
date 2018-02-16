@@ -1,5 +1,5 @@
-"use strict";
-var _ = require('lodash'),
+'use strict';
+let _ = require('lodash'),
     Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     helper = require('../../../models/util/util'),
@@ -13,13 +13,13 @@ var _ = require('lodash'),
 function getDataset(datasetKey, cb) {
     async.parallel(
         {
-            expanded: function (cb) {
+            expanded: function(cb) {
                 getExpanded(datasetKey, cb);
             },
-            downloads: function (callback) {
+            downloads: function(callback) {
                 helper.getApiData(apiConfig.occurrenceDownloadDataset.url + datasetKey + '?limit=0', callback, {timeoutMilliSeconds: 30000});
             }
-        }, function (err, data) {
+        }, function(err, data) {
             if (err || _.isEmpty(data.expanded)) {
                 cb(err);
                 return;
@@ -38,7 +38,7 @@ function getDataset(datasetKey, cb) {
 
 function getOriginalDarwinCoreArchive(endpoints) {
     endpoints = endpoints || [];
-    return endpoints.find(function (e) {
+    return endpoints.find(function(e) {
         return e.type == 'DWC_ARCHIVE';
     });
 }
@@ -64,17 +64,17 @@ function transformBaseResult(dataset) {
 }
 
 function getExpanded(datasetKey, cb) {
-    var getOptions = {
+    let getOptions = {
         expand: ['publisher', 'images', 'process', 'installation']
     };
-    Dataset.get(datasetKey, getOptions).then(function (dataset) {
+    Dataset.get(datasetKey, getOptions).then(function(dataset) {
         try {
             dataset = transformBaseResult(dataset);
             cb(null, dataset);
         } catch (err) {
             cb(err);
         }
-    }, function (err) {
+    }, function(err) {
         cb(err);
     });
 }

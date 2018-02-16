@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 let resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch'),
     _ = require('lodash'),
     contentTypes = _.pull(resourceSearch.contentTypes, 'literature');

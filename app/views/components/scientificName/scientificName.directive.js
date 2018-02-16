@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function scientificNameDirective() {
-    var directive = {
+    let directive = {
         restrict: 'A',
         template: '<span ng-bind-html="vm.parsedName"></span>',
         scope: {},
@@ -16,22 +16,22 @@ function scientificNameDirective() {
         controllerAs: 'vm',
         bindToController: {
             key: '@',
-            name: '@'
-        }
+            name: '@',
+        },
     };
 
     return directive;
 
     /** @ngInject */
     function scientificNameCtrl(SpeciesParsedName) {
-        var vm = this;
+        let vm = this;
         vm.parsedName = vm.name;
-        SpeciesParsedName.get({id:vm.key}, function(data){
-            if(data.n){
+        SpeciesParsedName.get({id: vm.key}, function(data) {
+            if (data.n) {
                 vm.parsedName = data.n;
             }
-        }, function(){
-            //ignore error and show the plain unformated name
+        }, function() {
+            // ignore error and show the plain unformated name
         });
     }
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,18 +8,18 @@ angular
 
 /** @ngInject */
 function termsCtrl($cookies) {
-    var vm = this;
+    let vm = this;
     vm.userAcceptance = $cookies.get('userAcceptance') === 'true';
-    vm.accept = function () {
+    vm.accept = function() {
         // this will set the expiration to 12 months
-        var now = new Date(),
+        let now = new Date(),
             exp = new Date(now.getFullYear()+1, now.getMonth(), now.getDate());
         $cookies.put('userAcceptance', 'true', {
             path: '/',
-            expires: exp
+            expires: exp,
         });
         vm.userAcceptance = true;
-    }
+    };
 }
 
 module.exports = termsCtrl;

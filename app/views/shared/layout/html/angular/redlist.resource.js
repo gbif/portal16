@@ -1,24 +1,23 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('RedlistSpecies', function ($resource, token) {
+        .factory('RedlistSpecies', function($resource, token) {
             return $resource('/api/redlist/:name', null, {
                     'query': {
                         method: 'GET',
                         params: {
-                            token: token.iucn
+                            token: token.iucn,
                         },
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 }
             );
         });
-
 })();
 

@@ -1,13 +1,13 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        //.factory('Resource', function ($resource, env) { //this should ask a contentful proxy (to allow caching)
+        // .factory('Resource', function ($resource, env) { //this should ask a contentful proxy (to allow caching)
         //    return $resource(env.dataApi + 'organization/:id', null, {
         //            'query': {
         //                method: 'GET',
@@ -15,22 +15,22 @@ var angular = require('angular');
         //            }
         //        }
         //    );
-        //})
-        .factory('ResourceSearch', function ($resource) {
+        // })
+        .factory('ResourceSearch', function($resource) {
             return $resource('/api/resource/search', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 }
             );
         })
-        .factory('ResourceItem', function ($resource) {
+        .factory('ResourceItem', function($resource) {
             return $resource('/api/resource/item', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 }
             );
         })

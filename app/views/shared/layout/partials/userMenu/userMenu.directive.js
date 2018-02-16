@@ -1,13 +1,13 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 angular
     .module('portal')
     .directive('userMenu', userMenuDirective);
 
 /** @ngInject */
 function userMenuDirective(BUILD_VERSION) {
-    var directive = {
+    let directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/shared/layout/partials/userMenu/userMenu.html?v=' + BUILD_VERSION,
@@ -15,17 +15,17 @@ function userMenuDirective(BUILD_VERSION) {
         replace: true,
         controller: userMenu,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
 
     return directive;
 
     /** @ngInject */
     function userMenu($scope, NAV_EVENTS, AUTH_EVENTS) {
-        var vm = this;
+        let vm = this;
         vm.isActive = false;
 
-        $scope.$on(NAV_EVENTS.toggleUserMenu, function (event, data) {
+        $scope.$on(NAV_EVENTS.toggleUserMenu, function(event, data) {
             if (data.toggle) {
                 vm.isActive = !vm.isActive;
             } else {
@@ -33,15 +33,15 @@ function userMenuDirective(BUILD_VERSION) {
             }
         });
 
-        vm.close = function () {
+        vm.close = function() {
             vm.isActive = false;
         };
 
-        $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+        $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
             vm.isActive = false;
         });
 
-        $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+        $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
             vm.isActive = false;
         });
     }

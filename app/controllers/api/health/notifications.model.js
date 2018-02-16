@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let notifications = require('../notifications//notifications.model'),
     tests = require('./tests'),
@@ -14,10 +14,12 @@ let notifications = require('../notifications//notifications.model'),
 module.exports = onComplete;
 
 function onComplete() {
-    return new Promise(function(resolve){
-        function check(){
+    return new Promise(function(resolve) {
+        function check() {
             if (status.health && status.messages && status.load) {
-                resolve(function(){return status;});
+                resolve(function() {
+return status;
+});
             } else {
                 setTimeout(check, 2000);
             }
@@ -25,10 +27,10 @@ function onComplete() {
         check();
     });
 }
-//start by updating status
+// start by updating status
 update();
-//after that update every 10 seconds
-setInterval(function () {
+// after that update every 10 seconds
+setInterval(function() {
     update();
 }, 10000);
 
@@ -44,7 +46,7 @@ function updateStatus(update) {
     status.load = update.load ? update.load : status.load;
     status.severity = getMostSevere(_.get(status, 'health.severity'), _.get(status, 'messages.severity'));
 
-    //test for change
+    // test for change
     status.hash = objectHash({
         health: status.health,
         messages: status.messages
@@ -55,11 +57,11 @@ function updateStatus(update) {
 async function updateMessages() {
     try {
         let timestamp = (new Date()).toISOString();
-        let q = {contentType: 'notification', 'start': '*,' + timestamp, 'end': timestamp + ',*'};
+        let q = {'contentType': 'notification', 'start': '*,' + timestamp, 'end': timestamp + ',*'};
         let options = {rawResponse: true};
         let messages = await resourceSearch.search(q, null, options);
 
-        let messageStatus = messages.results.reduce(function (current, message) {
+        let messageStatus = messages.results.reduce(function(current, message) {
             return getMostSevere(message.severity, current);
         }, 'OPERATIONAL');
 
@@ -70,7 +72,7 @@ async function updateMessages() {
             }
         });
     } catch (err) {
-        //console.log(err); //TODO log
+        // console.log(err); //TODO log
         updateStatus({failure: err});
     }
 }
@@ -81,11 +83,11 @@ function updateHealth() {
     }
 
     function progress() {
-        //ignore progress updates
+        // ignore progress updates
     }
 
     function failed(err) {
-        //console.log(err); //TODO log
+        // console.log(err); //TODO log
         updateStatus({failure: err});
     }
 
@@ -99,7 +101,7 @@ async function updateLoad() {
             load: load
         });
     } catch (err) {
-        //console.log(err); //TODO log;
+        // console.log(err); //TODO log;
         updateStatus({failure: err});
     }
 }

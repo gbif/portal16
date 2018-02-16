@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
+let angular = require('angular'),
     parseGeometry = require('wellknown');
 
 angular
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function filterLocationMapDirective(BUILD_VERSION) {
-    var directive = {
+    let directive = {
         restrict: 'E',
         transclude: true,
         templateUrl: '/templates/components/filterLocation/filterLocationMap.html?v=' + BUILD_VERSION,
@@ -17,30 +17,30 @@ function filterLocationMapDirective(BUILD_VERSION) {
         link: mapLink,
         controller: filterLocationMap,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
 
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element) {//, attrs, ctrl
+    function mapLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
 
     /** @ngInject */
     function filterLocationMap($scope, OccurrenceFilter, $filter) {
-        var vm = this,
+        let vm = this,
             map;
 
-        $scope.create = function (element) {
+        $scope.create = function(element) {
             map = createMap(element, OccurrenceFilter);
         };
 
         vm.state = OccurrenceFilter.getOccurrenceData();
-        $scope.$watch(function () {
-            return vm.state.query.geometry
-        }, function (newQuery) {
-            var query = $filter('unique')(newQuery);
+        $scope.$watch(function() {
+            return vm.state.query.geometry;
+        }, function(newQuery) {
+            let query = $filter('unique')(newQuery);
             map.update(query);
         });
     }
@@ -48,23 +48,23 @@ function filterLocationMapDirective(BUILD_VERSION) {
 
 
 function createMap(element, OccurrenceFilter) {
-    var mapElement = element[0].querySelector('.filter-location-map');
+    let mapElement = element[0].querySelector('.filter-location-map');
 
-    var map = L.map(mapElement, {
+    let map = L.map(mapElement, {
         center: [0, 0],
         scrollWheelZoom: false,
-        zoom: 2
+        zoom: 2,
     });
 
-    //TODO get other projection with decent basemap
+    // TODO get other projection with decent basemap
     L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     map.fitWorld().zoomIn();
 
-    var editableLayers = new L.FeatureGroup();
+    let editableLayers = new L.FeatureGroup();
     map.addLayer(editableLayers);
 
-    var options = {
+    let options = {
         position: 'topright',
         draw: {
             polyline: false, // Turns off this drawing tool
@@ -72,38 +72,38 @@ function createMap(element, OccurrenceFilter) {
                 allowIntersection: false, // Restricts shapes to simple polygons
                 drawError: {
                     color: 'tomato', // Color the shape will turn when intersects
-                    message: 'No intersections allowed!' // Message that will show when intersect
+                    message: 'No intersections allowed!', // Message that will show when intersect
                 },
                 shapeOptions: {
-                    color: 'deepskyblue'
-                }
+                    color: 'deepskyblue',
+                },
             },
             circle: false, // Turns off this drawing tool
             rectangle: {
                 shapeOptions: {
                     clickable: true,
-                    color: 'deepskyblue'
-                }
+                    color: 'deepskyblue',
+                },
             },
-            marker: false // Turns off this drawing tool
+            marker: false, // Turns off this drawing tool
         },
         edit: {
             featureGroup: editableLayers,
             remove: true,
             allowIntersection: false,
             polygon: {
-                allowIntersection: false
+                allowIntersection: false,
             },
             rectangle: {
-                allowIntersection: false
-            }
-        }
+                allowIntersection: false,
+            },
+        },
     };
-    var drawControl = new L.Control.Draw(options);
+    let drawControl = new L.Control.Draw(options);
     map.addControl(drawControl);
 
-    map.on(L.Draw.Event.CREATED, function (e) {
-        var layer = e.layer;
+    map.on(L.Draw.Event.CREATED, function(e) {
+        let layer = e.layer;
         editableLayers.addLayer(layer);
         updateQuery();
     });
@@ -112,12 +112,12 @@ function createMap(element, OccurrenceFilter) {
     map.on(L.Draw.Event.EDITED, updateQuery);
 
     function updateQuery() {
-        var leafletGeoJson = editableLayers.toGeoJSON();
-        var wktGeometries;
-        for (var i = 0; i < leafletGeoJson.features.length; i++) {
+        let leafletGeoJson = editableLayers.toGeoJSON();
+        let wktGeometries;
+        for (let i = 0; i < leafletGeoJson.features.length; i++) {
             wktGeometries = wktGeometries || [];
-            var feature = leafletGeoJson.features[i];
-            var wktGeom = parseGeometry.stringify(feature);
+            let feature = leafletGeoJson.features[i];
+            let wktGeom = parseGeometry.stringify(feature);
             wktGeometries.push(wktGeom);
         }
         OccurrenceFilter.updateParams({geometry: wktGeometries});
@@ -126,17 +126,19 @@ function createMap(element, OccurrenceFilter) {
     function update(geometries) {
         geometries = geometries || [];
         editableLayers.clearLayers();
-        geometries.forEach(function (wktStr) {
-            var geojsonGeometry = parseGeometry(wktStr);
+        geometries.forEach(function(wktStr) {
+            let geojsonGeometry = parseGeometry(wktStr);
             editableLayers.addLayer(L.GeoJSON.geometryToLayer(geojsonGeometry));
         });
-        setTimeout(function(){map.fitBounds(editableLayers.getBounds());}, 0)
+        setTimeout(function() {
+map.fitBounds(editableLayers.getBounds());
+}, 0);
 
     }
 
     return {
         map: map,
-        update: update
+        update: update,
     };
 }
 

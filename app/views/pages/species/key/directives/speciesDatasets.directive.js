@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
+let angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,71 +9,66 @@ angular
 
 /** @ngInject */
 function speciesDatasetsDirective() {
-    var directive = {
+    let directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/speciesDatasets.html',
         scope: {
 
             key: '@',
-            type: '@'
+            type: '@',
         },
         controller: speciesDatasetsCtrl,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
     return directive;
 
     /** @ngInject */
     function speciesDatasetsCtrl($scope, $state, $stateParams, SpeciesChecklistDatasets, SpeciesOccurrenceDatasets, $location, $anchorScroll, SpeciesBulkParsedNames) {
-        var vm = this;
+        let vm = this;
         vm.data = {
             limit: 10,
             offset: 0,
-            endOfRecords: true
+            endOfRecords: true,
         };
       //  $anchorScroll.yOffset = 60;
         vm.defaultLimit = 10;
-        vm.offsetParam = vm.type.toLowerCase() + "DatasetOffset";
-        //vm.limit = 5;
-        //vm.offset = 0;
-        //vm.endOfRecords = false;
+        vm.offsetParam = vm.type.toLowerCase() + 'DatasetOffset';
+        // vm.limit = 5;
+        // vm.offset = 0;
+        // vm.endOfRecords = false;
 
-        function attachParsedNames(data){
-            if(data && data.length > 0){
-                var taxonKeys = data.map(function(r){
-                    return r._relatedTaxon.key
+        function attachParsedNames(data) {
+            if (data && data.length > 0) {
+                let taxonKeys = data.map(function(r) {
+                    return r._relatedTaxon.key;
                 });
                 SpeciesBulkParsedNames.get({q: taxonKeys.toString()}).$promise
-                    .then(function(nameMap){
-                        for(var i=0; i < data.length; i++){
-                            if(nameMap[data[i]._relatedTaxon.key]){
-                                data[i]._relatedTaxon._parsedName = nameMap[data[i]._relatedTaxon.key]
+                    .then(function(nameMap) {
+                        for (let i=0; i < data.length; i++) {
+                            if (nameMap[data[i]._relatedTaxon.key]) {
+                                data[i]._relatedTaxon._parsedName = nameMap[data[i]._relatedTaxon.key];
                             }
-
                         }
                     });
             }
-
         }
 
         function getSpeciesDataset() {
-
-            if(vm.type ==="CHECKLIST"){
-                vm.data = SpeciesChecklistDatasets.query({id: vm.key, limit: vm.defaultLimit , offset: vm.data.offset || 0})
-                    .$promise.then(function(data){
+            if (vm.type ==='CHECKLIST') {
+                vm.data = SpeciesChecklistDatasets.query({id: vm.key, limit: vm.defaultLimit, offset: vm.data.offset || 0})
+                    .$promise.then(function(data) {
                         vm.data = data;
                         setHeight();
                         attachParsedNames(data.results);
                     });
-            } else if(vm.type === "OCCURRENCE"){
-                vm.data = SpeciesOccurrenceDatasets.query({id: vm.key, limit: vm.defaultLimit , offset: vm.data.offset || 0})
-                    .$promise.then(function(data){
+            } else if (vm.type === 'OCCURRENCE') {
+                vm.data = SpeciesOccurrenceDatasets.query({id: vm.key, limit: vm.defaultLimit, offset: vm.data.offset || 0})
+                    .$promise.then(function(data) {
                     vm.data = data;
                     setHeight();
-
                 });
             }
-
         }
 
         function updatePageState() {
@@ -83,27 +78,27 @@ function speciesDatasetsDirective() {
 
         vm.next = function() {
             vm.data.offset = vm.data.offset + vm.data.limit;
-            var params = {};
+            let params = {};
             params[vm.offsetParam] = vm.data.offset;
             $state.go('.', params, {inherit: true, notify: false, reload: false});
             getSpeciesDataset();
-            $location.hash(vm.type.toLowerCase()+"Datasets");
+            $location.hash(vm.type.toLowerCase()+'Datasets');
             $anchorScroll();
         };
 
         vm.prev = function() {
             vm.data.offset = vm.data.offset - vm.defaultLimit;
-            var params = {};
+            let params = {};
             params[vm.offsetParam] = vm.data.offset;
             $state.go('.', params, {inherit: true, notify: false, reload: false});
             getSpeciesDataset();
-            $location.hash(vm.type.toLowerCase()+"Datasets");
+            $location.hash(vm.type.toLowerCase()+'Datasets');
             $anchorScroll();
         };
 
-        $scope.$watch(function () {
+        $scope.$watch(function() {
             return vm.key;
-        }, function () {
+        }, function() {
             getSpeciesDataset();
         });
 
@@ -114,9 +109,9 @@ function speciesDatasetsDirective() {
                 vm.hasPages = true;
             }
         }
-        vm.getHeight = function(){
+        vm.getHeight = function() {
             return vm.height;
-        }
+        };
     }
 }
 

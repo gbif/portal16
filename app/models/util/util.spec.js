@@ -12,7 +12,7 @@
 //     it("handles empty results", function() {
 //         var getConfidentMatchesFromResults = species.__get__("getConfidentMatchesFromResults");
 //         var body = {
-//             confidence: 100, 
+//             confidence: 100,
 //             matchType: 'NONE',
 //             key: 12
 //         };
@@ -22,7 +22,7 @@
 //     it("handles single matches", function() {
 //         var getConfidentMatchesFromResults = species.__get__("getConfidentMatchesFromResults");
 //         var body = {
-//             confidence: 100, 
+//             confidence: 100,
 //             matchType: 'EXACT',
 //             key: 12
 //         };
@@ -44,7 +44,7 @@
 //                 key: 11
 //             };
 //         var body = {
-//             confidence: 20, 
+//             confidence: 20,
 //             matchType: 'EXACT',
 //             alternatives: [includeA, includeB, excludeA]
 //         };
@@ -52,6 +52,5 @@
 //     });
 
 // });
-
 
 

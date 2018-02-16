@@ -1,30 +1,30 @@
-"use strict";
+'use strict';
 
-var resource = require('../resource'),
+let resource = require('../resource'),
     api = require('../apiConfig');
 
-var Network = function (record) {
+let Network = function(record) {
     this.record = record;
 };
 
 Network.prototype.record = {};
 
-Network.get = function (key, options) {
+Network.get = function(key, options) {
     options = options || {};
-    var promise = resource.get(api.network.url + key).as(Network);
+    let promise = resource.get(api.network.url + key).as(Network);
     if (typeof options.expand === 'undefined') {
-        return promise
+        return promise;
     } else {
-        return promise.then(function (network) {
-            return network.expand(options.expand)
+        return promise.then(function(network) {
+            return network.expand(options.expand);
         });
     }
 };
 
-Network.prototype.expand = function (fieldNames) {
-    var resources = [],
+Network.prototype.expand = function(fieldNames) {
+    let resources = [],
         resourceLookup = {};
-    fieldNames.forEach(function (e) {
+    fieldNames.forEach(function(e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
     return resource.extend(this).with(resources);

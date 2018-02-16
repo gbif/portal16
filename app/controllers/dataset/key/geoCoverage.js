@@ -1,5 +1,5 @@
-"use strict";
-var _ = require('lodash');
+'use strict';
+let _ = require('lodash');
 
 function composeGeoCoverage(dataset) {
     let geographicCoverages = _.get(dataset, 'record.geographicCoverages');

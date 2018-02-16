@@ -1,36 +1,36 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 angular
     .module('portal')
     .directive('expand', expandDirective);
 
 /** @ngInject */
 function expandDirective() {
-    var directive = {
+    let directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/expand/expand.html',
         scope: {
             expandText: '=',
             collapseText: '=',
-            expandModel: '='
+            expandModel: '=',
         },
         controller: expand,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
 
     return directive;
 
     /** @ngInject */
     function expand() {
-        var vm = this;
-        //vm.expandModel = vm.expandModel || {};
+        let vm = this;
+        // vm.expandModel = vm.expandModel || {};
         vm.expandText = vm.expandText || vm.expandModel.expandText;
         vm.collapseText = vm.collapseText || vm.expandModel.collapseText;
         vm.isExpanded = false;
-        vm.toggle = function () {
+        vm.toggle = function() {
             vm.isExpanded = !vm.isExpanded;
             if (vm.expandModel) {
                 vm.expandModel.isExpanded = vm.isExpanded;

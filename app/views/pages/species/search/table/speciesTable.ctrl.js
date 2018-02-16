@@ -6,7 +6,7 @@
  * enum list, multiselect
  */
 'use strict';
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -14,7 +14,7 @@ angular
 
 /** @ngInject */
 function speciesTableCtrl(hotkeys, SpeciesFilter, env, constantKeys) {
-    var vm = this, offset;
+    let vm = this, offset;
     vm.backboneKey = constantKeys.dataset.backbone;
     vm.state = SpeciesFilter.getState();
     vm.tileApi = env.tileApi;
@@ -30,7 +30,7 @@ function speciesTableCtrl(hotkeys, SpeciesFilter, env, constantKeys) {
 
     updatePaginationCounts();
 
-    vm.pageChanged = function () {
+    vm.pageChanged = function() {
         vm.state.query.offset = (vm.currentPage - 1) * vm.limit;
         updatePaginationCounts();
         SpeciesFilter.update(vm.state.query);
@@ -40,27 +40,27 @@ function speciesTableCtrl(hotkeys, SpeciesFilter, env, constantKeys) {
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (offset + vm.limit < vm.state.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
             }
-        }
+        },
     });
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
             }
-        }
+        },
     });
 
 
-    vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined';
     };
 }
 

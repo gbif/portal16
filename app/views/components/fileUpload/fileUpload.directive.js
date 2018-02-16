@@ -1,5 +1,5 @@
 'use strict';
-var angular = require('angular');
+let angular = require('angular');
 
 /**
  * Provides a 'onchange' event on input[file] (see https://github.com/angular/angular.js/issues/1375)
@@ -20,16 +20,16 @@ function fileUploadDirective() {
     return {
         restrict: 'A',
         scope: {
-            onFileChange: '='
+            onFileChange: '=',
         },
-        link: function (scope, element) {
-            element.on('change', function (event) {
-                var params = {event: event, el: element, files: element[0].files};
-                scope.$apply(function (scope) {
+        link: function(scope, element) {
+            element.on('change', function(event) {
+                let params = {event: event, el: element, files: element[0].files};
+                scope.$apply(function(scope) {
                     scope.onFileChange(params);
                 });
             });
-        }
+        },
     };
 }
 

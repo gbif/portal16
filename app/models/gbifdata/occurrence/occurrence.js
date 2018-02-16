@@ -1,29 +1,29 @@
-"use strict";
+'use strict';
 
-var resource = require('../resource'),
+let resource = require('../resource'),
     _ = require('lodash'),
     api = require('../apiConfig');
 
-var Occurrence = function (record) {
+let Occurrence = function(record) {
     this.record = record;
 };
 
 Occurrence.prototype.record = {};
 
-Occurrence.get = function (key, options) {
+Occurrence.get = function(key, options) {
     options = options || {};
-    var promise = resource.get(api.occurrence.url + key).as(Occurrence);
+    let promise = resource.get(api.occurrence.url + key).as(Occurrence);
     if (typeof options.expand === 'undefined') {
-        return promise
+        return promise;
     } else {
-        return promise.then(function (occurrence) {
-            return occurrence.expand(options.expand)
+        return promise.then(function(occurrence) {
+            return occurrence.expand(options.expand);
         });
     }
 };
 
-Occurrence.prototype.expand = function (fieldNames) {
-    var resources = [],
+Occurrence.prototype.expand = function(fieldNames) {
+    let resources = [],
         resourceLookup = {
             publisher: {
                 resource: api.publisher.url + this.record.publishingOrgKey,
@@ -61,7 +61,7 @@ Occurrence.prototype.expand = function (fieldNames) {
             extendToField: 'taxonName'
         };
     }
-    fieldNames.forEach(function (e) {
+    fieldNames.forEach(function(e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
     return resource.extend(this).with(resources);

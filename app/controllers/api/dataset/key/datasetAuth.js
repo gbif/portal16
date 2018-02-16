@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     compose = require('composable-middleware'),
@@ -14,15 +14,15 @@ module.exports = {permissions: getPermissions, isTrustedContact: isTrustedContac
  */
 function isTrustedContact() {
     return compose()
-        .use(function (req, res, next) {
-            var datasetKey = req.params.key;
+        .use(function(req, res, next) {
+            let datasetKey = req.params.key;
             if (!utils.isGuid(datasetKey)) {
                 res.status(401);
                 res.send('Not a trusted dataset contact');
                 return;
             } else {
                 getPermissions(req.user, datasetKey)
-                    .then(function(permissionStatus){
+                    .then(function(permissionStatus) {
                         if (permissionStatus.isTrustedContact) {
                             next();
                         } else {
@@ -30,8 +30,8 @@ function isTrustedContact() {
                             res.send('Not a trusted dataset contact');
                         }
                     })
-                    .catch(function(err){
-                        //TODO log error - this shouldn't happen
+                    .catch(function(err) {
+                        // TODO log error - this shouldn't happen
                         res.status(500);
                         res.send('Validation failed for unknown reasons - this is likely because of failing endpoints');
                         return;
@@ -40,7 +40,7 @@ function isTrustedContact() {
         });
 }
 
-async function getPermissions(user, datasetKey){
+async function getPermissions(user, datasetKey) {
     if (_.get(user, 'roles', []).indexOf('REGISTRY_ADMIN') !== -1) {
         return {
             isTrustedContact: true,
@@ -48,7 +48,7 @@ async function getPermissions(user, datasetKey){
         };
     }
 
-    //else check to see if listed as a contact with orcid or email
+    // else check to see if listed as a contact with orcid or email
     let dataset = await getItem(apiConfig.dataset.url, datasetKey);
     if (isContact(dataset, user)) {
         return {
@@ -61,7 +61,7 @@ async function getPermissions(user, datasetKey){
     let installationPromise = getItem(apiConfig.installation.url, dataset.installationKey, true);
     let nodePromise = getItem(apiConfig.country.url, dataset.country, true);
     let otherParties = await Promise.all([publisherPromise, installationPromise, nodePromise, hostingPromise]);
-    for (var i = 0; i < otherParties.length; i++) {
+    for (let i = 0; i < otherParties.length; i++) {
         let party = otherParties[i];
         if (isContact(party, user)) {
             return {
@@ -78,7 +78,7 @@ async function getPermissions(user, datasetKey){
 async function getItem(endpoint, key, optional) {
     if (!key) {
         if (optional) return;
-        throw new  Error('missing key in request');
+        throw new Error('missing key in request');
     }
     let options = {
         method: 'GET',
@@ -90,7 +90,7 @@ async function getItem(endpoint, key, optional) {
     if (response.statusCode === 200 || (optional && response.statusCode === 404)) {
         return response.body;
     }
-    //TODO log it - unless wrong datasetkey then This should never happen and means that the endpoint is either offline or the key is non existing. that would mean referential integrety was broken
+    // TODO log it - unless wrong datasetkey then This should never happen and means that the endpoint is either offline or the key is non existing. that would mean referential integrety was broken
     throw response;
 }
 
@@ -102,9 +102,11 @@ function isMatching(shouldBe, testData, matchingFunction) {
     if (typeof shouldBe === 'undefined' || typeof testData === 'undefined') {
         return false;
     }
-    matchingFunction = matchingFunction || function(a, b){return a === b;};
+    matchingFunction = matchingFunction || function(a, b) {
+return a === b;
+};
     if (_.isArray(testData)) {
-        let matchedItem = _.find(testData, function(o){
+        let matchedItem = _.find(testData, function(o) {
             return matchingFunction(shouldBe, o);
         });
         return typeof matchedItem !== 'undefined';
@@ -115,7 +117,7 @@ function isMatching(shouldBe, testData, matchingFunction) {
 
 function isContact(item, user) {
     let contacts = _.get(item, 'contacts', []);
-    let matchedContact = _.find(contacts, function(contact){
+    let matchedContact = _.find(contacts, function(contact) {
         return isMatching(user.email, contact.email) || isMatching(_.get(user, 'systemSettings["auth.orcid.id"]'), contact.userId, isMatchingOrcid);
     });
     return matchedContact;

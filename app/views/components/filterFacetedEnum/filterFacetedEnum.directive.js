@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,25 +8,25 @@ angular
 
 /** @ngInject */
 function filterFacetedEnumDirective() {
-    var directive = {
+    let directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/filterFacetedEnum/filterFacetedEnum.html',
         scope: {
             filterState: '=',
-            filterConfig: '='
+            filterConfig: '=',
         },
         replace: true,
         controller: filterFacetedEnum,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
 
     return directive;
 
     /** @ngInject */
     function filterFacetedEnum($scope, $filter) {
-        var vm = this;
+        let vm = this;
         vm.disabled = false;
 
         // expect to be defined
@@ -48,34 +48,34 @@ function filterFacetedEnumDirective() {
 
         vm.selected = {};
         function setSelectedModel(query) {
-            query.forEach(function (e) {
+            query.forEach(function(e) {
                 vm.selected[e] = true;
             });
         }
         setSelectedModel(vm.query);
 
-        //vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
-        //vm.translationPrefix = vm.filterConfig.translationPrefix || 'stdTerms';
-        //vm.collapsed = vm.filterConfig.collapsed !== false;
-        //vm.facetKey = vm.filterConfig.facetKey;
+        // vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
+        // vm.translationPrefix = vm.filterConfig.translationPrefix || 'stdTerms';
+        // vm.collapsed = vm.filterConfig.collapsed !== false;
+        // vm.facetKey = vm.filterConfig.facetKey;
 
-        //vm.checkboxModel = {};
+        // vm.checkboxModel = {};
         //
-        //vm.options = {};
+        // vm.options = {};
         //
-        //function setModel(query) {
+        // function setModel(query) {
         //    query.forEach(function (e) {
         //        vm.checkboxModel[e] = true;
         //    });
-        //}
+        // }
         //
-        //setModel(vm.query);
+        // setModel(vm.query);
         //
-        //vm.showFacetCount = function () {
+        // vm.showFacetCount = function () {
         //    return vm.facetKey && !vm.collapsed && Object.keys(vm.options).length > 1;
-        //};
+        // };
         //
-        //vm.apply = function () {
+        // vm.apply = function () {
         //    if (vm.filterAutoUpdate && !vm.disabled) {
         //        vm.query = [];
         //        Object.keys(vm.checkboxModel).forEach(function (key) {
@@ -85,28 +85,28 @@ function filterFacetedEnumDirective() {
         //        });
         //        vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
         //    }
-        //};
+        // };
         //
-        //$scope.$watch(function () {
+        // $scope.$watch(function () {
         //    return vm.filterState.query[vm.queryKey]
-        //}, function (newQuery) {
+        // }, function (newQuery) {
         //    vm.query = $filter('unique')(newQuery);
         //    setModel(vm.query);
-        //});
+        // });
         //
-        //vm.updateOptions = function (apiResponse) {
+        // vm.updateOptions = function (apiResponse) {
         //    vm.options = _.get(apiResponse, 'facets[' + vm.facetKey + '].counts', []);
         //    vm.options = vm.options.filter(function(e){
         //        return vm.query.indexOf(e.name) != -1;
         //    });
-        //};
+        // };
         //
-        //$scope.$watch(function () {
+        // $scope.$watch(function () {
         //    if (vm.filterConfig.multiSelect && typeof vm.filterState.query[vm.filterConfig.queryKey] !== 'undefined') {
         //        return vm.filterState.facetMultiselect;
         //    }
         //    return vm.filterState.data
-        //}, function (newData) {
+        // }, function (newData) {
         //    vm.disabled = true;
         //    newData.$promise.then(function (data) {
         //        vm.updateOptions(data);
@@ -114,12 +114,11 @@ function filterFacetedEnumDirective() {
         //    }, function () {
         //        vm.disabled = false;
         //    });
-        //});
+        // });
         //
-        //vm.filterState.data.$promise.then(function (data) {
+        // vm.filterState.data.$promise.then(function (data) {
         //    vm.updateOptions(data);
-        //});
-
+        // });
     }
 }
 

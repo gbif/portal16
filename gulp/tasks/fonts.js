@@ -10,35 +10,35 @@
 
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     path = require('path'),
     config = rootRequire('config/build'),
     browserSync = require('browser-sync'),
     g = require('gulp-load-plugins')();
 
 
-gulp.task('fonts-reload', function () {
+gulp.task('fonts-reload', function() {
     return buildFont()
         .pipe(browserSync.stream());
 });
 
-gulp.task('fonts', function () {
+gulp.task('fonts', function() {
     return buildFont();
 });
 
 function buildFont() {
-    var runTimestamp = Math.round(Date.now() / 1000);
+    let runTimestamp = Math.round(Date.now() / 1000);
     return gulp.src(config.iconfont.paths)
         .pipe(g.iconfont({
-            fontName: 'gbificons', // required 
+            fontName: 'gbificons', // required
             prependUnicode: true, // recommended option - adds unicode to the filename
-            formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available 
-            timestamp: runTimestamp, // recommended to get consistent builds when watching files 
+            formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available
+            timestamp: runTimestamp, // recommended to get consistent builds when watching files
             normalize: true,
             fontHeight: 448, // matching IcoMoon's defaults for the font-awesome icons @ "14px grid"
             descent: 64
         }))
-        .on('glyphs', function (glyphs, options) {
+        .on('glyphs', function(glyphs, options) {
             g.nunjucksRender.nunjucks.configure(config.iconfont.templatePath, {watch: false});
             return gulp.src(config.iconfont.templatePath)
                 .pipe(g.data({
@@ -49,9 +49,9 @@ function buildFont() {
                     timestamp: runTimestamp
                 }))
                 .pipe(g.nunjucksRender())
-                .pipe(g.rename(function (path) {
-                    path.basename = "gb_iconfont";
-                    path.extname = ".styl"
+                .pipe(g.rename(function(path) {
+                    path.basename = 'gb_iconfont';
+                    path.extname = '.styl';
                 }))
                 .pipe(gulp.dest(config.iconfont.templateDest));
         })

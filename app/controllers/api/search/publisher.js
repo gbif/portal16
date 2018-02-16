@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     request = require('requestretry');
 
@@ -24,12 +24,12 @@ async function get(key, depth) {
     }
 }
 
-async function expand(publisher){
-    //TODO stub. inteded to expand foreign keys, related etc. datasetKey, constituentDatasetKey, name, references etc
+async function expand(publisher) {
+    // TODO stub. inteded to expand foreign keys, related etc. datasetKey, constituentDatasetKey, name, references etc
     return publisher;
 }
 
-async function query(query, options){
+async function query(query, options) {
     options = options || {};
     query = query || {};
 

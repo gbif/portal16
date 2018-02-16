@@ -6,7 +6,7 @@
  * enum list, multiselect
  */
 'use strict';
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -14,7 +14,7 @@ angular
 
 /** @ngInject */
 function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Publisher, enums, Page, BUILD_VERSION) {
-    var vm = this;
+    let vm = this;
     vm.state = DatasetFilter.getState();
     Page.setTitle('Dataset search');
     Page.drawer(true);
@@ -22,13 +22,13 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
 
     vm.filters = {};
 
-    //facet filters
+    // facet filters
     vm.filters.type = {
         queryKey: 'type',
         facetKey: 'TYPE',
         title: 'type',
         translationPrefix: 'dataset.terms',
-        filter: DatasetFilter
+        filter: DatasetFilter,
     };
 
     vm.filters.license = {
@@ -40,8 +40,8 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         enums: enums.license,
         facets: {
             hasFacets: true,
-            facetKey: 'LICENSE'
-        }
+            facetKey: 'LICENSE',
+        },
     };
 
     vm.filters.taxonKey = {
@@ -50,24 +50,24 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         filter: DatasetFilter,
         expand: {
             resource: Species,
-            expandedTitle: 'scientificName'
+            expandedTitle: 'scientificName',
         },
         facets: {
             hasFacets: false,
-            facetKey: 'TAXON_KEY'
+            facetKey: 'TAXON_KEY',
         },
         search: {
             isSearchable: true,
             placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.taxon,
             defaultParams: {
-                datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+                datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
             },
             suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'scientificName',
             suggestShortName: 'title',
-            suggestKey: 'key'
-        }
+            suggestKey: 'key',
+        },
     };
 
     vm.filters.publishingCountry = {
@@ -78,12 +78,12 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.TRANSLATE',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale + '&v=' + BUILD_VERSION
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale + '&v=' + BUILD_VERSION,
         },
         facets: {
             hasFacets: true,
-            facetKey: 'PUBLISHING_COUNTRY'
-        }
+            facetKey: 'PUBLISHING_COUNTRY',
+        },
     };
 
     vm.filters.publisher = {
@@ -92,11 +92,11 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         filter: DatasetFilter,
         expand: {
             resource: Publisher,
-            expandedTitle: 'title'
+            expandedTitle: 'title',
         },
         facets: {
             hasFacets: true,
-            facetKey: 'PUBLISHING_ORG'
+            facetKey: 'PUBLISHING_ORG',
         },
         search: {
             isSearchable: true,
@@ -105,8 +105,8 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
-            suggestKey: 'key'
-        }
+            suggestKey: 'key',
+        },
     };
 
     vm.filters.hostingOrg = {
@@ -115,11 +115,11 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         filter: DatasetFilter,
         expand: {
             resource: Publisher,
-            expandedTitle: 'title'
+            expandedTitle: 'title',
         },
         facets: {
             hasFacets: true,
-            facetKey: 'HOSTING_ORG'
+            facetKey: 'HOSTING_ORG',
         },
         search: {
             isSearchable: true,
@@ -128,8 +128,8 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
-            suggestKey: 'key'
-        }
+            suggestKey: 'key',
+        },
     };
 
     vm.filters.projectId = {
@@ -138,58 +138,58 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         filter: DatasetFilter,
         facets: {
             hasFacets: true,
-            facetKey: 'PROJECT_ID'
+            facetKey: 'PROJECT_ID',
         },
         search: {
             isSearchable: true,
-            placeholder: 'dataset.terms.projectId'
-        }
+            placeholder: 'dataset.terms.projectId',
+        },
     };
 
 
-    vm.search = function () {
+    vm.search = function() {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.getSuggestions = function (val) {
+    vm.getSuggestions = function(val) {
         return $http.get(suggestEndpoints.dataset, {
             params: {
                 q: val,
-                limit: 10
-            }
-        }).then(function (response) {
+                limit: 10,
+            },
+        }).then(function(response) {
             return response.data;
         });
     };
 
-    vm.typeaheadSelect = function (item) { //  model, label, event
-        window.location.href = "../dataset/" + item.key;
+    vm.typeaheadSelect = function(item) { //  model, label, event
+        window.location.href = '../dataset/' + item.key;
     };
 
-    vm.searchOnEnter = function (event) {
+    vm.searchOnEnter = function(event) {
         if (event.which === 13) {
             vm.freeTextSearch();
         }
     };
 
-    vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined';
     };
 
-    //vm.clearFreetextAndSetFocus = function() {
+    // vm.clearFreetextAndSetFocus = function() {
     //    document.getElementById('siteSearch').focus();
     //    vm.freeTextQuery = '';
     //    event.preventDefault();
-    //};
-    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
-    //hotkeys.add({
+    // };
+    // might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    // hotkeys.add({
     //    combo: 'alt+f',
     //    description: 'Site search',
     //    callback: function(event) {
     //        vm.clearFreetextAndSetFocus();
     //        event.preventDefault();
     //    }
-    //});
+    // });
 }
 
 module.exports = datasetCtrl;

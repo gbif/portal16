@@ -1,18 +1,18 @@
-"use strict";
-var _ = require('lodash');
+'use strict';
+let _ = require('lodash');
 
 function composeSubmenu(dataset) {
-    var menu = [];
+    let menu = [];
 
-    //submenu groups
-    var introduction = {name: 'introduction', items: []},
+    // submenu groups
+    let introduction = {name: 'introduction', items: []},
         coverage = {name: 'coverage', items: []},
         methodology = {name: 'methodology', items: []},
-    //project = {name: 'project', items: []},
+    // project = {name: 'project', items: []},
         credit = {name: 'credit', items: []},
         usage = {name: 'usage', items: []};
 
-    //populate groups if there is content
+    // populate groups if there is content
     if (_.get(dataset, '_occurrenceCount.count', 0) > 0 || _.get(dataset, '_speciesTaxonCount.count', 0) > 0) introduction.items.push('metrics');
     if (_.get(dataset, '_occurrenceCount.count', 0) > 0 || _.has(dataset, '_computedValues.geoCoverage')) introduction.items.push('map');
     if (_.has(dataset, 'record.description')) introduction.items.push('description');
@@ -32,9 +32,9 @@ function composeSubmenu(dataset) {
     if (_.has(dataset, 'record.samplingDescription.qualityControl')) methodology.items.push('qualityControl');
     if (_.has(dataset, 'record.samplingDescription.methodSteps')) methodology.items.push('methodSteps');
 
-    //let projectField = _.get(dataset, 'record.project');
-    //if (!_.isEmpty(projectField)) project.items.push('about');
-    //if (_.has(dataset, 'record.project.funding')) project.items.push('funding');
+    // let projectField = _.get(dataset, 'record.project');
+    // if (!_.isEmpty(projectField)) project.items.push('about');
+    // if (_.has(dataset, 'record.project.funding')) project.items.push('funding');
 
 
     credit.items.push('citation');
@@ -47,11 +47,11 @@ function composeSubmenu(dataset) {
     usage.items.push('processing history');
 
 
-    //if there is content, then add the froup
+    // if there is content, then add the froup
     if (!_.isEmpty(introduction.items)) menu.push(introduction);
     if (!_.isEmpty(coverage.items)) menu.push(coverage);
     if (!_.isEmpty(methodology.items)) menu.push(methodology);
-    //if (!_.isEmpty(project.items)) menu.push(project);
+    // if (!_.isEmpty(project.items)) menu.push(project);
     if (!_.isEmpty(credit.items)) menu.push(credit);
     if (!_.isEmpty(usage.items)) menu.push(usage);
 

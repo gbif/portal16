@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var apiConfig = require('../../../models/gbifdata/apiConfig'),
+let apiConfig = require('../../../models/gbifdata/apiConfig'),
     chai = require('chai'),
     expect = chai.expect,
     querystring = require('querystring'),
@@ -48,7 +48,7 @@ async function createSimpleDownload(cookie, query) {
     let user = await authOperations.getUserFromToken(cookie);
 
     query.notification_address = user.email || 'an_email_is_required_despite_not_needing_it';
-    var options = {
+    let options = {
         url: apiConfig.occurrenceSearchDownload.url + '?' + querystring.stringify(query),
         userName: user.userName,
         type: 'PLAIN',

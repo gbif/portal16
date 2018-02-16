@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,13 +8,13 @@ angular
 
 /** @ngInject */
 function countryParticipantCtrl() {
-    var vm = this;
+    let vm = this;
     vm.nodeKey = gb.nodeKey;
-    //vm.setData = function() {
+    // vm.setData = function() {
     //    console.log(2349087);
     //    vm.nodeKey = gb.nodeKey;
-    //};
-    //console.log(123);
+    // };
+    // console.log(123);
 }
 
 module.exports = countryParticipantCtrl;

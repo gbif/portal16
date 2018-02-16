@@ -11,13 +11,13 @@ const Q = require('q'),
       log = require('../../../../config/log'),
       Directory = require('./directory');
 
-let DirectoryParticipants = function (record) {
+let DirectoryParticipants = function(record) {
     this.record = record;
 };
 
 DirectoryParticipants.prototype.record = {};
 
-DirectoryParticipants.activeMembershipTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant', 'gbif_affiliate']; //gbif_affiliate
+DirectoryParticipants.activeMembershipTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant', 'gbif_affiliate']; // gbif_affiliate
 
 
 // accepts gbifRegion & membershipType as params
@@ -37,27 +37,23 @@ DirectoryParticipants.groupBy = (query) => {
         }
 
 
-
-
         if (value == undefined) {
             helper.getApiDataPromise(requestUrl, options)
-                .then(result => {
+                .then((result) => {
                     directoryParticipantsCache.set('allParticipants', result.results, 3600, (err, success) => {
                         if (!err && success) {
                             log.info('Variable allParticipants cached, valid for 3600 seconds.');
-                        }
-                        else {
+                        } else {
                             log.error('Variable allParticipants failed to cache.');
                         }
                     });
                     deferred.resolve(groupBy(result.results, query));
                 })
-                .catch(e => {
+                .catch((e) => {
                     deferred.reject(e + ' in directoryParticipants(). ');
                     log.error(e);
                 });
-        }
-        else {
+        } else {
             allParticipants = value;
             deferred.resolve(groupBy(allParticipants, query));
         }
@@ -70,17 +66,16 @@ function groupBy(participants, query) {
     let participantsByRegion;
     let participantsByMembership;
 
-    participants.forEach(p => {
+    participants.forEach((p) => {
         Directory.setMembership(p);
     });
 
     if (typeof query === 'undefined' || (Object.keys(query).length === 0 && query.constructor === Object)) {
         return output = participants;
-    }
-    else {
+    } else {
         // if gbifRegion is in params
         if (query.hasOwnProperty('gbifRegion')) {
-            participantsByRegion = _.groupBy(participants, p => {
+            participantsByRegion = _.groupBy(participants, (p) => {
                 return (p.hasOwnProperty('gbifRegion')) ? p.gbifRegion : 'NON_ACTIVE';
             });
             participantsByRegion.GLOBAL = participants;
@@ -91,12 +86,11 @@ function groupBy(participants, query) {
 
         // if membershipType is in params
         if (query.hasOwnProperty('membershipType')) {
-            participantsByMembership = _.groupBy(participants, p => {
+            participantsByMembership = _.groupBy(participants, (p) => {
                 return (p.hasOwnProperty('membershipType')) ? p.membershipType : 'NOT_SPECIFIED';
             });
             if (typeof query.membershipType !== 'undefined' && participantsByMembership.hasOwnProperty(query.membershipType)) {
                 output = participantsByMembership[query.membershipType];
-
             }
         }
 

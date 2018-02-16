@@ -1,6 +1,6 @@
 'use strict';
 
-var cmsSearch = function () {
+let cmsSearch = function() {
     this.url = '/cms/search';
     this.facetPurpose = element(by.id('category_purpose'));
     this.purposeFilters = this.facetPurpose.all(by.css('.checkbox'));

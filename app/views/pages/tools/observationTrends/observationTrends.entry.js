@@ -1,9 +1,9 @@
 'use strict';
 
-var _ = require('lodash');
-var mapHelper = require('./map');
-var chart = require('./chart');
-var wellknown = require('wellknown');
+let _ = require('lodash');
+let mapHelper = require('./map');
+let chart = require('./chart');
+let wellknown = require('wellknown');
 
 angular
     .module('portal')
@@ -11,7 +11,7 @@ angular
 
 /** @ngInject */
 function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $httpParamSerializer, env, OccurrenceSearch, Regression) {
-    var vm = this;
+    let vm = this;
     vm.lowerTaxon;
     vm.loading = false;
     vm.higherTaxonArray = [];
@@ -23,18 +23,18 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
     vm.isActive = false;
     vm.mapTool = {
         info: false,
-        style: false
+        style: false,
     };
     vm.selectedArea = {
-        apiData: {}
+        apiData: {},
     };
     vm.regressionQuery = {};
 
-    vm.toggleMapTool = function (tool) {
-        //toggle key
+    vm.toggleMapTool = function(tool) {
+        // toggle key
         vm.mapTool[tool] = !vm.mapTool[tool];
-        //close other items
-        for (var key in vm.mapTool) {
+        // close other items
+        for (let key in vm.mapTool) {
             if (vm.mapTool.hasOwnProperty(key)) {
                 if (key != tool) {
                     vm.mapTool[key] = false;
@@ -43,7 +43,7 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
         }
     };
 
-    vm.clear = function () {
+    vm.clear = function() {
         vm.selectedArea.apiData = undefined;
         vm.tableData.years = [];
         if (vm.regressionQuery.$cancelRequest) {
@@ -52,19 +52,19 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
         }
     };
 
-    vm.startDraw = function () {
+    vm.startDraw = function() {
         vm.clear();
         mapHelper.startDraw();
         vm.hexagonMode = false;
     };
 
-    vm.startHexagon = function () {
+    vm.startHexagon = function() {
         vm.clear();
         mapHelper.startHexagonSelection();
         vm.hexagonMode = true;
     };
 
-    vm.clearSelection = function () {
+    vm.clearSelection = function() {
         vm.clear();
         vm.geometry = undefined;
         mapHelper.clearSelection(vm.hexagonMode);
@@ -73,7 +73,7 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
     vm.tableData = {
         years: [],
         groupCounts: [],
-        speciesCounts: []
+        speciesCounts: [],
     };
 
     vm.sliderOptions = {
@@ -81,35 +81,35 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
         range: {
             'min': [1900, 1],
             '50%': [1970, 1],
-            'max': [2017]
+            'max': [2017],
         },
         format: {
-            to: function (value) {
-                return parseInt(value)
+            to: function(value) {
+                return parseInt(value);
             },
-            from: function (value) {
-                return parseInt(value)
-            }
+            from: function(value) {
+                return parseInt(value);
+            },
         },
         step: 1,
-        connect: true
+        connect: true,
     };
 
     vm.eventHandlers = {
-        update: function (values) { //handle, unencoded
+        update: function(values) { // handle, unencoded
             vm.yearRange.start = Math.floor(values[0]);
             vm.yearRange.end = Math.floor(values[1]);
         },
-        change: function (values) { //values, handle, unencoded
+        change: function(values) { // values, handle, unencoded
             vm.yearRange.start = Math.floor(values[0]);
             vm.yearRange.end = Math.floor(values[1]);
             vm.updateMap();
             getRegression();
-        }
+        },
     };
 
 
-    vm.getTotalSpeciesCountInTimeSpan = function () {
+    vm.getTotalSpeciesCountInTimeSpan = function() {
         if (!vm.lowerTaxon.key) {
             vm.lowerTaxon.countSince1900 = 0;
             return;
@@ -119,11 +119,11 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
             taxon_key: vm.lowerTaxon.key,
             has_coordinate: true,
             has_geospatial_issue: false,
-            year: '1900,*'
-        }, function (response) {
+            year: '1900,*',
+        }, function(response) {
             vm.lowerTaxon.countSince1900 = response.count;
-        }, function () {
-            //TODO handle API errors
+        }, function() {
+            // TODO handle API errors
         });
     };
 
@@ -137,21 +137,21 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
         vm.tableData.years = Object.keys(vm.tableData.groupCounts).sort();
     }
 
-    vm.getSuggestions = function (val) {
+    vm.getSuggestions = function(val) {
         return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val.toLowerCase(),
                 limit: 10,
-                datasetKey: constantKeys.dataset.backbone
-            }
-        }).then(function (response) {
+                datasetKey: constantKeys.dataset.backbone,
+            },
+        }).then(function(response) {
             return response.data;
         });
     };
 
-    vm.updateMap = function () {
-        var year;
-        var taxonKey = _.get(vm, 'lowerTaxon.key'),
+    vm.updateMap = function() {
+        let year;
+        let taxonKey = _.get(vm, 'lowerTaxon.key'),
             higherKey = _.get(vm, 'higherTaxon.key');
         if (!taxonKey || !higherKey) {
             mapHelper.removeOverlays();
@@ -159,36 +159,36 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
             if (vm.yearRange.start || vm.yearRange.end) {
                 year = (vm.yearRange.start || '*' ) + ',' + (vm.yearRange.end || '*');
             }
-            var query = $httpParamSerializer(
+            let query = $httpParamSerializer(
                 {
                     taxonKey: taxonKey,
                     higherTaxonKey: higherKey,
                     minYears: vm.minimumYears,
-                    year: year
+                    year: year,
                 }
             );
             mapHelper.updateOverlays(query, vm.slopeStdErrThreshold);
         }
     };
 
-    vm.updateHigherTaxon = function () {
+    vm.updateHigherTaxon = function() {
         vm.clearSelection();
         vm.updateMap();
     };
 
-    vm.setLowerTaxon = function (item) {
-        //if nothing selected then do not do anything
+    vm.setLowerTaxon = function(item) {
+        // if nothing selected then do not do anything
         if (angular.isUndefined(item)) return;
         vm.clearSelection();
         vm.lowerTaxon = item;
 
         if (item.rank == 'KINGDOM') {
-            //it doesn't make sense to choose a kingdom. And maybe we should even set the bar lower
+            // it doesn't make sense to choose a kingdom. And maybe we should even set the bar lower
             return;
         } else {
             vm.getTotalSpeciesCountInTimeSpan();
-            //transform higherClassificationMap to array and sort it by key. select largest key - the assumption being that it is the lowest rank
-            var higherArray = _.map(vm.lowerTaxon.higherClassificationMap, function (name, key) {
+            // transform higherClassificationMap to array and sort it by key. select largest key - the assumption being that it is the lowest rank
+            let higherArray = _.map(vm.lowerTaxon.higherClassificationMap, function(name, key) {
                 return {key: parseInt(key), name: name};
             });
             higherArray = _.sortBy(higherArray, 'key');
@@ -200,7 +200,7 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
                 vm.higherTaxon = higherArray[higherArray.length - 1];
             }
 
-            //update the map to reflect the new selection
+            // update the map to reflect the new selection
             vm.updateMap();
         }
     };
@@ -209,23 +209,23 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
         return wellknown.stringify(geometry);
     }
 
-    vm.applyUpdateResults = function (properties) {
-        $scope.$apply(function () {
+    vm.applyUpdateResults = function(properties) {
+        $scope.$apply(function() {
             vm.isActive = true;
             transformData(properties);
             vm.selectedArea.apiData = properties;
-            chart.showStats(properties, vm.yearRange.start, vm.yearRange.end); //TODO use angular charist directive instead
+            chart.showStats(properties, vm.yearRange.start, vm.yearRange.end); // TODO use angular charist directive instead
         });
     };
 
-    vm.updateResults = function (properties) {
+    vm.updateResults = function(properties) {
         transformData(properties);
         vm.selectedArea.apiData = properties;
-        chart.showStats(properties, vm.yearRange.start, vm.yearRange.end); //TODO use angular charist directive instead
+        chart.showStats(properties, vm.yearRange.start, vm.yearRange.end); // TODO use angular charist directive instead
     };
 
     function getRegression() {
-        var year,
+        let year,
             taxonKey = _.get(vm, 'lowerTaxon.key'),
             higherKey = _.get(vm, 'higherTaxon.key');
         if (vm.yearRange.start || vm.yearRange.end) {
@@ -233,23 +233,22 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
         }
 
         if (taxonKey && higherKey && year && vm.geometry) {
-
-            var query = {
+            let query = {
                 higherTaxonKey: vm.higherTaxon.key,
                 taxonKey: vm.lowerTaxon.key,
                 minYears: vm.minimumYears,
                 year: year,
-                geometry: vm.geometry
-            }
+                geometry: vm.geometry,
+            };
 
             vm.clear();
             vm.loading = true;
-            vm.regressionQuery = Regression.query(query, function (response) {
+            vm.regressionQuery = Regression.query(query, function(response) {
                 vm.updateResults(response);
                 vm.loading = false;
-            }, function (err) {
+            }, function(err) {
                 if (err.status === -1) {
-                    //canceled request do nothing
+                    // canceled request do nothing
                 } else {
                     vm.clearSelection();
                     vm.loading = false;
@@ -262,34 +261,33 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
     mapHelper.createMap(
         {
             dataapiv2: env.dataApiV2,
-            onStyleLoad: function () {
+            onStyleLoad: function() {
                 vm.startHexagon();
-            }
+            },
         }
     );
 
     mapHelper.addMapEvents({
-        onCreate: function (e) {
+        onCreate: function(e) {
             vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
-            vm.isActive = true;//show drawer after having drawn
+            vm.isActive = true;// show drawer after having drawn
         },
-        onUpdate: function (e) {
+        onUpdate: function(e) {
             vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
         },
-        onDelete: function () {
+        onDelete: function() {
         },
-        onHexagonSelect: function (properties, feature) {
+        onHexagonSelect: function(properties, feature) {
             if (vm.regressionQuery.$cancelRequest) {
                 vm.regressionQuery.$cancelRequest();
                 vm.loading = false;
             }
             vm.geometry = getPolygonAsWKT(feature.geometry);
             vm.applyUpdateResults(properties);
-        }
+        },
     });
-
 }
 
 

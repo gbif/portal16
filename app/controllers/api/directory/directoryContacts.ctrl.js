@@ -5,19 +5,19 @@ const express = require('express'),
       Directory = require('../../../models/gbifdata/directory/directory'),
       log = require('../../../../config/log');
 
-module.exports = app => {
+module.exports = (app) => {
     app.use('/api', router);
 };
 
 router.get('/directory/contacts', (req, res, next) => {
     Directory.getContacts(res)
-        .then(data => {
+        .then((data) => {
             Directory.applyTranslation(data, res.__);
             res.json(data);
         })
-        .catch(err => {
+        .catch((err) => {
             log.error('Error in /api/directory/contacts controller: ' + err.message);
-            next(err)
+            next(err);
         });
 });
 
@@ -30,7 +30,7 @@ router.get('/directory/nsg/contacts', (req, res, next) => {
         'people': []
     };
     Directory.getCommitteeContacts('nodes_steering_group', contacts)
-        .then(data => {
+        .then((data) => {
             let obj = {
                 'members': data
             };
@@ -38,8 +38,8 @@ router.get('/directory/nsg/contacts', (req, res, next) => {
             Directory.applyTranslation(contacts, res.__);
             res.json(contacts.committees[0].members);
         })
-        .catch(err => {
+        .catch((err) => {
             log.error('Error in /api/directory/nsg/contacts controller: ' + err.message);
-            next(err)
+            next(err);
         });
 });

@@ -1,28 +1,28 @@
-"use strict";
+'use strict';
 
-var resource = require('../resource'),
+let resource = require('../resource'),
     api = require('../apiConfig');
 
-var Download = function (record) {
+let Download = function(record) {
     this.record = record;
 };
 
 Download.prototype.record = {};
 
-Download.get = function (key, options) {
+Download.get = function(key, options) {
     options = options || {};
-    var promise = resource.get(api.occurrenceDownload.url + key).as(Download);
+    let promise = resource.get(api.occurrenceDownload.url + key).as(Download);
     if (typeof options.expand === 'undefined') {
-        return promise
+        return promise;
     } else {
-        return promise.then(function (Download) {
-            return Download.expand(options.expand)
+        return promise.then(function(Download) {
+            return Download.expand(options.expand);
         });
     }
 };
 
-Download.prototype.expand = function () {
-    var resources = [];
+Download.prototype.expand = function() {
+    let resources = [];
     return resource.extend(this).with(resources);
 };
 

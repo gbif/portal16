@@ -1,53 +1,53 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('DirectoryPerson', function ($resource) {
+        .factory('DirectoryPerson', function($resource) {
             return $resource('/api/directory/person/:id', null, {
                 'get': {
                     method: 'GET',
-                    isArray: false
-                }
+                    isArray: false,
+                },
             });
         })
-        .factory('DirectoryContacts', function ($resource) {
+        .factory('DirectoryContacts', function($resource) {
             return $resource('/api/directory/contacts', null, {
                 'get': {
                     method: 'GET',
-                    isArray: false
-                }
+                    isArray: false,
+                },
             });
         })
-        .factory('DirectoryNsgContacts', function ($resource) {
+        .factory('DirectoryNsgContacts', function($resource) {
             return $resource('/api/directory/nsg/contacts', null, {
                 'get': {
                     method: 'GET',
-                    isArray: true
-                }
+                    isArray: true,
+                },
             });
         })
         // Accepts gbifRegion as param
         // return counts of each type of participants
-        .factory('DirectoryParticipantsCount', function ($resource) {
+        .factory('DirectoryParticipantsCount', function($resource) {
             return $resource('/api/directory/participants/count',
                 {gbifRegion: 'GLOBAL'},
                 {
                     'get': {
                         method: 'GET',
                         params: {gbifRegion: '@gbifRegion'},
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 })
                 ;
         })
         // Accepts gbifRegion and membershipType as params
         // return participant objects
-        .factory('DirectoryParticipants', function ($resource) {
+        .factory('DirectoryParticipants', function($resource) {
             return $resource('/api/directory/participants',
                 {gbifRegion: 'GLOBAL'},
                 {
@@ -55,40 +55,39 @@ var angular = require('angular');
                         method: 'GET',
                         params: {
                             gbifRegion: '@gbifRegion',
-                            membershipType: '@membershipType'
+                            membershipType: '@membershipType',
                         },
-                        isArray: true
-                    }
+                        isArray: true,
+                    },
                 })
                 ;
         })
-        .factory('ParticipantHeads', function ($resource) {
+        .factory('ParticipantHeads', function($resource) {
             return $resource('/api/participant/heads/:participantId', null,
                 {
                     'get': {
                         method: 'GET',
                         params: {
-                            participantId: '@participantId'
+                            participantId: '@participantId',
                         },
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 })
                 ;
         })
-        .factory('ParticipantsDigest', function ($resource) {
+        .factory('ParticipantsDigest', function($resource) {
             return $resource('/api/participants/digest', null,
                 {
                     'get': {
                         method: 'GET',
                         params: {
-                            gbifRegion: '@gbifRegion'
+                            gbifRegion: '@gbifRegion',
                         },
-                        isArray: true
-                    }
+                        isArray: true,
+                    },
                 })
                 ;
         })
         ;
-
 })();
 

@@ -1,18 +1,18 @@
-"use strict";
+'use strict';
 
-var express = require('express'),
+let express = require('express'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/tools/observation-trends', function (req, res, next) {
+router.get('/tools/observation-trends', function(req, res, next) {
     try {
         res.render('pages/tools/observationTrends/observationTrends', {
             _meta: {
-                title: req.__("meta.observationTrendsTitle"),
-                description: req.__("meta.observationTrendsDescription"),
+                title: req.__('meta.observationTrendsTitle'),
+                description: req.__('meta.observationTrendsDescription')
             },
             aboutUrl: 'tools/observation-trends/about'
         });
@@ -21,12 +21,12 @@ router.get('/tools/observation-trends', function (req, res, next) {
     }
 });
 
-router.get('/embed/observation-trends', function (req, res, next) {
+router.get('/embed/observation-trends', function(req, res, next) {
     try {
         res.render('pages/tools/observationTrends/observationTrendsEmbed', {
             _meta: {
-                title: req.__("meta.observationTrendsTitle"),
-                description: req.__("meta.observationTrendsDescription"),
+                title: req.__('meta.observationTrendsTitle'),
+                description: req.__('meta.observationTrendsDescription'),
                 hideFooter: true,
                 removeMenu: true,
                 useEmbeddedStyleSheet: true

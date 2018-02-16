@@ -1,5 +1,5 @@
 'use strict';
-var userModel = require('./user.model'),
+let userModel = require('./user.model'),
     auth = require('../../auth/auth.service'),
     log = require('../../../../config/log');
 
@@ -33,10 +33,10 @@ function create(req, res) {
         }
     };
     userModel.create(user)
-        .then(function(){
+        .then(function() {
             res.status(201);
             auth.setNoCache(res);
-            res.json({type:'CONFIRM_MAIL'});
+            res.json({type: 'CONFIRM_MAIL'});
         })
         .catch(handleError(res, 422));
 }
@@ -49,11 +49,11 @@ function confirm(req, res) {
         userName = req.query.username;
 
     userModel.confirm(challengeCode, userName)
-        .then(function(user){
+        .then(function(user) {
             let token = auth.signToken(user);
             user = userModel.getClientUser(user);
             auth.setTokenCookie(res, token);
-            res.json({ user });
+            res.json({user});
         })
         .catch(handleError(res));
 }
@@ -69,14 +69,14 @@ function me(req, res) {
  * Updates the user after sanitizing body
  */
 function update(req, res) {
-    //users are not allowed to change username and system settings area
+    // users are not allowed to change username and system settings area
     let user = userModel.sanitizeUpdatedUser(req.body);
     user.userName = req.user.userName;
     user.roles = req.user.roles;
     user.systemSettings = req.user.systemSettings;
 
     userModel.update(req.user.userName, user)
-        .then(function(resp){
+        .then(function(resp) {
             res.json(resp);
         })
         .catch(handleError(res, 422));
@@ -87,7 +87,7 @@ function update(req, res) {
  */
 function resetPassword(req, res) {
     userModel.resetPassword(req.body.userNameOrEmail)
-        .then(function(){
+        .then(function() {
             res.json({message: 'MAIL_CONFIRMATION'});
         })
         .catch(handleError(res, 422));
@@ -98,11 +98,11 @@ function resetPassword(req, res) {
  */
 function updateForgottenPassword(req, res) {
     userModel.updateForgottenPassword(req.body)
-        .then(function(user){
+        .then(function(user) {
             let token = auth.signToken(user);
             user = userModel.getClientUser(user);
             auth.setTokenCookie(res, token);
-            res.json({ user });
+            res.json({user});
         })
         .catch(handleError(res, 422));
 }
@@ -111,10 +111,10 @@ function updateForgottenPassword(req, res) {
  * Change my password using the existing as authentication
  */
 function changePassword(req, res) {
-    userModel.changePassword(req.get("authorization"), req.body.password)
-        .then(function(){
+    userModel.changePassword(req.get('authorization'), req.body.password)
+        .then(function() {
             res.status(204);
-            res.json({type:'PASSWORD_CHANGED'});
+            res.json({type: 'PASSWORD_CHANGED'});
         })
         .catch(handleError(res, 422));
 }
@@ -124,8 +124,8 @@ function changePassword(req, res) {
  */
 function getDownloads(req, res) {
     userModel.getDownloads(req.user.userName, req.query)
-        .then(function(downloads){
-            res.setHeader('Cache-Control', 'private, max-age=' + 10); //10 seconds - allow the user to store the list of downloads locally
+        .then(function(downloads) {
+            res.setHeader('Cache-Control', 'private, max-age=' + 10); // 10 seconds - allow the user to store the list of downloads locally
             res.json(downloads);
         })
         .catch(handleError(res, 422));
@@ -136,7 +136,7 @@ function getDownloads(req, res) {
  */
 function createSimpleDownload(req, res) {
     userModel.createSimpleDownload(req.user, req.query)
-        .then(function(download){
+        .then(function(download) {
             res.json(download);
         })
         .catch(handleError(res, 422));
@@ -147,7 +147,7 @@ function createSimpleDownload(req, res) {
  */
 function cancelDownload(req, res) {
     userModel.cancelDownload(req.user, req.params.key)
-        .then(function(){
+        .then(function() {
             res.status(204);
             res.send();
         })
@@ -159,7 +159,7 @@ function cancelDownload(req, res) {
  */
 function isRecentDownload(req, res) {
     userModel.isRecentDownload(req.user, req.params.key)
-        .then(function(value){
+        .then(function(value) {
             res.send(value);
         })
         .catch(handleError(res, 422));
@@ -178,6 +178,5 @@ function handleError(res, statusCode) {
    return function(err) {
        log.error(err);
        res.sendStatus(err.statusCode || statusCode);
-
    };
 }

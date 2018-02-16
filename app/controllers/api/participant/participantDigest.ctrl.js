@@ -8,18 +8,18 @@ const express = require('express'),
     helper = require('../../../models/util/util'),
     log = require('../../../../config/log');
 
-module.exports = app => {
+module.exports = (app) => {
     app.use('/api', router);
 };
 
 router.get('/participant/heads/:participantId?', (req, res, next) => {
     Directory.getParticipantHeads(req.params.participantId)
-        .then(data => {
+        .then((data) => {
             res.json(data);
         })
-        .catch(err => {
+        .catch((err) => {
             log.error('Error in /api/participant/heads controller: ' + err.message);
-            next(err)
+            next(err);
         });
 });
 
@@ -40,70 +40,68 @@ router.get('/participants/digest', (req, res, next) => {
     // else {
 
 
-    var promises = [helper.getApiDataPromise(url, {'qs': query}), TheGbifNetwork.getCountryFacets()];
+    let promises = [helper.getApiDataPromise(url, {'qs': query}), TheGbifNetwork.getCountryFacets()];
 
     Q.all(promises)
         .then((result) => {
+            let data = result[0];
+            let facetMap = result[1];
 
-            var data = result[0];
-            var facetMap = result[1];
 
-
-                data.forEach(datum => {
+                data.forEach((datum) => {
                     datum.iso2 = datum.countryCode;
                 });
                 let participantTasks = [];
 
-                data.forEach(participant => {
+                data.forEach((participant) => {
                     participantTasks.push(TheGbifNetwork.getDataCount(participant, facetMap)
-                        .then(participant => {
+                        .then((participant) => {
                             return participant;
                         })
-                        .catch(e => {
+                        .catch((e) => {
                             throw new Error(e);
                         }));
                 });
 
                 return Q.all(participantTasks)
-                    .then(countedParticipants => {
+                    .then((countedParticipants) => {
                         return countedParticipants;
                     })
-                    .catch(e => {
+                    .catch((e) => {
                         throw new Error(e);
                     });
             })
-            .then(countedParticipants => {
+            .then((countedParticipants) => {
                 participants = participants.concat(countedParticipants);
                 if (TheGbifNetwork.validateParticipants(participants)) {
                     let endorsedCountTasks = [];
-                    participants.forEach(p => {
+                    participants.forEach((p) => {
                         let url = 'http://' + req.get('host') + '/api/publisher/endorsed-by/' + p.id;
                         endorsedCountTasks.push(helper.getApiDataPromise(url, {})
-                            .then(result => {
+                            .then((result) => {
                                 if (result.hasOwnProperty('count')) {
                                     p.endorsedPublishers = result.count;
                                 }
                                 return p;
                             })
-                            .catch(e => {
+                            .catch((e) => {
                                 throw new Error(e);
                             }));
                     });
 
                     return Q.all(endorsedCountTasks)
-                        .then(participants => {
+                        .then((participants) => {
                             return participants;
                         })
-                        .catch(e => {
+                        .catch((e) => {
                             throw new Error(e);
                         });
-                }
-                else {
+                } else {
                     throw new Error('One or more participants have no id. Abort.');
                 }
             })
-            .then(participants => {
-                participants.forEach(p => {
+            .then((participants) => {
+                participants.forEach((p) => {
                     p.memberSince = moment(p.membershipStart, 'MMMM YYYY').format('YYYY');
                 });
 
@@ -111,14 +109,13 @@ router.get('/participants/digest', (req, res, next) => {
                 participants.sort((a, b) => {
                     if (a.name < b.name) {
                         return -1;
-                    }
-                    else if (a.name > b.name) {
+                    } else if (a.name > b.name) {
                         return 1;
                     }
                 });
                 res.json(participants);
             })
-            .catch(err => {
+            .catch((err) => {
                 log.error(err);
                 let status = err.statusCode || 500;
                 res.sendStatus(status);

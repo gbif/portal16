@@ -1,13 +1,13 @@
-var express = require('express'),
+let express = require('express'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/dataset', router);
 };
 
 function searchHandler(req, res) {
-    "use strict";
-    var searchString = req.query.q;
+    'use strict';
+    let searchString = req.query.q;
     renderPage(req, res, searchString);
 }
 
@@ -24,10 +24,10 @@ function renderPage(req, res, searchString) {
     });
 }
 
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
     res.redirect(302, './dataset/search');
 });
 
-router.get('/search', function (req, res) {
+router.get('/search', function(req, res) {
     searchHandler(req, res);
 });

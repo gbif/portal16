@@ -26,7 +26,9 @@ async function getSecretariat() {
 
 async function participantSearch(query) {
     let participants = await proxyGet(apiConfig.directoryParticipants.url + '?' + querystring.stringify(query));
-    participants.results = participants.results.map(function(p){return cleanParticipant(p)});
+    participants.results = participants.results.map(function(p) {
+return cleanParticipant(p);
+});
     return participants;
 }
 
@@ -34,7 +36,7 @@ async function participantPeopleSearch(query) {
     let participants = await proxyGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
     participants.results = participants.results.map(cleanParticipant);
     let people = [];
-    participants.results.forEach(function(p){
+    participants.results.forEach(function(p) {
         people = people.concat(flattenParticipantPeople(p));
     });
     people = _.sortBy(people, ['participant', 'roleOrder']);
@@ -57,7 +59,7 @@ async function person(id) {
         throw {statusCode: 404};
     }
 
-    //prune roles
+    // prune roles
     _.remove(personRoles, function(r) {
         return r.role.startsWith('DIRECTORY') || r.role.endsWith('_SUPPORT');
     });
@@ -68,27 +70,29 @@ async function person(id) {
         return r.role.startsWith('DIRECTORY') || r.role.endsWith('_SUPPORT');
     });
 
-    //get nodes
-    let nodePromises = personNodes.map(function(n){
+    // get nodes
+    let nodePromises = personNodes.map(function(n) {
         return node(n.nodeId);
     });
     let nodes = await Promise.all(nodePromises);
 
-    //get participants
-    let participantIds = personParticipants.map(function(p){
+    // get participants
+    let participantIds = personParticipants.map(function(p) {
         return p.participantId;
     });
-    participantIds = participantIds.concat(nodes.map(function(n){return n.participantId;}));
-    let participantPromises = participantIds.map(function(id){
+    participantIds = participantIds.concat(nodes.map(function(n) {
+return n.participantId;
+}));
+    let participantPromises = participantIds.map(function(id) {
         return participant(id);
     });
     let participants = await Promise.all(participantPromises);
 
-    //add node info to person
+    // add node info to person
     nodes = _.keyBy(nodes, 'id');
     participants = _.keyBy(participants, 'id');
 
-    personNodes.forEach(function(n){
+    personNodes.forEach(function(n) {
         let node = nodes[n.nodeId];
         n.node = _.pick(node, ['id', 'name', 'participantId']);
         if (_.has(n, 'node.participantId')) {
@@ -97,7 +101,7 @@ async function person(id) {
         }
     });
 
-    personParticipants.forEach(function(p){
+    personParticipants.forEach(function(p) {
         p.participant = _.pick(participants[p.participantId], ['id', 'type', 'participationStatus', 'countryCode', 'name']);
     });
     person.roles = personRoles;
@@ -130,7 +134,7 @@ async function proxyGet(url) {
 
 function cleanPerson(p) {
     let pers = _.pick(p, ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
-    if (pers.address) pers.address = pers.address.replace(/[\r\n]{2,}/g, "\n");
+    if (pers.address) pers.address = pers.address.replace(/[\r\n]{2,}/g, '\n');
     pers.name = pers.name ? pers.name : pers.firstName + ' ' + pers.surname;
     return pers;
 }
@@ -138,7 +142,7 @@ function cleanPerson(p) {
 function cleanParticipant(p) {
     let res = _.pick(p, ['id', 'name', 'type', 'participationStatus', 'participantUrl', 'membershipStart', 'mou2001Date', 'mou2001Signatory', 'mou2007Date', 'mou2007Signatory', 'mou2012Date', 'mou2012Signatory', 'gbifRegion', 'countryCode', 'people']);
     if (res.people) {
-        res.people = res.people.map(function(e){
+        res.people = res.people.map(function(e) {
             e.person = cleanPerson(e.person);
             return e;
         });
@@ -148,7 +152,7 @@ function cleanParticipant(p) {
 
 function flattenParticipantPeople(participant) {
     if (!_.isArray(participant.people)) return [];
-    let people = participant.people.map(function(p){
+    let people = participant.people.map(function(p) {
         p.person.participant_countryCode = participant.countryCode;
         p.person.participant = participant.name;
         p.person.participant_type = participant.type;

@@ -1,7 +1,7 @@
 'use strict';
-var angular = require('angular');
-var env = window.gb.env;
-var gitCommit = require('./gitCommit');
+let angular = require('angular');
+let env = window.gb.env;
+let gitCommit = require('./gitCommit');
 env.gitCommit = gitCommit.gitCommit;
 
 angular
@@ -20,7 +20,7 @@ angular
         stateProvince: env.dataApi + 'occurrence/search/stateProvince',
         taxon: env.dataApi + 'species/suggest',
         dataset: env.dataApi + 'dataset/suggest',
-        publisher: env.dataApi + 'organization/suggest'
+        publisher: env.dataApi + 'organization/suggest',
     }).constant('token', {
     }).constant('BUILD_VERSION',
         gb.buildVersion

@@ -1,18 +1,18 @@
-var express = require('express'),
+let express = require('express'),
     baseConfig = require('../../../config/config'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/search', function (req, res, next) {
+router.get('/search', function(req, res, next) {
     try {
-        var searchTerm = req.query.q,
-        description =  req.__("meta.searchDescription") ;
+        let searchTerm = req.query.q,
+        description = req.__('meta.searchDescription');
 
-        if(searchTerm){
-        description += " "+ req.__("meta.searchDescriptionDetail", {searchTerm: searchTerm}) ;
+        if (searchTerm) {
+        description += ' '+ req.__('meta.searchDescriptionDetail', {searchTerm: searchTerm});
         }
             context = {
                 query: searchTerm,

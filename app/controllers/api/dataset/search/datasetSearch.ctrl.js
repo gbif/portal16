@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
@@ -10,13 +10,13 @@ let express = require('express'),
 
 const querystring = require('querystring');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/dataset/search', function (req, res) {
+router.get('/dataset/search', function(req, res) {
     req.query.hl = true;
-    datasetSearch(req.query).then(function (data) {
+    datasetSearch(req.query).then(function(data) {
         DataSetOmniSearch.extractHighlights(data, req.query);
         let settings = {
             facets: true,
@@ -41,17 +41,16 @@ router.get('/dataset/search', function (req, res) {
             ],
             expandConfig: expandConfig
         };
-        gbifData.expand.expand(data, settings, res.__, function (err) {
+        gbifData.expand.expand(data, settings, res.__, function(err) {
             if (err) {
-                //TODO handle expansion errors
+                // TODO handle expansion errors
                 res.status(500);
                 res.json(data);
             } else {
                 res.json(data);
             }
         });
-
-    }, function (err) {
+    }, function(err) {
         res.status(_.get(err, 'errorResponse.statusCode', 500));
         res.json({
             body: _.get(err, 'errorResponse.body', err)
@@ -61,15 +60,14 @@ router.get('/dataset/search', function (req, res) {
 
 
 function datasetSearch(query) {
-    "use strict";
-    var deferred = Q.defer();
-    helper.getApiData(apiConfig.datasetSearch.url + '?' + querystring.stringify(query), function (err, data) {
+    'use strict';
+    let deferred = Q.defer();
+    helper.getApiData(apiConfig.datasetSearch.url + '?' + querystring.stringify(query), function(err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
-        }
-        else {
+        } else {
             deferred.reject(err);
         }
     });

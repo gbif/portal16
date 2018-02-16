@@ -1,31 +1,31 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 angular
     .module('portal')
     .directive('filterFacet', filterFacetDirective);
 
 /** @ngInject */
 function filterFacetDirective(BUILD_VERSION) {
-    var directive = {
+    let directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/filterFacet/filterFacet.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
-            filterConfig: '='
+            filterConfig: '=',
         },
         replace: true,
         controller: filterFacet,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
 
     return directive;
 
     /** @ngInject */
     function filterFacet($scope, $filter) {
-        var vm = this;
+        let vm = this;
         vm.disabled = false;
         vm.filterAutoUpdate = true;
         vm.title = vm.filterConfig.title;
@@ -39,21 +39,21 @@ function filterFacetDirective(BUILD_VERSION) {
         vm.options = {};
 
         function setModel(query) {
-            query.forEach(function (e) {
+            query.forEach(function(e) {
                 vm.checkboxModel[e] = true;
             });
         }
 
         setModel(vm.query);
 
-        vm.showFacetCount = function () {
+        vm.showFacetCount = function() {
             return vm.facetKey && !vm.collapsed && Object.keys(vm.options).length > 1;
         };
 
-        vm.apply = function () {
+        vm.apply = function() {
             if (vm.filterAutoUpdate && !vm.disabled) {
                 vm.query = [];
-                Object.keys(vm.checkboxModel).forEach(function (key) {
+                Object.keys(vm.checkboxModel).forEach(function(key) {
                     if (vm.checkboxModel[key]) {
                         vm.query.push(key);
                     }
@@ -62,41 +62,40 @@ function filterFacetDirective(BUILD_VERSION) {
             }
         };
 
-        $scope.$watch(function () {
-            return vm.filterState.query[vm.queryKey]
-        }, function (newQuery) {
+        $scope.$watch(function() {
+            return vm.filterState.query[vm.queryKey];
+        }, function(newQuery) {
             vm.query = $filter('unique')(newQuery);
             setModel(vm.query);
         });
 
-        vm.updateOptions = function (apiResponse) {
+        vm.updateOptions = function(apiResponse) {
             vm.options = apiResponse.facets[vm.facetKey].counts;
             if (angular.isArray(apiResponse.filters[vm.facetKey])) {
-                apiResponse.filters[vm.facetKey].forEach(function (e) {
+                apiResponse.filters[vm.facetKey].forEach(function(e) {
                     vm.options[e.name] = vm.options[e.name] || e;
                 });
             }
         };
 
-        $scope.$watch(function () {
+        $scope.$watch(function() {
             if (vm.filterConfig.useFacetMultiselect && typeof vm.filterState.query[vm.filterConfig.queryKey] !== 'undefined') {
                 return vm.filterState.facetMultiselect;
             }
-            return vm.filterState.data
-        }, function (newData) {
+            return vm.filterState.data;
+        }, function(newData) {
             vm.disabled = true;
-            newData.$promise.then(function (data) {
+            newData.$promise.then(function(data) {
                 vm.updateOptions(data);
                 vm.disabled = false;
-            }, function () {
+            }, function() {
                 vm.disabled = false;
             });
         });
 
-        vm.filterState.data.$promise.then(function (data) {
+        vm.filterState.data.$promise.then(function(data) {
             vm.updateOptions(data);
         });
-
     }
 }
 

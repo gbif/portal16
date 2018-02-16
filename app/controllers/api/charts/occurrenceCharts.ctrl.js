@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let express = require('express'),
     router = express.Router(),
@@ -10,28 +10,27 @@ let express = require('express'),
     querystring = require('querystring'),
     log = require('../../../../config/log');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api/chart/occurrence', router);
 };
 
-router.get('/basic', function (req, res) {
+router.get('/basic', function(req, res) {
     getChartData(req.query)
-        .then(function (chartData) {
+        .then(function(chartData) {
             res.json(chartData);
         })
-        .catch(function (err) {
+        .catch(function(err) {
             log.error(err);
             res.sendStatus(500);
-
         });
 });
 
-router.get('/frequentTaxa', function (req, res) {
+router.get('/frequentTaxa', function(req, res) {
     taxonHelper.getMostFrequentTaxa(req.query, req.query.percentage, req.query.limit)
-        .then(function (chartData) {
+        .then(function(chartData) {
             res.json(chartData);
         })
-        .catch(function (err) {
+        .catch(function(err) {
             log.error(err);
             res.sendStatus(500);
         });
@@ -41,7 +40,7 @@ async function getChartData(query) {
     let chartDimension = query.chartDimension;
     let chartSecondaryDimension = query.chartSecondaryDimension;
     let secondDimension, secondSeries;
-    //let chartType = query.chartType;
+    // let chartType = query.chartType;
     delete query.dimension;
     query = _.assign({facetLimit: 1000}, query, {limit: 0, facet: chartDimension});
     let result = await getData(query);
@@ -51,17 +50,19 @@ async function getChartData(query) {
     if (query.allEmums === 'true') {
         facetHelper.populateAllEnums(result.facets);
     }
-    //if (query.fillRange === 'true') {
+    // if (query.fillRange === 'true') {
     //    facetHelper.fillAllInRange(result.facets);
-    //}
-    //return result.facets;
+    // }
+    // return result.facets;
     let facets = await facetHelper.expandFacets(result.facets);
     facets[0].total = result.count;
 
-    //if secondary dimension then get those
+    // if secondary dimension then get those
     if (chartSecondaryDimension) {
         secondDimension = await getSecondDimension(query, chartDimension, _.map(facets[0].counts, 'name'), chartSecondaryDimension);
-        secondSeries = secondDimension.map(function(e){return getSerie(e[0])});
+        secondSeries = secondDimension.map(function(e) {
+return getSerie(e[0]);
+});
     }
 
     result.facets = facets;
@@ -71,27 +72,26 @@ async function getChartData(query) {
         categories: getCategories(result.facets[0]),
         categoryKeys: getCategoryKeys(result.facets[0]),
         series: getSerie(result.facets[0])
-        //facets: facets
+        // facets: facets
     };
     return chartData;
 }
 
 
-
 async function getSecondDimension(basisFilter, firstDimension, firstValues, secondDimension) {
-    let dimensionPromises = firstValues.map(function(fieldValue){
+    let dimensionPromises = firstValues.map(function(fieldValue) {
         let additionalFilter = {};
         additionalFilter[firstDimension] = fieldValue;
         let secondFilter = _.assign({facetLimit: 1000}, basisFilter, {facet: secondDimension, limit: 0}, additionalFilter);
         return getData(secondFilter);
     });
     let secondaryResults = await Promise.all(dimensionPromises);
-    let decorateFacetsPromises = secondaryResults.map(function(result){
+    let decorateFacetsPromises = secondaryResults.map(function(result) {
         return facetHelper.expandFacets(result.facets);
     });
     let decoratedFacets = await Promise.all(decorateFacetsPromises);
-    decoratedFacets.forEach(function(e, index){
-        e[0].total = secondaryResults[index].count
+    decoratedFacets.forEach(function(e, index) {
+        e[0].total = secondaryResults[index].count;
     });
     return decoratedFacets;
 }
@@ -105,7 +105,7 @@ async function getData(query) {
     };
     let response = await request(options);
     if (response.statusCode !== 200) {
-        //TODO log error
+        // TODO log error
         throw 'Internal server error getting data';
     }
     return response.body;

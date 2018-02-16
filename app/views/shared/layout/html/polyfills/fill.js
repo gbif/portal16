@@ -1,35 +1,34 @@
-//for IE support
+// for IE support
 module.exports = (function() {
     if (!Array.prototype.fill) {
         Object.defineProperty(Array.prototype, 'fill', {
-            value: function (value) {
-
+            value: function(value) {
                 // Steps 1-2.
                 if (this == null) {
                     throw new TypeError('this is null or not defined');
                 }
 
-                var O = Object(this);
+                let O = Object(this);
 
                 // Steps 3-5.
-                var len = O.length >>> 0;
+                let len = O.length >>> 0;
 
                 // Steps 6-7.
-                var start = arguments[1];
-                var relativeStart = start >> 0;
+                let start = arguments[1];
+                let relativeStart = start >> 0;
 
                 // Step 8.
-                var k = relativeStart < 0 ?
+                let k = relativeStart < 0 ?
                     Math.max(len + relativeStart, 0) :
                     Math.min(relativeStart, len);
 
                 // Steps 9-10.
-                var end = arguments[2];
-                var relativeEnd = end === undefined ?
+                let end = arguments[2];
+                let relativeEnd = end === undefined ?
                     len : end >> 0;
 
                 // Step 11.
-                var final = relativeEnd < 0 ?
+                let final = relativeEnd < 0 ?
                     Math.max(len + relativeEnd, 0) :
                     Math.min(relativeEnd, len);
 
@@ -41,7 +40,7 @@ module.exports = (function() {
 
                 // Step 13.
                 return O;
-            }
+            },
         });
     }
 })();

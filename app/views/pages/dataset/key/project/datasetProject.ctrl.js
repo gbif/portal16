@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function datasetProjectCtrl($stateParams) {
-    var vm = this;
+    let vm = this;
     vm.key = $stateParams.key;
 }
 

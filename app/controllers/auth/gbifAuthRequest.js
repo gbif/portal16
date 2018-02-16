@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const credentials = rootRequire('config/credentials').directory,
     appKey = credentials.appKey,
@@ -10,7 +10,7 @@ const credentials = rootRequire('config/credentials').directory,
     NEWLINE = '\n';
 
 async function authenticatedRequest(options) {
-    //https://github.com/gbif/gbif-common-ws/blob/master/src/main/java/org/gbif/ws/security/GbifAuthService.java
+    // https://github.com/gbif/gbif-common-ws/blob/master/src/main/java/org/gbif/ws/security/GbifAuthService.java
     expect(options).to.be.an('object');
     expect(['GET', 'POST', 'PUT', 'DELETE'], 'request method').to.include(options.method);
     expect('url').to.be.a('string');
@@ -20,8 +20,8 @@ async function authenticatedRequest(options) {
     }
 
     let requestOptions = {
-        maxAttempts: 5,   // (default) try 5 times
-        retryDelay: 5000,  // (default) wait for 5s before trying again
+        maxAttempts: 5, // (default) try 5 times
+        retryDelay: 5000, // (default) wait for 5s before trying again
         retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
         fullResponse: true
     };
@@ -32,7 +32,7 @@ async function authenticatedRequest(options) {
         requestOptions.json = true;
     }
 
-    var headers = createHeader(options);
+    let headers = createHeader(options);
     signHeader(requestOptions.method, headers);
     requestOptions.headers = headers;
 
@@ -45,20 +45,20 @@ function createHeader(options) {
     headers['x-url'] = options.canonicalPath || options.url;
     headers['x-gbif-user'] = options.userName || appKey;
     if (options.method == 'POST' || options.method == 'PUT') {
-        headers['Content-MD5'] = crypto.createHash('md5').update(JSON.stringify(options.body)).digest("base64");
+        headers['Content-MD5'] = crypto.createHash('md5').update(JSON.stringify(options.body)).digest('base64');
     }
     return headers;
 }
 
 function signHeader(method, headers) {
-    var stringToSign = method + NEWLINE + headers['x-url'];
+    let stringToSign = method + NEWLINE + headers['x-url'];
     if (headers['Content-MD5']) {
         stringToSign += NEWLINE + 'application/json' + NEWLINE + headers['Content-MD5'];
     }
     if (headers['x-gbif-user']) {
         stringToSign += NEWLINE + headers['x-gbif-user'];
     }
-    var signature = crypto.createHmac('sha1', secret).update(stringToSign).digest('base64');
+    let signature = crypto.createHmac('sha1', secret).update(stringToSign).digest('base64');
     headers.Authorization = 'GBIF ' + appKey + ':' + signature;
 }
 

@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
+let angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function doiDirective() {
-    var directive = {
+    let directive = {
         restrict: 'E',
         template: '<a ng-href="https://doi.org/{{ vm.asDoi(vm.link) }}" class="doi"><span>DOI</span><span>{{ vm.asDoi(vm.link) }}</span></a>',
         scope: {
@@ -17,14 +17,14 @@ function doiDirective() {
         controller: doiCtrl,
         controllerAs: 'vm',
         bindToController: {
-            link: '@'
-        }
+            link: '@',
+        },
     };
     return directive;
 
     /** @ngInject */
     function doiCtrl() {
-        var vm = this;
+        let vm = this;
         vm.asDoi = function() {
             return vm.link.replace(/^.*(10\.)/, '10.');
         };

@@ -1,4 +1,4 @@
-var express = require('express'),
+let express = require('express'),
     Publisher = require('../../../models/gbifdata/gbifdata').Publisher,
     helper = rootRequire('app/models/util/util'),
     contributors = require('../../dataset/key/contributors/contributors'),
@@ -7,29 +7,29 @@ var express = require('express'),
     log = require('../../../../config/log'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
 function isGuid(stringToTest) {
-    var regexGuid = /^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/gi;
+    let regexGuid = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/gi;
     return regexGuid.test(stringToTest);
 }
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
 router.get('/publisher/confirm', confirm);
-router.get('/publisher/:key\.:ext?', render);
+router.get('/publisher/:key.:ext?', render);
 
 
 function render(req, res, next) {
-    var key = req.params.key;
+    let key = req.params.key;
     if (!isGuid(key)) {
         next();
     } else {
-        Publisher.get(key).then(function (publisher) {
+        Publisher.get(key).then(function(publisher) {
             try {
                 publisher._computedValues = {};
                 let contacts = publisher.record.contacts;
@@ -56,7 +56,7 @@ function render(req, res, next) {
             } catch (error) {
                 next(error);
             }
-        }, function (err) {
+        }, function(err) {
             if (err.type == 'NOT_FOUND') {
                 next();
             } else {
@@ -67,33 +67,31 @@ function render(req, res, next) {
 }
 
 function confirm(req, res, next) {
-    var key = req.query.key;
-    var code = req.query.code;
+    let key = req.query.key;
+    let code = req.query.code;
 
     let opts = {
         method: 'POST',
-        body: {"confirmationKey": code},
-        url: apiConfig.publisherCreate.url + key + "/endorsement",
-        canonicalPath: apiConfig.publisherCreate.canonical + key + "/endorsement"
+        body: {'confirmationKey': code},
+        url: apiConfig.publisherCreate.url + key + '/endorsement',
+        canonicalPath: apiConfig.publisherCreate.canonical + key + '/endorsement'
 
     };
 
 
     return authOperations.authenticatedRequest(opts)
-        .then(function(response){
+        .then(function(response) {
             if (response.statusCode !== 204) {
                 throw response;
             }
-          return  helper.renderPage(req, res, next, {
+          return helper.renderPage(req, res, next, {
                 publisherKey: key
             }, 'pages/custom/confirmEndorsement/confirmEndorsement');
         })
-        .catch(function(err){
-            log.error("Failed to confirm endorsement for organization["+key+"] : "+err.body)
-            return  helper.renderPage(req, res, next, {
+        .catch(function(err) {
+            log.error('Failed to confirm endorsement for organization['+key+'] : '+err.body);
+            return helper.renderPage(req, res, next, {
                 publisherKey: key
             }, 'pages/custom/confirmEndorsement/invalidToken');
-
         });
-
 }

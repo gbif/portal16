@@ -1,6 +1,6 @@
-(function () {
+(function() {
     'use strict';
-    var angular = require('angular'),
+    let angular = require('angular'),
         _ = require('lodash'),
         Base64 = require('js-base64').Base64;
 
@@ -11,27 +11,27 @@
             LOGOUT_SUCCESS: 'LOGOUT_SUCCESS',
             LOGOUT_FAILED: 'LOGOUT_FAILED',
             LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-            LOGIN_FAILURE: 'LOGIN_FAILURE'
+            LOGIN_FAILURE: 'LOGIN_FAILURE',
         })
         .constant('USER_ROLES', {
             REGISTRY_ADMIN: 'REGISTRY_ADMIN',
-            REPOSITORY_USER: 'DATA_REPO_USER'
+            REPOSITORY_USER: 'DATA_REPO_USER',
         });
 
     angular
         .module('portal')
-        .service('User', function ($http, $sessionStorage, $rootScope, AUTH_EVENTS, $cookies, $location, $window) {
-                var that = this;
-                var AUTH_TOKEN_NAME = 'token';
+        .service('User', function($http, $sessionStorage, $rootScope, AUTH_EVENTS, $cookies, $location, $window) {
+                let that = this;
+                let AUTH_TOKEN_NAME = 'token';
 
-                that.userFromToken = function () {
-                    var token = $cookies.get(AUTH_TOKEN_NAME);
+                that.userFromToken = function() {
+                    let token = $cookies.get(AUTH_TOKEN_NAME);
                     if (!token) {
                         return;
                     }
-                    var user = JSON.parse(Base64.decode(token.split('.')[1]));
+                    let user = JSON.parse(Base64.decode(token.split('.')[1]));
 
-                    //is the token still valid - if not then delete it. This of course is only to ensure the client knows that the token has expired. any authenticated requests would fail anyhow
+                    // is the token still valid - if not then delete it. This of course is only to ensure the client knows that the token has expired. any authenticated requests would fail anyhow
                     if (new Date(user.exp*1000).toISOString() < new Date().toISOString()) {
                         that.logout();
                         return;
@@ -43,122 +43,122 @@
                     return user;
                 };
 
-                that.hasRole = function (role) {
-                    var user = that.userFromToken();
+                that.hasRole = function(role) {
+                    let user = that.userFromToken();
                     return user && _.get(user, 'roles', []).indexOf(role) != -1;
                 };
 
-                that.getAuthToken = function () {
+                that.getAuthToken = function() {
                     return $cookies.get(AUTH_TOKEN_NAME);
                 };
 
-                that.loadActiveUser = function () {
-                    var activeUser = $http.get('/api/user/me');
-                    activeUser.then(function (response) {
+                that.loadActiveUser = function() {
+                    let activeUser = $http.get('/api/user/me');
+                    activeUser.then(function(response) {
                         $sessionStorage.user = response.data;
                         $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
-                    }, function () {
+                    }, function() {
                         delete $sessionStorage.user;
                         $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
                     });
                     return activeUser;
                 };
 
-                that.loadStorageUser = function () {
+                that.loadStorageUser = function() {
                     if (!$sessionStorage.user) {
                         that.loadActiveUser();
                     }
-                    //else {
+                    // else {
                     //    //check that user stored in session is the same as on the token cookie
                     //    var tokenUser = that.userFromToken();
                     //    if (tokenUser.exp*1000 < Date.now() && tokenUser.userName !== $sessionStorage.user.userName) {
                     //        that.loadActiveUser();
                     //    }
-                    //}
+                    // }
                 };
 
-                that.createUser = function (body) {
-                    var creation = $http.post('/api/user/create', body);
-                    creation.then(function () {
-                        var url = $location.url();
+                that.createUser = function(body) {
+                    let creation = $http.post('/api/user/create', body);
+                    creation.then(function() {
+                        let url = $location.url();
                         $cookies.put('userCreationUrl', url, {
-                            path: '/'
+                            path: '/',
                         });
-                    }, function () {
-                        //TODO inform of failed creation
+                    }, function() {
+                        // TODO inform of failed creation
                     });
                     return creation;
                 };
 
-                that.login = function (username, password) {
-                    var authData = $window.btoa(username + ':' + password);
-                    var userLogin = $http.get('/api/auth/basic', {
-                        headers: {'Authorization': 'Basic ' + authData}
+                that.login = function(username, password) {
+                    let authData = $window.btoa(username + ':' + password);
+                    let userLogin = $http.get('/api/auth/basic', {
+                        headers: {'Authorization': 'Basic ' + authData},
                     });
-                    userLogin.then(function (response) {
+                    userLogin.then(function(response) {
                         $sessionStorage.user = response.data.user;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGIN_SUCCESS);
-                        //$window.location.reload(); //would be safer to reload in case some controller doesn't listen to broadcasted event
-                    }, function () {
+                        // $window.location.reload(); //would be safer to reload in case some controller doesn't listen to broadcasted event
+                    }, function() {
                         $rootScope.$broadcast(AUTH_EVENTS.LOGIN_FAILURE);
                     });
                     return userLogin;
                 };
 
-                that.logout = function () {
-                    var logout = $http.get('/api/user/logout');
-                    logout.then(function () {
+                that.logout = function() {
+                    let logout = $http.get('/api/user/logout');
+                    logout.then(function() {
                         delete $sessionStorage.user;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
                         window.location = '/user/profile';
-                    }, function () {
+                    }, function() {
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_FAILED);
                     });
                     return logout;
                 };
 
-                that.resetPassword = function (usernameOrEmail) {
-                    var passwordReset = $http.post('/api/user/resetPassword', usernameOrEmail);
+                that.resetPassword = function(usernameOrEmail) {
+                    let passwordReset = $http.post('/api/user/resetPassword', usernameOrEmail);
                     return passwordReset;
                 };
 
-                that.updateForgottenPassword = function (body) {
-                    var updatePassword = $http.post('/api/user/updateForgottenPassword', body);
-                    updatePassword.then(function () {
+                that.updateForgottenPassword = function(body) {
+                    let updatePassword = $http.post('/api/user/updateForgottenPassword', body);
+                    updatePassword.then(function() {
                         that.loadActiveUser()
-                            .then(function(){
+                            .then(function() {
                                 $location.url('/user/profile');
                                 $window.location.reload();
                             })
-                            .catch(function(){
+                            .catch(function() {
                                 $location.url('/user/profile');
                                 $window.location.reload();
                             });
-                    }, function () {
-                        //TODO inform user of failed update. toast?
+                    }, function() {
+                        // TODO inform user of failed update. toast?
                     });
                     return updatePassword;
                 };
 
-                that.changePassword = function (userName, oldPassword, newPassword) {
-                    var authData = $window.btoa(userName + ':' + oldPassword);
-                    var config = {
-                        headers: {'Authorization': 'Basic ' + authData}
+                that.changePassword = function(userName, oldPassword, newPassword) {
+                    let authData = $window.btoa(userName + ':' + oldPassword);
+                    let config = {
+                        headers: {'Authorization': 'Basic ' + authData},
                     };
-                    var body = {
-                        password: newPassword
+                    let body = {
+                        password: newPassword,
                     };
-                    var changePassword = $http.post('/api/user/changePassword', body, config);
-                    //leave it to consumer to show error
+                    let changePassword = $http.post('/api/user/changePassword', body, config);
+                    // leave it to consumer to show error
                     return changePassword;
                 };
 
-                that.update = function (user) {
-                    var update = $http.put('/api/user/update', user);
-                    update.then(function () {
+                that.update = function(user) {
+                    let update = $http.put('/api/user/update', user);
+                    update.then(function() {
                         $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
-                    }, function () {
-                        //TODO inform of failed creation
+                    }, function() {
+                        // TODO inform of failed creation
                     });
                     return update;
                 };

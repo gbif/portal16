@@ -3,7 +3,7 @@ let severity = require('./severity').severity,
     backboneKey = config.publicConstantKeys.dataset.backbone,
     apiConfig = require('../../../models/gbifdata/apiConfig');
 
-//select which es content to query
+// select which es content to query
 let crawlHostName = 'prodcrawler1-vh.gbif.org',
     varnishIndexName = 'prod-varnish-*',
     downloadKey = '0000222-130906152512535';
@@ -21,7 +21,7 @@ switch (config.healthEnv || config.env) {
     default:
         break;
 }
-var tests = [
+let tests = [
     {
         url: apiConfig.occurrenceSearch.url + '?cachebust={NOW}',
         component: 'OCCURRENCE'
@@ -168,7 +168,7 @@ var tests = [
         message: 'There has been more than 50 errors on occurrence search in the last 5 minutes'
     },
     {
-        url:config.serverProtocol + apiConfig.image.url + encodeURIComponent('http://www.gbif.org/img/logo/GBIF-2015.png') + '?cachebust={NOW}',
+        url: config.serverProtocol + apiConfig.image.url + encodeURIComponent('http://www.gbif.org/img/logo/GBIF-2015.png') + '?cachebust={NOW}',
         component: 'IMAGE_CACHE',
         severity: severity.WARNING,
         message: 'Image cache should return 200 for an image'

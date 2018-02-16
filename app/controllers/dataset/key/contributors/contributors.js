@@ -1,5 +1,5 @@
-"use strict";
-var _ = require('lodash');
+'use strict';
+let _ = require('lodash');
 
 /**
  * The same person can appear multiple times in the list of dataset contacts
@@ -20,7 +20,7 @@ function getContactIdentifiers(contact) {
     }
     if (identifiers.length == 0) {
         if (contact.firstName && contact.lastName) {
-            identifiers.push(contact.firstName + ' ' + contact.lastName)
+            identifiers.push(contact.firstName + ' ' + contact.lastName);
         } else if (contact.organization) {
             identifiers.push(contact.organization);
         }
@@ -36,10 +36,10 @@ function hasDisplayName(contact) {
 /**
  * Remove contacts that have too little information to be useful. A contact is considered incomplete if there is no identification means (see function getContactIdentifiers)
  * @param contacts
- * @returns {*}
+ * @return {*}
  */
 function removeContactsWithoutIdentifierOrName(contacts) {
-    return contacts.filter(function (e) {
+    return contacts.filter(function(e) {
         return getContactIdentifiers(e).length > 0 && hasDisplayName(e);
     });
 }
@@ -48,12 +48,12 @@ function removeContactsWithoutIdentifierOrName(contacts) {
  * two contacts are the same if they share an identifier
  * @param a
  * @param b
- * @returns {boolean}
+ * @return {boolean}
  */
 function isSameAuthor(a, b) {
     let identifierA = getContactIdentifiers(a),
         identifierB = getContactIdentifiers(b);
-    for (var i = 0; i < identifierA.length; i++) {
+    for (let i = 0; i < identifierA.length; i++) {
         if (identifierB.indexOf(identifierA[i]) > -1) {
             return true;
         }
@@ -66,7 +66,7 @@ function isSameAuthor(a, b) {
  * Merging with oneself should not change anything
  * @param a
  * @param b
- * @returns the extended contact (NOT a copy)
+ * @return the extended contact (NOT a copy)
  */
 function extendContact(a, b) {
     a.primary = a.primary || b.primary;
@@ -80,7 +80,7 @@ function extendContact(a, b) {
 /**
  * remove duplicates, considering the first apperance the primary if there is differences. the first apperance is extended using function extendContact()
  * @param contacts
- * @returns {Array} new array withhout duplicates and contacts with insufficient info
+ * @return {Array} new array withhout duplicates and contacts with insufficient info
  */
 function getUniqueContacts(contacts) {
     if (!_.isArray(contacts)) {
@@ -89,13 +89,13 @@ function getUniqueContacts(contacts) {
     let trimmedContacts = removeContactsWithoutIdentifierOrName(contacts),
         mergedContacts = [];
 
-    trimmedContacts.forEach(function (e) {
+    trimmedContacts.forEach(function(e) {
         let index = indexInList(mergedContacts, e);
         if (index > -1) {
-            //merge
+            // merge
             extendContact(mergedContacts[index], e);
         } else {
-            //add
+            // add
             let cloned = _.cloneDeep(e);
             if (!cloned.roles) {
                 cloned.roles = cloned.type ? [cloned.type] : [];
@@ -110,10 +110,10 @@ function getUniqueContacts(contacts) {
  * get index of that contact in the list. compared using their identifiers
  * @param list
  * @param contact
- * @returns {number}
+ * @return {number}
  */
 function indexInList(list, contact) {
-    for (var i = 0; i < list.length; i++) {
+    for (let i = 0; i < list.length; i++) {
         if (isSameAuthor(list[i], contact)) {
             return i;
         }
@@ -123,24 +123,24 @@ function indexInList(list, contact) {
 
 
 function cleanContacts(contacts) {
-    //remove contacts with insuffient contact details
+    // remove contacts with insuffient contact details
     let trimmedContacts = removeContactsWithoutIdentifierOrName(contacts);
-    //assign IDs based on their identifiers
+    // assign IDs based on their identifiers
     let ids = [];
-    trimmedContacts.forEach(function (e) {
+    trimmedContacts.forEach(function(e) {
         let i = indexInList(ids, e);
         if (i == -1) {
-            //new contact found - assign new ID
+            // new contact found - assign new ID
             e._id = ids.length;
             ids.push(e);
         } else {
-            //that contact has been seen before. assign existing ID
+            // that contact has been seen before. assign existing ID
             e._id = i;
         }
     });
 
-    //remove duplicates (same person same role shouldn't appear twice)
-    trimmedContacts = _.uniqWith(trimmedContacts, function (a, b) {
+    // remove duplicates (same person same role shouldn't appear twice)
+    trimmedContacts = _.uniqWith(trimmedContacts, function(a, b) {
         return a.type == b.type && a._id == b._id;
     });
 
@@ -161,7 +161,7 @@ function getRoleOrder(roles) {
 
 function getFirstWithEmail(contacts) {
     if (_.isArray(contacts)) {
-        for (var i = 0; i < contacts.length; i++) {
+        for (let i = 0; i < contacts.length; i++) {
             if (_.get(contacts[i], 'email.length', 0) > 0) {
                 return contacts[i];
             }
@@ -174,34 +174,34 @@ function getContributors(contacts) {
     if (!_.isArray(contacts)) {
         return [];
     }
-    //remove empty values from address array - the API returns [null]
-    contacts.forEach(function(contact){
+    // remove empty values from address array - the API returns [null]
+    contacts.forEach(function(contact) {
         if (contact.address) {
             _.remove(contact.address, _.isNil);
         }
     });
     let originators, administrativeContacts, uniqueContacts, trimmedContacts = cleanContacts(contacts);
 
-    let personsOnly = trimmedContacts.filter(function (e) {
+    let personsOnly = trimmedContacts.filter(function(e) {
         return e.firstName || e.lastName;
     });
-    originators = personsOnly.filter(function (e) {
+    originators = personsOnly.filter(function(e) {
         return e.type == 'ORIGINATOR';
     });
-    administrativeContacts = personsOnly.filter(function (e) {
+    administrativeContacts = personsOnly.filter(function(e) {
         return e.type == 'ADMINISTRATIVE_POINT_OF_CONTACT' && indexInList(originators, e) == -1;
     });
 
-    //get unique
+    // get unique
     uniqueContacts = getUniqueContacts(trimmedContacts);
-    //sort based on role, then order the are delivered in
-    uniqueContacts.sort(function (a, b) {
+    // sort based on role, then order the are delivered in
+    uniqueContacts.sort(function(a, b) {
         let x = getRoleOrder(a.roles) - getRoleOrder(b.roles);
         return x == 0 ? a._id - b._id : x;
     });
 
-    //mark contacts that are to be highlighted in header
-    uniqueContacts.forEach(function (e) {
+    // mark contacts that are to be highlighted in header
+    uniqueContacts.forEach(function(e) {
         if (!e.firstName && !e.lastName) {
             return;
         }
@@ -211,13 +211,13 @@ function getContributors(contacts) {
         }
     });
 
-    //assign primary contact
+    // assign primary contact
     let primaryContact = getFirstWithEmail(administrativeContacts);
 
     if (!primaryContact) {
         primaryContact = getFirstWithEmail(uniqueContacts);
     } else {
-        primaryContact = uniqueContacts.find(function (e) {
+        primaryContact = uniqueContacts.find(function(e) {
             return isSameAuthor(e, primaryContact);
         });
     }
@@ -229,7 +229,7 @@ function getContributors(contacts) {
 
     return {
         all: uniqueContacts,
-        highlighted: uniqueContacts.filter(function (e) {
+        highlighted: uniqueContacts.filter(function(e) {
             return e._highlighted;
         })
     };

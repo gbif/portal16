@@ -13,7 +13,7 @@ async function signedGet(requestUrl) {
     let appKey = credentials.appKey;
     let secret = credentials.secret;
 
-    var options = {
+    let options = {
         url: requestUrl,
         fullResponse: true,
         json: true,
@@ -48,7 +48,7 @@ async function getNodeById(id) {
 function getParticipant(key, locale) {
     let participantPromise;
 
-    var promise = new Promise(function (resolve, reject) {
+    let promise = new Promise(function(resolve, reject) {
         if (! isNaN(key) || key.match(/^[0-9]+$/)) {
             participantPromise = getParticipantById(key);
         } else {
@@ -56,13 +56,13 @@ function getParticipant(key, locale) {
         }
 
         participantPromise
-            .then(function (participant) {
+            .then(function(participant) {
                 expandParticipant(participant, locale)
-                    .then(function (result) {
+                    .then(function(result) {
                         resolve(result);
                     })
-                    .catch(function (err) {
-                        //ignore missing relations
+                    .catch(function(err) {
+                        // ignore missing relations
                         log.error({error: err}, 'Failing relations in participant request');
                         resolve({
                             participant: participant,
@@ -70,7 +70,7 @@ function getParticipant(key, locale) {
                         });
                     });
             })
-            .catch(function (err) {
+            .catch(function(err) {
                 reject(err);
             });
     });
@@ -87,7 +87,7 @@ async function getParticipantByIso(isoCode) {
         throw {
             statusCode: 404,
             message: 'No participant with that iso code: ' + isoCode
-        }
+        };
     }
     let participant = await getParticipantById(participantItem.id);
     return participant;
@@ -112,11 +112,11 @@ async function expandParticipant(participant, locale) {
     expect(participant).to.have.property('id');
     // expect(participant).to.have.nested.property('nodes[0].id');
 
-    //get ids to query for
+    // get ids to query for
     let nodeId = _.get(participant, 'nodes[0].id'),
         id = participant.id;
 
-    //get first list of promises
+    // get first list of promises
     let prosePromise = resource.getParticipant(id, 2, false, locale),
         participantHistoryPromise = signedGet(apiConfig.directoryParticipantPerson.url + '?status=all&participant_id=' + id),
         registryNodePromise = signedGet(apiConfig.node.url + '?identifier=' + id),
@@ -127,28 +127,28 @@ async function expandParticipant(participant, locale) {
         promiseList.push(signedGet(apiConfig.directoryNodePerson.url + '?status=all&node_id=' + nodeId));
     }
 
-    //wait for them to finish
+    // wait for them to finish
     // let values = await Promise.all([prosePromise, participantHistoryPromise, nodePromise, nodeHistoryPromise, registryNodePromise]),
-    let values = await Promise.all(promiseList), //prosePromise, participantHistoryPromise, registryNodePromise, <nodePromise, nodeHistoryPromise>
-    //asign them to nicer names
+    let values = await Promise.all(promiseList), // prosePromise, participantHistoryPromise, registryNodePromise, <nodePromise, nodeHistoryPromise>
+    // asign them to nicer names
         prose = values[0],
         participantHistory = values[1],
         registryNode = values[2].results[0],
         node = values[3],
         nodeHistory = values[4];
 
-    //get the people historical related to the participant and node
+    // get the people historical related to the participant and node
     let peopleIds = _.map(_.concat([], _.get(participantHistory, 'results', []), _.get(nodeHistory, 'results', [])), 'personId'),
         people = await getPeople(peopleIds),
-    //remove sensitive information from the people objects
+    // remove sensitive information from the people objects
         contacts = people.map(removeSensitiveInformation);
 
-    //transform contacts to map by ids to make it easier to look them up
+    // transform contacts to map by ids to make it easier to look them up
     contacts = _.union(contacts);
     contacts = _.keyBy(contacts, 'id');
 
-    //assign the values to the participant
-    var result = {
+    // assign the values to the participant
+    let result = {
         participant: participant,
         node: node,
         prose: prose,
@@ -171,7 +171,7 @@ async function getPerson(id) {
 }
 
 async function getPeople(idArray) {
-    let peopleArray = idArray.map(function (id) {
+    let peopleArray = idArray.map(function(id) {
         return getPerson(id);
     });
     return await Promise.all(peopleArray);

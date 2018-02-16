@@ -1,14 +1,14 @@
-var express = require('express'),
+let express = require('express'),
     router = express.Router(),
 helper = rootRequire('app/models/util/util'),
     resource = require('../../resource/key/resourceKey');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
 
-router.get('/tools/data-validator', function (req, res) {
+router.get('/tools/data-validator', function(req, res) {
     res.render('pages/tools/dataValidator/dataValidator', {
         _meta: {
             title: 'Data validator',
@@ -18,16 +18,12 @@ router.get('/tools/data-validator', function (req, res) {
 });
 
 
-
-
-
 router.get('/tools/data-validator/about', render);
 router.get('/tools/data-validator/extensions', render);
 router.get('/tools/data-validator/:jobid', render);
 router.get('/tools/data-validator/:jobid/document', render);
 router.get('/tools/data-validator/:jobid/extensions', render);
-//router.get('/tools/data-validator/:jobid/about', render);
-
+// router.get('/tools/data-validator/:jobid/about', render);
 
 
 function render(req, res, next) {
@@ -41,25 +37,21 @@ function render(req, res, next) {
 }
 
 
-
-
-router.get('/templates/data-validator/about.html', function (req, res, next) {
-
-    let contentfulProdId =  'zqFvwnIS0oAMwQIKWooAW'; //
+router.get('/templates/data-validator/about.html', function(req, res, next) {
+    let contentfulProdId = 'zqFvwnIS0oAMwQIKWooAW'; //
     let query = {
-        content_type: 'Tool',
+        'content_type': 'Tool',
         'fields.keywords': 'validator'
     };
     resource.getFirst(query, 2, false, res.locals.gb.locales.current)
-        .then(contentItem => {
+        .then((contentItem) => {
             helper.renderPage(req, res, next, contentItem, 'pages/tools/dataValidator/about/aboutArticle.nunjucks');
         })
-        .catch(function(err){
+        .catch(function(err) {
             if (err.statusCode == 404) {
                 next();
             } else {
                 next(err);
             }
         });
-
 });

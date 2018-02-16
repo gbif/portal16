@@ -1,44 +1,44 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('CmsSearch', function ($resource) {
+        .factory('CmsSearch', function($resource) {
             return $resource('/api/cms/search', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 }
             );
         })
         // Accepting gbifRegion as param
         // return number of publishers in the region
-        .factory('LiteratureCount', function ($resource) {
+        .factory('LiteratureCount', function($resource) {
             return $resource('/api/literature/count',
                 {gbifRegion: 'GLOBAL'},
                 {
                     'get': {
                         method: 'GET',
                         params: {gbifRegion: '@gbifRegion'},
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 })
                 ;
         })
-        .factory('LiteratureYearly', function ($resource) {
+        .factory('LiteratureYearly', function($resource) {
             return $resource('/api/literature-yearly/count',
                 {gbifRegion: 'GLOBAL'},
                 {
                     'get': {
                         method: 'GET',
                         params: {gbifRegion: '@gbifRegion'},
-                        isArray: true
-                    }
+                        isArray: true,
+                    },
                 })
                 ;
         })

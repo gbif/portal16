@@ -1,6 +1,6 @@
 'use strict';
 
-var prosePage = function () {
+let prosePage = function() {
     this.proseInlineImage = element.all(by.css('.prose-columns')).first().element(by.tagName('img'));
 };
 

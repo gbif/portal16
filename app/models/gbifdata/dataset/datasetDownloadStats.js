@@ -1,5 +1,5 @@
-"use strict";
-var Q = require('q'),
+'use strict';
+let Q = require('q'),
     _ = require('lodash'),
     helper = require('../../util/util'),
     apiConfig = require('../apiConfig');
@@ -12,22 +12,22 @@ function rollUpCounts(downloads) {
         noFilter: 0,
         keys: {}
     };
-    downloads.results.forEach(function (result) {
+    downloads.results.forEach(function(result) {
         let downloadQuery = _.get(result, 'download.request.predicate');
         rollUp.occurrences += _.get(result, 'numberRecords', 0);
 
-        //filters used
+        // filters used
         if (!downloadQuery) {
             filterCounts.noFilter++;
         } else {
             let predicates = getPredicates(downloadQuery);
-            _.uniqBy(predicates, 'key').forEach(function (predicate) {
+            _.uniqBy(predicates, 'key').forEach(function(predicate) {
                 filterCounts.keys[predicate.key] = filterCounts.keys[predicate.key] ? filterCounts.keys[predicate.key] + 1 : 1;
             });
         }
     });
 
-    //dates
+    // dates
     if (downloads.count > 1) {
         rollUp.dates = {
             last: _.get(downloads, 'results[0].download.created'),
@@ -35,8 +35,8 @@ function rollUpCounts(downloads) {
         };
     }
 
-    //filterCounts to sorted list
-    filterCounts.keys = _.flatMap(filterCounts.keys, function (value, key) {
+    // filterCounts to sorted list
+    filterCounts.keys = _.flatMap(filterCounts.keys, function(value, key) {
         return {
             field: key,
             value: value
@@ -49,14 +49,13 @@ function rollUpCounts(downloads) {
 }
 
 function getDownloads(key, limit) {
-    var deferred = Q.defer();
-    helper.getApiData(apiConfig.occurrenceDownloadDataset.url + key + '?limit=' + limit, function (err, data) {
+    let deferred = Q.defer();
+    helper.getApiData(apiConfig.occurrenceDownloadDataset.url + key + '?limit=' + limit, function(err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
-        }
-        else {
+        } else {
             deferred.reject(err);
         }
     }, {
@@ -70,7 +69,7 @@ function getPredicates(predicate) {
     if (predicate.key) {
         list.push(predicate);
     } else if (_.isArray(predicate.predicates)) {
-        predicate.predicates.forEach(function (p) {
+        predicate.predicates.forEach(function(p) {
             list = list.concat(getPredicates(p));
         });
     }
@@ -78,16 +77,16 @@ function getPredicates(predicate) {
 }
 
 function translateFields(data) {
-    var helper = require('../../../helpers/format');
-    data.filterCounts.keys.forEach(function (e) {
+    let helper = require('../../../helpers/format');
+    data.filterCounts.keys.forEach(function(e) {
         e.displayName = helper.prettifyEnum(e.field);
     });
 }
 
 function getStats(datasetKey, limit) {
     limit = limit || 200;
-    var deferred = Q.defer();
-    getDownloads(datasetKey, limit).then(function (downloadData) {
+    let deferred = Q.defer();
+    getDownloads(datasetKey, limit).then(function(downloadData) {
         try {
             let summaryData = rollUpCounts(downloadData);
             summaryData.limit = limit;
@@ -97,7 +96,7 @@ function getStats(datasetKey, limit) {
         } catch (err) {
             deferred.reject(err);
         }
-    }, function (err) {
+    }, function(err) {
         deferred.reject(err);
     });
     return deferred.promise;

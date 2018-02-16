@@ -1,25 +1,20 @@
 'use strict';
-
-//get(url, options[expand[required, timeout, maxAttempts], timeout, maxAttempts, required])
-//get('api/species/123', {expand: ['api/species/{{key}}/verbatim', 'api/species/homonyms/{{key}}?name={{canonicalName}}]}
-
-var nunjucks = require('nunjucks'),
-    _ = require('lodash'),
-    request = require('requestretry');
+let nunjucks = require('nunjucks');
+let _ = require('lodash');
+let request = require('requestretry');
 
 async function getResource(url, options) {
     try {
         let resp = {};
         resp.record = await getItem(url);
         if (_.isArray(options.expand)) {
-
-            //expand selected keys
+            // expand selected keys
             let expandPromises = [];
 
-            options.expand.forEach(function (e) {
-                //template url
+            options.expand.forEach(function(e) {
+                // template url
                 if (_.isArray(e.expect)) {
-                    for (var i = 0; i < e.expect.length; i++) {
+                    for (let i = 0; i < e.expect.length; i++) {
                         let expectedKey = e.expect[i];
                         if (!_.has(resp.record, expectedKey)) {
                             if (e.required !== false) {
@@ -36,15 +31,15 @@ async function getResource(url, options) {
 
             let expanded = await Promise.all(expandPromises);
 
-            //attach fields
-            options.expand.forEach(function (e, i) {
+            // attach fields
+            options.expand.forEach(function(e, i) {
                 if (e.toField) {
                     resp[e.toField] = expanded[i];
                 }
             });
         }
         return resp;
-    } catch(err){
+    } catch (err) {
         throw err;
     }
 }

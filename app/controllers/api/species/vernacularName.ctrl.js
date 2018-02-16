@@ -1,36 +1,36 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     vernacularName = require('./vernacularName');
 
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/species/:key/vernacularName', function (req, res) {
+router.get('/species/:key/vernacularName', function(req, res) {
     let namePromise = vernacularName.getVernacularName(req.params.key, req.headers['accept-language']);
-    namePromise.then(function(name){
+    namePromise.then(function(name) {
         if (name) {
             res.send(name);
         }
         res.status(204);
         res.send();
-    }).catch(function(){
+    }).catch(function() {
         res.status(500);
         res.send();
     });
 });
 
-router.get('/species/:key/vernacularNames', function (req, res) {
+router.get('/species/:key/vernacularNames', function(req, res) {
     let namePromise = vernacularName.getVernacularNamesProcessed(req.params.key);
-    namePromise.then(function(name){
+    namePromise.then(function(name) {
         if (name) {
             res.send(name);
         }
         res.status(204);
         res.send();
-    }).catch(function(){
+    }).catch(function() {
         res.status(500);
         res.send();
     });

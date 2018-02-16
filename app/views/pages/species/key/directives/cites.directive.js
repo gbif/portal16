@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
+let angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,21 +9,21 @@ angular
 
 /** @ngInject */
 function citesDirective() {
-    var directive = {
+    let directive = {
         restrict: 'E',
         template: '<a href="{{vm.link}}" class="badge {{vm.class}}">{{vm.appendix}}</a>',
         scope: {},
         controller: citesCtrl,
         controllerAs: 'vm',
         bindToController: {
-            name: '@'
-        }
+            name: '@',
+        },
     };
     return directive;
 
     /** @ngInject */
     function citesCtrl(CitesApi) {
-        var vm = this;
+        let vm = this;
         vm.appendix;
         vm.id;
         vm.link;
@@ -31,22 +31,22 @@ function citesDirective() {
         vm.listings = [];
 
         CitesApi.query({
-            name: vm.name
+            name: vm.name,
 
-        }, function (data) {
-            var tax = _.head(data.taxon_concepts);
+        }, function(data) {
+            let tax = _.head(data.taxon_concepts);
             if (tax) {
-                vm.appendix = "Appendix " + tax.cites_listing;
+                vm.appendix = 'Appendix ' + tax.cites_listing;
                 vm.listings = tax.cites_listings;
                 vm.id = tax.id;
-                vm.class = "cites";
-                vm.link = 'https://speciesplus.net/#/taxon_concepts/' + vm.id + '/legal'
+                vm.class = 'cites';
+                vm.link = 'https://speciesplus.net/#/taxon_concepts/' + vm.id + '/legal';
             } else {
-                vm.appendix = "Not listed";
-                vm.class = "redlist-category-NE";
-                vm.link = '#'
+                vm.appendix = 'Not listed';
+                vm.class = 'redlist-category-NE';
+                vm.link = '#';
             }
-        }, function () {
+        }, function() {
         });
     }
 }

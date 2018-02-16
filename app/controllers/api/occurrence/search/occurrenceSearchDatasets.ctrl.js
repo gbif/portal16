@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     request = require('requestretry'),
@@ -8,29 +8,29 @@ var express = require('express'),
 
 const querystring = require('querystring');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/occurrence/datasets', function (req, res) {
-    //clear all facets and ask for datasetKey facet only
+router.get('/occurrence/datasets', function(req, res) {
+    // clear all facets and ask for datasetKey facet only
     req.query.facet = 'datasetKey';
 
-    //get one more facet than asked for and use that to test for last
-    var facetLimit = parseInt(req.query.limit) || 20;
-    var offset = parseInt(req.query.offset) || 0;
+    // get one more facet than asked for and use that to test for last
+    let facetLimit = parseInt(req.query.limit) || 20;
+    let offset = parseInt(req.query.offset) || 0;
     req.query.facetOffset = offset;
     req.query.facetLimit = facetLimit + 1;
 
-    //We do not care about the result count
+    // We do not care about the result count
     req.query.limit = 0;
     req.query.offset = undefined;
 
     getDatasets(req.query)
-        .then(function(result){
+        .then(function(result) {
             res.json(result);
         })
-        .catch(function(err){
+        .catch(function(err) {
             log.error(err);
             res.sendStatus(_.get(err, 'errorResponse.statusCode', 500));
         });
@@ -39,21 +39,21 @@ router.get('/occurrence/datasets', function (req, res) {
 async function getDatasets(query) {
     let endOfRecords = false;
     let occurrences = await occurrenceSearch(query);
-    var datasetKeys = _.get(occurrences, 'facets[0].counts', []);
+    let datasetKeys = _.get(occurrences, 'facets[0].counts', []);
 
-    //only return the amount asked for, and since we addded one to test for last, then remove last
+    // only return the amount asked for, and since we addded one to test for last, then remove last
     if (datasetKeys.length <= (query.facetLimit - 1)) {
         endOfRecords = true;
     } else {
         datasetKeys.pop();
     }
 
-    //Get datasets from keys in facet
-    let datasetPromises = datasetKeys.map(function(e){
+    // Get datasets from keys in facet
+    let datasetPromises = datasetKeys.map(function(e) {
         return getDataset(e.name);
     });
     let datasets = await Promise.all(datasetPromises);
-    datasets = datasets.map(function(e, i){
+    datasets = datasets.map(function(e, i) {
         return {
             key: e.key,
             title: e.title,
@@ -64,7 +64,7 @@ async function getDatasets(query) {
             publishingCountry: e.publishingCountry,
             description: _.isString(e.description) ? e.description.substr(0, 200) : undefined,
             _count: datasetKeys[i].count
-        }
+        };
     });
     return {
         endOfRecords: endOfRecords,

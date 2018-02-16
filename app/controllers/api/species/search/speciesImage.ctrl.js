@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
@@ -7,11 +7,11 @@ var express = require('express'),
     log = require('../../../../../config/log');
 
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/species/:key/images', function (req, res) {
+router.get('/species/:key/images', function(req, res) {
     let taxonKey = req.params.key,
         images = query({
             media_type: 'StillImage',
@@ -20,18 +20,18 @@ router.get('/species/:key/images', function (req, res) {
         });
 
     images
-        .then(function (response) {
+        .then(function(response) {
             let imgList = getImages(response.results);
             res.json(imgList);
         })
-        .catch(function (err) {
+        .catch(function(err) {
             log.error(err);
             res.status(500);
             res.send('SERVER FAILURE');
         });
 });
 
-router.get('/species/:key/occimage', function (req, res) {
+router.get('/species/:key/occimage', function(req, res) {
     let taxonKey = req.params.key,
         images = query({
             media_type: 'StillImage',
@@ -40,29 +40,29 @@ router.get('/species/:key/occimage', function (req, res) {
         });
 
     images
-        .then(function (response) {
+        .then(function(response) {
             let imgList = getImages(response.results);
             if (imgList.length > 0) {
-                //select first image
+                // select first image
                 res.send(imgList[0]);
             } else {
                 res.status(204);
                 res.send();
             }
         })
-        .catch(function (err) {
+        .catch(function(err) {
             log.error(err);
             res.status(500);
             res.send('SERVER FAILURE');
         });
 });
 
-router.get('/species/:key/image', function (req, res) {
+router.get('/species/:key/image', function(req, res) {
     let
         images = getSpeciesImages(req.params.key);
 
     images
-        .then(function (imgList) {
+        .then(function(imgList) {
             if (imgList.length > 0) {
                 res.send(imgList[0]);
             } else {
@@ -70,7 +70,7 @@ router.get('/species/:key/image', function (req, res) {
                 res.send();
             }
         })
-        .catch(function (err) {
+        .catch(function(err) {
             log.error(err);
             let status = err.statusCode || 500;
             res.sendStatus(status);
@@ -96,9 +96,8 @@ async function query(query, options) {
 }
 
 async function getSpeciesImages(taxonKey) {
-
     let baseRequest = {
-        url: apiConfig.taxon.url + taxonKey + "/media",
+        url: apiConfig.taxon.url + taxonKey + '/media',
         timeout: 30000,
         method: 'GET',
         json: true
@@ -110,8 +109,8 @@ async function getSpeciesImages(taxonKey) {
     }
     let images = [];
 
-        //select first image
-        for (var i = 0; i < items.body.results.length; i++) {
+        // select first image
+        for (let i = 0; i < items.body.results.length; i++) {
             if (items.body.results[i].type == 'StillImage') {
                 images.push(items.body.results[i]);
             }
@@ -122,9 +121,8 @@ async function getSpeciesImages(taxonKey) {
 
 function getImages(results) {
     let images = [];
-    results.forEach(function (e) {
-
-        for (var i = 0; i < e.media.length; i++) {
+    results.forEach(function(e) {
+        for (let i = 0; i < e.media.length; i++) {
             if (e.media[i].type == 'StillImage') {
                 images.push(e.media[i].identifier);
             }

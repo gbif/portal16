@@ -4,36 +4,35 @@
  It also sets the locale of the i18n framework for handling translations.
  */
 
-//Given a list of possible locales it detects if it is in a given URL. returns the locale or undefined if not present.
-//e.g. getLocaleFromUrl('/da/blogposts/123', ['da', 'en']) -> 'da'
-//e.g. getLocaleFromUrl('/da/blogposts/123', ['es', 'en']) -> undefined
+// Given a list of possible locales it detects if it is in a given URL. returns the locale or undefined if not present.
+// e.g. getLocaleFromUrl('/da/blogposts/123', ['da', 'en']) -> 'da'
+// e.g. getLocaleFromUrl('/da/blogposts/123', ['es', 'en']) -> undefined
 function getLocaleFromUrl(url, locales) {
     if (url == '') {
         return false;
     }
-    var first = url.substring(1).split('/');
-    var matchedIndex = locales.indexOf(first[0]);
+    let first = url.substring(1).split('/');
+    let matchedIndex = locales.indexOf(first[0]);
     if (matchedIndex != -1) {
         return locales[matchedIndex];
     }
     return undefined;
 }
 
-//remove locale from url. e.g. removeLocaleFromUrl('/en/blogpost/123', 'en') -> '/blogpost/123'
+// remove locale from url. e.g. removeLocaleFromUrl('/en/blogpost/123', 'en') -> '/blogpost/123'
 function removeLocaleFromUrl(url, locale) {
-    var expr = '(^' + locale + '\/)|(^' + locale + '$)';
-    var regex = new RegExp(expr);
-    var strippedUrl = '/' + url.substring(1).replace(regex, '');
+    let expr = '(^' + locale + '\/)|(^' + locale + '$)';
+    let regex = new RegExp(expr);
+    let strippedUrl = '/' + url.substring(1).replace(regex, '');
     return strippedUrl;
 }
 
-//remove locale from url so that different locales use the same routes. attach locale to response.
+// remove locale from url so that different locales use the same routes. attach locale to response.
 function use(app, locales, defaultLocale) {
-
-    //Use middleware to set current language based on url
-    app.use(function (req, res, next) {
-        var locale = getLocaleFromUrl(req.url, locales);
-        var queryLocale = req.query.locale || req.query.lang;
+    // Use middleware to set current language based on url
+    app.use(function(req, res, next) {
+        let locale = getLocaleFromUrl(req.url, locales);
+        let queryLocale = req.query.locale || req.query.lang;
 
         if (locale) {
             req.url = removeLocaleFromUrl(req.url, locale);
@@ -58,10 +57,9 @@ function use(app, locales, defaultLocale) {
                 current: defaultLocale
             };
         }
-        //console.log();
+        // console.log();
         next();
     });
-
 }
 
 module.exports = {

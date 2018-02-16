@@ -1,11 +1,11 @@
-var request = require('request'),
+let request = require('request'),
     async = require('async'),
     xmlParser = require('xml2js').parseString,
     isDevMode = require('../../../config/config').env == 'dev',
     log = require('../../../config/log'),
     Q = require('q');
 
-var ERRORS = Object.freeze({
+let ERRORS = Object.freeze({
     API_TIMEOUT: 'API_TIMEOUT',
     NO_CONTENT: 'NO_CONTENT',
     API_ERROR: 'API_ERROR',
@@ -16,7 +16,7 @@ var ERRORS = Object.freeze({
     BACKEND_FETCH_FAILED: 'BACKEND_FETCH_FAILED'
 });
 
-var STATUS_CODES = Object.freeze({
+let STATUS_CODES = Object.freeze({
     API_TIMEOUT: 408,
     NO_CONTENT: 204,
     API_ERROR: 502,
@@ -28,8 +28,7 @@ var STATUS_CODES = Object.freeze({
 });
 
 function getData(cb, path, options) {
-
-    var requestOptions = {
+    let requestOptions = {
         url: path,
         timeout: options.timeoutMilliSeconds
     };
@@ -40,7 +39,7 @@ function getData(cb, path, options) {
     }
     if (options.qs) requestOptions.qs = options.qs;
 
-    request.get(requestOptions, function (err, response, body) {
+    request.get(requestOptions, function(err, response, body) {
         // if timeout
         if (err) {
             if (err.code === 'ETIMEDOUT') {
@@ -48,23 +47,19 @@ function getData(cb, path, options) {
                     errorType: ERRORS.API_TIMEOUT,
                     errorResponse: err
                 }, null);
-                //log.error('timed out while connecting to ' + path);
             } else if (err.connect === true) {
                 cb({
                     errorType: ERRORS.API_TIMEOUT,
                     errorResponse: err
                 }, null);
-                //log.error('timed out getting data from ' + path);
             } else {
                 cb({
                     errorType: ERRORS.API_TIMEOUT,
                     errorResponse: err
                 }, null);
-                //log.error('error while talking to ' + path + ' ' + err);
             }
-        }
-        //if not found or not status code 200
-        else if (response && response.statusCode > 299) {
+        } else if (response && response.statusCode > 299) {
+            // if not found or not status code 200
             let error = {
                 errorResponse: response
             };
@@ -88,24 +83,19 @@ function getData(cb, path, options) {
                     break;
             }
             cb(error, {statusCode: response.statusCode});
-        }
-
-        //if no response data
-        else if (response.statusCode == 204 && options.failOnNoContent) {
+        } else if (response.statusCode == 204 && options.failOnNoContent) {
+            // if no response data
             cb({statusCode: response.statusCode});
-        }
-        else if (!body) {
+        } else if (!body) {
             cb(null, {
                 statusCode: response.statusCode
             });
-        }
-        else {
+        } else {
             if (options.type == 'XML') {
                 parseXml(body, path, cb);
             } else if (options.type == 'PLAIN') {
                 cb(null, body);
-            }
-            else {
+            } else {
                 parseJson(body, path, cb);
             }
         }
@@ -113,19 +103,18 @@ function getData(cb, path, options) {
 }
 
 function parseXml(body, path, cb) {
-    "use strict";
+    'use strict';
     try {
-        xmlParser(body, function (err, result) {
+        xmlParser(body, function(err, result) {
             if (err) {
                 cb(err);
                 log.error('failed to parse XML response ' + path);
-            }
-            else {
+            } else {
                 cb(null, result);
             }
         });
     } catch (err) {
-        //if invalid response
+        // if invalid response
         cb({
             errorType: ERRORS.INVALID_RESPONSE,
             errorResponse: err
@@ -135,13 +124,13 @@ function parseXml(body, path, cb) {
 }
 
 function parseJson(body, path, cb) {
-    "use strict";
+    'use strict';
     let data;
     try {
         data = JSON.parse(body);
         cb(null, data);
     } catch (err) {
-        //if invalid response
+        // if invalid response
         cb({
             errorType: ERRORS.INVALID_RESPONSE,
             errorResponse: err
@@ -152,22 +141,22 @@ function parseJson(body, path, cb) {
 
 function getApiData(path, callback, options) {
     options = options || {};
-    options.timeoutMilliSeconds = options.timeout || options.timeoutMilliSeconds || 3000; //TODO this is silly, why create a new property milliseconds for this? refactor to remove usage everywhere
+    options.timeoutMilliSeconds = options.timeout || options.timeoutMilliSeconds || 3000; // TODO this is silly, why create a new property milliseconds for this? refactor to remove usage everywhere
     options.retries = options.retries || 2;
     options.failHard = options.failHard || false;
 
     async.retry(
         {times: options.retries, interval: 200},
-        function (cb) {
+        function(cb) {
             getData(cb, path, options);
         },
-        function (err, result) {
+        function(err, result) {
             if (err) {
-                //failed after all attempts
-                //if fail hard, then return explicit error. This will break async requests
-                //else return result marked as error
+                // failed after all attempts
+                // if fail hard, then return explicit error. This will break async requests
+                // else return result marked as error
 
-                //log failed request if in development mode - otherwise leave it to the using function to decide if this is a problem. could well be a simple timeout or a wrong query
+                // log failed request if in development mode - otherwise leave it to the using function to decide if this is a problem. could well be a simple timeout or a wrong query
                 if (isDevMode) {
                     log.error('api request failed at: ' + path, err.errorType);
                 }
@@ -177,7 +166,7 @@ function getApiData(path, callback, options) {
                     callback(null, err);
                 }
             } else {
-                //got useful response back
+                // got useful response back
                 callback(null, result);
             }
         }
@@ -187,7 +176,7 @@ function getApiData(path, callback, options) {
 function getApiDataPromise(requestUrl, options) {
     let deferred = Q.defer();
 
-    getApiData(requestUrl, function (err, data) {
+    getApiData(requestUrl, function(err, data) {
         if (err) {
             let reason = err + ' while accessing ' + requestUrl;
             deferred.reject(new Error(reason));
@@ -211,5 +200,5 @@ module.exports = {
     getApiData: getApiData,
     getApiDataPromise: getApiDataPromise,
     ERRORS: ERRORS,
-    STATUS_CODES : STATUS_CODES
+    STATUS_CODES: STATUS_CODES
 };

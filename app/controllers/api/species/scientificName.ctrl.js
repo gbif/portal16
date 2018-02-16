@@ -1,142 +1,134 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     ranks = require('../../../models/enums/allEnums').rank,
     request = require('requestretry'),
     Q = require('q');
 
-const FAMILY_RANK_INDEX =   ranks.indexOf('FAMILY'); //15;
-const SPECIES_RANK_INDEX = ranks.indexOf('SPECIES'); //27;
+const FAMILY_RANK_INDEX = ranks.indexOf('FAMILY'); // 15;
+const SPECIES_RANK_INDEX = ranks.indexOf('SPECIES'); // 27;
 
 const rankMarkerMap = {
-    "dom.": "DOMAIN",
-    "superreg.": "SUPERKINGDOM",
-    "reg.": "KINGDOM",
-    "subreg.": "SUBKINGDOM",
-    "infrareg.": "INFRAKINGDOM",
-    "superphyl.": "SUPERPHYLUM",
-    "phyl.": "PHYLUM",
-    "subphyl.": "SUBPHYLUM",
-    "infraphyl.": "INFRAPHYLUM",
-    "supercl.": "SUPERCLASS",
-    "cl.": "CLASS",
-    "subcl.": "SUBCLASS",
-    "infracl.": "INFRACLASS",
-    "parvcl.": "PARVCLASS",
-    "superleg.": "SUPERLEGION",
-    "leg.": "LEGION",
-    "subleg.": "SUBLEGION",
-    "infraleg.": "INFRALEGION",
-    "supercohort": "SUPERCOHORT",
-    "cohort": "COHORT",
-    "subcohort": "SUBCOHORT",
-    "infracohort": "INFRACOHORT",
-    "magnord.": "MAGNORDER",
-    "superord.": "SUPERORDER",
-    "grandord.": "GRANDORDER",
-    "ord.": "ORDER",
-    "subord.": "SUBORDER",
-    "infraord.": "INFRAORDER",
-    "parvord.": "PARVORDER",
-    "superfam.": "SUPERFAMILY",
-    "fam.": "FAMILY",
-    "subfam.": "SUBFAMILY",
-    "infrafam.": "INFRAFAMILY",
-    "supertrib.": "SUPERTRIBE",
-    "trib.": "TRIBE",
-    "subtrib.": "SUBTRIBE",
-    "infratrib.": "INFRATRIBE",
-    "supragen.": "SUPRAGENERIC_NAME",
-    "gen.": "GENUS",
-    "subgen.": "SUBGENUS",
-    "infragen.": "INFRAGENUS",
-    "sect.": "SECTION",
-    "subsect.": "SUBSECTION",
-    "ser.": "SERIES",
-    "subser.": "SUBSERIES",
-    "infrageneric": "INFRAGENERIC_NAME",
-    "agg.": "SPECIES_AGGREGATE",
-    "sp.": "SPECIES",
-    "infrasp.": "INFRASPECIFIC_NAME",
-    "grex": "GREX",
-    "subsp.": "SUBSPECIES",
-    "convar.": "CONVARIETY",
-    "infrasubsp.": "INFRASUBSPECIFIC_NAME",
-    "prol.": "PROLES",
-    "race": "RACE",
-    "natio": "NATIO",
-    "ab.": "ABERRATION",
-    "morph": "MORPH",
-    "var.": "VARIETY",
-    "subvar.": "SUBVARIETY",
-    "f.": "FORM",
-    "subf.": "SUBFORM",
-    "pv.": "PATHOVAR",
-    "biovar": "BIOVAR",
-    "chemovar": "CHEMOVAR",
-    "morphovar": "MORPHOVAR",
-    "phagovar": "PHAGOVAR",
-    "serovar": "SEROVAR",
-    "chemoform": "CHEMOFORM",
-    "f.sp.": "FORMA_SPECIALIS",
-    "cv.": "CULTIVAR",
-    "strain": "STRAIN"
+    'dom.': 'DOMAIN',
+    'superreg.': 'SUPERKINGDOM',
+    'reg.': 'KINGDOM',
+    'subreg.': 'SUBKINGDOM',
+    'infrareg.': 'INFRAKINGDOM',
+    'superphyl.': 'SUPERPHYLUM',
+    'phyl.': 'PHYLUM',
+    'subphyl.': 'SUBPHYLUM',
+    'infraphyl.': 'INFRAPHYLUM',
+    'supercl.': 'SUPERCLASS',
+    'cl.': 'CLASS',
+    'subcl.': 'SUBCLASS',
+    'infracl.': 'INFRACLASS',
+    'parvcl.': 'PARVCLASS',
+    'superleg.': 'SUPERLEGION',
+    'leg.': 'LEGION',
+    'subleg.': 'SUBLEGION',
+    'infraleg.': 'INFRALEGION',
+    'supercohort': 'SUPERCOHORT',
+    'cohort': 'COHORT',
+    'subcohort': 'SUBCOHORT',
+    'infracohort': 'INFRACOHORT',
+    'magnord.': 'MAGNORDER',
+    'superord.': 'SUPERORDER',
+    'grandord.': 'GRANDORDER',
+    'ord.': 'ORDER',
+    'subord.': 'SUBORDER',
+    'infraord.': 'INFRAORDER',
+    'parvord.': 'PARVORDER',
+    'superfam.': 'SUPERFAMILY',
+    'fam.': 'FAMILY',
+    'subfam.': 'SUBFAMILY',
+    'infrafam.': 'INFRAFAMILY',
+    'supertrib.': 'SUPERTRIBE',
+    'trib.': 'TRIBE',
+    'subtrib.': 'SUBTRIBE',
+    'infratrib.': 'INFRATRIBE',
+    'supragen.': 'SUPRAGENERIC_NAME',
+    'gen.': 'GENUS',
+    'subgen.': 'SUBGENUS',
+    'infragen.': 'INFRAGENUS',
+    'sect.': 'SECTION',
+    'subsect.': 'SUBSECTION',
+    'ser.': 'SERIES',
+    'subser.': 'SUBSERIES',
+    'infrageneric': 'INFRAGENERIC_NAME',
+    'agg.': 'SPECIES_AGGREGATE',
+    'sp.': 'SPECIES',
+    'infrasp.': 'INFRASPECIFIC_NAME',
+    'grex': 'GREX',
+    'subsp.': 'SUBSPECIES',
+    'convar.': 'CONVARIETY',
+    'infrasubsp.': 'INFRASUBSPECIFIC_NAME',
+    'prol.': 'PROLES',
+    'race': 'RACE',
+    'natio': 'NATIO',
+    'ab.': 'ABERRATION',
+    'morph': 'MORPH',
+    'var.': 'VARIETY',
+    'subvar.': 'SUBVARIETY',
+    'f.': 'FORM',
+    'subf.': 'SUBFORM',
+    'pv.': 'PATHOVAR',
+    'biovar': 'BIOVAR',
+    'chemovar': 'CHEMOVAR',
+    'morphovar': 'MORPHOVAR',
+    'phagovar': 'PHAGOVAR',
+    'serovar': 'SEROVAR',
+    'chemoform': 'CHEMOFORM',
+    'f.sp.': 'FORMA_SPECIALIS',
+    'cv.': 'CULTIVAR',
+    'strain': 'STRAIN'
 };
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/species/names', function (req, res) {
-
-    if(typeof req.query.q === 'undefined'){
+router.get('/species/names', function(req, res) {
+    if (typeof req.query.q === 'undefined') {
         res.status(400);
         res.send();
-    }
-    else {
-        var nameMap = {
+    } else {
+        let nameMap = {
             failed: {}
         };
-        var promises = [];
+        let promises = [];
 
-        var keys = req.query.q.split(",");
+        let keys = req.query.q.split(',');
 
-        keys.forEach(function(key){
+        keys.forEach(function(key) {
             promises.push(getParsedName(key)
-                .then(function(name){
+                .then(function(name) {
                     nameMap[key] = name;
                 })
-                .catch(function(){
-
+                .catch(function() {
                     nameMap.failed[key] = true;
-                }))
+                }));
+        });
 
-        })
-
-        Q.allSettled(promises).then(function () {
-
-            return   res.status(200).json(nameMap);
-
-        }).catch(function () {
+        Q.allSettled(promises).then(function() {
+            return res.status(200).json(nameMap);
+        }).catch(function() {
             res.status(500);
             res.send();
         });
     }
-
-
 });
 
-router.get('/species/:key/name', function (req, res) {
+router.get('/species/:key/name', function(req, res) {
     let namePromise = getParsedName(req.params.key);
-    namePromise.then(function (name) {
+    namePromise.then(function(name) {
         if (name) {
             res.json({n: name});
         } else {
             res.status(204);
             res.send();
         }
-    }).catch(function (err) {
+    }).catch(function(err) {
         res.status(err.statusCode || 500);
         res.send();
     });
@@ -151,42 +143,35 @@ async function getParsedName(speciesKey) {
     if (name.type == 'OTU' ) {
         let species = await getSpecies(speciesKey);
 
-        if(species.taxonomicStatus === "SYNONYM"){
-            let accepted = await getSpecies(species.acceptedKey)
-            return name.scientificName + " <i>("+accepted.canonicalName +")</i>";
-
+        if (species.taxonomicStatus === 'SYNONYM') {
+            let accepted = await getSpecies(species.acceptedKey);
+            return name.scientificName + ' <i>('+accepted.canonicalName +')</i>';
         } else {
-                let parent = await getSpecies(species.parentKey)
-                return name.scientificName+" <i>("+parent.canonicalName + " sp.)</i>";
-
+                let parent = await getSpecies(species.parentKey);
+                return name.scientificName+' <i>('+parent.canonicalName + ' sp.)</i>';
         }
-        //return n;
+        // return n;
     }
-    //unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
-    else  {
-        return formatName(name)
+    // unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
+    else {
+        return formatName(name);
     }
-
-
 }
 
-function formatName(name){
-
-    var n = '';
+function formatName(name) {
+    let n = '';
 
     if (name.type == 'SCIENTIFIC' || name.type == 'CULTIVAR' || name.type == 'DOUBTFUL') {
         if (name.rankMarker && ranks.indexOf(rankMarkerMap[name.rankMarker]) > FAMILY_RANK_INDEX) {
-            if ((name.genusOrAbove || name.specificEpithet) && name.scientificName.indexOf("×") === -1) {
+            if ((name.genusOrAbove || name.specificEpithet) && name.scientificName.indexOf('×') === -1) {
                 n += '<i>' + add(name.genusOrAbove) + add(name.specificEpithet) + '</i>';
-            } else if (name.scientificName.indexOf("×") > -1 && name.canonicalNameWithMarker) {
-
-
+            } else if (name.scientificName.indexOf('×') > -1 && name.canonicalNameWithMarker) {
                 n += '<i>' + add(name.canonicalNameWithMarker) + '</i>';
             }
-            
+
 
             if (name.infraSpecificEpithet && name.type !== 'CULTIVAR') {
-                n += add(name.rankMarker)
+                n += add(name.rankMarker);
             }
 
             if (name.infraSpecificEpithet) {
@@ -198,24 +183,21 @@ function formatName(name){
             }
 
             if (name.cultivarEpithet) {
-                n += "'" + name.cultivarEpithet + "' ";
+                n += '\'' + name.cultivarEpithet + '\' ';
             }
-        }else if(name.rankMarker === 'unranked') {
+        } else if (name.rankMarker === 'unranked') {
             n = name.scientificName;
             return n;
-        }
-        else {
+        } else {
             n += add(name.genusOrAbove);
         }
-
     } else if (name.type == 'HYBRID') {
         n += '<i>' + add(name.scientificName) + '</i>';
-    }
-    else if (name.type == 'CANDIDATUS') {
+    } else if (name.type == 'CANDIDATUS') {
         let candName = name.genusOrAbove;
         if (name.specificEpithet) {
-            candName += " "+ name.specificEpithet
-        } 
+            candName += ' '+ name.specificEpithet;
+        }
 
         n += '"<i>Candidatus </i>' + candName + '" ';
     } else if (name.type == 'INFORMAL') {
@@ -227,7 +209,7 @@ function formatName(name){
 
         return n;
     }
-    //unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
+    // unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
     else if ( name.type == 'VIRUS' || name.type == 'PLACEHOLDER') {
         n = name.scientificName;
         return n;
@@ -248,7 +230,6 @@ function formatName(name){
 
 
     return n.trim();
-
 }
 
 async function getName(speciesKey) {
@@ -268,7 +249,7 @@ async function getName(speciesKey) {
 
 async function getSpecies(speciesKey) {
     let baseRequest = {
-        url: apiConfig.taxon.url + speciesKey ,
+        url: apiConfig.taxon.url + speciesKey,
         timeout: 30000,
         method: 'GET',
         json: true,
@@ -286,7 +267,7 @@ function add(value) {
 }
 
 function addNoSpace(value) {
-    return value ? value  : '';
+    return value ? value : '';
 }
 
 module.exports.formatName = formatName;

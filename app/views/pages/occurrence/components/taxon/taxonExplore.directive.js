@@ -1,30 +1,30 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 angular
     .module('portal')
     .directive('taxonExplore', taxonExploreDirective);
 
 /** @ngInject */
 function taxonExploreDirective() {
-    var directive = {
+    let directive = {
         restrict: 'E',
         transclude: true,
         templateUrl: '/templates/pages/occurrence/components/taxon/taxonExplore.html',
         scope: {
             suggest: '=',
-            config: '='
+            config: '=',
         },
         controller: taxonExplore,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
 
     return directive;
 
     /** @ngInject */
     function taxonExplore($state, SpeciesSuggest) {
-        var vm = this;
+        let vm = this;
         vm.hide = true;
         vm.scientificName = 'abies';
         vm.suggestions = [];
@@ -39,35 +39,35 @@ function taxonExploreDirective() {
             matchField: 'canonicalName',
             multiSelect: false,
             key: 'key',
-            onChange: function (selected) {
-                var taxonKeys = selected.map(function (e) {
+            onChange: function(selected) {
+                let taxonKeys = selected.map(function(e) {
                     return e.key;
                 });
                 vm.query.taxonKey = taxonKeys;
-                $state.transitionTo($state.current, vm.query, {location: true, notify: false})
+                $state.transitionTo($state.current, vm.query, {location: true, notify: false});
             },
-            onCancel: function () {
+            onCancel: function() {
                 vm.hide = true;
-            }
+            },
         };
         //
-        //vm.suggest.addKey = function(key) {
+        // vm.suggest.addKey = function(key) {
         //    Species.get({id: key}, function(data){
         //        vm.suggest.selectedKeys.push(data.key);
         //        vm.suggest.selected.push(data);
         //    });
-        //};
-        //if (Array.isArray(vm.query.taxonKey)) {
+        // };
+        // if (Array.isArray(vm.query.taxonKey)) {
         //    vm.query.taxonKey.forEach(function(e){
         //        vm.suggest.addKey(e);
         //    });
-        //} else if(vm.query.taxonKey) {
+        // } else if(vm.query.taxonKey) {
         //    vm.suggest.addKey(vm.query.taxonKey);
-        //}
+        // }
         //
-        //vm.updateSearch = function() {
+        // vm.updateSearch = function() {
         //    $state.go($state.current, vm.query);
-        //};
+        // };
     }
 }
 

@@ -1,18 +1,18 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     cfg = rootRequire('config/config'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     _ = require('lodash'),
     countryData = require('./countryData'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
 function renderForAngular(req, res, next) {
-    var key = req.params.key.toUpperCase();
-    countryData.getParticipant(key, function (err, country) {
+    let key = req.params.key.toUpperCase();
+    countryData.getParticipant(key, function(err, country) {
         if (err) {
             if (_.get(err, 'errorResponse.statusCode', 404) < 500) {
                 country = {
@@ -31,34 +31,34 @@ function renderForAngular(req, res, next) {
     });
 }
 
-router.get('/country/:key', function (req, res, next) {
+router.get('/country/:key', function(req, res, next) {
     renderForAngular(req, res, next);
 });
-router.get('/country/:key/about', function (req, res, next) {
+router.get('/country/:key/about', function(req, res, next) {
     renderForAngular(req, res, next);
 });
-router.get('/country/:key/published', function (req, res, next) {
-    renderForAngular(req, res, next);
-});
-
-router.get('/country/:key/trends', function (req, res, next) {
-    renderForAngular(req, res, next);
-});
-router.get('/country/:key/trends/about', function (req, res, next) {
-    renderForAngular(req, res, next);
-});
-router.get('/country/:key/trends/published', function (req, res, next) {
+router.get('/country/:key/published', function(req, res, next) {
     renderForAngular(req, res, next);
 });
 
-router.get('/country/:key/participant', function (req, res, next) {
+router.get('/country/:key/trends', function(req, res, next) {
+    renderForAngular(req, res, next);
+});
+router.get('/country/:key/trends/about', function(req, res, next) {
+    renderForAngular(req, res, next);
+});
+router.get('/country/:key/trends/published', function(req, res, next) {
     renderForAngular(req, res, next);
 });
 
-router.get('/api/country/:key/news', function (req, res, next) {
-    var key = req.params.key.toUpperCase();
+router.get('/country/:key/participant', function(req, res, next) {
+    renderForAngular(req, res, next);
+});
 
-    countryData.getCountryData(key, function (err, country) {
+router.get('/api/country/:key/news', function(req, res, next) {
+    let key = req.params.key.toUpperCase();
+
+    countryData.getCountryData(key, function(err, country) {
         if (err) {
             if (_.get(err, 'errorResponse.statusCode', 404) < 500) {
                 next();
@@ -67,7 +67,7 @@ router.get('/api/country/:key/news', function (req, res, next) {
             }
         } else {
             country.code = key;
-            var latest = _.concat(
+            let latest = _.concat(
                 _.get(country, 'news.results', []),
                 _.get(country, 'dataUse.results', []),
                 _.get(country, 'country.results', [])
@@ -93,9 +93,9 @@ router.get('/api/country/:key/news', function (req, res, next) {
     });
 });
 
-router.get('/api/country/:key/breakdown', function (req, res, next) {
-    var key = req.params.key.toUpperCase();
-    var country = {
+router.get('/api/country/:key/breakdown', function(req, res, next) {
+    let key = req.params.key.toUpperCase();
+    let country = {
         code: key
     };
     try {
@@ -112,17 +112,17 @@ router.get('/api/country/:key/breakdown', function (req, res, next) {
     }
 });
 
-router.get('/api/country/:key/trends/about\.:ext?', function (req, res, next) {
-    var key = req.params.key.toUpperCase();
-    var country = {
+router.get('/api/country/:key/trends/about.:ext?', function(req, res, next) {
+    let key = req.params.key.toUpperCase();
+    let country = {
         code: key
     };
     renderPartialTrendsPage(req, res, next, country, true, 'pages/country/key/trends/about');
 });
 
-router.get('/api/country/:key/trends/published\.:ext?', function (req, res, next) {
-    var key = req.params.key.toUpperCase();
-    var country = {
+router.get('/api/country/:key/trends/published.:ext?', function(req, res, next) {
+    let key = req.params.key.toUpperCase();
+    let country = {
         code: key
     };
     renderPartialTrendsPage(req, res, next, country, false, 'pages/country/key/trends/published');
@@ -136,14 +136,14 @@ function renderPartialTrendsPage(req, res, next, country, isAbout, template) {
             res.render(template, {
                 country: country,
                 isAbout,
-                imgUrls: {//TODO more or less just copied from Markus' initial implemetation. Not translatable
+                imgUrls: {// TODO more or less just copied from Markus' initial implemetation. Not translatable
                     from: {
-                        thumbBase: imageCacheUrl + "fit-in/300x250/http://" + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/',
-                        imgBase: imageCacheUrl + "http://" + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/'
+                        thumbBase: imageCacheUrl + 'fit-in/300x250/http://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/',
+                        imgBase: imageCacheUrl + 'http://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/'
                     },
                     about: {
-                        thumbBase: imageCacheUrl + "fit-in/300x250/http://" + cfg.analyticsImg + 'country/' + country.code + '/about/figure/',
-                        imgBase: imageCacheUrl + "http://" + cfg.analyticsImg + 'country/' + country.code + '/about/figure/'
+                        thumbBase: imageCacheUrl + 'fit-in/300x250/http://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/',
+                        imgBase: imageCacheUrl + 'http://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/'
                     }
                 },
                 _meta: {

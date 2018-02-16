@@ -1,4 +1,4 @@
-//copied from https://github.com/sindresorhus/get-urls/ and changed to return array instead
+// copied from https://github.com/sindresorhus/get-urls/ and changed to return array instead
 'use strict';
 const URL = require('url');
 const urlRegex = require('url-regex');
@@ -25,7 +25,7 @@ function getUrls(text, options) {
 
     const ret = [];
 
-    const add = url => {
+    const add = (url) => {
         ret.push(normalizeUrl(url.trim().replace(/\.+$/, ''), options));
     };
 
@@ -46,7 +46,7 @@ function getUrls(text, options) {
 function hasDuplicateLinks(text, options, threshold) {
     let links = getUrls(text, options);
     let count = {};
-    for (var i = 0; i < links.length; i++) {
+    for (let i = 0; i < links.length; i++) {
         let link = links[i];
         count[link] = count[link] ? count[link]+ + 1 : 1;
         if (count[link] >= threshold) {

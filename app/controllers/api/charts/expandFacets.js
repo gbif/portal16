@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-let i18n = rootRequire("config/i18n"),
+let i18n = rootRequire('config/i18n'),
     _ = require('lodash'),
     enums = rootRequire('app/models/enums/allEnums'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
@@ -9,34 +9,36 @@ let i18n = rootRequire("config/i18n"),
 module.exports = {
     expandFacets: expandFacets,
     populateAllEnums: populateAllEnums,
-    fillAllInRange: fillAllInRange,
+    fillAllInRange: fillAllInRange
 };
 
 /**
  * iteratue all facets types and facets and expand enums with their translation and keys with their scientificName/title etc.
  * @param facets a list of facets from an occurrence search
  */
-async function expandFacets(facets, __, includeFullObject){
+async function expandFacets(facets, __, includeFullObject) {
     __ = __ || i18n.__;
     includeFullObject = includeFullObject || false;
-    let facetPromises = facets.map(function(facet){return expandFacet(facet, __, includeFullObject)});
+    let facetPromises = facets.map(function(facet) {
+return expandFacet(facet, __, includeFullObject);
+});
     let f = await Promise.all(facetPromises);
     return f;
 }
 
-async function expandFacet(facet, __, includeFullObject){
-    //if enum then look up value
-    //else get item from API
+async function expandFacet(facet, __, includeFullObject) {
+    // if enum then look up value
+    // else get item from API
     if (!_.has(options[facet.field], 'type')) {
-        //throw 'No such facet type configured';
-        //default to raw
+        // throw 'No such facet type configured';
+        // default to raw
         options[facet.field] = {type: type.RAW};
     }
 
 
-    //preprocess
+    // preprocess
     if (options[facet.field].ordering === 'NUMERIC') {
-        facet.counts = _.sortBy(facet.counts, function(e){
+        facet.counts = _.sortBy(facet.counts, function(e) {
             return _.toSafeInteger(e.name);
         });
     }
@@ -44,20 +46,22 @@ async function expandFacet(facet, __, includeFullObject){
         _.remove(facet.counts, options[facet.field].prune);
     }
 
-    //resolve names
+    // resolve names
     if (options[facet.field].type == type.RAW) {
-        facet.counts.forEach(function(f){
+        facet.counts.forEach(function(f) {
             f.displayName = f.name;
         });
         return facet;
     } else if (options[facet.field].type == type.ENUM) {
-        facet.counts.forEach(function(f){
+        facet.counts.forEach(function(f) {
             let translationPath = options[facet.field].translationPath.replace('{VALUE}', f.name);
             f.displayName = __(translationPath);
         });
         return facet;
     } else if (options[facet.field].type == type.KEY) {
-        let facetPromises = facet.counts.map(function(item){return addResolveUrl(item, options[facet.field], includeFullObject)});
+        let facetPromises = facet.counts.map(function(item) {
+return addResolveUrl(item, options[facet.field], includeFullObject);
+});
         await Promise.all(facetPromises);
         return facet;
     }
@@ -87,15 +91,15 @@ async function addResolveUrl(item, conf, includeFullObject) {
  * @param facets
  */
 function populateAllEnums(facets) {
-    facets.map(function(facet, index){
+    facets.map(function(facet, index) {
         if (_.isArray(_.get(options[facet.field], 'enums'))) {
-            //fill facet with all enum values
+            // fill facet with all enum values
             let mappedFacets = _.keyBy(facet.counts, 'name');
-            let filled = options[facet.field].enums.map(function(e){
+            let filled = options[facet.field].enums.map(function(e) {
                 return {
                     name: e,
                     count: _.get(mappedFacets[e], 'count') || 0
-                }
+                };
             });
             facets[index].counts = filled;
         }
@@ -103,27 +107,27 @@ function populateAllEnums(facets) {
 }
 
 function fillAllInRange(facets) {
-    facets.map(function(facet, index){
+    facets.map(function(facet, index) {
         if (options[facet.field].range) {
-            //fill facet with all integers in range
-            //get min and max
-            let min = _.minBy(facet.counts, function(e){
-                return _.toSafeInteger(e.name)
+            // fill facet with all integers in range
+            // get min and max
+            let min = _.minBy(facet.counts, function(e) {
+                return _.toSafeInteger(e.name);
             });
-            let max = _.maxBy(facet.counts, function(e){
-                return _.toSafeInteger(e.name)
+            let max = _.maxBy(facet.counts, function(e) {
+                return _.toSafeInteger(e.name);
             });
 
-            //map counts to obj
+            // map counts to obj
             let facetMap = _.keyBy(facet.counts, 'name');
 
             let mappedFacets = _.keyBy(facet.counts, 'name');
-            //let filled = options[facet.field].enums.map(function(e){
+            // let filled = options[facet.field].enums.map(function(e){
             //    return {
             //        name: e,
             //        count: _.get(mappedFacets[e], 'count') || 0
             //    }
-            //});
+            // });
             facets[index].counts = mappedFacets;
         }
     });
@@ -155,14 +159,14 @@ let options = {
         type: type.ENUM,
         translationPath: 'occurrenceIssue.{VALUE}',
         enums: enums.occurrenceIssue,
-        prune: function(e){
+        prune: function(e) {
             return ['COORDINATE_ROUNDED', 'GEODETIC_DATUM_ASSUMED_WGS84', 'COORDINATE_REPROJECTED'].indexOf(e.name) != -1;
         }
     },
     COUNTRY: {
         type: type.ENUM,
         translationPath: 'country.{VALUE}'
-        //enums: enums.country
+        // enums: enums.country
     },
     TAXON_KEY: {
         type: type.KEY,
@@ -175,8 +179,8 @@ let options = {
         field: 'scientificName'
     }
 };
-//All other rank keys are the same as taxonKey
+// All other rank keys are the same as taxonKey
 let ranks = ['KINGDOM_KEY', 'PHYLUM_KEY', 'CLASS_KEY', 'ORDER_KEY', 'FAMILY_KEY', 'GENUS_KEY', 'SPECIES_KEY'];
-ranks.forEach(function(rank){
+ranks.forEach(function(rank) {
     options[rank] = options.TAXON_KEY;
 });

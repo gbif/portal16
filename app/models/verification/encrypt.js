@@ -1,7 +1,7 @@
 'use strict';
 
 const crypto = require('crypto'),
-    ENCRYPTION_KEY = rootRequire('config/credentials').encryptionKey; //Must be 256 bytes (32 characters)
+    ENCRYPTION_KEY = rootRequire('config/credentials').encryptionKey; // Must be 256 bytes (32 characters)
 
 const IV_LENGTH = 16; // For AES, this is always 16
 
@@ -33,7 +33,6 @@ function encryptJSON(o) {
     } catch (err) {
         throw new Error('Failed to stringify and encrypt json');
     }
-
 }
 
 function decryptJSON(e) {
@@ -44,4 +43,4 @@ function decryptJSON(e) {
     }
 }
 
-module.exports = { decrypt, encrypt, encryptJSON, decryptJSON };
+module.exports = {decrypt, encrypt, encryptJSON, decryptJSON};

@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
+let angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,53 +9,55 @@ angular
 
 /** @ngInject */
 function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
-    var vm = this;
+    let vm = this;
     vm.key = gb.programmeKey;
     vm.imageCache = env.imageCache;
     vm.state = {
-        sortType: 'title'
+        sortType: 'title',
     };
-    var tabs = ['about', 'news', 'events', 'projects'];
+    let tabs = ['about', 'news', 'events', 'projects'];
 
-    ResourceSearch.query({q: vm.key, contentType: 'project', limit:500}, function(data){
-        //filter results since we ask by free text query. the API for some reason do not support querying by programme id. This would be nice to have
-        data.results = _.filter(data.results, function(e){
+    ResourceSearch.query({q: vm.key, contentType: 'project', limit: 500}, function(data) {
+        // filter results since we ask by free text query. the API for some reason do not support querying by programme id. This would be nice to have
+        data.results = _.filter(data.results, function(e) {
             return _.get(e, 'programme.id') == vm.key;
         });
-        _.forEach(data.results, function(e){e.call = _.get(e.call, 'title');});
+        _.forEach(data.results, function(e) {
+e.call = _.get(e.call, 'title');
+});
         data.count = data.results.length;
         vm.projects = data;
     });
 
-    ResourceSearch.query({contentType: 'news', programmeTag: vm.key, limit:500}, function(data){
+    ResourceSearch.query({contentType: 'news', programmeTag: vm.key, limit: 500}, function(data) {
         vm.news = data;
-    }, function(err){
-        //TODO inform user if query fails
+    }, function(err) {
+        // TODO inform user if query fails
     });
 
-    //events are still not decorated with programmeTag. Fede intend to add that. when so, this is the cleaner way to get the data. And perhaps the other endpoint can be removed completely.
-    //ResourceSearch.query({contentType: 'event', programmeTag: vm.key, _showPastEvents: true, limit:500}, function(data){
+    // events are still not decorated with programmeTag. Fede intend to add that. when so, this is the cleaner way to get the data. And perhaps the other endpoint can be removed completely.
+    // ResourceSearch.query({contentType: 'event', programmeTag: vm.key, _showPastEvents: true, limit:500}, function(data){
     //    vm.events = data;
-    //}, function(err){
+    // }, function(err){
     //    //TODO inform user if query fails
-    //});
+    // });
 
     $http.get('/api/resource/key/search', {
-            params: {key: vm.key, type: 'events'}
+            params: {key: vm.key, type: 'events'},
         })
-        .then(function (response) {
+        .then(function(response) {
             vm.events = response;
             // vm.updateGrid();
         })
-        .catch(function () {
-            //TODO inform user if wuery fails
+        .catch(function() {
+            // TODO inform user if wuery fails
         });
 
-    vm.goto = function(url){
+    vm.goto = function(url) {
         window.location.href = url;
     };
 
-    vm.preventBubbling = function(event){
+    vm.preventBubbling = function(event) {
         event.stopPropagation();
         return false;
     };
@@ -66,7 +68,7 @@ function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
     }
     updateTab();
 
-    $rootScope.$on('$locationChangeSuccess', function () {
+    $rootScope.$on('$locationChangeSuccess', function() {
         updateTab();
     });
 }

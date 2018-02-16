@@ -1,4 +1,4 @@
-var express = require('express'),
+let express = require('express'),
     occurrenceKey = require('./occurrenceKey'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     helper = rootRequire('app/models/util/util'),
@@ -7,15 +7,15 @@ var express = require('express'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
-    var key = req.params.key;
-    occurrenceKey.getOccurrenceModel(key, res.__).then(function (occurrence) {
+router.get('/occurrence/:key(\\d+).:ext?', function(req, res, next) {
+    let key = req.params.key;
+    occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
         renderPage(req, res, next, occurrence);
-    }, function (err) {
+    }, function(err) {
         if (err.type == 'NOT_FOUND') {
             next();
         } else {
@@ -24,19 +24,19 @@ router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
     });
 });
 
-router.get('/occurrence/:key(\\d+)/verbatim', function (req, res, next) {
-    var key = req.params.key;
+router.get('/occurrence/:key(\\d+)/verbatim', function(req, res, next) {
+    let key = req.params.key;
     res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/' + key);
 });
 
-router.get('/occurrence/first', function (req, res, next) {
-    occurrenceSearchFirst(req.query).then(function (resp) {
+router.get('/occurrence/first', function(req, res, next) {
+    occurrenceSearchFirst(req.query).then(function(resp) {
         if (resp.count == 1) {
             res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/' + resp.results[0].key);
         } else {
             res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/search?' + querystring.stringify(req.query));
         }
-    }, function (err) {
+    }, function(err) {
         next(err);
     });
 });

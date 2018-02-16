@@ -6,9 +6,9 @@ angular
 
 /** @ngInject */
 function dataValidatorAboutCtrl($stateParams) {
-    var dataValidatorAbout = this;
+    let dataValidatorAbout = this;
     dataValidatorAbout.test = 'about test';
-    if($stateParams.jobid){
+    if ($stateParams.jobid) {
         dataValidatorAbout.jobid = $stateParams.jobid;
 }
 }

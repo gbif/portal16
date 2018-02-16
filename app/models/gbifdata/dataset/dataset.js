@@ -1,34 +1,33 @@
 'use strict';
 
-var resource = require('../resource'),
-    api = require('../apiConfig'),
-    cmsApi = require('../../cmsData_deprecated/apiConfig');
+let resource = require('../resource'),
+    api = require('../apiConfig');
 
-var Dataset = function (record) {
+let Dataset = function(record) {
     this.record = record;
 };
 
 Dataset.prototype.record = {};
 
-Dataset.get = function (key, options) {
+Dataset.get = function(key, options) {
     options = options || {};
-    var promise = resource.get(api.dataset.url + key).as(Dataset);
+    let promise = resource.get(api.dataset.url + key).as(Dataset);
     if (typeof options.expand === 'undefined') {
         return promise;
     } else {
-        return promise.then(function (dataset) {
-            return dataset.expand(options.expand)
+        return promise.then(function(dataset) {
+            return dataset.expand(options.expand);
         });
     }
 };
 
-Dataset.prototype.isChecklist = function () {
+Dataset.prototype.isChecklist = function() {
     return this.record.type != 'OCCURRENCE';
 };
 
-Dataset.prototype.expand = function (fieldNames) {
+Dataset.prototype.expand = function(fieldNames) {
     // TODO check whether the process endpoint shows the status in real-time.
-    var resources = [],
+    let resources = [],
         resourceLookup = {
             publisher: {
                 resource: api.publisher.url + this.record.publishingOrganizationKey,
@@ -59,7 +58,7 @@ Dataset.prototype.expand = function (fieldNames) {
                 extendToField: 'occurrenceDownloadEvents'
             }
         };
-    fieldNames.forEach(function (e) {
+    fieldNames.forEach(function(e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
     return resource.extend(this).with(resources);

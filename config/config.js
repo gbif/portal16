@@ -1,4 +1,4 @@
-var path = require('path'),
+let path = require('path'),
     log = require('./log'),
     yargs = require('yargs').argv,
     rootPath = path.normalize(__dirname + '/..'),
@@ -21,7 +21,7 @@ var path = require('path'),
     yarnResourceManager = yargs.yarnResourceManager,
     elk = yargs.elk,
     publicKibana = yargs.publicKibana,
-    kibanaIndex = yargs.kibanaIndex ,
+    kibanaIndex = yargs.kibanaIndex,
     publicConstantKeys = {
         dataset: {
             backbone: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
@@ -29,16 +29,16 @@ var path = require('path'),
             eod: '4fa7b334-ce0d-4e88-aaae-2e0c138d049e'
         },
         node: {
-            secretariat: '02c40d2a-1cba-4633-90b7-e36e5e97aba8',
-            participantNodeManagersCommittee: '7f48e0c8-5c96-49ec-b972-30748e339115',
+            'secretariat': '02c40d2a-1cba-4633-90b7-e36e5e97aba8',
+            'participantNodeManagersCommittee': '7f48e0c8-5c96-49ec-b972-30748e339115',
             'OBIS_NODE_KEY': 'ba0670b9-4186-41e6-8e70-f9cb3065551a'
         },
         network: {
-            backboneNetwork: "029f9226-0d8a-4f28-97fe-13180e9eb0e5"
+            backboneNetwork: '029f9226-0d8a-4f28-97fe-13180e9eb0e5'
         }
     },
     elasticContentful = yargs.elasticContentful,
-    apidocs = "http://gbif.github.io/gbif-api/apidocs/org/gbif/api",
+    apidocs = 'http://gbif.github.io/gbif-api/apidocs/org/gbif/api',
     locales = ['en', 'es', 'da'],
     contentfulLocaleMap = {
         'en': 'en-GB',
@@ -53,7 +53,7 @@ var path = require('path'),
     userAgent = 'GBIF_WEBSITE';
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
-var config = {
+let config = {
     local: {
         env: 'dev',
         healthEnv: 'prod',
@@ -74,7 +74,7 @@ var config = {
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://localhost:3000',
         topDomain: undefined,
-        credentials: credentials || (rootPath + '/config/mockCredentials.json'), //notice the mock credentials will not work and shouldn't. We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
+        credentials: credentials || (rootPath + '/config/mockCredentials.json'), // notice the mock credentials will not work and shouldn't. We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
         redirects: redirects || (rootPath + '/config/mockRedirects.json'),
         spamTerms: spamTerms || (rootPath + '/config/mockSpam.txt'),
         verification: verification || (rootPath + '/app/models/verification/sample'),

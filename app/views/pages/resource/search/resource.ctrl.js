@@ -1,5 +1,5 @@
 'use strict';
-var angular = require('angular'),
+let angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, suggestEndpoints, Page, enums, NAV_EVENTS, BUILD_VERSION) {
-    var vm = this;
+    let vm = this;
     vm.state = ResourceFilter.getState();
     Page.setTitle('Resource search');
     Page.drawer(true);
@@ -22,12 +22,12 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.TRANSLATE',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale,
         },
         facets: {
             hasFacets: true,
-            facetKey: 'COUNTRIES_OF_COVERAGE'
-        }
+            facetKey: 'COUNTRIES_OF_COVERAGE',
+        },
     };
 
     vm.filters.countriesOfResearcher = {
@@ -38,12 +38,12 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.TRANSLATE',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale,
         },
         facets: {
             hasFacets: true,
-            facetKey: 'COUNTRIES_OF_RESEARCHER'
-        }
+            facetKey: 'COUNTRIES_OF_RESEARCHER',
+        },
     };
 
     vm.filters.contentType = {
@@ -51,7 +51,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         facetKey: 'CONTENT_TYPE',
         title: 'contentType',
         translationPrefix: 'enums.cms.vocabularyTypes',
-        filter: ResourceFilter
+        filter: ResourceFilter,
     };
 
     vm.filters.year = {
@@ -62,13 +62,13 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         singleSelect: true,
         range: {
             'min': [2000, 1],
-            'max': [new Date().getFullYear()]
-        }
+            'max': [new Date().getFullYear()],
+        },
     };
 
 
-    var facetedEnumFilters = ['purposes', 'topics', 'literatureType', 'relevance'];
-    facetedEnumFilters.forEach(function(e){
+    let facetedEnumFilters = ['purposes', 'topics', 'literatureType', 'relevance'];
+    facetedEnumFilters.forEach(function(e) {
         vm.filters[e] = {
             titleTranslation: 'enums.cms.vocabularyTypes.' + e,
             queryKey: e,
@@ -80,8 +80,8 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
             multiSelect: true,
             facets: {
                 hasFacets: true,
-                facetKey: _.toUpper(_.snakeCase(e))
-            }
+                facetKey: _.toUpper(_.snakeCase(e)),
+            },
         };
     });
 
@@ -91,10 +91,10 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         filter: ResourceFilter,
         expand: {
             resource: Dataset,
-            expandedTitle: 'title'
+            expandedTitle: 'title',
         },
         facets: {
-            hasFacets: false
+            hasFacets: false,
         },
         search: {
             isSearchable: true,
@@ -103,8 +103,8 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
-            suggestKey: 'key'
-        }
+            suggestKey: 'key',
+        },
     };
 
     vm.filters.publisher = {
@@ -113,10 +113,10 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         filter: ResourceFilter,
         expand: {
             resource: Publisher,
-            expandedTitle: 'title'
+            expandedTitle: 'title',
         },
         facets: {
-            hasFacets: false
+            hasFacets: false,
         },
         search: {
             isSearchable: true,
@@ -125,37 +125,37 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
-            suggestKey: 'key'
-        }
+            suggestKey: 'key',
+        },
     };
 
     vm.filters.peerReview = {
         titleTranslation: 'filters.peerReview.title',
         queryKey: 'peerReview',
-        filter: ResourceFilter
+        filter: ResourceFilter,
     };
 
     vm.filters.openAccess = {
         titleTranslation: 'filters.openAccess.title',
         queryKey: 'openAccess',
-        filter: ResourceFilter
+        filter: ResourceFilter,
     };
 
-    vm.openHelpdesk = function () {
+    vm.openHelpdesk = function() {
         $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
         $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
     };
 
-    vm.search = function () {
+    vm.search = function() {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.hasData = function () {
+    vm.hasData = function() {
         return typeof vm.state.data.count !== 'undefined';
     };
 
-    vm.isTabShown = function(contentType){
+    vm.isTabShown = function(contentType) {
         if (vm.state.query.contentType == contentType) {
             return true;
         }
@@ -164,7 +164,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         }
         return false;
     };
-
 }
 
 module.exports = resourceCtrl;

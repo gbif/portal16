@@ -8,12 +8,12 @@ var express = require('express'),
     Taxon = rootRequire('app/models/gbifdata/gbifdata').Taxon,
     apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-//TODO: pass into API
-var limit = 250;
+// TODO: pass into API
+let limit = 250;
 
 router.get('/taxonomy/:datasetKey', getRoot);
 router.get('/taxonomy/:datasetKey/:taxonKey', getTaxon);
@@ -22,12 +22,12 @@ router.get('/taxonomy/:datasetKey/:taxonKey/children', getChildren);
 router.get('/taxonomy/:datasetKey/:taxonKey/synonyms', getSynonyms);
 
 function isOccurrence(req) {
-    return req.query.occ == "true";
+    return req.query.occ == 'true';
 }
 
 function getRoot(req, res, next) {
     if (isOccurrence(req)) {
-        //use occ solr facets
+        // use occ solr facets
         // as every occ record with a taxonKey must also have a kingdom, the kingdoms and other higher taxa should always come first in facets as they are most frequent
         return callApi(res, next, buildSolrQuery(req, null, limit), convertFacetsAcceptedOnly);
     } else {
@@ -40,36 +40,36 @@ function getTaxon(req, res, next) {
 }
 
 function getParents(req, res, next) {
-    callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/parents", pruneTaxa);
+    callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + '/parents', pruneTaxa);
 }
 
 function getChildren(req, res, next) {
     let childrenLimit = req.query.limit || limit;
     let offset = req.query.offset || 0;
     if (isOccurrence(req)) {
-        Taxon.get(req.params.taxonKey).then(function (tax) {
-            //use occ solr facets
+        Taxon.get(req.params.taxonKey).then(function(tax) {
+            // use occ solr facets
             callApi(res, next, buildSolrQuery(req, tax.record.rank, childrenLimit, offset), convertFacetsAcceptedOnly, tax.record.key);
         });
     } else {
-        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit=" + childrenLimit + '&offset=' + offset, prunePage);
+        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + '/children?limit=' + childrenLimit + '&offset=' + offset, prunePage);
     }
 }
 
 function getSynonyms(req, res, next) {
     if (isOccurrence(req)) {
-        Taxon.get(req.params.taxonKey).then(function (tax) {
-            //use occ solr facets
+        Taxon.get(req.params.taxonKey).then(function(tax) {
+            // use occ solr facets
             callApi(res, next, buildSolrQuery(req, tax.record.rank, limit), convertFacetsSynonymsOnly, tax.record.key);
         });
     } else {
-        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/synonyms?limit=" + limit, prunePage);
+        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + '/synonyms?limit=' + limit, prunePage);
     }
 }
 
 function nextLowerRank(rank) {
     if (rank) {
-        var idx = _.indexOf(ranks, rank);
+        let idx = _.indexOf(ranks, rank);
         if (idx >= 0) {
             return rank == 'species' ? 'taxon' : ranks[idx + 1];
         }
@@ -83,20 +83,20 @@ function buildSolrQuery(req, rank, limit, offset) {
     if (rank) {
         rank = rank.toLowerCase();
     }
-    var url = apiConfig.occurrenceSearch.url + "?limit=0&facetOffset=" + offset + "&facetLimit=" + limit + "&datasetKey=" + req.params.datasetKey + "&facet=" + nextLowerRank(rank) + "Key";
+    let url = apiConfig.occurrenceSearch.url + '?limit=0&facetOffset=' + offset + '&facetLimit=' + limit + '&datasetKey=' + req.params.datasetKey + '&facet=' + nextLowerRank(rank) + 'Key';
     if (req.params.taxonKey && rank) {
-        url = url + "&" + rank + "Key=" + req.params.taxonKey;
+        url = url + '&' + rank + 'Key=' + req.params.taxonKey;
     }
     return url;
 }
 
 function callApi(res, next, path, transform, taxonKey) {
-    helper.getApiData(path, function (err, data) {
+    helper.getApiData(path, function(err, data) {
         if (data && typeof data.errorType !== 'undefined') {
             next(new Error(err));
         } else if (data) {
             if (transform) {
-                transform(data, taxonKey).then(function (resolvedData) {
+                transform(data, taxonKey).then(function(resolvedData) {
                     res.json(resolvedData);
                 });
             } else {
@@ -109,38 +109,38 @@ function callApi(res, next, path, transform, taxonKey) {
 }
 
 function convertFacetsAcceptedOnly(page, parentKey) {
-    return convertFacets(page, function (rec) {
+    return convertFacets(page, function(rec) {
         return rec.record.parentKey == parentKey;
-    })
+    });
 }
 
 function convertFacetsSynonymsOnly(page, acceptedKey) {
-    return convertFacets(page, function (rec) {
+    return convertFacets(page, function(rec) {
         return rec.record.acceptedKey == acceptedKey;
-    })
+    });
 }
 
 function convertFacets(page, filterFunc) {
-    var promises = [];
+    let promises = [];
     page.numOccurrences = page.count;
     page.count = page.facets.length;
     page.endOfRecords = true;
-    _.each(page.facets[0].counts, function (fc) {
-        var key = Number(fc.name);
-        promises.push(Taxon.get(key).then(function (t) {
+    _.each(page.facets[0].counts, function(fc) {
+        let key = Number(fc.name);
+        promises.push(Taxon.get(key).then(function(t) {
             t.record.numOccurrences = fc.count;
             return t;
         }));
     });
     delete page.facets;
     // finally return combined promise
-    return new Promise(function (resolve) {
-        Promise.all(promises).then(function (ps) {
+    return new Promise(function(resolve) {
+        Promise.all(promises).then(function(ps) {
             page.results = _pruneTaxa(
                 utils.sortByRankThenAlpha(
                     _.map(
                         _.filter(ps, filterFunc)
-                        , function (rec) {
+                        , function(rec) {
                             return rec.record;
                         })
                 )
@@ -162,21 +162,21 @@ function pruneTaxa(taxa, idsToIgnore) {
 function _pruneTaxa(taxa, idsToIgnore) {
     idsToIgnore = idsToIgnore || [];
 
-    ////TODO add parsed names
-    //taxa.forEach(function(e){
+    // //TODO add parsed names
+    // taxa.forEach(function(e){
     //    if (e.nameType === 'SCIENTIFIC') {
     //        e._parsed = {
     //            first: e.scientificName + ' hej',
     //            second: 'med dig'
     //        };
     //    }
-    //});
+    // });
 
     let pruned = _.map(
-        _.remove(taxa, function (t) {
-            return _.indexOf(idsToIgnore, t.key) < 0
+        _.remove(taxa, function(t) {
+            return _.indexOf(idsToIgnore, t.key) < 0;
         })
-        , function (tax) {
+        , function(tax) {
             return _.pick(
                 tax, ['key', '_parsed', 'nameType', 'nameKey', 'acceptedKey', 'canonicalName', 'authorship', 'scientificName', 'rank', 'taxonomicStatus', 'numDescendants', 'numOccurrences']
             );

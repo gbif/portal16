@@ -1,27 +1,27 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('Network', function ($resource, env) {
+        .factory('Network', function($resource, env) {
             return $resource(env.dataApi + 'network/:id', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 }
             );
         })
-        .factory('NetworkDatasets', function ($resource, env) {
+        .factory('NetworkDatasets', function($resource, env) {
             return $resource(env.dataApi + 'network/:id/constituents', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
-                    }
+                        isArray: false,
+                    },
                 }
             );
         })

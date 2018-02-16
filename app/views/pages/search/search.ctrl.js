@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function searchCtrl($state, $stateParams, Page, $http, $cookies) {
-    var vm = this;
+    let vm = this;
     Page.setTitle('Search');
     Page.drawer(false);
     vm.isActive = false;
@@ -17,12 +17,12 @@ function searchCtrl($state, $stateParams, Page, $http, $cookies) {
     vm.locale = $stateParams.locale;
     vm.isRedirectedFromProd = $cookies.get('isRedirectedFromProd') === 'true';
 
-    vm.clearFreetextAndSetFocus = function () {
+    vm.clearFreetextAndSetFocus = function() {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
 
-    vm.updateSearch = function () {
+    vm.updateSearch = function() {
         vm.loaded = false;
         vm.query.q = vm.freeTextQuery || '';
         if ($state.current.abstract) {
@@ -33,19 +33,19 @@ function searchCtrl($state, $stateParams, Page, $http, $cookies) {
         window.scrollTo(0, 0);
     };
 
-    vm.search = function(){
+    vm.search = function() {
         vm.searchResults = $http.get('/api/omnisearch', {
             params: {
-                q: vm.freeTextQuery
-            }
+                q: vm.freeTextQuery,
+            },
         });
         vm.loading = true;
         vm.failed = false;
-        vm.searchResults.then(function (response) {
+        vm.searchResults.then(function(response) {
             vm.loading = false;
             vm.results = response.data;
-        }).catch(function () {
-            //TODO inform user about failure
+        }).catch(function() {
+            // TODO inform user about failure
             vm.loading = false;
             vm.failed = true;
         });
@@ -55,7 +55,6 @@ function searchCtrl($state, $stateParams, Page, $http, $cookies) {
     } else {
         vm.loading = false;
     }
-
 }
 
 module.exports = searchCtrl;

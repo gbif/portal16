@@ -3,12 +3,12 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 let queryResolver = {
     taxonKey: {
         type: 'ENDPOINT',
-        url: apiConfig.taxon.url, 
+        url: apiConfig.taxon.url,
         field: 'scientificName'
     },
     datasetKey: {
         type: 'ENDPOINT',
-        url: apiConfig.dataset.url, 
+        url: apiConfig.dataset.url,
         field: 'title'
     },
     year: {
@@ -55,6 +55,6 @@ let queryResolver = {
         type: 'ENUM',
         valueTranslation: 'license.'
     }
-}
+};
 
 module.exports = queryResolver;

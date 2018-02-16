@@ -7,10 +7,10 @@
  * we have a major CMS API update, where BID programme has to be easily found.
  */
 
-var commonTerms = require('../spec/commonTerms');
+let commonTerms = require('../spec/commonTerms');
 
 describe('E2E_02_CMS_Featured_Term_Search', function() {
-    var homePage, omniSearch, prosePage;
+    let homePage, omniSearch, prosePage;
 
     beforeEach(function() {
         homePage = require('./po/homePage.po.js');
@@ -18,7 +18,7 @@ describe('E2E_02_CMS_Featured_Term_Search', function() {
         prosePage = require('./po/prosePage.po.js');
     });
 
-    it('BID should show BID programme as programme', function(){
+    it('BID should show BID programme as programme', function() {
         browser.get('/');
         homePage.searchInput.sendKeys('bid');
         homePage.searchSubmit.click();
@@ -26,7 +26,7 @@ describe('E2E_02_CMS_Featured_Term_Search', function() {
         expect(omniSearch.articleCardTitle.getText()).toBe(commonTerms.bidProjectTitle);
         omniSearch.articleCardTitle.click();
 
-        var EC = protractor.ExpectedConditions;
+        let EC = protractor.ExpectedConditions;
         browser.wait(EC.presenceOf(prosePage.proseInlineImage), 3000);
         expect(prosePage.proseInlineImage.getAttribute('complete')).toEqual('true');
     });

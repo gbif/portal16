@@ -2,143 +2,143 @@ module.exports = {
     defaults: {
         basemap: 1,
         bin: 1,
-        color: 8
+        color: 8,
     },
     basemaps: [
         {
             name: 'CLASSIC',
-            query: {style: 'gbif-classic'}
+            query: {style: 'gbif-classic'},
         },
         {
             name: 'LIGHT',
-            query: {style: 'gbif-light'}
+            query: {style: 'gbif-light'},
         },
         {
             name: 'LIGHT_DETAILS',
-            query: {style: 'gbif-geyser-en'}
+            query: {style: 'gbif-geyser-en'},
         },
         {
             name: 'DARK',
-            query: {style: 'gbif-dark'}
+            query: {style: 'gbif-dark'},
         },
         {
             name: 'DARK_DETAILS',
-            query: {style: 'gbif-tuatara-en'}
+            query: {style: 'gbif-tuatara-en'},
         },
         {
             name: 'OSM',
-            query: {style: 'osm-bright-en'}
-        }
+            query: {style: 'osm-bright-en'},
+        },
     ],
     binning: [
         {
             name: 'PIXEL',
             query: {},
-            type: 'POINT'
+            type: 'POINT',
         },
         {
             name: 'SMALL_HEX',
             query: {bin: 'hex', hexPerTile: 79},
-            type: 'POLY'
+            type: 'POLY',
         },
         {
             name: 'LARGE_HEX',
             query: {bin: 'hex', hexPerTile: 17},
-            type: 'POLY'
+            type: 'POLY',
         },
         {
             name: 'SMALL_SQUARE',
             query: {bin: 'square', squareSize: 64},
-            type: 'POLY'
+            type: 'POLY',
         },
         {
             name: 'LARGE_SQUARE',
             query: {bin: 'square', squareSize: 256},
-            type: 'POLY'
-        }
+            type: 'POLY',
+        },
     ],
     colors: [
         {
             name: 'CLASSIC',
             query: ['classic.point'],
-            type: 'POINT'
+            type: 'POINT',
         },
         {
             name: 'PURPLE_YELLOW',
             query: ['purpleYellow.point'],
-            type: 'POINT'
+            type: 'POINT',
         },
         {
             name: 'PURPLE_HEAT',
             query: ['purpleHeat.point'],
-            type: 'POINT'
+            type: 'POINT',
         },
         {
             name: 'BLUE_HEAT',
             query: ['blueHeat.point'],
-            type: 'POINT'
+            type: 'POINT',
         },
         {
             name: 'ORANGE_HEAT',
             query: ['orangeHeat.point'],
-            type: 'POINT'
+            type: 'POINT',
         },
         {
             name: 'FIRE',
             query: ['fire.point'],
-            type: 'POINT'
+            type: 'POINT',
         },
         {
             name: 'GLACIER',
             query: ['glacier.point'],
-            type: 'POINT'
+            type: 'POINT',
         },
         {
             name: 'CLASSIC',
             query: ['classic.poly'],
-            type: 'POLY'
+            type: 'POLY',
         },
         {
             name: 'PURPLE_YELLOW',
             query: ['purpleYellow.poly'],
-            type: 'POLY'
+            type: 'POLY',
         },
         {
             name: 'GREEN',
             query: ['green2.poly'],
-            type: 'POLY'
+            type: 'POLY',
         },
         {
             name: 'BLUE_CLUSTER',
             query: ['outline.poly', 'blue.marker'],
-            type: 'POLY'
+            type: 'POLY',
         },
         {
             name: 'ORANGE_CLUSTER',
             query: ['outline.poly', 'orange.marker'],
-            type: 'POLY'
-        }
+            type: 'POLY',
+        },
     ],
     predefined: {
         CLASSIC: {
             baseMap: {style: 'gbif-classic'},
-            overlay: []
+            overlay: [],
         },
         CLASSIC_HEX: {
             baseMap: {style: 'gbif-classic'},
-            overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}]
+            overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
         },
         STREETS: {
             baseMap: {style: 'osm-bright-en'},
             overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
                 style: 'orange.marker',
                 bin: 'hex',
-                hexPerTile: 15
-            }]
+                hexPerTile: 15,
+            }],
         },
         GLACIER: {
             baseMap: {style: 'gbif-tuatara-en'},
-            overlay: [{style: 'glacier.point'}]
-        }
-    }
+            overlay: [{style: 'glacier.point'}],
+        },
+    },
 };

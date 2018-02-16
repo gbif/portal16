@@ -1,19 +1,19 @@
-"use strict";
+'use strict';
 
-var _ = require('lodash'),
+let _ = require('lodash'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     userAgent = require('../../../../config/config').userAgent,
     querystring = require('querystring'),
     request = require('requestretry');
 
 module.exports = {
-    start: function(){
+    start: function() {
         return start(testConfig);
     }
 };
 
 async function start(tests) {
-    var results = await Promise.all(tests.map(function(test){
+    let results = await Promise.all(tests.map(function(test) {
         return test();
     }));
     return {
@@ -22,7 +22,7 @@ async function start(tests) {
 }
 
 async function clusterLoad() {
-    var options = {
+    let options = {
         url: apiConfig.yarnResourceManager.url + 'cluster/scheduler?v=' + Date.now(),
         json: true,
         userAgent: userAgent
@@ -37,7 +37,7 @@ async function clusterLoad() {
     }
     let result = response.body;
 
-    //calculate load as fraction of memory usage or core usage - whichever is higher
+    // calculate load as fraction of memory usage or core usage - whichever is higher
     let maxMemory = _.get(result, 'scheduler.schedulerInfo.rootQueue.maxResources.memory', 1);
     let maxCores = _.get(result, 'scheduler.schedulerInfo.rootQueue.maxResources.vCores', 1);
 
@@ -54,7 +54,7 @@ async function clusterLoad() {
 }
 
 async function crawlerLoad() {
-    var options = {
+    let options = {
         url: apiConfig.crawlingDatasetProcessRunning.url + '?v=' + Date.now(),
         json: true,
         userAgent: userAgent
@@ -102,5 +102,5 @@ async function downloadQueue() {
     };
 }
 
-//tests are expected to return {component name, load?: [high, medium, low], values: {custom obj}}
+// tests are expected to return {component name, load?: [high, medium, low], values: {custom obj}}
 let testConfig = [clusterLoad, crawlerLoad, downloadQueue];

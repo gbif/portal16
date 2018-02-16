@@ -10,7 +10,7 @@ let severity = Object.freeze({
         CRITICAL: 3
     });
 
-function getMostSevere(a, b){
+function getMostSevere(a, b) {
     let typeA = severityMap[a] || 0,
         typeB = severityMap[b] || 0;
     return typeA < typeB ? b : a;

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var express = require('express'),
+let express = require('express'),
     translationsHelper = rootRequire('app/helpers/translations'),
     router = express.Router(),
     markdownFiles = {
@@ -10,20 +10,19 @@ var express = require('express'),
     },
     translations = {};
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/suggest-dataset', function (req, res, next) {
-
-    //if the text hasn't already been read from disk, then get it
+router.get('/suggest-dataset', function(req, res, next) {
+    // if the text hasn't already been read from disk, then get it
     if (typeof translations[res.locals.gb.locales.current] === 'undefined') {
         translations[res.locals.gb.locales.current] = translationsHelper.getTranslationPromise(markdownFiles, res.locals.gb.locales.current);
     }
 
-    //once promise has been resolved then
+    // once promise has been resolved then
     translations[res.locals.gb.locales.current].then(
-        function (data) {
+        function(data) {
             render(req, res, next, {
                 _meta: {
                     title: 'Suggest dataset'
@@ -31,7 +30,7 @@ router.get('/suggest-dataset', function (req, res, next) {
                 translations: data
             });
         },
-        function (err) {
+        function(err) {
             next(err);
         }
     );

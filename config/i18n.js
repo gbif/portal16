@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 let config = require('./config'),
-    i18n = require("i18n");
+    i18n = require('i18n');
 
 i18n.configure({
     locales: config.locales,

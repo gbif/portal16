@@ -1,16 +1,15 @@
-"use strict";
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    config = rootRequire('config/config'),
+'use strict';
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     request = require('requestretry'),
     _ = require('lodash');
 
 module.exports = {
-    installation: {intervals: getInstallationIntervals, list: getInstallationList },
-    dataset: {intervals: getDatasetIntervals, list: getDatasetList },
-    node: {intervals: getNodeIntervals, list: getNodeList },
-    network: {intervals: getNetworkIntervals, list: getNetworkList },
-    publisher: {intervals: getPublisherIntervals, list: getPublisherList }
+    installation: {intervals: getInstallationIntervals, list: getInstallationList},
+    dataset: {intervals: getDatasetIntervals, list: getDatasetList},
+    node: {intervals: getNodeIntervals, list: getNodeList},
+    network: {intervals: getNetworkIntervals, list: getNetworkList},
+    publisher: {intervals: getPublisherIntervals, list: getPublisherList}
 };
 
 function getDatasetIntervals() {
@@ -61,8 +60,8 @@ async function getIntervals(url, query, limit) {
         throw response;
     }
     let ranges = _.range(0, response.body.count, limit);
-    return ranges.map(function (e) {
-        return {limit: limit, offset: e}
+    return ranges.map(function(e) {
+        return {limit: limit, offset: e};
     });
 }
 

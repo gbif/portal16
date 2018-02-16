@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     path = require('path'),
     config = rootRequire('config/build'),
     browserSync = require('browser-sync'),
@@ -8,24 +8,24 @@ var gulp = require('gulp'),
     buffer = require('vinyl-buffer'),
     transform = require('vinyl-transform'),
     browserify = require('browserify'),
-    rename = require("gulp-rename"),
+    rename = require('gulp-rename'),
     replace = require('gulp-replace'),
     fs = require('fs'),
     gulpif = require('gulp-if'),
     notifier = require('node-notifier'),
     g = require('gulp-load-plugins')();
 
-gulp.task('scripts-reload', function () {
+gulp.task('scripts-reload', function() {
     return buildScripts()
         .pipe(browserSync.stream());
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', function() {
     return buildScripts();
 });
 
-gulp.task('vendor-scripts', function () {
-    var vendor = 'js/vendor';
+gulp.task('vendor-scripts', function() {
+    let vendor = 'js/vendor';
     return gulp.src(config.bower.jsFiles, {
             base: './'
         })
@@ -41,27 +41,27 @@ function buildScripts() {
     return build(config.js.browserify.main.path, config.js.browserify.main.dest);
 }
 
-//update byild so that all files names entry will be build automatically.
-gulp.task('dataRepo', function () {
+// update byild so that all files names entry will be build automatically.
+gulp.task('dataRepo', function() {
     return build('./app/views/pages/tools/dataRepository/dataRepository.entry.js', 'pages/dataRepository.js');
 });
-gulp.task('speciesLookup', function () {
+gulp.task('speciesLookup', function() {
     return build('./app/views/pages/tools/speciesLookup/speciesLookup.entry.js', 'pages/speciesLookup.js');
 });
 
-gulp.task('nameParser', function () {
+gulp.task('nameParser', function() {
     return build('./app/views/pages/tools/nameParser/nameParser.entry.js', 'pages/nameParser.js');
 });
 // gulp.task('dataValidator', function () {
 //     return build('./app/views/pages/tools/dataValidator/dataValidator.entry.js', 'pages/dataValidator.js');
 // });
-gulp.task('observationTrends', function () {
+gulp.task('observationTrends', function() {
     return build('./app/views/pages/tools/observationTrends/observationTrends.entry.js', 'pages/observationTrends.js');
 });
-gulp.task('ipt', function () {
+gulp.task('ipt', function() {
     return build('./app/views/pages/custom/ipt/ipt.entry.js', 'pages/ipt.js');
 });
-gulp.task('home', function () {
+gulp.task('home', function() {
     return build('./app/views/pages/home/home.entry.js', 'pages/home.js');
 });
 
@@ -95,20 +95,20 @@ const noParseVendors = ['angular',
     'checklist-model',
     'angular-svg-round-progressbar'];
 
-var watchify = require('watchify');
-var assign = require('lodash.assign');
+let watchify = require('watchify');
+let assign = require('lodash.assign');
 
 function build(entry, name) {
-    var dest = 'js/base';
-    var browserifyOptions = {
+    let dest = 'js/base';
+    let browserifyOptions = {
         entries: entry,
         debug: true,
         noParse: noParseVendors
     };
-    var opts = assign({}, watchify.args, browserifyOptions);
+    let opts = assign({}, watchify.args, browserifyOptions);
 
     // if not a prod build then use watchify to watch the bundle files
-    var b;
+    let b;
     if (config.isProd) {
         b = browserify(opts);
     } else {
@@ -130,8 +130,8 @@ function build(entry, name) {
         .on('error', config.errorHandler('uglify'))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
-        .pipe(rename(function (path) {
-            path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);
+        .pipe(rename(function(path) {
+            path.dirname = '/' + dest + (path.dirname == '.' ? '' : '/' + path.dirname);
         }));
 }
 
@@ -142,7 +142,7 @@ gulp.task('build:vendor', () => {
     });
 
     // require all libs specified in vendors array
-    vendors.forEach(lib => {
+    vendors.forEach((lib) => {
         b.require(lib);
     });
 

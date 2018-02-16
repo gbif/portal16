@@ -1,18 +1,18 @@
-var apirequest = require('./api-request'),
+let apirequest = require('./api-request'),
     config = require('../../../config/config'),
     imageCachePrefix = require('../gbifdata/apiConfig').image.url,
     clientTileApi = require('../gbifdata/apiConfig').clientTileApi.url,
     confidenceThreshold = 20;
 
 function getMatchesByConfidence(results) {
-    var alternative,
+    let alternative,
         confidentMatches = [];
 
     if (results && results.confidence > confidenceThreshold && results.matchType == 'EXACT') {
         delete results.alternatives;
         confidentMatches.push(results);
     } else if (results && results.alternatives) {
-        for (var i = 0; i < results.alternatives.length; i++) {
+        for (let i = 0; i < results.alternatives.length; i++) {
             alternative = results.alternatives[i];
             if (alternative.confidence > confidenceThreshold) {
                 confidentMatches.push(alternative);
@@ -25,22 +25,22 @@ function getMatchesByConfidence(results) {
 }
 
 function filterByMatchType(matches) {
-    var requiredMatchType;
+    let requiredMatchType;
     if (matches.length < 2) {
         return matches;
     }
     requiredMatchType = matches[0].matchType;
-    return matches.filter(function (e) {
+    return matches.filter(function(e) {
         return e.matchType == requiredMatchType;
-    })
+    });
 }
 
 function filterByExactQuery(matches, query) {
-    var match, i, len = matches.length;
+    let match, i, len = matches.length;
     for (i = 0; i < len; i++) {
         match = matches[i];
         if (match.scientificName !== match.canonicalName && match.scientificName === query) {
-            return [match]
+            return [match];
         }
     }
     return matches;
@@ -48,9 +48,9 @@ function filterByExactQuery(matches, query) {
 
 function getSynonymKey(species) {
     if (!species.synonym) {
-        return false
+        return false;
     }
-    var taxonKeyMap = {
+    let taxonKeyMap = {
         KINGDOM: 'kingdomKey',
         PHYLUM: 'phylumKey',
         CLASS: 'classKey',
@@ -66,31 +66,31 @@ function getHigestRankingLowerClasses(children) {
     if (children.results.length < 2) {
         return children;
     }
-    var requiredRank = children.results[0].rank;
-    children.results = children.results.filter(function (e) {
+    let requiredRank = children.results[0].rank;
+    children.results = children.results.filter(function(e) {
         return e.rank == requiredRank;
     });
     return children;
 }
 
 function prune(obj, keys) {
-    keys.forEach(function (key) {
+    keys.forEach(function(key) {
         delete obj[key];
     });
-    return obj
+    return obj;
 }
 
 function keepKeys(obj, keys) {
-    Object.keys(obj).forEach(function (key) {
+    Object.keys(obj).forEach(function(key) {
         if (keys.indexOf(key) == -1) {
             delete obj[key];
         }
     });
-    return obj
+    return obj;
 }
 
 function renderPage(req, res, next, data, template) {
-    if (req.params.ext && req.params.ext !== 'debug'){
+    if (req.params.ext && req.params.ext !== 'debug') {
         next();
         return;
     }

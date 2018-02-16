@@ -1,6 +1,6 @@
 'use strict';
 
-var searchOccurrence = function () {
+let searchOccurrence = function() {
     this.freeText = element(by.model('occurrence.freeTextQuery'));
 };
 

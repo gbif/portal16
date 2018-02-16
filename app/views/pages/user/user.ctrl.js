@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,15 +8,15 @@ angular
 
 /** @ngInject */
 function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state) {
-    var vm = this;
+    let vm = this;
     vm.$state = $state;
     Page.setTitle('Profile');
 
-    var activeUser = User.loadActiveUser();
+    let activeUser = User.loadActiveUser();
     if (activeUser) {
-        activeUser.then(function(){
+        activeUser.then(function() {
             vm.profile = $sessionStorage.user;
-        }, function(){
+        }, function() {
             vm.profile = $sessionStorage.user;
         });
     } else {
@@ -24,19 +24,19 @@ function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state) {
     }
 
     vm.profile = $sessionStorage.user;
-    vm.logout = function () {
+    vm.logout = function() {
         User.logout();
     };
 
-    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
         vm.profile = $sessionStorage.user;
     });
 
-    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
         vm.profile = $sessionStorage.user;
     });
 
-    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         vm.profile = $sessionStorage.user;
     });
 }

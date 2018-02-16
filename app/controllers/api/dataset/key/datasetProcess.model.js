@@ -1,5 +1,5 @@
-"use strict";
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+'use strict';
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     authOperations = require('../../../auth/gbifAuthRequest'),
     _ = require('lodash'),
@@ -43,7 +43,7 @@ async function getProcessSummary(key) {
         recent: []
     };
 
-    attempts.results.forEach(function(attempt){
+    attempts.results.forEach(function(attempt) {
         if (summary.recent.length < 25 && attempt.finishReason) {
             summary.recent.push({
                 finishReason: attempt.finishReason,
@@ -56,7 +56,7 @@ async function getProcessSummary(key) {
         if (!summary.lastSuccess) {
             if (attempt.finishReason == 'NORMAL' || attempt.finishReason == 'NOT_MODIFIED') {
                 summary.lastSuccess = attempt;
-            } else if(attempt.finishReason) {
+            } else if (attempt.finishReason) {
                 summary.failuresSinceLastSuccess++;
             }
         }
@@ -73,7 +73,7 @@ async function getProcessSummary(key) {
         if (attempt.finishReason) {
             summary.stats[attempt.finishReason] = summary.stats[attempt.finishReason] ? summary.stats[attempt.finishReason] + 1 : 1;
             summary.finished++;
-        } else if(attempt.startedCrawling && !attempt.finishedCrawling) {
+        } else if (attempt.startedCrawling && !attempt.finishedCrawling) {
             summary.unfinished++;
         } else {
             summary.notStarted++;
@@ -111,7 +111,7 @@ async function startCrawling(key) {
         method: 'POST',
         url: apiConfig.dataset.url + key + '/crawl',
         canonicalPath: apiConfig.dataset.canonical + '/' + key + '/crawl',
-        userName: 'admin', //the registry crawl endpoint do not accept trusted apps to crawl, it has to be a user, so hence the hardcoded admin user
+        userName: 'admin', // the registry crawl endpoint do not accept trusted apps to crawl, it has to be a user, so hence the hardcoded admin user
         body: {}
     };
 
@@ -125,10 +125,10 @@ async function startCrawling(key) {
 async function crawlStatus(key) {
     let crawls = await getCrawling();
     if (_.isArray(crawls)) {
-        let crawlInProcess = _.find(crawls, function (e) {
+        let crawlInProcess = _.find(crawls, function(e) {
             return e && e.datasetKey == key && !e.finishedCrawling;
         });
-        let isInQueue = _.find(crawls, function (e) {
+        let isInQueue = _.find(crawls, function(e) {
             return e && e.datasetKey == key;
         });
         return {
@@ -137,7 +137,7 @@ async function crawlStatus(key) {
             crawlInProcess: crawlInProcess
         };
     } else {
-        console.log('crawler endpoint returns something that is not an array');//TODO put in logs.
+        console.log('crawler endpoint returns something that is not an array');// TODO put in logs.
         return;
     }
 }

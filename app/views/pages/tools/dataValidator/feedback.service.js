@@ -1,21 +1,18 @@
-"use strict";
-
-
+'use strict';
 
 
 angular
     .module('portal')
-    .factory('validatorFeedbackService', function($rootScope, NAV_EVENTS){
-
-        var toggleGroup = [
+    .factory('validatorFeedbackService', function($rootScope, NAV_EVENTS) {
+        let toggleGroup = [
             NAV_EVENTS.toggleSearch,
             NAV_EVENTS.toggleFeedback,
             NAV_EVENTS.toggleNotifications,
-            NAV_EVENTS.toggleUserMenu
+            NAV_EVENTS.toggleUserMenu,
         ];
 
-        var openMenu = function(navEvent){
-            toggleGroup.forEach(function(e){
+        let openMenu = function(navEvent) {
+            toggleGroup.forEach(function(e) {
                 if (e === navEvent) {
                     $rootScope.$broadcast(e, {state: true});
                 } else {
@@ -25,14 +22,10 @@ angular
         };
 
         return {
-            toggleFeedback : function () {
-
+            toggleFeedback: function() {
                 openMenu(NAV_EVENTS.toggleFeedback);
-            }
+            },
 
         };
-
-
-
-    })
+    });
 

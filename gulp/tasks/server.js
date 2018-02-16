@@ -5,14 +5,14 @@
  */
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     serverConfig = rootRequire('config/config'),
     config = rootRequire('config/build'),
     browserSync = require('browser-sync'),
     yargs = require('yargs').argv,
     g = require('gulp-load-plugins')();
 
-gulp.task('browser-sync', ['server'], function () {
+gulp.task('browser-sync', ['server'], function() {
     console.log('Starting browser-synced site at http://localhost:' + config.browsersync.port);
     return browserSync.init(null, {
         proxy: 'http://localhost:' + serverConfig.port,
@@ -24,11 +24,10 @@ gulp.task('browser-sync', ['server'], function () {
     });
 });
 
-gulp.task('server', ['server-lint'], function (cb) {
-
-    var started = false;
-    var args = [];
-    ['loglevel', 'dataapi', 'tileapi', 'cmsapi', 'port', 'credentials', 'verification'].forEach(function (e) {
+gulp.task('server', ['server-lint'], function(cb) {
+    let started = false;
+    let args = [];
+    ['loglevel', 'dataapi', 'tileapi', 'cmsapi', 'port', 'credentials', 'verification'].forEach(function(e) {
         if (yargs[e]) {
             args.push('--' + e + '=' + yargs[e]);
         }
@@ -40,14 +39,14 @@ gulp.task('server', ['server-lint'], function (cb) {
             ext: 'js nunjucks',
             ignore: ['app/views/'],
             tasks: ['server-lint'],
-            watch: ['app.js', 'config/', 'app/'], //, 'app/views/**/*.nunjucks'
+            watch: ['app.js', 'config/', 'app/'], // , 'app/views/**/*.nunjucks'
             env: {
                 'NODE_ENV': 'local'
             },
             stdout: false
         })
-        .on('readable', function () {
-            this.stdout.on('data', function (chunk) {
+        .on('readable', function() {
+            this.stdout.on('data', function(chunk) {
                 if (/^Express server listening on port/.test(chunk)) {
                     browserSync.reload();
                 }
@@ -55,7 +54,7 @@ gulp.task('server', ['server-lint'], function (cb) {
             this.stdout.pipe(process.stdout);
             this.stderr.pipe(process.stderr);
         })
-        .on('start', function () {
+        .on('start', function() {
             // to avoid nodemon being started multiple times //TODO is this actulaly an issue? Someone wrote so, but I haven't observed it myself.
             if (!started) {
                 started = true;

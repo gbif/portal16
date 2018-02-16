@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
@@ -10,12 +10,12 @@ var express = require('express'),
 
 const querystring = require('querystring');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/species/search', function (req, res) {
-    speciesSearch(req.query).then(function (data) {
+router.get('/species/search', function(req, res) {
+    speciesSearch(req.query).then(function(data) {
         SpeciesOmniSearch.extractHighlights(data);
         data = prune(data, ['descriptions']);
         let settings = {
@@ -35,17 +35,16 @@ router.get('/species/search', function (req, res) {
             ],
             expandConfig: expandConfig
         };
-        gbifData.expand.expand(data, settings, res.__, function (err) {
+        gbifData.expand.expand(data, settings, res.__, function(err) {
             if (err) {
-                //TODO handle expansion errors
+                // TODO handle expansion errors
                 res.status(500);
                 res.json(data);
             } else {
                 res.json(data);
             }
         });
-
-    }, function (err) {
+    }, function(err) {
         res.status(_.get(err, 'errorResponse.statusCode', 500));
         res.json({
             body: _.get(err, 'errorResponse.body', err)
@@ -54,28 +53,26 @@ router.get('/species/search', function (req, res) {
 });
 
 
-
 function prune(data, keys) {
-    "use strict";
-    data.results.forEach(function (item) {
-        keys.forEach(function (key) {
+    'use strict';
+    data.results.forEach(function(item) {
+        keys.forEach(function(key) {
             delete item[key];
         });
     });
-    return data
+    return data;
 }
 
 function speciesSearch(query) {
-    "use strict";
+    'use strict';
     query.hl = true;
-    var deferred = Q.defer();
-    helper.getApiData(apiConfig.taxonSearch.url + '?' + querystring.stringify(query), function (err, data) {
+    let deferred = Q.defer();
+    helper.getApiData(apiConfig.taxonSearch.url + '?' + querystring.stringify(query), function(err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
-        }
-        else {
+        } else {
             deferred.reject(err);
         }
     }, {retries: 3, timeoutMilliSeconds: 10000});

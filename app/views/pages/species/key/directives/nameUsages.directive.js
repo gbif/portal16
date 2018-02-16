@@ -1,7 +1,7 @@
 'use strict';
 
-var angular = require('angular');
-var _ = require('lodash');
+let angular = require('angular');
+let _ = require('lodash');
 
 angular
     .module('portal')
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function nameUsagesDirective() {
-    var directive = {
+    let directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/nameUsages.html',
         scope: {},
@@ -17,14 +17,14 @@ function nameUsagesDirective() {
         controllerAs: 'nameUsages',
         bindToController: {
             species: '=',
-            synonyms: '='
-        }
+            synonyms: '=',
+        },
     };
     return directive;
 
     /** @ngInject */
     function nameUsagesCtrl(OccurrenceSearch) {
-        var vm = this;
+        let vm = this;
         vm.key = vm.species.key;
         vm.labels = [];
         vm.data = [];
@@ -33,52 +33,45 @@ function nameUsagesDirective() {
             responsive: true,
             maintainAspectRatio: false,
             labels: true,
-            legend: {display: true, position: 'bottom'}
+            legend: {display: true, position: 'bottom'},
         };
-        if(vm.synonyms && vm.synonyms.$promise){
-            vm.synonyms.$promise.then(function () {
+        if (vm.synonyms && vm.synonyms.$promise) {
+            vm.synonyms.$promise.then(function() {
                 OccurrenceSearch.query({taxon_key: vm.key, facet: 'taxon_key', limit: 0}).$promise
-                    .then(function (facets) {
-                        var usages = _.find(facets.facets, function (f) {
-                            return f.field = "TAXON_KEY"
+                    .then(function(facets) {
+                        let usages = _.find(facets.facets, function(f) {
+                            return f.field = 'TAXON_KEY'
                         }).counts;
 
-                        var totalCount = _.find(usages, function (u) {
+                        let totalCount = _.find(usages, function(u) {
                             return u.name = vm.key;
-                        })
+                        });
 
 
                         vm.synonymNameUsages = [];
-                        angular.forEach(vm.synonyms.results, function (s) {
-                            var found = _.find(usages, function (u) {
+                        angular.forEach(vm.synonyms.results, function(s) {
+                            let found = _.find(usages, function(u) {
                                 return u.name === s.key.toString() && vm.species.rank === s.rank;
-                            })
+                            });
                             if (found) {
                                 found.scientificName = s.scientificName;
-                                vm.synonymNameUsages.push(found)
+                                vm.synonymNameUsages.push(found);
                             }
+                        });
 
-                        })
-
-                        var totalMinusAccepted = _.reduce(vm.synonymNameUsages, function (sum, n) {
+                        let totalMinusAccepted = _.reduce(vm.synonymNameUsages, function(sum, n) {
                             return sum + parseInt(n.count);
                         }, 0);
                         vm.data.push(totalCount.count - totalMinusAccepted);
                         vm.labels.push(vm.species.scientificName);
 
-                        for (var i = 0; i < vm.synonymNameUsages.length; i++) {
+                        for (let i = 0; i < vm.synonymNameUsages.length; i++) {
                             vm.data.push(parseInt(vm.synonymNameUsages[i].count));
                             vm.labels.push(vm.synonymNameUsages[i].scientificName);
                         }
-
-
                     });
-
-            })
+            });
         }
-
-
-
     }
 }
 

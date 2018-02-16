@@ -1,16 +1,16 @@
-var express = require('express'),
+let express = require('express'),
     Network = require('../../../models/gbifdata/gbifdata').Network,
     contributors = require('../../dataset/key/contributors/contributors'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/network/:key\.:ext?', function (req, res, next) {
-    var key = req.params.key;
-    Network.get(key, {expand: []}).then(function (network) {
+router.get('/network/:key.:ext?', function(req, res, next) {
+    let key = req.params.key;
+    Network.get(key, {expand: []}).then(function(network) {
         try {
             network._computedValues = {};
             let contacts = network.record.contacts;
@@ -31,7 +31,7 @@ router.get('/network/:key\.:ext?', function (req, res, next) {
         } catch (error) {
             next(error);
         }
-    }, function (err) {
+    }, function(err) {
         if (err.type == 'NOT_FOUND') {
             next();
         } else {

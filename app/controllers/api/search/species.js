@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     _ = require('lodash'),
     request = require('requestretry');
@@ -25,12 +25,12 @@ async function get(key, depth) {
     }
 }
 
-async function expand(items){
-    //TODO stub. inteded to expand foreign keys, related etc. datasetKey, constituentDatasetKey, name, references etc
+async function expand(items) {
+    // TODO stub. inteded to expand foreign keys, related etc. datasetKey, constituentDatasetKey, name, references etc
     return items;
 }
 
-async function query(query, options){
+async function query(query, options) {
     options = options || {};
     query = query || {};
 
@@ -51,34 +51,31 @@ async function query(query, options){
 }
 
 function extractHighlights(data) {
-    "use strict";
-    var re = /(([^\s>]+)\s){0,3}(\s*<em class="gbifHl">[^<]*<\/em>\s*)+([^\s<]+\s){0,2}([^\s<]*)/;
+    'use strict';
+    let re = /(([^\s>]+)\s){0,3}(\s*<em class="gbifHl">[^<]*<\/em>\s*)+([^\s<]+\s){0,2}([^\s<]*)/;
 
-    _.each(data.results, function (item) {
+    _.each(data.results, function(item) {
         let highlights = {descriptions: [], vernacularNames: []};
-        if(item.descriptions){
-            for(var i=0; i < item.descriptions.length; i++){
-
+        if (item.descriptions) {
+            for (var i=0; i < item.descriptions.length; i++) {
                 let match = re.exec(item.descriptions[i].description);
-                if(match){
-                    highlights.descriptions.push(match[0])
+                if (match) {
+                    highlights.descriptions.push(match[0]);
                 }
-
             }
         }
 
-        if(item.vernacularNames){
-            for(var i=0; i < item.vernacularNames.length; i++){
-                if(item.vernacularNames[i].vernacularName.indexOf('<em class="gbifHl">') > -1){
-                    highlights.vernacularNames.push(item.vernacularNames[i])
+        if (item.vernacularNames) {
+            for (var i=0; i < item.vernacularNames.length; i++) {
+                if (item.vernacularNames[i].vernacularName.indexOf('<em class="gbifHl">') > -1) {
+                    highlights.vernacularNames.push(item.vernacularNames[i]);
                 }
             }
         }
 
         item.highlights = highlights;
-
     });
-    return data
+    return data;
 }
 
 module.exports = {

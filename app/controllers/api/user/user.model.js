@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     chai = require('chai'),
     expect = chai.expect,
     querystring = require('querystring'),
@@ -92,7 +92,7 @@ async function resetPassword(userNameOrEmail) {
 async function updateForgottenPassword(body) {
     let challengeCode = body.challengeCode,
         password = body.password;
-    //TODO test challengeCode and password is present
+    // TODO test challengeCode and password is present
 
     let options = {
         method: 'POST',
@@ -160,7 +160,7 @@ async function getDownloads(userName, query) {
     };
 
     let response = await authOperations.authenticatedRequest(options);
-    //this should never be unauthorized, but it happens when the a user is created but not known by the occurrence api (mixed environments)
+    // this should never be unauthorized, but it happens when the a user is created but not known by the occurrence api (mixed environments)
     if (response.statusCode !== 200) {
         throw response;
     }
@@ -174,7 +174,7 @@ async function createSimpleDownload(user, query) {
 
     query.notification_address = user.email || 'an_email_is_required_despite_not_needing_it';
 
-    var options = {
+    let options = {
         url: apiConfig.occurrenceSearchDownload.url + '?' + querystring.stringify(query),
         userName: user.userName,
         type: 'PLAIN',
@@ -192,7 +192,7 @@ async function cancelDownload(user, key) {
     expect(key, 'download query').to.be.a('string');
     expect(user.userName, 'user name').to.be.a('string');
 
-    var options = {
+    let options = {
         url: apiConfig.occurrenceCancelDownload.url + key,
         userName: user.userName,
         method: 'DELETE'
@@ -207,8 +207,8 @@ async function cancelDownload(user, key) {
 async function isRecentDownload(user, key) {
     expect(key, 'download query').to.be.a('string');
     expect(user.userName, 'user name').to.be.a('string');
-    var limit = 20;
-    var usersDownloads = await getDownloads(user.userName, {limit: limit});//Lazy test. only looking at the last 100
+    let limit = 20;
+    let usersDownloads = await getDownloads(user.userName, {limit: limit});// Lazy test. only looking at the last 100
     return {
         isRecent: _.findIndex(usersDownloads.results, {key: key}) > -1,
         limit: limit
@@ -252,8 +252,8 @@ async function changePassword(auth, newPassword) {
     return response.body;
 }
 
-function getClientUser(user){
-    //sanitize user somehow? iThere isn't anything in the response that cannot go out at this point. later perhaps some configurations that are for internal only
+function getClientUser(user) {
+    // sanitize user somehow? iThere isn't anything in the response that cannot go out at this point. later perhaps some configurations that are for internal only
     return {
         userName: user.userName,
         firstName: user.firstName,
@@ -274,7 +274,7 @@ function getClientUser(user){
     };
 }
 
-function sanitizeUpdatedUser(user){
+function sanitizeUpdatedUser(user) {
     return {
         userName: user.userName,
         firstName: user.firstName,

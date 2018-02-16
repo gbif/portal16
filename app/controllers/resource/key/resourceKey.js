@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 let _ = require('lodash'),
-    slug = require("slug"),
+    slug = require('slug'),
     request = require('requestretry'),
     urljoin = require('url-join'),
     moment = require('moment'),
@@ -23,7 +23,7 @@ module.exports = {
 };
 
 
-function getSlug(str){
+function getSlug(str) {
     return slug(str.toLowerCase());
 }
 
@@ -33,9 +33,9 @@ function searchContentful(query, depth, isPreview, locale) {
         space = credentials.space,
         validLocale = contentfulLocaleMap[locale],
         composedQuery = {
-            access_token: accessToken,
-            include: depth || 1,
-            //'sys.id': entryId,
+            'access_token': accessToken,
+            'include': depth || 1,
+            // 'sys.id': entryId,
             'locale': validLocale
         },
         requestPath;
@@ -46,7 +46,7 @@ function searchContentful(query, depth, isPreview, locale) {
             composedQuery['sys.id'] = query;
         }
         requestPath = urljoin(api, 'spaces', space, 'entries', '?' + querystring.stringify(composedQuery));
-    var proseRequest = {
+    let proseRequest = {
         url: requestPath,
         fullResponse: false,
         json: true,
@@ -57,12 +57,12 @@ function searchContentful(query, depth, isPreview, locale) {
     return request(proseRequest);
 }
 
-function decorateFirst(results){
-    //check if there is any results. if not, then the item do not exists
+function decorateFirst(results) {
+    // check if there is any results. if not, then the item do not exists
     if (results.total == 0) {
         return;
-    } else if(_.get(results, 'sys.type') !== 'Array') {
-        throw(Error('contentful query failed'));
+    } else if (_.get(results, 'sys.type') !== 'Array') {
+        throw (Error('contentful query failed'));
     }
 
     let contentItem = getFirstContentItem(results),
@@ -80,7 +80,7 @@ function decorateFirst(results){
 
 async function getParticipant(directoryId, depth, isPreview, locale) {
     let participants = await searchContentful({
-            content_type: 'Participant',
+            'content_type': 'Participant',
             'fields.directoryId': directoryId
         }, depth, isPreview, locale),
             first = decorateFirst(participants);
@@ -89,7 +89,7 @@ async function getParticipant(directoryId, depth, isPreview, locale) {
 
 async function getByAlias(urlAlias, depth, isPreview, locale) {
     let query = {
-        content_type: 'article',
+        'content_type': 'article',
         'fields.urlAlias': urlAlias
     };
     return getFirst(query, depth, isPreview, locale);
@@ -102,13 +102,13 @@ async function getFirst(query, depth, isPreview, locale) {
     if (_.get(response, 'sys.type') == 'Error') {
         throw {
             statusCode: 500
-        }
+        };
     }
     if (response.total == 0) {
         throw {
             statusCode: 404,
             message: 'No such item'
-        }
+        };
     }
     let first = decorateFirst(response);
     return first;
@@ -120,20 +120,20 @@ async function getById(id, depth, isPreview, locale) {
         throw {
             statusCode: 404,
             message: 'No such resource'
-        }
+        };
     }
     let first = decorateFirst(articles);
     return first;
 }
 
 async function getHomePage(isPreview, locale) {
-    let homepages = await searchContentful({content_type:'homePage'}, 3, isPreview, locale),
+    let homepages = await searchContentful({content_type: 'homePage'}, 3, isPreview, locale),
         first = decorateFirst(homepages);
     return first;
 }
 
 function getFirstContentItem(result) {
-    var entry = {};
+    let entry = {};
     entry.main = result.items[0];
     entry.resolved = {};
     if (_.get(result, 'includes.Entry.length', 0) > 0) {
@@ -147,33 +147,33 @@ function getFirstContentItem(result) {
 
 
 function removeUnresovable(item, includes) {
-    Object.keys(item).forEach(function(key){
-        var value = item[key];
+    Object.keys(item).forEach(function(key) {
+        let value = item[key];
         if (_.get(value, 'sys.type') == 'Link') {
-            //check if item is included
+            // check if item is included
             let linkType = _.get(value, 'sys.linkType'),
-                id =  _.get(value, 'sys.id'),
+                id = _.get(value, 'sys.id'),
                 resolvedItem = _.get(includes, linkType + '.' + id);
             if (_.isUndefined(resolvedItem)) {
                 delete item.key;
             }
-        } else if(_.isArray(value)) {
+        } else if (_.isArray(value)) {
             _.set(item, key, getPrunedList(value, includes));
         }
     });
 }
 
 function getPrunedList(list, includes) {
-    let prunedList = list.filter(function(e){
+    let prunedList = list.filter(function(e) {
         let linkType = _.get(e, 'sys.linkType'),
-            id =  _.get(e, 'sys.id');
-        //if it isn't a link it cannot be broken, so it isn't eligeble for pruning
+            id = _.get(e, 'sys.id');
+        // if it isn't a link it cannot be broken, so it isn't eligeble for pruning
         if (_.isUndefined(linkType)) {
             return true;
         }
         let resolvedItem = _.get(includes, linkType + '.' + id);
 
-        //if it cannot be resolved, then it is either in draft or archived. remove the link
+        // if it cannot be resolved, then it is either in draft or archived. remove the link
         if (_.isUndefined(resolvedItem)) {
             return false;
         }

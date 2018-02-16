@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
+let angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,31 +9,31 @@ angular
 
 /** @ngInject */
 function vernacularNamesDirective() {
-    var directive = {
+    let directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/vernacularNames.html',
         scope: {
             key: '@',
-            isNub: '@'
+            isNub: '@',
         },
         controller: vernacularnamesCtrl,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
     return directive;
 
     /** @ngInject */
     function vernacularnamesCtrl($scope, $state, $stateParams, SpeciesVernacularNames) {
-        var vm = this;
+        let vm = this;
         // vm.vernacularnames = {
         //     limit: 5,
         //     offset: 0,
         //     endOfRecords: true
         // };
 
-        //vm.endOfRecords = false;
+        // vm.endOfRecords = false;
         vm.vernacularNames = SpeciesVernacularNames.get({id: vm.key});
-        vm.vernacularNames.$promise.then(function(){
+        vm.vernacularNames.$promise.then(function() {
             vm.hasPages = vm.vernacularNames.results.length > 10;
             vm.limit = 10;
             vm.offset = 0;
@@ -43,7 +43,7 @@ function vernacularNamesDirective() {
 
         function getNames() {
 
-            //vm.vernacularNames = SpeciesVernacularNames.get({id: vm.key})
+            // vm.vernacularNames = SpeciesVernacularNames.get({id: vm.key})
 
             // SpeciesReferences.query({
             //     id: vm.key,
@@ -67,40 +67,37 @@ function vernacularNamesDirective() {
         }
 
       //  updatePageState();
-        vm.showDatasets = function(name){
+        vm.showDatasets = function(name) {
             vm.currentName = name;
             vm.showCurrentDatasets = true;
-        }
-        vm.next = function () {
+        };
+        vm.next = function() {
             vm.offset = vm.offset + vm.limit;
             $state.go('.', {vnOffset: vm.offset}, {inherit: true, notify: false, reload: false});
             vm.endOfRecords = (vm.offset+vm.limit) >= vm.vernacularNames.results.length;
             setHeight();
         };
 
-        vm.prev = function () {
+        vm.prev = function() {
             vm.offset = vm.offset - vm.limit;
             $state.go('.', {vnOffset: vm.offset}, {inherit: true, notify: false, reload: false});
             vm.endOfRecords = (vm.offset+vm.limit) >= vm.vernacularNames.results.length;
             setHeight();
-
         };
-
 
 
         function setHeight() {
             if (vm.offset > 0 || !vm.endOfRecords && _.get(vm.vernacularnames, 'results.length', 0) > 0) {
-
-                var fact = Math.min(vm.vernacularNames.results.length - (vm.offset), 10);
-                console.log(fact)
+                let fact = Math.min(vm.vernacularNames.results.length - (vm.offset), 10);
+                console.log(fact);
                 vm.height = (77 * fact) + 'px';
                 vm.hasPages = true;
             }
         }
 
-        vm.getHeight = function () {
+        vm.getHeight = function() {
             return vm.height;
-        }
+        };
      }
 }
 

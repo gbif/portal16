@@ -1,6 +1,6 @@
 'use strict';
 
-var baseConfig = require('../../../config/config'),
+let baseConfig = require('../../../config/config'),
     clientTileApi = baseConfig.tileApi,
     baseUrl = baseConfig.serverProtocol + baseConfig.dataApi,
     registryBaseUrl = baseConfig.serverProtocol + baseConfig.registryApi,
@@ -11,7 +11,7 @@ var baseConfig = require('../../../config/config'),
     identityBaseUrl = baseConfig.serverProtocol + baseConfig.identityApi;
 
 // TODO Establish URL concatenation policy. Always no trailing slash?
-var apiConfig = {
+let apiConfig = {
     base: {
         url: baseUrl
     },

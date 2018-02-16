@@ -1,6 +1,6 @@
 'use strict';
 
-var searchDrawer = function () {
+let searchDrawer = function() {
     this.apply = element(by.css('.search-bar__search'));
 };
 

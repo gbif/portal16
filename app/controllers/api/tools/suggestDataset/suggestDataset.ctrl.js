@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     nunjucks = require('nunjucks'),
     auth = require('../../../auth/auth.service'),
     github = require('octonode'),
@@ -10,13 +10,13 @@ var express = require('express'),
     _ = require('lodash'),
     router = express.Router();
 
-let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
+let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', 'utf8');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api/tools/suggest-dataset', router);
 };
 
-router.post('/', auth.isAuthenticated(), function (req, res) {
+router.post('/', auth.isAuthenticated(), function(req, res) {
     let formData = req.body.form;
     if (!formData || !isValid(formData)) {
         res.status(400);
@@ -24,7 +24,7 @@ router.post('/', auth.isAuthenticated(), function (req, res) {
             error: 'form data missing'
         });
     } else {
-        createIssue(req.body.form, req, function (err, data) {
+        createIssue(req.body.form, req, function(err, data) {
             if (err) {
                 log.error('Could not write feedback to Github issue: ' + err);
                 res.status(400);
@@ -63,12 +63,12 @@ function createIssue(data, req, cb) {
     let description = '',
         labels = [];
 
-    var client = github.client({
+    let client = github.client({
         username: credentials.user,
         password: credentials.password
     });
 
-    var ghrepo = client.repo(credentials.repository);
+    let ghrepo = client.repo(credentials.repository);
 
     try {
         description = getDescription(data);
@@ -85,10 +85,10 @@ function createIssue(data, req, cb) {
     }
 
     ghrepo.issue({
-        "title": data.title,
-        "body": description,
-        "labels": labels
-    }, function (err, data) {
+        'title': data.title,
+        'body': description,
+        'labels': labels
+    }, function(err, data) {
         if (err) {
             cb(err);
         } else {
@@ -99,12 +99,12 @@ function createIssue(data, req, cb) {
 
 function getLabels() {
     let labels = ['Needs validation'];
-    //additional logic for tagging suggestions can go here. F.x. based on license or region.
+    // additional logic for tagging suggestions can go here. F.x. based on license or region.
     return _.uniq(labels);
 }
 
 function getDescription(data) {
-    var res = nunjucks.renderString(issueTemplateString, data);
+    let res = nunjucks.renderString(issueTemplateString, data);
     return res;
 }
 

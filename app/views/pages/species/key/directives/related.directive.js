@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function relatedDirective() {
-    var directive = {
+    let directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/related.html',
         scope: {},
@@ -16,38 +16,36 @@ function relatedDirective() {
         controllerAs: 'vm',
         bindToController: {
             key: '@',
-            name: '@'
-        }
+            name: '@',
+        },
     };
     return directive;
 
     /** @ngInject */
     function relatedCtrl(SpeciesRelated, OccurrenceSearch) {
-        var vm = this;
+        let vm = this;
         vm.numOccDatasets;
         vm.numChkDatasets;
 
         SpeciesRelated.query({
             id: vm.key,
-            limit: 100
+            limit: 100,
 
-        }, function (data) {
+        }, function(data) {
             vm.numChkDatasets = data.results.length;
-
-        }, function () {
+        }, function() {
         });
 
         OccurrenceSearch.query({
             taxonKey: vm.key,
             limit: 0,
             facetLimit: 100,
-            facet: "datasetKey"
+            facet: 'datasetKey'
 
-        }, function (data) {
+        }, function(data) {
             vm.numOccDatasets = data.facets[0].counts.length;
-
-        }, function () {
-        })
+        }, function() {
+        });
     }
 }
 

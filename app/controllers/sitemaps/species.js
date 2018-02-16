@@ -1,15 +1,12 @@
-"use strict";
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+'use strict';
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     config = rootRequire('config/config'),
-    querystring = require('querystring'),
-    request = require('requestretry'),
-    _ = require('lodash');
+    request = require('requestretry');
 
 module.exports = {
     getSpeciesSiteMapIndex: getSpeciesSiteMapIndex,
     getSpeciesSiteMap: getSpeciesSiteMap
 };
-
 
 async function getSitemap(url, replaceText, replaceWith) {
     let options = {

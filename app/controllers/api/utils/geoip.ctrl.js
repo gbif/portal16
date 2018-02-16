@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 let express = require('express'),
     router = express.Router(),
     log = rootRequire('config/log'),
@@ -8,11 +8,11 @@ let express = require('express'),
     _ = require('lodash'),
     getGeoIp = rootRequire('app/helpers/utils').getGeoIp;
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api/utils', router);
 };
 
-router.get('/geoip', function (req, res) {
+router.get('/geoip', function(req, res) {
     let ip = getIp(req, res),
         country = getGeoIp(ip);
 
@@ -27,7 +27,7 @@ router.get('/geoip', function (req, res) {
     }
 });
 
-router.get('/geoip/country', function (req, res) {
+router.get('/geoip/country', function(req, res) {
     let ip = getIp(req, res),
         country = getGeoIp(ip),
         countryCode = _.get(country, 'country.iso_code');
@@ -39,7 +39,7 @@ router.get('/geoip/country', function (req, res) {
         res.send();
     } else {
         res.setHeader('Cache-Control', 'private, max-age=' + hour);
-        var location = countryCodes2CrudeCoordinates[countryCode];
+        let location = countryCodes2CrudeCoordinates[countryCode];
         res.json({
             countryCode: countryCode,
             location: location
@@ -48,7 +48,7 @@ router.get('/geoip/country', function (req, res) {
 });
 
 function getIp(req, res) {
-    let referer = _.get(req ,'headers.referer');
+    let referer = _.get(req, 'headers.referer');
     if (!referer) {
         res.setHeader('Cache-Control', 'no-cache');
         res.status(404);
@@ -61,7 +61,7 @@ function getIp(req, res) {
     return ip;
 }
 
-//We need a better geolocation and service. But that shouldn't be a part of the portal project.
+// We need a better geolocation and service. But that shouldn't be a part of the portal project.
 // No one seems to have time nor interest in implementing such at this point.
 // I have created a crude unmaintained one based on a database dump instead.
 // and now supplemented it with a country code to rought location.

@@ -1,5 +1,5 @@
-"use strict";
-var verificationFolder = rootRequire('config/config').verification,
+'use strict';
+let verificationFolder = rootRequire('config/config').verification,
     path = require('path'),
     verificationConfig = require(path.join(verificationFolder, 'config')),
     verifier = require('./humanVerifier')(verificationConfig);
@@ -7,8 +7,8 @@ var verificationFolder = rootRequire('config/config').verification,
 module.exports = {
     getChallenge: verifier.getChallenge,
     verify: verifier.verify,
-    resolveImageName: function (name, cb) {
-        verifier.resolveImageName(name, function (err, name) {
+    resolveImageName: function(name, cb) {
+        verifier.resolveImageName(name, function(err, name) {
             if (name) {
                 name = path.join(verificationFolder, name);
             }

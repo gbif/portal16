@@ -1,28 +1,28 @@
-"use strict";
+'use strict';
 
-var resource = require('../resource'),
+let resource = require('../resource'),
     api = require('../apiConfig');
 
-var Publisher = function (record) {
+let Publisher = function(record) {
     this.record = record;
 };
 
 Publisher.prototype.record = {};
 
-Publisher.get = function (key, options) {
+Publisher.get = function(key, options) {
     options = options || {};
-    var promise = resource.get(api.publisher.url + key).as(Publisher);
+    let promise = resource.get(api.publisher.url + key).as(Publisher);
     if (typeof options.expand === 'undefined') {
-        return promise
+        return promise;
     } else {
-        return promise.then(function (publisher) {
-            return publisher.expand(options.expand)
+        return promise.then(function(publisher) {
+            return publisher.expand(options.expand);
         });
     }
 };
 
-Publisher.prototype.expand = function (fieldNames) {
-    var resources = [],
+Publisher.prototype.expand = function(fieldNames) {
+    let resources = [],
         resourceLookup = {
             endorsingNode: {
                 resource: api.node.url + this.record.endorsingNodeKey,
@@ -45,7 +45,7 @@ Publisher.prototype.expand = function (fieldNames) {
                 extendToField: 'installation'
             }
         };
-    fieldNames.forEach(function (e) {
+    fieldNames.forEach(function(e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
     return resource.extend(this).with(resources);

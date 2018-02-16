@@ -1,43 +1,42 @@
-var express = require('express'),
-    //async = require('async'),
-    //hash = require('object-hash'),
-    //_ = require('lodash'),
-    //Q = require('q'),
-    //apiConfig = require('../../../../models/gbifdata/apiConfig'),
-    //helper = require('../../../../models/util/util'),
-    //github = require('octonode'),
-    //querystring = require('querystring'),
+let express = require('express'),
+    // async = require('async'),
+    // hash = require('object-hash'),
+    // _ = require('lodash'),
+    // Q = require('q'),
+    // apiConfig = require('../../../../models/gbifdata/apiConfig'),
+    // helper = require('../../../../models/util/util'),
+    // github = require('octonode'),
+    // querystring = require('querystring'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api/tools/species-count', router);
 };
 
-router.post('/count', function (req, res) {
-
-    //just return error for now and disable en browser
+router.post('/count', function(req, res) {
+    // just return error for now and disable en browser
     res.status = 500;
     res.json({error: 'NOT IMPLEMENTED YET'});
 
-    //if (!isValidIdList(req.body.taxonKeys)) {
+    // if (!isValidIdList(req.body.taxonKeys)) {
     //    //respond with error message
     //    res.status(500);
     //    res.json({
     //        message: 'expected body parameter "taxonKeys" to be an array of integers'
     //    });
-    //} else if (!req.body.names || !isValidNameList(req.body.names) || req.body.names.length != req.body.taxonKeys.length) {
+    // } else if (!req.body.names || !isValidNameList(req.body.names) || req.body.names.length != req.body.taxonKeys.length) {
     //    //respond with error message
     //    res.status(500);
     //    res.json({
     //        message: 'expected body parameter "names" to be an array of strings of same length as taxonKeys'
     //    });
-    //} else if (typeof req.body.countryCode !== 'string' || req.body.countryCode.length != 2) {
+    // } else if (typeof req.body.countryCode !== 'string' || req.body.countryCode.length != 2) {
     //    //respond with error message
     //    res.status(500);
     //    res.json({
     //        message: 'expected body paramteter "countryCode" to be a 2 letter country code'
     //    });
-    //} else {
+    // } else {
     //    var referenceId = hash({
     //        keys: req.body.taxonKeys,
     //        date: Date.now()
@@ -48,17 +47,16 @@ router.post('/count', function (req, res) {
     //    res.json({
     //        referenceId: referenceId
     //    });
-    //}
-
+    // }
 });
 
-//function countSpecies(list, names, countryCode, referenceId) {
+// function countSpecies(list, names, countryCode, referenceId) {
 //    countItems(list, countryCode, function (data) {
 //        saveResults(data, names, referenceId);
 //    });
-//}
+// }
 
-//function countItem(item, countryCode, callback) {
+// function countItem(item, countryCode, callback) {
 //    speciesCount({
 //        taxon_key: item,
 //        country: countryCode
@@ -70,9 +68,9 @@ router.post('/count', function (req, res) {
 //    }, function (err) {
 //        callback(err);
 //    });
-//}
+// }
 
-//function countItems(list, countryCode, callback) {
+// function countItems(list, countryCode, callback) {
 //    async.mapLimit(list, 10, function (item, cb) {
 //        countItem(item, countryCode, cb);
 //    }, function (err, data) {
@@ -82,9 +80,9 @@ router.post('/count', function (req, res) {
 //            callback(data);
 //        }
 //    });
-//}
+// }
 
-//function speciesCount(query) {
+// function speciesCount(query) {
 //    "use strict";
 //    var deferred = Q.defer();
 //    helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=0&' + querystring.stringify(query), function (err, data) {
@@ -98,9 +96,9 @@ router.post('/count', function (req, res) {
 //        }
 //    }, {retries: 3, timeoutMilliSeconds: 10000});
 //    return deferred.promise;
-//}
+// }
 
-//function saveResults(data, names, referenceId) {
+// function saveResults(data, names, referenceId) {
 //    var client = github.client({
 //        username: 'mortenhofft',
 //        password: require('../../../../../config/config').githubPassword //TODO take from credentials file
@@ -111,9 +109,9 @@ router.post('/count', function (req, res) {
 //    var content = getCsvContent(data, names);
 //    ghrepo.createContents(referenceId + '/counts.csv', 'created from user request', content, function () { //err, data, headers
 //    }); //path
-//}
+// }
 
-//function getCsvContent(data, names) {
+// function getCsvContent(data, names) {
 //    var csvContent = 'key, scientificName, count\n';
 //    //write rows
 //    data.forEach(function (e, i) {
@@ -121,9 +119,9 @@ router.post('/count', function (req, res) {
 //        csvContent += e.taxon_key + ',"' + names[i] + '",' + e.count + '\n';
 //    });
 //    return csvContent;
-//}
+// }
 
-//function isValidIdList(taxonList) {
+// function isValidIdList(taxonList) {
 //    //expect an array of integers
 //    if (!_.isArray(taxonList)) {
 //        return false;
@@ -134,9 +132,9 @@ router.post('/count', function (req, res) {
 //        }
 //    }
 //    return true;
-//}
+// }
 //
-//function isValidNameList(nameList) {
+// function isValidNameList(nameList) {
 //    //expect an array of strings
 //    if (!_.isArray(nameList)) {
 //        return false;
@@ -147,4 +145,4 @@ router.post('/count', function (req, res) {
 //        }
 //    }
 //    return true;
-//}
+// }

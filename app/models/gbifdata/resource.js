@@ -1,35 +1,34 @@
 'use strict';
 
-//TODO error handling and tests missing
+// TODO error handling and tests missing
 
-var Q = require('q'),
+let Q = require('q'),
     async = require('async'),
     helper = require('../../models/util/util');
 
-var Resource = function (resourceIdentifier) {
+let Resource = function(resourceIdentifier) {
     this.resourceIdentifier = resourceIdentifier;
 };
 
-Resource.getResource = function (resourceIdentifier, DataType, options) {
-    var deferred = Q.defer();
-    helper.getApiData(resourceIdentifier, function (err, data) {
+Resource.getResource = function(resourceIdentifier, DataType, options) {
+    let deferred = Q.defer();
+    helper.getApiData(resourceIdentifier, function(err, data) {
         if (err) {
             deferred.reject(err);
         } else if (typeof data.errorType !== 'undefined') {
-            var error = new Error(data);
+            let error = new Error(data);
             error.type = data.errorType;
             deferred.reject(error);
         } else if (data) {
             deferred.resolve(new DataType(data));
-        }
-        else {
+        } else {
             deferred.reject(new Error(err));
         }
     }, options);
     return deferred.promise;
 };
 
-Resource.extendWith = function (dataInstance, resources) {
+Resource.extendWith = function(dataInstance, resources) {
     /*
      dataInstance: object to be extended with the resources
      resources in type [{
@@ -37,12 +36,12 @@ Resource.extendWith = function (dataInstance, resources) {
      extendToField: 'publisher'
      }]
      */
-    var deferred = Q.defer();
-    Resource.getResources(resources, function (err, results) {
+    let deferred = Q.defer();
+    Resource.getResources(resources, function(err, results) {
         if (err) {
             deferred.reject(new Error(err));
         }
-        resources.forEach(function (e) {
+        resources.forEach(function(e) {
             dataInstance[e.extendToField] = results[e.extendToField];
         });
         deferred.resolve(dataInstance);
@@ -50,30 +49,30 @@ Resource.extendWith = function (dataInstance, resources) {
     return deferred.promise;
 };
 
-Resource.getResources = function (resources, callback) {
-    var tasks = {};
-    resources.forEach(function (e) {
-        tasks[e.extendToField] = function (cb) {
+Resource.getResources = function(resources, callback) {
+    let tasks = {};
+    resources.forEach(function(e) {
+        tasks[e.extendToField] = function(cb) {
             helper.getApiData(e.resource, cb, e.options);
         };
     });
     async.parallel(tasks, callback);
 };
 
-//wrappers for easily readable syntax
-Resource.extend = function (obj) {
+// wrappers for easily readable syntax
+Resource.extend = function(obj) {
     return {
-        with: function (resources) {
+        with: function(resources) {
             return Resource.extendWith(obj, resources);
         }
-    }
+    };
 };
 
-Resource.get = function (resourceIdentifier) {
+Resource.get = function(resourceIdentifier) {
     return new Resource(resourceIdentifier);
 };
 
-Resource.prototype.as = function (DataType, options) {
+Resource.prototype.as = function(DataType, options) {
     if (typeof this.resourceIdentifier === 'undefined') {
         throw new Error('You need to define a resource first');
     } else {

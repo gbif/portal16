@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,13 +8,13 @@ angular
 
 /** @ngInject */
 function countryAboutCtrl($stateParams, OccurrenceTableSearch, OccurrenceDatasetSearch) {
-    var vm = this;
+    let vm = this;
     vm.countryCode = $stateParams.key;
 
-    OccurrenceDatasetSearch.query({country: vm.countryCode}, function (data) {
+    OccurrenceDatasetSearch.query({country: vm.countryCode}, function(data) {
         vm.datasetsAbout = data;
-    }, function () {
-        //TODO handle request error
+    }, function() {
+        // TODO handle request error
     });
 }
 

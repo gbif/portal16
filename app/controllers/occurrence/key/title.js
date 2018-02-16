@@ -1,18 +1,18 @@
 /**
  * create a human readable title to display on the occurrence detail page a la "Puma Concolor observed in Italy"
  */
-var _ = require('lodash');
+let _ = require('lodash');
 
-module.exports = function (occurrence, __) {
-    var name = occurrence.record.scientificName || __('occurrence.title.unknownSpecies');
+module.exports = function(occurrence, __) {
+    let name = occurrence.record.scientificName || __('occurrence.title.unknownSpecies');
 
-    var location = __('occurrence.title.unknownLocation');
+    let location = __('occurrence.title.unknownLocation');
     if (occurrence.record.countryCode) {
         location = __('occurrence.title.inCountry', __('country.' + occurrence.record.countryCode));
     }
 
-    var bor = _.get(occurrence, 'record.basisOfRecord', 'UNKNOWN');
-    var verb = __('occurrence.title.verb.' + bor);
+    let bor = _.get(occurrence, 'record.basisOfRecord', 'UNKNOWN');
+    let verb = __('occurrence.title.verb.' + bor);
 
     return {
         name: name,

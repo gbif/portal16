@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     format = rootRequire('app/helpers/format'),
@@ -12,42 +12,42 @@ var express = require('express'),
     auth = require('../../../auth/auth.service'),
     request = require('requestretry');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/dataset/:key/permissions', auth.isAuthenticated(), function (req, res, next) {
-    var datasetKey = req.params.key;
+router.get('/dataset/:key/permissions', auth.isAuthenticated(), function(req, res, next) {
+    let datasetKey = req.params.key;
     if (!utils.isGuid(datasetKey)) {
         next();
         return;
     }
     datasetAuth.permissions(req.user, datasetKey)
-        .then(function(permissionState){
+        .then(function(permissionState) {
             res.json(permissionState);
         })
-        .catch(function(err){
+        .catch(function(err) {
             console.log(err);
             res.status(500);
             res.send('Unable to get dataset crawling permissions due to a server error');
         });
 });
 
-router.get('/dataset/:key/crawl', auth.isAuthenticated(), datasetAuth.isTrustedContact(), function (req, res, next) {
+router.get('/dataset/:key/crawl', auth.isAuthenticated(), datasetAuth.isTrustedContact(), function(req, res, next) {
     res.send('you are in');
 });
 
-router.get('/dataset/:key\.:ext?', function (req, res, next) {
-    var datasetKey = req.params.key;
+router.get('/dataset/:key.:ext?', function(req, res, next) {
+    let datasetKey = req.params.key;
     if (!utils.isGuid(datasetKey)) {
         next();
         return;
     }
     getDataset(datasetKey)
-        .then(function(dataset){
+        .then(function(dataset) {
             res.json(dataset);
         })
-        .catch(function(err){
+        .catch(function(err) {
             res.status(err.statusCode);
             res.send();
         });
@@ -96,10 +96,10 @@ function clean(obj) {
 
     cleanArray(obj, 'samplingDescription.methodSteps');
 
-    _.get(obj, 'geographicCoverages', []).forEach(function(e){
+    _.get(obj, 'geographicCoverages', []).forEach(function(e) {
         cleanField(e, 'description');
     });
-    _.get(obj, 'taxonomicCoverages', []).forEach(function(e){
+    _.get(obj, 'taxonomicCoverages', []).forEach(function(e) {
         cleanField(e, 'description');
     });
 }
@@ -113,8 +113,8 @@ function cleanField(o, field) {
 function cleanArray(o, field) {
     let values = _.get(o, field);
     if (values) {
-        _.set(o, field, values.map(function(e){
-            return format.sanitize(format.linkify(format.decodeHtml(e)))
+        _.set(o, field, values.map(function(e) {
+            return format.sanitize(format.linkify(format.decodeHtml(e)));
         }));
     }
 }

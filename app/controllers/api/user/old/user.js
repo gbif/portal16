@@ -1,32 +1,32 @@
-"use strict";
+'use strict';
 
-var Q = require('q'),
+let Q = require('q'),
     authRequest = require('./authRequest'),
     querystring = require('querystring'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
-    isNotDevBuild = require('../../../../config/config').env !== 'dev', //it is convenient to set cookies on localhost so don't require secure cookies for dev builds
+    isNotDevBuild = require('../../../../config/config').env !== 'dev', // it is convenient to set cookies on localhost so don't require secure cookies for dev builds
     minute = 60000,
-    hour =  60*minute,
+    hour = 60*minute,
     day = 24*hour;
 
 function getDownloads(cookie, query) {
     query = query || {};
-    var deferred = Q.defer();
-    var userPromise = authRequest.getUser(cookie);
+    let deferred = Q.defer();
+    let userPromise = authRequest.getUser(cookie);
     userPromise
-        .then(function (user) {
-            var options = {
+        .then(function(user) {
+            let options = {
                 url: apiConfig.occurrenceDownloadUser.url + user.userName + '?' + querystring.stringify(query)
             };
             authRequest.authenticatedRequest(cookie, options)
-                .then(function (response) {
+                .then(function(response) {
                     deferred.resolve(response);
                 })
-                .fail(function (err) {
+                .fail(function(err) {
                     deferred.reject(err);
                 });
         })
-        .fail(function (err) {
+        .fail(function(err) {
             deferred.reject(err);
         });
     return deferred.promise;
@@ -34,36 +34,35 @@ function getDownloads(cookie, query) {
 
 function simpleDownload(cookie, query) {
     query = query || {};
-    var deferred = Q.defer();
-    var userPromise = authRequest.getUser(cookie);
+    let deferred = Q.defer();
+    let userPromise = authRequest.getUser(cookie);
     userPromise
-        .then(function (user) {
+        .then(function(user) {
             query.notification_address = user.email || 'an_email_is_required_despite_not_needing_it';
-            var options = {
+            let options = {
                 url: apiConfig.occurrenceSearchDownload.url + '?' + querystring.stringify(query),
                 type: 'PLAIN'
             };
             authRequest.authenticatedRequest(cookie, options)
-                .then(function (response) {
+                .then(function(response) {
                     if (response.errorType) {
                         deferred.reject(response);
-                    }
-                    else {
+                    } else {
                         deferred.resolve(response);
                     }
                 })
-                .fail(function (err) {
+                .fail(function(err) {
                     deferred.reject(err);
                 });
         })
-        .fail(function (err) {
+        .fail(function(err) {
             deferred.reject(err);
         });
     return deferred.promise;
 }
 
 function login(req, res) {
-    var auth = req.get("authorization"),
+    let auth = req.get('authorization'),
         loginRequest = {
             url: apiConfig.userLogin.url,
             retries: 5,
@@ -75,7 +74,7 @@ function login(req, res) {
             failHard: true
         };
 
-    authRequest.requestPromise(loginRequest).then(function(data){
+    authRequest.requestPromise(loginRequest).then(function(data) {
         res.cookie('USER_SESSION', data.session,
             {
                 maxAge: day*300,
@@ -86,14 +85,14 @@ function login(req, res) {
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
         res.header('Pragma', 'no-cache');
         res.header('Expires', '0');
-        res.send(data.user);//only send the user data, not the token. it shouldn't be accessible through JS
-    }, function(err){
+        res.send(data.user);// only send the user data, not the token. it shouldn't be accessible through JS
+    }, function(err) {
         errorUnwrapper(res, err);
     });
 }
 
 function logout(req, res) {
-    cookieRequest(req, apiConfig.userLogout.url).then(function(data){
+    cookieRequest(req, apiConfig.userLogout.url).then(function(data) {
         res.cookie('USER_SESSION', '',
             {
                 maxAge: 1,
@@ -102,38 +101,38 @@ function logout(req, res) {
             }
         );
         res.json(data);
-    }, function(err){
+    }, function(err) {
         errorUnwrapper(res, err);
     });
 }
 
 function getUser(req, res) {
-    cookieRequest(req, apiConfig.user.url).then(function(data){
+    cookieRequest(req, apiConfig.user.url).then(function(data) {
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
         res.header('Pragma', 'no-cache');
         res.header('Expires', '0');
         res.json(data);
-    }, function(err){
+    }, function(err) {
         errorUnwrapper(res, err);
     });
 }
 
 function create(userInfo, req, res) {
-    return authRequest.create(userInfo).then(function(data){
+    return authRequest.create(userInfo).then(function(data) {
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
         res.header('Pragma', 'no-cache');
         res.header('Expires', '0');
 
         res.json(data);
-    }, function(err){
+    }, function(err) {
         errorUnwrapper(res, err);
     });
 }
 
-function cookieRequest(req,url) {
-    var cookie = req.cookies[apiConfig.cookieNames.userSession];
+function cookieRequest(req, url) {
+    let cookie = req.cookies[apiConfig.cookieNames.userSession];
     if (cookie) {
-        var requestConfig = {
+        let requestConfig = {
             url: url,
             retries: 1,
             timeout: 30000,
@@ -145,7 +144,7 @@ function cookieRequest(req,url) {
         };
         return authRequest.requestPromise(requestConfig);
     } else {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         deferred.reject({
             errorResponse: {
                 statusCode: 401,

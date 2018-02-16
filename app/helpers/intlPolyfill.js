@@ -1,4 +1,4 @@
-var areIntlLocalesSupported = require('intl-locales-supported');
+let areIntlLocalesSupported = require('intl-locales-supported');
 
 function setSupportedLocales(supportedLocales) {
     if (global.Intl) {
@@ -6,7 +6,7 @@ function setSupportedLocales(supportedLocales) {
         if (!areIntlLocalesSupported(supportedLocales)) {
             // `Intl` exists, but it doesn't have the data we need, so load the
             // polyfill and replace the constructors we need with the polyfill's.
-            var IntlPolyfill = require('intl');
+            let IntlPolyfill = require('intl');
             global.Intl.NumberFormat = IntlPolyfill.NumberFormat;
             global.Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
         }
@@ -18,4 +18,4 @@ function setSupportedLocales(supportedLocales) {
 
 module.exports = {
     setSupportedLocales: setSupportedLocales
-}
+};

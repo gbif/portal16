@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var ns = {
+let ns = {
     'http://rs.tdwg.org/dwc/terms': 'dwc',
     'http://purl.org/dc/terms/': 'dcterm',
     'http://purl.org/dc/elements/1.1': 'dc',

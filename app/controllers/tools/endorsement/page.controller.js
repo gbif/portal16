@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var helper = rootRequire('app/models/util/util'),
+let helper = rootRequire('app/models/util/util'),
     resource = rootRequire('app/controllers/resource/key/resourceKey');
 
 module.exports = {
@@ -13,16 +13,16 @@ module.exports = {
 function eoiPage(req, res, next) {
     let homepage = resource.getByAlias('/become-a-publisher', 2, false, res.locals.gb.locales.current);
     homepage.then(
-        function (data) {
+        function(data) {
             helper.renderPage(req, res, next, {
                 prose: data,
                 _meta: {
-                    title: req.__("meta.eoiTitle"),
-                    description: req.__("meta.eoiDescription")
+                    title: req.__('meta.eoiTitle'),
+                    description: req.__('meta.eoiDescription')
                 }
             }, 'pages/custom/becomePublisher/becomePublisher');
         },
-        function (err) {
+        function(err) {
             next(err);
         }
     );

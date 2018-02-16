@@ -5,12 +5,12 @@ let express = require('express'),
     cookieParser = require('cookie-parser'),
     compress = require('compression'),
     methodOverride = require('method-override'),
-    i18n = require("./i18n"),
+    i18n = require('./i18n'),
     requestIp = require('request-ip'),
     bodyparser = require('body-parser'),
     log = require('./log');
 
-module.exports = function (app, config) {
+module.exports = function(app, config) {
     let env = config.env || 'dev';
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
@@ -34,7 +34,7 @@ module.exports = function (app, config) {
 
     app.use(i18n.init);
 
-    //Middleware to remove locale from url and set i18n.locale based on url. This allows one route to match different locales
+    // Middleware to remove locale from url and set i18n.locale based on url. This allows one route to match different locales
     require(config.root + '/app/middleware/i18n/localeFromQuery.js').use(app, config.locales, config.defaultLocale);
 
     app.use(bodyparser.json({
@@ -56,13 +56,13 @@ module.exports = function (app, config) {
     // Node doesn't include other locales than english per default. Include these to use Intl.
     require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(config.locales);
 
-    //add menu to all requests
+    // add menu to all requests
     require(config.root + '/app/middleware/menu/menu.js').use(app);
 
-    //app.use(slashes(false, { code: 302 }));//the module is defect. asking it to remove slashes leads to circular redirects
-    app.use(function (req, res, next) {
+    // app.use(slashes(false, { code: 302 }));//the module is defect. asking it to remove slashes leads to circular redirects
+    app.use(function(req, res, next) {
         if (req.path.substr(-1) == '/' && req.path.length > 1) {
-            var query = req.url.slice(req.path.length);
+            let query = req.url.slice(req.path.length);
             res.redirect(301, req.path.slice(0, -1) + query);
         } else {
             next();
@@ -80,29 +80,29 @@ module.exports = function (app, config) {
      require all route controllers
      */
     let controllers = glob.sync(config.root + '/app/controllers/**/*.ctrl.js');
-    controllers.forEach(function (controller) {
+    controllers.forEach(function(controller) {
         require(controller)(app);
     });
 
     // require(config.root + '/app/urlHandling/urlHandling.js')(app); //disable all drupal route handling - as part of the development to move to contentful
     require(config.root + '/app/controllers/resource/key/resourceBySlugCtrl.js')(app);
 
-    //add middleware to handle redirects of old urls or shortened menu items
+    // add middleware to handle redirects of old urls or shortened menu items
     let redirects = require(config.root + '/app/middleware/redirects/redirects.js');
     app.use(redirects);
 
-    //let apiRequestErrors = require(config.root + '/app/errors/apiRequestErrors.js');
-    //app.use(apiRequestErrors);
+    // let apiRequestErrors = require(config.root + '/app/errors/apiRequestErrors.js');
+    // app.use(apiRequestErrors);
 
-    //add error and missing page routes
+    // add error and missing page routes
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);
 
-    process.on('unhandledRejection', function (reason, p) {
-        log.error("Unhandled Rejection at root: Promise ", p, " reason: ", reason);
+    process.on('unhandledRejection', function(reason, p) {
+        log.error('Unhandled Rejection at root: Promise ', p, ' reason: ', reason);
         // There is not much else to do here. Keep track of the logs and make sure this never happens. There should be no unhandled rejections.
     });
-    process.on('uncaughtException', function (err) {
+    process.on('uncaughtException', function(err) {
         // eslint-disable-next-line no-console
         console.log('Caught exception in root: ' + err);
         throw err;

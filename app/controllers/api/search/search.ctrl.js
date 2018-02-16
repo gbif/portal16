@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     format = rootRequire('app/helpers/format'),
@@ -12,19 +12,19 @@ var express = require('express'),
     Participant = require('./participant'),
     Country = require('./countrySearch');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/omniSearch', function (req, res) {
+router.get('/omniSearch', function(req, res) {
     let query = req.query.q,
         preferedLocale = req.query.locale;
 
     search(query, preferedLocale, res.__)
-        .then(function (result) {
+        .then(function(result) {
             res.json(result);
         })
-        .catch(function (err) {
+        .catch(function(err) {
             res.status(500);
             res.send('SERVER FAILURE');
             console.log(err);
@@ -42,7 +42,7 @@ async function search(query, preferedLocale, __) {
     let resourceHighlights = resourceSearch.search({keywords: query, contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'], local: preferedLocale, limit: 2}, __);
     let country = Country.query(query);
 
-    let values = await Promise.all([speciesMatches, species, datasets, publishers,  resources, country, resourceHighlights, participants]);
+    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights, participants]);
     let response = {
         speciesMatches: values[0],
         species: values[1],
@@ -51,13 +51,13 @@ async function search(query, preferedLocale, __) {
         resources: values[4],
         country: values[5],
         resourceHighlights: values[6],
-        participants : values[7],
+        participants: values[7]
 
     };
 
     response.species.results = pruneDuplicateSpecies(response.speciesMatches, response.species.results);
     response.speciesMatches = transformMatches(response.speciesMatches);
-    //response.species.results = _.slice(_.concat(response.speciesMatches.results, response.species.results), 0, 3);
+    // response.species.results = _.slice(_.concat(response.speciesMatches.results, response.species.results), 0, 3);
     addTypes(response);
 
     pruneDuplicateResources(response.resources, response.resourceHighlights);
@@ -69,7 +69,7 @@ async function search(query, preferedLocale, __) {
 
 function pruneDuplicateSpecies(matches, species) {
     let matchIds = _.map(matches, 'usageKey');
-    return _.filter(species, function (e) {
+    return _.filter(species, function(e) {
         return !_.includes(matchIds, e.key);
     });
 }
@@ -87,13 +87,13 @@ function addTypes(response) {
 }
 
 function addType(results, type) {
-    results.forEach(function (e) {
+    results.forEach(function(e) {
         e._type = type;
     });
 }
 
 function transformMatches(speciesMatches) {
-    speciesMatches.forEach(function (e) {
+    speciesMatches.forEach(function(e) {
         e.key = e.usageKey;
         e.taxonomicStatus = e.status;
     });
@@ -102,5 +102,5 @@ function transformMatches(speciesMatches) {
         limit: speciesMatches.length,
         offset: 0,
         results: speciesMatches
-    }
+    };
 }

@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     _ = require('lodash'),
     querystring = require('querystring'),
     Species = require('./species'),
     request = require('requestretry');
 
-async function query(query, options){
+async function query(query, options) {
     options = options || {};
     let threshold = options.threshold || 80;
     query = query || {};
@@ -26,7 +26,7 @@ async function query(query, options){
     return getSuggestions(items.body, threshold);
 }
 
-function getSuggestions(body, threshold){
+function getSuggestions(body, threshold) {
     let results = [],
     alternatives = body.alternatives,
     firstResult = body;
@@ -37,7 +37,9 @@ function getSuggestions(body, threshold){
     if (_.isArray(alternatives)) {
         results = _.concat(results, alternatives);
     }
-    results = _.filter(results, function(e){return e.confidence > threshold});
+    results = _.filter(results, function(e) {
+return e.confidence > threshold;
+});
     results = _.orderBy(results, ['confidence'], ['desc']);
     return results;
 }

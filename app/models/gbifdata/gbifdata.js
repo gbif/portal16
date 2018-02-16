@@ -1,4 +1,4 @@
-var Network = require('./network/network'),
+let Network = require('./network/network'),
     Node = require('./node/node'),
     Occurrence = require('./occurrence/occurrence'),
     Publisher = require('./publisher/publisher'),

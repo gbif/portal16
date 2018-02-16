@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var express = require('express'),
+let express = require('express'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     router = express.Router(),
     notificationsComplete = require('./notifications.model')(),
@@ -8,27 +8,27 @@ var express = require('express'),
     tests = require('./tests'),
     health = require('./health.model');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/health', function (req, res) {
+router.get('/health', function(req, res) {
     notificationsComplete
-        .then(function(getStatus){
+        .then(function(getStatus) {
             let status = getStatus();
             res.setHeader('Cache-Control', 'public, max-age=5'); // 5 seconds
             res.json(status);
         })
-        .catch(function(){
-            //TODO log error ?
+        .catch(function() {
+            // TODO log error ?
             res.status(500);
             res.send();
         });
 });
 
-router.get('/health/ping', function (req, res) {
+router.get('/health/ping', function(req, res) {
     notificationsComplete
-        .then(function(getStatus){
+        .then(function(getStatus) {
             let status = getStatus();
             res.setHeader('Cache-Control', 'public, max-age=5'); // 5 seconds
             if (req.query.hash !== status.hash) {
@@ -38,16 +38,16 @@ router.get('/health/ping', function (req, res) {
                 res.send();
             }
         })
-        .catch(function(){
-            //TODO log error ?
+        .catch(function() {
+            // TODO log error ?
             res.status(500);
             res.send();
         });
 });
 
-router.get('/health/portal', function (req, res) {
+router.get('/health/portal', function(req, res) {
     portalHealth.getHealth()
-        .then(function(status){
+        .then(function(status) {
             res.setHeader('Cache-Control', 'public, max-age=5'); // 5 seconds
             if (req.query.hash !== status.hash) {
                 res.json(status);
@@ -56,9 +56,9 @@ router.get('/health/portal', function (req, res) {
                 res.send();
             }
         })
-        .catch(function(err){
-            //TODO log error ?
-            //console.log(err); //TODO log
+        .catch(function(err) {
+            // TODO log error ?
+            // console.log(err); //TODO log
             res.status(500);
             res.send();
         });

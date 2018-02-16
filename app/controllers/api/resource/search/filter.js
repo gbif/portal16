@@ -4,9 +4,9 @@ function getRangeParts(str) {
     str = str || '';
     if (str.toString() == '') return;
 
-    var parts = str.toString().split(',');
+    let parts = str.toString().split(',');
     if (parts.length == 1) {
-        //is
+        // is
         return {
             values: [parts[0]],
             type: 'equals'
@@ -32,7 +32,7 @@ function getRangeParts(str) {
 }
 
 function getFilter(field, value, isRange) {
-    //Create the term filter
+    // Create the term filter
     let filterTerm = {};
     if (value.length == 1) {
         let rangeParts = getRangeParts(value[0]);
@@ -54,8 +54,8 @@ function getFilter(field, value, isRange) {
     } else {
         let term = {};
         term[field] = value;
-        //range values not supported for arrays at this point as we havne't needed it
-        _.set(filterTerm, 'terms', term);//value is an array with multiple values
+        // range values not supported for arrays at this point as we havne't needed it
+        _.set(filterTerm, 'terms', term);// value is an array with multiple values
     }
 
     return filterTerm;

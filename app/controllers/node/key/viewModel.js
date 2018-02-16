@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 let _ = require('lodash');
 
 module.exports = decorate;
@@ -9,7 +9,7 @@ function decorate(participant) {
     participant.headOfDelegation = _.find(participantPeople, {role: 'HEAD_OF_DELEGATION'});
     participant.nodeManager = _.find(nodePeople, {role: 'NODE_MANAGER'});
 
-    //is the participant an active one?
+    // is the participant an active one?
     let participationStatus = _.get(participant, 'participant.participationStatus');
     let acceptedParticipationStates = ['VOTING', 'ASSOCIATE', 'AFFILIATE'];
     let isActiveParticipant = acceptedParticipationStates.indexOf(participationStatus) > -1;
@@ -17,9 +17,9 @@ function decorate(participant) {
 
     let activeRelations = _.concat([], participantPeople, nodePeople);
 
-    var activePeople = getOrderedListOfPeople(activeRelations, participant.contacts);
+    let activePeople = getOrderedListOfPeople(activeRelations, participant.contacts);
     participant.activePeople = activePeople;
-    //decorate people with
+    // decorate people with
     return participant;
 }
 
@@ -33,8 +33,8 @@ function getOrderedListOfPeople(relations, allContacts) {
     if (!contacts) {
         return [];
     }
-    //add relation to contacts
-    relations.forEach(function (relation) {
+    // add relation to contacts
+    relations.forEach(function(relation) {
         let person = contacts[relation.personId];
         person._sortOrder = person._sortOrder || 0;
         person.roles = person.roles || [];
@@ -44,7 +44,7 @@ function getOrderedListOfPeople(relations, allContacts) {
     });
 
     let peopleIds = _.union(_.map(relations, 'personId'), 'personId');
-    people = _.map(peopleIds, function (e) {
+    people = _.map(peopleIds, function(e) {
         return contacts[e];
     });
     people = _.orderBy(people, ['_sortOrder'], ['desc']);

@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-var resource = require('../resource'),
+let resource = require('../resource'),
     keys = rootRequire('app/helpers/constants').keys,
     _ = require('lodash'),
     api = require('../apiConfig');
 
-var Taxon = function (record) {
+let Taxon = function(record) {
     this.record = record;
 };
 
@@ -15,33 +15,33 @@ Taxon.prototype.record = {};
  *
  * @param key
  * @param options with expand and expandBackboneOnly settings
- * @returns {*}
+ * @return {*}
  */
-Taxon.get = function (key, options) {
+Taxon.get = function(key, options) {
     options = options || {};
-    var promise = resource.get(api.taxon.url + key).as(Taxon);
+    let promise = resource.get(api.taxon.url + key).as(Taxon);
     if (typeof options.expand === 'undefined') {
-        return promise
+        return promise;
     } else {
-        return promise.then(function (taxon) {
+        return promise.then(function(taxon) {
             // check expandBackboneOnly option
-            if (!typeof options.expandBackboneOnly === 'undefined') {//TODO this doesn't look meaningful. ! binds to the part before the comparison
+            if (!typeof options.expandBackboneOnly === 'undefined') {// TODO this doesn't look meaningful. ! binds to the part before the comparison
                 options.expand = [];
             } else if (taxon.record.origin != 'SOURCE') {
                 // the verbatim resource only exists for origin=SOURCE
                 _.pull(options.expand, 'verbatim');
             }
-            return taxon.expand(options.expand)
+            return taxon.expand(options.expand);
         });
     }
 };
 
-Taxon.prototype.isNub = function () {
+Taxon.prototype.isNub = function() {
     return this.record.datasetKey == keys.nubKey;
 };
 
-Taxon.prototype.expand = function (fieldNames) {
-    var resources = [],
+Taxon.prototype.expand = function(fieldNames) {
+    let resources = [],
         resourceLookup = {
             name: {
                 resource: api.taxon.url + this.record.key + '/name',
@@ -92,7 +92,7 @@ Taxon.prototype.expand = function (fieldNames) {
                 extendToField: 'related'
             },
             homonyms: {
-                resource: api.taxon.url + '?datasetKey=' + this.record.datasetKey + "&name=" + this.record.canonicalName,
+                resource: api.taxon.url + '?datasetKey=' + this.record.datasetKey + '&name=' + this.record.canonicalName,
                 extendToField: 'homonyms'
             },
             info: {
@@ -117,9 +117,9 @@ Taxon.prototype.expand = function (fieldNames) {
         resourceLookup.constituent = {
             resource: api.dataset.url + this.record.constituentKey,
             extendToField: 'constituent'
-        }
+        };
     }
-    fieldNames.forEach(function (e) {
+    fieldNames.forEach(function(e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
     return resource.extend(this).with(resources);

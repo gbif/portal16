@@ -1,44 +1,44 @@
 'use strict';
 const express = require('express'),
       router = express.Router(),
-      //apicache = require('apicache'),
+      // apicache = require('apicache'),
       DirectoryParticipants = require('../../../models/gbifdata/directory/directoryParticipants'),
       _ = require('lodash'),
       log = require('../../../../config/log');
 
-//let cache = apicache.middleware;
+// let cache = apicache.middleware;
 
-module.exports = app => {
+module.exports = (app) => {
     app.use('/api', router);
 };
 
 router.get('/directory/participants', (req, res, next) => {
     DirectoryParticipants.groupBy(req.query)
-        .then(data => {
+        .then((data) => {
             res.json(data);
         })
-        .catch(err => {
+        .catch((err) => {
             log.error('Error in /api/directory/participants controller: ' + err.message);
-            next(err)
+            next(err);
         });
 });
 
 // param membershipType is not allowed here.
 router.get('/directory/participants/count', (req, res, next) => {
     DirectoryParticipants.groupBy(req.query)
-        .then(results => {
+        .then((results) => {
             let participantsByMembership;
-            participantsByMembership = _.groupBy(results, p => {
+            participantsByMembership = _.groupBy(results, (p) => {
                 return (p.hasOwnProperty('membershipType')) ? p.membershipType : 'NOT_SPECIFIED';
             });
             let count = {};
             count.region = req.query.gbifRegion;
-            DirectoryParticipants.activeMembershipTypes.forEach(type => {
+            DirectoryParticipants.activeMembershipTypes.forEach((type) => {
                 if (participantsByMembership[type]) count[type] = participantsByMembership[type].length;
             });
             res.json(count);
         })
-        .catch(err => {
+        .catch((err) => {
             log.error('Error in /api/directory/participants controller: ' + err.message);
             next(err);
         });
@@ -46,7 +46,7 @@ router.get('/directory/participants/count', (req, res, next) => {
 
 router.get('/directory/participants/active', (req, res, next) => {
     DirectoryParticipants.groupBy(req.query)
-        .then(results => {
+        .then((results) => {
             let slicedActive = [];
             results.forEach((result) => {
                 if (DirectoryParticipants.activeMembershipTypes.indexOf(result.membershipType) !== -1) {
@@ -55,13 +55,11 @@ router.get('/directory/participants/active', (req, res, next) => {
             });
             res.json(slicedActive);
         })
-        .catch(err => {
+        .catch((err) => {
             log.err('Error in /api/directory/participants/active: ' + err.message);
             next(err);
         });
 });
-
-
 
 
 /*

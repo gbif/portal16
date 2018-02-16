@@ -9,31 +9,31 @@ const express = require('express'),
       PublisherRegional = require('../../../models/gbifdata/publisher/publisherRegional'),
       log = require('../../../../config/log');
 
-module.exports = app => {
+module.exports = (app) => {
     app.use('/api', router);
 };
 
 router.get('/publisher/count', (req, res, next) => {
     PublisherRegional.groupBy(req.query)
-        .then(results => {
+        .then((results) => {
             let count = {};
             count.region = req.query.gbifRegion;
             count.publisher = results.length;
             res.json(count);
         })
-        .catch(err => {
+        .catch((err) => {
             log.error('Error in /api/publisher/count controller: ' + err.message);
-            next(err)
+            next(err);
         });
 });
 
 router.get('/publisher/endorsed-by/:participantId?', (req, res, next) => {
     PublisherRegional.numberEndorsedBy(req.params.participantId)
-        .then(result => {
+        .then((result) => {
             res.json(result);
         })
-        .catch(err => {
+        .catch((err) => {
             log.error('Error in /api/publisher/endorsed-by/:participantId controller: ' + err.message);
-            next(err)
+            next(err);
         });
 });

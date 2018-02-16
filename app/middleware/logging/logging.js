@@ -3,7 +3,7 @@
  Log incoming requests and add the logger to the res
  */
 
-"use strict";
+'use strict';
 
 let bunyanMiddleware = require('bunyan-middleware'),
     log = require('../../../config/log'),
@@ -19,7 +19,7 @@ function use(app) {
             excludeHeaders: ['Authorization', 'cookie'],
             logger: log,
             level: 'trace',
-            filter: function (req, res) {
+            filter: function(req, res) {
                 for (let i = 0; i < excludeList.length; i++) {
                     if (req.originalUrl.startsWith(excludeList[i])) {
                         return true;

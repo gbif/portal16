@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     resourceSearch = require('./resourceSearch'),
@@ -8,65 +8,64 @@ var express = require('express'),
     contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
     defaultLocale = rootRequire('config/config').defaultLocale;
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/resource/search', function (req, res) {
+router.get('/resource/search', function(req, res) {
     resourceSearch.search(req.query, req.__)
-        .then(function(result){
+        .then(function(result) {
             res.json(result);
         })
-        .catch(function(err){
+        .catch(function(err) {
             console.trace(err.message);
-            //console.log(JSON.stringify(req.query, null, 2));
+            // console.log(JSON.stringify(req.query, null, 2));
             res.status(500);
             res.send('Unable to parse query');
         });
 });
 
 
-
-/*for wrapping related items of an item in a manner similar to the normal search - it would benefit from a rethinking as it is neither elegant nor generic */
-router.get('/resource/key/search', function (req, res) {
+/* for wrapping related items of an item in a manner similar to the normal search - it would benefit from a rethinking as it is neither elegant nor generic */
+router.get('/resource/key/search', function(req, res) {
     let resourceKey = req.query.key,
         type = req.query.type == 'events' ? 'main.fields.events' : 'main.fields.news',
         isPreview = req.params.isPreview,
         preferedLocale = req.query.locale;
 
     resource.searchContentful(resourceKey, 3, isPreview)
-        .then(function (results) {
+        .then(function(results) {
             let parsedResult = transformResult(results, type, preferedLocale);
             res.json(parsedResult);
-        }, function (err) {
+        }, function(err) {
             console.trace(err);
             res.status(500);
             res.send(err.message);
         });
 });
 
-router.get('/resource/alias', function (req, res) {
+router.get('/resource/alias', function(req, res) {
     let urlAlias = req.query.urlAlias,
         preferedLocale = req.query.locale;
 
     resourceSearch.getByAlias(urlAlias, 2, false, preferedLocale)
-        .then(result => {
+        .then((result) => {
             if (req.query.html == 'true') {
                 res.render('pages/resource/key/help/help', result);
             } else {
                 res.json(result);
             }
         })
-        .catch(err =>{
+        .catch((err) =>{
             console.trace(err);
             res.status(500);
             res.send(err.message);
-        })
+        });
 });
 
-router.get('/resource/item', function (req, res) {
+router.get('/resource/item', function(req, res) {
     resourceSearch.getItem(req.query, req.__)
-        .then(resp => {
+        .then((resp) => {
             if (resp.count > 0) {
                 res.json(resp.results[0]);
             } else {
@@ -74,18 +73,18 @@ router.get('/resource/item', function (req, res) {
                 res.send();
             }
         })
-        .catch(err =>{
+        .catch((err) =>{
             console.trace(err);
             res.status(500);
             res.send('Failed to get the resource');
-        })
+        });
 });
 
 function transformResult(results, listPath, preferedLocale) {
-    //check if there is any results. if not, then the item do not exists
+    // check if there is any results. if not, then the item do not exists
     if (results.total == 0) {
         throw Error('NO RESULTS');
-    } else if(_.get(results, 'sys.type') !== 'Array') {
+    } else if (_.get(results, 'sys.type') !== 'Array') {
         throw Error('contentful query failed');
     }
 
@@ -95,7 +94,7 @@ function transformResult(results, listPath, preferedLocale) {
     parsedResult.offset = 0;
     parsedResult.endOfRecords = true;
     parsedResult.results = [];
-    _.get(contentItem, listPath, []).forEach(function (e) {
+    _.get(contentItem, listPath, []).forEach(function(e) {
         let sysId = _.get(e, 'sys.id');
         if (!sysId) return false;
 
@@ -115,7 +114,7 @@ function transformResult(results, listPath, preferedLocale) {
     parsedResult.count = parsedResult.results.length;
     parsedResult.images = _.mapValues(contentItem.resolved.Asset, 'fields.file.url');
 
-    resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');//rename literature.abcstract to summary for consistency with other content types
+    resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');// rename literature.abcstract to summary for consistency with other content types
     resourceResultParser.renameField(parsedResult.results, 'event', 'country.sys.id', '_country');
     resourceResultParser.renameField(parsedResult.results, 'event', '_country', 'country');
 

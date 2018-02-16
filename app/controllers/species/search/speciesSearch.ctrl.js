@@ -1,7 +1,7 @@
-var express = require('express'),
+let express = require('express'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/species', router);
 };
 
@@ -16,15 +16,15 @@ function renderSearch(req, res) {
     });
 }
 
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
     res.redirect(302, './species/search');
 });
 
-router.get('/search', function (req, res) {
+router.get('/search', function(req, res) {
     renderSearch(req, res);
 });
 
-router.get('/table', function (req, res) {
+router.get('/table', function(req, res) {
     renderSearch(req, res);
 });
 

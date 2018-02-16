@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
+let angular = require('angular'),
     _ = require('lodash');
 
 angular
@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 function contactUsCtrl(Page, $state) {
-    var vm = this;
+    let vm = this;
     Page.setTitle('Contact us');
     Page.drawer(false);
     vm.$state = $state;

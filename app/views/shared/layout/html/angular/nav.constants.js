@@ -1,6 +1,6 @@
-(function () {
+(function() {
     'use strict';
-    var angular = require('angular');
+    let angular = require('angular');
 
     angular
         .module('portal')
@@ -8,6 +8,6 @@
             toggleFeedback: 'toggleFeedback',
             toggleSearch: 'toggleSearch',
             toggleUserMenu: 'toggleUserMenu',
-            toggleNotifications: 'toggleNotifications'
-        })
+            toggleNotifications: 'toggleNotifications',
+        });
 })();

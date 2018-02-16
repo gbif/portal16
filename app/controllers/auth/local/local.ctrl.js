@@ -1,5 +1,5 @@
-"use strict";
-var express = require('express'),
+'use strict';
+let express = require('express'),
     router = express.Router(),
     passport = require('passport'),
     BasicStrategy = require('passport-http').BasicStrategy,
@@ -7,26 +7,26 @@ var express = require('express'),
     btoa = require('btoa'),
     auth = require('../auth.service');
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api/auth', router);
 };
 
-router.get('/basic', function (req, res, next) {
+router.get('/basic', function(req, res, next) {
     auth.setNoCache(res);
-    passport.authenticate('basic', {session: false}, function (err, user, info) {
-        var error = err || info;
+    passport.authenticate('basic', {session: false}, function(err, user, info) {
+        let error = err || info;
         if (error) {
             return res.status(401).json({message: 'Unable to verify.'});
         }
         if (!user) {
             return res.status(404).json({message: 'Something went wrong, please try again.'});
         }
-        //unfortunately the login api doesn't provide the full user, so we have to get it again
+        // unfortunately the login api doesn't provide the full user, so we have to get it again
         User.getByUserName(user.userName)
-            .then(user => {
+            .then((user) => {
                 if (user) {
                     user = User.getClientUser(user);
-                    var token = auth.signToken(user);
+                    let token = auth.signToken(user);
                     auth.setTokenCookie(res, token);
                     auth.setNoCache(res);
 
@@ -35,20 +35,18 @@ router.get('/basic', function (req, res, next) {
                     return res.status(404).json({message: 'Something went wrong, please try again.'});
                 }
             })
-            .catch(function () {
-                //TODO it should never happen that a username that just logged in can now not be found again log error
+            .catch(function() {
+                // TODO it should never happen that a username that just logged in can now not be found again log error
                 return res.status(404).json({message: 'Something went wrong, please try again.'});
             });
-
-
     })(req, res, next);
 });
 
-passport.use(new BasicStrategy(function (userid, password, done) {
-    var authData = 'Basic ' + btoa(userid + ':' + password);
+passport.use(new BasicStrategy(function(userid, password, done) {
+    let authData = 'Basic ' + btoa(userid + ':' + password);
     User.login(authData)
-        .then(function (user) {
+        .then(function(user) {
             done(null, user);
         })
-        .catch(err => done(err));
+        .catch((err) => done(err));
 }));

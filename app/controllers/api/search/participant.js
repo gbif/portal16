@@ -1,14 +1,12 @@
-"use strict";
+'use strict';
 
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     Participant = rootRequire('app/models/node/participant'),
     Fuse = require('fuse.js'),
     Q = require('q'),
     _ = require('lodash'),
     request = require('requestretry'),
     maxPatternLength = 50;
-
-
 
 
 async function get(key, depth) {
@@ -31,12 +29,12 @@ async function get(key, depth) {
     }
 }
 
-async function expand(participant){
-    //TODO stub. inteded to expand foreign keys, related etc. datasetKey, constituentDatasetKey, name, references etc
+async function expand(participant) {
+    // TODO stub. inteded to expand foreign keys, related etc. datasetKey, constituentDatasetKey, name, references etc
     return participant;
 }
 
-async function query(participantName){
+async function query(participantName) {
     if (!_.isString(participantName) || maxPatternLength <= participantName.length) {
         return;
     }
@@ -45,8 +43,8 @@ async function query(participantName){
     if (participants.statusCode > 299) {
         throw participants;
     }
-    var fuse = new Fuse(participants.results, {
-        keys: ['name','abbreviatedName'],
+    let fuse = new Fuse(participants.results, {
+        keys: ['name', 'abbreviatedName'],
         threshold: 0.2,
         distance: 100,
         shouldSort: true,
@@ -56,17 +54,19 @@ async function query(participantName){
         maxPatternLength: maxPatternLength
     });
 
-    let participantResults = fuse.search(participantName).filter((p)=>{ return p.score < 0.3}); //TODO how to best handle that fuse don't like pattern longer than around 50 chars
+    let participantResults = fuse.search(participantName).filter((p)=>{
+ return p.score < 0.3;
+}); // TODO how to best handle that fuse don't like pattern longer than around 50 chars
 
-    let pts = await Q.all(_.map(participantResults,  (p) =>{
+    let pts = await Q.all(_.map(participantResults, (p) =>{
         return Participant.get(p.item.id);
      }));
     let highlights = _.remove(pts, (ptcpt)=>{
         let p = ptcpt.participant;
         return (p.name.toLowerCase() === participantName.toLowerCase() || (p.abbreviatedName && p.abbreviatedName.toLowerCase() === participantName.toLowerCase()));
     });
-    let response = { results: pts.slice(0, 4), count: pts.length};
-    if(highlights.length > 0){
+    let response = {results: pts.slice(0, 4), count: pts.length};
+    if (highlights.length > 0) {
         response.highlights = highlights;
     }
     return response;

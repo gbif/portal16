@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 angular
     .module('portal')
@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function confirmUserCtrl($cookies, User) {
-    var vm = this;
+    let vm = this;
     vm.destinationUrl = $cookies.get('userCreationUrl');
     if (vm.destinationUrl.indexOf('/user/') > -1) {
         vm.destinationUrl = undefined;

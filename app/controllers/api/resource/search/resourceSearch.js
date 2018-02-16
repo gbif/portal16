@@ -1,5 +1,5 @@
-//This module is in need of a cleanup
-//has two functions. translate url query simlar to our other APIs into a ES post query. And secondly transform the result into something similar to our APIs results format
+// This module is in need of a cleanup
+// has two functions. translate url query simlar to our other APIs into a ES post query. And secondly transform the result into something similar to our APIs results format
 const _ = require('lodash'),
     elasticsearch = require('elasticsearch'),
     resourceResultParser = require('./resourceResultParser'),
@@ -11,7 +11,7 @@ const _ = require('lodash'),
 let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId', 'programmeTag'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
-var client = new elasticsearch.Client({
+let client = new elasticsearch.Client({
     host: elasticContentful
 });
 
@@ -53,7 +53,6 @@ async function search(requestQuery, __, options) {
     // resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');//rename literature.abcstract to summary for consistency with other content types
     resourceResultParser.renameField(parsedResult.results, 'event', 'description', 'summary');
 
-    //resourceResultParser.selectLocale(parsedResult.results, ['body', 'summary', 'abstract', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'projectId', 'status', 'location', 'venue', 'primaryLink.url', 'programme.title'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
     parsedResult.results = resourceResultParser.getLocaleVersion(parsedResult.results, contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
 
     if (!options.rawResponse) {
@@ -72,15 +71,16 @@ async function search(requestQuery, __, options) {
     return parsedResult;
 }
 
+// eslint-disable-next-line
 let pattern = /([\!\*\+\-\=\<\>\&\|\(\)\[\]\{\}\^\~\?\:\\/"])/g;
 function escapedSearchQuery(q) {
-    return q.replace(pattern, "\\$1");
+    return q.replace(pattern, '\\$1');
 }
 
 function buildQuery(query) {
-    //facetMultiselect should work
-    //facetLimit seems useful per type
-    //ignore facet paing for now as we do not use it
+    // facetMultiselect should work
+    // facetLimit seems useful per type
+    // ignore facet paing for now as we do not use it
     let from = getInteger(query.offset, 0),
         size = getInteger(query.limit, 20),
         facetSize = getInteger(query.facetLimit, 10),
@@ -105,12 +105,12 @@ function buildQuery(query) {
 
         if (query.q.indexOf('"') == -1) {
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', "and");
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', 'and');
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.boost', 50);
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.lenient', true);
 
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', "and");
+            _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', 'and');
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.boost', 10);
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.fuzziness', 'AUTO');
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.prefix_length', 3);
@@ -130,52 +130,51 @@ function buildQuery(query) {
     arrayifyParams(query);
 
 
-    //not facet filters should simply be added to the query filters.
+    // not facet filters should simply be added to the query filters.
     let notFactedFilters = getNotFacetedFilters(query);
-    notFactedFilters.forEach(function (filter) {
+    notFactedFilters.forEach(function(filter) {
         body.query = body.query || {};
         addToFilter(body.query, filter, query[filter]);
     });
-    //only show future events. unless filtering on events and asking for past events
+    // only show future events. unless filtering on events and asking for past events
 
-    //faceted filters must be added as post filters, but only if multiselect and have facets and filters
+    // faceted filters must be added as post filters, but only if multiselect and have facets and filters
     let factedFilters = getFacetedFilters(query);
     if (!facetMultiselect) {
-        factedFilters.forEach(function (filter) {
+        factedFilters.forEach(function(filter) {
             body.query = body.query || {};
             addToFilter(body.query, filter, query[filter]);
         });
     }
 
-    //add facets if any
+    // add facets if any
     if (query.facet.length > 0) {
         body.aggregations = body.aggregations || {};
-        //if no filters then add simple facets without filters
+        // if no filters then add simple facets without filters
         if (!facetMultiselect || factedFilters.length == 0) {
             if (facetSize > 0) {
-                query.facet.forEach(function (facet) {
+                query.facet.forEach(function(facet) {
                     body.aggregations[facet] = {terms: {field: facet, size: facetSize}};
                 });
             }
-            query.facet.forEach(function (facet) {
+            query.facet.forEach(function(facet) {
                 body.aggregations[facet + '_count'] = {cardinality: {field: facet}};
             });
         } else if (facetSize > 0) {
-
-            //faceted filters must be added as post filters, but only if multiselect and have facets and filters
-            factedFilters.forEach(function (filter) {
+            // faceted filters must be added as post filters, but only if multiselect and have facets and filters
+            factedFilters.forEach(function(filter) {
                 body.post_filter = body.post_filter || {};
                 addToFilter(body.post_filter, filter, query[filter]);
             });
 
-            //Create object with all faceted filters so they can be added individually
-            var facetedTermFilters = {};
-            factedFilters.forEach(function (filter) {
+            // Create object with all faceted filters so they can be added individually
+            let facetedTermFilters = {};
+            factedFilters.forEach(function(filter) {
                 facetedTermFilters[filter] = getFilter(filter, query[filter]);
             });
 
-            query.facet.forEach(function (filter) {
-                var allOtherFilters = getAggregationFilter(facetedTermFilters, filter);
+            query.facet.forEach(function(filter) {
+                let allOtherFilters = getAggregationFilter(facetedTermFilters, filter);
                 body.aggregations[filter] = {
                     filter: {
                         bool: {
@@ -192,53 +191,53 @@ function buildQuery(query) {
         }
     }
 
-    //sorting
+    // sorting
     if (_.isUndefined(query.q)) {
         if (query.contentType == 'event') {
             body.sort = [
                 {
-                    "start": {
-                        "order": showPastEvents ? "desc" : "asc",
-                        "missing": "_last",
-                        "unmapped_type": "date"
+                    'start': {
+                        'order': showPastEvents ? 'desc' : 'asc',
+                        'missing': '_last',
+                        'unmapped_type': 'date'
                     }
                 }
             ];
         } else if (query.contentType == 'literature') {
             body.sort = [
                 {
-                    "year": {
-                        "order": "desc",
-                        "missing": "_last",
-                        "unmapped_type": "date"
+                    'year': {
+                        'order': 'desc',
+                        'missing': '_last',
+                        'unmapped_type': 'date'
                     },
-                    "created": {
-                        "order": "desc",
-                        "missing": "_last",
-                        "unmapped_type": "date"
+                    'created': {
+                        'order': 'desc',
+                        'missing': '_last',
+                        'unmapped_type': 'date'
                     }
                 }
             ];
         } else {
             body.query = {
-                "function_score": {
-                    "functions": [
+                'function_score': {
+                    'functions': [
                         {
-                            "gauss": {
-                                "createdAt": {
-                                    "origin": "now",
-                                    "scale": "7d",
-                                    "decay": 0.75
+                            'gauss': {
+                                'createdAt': {
+                                    'origin': 'now',
+                                    'scale': '7d',
+                                    'decay': 0.75
                                 }
                             },
-                            "weight": 10
+                            'weight': 10
                         }
                     ],
-                    query: body.query
+                    'query': body.query
                 }
             };
 
-            //body.sort = [
+            // body.sort = [
             //    {
             //        "createdAt": {
             //            "order": "desc",
@@ -246,24 +245,24 @@ function buildQuery(query) {
             //            "unmapped_type": "date"
             //        }
             //    }
-            //];
+            // ];
         }
     } else {
         body.query = {
-            "function_score": {
-                "boost": "5",
-                "functions": [
+            'function_score': {
+                'boost': '5',
+                'functions': [
                     {
-                        "filter": {"match": {"keywords": {"query": query.q}}},
-                        "weight": 100
+                        'filter': {'match': {'keywords': {'query': query.q}}},
+                        'weight': 100
                     }
-                    //,{
+                    // ,{
                     //    "filter": { "match": { "title": {"query": query.q } } },
                     //    "weight": 20
-                    //}
+                    // }
                 ],
-                "score_mode": "avg",
-                query: body.query
+                'score_mode': 'avg',
+                'query': body.query
             }
         };
     }
@@ -280,7 +279,7 @@ function buildQuery(query) {
             {'*': 10}
         ];
     }
-    //console.log(JSON.stringify(body, null, 4));
+    // console.log(JSON.stringify(body, null, 4));
     return searchParams;
 }
 
@@ -295,8 +294,8 @@ function getInteger(nr, fallbackValue) {
 }
 
 function getAggregationFilter(filterTerms, excludedKey) {
-    var filteredTerms = [];
-    Object.keys(filterTerms).forEach(function (key) {
+    let filteredTerms = [];
+    Object.keys(filterTerms).forEach(function(key) {
         if (key != excludedKey) {
             filteredTerms.push(filterTerms[key]);
         }
@@ -306,14 +305,14 @@ function getAggregationFilter(filterTerms, excludedKey) {
 
 function addToFilter(filter, field, value) {
     let operator = 'must';
-    //of no value provided then ignore
+    // of no value provided then ignore
     if (value.length > 0) {
-        //of no operator array of that type created then create a new array
+        // of no operator array of that type created then create a new array
         if (!_.get(filter, 'bool.' + operator + '[0]')) {
             _.set(filter, 'bool.' + operator, []);
         }
 
-        //Create the term filter
+        // Create the term filter
         filter.bool[operator].push(getFilter(field, value));
     }
 }
@@ -324,22 +323,22 @@ function getFilter(field, value) {
         isRange = true;
     }
     return filterHelper.getFilter(field, value, isRange);
-    ////Create the term filter
-    //let filterTerm = {};
-    //if (value.length == 1) {
+    // //Create the term filter
+    // let filterTerm = {};
+    // if (value.length == 1) {
     //    let term = {};
     //    term[field] = value[0];
     //    _.set(filterTerm, 'term', term);
-    //} else {
+    // } else {
     //    let term = {};
     //    term[field] = value;
     //    _.set(filterTerm, 'terms', term);//value is an array with multiple values
-    //}
-    //return filterTerm;
+    // }
+    // return filterTerm;
 }
 
 function getNotFacetedFilters(query) {
-    return knownFilters.filter(function (filterName) {
+    return knownFilters.filter(function(filterName) {
         let isFilterInQuery = !_.isUndefined(query[filterName]),
             isFilterFaceted = _.includes(query.facet, filterName);
         return isFilterInQuery && !isFilterFaceted;
@@ -347,7 +346,7 @@ function getNotFacetedFilters(query) {
 }
 
 function getFacetedFilters(query) {
-    return knownFilters.filter(function (filterName) {
+    return knownFilters.filter(function(filterName) {
         let isFilterInQuery = !_.isUndefined(query[filterName]),
             isFilterFaceted = _.includes(query.facet, filterName);
         return isFilterInQuery && isFilterFaceted;
@@ -355,7 +354,7 @@ function getFacetedFilters(query) {
 }
 
 function arrayifyParams(query) {
-    knownFilters.forEach(function (filter) {
+    knownFilters.forEach(function(filter) {
         if (!_.isUndefined(query[filter])) {
             query[filter] = arrayify(query[filter]);
         }
@@ -376,64 +375,32 @@ module.exports = {
     contentTypes: defaultContentTypes.slice(),
     getItem: getItem
 };
-//var q = {q: 'data', "vocabularyDataUse": 'Science use', countryOfCoverage: ['US', 'DE'], facet: ['countryOfCoverage', 'vocabularyDataUse', 'vocabularyTopic'], facetMultiselect: true};
-//
-//console.log(JSON.stringify(buildQuery(q), null, 4));
-
-
-/*
- IDEA FOR HOW TO STRUCTURE THIS QUERY BUILDER
- q goes to a must clause always if there
- everything else is filters
-
- if not multifaceted or not a facet then add to a filter clause
-
- if a faceted and filtered param then create
- 1 all the filters that are also faceted
- 2 a map for each faceted filter holding all other faceted filters. (so if filter and faceting on year, country and author there will be a filter with [year, country], [year, author], [country, author]
-
- all filters are one of
- {
- "term": {"year": 2015}
- },
- {
- "terms": {
- "authors_country": ["DE", "US"]
- }
- }
- //we ignore range for years for now. since there is so few years selecting by checkbox seems easier for the user anyhow
-
- for facets that aren't filtered already simply add as aggregator with all faceted filters.
-
- add post filter with all facet filters
- */
-
 
 let newEventOrSomethingElse = {
         bool: {
-            "should": [
+            'should': [
                 {
                     bool: {
                         must: [
                             {
-                                "range": {
-                                    "end": {
-                                        "gte": "now"
+                                'range': {
+                                    'end': {
+                                        'gte': 'now'
                                     }
                                 }
                             },
                             {
-                                "term": {
-                                    "contentType": "event"
+                                'term': {
+                                    'contentType': 'event'
                                 }
                             }
                         ]
                     }
                 },
                 {
-                    "terms": {
-                        "contentType": _.filter(defaultContentTypes, function (e) {
-                            return e !== 'event'
+                    'terms': {
+                        'contentType': _.filter(defaultContentTypes, function(e) {
+                            return e !== 'event';
                         })
                     }
                 }
@@ -443,7 +410,7 @@ let newEventOrSomethingElse = {
     oldEventOrSomethingElse = _.cloneDeep(newEventOrSomethingElse);
 
 oldEventOrSomethingElse.bool.should[0].bool.must[0].range = {
-    "end": {
-        "lt": "now"
+    'end': {
+        'lt': 'now'
     }
 };

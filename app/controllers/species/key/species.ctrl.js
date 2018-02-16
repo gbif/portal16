@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var express = require('express'),
+let express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
@@ -12,7 +12,7 @@ var express = require('express'),
     _ = require('lodash'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
@@ -20,7 +20,7 @@ router.get('/species/:key/verbatim', function render(req, res, next) {
     renderSpeciesPage(req, res, next);
 });
 
-router.get('/species/:key(\\d+)\.:ext?', function render(req, res, next) {
+router.get('/species/:key(\\d+).:ext?', function render(req, res, next) {
     renderSpeciesPage(req, res, next);
 });
 
@@ -29,15 +29,13 @@ router.get('/species/:key(\\d+)/:ignore', function render(req, res) {
 });
 
 
-
-
 function renderSpeciesPage(req, res, next) {
     let speciesKey = req.params.key;
-    var options = {
+    let options = {
         expand: ['descriptions', 'dataset', 'synonyms', 'combinations', 'media', 'references', 'homonyms', 'vernacular', 'occurrenceImages']
     };
 
-    Taxon.get(speciesKey, options).then(function (taxon){
+    Taxon.get(speciesKey, options).then(function(taxon) {
         let contentItem = {
             species: taxon,
             _meta: {
@@ -46,7 +44,7 @@ function renderSpeciesPage(req, res, next) {
             }
         };
         helper.renderPage(req, res, next, contentItem, 'pages/species/key/seo');
-    }).catch(function(err){
+    }).catch(function(err) {
         if (err.type == 'NOT_FOUND') {
             next();
         } else {
@@ -55,7 +53,7 @@ function renderSpeciesPage(req, res, next) {
     });
 }
 
-router.get('/species/first', function (req, res, next) {
+router.get('/species/first', function(req, res, next) {
     if (!req.query.datasetKey) {
         if (req.query.backboneOnly !== 'false') {
             req.query.datasetKey = backboneKey;
@@ -63,13 +61,13 @@ router.get('/species/first', function (req, res, next) {
             req.query.advanced = 1;
         }
     }
-    speciesSearchFirst(req.query).then(function (resp) {
+    speciesSearchFirst(req.query).then(function(resp) {
         if (resp.count == 1) {
             res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + resp.results[0].key);
         } else {
             res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
         }
-    }, function (err) {
+    }, function(err) {
         next(err);
     });
 });

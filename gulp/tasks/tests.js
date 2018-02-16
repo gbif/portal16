@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     path = require('path'),
     KarmaServer = require('karma').Server,
     config = rootRequire('config/build'),
@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 /**
  * Test server code
  */
-gulp.task("test-server", function () {
+gulp.task('test-server', function() {
     return gulp.src(jasmineServerConfig.spec_files)
         .pipe(g.jasmine({
             reporter: [new reporters.JUnitXmlReporter({
@@ -21,10 +21,10 @@ gulp.task("test-server", function () {
             errorOnFail: false
         }));
 
-    //TODO Test if there are residues across runs (globals or such that would compromise tests)
+    // TODO Test if there are residues across runs (globals or such that would compromise tests)
 });
 
-gulp.task('test-server-continuously', ['test-server'], function () {
+gulp.task('test-server-continuously', ['test-server'], function() {
     gulp.watch(config.js.server.paths, ['test-server']);
 });
 
@@ -32,7 +32,7 @@ gulp.task('test-server-continuously', ['test-server'], function () {
 /**
  * Run test once and exit
  */
-gulp.task('test-client', function (done) {
+gulp.task('test-client', function(done) {
     new KarmaServer({
         configFile: path.resolve('./karma.conf.js'),
         singleRun: true
@@ -42,7 +42,7 @@ gulp.task('test-client', function (done) {
 /**
  * Run test and keep watching them
  */
-gulp.task('test-client-continuously', function (done) {
+gulp.task('test-client-continuously', function(done) {
     new KarmaServer({
         configFile: path.resolve('./karma.conf.js'),
         singleRun: false

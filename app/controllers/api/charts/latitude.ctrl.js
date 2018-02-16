@@ -22,7 +22,7 @@ router.get('/latitudeDistribution', function(req, res) {
                 values: values.reverse(),
                 labels: range.map(function(e) {
                     return getLatitudeText(e) + ' - ' + getLatitudeText(e + 15);
-                }).reverse(),
+                }).reverse()
             });
         })
         .catch(function(err) {
@@ -36,7 +36,7 @@ async function getInterval(start, end, query) {
         url: apiConfig.occurrenceSearch.url + '?has_geospatial_issue=false&limit=0&decimalLatitude=' + start + ',' + end + '&' + querystring.stringify(query),
         method: 'GET',
         fullResponse: true,
-        json: true,
+        json: true
     };
     let response = await request(options);
     if (response.statusCode !== 200) {
@@ -64,7 +64,7 @@ router.get('/elevationDistribution', function(req, res) {
                 values: values.reverse(),
                 labels: range.map(function(e) {
                     return getElevationText(e) + ' - ' + getElevationText(e + 100);
-                }).reverse(),
+                }).reverse()
             });
         })
         .catch(function(err) {
@@ -78,7 +78,7 @@ async function getElevationInterval(start, end, query) {
         url: apiConfig.occurrenceSearch.url + '?limit=0&elevation=' + start + ',' + end + '&' + querystring.stringify(query),
         method: 'GET',
         fullResponse: true,
-        json: true,
+        json: true
     };
     let response = await request(options);
     if (response.statusCode !== 200) {

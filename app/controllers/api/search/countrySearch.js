@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-var _ = require('lodash'),
+let _ = require('lodash'),
     Fuse = require('fuse.js'),
     countryCodes = rootRequire('app/models/enums/basic/country'),
     countryTranslations = rootRequire('locales/server/en').country,
-    countries = countryCodes.map(function(key){
-        return {title: countryTranslations[key], key: key }
+    countries = countryCodes.map(function(key) {
+        return {title: countryTranslations[key], key: key};
     }),
     Participant = rootRequire('app/models/node/participant'),
     maxPatternLength = 50,
@@ -20,20 +20,20 @@ var _ = require('lodash'),
         maxPatternLength: maxPatternLength
     };
 
-var fuse = new Fuse(countries, options);
+let fuse = new Fuse(countries, options);
 
-async function query(countryName){
+async function query(countryName) {
     if (!_.isString(countryName) || maxPatternLength <= countryName.length) {
         return;
     }
     countryName = countryName.toLowerCase();
-    var countryResults = fuse.search(countryName); //TODO how to best handle that fuse don't like pattern longer than around 50 chars
+    let countryResults = fuse.search(countryName); // TODO how to best handle that fuse don't like pattern longer than around 50 chars
     let match = countryResults[0];
     if (!match) {
         return;
     }
-    var parts = match.item.title.toLowerCase().replace(',', ' ').split(' ');
-    var wordCount = parts.length;
+    let parts = match.item.title.toLowerCase().replace(',', ' ').split(' ');
+    let wordCount = parts.length;
     if (match.score > 0.3 || (wordCount == 1 && match.score !== 0) || (parts[0] !== countryName && wordCount > 1 && (countryName.length / match.item.title.length) < 0.33)) {
         return;
     }
@@ -59,7 +59,7 @@ async function query(countryName){
                         countryCode: countryKey
                     }
                 ]
-            }
+            };
         }
     }
 }

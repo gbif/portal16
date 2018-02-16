@@ -1,22 +1,22 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('ContentFul', function ($resource) {
+        .factory('ContentFul', function($resource) {
             return $resource('/api/resource', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
+                        isArray: false,
                     },
                     'getByAlias': {
                         method: 'GET',
-                        url: '/api/resource/alias'
-                    }
+                        url: '/api/resource/alias',
+                    },
                 }
             );
         })

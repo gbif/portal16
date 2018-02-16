@@ -1,15 +1,15 @@
-"use strict";
-var _ = require('lodash'),
+'use strict';
+let _ = require('lodash'),
     Node = require('../../../models/gbifdata/gbifdata').Node,
     helper = rootRequire('app/models/util/util');
 
 function getCountryData(countryCode, cb) {
-    Node.getByCountryCode(countryCode, {expand: ['participant', 'news', 'events', 'dataUse']}).then(function (node) {
+    Node.getByCountryCode(countryCode, {expand: ['participant', 'news', 'events', 'dataUse']}).then(function(node) {
         if (!_.isUndefined(_.get(node, 'participant.errorType'))) {
             delete node.participant;
             cb(null, node);
         } else {
-            var rssFeed = _.get(node, 'participant.data[0].rssFeed[0].url');
+            let rssFeed = _.get(node, 'participant.data[0].rssFeed[0].url');
             if (!rssFeed) {
                 cb(null, node);
             } else {
@@ -23,15 +23,15 @@ function getCountryData(countryCode, cb) {
                 }, {retries: 1, timeoutMilliSeconds: 3000, type: 'XML', failHard: true});
             }
         }
-    }, function(err){
+    }, function(err) {
         cb(err);
     });
 }
 
 function getParticipant(countryCode, cb) {
-    Node.getByCountryCode(countryCode).then(function (node) {
-        cb(null, node)
-    }, function(err){
+    Node.getByCountryCode(countryCode).then(function(node) {
+        cb(null, node);
+    }, function(err) {
         cb(err);
     });
 }

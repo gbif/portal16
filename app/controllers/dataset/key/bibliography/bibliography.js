@@ -1,14 +1,14 @@
-"use strict";
-var _ = require('lodash'),
+'use strict';
+let _ = require('lodash'),
     doiRegex = require('doi-regex'),
     getUrls = require('get-urls');
 
 function getBibliography(bibliographicCitations) {
     if (!_.isArray(bibliographicCitations)) bibliographicCitations = [];
     return bibliographicCitations
-        .filter(function (e) {
+        .filter(function(e) {
             return !_.isEmpty(e.text);
-        }).map(function (e) {
+        }).map(function(e) {
             return getBibliographicReference(e);
         });
 }
@@ -18,15 +18,15 @@ function getBibliographicReference(ref) {
     let withoutUrls = ref.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''),
         dois = ref.text.match(doiRegex()),
         urls = getUrls(ref.text)
-            .filter(function (e) {
+            .filter(function(e) {
                 return !doiRegex().test(e);
             })
-            .map(function (e) {
-                return formatUrl(e)
+            .map(function(e) {
+                return formatUrl(e);
             });
     dois = dois || [];
-    dois = dois.map(function (e) {
-        return formatDoi(e)
+    dois = dois.map(function(e) {
+        return formatDoi(e);
     });
 
     ref._query = 'https://scholar.google.com/scholar?q=' + encodeURIComponent(withoutUrls);
@@ -50,7 +50,7 @@ function formatDoi(doi) {
         type: 'DOI',
         ref: 'https://doi.org/' + doi,
         text: doi
-    }
+    };
 }
 
 function formatUrl(url) {
@@ -59,7 +59,7 @@ function formatUrl(url) {
         type: type,
         ref: url,
         text: url
-    }
+    };
 }
 
 function formatISSN(issn) {
@@ -67,7 +67,7 @@ function formatISSN(issn) {
         type: 'ISSN',
         ref: 'http://www.issn.cc/' + issn.replace('ISSN', '').trim(),
         text: issn
-    }
+    };
 }
 
 function formatReference(str) {
@@ -94,7 +94,7 @@ function formatReference(str) {
     return {
         type: 'STR',
         text: str
-    }
+    };
 }
 
 module.exports = {

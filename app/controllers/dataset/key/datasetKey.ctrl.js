@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var express = require('express'),
+let express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
@@ -8,12 +8,12 @@ var express = require('express'),
     _ = require('lodash'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
 router.get('/dataset/:key', render);
-//router.get('/dataset/:key/taxonomy', render);
+// router.get('/dataset/:key/taxonomy', render);
 router.get('/dataset/:key/activity', render);
 router.get('/dataset/:key/project', render);
 router.get('/dataset/:key/metrics', render);
@@ -26,9 +26,9 @@ function render(req, res, next) {
         return;
     }
     getDataset(apiConfig.dataset.url, datasetKey)
-        .then(function(dataset){
+        .then(function(dataset) {
             let contentItem = {
-                //key: req.params.key,
+                // key: req.params.key,
                 dataset: dataset,
                 _meta: {
                     title: dataset.title,
@@ -37,7 +37,7 @@ function render(req, res, next) {
             };
             helper.renderPage(req, res, next, contentItem, 'pages/dataset/key/seo');
         })
-        .catch(function(err){
+        .catch(function(err) {
             if (err.statusCode == 404) {
                 next();
             } else {

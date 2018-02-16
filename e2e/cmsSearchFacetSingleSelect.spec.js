@@ -8,13 +8,13 @@
  */
 
 describe('E2E_03_CMS_Search_Single_Select', function() {
-    var cmsSearch;
+    let cmsSearch;
 
     beforeEach(function() {
         cmsSearch = require('./po/cmsSearch.po.js');
     });
 
-    it('Only one selected filter shows after that filter is selected', function(){
+    it('Only one selected filter shows after that filter is selected', function() {
         browser.driver.manage().window().maximize();
         browser.get('/cms/search');
         cmsSearch.facetPurpose.click();

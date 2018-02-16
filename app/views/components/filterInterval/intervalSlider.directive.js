@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
+let angular = require('angular'),
     parseIntervalQuery = require('./parseIntervalQuery');
 
 angular
@@ -9,17 +9,17 @@ angular
 
 /** @ngInject */
 function intervalSliderDirective(BUILD_VERSION) {
-    var directive = {
+    let directive = {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/filterInterval/intervalSlider.html?v=' + BUILD_VERSION,
         scope: {
-            intervalOptions: '='
+            intervalOptions: '=',
         },
         replace: true,
         controller: intervalSlider,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
 
 
@@ -27,7 +27,7 @@ function intervalSliderDirective(BUILD_VERSION) {
 
     /** @ngInject */
     function intervalSlider($scope) {
-        var vm = this;
+        let vm = this;
         vm.form = {};
         vm.options = ['between', 'equals', 'lessThanOrEquals', 'greaterThanOrEquals'];
         vm.selected = vm.options[0];
@@ -36,67 +36,67 @@ function intervalSliderDirective(BUILD_VERSION) {
             'min': [1000, 1],
             '10%': [1700, 1],
             '50%': [1960, 1],
-            'max': [new Date().getFullYear()]
+            'max': [new Date().getFullYear()],
         };
 
         vm.sliderOptions = {
             start: [vm.intervalOptions.range.min, vm.intervalOptions.range.max],
             range: vm.intervalOptions.range,
             format: {
-                to: function (value) {
-                    return parseInt(value)
+                to: function(value) {
+                    return parseInt(value);
                 },
-                from: function (value) {
-                    return parseInt(value)
-                }
+                from: function(value) {
+                    return parseInt(value);
+                },
             },
             step: 1,
-            connect: true
+            connect: true,
         };
 
         vm.eventHandlers = {
-            //update: function(values, handle, unencoded) {
-            //},
-            slide: function (values) { //values, handle, unencoded
+            // update: function(values, handle, unencoded) {
+            // },
+            slide: function(values) { // values, handle, unencoded
                 vm.intervalOptions.inActive = undefined;
                 vm.from = values[0];
                 vm.to = values[1];
             },
-            //set: function(values, handle, unencoded) {
-            //},
-            change: function () { //, handle, unencoded
+            // set: function(values, handle, unencoded) {
+            // },
+            change: function() { // , handle, unencoded
                 vm.apply();
-            }
+            },
         };
 
-        vm.parseQueryString = function (str) {
-            var interval = parseIntervalQuery(str);
+        vm.parseQueryString = function(str) {
+            let interval = parseIntervalQuery(str);
             if (interval) {
                 if (interval.type == 'equals') {
                     vm.sliderOptions.start = interval.values;
-                    vm.setType(vm.options[1])
+                    vm.setType(vm.options[1]);
                 } else if (interval.type == 'between') {
                     vm.sliderOptions.start = interval.values;
-                    vm.setType(vm.options[0])
+                    vm.setType(vm.options[0]);
                 } else if (interval.type == 'lessThanOrEquals') {
                     vm.sliderOptions.start = interval.values;
-                    vm.setType(vm.options[2])
+                    vm.setType(vm.options[2]);
                 } else if (interval.type == 'greaterThanOrEquals') {
                     vm.sliderOptions.start = interval.values;
-                    vm.setType(vm.options[3])
+                    vm.setType(vm.options[3]);
                 }
             }
         };
 
-        $scope.$watchCollection(function () {
-            return vm.intervalOptions
-        }, function (newState, oldState) {
+        $scope.$watchCollection(function() {
+            return vm.intervalOptions;
+        }, function(newState, oldState) {
             if (newState.queryString !== oldState.queryString) {
                 vm.parseQueryString(newState.queryString);
             }
         });
 
-        vm.setType = function (choice) {
+        vm.setType = function(choice) {
             vm.selected = choice;
             switch (vm.selected) {
                 case 'between':
@@ -143,28 +143,28 @@ function intervalSliderDirective(BUILD_VERSION) {
             vm.to = vm.sliderOptions.start[1];
         };
 
-        vm.selectType = function (choice) {
+        vm.selectType = function(choice) {
             vm.setType(choice);
             vm.apply();
         };
-        vm.isValid = function () {
+        vm.isValid = function() {
             return vm.form.$valid;// && (vm.tester.start[0] && vm.tester.start[1]);
         };
-        //vm.uncheckAll = function() {
+        // vm.uncheckAll = function() {
         //    vm.sliderOptions.start[0] = parseInt(vm.sliderOptions.range.min);
         //    vm.sliderOptions.start[1] = parseInt(vm.sliderOptions.range.max);
         //    vm.from = '';
         //    vm.to = '';
-        //};
+        // };
 
-        vm.changeFrom = function () {
+        vm.changeFrom = function() {
             if (vm.form.from && !vm.form.from.$valid) {
                 vm.sliderOptions.start[0] = parseInt(vm.sliderOptions.range.min);
             } else {
                 vm.sliderOptions.start[0] = vm.from;
             }
         };
-        vm.changeTo = function () {
+        vm.changeTo = function() {
             if (vm.form.to && !vm.form.to.$valid) {
                 vm.sliderOptions.start[1] = parseInt(vm.sliderOptions.range.max);
             } else {
@@ -172,28 +172,28 @@ function intervalSliderDirective(BUILD_VERSION) {
             }
         };
 
-        vm.blurFrom = function () {
+        vm.blurFrom = function() {
             if (!vm.form.from.$valid) {
                 vm.from = vm.sliderOptions.start[0];
             }
             vm.apply();
         };
 
-        vm.blurTo = function () {
+        vm.blurTo = function() {
             if (!vm.form.to.$valid) {
                 vm.to = vm.sliderOptions.start[1];
             }
             vm.apply();
         };
 
-        vm.remove = function () {
+        vm.remove = function() {
             if (angular.isFunction(vm.intervalOptions.remove)) {
                 vm.intervalOptions.remove(vm.intervalOptions);
             }
         };
 
-        vm.apply = function () {
-            var stateString = '';
+        vm.apply = function() {
+            let stateString = '';
             vm.intervalOptions.inActive = undefined;
             vm.changeFrom();
             vm.changeTo();

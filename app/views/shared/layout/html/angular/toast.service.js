@@ -1,68 +1,67 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
-(function () {
-
+(function() {
     angular
         .module('portal')
-        .service('toastService', function (NAV_EVENTS, toastr, $rootScope) {
-            //TODO errors needs translating
-            var defaultError = {
+        .service('toastService', function(NAV_EVENTS, toastr, $rootScope) {
+            // TODO errors needs translating
+            let defaultError = {
                 feedback: true,
                 status: true,
-                message: 'An error occurred. Please try again.'
+                message: 'An error occurred. Please try again.',
             };
 
-            var defaultPartialFailure = {
+            let defaultPartialFailure = {
                 feedback: true,
                 status: true,
-                message: 'Not all of the page could be shown. If the problem persists please let us know.'
+                message: 'Not all of the page could be shown. If the problem persists please let us know.',
             };
 
-            var defaultWarning = {
+            let defaultWarning = {
                 feedback: true,
                 status: true,
-                message: 'We are having issues showing this page.'
+                message: 'We are having issues showing this page.',
             };
 
-            var defaultPartialResult = {
+            let defaultPartialResult = {
                 feedback: false,
                 status: true,
-                message: 'You are seeing a partial result. This is likely due to busy servers'
+                message: 'You are seeing a partial result. This is likely due to busy servers',
             };
 
-            var defaultInfo = {
+            let defaultInfo = {
                 feedback: false,
-                status: false
+                status: false,
             };
 
-            //$translate('notifications.defaultErrorMessage').then(function (translation) {
+            // $translate('notifications.defaultErrorMessage').then(function (translation) {
             //    defaultMessages.defaultErrorMessage = translation;
-            //});
-            //$translate('notifications.defaultErrorMessage').then(function (translation) {
+            // });
+            // $translate('notifications.defaultErrorMessage').then(function (translation) {
             //    defaultSettings.defaultErrorMessage = translation;
-            //});
+            // });
 
-            function toast (type, settings, defaultSettings) {
+            function toast(type, settings, defaultSettings) {
                 settings = settings || {};
-                var mergedSettings = angular.merge({}, defaultSettings, settings);
+                let mergedSettings = angular.merge({}, defaultSettings, settings);
 
-                //add feedback button ?
+                // add feedback button ?
                 if (mergedSettings.feedback) {
-                    mergedSettings.message += '<div class="text-center"><a href="" class="gb-button--primary">Leave feedback</a></div>'
+                    mergedSettings.message += '<div class="text-center"><a href="" class="gb-button--primary">Leave feedback</a></div>';
                 }
 
                 toastr[type](mergedSettings.message, mergedSettings.title,
                     {
                         allowHtml: true,
-                        onShown: function (toast) {
-                            angular.element( toast.el[0]).find("a")[0].onclick = showFeedback
+                        onShown: function(toast) {
+                            angular.element( toast.el[0]).find('a')[0].onclick = showFeedback;
 
-                        }
-                        //onTap:function(){
+                        },
+                        // onTap:function(){
                         //    //alert("You Clicked Toastr!!")
-                        //}
+                        // }
                     });
             }
 
@@ -100,9 +99,8 @@ var angular = require('angular');
                 partialFailure: this.partialFailure,
                 warning: this.warning,
                 partialResult: this.partialResult,
-                info: this.info
+                info: this.info,
             };
-
         });
 })();
 

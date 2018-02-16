@@ -11,14 +11,14 @@
  * @param identifiers
  */
 function processIdentifiers(identifiers) {
-    var processedIdentifiers = [];
-    var typeToDisplay = ['DOI', 'URL', 'UUID', 'LSID', 'FTP', 'UNKNOWN'];
-    identifiers = identifiers.sort(function (a, b) {
+    let processedIdentifiers = [];
+    let typeToDisplay = ['DOI', 'URL', 'UUID', 'LSID', 'FTP', 'UNKNOWN'];
+    identifiers = identifiers.sort(function(a, b) {
         return typeToDisplay.indexOf(a.type) - typeToDisplay.indexOf(b.type);
     });
-    identifiers.forEach(function (id) {
+    identifiers.forEach(function(id) {
         if (typeToDisplay.indexOf(id.type) != -1) {
-            var idObj = {};
+            let idObj = {};
             idObj.formattedString = id.type + ' ' + setAnchor(id.identifier);
             processedIdentifiers.push(idObj);
         }
@@ -26,8 +26,7 @@ function processIdentifiers(identifiers) {
         function setAnchor(str) {
             if (str.match('^(http|https|ftp)://')) {
                 return '<a href="' + str + '">' + str + '</a>';
-            }
-            else {
+            } else {
                 return str;
             }
         }

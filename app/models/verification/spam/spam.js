@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * We are starting to see spam on the website. So far it isn't from robots, but from flesh and blood spammers that register manually, confirm email and then start posting nonsense.
@@ -11,10 +11,12 @@
     _ = require('lodash'),
     User = require('../../../controllers/api/user/user.model'),
     log = rootRequire('config/log'),
-    moment = require("moment"),
+    moment = require('moment'),
     spamTerms = rootRequire('config/spamTerms');
 
- let terms = spamTerms.map(function(e){return e.toLowerCase()});
+ let terms = spamTerms.map(function(e) {
+return e.toLowerCase();
+});
 
 module.exports = {
     isSpam: isSpam
@@ -31,7 +33,7 @@ function isSpam(message) {
     if (spam) {
         addSpamDateToUser(user);
         return true;
-    } else if(recentSpammer) {
+    } else if (recentSpammer) {
         log.info({module: 'spam', username: userName, referer: referer, title: message.title, text: message.text, reason: 'has spammed recently'});
         return true;
     } else {
@@ -43,13 +45,13 @@ function testSpam(message) {
     let referer = _.get(message, 'req.headers.referer'),
         userName = _.get(message, 'req.user.userName');
 
-    //test that sensible referer
+    // test that sensible referer
     if (!_.isString(referer) || (!/^http(s)?:\/\/www\.gbif((-dev)|(-uat))?\.org/.test(referer)) && !referer.startsWith('http://localhost:')) {
         log.info({module: 'spam', username: userName, referer: referer, title: message.title, text: message.text, reason: 'invalid referer'});
         return true;
     }
 
-    //test that the content doesn't include blacklisted terms
+    // test that the content doesn't include blacklisted terms
     for (let i = 0; i < terms.length; i++) {
         let term = terms[i];
         if (testTerm(message.text, term) || testTerm(message.title, term)) {
@@ -66,7 +68,7 @@ function testSpam(message) {
 }
 
 function testTerm(str, term) {
-    return str.toLowerCase().replace(/[.,'"`:;*_\-]/g, '').replace(/\s\s+/g, ' ').indexOf(term) >= 0
+    return str.toLowerCase().replace(/[.,'"`:;*_\-]/g, '').replace(/\s\s+/g, ' ').indexOf(term) >= 0;
 }
 
 function addSpamDateToUser(user) {

@@ -1,36 +1,36 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 angular
     .module('portal')
     .directive('suggest', suggestDirective);
 
 /** @ngInject */
 function suggestDirective() {
-    var directive = {
+    let directive = {
         restrict: 'E',
         transclude: true,
         templateUrl: '/templates/components/suggest/suggest.html',
         scope: {
             suggest: '=',
-            config: '='
+            config: '=',
         },
         controller: suggest,
         controllerAs: 'vm',
-        bindToController: true
+        bindToController: true,
     };
 
     return directive;
 
     /** @ngInject */
     function suggest() {
-        var vm = this;
-        var timer;
+        let vm = this;
+        let timer;
         vm.suggest.selected = vm.suggest.selected || [];
         vm.suggest.selectedKeys = vm.suggest.selectedKeys || [];
         vm.currentQuery = '';
 
-        vm.suggest.add = function (index) {
+        vm.suggest.add = function(index) {
             vm.setActive(index);
             if (vm.suggest.selectedKeys.indexOf(vm.suggest.active[vm.config.key]) < 0) {
                 if (!vm.config.multiSelect) {
@@ -41,11 +41,11 @@ function suggestDirective() {
                 vm.suggest.selectedKeys.push(vm.suggest.active[vm.config.key]);
                 if (vm.config.onChange) vm.config.onChange(vm.suggest.selected);
             } else {
-                //console.log('already in list');
+                // console.log('already in list');
             }
         };
 
-        vm.suggest.remove = function (i) {
+        vm.suggest.remove = function(i) {
             if (i < 0 || i > vm.suggest.selected.length) return;
 
             vm.suggest.selected.splice(i, 1);
@@ -53,37 +53,34 @@ function suggestDirective() {
             if (vm.config.onChange) vm.config.onChange(vm.suggest.selected);
         };
 
-        vm.search = function (event, query) {
-
-            if (event.keyCode == 40 || event.keyCode == 38) return;//UP DOWN ARROWS
-            if (event.keyCode == 13) {//ENTER
-                //fire confirmEvent
+        vm.search = function(event, query) {
+            if (event.keyCode == 40 || event.keyCode == 38) return;// UP DOWN ARROWS
+            if (event.keyCode == 13) {// ENTER
+                // fire confirmEvent
                 vm.suggest.add(vm.suggest.activeIndex);
                 return;
             }
-            if (event.keyCode == 27) {//ESC
-                //fire cancelEvent
+            if (event.keyCode == 27) {// ESC
+                // fire cancelEvent
                 if (vm.config.onCancel) vm.config.onCancel();
                 return;
             }
             if (timer) window.clearTimeout(timer);
-            timer = setTimeout(function () {
+            timer = setTimeout(function() {
                 vm.getSuggestions(query);
             }, 300);
-
-
         };
 
-        vm.getSuggestions = function (query) {
+        vm.getSuggestions = function(query) {
             if (vm.currentQuery == query) return;
-            var queryParams = vm.config.baseQuery;
+            let queryParams = vm.config.baseQuery;
             queryParams[vm.config.queryField] = query;
             vm.currentQuery = query;
             vm.suggest.activeIndex = undefined;
             vm.suggest.active = undefined;
-            vm.config.resource.query(queryParams, function (data) {
+            vm.config.resource.query(queryParams, function(data) {
                 vm.suggest.suggestions = data;
-                var firstSuggestion = vm.suggest.suggestions;
+                let firstSuggestion = vm.suggest.suggestions;
                 if (firstSuggestion && firstSuggestion[0] && vm.config.matchField && firstSuggestion[0][vm.config.matchField].toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) > -1) {
                     vm.suggest.activeIndex = 0;
                 } else {
@@ -92,7 +89,7 @@ function suggestDirective() {
             });
         };
 
-        vm.setActive = function (index) {
+        vm.setActive = function(index) {
             if (index !== parseInt(index, 10) || !vm.suggest.suggestions) {
                 vm.suggest.active = vm.suggest.activeIndex = undefined;
                 return;
@@ -107,14 +104,14 @@ function suggestDirective() {
             vm.query = vm.suggest.active.canonicalName;
         };
 
-        vm.browse = function (event) {
+        vm.browse = function(event) {
             if (timer) window.clearTimeout(timer);
-            if (event.keyCode == 40) {//DOWN ARROW
+            if (event.keyCode == 40) {// DOWN ARROW
                 vm.suggest.activeIndex = vm.suggest.activeIndex + 1 || 0;
                 vm.setActive(vm.suggest.activeIndex);
                 event.preventDefault();
             }
-            if (event.keyCode == 38) {//UP ARROW
+            if (event.keyCode == 38) {// UP ARROW
                 vm.suggest.activeIndex = vm.suggest.activeIndex - 1 || 0;
                 vm.setActive(vm.suggest.activeIndex);
                 event.preventDefault();

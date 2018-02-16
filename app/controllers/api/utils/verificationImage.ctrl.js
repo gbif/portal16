@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 let express = require('express'),
     verifier = require('../../../models/verification/verification'),
     auth = require('../../auth/auth.service'),
     router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/api/verification', router);
 };
 
-router.get('/image', function (req, res) {
-    verifier.resolveImageName(req.query.id, function(err, location){
+router.get('/image', function(req, res) {
+    verifier.resolveImageName(req.query.id, function(err, location) {
         if (!err) {
             auth.setNoCache(res);
             res.sendFile(location);
@@ -20,8 +20,8 @@ router.get('/image', function (req, res) {
     });
 });
 
-router.get('/challenge', function (req, res) {
-    verifier.getChallenge(function(err, challenge){
+router.get('/challenge', function(req, res) {
+    verifier.getChallenge(function(err, challenge) {
         if (!err) {
             auth.setNoCache(res);
             res.json(challenge);
