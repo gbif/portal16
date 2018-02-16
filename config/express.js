@@ -103,6 +103,7 @@ module.exports = function (app, config) {
         // There is not much else to do here. Keep track of the logs and make sure this never happens. There should be no unhandled rejections.
     });
     process.on('uncaughtException', function (err) {
+        // eslint-disable-next-line no-console
         console.log('Caught exception in root: ' + err);
         throw err;
     });

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 var bunyan = require('bunyan'),
     fs = require('fs'),
     yargs = require('yargs').argv,
@@ -63,7 +64,7 @@ var log = bunyan.createLogger({
     streams: logStreams
 });
 
-log.on('error', function (err, stream) {
+log.on('error', function (err) {
     console.log('Logging failed');
     console.log(err);
     console.trace(err);
