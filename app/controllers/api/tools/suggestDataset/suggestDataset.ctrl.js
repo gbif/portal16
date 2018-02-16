@@ -74,9 +74,8 @@ function createIssue(data, req, cb) {
         description = getDescription(data);
         if (isSpam({
             body: description || '',
-            title: data.title,
-            req: req
-        })) {
+            title: data.title
+        }, req)) {
             throw new Error('Looks like spam');
         }
         labels = getLabels(data);
