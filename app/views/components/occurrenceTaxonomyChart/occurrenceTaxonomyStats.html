@@ -2,19 +2,21 @@
 <h4 class="card-header text-center inline-block">Taxonomic distribution of
     occurrences</h4>
 <div class="chart-header-options inline-block pull-right">
+    <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="occurrenceTaxonomyStats.api.asSunburst()"></a>
+    <a href="" class="gb-icon-treemap inherit noUnderline" ng-click="occurrenceTaxonomyStats.api.asTreemap()"></a>
     <md-menu >
         <a href="" class="gb-icon-file-download  inherit noUnderline"
            ng-click="$mdMenu.open($event)"
         ></a>
         <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
             <md-menu-item>
-                <md-button ng-click="occurrenceDatasetTaxonomyStats.api.png()">
+                <md-button ng-click="occurrenceTaxonomyStats.api.png()">
                     PNG
                 </md-button>
             </md-menu-item>
 
             <md-menu-item>
-                <md-button  ng-click="occurrenceDatasetTaxonomyStats.api.svg()"> SVG
+                <md-button  ng-click="occurrenceTaxonomyStats.api.svg()"> SVG
                 </md-button>
             </md-menu-item>
         </md-menu-content>
@@ -23,14 +25,15 @@
 </div>
 <div class="card" layout-fill layout-padding>
 <div class="occ-taxonomy-content">
-
-
-<div class="occ-taxonomy-overlay" ng-if="occurrenceDatasetTaxonomyStats.loading || occurrenceDatasetTaxonomyStats.preparing">
+    <div ng-if="occurrenceTaxonomyStats.error" class="emptyInfo--small">
+    <h3 >Failed to load data ...</h3>
+    </div>
+<div class="occ-taxonomy-overlay" ng-if="occurrenceTaxonomyStats.loading || occurrenceTaxonomyStats.preparing">
     <div class="occ-taxonomy-overlay-content"  layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
         <div class="emptyInfo--small">
-            <h3 ng-if="occurrenceDatasetTaxonomyStats.loading">Loading ...</h3>
-            <h3 ng-if="occurrenceDatasetTaxonomyStats.preparing">Preparing ...</h3>
+            <h3 ng-if="occurrenceTaxonomyStats.loading">Loading ...</h3>
+            <h3 ng-if="occurrenceTaxonomyStats.preparing">Preparing ...</h3>
         </div>
 
     </div><span flex></span>

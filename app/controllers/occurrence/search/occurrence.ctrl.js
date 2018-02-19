@@ -87,7 +87,7 @@ router.get('/occurrence/download', function(req, res) {
     renderSearch(req, res);
 });
 
-router.get('/occurrence/species', function(req, res) {
+router.get('/occurrence/taxonomy', function(req, res) {
     renderSearch(req, res);
 });
 

@@ -8,10 +8,10 @@ angular
     .directive('checklistTaxonomyStats', checklistTaxonomyStats);
 
 /** @ngInject */
-function checklistTaxonomyStats() {
+function checklistTaxonomyStats(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/dataset/key/stats/directives/checklistTaxonomyStats.html',
+        templateUrl: '/templates/components/checklistMetrics/checklistTaxonomyStats.html?v=' +BUILD_VERSION,
         scope: {},
         controller: checklistTaxonomyStats,
         link: chartLink,
@@ -89,35 +89,35 @@ function checklistTaxonomyStats() {
                         rankOrder.push("PHYLUM")
                     } else if(taxonomy.PHYLUM.length === 0){
                         delete taxonomy.PHYLUM;
-                    };
+                    }
                     if(taxonomy.CLASS && taxonomy.CLASS.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("CLASS")
                     } else if(taxonomy.CLASS.length === 0){
                         delete taxonomy.CLASS;
-                    };
+                    }
                     if(taxonomy.ORDER && taxonomy.ORDER.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("ORDER")
                     } else if(taxonomy.ORDER.length === 0){
                         delete taxonomy.ORDER;
-                    };
+                    }
                     if(taxonomy.FAMILY && taxonomy.FAMILY.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("FAMILY")
                     } else if(taxonomy.FAMILY.length === 0){
                         delete taxonomy.FAMILY;
-                    };
+                    }
                     if(taxonomy.GENUS && taxonomy.GENUS.length > 0){
                         vm.hasRankedTaxa = true;
 
                         rankOrder.push("GENUS")
                     } else if(taxonomy.GENUS.length === 0){
                         delete taxonomy.GENUS;
-                    };;
+                    }
 
 
                     if(!vm.hasRankedTaxa){
@@ -218,16 +218,15 @@ function checklistTaxonomyStats() {
                             })
 
                         }
-                        ;
+                        
 
 
                         var kingdomData = [],
-                            childData = [],
-                            i,
-                            j,
                             dataLen = data.length,
                             drillDataLen,
                             brightness;
+
+                        childData = [];
 
 
 // Build the data arrays
@@ -281,7 +280,7 @@ function checklistTaxonomyStats() {
                                 data: kingdomData,
                                 point: {
                                     events: {
-                                        click: function (event) {
+                                        click: function () {
 
                                             if (this._key) {
                                                 $state.go('speciesKey', {speciesKey: this._key})
@@ -302,7 +301,7 @@ function checklistTaxonomyStats() {
                                 data: childData,
                                 point: {
                                     events: {
-                                        click: function (event) {
+                                        click: function () {
                                             if (this._key) {
                                                 $state.go('speciesKey', {speciesKey: this._key})
                                             }

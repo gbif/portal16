@@ -21,7 +21,8 @@ function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceTaxonSearch) 
     vm.offset = 0;
     vm.endOfRecords = false;
     vm.currentPage = 1;
-
+    vm.types = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
+    vm.type = "species";
     vm.totalItems = function() {
         var total = vm.offset + vm.limit;
         if (!vm.endOfRecords) {
@@ -31,7 +32,8 @@ function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceTaxonSearch) 
     };
 
     var search = function () {
-    var query = angular.copy(vm.state.query);
+        var query = angular.copy(vm.state.query);
+        query.type = vm.type;
         query.offset = vm.offset;
         query.limit = vm.limit;
         vm.endOfRecords = true;
@@ -52,12 +54,26 @@ function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceTaxonSearch) 
         window.scrollTo(0, 0);
     };
 
+    vm.updateTaxonFilter = function(taxonKey){
+        OccurrenceFilter.updateParam('taxon_key', [taxonKey])
+    };
+
     $scope.$watch(function () {
         return vm.state.table
     }, function () {
         vm.offset = 0;
         vm.currentPage = 1;
         vm.endOfRecords = false;
+        search(vm.state.query);
+    });
+
+    $scope.$watch(function () {
+        return vm.type
+    }, function () {
+        vm.offset = 0;
+        vm.currentPage = 1;
+        vm.endOfRecords = false;
+        vm.checklist = {};
         search(vm.state.query);
     });
 

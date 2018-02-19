@@ -100,6 +100,16 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('OccurrenceTaxonomyChart', function ($resource) {
+            return $resource('/api/chart/occurrence/sunburst', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: true,
+                        cancellable: true
+                    }
+                }
+            );
+        })
     ;
 
 })();

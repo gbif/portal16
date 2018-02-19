@@ -77,8 +77,8 @@
                         </div>
                         <div flex-gt-sm="50" flex="100" >
 
-                                <occurrence-dataset-taxonomy-stats
-                                        filter="datasetStats.filter"></occurrence-dataset-taxonomy-stats>
+                                <occurrence-taxonomy-stats
+                                        filter="datasetStats.filter"></occurrence-taxonomy-stats>
                         </div>
                     </div>
                 <div layout-gt-sm="row" class="m-t-1" layout-padding>

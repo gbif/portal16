@@ -75,7 +75,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('occurrenceSearchSpecies', {
             parent: 'occurrenceSearch',
-            url: '/species',
+            url: '/taxonomy',
             templateUrl: '/templates/pages/occurrence/species/occurrenceSpecies.html?v=' + BUILD_VERSION,
             controller: 'occurrenceSpeciesCtrl',
             controllerAs: 'occSpecies'

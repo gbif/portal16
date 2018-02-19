@@ -2,9 +2,9 @@
 
 var angular = require('angular'),
 _ = require('lodash');
-require('./directives/checklistTaxonomyStats.directive.js');
-require('./directives/occurrenceDatasetTaxonomyStats.directive.js');
-require('./directives/checklistMetrics.directive.js');
+require('../../../../components/checklistMetrics/checklistTaxonomyStats.directive.js');
+require('../../../../components/occurrenceTaxonomyChart/occurrenceTaxonomyStats.directive.js');
+require('../../../../components/checklistMetrics/checklistMetrics.directive.js');
 
 
 require('../../../../components/occurrenceChart/occurrenceChart.directive');

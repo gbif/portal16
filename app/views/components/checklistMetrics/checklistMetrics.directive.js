@@ -8,10 +8,10 @@ angular
     .directive('checklistMetrics', checklistMetrics);
 
 /** @ngInject */
-function checklistMetrics() {
+function checklistMetrics(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/dataset/key/stats/directives/checklistMetrics.html',
+        templateUrl: '/templates/components/checklistMetrics/checklistMetrics.html?v=' + BUILD_VERSION,
         scope: {},
         controller: checklistMetrics,
         link: chartLink,
@@ -30,19 +30,18 @@ function checklistMetrics() {
     }
 
     /** @ngInject */
-    function checklistMetrics(Highcharts,  $scope, $translate, $filter, enums) {
-        console.log(enums.rank)
+    function checklistMetrics(Highcharts, $scope, $translate, $filter, enums) {
         var vm = this;
         vm.logScale = true;
-        if(vm.dimension === "countByIssue"){
-            vm.unit =  "issues";
-        };
-        if(vm.dimension === "countExtRecordsByExtension"){
-            vm.unit =  "extensions";
-        };
-        if(vm.dimension === "countNamesByLanguage"){
+        if (vm.dimension === "countByIssue") {
+            vm.unit = "issues";
+        }
+        if (vm.dimension === "countExtRecordsByExtension") {
+            vm.unit = "extensions";
+        }
+        if (vm.dimension === "countNamesByLanguage") {
             vm.unit = "names"
-        };
+        }
 
         $scope.create = function (element) {
             vm.chartElement = element[0].querySelector('.chartArea');
@@ -52,28 +51,28 @@ function checklistMetrics() {
 
         angular.element(document).ready(function () {
 
-            vm.metrics.$promise.then(function (metrics) {
+            vm.metrics.$promise.then(function () {
 
                 vm.loading = false;
                 if (vm.metrics[vm.dimension]) {
-
-
 
                     var data = {categories: [], series: [{data: [], total: 0}]}
                     var mappedData = _.map(vm.metrics[vm.dimension], function (value, key) {
                         return {key: key, count: value};
                     });
                     var sorted = (vm.dimension !== 'countByRank') ? _.orderBy(mappedData, ['count'], ['desc']) :
-                        _.sortBy(mappedData, [function(r) { return enums.rank.indexOf(r.key); }]);
+                        _.sortBy(mappedData, [function (r) {
+                            return enums.rank.indexOf(r.key);
+                        }]);
 
                     for (var i = 0; i < sorted.length; i++) {
-                    if(sorted[i].count > 0){
-                        data.categories.push(getTranslation(vm.dimension, sorted[i].key));
-                        data.series[0].data.push(sorted[i].count);
-                        data.series[0].total += sorted[i].count;
+                        if (sorted[i].count > 0) {
+                            data.categories.push(getTranslation(vm.dimension, sorted[i].key));
+                            data.series[0].data.push(sorted[i].count);
+                            data.series[0].total += sorted[i].count;
+                        }
                     }
-                    }
-                    data.title = $translate.instant("datasetMetrics."+vm.dimension);
+                    data.title = $translate.instant("datasetMetrics." + vm.dimension);
                     vm.data = data;
 
                     if (vm.myChart) {
@@ -117,7 +116,7 @@ function checklistMetrics() {
                     animation: false,
                     type: 'bar',
                     renderTo: vm.chartElement,
-                    className: (vm.dimension === 'countByIssue')? 'chart-field-issue' : ''
+                    className: (vm.dimension === 'countByIssue') ? 'chart-field-issue' : ''
                 },
                 plotOptions: {
                     series: {
@@ -143,7 +142,7 @@ function checklistMetrics() {
                 },
                 yAxis: {
                     title: {
-                        text: (vm.unit || 'Taxon' )+' count'
+                        text: (vm.unit || 'Taxon' ) + ' count'
                     },
                     type: isLogaritmic ? 'logarithmic' : 'linear',
                     minorTickInterval: isLogaritmic ? 1 : undefined,
@@ -229,33 +228,25 @@ function checklistMetrics() {
                     }
                 }
             };
-        };
+        }
 
-        function getTranslation(dimension, key){
+        function getTranslation(dimension, key) {
 
-            switch (dimension)
-            {
+            switch (dimension) {
                 case 'countByKingdom':
                     return $filter('capitalizeFirstLetter')(key.replace("_", " ").toLowerCase());
-                    break;
                 case 'countByRank':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.'+key));
-                    break;
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.' + key));
                 case 'countByOrigin':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.originEnum.'+key));
-                    break;
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.originEnum.' + key));
                 case 'countByIssue':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.issueEnum.'+key));
-                    break;
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.issueEnum.' + key));
                 case 'countExtRecordsByExtension':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.'+key));
-                    break;
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.' + key));
                 case 'countNamesByLanguage':
                     return $filter('capitalizeFirstLetter')(key.replace("_", " ").toLowerCase());
-                    break;
 
-
-            };
+            }
 
 
         }
@@ -280,7 +271,7 @@ function checklistMetrics() {
         vm.api.png = function () {
             vm.myChart.exportChart();
         };
-        vm.api.svg = function(){
+        vm.api.svg = function () {
             vm.myChart.exportChart({
                 type: 'image/svg+xml'
             });
