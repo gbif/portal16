@@ -126,9 +126,9 @@ function build(entry, name) {
         })))
         // Add transformation tasks to the pipeline here.
         .pipe(g.ngAnnotate()) // To not break angular injection when minified
-        // .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
-        //.on('error', config.errorHandler('uglify'))
-        //.pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
+        .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
+        .on('error', config.errorHandler('uglify'))
+        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function(path) {
             path.dirname = '/' + dest + (path.dirname == '.' ? '' : '/' + path.dirname);
