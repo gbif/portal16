@@ -1,19 +1,19 @@
 'use strict';
 
-let gulp = require('gulp'),
-    path = require('path'),
-    config = rootRequire('config/build'),
-    browserSync = require('browser-sync'),
-    source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer'),
-    transform = require('vinyl-transform'),
-    browserify = require('browserify'),
-    rename = require('gulp-rename'),
-    replace = require('gulp-replace'),
-    fs = require('fs'),
-    gulpif = require('gulp-if'),
-    notifier = require('node-notifier'),
-    g = require('gulp-load-plugins')();
+let gulp = require('gulp');
+let path = require('path');
+let config = rootRequire('config/build');
+let browserSync = require('browser-sync');
+let source = require('vinyl-source-stream');
+let buffer = require('vinyl-buffer');
+// let transform = require('vinyl-transform');
+let browserify = require('browserify');
+let rename = require('gulp-rename');
+//let replace = require('gulp-replace');
+// let fs = require('fs');
+let gulpif = require('gulp-if');
+//let notifier = require('node-notifier');
+let g = require('gulp-load-plugins')();
 
 gulp.task('scripts-reload', function() {
     return buildScripts()
@@ -150,6 +150,8 @@ gulp.task('build:vendor', () => {
         .pipe(source('vendor.js'))
         .pipe(buffer())
         .pipe(g.sourcemaps.init({loadMaps: true}))
+        .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
+        .on('error', config.errorHandler('uglify'))
         .pipe(g.sourcemaps.write('./maps'))
         .pipe(gulp.dest('./public/js/base/'))
     ;
