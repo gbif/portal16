@@ -22,7 +22,6 @@ PublisherRegional.prototype.record = {};
  */
 PublisherRegional.groupBy = (query) => {
     let deferred = Q.defer(),
-        publishers = [],
         requestUrl = dataApi.publisher.url,
         gbifRegionEnum = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA', 'GLOBAL'],
         limit = 2000,
@@ -40,32 +39,6 @@ PublisherRegional.groupBy = (query) => {
         .then((result) => {
             // Get all publishers from GBIF API
             return result.results;
-            // let tasks = [],
-            //     offset = 0;
-            //
-            // publishers = publishers.concat(result.results);
-            //
-            // // iterate and collect publishers
-            // do {
-            //     offset += 50;
-            //     options.offset = offset;
-            //     tasks.push(helper.getApiDataPromise(requestUrl, options)
-            //         .then(result => {
-            //             publishers = publishers.concat(result.results);
-            //         })
-            //         .catch(e => {
-            //             log.info(e);
-            //         })
-            //     );
-            // } while (offset < result.count);
-            //
-            // return Q.all(tasks)
-            //     .then(() => {
-            //         return publishers;
-            //     })
-            //     .catch(e => {
-            //         deferred.reject(e + ' in publisherRegional.groupBy().')
-            //     });
         })
         .then((publishers) => {
             // Breakdown to region if param exists

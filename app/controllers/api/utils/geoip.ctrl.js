@@ -66,7 +66,7 @@ function getIp(req, res) {
 // I have created a crude unmaintained one based on a database dump instead.
 // and now supplemented it with a country code to rought location.
 // It isn't pretty but will serve as a test for whether this is something that could be interesting to continue with
-var countryCodes2CrudeCoordinates = {
+let countryCodes2CrudeCoordinates = {
     'AF': [33.93911, 67.709953],
     'AX': [37.0625, -95.677068],
     'AL': [41.153332, 20.168331],

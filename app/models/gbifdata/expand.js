@@ -75,7 +75,7 @@ function expand(data, settings, __, cb) {
         // getResultTasks(data.results, config.resultKeys, cb);
         // async.each(tasks, expandKey, cb);
     } catch (e) {
-        //TODO log error
+        // TODO log error
         console.log(e);
     }
 }
@@ -146,7 +146,10 @@ function filterObj(obj, reference) {
 /**
  * expand api result list items with keys to their associated resource
  * @param results : the results from the data api
- * @param expandList : a configuration list for which keys to expand and how [{fromKey: [string - the key to expand], configKey: [string - enum name in config list], fields: [array of field names from the associated resource to include] }]
+ * @param expandList : a configuration list for which keys to expand and how
+ *  [{fromKey: [string - the key to expand],
+ *  configKey: [string - enum name in config list],
+ *  fields: [array of field names from the associated resource to include] }]
  * @param cb
  */
 function getResultTasks(results, expandList, cb) {

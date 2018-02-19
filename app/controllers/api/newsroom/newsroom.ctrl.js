@@ -1,7 +1,6 @@
 'use strict';
 let express = require('express'),
     router = express.Router(),
-    _ = require('lodash'),
     http = require('http'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 

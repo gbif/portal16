@@ -2,18 +2,17 @@
 
 let chai = require('chai'),
     expect = chai.expect,
-    querystring = require('querystring'),
     request = require('requestretry'),
     randomWords = require('random-words'),
     severity = require('./severity').severity,
-    userAgent = require('../../../../config/config').userAgent,
+ //   userAgent = require('../../../../config/config').userAgent,
     Q = require('q'),
-    _ = require('lodash'),
-    unknownError = {
+    _ = require('lodash')
+/*    unknownError = {
         message: 'Unknown error calling endpoint',
         type: 'STATUS',
         severity: severity.CRITICAL
-    };
+    }*/;
 
 module.exports = {fromConfig, check};
 

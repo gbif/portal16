@@ -2,7 +2,6 @@
 let express = require('express'),
     router = express.Router(),
     request = require('requestretry'),
-    _ = require('lodash'),
     log = require('../../../../config/log');
 
 module.exports = function(app) {
@@ -10,7 +9,8 @@ module.exports = function(app) {
 };
 
 /**
- * This is a temporary proxy to compensate for the IPT not having set CORS headers. This should be updated in the IPT. And until then this proxy belongs better in the registry https://github.com/gbif/registry/issues/35
+ * This is a temporary proxy to compensate for the IPT not having set CORS headers. This should be updated in the IPT.
+ * And until then this proxy belongs better in the registry https://github.com/gbif/registry/issues/35
  * But as a temporary measure as registry development is more cumbersome a proxy is added in the website.
  */
 router.get('/installation/ipt/inventory/dataset', function(req, res) {

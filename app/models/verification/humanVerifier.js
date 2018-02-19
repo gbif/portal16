@@ -2,7 +2,6 @@
 
 let randomstring = require('randomstring'),
     _ = require('lodash'),
-    path = require('path'),
     encrypt = require('./encrypt'),
     Chance = require('chance'),
     chance = new Chance();

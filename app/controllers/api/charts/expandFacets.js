@@ -111,6 +111,7 @@ function fillAllInRange(facets) {
         if (options[facet.field].range) {
             // fill facet with all integers in range
             // get min and max
+            /* min, max and facetMap currently unused:
             let min = _.minBy(facet.counts, function(e) {
                 return _.toSafeInteger(e.name);
             });
@@ -120,7 +121,7 @@ function fillAllInRange(facets) {
 
             // map counts to obj
             let facetMap = _.keyBy(facet.counts, 'name');
-
+            */
             let mappedFacets = _.keyBy(facet.counts, 'name');
             // let filled = options[facet.field].enums.map(function(e){
             //    return {

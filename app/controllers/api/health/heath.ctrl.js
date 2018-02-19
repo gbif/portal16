@@ -1,12 +1,12 @@
 'use strict';
 
 let express = require('express'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+ //   apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     router = express.Router(),
     notificationsComplete = require('./notifications.model')(),
-    portalHealth = require('./portalHealth'),
-    tests = require('./tests'),
-    health = require('./health.model');
+    portalHealth = require('./portalHealth');
+//    tests = require('./tests'),
+ //   health = require('./health.model');
 
 module.exports = function(app) {
     app.use('/api', router);

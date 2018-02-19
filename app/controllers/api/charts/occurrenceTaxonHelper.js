@@ -1,8 +1,6 @@
 'use strict';
 
-let i18n = rootRequire('config/i18n'),
-    _ = require('lodash'),
-    enums = rootRequire('app/models/enums/allEnums'),
+let _ = require('lodash'),
     facetHelper = require('./expandFacets'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),

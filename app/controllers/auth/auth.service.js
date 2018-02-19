@@ -54,7 +54,8 @@ function isAuthenticated() {
             // if (req.query && req.query.hasOwnProperty('access_token')) {
             //    req.headers.authorization = `Bearer ${req.query.access_token}`;
             // }
-            // // IE11 forgets to set Authorization header sometimes. Pull from cookie instead. //mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
+            // IE11 forgets to set Authorization header sometimes. Pull from cookie instead.
+            // mgh this strike me as odd (it is copy pasted) - if we then end up always setting it as a cookie, why even bother about adding it as a header as well?
             // if (req.query && typeof req.headers.authorization === 'undefined') {
             //    req.headers.authorization = `Bearer ${req.cookies.token}`;
             // }

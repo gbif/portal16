@@ -1,6 +1,5 @@
 'use strict';
 let express = require('express'),
-    nunjucks = require('nunjucks'),
     log = rootRequire('config/log'),
     notifications = require('./notifications.model'),
     router = express.Router();
@@ -26,6 +25,7 @@ router.get('/template.html', function(req, res, next) {
     try {
         res.render('shared/layout/partials/notifications/notificationsDirective');
     } catch (err) {
+        log.warn(err);
         next(err);// TODO not ideal error handling for an angular template. What would be a better way?
     }
 });

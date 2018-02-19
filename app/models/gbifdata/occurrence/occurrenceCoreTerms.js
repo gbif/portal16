@@ -59,7 +59,7 @@ function getOccurrenceMetaData() {
     let deferred = Q.defer();
     async.parallel({terms: getTerms, remarks: getRemarkTypes}, function(err, data) {
         if (err !== null) {
-            //TODO log instead of console statements
+            // TODO log instead of console statements
             // console.error('Error while getting initial occurrence terms and issue types');
             // console.error(err.statusMessage);
             // process.exit(1);

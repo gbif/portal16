@@ -1,11 +1,9 @@
 'use strict';
 
-let Participant = require('./participant'),
-    Registry = require('./registry'),
-    utils = rootRequire('app/helpers/utils'),
-    _ = require('lodash');
+let Registry = require('./registry'),
+    utils = rootRequire('app/helpers/utils');
 
-async function getNode(key, locale) {
+async function getNode(key) {
     if (!utils.isGuid(key)) {
         throw {
             statusCode: 404,

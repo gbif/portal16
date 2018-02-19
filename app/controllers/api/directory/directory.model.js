@@ -1,7 +1,7 @@
 'use strict';
 
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    chai = require('chai'),
+//    chai = require('chai'),
     querystring = require('querystring'),
     _ = require('lodash'),
     authOperations = require('../../auth/gbifAuthRequest');
@@ -133,14 +133,17 @@ async function proxyGet(url) {
 }
 
 function cleanPerson(p) {
-    let pers = _.pick(p, ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
+    let pers = _.pick(p,
+        ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
     if (pers.address) pers.address = pers.address.replace(/[\r\n]{2,}/g, '\n');
     pers.name = pers.name ? pers.name : pers.firstName + ' ' + pers.surname;
     return pers;
 }
 
 function cleanParticipant(p) {
-    let res = _.pick(p, ['id', 'name', 'type', 'participationStatus', 'participantUrl', 'membershipStart', 'mou2001Date', 'mou2001Signatory', 'mou2007Date', 'mou2007Signatory', 'mou2012Date', 'mou2012Signatory', 'gbifRegion', 'countryCode', 'people']);
+    let res = _.pick(p,
+        ['id', 'name', 'type', 'participationStatus', 'participantUrl', 'membershipStart', 'mou2001Date',
+         'mou2001Signatory', 'mou2007Date', 'mou2007Signatory', 'mou2012Date', 'mou2012Signatory', 'gbifRegion', 'countryCode', 'people']);
     if (res.people) {
         res.people = res.people.map(function(e) {
             e.person = cleanPerson(e.person);
