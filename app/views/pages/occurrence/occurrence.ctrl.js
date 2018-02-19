@@ -96,8 +96,9 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
        enumTranslationPath: 'establishmentMeans.',
        showAll: true,
        enums: enums.establishmentMeans,
+       reversible: true,
        facets: {
-           hasFacets: false,
+           hasFacets: true,
            facetKey: 'ESTABLISHMENT_MEANS'
        }
     };
