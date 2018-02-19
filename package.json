@@ -45,7 +45,7 @@
     "browserify": "^13.0.1",
     "btoa": "^1.1.2",
     "bunyan": "^1.8.1",
-    "bunyan-logstash": "^0.3.4",
+    "bunyan-logstash": "https://registry.npmjs.org/bunyan-logstash/-/bunyan-logstash-0.3.4.tgz",
     "bunyan-logstash-tcp": "^1.0.0",
     "bunyan-middleware": "^0.8.0",
     "bunyan-prettystream": "^0.1.3",
