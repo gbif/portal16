@@ -1,12 +1,10 @@
 'use strict';
 
-var express = require('express'),
-    config = require('./config/config'),
-    log = config.log;
-
-var app = express(),
-    http = require('http').Server(app);
-    //io = require('socket.io')(http);
+let express = require('express');
+let config = require('./config/config');
+let log = require('./config/log');
+let app = express();
+let http = require('http').Server(app);
 
 global.rootRequire = function (name) {
     return require(__dirname + '/' + name);
