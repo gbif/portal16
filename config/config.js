@@ -1,5 +1,4 @@
 let path = require('path'),
-    log = require('./log'),
     yargs = require('yargs').argv,
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'local',
@@ -62,7 +61,6 @@ let config = {
             name: 'portal - local'
         },
         port: port || 3000,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif.org/',
@@ -101,7 +99,6 @@ let config = {
             name: 'portal - dev'
         },
         port: port || 80,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif-dev.org/',
@@ -140,7 +137,6 @@ let config = {
             name: 'portal - uat'
         },
         port: port || 80,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif-uat.org/',
@@ -179,7 +175,6 @@ let config = {
             name: 'portal - prod'
         },
         port: port || 80,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif.org/',
@@ -218,7 +213,6 @@ let config = {
             name: 'portal - test'
         },
         port: port || 3000,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif-uat.org/',
