@@ -36,7 +36,7 @@ function gbHelpDirective(BUILD_VERSION) {
         vm.forceShow = _.get(vm.gbHelpOptions, 'forceShow');
         vm.onClose = _.get(vm.gbHelpOptions, 'onClose');
 
-        vm.showPopup = function(){
+        vm.showPopup = function() {
             HelpService.updateState(true, vm.helpIdentifier, _.get(vm.gbHelpOptions, 'isCms'));
         };
 
@@ -48,7 +48,7 @@ function gbHelpDirective(BUILD_VERSION) {
 
 module.exports = gbHelpDirective;
 
-//<div gb-help="testthis">plain in div</div>
-//<div>Part of a <span gb-help="testthis" style="color: tomato">sentence</span></div>
-//<div gb-help gb-help-options="{identifier: 'testthis', hideIcon: true}">without icon</div>
-//<div gb-help="help.locationFilterWarning" gb-help-options="{isCms: false}">Popup text from translation file</div>
+// <div gb-help="testthis">plain in div</div>
+// <div>Part of a <span gb-help="testthis" style="color: tomato">sentence</span></div>
+// <div gb-help gb-help-options="{identifier: 'testthis', hideIcon: true}">without icon</div>
+// <div gb-help="help.locationFilterWarning" gb-help-options="{isCms: false}">Popup text from translation file</div>

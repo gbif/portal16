@@ -29,7 +29,6 @@ function filterLocationDirective(BUILD_VERSION) {
     function filterLocation($scope, $filter, OccurrenceFilter, $localStorage) {
         var vm = this;
         vm.inputType = 'BBOX';
-        vm.hasCoordinate;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
         vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.title;
@@ -40,7 +39,6 @@ function filterLocationDirective(BUILD_VERSION) {
 
         vm.geometryOptions = [];
         vm.geometrySuggestions = [];
-
 
 
         function addGeometryOption(arr, str, active) {
@@ -60,7 +58,7 @@ function filterLocationDirective(BUILD_VERSION) {
                 filters = [];
             }
             filters.unshift(wkt);
-            filters = $filter('unique')(filters).slice(0,20);
+            filters = $filter('unique')(filters).slice(0, 20);
             vm.geometrySuggestions = filters;
             $localStorage.filters = filters;
             updateGeometrySuggestions();
@@ -68,7 +66,7 @@ function filterLocationDirective(BUILD_VERSION) {
 
         function addSuggestions(queries) {
             queries = queries || [];
-            queries.forEach(function(wkt){
+            queries.forEach(function(wkt) {
                 addGeometrySuggestion(wkt);
             });
         }
@@ -80,8 +78,8 @@ function filterLocationDirective(BUILD_VERSION) {
                 filters = [];
             }
             vm.geometrySuggestions = [];
-            filters.forEach(function(q){
-                if(vm.query.indexOf(q) < 0) {
+            filters.forEach(function(q) {
+                if (vm.query.indexOf(q) < 0) {
                     addGeometryOption(vm.geometrySuggestions, q, false);
                 }
             });
@@ -90,27 +88,27 @@ function filterLocationDirective(BUILD_VERSION) {
         addSuggestions(vm.query);
         updateGeometrySuggestions();
 
-        vm.query.forEach(function(q){
+        vm.query.forEach(function(q) {
             addGeometryOption(vm.geometryOptions, q, true);
         });
 
         vm.getQuery = function() {
-            var geometries = vm.geometryOptions.filter(function(geo){
+            var geometries = vm.geometryOptions.filter(function(geo) {
                 return geo.active;
-            }).map(function(geo){
+            }).map(function(geo) {
                 return geo.q;
             });
             geometries = $filter('unique')(geometries);
             return geometries;
         };
 
-        vm.apply = function () {
+        vm.apply = function() {
             var filters = {
                 has_coordinate: vm.hasCoordinate,
                 has_geospatial_issue: undefined,
                 geometry: vm.getQuery()
             };
-            if (!filters.geometry || filters.geometry.length == 0) {
+            if (!filters.geometry || filters.geometry.length === 0) {
                 filters.geometry = undefined;
             }
             if (vm.hasCoordinate && !vm.includeSuspicious) {
@@ -141,7 +139,7 @@ function filterLocationDirective(BUILD_VERSION) {
             var parsingResult = parseStringToWKTs(vm.geometryString);
             if (parsingResult.geometry) {
                 vm.hasCoordinate = true;
-                $filter('unique')(parsingResult.geometry).forEach(function(q){
+                $filter('unique')(parsingResult.geometry).forEach(function(q) {
                     addGeometrySuggestion(q);
                     addGeometryOption(vm.geometryOptions, q, true);
                 });
@@ -159,33 +157,33 @@ function filterLocationDirective(BUILD_VERSION) {
             vm.apply();
         };
 
-        //vm.getLocationNames = function() {
+        // vm.getLocationNames = function() {
         //    for (var i = 0; i < vm.query; i++) {
         //        $http.get('http://localhost:3003/geometry-description', {});
         //    }
-        //};
+        // };
 
-        $scope.$watch(function () {
-            return vm.filterState.query[vm.queryKey]
-        }, function (newQuery) {
+        $scope.$watch(function() {
+            return vm.filterState.query[vm.queryKey];
+        }, function(newQuery) {
             vm.query = $filter('unique')(newQuery);
             if (vm.query && vm.query.length) {
                 vm.hasCoordinate = true;
                 addSuggestions(vm.query);
             }
             vm.geometryOptions = [];
-            vm.query.forEach(function(q){
+            vm.query.forEach(function(q) {
                 addGeometryOption(vm.geometryOptions, q, true);
             });
             updateGeometrySuggestions();
         });
 
-        vm.removeFromList = function (index) {
+        vm.removeFromList = function(index) {
             vm.geometryOptions.splice(index, 1);
             vm.apply();
         };
 
-        vm.addToList = function (index, geom) {
+        vm.addToList = function(index, geom) {
             vm.hasCoordinate = true;
             addGeometryOption(vm.geometryOptions, geom.q, true);
             if (geom.valid) {
@@ -193,8 +191,6 @@ function filterLocationDirective(BUILD_VERSION) {
             }
             vm.apply();
         };
-
-
     }
 }
 
@@ -202,7 +198,7 @@ module.exports = filterLocationDirective;
 
 function parseStringToWKTs(str) {
     var i, geojson, feature, wktGeom, leafletGeoJson, wktGeometries = [];
-    //assume geojson
+    // assume geojson
     try {
         var geojsonGeometry = JSON.parse(str);
         leafletGeoJson = L.geoJson(geojsonGeometry);
@@ -212,8 +208,8 @@ function parseStringToWKTs(str) {
             wktGeom = parseGeometry.stringify(feature);
             wktGeometries.push(wktGeom);
         }
-    } catch(e) {
-        //not a json object. try to parse as wkt
+    } catch (e) {
+        // not a json object. try to parse as wkt
         try {
             geojsonGeometry = parseGeometry(str);
             if (geojsonGeometry) {
@@ -227,10 +223,10 @@ function parseStringToWKTs(str) {
             } else {
                 throw 'Not valid wkt';
             }
-        } catch(err) {
+        } catch (err) {
             return {
                 error: 'FAILED_PARSING'
-            }
+            };
         }
     }
     return {
@@ -240,9 +236,5 @@ function parseStringToWKTs(str) {
 
 function isValidWKT(str) {
     var geojsonGeometry = parseGeometry(str);
-    if (geojsonGeometry) {
-        return true;
-    } else {
-        return false;
-    }
+    return !!geojsonGeometry;
 }

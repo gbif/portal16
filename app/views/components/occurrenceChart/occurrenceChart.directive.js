@@ -30,7 +30,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function chartLink(scope, element) {//, attrs, ctrl
+    function chartLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
 
@@ -43,7 +43,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
             var filter = vm.filter || {};
             var q = _.merge({}, filter, {chartDimension: dimension});
             OccurrenceChartBasic.query(q).$promise
-                .then(function (data) {
+                .then(function(data) {
                     vm.loading = false;
                     vm.data = data;
                     vm.logScale = vm.logScale && data.categories.length > 1;
@@ -79,18 +79,18 @@ function occurrenceChartDirective(BUILD_VERSION) {
             }
         }
 
-        vm.changeDimension = function (dimension) {
+        vm.changeDimension = function(dimension) {
             updateChart(dimension);
         };
 
-        vm.toggleBarChart = function () {
+        vm.toggleBarChart = function() {
             vm.myChart.destroy();
             setChartHeight();
             vm.chartElement.style.height = vm.chartHeight + 'px';
             vm.myChart = Highcharts.chart(asBarChart(vm.data, vm.logScale));
         };
 
-        vm.togglePieChart = function () {
+        vm.togglePieChart = function() {
             vm.myChart.destroy();
             setChartHeight();
             vm.chartElement.style.height = vm.chartHeight + 'px';
@@ -116,7 +116,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         animation: false,
                         point: {
                             events: {
-                                click: function () {
+                                click: function() {
                                     vm.occurrenceSearch(vm.data.categoryKeys[this.index]);
                                 }
                             }
@@ -133,7 +133,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     minPointLength: 10
                 },
                 title: {
-                    text: ''//data.title
+                    text: ''// data.title
                 },
                 xAxis: {
                     categories: data.categories,
@@ -161,21 +161,21 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         }
                     }
                 }
-            }
+            };
         }
 
         function asPieChart(data) {
-            var serie = data.series[0].data.map(function (e, i) {
+            var serie = data.series[0].data.map(function(e, i) {
                 return {
                     name: data.categories[i],
                     y: e
-                }
-            }).sort(function (a, b) {
+                };
+            }).sort(function(a, b) {
                 return b.y - a.y;
             });
 
             var lowCount = data.series[0].total / 50;
-            var lowIndex = _.findIndex(serie, function (a) {
+            var lowIndex = _.findIndex(serie, function(a) {
                 return a.y < lowCount;
             });
             lowIndex = Math.min(20, lowIndex);
@@ -201,7 +201,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         animation: false,
                         point: {
                             events: {
-                                click: function () {
+                                click: function() {
                                     vm.occurrenceSearch(vm.data.categoryKeys[this.index]);
                                 }
                             }
@@ -212,7 +212,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                     enabled: false
                 },
                 title: {
-                    text: ''//data.title
+                    text: ''// data.title
                 },
                 tooltip: {
                     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -244,12 +244,14 @@ function occurrenceChartDirective(BUILD_VERSION) {
             $state.go('occurrenceSearchTable', q);
         };
 
-        function asLineChart(data, isLogaritmic){
+        function asLineChart(data, isLogaritmic) {
             if (data.categories.length < 20) {
                 return asColumnChart(data, isLogaritmic);
             }
 
-            var lineData = _.zip(_.map(data.categories, function(e){return Date.UTC(_.toSafeInteger(e), 0, 1)}), data.series[0].data);
+            var lineData = _.zip(_.map(data.categories, function(e) {
+return Date.UTC(_.toSafeInteger(e), 0, 1);
+}), data.series[0].data);
             return {
                 chart: {
                     type: 'area',
@@ -306,7 +308,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         threshold: null,
                         point: {
                             events: {
-                                click: function () {
+                                click: function() {
                                     vm.occurrenceSearch(data.categoryKeys[this.index]);
                                 }
                             }
@@ -328,36 +330,36 @@ function occurrenceChartDirective(BUILD_VERSION) {
             };
         }
 
-        $scope.create = function (element) {
+        $scope.create = function(element) {
             vm.chartElement = element[0].querySelector('.chartArea');
             updateChart(vm.options.dimension);
         };
 
-        //create API
-        vm.api.print = function () {
+        // create API
+        vm.api.print = function() {
             vm.myChart.print();
         };
-        vm.api.png = function () {
+        vm.api.png = function() {
             vm.myChart.exportChart();
         };
-        vm.api.svg = function(){
+        vm.api.svg = function() {
             vm.myChart.exportChart({
                 type: 'image/svg+xml'
             });
         };
-        vm.api.getTitle = function () {
+        vm.api.getTitle = function() {
             return _.get(vm.data, 'title');
         };
-        vm.api.asPieChart = function () {
+        vm.api.asPieChart = function() {
             vm.options.type = 'PIE';
             return vm.togglePieChart();
         };
-        vm.api.asBarChart = function () {
+        vm.api.asBarChart = function() {
             vm.options.type = 'BAR';
             return vm.toggleBarChart();
         };
 
-        vm.api.getOptions = function () {
+        vm.api.getOptions = function() {
             return {
                 actions: []
             };
@@ -367,19 +369,19 @@ function occurrenceChartDirective(BUILD_VERSION) {
             Object.freeze(vm.api);
         }
 
-        $scope.$watchCollection(function () {
-            return vm.filter
-        }, function () {
+        $scope.$watchCollection(function() {
+            return vm.filter;
+        }, function() {
             updateChart(vm.options.dimension);
         });
     }
 }
 
-//var options = {
+// var options = {
 //    fields: {
 //        basis_of_record:
 //    }
-//};
+// };
 
 
 /**

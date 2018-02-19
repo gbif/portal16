@@ -1,7 +1,7 @@
 require('./polyfills/polyfills');
 
-//Create a global GBIF Object
-(function (global) {
+// Create a global GBIF Object
+(function(global) {
     var gb = global.gb || {},
         util = {VERSION: '0.0.1'};
     gb.util = util;
@@ -9,15 +9,15 @@ require('./polyfills/polyfills');
 })(window);
 
 
-//Small test to add a class if it is a touch device. Will not catch all devices, so only use as a supplement. See http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
+// Small test to add a class if it is a touch device. Will not catch all devices, so only use as a supplement. See http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
 window.gb = window.gb || {};
 window.gb.supportsTouch = !!('ontouchstart' in window || navigator.msMaxTouchPoints);
 if (window.gb.supportsTouch) {
-    document.body.classList.add('isTouch'); //could be useful to have in stylesheet. for example to make targets larger on touch devices
+    document.body.classList.add('isTouch'); // could be useful to have in stylesheet. for example to make targets larger on touch devices
 }
 
 var angular = require('angular');
-//require('./errorLogging'); //TODO temporarily disabled as it isn't tested for DOS and stability
+// require('./errorLogging'); //TODO temporarily disabled as it isn't tested for DOS and stability
 require('angular-ui-router');
 require('angular-translate');
 require('angular-moment');
@@ -44,10 +44,10 @@ require('angular-material');
 require('ng-file-upload');
 require('chartjs');
 require('angular-chart.js');
-require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
+require('checklist-model');// TODO remove as we hardly use it now that there is continous update on occurrenece search?
 require('angular-svg-round-progressbar');
 
-(function () {
+(function() {
     'use strict';
     angular
         .module('portal', ['ngMaterial', 'ngAnimate', 'chart.js', 'ngMessages', 'ngCookies', 'ngStorage', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr', 'ngFileUpload']);
@@ -62,8 +62,8 @@ angular
     .config(chartjsConfig);
 
 /** @ngInject */
-function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { //$log
-    //$log.debug('runBlock end');
+function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { // $log
+    // $log.debug('runBlock end');
     $translate.use(LOCALE);
     amMoment.changeLocale(LOCALE);
 
@@ -79,19 +79,18 @@ function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { //$log
     });
 }
 
-///** @ngInject */
-//function addStateToRoot($rootScope,   $state,   $stateParams) {
+// /** @ngInject */
+// function addStateToRoot($rootScope,   $state,   $stateParams) {
 //    // It's very handy to add references to $state and $stateParams to the $rootScope
 //    // so that you can access them from any scope within your applications.For example,
 //    // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
 //    // to active whenever 'contacts.list' or one of its decendents is active.
 //    $rootScope.$state = $state;
 //    $rootScope.$stateParams = $stateParams;
-//}
+// }
 
 /** @ngInject */
 function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig, $compileProvider) {
-
     $localStorageProvider.setKeyPrefix('gbif.');
     $sessionStorageProvider.setKeyPrefix('gbif.');
     // localStorageServiceProvider
@@ -100,9 +99,7 @@ function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfi
     //     .setDefaultToCookie(false);
 
 
-
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|webcal):/);
-
 
 
     angular.extend(toastrConfig, {
@@ -116,8 +113,8 @@ function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfi
         preventOpenDuplicates: true,
         tapToDismiss: true,
         target: 'body',
-        timeOut: "10000",
-        extendedTimeOut: "3000"
+        timeOut: '10000',
+        extendedTimeOut: '3000'
     });
 }
 
@@ -125,7 +122,7 @@ function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfi
 function chartjsConfig(ChartJsProvider) {
     // Configure all charts
     ChartJsProvider.setOptions({
-        //chartColors: ['#61a861', '#803690', '#FF8A80'],
+        // chartColors: ['#61a861', '#803690', '#FF8A80'],
         chartColors: [
             {
                 backgroundColor: '#61a861',
@@ -152,16 +149,16 @@ function chartjsConfig(ChartJsProvider) {
     ChartJsProvider.setOptions('line', {
         showLines: true
     });
-    //ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+    // ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
 }
 
 /** @ngInject */
 function mdConfig($mdThemingProvider, $mdGestureProvider) {
-    //https://github.com/angular/material/issues/2365
-    //disable angular materials attempt at mimicing native gestures as it breaks maps
+    // https://github.com/angular/material/issues/2365
+    // disable angular materials attempt at mimicing native gestures as it breaks maps
     $mdGestureProvider.skipClickHijack();
 
-    //build with https://angular-md-color.com/#/ based on menu green. plum and tomato
+    // build with https://angular-md-color.com/#/ based on menu green. plum and tomato
     var customPrimary = {
         '50': '#b3d5b3',
         '100': '#a3cca3',
@@ -177,8 +174,8 @@ function mdConfig($mdThemingProvider, $mdGestureProvider) {
         'A200': '#d4e7d4',
         'A400': '#e5f0e5',
         'A700': '#315931',
-        'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
-        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+        'contrastDefaultColor': 'light', // whether, by default, text (contrast) on this palette should be dark or light
+        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] // hues which contrast should be 'dark' by default
     };
     $mdThemingProvider
         .definePalette('customPrimary',
@@ -199,8 +196,8 @@ function mdConfig($mdThemingProvider, $mdGestureProvider) {
         'A200': '#7173ab',
         'A400': '#6163a2',
         'A700': '#c1c2da',
-        'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
-        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+        'contrastDefaultColor': 'light', // whether, by default, text (contrast) on this palette should be dark or light
+        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] // hues which contrast should be 'dark' by default
     };
     $mdThemingProvider
         .definePalette('customAccent',
@@ -221,8 +218,8 @@ function mdConfig($mdThemingProvider, $mdGestureProvider) {
         'A200': '#fffaf9',
         'A400': '#ffffff',
         'A700': '#c61e00',
-        'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
-        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+        'contrastDefaultColor': 'light', // whether, by default, text (contrast) on this palette should be dark or light
+        'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] // hues which contrast should be 'dark' by default
     };
     $mdThemingProvider
         .definePalette('customWarn',
@@ -251,7 +248,7 @@ function mdConfig($mdThemingProvider, $mdGestureProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('customPrimary')
         .accentPalette('customAccent')
-        .warnPalette('customWarn')
+        .warnPalette('customWarn');
       //  .backgroundPalette('customBackground')
 }
 
@@ -259,7 +256,7 @@ require('./portal.ctrl');
 require('../partials/head/head.ctrl');
 require('../partials/head/page.factory');
 
-//require('./angular/socket.factory');//turns out this scales really badly or at least it didn't scale out of the box. Going back to ajax polling
+// require('./angular/socket.factory');//turns out this scales really badly or at least it didn't scale out of the box. Going back to ajax polling
 
 require('./angular/index.constants');
 require('./angular/routerConfig');
@@ -335,7 +332,7 @@ require('../../../pages/user/confirmUser/confirmUser.ctrl');
 
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 
-//require('../../../pages/species/key/speciesKey.ctrl');
+// require('../../../pages/species/key/speciesKey.ctrl');
 require('../../../pages/species/key/speciesKey.ctrl');
 require('../../../pages/species/key/references/references.ctrl');
 
@@ -347,7 +344,7 @@ require('../../../pages/custom/becomePublisher/becomePublisher.ctrl');
 
 require('../../../pages/dataset/key/datasetKey.ctrl');
 
-//cms data is gathered under the umbrella term resources
+// cms data is gathered under the umbrella term resources
 require('../../../pages/resource/search/resource.ctrl');
 require('../../../pages/resource/search/list/resourceList.ctrl');
 
@@ -378,7 +375,6 @@ require('../../../pages/tools/dataValidator/about/dataValidatorAbout.ctrl');
 require('../../../pages/tools/dataValidator/extensions/dwcExtensions.ctrl');
 
 
-
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');
 require('./angular/remarks.service');
@@ -391,7 +387,7 @@ require('../../../pages/species/search/table/speciesTable.ctrl');
 require('../../../pages/species/search/list/speciesList.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
-require('../../../components/map/mapWidget/mapWidget.directive');//TODO decide on a map
+require('../../../components/map/mapWidget/mapWidget.directive');// TODO decide on a map
 require('../../../components/suggest/suggest.directive');
 require('../../../components/expand/expand.directive');
 require('../../../components/shorten/shorten.directive');

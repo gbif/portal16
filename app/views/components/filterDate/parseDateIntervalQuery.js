@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 var moment = require('moment');
 var parseIntervalQuery = require('../filterInterval/parseIntervalQuery'),
-    reg = /^\d{1,4}\-((0?[1-9])|1[0-2])$/;
+    reg = /^\d{1,4}-((0?[1-9])|1[0-2])$/;
 
-module.exports = function (q) {
+module.exports = function(q) {
     var interval = parseIntervalQuery(q);
     if (!interval) {
         return invalidResponse();
@@ -36,13 +36,11 @@ function parseDate(str) {
 }
 
 function isDate(num) {
-
-
-    return moment(num, "YYYY-MM-DD", true).isValid() || reg.test(num);
+    return moment(num, 'YYYY-MM-DD', true).isValid() || reg.test(num);
 }
 
-function invalidResponse(){
+function invalidResponse() {
     return {
         type: 'invalid'
-    }
+    };
 }

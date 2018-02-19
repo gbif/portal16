@@ -1,4 +1,4 @@
-//for IE support
+// for IE support
 module.exports = (function() {
     // https://tc39.github.io/ecma262/#sec-array.prototype.find
     if (!Array.prototype.find) {

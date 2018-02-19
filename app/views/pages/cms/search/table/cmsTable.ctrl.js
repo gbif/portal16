@@ -24,7 +24,7 @@ function cmsTableCtrl(hotkeys, CmsFilter, env) {
 
     updatePaginationCounts();
 
-    vm.pageChanged = function () {
+    vm.pageChanged = function() {
         vm.state.query.offset = (vm.currentPage - 1) * vm.limit;
         updatePaginationCounts();
         CmsFilter.update(vm.state.query);
@@ -34,7 +34,7 @@ function cmsTableCtrl(hotkeys, CmsFilter, env) {
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (offset + vm.limit < vm.state.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
@@ -44,7 +44,7 @@ function cmsTableCtrl(hotkeys, CmsFilter, env) {
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
@@ -52,8 +52,8 @@ function cmsTableCtrl(hotkeys, CmsFilter, env) {
         }
     });
 
-    vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined';
     };
 }
 

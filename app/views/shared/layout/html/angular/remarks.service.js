@@ -2,16 +2,15 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .service('Remarks', function ($http, env) {
+        .service('Remarks', function($http, env) {
             var remarks = $http.get(env.dataApi + 'enumeration/interpretationRemark');
             return remarks;
         });
 })();
-
 
 

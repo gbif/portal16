@@ -25,7 +25,7 @@ function directoryPersonDirective(BUILD_VERSION) {
     function directoryPerson(DirectoryPerson) {
         var vm = this;
         vm.person = DirectoryPerson.get({id: vm.personId});
-        vm.person.$promise.catch(function(err){
+        vm.person.$promise.catch(function(err) {
             vm.error = err;
         });
     }

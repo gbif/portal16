@@ -14,7 +14,7 @@ function speciesCtrl($state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUI
     vm.$state = $state;
     vm.filters = {};
 
-    //facet filters
+    // facet filters
     vm.filters.rank = {
         queryKey: 'rank',
         facetKey: 'RANK',
@@ -62,7 +62,6 @@ function speciesCtrl($state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUI
     };
 
 
-
     vm.filters.highertaxonKey = {
         queryKey: 'highertaxon_key',
         facetKey: 'HIGHERTAXON_KEY',
@@ -103,26 +102,26 @@ function speciesCtrl($state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUI
         filter: SpeciesFilter
     };
 
-    vm.toggleAdvanced = function () {
+    vm.toggleAdvanced = function() {
         SpeciesFilter.updateParam('advanced', vm.state.query.advanced);
     };
 
 
-    //vm.isSingleDataset = function(){
+    // vm.isSingleDataset = function(){
     //    if (vm.state.data.facets && vm.state.data.facets.DATASET_KEY && vm.state.data.facets.DATASET_KEY.counts && Object.keys(vm.state.data.facets.DATASET_KEY.counts).length == 1) {
     //        return true;
     //    }
     //    return false;
-    //};
-    vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+    // };
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined';
     };
 
-    vm.search = function () {
+    vm.search = function() {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.searchOnEnter = function (event) {
+    vm.searchOnEnter = function(event) {
         if (event.which === 13) {
             vm.search();
         }

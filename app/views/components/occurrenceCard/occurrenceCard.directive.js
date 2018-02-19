@@ -26,23 +26,23 @@ function occurrenceCardDirective() {
     /** @ngInject */
     function occurrenceCardCtrl($q, $timeout, $scope, OccurrenceSearch) {
         var vm = this;
-        //$scope.$watch(function () {
+        // $scope.$watch(function () {
         //    return vm.query;
-        //}, function () {
+        // }, function () {
         //
-        //});
+        // });
         function getOccurrences(query) {
             vm.occurrences = OccurrenceSearch.query(query);
             var occImg = OccurrenceSearch.query(_.merge({}, query, {media_type: 'StillImage'}));
             $q.all([vm.occurrences.$promise, occImg.$promise])
-                .then(function (values) {
+                .then(function(values) {
                     var results = _.slice(_.uniqBy(_.concat(values[1].results, values[0].results), 'key'), 0, 10);
                     utils.attachImages(results);
                     vm.occurrences.results = results;
                 });
             var facets = OccurrenceSearch.query(_.merge({}, query, {facet: 'year', facetLimit: '1000', limit: 0}));
             facets.$promise
-                .then(prepareChart)
+                .then(prepareChart);
         }
 
         getOccurrences(vm.query);
@@ -52,22 +52,22 @@ function occurrenceCardDirective() {
             var results = _.orderBy(response.facets[0].counts, 'name');
             var distinct = results.length;
             if (distinct < 2) {
-                //hide chart area as their isn't enough data ? or show 50 years before and after to emphisze that there really isn't more data
+                // hide chart area as their isn't enough data ? or show 50 years before and after to emphisze that there really isn't more data
                 return;
             }
             var firstYear = _.toSafeInteger(results[0].name);
             var lastYear = _.toSafeInteger(results[distinct - 1].name);
             var fullYearRange = _.range(firstYear, lastYear+1, 1);
-            //group
+            // group
             var groupCount = 20;
             groupSize = _.toSafeInteger(Math.ceil(fullYearRange.length / groupCount));
             startYear = lastYear - (groupCount*groupSize);
-            var groups = _.groupBy(results, function(e){
-                return  startYear + Math.ceil((_.toSafeInteger(e.name) - startYear) / groupSize)*groupSize;
+            var groups = _.groupBy(results, function(e) {
+                return startYear + Math.ceil((_.toSafeInteger(e.name) - startYear) / groupSize)*groupSize;
             });
             var labels = [],
                 values = [];
-            _.forEach(groups, function(value, key){
+            _.forEach(groups, function(value, key) {
                 labels.push((_.toSafeInteger(key) - groupSize) + '-' + key);
                 values.push(_.sumBy(value, 'count'));
             });
@@ -78,7 +78,6 @@ function occurrenceCardDirective() {
 
             // vm.labels = fullYearRange;
             // vm.data = [yearCounts];
-
         }
 
         vm.labels = [];
@@ -92,7 +91,7 @@ function occurrenceCardDirective() {
         //     "pointHighlightFill": "#fff",
         //     "pointHighlightStroke": "rgb(255,0,0)"
         // }];
-        vm.colors = ['#345fa2']; //'#14243e'
+        vm.colors = ['#345fa2']; // '#14243e'
         vm.options = {
             responsive: true,
             maintainAspectRatio: false,
@@ -114,7 +113,7 @@ function occurrenceCardDirective() {
                 }]
             }
         };
-        vm.onClick = function () { //points, evt
+        vm.onClick = function() { // points, evt
         };
     }
 }

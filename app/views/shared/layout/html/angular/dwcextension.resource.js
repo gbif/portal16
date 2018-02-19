@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('DwcExtension', function ($resource) {
+        .factory('DwcExtension', function($resource) {
             return $resource('/api/dwc/extensions', null, {
                     'query': {
                         method: 'GET',
@@ -15,8 +15,6 @@ var angular = require('angular');
                     }
                 }
             );
-        })
-
-
+        });
 })();
 

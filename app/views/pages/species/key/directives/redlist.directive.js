@@ -48,7 +48,7 @@ function redlistDirective() {
         RedlistSpecies.query({
             name: vm.name
 
-        }, function (data) {
+        }, function(data) {
             var iucn = _.head(data.result);
             if (iucn) {
                 if (legacyCategories.hasOwnProperty(iucn.category)) {
@@ -61,7 +61,7 @@ function redlistDirective() {
                 vm.link = '#';
             }
             vm.categoryTitle = categories[vm.category];
-        }, function () {
+        }, function() {
         });
     }
 }

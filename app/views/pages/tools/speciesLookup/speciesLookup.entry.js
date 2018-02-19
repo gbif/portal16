@@ -4,7 +4,7 @@ var async = require('async');
 
 // require('./droppable.directive');
 
-var Converter = require("csvtojson").Converter;
+var Converter = require('csvtojson').Converter;
 
 angular
     .module('portal')
@@ -30,16 +30,16 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         }
     };
 
-    vm.handleDrop = function (e) {
+    vm.handleDrop = function(e) {
         var file = e.dataTransfer.files[0];
         parseFile(file);
     };
 
-    $scope.handleFiles = function (files) {
+    $scope.handleFiles = function(files) {
         parseFile(files[0]);
     };
 
-    var isValidFile = function (file) {
+    var isValidFile = function(file) {
         return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1);
     };
 
@@ -54,7 +54,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         return newobj;
     }
 
-    var parseFile = function (file) {
+    var parseFile = function(file) {
         vm.invalidFileFormat = false;
         if (!isValidFile(file)) {
             vm.invalidFileFormat = true;
@@ -62,26 +62,28 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
             return;
         }
         var reader = new FileReader();
-        reader.onload = function () {
+        reader.onload = function() {
             var converter = new Converter({
-                delimiter:  [',', ';', '$', '|', '\t']
+                delimiter: [',', ';', '$', '|', '\t']
             });
             var csvString = reader.result;
             vm.error = undefined;
-            converter.fromString(csvString, function (err, result) {
+            converter.fromString(csvString, function(err, result) {
                 if (err) {
                     vm.error = err;
-                } else if(result.length == 0) {
+                } else if (result.length == 0) {
                     vm.error = 'There are no rows in the data.';
-                } else if(result.length > 6000) {
+                } else if (result.length > 6000) {
                     vm.error = 'Too many rows (maximum 6.000) - try using our APIs instead';
                 } else {
-                //make all keys lower to avoid casing issues
-                    result = result.map(function (e) {
+                // make all keys lower to avoid casing issues
+                    result = result.map(function(e) {
                         return getLowerKeysObj(e);
                     });
-                    if (result.every(function(e){return e.scientificname})) {
-                        result.forEach(function (e) {
+                    if (result.every(function(e) {
+return e.scientificname;
+})) {
+                        result.forEach(function(e) {
                             e.originalId = e.id;
                             e.originalName = e.scientificname;
                             e.preferedKingdom = e.kingdom;
@@ -100,16 +102,15 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
     };
 
     vm.defaultKingdom = undefined;
-    vm.setDefaultKingdom = function (kingdom) {
+    vm.setDefaultKingdom = function(kingdom) {
         if (vm.defaultKingdom == kingdom) {
-            vm.defaultKingdom = undefined
-        }
-        else {
+            vm.defaultKingdom = undefined;
+        } else {
             vm.defaultKingdom = kingdom;
         }
     };
 
-    vm.normalizeAll = function () {
+    vm.normalizeAll = function() {
         vm.pagination.currentPage = 1;
         vm.processing = true;
         lookupNames();
@@ -121,28 +122,28 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
             name: item.originalName,
             kingdom: item.preferedKingdom || vm.defaultKingdom
         };
-        SpeciesMatch.query(query, function (data) {
+        SpeciesMatch.query(query, function(data) {
             item.match = data;
             vm.setItem(item, data);
             callback();
-        }, function () {
+        }, function() {
             callback('match went wrong');
         });
     }
 
     function lookupNames() {
-        async.eachLimit(vm.species, 10, lookupName, function (err) {
+        async.eachLimit(vm.species, 10, lookupName, function(err) {
             if (err) {
-                //TODO inform the user that not everything could be matched
+                // TODO inform the user that not everything could be matched
             } else {
                 vm.lookupComplete = true;
             }
         });
     }
 
-    vm.setItem = function (item, selected) {
+    vm.setItem = function(item, selected) {
         var fields = ['scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey', 'accepted', 'acceptedKey'];
-        fields.forEach(function (field) {
+        fields.forEach(function(field) {
             item[field] = selected[field];
         });
         if (selected.taxonomicStatus) {
@@ -156,48 +157,48 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         }
     };
 
-    //vm.itemToEdit = undefined;
+    // vm.itemToEdit = undefined;
 
-    vm.selectAlternative = function (item, selected) {
+    vm.selectAlternative = function(item, selected) {
         item.userEdited = true;
         vm.setItem(item, selected);
         vm.itemToEdit = undefined;
     };
 
-    vm.discard = function (item) {
+    vm.discard = function(item) {
         item.userEdited = true;
         vm.setItem(item, {});
         vm.itemToEdit = undefined;
     };
 
-    vm.getSuggestions = function (val) {
+    vm.getSuggestions = function(val) {
         return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val,
                 datasetKey: constantKeys.dataset.backbone,
                 limit: 10
             }
-        }).then(function (response) {
+        }).then(function(response) {
             return response.data;
         });
     };
 
 
-    vm.typeaheadSelect = function (item) { //  model, label, event
+    vm.typeaheadSelect = function(item) { //  model, label, event
         vm.itemToEdit.userEdited = true;
-        Species.get({id: item.key}, function (data) {
+        Species.get({id: item.key}, function(data) {
             vm.setItem(vm.itemToEdit, data);
             vm.itemToEdit = undefined;
-            vm.selectedSuggestion = undefined
+            vm.selectedSuggestion = undefined;
         });
     };
 
-    vm.generateCsv = function () {
+    vm.generateCsv = function() {
         var fields = ['originalId', 'originalName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
         var csvContent = '';
 
-        //write column names
-        fields.forEach(function (field, index) {
+        // write column names
+        fields.forEach(function(field, index) {
             csvContent += field;
             if (index < fields.length - 1) {
                 csvContent += ',';
@@ -205,13 +206,13 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         });
         csvContent += '\n';
 
-        //write rows
-        vm.species.forEach(function (e) {
-            //write row
+        // write rows
+        vm.species.forEach(function(e) {
+            // write row
             if (!e.key && vm.exclude) {
                 return;
             }
-            fields.forEach(function (field, index) {
+            fields.forEach(function(field, index) {
                 csvContent += e[field] ? '"' + e[field] + '"' : '';
                 if (index < fields.length - 1) {
                     csvContent += ',';
@@ -219,12 +220,12 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
             });
             csvContent += '\n';
         });
-        //add string to href as data uri making it downloadable
+        // add string to href as data uri making it downloadable
         document.getElementById('speciesLookup_generatedCsv').href = 'data:application/octet-stream,' + encodeURI(csvContent);
         vm.download = true;
     };
 
-    vm.getMatchTypeClass = function (matchType) {
+    vm.getMatchTypeClass = function(matchType) {
         if (matchType == 'FUZZY') {
             return 'badge badge--warning';
         }
@@ -242,7 +243,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         }
     };
 
-    vm.getStatusClass = function (status) {
+    vm.getStatusClass = function(status) {
         if (status == ['ACCEPTED']) {
             return '';
         }
@@ -252,7 +253,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (vm.pagination.currentPage * vm.pagination.pageSize < vm.species.length) {
                 vm.pagination.currentPage += 1;
             }
@@ -261,7 +262,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (vm.pagination.currentPage > 1) {
                 vm.pagination.currentPage -= 1;
             }
@@ -272,29 +273,29 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         combo: 'esc',
         description: 'close',
         allowIn: ['INPUT'],
-        callback: function () {
+        callback: function() {
             vm.itemToEdit = undefined;
         }
     });
 
-    vm.countSpecies = function () {
-        var keysOnly = vm.species.filter(function (e) {
-            return !!e.key
-        }).map(function (e) {
+    vm.countSpecies = function() {
+        var keysOnly = vm.species.filter(function(e) {
+            return !!e.key;
+        }).map(function(e) {
             return e.key;
         });
-        var namesOnly = vm.species.filter(function (e) {
-            return !!e.key
-        }).map(function (e) {
+        var namesOnly = vm.species.filter(function(e) {
+            return !!e.key;
+        }).map(function(e) {
             return e.scientificName;
         });
         $http.post('/api/tools/species-count/count', {
             taxonKeys: keysOnly,
             names: namesOnly,
             countryCode: 'DK'
-        }, {}).then(function (response) {
+        }, {}).then(function(response) {
             vm.referenceId = response.data.referenceId;
-        }, function () {
+        }, function() {
         });
     };
 

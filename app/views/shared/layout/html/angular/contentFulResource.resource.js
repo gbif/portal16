@@ -2,12 +2,10 @@
 
 var angular = require('angular');
 
-(function () {
-    'use strict';
-
+(function() {
     angular
         .module('portal')
-        .factory('ContentFul', function ($resource) {
+        .factory('ContentFul', function($resource) {
             return $resource('/api/resource', null, {
                     'query': {
                         method: 'GET',
@@ -19,7 +17,5 @@ var angular = require('angular');
                     }
                 }
             );
-        })
-
-    ;
+        });
 })();

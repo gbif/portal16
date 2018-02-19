@@ -28,8 +28,8 @@ function filterDateDirective(BUILD_VERSION) {
     /** @ngInject */
     function filterDate($scope, $filter) {
         var vm = this;
-        vm.months = [1,2,3,4,5,6,7,8,9,10,11,12];
-        vm.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+        vm.months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        vm.days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
         vm.options = ['between', 'equals', 'lessThanOrEquals', 'greaterThanOrEquals'];
         vm.intervals = [];
         vm.collapsed = vm.filterConfig.collapsed !== false;
@@ -38,13 +38,13 @@ function filterDateDirective(BUILD_VERSION) {
         vm.queryKey = vm.filterConfig.queryKey;
 
         vm.intervals = $filter('unique')(vm.filterState.query[vm.queryKey]);
-        vm.dates = {};//parseDateQuery(vm.filterState.query[vm.queryKey]);
+        vm.dates = {};// parseDateQuery(vm.filterState.query[vm.queryKey]);
 
-        //$scope.$watch(function () {
+        // $scope.$watch(function () {
         //    return vm.filterState.query[vm.queryKey]
-        //}, function (newQuery) {
+        // }, function (newQuery) {
         //    updateQuery(newQuery);
-        //});
+        // });
 
         vm.getParsedQuery = function(query) {
             var interval = parseDateQuery(query);
@@ -61,13 +61,13 @@ function filterDateDirective(BUILD_VERSION) {
             vm.stringifyQuery();
         };
 
-        vm.clearCurrent = function () {
+        vm.clearCurrent = function() {
             vm.dates.from = {};
             vm.dates.to = {};
             vm.queryString = undefined;
         };
 
-        vm.clear = function () {
+        vm.clear = function() {
             vm.intervals = [];
             vm.clearCurrent();
             vm.apply();
@@ -82,7 +82,7 @@ function filterDateDirective(BUILD_VERSION) {
             }
         };
 
-        vm.change = function () {
+        vm.change = function() {
             vm.stringifyQuery();
         };
 
@@ -96,12 +96,12 @@ function filterDateDirective(BUILD_VERSION) {
             if (!date) {
                 return undefined;
             } else {
-                return (date.day) ? date.year + '-' + pad(date.month,2)+'-'+ pad(date.day,2): date.year + '-' + pad(date.month,2);
+                return (date.day) ? date.year + '-' + pad(date.month, 2)+'-'+ pad(date.day, 2): date.year + '-' + pad(date.month, 2);
             }
         }
 
-        vm.stringifyQuery = function(){
-            var reg = /^[\d\-\*,]+$/;
+        vm.stringifyQuery = function() {
+            var reg = /^[\d\-*,]+$/;
             var stateString = '',
                 fromStr = getDatePart(vm.dates.from),
                 toStr = getDatePart(vm.dates.to);
@@ -127,7 +127,7 @@ function filterDateDirective(BUILD_VERSION) {
 
         vm.selectType(vm.dates.type);
 
-        vm.remove = function (el) {
+        vm.remove = function(el) {
             var start = vm.intervals.indexOf(el);
             if (start >= 0) {
                 vm.intervals.splice(start, 1);
@@ -135,10 +135,9 @@ function filterDateDirective(BUILD_VERSION) {
             vm.apply();
         };
 
-        vm.apply = function () {
+        vm.apply = function() {
            vm.filterConfig.filter.updateParam(vm.queryKey, vm.intervals);
         };
-
     }
 }
 

@@ -10,7 +10,7 @@ angular
 function updatePasswordCtrl(User) {
     var vm = this;
 
-    vm.update = function () {
+    vm.update = function() {
         if (vm.updatePasswordForm.$valid && vm.pw === vm.repeatedPw) {
             vm.notIdentical = false;
             vm.passwordFormInvalid = false;
@@ -18,16 +18,16 @@ function updatePasswordCtrl(User) {
                 password: vm.pw,
                 challengeCode: vm.challengeCode,
                 userName: vm.userName
-            }).then(function () {
-                //will redirect from User service
-            }, function () {
-                //TODO inform user that the attept to update the password failed. toast probably
+            }).then(function() {
+                // will redirect from User service
+            }, function() {
+                // TODO inform user that the attept to update the password failed. toast probably
             });
         } else {
             vm.notIdentical = true;
             vm.passwordFormInvalid = true;
         }
-    }
+    };
 }
 
 

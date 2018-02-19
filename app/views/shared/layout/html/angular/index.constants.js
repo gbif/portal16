@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
     var angular = require('angular');
     require('./env.constants');
@@ -11,5 +11,5 @@
             iucnUserLink: 'http://www.iucnredlist.org/details/',
             userDownloads: '/api/user/myDownloads',
             datasetDownloads: 'occurrence/download/dataset/'
-        })
+        });
 })();

@@ -14,7 +14,7 @@ angular
 function translaterConfig($translateProvider, BUILD_VERSION) {
     $translateProvider.useUrlLoader('/api/translation.json?v=' + BUILD_VERSION);
     // https://angular-translate.github.io/docs/#/guide/14_pluralization
-    //$translateProvider.addInterpolation('$translateMessageFormatInterpolation');
+    // $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
     $translateProvider.useMessageFormatInterpolation();
     $translateProvider.preferredLanguage('en');
     $translateProvider.useSanitizeValueStrategy('escape'); // http://angular-translate.github.io/docs/#/guide/19_security

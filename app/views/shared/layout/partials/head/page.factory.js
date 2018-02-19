@@ -11,8 +11,12 @@ function pageFactory() {
     var title = undefined,
         drawer = false;
     return {
-        title: function() { return title; },
-        setTitle: function(newTitle) { title = newTitle; },
+        title: function() {
+ return title;
+},
+        setTitle: function(newTitle) {
+ title = newTitle;
+},
         drawer: function(drawerBool) {
             if (typeof drawerBool === 'boolean') {
                 drawer = drawerBool;

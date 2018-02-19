@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('CountryDataDigest', function ($resource) {
+        .factory('CountryDataDigest', function($resource) {
             return $resource('/api/country/digest/:iso2', null,
                 {
                     'get': {
@@ -19,7 +19,7 @@ var angular = require('angular');
                     }
                 });
         })
-        .factory('Country', function ($resource) {
+        .factory('Country', function($resource) {
             return $resource('/api/country/:key', null, {
                     'query': {
                         method: 'GET',

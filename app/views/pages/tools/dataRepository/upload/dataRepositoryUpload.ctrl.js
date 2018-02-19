@@ -21,7 +21,7 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
     };
     vm.state = vm.states.FILL_FORM;
 
-    vm.initForm = function () {
+    vm.initForm = function() {
         vm.form = {
             creators: [{}],
             license: vm.config.license[0]
@@ -34,34 +34,34 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
     vm.initForm();
 
 
-    vm.addItemToArray = function (items) {
+    vm.addItemToArray = function(items) {
         items.push({});
     };
-    vm.insertItemInArray = function (index, items) {
+    vm.insertItemInArray = function(index, items) {
         items.splice(index, 0, {});
     };
 
-    vm.removeFromArray = function (item, items) {
-        _.remove(items, function (n) {
+    vm.removeFromArray = function(item, items) {
+        _.remove(items, function(n) {
             return n == item;
         });
     };
 
-    vm.updateDescription = function (description) {
+    vm.updateDescription = function(description) {
         vm.form.description = description;
     };
 
-    vm.countNonEmptyItems = function (items) {
-        return _.filter(items, function (e) {
+    vm.countNonEmptyItems = function(items) {
+        return _.filter(items, function(e) {
             return e.val;
         }).length;
     };
 
-    vm.reload = function () {
+    vm.reload = function() {
         $state.reload();
     };
 
-    vm.getCitationName = function (name) {
+    vm.getCitationName = function(name) {
         name = name ? name + '' : '';
         name = name.replace(/\s\s+/g, ' ').trim();
         var parts = name.split(' ');
@@ -72,31 +72,31 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
         return n.trim();
     };
 
-    vm.upload = function () {
-        //check that the upload isn't already started
-        if (vm.state == vm.states.UPLOADING) return;//to avoid duplicate uploads
+    vm.upload = function() {
+        // check that the upload isn't already started
+        if (vm.state == vm.states.UPLOADING) return;// to avoid duplicate uploads
 
-        //extract data to send
+        // extract data to send
         var data_package = vm.form;
-        data_package.creators = data_package.creators.map(function(creator){
+        data_package.creators = data_package.creators.map(function(creator) {
             return {
                 name: creator.name,
                 identifier: creator.identifier,
                 identifierScheme: creator.identifier ? 'ORCID' : undefined,
                 affiliation: creator.affiliation ? [creator.affiliation] : undefined
-            }
+            };
         });
         data_package.shareIn = vm.shareInDataOne ? ['DataOne'] : [];
-        var fileUrls = _.map(vm.fileUrls, function (e) {
+        var fileUrls = _.map(vm.fileUrls, function(e) {
             return e.val;
         });
 
-        //reset upload info
+        // reset upload info
         vm.state = vm.states.UPLOADING;
         vm.errorMsg = undefined;
         vm.result = undefined;
 
-        //start upload
+        // start upload
         vm.uploadProcess = Upload.upload({
             url: env.dataApi + 'data_packages/',
             headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
@@ -111,13 +111,13 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
         });
 
         $window.scrollTo(0, 0);
-        vm.uploadProcess.then(function (response) {
-            $timeout(function () {
+        vm.uploadProcess.then(function(response) {
+            $timeout(function() {
                 vm.state = vm.states.UPLOADED;
                 vm.result = response.data;
             });
-        }, function (response) {
-            $timeout(function () {
+        }, function(response) {
+            $timeout(function() {
                 vm.state = vm.states.FAILED_UPLOAD;
                 if (response.status > 0) {
                     vm.errorMsg = response.data.code + ': ' + response.data.message;
@@ -125,15 +125,15 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
                     vm.errorMsg = 'Unknown error occurred';
                 }
             });
-        }, function (evt) {
+        }, function(evt) {
             vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
     };
 
-    //Load the current user and use to prefill the first creator
+    // Load the current user and use to prefill the first creator
     var activeUser = User.loadActiveUser();
     if (activeUser) {
-        activeUser.then(function (currentUser) {
+        activeUser.then(function(currentUser) {
             vm.profile = currentUser.data;
             vm.form.creators[0].name = vm.form.creators[0].name || vm.profile.firstName + ' ' + vm.profile.lastName;
         });

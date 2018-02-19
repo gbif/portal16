@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('OccurrenceFrequentTaxa', function ($resource) {
+        .factory('OccurrenceFrequentTaxa', function($resource) {
             return $resource('/api/chart/occurrence/frequentTaxa', null, {
                     'query': {
                         method: 'GET',

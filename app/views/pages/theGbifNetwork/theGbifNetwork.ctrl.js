@@ -9,11 +9,11 @@ var angular = require('angular'),
 
 angular
     .module('portal')
-    .controller('theGbifNetworkCtrl', theGbifNetworkCtrl)
+    .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
 
 
 /** @ngInject */
-function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService, $timeout) {
+function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService, $timeout) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
@@ -45,7 +45,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
     }
 
 
-    var colors = {voting_participant: '#4E9F37', associate_country_participant: '#58BAE9'}
+    var colors = {voting_participant: '#4E9F37', associate_country_participant: '#58BAE9'};
 
     var currentlySelectedFeature;
 
@@ -57,10 +57,9 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             overlaps: false
         }),
         style: function(feature) {
-
             var stroke = (currentlySelectedFeature === feature) ? '#000000': '#FFFFFF';
-            var  zIndex= (currentlySelectedFeature === feature) ? 100 : 1;
-            var  width = (currentlySelectedFeature === feature) ? 2 : 1;
+            var zIndex= (currentlySelectedFeature === feature) ? 100 : 1;
+            var width = (currentlySelectedFeature === feature) ? 2 : 1;
             return new ol.style.Style({
                 fill: new ol.style.Fill({
                     color: colors[feature.getProperties().membershipType] || '#A9A9A9'
@@ -70,8 +69,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                     width: width
                 }),
                 zIndex: zIndex
-            })
-
+            });
         }
     });
 
@@ -79,7 +77,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
    map.addLayer(vector);
 
     var displayFeatureInfo = function(pixel) {
-
         var feature = map.forEachFeatureAtPixel(pixel, function(feature) {
             return feature;
         });
@@ -90,45 +87,37 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             var extent = feature.getGeometry().getExtent();
             var longitudeSpan = (extent[2] - extent[0]);
             // A check if to see if the extent of a country crosses the date line, if so zoom to region rather than fit the entire globe
-            if(longitudeSpan < 180){
+            if (longitudeSpan < 180) {
                 map.getView().fit(ol.proj.transformExtent(feature.getGeometry().getExtent(), 'EPSG:4326', currentProjection.srs));
             } else {
                 zoomToRegion(feature.getProperties().gbifRegion);
             }
-
         } else {
             vm.showParticipantDetails = false;
         }
-
-
-
     };
 
 
-
     map.on('click', function(evt) {
-
         displayFeatureInfo(evt.pixel);
     });
 
     vm.mapIsLoaded = true;
 
-    var zoomToRegion = function(region){
-
+    var zoomToRegion = function(region) {
        map.getView().fit(regionCenters[region].extent);
-
-    }
+    };
 
     vm.membershipType = 'active';
     vm.showChart = false;
     vm.tableLoaded = false;
 
-    $scope.$watch($scope.showChart, function(){
+    $scope.$watch($scope.showChart, function() {
         vm.showchart = $scope.showChart;
     });
 
 
-    vm.updateParticipantDetails = function (props) {
+    vm.updateParticipantDetails = function(props) {
     delete vm.heads;
     delete vm.digest;
     delete vm.endorsedPublisher;
@@ -144,14 +133,13 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         }
         if (props && props.countryCode) {
             tasks.digest = CountryDataDigest.get({iso2: props.countryCode}).$promise;
-            tasks.digest.catch(function(){
+            tasks.digest.catch(function() {
                 vm.participantApiError = true;
             });
         }
 
-        $q.all(tasks).then(function(results){
+        $q.all(tasks).then(function(results) {
             if (results.hasOwnProperty('heads')) {
-
                 vm.heads = results.heads;
             }
             if (results.hasOwnProperty('endorsement') && results.endorsement.hasOwnProperty('count')) {
@@ -162,27 +150,23 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             }
             vm.digestLoaded = true;
         })
-            .catch(function(){
+            .catch(function() {
                 vm.participantApiError = true;
             });
-
-
     };
 
 
-    vm.cleanRoles = function(region){
-
-        return function(r){
-            if(region === undefined || region === 'GLOBAL' && r.role.indexOf('CHAIR') !== -1){
+    vm.cleanRoles = function(region) {
+        return function(r) {
+            if (region === undefined || region === 'GLOBAL' && r.role.indexOf('CHAIR') !== -1) {
                 return true;
-            } else if(r.role.indexOf(region) !== -1) {
+            } else if (r.role.indexOf(region) !== -1) {
                 return true;
             } else {
-                return false
+                return false;
             }
-        }
-
-    }
+        };
+    };
 
     vm.count = {};
     vm.participantTypes = [
@@ -194,7 +178,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
     vm.query = $stateParams;
 
     vm.selectRegion = function(region) {
-
         var oldRegion = vm.currentRegion;
         vm.showParticipantDetails = false;
         vm.currentRegion = region;
@@ -207,39 +190,34 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             loadRegionalReps(vm.currentRegion);
 
             if (vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS' && vm.currentRegion !== 'GBIF_AFFILIATES') {
-
-                var latency = (oldRegion === 'PARTICIPANT_ORGANISATIONS' ||  oldRegion === 'GBIF_AFFILIATES') ? 500 : 0;
-              $timeout(function(){
+                var latency = (oldRegion === 'PARTICIPANT_ORGANISATIONS' || oldRegion === 'GBIF_AFFILIATES') ? 500 : 0;
+              $timeout(function() {
                   zoomToRegion(region);
-              }, latency)
-
+              }, latency);
             }
 
-        vm.contentfulResourceUrl = '/templates/the-gbif-network/'+region.toLowerCase().replace('_', '-')+'/regionArticle.html?v=' + vm.BUILD_VERSION
+        vm.contentfulResourceUrl = '/templates/the-gbif-network/'+region.toLowerCase().replace('_', '-')+'/regionArticle.html?v=' + vm.BUILD_VERSION;
         var regionLower = region.toLowerCase().replace('_', '-');
-        $state.go($state.$current, {region: regionLower}, {notify: false})
-
+        $state.go($state.$current, {region: regionLower}, {notify: false});
     };
 
     vm.currentRegion = $stateParams.region;
     if (vm.currentRegion) {
         vm.currentRegion = vm.currentRegion.toUpperCase().replace('-', '_');
         vm.selectRegion(vm.currentRegion);
-    }
-    else {
+    } else {
         vm.currentRegion = 'GLOBAL';
         vm.selectRegion(vm.currentRegion);
     }
 
     // For participant table.
     function loadParticipantsDigest(region) {
-
         vm.tableLoaded = false;
         delete vm.activeParticipantsDigest;
 
         var query;
 
-        switch(region) {
+        switch (region) {
             case 'PARTICIPANT_ORGANISATIONS':
                 query = {'membershipType': 'other_associate_participant'};
                 break;
@@ -251,27 +229,27 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         }
         var publisherCount = 0;
 
-        vm.participantTypes.forEach(function (pType) {
+        vm.participantTypes.forEach(function(pType) {
             vm.count[pType] = 0;
-        })
+        });
         vm.count.occurrence = 0;
         vm.count.dataset = 0;
 
 
         ParticipantsDigest.get(query).$promise
-            .then(function(response){
+            .then(function(response) {
                 // duplicate some counts for sorting.
-                response.forEach(function(r){
-                    ['occurrenceFromCount', 'datasetFromCount'].forEach(function(c){
+                response.forEach(function(r) {
+                    ['occurrenceFromCount', 'datasetFromCount'].forEach(function(c) {
                         if (r.counts.hasOwnProperty(c)) {
                             r[c + 'Sort'] = r.counts[c];
                         }
                     });
 
-                    if(r.counts && !isNaN(r.counts.occurrenceFromCount)){
+                    if (r.counts && !isNaN(r.counts.occurrenceFromCount)) {
                         vm.count.occurrence += r.counts.occurrenceFromCount;
                     }
-                    if(r.counts && !isNaN(r.counts.datasetFromCount)){
+                    if (r.counts && !isNaN(r.counts.datasetFromCount)) {
                         vm.count.dataset += r.counts.datasetFromCount;
                     }
 
@@ -284,15 +262,15 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                 });
 
                 vm.count.publisher = publisherCount;
-                if(regionCenters[region]){
-                response = response.filter(function(p){
-                    return p.participationStatus !== "AFFILIATE"
-                })
+                if (regionCenters[region]) {
+                response = response.filter(function(p) {
+                    return p.participationStatus !== 'AFFILIATE';
+                });
                 }
                 vm.activeParticipantsDigest = response;
                 vm.tableLoaded = true;
             })
-            .catch(function(){
+            .catch(function() {
                 vm.participantApiError = true;
             });
     }
@@ -304,55 +282,47 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         delete vm.reps;
         DirectoryNsgContacts.get().$promise
             .then(function(contacts) {
-
                 var idMap = {};
 
-                var reps = contacts.filter(function(contact){
-
-                    if(idMap[contact.id] === true){
-                        return false ; // its already there, duplicates from API
+                var reps = contacts.filter(function(contact) {
+                    if (idMap[contact.id] === true) {
+                        return false; // its already there, duplicates from API
                     } else {
                         var picked = false;
-                        contact.roles.forEach(function(role){
+                        contact.roles.forEach(function(role) {
                             if (region === 'GLOBAL' && role.role.indexOf('NODES_COMMITTEE') !== -1 && role.role.indexOf('CHAIR') !== -1) {
-                                picked = true
-                            }
-                            else if(region !== 'GLOBAL' && role.role.indexOf(region) !== -1){
+                                picked = true;
+                            } else if (region !== 'GLOBAL' && role.role.indexOf(region) !== -1) {
                                 picked = true;
                             }
                         });
-                        if(picked === true){
+                        if (picked === true) {
                             idMap[contact.id] = true;
                         }
 
                         return picked;
-
                     }
-
-
-                })
-                if(region !== 'GLOBAL'){
-                    reps.sort(function(a){
-                        return (_.find(a.roles, function(r){
-                            return (r.role.indexOf(region) !== -1 && r.role.indexOf("DEPUTY") !== -1)
+                });
+                if (region !== 'GLOBAL') {
+                    reps.sort(function(a) {
+                        return (_.find(a.roles, function(r) {
+                            return (r.role.indexOf(region) !== -1 && r.role.indexOf('DEPUTY') !== -1);
                         })) ? 1 : -1;
-
                     });
                 }
 
                 vm.reps = reps;
                 vm.repTableLoaded = true;
-            }, function(error){
+            }, function(error) {
                 return error;
             });
     }
     vm.toggleStatus = {};
-    vm.toggleDetail = function (personId) {
+    vm.toggleDetail = function(personId) {
         // true means show
         if (vm.toggleStatus[personId] && vm.toggleStatus[personId] == 'contact--show') {
             vm.toggleStatus[personId] = false;
-        }
-        else {
+        } else {
             vm.toggleStatus[personId] = 'contact--show';
         }
     };

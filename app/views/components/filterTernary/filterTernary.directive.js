@@ -29,11 +29,11 @@ function filterTernaryDirective(BUILD_VERSION) {
         var vm = this;
         vm.queryKey = vm.filterConfig.queryKey;
 
-        vm.change = function () {
+        vm.change = function() {
             vm.apply();
         };
 
-        vm.apply = function () {
+        vm.apply = function() {
             vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
         };
 

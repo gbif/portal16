@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var map, Draw, mapApi;
 
@@ -21,7 +21,7 @@ function createMap(options) {
     mapApi = 'https:' + options.dataapiv2 + 'map/';
     map = new mapboxgl.Map({ // eslint-disable-line no-undef
         container: 'observationTrendsMap',
-        style: 'mapbox://styles/mapbox/light-v9',//mapStyle,
+        style: 'mapbox://styles/mapbox/light-v9', // mapStyle,
         center: [10, 50],
         zoom: 3,
         bearing: 0,
@@ -32,24 +32,23 @@ function createMap(options) {
 
     map.addControl(new mapboxgl.NavigationControl());// eslint-disable-line no-undef
 
-    //to change draw styles see https://github.com/mapbox/mapbox-gl-draw/blob/master/EXAMPLES.md
+    // to change draw styles see https://github.com/mapbox/mapbox-gl-draw/blob/master/EXAMPLES.md
     Draw = new MapboxDraw({ // eslint-disable-line no-undef
         displayControlsDefault: false
     });
     map.addControl(Draw);
 
-    map.on('load', function () {
+    map.on('load', function() {
         if (options.onLoad) {
             options.onLoad();
         }
     });
 
-    map.on('style.load', function () {
+    map.on('style.load', function() {
         if (options.onStyleLoad) {
             options.onStyleLoad();
         }
     });
-
 }
 
 
@@ -63,55 +62,55 @@ function removeOverlays() {
 }
 
 function updateOverlays(query, slopeStdErrThreshold) {
-    slopeStdErrThreshold = slopeStdErrThreshold || 2; //show all per default
+    slopeStdErrThreshold = slopeStdErrThreshold || 2; // show all per default
     removeOverlays();
     var regressionTiles = mapApi + 'occurrence/regression/{z}/{x}/{y}.mvt?' + query;
 
     var groupPointTiles = mapApi + 'occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&' + query;
     map.addSource('groupPoints', {
-        type: 'vector',
-        "tiles": [groupPointTiles]
+        'type': 'vector',
+        'tiles': [groupPointTiles]
     });
     map.addLayer({
-        "id": "groupPoints",
-        "type": "circle",
-        "source": "groupPoints",
-        "source-layer": "occurrence",
-        "paint": {
-            "circle-radius": 1.5,
+        'id': 'groupPoints',
+        'type': 'circle',
+        'source': 'groupPoints',
+        'source-layer': 'occurrence',
+        'paint': {
+            'circle-radius': 1.5,
             'circle-color': '#444',
-            "circle-opacity": 0.1
+            'circle-opacity': 0.1
         }
     });
 
     map.addSource('gbifRegression', {
-        type: 'vector',
-        "tiles": [regressionTiles]
+        'type': 'vector',
+        'tiles': [regressionTiles]
     });
 
 
     map.addLayer({
-        "id": "regression-fill",
-        "type": "fill",
-        "source": "gbifRegression",
-        "source-layer": "regression",
-        "paint": {
-            "fill-color": {
-                property: 'slope',
-                "type": "interval",
-                stops: breakpoints
+        'id': 'regression-fill',
+        'type': 'fill',
+        'source': 'gbifRegression',
+        'source-layer': 'regression',
+        'paint': {
+            'fill-color': {
+                'property': 'slope',
+                'type': 'interval',
+                'stops': breakpoints
             },
-            "fill-outline-color": '#ededed',
-            "fill-opacity": 0.6
+            'fill-outline-color': '#ededed',
+            'fill-opacity': 0.6
         },
-        "filter": ['<=', "slopeStdErr", slopeStdErrThreshold]
+        'filter': ['<=', 'slopeStdErr', slopeStdErrThreshold]
     });
 }
 
 function hoverEventListener(e) {
     var features;
     if (map.getLayer('regression-fill')) {
-        features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
+        features = map.queryRenderedFeatures(e.point, {layers: ['regression-fill']});
         map.getCanvas().style.cursor = (features.length > 0) ? 'pointer' : '';
     }
 }
@@ -178,7 +177,7 @@ function clearSelection(hexagon) {
  */
 function selectFeatureAtPoint(e) {
     if (!map.getLayer('regression-fill')) return;
-    var features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
+    var features = map.queryRenderedFeatures(e.point, {layers: ['regression-fill']});
     if (features.length > 0) {
         var feature = features[0];
         Draw.set({

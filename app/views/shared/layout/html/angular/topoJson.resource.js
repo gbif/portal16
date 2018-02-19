@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('WorldRobinson', function ($resource) {
+        .factory('WorldRobinson', function($resource) {
             return $resource('/api/topojson/world-robinson', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('WorldTopoJson', function ($resource) {
+        .factory('WorldTopoJson', function($resource) {
             return $resource('/api/topojson/world', null, {
                     'query': {
                         method: 'GET',

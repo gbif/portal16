@@ -7,8 +7,6 @@ var angular = require('angular'),
 require('../../../../components/map/featureMap/featureMap.directive');
 
 
-
-
 angular
     .module('portal')
     .controller('dataValidatorDocumentCtrl', dataValidatorDocumentCtrl);
@@ -23,20 +21,18 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
     Page.drawer(false);
 
     vm.getEML = function(jobid) {
-
         $http.get(
             vm.dataApi + 'validator/jobserver/output/' + jobid +'/DATASET_OBJECT', {params: {nonse: Math.random()}}
 
-        ).success(function (data) {
+        ).success(function(data) {
             vm.eml = data.content;
-            console.log(data)
+            console.log(data);
 
             vm.coverages = geoJsonFromCoverage(vm.eml.geographicCoverages);
-            vm.originators = _.filter(vm.eml.contacts, function(c){
-                return c.type === "ORIGINATOR"
-            })
-
-        }).error(function (err, status, headers) { //data, status, headers, config
+            vm.originators = _.filter(vm.eml.contacts, function(c) {
+                return c.type === 'ORIGINATOR';
+            });
+        }).error(function(err, status, headers) { // data, status, headers, config
 
            // TODO
         });
@@ -49,11 +45,11 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
 
     function geoJsonFromCoverage(geographicCoverages) {
         var geoJson = {
-            "type": "FeatureCollection",
-            "features": []
+            'type': 'FeatureCollection',
+            'features': []
         };
         if (_.isArray(geographicCoverages)) {
-            geographicCoverages.forEach(function (e) {
+            geographicCoverages.forEach(function(e) {
                 if (!_.get(e, 'boundingBox.globalCoverage', true)) {
                     geoJson.features.push(getFeature(e));
                 }
@@ -68,14 +64,14 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
     function getFeature(coverage) {
         var b = coverage.boundingBox;
         return {
-            "type": "Feature",
-            "properties": {
+            'type': 'Feature',
+            'properties': {
                 description: coverage.description,
                 boundingBox: coverage.boundingBox
             },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
+            'geometry': {
+                'type': 'Polygon',
+                'coordinates': [
                     [
                         [
                             b.minLongitude,
@@ -103,14 +99,13 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
         };
     }
 
-    vm.attachTabListener = function () {
+    vm.attachTabListener = function() {
         fixedUtil.updateTabs();
     };
 
-    vm.attachMenuListener = function () {
+    vm.attachMenuListener = function() {
         fixedUtil.updateMenu();
     };
-
 }
 
 module.exports = dataValidatorDocumentCtrl;

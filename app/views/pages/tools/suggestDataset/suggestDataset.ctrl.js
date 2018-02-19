@@ -13,11 +13,11 @@ function suggestDatasetCtrl($http) {
     vm.state = 'ENTER';
     vm.referenceId = '';
 
-    vm.createSuggestion = function () {
-        $http.post('/api/tools/suggest-dataset', {form: vm.suggestion}, {}).then(function (response) {
+    vm.createSuggestion = function() {
+        $http.post('/api/tools/suggest-dataset', {form: vm.suggestion}, {}).then(function(response) {
             vm.referenceId = response.data.referenceId;
             vm.state = 'SUCCESS';
-        }, function () {
+        }, function() {
             vm.state = 'FAILED';
         });
     };

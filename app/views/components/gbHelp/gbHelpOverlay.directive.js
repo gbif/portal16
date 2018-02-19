@@ -29,7 +29,7 @@ function gbHelpOverlayDirective() {
         var vm = this;
         vm.state = HelpService.getState();
 
-        vm.showPopup = function(){
+        vm.showPopup = function() {
             vm.show = true;
             vm.loading = false;
             vm.failed = false;
@@ -43,24 +43,24 @@ function gbHelpOverlayDirective() {
                     identifier: vm.identifier,
                     locale: $stateParams.locale
                 });
-                vm.helpItem.$promise.then(function (resp) {
+                vm.helpItem.$promise.then(function(resp) {
                     vm.loading = false;
                     vm.trustedBody = $sce.trustAsHtml(resp.body);
-                }).catch(function () {
+                }).catch(function() {
                     vm.failed = true;
                     vm.loading = false;
                 });
             }
         };
 
-        vm.close = function(){
+        vm.close = function() {
             vm.show = false;
             HelpService.updateState(false);
         };
 
-        $scope.$watchCollection(function () {
+        $scope.$watchCollection(function() {
             return vm.state;
-        }, function (newState, oldState) {
+        }, function(newState, oldState) {
             vm.identifier = vm.state.identifier;
             vm.isCms = vm.state.isCms;
             vm.show = vm.state.open;

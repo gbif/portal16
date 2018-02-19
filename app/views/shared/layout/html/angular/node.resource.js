@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('Node', function ($resource, env) {
+        .factory('Node', function($resource, env) {
             return $resource(env.dataApi + 'node/:id', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('NodeEndorsedPublishers', function ($resource, env) {
+        .factory('NodeEndorsedPublishers', function($resource, env) {
             return $resource(env.dataApi + 'node/:id/organization', null, {
                     'query': {
                         method: 'GET',
@@ -25,7 +25,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('NodeCountry', function ($resource, env) {
+        .factory('NodeCountry', function($resource, env) {
             return $resource(env.dataApi + 'node/country/:countryCode', null, {
                     'query': {
                         method: 'GET',
@@ -34,7 +34,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('NodeDatasets', function ($resource, env) {
+        .factory('NodeDatasets', function($resource, env) {
             return $resource(env.dataApi + 'node/:id/dataset', null, {
                     'query': {
                         method: 'GET',
@@ -43,7 +43,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('Participant', function ($resource) {
+        .factory('Participant', function($resource) {
             return $resource('/api/participant/:id', null, {
                     'query': {
                         method: 'GET',

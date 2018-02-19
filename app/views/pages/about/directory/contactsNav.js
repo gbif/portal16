@@ -1,4 +1,4 @@
-module.exports = (function () {
+module.exports = (function() {
     if (document.compatMode == 'CSS1Compat') {
         var navbarHeight = 60;
         var contactsNavWrapper = document.getElementById('contacts-nav-wrapper');
@@ -26,5 +26,4 @@ module.exports = (function () {
             contactsNav.classList.remove('contacts-nav--bottom');
         }
     }
-
 })();

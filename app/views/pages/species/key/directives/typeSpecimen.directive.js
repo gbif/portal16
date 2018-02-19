@@ -29,20 +29,19 @@ function typeSpecimenDirective() {
 
         OccurrenceTableSearch.query({
             taxonKey: vm.key,
-            typeStatus: "*"
+            typeStatus: '*'
 
-        }, function (data) {
+        }, function(data) {
             // remove higher rank matches
             // sort by type
             vm.specimen = _.sortBy(
-                _.filter(data.results, function (o) {
-                    return !_.find(o.issues, function (o) {
+                _.filter(data.results, function(o) {
+                    return !_.find(o.issues, function(o) {
                         return o == 'TAXON_MATCH_HIGHERRANK';
                     }) && o.taxonRank === vm.rank;
                 }), ['typeStatus', 'year', 'occurrenceID']);
-
-        }, function () {
-        })
+        }, function() {
+        });
     }
 }
 

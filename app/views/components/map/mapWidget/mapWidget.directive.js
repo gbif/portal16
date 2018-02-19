@@ -6,7 +6,7 @@ var angular = require('angular'),
     ol = require('openlayers'),
     utils = require('../../../shared/layout/html/utils/utils'),
     options = require('./options'),
-//globeCreator = require('./globe'),
+// globeCreator = require('./globe'),
     moment = require('moment'),
     _ = require('lodash');
 
@@ -17,8 +17,6 @@ angular
 
 /** @ngInject */
 function mapWidgetDirective(BUILD_VERSION) {
-
-
     var directive = {
         restrict: 'E',
         transclude: true,
@@ -36,7 +34,7 @@ function mapWidgetDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element) {//, attrs, ctrl
+    function mapLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
 
@@ -90,7 +88,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.predefinedStyles = options.predefined;
         vm.style = $localStorage.selectedMapStyle || 'CLASSIC_HEX';
 
-        vm.updateCustomStyle = function () {
+        vm.updateCustomStyle = function() {
             var style;
             vm.selectedBinning = vm.selectedBinning || {};
             if (!vm.selectedColor || vm.selectedColor.type != vm.selectedBinning.type) {
@@ -101,7 +99,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 vm.selectedColor = colorMatch;
             }
             if (vm.selectedColor.query) {
-                style = vm.selectedColor.query.map(function (e) {
+                style = vm.selectedColor.query.map(function(e) {
                     return _.assign({style: e}, vm.selectedBinning.query);
                 });
             }
@@ -118,14 +116,14 @@ function mapWidgetDirective(BUILD_VERSION) {
             };
             return vm.customMap;
         };
-        vm.composeCustomStyle = function () {
+        vm.composeCustomStyle = function() {
             vm.updateCustomStyle();
             map.update(vm.customMap);
         };
 
         vm.styleOptions = ['CUSTOM'].concat(Object.keys(vm.predefinedStyles));
         vm.basisOfRecord = {};
-        enums.basisOfRecord.forEach(function (bor) {
+        enums.basisOfRecord.forEach(function(bor) {
             vm.basisOfRecord[bor] = false;
         });
         var map;
@@ -133,22 +131,22 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.allYears = true;
         vm.yearRange = {};
 
-        $scope.create = function (element) {
+        $scope.create = function(element) {
             vm.style = _.get(vm.mapStyle, 'forceSelect') || vm.style || 'CLASSIC_HEX';
             var activeStyle = vm.predefinedStyles[vm.style];
             if (vm.style == 'CUSTOM') {
                 activeStyle = vm.updateCustomStyle();
             }
-            //vm.widgetContextStyle = {
+            // vm.widgetContextStyle = {
             //    background: suggestedStyle.background
-            //};
+            // };
             map = mapController.createMap(element, {
                 baseMap: activeStyle.baseMap,
                 overlay: activeStyle.overlay,
                 filters: getQuery()
             });
 
-            //set up zoom control
+            // set up zoom control
             var zoomInteraction;
             zoomInteraction = new ol.interaction.MouseWheelZoom();
             zoomInteraction.setActive(false);
@@ -156,22 +154,22 @@ function mapWidgetDirective(BUILD_VERSION) {
 
             var disableZoomTimer;
             var mapArea = element[0].querySelector('.mapWidget__mapArea');
-            mapArea.addEventListener('click', function (e) {
+            mapArea.addEventListener('click', function(e) {
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
                 }
             });
-            mapArea.addEventListener('doubleclick', function () {
+            mapArea.addEventListener('doubleclick', function() {
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
                 }
             });
-            mapArea.addEventListener('mouseleave', function () {
-                disableZoomTimer = $timeout(function () {
+            mapArea.addEventListener('mouseleave', function() {
+                disableZoomTimer = $timeout(function() {
                     zoomInteraction.setActive(false);
                 }, 2500);
             });
-            mapArea.addEventListener('mouseenter', function () {
+            mapArea.addEventListener('mouseenter', function() {
                 if (disableZoomTimer) {
                     $timeout.cancel(disableZoomTimer);
                     disableZoomTimer = undefined;
@@ -179,29 +177,29 @@ function mapWidgetDirective(BUILD_VERSION) {
             });
 
             var query = _.assign({}, vm.filter);
-            query = _.mapKeys(query, function (value, key) {
+            query = _.mapKeys(query, function(value, key) {
                 return _.camelCase(key);
             });
 
             vm.capabilities = MapCapabilities.get(query);
             var zoomAreaPadding = 2;
-            vm.capabilities.$promise.then(function (response) {
-                //only zoom in if the area is less than half the world
+            vm.capabilities.$promise.then(function(response) {
+                // only zoom in if the area is less than half the world
                 if (response.maxLng - response.minLng < 180) {
                     map.setExtent([response.minLng, response.minLat, response.maxLng, response.maxLat]);
-                    var v = map.map.getView();//zoom out a bit see https://github.com/gbif/maps/issues/17
+                    var v = map.map.getView();// zoom out a bit see https://github.com/gbif/maps/issues/17
                     v.setZoom(v.getZoom() - 0.5);
                 }
-                //only create the slider if there are any years in the data to filter on
+                // only create the slider if there are any years in the data to filter on
                 if (response.maxYear) {
                     createSlider(element, response.minYear, response.maxYear);
                 }
-            }).catch(function () {
+            }).catch(function() {
                 createSlider(element);
             });
 
-            map.on('moveend', function () {
-                $timeout(function () {
+            map.on('moveend', function() {
+                $timeout(function() {
                     vm.viewBbox = map.getViewExtent();
                     vm.viewBboxWidth = vm.viewBbox[2] - vm.viewBbox[0];
                 }, 0);
@@ -214,7 +212,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 var coordinate = map.getProjectedCoordinate(e.coordinate);
                 var size = 30;
                 var onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
-                var offset = Math.min(2, Math.max(Math.abs(onePixelOffset[0] - coordinate[0]), Math.abs(onePixelOffset[1] - coordinate[1])));//lazy failsafe for those odd cases in polar projections
+                var offset = Math.min(2, Math.max(Math.abs(onePixelOffset[0] - coordinate[0]), Math.abs(onePixelOffset[1] - coordinate[1])));// lazy failsafe for those odd cases in polar projections
                 while (_.isNumber(coordinate[0]) && coordinate[0] < -180) {
                     coordinate[0] = coordinate[0] + 360;
                 }
@@ -246,21 +244,21 @@ function mapWidgetDirective(BUILD_VERSION) {
                     'max': endYear
                 }
             });
-            slider.noUiSlider.on('update', function (vals) {
+            slider.noUiSlider.on('update', function(vals) {
                 // only adjust the range the user can see
                 vm.yearRange.start = Math.floor(vals[0]);
                 vm.yearRange.end = Math.floor(vals[1]);
-                years.innerText = vm.yearRange.start + " - " + vm.yearRange.end;
+                years.innerText = vm.yearRange.start + ' - ' + vm.yearRange.end;
             });
-            slider.noUiSlider.on('start', function () {
-                $scope.$apply(function () {
+            slider.noUiSlider.on('start', function() {
+                $scope.$apply(function() {
                     vm.allYears = false;
                 });
             });
             slider.noUiSlider.on('change', vm.sliderChange);
         }
 
-        vm.setStyle = function (style) {
+        vm.setStyle = function(style) {
             $localStorage.selectedMapStyle = style || 'CLASSIC_HEX';
             if (style == 'CUSTOM') {
                 vm.composeCustomStyle();
@@ -273,23 +271,23 @@ function mapWidgetDirective(BUILD_VERSION) {
             }
         };
 
-        vm.setProjection = function (epsg) {
+        vm.setProjection = function(epsg) {
             map.update({projection: epsg});
         };
 
-        vm.setFilters = function () {
+        vm.setFilters = function() {
             map.update({filters: {basisOfRecord: 'HUMAN_OBSERVATION', taxonKey: 18}});
         };
 
-        vm.updateFilters = function () {
+        vm.updateFilters = function() {
             map.update({filters: getQuery()});
         };
 
-        vm.clearFilters = function () {
+        vm.clearFilters = function() {
             map.update({filters: {}});
         };
 
-        vm.toggleControl = function (control) {
+        vm.toggleControl = function(control) {
             if (vm.activeControl == control) {
                 vm.activeControl = 0;
             } else {
@@ -297,47 +295,47 @@ function mapWidgetDirective(BUILD_VERSION) {
             }
         };
 
-        vm.toggleFullscreen = function () {
+        vm.toggleFullscreen = function() {
             vm.fullscreen = !vm.fullscreen;
-            $timeout(function () {
+            $timeout(function() {
                 map.map.updateSize();
                 map.map.render();
             }, 100);
         };
 
-        vm.zoomIn = function () {
+        vm.zoomIn = function() {
             var view = map.map.getView();
             view.setZoom(view.getZoom() + 1);
         };
 
-        vm.zoomOut = function () {
+        vm.zoomOut = function() {
             var view = map.map.getView();
             view.setZoom(view.getZoom() - 1);
         };
 
-        vm.getProjection = function () {
+        vm.getProjection = function() {
             return map ? map.getProjection() : undefined;
         };
 
-        vm.getExploreQuery = function () {
+        vm.getExploreQuery = function() {
             var q = getQuery();
             if (map && map.getProjection() == 'EPSG_4326') {
                 q.geometry = getBoundsAsQueryString();
                 q.has_coordinate = true;
                 q.has_geospatial_issue = false;
             }
-            q = _.mapKeys(q, function (value, key) {
+            q = _.mapKeys(q, function(value, key) {
                 return _.snakeCase(key);
             });
             return $httpParamSerializer(q);
         };
 
-        vm.getClickedQuery = function () {
+        vm.getClickedQuery = function() {
             var q = getQuery();
             q.geometry = vm.clickedGeometry;
             q.has_coordinate = true;
             q.has_geospatial_issue = false;
-            q = _.mapKeys(q, function (value, key) {
+            q = _.mapKeys(q, function(value, key) {
                 return _.snakeCase(key);
             });
             return q;
@@ -386,7 +384,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                     .replace(/S/g, S.toFixed(5))
                     .replace(/W/g, W.toFixed(5))
                     .replace(/E/g, E.toFixed(5));
-            //if we are seeing all of earth then do not filter on bounds. TODO, this will be different code for other projections. How to handle that well?
+            // if we are seeing all of earth then do not filter on bounds. TODO, this will be different code for other projections. How to handle that well?
             if (Math.abs(E - W) >= 180) {
                 str = undefined;
             }
@@ -395,14 +393,14 @@ function mapWidgetDirective(BUILD_VERSION) {
 
         function getQuery() {
             var query = _.assign({}, vm.filter);
-            query = _.mapKeys(query, function (value, key) {
+            query = _.mapKeys(query, function(value, key) {
                 return _.camelCase(key);
             });
             if (!vm.allYears && vm.yearRange.start && vm.yearRange.end) {
-                query.year = vm.yearRange.start + "," + vm.yearRange.end;
+                query.year = vm.yearRange.start + ',' + vm.yearRange.end;
             }
-            //basis of record as array
-            var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function (e) {
+            // basis of record as array
+            var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function(e) {
                 return vm.basisOfRecord[e];
             });
             query.basisOfRecord = basisOfRecord;
@@ -412,11 +410,11 @@ function mapWidgetDirective(BUILD_VERSION) {
             return query;
         }
 
-        vm.sliderChange = function (vals) {
+        vm.sliderChange = function(vals) {
             vm.yearRange.start = Math.floor(vals[0]);
             vm.yearRange.end = Math.floor(vals[1]);
             vm.updateFilters();
-            $scope.$apply(function () {
+            $scope.$apply(function() {
                 vm.allYears = false;
             });
         };
@@ -453,28 +451,28 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.clickedQuery.clickedGeometry = vm.clickedGeometry;
             vm.clickedQuery.has_geospatial_issue = false;
             vm.clickedQuery.has_coordinate = true;
-            window.location.href = "/occurrence/search?" + $httpParamSerializer(vm.getClickedQuery());
-            //vm.activeControl = vm.controls.OCCURRENCES;
-            //vm.mapMenu.isLoading = true;
-            //vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {
+            window.location.href = '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
+            // vm.activeControl = vm.controls.OCCURRENCES;
+            // vm.mapMenu.isLoading = true;
+            // vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {
             //    utils.attachImages(data.results);
             //    vm.mapMenu.isLoading = false;
             //    vm.mapMenu.occurrences = data;
-            //}, function () {
+            // }, function () {
             //    //TODO error handling
-            //});
+            // });
         }
 
-        $scope.$watchCollection(function () {
-            return vm.filter
-        }, function () {
+        $scope.$watchCollection(function() {
+            return vm.filter;
+        }, function() {
             vm.activeControl = undefined;
             map.update({filters: getQuery()});
         });
 
-        $scope.$watchCollection(function () {
-            return vm.mapStyle
-        }, function () {
+        $scope.$watchCollection(function() {
+            return vm.mapStyle;
+        }, function() {
             if (_.has(vm, 'mapStyle.fullscreen')) {
                 vm.fullscreen = !vm.mapStyle.fullscreen;
                 vm.toggleFullscreen();

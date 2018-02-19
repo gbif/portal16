@@ -28,7 +28,7 @@ function faqCtrl($sce, $rootScope, NAV_EVENTS, Page, $state, $stateParams, Resou
     };
     window.scrollTo(0, 0);
 
-    vm.pageChanged = function () {
+    vm.pageChanged = function() {
         vm.offset = (vm.currentPage - 1) * vm.limit;
         vm.search();
         window.scrollTo(0, 0);
@@ -42,7 +42,7 @@ function faqCtrl($sce, $rootScope, NAV_EVENTS, Page, $state, $stateParams, Resou
         $state.go('.', {question: identifier, q: undefined}, {inherit: true, notify: true, reload: true});
     };
 
-    vm.openHelpdesk = function () {
+    vm.openHelpdesk = function() {
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
     };
 
@@ -53,11 +53,11 @@ function faqCtrl($sce, $rootScope, NAV_EVENTS, Page, $state, $stateParams, Resou
             identifier: vm.question,
             locale: $stateParams.locale
         });
-        vm.helpItem.$promise.then(function (resp) {
+        vm.helpItem.$promise.then(function(resp) {
             $anchorScroll();
             vm.answer = resp;
             vm.answer._trustedBody = $sce.trustAsHtml(resp.body);
-        }).catch(function () {
+        }).catch(function() {
             vm.failed = true;
             vm.loading = false;
         });

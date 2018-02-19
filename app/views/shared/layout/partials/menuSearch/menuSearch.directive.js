@@ -25,27 +25,27 @@ function menuSearchDirective(BUILD_VERSION) {
         var vm = this;
         vm.isActive = false;
 
-        $scope.$on(NAV_EVENTS.toggleSearch, function (event, data) {
+        $scope.$on(NAV_EVENTS.toggleSearch, function(event, data) {
             if (data.toggle) {
                 vm.isActive = !vm.isActive;
             } else {
                 vm.isActive = data.state;
             }
             vm.focus = false;
-            $timeout(function(){
+            $timeout(function() {
                 vm.focus = true;
             }, 100);
         });
 
-        vm.close = function () {
+        vm.close = function() {
             vm.isActive = false;
         };
 
-        vm.searchRedirect = function () {
+        vm.searchRedirect = function() {
             location.href = '/search?q=' + encodeURIComponent(vm.freeTextQuery || '');
         };
 
-        vm.closeOnEsc = function (event) {
+        vm.closeOnEsc = function(event) {
             if (event.which === 27) {
                 vm.isActive = false;
             }
@@ -57,13 +57,13 @@ function menuSearchDirective(BUILD_VERSION) {
             }
         };
 
-        //vm.clearFreetextAndSetFocus = function () {
+        // vm.clearFreetextAndSetFocus = function () {
         //    vm.isActive = true;
         //    document.getElementById('menuSearchBox').focus();
         //    vm.freeTextQuery = '';
-        //};
+        // };
 
-        //hotkeys.add(
+        // hotkeys.add(
         //    {
         //        combo: ['alt+f', 'alt+space'],
         //        description: 'Site search',
@@ -73,7 +73,7 @@ function menuSearchDirective(BUILD_VERSION) {
         //            event.preventDefault();
         //        }
         //    }
-        //);
+        // );
     }
 }
 

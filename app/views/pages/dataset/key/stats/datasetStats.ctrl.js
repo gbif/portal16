@@ -20,17 +20,17 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
     var vm = this;
     vm.key = $stateParams.key;
     vm.taxon_key = $stateParams.taxon_key;
-    vm.filter = {datasetKey: vm.key, taxon_key:  vm.taxon_key};
+    vm.filter = {datasetKey: vm.key, taxon_key: vm.taxon_key};
     vm.checklistMetrics = DatasetMetrics.get({key: vm.key});
 
-    vm.getDownloads = function () {
+    vm.getDownloads = function() {
         vm.loadingDownloads = true;
         vm.failedToLoadDownloads = false;
         var downloads = $http.get(env.dataApi + endpoints.datasetDownloads + vm.key, {params: {limit: vm.limit, offset: vm.offset, locale: $stateParams.locale}});
-        downloads.then(function (response) {
+        downloads.then(function(response) {
             vm.loadingDownloads = false;
             vm.downloads = response.data;
-        }, function () {
+        }, function() {
             vm.loadingDownloads = false;
             vm.failedToLoadDownloads = true;
         });
@@ -42,7 +42,7 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
         showHeader: false
     };
 
-    vm.addNewChart = function(dimension){
+    vm.addNewChart = function(dimension) {
         vm.charts.push(
             {
                 filter: {dataset_key: vm.key},
@@ -68,26 +68,24 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
     vm.chartFieldTypes = ['month', 'issue', 'country'];
 
 
-    vm.checklistMetrics.$promise.then(function () {
+    vm.checklistMetrics.$promise.then(function() {
         vm.checklistCharts = _.filter(_.map(['countByKingdom', 'countByRank', 'countByOrigin', 'countByIssue', 'countExtRecordsByExtension', 'countNamesByLanguage'],
-            function (key) {
-
+            function(key) {
                 var hasMoreThanOneKey = vm.checklistMetrics[key] && Object.keys(vm.checklistMetrics[key]).length > 0;
 
                 if (!hasMoreThanOneKey) {
-                    return {show: false}
+                    return {show: false};
                 }
 
                 var entitiesWithValues = 0;
 
-                angular.forEach(vm.checklistMetrics[key], function (v, k) {
-
+                angular.forEach(vm.checklistMetrics[key], function(v, k) {
                     if (vm.checklistMetrics[key][k] > 0) {
                         entitiesWithValues++;
                     }
-                })
+                });
 
-                var type = (['countByOrigin'].indexOf(key) > -1) ? "PIE" : "BAR";
+                var type = (['countByOrigin'].indexOf(key) > -1) ? 'PIE' : 'BAR';
                 return (entitiesWithValues > 1) ?
                     {
                         dimension: key,
@@ -99,17 +97,10 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
                         show: false
 
                     };
-
-
-
-            }), function (e) {
-            return e.show
+            }), function(e) {
+            return e.show;
         });
-
     });
-
-
-
 }
 
 module.exports = datasetStatsCtrl;

@@ -23,7 +23,7 @@ function occurrenceDatasetTaxonomyStats() {
     return directive;
 
     /** @ngInject */
-    function chartLink(scope, element) {//, attrs, ctrl
+    function chartLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
 
@@ -31,42 +31,33 @@ function occurrenceDatasetTaxonomyStats() {
     function occurrenceDatasetTaxonomyStats(Highcharts, DatasetOccurrenceTaxonomy, $filter, $state, $scope) {
         var vm = this;
         vm.loading = true;
-        $scope.create = function (element) {
+        $scope.create = function(element) {
             vm.chartElement = element[0].querySelector('.taxonomyStatsContainer');
         };
 
         var query = vm.filter;
 
-        vm.chartType = "sunburst"; // could also work as "treemap", may need some adjustments
+        vm.chartType = 'sunburst'; // could also work as "treemap", may need some adjustments
 
-        function displayRootTree(){
-
-
+        function displayRootTree() {
             DatasetOccurrenceTaxonomy.query(query).$promise
                 .then(function(taxonomy) {
                     vm.loading = false;
                     vm.preparing = true;
 
-                    vm.chart =   paintChart(Highcharts,  vm.chartElement, vm.chartType, taxonomy, function (event) {
-                        if(this.rank === 'ORDER'){
-
-                            var splittedKey =  this.id.split(".");
-
-
-                                centerTreeAtTAxon(splittedKey[1])
+                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, taxonomy, function(event) {
+                        if (this.rank === 'ORDER') {
+                            var splittedKey = this.id.split('.');
 
 
+                                centerTreeAtTAxon(splittedKey[1]);
                         }
                     });
                     vm.preparing = false;
-
                 });
-
         }
 
-        function centerTreeAtTAxon(taxon_key){
-
-
+        function centerTreeAtTAxon(taxon_key) {
             query.taxon_key = taxon_key;
            // vm.filter.taxon_key =  query.taxon_key;
 
@@ -82,24 +73,22 @@ function occurrenceDatasetTaxonomyStats() {
             vm.loading = true;
             DatasetOccurrenceTaxonomy.query(query).$promise
                 .then(function(taxonomy) {
-                    if(vm.chart){
+                    if (vm.chart) {
                         vm.chart.destroy();
                     }
                     vm.loading = false;
                     vm.preparing = true;
 
-                    vm.chart = paintChart(Highcharts,  vm.chartElement, vm.chartType, taxonomy, function(event){
-                        var taxon_key = this.id.split(".")[1];
+                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, taxonomy, function(event) {
+                        var taxon_key = this.id.split('.')[1];
 
-                        if(this.rank === 'GENUS'){
-                            if( !$state.is('occurrenceSearchTable')){
-
-                                   $state.go('occurrenceSearchTable',{'taxon_key': taxon_key, 'dataset_key': vm.filter.datasetKey});
+                        if (this.rank === 'GENUS') {
+                            if ( !$state.is('occurrenceSearchTable')) {
+                                   $state.go('occurrenceSearchTable', {'taxon_key': taxon_key, 'dataset_key': vm.filter.datasetKey});
                             } else {
-                                // TODO handle occurrence search      
+                                // TODO handle occurrence search
                             }
-
-                        } else if(this.rank === 'ORDER'){
+                        } else if (this.rank === 'ORDER') {
                             delete query.taxon_key;
 
                             displayRootTree();
@@ -112,42 +101,32 @@ function occurrenceDatasetTaxonomyStats() {
                             $state.go('.', $stateParams, {inherit: true, notify: false, reload: false});
 
                             } else {
-                                // TODO handle occurrence search 
+                                // TODO handle occurrence search
 
                             }  */
                         }
-
                     });
                     vm.preparing = false;
-
                 });
+        }
 
-        };
-
-        angular.element(document).ready(function () {
-
-            if(vm.filter.taxon_key) {
-
-                centerTreeAtTAxon(vm.filter.taxon_key)
-
+        angular.element(document).ready(function() {
+            if (vm.filter.taxon_key) {
+                centerTreeAtTAxon(vm.filter.taxon_key);
             } else {
                 displayRootTree();
             }
-
-
-
-
         });
 
-        //create API
+        // create API
         vm.api = {};
-        vm.api.print = function () {
+        vm.api.print = function() {
             vm.chart.print();
         };
-        vm.api.png = function () {
+        vm.api.png = function() {
             vm.chart.exportChart();
         };
-        vm.api.svg = function(){
+        vm.api.svg = function() {
             vm.chart.exportChart({
                 type: 'image/svg+xml'
             });
@@ -156,17 +135,12 @@ function occurrenceDatasetTaxonomyStats() {
         if (Object.freeze) {
             Object.freeze(vm.api);
         }
-
-
-
-
     }
 }
 
-function paintChart(Highcharts, elm, type, taxonomy, click){
-
-    if(!type){
-        type = "sunburst"
+function paintChart(Highcharts, elm, type, taxonomy, click) {
+    if (!type) {
+        type = 'sunburst';
     }
 
     var options = {
@@ -174,7 +148,7 @@ function paintChart(Highcharts, elm, type, taxonomy, click){
 
         plotOptions: {
             sunburst: {
-                size: "100%"
+                size: '100%'
             }
         },
         boost: {
@@ -230,13 +204,13 @@ function paintChart(Highcharts, elm, type, taxonomy, click){
 
         }],
         tooltip: {
-            headerFormat: "",
+            headerFormat: '',
             pointFormat: '<b>{point.name} : {point.value}</b> occurrences'
         }
     };
-    if(click && typeof click === 'function'){
+    if (click && typeof click === 'function') {
         options.series[0].point ={
-            events:{
+            events: {
                 click: click
             }
         };

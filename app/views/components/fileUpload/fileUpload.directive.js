@@ -22,10 +22,10 @@ function fileUploadDirective() {
         scope: {
             onFileChange: '='
         },
-        link: function (scope, element) {
-            element.on('change', function (event) {
+        link: function(scope, element) {
+            element.on('change', function(event) {
                 var params = {event: event, el: element, files: element[0].files};
-                scope.$apply(function (scope) {
+                scope.$apply(function(scope) {
                     scope.onFileChange(params);
                 });
             });

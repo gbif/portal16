@@ -22,7 +22,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
 
     vm.filters = {};
 
-    //facet filters
+    // facet filters
     vm.filters.type = {
         queryKey: 'type',
         facetKey: 'TYPE',
@@ -147,49 +147,49 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
 
-    vm.search = function () {
+    vm.search = function() {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.getSuggestions = function (val) {
+    vm.getSuggestions = function(val) {
         return $http.get(suggestEndpoints.dataset, {
             params: {
                 q: val,
                 limit: 10
             }
-        }).then(function (response) {
+        }).then(function(response) {
             return response.data;
         });
     };
 
-    vm.typeaheadSelect = function (item) { //  model, label, event
-        window.location.href = "../dataset/" + item.key;
+    vm.typeaheadSelect = function(item) { //  model, label, event
+        window.location.href = '../dataset/' + item.key;
     };
 
-    vm.searchOnEnter = function (event) {
+    vm.searchOnEnter = function(event) {
         if (event.which === 13) {
             vm.freeTextSearch();
         }
     };
 
-    vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined';
     };
 
-    //vm.clearFreetextAndSetFocus = function() {
+    // vm.clearFreetextAndSetFocus = function() {
     //    document.getElementById('siteSearch').focus();
     //    vm.freeTextQuery = '';
     //    event.preventDefault();
-    //};
-    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
-    //hotkeys.add({
+    // };
+    // might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    // hotkeys.add({
     //    combo: 'alt+f',
     //    description: 'Site search',
     //    callback: function(event) {
     //        vm.clearFreetextAndSetFocus();
     //        event.preventDefault();
     //    }
-    //});
+    // });
 }
 
 module.exports = datasetCtrl;

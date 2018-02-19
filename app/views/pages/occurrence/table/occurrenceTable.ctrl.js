@@ -16,9 +16,9 @@ angular
 function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     var vm = this, offset;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
-    //a pretty print for coordinates.
-    //TODO create as reusable filter/formater 
-    vm.formatCoordinates = function (lat, lng) {
+    // a pretty print for coordinates.
+    // TODO create as reusable filter/formater
+    vm.formatCoordinates = function(lat, lng) {
         if (angular.isUndefined(lat) || angular.isUndefined(lng)) {
             return '';
         } else {
@@ -38,7 +38,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
 
     updatePaginationCounts();
 
-    vm.pageChanged = function () {
+    vm.pageChanged = function() {
         vm.occurrenceState.query.offset = (vm.currentPage - 1) * vm.limit;
         OccurrenceFilter.update(vm.occurrenceState.query);
         updatePaginationCounts();
@@ -50,7 +50,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (offset + vm.limit < vm.occurrenceState.table.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
@@ -60,7 +60,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
@@ -68,10 +68,9 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
         }
     });
 
-    vm.hasData = function () {
+    vm.hasData = function() {
         return typeof vm.occurrenceState.table.count !== 'undefined';
-    }
-
+    };
 }
 
 module.exports = occurrenceTableCtrl;
