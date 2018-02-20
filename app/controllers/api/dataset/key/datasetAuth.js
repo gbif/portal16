@@ -1,6 +1,6 @@
 'use strict';
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    querystring = require('querystring'),
+ //   querystring = require('querystring'),
     compose = require('composable-middleware'),
     utils = rootRequire('app/helpers/utils'),
     request = require('requestretry'),

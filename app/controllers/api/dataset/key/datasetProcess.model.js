@@ -103,7 +103,8 @@ async function getCrawling() {
 
 async function startCrawling(key) {
     /*
-     The GBIF Authentication scheme allows us to auhtorise as a trusted app, but the server side component (https://github.com/gbif/gbif-common-ws/blob/master/src/main/java/org/gbif/ws/security/GbifAuthService.java)
+     The GBIF Authentication scheme allows us to auhtorise as a trusted app,
+     but the server side component (https://github.com/gbif/gbif-common-ws/blob/master/src/main/java/org/gbif/ws/security/GbifAuthService.java)
      does not allow us to have REGISTRY_ADMIN permission.  Here we work around that limitation by brokering on behalf of the "ADMIN user" who has such permission.
      This is not ideal, but considered a reasonable workaround to avoid introducing role based permission to trusted apps.
      */
