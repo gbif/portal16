@@ -1,6 +1,6 @@
 <dl class="inline m-b-05">
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-        <dt class="text-capitalize">Failed attempts since last successful crawl</dt>
+        <dt class="text-capitalize">Failed attempts since last successful ingestion</dt>
         <dd ng-class="{'c-error-badge': datasetKey.processSummary.failuresSinceLastSuccess > 0}">{{ datasetKey.processSummary.failuresSinceLastSuccess }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
@@ -8,24 +8,24 @@
         <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess">
-        <dt class="text-capitalize">Last successful crawl</dt>
+        <dt class="text-capitalize">Last successful ingestion</dt>
         <dd>
             {{ datasetKey.processSummary.lastSuccess.finishedCrawling | amDateFormat:'D MMMM YYYY' }} <span>({{ datasetKey.processSummary.lastSuccess.finishReason | prettifyEnum }})</span>
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess.finishReason !== 'NORMAL'">
-        <dt class="text-capitalize">Last crawl with changes</dt>
+        <dt class="text-capitalize">Last ingestion with changes</dt>
         <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | amDateFormat:'D MMMM YYYY' }}</span>
         <span ng-if="!datasetKey.processSummary.lastNormal">Unknown, but none since {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</span>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
-        <dt class="text-capitalize">Last crawl with data change</dt>
+        <dt class="text-capitalize">Last ingestion with data change</dt>
         <dd>
             {{ datasetKey.processSummary.lastDataChange.finishedCrawling | amDateFormat:'D MMMM YYYY' }}
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
-        <dt class="text-capitalize">Occurrences in last crawl</dt>
+        <dt class="text-capitalize">Occurrences in last ingestion</dt>
         <dd>
             <span>
                 {{ datasetKey.processSummary.lastDataChange.fragmentsEmitted | localNumber }}
@@ -34,7 +34,7 @@
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.finished > 0">
-        <dt class="text-capitalize">Crawling completion reasons</dt>
+        <dt class="text-capitalize">Ingestion completion reasons</dt>
         <dd>
             <ul class="inline-bullet-list">
                 <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
@@ -44,13 +44,13 @@
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.unfinished > 0">
-        <dt class="text-capitalize">Unfinished crawls</dt>
+        <dt class="text-capitalize">Unfinished ingestions</dt>
         <dd>{{ datasetKey.processSummary.unfinished }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.analyzedCount">
-        <dt class="text-capitalize">Crawls in total</dt>
+        <dt class="text-capitalize">Ingestions in total</dt>
         <dd>{{ datasetKey.processSummary.finished }}</dd>
     </div>
 </dl>
-<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Last crawled before {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</p>
-<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet">This dataset has no crawl entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>
+<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Last ingested before {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</p>
+<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet">This dataset has no ingestion entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>

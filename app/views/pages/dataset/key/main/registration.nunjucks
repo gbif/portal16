@@ -79,7 +79,7 @@
                     </div>
                 </dl>
                 {% include('./crawlInfo.nunjucks') %}
-                <p ng-if="datasetKey.currentCrawlingStatus.crawlInProcess">Currently being crawled <span gb-help="time-to-index-dataset"></span></p>
+                <p ng-if="datasetKey.currentCrawlingStatus.crawlInProcess">Currently being ingested <span gb-help="time-to-index-dataset"></span></p>
             </div>
         </div>
     </div>

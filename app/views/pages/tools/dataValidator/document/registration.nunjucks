@@ -79,7 +79,7 @@
                     </div>
 
                     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-                        <dt class="text-capitalize">Failed attempts since last successful crawl</dt>
+                        <dt class="text-capitalize">Failed attempts since last successful ingestion</dt>
                         <dd>{{ datasetKey.processSummary.failuresSinceLastSuccess }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
@@ -87,11 +87,11 @@
                         <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.lastSuccess">
-                        <dt class="text-capitalize">Last Successful crawl</dt>
+                        <dt class="text-capitalize">Last Successful ingestion</dt>
                         <dd>{{ datasetKey.processSummary.lastSuccess.finishedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.finished > 0">
-                        <dt class="text-capitalize">Crawling completion reasons</dt>
+                        <dt class="text-capitalize">Ingestion completion reasons</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
@@ -101,16 +101,16 @@
                         </dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.unfinished > 0">
-                        <dt class="text-capitalize">Unfinished crawls</dt>
+                        <dt class="text-capitalize">Unfinished ingestions</dt>
                         <dd>{{ datasetKey.processSummary.unfinished }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.analyzedCount">
-                        <dt class="text-capitalize">Crawls in total</dt>
+                        <dt class="text-capitalize">Ingestions in total</dt>
                         <dd>{{ datasetKey.processSummary.analyzedCount }}</dd>
                     </div>
-                    {# TODO Is it worth menioning that there are no logged crawl attempts #}
+                    {# TODO Is it worth menioning that there are no logged ingestion attempts #}
                     {#<div ng-if="datasetKey.processSummary.finished == 0">#}
-                        {#<p class="discreet small">This dataset has no crawl entries</p>#}
+                        {#<p class="discreet small">This dataset has no ingestion entries</p>#}
                     {#</div>#}
                 </dl>
             </div>
