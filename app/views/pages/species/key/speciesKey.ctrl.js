@@ -7,27 +7,16 @@ require('./directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 require('./directives/speciesDatasets.directive.js');
 require('./directives/vernacularNames.directive.js');
 require('./directives/nameUsages.directive.js');
-
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
-
-
-// require('./directives/cites.directive.js');
-// require('./directives/redlist.directive.js');
-// require('./directives/dbpedia.directive.js');
-// require('./directives/synonyms.directive.js');
-// require('./directives/combinations.directive.js');
-// require('./directives/taxBrowser.directive.js');
-// require('./directives/related.directive.js');
-// require('./directives/references.directive.js');
-// require('./directives/typeSpecimen.directive.js');
 
 angular
     .module('portal')
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
+// eslint-disable-next-line max-len
 function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations, SpeciesDistributions, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesVernacularNames, constantKeys, Page, MapCapabilities, BUILD_VERSION, $translate, $mdMedia) {
     var vm = this;
     Page.setTitle('Species');
@@ -88,7 +77,10 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                     vm.lightbox.load();
                 });
             }
-            vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
+            vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' &&
+                            vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 &&
+                            vm.species.accepted && vm.species.acceptedKey &&
+                            vm.species.acceptedKey !== vm.species.key;
 
 
             getCitesStatus(resp.kingdom, resp.canonicalName);

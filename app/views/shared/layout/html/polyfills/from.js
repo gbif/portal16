@@ -1,3 +1,4 @@
+/* eslint-disable prefer-rest-params */
 // for IE support
 module.exports = (function() {
     // Production steps of ECMA-262, Edition 6, 22.1.2.1

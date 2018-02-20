@@ -5,8 +5,6 @@ require('./about/dataRepositoryAbout.ctrl');
 require('./upload/key/dataRepositoryKey.ctrl');
 require('./dataPackage.resource');
 
-var _ = require('lodash');
-
 angular
     .module('portal')
     .controller('dataRepositoryCtrl', dataRepositoryCtrl);

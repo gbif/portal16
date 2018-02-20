@@ -1,7 +1,6 @@
 'use strict';
 var env = window.gb.env;
 
-
 angular
     .module('portal')
     .controller('nameParserCtrl', nameParserCtrl);
@@ -76,6 +75,7 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
 
 
     vm.generateCsv = function() {
+        // eslint-disable-next-line max-len
         var fields = ['scientificName', 'type', 'genusOrAbove', 'specificEpithet', 'infraSpecificEpithet', 'authorship', 'bracketAuthorship', 'parsed', 'authorsParsed', 'canonicalName', 'canonicalNameWithMarker', 'canonicalNameComplete', 'rankMarker'];
         var csvContent = '';
 

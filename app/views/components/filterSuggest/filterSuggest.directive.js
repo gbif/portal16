@@ -93,7 +93,13 @@ function filterSuggestDirective(BUILD_VERSION) {
         vm.getWidth = function(key) {
             var keyLower = key.toLowerCase();
             var facetKey = vm.filterConfig.facets.facetKey;
-            if (!vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[keyLower]) {
+            if (!vm.showFacetCount() ||
+                !vm.filterState ||
+                !vm.filterState.data ||
+                !vm.filterState.data.facets ||
+                !vm.filterState.data.facets[facetKey] ||
+                !vm.filterState.data.facets[facetKey].counts ||
+                !vm.filterState.data.facets[facetKey].counts[keyLower]) {
                 return {
                     width: '0%'
                 };

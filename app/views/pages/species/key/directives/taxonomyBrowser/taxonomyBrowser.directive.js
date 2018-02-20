@@ -25,6 +25,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
+    // eslint-disable-next-line max-len
     function taxonomyBrowserCtrl($stateParams, $q, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, SpeciesRoot, TaxonomySynonyms, TaxonomyParents, TaxonomyCombinations, SpeciesBulkParsedNames, SpeciesParsedName) {
         var vm = this;
         // default to backbone
@@ -202,13 +203,14 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 if (!vm.taxon.synonym) {
                     $q.all([synonyms.$promise, vm.combinations.$promise])
                         .then(function(data) {
+                            var i;
                             vm.synonyms = data[0].results;
                             var homoTypicSynonymKeys = {};
-                            for (var i = 0; i < vm.combinations.length; i++) {
+                            for (i = 0; i < vm.combinations.length; i++) {
                                 homoTypicSynonymKeys[vm.combinations[i].key] = true;
                             }
 
-                            for (var i = 0; i < vm.synonyms.length; i++) {
+                            for (i = 0; i < vm.synonyms.length; i++) {
                                 if (homoTypicSynonymKeys[vm.synonyms[i].key] === true || vm.synonyms[i].key === vm.taxon.basionymKey) {
                                     vm.synonyms[i].taxonomicStatus = 'HOMOTYPIC_SYNONYM';
                                 }

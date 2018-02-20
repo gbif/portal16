@@ -18,15 +18,16 @@
                 function update() {
                     $http.get('/api/health/portal?hash=' + _.get($sessionStorage.notifications, 'hash', '_empty'))
                         .then(function(response) {
+                            var notifications;
                             if (response.status == 200) {
-                                var notifications = response.data;
+                                notifications = response.data;
                                 if (_.get($sessionStorage.notifications, 'hash') != notifications.hash) {
                                     $sessionStorage.notifications = notifications;
                                     $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
                                     pushNotification(notifications);
                                 }
                             } else {
-                                var notifications = $sessionStorage.notifications;
+                                notifications = $sessionStorage.notifications;
                                 notifications.updatedAt = (new Date()).toISOString();
                                 $sessionStorage.notifications = notifications;
                                 // don't broadcast for timestamp updates

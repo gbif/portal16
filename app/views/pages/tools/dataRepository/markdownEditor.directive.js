@@ -1,7 +1,6 @@
 'use strict';
 var angular = require('angular'),
-    SimpleMDE = require('simplemde'),
-    _ = require('lodash');
+    SimpleMDE = require('simplemde');
 
 angular
     .module('portal')

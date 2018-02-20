@@ -1,8 +1,7 @@
 'use strict';
 
 
-var angular = require('angular'),
-    _ = require('lodash');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -27,7 +26,7 @@ function occurrenceChartHeaderDirective(BUILD_VERSION) {
 
     /** @ngInject */
     function occurrenceChartHeader($scope) {
-        var vm = this;
+        // var vm = this;
 
         // vm.exportOptions = [{
         //    textKey: 'printChart',

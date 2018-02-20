@@ -4,7 +4,6 @@
 var angular = require('angular'),
     mapController = require('./map'),
     ol = require('openlayers'),
-    utils = require('../../../shared/layout/html/utils/utils'),
     options = require('./options'),
 // globeCreator = require('./globe'),
     moment = require('moment'),
@@ -182,7 +181,6 @@ function mapWidgetDirective(BUILD_VERSION) {
             });
 
             vm.capabilities = MapCapabilities.get(query);
-            var zoomAreaPadding = 2;
             vm.capabilities.$promise.then(function(response) {
                 // only zoom in if the area is less than half the world
                 if (response.maxLng - response.minLng < 180) {

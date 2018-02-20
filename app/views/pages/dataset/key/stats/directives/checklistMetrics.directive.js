@@ -229,22 +229,16 @@ function checklistMetrics() {
             switch (dimension) {
                 case 'countByKingdom':
                     return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
-                    break;
                 case 'countByRank':
                     return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.'+key));
-                    break;
                 case 'countByOrigin':
                     return $filter('capitalizeFirstLetter')($translate.instant('taxon.originEnum.'+key));
-                    break;
                 case 'countByIssue':
                     return $filter('capitalizeFirstLetter')($translate.instant('taxon.issueEnum.'+key));
-                    break;
                 case 'countExtRecordsByExtension':
                     return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.'+key));
-                    break;
                 case 'countNamesByLanguage':
                     return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
-                    break;
             }
         }
 

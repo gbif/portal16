@@ -13,6 +13,7 @@ angular
 
 
 /** @ngInject */
+// eslint-disable-next-line max-len
 function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService, $timeout) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;

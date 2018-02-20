@@ -2,6 +2,7 @@
 
 var angular = require('angular'),
     parseGeometry = require('wellknown'),
+    _ = require('lodash'),
     globeCreator = require('../../../components/map/basic/globe');
 
 angular
@@ -150,7 +151,10 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     function hasValidOrNoSRS(data) {
         if (typeof data.footprintSRS === 'undefined') {
             return true;
-        } else if (data.footprintSRS.toLowerCase().indexOf('wgs84') > -1 || data.footprintSRS.toLowerCase().indexOf('wgs_1984') > -1 || data.footprintSRS.toLowerCase().indexOf('wgs_1984') > -1 || data.footprintSRS.toLowerCase().indexOf('epsg:4326') > -1) {
+        }
+
+        var footPrintSRS = _.get(data, 'footprintSRS', '').toLowerCase();
+        if (footPrintSRS.indexOf('wgs84') > -1 || footPrintSRS.indexOf('wgs_1984') > -1 || footPrintSRS.indexOf('epsg:4326') > -1) {
             return true;
         } else {
             return false;
