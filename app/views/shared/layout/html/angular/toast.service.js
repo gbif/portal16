@@ -2,12 +2,11 @@
 
 var angular = require('angular');
 
-(function () {
-
+(function() {
     angular
         .module('portal')
-        .service('toastService', function (NAV_EVENTS, toastr, $rootScope) {
-            //TODO errors needs translating
+        .service('toastService', function(NAV_EVENTS, toastr, $rootScope) {
+            // TODO errors needs translating
             var defaultError = {
                 feedback: true,
                 status: true,
@@ -37,32 +36,31 @@ var angular = require('angular');
                 status: false
             };
 
-            //$translate('notifications.defaultErrorMessage').then(function (translation) {
+            // $translate('notifications.defaultErrorMessage').then(function (translation) {
             //    defaultMessages.defaultErrorMessage = translation;
-            //});
-            //$translate('notifications.defaultErrorMessage').then(function (translation) {
+            // });
+            // $translate('notifications.defaultErrorMessage').then(function (translation) {
             //    defaultSettings.defaultErrorMessage = translation;
-            //});
+            // });
 
-            function toast (type, settings, defaultSettings) {
+            function toast(type, settings, defaultSettings) {
                 settings = settings || {};
                 var mergedSettings = angular.merge({}, defaultSettings, settings);
 
-                //add feedback button ?
+                // add feedback button ?
                 if (mergedSettings.feedback) {
-                    mergedSettings.message += '<div class="text-center"><a href="" class="gb-button--primary">Leave feedback</a></div>'
+                    mergedSettings.message += '<div class="text-center"><a href="" class="gb-button--primary">Leave feedback</a></div>';
                 }
 
                 toastr[type](mergedSettings.message, mergedSettings.title,
                     {
                         allowHtml: true,
-                        onShown: function (toast) {
-                            angular.element( toast.el[0]).find("a")[0].onclick = showFeedback
-
+                        onShown: function(toast) {
+                            angular.element( toast.el[0]).find('a')[0].onclick = showFeedback;
                         }
-                        //onTap:function(){
+                        // onTap:function(){
                         //    //alert("You Clicked Toastr!!")
-                        //}
+                        // }
                     });
             }
 
@@ -102,7 +100,6 @@ var angular = require('angular');
                 partialResult: this.partialResult,
                 info: this.info
             };
-
         });
 })();
 

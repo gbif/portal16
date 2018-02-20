@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 function updateMenu() {
     if (document.compatMode == 'CSS1Compat') {
         var tabsFixedContainer = document.getElementById('tabsFixedContainer');
-        var navbarHeight = 0; //TODO should build stylus variables to js
+        var navbarHeight = 0; // TODO should build stylus variables to js
         if (tabsFixedContainer) {
             navbarHeight = 95;
         }
@@ -33,13 +33,13 @@ function updateMenu() {
                 submenu.classList.remove('submenu--bottom');
             }
         }
-        //var submenuPosition = submenu.getBoundingClientRect();
+        // var submenuPosition = submenu.getBoundingClientRect();
     }
 }
 
 function updateTabs() {
     if (document.compatMode == 'CSS1Compat') {
-        var navbarHeight = 50; //TODO should build stylus variables to js navbar + tabbar height
+        var navbarHeight = 50; // TODO should build stylus variables to js navbar + tabbar height
         var tabsFixedContainer = document.getElementById('tabsFixedContainer');
         var tabsScrollable = document.getElementById('tabsScrollable');
 
@@ -53,8 +53,7 @@ function updateTabs() {
     function positionTabsBar() { // eslint-disable-line no-inner-declarations
         tabsFixedContainer = document.getElementById('tabsFixedContainer');
         tabsScrollable = document.getElementById('tabsScrollable');
-        if (tabsScrollable && tabsFixedContainer)
-        {
+        if (tabsScrollable && tabsFixedContainer) {
             var tabsScrollablePosition = tabsScrollable.getBoundingClientRect();
             if (tabsScrollablePosition && tabsScrollablePosition.top < navbarHeight) {
                 tabsFixedContainer.classList.add('is-visible');

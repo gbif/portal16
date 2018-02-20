@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('DirectoryPerson', function ($resource) {
+        .factory('DirectoryPerson', function($resource) {
             return $resource('/api/directory/person/:id', null, {
                 'get': {
                     method: 'GET',
@@ -15,7 +15,7 @@ var angular = require('angular');
                 }
             });
         })
-        .factory('DirectoryContacts', function ($resource) {
+        .factory('DirectoryContacts', function($resource) {
             return $resource('/api/directory/contacts', null, {
                 'get': {
                     method: 'GET',
@@ -23,7 +23,7 @@ var angular = require('angular');
                 }
             });
         })
-        .factory('DirectoryNsgContacts', function ($resource) {
+        .factory('DirectoryNsgContacts', function($resource) {
             return $resource('/api/directory/nsg/contacts', null, {
                 'get': {
                     method: 'GET',
@@ -33,7 +33,7 @@ var angular = require('angular');
         })
         // Accepts gbifRegion as param
         // return counts of each type of participants
-        .factory('DirectoryParticipantsCount', function ($resource) {
+        .factory('DirectoryParticipantsCount', function($resource) {
             return $resource('/api/directory/participants/count',
                 {gbifRegion: 'GLOBAL'},
                 {
@@ -47,7 +47,7 @@ var angular = require('angular');
         })
         // Accepts gbifRegion and membershipType as params
         // return participant objects
-        .factory('DirectoryParticipants', function ($resource) {
+        .factory('DirectoryParticipants', function($resource) {
             return $resource('/api/directory/participants',
                 {gbifRegion: 'GLOBAL'},
                 {
@@ -62,7 +62,7 @@ var angular = require('angular');
                 })
                 ;
         })
-        .factory('ParticipantHeads', function ($resource) {
+        .factory('ParticipantHeads', function($resource) {
             return $resource('/api/participant/heads/:participantId', null,
                 {
                     'get': {
@@ -75,7 +75,7 @@ var angular = require('angular');
                 })
                 ;
         })
-        .factory('ParticipantsDigest', function ($resource) {
+        .factory('ParticipantsDigest', function($resource) {
             return $resource('/api/participants/digest', null,
                 {
                     'get': {
@@ -89,6 +89,5 @@ var angular = require('angular');
                 ;
         })
         ;
-
 })();
 

@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .service('HelpService', function ($state) {
+    .service('HelpService', function($state) {
         var state = {
             identifier: undefined,
             isCms: true,
@@ -21,5 +21,4 @@ angular
                 state.isCms = isCms !== false;
             }
         };
-
     });

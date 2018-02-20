@@ -15,7 +15,7 @@ module.exports = function(app) {
 let Participant = rootRequire('app/models/node/participant'),
     Node = rootRequire('app/models/node/node'),
     countries = rootRequire('app/models/enums/basic/country'),
-    countryMap = _.keyBy(countries, _.identity),
+    countryMap = _.keyBy(countries, _.identity),
     participantView = require('./viewModel');
 
 router.get('/node/:key.:ext?', function(req, res, next) {

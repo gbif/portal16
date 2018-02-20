@@ -1,7 +1,7 @@
 var angular = require('angular'),
     baseMaps = require('./baseMapConfig');
 
-(function () {
+(function() {
     angular
         .module('portal')
         .constant('baseMaps', baseMaps);

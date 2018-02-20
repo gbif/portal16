@@ -14,7 +14,7 @@ function countryTrendsCtrl($stateParams, $state) {
     vm.countryCode = gb.countryCode;
     vm.aboutTemplate = '/api/country/' + vm.countryCode + '/trends/' + vm.direction;
 
-    vm.changeToPublished = function () {
+    vm.changeToPublished = function() {
         $state.go($state.current, {direction: 'published'}, {inherit: true, notify: false, reload: true});
     };
 }

@@ -40,28 +40,28 @@ function taxBrowserDirective(BUILD_VERSION) {
             TaxonomyDetail.query({
                 datasetKey: vm.datasetKey,
                 taxonKey: vm.taxonKey
-            }, function (data) {
+            }, function(data) {
                 vm.taxon = data;
 
                 TaxonomyParents.query({
                     datasetKey: vm.datasetKey,
                     taxonKey: vm.taxonKey,
                     occ: vm.occ
-                }, function (parents) {
+                }, function(parents) {
                     if (vm.taxon.synonym) {
                         // also add accepted taxon as parent
                         TaxonomyDetail.query({
                             datasetKey: vm.datasetKey,
                             taxonKey: vm.taxon.acceptedKey
-                        }, function (acc) {
+                        }, function(acc) {
                             parents.push(acc);
                             vm.parents = parents;
-                        }, function () {
+                        }, function() {
                         });
                     } else {
                         vm.parents = parents;
                     }
-                }, function () {
+                }, function() {
                 });
 
                 if (!vm.taxon.synonym) {
@@ -69,40 +69,35 @@ function taxBrowserDirective(BUILD_VERSION) {
                         datasetKey: vm.datasetKey,
                         taxonKey: vm.taxonKey,
                         occ: vm.occ
-                    }, function (data) {
+                    }, function(data) {
                         vm.synonyms = data.results;
                         vm.taxonNumOccurrences = data.numOccurrences;
-                    }, function () {
+                    }, function() {
                     });
 
                     TaxonomyChildren.query({
                         datasetKey: vm.datasetKey,
                         taxonKey: vm.taxonKey,
                         occ: vm.occ
-                    }, function (data) {
+                    }, function(data) {
                         vm.children = data.results;
                         vm.taxonNumOccurrences = data.numOccurrences;
-                    }, function () {
-                    })
+                    }, function() {
+                    });
                 }
-
-            }, function () {
+            }, function() {
             });
-
         } else {
             TaxonomyRoot.query({
                 datasetKey: vm.datasetKey,
                 taxonKey: vm.taxonKey,
                 occ: vm.occ
-            }, function (data) {
+            }, function(data) {
                 vm.children = data.results;
-
-
-            }, function () {
-            })
+            }, function() {
+            });
         }
     }
-
 }
 
 module.exports = taxBrowserDirective;

@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .service('DatasetFilter', function ($rootScope, $state, $stateParams, DatasetSearch) {
+    .service('DatasetFilter', function($rootScope, $state, $stateParams, DatasetSearch) {
         var state = {
             data: {},
             facetMultiselect: {},
@@ -13,14 +13,14 @@ angular
         };
 
 
-        //for fields where we want faceting and will always ask for all possible. This is the case for most enums
+        // for fields where we want faceting and will always ask for all possible. This is the case for most enums
         var exhaustiveFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country', 'project_id', 'license'];
         var exhaustiveFacets = [];
-        exhaustiveFacetsKeys.forEach(function (facet) {
+        exhaustiveFacetsKeys.forEach(function(facet) {
             exhaustiveFacets.push(facet);
         });
 
-        //for fields with low cardinality and that isn't enums
+        // for fields with low cardinality and that isn't enums
         var multiSelectFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country', 'project_id', 'license'];
 
         function getState() {
@@ -28,7 +28,7 @@ angular
         }
 
         $rootScope.$on('$stateChangeSuccess',
-            function (event, toState, toParams) {
+            function(event, toState, toParams) {
                 refreshData(toParams);
             }
         );
@@ -40,26 +40,26 @@ angular
             apiQuery.facet = exhaustiveFacets;
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
-            state.data = DatasetSearch.query(apiQuery, function () {
+            state.data = DatasetSearch.query(apiQuery, function() {
                 state.failedRequest = false;
-                //state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
-            }, function () {
+                // state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
+            }, function() {
                 state.failedRequest = true;
             });
 
-            //get multiselect facets only for keys that is filtered since we have already asked without multiselect and hence would get the same result twice
+            // get multiselect facets only for keys that is filtered since we have already asked without multiselect and hence would get the same result twice
             apiQuery.facetMultiselect = true;
-            apiQuery.limit = 0; //no need to get the same results again
+            apiQuery.limit = 0; // no need to get the same results again
             apiQuery.facet = [];
-            multiSelectFacetsKeys.forEach(function (key) {
+            multiSelectFacetsKeys.forEach(function(key) {
                 if (angular.isDefined(apiQuery[key]) && [].concat(apiQuery[key]).length > 0) {
                     apiQuery.facet.push(key);
                 }
             });
             if (state.facetMultiselect.$cancelRequest) state.facetMultiselect.$cancelRequest();
-            state.facetMultiselect = DatasetSearch.query(apiQuery, function () {
-            }, function () {
-                //TODO how to indicate missing facet data
+            state.facetMultiselect = DatasetSearch.query(apiQuery, function() {
+            }, function() {
+                // TODO how to indicate missing facet data
             });
         }
 
@@ -79,7 +79,7 @@ angular
             refreshData(state.query);
         }
 
-        //when in not advanced mode then remove parameters from URL that are filled with default values
+        // when in not advanced mode then remove parameters from URL that are filled with default values
         state.query = $stateParams;
         refreshData(state.query);
 
@@ -89,5 +89,4 @@ angular
             updateParam: updateParam,
             refresh: refresh
         };
-
     });

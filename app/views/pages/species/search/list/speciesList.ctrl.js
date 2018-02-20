@@ -31,7 +31,7 @@ function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSIO
 
     updatePaginationCounts();
 
-    vm.pageChanged = function () {
+    vm.pageChanged = function() {
         vm.state.query.offset = (vm.currentPage - 1) * vm.limit;
         updatePaginationCounts();
         SpeciesFilter.update(vm.state.query);
@@ -41,7 +41,7 @@ function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSIO
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (offset + vm.limit < vm.state.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
@@ -51,7 +51,7 @@ function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSIO
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
@@ -59,7 +59,7 @@ function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSIO
         }
     });
 
-    vm.getVernacularNameMatch = function (species) {
+    vm.getVernacularNameMatch = function(species) {
         if (species && angular.isArray(species.vernacularNames)) {
             for (var i = 0; i < species.vernacularNames.length; i++) {
                 if (species.vernacularNames[i].vernacularName.indexOf('gbifHl') > -1) {
@@ -71,8 +71,8 @@ function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSIO
     };
 
 
-    vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined';
     };
 }
 

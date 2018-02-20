@@ -30,7 +30,7 @@ function licenseDirective() {
             'http://creativecommons.org/licenses/by/4.0/legalcode': 'CC_BY_4_0',
             'http://creativecommons.org/licenses/by-nc/4.0/legalcode': 'CC_BY_NC_4_0'
         };
-        vm.name = function(link){
+        vm.name = function(link) {
             if (link == 'unspecified') {
                 return 'UNSPECIFIED';
             }
@@ -38,7 +38,7 @@ function licenseDirective() {
             return t ? t : 'UNSUPPORTED';
         };
 
-        vm.isValid = function(link){
+        vm.isValid = function(link) {
             return !!licenseMap[link];
         };
     }

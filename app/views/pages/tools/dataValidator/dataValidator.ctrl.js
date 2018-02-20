@@ -11,7 +11,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_EVENTS, validatorFeedbackService, env) {
+function dataValidatorCtrl($scope, $http, $state, $sessionStorage, User, AUTH_EVENTS, validatorFeedbackService, env) {
     var vm = this;
     vm.dataApi = env.dataApi;
 
@@ -21,72 +21,60 @@ function dataValidatorCtrl($scope, $http,  $state,  $sessionStorage, User, AUTH_
     vm.resourceToValidate = {};
 
 
-
     vm.handleUploadFile = function(params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
-        vm.jobStatus = "SUBMITTED";
+        vm.jobStatus = 'SUBMITTED';
         $http({
             url: vm.dataApi + 'validator/jobserver/submit',
-            method: "POST",
+            method: 'POST',
             data: formData,
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
-        }).success(function (data, status) {
+        }).success(function(data, status) {
             handleValidationSubmitResponse(data, status);
-        }).error(function (data, status) {
+        }).error(function(data, status) {
             handleWSError(data, status);
         });
     };
 
     vm.handleFileUrl = function(params) {
-
-        vm.jobStatus = "FETCHING";
+        vm.jobStatus = 'FETCHING';
         var url = vm.dataApi + 'validator/jobserver/submiturl';
-        $http({url: url, params: params, method : "POST"})
-            .success(function (data, status) {
+        $http({url: url, params: params, method: 'POST'})
+            .success(function(data, status) {
                 handleValidationSubmitResponse(data, status);
             })
-            .error(function (data, status) {
+            .error(function(data, status) {
                 handleWSError(data, status);
             });
     };
 
 
-
-if($sessionStorage.gbifRunningValidatonJob){
-
-        $state.go('dataValidatorKey', {jobid: $sessionStorage.gbifRunningValidatonJob})
+if ($sessionStorage.gbifRunningValidatonJob) {
+        $state.go('dataValidatorKey', {jobid: $sessionStorage.gbifRunningValidatonJob});
     }
 
 
     function handleValidationSubmitResponse(data) {
-
-
-        if((data.status !== "FAILED" ) && data.jobId){
-
-
+        if ((data.status !== 'FAILED' ) && data.jobId) {
             vm.jobId = data.jobId;
 
-            $state.go("dataValidatorKey", {jobid: vm.jobId});
-
-        } else if(data.status === "FAILED"){
+            $state.go('dataValidatorKey', {jobid: vm.jobId});
+        } else if (data.status === 'FAILED') {
             delete $sessionStorage.gbifRunningValidatonJob;
             handleFailedJob(data);
         }
     }
 
 
-
-
-    vm.handleDrop = function (e) {
+    vm.handleDrop = function(e) {
         vm.handleUploadFile(e.dataTransfer);
     };
 
     function handleWSError(data, status) {
-
         vm.hasError = true;
-        switch(status) {
+        switch (status) {
             case 413:
                 vm.hasApi413Error = true;
                 break;
@@ -99,34 +87,34 @@ if($sessionStorage.gbifRunningValidatonJob){
             default:
                 vm.hasApiCriticalError = true;
         }
-        //vm.hasApiCriticalError = true;
+        // vm.hasApiCriticalError = true;
       //  alert("error")
     }
 
-    function handleFailedJob(data){
+    function handleFailedJob(data) {
         vm.jobStatus = data.status;
     }
 
 
-    vm.attachTabListener = function () {
+    vm.attachTabListener = function() {
         fixedUtil.updateTabs();
     };
 
-    vm.attachMenuListener = function () {
+    vm.attachMenuListener = function() {
         fixedUtil.updateMenu();
     };
 
-    //keep track of whether the user is logged in or not
+    // keep track of whether the user is logged in or not
     function setLoginState() {
         vm.hasUser = !!$sessionStorage.user;
     }
-    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
         setLoginState();
     });
-    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
         setLoginState();
     });
-    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         setLoginState();
     });
     User.loadActiveUser();

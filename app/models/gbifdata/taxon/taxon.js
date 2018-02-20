@@ -25,7 +25,7 @@ Taxon.get = function(key, options) {
     } else {
         return promise.then(function(taxon) {
             // check expandBackboneOnly option
-            if (!typeof options.expandBackboneOnly === 'undefined') {// TODO this doesn't look meaningful. ! binds to the part before the comparison
+            if (!(typeof options.expandBackboneOnly === 'undefined')) {
                 options.expand = [];
             } else if (taxon.record.origin != 'SOURCE') {
                 // the verbatim resource only exists for origin=SOURCE

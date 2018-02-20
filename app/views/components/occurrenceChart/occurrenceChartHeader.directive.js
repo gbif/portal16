@@ -29,19 +29,19 @@ function occurrenceChartHeaderDirective(BUILD_VERSION) {
     function occurrenceChartHeader($scope) {
         var vm = this;
 
-        //vm.exportOptions = [{
+        // vm.exportOptions = [{
         //    textKey: 'printChart',
         //    onclick: function () {
         //        vm.api.print();
         //    }
-        //}, {
+        // }, {
         //    separator: true
-        //}, {
+        // }, {
         //    textKey: 'downloadPNG',
         //    onclick: function () {
         //        vm.api.exportChart();
         //    }
-        //}];
+        // }];
     }
 }
 

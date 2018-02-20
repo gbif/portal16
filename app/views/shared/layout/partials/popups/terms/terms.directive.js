@@ -23,7 +23,7 @@ function termsDirective(BUILD_VERSION) {
     function terms($cookies) {
         var vm = this;
         vm.userAcceptance = $cookies.get('userAcceptance') === 'true';
-        vm.accept = function () {
+        vm.accept = function() {
             // this will set the expiration to 12 months
             var now = new Date(),
                 exp = new Date(now.getFullYear()+1, now.getMonth(), now.getDate());
@@ -32,7 +32,7 @@ function termsDirective(BUILD_VERSION) {
                 expires: exp
             });
             vm.userAcceptance = true;
-        }
+        };
     }
 }
 

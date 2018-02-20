@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('Publisher', function ($resource, env) {
+        .factory('Publisher', function($resource, env) {
             return $resource(env.dataApi + 'organization/:id', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('PublisherInstallations', function ($resource, env) {
+        .factory('PublisherInstallations', function($resource, env) {
             return $resource(env.dataApi + 'organization/:id/installation', null, {
                     'query': {
                         method: 'GET',
@@ -25,7 +25,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('PublisherExtended', function ($resource) {
+        .factory('PublisherExtended', function($resource) {
             return $resource('/api/publisher/:key', null, {
                     'query': {
                         method: 'GET',
@@ -34,7 +34,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('PublisherSearch', function ($resource) {
+        .factory('PublisherSearch', function($resource) {
             return $resource('/api/publisher/search', null, {
                     'query': {
                         method: 'GET',
@@ -45,7 +45,7 @@ var angular = require('angular');
         })
         // Accepting gbifRegion as param
         // return number of publishers in the region
-        .factory('PublisherCount', function ($resource) {
+        .factory('PublisherCount', function($resource) {
             return $resource('/api/publisher/count',
                 {gbifRegion: 'GLOBAL'},
                 {
@@ -58,7 +58,7 @@ var angular = require('angular');
         })
         // Accepting participantId as param
         // return number of endorsed publishers
-        .factory('PublisherEndorsedBy', function ($resource) {
+        .factory('PublisherEndorsedBy', function($resource) {
             return $resource('/api/publisher/endorsed-by/:participantId', null,
                 {
                     'get': {

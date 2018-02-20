@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var angular = require('angular');
 
 require('angular-ui-router');
@@ -10,7 +10,7 @@ angular
 // The annotation is necessary to work with minification and ngAnnotate when using as a commonjs Module - http://chrisdoingweb.com/blog/minifying-browserified-angular-modules/
 /** @ngInject */
 function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
-    //TODO We need a way to handle routes when refreshing. Server needs to know about these routes.
+    // TODO We need a way to handle routes when refreshing. Server needs to know about these routes.
     $stateProvider
         .state('localization', { // http://stackoverflow.com/questions/32357615/option-url-path-ui-router
             url: '/{locale:(?:en|da|es)}?qid',
@@ -123,13 +123,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
-        //.state('datasetKeyTaxonomy', {
+        // .state('datasetKeyTaxonomy', {
         //    parent: 'datasetKey',
         //    url: '/taxonomy',
         //    templateUrl: '/api/template/dataset/taxonomy.html?v=' + BUILD_VERSION,
         //    controller: 'datasetTaxonomyCtrl',
         //    controllerAs: 'datasetTaxonomy'
-        //})
+        // })
         .state('datasetKeyActivity', {
             parent: 'datasetKey',
             url: '/activity?offset&limit',
@@ -503,7 +503,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
 
 
-
         .state('dataRepository', {
             parent: 'localization',
             url: '/data-repository',
@@ -542,9 +541,9 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
     ;
 
-    //if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');
+    // if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');
 
-    //We do not support ie9 and browsers without history api https://docs.angularjs.org/error/$location/nobase
+    // We do not support ie9 and browsers without history api https://docs.angularjs.org/error/$location/nobase
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false,

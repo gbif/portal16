@@ -2,7 +2,6 @@
 var env = window.gb.env;
 
 
-
 angular
     .module('portal')
     .controller('nameParserCtrl', nameParserCtrl);
@@ -26,29 +25,26 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
         }
     };
 
-    vm.handleDrop = function (e) {
+    vm.handleDrop = function(e) {
         var file = e.dataTransfer.files[0];
         parseFile(file);
     };
 
-    $scope.handleFiles = function (files) {
+    $scope.handleFiles = function(files) {
         parseFile(files[0]);
     };
 
-    var isValidFile = function (file) {
-        return !!file && (file.type == '' ||  file.type == 'text/plain' );
+    var isValidFile = function(file) {
+        return !!file && (file.type == '' || file.type == 'text/plain' );
     };
 
-    vm.inputList =  "Abies alba Mill.\nGe Nicéville 1895\nStagonospora polyspora M.T. Lucas & Sousa da Câmara 1934\nArthopyrenia hyalospora (Nyl.) R.C. Harris comb. nov";
-    vm.loadNames = function(){
-
-        $http.get('/api/tools/nameparser/names').then(function(response){
+    vm.inputList = 'Abies alba Mill.\nGe Nicéville 1895\nStagonospora polyspora M.T. Lucas & Sousa da Câmara 1934\nArthopyrenia hyalospora (Nyl.) R.C. Harris comb. nov';
+    vm.loadNames = function() {
+        $http.get('/api/tools/nameparser/names').then(function(response) {
             vm.inputList = response.data;
-        })
-
-    }
-    vm.parse = function(list){
-
+        });
+    };
+    vm.parse = function(list) {
         var pipeDelimited = list.split('|');
         var newLineDelimited = list.split('\n');
 
@@ -57,18 +53,14 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
             method: 'POST',
             url: env.dataApi+'parser/name',
             data: JSON.stringify(entities)
-            }).then(function(response){
+            }).then(function(response) {
                 vm.names = response.data;
                 vm.lookupComplete = true;
-            })
-
-
-
+            });
     };
 
 
-
-    var parseFile = function (file) {
+    var parseFile = function(file) {
         vm.invalidFileFormat = false;
         if (!isValidFile(file)) {
             vm.invalidFileFormat = true;
@@ -77,21 +69,18 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
         }
         var reader = new FileReader();
         reader.readAsText(file);
-        reader.onload = function () {
+        reader.onload = function() {
             vm.parse(reader.result);
         };
-
     };
 
 
-
-
-    vm.generateCsv = function () {
+    vm.generateCsv = function() {
         var fields = ['scientificName', 'type', 'genusOrAbove', 'specificEpithet', 'infraSpecificEpithet', 'authorship', 'bracketAuthorship', 'parsed', 'authorsParsed', 'canonicalName', 'canonicalNameWithMarker', 'canonicalNameComplete', 'rankMarker'];
         var csvContent = '';
 
-        //write column names
-        fields.forEach(function (field, index) {
+        // write column names
+        fields.forEach(function(field, index) {
             csvContent += field;
             if (index < fields.length - 1) {
                 csvContent += ',';
@@ -99,13 +88,13 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
         });
         csvContent += '\n';
 
-        //write rows
-        vm.names.forEach(function (e) {
-            //write row
+        // write rows
+        vm.names.forEach(function(e) {
+            // write row
             if (!e.parsed && vm.exclude) {
                 return;
             }
-            fields.forEach(function (field, index) {
+            fields.forEach(function(field, index) {
                 csvContent += e[field] ? '"' + e[field] + '"' : '';
                 if (index < fields.length - 1) {
                     csvContent += ',';
@@ -113,7 +102,7 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
             });
             csvContent += '\n';
         });
-        //add string to href as data uri making it downloadable
+        // add string to href as data uri making it downloadable
         document.getElementById('nameParser_generatedCsv').href = 'data:application/octet-stream,' + encodeURI(csvContent);
         vm.download = true;
     };
@@ -122,7 +111,7 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (vm.pagination.currentPage * vm.pagination.pageSize < vm.names.length) {
                 vm.pagination.currentPage += 1;
             }
@@ -131,16 +120,12 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (vm.pagination.currentPage > 1) {
                 vm.pagination.currentPage -= 1;
             }
         }
     });
-
-
-
-
 }
 
 module.exports = nameParserCtrl;

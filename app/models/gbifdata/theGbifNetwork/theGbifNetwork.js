@@ -194,11 +194,11 @@ theGbifNetwork.getCountryFacets = () => {
         .then(function(facets) {
             let occurrenceCounts = facets[0].facets[0].counts;
             let datasetCounts = facets[1].facets[0].counts;
-            for (var i = 0; i < occurrenceCounts.length; i++) {
+            for (let i = 0; i < occurrenceCounts.length; i++) {
                 countMap[occurrenceCounts[i].name] = {occurrenceFromCount: occurrenceCounts[i].count};
             }
 
-            for (i = 0; i < datasetCounts.length; i++) {
+            for (let i = 0; i < datasetCounts.length; i++) {
                 if (countMap[datasetCounts[i].name]) {
                     countMap[datasetCounts[i].name].datasetFromCount = datasetCounts[i].count;
                 } else {
@@ -267,45 +267,6 @@ theGbifNetwork.getCountryDataCount = (country, facetMap ) => {
 
     return Q.resolve(country);
 };
-
-
-// theGbifNetwork.getCountryDataCount = (country ) => {
-//     //  @todo include Sampling event datasets
-//     let countCollection = {};
-//     let callTasks = [];
-//     let calls = [
-//         // {'name': 'checklistDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=CHECKLIST&country='},
-//         // {'name': 'checklistDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=CHECKLIST&publishingCountry='},
-//         // {'name': 'datasetAbout', 'urlTemplate': dataApi.occurrence.url + 'counts/datasets?country='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-//         // {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-//         // {'name': 'metadataDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=METADATA&country='},
-//         // {'name': 'metadataDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=METADATA&publishingCountry='},
-//         {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, //  IS USED return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-//         {'name': 'occurrenceFrom', 'urlTemplate': dataApi.occurrence.url + 'search?limit=0&publishingCountry='},
-//         // {'name': 'occurrenceContributedBy', 'urlTemplate': dataApi.occurrence.url + 'counts/publishingCountries?country='}, // returns an object list of {[enumName]: count}
-//         // {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='}, // IS USED
-//         // {'name': 'samplingEventDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=SAMPLING_EVENT&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-//         // {'name': 'literatureAuthoredBy', 'urlTemplate': cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]='}
-//     ];
-//     calls.forEach(call => {
-//         callTasks.push(helper.getApiDataPromise(call.urlTemplate + country.iso2)
-//             .then(result => {
-//                 return processCountResult(call.name, result);
-//             })
-//             .then(countObj => {
-//
-//                 countCollection[call.name + 'Count'] = countObj.count;
-//             })
-//             .catch(e => {
-//                 log.info(e + ' at getDataCount().')
-//             }));
-//     });
-//     return Q.all(callTasks)
-//         .then(() => {
-//             country.counts = countCollection;
-//             return country;
-//         });
-// };
 
 theGbifNetwork.getOapDataCount = (participant) => {
     let deferred = Q.defer();
@@ -448,65 +409,6 @@ theGbifNetwork.getAllPublishers = (nodeUuid) => {
     return deferred.promise;
 };
 
-/**
- * Digest dataset/record counts from various formats of API result.
- * @param name
- * @param result
- */
-function processCountResult(name, result) {
-    let deferred = Q.defer();
-    let countObj = {};
-    if (result.hasOwnProperty('count')) countObj.count = result.count;
-    if (['checklistDatasetAbout', 'checklistDatasetFrom'].indexOf(name) !== -1) {
-        return getChecklistMetrics(result.results)
-            .then((usageCount) => {
-                countObj.recordCount = usageCount;
-                return countObj;
-            })
-            .catch((e) => {
-                deferred.reject(e);
-            });
-    } else if (['datasetAbout', 'occurrenceContributedBy', 'occurrenceContributingTo'].indexOf(name) !== -1) {
-        let recordCount = 0;
-        for (let property in result) {
-            if (result.hasOwnProperty(property)) {
-                recordCount += result[property];
-            }
-        }
-        countObj.count = Object.keys(result).length;
-        countObj.recordCount = recordCount;
-        deferred.resolve(countObj);
-    } else if (!isNaN(result)) {
-        countObj.count = result;
-        deferred.resolve(countObj);
-    } else {
-        deferred.resolve(countObj);
-    }
-    return deferred.promise;
-}
-
-/**
- * collect the usage count of given checklist datasets.
- */
-function getChecklistMetrics(results) {
-    let deferred = Q.defer();
-    let usagesCount = 0;
-    let metricsTask = [];
-    results.forEach((result) => {
-        metricsTask.push(helper.getApiDataPromise(dataApi.dataset.url + result.key + '/metrics')
-            .then((metrics) => {
-                usagesCount += metrics.usagesCount;
-            }));
-    });
-    Q.all(metricsTask)
-        .then(() => {
-            deferred.resolve(usagesCount);
-        })
-        .catch((e) => {
-            deferred.reject(e);
-        });
-    return deferred.promise;
-}
 
 theGbifNetwork.validateParticipants = (participants) => {
     let valid = true;

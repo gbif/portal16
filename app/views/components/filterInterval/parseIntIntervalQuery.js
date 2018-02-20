@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 var parseIntervalQuery = require('./parseIntervalQuery');
 
-module.exports = function (q) {
+module.exports = function(q) {
     var interval = parseIntervalQuery(q);
     if (!interval) {
         return invalidResponse();
@@ -20,8 +20,8 @@ function isNumber(num) {
     return reg.test(num);
 }
 
-function invalidResponse(){
+function invalidResponse() {
     return {
         type: 'invalid'
-    }
+    };
 }

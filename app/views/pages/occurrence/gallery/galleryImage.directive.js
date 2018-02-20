@@ -3,20 +3,20 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .directive('galleryImage', function () {
+    .directive('galleryImage', function() {
         return {
             restrict: 'A',
             scope: {
                 onImgError: '='
             },
-            link: function (scope, element, attrs) {
+            link: function(scope, element, attrs) {
                 var thinner = 0.6,
                     thin = 0.8,
                     wide = 1.4,
                     wider = 1.8,
                     widest = 2.0;
 
-                element.on('load', function () {
+                element.on('load', function() {
                     element.parent().css({
                         'background-image': 'url("' + attrs.src + '")'
                     });
@@ -30,7 +30,7 @@ angular
                     element.parent().addClass('isValid');
                 });
 
-                element.on('error', function () {
+                element.on('error', function() {
                     element.parent().css({
                         'background-image': 'url("/img/brokenDoc.png")'
                     });
@@ -38,7 +38,7 @@ angular
                     element.parent().addClass('isInvalid');
                     // element.parent().html('<span></span>');
                     if (typeof scope.onImgError === 'function') {
-                        scope.$apply(function (scope) {
+                        scope.$apply(function(scope) {
                             var fn = scope.onImgError();
                             if ('undefined' !== typeof fn) {
                                 fn();

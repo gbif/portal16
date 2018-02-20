@@ -13,7 +13,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {};
-    //suggest complex
+    // suggest complex
     vm.filters.scientificName = {
         queryKey: 'taxon_key',
         translationPrefix: 'ocurrenceFieldNames',
@@ -46,7 +46,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         filter: OccurrenceFilter
     };
 
-    //enums
+    // enums
 
     vm.filters.typeStatus = {
         titleTranslation: 'ocurrenceFieldNames.typeStatus',
@@ -96,8 +96,9 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
        enumTranslationPath: 'establishmentMeans.',
        showAll: true,
        enums: enums.establishmentMeans,
+       reversible: true,
        facets: {
-           hasFacets: false,
+           hasFacets: true,
            facetKey: 'ESTABLISHMENT_MEANS'
        }
     };
@@ -115,7 +116,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         }
     };
 
-    //suggest filters
+    // suggest filters
 
     vm.filters.recordedBy = {
         titleTranslation: 'ocurrenceFieldNames.recordedBy',
@@ -266,7 +267,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         }
     };
 
-    //enums 2
+    // enums 2
     vm.filters.countryCode = {
         titleTranslation: 'ocurrenceFieldNames.country',
         queryKey: 'country',
@@ -420,7 +421,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         }
     };
 
-    //intervals
+    // intervals
     vm.filters.year = {
         titleTranslation: 'ocurrenceFieldNames.year',
         intervalTranslation: 'intervals.year.',
@@ -458,15 +459,15 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         }
     };
 
-    //ternary "all, yes, no" aka optional boolean
+    // ternary "all, yes, no" aka optional boolean
     vm.filters.repatriated = {
         titleTranslation: 'filters.repatriation.repatriationFilter',
-        descriptionTranslation: "filters.repatriation.description",
+        descriptionTranslation: 'filters.repatriation.description',
         queryKey: 'repatriated',
         filter: OccurrenceFilter
     };
 
-    //dates
+    // dates
     vm.filters.lastInterpreted = {
         titleTranslation: 'ocurrenceFieldNames.lastInterpreted',
         intervalTranslation: 'intervals.year.',
@@ -481,7 +482,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         filter: OccurrenceFilter
     };
 
-    //location
+    // location
     vm.filters.location = {
         titleTranslation: 'ocurrenceFieldNames.location',
         filter: OccurrenceFilter,
@@ -490,37 +491,37 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
 
-    vm.toggleAdvanced = function () {
+    vm.toggleAdvanced = function() {
         OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
     };
 
-    vm.search = function () {
+    vm.search = function() {
         vm.occurrenceState.query.q = vm.freeTextQuery;
         $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.updateSearch = function () {
+    vm.updateSearch = function() {
         vm.occurrenceState.query.offset = undefined;
         vm.occurrenceState.query.limit = undefined;
         vm.occurrenceState.query.q = vm.freeTextQuery;
         $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: false, reload: false});
     };
-    vm.searchOnEnter = function (event) {
+    vm.searchOnEnter = function(event) {
         if (event.which === 13) {
             vm.updateSearch();
         }
     };
 
-    vm.clearFreetextAndSetFocus = function () {
+    vm.clearFreetextAndSetFocus = function() {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
-    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    // might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
     hotkeys.add({
         combo: 'alt+f',
         description: 'Site search',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function (event) {
+        callback: function(event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
         }
@@ -530,7 +531,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         combo: 'alt+enter',
         description: 'Apply',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function (event) {
+        callback: function(event) {
             vm.updateSearch();
             event.preventDefault();
         }
@@ -538,11 +539,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
 
     vm.freeTextSpeciesSuggestion = undefined;
     vm.showFreeTextSpeciesSuggestion = false;
-    vm.testFreeTextForSpeciesName = function () {
+    vm.testFreeTextForSpeciesName = function() {
         vm.freeTextSpeciesSuggestion = SpeciesMatch.query({
             verbose: false,
             name: vm.occurrenceState.query.q
-        }, function (response) {
+        }, function(response) {
             if (response.matchType !== 'NONE' && response.confidence > 80) {
                 vm.showFreeTextSpeciesSuggestion = true;
             }
@@ -551,7 +552,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     vm.testFreeTextForSpeciesName();
     vm.freeTextQuery = vm.occurrenceState.query.q;
 
-    vm.addTaxon = function (taxon) {
+    vm.addTaxon = function(taxon) {
         vm.occurrenceState.query.q = '';
         vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
         vm.occurrenceState.query.taxon_key = [taxon.usageKey].concat(vm.occurrenceState.query.taxon_key);
@@ -561,12 +562,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
     };
 
-    $scope.$watch(function () {
+    $scope.$watch(function() {
         return vm.occurrenceState.query.q;
-    }, function () {
+    }, function() {
         vm.freeTextQuery = vm.occurrenceState.query.q;
     });
-
 }
 
 module.exports = occurrenceCtrl;

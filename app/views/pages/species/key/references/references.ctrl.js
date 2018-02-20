@@ -12,17 +12,16 @@ function speciesReferencesCtrl($stateParams, SpeciesReferences) {
     var vm = this;
     vm.references = [];
 
-    var citeFunc = function (r) {
+    var citeFunc = function(r) {
         return r.citation;
     };
     SpeciesReferences.query({
         id: $stateParams.key,
         limit: 200
-    }, function (data) {
+    }, function(data) {
         vm.references = _.sortedUniqBy(_.sortBy(data.results, citeFunc), citeFunc);
-
-    }, function () {
-    })
+    }, function() {
+    });
 }
 
 module.exports = speciesReferencesCtrl;

@@ -18,9 +18,9 @@ function projectKeyCtrl(DatasetSearch, $q, env, $http, $location, $rootScope, BU
     var tabs = ['about', 'news', 'datasets'];
 
     if (vm.projectId) {
-        vm.datasets = DatasetSearch.query({projectId: vm.projectId, limit: 500}, function () {
+        vm.datasets = DatasetSearch.query({projectId: vm.projectId, limit: 500}, function() {
             vm.failedRequest = false;
-        }, function () {
+        }, function() {
             vm.failedRequest = true;
         });
     }
@@ -33,7 +33,7 @@ function projectKeyCtrl(DatasetSearch, $q, env, $http, $location, $rootScope, BU
         params: {key: vm.key, type: 'events'}
     });
 
-    $q.all([vm.news, vm.events]).then(function (values) {
+    $q.all([vm.news, vm.events]).then(function(values) {
         vm.newsEvents = {};
         vm.newsEvents.results = values[0].data.results.concat(values[1].data.results);
         vm.newsEvents.images = _.assign(values[0].data.images, values[1].data.images);
@@ -45,7 +45,7 @@ function projectKeyCtrl(DatasetSearch, $q, env, $http, $location, $rootScope, BU
     }
     updateTab();
 
-    $rootScope.$on('$locationChangeSuccess', function () {
+    $rootScope.$on('$locationChangeSuccess', function() {
         updateTab();
     });
 }

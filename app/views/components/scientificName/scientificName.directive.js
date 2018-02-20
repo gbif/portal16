@@ -26,12 +26,12 @@ function scientificNameDirective() {
     function scientificNameCtrl(SpeciesParsedName) {
         var vm = this;
         vm.parsedName = vm.name;
-        SpeciesParsedName.get({id:vm.key}, function(data){
-            if(data.n){
+        SpeciesParsedName.get({id: vm.key}, function(data) {
+            if (data.n) {
                 vm.parsedName = data.n;
             }
-        }, function(){
-            //ignore error and show the plain unformated name
+        }, function() {
+            // ignore error and show the plain unformated name
         });
     }
 }

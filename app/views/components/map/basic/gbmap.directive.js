@@ -37,7 +37,7 @@ function gbmapDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element) {//, attrs, ctrl
+    function mapLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
 
@@ -48,7 +48,7 @@ function gbmapDirective(BUILD_VERSION) {
             map;
 
         vm.basisOfRecord = {};
-        enums.basisOfRecord.forEach(function (bor) {
+        enums.basisOfRecord.forEach(function(bor) {
             vm.basisOfRecord[bor] = false;
         });
 
@@ -59,7 +59,7 @@ function gbmapDirective(BUILD_VERSION) {
         vm.allYears = true;
         vm.yearRange = {};
 
-        $scope.create = function (element) {
+        $scope.create = function(element) {
             map = createMap(element);
             changeBaseMap(map);
             vm.updateMap();
@@ -76,28 +76,28 @@ function gbmapDirective(BUILD_VERSION) {
                     'max': 2016
                 }
             });
-            slider.noUiSlider.on('update', function (vals) {
+            slider.noUiSlider.on('update', function(vals) {
                 // only adjust the range the user can see
                 vm.yearRange.start = Math.floor(vals[0]);
                 vm.yearRange.end = Math.floor(vals[1]);
-                years.innerText = vm.yearRange.start + " - " + vm.yearRange.end;
+                years.innerText = vm.yearRange.start + ' - ' + vm.yearRange.end;
             });
-            slider.noUiSlider.on('start', function () {
-                $scope.$apply(function () {
+            slider.noUiSlider.on('start', function() {
+                $scope.$apply(function() {
                     vm.allYears = false;
                 });
             });
             slider.noUiSlider.on('change', vm.sliderChange);
         };
 
-        vm.interactionWithMap = function () {
+        vm.interactionWithMap = function() {
             if (!vm.hasInterActedWithMap) {
                 map.scrollWheelZoom.enable();
                 vm.hasInterActedWithMap = true;
             }
         };
 
-        vm.getExploreQuery = function () {
+        vm.getExploreQuery = function() {
             var q = getQuery();
             q.basis_of_record = q.basisOfRecord;
             delete q.basisOfRecord;
@@ -151,24 +151,24 @@ function gbmapDirective(BUILD_VERSION) {
                     .replace(/S/g, S.toFixed(2))
                     .replace(/W/g, W.toFixed(2))
                     .replace(/E/g, E.toFixed(2));
-            //if we are seeing all of earth then do not filter on bounds. TODO, this will be different code for other projections. How to handle that well?
+            // if we are seeing all of earth then do not filter on bounds. TODO, this will be different code for other projections. How to handle that well?
             if (N == 90 && S == -90 && Math.abs(bounds._northEast.lng - bounds._southWest.lng) >= 360) {
                 str = undefined;
             }
             return str;
         }
 
-        vm.sliderChange = function (vals) {
+        vm.sliderChange = function(vals) {
             vm.yearRange.start = Math.floor(vals[0]);
             vm.yearRange.end = Math.floor(vals[1]);
             vm.updateMap();
-            $scope.$apply(function () {
+            $scope.$apply(function() {
                 vm.allYears = false;
             });
         };
 
-        vm.updateMap = function () {
-            overlays.forEach(function (layer) {
+        vm.updateMap = function() {
+            overlays.forEach(function(layer) {
                 map.removeLayer(layer);
             });
             var points = _.get(vm, 'mapOptions.points');
@@ -188,8 +188,8 @@ function gbmapDirective(BUILD_VERSION) {
         function getQuery() {
             var query = {};
 
-            //basis of record as array
-            var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function (e) {
+            // basis of record as array
+            var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function(e) {
                 return vm.basisOfRecord[e];
             });
             query.basisOfRecord = basisOfRecord;
@@ -197,12 +197,12 @@ function gbmapDirective(BUILD_VERSION) {
                 delete query.basisOfRecord;
             }
 
-            //year filters
+            // year filters
             if (!vm.allYears && vm.yearRange.start && vm.yearRange.end) {
-                query.year = vm.yearRange.start + "," + vm.yearRange.end;
+                query.year = vm.yearRange.start + ',' + vm.yearRange.end;
             }
 
-            //only show one key. if more are supplied then ignore the remaining. at a later time it could be two layers styled differently to compare them
+            // only show one key. if more are supplied then ignore the remaining. at a later time it could be two layers styled differently to compare them
             var possibleKeys = ['taxonKey', 'datasetKey', 'publishingOrg', 'country', 'publishingCountry'];
             for (var i = 0; i < possibleKeys.length; i++) {
                 var key = possibleKeys[i];
@@ -214,10 +214,10 @@ function gbmapDirective(BUILD_VERSION) {
             return query;
         }
 
-        vm.updateProjection = function () {
-            //Proj4js.defs["EPSG:3031"] = "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+        vm.updateProjection = function() {
+            // Proj4js.defs["EPSG:3031"] = "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
 
-            //var crs = new L.Proj.CRS('EPSG:3575',
+            // var crs = new L.Proj.CRS('EPSG:3575',
             //    '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs',
             //    {
             //        resolutions: [
@@ -226,8 +226,8 @@ function gbmapDirective(BUILD_VERSION) {
             //        origin: [0, 0]
             //    });
             //
-            //map.options.crs = crs;//L.CRS.EPSG3857;
-            //set new basemap and overlays
+            // map.options.crs = crs;//L.CRS.EPSG3857;
+            // set new basemap and overlays
         };
 
         vm.controls = {
@@ -236,8 +236,8 @@ function gbmapDirective(BUILD_VERSION) {
             projection: false
         };
 
-        vm.toggleControls = function (control) {
-            Object.keys(vm.controls).forEach(function (e) {
+        vm.toggleControls = function(control) {
+            Object.keys(vm.controls).forEach(function(e) {
                 if (e == control) {
                     vm.controls[control] = !vm.controls[control];
                 } else {
@@ -245,17 +245,19 @@ function gbmapDirective(BUILD_VERSION) {
                 }
             });
         };
-        vm.toggleFilter = function () {
+        vm.toggleFilter = function() {
             vm.toggleControls('filters');
         };
-        vm.toggleStyle = function () {
+        vm.toggleStyle = function() {
             vm.toggleControls('style');
         };
-        vm.toggleProjection = function () {
+        vm.toggleProjection = function() {
             vm.toggleControls('projection');
         };
 
-        $scope.$watch(function() { return vm.mapView; }, function() {
+        $scope.$watch(function() {
+ return vm.mapView;
+}, function() {
             if (map && vm.mapView) {
                 map.setView(new L.LatLng(vm.mapView.center[0], vm.mapView.center[1]), vm.mapView.zoom);
             }
@@ -269,7 +271,7 @@ function createMap(element) {
         mapElement = element[0].querySelector('.map-area'),
         globeCanvas = element[0].querySelector('.globe');
 
-    //var crs3575 = new L.Proj.CRS('EPSG:3575',
+    // var crs3575 = new L.Proj.CRS('EPSG:3575',
     //    '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs',
     //    {
     //        //resolutions: [
@@ -289,12 +291,12 @@ function createMap(element) {
             focus: 'deepskyblue'
         });
     }
-    map.on('move', function () {
+    map.on('move', function() {
         globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
     });
     window.map = map;
 
-    //var geoJ = {
+    // var geoJ = {
     //    "type": "FeatureCollection",
     //    "features": [
     //        {
@@ -320,8 +322,8 @@ function createMap(element) {
     //            }
     //        }
     //    ]
-    //};
-    //L.geoJson(geoJ, {
+    // };
+    // L.geoJson(geoJ, {
     //    style: function (feature) {
     //        return 'red';//{color: feature.properties.color};
     //    },
@@ -329,7 +331,7 @@ function createMap(element) {
     //        //layer.bindPopup(feature.properties.description);
     //        layer.bindPopup('mypop up text');
     //    }
-    //}).addTo(map);
+    // }).addTo(map);
 
     return map;
 }
@@ -338,12 +340,12 @@ function createMap(element) {
 function changeBaseMap(map) {
     // HTTP URL is                            http://{s}.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist
     var baseMap = L.tileLayer('https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist', {
-        attribution: "&copy; <a href='https://www.cartodb.com/'>CartoDB</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
+        attribution: '&copy; <a href=\'https://www.cartodb.com/\'>CartoDB</a> <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\'>OpenStreetMap contributors</a>'
     });
 
-    //var arctic = L.tileLayer('//{s}.tiles.arcticconnect.org/osm_3575/{z}/{x}/{y}.png ', {
+    // var arctic = L.tileLayer('//{s}.tiles.arcticconnect.org/osm_3575/{z}/{x}/{y}.png ', {
     //    attribution: '&copy; <a href="http://arcticconnect.org/">ArcticConnect</a>. Data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    //});
+    // });
     baseMap.addTo(map);
 }
 
@@ -351,28 +353,28 @@ function addOverLays(map, query, points) {
     var queryParam = query.basisOfRecord;
     delete query.basisOfRecord;
 
-    var conf = {style: "classic.poly", bin: "hex", "hexPerTile": 25, srs: 'EPSG:4326'};
+    var conf = {'style': 'classic.poly', 'bin': 'hex', 'hexPerTile': 25, 'srs': 'EPSG:4326'};
     if (points) {
         conf = {srs: 'EPSG:4326'};
     }
 
     var optionsA = angular.extend({}, conf, query);
-    //optionsA.style = "outline.poly";
+    // optionsA.style = "outline.poly";
 
 
-    //var optionsB = angular.copy(conf);
-    //optionsB.style = "orange.marker";
+    // var optionsB = angular.copy(conf);
+    // optionsB.style = "orange.marker";
 
     var overlays = [];
     var overlayA = L.gbifSimpleLayer('//{s}-api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png?' + queryParam, optionsA);
     overlayA.addTo(map);
     overlays.push(overlayA);
 
-    //var overlayB = L.gbifSimpleLayer('http://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png', optionsB);
-    //overlayB.addTo(map);
+    // var overlayB = L.gbifSimpleLayer('http://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png', optionsB);
+    // overlayB.addTo(map);
 
 
-    //overlays.push(overlayB);
+    // overlays.push(overlayB);
     return overlays;
 }
 

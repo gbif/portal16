@@ -38,8 +38,8 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
         vm.challenge;
         vm.verificationFailed = false;
 
-        //read flash cookie and remove it
-        var loginFlashInfo = $cookies.get('loginFlashInfo') || "{}";
+        // read flash cookie and remove it
+        var loginFlashInfo = $cookies.get('loginFlashInfo') || '{}';
         $cookies.remove('loginFlashInfo', {path: '/'});
         var loginState = JSON.parse(loginFlashInfo);
 
@@ -49,30 +49,30 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
         vm.authProvider = loginState.authProvider;
         vm.errorMessage = loginState.error;
 
-        function clearFlashMessage(){
+        function clearFlashMessage() {
             vm.errorMessage = undefined;
         }
 
-        vm.getSuggestions = function () {
-            //get list of countries
-            var countryList = $http.get('/api/country/suggest.json?lang=' + LOCALE + '&v=' + BUILD_VERSION);//TODO needs localization of suggestions
-            countryList.then(function (response) {
+        vm.getSuggestions = function() {
+            // get list of countries
+            var countryList = $http.get('/api/country/suggest.json?lang=' + LOCALE + '&v=' + BUILD_VERSION);// TODO needs localization of suggestions
+            countryList.then(function(response) {
                 vm.searchSuggestions = response.data;
                 vm.country = vm.countryCode;
-            }).catch(function(){
+            }).catch(function() {
                 vm.country = vm.countryCode;
             });
 
-            //get users estimated location
+            // get users estimated location
             var geoip = $http.get('/api/utils/geoip/country');
 
-            //once both are in, then set country to users location if not already set
+            // once both are in, then set country to users location if not already set
             if (!vm.countryCode) {
-                $q.all([geoip, countryList]).then(function (values) {
+                $q.all([geoip, countryList]).then(function(values) {
                     var isoCode = _.get(values, '[0].data.countryCode');
                     if (isoCode) {
-                        var usersCountry = values[1].data.find(function (e) {
-                            return e.key === isoCode
+                        var usersCountry = values[1].data.find(function(e) {
+                            return e.key === isoCode;
                         });
                         vm.country = vm.country || usersCountry.key;
                     }
@@ -80,19 +80,19 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
             }
         };
 
-        vm.typeaheadSelect = function (item) { //  model, label, event
+        vm.typeaheadSelect = function(item) { //  model, label, event
             if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
             vm.countryCode = item.key;
         };
 
-        vm.formatTypehead = function(searchSuggestions, isoCode){
-            var o = _.find(searchSuggestions, {key:isoCode});
+        vm.formatTypehead = function(searchSuggestions, isoCode) {
+            var o = _.find(searchSuggestions, {key: isoCode});
             return (o ? o.title || o.key : isoCode);
         };
 
         vm.getSuggestions();
 
-        vm.changeState = function (state, keepErrors) {
+        vm.changeState = function(state, keepErrors) {
             vm.loginState = vm.createState = vm.loggedinState = vm.resetState = vm.resetMailSentState = vm.externalAuthState = false;
             vm.formInvalid = false;
             vm.invalidLogin = false;
@@ -125,61 +125,61 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
             }
         };
 
-        vm.getChallenge = function () {
+        vm.getChallenge = function() {
             vm.waiting = true;
-            $http.get('/api/verification/challenge').then(function (response) {
+            $http.get('/api/verification/challenge').then(function(response) {
                 vm.answer = {};
                 vm.challenge = response.data;
                 vm.waiting = false;
-            }, function () {
+            }, function() {
                 toastService.error({
-                    message: "Hmm - this isn't good. Please try to refresh. If the problem persists, then please let us know.",
+                    message: 'Hmm - this isn\'t good. Please try to refresh. If the problem persists, then please let us know.',
                     feedback: true
                 });
                 vm.waiting = false;
             });
         };
 
-        vm.clearForms = function () {
+        vm.clearForms = function() {
             vm.email = vm.username = vm.password = vm.answer = undefined;
         };
 
-        vm.resetPassword = function () {
+        vm.resetPassword = function() {
             var reset = User.resetPassword({userNameOrEmail: vm.userNameOrEmail});
             vm.waiting = true;
-            reset.then(function () {
+            reset.then(function() {
                 vm.changeState('RESET_MAIL_SENT');
                 vm.waiting = false;
-            }, function (err) {
+            }, function(err) {
                 vm.waiting = false;
-                if (err.status < 500) { //401 seems an odd error code for 'no such entry' but that is what the API returns
-                    //TODO move error messages to translation file
-                    toastService.error({message: "Unknown username or email", feedback: true});
+                if (err.status < 500) { // 401 seems an odd error code for 'no such entry' but that is what the API returns
+                    // TODO move error messages to translation file
+                    toastService.error({message: 'Unknown username or email', feedback: true});
                 } else {
-                    toastService.error({message: "We couldn't reset you password right now - please try again later. Sorry for the inconvenience", feedback: true});
+                    toastService.error({message: 'We couldn\'t reset you password right now - please try again later. Sorry for the inconvenience', feedback: true});
                 }
             });
         };
 
-        vm.createNext = function () {
+        vm.createNext = function() {
             if (vm.createUserForm.$valid) {
                 vm.waiting = true;
                 vm.verification = true;
-                vm.getChallenge()
+                vm.getChallenge();
             } else {
                 vm.touchFields(vm.createUserForm);
                 vm.formInvalid = true;
             }
         };
 
-        vm.touchFields = function (form) {
-            angular.forEach(form.$error, function (field) {
-                angular.forEach(field, function (errorField) {
+        vm.touchFields = function(form) {
+            angular.forEach(form.$error, function(field) {
+                angular.forEach(field, function(errorField) {
                     errorField.$setTouched();
-                })
+                });
             });
         };
-        vm.signup = function () {
+        vm.signup = function() {
             vm.creationFailure = undefined;
             if (vm.createUserForm.$valid) {
                 vm.waiting = true;
@@ -195,20 +195,20 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                         password: vm.password
                     }
                 };
-                body.challenge.answer = Object.keys(vm.answer).filter(function (e) {
+                body.challenge.answer = Object.keys(vm.answer).filter(function(e) {
                     return vm.answer[e];
                 });
                 body.challenge.id = vm.challenge.id;
 
                 var createUserPromise = User.createUser(body);
-                createUserPromise.then(function () {
+                createUserPromise.then(function() {
                     vm.changeState('CREATED');
                     vm.waiting = false;
-                }, function (err) {
+                }, function(err) {
                     if (err.status === 401) {
                         vm.getChallenge();
                     } else {
-                        //TODO get all possible error types from Christian and add them to the translation file
+                        // TODO get all possible error types from Christian and add them to the translation file
                         vm.verification = false;
                         vm.waiting = false;
                         vm.creationFailure = _.get(err, 'data.error');
@@ -221,18 +221,18 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
             }
         };
 
-        vm.submitLogin = function () {
+        vm.submitLogin = function() {
             // check to make sure the form is completely valid
             vm.invalidLogin = false;
             if (vm.loginUserForm.$valid) {
                 vm.waiting = true;
                 var loginPromise = User.login(vm.username, vm.password);
-                loginPromise.then(function () {
-                    //any notifications?
+                loginPromise.then(function() {
+                    // any notifications?
                     vm.waiting = false;
-                }, function () {
+                }, function() {
                     vm.waiting = false;
-                    vm.invalidLogin = true;//TODO differentiate between failed invalid login and failed login
+                    vm.invalidLogin = true;// TODO differentiate between failed invalid login and failed login
                 });
             }
         };
@@ -257,7 +257,6 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                     } else {
                         vm.changeState('CREATE', true);
                     }
-
                 } else {
                     vm.changeState('LOGIN', true);
                 }
@@ -265,28 +264,27 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
         }
         getActiveUser();
 
-        vm.logout = function () {
+        vm.logout = function() {
             vm.waiting = true;
             var logout = User.logout();
-            logout.then(function () {
+            logout.then(function() {
                 vm.waiting = false;
-            }, function () {
+            }, function() {
                 vm.waiting = false;
             });
         };
 
-        $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+        $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
             vm.isActive = false;
             vm.clearForms();
             vm.changeState('LOGIN');
         });
 
-        $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+        $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
             vm.isActive = false;
             vm.changeState('LOGGEDIN');
             getActiveUser();
         });
-
     }
 }
 

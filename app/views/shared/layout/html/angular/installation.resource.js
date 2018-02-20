@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('Installation', function ($resource, env) {
+        .factory('Installation', function($resource, env) {
             return $resource(env.dataApi + 'installation/:id', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('InstallationExtended', function ($resource) {
+        .factory('InstallationExtended', function($resource) {
             return $resource('/api/installation/:id', null, {
                     'query': {
                         method: 'GET',
@@ -25,7 +25,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('InstallationDatasets', function ($resource, env) {
+        .factory('InstallationDatasets', function($resource, env) {
             return $resource(env.dataApi + 'installation/:id/dataset', null, {
                     'query': {
                         method: 'GET',

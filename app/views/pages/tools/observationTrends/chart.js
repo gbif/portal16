@@ -12,11 +12,11 @@ function showStats(data, minYear, maxYear) {
     var speciesCounts = typeof data.speciesCounts === 'string' ? JSON.parse(data.speciesCounts) : data.speciesCounts;
     var groupCounts = typeof data.groupCounts === 'string' ? JSON.parse(data.groupCounts) : data.groupCounts;
 
-    //transform data to the format the Chartist library expects
+    // transform data to the format the Chartist library expects
     for (i = minYear; i < maxYear; i++) {
         labels.push(i);
         if (groupCounts.hasOwnProperty(i.toString())) {
-            //Calculate the relative amount of the species in relation to the group
+            // Calculate the relative amount of the species in relation to the group
             var s = speciesCounts[i] || 0;
             var g = groupCounts[i];
             var val = s / g;
@@ -24,12 +24,11 @@ function showStats(data, minYear, maxYear) {
 
             // group counts for drawing the area graph so that the user can easily see how much data was available that year
             groupLine.push(g);
-        }
-        else {
+        } else {
             points.push(null);
             groupLine.push(null);
         }
-        //draw the regression line
+        // draw the regression line
         line.push(data.slope * i + data.intercept);
     }
 
@@ -50,13 +49,13 @@ function showStats(data, minYear, maxYear) {
     }, {
         fullWidth: true,
         axisX: {
-            labelInterpolationFnc: function (value, index) {
+            labelInterpolationFnc: function(value, index) {
                 return index % interval === 0 ? value : '';
             },
             showGrid: false
         },
         axisY: {
-            labelInterpolationFnc: function (value) {
+            labelInterpolationFnc: function(value) {
                 return +value.toFixed(5);
             }
         },
@@ -89,7 +88,7 @@ function showStats(data, minYear, maxYear) {
     }, {
         fullWidth: true,
         axisX: {
-            labelInterpolationFnc: function (value, index) {
+            labelInterpolationFnc: function(value, index) {
                 return index % interval === 0 ? value : '';
             },
             showGrid: false

@@ -38,7 +38,6 @@ function render(req, res, next) {
 
 
 router.get('/templates/data-validator/about.html', function(req, res, next) {
-    let contentfulProdId = 'zqFvwnIS0oAMwQIKWooAW'; //
     let query = {
         'content_type': 'Tool',
         'fields.keywords': 'validator'

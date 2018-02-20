@@ -18,22 +18,22 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         hasTechContact: false
     };
     vm.terms = {
-        //agreement: true,
-        //authorized: true,
-        //public: true
+        // agreement: true,
+        // authorized: true,
+        // public: true
     };
     vm.form = {
         comments: {},
-        pointOfContact: { type: "POINT_OF_CONTACT"},
-        administrativeContact: { type: "ADMINISTRATIVE_POINT_OF_CONTACT"},
-        technicalContact: {type: "TECHNICAL_POINT_OF_CONTACT"},
+        pointOfContact: {type: 'POINT_OF_CONTACT'},
+        administrativeContact: {type: 'ADMINISTRATIVE_POINT_OF_CONTACT'},
+        technicalContact: {type: 'TECHNICAL_POINT_OF_CONTACT'},
         expectToPublishDataTypes: {},
-        suggestedNodeKey :"other"
+        suggestedNodeKey: 'other'
 
     };
 
 
-    vm.getPublisherSuggestions = function (val) {
+    vm.getPublisherSuggestions = function(val) {
         var deferred = $q.defer();
         var publisherSuggestions = $http.get(suggestEndpoints.publisher, {
             params: {
@@ -41,74 +41,71 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
                 limit: 10
             }
         });
-        publisherSuggestions.then(function (resp) {
+        publisherSuggestions.then(function(resp) {
             vm.userHaveSearched = true;
             deferred.resolve(resp.data);
-        }).catch(function () {
+        }).catch(function() {
             deferred.reject();
         });
         return deferred.promise;
     };
-    vm.getCountrySuggestions = function () {
+    vm.getCountrySuggestions = function() {
         var suggestions = $http.get('/api/country/suggest.json');
-        suggestions.then(function (resp) {
+        suggestions.then(function(resp) {
             vm.countries = resp.data;
         });
     };
     vm.getCountrySuggestions();
 
-    vm.changeCountry = function (country) {
+    vm.changeCountry = function(country) {
         if (country) {
-
-            if(country === 'TW' && typeof vm.chineseTaipei !== 'undefined' ){
-                 Node.query({identifierType: "GBIF_PARTICIPANT", identifier: vm.chineseTaipei.id}).$promise
-                    .then(function(data){
+            if (country === 'TW' && typeof vm.chineseTaipei !== 'undefined' ) {
+                 Node.query({identifierType: 'GBIF_PARTICIPANT', identifier: vm.chineseTaipei.id}).$promise
+                    .then(function(data) {
                         vm.suggestedCountryNode = _.head(data.results);
-                        vm.form.suggestedNodeKey = (vm.suggestedCountryNode) ? vm.suggestedCountryNode.key : "other";
+                        vm.form.suggestedNodeKey = (vm.suggestedCountryNode) ? vm.suggestedCountryNode.key : 'other';
                     });
-
-
             } else {
                 NodeCountry.query({countryCode: country}).$promise
-                    .then(function (data) {
+                    .then(function(data) {
                         if (data.key) {
                             vm.suggestedCountryNode = data;
                             vm.form.suggestedNodeKey = vm.suggestedCountryNode.key;
                         } else {
-                            vm.form.suggestedNodeKey = "other";
+                            vm.form.suggestedNodeKey = 'other';
                         }
                     });
             }
         }
     };
 
-    vm.getNonCountryParticipants = function(){
+    vm.getNonCountryParticipants = function() {
         DirectoryParticipants.get({membershipType: 'other_associate_participant'}).$promise
-            .then(function(response){
-                vm.nonCountryParticipants = _.filter(response, function(p){
-                    if(p.id === 239 && p.countryCode === 'TW'){
+            .then(function(response) {
+                vm.nonCountryParticipants = _.filter(response, function(p) {
+                    if (p.id === 239 && p.countryCode === 'TW') {
                         vm.chineseTaipei = p;
                     }
                     return p.id !== 239 && p.countryCode !== 'TW';
                 });
-            }, function (error){
+            }, function(error) {
                 return error;
             });
     };
     vm.getNonCountryParticipants();
 
-    vm.setSuggestedNode = function(participantId){
-        Node.query({identifierType: "GBIF_PARTICIPANT", identifier: participantId}).$promise
-            .then(function(data){
+    vm.setSuggestedNode = function(participantId) {
+        Node.query({identifierType: 'GBIF_PARTICIPANT', identifier: participantId}).$promise
+            .then(function(data) {
                 vm.suggestedNonCountryNode = _.head(data.results);
                 vm.form.suggestedNodeKey = ( vm.suggestedNonCountryNode) ? vm.suggestedNonCountryNode.key : undefined;
             });
     };
 
-    vm.selectedPublisherChange = function (item) {
+    vm.selectedPublisherChange = function(item) {
         if (item) {
             Publisher.get({id: item.key}).$promise
-                .then(function (publisher) {
+                .then(function(publisher) {
                     vm.publisher = publisher;
                     vm.publisher._contact = getContact(vm.publisher);
                     vm.node = Node.get({id: vm.publisher.endorsingNodeKey});
@@ -119,11 +116,11 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
     };
 
     function getContact(publisher) {
-        //remove contacts without a mail
-        var p = _.filter(publisher.contacts, function (e) {
+        // remove contacts without a mail
+        var p = _.filter(publisher.contacts, function(e) {
             return e.email.length > 0;
         });
-        //map to roles
+        // map to roles
         p = _.keyBy(p, 'type');
         return p.POINT_OF_CONTACT || p.ADMINISTRATIVE_POINT_OF_CONTACT || p.TECHNICAL_POINT_OF_CONTACT;
     }
@@ -138,7 +135,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
     // };
 
     var map;
-    vm.createMap = function () {
+    vm.createMap = function() {
         map = new ol.Map({
             layers: [
                 new ol.layer.Tile({
@@ -152,28 +149,28 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
                 center: [0, 0],
                 zoom: 1
             }),
-            interactions: ol.interaction.defaults({mouseWheelZoom:false})
+            interactions: ol.interaction.defaults({mouseWheelZoom: false})
         });
-        map.on("singleclick", function (evt) {
+        map.on('singleclick', function(evt) {
             setPinOnMap(evt);
         });
     };
 
-    vm.clear = function () {
+    vm.clear = function() {
         map.removeLayer(vm.dynamicPinLayer);
-        $timeout(function(){
+        $timeout(function() {
             vm.form.latitude = vm.form.longitude = undefined;
             vm.dynamicPinLayer = undefined;
         }, 0);
     };
 
-    vm.add = function () {
-        setPinOnMap({coordinate: map.getView().getCenter()})
+    vm.add = function() {
+        setPinOnMap({coordinate: map.getView().getCenter()});
     };
 
     function setPinOnMap(evt) {
         var latLong = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
-        $timeout(function(){
+        $timeout(function() {
             vm.form.latitude = latLong[1];
             vm.form.longitude = latLong[0];
         }, 0);
@@ -209,17 +206,16 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
     }
 
 
-    vm.createOrganization = function(){
+    vm.createOrganization = function() {
         var body = getBody();
         var creation = $http.post('/api/eoi/create', body);
-        creation.then(function (res) {
+        creation.then(function(res) {
             vm.state.submissionComplete = true;
             vm.state.submissionError = false;
             vm.state.newPublisherKey = res.data;
-        }, function (err) {
+        }, function(err) {
             vm.state.submissionComplete = true;
             vm.state.submissionError = true;
-
         });
         return creation;
     };
@@ -228,15 +224,14 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         var body = _.assign({}, vm.form);
         body.contacts = [];
         if (vm.state.hasAdminContact && body.administrativeContact.firstName && body.administrativeContact.lastName && body.administrativeContact.email) {
-            body.contacts.push(body.administrativeContact)
+            body.contacts.push(body.administrativeContact);
         }
         if (vm.state.hasTechContact && body.technicalContact.firstName && body.technicalContact.lastName && body.technicalContact.email) {
-            body.contacts.push(body.technicalContact)
+            body.contacts.push(body.technicalContact);
         }
         body.contacts.push(body.pointOfContact);
         return body;
     }
-
 }
 
 module.exports = becomePublisherCtrl;

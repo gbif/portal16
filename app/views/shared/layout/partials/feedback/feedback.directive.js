@@ -33,7 +33,7 @@ function feedbackDirective(BUILD_VERSION) {
         vm.ISSUES = 'issues';
         vm.CONFIRMATION = 'confirmation';
         vm.type = {
-            //0 left out to allow falsy test a la : if (vm.type) then ...
+            // 0 left out to allow falsy test a la : if (vm.type) then ...
             CONTENT: 'data content',
             FUNCTIONALITY: 'bug',
             IDEA: 'idea',
@@ -53,12 +53,12 @@ function feedbackDirective(BUILD_VERSION) {
         }
         updateUser();
 
-        $scope.$on(NAV_EVENTS.toggleFeedback, function (event, data) {
-            //open feedback on the relevant tab ((question, bug etc.))
+        $scope.$on(NAV_EVENTS.toggleFeedback, function(event, data) {
+            // open feedback on the relevant tab ((question, bug etc.))
             if (vm.type[data.type]) {
                 vm.toggle(vm.type[data.type]);
             }
-            //toggle or set state
+            // toggle or set state
             if (data.toggle) {
                 vm.isActive = !vm.isActive;
             } else {
@@ -66,11 +66,11 @@ function feedbackDirective(BUILD_VERSION) {
             }
         });
 
-        vm.close = function () {
+        vm.close = function() {
             vm.isActive = false;
         };
 
-        vm.toggle = function (type) {
+        vm.toggle = function(type) {
             if (vm.selected == type) {
                 vm.selected = undefined;
             } else {
@@ -78,7 +78,7 @@ function feedbackDirective(BUILD_VERSION) {
             }
         };
 
-        vm.createIssue = function (formData) {
+        vm.createIssue = function(formData) {
             vm.state = 'SENDING';
             var issue = {
                 width: window.innerWidth,
@@ -88,24 +88,24 @@ function feedbackDirective(BUILD_VERSION) {
                 datasetKey: vm.associatedDatasetKey,
                 publishingOrgKey: vm.associatedPublishingOrgKey
             };
-            $http.post('/api/feedback/bug', issue, {}).then(function (response) {
+            $http.post('/api/feedback/bug', issue, {}).then(function(response) {
                 vm.referenceId = response.data.referenceId;
                 vm.selected = vm.CONFIRMATION;
                 vm.state = 'SUCCESS';
                 vm.issue = {};
-            }, function () {
+            }, function() {
                 vm.state = 'FAILED';
             });
         };
 
-        vm.gotoRoot = function () {
+        vm.gotoRoot = function() {
             vm.selected = undefined;
             vm.forceShowForm = false;
         };
 
-        vm.updateContentFeedbackType = function () {
+        vm.updateContentFeedbackType = function() {
             $http.get('/api/feedback/content?path=' + encodeURIComponent($location.path()), {})
-                .then(function (response) {
+                .then(function(response) {
                     vm.contentFeedback = response.data;
                     vm.associatedDatasetKey = response.data.datasetKey;
                     vm.associatedPublishingOrgKey = response.data.publishingOrgKey;
@@ -113,8 +113,8 @@ function feedbackDirective(BUILD_VERSION) {
                     if (_.get(vm, 'comments.count') > 0) {
                         vm.selected = vm.ISSUES;
                     }
-                }, function () {
-                    //TODO failed to get page type
+                }, function() {
+                    // TODO failed to get page type
                 });
         };
         vm.updateContentFeedbackType();
@@ -125,8 +125,7 @@ function feedbackDirective(BUILD_VERSION) {
 
         vm.hasUserToken = function() {
             return !!User.getAuthToken();
-        }
-
+        };
     }
 }
 

@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('CmsSearch', function ($resource) {
+        .factory('CmsSearch', function($resource) {
             return $resource('/api/cms/search', null, {
                     'query': {
                         method: 'GET',
@@ -18,7 +18,7 @@ var angular = require('angular');
         })
         // Accepting gbifRegion as param
         // return number of publishers in the region
-        .factory('LiteratureCount', function ($resource) {
+        .factory('LiteratureCount', function($resource) {
             return $resource('/api/literature/count',
                 {gbifRegion: 'GLOBAL'},
                 {
@@ -30,7 +30,7 @@ var angular = require('angular');
                 })
                 ;
         })
-        .factory('LiteratureYearly', function ($resource) {
+        .factory('LiteratureYearly', function($resource) {
             return $resource('/api/literature-yearly/count',
                 {gbifRegion: 'GLOBAL'},
                 {

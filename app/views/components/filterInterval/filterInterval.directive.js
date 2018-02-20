@@ -37,7 +37,7 @@ function filterIntervalDirective(BUILD_VERSION) {
         vm.collapsed = vm.filterConfig.collapsed !== false;
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
 
-        vm.remove = function (el) {
+        vm.remove = function(el) {
             var start = vm.intervalQuery.indexOf(el);
             if (start >= 0) {
                 vm.intervalQuery.splice(start, 1);
@@ -48,13 +48,13 @@ function filterIntervalDirective(BUILD_VERSION) {
             vm.apply();
         };
 
-        vm.add = function (intervalStr) {
+        vm.add = function(intervalStr) {
             vm.intervalQuery = vm.intervalQuery || [];
             vm.intervalQuery.push(
                 {
                     queryString: intervalStr,
                     inActive: typeof(intervalStr) === 'undefined',
-                    change: function () {
+                    change: function() {
                         vm.apply();
                     },
                     remove: vm.remove,
@@ -67,18 +67,18 @@ function filterIntervalDirective(BUILD_VERSION) {
         vm.intervalQuery = [];
         vm.add();
 
-        $scope.$watch(function () {
-            return vm.filterState.query[vm.queryKey]
-        }, function (newQuery, oldQuery) {
+        $scope.$watch(function() {
+            return vm.filterState.query[vm.queryKey];
+        }, function(newQuery, oldQuery) {
             if (!angular.equals(newQuery, oldQuery)) {
                 vm.setFromState();
             }
         });
 
-        vm.setFromState = function () {
+        vm.setFromState = function() {
             vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
             vm.intervalQuery = [];
-            vm.query.forEach(function (e) {
+            vm.query.forEach(function(e) {
                 vm.add(e);
             });
             if (vm.intervalQuery.length == 0) {
@@ -87,7 +87,7 @@ function filterIntervalDirective(BUILD_VERSION) {
         };
         vm.setFromState();
 
-        vm.uncheckAll = function () {
+        vm.uncheckAll = function() {
             vm.intervalQuery = [];
             vm.add();
             vm.apply();
@@ -98,15 +98,15 @@ function filterIntervalDirective(BUILD_VERSION) {
             return interval;
         };
 
-        vm.apply = function () {
+        vm.apply = function() {
             vm.query = [];
-            vm.intervalQuery.forEach(function (e) {
+            vm.intervalQuery.forEach(function(e) {
                 if (typeof e.queryString !== 'undefined') {
                     vm.query.push(e.queryString);
                 }
             });
             vm.filter.updateParam(vm.queryKey, vm.query);
-        }
+        };
     }
 }
 

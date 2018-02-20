@@ -1,7 +1,6 @@
 'use strict';
 
 let express = require('express'),
-    utils = rootRequire('app/helpers/utils'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     backboneKey = rootRequire('config/config').publicConstantKeys.dataset.backbone,
@@ -9,7 +8,6 @@ let express = require('express'),
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
     querystring = require('querystring'),
     request = require('requestretry'),
-    _ = require('lodash'),
     router = express.Router();
 
 module.exports = function(app) {

@@ -31,7 +31,7 @@ function featureMapDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element) {//, attrs, ctrl
+    function mapLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
 
@@ -46,19 +46,21 @@ function featureMapDirective(BUILD_VERSION) {
             classes: ['isSmall', 'isLarge']
         };
 
-        $scope.create = function (element) {
+        $scope.create = function(element) {
             map = createMap(element, vm.mapStyle);
             addFeatureLayer();
         };
 
-        vm.interactionWithMap = function () {
+        vm.interactionWithMap = function() {
             if (!vm.hasInterActedWithMap) {
                 map.scrollWheelZoom.enable();
                 vm.hasInterActedWithMap = true;
             }
         };
 
-        $scope.$watch(function() { return vm.features; }, function() {
+        $scope.$watch(function() {
+ return vm.features;
+}, function() {
             if (map && vm.features) {
                 addFeatureLayer();
             }
@@ -70,12 +72,12 @@ function featureMapDirective(BUILD_VERSION) {
             }
         }
 
-        vm.zoomIn = function () {
+        vm.zoomIn = function() {
             var view = map.getView();
             view.setZoom(view.getZoom() + 1);
         };
 
-        vm.zoomOut = function () {
+        vm.zoomOut = function() {
             var view = map.getView();
             view.setZoom(view.getZoom() - 1);
         };
@@ -87,11 +89,11 @@ function createMap(element, style) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
     var baseMapStyle = {style: style || 'gbif-light'};
 
-    var interactions = ol.interaction.defaults({altShiftDragRotate:false, pinchRotate:false, mouseWheelZoom:false});
+    var interactions = ol.interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom:false}),
+        controls: ol.control.defaults({zoom: false}),
         interactions: interactions
     });
 
@@ -106,7 +108,7 @@ function createMap(element, style) {
     return map;
 }
 
-function setFeatures(map, features){
+function setFeatures(map, features) {
     var vectorSource = new ol.source.Vector({
         features: (new ol.format.GeoJSON()).readFeatures(features)
     });
@@ -119,14 +121,14 @@ function setFeatures(map, features){
     var currentZoom = map.getView().getZoom();
     var newZoom = currentZoom > 6 ? currentZoom - 1.5 : currentZoom - 0.5;
     map.getView().setZoom(Math.max(newZoom, 0));
-    //var layer = L.geoJson(features, {
+    // var layer = L.geoJson(features, {
     //    onEachFeature: function (feature, layer) {
     //        layer.bindPopup(JSON.stringify(feature.properties.boundingBox, null, 4));
     //    }
-    //});
-    //layer.addTo(map);
-    //map.fitBounds(layer.getBounds());
-    //return layer;
+    // });
+    // layer.addTo(map);
+    // map.fitBounds(layer.getBounds());
+    // return layer;
 }
 
 var image = new ol.style.Circle({

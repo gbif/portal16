@@ -118,7 +118,8 @@ function transformResult(results, listPath, preferedLocale) {
     resourceResultParser.renameField(parsedResult.results, 'event', 'country.sys.id', '_country');
     resourceResultParser.renameField(parsedResult.results, 'event', '_country', 'country');
 
-    resourceResultParser.selectLocale(parsedResult.results, ['body', 'summary', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
+    resourceResultParser.selectLocale(parsedResult.results,
+    ['body', 'summary', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
     resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'title']);
     resourceResultParser.stripHtml(parsedResult.results, ['body', 'summary', 'title']);
     resourceResultParser.concatFields(parsedResult.results, ['summary', 'body'], '_summary');

@@ -22,7 +22,7 @@ function createMap(element, options) {
     var filters = options.filters || {};
     var currentProjection;
 
-    this.update = function (options) {
+    this.update = function(options) {
         options = options || {};
         baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-classic'};
         overlayStyle = options.overlay || overlayStyle || {};
@@ -42,7 +42,7 @@ function createMap(element, options) {
         }
         if (_.isArray(overlayStyle)) {
             // var isSimple = utils.isSimpleQuery(filters);
-            overlayStyle.forEach(function (overlay) {
+            overlayStyle.forEach(function(overlay) {
                 map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
                 // if (isSimple) {
                 //     map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
@@ -53,30 +53,30 @@ function createMap(element, options) {
         }
     };
 
-    var interactions = ol.interaction.defaults({altShiftDragRotate:false, pinchRotate:false, mouseWheelZoom:false});
+    var interactions = ol.interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom:false}),
+        controls: ol.control.defaults({zoom: false}),
         interactions: interactions
     });
     window.map = map;
     this.update(options);
 
-    this.getViewExtent = function () {
+    this.getViewExtent = function() {
         var e = map.getView().calculateExtent(map.getSize());
         return ol.proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
     };
 
-    this.getProjection = function () {
+    this.getProjection = function() {
         return currentProjection.name;
     };
 
-    this.getProjectedCoordinate = function (coordinate) {
+    this.getProjectedCoordinate = function(coordinate) {
         return ol.proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
     };
 
-    this.setExtent = function (extent) {
+    this.setExtent = function(extent) {
         map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {
             constrainResolution: false,
             maxZoom: 6,
@@ -87,7 +87,7 @@ function createMap(element, options) {
     return {
         map: map,
         update: this.update,
-        on: function (str, action) {
+        on: function(str, action) {
             return map.on(str, action);
         },
         getViewExtent: this.getViewExtent,

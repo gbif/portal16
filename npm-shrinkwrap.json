@@ -940,7 +940,7 @@
     },
     "bunyan-logstash": {
       "version": "0.3.4",
-      "from": "bunyan-logstash@>=0.3.4 <0.4.0",
+      "from": "https://registry.npmjs.org/bunyan-logstash/-/bunyan-logstash-0.3.4.tgz",
       "resolved": "https://registry.npmjs.org/bunyan-logstash/-/bunyan-logstash-0.3.4.tgz",
       "dependencies": {
         "extend": {

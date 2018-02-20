@@ -1,19 +1,17 @@
 'use strict';
 
-var express = require('express'),
-    config = require('./config/config'),
-    log = config.log;
+let express = require('express');
+let config = require('./config/config');
+let log = require('./config/log');
+let app = express();
+let http = require('http').Server(app);
 
-var app = express(),
-    http = require('http').Server(app);
-    //io = require('socket.io')(http);
-
-global.rootRequire = function (name) {
+global.rootRequire = function(name) {
     return require(__dirname + '/' + name);
 };
 
 require('./config/express')(app, config);
 
-http.listen(config.port, function () {
+http.listen(config.port, function() {
     log.info('Express server listening on port ' + config.port);
 });

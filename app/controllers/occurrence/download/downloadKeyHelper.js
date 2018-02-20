@@ -2,12 +2,9 @@
 let _ = require('lodash'),
     camelCase = require('camelcase'),
     Q = require('q'),
-    http = require('http'),
-    moment = require('moment'),
     request = require('requestretry'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     authOperations = require('../../auth/gbifAuthRequest'),
-    url = require('url'),
     helper = rootRequire('app/models/util/util'),
     intervalTypes = ['YEAR', 'EVENT_DATE', 'ELEVATION', 'DEPTH'];
 

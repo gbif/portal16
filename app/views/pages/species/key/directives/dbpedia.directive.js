@@ -25,17 +25,17 @@ function dbpediaDirective() {
     /** @ngInject */
     function dbpediaCtrl(DbPedia) {
         var vm = this;
-        vm._name = vm.name.replace(" ", "_");
+        vm._name = vm.name.replace(' ', '_');
 
         DbPedia.query({
             name: vm._name
 
-        }, function (data) {
-            var dbPediaResource = "http://dbpedia.org/resource/" + vm._name;
+        }, function(data) {
+            var dbPediaResource = 'http://dbpedia.org/resource/' + vm._name;
             if (data && dbPediaResource in data) {
                 var res = data[dbPediaResource];
                 var abstractEn;
-                _.some(res['http://www.w3.org/2000/01/rdf-schema#comment'], function (abstr) {
+                _.some(res['http://www.w3.org/2000/01/rdf-schema#comment'], function(abstr) {
                     if (abstr.lang == vm.lang) {
                         vm.abstract = abstr.value;
                     }
@@ -46,9 +46,8 @@ function dbpediaDirective() {
                 });
                 vm.abstract = vm.abstract ? vm.abstract : abstractEn;
                 vm.link = dbPediaResource;
-
             }
-        }, function () {
+        }, function() {
         });
     }
 }

@@ -5,7 +5,6 @@ var angular = require('angular'),
     utils = require('../../../shared/layout/html/utils/utils');
 
 
-
 angular
     .module('portal')
     .controller('publisherKeyCtrl', publisherKeyCtrl);
@@ -20,13 +19,13 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
     vm.$state = $state;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.publisher = PublisherExtended.get({key: vm.key});
-    vm.installations = PublisherInstallations.get({id: vm.key, limit:100});
-    vm.datasets = DatasetSearch.get({publishing_org: vm.key, limit:0});
-    vm.hostedStats = DatasetSearch.get({hosting_org: vm.key, limit:0, facet:['publishing_org', 'publishing_country'], facetLimit:5000});
+    vm.installations = PublisherInstallations.get({id: vm.key, limit: 100});
+    vm.datasets = DatasetSearch.get({publishing_org: vm.key, limit: 0});
+    vm.hostedStats = DatasetSearch.get({hosting_org: vm.key, limit: 0, facet: ['publishing_org', 'publishing_country'], facetLimit: 5000});
     vm.literature = ResourceSearch.query({contentType: 'literature', publishingOrganizationKey: vm.key, limit: 0});
     vm.occurrences = OccurrenceSearch.query({publishing_org: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({publishing_org: vm.key, media_type: 'StillImage'});
-    vm.images.$promise.then(function (resp) {
+    vm.images.$promise.then(function(resp) {
         utils.attachImages(resp.results);
     });
 
@@ -38,13 +37,13 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
     });
 
     vm.hostStats = {};
-    vm.hostedStats.$promise.then(function(resp){
+    vm.hostedStats.$promise.then(function(resp) {
         vm.hostStats.countryCount = Object.keys(resp.facets.PUBLISHING_COUNTRY.counts).length;
         vm.hostStats.publisherCount = Object.keys(resp.facets.PUBLISHING_ORG.counts).length;
         vm.hostStats.datasetCount = resp.count;
     });
 
-    vm.publisher.$promise.then(function(){
+    vm.publisher.$promise.then(function() {
         vm.endorser = Node.get({id: vm.publisher.endorsingNodeKey});
         updateMap();
         extractContacts();
@@ -56,7 +55,7 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
         vm.adminContact = _.find(vm.publisher.contacts, {type: 'ADMINISTRATIVE_POINT_OF_CONTACT'});
     }
 
-    //Map
+    // Map
     function updateMap() {
         if (!vm.publisher.latitude || !vm.publisher.longitude) {
             return;
@@ -77,16 +76,16 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
             }
         };
         vm.tiles = {
-            "name": "Outdoor",
-            "url": "https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=" + accessToken,
-            options: {
-                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>",
-                detectRetina: false //TODO can this be fixed? Currently the mapbox retina tiles have such a small text size that I'd prefer blurry maps that I can read
+            'name': 'Outdoor',
+            'url': 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=' + accessToken,
+            'options': {
+                attribution: '&copy; <a href=\'https://www.mapbox.com/\'>Mapbox</a> <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\'>OpenStreetMap contributors</a>',
+                detectRetina: false // TODO can this be fixed? Currently the mapbox retina tiles have such a small text size that I'd prefer blurry maps that I can read
             },
-            type: 'xyz',
-            layerOptions: {
-                "showOnSelector": false,
-                palette: 'yellows_reds'
+            'type': 'xyz',
+            'layerOptions': {
+                'showOnSelector': false,
+                'palette': 'yellows_reds'
             }
         };
         vm.mapDefaults = {
@@ -96,7 +95,7 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
         };
         vm.mapEvents = {
             map: {
-                enable: [], //https://github.com/tombatossals/angular-leaflet-directive/issues/1033
+                enable: [], // https://github.com/tombatossals/angular-leaflet-directive/issues/1033
                 logic: 'broadcast'
             },
             marker: {
@@ -104,7 +103,6 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
                 logic: 'broadcast'
             }
         };
-
     }
 }
 

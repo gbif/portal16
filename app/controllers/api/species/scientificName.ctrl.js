@@ -151,9 +151,8 @@ async function getParsedName(speciesKey) {
                 return name.scientificName+' <i>('+parent.canonicalName + ' sp.)</i>';
         }
         // return n;
-    }
-    // unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
-    else {
+    } else {
+        // unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
         return formatName(name);
     }
 }
@@ -206,11 +205,8 @@ function formatName(name) {
         } else {
             n = name.scientificName;
         }
-
         return n;
-    }
-    // unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
-    else if ( name.type == 'VIRUS' || name.type == 'PLACEHOLDER') {
+    } else if ( name.type == 'VIRUS' || name.type == 'PLACEHOLDER') { // unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
         n = name.scientificName;
         return n;
     }

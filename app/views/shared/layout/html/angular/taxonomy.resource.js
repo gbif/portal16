@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('TaxonomyRoot', function ($resource) {
+        .factory('TaxonomyRoot', function($resource) {
             return $resource('/api/taxonomy/:datasetKey', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('TaxonomyDetail', function ($resource) {
+        .factory('TaxonomyDetail', function($resource) {
             return $resource('/api/taxonomy/:datasetKey/:taxonKey', null, {
                     'query': {
                         method: 'GET',
@@ -25,7 +25,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('TaxonomySynonyms', function ($resource) {
+        .factory('TaxonomySynonyms', function($resource) {
             return $resource('/api/taxonomy/:datasetKey/:taxonKey/synonyms', null, {
                     'query': {
                         method: 'GET',
@@ -34,7 +34,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('TaxonomyCombinations', function ($resource) {
+        .factory('TaxonomyCombinations', function($resource) {
             return $resource('/api/species/:taxonKey/combinations', null, {
                     'query': {
                         method: 'GET',
@@ -43,7 +43,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('TaxonomyChildren', function ($resource) {
+        .factory('TaxonomyChildren', function($resource) {
             return $resource('/api/taxonomy/:datasetKey/:taxonKey/children', null, {
                     'query': {
                         method: 'GET',
@@ -52,7 +52,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('TaxonomyParents', function ($resource) {
+        .factory('TaxonomyParents', function($resource) {
             return $resource('/api/taxonomy/:datasetKey/:taxonKey/parents', null, {
                     'query': {
                         method: 'GET',
@@ -60,6 +60,6 @@ var angular = require('angular');
                     }
                 }
             );
-        })
+        });
 })();
 

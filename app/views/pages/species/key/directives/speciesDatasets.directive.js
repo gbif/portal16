@@ -33,47 +33,42 @@ function speciesDatasetsDirective() {
         };
       //  $anchorScroll.yOffset = 60;
         vm.defaultLimit = 10;
-        vm.offsetParam = vm.type.toLowerCase() + "DatasetOffset";
-        //vm.limit = 5;
-        //vm.offset = 0;
-        //vm.endOfRecords = false;
+        vm.offsetParam = vm.type.toLowerCase() + 'DatasetOffset';
+        // vm.limit = 5;
+        // vm.offset = 0;
+        // vm.endOfRecords = false;
 
-        function attachParsedNames(data){
-            if(data && data.length > 0){
-                var taxonKeys = data.map(function(r){
-                    return r._relatedTaxon.key
+        function attachParsedNames(data) {
+            if (data && data.length > 0) {
+                var taxonKeys = data.map(function(r) {
+                    return r._relatedTaxon.key;
                 });
                 SpeciesBulkParsedNames.get({q: taxonKeys.toString()}).$promise
-                    .then(function(nameMap){
-                        for(var i=0; i < data.length; i++){
-                            if(nameMap[data[i]._relatedTaxon.key]){
-                                data[i]._relatedTaxon._parsedName = nameMap[data[i]._relatedTaxon.key]
+                    .then(function(nameMap) {
+                        for (var i=0; i < data.length; i++) {
+                            if (nameMap[data[i]._relatedTaxon.key]) {
+                                data[i]._relatedTaxon._parsedName = nameMap[data[i]._relatedTaxon.key];
                             }
-
                         }
                     });
             }
-
         }
 
         function getSpeciesDataset() {
-
-            if(vm.type ==="CHECKLIST"){
-                vm.data = SpeciesChecklistDatasets.query({id: vm.key, limit: vm.defaultLimit , offset: vm.data.offset || 0})
-                    .$promise.then(function(data){
+            if (vm.type ==='CHECKLIST') {
+                vm.data = SpeciesChecklistDatasets.query({id: vm.key, limit: vm.defaultLimit, offset: vm.data.offset || 0})
+                    .$promise.then(function(data) {
                         vm.data = data;
                         setHeight();
                         attachParsedNames(data.results);
                     });
-            } else if(vm.type === "OCCURRENCE"){
-                vm.data = SpeciesOccurrenceDatasets.query({id: vm.key, limit: vm.defaultLimit , offset: vm.data.offset || 0})
-                    .$promise.then(function(data){
+            } else if (vm.type === 'OCCURRENCE') {
+                vm.data = SpeciesOccurrenceDatasets.query({id: vm.key, limit: vm.defaultLimit, offset: vm.data.offset || 0})
+                    .$promise.then(function(data) {
                     vm.data = data;
                     setHeight();
-
                 });
             }
-
         }
 
         function updatePageState() {
@@ -87,7 +82,7 @@ function speciesDatasetsDirective() {
             params[vm.offsetParam] = vm.data.offset;
             $state.go('.', params, {inherit: true, notify: false, reload: false});
             getSpeciesDataset();
-            $location.hash(vm.type.toLowerCase()+"Datasets");
+            $location.hash(vm.type.toLowerCase()+'Datasets');
             $anchorScroll();
         };
 
@@ -97,13 +92,13 @@ function speciesDatasetsDirective() {
             params[vm.offsetParam] = vm.data.offset;
             $state.go('.', params, {inherit: true, notify: false, reload: false});
             getSpeciesDataset();
-            $location.hash(vm.type.toLowerCase()+"Datasets");
+            $location.hash(vm.type.toLowerCase()+'Datasets');
             $anchorScroll();
         };
 
-        $scope.$watch(function () {
+        $scope.$watch(function() {
             return vm.key;
-        }, function () {
+        }, function() {
             getSpeciesDataset();
         });
 
@@ -114,9 +109,9 @@ function speciesDatasetsDirective() {
                 vm.hasPages = true;
             }
         }
-        vm.getHeight = function(){
+        vm.getHeight = function() {
             return vm.height;
-        }
+        };
     }
 }
 

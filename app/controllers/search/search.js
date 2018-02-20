@@ -123,7 +123,10 @@ function getData(query, __, cb) {
             ],
             occurrences: [
                 'rawTaxaMatches', 'catalogNumberOccurrences', function(results, callback) {
-                    if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0 || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0)) {
+                    if (typeof results.rawTaxaMatches.errorType !== 'undefined'
+                        || results.rawTaxaMatches.length > 0
+                        || (results.catalogNumberOccurrences
+                        && results.catalogNumberOccurrences.count > 0)) {
                         callback(null, null);
                     } else {
                         helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=10&q=' + q, callback);
@@ -132,7 +135,10 @@ function getData(query, __, cb) {
             ],
             occurrencesImagesLocation: [
                 'rawTaxaMatches', 'catalogNumberOccurrences', function(results, callback) {
-                    if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0 || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0)) {
+                    if (typeof results.rawTaxaMatches.errorType !== 'undefined'
+                        || results.rawTaxaMatches.length > 0
+                        || (results.catalogNumberOccurrences
+                        && results.catalogNumberOccurrences.count > 0)) {
                         callback(null, null);
                     } else {
                         helper.getApiData(apiConfig.occurrenceSearch.url + '?HAS_COORDINATE=true&MEDIA_TYPE=StillImage&limit=10&q=' + q, callback);

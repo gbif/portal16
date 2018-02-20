@@ -3,7 +3,7 @@
 var angular = require('angular'),
     mapController = require('./map'),
     utils = require('../../../shared/layout/html/utils/utils'),
-//globeCreator = require('./globe'),
+// globeCreator = require('./globe'),
     _ = require('lodash');
 
 angular
@@ -30,7 +30,7 @@ function adhocMapDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element) {//, attrs, ctrl
+    function mapLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
 
@@ -102,7 +102,7 @@ function adhocMapDirective(BUILD_VERSION) {
         };
         vm.styleOptions = Object.keys(vm.styles);
         vm.basisOfRecord = {};
-        enums.basisOfRecord.forEach(function (bor) {
+        enums.basisOfRecord.forEach(function(bor) {
             vm.basisOfRecord[bor] = false;
         });
         var map;
@@ -110,7 +110,7 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.allYears = true;
         vm.yearRange = {};
 
-        $scope.create = function (element) {
+        $scope.create = function(element) {
             var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'CLASSIC')] || vm.styles.CLASSIC;
             vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC');
             vm.widgetContextStyle = {
@@ -123,41 +123,35 @@ function adhocMapDirective(BUILD_VERSION) {
                 fitExtent: true
             });
 
-            map.enableDragDrop(function(geom){
-
-                getOccurrencesInArea(geom)
-
-            })
-
-
-
+            map.enableDragDrop(function(geom) {
+                getOccurrencesInArea(geom);
+            });
         };
 
-        vm.zoomIn = function () {
+        vm.zoomIn = function() {
             var view = map.map.getView();
             view.setZoom(view.getZoom() + 1);
         };
 
-        vm.zoomOut = function () {
+        vm.zoomOut = function() {
             var view = map.map.getView();
             view.setZoom(view.getZoom() - 1);
         };
 
-        vm.enableDraw = function(){
+        vm.enableDraw = function() {
             map.removeDrawnItems();
             vm.activeControl = undefined;
             vm.drawActive = true;
             map.enableDraw(getOccurrencesInArea);
-        }
+        };
 
-        vm.removeDrawnItems = function(){
+        vm.removeDrawnItems = function() {
             vm.drawActive = false;
             map.removeDrawnItems();
-        }
+        };
 
 
-
-        vm.setStyle = function (style) {
+        vm.setStyle = function(style) {
             var s = vm.styles[style] || vm.styles.CLASSIC;
             vm.widgetContextStyle = {
                 background: s.background
@@ -165,11 +159,11 @@ function adhocMapDirective(BUILD_VERSION) {
             map.update(s);
         };
 
-        vm.updateFilters = function () {
+        vm.updateFilters = function() {
             map.update({filters: getQuery()});
         };
 
-        vm.toggleControl = function (control) {
+        vm.toggleControl = function(control) {
             if (vm.activeControl == control) {
                 vm.activeControl = 0;
             } else {
@@ -177,11 +171,11 @@ function adhocMapDirective(BUILD_VERSION) {
             }
         };
 
-        vm.getClickedQuery = function () {
+        vm.getClickedQuery = function() {
             var q = getQuery();
             q.geometry = vm.clickedGeometry;
             q.has_coordinate = true;
-            q = _.mapKeys(q, function (value, key) {
+            q = _.mapKeys(q, function(value, key) {
                 return _.snakeCase(key);
             });
             return $httpParamSerializer(q);
@@ -189,7 +183,7 @@ function adhocMapDirective(BUILD_VERSION) {
 
         function getQuery() {
             var query = _.assign({}, vm.filter);
-            query = _.mapKeys(query, function (value, key) {
+            query = _.mapKeys(query, function(value, key) {
                 return _.camelCase(key);
             });
             return query;
@@ -207,32 +201,30 @@ function adhocMapDirective(BUILD_VERSION) {
 
             vm.clickedQuery = getQuery();
 
-            vm.clickedGeometry =  geom;
+            vm.clickedGeometry = geom;
             vm.clickedQuery.geometry = vm.clickedGeometry;
 
             vm.activeControl = vm.controls.OCCURRENCES;
             vm.mapMenu.isLoading = true;
-            vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery).$promise.then(function (data) {
+            vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery).$promise.then(function(data) {
                 utils.attachImages(data.results);
                 vm.mapMenu.isLoading = false;
                 vm.mapMenu.occurrences = data;
-            }).catch(function (err) {
+            }).catch(function(err) {
                 vm.activeControl = undefined;
                 vm.hasError = true;
-                if(err.status === 414 || err.status === 413){
+                if (err.status === 414 || err.status === 413) {
                 // handle request uri too long / payload too large
                     vm.hasApi413Error = true;
                 } else {
                     vm.hasApiCriticalError = true;
-
                 }
-
             });
         }
 
-        $scope.$watchCollection(function () {
-            return vm.filter
-        }, function () {
+        $scope.$watchCollection(function() {
+            return vm.filter;
+        }, function() {
             map.update({filters: getQuery(), fitExtent: true});
         });
     }

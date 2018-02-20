@@ -25,13 +25,15 @@ function modalDirective(BUILD_VERSION) {
     /** @ngInject */
     function modal($timeout) {
         var vm = this;
-        $timeout(function(){vm.fadeIn = true;}, 0);
-        vm.dismiss = function(){
+        $timeout(function() {
+vm.fadeIn = true;
+}, 0);
+        vm.dismiss = function() {
             if (typeof vm.onDismiss == 'function') {
                 vm.fadeIn = false;
                 vm.onDismiss();
             }
-        }
+        };
     }
 }
 

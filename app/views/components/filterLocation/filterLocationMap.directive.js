@@ -23,7 +23,7 @@ function filterLocationMapDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element) {//, attrs, ctrl
+    function mapLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
 
@@ -32,14 +32,14 @@ function filterLocationMapDirective(BUILD_VERSION) {
         var vm = this,
             map;
 
-        $scope.create = function (element) {
+        $scope.create = function(element) {
             map = createMap(element, OccurrenceFilter);
         };
 
         vm.state = OccurrenceFilter.getOccurrenceData();
-        $scope.$watch(function () {
-            return vm.state.query.geometry
-        }, function (newQuery) {
+        $scope.$watch(function() {
+            return vm.state.query.geometry;
+        }, function(newQuery) {
             var query = $filter('unique')(newQuery);
             map.update(query);
         });
@@ -56,7 +56,7 @@ function createMap(element, OccurrenceFilter) {
         zoom: 2
     });
 
-    //TODO get other projection with decent basemap
+    // TODO get other projection with decent basemap
     L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     map.fitWorld().zoomIn();
@@ -102,7 +102,7 @@ function createMap(element, OccurrenceFilter) {
     var drawControl = new L.Control.Draw(options);
     map.addControl(drawControl);
 
-    map.on(L.Draw.Event.CREATED, function (e) {
+    map.on(L.Draw.Event.CREATED, function(e) {
         var layer = e.layer;
         editableLayers.addLayer(layer);
         updateQuery();
@@ -126,12 +126,13 @@ function createMap(element, OccurrenceFilter) {
     function update(geometries) {
         geometries = geometries || [];
         editableLayers.clearLayers();
-        geometries.forEach(function (wktStr) {
+        geometries.forEach(function(wktStr) {
             var geojsonGeometry = parseGeometry(wktStr);
             editableLayers.addLayer(L.GeoJSON.geometryToLayer(geojsonGeometry));
         });
-        setTimeout(function(){map.fitBounds(editableLayers.getBounds());}, 0)
-
+        setTimeout(function() {
+            map.fitBounds(editableLayers.getBounds());
+        }, 0);
     }
 
     return {

@@ -28,12 +28,11 @@ function synonymsDirective() {
         SpeciesSynonyms.query({
             id: vm.key
 
-        }, function (data) {
-            //TODO: order by basionym groups (or do on server?)
+        }, function(data) {
+            // TODO: order by basionym groups (or do on server?)
             vm.synonyms = data.results;
-
-        }, function () {
-        })
+        }, function() {
+        });
     }
 }
 

@@ -30,9 +30,9 @@ function searchDrawerDirective(BUILD_VERSION) {
         vm.isActive = false;
         vm.filter = vm.filter || {};
 
-        vm.getFilterCount = function () {
+        vm.getFilterCount = function() {
             var c = 0;
-            Object.keys(vm.filter.query).forEach(function (e) {
+            Object.keys(vm.filter.query).forEach(function(e) {
                 var v = vm.filter.query[e];
                 var ignoreParams = ['locale', 'facet', 'offset', 'limit', 'center', 'zoom', 'advanced', 'facetMultiselect', 'has_geospatial_issue', 'contentType'];
                 if (typeof v !== 'undefined' && v != '' && ignoreParams.indexOf(e) == -1 && e.indexOf('.facetLimit') == -1) {
@@ -45,10 +45,9 @@ function searchDrawerDirective(BUILD_VERSION) {
             return c;
         };
 
-        vm.clear = function () {
+        vm.clear = function() {
             $state.go('.', {contentType: vm.filter.query.contentType, locale: vm.filter.query.locale}, {inherit: false, notify: true, reload: true});
         };
-
     }
 }
 

@@ -68,7 +68,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
 
 
     var facetedEnumFilters = ['purposes', 'topics', 'literatureType', 'relevance'];
-    facetedEnumFilters.forEach(function(e){
+    facetedEnumFilters.forEach(function(e) {
         vm.filters[e] = {
             titleTranslation: 'enums.cms.vocabularyTypes.' + e,
             queryKey: e,
@@ -141,21 +141,21 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         filter: ResourceFilter
     };
 
-    vm.openHelpdesk = function () {
+    vm.openHelpdesk = function() {
         $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
         $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
     };
 
-    vm.search = function () {
+    vm.search = function() {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.hasData = function () {
+    vm.hasData = function() {
         return typeof vm.state.data.count !== 'undefined';
     };
 
-    vm.isTabShown = function(contentType){
+    vm.isTabShown = function(contentType) {
         if (vm.state.query.contentType == contentType) {
             return true;
         }
@@ -164,7 +164,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         }
         return false;
     };
-
 }
 
 module.exports = resourceCtrl;

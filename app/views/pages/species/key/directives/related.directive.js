@@ -31,23 +31,21 @@ function relatedDirective() {
             id: vm.key,
             limit: 100
 
-        }, function (data) {
+        }, function(data) {
             vm.numChkDatasets = data.results.length;
-
-        }, function () {
+        }, function() {
         });
 
         OccurrenceSearch.query({
             taxonKey: vm.key,
             limit: 0,
             facetLimit: 100,
-            facet: "datasetKey"
+            facet: 'datasetKey'
 
-        }, function (data) {
+        }, function(data) {
             vm.numOccDatasets = data.facets[0].counts.length;
-
-        }, function () {
-        })
+        }, function() {
+        });
     }
 }
 

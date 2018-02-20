@@ -20,15 +20,15 @@ function occurrenceGalleryCtrl($scope, OccurrenceTableSearch, env, OccurrenceFil
 
     var latestData = {};
 
-    var search = function (query) {
+    var search = function(query) {
         query.mediaType = 'stillImage';
         vm.endOfRecords = true;
         if (latestData.$cancelRequest) latestData.$cancelRequest();
-        latestData = OccurrenceTableSearch.query(vm.query, function (data) {
+        latestData = OccurrenceTableSearch.query(vm.query, function(data) {
             vm.count = data.count;
             vm.endOfRecords = data.endOfRecords;
-            data.results.forEach(function (e) {
-                //select first image
+            data.results.forEach(function(e) {
+                // select first image
                 e._images = [];
                 for (var i = 0; i < e.media.length; i++) {
                     if (e.media[i].type == 'StillImage') {
@@ -38,16 +38,16 @@ function occurrenceGalleryCtrl($scope, OccurrenceTableSearch, env, OccurrenceFil
             });
 
             vm.results = vm.results.concat(data.results);
-        }, function () {
-            //TODO handle request error
+        }, function() {
+            // TODO handle request error
         });
     };
 
-    vm.imageFailed = function () {
+    vm.imageFailed = function() {
         vm.failedImageCount++;
     };
 
-    vm.loadMore = function () {
+    vm.loadMore = function() {
         vm.query = angular.copy(vm.occurrenceState.query);
         vm.query.limit = limit;
         offset += limit;
@@ -55,7 +55,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceTableSearch, env, OccurrenceFil
         search(vm.query);
     };
 
-    vm.filter = function (query) {
+    vm.filter = function(query) {
         vm.query = angular.copy(query);
         vm.query.limit = limit;
         vm.query.offset = 0;
@@ -66,13 +66,12 @@ function occurrenceGalleryCtrl($scope, OccurrenceTableSearch, env, OccurrenceFil
     };
     vm.filter(vm.occurrenceState.query);
 
-    $scope.$watch(function () {
-        return vm.occurrenceState.data
-    }, function () {
+    $scope.$watch(function() {
+        return vm.occurrenceState.data;
+    }, function() {
         offset = 0;
         vm.filter(vm.occurrenceState.query);
     });
-
 }
 
 module.exports = occurrenceGalleryCtrl;

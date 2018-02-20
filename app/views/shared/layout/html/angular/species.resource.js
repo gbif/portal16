@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('portal')
-        .factory('Species', function ($resource, env) {
+        .factory('Species', function($resource, env) {
             return $resource(env.dataApi + 'species/:id', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesSynonyms', function ($resource, env) {
+        .factory('SpeciesSynonyms', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/synonyms', null, {
                     'query': {
                         method: 'GET',
@@ -25,7 +25,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesCombinations', function ($resource, env) {
+        .factory('SpeciesCombinations', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/combinations', null, {
                     'query': {
                         method: 'GET',
@@ -34,7 +34,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesVerbatim', function ($resource, env) {
+        .factory('SpeciesVerbatim', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/verbatim', null, {
                     'query': {
                         method: 'GET',
@@ -43,7 +43,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesDistributions', function ($resource, env) {
+        .factory('SpeciesDistributions', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/distributions', null, {
                     'query': {
                         method: 'GET',
@@ -52,7 +52,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesChildren', function ($resource, env) {
+        .factory('SpeciesChildren', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/children', null, {
                     'query': {
                         method: 'GET',
@@ -61,7 +61,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesParents', function ($resource, env) {
+        .factory('SpeciesParents', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/parents', null, {
                     'query': {
                         method: 'GET',
@@ -70,7 +70,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesRelated', function ($resource, env) {
+        .factory('SpeciesRelated', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/related', null, {
                     'query': {
                         method: 'GET',
@@ -79,7 +79,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesDescriptions', function ($resource, env) {
+        .factory('SpeciesDescriptions', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/descriptions', null, {
                     'query': {
                         method: 'GET',
@@ -88,7 +88,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesReferences', function ($resource, env) {
+        .factory('SpeciesReferences', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/references', null, {
                     'query': {
                         method: 'GET',
@@ -97,7 +97,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesMedia', function ($resource, env) {
+        .factory('SpeciesMedia', function($resource, env) {
             return $resource(env.dataApi + 'species/:id/media', null, {
                     'query': {
                         method: 'GET',
@@ -106,7 +106,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesVernacularName', function ($resource) {
+        .factory('SpeciesVernacularName', function($resource) {
             return $resource('/api/species/:id/vernacularName', null, {
                     'query': {
                         method: 'GET',
@@ -115,7 +115,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesVernacularNames', function ($resource) {
+        .factory('SpeciesVernacularNames', function($resource) {
             return $resource('/api/species/:id/vernacularNames', null, {
                     'get': {
                         method: 'GET',
@@ -124,7 +124,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesParsedName', function ($resource) {
+        .factory('SpeciesParsedName', function($resource) {
             return $resource('/api/species/:id/name', null, {
                     'query': {
                         method: 'GET',
@@ -133,7 +133,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesBulkParsedNames', function ($resource) {
+        .factory('SpeciesBulkParsedNames', function($resource) {
             return $resource('/api/species/names', null, {
                     'query': {
                         method: 'GET',
@@ -142,7 +142,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesOccurrenceDatasets', function ($resource, env) {
+        .factory('SpeciesOccurrenceDatasets', function($resource, env) {
             return $resource('/api/species/:id/occurencedatasets', null, {
                     'query': {
                         method: 'GET',
@@ -152,7 +152,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesChecklistDatasets', function ($resource, env) {
+        .factory('SpeciesChecklistDatasets', function($resource, env) {
             return $resource('/api/species/:id/checklistdatasets', null, {
                     'query': {
                         method: 'GET',
@@ -162,7 +162,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesSearch', function ($resource) {
+        .factory('SpeciesSearch', function($resource) {
             return $resource('/api/species/search', null, {
                     'query': {
                         method: 'GET',
@@ -172,7 +172,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesMatch', function ($resource, env) {
+        .factory('SpeciesMatch', function($resource, env) {
             return $resource(env.dataApi + 'species/match', null, {
                     'query': {
                         method: 'GET',
@@ -181,7 +181,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesRoot', function ($resource, env) {
+        .factory('SpeciesRoot', function($resource, env) {
             return $resource(env.dataApi + 'species/root/:key', null, {
                     'query': {
                         method: 'GET',
@@ -190,7 +190,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesSuggest', function ($resource, env) {
+        .factory('SpeciesSuggest', function($resource, env) {
             return $resource(env.dataApi + 'species/suggest', null, {
                     'query': {
                         method: 'GET',
@@ -199,7 +199,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesConstituentSearch', function ($resource) {
+        .factory('SpeciesConstituentSearch', function($resource) {
             return $resource('/api/species/constituents', null, {
                     'query': {
                         method: 'GET',
@@ -209,6 +209,5 @@ var angular = require('angular');
                 }
             );
         });
-
 })();
 

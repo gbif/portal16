@@ -33,20 +33,20 @@ function citesDirective() {
         CitesApi.query({
             name: vm.name
 
-        }, function (data) {
+        }, function(data) {
             var tax = _.head(data.taxon_concepts);
             if (tax) {
-                vm.appendix = "Appendix " + tax.cites_listing;
+                vm.appendix = 'Appendix ' + tax.cites_listing;
                 vm.listings = tax.cites_listings;
                 vm.id = tax.id;
-                vm.class = "cites";
-                vm.link = 'https://speciesplus.net/#/taxon_concepts/' + vm.id + '/legal'
+                vm.class = 'cites';
+                vm.link = 'https://speciesplus.net/#/taxon_concepts/' + vm.id + '/legal';
             } else {
-                vm.appendix = "Not listed";
-                vm.class = "redlist-category-NE";
-                vm.link = '#'
+                vm.appendix = 'Not listed';
+                vm.class = 'redlist-category-NE';
+                vm.link = '#';
             }
-        }, function () {
+        }, function() {
         });
     }
 }

@@ -1,7 +1,7 @@
 L.Icon.Default.imagePath = '/img';
 
 
-//GBIF leaflet layer. For other projections than 4326 use leaflet 0.7. 
+// GBIF leaflet layer. For other projections than 4326 use leaflet 0.7.
 L.GBIFSimple = L.TileLayer.extend({
 
     options: {
@@ -11,11 +11,11 @@ L.GBIFSimple = L.TileLayer.extend({
     },
 
     defaultGBIFParams: {
-        style: "classic",
-        srs: "EPSG:4326"
+        style: 'classic',
+        srs: 'EPSG:4326'
     },
 
-    initialize: function (url, options) {
+    initialize: function(url, options) {
         this._url = url;
 
         // all keys that are not TileLayer options go to GBIF params
@@ -30,32 +30,32 @@ L.GBIFSimple = L.TileLayer.extend({
         this.gbifParams = gbifParams;
     },
 
-    getTileUrl: function (coords) {
+    getTileUrl: function(coords) {
         var url = L.TileLayer.prototype.getTileUrl.call(this, coords);
-        return url + L.Util.getParamString(this.gbifParams, url)
+        return url + L.Util.getParamString(this.gbifParams, url);
     }
 });
 
-L.gbifSimpleLayer = function (url, options) {
+L.gbifSimpleLayer = function(url, options) {
     return new L.GBIFSimple(url, options);
 };
 
 
-//https://gist.github.com/rclark/5779673/ MIT license
-//TopoJspn is smaller then geojson. This leaflet extension allows working with topoJson in Leaflet
-//var topojson = require('topojson');
+// https://gist.github.com/rclark/5779673/ MIT license
+// TopoJspn is smaller then geojson. This leaflet extension allows working with topoJson in Leaflet
+// var topojson = require('topojson');
 // L.TopoJSON = L.GeoJSON.extend({
-//   addData: function(jsonData) {    
+//   addData: function(jsonData) {
 //     if (jsonData.type === "Topology") {
 //       for (key in jsonData.objects) {
 //         geojson = topojson.feature(jsonData, jsonData.objects[key]);
 //         L.GeoJSON.prototype.addData.call(this, geojson);
 //       }
-//     }    
+//     }
 //     else {
 //       L.GeoJSON.prototype.addData.call(this, jsonData);
 //     }
-//   }  
+//   }
 // });
 
 module.exports = undefined;

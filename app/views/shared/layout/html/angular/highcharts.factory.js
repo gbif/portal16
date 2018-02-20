@@ -8,8 +8,7 @@ require('highcharts/modules/sunburst')(Highcharts);
 
 angular
     .module('portal')
-    .factory('Highcharts', function ($filter, $translate) {
-
+    .factory('Highcharts', function($filter, $translate) {
         // see https://api.highcharts.com/highcharts/lang
         Highcharts.setOptions({
             lang: {
@@ -24,10 +23,10 @@ angular
                     $translate.instant('day.0'), $translate.instant('day.1'), $translate.instant('day.2'), $translate.instant('day.3'),
                     $translate.instant('day.4'), $translate.instant('day.5'), $translate.instant('day.6')
                 ],
-                contextButtonTitle : $translate.instant('Highcharts.contextButtonTitle'),
-                downloadCSV : $translate.instant('Highcharts.downloadCSV'),
-                downloadJPEG : $translate.instant('Highcharts.downloadJPEG'),
-                downloadPDF : $translate.instant('Highcharts.downloadPDF'),
+                contextButtonTitle: $translate.instant('Highcharts.contextButtonTitle'),
+                downloadCSV: $translate.instant('Highcharts.downloadCSV'),
+                downloadJPEG: $translate.instant('Highcharts.downloadJPEG'),
+                downloadPDF: $translate.instant('Highcharts.downloadPDF'),
                 downloadPNG: $translate.instant('Highcharts.downloadPNG'),
                 downloadXLS: $translate.instant('Highcharts.downloadXLS')
             }
@@ -43,13 +42,13 @@ Highcharts.theme = {
     colors: ['#71b171', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
         '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
     chart: {
-        //backgroundColor: {
+        // backgroundColor: {
         //    linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
         //    stops: [
         //        [0, '#2a2a2b'],
         //        [1, '#3e3e40']
         //    ]
-        //},
+        // },
         style: {
             fontFamily: 'Roboto, sans-serif'
         },
@@ -69,7 +68,7 @@ Highcharts.theme = {
             fontSize: '12px'
         }
     },
-    //xAxis: {
+    // xAxis: {
     //    gridLineColor: '#707073',
     //    labels: {
     //        style: {
@@ -85,8 +84,8 @@ Highcharts.theme = {
     //
     //        }
     //    }
-    //},
-    //yAxis: {
+    // },
+    // yAxis: {
     //    gridLineColor: '#707073',
     //    labels: {
     //        style: {
@@ -102,7 +101,7 @@ Highcharts.theme = {
     //            color: '#A0A0A3'
     //        }
     //    }
-    //},
+    // },
     tooltip: {
         backgroundColor: 'rgba(0, 0, 0, 0.85)',
         style: {
@@ -163,8 +162,8 @@ Highcharts.theme = {
         buttonOptions: {
             symbolStroke: '#666',
             theme: {
-                //fill: '#f00'
-                //fill: '#505053'
+                // fill: '#f00'
+                // fill: '#505053'
             }
         }
     },

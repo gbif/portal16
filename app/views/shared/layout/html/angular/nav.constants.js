@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
     var angular = require('angular');
 
@@ -9,5 +9,5 @@
             toggleSearch: 'toggleSearch',
             toggleUserMenu: 'toggleUserMenu',
             toggleNotifications: 'toggleNotifications'
-        })
+        });
 })();

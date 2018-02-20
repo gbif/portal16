@@ -33,14 +33,14 @@ function contactDirective(BUILD_VERSION) {
 
         vm.getRoles = function(roles) {
             var r = vm.getAsArray(roles);
-            return _.map(r, function(e){
+            return _.map(r, function(e) {
                 return _.isString(e) ? e : e.role;
             });
         };
 
-        vm.isOrcid = function(userId){
+        vm.isOrcid = function(userId) {
             return userId.indexOf('orcid.org') != -1;
-        }
+        };
     }
 }
 

@@ -3,13 +3,13 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .directive('elementQuery', function ($window) {
+    .directive('elementQuery', function($window) {
         return {
             restrict: 'A',
             scope: {
                 elementQuery: '='
             },
-            link: function (scope, element) { //attrs
+            link: function(scope, element) { // attrs
                 var length = scope.elementQuery.breakpoints.length;
                 function updateSize() {
                     var largestIndex = 0,
@@ -24,7 +24,7 @@ angular
                     scope.elementQuery.current = largestIndex;
                 }
                 updateSize();
-                angular.element($window).bind('resize', function(){
+                angular.element($window).bind('resize', function() {
                     updateSize();
                 });
             }

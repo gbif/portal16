@@ -65,10 +65,10 @@ function bboxFilterDirective(BUILD_VERSION) {
         };
 
         var format = {
-            to: function (value) {
+            to: function(value) {
                 return parseInt(value);
             },
-            from: function (value) {
+            from: function(value) {
                 return parseInt(value);
             }
         };
@@ -101,7 +101,7 @@ function bboxFilterDirective(BUILD_VERSION) {
         };
 
         vm.latSliderHandlers = {
-            slide: function (values, handle, unencoded) {
+            slide: function(values, handle, unencoded) {
                 vm.south = parseInt(unencoded[0]);
                 vm.north = parseInt(unencoded[1]);
                 vm.invalidInput = false;
@@ -109,7 +109,7 @@ function bboxFilterDirective(BUILD_VERSION) {
         };
 
         vm.lngSliderHandlers = {
-            slide: function (values, handle, unencoded) {
+            slide: function(values, handle, unencoded) {
                 vm.west = parseInt(unencoded[0]);
                 vm.east = parseInt(unencoded[1]);
                 vm.invalidInput = false;
@@ -124,7 +124,6 @@ function bboxFilterDirective(BUILD_VERSION) {
             vm.sliderLatitude.start[1] = vm.north;
             vm.invalidInput = false;
         };
-
     }
 }
 

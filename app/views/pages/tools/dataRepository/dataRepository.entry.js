@@ -24,13 +24,13 @@ function dataRepositoryCtrl(User, $scope, AUTH_EVENTS, USER_ROLES, $sessionStora
         vm.username = user ? user.userName : undefined;
     }
     updateUser();
-    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         updateUser();
     });
-    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
         updateUser();
     });
-    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
         updateUser();
     });
 
@@ -39,15 +39,15 @@ function dataRepositoryCtrl(User, $scope, AUTH_EVENTS, USER_ROLES, $sessionStora
         if (vm.myUploads && vm.username) {
             apiQuery.user = vm.username;
         }
-        vm.uploads = DataPackageSearch.query(apiQuery, function (res) {
-            //console.log(res);
-        }, function (err) {
-            //console.log(err);
+        vm.uploads = DataPackageSearch.query(apiQuery, function(res) {
+            // console.log(res);
+        }, function(err) {
+            // console.log(err);
         });
     };
     vm.search();
 
-    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         updateUser();
     });
 }

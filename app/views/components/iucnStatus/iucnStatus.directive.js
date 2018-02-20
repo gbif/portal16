@@ -33,17 +33,17 @@ function iucnStatusDirective() {
     function iucnStatusCtrl($scope, RedlistSpecies, endpoints) {
         var vm = this;
         vm.iucnUserLink = endpoints.iucnUserLink;
-        vm.insufficientCategories = ["NE", "DD"];
-        vm.mainCategories = ["LC", "NT", "VU", "EN", "CR", "EW", "EX"];
+        vm.insufficientCategories = ['NE', 'DD'];
+        vm.mainCategories = ['LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
 
-        $scope.$watch(function () {
+        $scope.$watch(function() {
             return vm.name;
-        }, function () {
-            getRedListData(vm.name)
+        }, function() {
+            getRedListData(vm.name);
         });
 
-        function getRedListData(name){
-            if (!name){
+        function getRedListData(name) {
+            if (!name) {
                 return;
             }
             vm.loading = true;
@@ -51,7 +51,7 @@ function iucnStatusDirective() {
             vm.redlistResult = RedlistSpecies.query({
                 name: name
 
-            }, function (data) {
+            }, function(data) {
                 var iucn = _.head(data.result);
                 if (iucn) {
                     if (legacyCategories.hasOwnProperty(iucn.category)) {
@@ -69,7 +69,7 @@ function iucnStatusDirective() {
                 }
 
                 vm.loading = false;
-            }, function () {
+            }, function() {
                 vm.loading = false;
                 vm.failed = true;
             });

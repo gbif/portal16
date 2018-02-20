@@ -24,7 +24,7 @@ function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
 
     updatePaginationCounts();
 
-    vm.pageChanged = function () {
+    vm.pageChanged = function() {
         vm.state.query.offset = (vm.currentPage - 1) * vm.limit;
         updatePaginationCounts();
         ResourceFilter.update(vm.state.query);
@@ -34,7 +34,7 @@ function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (offset + vm.limit < vm.state.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
@@ -44,7 +44,7 @@ function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
@@ -53,10 +53,9 @@ function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
     });
 
 
-    vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined';
     };
-
 }
 
 module.exports = resourceListCtrl;

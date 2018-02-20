@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .service('PublisherFilter', function ($rootScope, $state, $stateParams, PublisherSearch) {
+    .service('PublisherFilter', function($rootScope, $state, $stateParams, PublisherSearch) {
         var state = {
             data: {},
             facetMultiselect: {},
@@ -17,7 +17,7 @@ angular
         }
 
         $rootScope.$on('$stateChangeSuccess',
-            function (event, toState, toParams) {
+            function(event, toState, toParams) {
                 refreshData(toParams);
             }
         );
@@ -28,9 +28,9 @@ angular
             apiQuery = angular.copy(state.query);
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
-            state.data = PublisherSearch.query(apiQuery, function () {
+            state.data = PublisherSearch.query(apiQuery, function() {
                 state.failedRequest = false;
-            }, function () {
+            }, function() {
                 state.failedRequest = true;
             });
         }
@@ -51,7 +51,7 @@ angular
             refreshData(state.query);
         }
 
-        //when in not advanced mode then remove parameters from URL that are filled with default values
+        // when in not advanced mode then remove parameters from URL that are filled with default values
         state.query = $stateParams;
         refreshData(state.query);
 
@@ -61,5 +61,4 @@ angular
             updateParam: updateParam,
             refresh: refresh
         };
-
     });

@@ -1,11 +1,14 @@
 /* eslint-disable no-console */
-let bunyan = require('bunyan'),
-    fs = require('fs'),
-    yargs = require('yargs').argv,
-    PrettyStream = require('bunyan-prettystream'),
-    dir = './log',
-    loglevel = yargs.loglevel || 'info';
-
+let bunyan = require('bunyan');
+let bunyanLogstash = require('bunyan-logstash');
+let env = process.env.NODE_ENV || 'local';
+let fs = require('fs');
+let yargs = require('yargs').argv;
+let PrettyStream = require('bunyan-prettystream');
+let dir = './log';
+let host = 'private-logstash.gbif.org';
+let port = 1065;
+let loglevel = yargs.loglevel || 'info';
 let loglevels = Object.freeze({
     terminal: 0,
     trace: 1,
@@ -41,8 +44,11 @@ if (loglevels[loglevel] > loglevels.terminal) {
     // always log to console as well - this is done because only console logs currently goes into Kibana
     logStreams.push(
         {
-            level: loglevel,
-            stream: process.stdout
+            type: 'raw',
+            stream: bunyanLogstash.createStream({
+                host: host,
+                port: port
+            })
         }
     );
 }
@@ -59,18 +65,25 @@ if (loglevels[loglevel] == loglevels.terminal) {
 
 
 let log = bunyan.createLogger({
-    name: 'portal16',
+    name: 'portal',
     serializers: bunyan.stdSerializers,
     streams: logStreams
 });
 
 log.on('error', function(err) {
     console.log('Logging failed');
-    console.log(err);
     console.trace(err);
 });
 
+function DecoratedLog(options) {
+    this.log = options.log.child({
+        'environment': env,
+        'class': 'web',
+        'service': 'portal'
+    });
+}
 
-log.info({state: 'initialising log'}, 'initialising log');
+let portalLog = new DecoratedLog({log: log});
+portalLog.log.info({message: 'initialising log'}, 'initialising log');
 
-module.exports = log;
+module.exports = portalLog.log;

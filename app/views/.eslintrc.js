@@ -26,6 +26,7 @@ let config = {
         'require-jsdoc': 0,
         'max-len': [2, { "code": 200 }],
         'new-cap': 0,
+        'no-invalid-this': 0,
         'no-var': 0,
         'one-var': 0,
         'valid-jsdoc': 0 //we should probably enable this, but while getting removing other linting errors it is nice to not add to it

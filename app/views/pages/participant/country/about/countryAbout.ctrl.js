@@ -11,10 +11,10 @@ function countryAboutCtrl($stateParams, OccurrenceTableSearch, OccurrenceDataset
     var vm = this;
     vm.countryCode = $stateParams.key;
 
-    OccurrenceDatasetSearch.query({country: vm.countryCode}, function (data) {
+    OccurrenceDatasetSearch.query({country: vm.countryCode}, function(data) {
         vm.datasetsAbout = data;
-    }, function () {
-        //TODO handle request error
+    }, function() {
+        // TODO handle request error
     });
 }
 

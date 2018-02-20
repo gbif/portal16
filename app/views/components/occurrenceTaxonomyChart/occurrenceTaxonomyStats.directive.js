@@ -72,8 +72,8 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
                 .then(function(taxonomy) {
                     vm.loading = false;
                     vm.preparing = true;
-
-                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, taxonomy, function() {
+                    var allowDrillToNode = ($state.current.parent !== 'occurrenceSearch');
+                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, taxonomy, allowDrillToNode, function() {
                         var splittedKey = this.id.split('.');
                         vm.search(splittedKey[1], this.rank);
                     });
@@ -114,7 +114,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
     }
 }
 
-function paintChart(Highcharts, elm, type, taxonomy, click) {
+function paintChart(Highcharts, elm, type, taxonomy, allowDrillToNode, click) {
     if (!type) {
         type = 'sunburst';
     }
@@ -144,7 +144,7 @@ function paintChart(Highcharts, elm, type, taxonomy, click) {
             type: type,
             turboThreshold: 0,
             data: taxonomy,
-            allowDrillToNode: true,
+            allowDrillToNode: allowDrillToNode,
             boostThreshold: 5000,
             cursor: 'pointer',
 

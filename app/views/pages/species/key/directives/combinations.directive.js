@@ -28,11 +28,10 @@ function combinationsDirective() {
         SpeciesCombinations.query({
             id: vm.key
 
-        }, function (data) {
+        }, function(data) {
             vm.combinations = data;
-
-        }, function () {
-        })
+        }, function() {
+        });
     }
 }
 

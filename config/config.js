@@ -1,5 +1,4 @@
 let path = require('path'),
-    log = require('./log'),
     yargs = require('yargs').argv,
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'local',
@@ -62,7 +61,6 @@ let config = {
             name: 'portal - local'
         },
         port: port || 3000,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif.org/',
@@ -74,7 +72,9 @@ let config = {
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://localhost:3000',
         topDomain: undefined,
-        credentials: credentials || (rootPath + '/config/mockCredentials.json'), // notice the mock credentials will not work and shouldn't. We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
+        // notice the mock credentials will not work and shouldn't.
+        // We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
+        credentials: credentials || (rootPath + '/config/mockCredentials.json'),
         redirects: redirects || (rootPath + '/config/mockRedirects.json'),
         spamTerms: spamTerms || (rootPath + '/config/mockSpam.txt'),
         verification: verification || (rootPath + '/app/models/verification/sample'),
@@ -101,7 +101,6 @@ let config = {
             name: 'portal - dev'
         },
         port: port || 80,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif-dev.org/',
@@ -140,7 +139,6 @@ let config = {
             name: 'portal - uat'
         },
         port: port || 80,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif-uat.org/',
@@ -179,7 +177,6 @@ let config = {
             name: 'portal - prod'
         },
         port: port || 80,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif.org/',
@@ -218,7 +215,6 @@ let config = {
             name: 'portal - test'
         },
         port: port || 3000,
-        log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif-uat.org/',

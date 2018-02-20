@@ -1,12 +1,12 @@
-(function () {
-    "use strict";
+(function() {
+    'use strict';
     function stackTrace() {
         var err = new Error();
         return err.stack;
     }
 
-    window.onerror = function (msg, file, line, col, error) {
-        //return;//TODO find better way that won't spam server in case of a looping error
+    window.onerror = function(msg, file, line, col, error) {
+        // return;//TODO find better way that won't spam server in case of a looping error
         window.gb = window.gb || {};
         gb.lastErrorDateTime = gb.lastErrorDateTime || 0;
         var currentTime = new Date().getTime();
@@ -27,6 +27,6 @@
             request.send(JSON.stringify(errorData));
         }
 
-        return false; //still write error to console
+        return false; // still write error to console
     };
 })();

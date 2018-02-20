@@ -21,7 +21,7 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
     vm.$state = $state;
     Page.drawer(false);
 
-    $translate('country.' + vm.countryCode).then(function (translation) {
+    $translate('country.' + vm.countryCode).then(function(translation) {
         Page.setTitle(translation);
     });
 
@@ -32,30 +32,30 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
 
     vm.publishingCountriesSearch = OccurrenceSearch.get({country: vm.countryCode, facet: 'publishing_country', facetLimit: 500});
     vm.publishingCountriesSearch.$promise
-        .then(function(data){
+        .then(function(data) {
             vm.publishingCountries = data.facets[0].counts;
             vm.publishingCountriesCount = vm.publishingCountries.length;
         });
 
     vm.countriesSearch = OccurrenceSearch.get({publishingCountry: vm.countryCode, facet: 'country', facetLimit: 500});
     vm.countriesSearch.$promise
-        .then(function(data){
+        .then(function(data) {
             vm.countries = data.facets[0].counts;
             vm.countriesCount = vm.countries.length;
         });
 
     vm.datasets = OccurrenceCountDatasets.get({country: vm.countryCode});
     vm.datasets.$promise
-        .then(function(){
+        .then(function() {
             vm.datasetCount = Object.keys(vm.datasets).length;
         });
 
     $http.get(env.dataApi + 'occurrence/count', {params: {country: vm.countryCode}})
-        .then(function(resp){
+        .then(function(resp) {
             vm.occurrenceCount = resp.data;
         });
     $http.get(env.dataApi + 'occurrence/count', {params: {publishingCountry: vm.countryCode}})
-        .then(function(resp){
+        .then(function(resp) {
             vm.occurrenceFromCount = resp.data;
         });
 
@@ -75,20 +75,20 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
         publishingCountry: vm.countryCode,
         facet: 'kingdomKey',
         limit: 0
-    }, function (response) {
+    }, function(response) {
         vm.kingdomsFrom = response.facets.KINGDOM_KEY.counts;
-    }, function () {
-        //TODO couldn't get the data
+    }, function() {
+        // TODO couldn't get the data
     });
 
     OccurrenceTableSearch.query({
         country: vm.countryCode,
         facet: 'kingdomKey',
         limit: 0
-    }, function (response) {
+    }, function(response) {
         vm.kingdomsAbout = response.facets.KINGDOM_KEY.counts;
-    }, function () {
-        //TODO couldn't get the data
+    }, function() {
+        // TODO couldn't get the data
     });
 
         vm.lightbox = new Lightbox();

@@ -12,16 +12,16 @@ function countryResearchCtrl($stateParams, ResourceSearch) {
     vm.countryCode = $stateParams.key;
     vm.limit = 20;
 
-    ResourceSearch.query({countriesOfCoverage: vm.countryCode, contentType: 'literature', limit: vm.limit}, function (data) {
+    ResourceSearch.query({countriesOfCoverage: vm.countryCode, contentType: 'literature', limit: vm.limit}, function(data) {
         vm.literatureAbout = data;
-    }, function () {
-        //TODO handle request error
+    }, function() {
+        // TODO handle request error
     });
 
-    ResourceSearch.query({countriesOfResearcher: vm.countryCode, contentType: 'literature', limit: vm.limit}, function (data) {
+    ResourceSearch.query({countriesOfResearcher: vm.countryCode, contentType: 'literature', limit: vm.limit}, function(data) {
         vm.literatureFrom = data;
-    }, function () {
-        //TODO handle request error
+    }, function() {
+        // TODO handle request error
     });
 }
 

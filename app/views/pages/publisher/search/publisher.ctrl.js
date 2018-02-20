@@ -39,36 +39,36 @@ function publisherCtrl($state, hotkeys, PublisherFilter, Page) {
     };
 
 
-    vm.search = function () {
+    vm.search = function() {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.updateSearch = function () {
+    vm.updateSearch = function() {
         vm.state.query.offset = undefined;
         vm.state.query.limit = undefined;
         $state.go($state.current, vm.state.query, {inherit: false, notify: false, reload: false});
     };
 
-    vm.searchOnEnter = function (event) {
+    vm.searchOnEnter = function(event) {
         if (event.which === 13) {
             vm.updateSearch();
         }
     };
 
-    vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined';
     };
 
-    vm.clearFreetextAndSetFocus = function () {
+    vm.clearFreetextAndSetFocus = function() {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
-    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    // might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
     hotkeys.add({
         combo: 'alt+f',
         description: 'Site search',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function (event) {
+        callback: function(event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
         }
@@ -78,12 +78,11 @@ function publisherCtrl($state, hotkeys, PublisherFilter, Page) {
         combo: 'alt+enter',
         description: 'Apply',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function (event) {
+        callback: function(event) {
             vm.updateSearch();
             event.preventDefault();
         }
     });
-
 }
 
 module.exports = publisherCtrl;

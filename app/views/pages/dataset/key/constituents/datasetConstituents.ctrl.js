@@ -36,39 +36,35 @@ function datasetConstituentsCtrl($stateParams, $state, DatasetConstituents, hotk
         return total;
     };
 
-    vm.getConstituents = function () {
+    vm.getConstituents = function() {
         vm.loadingDownloads = true;
         vm.failedToLoadDownloads = false;
          if (vm.key !== vm.backboneKey) {
-             DatasetConstituents.get({key: vm.key, limit: vm.limit, offset: vm.offset}).$promise.then(function (response) {
+             DatasetConstituents.get({key: vm.key, limit: vm.limit, offset: vm.offset}).$promise.then(function(response) {
                  vm.loadingDownloads = false;
                  vm.constituents = response;
-             }, function () {
+             }, function() {
                  vm.loadingDownloads = false;
                  vm.failedToLoadDownloads = true;
              });
          } else {
-
              SpeciesConstituentSearch.get({datasetKey: vm.backboneKey, limit: vm.limit, offset: vm.offset}).$promise
-                 .then(function(response){
+                 .then(function(response) {
                      vm.loadingDownloads = false;
                      vm.constituents = response;
-
-                 }, function () {
+                 }, function() {
                      vm.loadingDownloads = false;
                      vm.failedToLoadDownloads = true;
-                 })
+                 });
          }
-
-
     };
     vm.getConstituents();
 
-    vm.hasData = function () {
+    vm.hasData = function() {
         return (vm.constituents) && typeof vm.constituents.endOfRecords !== 'undefined';
     };
 
-    vm.pageChanged = function () {
+    vm.pageChanged = function() {
         vm.offset = (vm.currentPage - 1) * vm.limit;
         $state.go($state.current, {limit: vm.limit, offset: vm.offset}, {inherit: true, notify: true, reload: false});
     };
@@ -76,7 +72,7 @@ function datasetConstituentsCtrl($stateParams, $state, DatasetConstituents, hotk
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function () {
+        callback: function() {
             if (vm.offset + vm.limit < vm.constituents.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
@@ -86,14 +82,13 @@ function datasetConstituentsCtrl($stateParams, $state, DatasetConstituents, hotk
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function () {
+        callback: function() {
             if (vm.offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
             }
         }
     });
-
 }
 
 module.exports = datasetConstituentsCtrl;

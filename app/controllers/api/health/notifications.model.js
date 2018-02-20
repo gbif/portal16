@@ -1,11 +1,11 @@
 'use strict';
 
-let notifications = require('../notifications//notifications.model'),
+let // notifications = require('../notifications//notifications.model'),
     tests = require('./tests'),
     health = require('./health.model'),
     loadModel = require('./load.model'),
     resourceSearch = require('../resource/search/resourceSearch'),
-    severity = require('./severity').severity,
+//    severity = require('./severity').severity,
     getMostSevere = require('./severity').getMostSevere,
     _ = require('lodash'),
     objectHash = require('object-hash'),

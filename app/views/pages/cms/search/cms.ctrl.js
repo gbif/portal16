@@ -206,7 +206,7 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         }
     };
 
-    vm.search = function () {
+    vm.search = function() {
         // When the search term gets submitted, we don't know how many results
         // will return, so we reset offset if any.
         if (vm.state.query.hasOwnProperty('offset')) {
@@ -215,29 +215,29 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.updateSearch = function () {
+    vm.updateSearch = function() {
         vm.state.query.offset = undefined;
         vm.state.query.limit = undefined;
         $state.go($state.current, vm.state.query, {inherit: false, notify: false, reload: false});
     };
 
-    vm.searchOnEnter = function (event) {
+    vm.searchOnEnter = function(event) {
         if (event.which === 13) {
             vm.updateSearch();
         }
     };
 
-    vm.clearFreetextAndSetFocus = function () {
+    vm.clearFreetextAndSetFocus = function() {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
 
-    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    // might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
     hotkeys.add({
         combo: 'alt+f',
         description: 'Site search',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function (event) {
+        callback: function(event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
         }
@@ -247,12 +247,11 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         combo: 'alt+enter',
         description: 'Apply',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function (event) {
+        callback: function(event) {
             vm.updateSearch();
             event.preventDefault();
         }
     });
-
 }
 
 module.exports = cmsCtrl;

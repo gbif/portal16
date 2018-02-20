@@ -14,7 +14,7 @@ router.get('/search', function(req, res, next) {
         if (searchTerm) {
         description += ' '+ req.__('meta.searchDescriptionDetail', {searchTerm: searchTerm});
         }
-            context = {
+          let context = {
                 query: searchTerm,
                 _meta: {
                     bodyClass: 'omnisearch',

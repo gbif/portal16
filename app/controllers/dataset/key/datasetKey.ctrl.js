@@ -5,7 +5,6 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     request = require('requestretry'),
-    _ = require('lodash'),
     router = express.Router();
 
 module.exports = function(app) {

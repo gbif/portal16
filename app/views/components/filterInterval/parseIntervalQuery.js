@@ -1,10 +1,10 @@
-module.exports = function (str) {
+module.exports = function(str) {
     str = str || '';
     if (str.toString() == '') return;
 
     var parts = str.toString().split(',');
     if (parts.length == 1) {
-        //is
+        // is
         return {
             values: [parts[0]],
             type: 'equals'
