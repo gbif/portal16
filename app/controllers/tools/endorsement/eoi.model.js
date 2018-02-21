@@ -18,7 +18,6 @@ function create(body) {
             c.phone = [c.phone];
         }
     });
-
     let org = {
         'endorsingNodeKey': (body.suggestedNodeKey === 'other') ? DEFAULT_ENDORSING_NODE_KEY : body.suggestedNodeKey,
         'title': (body.title) ? body.title : null,
