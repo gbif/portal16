@@ -32,8 +32,9 @@
                 <p>The GBIF API is a RESTful JSON based API. The base URL for v1 you should use is: <strong>{$ apiBase
                         $}</strong></p>
                 <p>
-                    The API should be considered stable, as should this accompanying documentation. Please report any
-                    issues you
+                    The API should be considered stable, as should this accompanying documentation.  It is also available
+                    with HTTPS.
+                    Please report any issues you
                     find with either the API itself or the documentation using the "feedback" button on the top right.
                 </p>
             </div>
