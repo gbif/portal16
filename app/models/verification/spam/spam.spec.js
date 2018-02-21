@@ -1,17 +1,18 @@
-let spam = require('./spam.js');
+/* eslint-disable no-undef */
+let spam = require('./spamUtils.js');
 
 describe('Spam detection', function() {
     it('can stop spam referers', function() {
-        //obviously wrong
+        // obviously wrong
         expect(spam.isSpamReferer(undefined)).toEqual(true);
         expect(spam.isSpamReferer(5)).toEqual(true);
         expect(spam.isSpamReferer('http://something_not_gbif.com')).toEqual(true);
         expect(spam.isSpamReferer('https://other.org')).toEqual(true);
 
-        //should we allow - we do not for now
+        // should we allow - we do not for now
         expect(spam.isSpamReferer('https://subsite.gbif.org')).toEqual(true);
 
-        //accepted
+        // accepted
         expect(spam.isSpamReferer('https://www.gbif.org')).toEqual(false);
         expect(spam.isSpamReferer('https://www.gbif.org/some/page?anywhere=true')).toEqual(false);
         expect(spam.isSpamReferer('http://localhost:2000/some/page?anywhere=true')).toEqual(false);
@@ -28,7 +29,7 @@ describe('Spam detection', function() {
         let terms = generatedTerms.terms;
         let normalizedTerms = generatedTerms.normalizedTerms;
 
-        //should be rejected
+        // should be rejected
         expect(spam.isSpamContent('Eat this rhino viagra', 'test', terms, normalizedTerms)).toEqual(true, 'spaces');
         expect(spam.isSpamContent('eat.rhino.viagra', 'test', terms, normalizedTerms)).toEqual(true, 'punctuation');
         expect(spam.isSpamContent('eat.rhino,viagra', 'test', terms, normalizedTerms)).toEqual(true, 'commas');
@@ -40,7 +41,7 @@ describe('Spam detection', function() {
         expect(spam.isSpamContent('you should [eat-it]', 'test', terms, normalizedTerms)).toEqual(true, 'hard brackets');
         expect(spam.isSpamContent('you can filter out unicode ▥ characters', 'test', terms, normalizedTerms)).toEqual(true, 'can block select unicode terms');
 
-        //should be okay
+        // should be okay
         expect(spam.isSpamContent('you should be able to write japanese あ', 'test', terms, normalizedTerms)).toEqual(false, 'Japanese is okay');
     });
 });
