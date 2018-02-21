@@ -104,23 +104,27 @@
                 </div>
             </div>
 
-            <div class="m-t-1" layout-padding>
-                <div ng-if="occSpecies.hasData()">
-                    <h4 class="card-header text-center inline-block">{{vm.api.getTitle()}}</h4>
-                    <div class="chart-header-options inline-block pull-right">
-                        <md-input-container class="taxon-group-select">
+            <div class="occurrence-taxon-list m-t-1 m-b-1">
+                <div class="m-b-0 m-h-18">
+                <div ng-if="occSpecies.hasData()" layout="row" >
+                    <div class="taxon-list-header" flex="30">
+                    <h4 class="card-header">{{occSpecies.type}} list</h4>
+                    </div>
+                    <div layout-fill></div>
+                    <div >
 
-                            <md-select  ng-model="occSpecies.type" >
+
+                            <md-select class="taxon-group-select"  ng-model="occSpecies.type" >
 
                                 <md-option ng-repeat="type in occSpecies.types" ng-value="type">
                                     Group by {{type}}
                                 </md-option>
                             </md-select>
 
-                        </md-input-container>
                     </div>
                 </div>
-                <div layout-padding>
+                </div>
+                <div class="occurrence-taxon-list">
                     <div class="occurrence-search__table__area card" layout-padding>
                         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occSpecies.hasData() && !occSpecies.state.failedRequest"></ng-include>
 
@@ -138,11 +142,11 @@
                                 <table class="table search-table smaller">
                                     <thead>
                                     <tr>
-                                        <th class="text-capitalize">
-                                            occurrences
-                                        </th>
                                         <th>
                                             <span class="gb-icon-filters"></span>
+                                        </th>
+                                        <th class="text-capitalize">
+                                            occurrences
                                         </th>
                                         <th class="text-capitalize"
                                             ng-repeat="field in ['scientificName', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
@@ -152,12 +156,13 @@
                                     </thead>
                                     <tbody>
                                     <tr ng-repeat="taxon in occSpecies.checklist.results">
-                                        <td class="table-cell--narrow">
-                                            <a ng-href="../species/{{taxon.key}}">{{taxon._count | localNumber:occSpecies.state.query.locale}}</a>
-                                        </td>
                                         <td class="table-cell--narrow--very">
                                             <a ng-click="occSpecies.updateTaxonFilter(taxon.key)" class="cursor-pointer"><span class="gb-icon-add"></span></a>
                                         </td>
+                                        <td class="table-cell--narrow">
+                                            <a ng-href="../species/{{taxon.key}}">{{taxon._count | localNumber:occSpecies.state.query.locale}}</a>
+                                        </td>
+
                                         <td class="table-cell--wide">
                                             <a ng-href="../species/{{taxon.key}}">{{taxon.scientificName}}</a>
                                         </td>

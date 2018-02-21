@@ -119,15 +119,12 @@ function paintChart(Highcharts, elm, type, taxonomy, allowDrillToNode, click) {
         type = 'sunburst';
     }
 
-    var options = {
+    var sunBurstOptions = {
 
         plotOptions: {
             sunburst: {
                 size: '100%'
             }
-        },
-        boost: {
-            useGPUTranslations: true
         },
         credits: false,
         title: {
@@ -141,11 +138,10 @@ function paintChart(Highcharts, elm, type, taxonomy, allowDrillToNode, click) {
             }
         },
         series: [{
-            type: type,
+            type: 'sunburst',
             turboThreshold: 0,
             data: taxonomy,
             allowDrillToNode: allowDrillToNode,
-            boostThreshold: 5000,
             cursor: 'pointer',
 
             dataLabels: {
@@ -184,7 +180,91 @@ function paintChart(Highcharts, elm, type, taxonomy, allowDrillToNode, click) {
         }
     };
 
-    if (click && typeof click === 'function') {
+    var treeMapOptions = {
+        plotOptions: {
+            sunburst: {
+                size: '100%'
+            }
+        },
+        credits: false,
+        title: {
+            text: ''
+        },
+        exporting: {
+            buttons: {
+                contextButton: {
+                    enabled: false
+                }
+            }
+        },
+        series: [{
+            turboThreshold: 0,
+            boostThreshold: 100,
+            type: 'treemap',
+            allowDrillToNode: allowDrillToNode,
+            animationLimit: 1000,
+            levelIsConstant: true,
+            levels: [{
+                level: 1,
+                layoutAlgorithm: 'stripes',
+                colorByPoint: true,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}',
+                    align: 'left',
+                    verticalAlign: 'top',
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            {
+                level: 2,
+                colorByPoint: true,
+                layoutAlgorithm: 'sliceAndDice',
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            },
+                {
+                    level: 3,
+                    layoutAlgorithm: 'sliceAndDice',
+                    dataLabels: {
+                        filter: {
+                            enabled: true
+                        }
+                    },
+                    colorVariation: {
+                        key: 'brightness',
+                        to: -0.5
+                    }
+                }, {
+                    level: 4,
+                    layoutAlgorithm: 'sliceAndDice',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    colorVariation: {
+                        key: 'brightness',
+                        to: 0.5
+                    }
+                }],
+            tooltip: {
+        headerFormat: '',
+            pointFormat: '<b>{point.name} : {point.value}</b> occurrences'
+    },
+            data: taxonomy
+        }],
+
+        boost: {
+            useGPUTranslations: true
+        }
+    };
+    var options= (type === 'treemap') ? treeMapOptions : sunBurstOptions;
+
+            if (click && typeof click === 'function') {
         options.series[0].point ={
             events: {
                 click: click
