@@ -16,6 +16,7 @@ angular
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
+// eslint-disable-next-line max-len
 function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed) {
     var vm = this;
     vm.stateParams = $state;

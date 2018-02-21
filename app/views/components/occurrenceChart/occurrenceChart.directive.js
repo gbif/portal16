@@ -53,11 +53,11 @@ function occurrenceChartDirective(BUILD_VERSION) {
                         vm.myChart.destroy();
                     }
 
-                    if (vm.options.type == 'BAR') {
+                    if (vm.options.type === 'BAR') {
                         vm.myChart = Highcharts.chart(asBarChart(data, vm.logScale));
-                    } else if (vm.options.type == 'PIE') {
+                    } else if (vm.options.type === 'PIE') {
                         vm.myChart = Highcharts.chart(asPieChart(data));
-                    } else if (vm.options.type == 'LINE') {
+                    } else if (vm.options.type === 'LINE') {
                         vm.myChart = Highcharts.chart(asLineChart(data, vm.logScale));
                     }
                 });
@@ -65,10 +65,10 @@ function occurrenceChartDirective(BUILD_VERSION) {
 
         function setChartHeight() {
             var categories = _.get(vm.data, 'categories.length');
-            if (vm.options.type == 'BAR') {
+            if (vm.options.type === 'BAR') {
                 categories = categories || 10;
                 vm.chartHeight = categories * 20 + 100;
-            } else if (vm.options.type == 'PIE') {
+            } else if (vm.options.type === 'PIE') {
                 if (categories <= 3) {
                     vm.chartHeight = 300;
                 } else {
@@ -180,7 +180,7 @@ function occurrenceChartDirective(BUILD_VERSION) {
             });
             lowIndex = Math.min(20, lowIndex);
             var majorSerie = serie;
-            if (lowIndex != -1) {
+            if (lowIndex !== -1) {
                 lowIndex = Math.max(lowIndex, 5);
                 majorSerie = serie.slice(0, lowIndex);
                 var minor = serie.slice(lowIndex);
@@ -377,13 +377,6 @@ return Date.UTC(_.toSafeInteger(e), 0, 1);
     }
 }
 
-// var options = {
-//    fields: {
-//        basis_of_record:
-//    }
-// };
-
-
 /**
  * OVERALL IDEA
  * for any occ filter.
@@ -391,15 +384,17 @@ return Date.UTC(_.toSafeInteger(e), 0, 1);
  * depending on type a fixed number of chart types.
  * Basically simlpy filter as is. add facet as per selected field. If key, then resolve. could start with only allowing enums.
  * defaults to bar chart. doughnut if single value per type. BoR or kingdom fx. Issue not.
- * for bar charts only?: similar to table layout: if several species (or another type) selected, then do breakdown per type? months fx. so basically. choose field (say months). defaults to counts per month, but option to choose counts per other field per month - fx selected species or all of an enum
+ * for bar charts only?: similar to table layout: if several species (or another type) selected, then do breakdown per type? months fx.
+ * so basically. choose field (say months). defaults to counts per month, but option to choose counts per other field per month - fx selected species or all of an enum
  *
  *
  * CHART TYPES
  * bar chart.
  * pie.
  * map country chloropleth
- * ¿ plain list ? seems useful for issues fx (almost just a vertical bar chart).
- * table. choose additional dimension. At least one enum (else we cannot write 'other'). iterate enums and add to filter (overwrite enum filter if already there)) and facet per other dimension. also do a plain facet on enum diff is other.
+ * plain list? seems useful for issues fx (almost just a vertical bar chart).
+ * table. choose additional dimension. At least one enum (else we cannot write 'other').
+ *        iterate enums and add to filter (overwrite enum filter if already there)) and facet per other dimension. also do a plain facet on enum diff is other.
  *
  * MORE
  * more button for more facets (increase facetLimit). always ask for one more facet than asked for to decide on showing more button.

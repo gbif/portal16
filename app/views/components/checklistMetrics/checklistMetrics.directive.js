@@ -8,10 +8,10 @@ angular
     .directive('checklistMetrics', checklistMetrics);
 
 /** @ngInject */
-function checklistMetrics(BUILD_VERSION) {
+function checklistMetrics() {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/components/checklistMetrics/checklistMetrics.html?v=' + BUILD_VERSION,
+        templateUrl: '/templates/components/checklistMetrics/checklistMetrics.html',
         scope: {},
         controller: checklistMetrics,
         link: chartLink,
@@ -31,6 +31,7 @@ function checklistMetrics(BUILD_VERSION) {
 
     /** @ngInject */
     function checklistMetrics(Highcharts, $scope, $translate, $filter, enums) {
+        console.log(enums.rank);
         var vm = this;
         vm.logScale = true;
         if (vm.dimension === 'countByIssue') {
@@ -50,7 +51,7 @@ function checklistMetrics(BUILD_VERSION) {
         vm.loading = true;
 
         angular.element(document).ready(function() {
-            vm.metrics.$promise.then(function() {
+            vm.metrics.$promise.then(function(metrics) {
                 vm.loading = false;
                 if (vm.metrics[vm.dimension]) {
                     var data = {categories: [], series: [{data: [], total: 0}]};
@@ -59,17 +60,17 @@ function checklistMetrics(BUILD_VERSION) {
                     });
                     var sorted = (vm.dimension !== 'countByRank') ? _.orderBy(mappedData, ['count'], ['desc']) :
                         _.sortBy(mappedData, [function(r) {
-                            return enums.rank.indexOf(r.key);
-                        }]);
+ return enums.rank.indexOf(r.key);
+}]);
 
                     for (var i = 0; i < sorted.length; i++) {
-                        if (sorted[i].count > 0) {
-                            data.categories.push(getTranslation(vm.dimension, sorted[i].key));
-                            data.series[0].data.push(sorted[i].count);
-                            data.series[0].total += sorted[i].count;
-                        }
+                    if (sorted[i].count > 0) {
+                        data.categories.push(getTranslation(vm.dimension, sorted[i].key));
+                        data.series[0].data.push(sorted[i].count);
+                        data.series[0].total += sorted[i].count;
                     }
-                    data.title = $translate.instant('datasetMetrics.' + vm.dimension);
+                    }
+                    data.title = $translate.instant('datasetMetrics.'+vm.dimension);
                     vm.data = data;
 
                     if (vm.myChart) {
@@ -110,7 +111,7 @@ function checklistMetrics(BUILD_VERSION) {
                     animation: false,
                     type: 'bar',
                     renderTo: vm.chartElement,
-                    className: (vm.dimension === 'countByIssue') ? 'chart-field-issue' : ''
+                    className: (vm.dimension === 'countByIssue')? 'chart-field-issue' : ''
                 },
                 plotOptions: {
                     series: {
@@ -136,7 +137,7 @@ function checklistMetrics(BUILD_VERSION) {
                 },
                 yAxis: {
                     title: {
-                        text: (vm.unit || 'Taxon' ) + ' count'
+                        text: (vm.unit || 'Taxon' )+' count'
                     },
                     type: isLogaritmic ? 'logarithmic' : 'linear',
                     minorTickInterval: isLogaritmic ? 1 : undefined,
@@ -229,13 +230,13 @@ function checklistMetrics(BUILD_VERSION) {
                 case 'countByKingdom':
                     return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
                 case 'countByRank':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.' + key));
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.'+key));
                 case 'countByOrigin':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.originEnum.' + key));
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.originEnum.'+key));
                 case 'countByIssue':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.issueEnum.' + key));
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.issueEnum.'+key));
                 case 'countExtRecordsByExtension':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.' + key));
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.'+key));
                 case 'countNamesByLanguage':
                     return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
             }
@@ -285,3 +286,4 @@ function checklistMetrics(BUILD_VERSION) {
 }
 
 module.exports = checklistMetrics;
+

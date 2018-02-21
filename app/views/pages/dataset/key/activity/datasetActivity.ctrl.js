@@ -7,7 +7,7 @@ angular
     .controller('datasetActivityCtrl', datasetActivityCtrl);
 
 /** @ngInject */
-function datasetActivityCtrl($http, $state, $stateParams, env, endpoints) {
+function datasetActivityCtrl($http, $state, $stateParams, env, endpoints, NAV_EVENTS, $rootScope) {
     var vm = this;
     vm.key = $stateParams.key;
 

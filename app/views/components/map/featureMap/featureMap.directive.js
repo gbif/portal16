@@ -3,7 +3,6 @@
 var angular = require('angular'),
     _ = require('lodash'),
     ol = require('openlayers'),
-    Progress = require('../mapWidget/progress'),
     projections = require('../mapWidget/projections');
 
 require('../basic/gbTileLayer');

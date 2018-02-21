@@ -66,6 +66,7 @@ function updateOverlays(query, slopeStdErrThreshold) {
     removeOverlays();
     var regressionTiles = mapApi + 'occurrence/regression/{z}/{x}/{y}.mvt?' + query;
 
+    // eslint-disable-next-line max-len
     var groupPointTiles = mapApi + 'occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&' + query;
     map.addSource('groupPoints', {
         'type': 'vector',

@@ -13,6 +13,7 @@ angular
     .controller('countryKeyCtrl', countryKeyCtrl);
 
 /** @ngInject */
+// eslint-disable-next-line max-len
 function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, env, MapCapabilities, OccurrenceSearch, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets, OccurrenceTableSearch) {
     var vm = this;
     vm.countryCode = gb.countryCode;

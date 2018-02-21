@@ -2876,8 +2876,8 @@
         "tooltip": "Feedback, datasets suggestions"
       },
       "CRAWLER": {
-        "name": "Crawling",
-        "tooltip": "For updating datasets - new and old."
+        "name": "Ingestion",
+        "tooltip": "For updating datasets ﹣ new and old."
       },
       "RESOURCE_SEARCH": {
         "name": "Resource search",
@@ -2885,7 +2885,7 @@
       },
       "CLUSTER": {
         "name": "System load",
-        "tooltip": "The backend for handling downloads, crawling end much more."
+        "tooltip": "The backend for handling downloads, ingestion and much more."
       },
       "DOWNLOAD": {
         "name": "Downloads",

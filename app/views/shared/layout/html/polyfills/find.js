@@ -1,3 +1,4 @@
+/* eslint-disable prefer-rest-params,no-extend-native */
 // for IE support
 module.exports = (function() {
     // https://tc39.github.io/ecma262/#sec-array.prototype.find

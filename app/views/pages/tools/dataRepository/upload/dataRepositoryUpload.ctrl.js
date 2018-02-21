@@ -77,8 +77,8 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
         if (vm.state == vm.states.UPLOADING) return;// to avoid duplicate uploads
 
         // extract data to send
-        var data_package = vm.form;
-        data_package.creators = data_package.creators.map(function(creator) {
+        var dataPackage = vm.form;
+        dataPackage.creators = dataPackage.creators.map(function(creator) {
             return {
                 name: creator.name,
                 identifier: creator.identifier,
@@ -86,7 +86,7 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
                 affiliation: creator.affiliation ? [creator.affiliation] : undefined
             };
         });
-        data_package.shareIn = vm.shareInDataOne ? ['DataOne'] : [];
+        dataPackage.shareIn = vm.shareInDataOne ? ['DataOne'] : [];
         var fileUrls = _.map(vm.fileUrls, function(e) {
             return e.val;
         });
@@ -101,7 +101,7 @@ function dataRepositoryUploadCtrl($state, $window, User, Upload, $timeout, env) 
             url: env.dataApi + 'data_packages/',
             headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
             data: {
-                dataPackage: JSON.stringify(data_package),
+                dataPackage: JSON.stringify(dataPackage),
                 file: vm.files,
                 fileUrl: fileUrls,
                 identifiersFileUrl: vm.relatedIdentifiersUrl,

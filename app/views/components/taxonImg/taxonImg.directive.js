@@ -17,7 +17,12 @@ angular
 
                         var image = response.data;
                         if (response.status == 200) {
-                            element.html('<img style="cursor: pointer" src="' + env.imageCache + '64x64/' + encodeURIComponent(response.data.identifier) + '" onerror="this.parentElement.style.display=\'none\'" data-jslghtbx="' + env.imageCache + '1200x900/' + encodeURIComponent(response.data.identifier) + '" data-jslghtbx-caption="'+ ((image.rightsHolder) ? ('&copy; '+image.rightsHolder ) : '&copy; '+image.creator) + ((image.license) ? '<br> License: '+image.license : '')+'" />');
+                            element.html(
+                                '<img style="cursor: pointer" src="' +
+                                env.imageCache + '64x64/' + encodeURIComponent(response.data.identifier) +
+                                '" onerror="this.parentElement.style.display=\'none\'" data-jslghtbx="' + env.imageCache + '1200x900/' + encodeURIComponent(response.data.identifier) +
+                                '" data-jslghtbx-caption="'+ ((image.rightsHolder) ? ('&copy; '+image.rightsHolder ) : '&copy; '+ image.creator) +
+                                ((image.license) ? '<br> License: '+image.license : '')+'" />');
                         }
                     }).catch(function() {
                     // swallow errors

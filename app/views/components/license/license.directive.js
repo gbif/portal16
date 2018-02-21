@@ -1,7 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
-    _ = require('lodash');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -11,7 +10,7 @@ angular
 function licenseDirective() {
     var directive = {
         restrict: 'E',
-        template: '<a ng-href="{{ vm.link }}" ng-if="vm.isValid(vm.link)" translate="license.{{vm.name(vm.link)}}"></a><span ng-if="!vm.isValid(vm.link)" translate="license.{{vm.name(vm.link)}}"></span>',
+        template: '<a ng-href="{{ vm.link }}" ng-if="vm.isValid(vm.link)" translate="license.{{vm.name(vm.link)}}"></a><span ng-if="!vm.isValid(vm.link)" translate="license.{{vm.name(vm.link)}}"></span>', // eslint-disable-line max-len
         scope: {
         },
         controller: licenseCtrl,

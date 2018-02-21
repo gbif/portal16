@@ -1,4 +1,4 @@
-require('./polyfills/polyfills');
+require('./polyfills/polyfills'); // TODO these polyfills are really only there for IE. perhaps move them into a test and seperate file to include for legacy browsers like IE and safari?
 
 // Create a global GBIF Object
 (function(global) {
@@ -50,7 +50,32 @@ require('angular-svg-round-progressbar');
 (function() {
     'use strict';
     angular
-        .module('portal', ['ngMaterial', 'ngAnimate', 'chart.js', 'ngMessages', 'ngCookies', 'ngStorage', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr', 'ngFileUpload']);
+        .module('portal', [
+            'ngMaterial',
+            'ngAnimate',
+            'chart.js',
+            'ngMessages',
+            'ngCookies',
+            'ngStorage',
+            'ngAria',
+            'ui.router',
+            'pascalprecht.translate',
+            'leaflet-directive',
+            'angularMoment',
+            'cfp.hotkeys',
+            'ngResource',
+            'ui.bootstrap',
+            'infinite-scroll',
+            'gb-click-outside',
+            'duScroll',
+            'ngSanitize',
+            'checklist-model',
+            'ya.nouislider',
+            'angular-chartist',
+            'angular-svg-round-progressbar',
+            'toastr',
+            'ngFileUpload'
+        ]);
 })();
 
 
@@ -66,11 +91,6 @@ function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { // $log
     // $log.debug('runBlock end');
     $translate.use(LOCALE);
     amMoment.changeLocale(LOCALE);
-
-    $http({
-        method: 'GET',
-        url: '//timrobertson100.carto.com/api/v1/map?stat_tag=API&config=%7B%22version%22%3A%221.3.0%22%2C%22stat_tag%22%3A%22API%22%2C%22layers%22%3A%5B%7B%22type%22%3A%22cartodb%22%2C%22options%22%3A%7B%22sql%22%3A%22SELECT%20ST_SCALE(the_geom%2C%20111319.44444444444444%2C%20111319.44444444444444)%20AS%20the_geom_webmercator%20FROM%20world_borders_hd_copy%22%2C%22cartocss%22%3A%22%23layer%20%7B%20polygon-fill%3A%20%234D5258%3B%20polygon-opacity%3A%201%3B%20line-width%3A0%7D%22%2C%22cartocss_version%22%3A%222.1.0%22%7D%7D%5D%7D'
-    });
 
     $rootScope.$on('$stateChangeStart', function(e) {
         if (window.gb.state > 399) {
@@ -278,7 +298,6 @@ require('./angular/occurrenceFilter.service');
 require('./angular/datasetFilter.service');
 require('./angular/speciesFilter.service');
 require('./angular/toast.service');
-require('./angular/map.constants');
 require('./angular/enums.constants');
 require('./angular/country.resource');
 require('./angular/node.resource');

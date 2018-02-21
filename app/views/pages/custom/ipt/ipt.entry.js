@@ -51,7 +51,7 @@ function iptCtrl($http, leafletData, env) {
                 // get phrase in site language in plural or singular
                 var publisherUrl = '/publisher/';
                 // Create popup html
-                var content = '<h4><a href="' + publisherUrl + feature.properties.key + '">' + feature.properties.title + '</a><\/h4>';
+                var content = '<h4><a href="' + publisherUrl + feature.properties.key + '">' + feature.properties.title + '</a></h4>';
                 content += '<div>Installations: ' + feature.properties.count + '</div>';
 
                 vm.installations.push({

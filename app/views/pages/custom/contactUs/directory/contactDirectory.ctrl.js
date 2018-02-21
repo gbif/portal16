@@ -1,7 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
-    _ = require('lodash');
+var angular = require('angular');
 
 require('../../../../components/directoryPerson/directoryPerson.directive');
 require('../../../../components/modal/modal.directive');

@@ -56,11 +56,12 @@ async function getPermissions(user, datasetKey) {
             isTrustedContactReason: 'Is dataset contact'
         };
     }
-    let publisherPromise = getItem(apiConfig.publisher.url, dataset.publishingOrganizationKey, true);
+    let publisher = await getItem(apiConfig.publisher.url, dataset.publishingOrganizationKey, true);
     let hostingPromise = getItem(apiConfig.publisher.url, dataset.hostingOrganizationKey, true);
     let installationPromise = getItem(apiConfig.installation.url, dataset.installationKey, true);
-    let nodePromise = getItem(apiConfig.country.url, dataset.country, true);
-    let otherParties = await Promise.all([publisherPromise, installationPromise, nodePromise, hostingPromise]);
+    let nodePromise = getItem(apiConfig.country.url, publisher.country, true);
+    let otherParties = await Promise.all([installationPromise, nodePromise, hostingPromise]);
+    otherParties.push(publisher);
     for (let i = 0; i < otherParties.length; i++) {
         let party = otherParties[i];
         if (isContact(party, user)) {

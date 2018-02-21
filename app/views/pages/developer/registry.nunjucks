@@ -89,7 +89,7 @@
                         contact with contact identifier {ID}") $}
                         {$ trowD(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates a dataset
                         contact with contact identifier {ID}") $}
-                        {$ trowD(url="/{UUID}/crawl", method="POST", auth=true, description="Schedules a new crawl of
+                        {$ trowD(url="/{UUID}/crawl", method="POST", auth=true, description="Schedules a new ingestion of
                         the dataset") $}
                         {$ trowD(url="/{UUID}/endpoint", method="GET", resp="Endpoint List",
                         respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/endpoint", description="Lists the

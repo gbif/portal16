@@ -1,9 +1,6 @@
 'use strict';
 
 var async = require('async');
-
-// require('./droppable.directive');
-
 var Converter = require('csvtojson').Converter;
 
 angular
@@ -142,6 +139,7 @@ return e.scientificname;
     }
 
     vm.setItem = function(item, selected) {
+        // eslint-disable-next-line max-len
         var fields = ['scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey', 'accepted', 'acceptedKey'];
         fields.forEach(function(field) {
             item[field] = selected[field];
