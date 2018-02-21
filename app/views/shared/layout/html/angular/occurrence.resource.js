@@ -104,7 +104,7 @@ var angular = require('angular');
             return $resource('/api/chart/occurrence/sunburst', null, {
                     'query': {
                         method: 'GET',
-                        isArray: true,
+                        isArray: false,
                         cancellable: true
                     }
                 }

@@ -120,7 +120,7 @@ async function getOccurrenceDatasetTaxonomy(query, req) {
         taxa.push(val);
     });
 
-    return taxa;
+    return {count: response.body.count, results:taxa};
 }
 
 async function getChecklistTaxonomy(key) {
