@@ -73,7 +73,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
                     vm.loading = false;
                     vm.preparing = true;
                     var allowDrillToNode = ($state.current.parent !== 'occurrenceSearch');
-                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, res.results, res.count, allowDrillToNode, function() {
+                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, res,  allowDrillToNode, function() {
                         var splittedKey = this.id.split('.');
                         vm.search(splittedKey[1], this.rank);
                     });
@@ -114,12 +114,12 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
     }
 }
 
-function paintChart(Highcharts, elm, type, taxonomy, count, allowDrillToNode, click) {
+function paintChart(Highcharts, elm, type, res, allowDrillToNode, click) {
     if (!type) {
         type = 'sunburst';
     }
-
-    var minCountForTreeMapLabels = Math.round(count / 80);
+    var taxonomy = res.results;
+    var minCountForTreeMapLabels = Math.round(res.count / 80);
     var sunBurstOptions = {
 
         plotOptions: {
@@ -236,8 +236,10 @@ function paintChart(Highcharts, elm, type, taxonomy, count, allowDrillToNode, cl
                 colorByPoint: true,
                 layoutAlgorithm: 'sliceAndDice',
                 dataLabels: {
-                    enabled: true,
-                    format: '{point.name}',
+                    enabled: res.levelCounts[2] < 300,
+                    formatter: function() {
+                        return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : false;
+                    },
                     style: {
                         fontSize: '14px',
                         fontWeight: 'bold'
@@ -248,8 +250,9 @@ function paintChart(Highcharts, elm, type, taxonomy, count, allowDrillToNode, cl
                     level: 3,
                     layoutAlgorithm: 'sliceAndDice',
                     dataLabels: {
-                        filter: {
-                            enabled: true
+                        enabled: res.levelCounts[3] < 500,
+                        formatter: function() {
+                            return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : false;
                         }
                     },
                     colorVariation: {
@@ -260,10 +263,7 @@ function paintChart(Highcharts, elm, type, taxonomy, count, allowDrillToNode, cl
                     level: 4,
                     layoutAlgorithm: 'sliceAndDice',
                     dataLabels: {
-                        enabled: taxonomy.length < 500,
-                        formatter: function() {
-                            return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : false;
-                        }
+                        enabled: taxonomy.length < 500
                     },
                     colorVariation: {
                         key: 'brightness',
