@@ -2,6 +2,7 @@
 
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
+    _ = require('lodash'),
     request = require('requestretry');
 
 async function get(key, depth) {
@@ -32,10 +33,11 @@ async function expand(publisher) {
 async function query(query, options) {
     options = options || {};
     query = query || {};
+    let q = _.assign({isEndorsed: true}, query);
 
     let baseRequest = {
-        url: apiConfig.publisher.url + '?' + querystring.stringify(query),
-        timeout: options.timeout || 30000,
+        url: apiConfig.publisher.url + '?' + querystring.stringify(q),
+        timeout: options.timeout || 3000,
         method: 'GET',
         json: true
     };
