@@ -45,8 +45,8 @@ function render(req, res, next) {
                 helper.renderPage(req, res, next, {
                     publisher: publisher,
                     _meta: {
-                        title: publisher.record.title,
-                        description: publisher.record.description,
+                        title: publisher.record.endorsementApproved ? publisher.record.title : 'New publisher',
+                        description: publisher.record.endorsementApproved ? publisher.record.description : '',
                         noIndex: !publisher.record.endorsementApproved
                     }
                 }, 'pages/publisher/key/seo');
