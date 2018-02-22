@@ -6,3 +6,9 @@
         </div>
     </div>
 </div>
+
+<div  class="container--narrow" ng-if="speciesKey2.capabilities.total === 0">
+    <div class="emptyInfo--small">
+        <h3>No occurrences with coordinates</h3>
+    </div>
+</div>
