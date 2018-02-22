@@ -13,8 +13,9 @@ angular
     .controller('occurrenceSpeciesCtrl', occurrenceSpeciesCtrl);
 
 /** @ngInject */
-function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceTaxonSearch) {
+function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceTaxonSearch, $mdMedia) {
     var vm = this;
+    vm.mdMedia = $mdMedia;
     vm.state = OccurrenceFilter.getOccurrenceData();
     vm.checklist = {};
     vm.limit = 100;
