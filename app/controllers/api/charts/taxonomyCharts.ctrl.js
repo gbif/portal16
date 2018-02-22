@@ -4,15 +4,11 @@ let express = require('express'),
     log = rootRequire('config/log'),
     _ = require('lodash'),
     request = require('requestretry'),
-    apiConfig = require('../../../../../models/gbifdata/apiConfig'),
+    apiConfig = require('../../../models/gbifdata/apiConfig'),
     querystring = require('querystring'),
-  //  gbifData = require('../../../../models/gbifdata/gbifdata'),
-    q = require('q');
+    q = require('q'),
+    clientCancelledRequest = 'clientCancelledRequest';
 
-
-/* module.exports = function (app) {
-    app.use('/api', router);
-}; */
 
 module.exports = function(app) {
     app.use('/api/chart', router);
@@ -27,124 +23,117 @@ router.get('/checklist/:key/taxonomy', function(req, res) {
 
 router.get('/occurrence/sunburst', function(req, res) {
     let query = req.query || {};
-    return getOccurrenceDatasetTaxonomy(query).then(function(taxa) {
+    return getOccurrenceDatasetTaxonomy(query, req).then(function(taxa) {
         return res.json(taxa);
+    }).catch(function() {
+        res.status(500);
+        res.send();
     });
 });
 
 
-async function getOccurrenceDatasetTaxonomy(query) {
+function hasNoImmediateParentButHasGrandparent(tx, rankKeys) {
+    return !tx.hasOwnProperty(rankKeys[rankKeys.indexOf(tx.rank.toLowerCase() + 'Key') - 1]) && tx.hasOwnProperty(rankKeys[rankKeys.indexOf(tx.rank.toLowerCase() + 'Key') - 2]);
+}
+function getGrandParentKey(tx, rankKeys) {
+    return tx[rankKeys[rankKeys.indexOf(tx.rank.toLowerCase() + 'Key') - 2]];
+}
+
+
+async function getOccurrenceDatasetTaxonomy(query, req) {
+    let cancelRequest = false;
+    req.on('close', function() {
+        cancelRequest = true;
+    });
     let rankKeys = ['kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey'];
-
-    // TODO check if taxon_key is an array, maybe default to array and use [taxon_key] if its an integer
-
     let taxon = await expandWithTaxon({name: query.taxon_key});
-    if (query.taxon_key) {
-        rankKeys.splice(0, rankKeys.indexOf(taxon.rank.toLowerCase()+'Key') );
-    } else {
-        rankKeys.splice(4, rankKeys.length -4);
+
+
+    if (query.taxon_key && typeof query.taxon_key === 'string') {
+        rankKeys.splice(0, rankKeys.indexOf(taxon.rank.toLowerCase() + 'Key'));
     }
-
-    let rankIndex = _.zipObject(_.map(rankKeys, function(k) {
-        return k.split('Key')[0].toUpperCase();
-    }), _.map(rankKeys, function(k) {
-            return (query.taxon_key) ? rankKeys.indexOf(k) : rankKeys.indexOf(k) + 1;
-    }));
-
+    rankKeys.splice(4, rankKeys.length - 4);
 
     let options = _.merge({}, query, {facet: rankKeys, facetLimit: 1000, limit: 0});
-
-   /* if(taxon_key){
-        options.taxon_key = taxon_key;
-    }; */
-
     let baseRequest = {
         url: apiConfig.occurrenceSearch.url + '?' + querystring.stringify(options),
         method: 'GET',
         json: true,
         fullResponse: true
     };
-
     let response = await request(baseRequest);
     if (response.statusCode > 299) {
         throw response;
     }
     let taxonFacets = response.body.facets;
-
-
+    let dummyTaxa = {};
+    let levelCounts = { 1: 0, 2: 0, 3: 0, 4: 0};
     let mapFn = function(taxon) {
+        if (cancelRequest) {
+            throw {type: clientCancelledRequest};
+        }
         taxon.name = taxon.canonicalName;
+        taxon.id = (rankKeys.indexOf(taxon.rank.toLowerCase()+'Key')) + '.' + taxon.key;
+        let taxonRankIndex = rankKeys.indexOf(taxon.rank.toLowerCase()+'Key');
+        levelCounts[taxonRankIndex +1] ++;
+        if (taxonRankIndex > 0) { // there should be a parentrank
+            let parentTaxonKey = rankKeys[taxonRankIndex - 1];
+            let grandParentTaxonKey = (taxonRankIndex > 1) ? rankKeys[taxonRankIndex - 2] : undefined;
 
-        taxon.id = rankIndex[taxon.rank]+'.'+taxon.key;
-
-
-       switch (taxon.rank) {
-           case 'SPECIES':
-               taxon.parent = rankIndex.GENUS+'.'+taxon.genusKey;
-               break;
-            case 'GENUS':
-                taxon.parent = rankIndex.FAMILY+'.'+taxon.familyKey;
-                break;
-            case 'FAMILY':
-                taxon.parent = rankIndex.ORDER+'.'+taxon.orderKey;
-                break;
-            case 'ORDER':
-                taxon.parent = (rankIndex.CLASS) ? rankIndex.CLASS +'.'+taxon.classKey : '';
-                break;
-            case 'CLASS':
-                taxon.parent = rankIndex.PHYLUM+'.'+taxon.phylumKey;
-                break;
-            case 'PHYLUM':
-                taxon.parent = rankIndex.KINGDOM+'.'+taxon.kingdomKey;
-                break;
-            case 'KINGDOM':
-               // taxon.id = 1+"."+taxon.key;
-                taxon.parent = '0.0';
-                break;
+            if (taxon[parentTaxonKey]) {
+                taxon.parent = (taxonRankIndex - 1) + '.' + taxon[parentTaxonKey];
+            } else if (grandParentTaxonKey && taxon[grandParentTaxonKey]) { // there might be a grandparent
+                if (!dummyTaxa[taxon[grandParentTaxonKey]]) {
+                    let rankName = parentTaxonKey.split('Key')[0].toLowerCase();
+                    dummyTaxa[taxon[grandParentTaxonKey]] = {
+                        id: (taxonRankIndex - 1) + '.unknown' + taxon[grandParentTaxonKey],
+                        name: 'Unknown ' + rankName,
+                        parent: (taxonRankIndex - 2) + '.' + taxon[grandParentTaxonKey],
+                        value: 0
+                    };
+                }
+                taxon.parent = (taxonRankIndex - 1) + '.unknown' + taxon[grandParentTaxonKey];
+            }
         }
     };
     let promises = [];
-    let kingdomOccCount = 0;
     _.each(taxonFacets, function(facet) {
         promises = promises.concat(_.map(facet.counts, function(c) {
-         return expandWithTaxon(c, mapFn).then(function(result) {
-                if (result.rank === 'KINGDOM') {
-                    kingdomOccCount += c.count;
+            return expandWithTaxon(c, mapFn).then(function(result) {
+                if (hasNoImmediateParentButHasGrandparent(result, rankKeys)) {
+                    if (dummyTaxa[getGrandParentKey(result, rankKeys)]) {
+                        dummyTaxa[getGrandParentKey(result, rankKeys)].value += c.count;
+                    }
                 }
+
                 result.value = c.count;
-              return _.pick(result, 'id', 'parent', 'value', 'name', 'rank');
-          });
+                return _.pick(result, 'id', 'parent', 'value', 'name', 'rank');
+            })
+                .catch(function(err) {
+
+                });
         }));
     });
 
     let taxa = await q.all(promises);
-    if (!query.taxon_key && kingdomOccCount < response.body.count) {
-        taxa.push({
-            name: 'Other Kingdoms',
-            parent: '0.0',
-            id: '1.abc',
-            value: response.body.count - kingdomOccCount
-        });
-    }
-    if (!query.taxon_key) {
-        // if theres no root taxon add the whole dataset as root
-        taxa.push({
-            name: 'Entire dataset',
-            parent: '',
-            id: '0.0',
-            value: response.body.count
-        });
-    } else {
-        // add the
 
-    }
+    _.forEach(dummyTaxa, function(val) {
+        taxa.push(val);
+    });
 
-    return taxa;
+    return {levelCounts: levelCounts, count: response.body.count, results:taxa};
 }
 
 async function getChecklistTaxonomy(key) {
     let baseRequest = {
-        url: apiConfig.taxonSearch.url + '?' + querystring.stringify({datasetKey: key, facet: 'higherTaxonKey', rank: 'SPECIES', status: 'ACCEPTED', facetLimit: 1000, limit: 0}),
+        url: apiConfig.taxonSearch.url + '?' + querystring.stringify({
+            datasetKey: key,
+            facet: 'higherTaxonKey',
+            rank: 'SPECIES',
+            status: 'ACCEPTED',
+            facetLimit: 1000,
+            limit: 0
+        }),
         method: 'GET',
         json: true,
         fullResponse: true
@@ -161,13 +150,12 @@ async function getChecklistTaxonomy(key) {
     let parentMap = {};
     let result = {KINGDOM: [], PHYLUM: [], CLASS: [], ORDER: [], FAMILY: [], GENUS: [], count: response.body.count};
 
-    for (var i=0; i < taxa.length; i++) {
+    for (let i = 0; i < taxa.length; i++) {
         if (taxa[i].parentKey && parentMapUnranked[taxa[i].parentKey]) {
             parentMapUnranked[taxa[i].parentKey].push(taxa[i]);
         } else if (taxa[i].parentKey) {
             parentMapUnranked[taxa[i].parentKey] = [taxa[i]];
         }
-
 
         switch (taxa[i].rank) {
             case 'GENUS':
@@ -176,6 +164,7 @@ async function getChecklistTaxonomy(key) {
                 } else if (taxa[i].familyKey) {
                     parentMap[taxa[i].familyKey] = [taxa[i]];
                 }
+
                 result.GENUS.push(taxa[i]);
                 break;
             case 'FAMILY':
@@ -216,14 +205,14 @@ async function getChecklistTaxonomy(key) {
         }
     }
 
-    for (var i=0; i< result.KINGDOM.length; i++) {
+    for (let i = 0; i < result.KINGDOM.length; i++) {
         if (parentMap[result.KINGDOM[i].key.toString()]) {
             result.KINGDOM[i].children = parentMap[result.KINGDOM[i].key.toString()];
         } else if (parentMapUnranked[result.KINGDOM[i].key.toString()]) {
             result.KINGDOM[i].children = parentMapUnranked[result.KINGDOM[i].key.toString()];
         }
     }
-    for (var i=0; i< result.PHYLUM.length; i++) {
+    for (let i = 0; i < result.PHYLUM.length; i++) {
         if (parentMap[result.PHYLUM[i].key.toString()]) {
             result.PHYLUM[i].children = parentMap[result.PHYLUM[i].key.toString()];
         } else if (parentMapUnranked[result.PHYLUM[i].key.toString()]) {
@@ -231,7 +220,7 @@ async function getChecklistTaxonomy(key) {
         }
     }
     if (result.KINGDOM.length < 2 && result.PHYLUM.length < 2) {
-        for (var i=0; i< result.CLASS.length; i++) {
+        for (let i = 0; i < result.CLASS.length; i++) {
             if (parentMap[result.CLASS[i].key.toString()]) {
                 result.CLASS[i].children = parentMap[result.CLASS[i].key.toString()];
             } else if (parentMapUnranked[result.CLASS[i].key.toString()]) {
@@ -241,7 +230,7 @@ async function getChecklistTaxonomy(key) {
     }
 
     if (result.KINGDOM.length < 2 && result.PHYLUM.length < 2 && result.CLASS.length < 2) {
-        for (var i=0; i< result.ORDER.length; i++) {
+        for (let i = 0; i < result.ORDER.length; i++) {
             if (parentMap[result.ORDER[i].key.toString()]) {
                 result.ORDER[i].children = parentMap[result.ORDER[i].key.toString()];
             } else if (parentMapUnranked[result.ORDER[i].key.toString()]) {
@@ -251,7 +240,7 @@ async function getChecklistTaxonomy(key) {
     }
 
     if (result.KINGDOM.length < 2 && result.PHYLUM.length < 2 && result.CLASS.length < 2 && result.ORDER.length < 2) {
-        for (var i=0; i< result.FAMILY.length; i++) {
+        for (let i = 0; i < result.FAMILY.length; i++) {
             if (parentMap[result.FAMILY[i].key.toString()]) {
                 result.FAMILY[i].children = parentMap[result.FAMILY[i].key.toString()];
             } else if (parentMapUnranked[result.FAMILY[i].key.toString()]) {

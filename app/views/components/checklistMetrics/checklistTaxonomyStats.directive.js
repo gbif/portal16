@@ -8,10 +8,10 @@ angular
     .directive('checklistTaxonomyStats', checklistTaxonomyStats);
 
 /** @ngInject */
-function checklistTaxonomyStats() {
+function checklistTaxonomyStats(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/dataset/key/stats/directives/checklistTaxonomyStats.html',
+        templateUrl: '/templates/components/checklistMetrics/checklistTaxonomyStats.html?v=' +BUILD_VERSION,
         scope: {},
         controller: checklistTaxonomyStats,
         link: chartLink,
@@ -76,11 +76,11 @@ function checklistTaxonomyStats() {
                         rankOrder = [],
                         rootRankIndex = 0;
 
-                     vm.hasRankedTaxa = false;
-                        if (taxonomy.KINGDOM && taxonomy.KINGDOM.length > 0) {
-                            vm.hasRankedTaxa = true;
-                            rankOrder.push('KINGDOM');
-                        }
+                    vm.hasRankedTaxa = false;
+                    if (taxonomy.KINGDOM && taxonomy.KINGDOM.length > 0) {
+                        vm.hasRankedTaxa = true;
+                        rankOrder.push('KINGDOM');
+                    }
                     if (taxonomy.PHYLUM && taxonomy.PHYLUM.length > 0) {
                         vm.hasRankedTaxa = true;
 
@@ -206,12 +206,11 @@ function checklistTaxonomyStats() {
 
 
                         var kingdomData = [],
-                            childData = [],
-                            i,
-                            j,
                             dataLen = data.length,
                             drillDataLen,
                             brightness;
+
+                        childData = [];
 
 
 // Build the data arrays
@@ -238,7 +237,7 @@ function checklistTaxonomyStats() {
                         }
 
 
-                 vm.myChart = Highcharts.chart(vm.chartElement, {
+                        vm.myChart = Highcharts.chart(vm.chartElement, {
                             chart: {
                                 type: 'pie'
                             },
@@ -264,7 +263,7 @@ function checklistTaxonomyStats() {
                                 data: kingdomData,
                                 point: {
                                     events: {
-                                        click: function(event) {
+                                        click: function() {
                                             if (this._key) {
                                                 $state.go('speciesKey', {speciesKey: this._key});
                                             }
@@ -283,7 +282,7 @@ function checklistTaxonomyStats() {
                                 data: childData,
                                 point: {
                                     events: {
-                                        click: function(event) {
+                                        click: function() {
                                             if (this._key) {
                                                 $state.go('speciesKey', {speciesKey: this._key});
                                             }
@@ -302,13 +301,13 @@ function checklistTaxonomyStats() {
                                 id: 'versions'
                             }],
 
-                     exporting: {
-                            buttons: {
-                                contextButton: {
-                                    enabled: false
+                            exporting: {
+                                buttons: {
+                                    contextButton: {
+                                        enabled: false
+                                    }
                                 }
-                            }
-                        },
+                            },
                             responsive: {
                                 rules: [{
                                     condition: {
@@ -335,4 +334,3 @@ function checklistTaxonomyStats() {
 }
 
 module.exports = checklistTaxonomyStats;
-

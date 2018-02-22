@@ -11,7 +11,7 @@ angular
 function checklistMetrics() {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/dataset/key/stats/directives/checklistMetrics.html',
+        templateUrl: '/templates/components/checklistMetrics/checklistMetrics.html',
         scope: {},
         controller: checklistMetrics,
         link: chartLink,
