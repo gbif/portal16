@@ -106,8 +106,8 @@
                             <div class="card__content card__content--warning--large">
                                 <p>The download has been started and is currently being processed.</p>
                                 <p>Please expect 10 to 15 minutes for the download to complete.</p>
-                                <div ng-if="downloadKey.recentDownload.isRecent" class="ng-cloak">
-                                    <p>A notification email with a link to download the results will be sent to the following address once ready: {{ downloadKey.profile.email }}</p>
+                                <div ng-if="downloadKey.isUsersDownload" class="ng-cloak">
+                                    <p>A notification email with a link to download the results will be sent to the following address once ready: {{ downloadKey.download.request.notificationAddresses[0] }}</p>
                                 </div>
                             </div>
                         </div>

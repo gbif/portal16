@@ -16,10 +16,6 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location,
     vm.key = gb.downloadKey.key;
     vm.downloadState = gb.downloadKey.status;
     vm.profile = $sessionStorage.user;
-    $http.get('/api/user/isRecentDownload/' + vm.key)
-        .then(function(response) {
-            vm.recentDownload = response.data;
-        });
 
     // if (vm.doi) {
     // A hardcoded limit and no pagination for now. Currently we never have a download citet more than once. If this change in the future we ought to add pagination and link more to resource search

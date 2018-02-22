@@ -23,8 +23,7 @@ module.exports = {
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
     changePassword: changePassword,
-    cancelDownload: cancelDownload,
-    isRecentDownload: isRecentDownload
+    cancelDownload: cancelDownload
 };
 
 async function create(body) {
@@ -202,17 +201,6 @@ async function cancelDownload(user, key) {
         throw response;
     }
     return response.body;
-}
-
-async function isRecentDownload(user, key) {
-    expect(key, 'download query').to.be.a('string');
-    expect(user.userName, 'user name').to.be.a('string');
-    let limit = 20;
-    let usersDownloads = await getDownloads(user.userName, {limit: limit});// Lazy test. only looking at the last 100
-    return {
-        isRecent: _.findIndex(usersDownloads.results, {key: key}) > -1,
-        limit: limit
-    };
 }
 
 async function login(auth) {

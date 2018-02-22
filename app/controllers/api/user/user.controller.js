@@ -14,8 +14,7 @@ module.exports = {
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
     changePassword: changePassword,
-    cancelDownload: cancelDownload,
-    isRecentDownload: isRecentDownload
+    cancelDownload: cancelDownload
 };
 
 /**
@@ -155,17 +154,6 @@ function cancelDownload(req, res) {
         .then(function() {
             res.status(204);
             res.send();
-        })
-        .catch(handleError(res, 422));
-}
-
-/**
- * Check if a given download key is initiated by the user
- */
-function isRecentDownload(req, res) {
-    userModel.isRecentDownload(req.user, req.params.key)
-        .then(function(value) {
-            res.send(value);
         })
         .catch(handleError(res, 422));
 }

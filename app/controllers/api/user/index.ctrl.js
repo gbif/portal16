@@ -20,4 +20,3 @@ router.get('/logout', user.logout);
 router.get('/myDownloads', auth.isAuthenticated(), user.getDownloads);
 router.get('/download', auth.isAuthenticated(), user.createSimpleDownload);
 router.get('/cancelDownload/:key', auth.isAuthenticated(), user.cancelDownload);
-router.get('/isRecentDownload/:key', auth.isAuthenticated(), user.isRecentDownload);
