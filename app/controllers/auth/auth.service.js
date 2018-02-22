@@ -65,7 +65,7 @@ function isAuthenticated() {
         .use(function(err, req, res, next) {
             if (err.name === 'UnauthorizedError') {
                 removeTokenCookie(res);
-                log.error('Invalid user token detected.');
+                log.info('Invalid user token detected.');
                 res.status(401).send('invalid token...');
             } else if (err) {
                 next(err);
