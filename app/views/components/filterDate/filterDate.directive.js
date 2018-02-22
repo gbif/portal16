@@ -101,7 +101,7 @@ function filterDateDirective(BUILD_VERSION) {
         }
 
         vm.stringifyQuery = function() {
-            var reg = /^[\d\-*,]+$/;
+            var reg = /^[\d\-\*,]+$/;
             var stateString = '',
                 fromStr = getDatePart(vm.dates.from),
                 toStr = getDatePart(vm.dates.to);

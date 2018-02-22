@@ -13,7 +13,7 @@ function getGeoIp(ip) {
 }
 
 function isGuid(stringToTest) {
-    let regexGuid = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/gi;
+    let regexGuid = /^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/gi;
     return regexGuid.test(stringToTest);
 }
 

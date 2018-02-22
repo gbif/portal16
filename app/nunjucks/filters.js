@@ -310,7 +310,7 @@ module.exports = function(nunjucksConfiguration) {
             if (!_.isString(url)) {
                 return url;
             }
-            let matches = url.match(/^(?:https?:\/\/)?(?:www\.)?([^\/?#:]+)/i);
+            let matches = url.match(/^(?:https?\:\/\/)?(?:www\.)?([^\/?#:]+)/i);
             return matches ? matches[1] : url;
         });
     })();
