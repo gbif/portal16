@@ -101,7 +101,8 @@ function filterDateDirective(BUILD_VERSION) {
         }
 
         vm.stringifyQuery = function() {
-            var reg = /^[\d\-*,]+$/;
+            // eslint-disable-next-line no-useless-escape
+            var reg = /^[\d\-\*,]+$/;
             var stateString = '',
                 fromStr = getDatePart(vm.dates.from),
                 toStr = getDatePart(vm.dates.to);

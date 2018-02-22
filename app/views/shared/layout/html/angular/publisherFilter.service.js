@@ -26,6 +26,7 @@ angular
             var apiQuery;
             state.query = query || $stateParams;
             apiQuery = angular.copy(state.query);
+            apiQuery.isEndorsed = true;
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
             state.data = PublisherSearch.query(apiQuery, function() {

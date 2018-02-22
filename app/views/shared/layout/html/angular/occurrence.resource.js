@@ -3,8 +3,6 @@
 var angular = require('angular');
 
 (function() {
-    'use strict';
-
     angular
         .module('portal')
         .factory('Occurrence', function($resource, env) {
@@ -100,7 +98,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceTaxonomyChart', function ($resource) {
+        .factory('OccurrenceTaxonomyChart', function($resource) {
             return $resource('/api/chart/occurrence/sunburst', null, {
                     'query': {
                         method: 'GET',
@@ -112,5 +110,3 @@ var angular = require('angular');
         })
     ;
 })();
-
-

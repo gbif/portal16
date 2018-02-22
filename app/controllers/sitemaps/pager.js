@@ -20,10 +20,11 @@ function getDatasetList(query) {
 }
 
 function getPublisherIntervals() {
-    return getIntervals(apiConfig.publisher.url, {});
+    return getIntervals(apiConfig.publisher.url, {isEndorsed: true});
 }
 function getPublisherList(query) {
-    return getList(apiConfig.publisher.url, query);
+    let q = _.assign({isEndorsed: true}, query);
+    return getList(apiConfig.publisher.url, q);
 }
 
 function getInstallationIntervals() {

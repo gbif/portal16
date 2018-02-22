@@ -43,5 +43,6 @@ describe('Spam detection', function() {
 
         // should be okay
         expect(spam.isSpamContent('you should be able to write japanese あ', 'test', terms, normalizedTerms)).toEqual(false, 'Japanese is okay');
+        expect(spam.isSpamContent('most plain text should be fine. That goes also for fx danish æøå', 'test', terms, normalizedTerms)).toEqual(false, 'Most plain text should be fine');
     });
 });

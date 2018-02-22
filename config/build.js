@@ -202,6 +202,7 @@ config.errorHandler = function(title) {
         } else {
             throw err;
         }
+        // eslint-disable-next-line no-invalid-this
         this.emit('end');
     };
 };

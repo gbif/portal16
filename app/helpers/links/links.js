@@ -18,7 +18,8 @@ function insertLinks(text, links, target) {
     }
 
     links = _.castArray(links);
-    let regex = /{[^}]*}/g;
+    // eslint-disable-next-line no-useless-escape
+    let regex = /\{[^\}]*\}/g;
     let matchesLength = _.get(text.match(regex), 'length', 0);
     if (matchesLength !== links.length) {
         return text.replace(/({)/g, '').replace(/(})/g, '');

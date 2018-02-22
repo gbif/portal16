@@ -305,12 +305,13 @@ module.exports = function(nunjucksConfiguration) {
         });
     })();
 
+    // TODO Is this use anywhere or a duplicate or reduceUrlToDomain
     (function() {
         nunjucksConfiguration.addFilter('domain', function(url) {
             if (!_.isString(url)) {
                 return url;
             }
-            let matches = url.match(/^(?:https?:\/\/)?(?:www\.)?([^\/?#:]+)/i);
+            let matches = url.match(/^(?:https?:\/\/)?(?:www\.)?([^/?#:]+)/i);
             return matches ? matches[1] : url;
         });
     })();
