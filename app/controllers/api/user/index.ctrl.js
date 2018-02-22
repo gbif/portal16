@@ -10,7 +10,7 @@ module.exports = function(app) {
 
 router.post('/create', auth.isHumanEnough(), user.create);
 router.get('/confirm', user.confirm);
-router.get('/me', auth.isAuthenticated(), user.me);
+router.get('/me', auth.appendUser(), user.me);
 router.put('/update', auth.isAuthenticated(), user.update);
 router.post('/resetPassword', user.resetPassword);
 router.post('/updateForgottenPassword', user.updateForgottenPassword);

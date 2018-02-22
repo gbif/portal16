@@ -53,12 +53,23 @@
                 };
 
                 that.loadActiveUser = function() {
+                    var token = $cookies.get(AUTH_TOKEN_NAME);
+                    if (!token) {
+                        return;
+                    }
                     var activeUser = $http.get('/api/user/me');
                     activeUser.then(function(response) {
-                        $sessionStorage.user = response.data;
-                        $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
+                        if (response.status === 200) {
+                            $sessionStorage.user = response.data;
+                            $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
+                        } else {
+                            delete $sessionStorage.user;
+                            $cookies.remove(AUTH_TOKEN_NAME, {path: '/'});
+                            $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
+                        }
                     }, function() {
                         delete $sessionStorage.user;
+                        $cookies.remove(AUTH_TOKEN_NAME, {path: '/'});
                         $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
                     });
                     return activeUser;

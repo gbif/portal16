@@ -62,7 +62,12 @@ function confirm(req, res) {
  * Gets the user associated with my token
  */
 function me(req, res) {
-    res.send(userModel.getClientUser(req.user));
+    if (!req.user) {
+        res.status(204);
+        res.send();
+    } else {
+        res.send(userModel.getClientUser(req.user));
+    }
 }
 
 /**

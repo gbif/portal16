@@ -50,7 +50,8 @@ function render(req, res, next) {
                     publisher: publisher,
                     _meta: {
                         title: publisher.record.title,
-                        description: publisher.record.description
+                        description: publisher.record.description,
+                        noIndex: !publisher.record.endorsementApproved
                     }
                 }, 'pages/publisher/key/seo');
             } catch (error) {
