@@ -21,6 +21,9 @@ function homeCtrl($http, suggestEndpoints, Page) {
     function getLatest() {
         var geoip = $http.get('/api/utils/geoip/country');
         geoip.then(function(response) {
+            if (response.status !== 200) {
+                return;
+            }
             vm.country = response.data;
             // to avoid too much offset cap latitude
             vm.country.location[0] = Math.min(vm.country.location[0], 40);
@@ -29,6 +32,8 @@ function homeCtrl($http, suggestEndpoints, Page) {
                 center: [vm.country.location[0], vm.country.location[1]],
                 zoom: 3
             };
+        }).catch(function() {
+            // ignore missing
         });
     }
     getLatest();

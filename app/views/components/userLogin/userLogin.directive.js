@@ -69,6 +69,7 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
             // once both are in, then set country to users location if not already set
             if (!vm.countryCode) {
                 $q.all([geoip, countryList]).then(function(values) {
+                    //geoip return 204 if there is no known country for that IP
                     var isoCode = _.get(values, '[0].data.countryCode');
                     if (isoCode) {
                         var usersCountry = values[1].data.find(function(e) {

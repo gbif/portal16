@@ -17,7 +17,7 @@ router.get('/geoip', function(req, res) {
         country = getGeoIp(ip);
 
     if (!country) {
-        log.error('unable to match ip to country using ip: ' + ip);
+        log.debug('unable to match ip to country using ip: ' + ip);
         res.setHeader('Cache-Control', 'no-cache');
         res.status(404);
         res.send();
@@ -33,9 +33,9 @@ router.get('/geoip/country', function(req, res) {
         countryCode = _.get(country, 'country.iso_code');
 
     if (!countryCode) {
-        log.error('unable to match ip to country using ip: ' + ip);
+        log.debug('unable to match ip to country using ip: ' + ip);
         res.setHeader('Cache-Control', 'no-cache');
-        res.status(404);
+        res.status(204);
         res.send();
     } else {
         res.setHeader('Cache-Control', 'private, max-age=' + hour);
