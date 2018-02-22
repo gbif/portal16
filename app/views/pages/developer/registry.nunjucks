@@ -302,7 +302,7 @@
                         {$ api.apiTableHead() $}
                         <tbody>
                         {$ trowO(url="", resp="Organization List", respLink=apiBase+"organization", paging=true,
-                        params=["q","country","identifier","identifierType"], description="Lists all organizations") $}
+                        params=["q","country","identifier","identifierType","isEndorsed"], description="Lists all organizations") $}
                         {$ trowO(url="", method="POST", resp="UUID", auth=true, description="Creates a new
                         organization") $}
                         {$ trowO(url="/{UUID}", resp="Organization",
@@ -563,6 +563,7 @@
             "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier
             type as given in our <a href='"+apiBase+"vocabulary/IdentifierType.html' target='_blank'>IdentifierType
                 enum</a>",
+            "isEndorsed": "Filters organizations by whether they are endorsed or not.",
             "subtype": "Not yet implemented, but will eventually allow filtering of datasets by their dataset subtype as
             given in our <a href='"+apiBase+"vocabulary/DatasetSubtype.html' target='_blank'>DatasetSubtype
                 enum</a>.",
