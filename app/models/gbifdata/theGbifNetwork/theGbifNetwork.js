@@ -113,15 +113,15 @@ theGbifNetwork.counts = (query) => {
 
                     theGbifNetworkCache.set(cacheId, count, 3600, (err, success) => {
                         if (!err && success) {
-                            log.info('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
+                            log.debug('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
                         } else {
-                            log.error('Variable ' + cacheId + ' failed to cache.');
+                            log.warning('Variable ' + cacheId + ' failed to cache.');
                         }
                     });
                     deferred.resolve(count);
                 })
                 .catch((e) => {
-                    log.info(e + ' at count().');
+                    log.error(e + ' at count().');
                     deferred.reject(e + ' at count().');
                 });
         }
@@ -166,7 +166,7 @@ theGbifNetwork.getCountries = (iso2) => {
                         countries[i] = countryWCount;
                     })
                     .catch((e) => {
-                        log.info(e + ' at getDataCount().');
+                        log.error(e + ' at getDataCount().');
                     }));
             });
             return Q.all(countryTasks)
@@ -239,9 +239,9 @@ theGbifNetwork.getDataCount = (participant, facetMap) => {
                     if (participant.hasOwnProperty('counts')) {
                         theGbifNetworkCache.set(cacheId, participant, 3600, (err, success) => {
                             if (!err && success) {
-                                log.info('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
+                                log.debug('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
                             } else {
-                                log.error('Variable ' + cacheId + ' failed to cache.');
+                                log.warning('Variable ' + cacheId + ' failed to cache.');
                             }
                         });
                     }
