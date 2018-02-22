@@ -36,7 +36,7 @@ function create(body) {
     };
 
     if (body.email) {
-        org.email= [body.email];
+        org.email = [body.email];
     }
 
     if (body.postalCode) {
@@ -82,7 +82,6 @@ function create(body) {
         url: apiConfig.publisherCreate.url,
         canonicalPath: apiConfig.publisherCreate.canonical
     };
-
     return authOperations.authenticatedRequest(options)
         .then((res) => {
             if (res.statusCode !== 201) {

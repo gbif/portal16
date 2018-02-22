@@ -25,8 +25,8 @@ function isSpam(req, formData) {
  */
 function create(req, res) {
     if (isSpam(req, {title: req.body.title, description: JSON.stringify(req.body)})) {
-        req.body.endorsingNodeKey = 'other'; // redirect to the GBIF secretariat
-        log.warn('Endorsement request for '+req.body.title+' was flagged as possible spam and redirected to the secretariat.');
+        req.body.suggestedNodeKey = 'other'; // redirect to the GBIF secretariat
+        log.warn('Endorsement request for ' + req.body.title + ' was flagged as possible spam and redirected to the secretariat.');
     }
     eoi.create(req.body)
         .then(function(result) {
