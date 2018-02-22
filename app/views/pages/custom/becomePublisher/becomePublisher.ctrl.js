@@ -213,7 +213,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
             vm.state.submissionComplete = true;
             vm.state.submissionError = false;
             vm.state.newPublisherKey = res.data;
-        }, function(err) {
+        }, function() {
             vm.state.submissionComplete = true;
             vm.state.submissionError = true;
         });

@@ -24,7 +24,8 @@ function isSpam(req, formData) {
  * Creates a new organization
  */
 function create(req, res) {
-    if (isSpam(req, {title: req.body.title, description: JSON.stringify(req.body)})) {
+    let flaggedAsSpam = isSpam(req, {title: req.body.title, description: JSON.stringify(req.body)});
+    if (flaggedAsSpam) {
         req.body.suggestedNodeKey = 'other'; // redirect to the GBIF secretariat
         log.warn('Endorsement request for ' + req.body.title + ' was flagged as possible spam and redirected to the secretariat.');
     }
@@ -32,7 +33,11 @@ function create(req, res) {
         .then(function(result) {
             res.status(201);
             auth.setNoCache(res);
-            res.json(result);
+            if (flaggedAsSpam) {
+                res.send();
+            } else {
+                res.json(result);
+            }
         })
         .catch(handleError(res, 422));
 }

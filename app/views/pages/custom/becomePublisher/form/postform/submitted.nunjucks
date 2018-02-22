@@ -1,6 +1,10 @@
-<section id="step_submitted" ng-if="eoi.state.submissionComplete && !eoi.state.submissionError">
-    <h2>Submission successful</h2>
-    <p>We have received your expression of interest of becoming a data publisher in the GBIF network. Your organization details are <a ng-href="/publisher/{{eoi.state.newPublisherKey}}">here.</a></p>
-    <p>You will receive a confirmation email once your endorsement has been approved.</p>
-
+<section id="step_submitted" ng-if="eoi.state.submissionComplete && !eoi.state.submissionError" class="card card--spaced">
+    <div class="card__content">
+        <h2>Thank you for your interest</h2>
+        <p>
+            We have received your expression of interest of becoming a data publisher in the GBIF network.
+            <span ng-if="eoi.state.newPublisherKey">Your organization details are <a ng-href="/publisher/{{eoi.state.newPublisherKey}}">here.</a></span>
+        </p>
+        <p>You will receive a confirmation email once your endorsement has been approved.</p>
+    </div>
 </section>
