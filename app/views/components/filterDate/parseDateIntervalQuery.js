@@ -1,7 +1,8 @@
 'use strict';
 var moment = require('moment');
-var parseIntervalQuery = require('../filterInterval/parseIntervalQuery'),
-    reg = /^\d{1,4}\-((0?[1-9])|1[0-2])$/;
+var parseIntervalQuery = require('../filterInterval/parseIntervalQuery');
+// eslint-disable-next-line no-useless-escape
+var reg = /^\d{1,4}\-((0?[1-9])|1[0-2])$/;
 
 module.exports = function(q) {
     var interval = parseIntervalQuery(q);

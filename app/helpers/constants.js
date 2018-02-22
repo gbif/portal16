@@ -1,3 +1,5 @@
+/* eslint-disable no-var,max-len */
+// NB! Be aware that this file is send to the client! See also https://github.com/gbif/portal16/issues/674
 'use strict';
 
 var keys = {

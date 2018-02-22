@@ -38,8 +38,9 @@ router.get('/frequentTaxa', function(req, res) {
 
 async function getChartData(query) {
     let chartDimension = query.chartDimension;
-    let chartSecondaryDimension = query.chartSecondaryDimension;
-    let secondDimension, secondSeries;
+    // let chartSecondaryDimension = query.chartSecondaryDimension;
+    // let secondDimension;
+    // let secondSeries;
     // let chartType = query.chartType;
     delete query.dimension;
     query = _.assign({facetLimit: 1000}, query, {limit: 0, facet: chartDimension});
@@ -58,12 +59,12 @@ async function getChartData(query) {
     facets[0].total = result.count;
 
     // if secondary dimension then get those
-    if (chartSecondaryDimension) {
-        secondDimension = await getSecondDimension(query, chartDimension, _.map(facets[0].counts, 'name'), chartSecondaryDimension);
-        secondSeries = secondDimension.map(function(e) {
-return getSerie(e[0]);
-});
-    }
+    // if (chartSecondaryDimension) {
+    //     secondDimension = await getSecondDimension(query, chartDimension, _.map(facets[0].counts, 'name'), chartSecondaryDimension);
+        // secondSeries = secondDimension.map(function(e) {
+        //     return getSerie(e[0]);
+        // });
+    // }
 
     result.facets = facets;
     let chartData = {
@@ -78,23 +79,23 @@ return getSerie(e[0]);
 }
 
 
-async function getSecondDimension(basisFilter, firstDimension, firstValues, secondDimension) {
-    let dimensionPromises = firstValues.map(function(fieldValue) {
-        let additionalFilter = {};
-        additionalFilter[firstDimension] = fieldValue;
-        let secondFilter = _.assign({facetLimit: 1000}, basisFilter, {facet: secondDimension, limit: 0}, additionalFilter);
-        return getData(secondFilter);
-    });
-    let secondaryResults = await Promise.all(dimensionPromises);
-    let decorateFacetsPromises = secondaryResults.map(function(result) {
-        return facetHelper.expandFacets(result.facets);
-    });
-    let decoratedFacets = await Promise.all(decorateFacetsPromises);
-    decoratedFacets.forEach(function(e, index) {
-        e[0].total = secondaryResults[index].count;
-    });
-    return decoratedFacets;
-}
+// async function getSecondDimension(basisFilter, firstDimension, firstValues, secondDimension) {
+//     let dimensionPromises = firstValues.map(function(fieldValue) {
+//         let additionalFilter = {};
+//         additionalFilter[firstDimension] = fieldValue;
+//         let secondFilter = _.assign({facetLimit: 1000}, basisFilter, {facet: secondDimension, limit: 0}, additionalFilter);
+//         return getData(secondFilter);
+//     });
+//     let secondaryResults = await Promise.all(dimensionPromises);
+//     let decorateFacetsPromises = secondaryResults.map(function(result) {
+//         return facetHelper.expandFacets(result.facets);
+//     });
+//     let decoratedFacets = await Promise.all(decorateFacetsPromises);
+//     decoratedFacets.forEach(function(e, index) {
+//         e[0].total = secondaryResults[index].count;
+//     });
+//     return decoratedFacets;
+// }
 
 async function getData(query) {
     let options = {

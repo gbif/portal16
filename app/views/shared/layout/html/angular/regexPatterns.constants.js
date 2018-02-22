@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+/* Angular and eslint seem to disagree on what counts as redundant escapes */
 'use strict';
 var angular = require('angular');
 

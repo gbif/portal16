@@ -1,20 +1,16 @@
-let express = require('express'),
-    Publisher = require('../../../models/gbifdata/gbifdata').Publisher,
-    helper = rootRequire('app/models/util/util'),
-    contributors = require('../../dataset/key/contributors/contributors'),
-    authOperations = require('../../auth/gbifAuthRequest'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    log = require('../../../../config/log'),
-    router = express.Router();
+let express = require('express');
+let Publisher = require('../../../models/gbifdata/gbifdata').Publisher;
+let helper = rootRequire('app/models/util/util');
+let utils = rootRequire('app/helpers/utils');
+let contributors = require('../../dataset/key/contributors/contributors');
+let authOperations = require('../../auth/gbifAuthRequest');
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig');
+let log = require('../../../../config/log');
+let router = express.Router();
 
 module.exports = function(app) {
     app.use('/', router);
 };
-
-function isGuid(stringToTest) {
-    let regexGuid = /^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/gi;
-    return regexGuid.test(stringToTest);
-}
 
 module.exports = function(app) {
     app.use('/', router);
@@ -26,7 +22,7 @@ router.get('/publisher/:key.:ext?', render);
 
 function render(req, res, next) {
     let key = req.params.key;
-    if (!isGuid(key)) {
+    if (!utils.isGuid(key)) {
         next();
     } else {
         Publisher.get(key).then(function(publisher) {
@@ -76,9 +72,7 @@ function confirm(req, res, next) {
         body: {'confirmationKey': code},
         url: apiConfig.publisherCreate.url + key + '/endorsement',
         canonicalPath: apiConfig.publisherCreate.canonical + key + '/endorsement'
-
     };
-
 
     return authOperations.authenticatedRequest(opts)
         .then(function(response) {

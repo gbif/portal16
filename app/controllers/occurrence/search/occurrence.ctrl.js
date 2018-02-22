@@ -9,7 +9,7 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
-let re = /^[\-,0-9]+/i;
+let re = /^[-,0-9]+/i;
 function redirectOldQueries(req, res) {
     // handle old query params
     let query = req.query,

@@ -21,6 +21,7 @@ function getLocaleFromUrl(url, locales) {
 
 // remove locale from url. e.g. removeLocaleFromUrl('/en/blogpost/123', 'en') -> '/blogpost/123'
 function removeLocaleFromUrl(url, locale) {
+    // eslint-disable-next-line no-useless-escape
     let expr = '(^' + locale + '\/)|(^' + locale + '$)';
     let regex = new RegExp(expr);
     let strippedUrl = '/' + url.substring(1).replace(regex, '');
