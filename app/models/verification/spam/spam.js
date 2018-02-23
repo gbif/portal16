@@ -33,7 +33,7 @@ function isSpam(message) {
         addSpamDateToUser(user);
         return true;
     } else if (recentSpammer) {
-        log.info({
+        log.warn({
             module: 'spam',
             username: userName,
             referer: referer,
@@ -53,7 +53,7 @@ function testSpam(message) {
 
     // test that sensible referer
     if (spamUtils.isSpamReferer(referer)) {
-        log.info({
+        log.warn({
             module: 'spam',
             username: userName,
             referer: referer,
@@ -66,7 +66,7 @@ function testSpam(message) {
 
     // test that there isn't duplicated links. Spam tend to have that
     if (spamUtils.isSpammingLinks(message.text)) {
-        log.info({
+        log.warn({
             module: 'spam',
             username: userName,
             referer: referer,
@@ -79,7 +79,7 @@ function testSpam(message) {
 
     // test that the content doesn't include blacklisted terms
     if (spamUtils.isSpamContent(message.text, message.title, terms, normalizedTerms)) {
-        log.info({
+        log.warn({
             module: 'spam',
             username: userName,
             referer: referer,
