@@ -1659,7 +1659,7 @@
       "resolved": "https://registry.npmjs.org/cli-usage/-/cli-usage-0.1.4.tgz",
       "integrity": "sha1-fAHg3HBsI0s5yTODjI4gshdXduI=",
       "requires": {
-        "marked": "https://registry.npmjs.org/marked/-/marked-0.3.6.tgz",
+        "marked": "0.3.16",
         "marked-terminal": "1.7.0"
       }
     },
@@ -9315,8 +9315,9 @@
       "integrity": "sha1-H1GjRxRWolCaOCDc7ZrRzpYb22Q="
     },
     "marked": {
-      "version": "https://registry.npmjs.org/marked/-/marked-0.3.6.tgz",
-      "integrity": "sha512-gE75oL01YUIxaBqgeGBuNNd8u0L+H1N6xeW/s+O57o5EC31aPX1M1lD4W9eGyHFJGTwOgMkqzYODZ4yp5w20gQ=="
+      "version": "0.3.16",
+      "resolved": "https://registry.npmjs.org/marked/-/marked-0.3.16.tgz",
+      "integrity": "sha512-diLiAxHidES67uJ1P5unXBUB4CyOFwodKrctuK0U4Ogw865N9Aw4dLmY0BK0tGKOy3xvkdMGgUXPD6W9z1Ne0Q=="
     },
     "marked-terminal": {
       "version": "1.7.0",
@@ -12374,7 +12375,7 @@
       "requires": {
         "codemirror": "5.32.0",
         "codemirror-spell-checker": "1.1.2",
-        "marked": "https://registry.npmjs.org/marked/-/marked-0.3.6.tgz"
+        "marked": "0.3.16"
       }
     },
     "slice-ansi": {

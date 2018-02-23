@@ -11,7 +11,7 @@
         tables: true,
         breaks: true,
         pedantic: false,
-        sanitize: false,
+        sanitize: true,
         smartLists: true,
         smartypants: false
     });
