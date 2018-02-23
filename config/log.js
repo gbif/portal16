@@ -56,7 +56,7 @@ if (loglevels[loglevel] > loglevels.terminal) {
 if (loglevels[loglevel] == loglevels.terminal) {
     logStreams.push(
         {
-            level: 'debug',
+            level: 'warn',
             type: 'raw',
             stream: prettyStdOut // process.stdout
         }
