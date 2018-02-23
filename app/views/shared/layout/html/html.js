@@ -65,7 +65,6 @@ require('angular-svg-round-progressbar');
             'ngSanitize',
             'checklist-model',
             'ya.nouislider',
-            'angular-chartist',
             'angular-svg-round-progressbar',
             'toastr',
             'ngFileUpload'
