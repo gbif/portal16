@@ -146,7 +146,7 @@
     "nunjucks-markdown": "^2.0.0",
     "object-hash": "1.1.4",
     "octonode": "^0.7.6",
-    "openlayers": "^4.2.0",
+    "openlayers": "^4.6.4",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-github2": "^0.1.11",
