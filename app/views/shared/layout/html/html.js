@@ -27,7 +27,6 @@ require('angular-hotkeys');
 require('angular-resource');
 require('angular-aria');
 require('angular-ui-bootstrap');
-require('ng-infinite-scroll');
 require('angular-scroll');
 require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
@@ -59,7 +58,6 @@ require('angular-svg-round-progressbar');
             'cfp.hotkeys',
             'ngResource',
             'ui.bootstrap',
-            'infinite-scroll',
             'gb-click-outside',
             'duScroll',
             'ngSanitize',
