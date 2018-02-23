@@ -37,7 +37,15 @@ function create(req, res) {
             auth.setNoCache(res);
             res.json({type: 'CONFIRM_MAIL'});
         })
-        .catch(handleError(res, 422));
+        .catch(function(err) {
+            if (err.statusCode < 500) {
+                res.status(err.statusCode || 422);
+                res.json(err.body);// We trust that the API will never send a body with sensitive data since the endpoint is public.
+            } else {
+                log.error(err);
+                res.sendStatus(500);
+            }
+        });
 }
 
 /**
@@ -169,7 +177,11 @@ function logout(req, res) {
 function handleError(res, statusCode) {
    statusCode = statusCode || 500;
    return function(err) {
-       log.error(err);
-       res.sendStatus(err.statusCode || statusCode);
+        if (statusCode < 500) {
+            log.warn(err);
+        } else {
+            log.error(err);
+        }
+        res.sendStatus(err.statusCode || statusCode);
    };
 }
