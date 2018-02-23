@@ -20,7 +20,7 @@
 
     angular
         .module('portal')
-        .service('User', function($http, $sessionStorage, $rootScope, AUTH_EVENTS, $cookies, $location, $window) {
+        .service('User', function($http, $sessionStorage, $rootScope, AUTH_EVENTS, $cookies, $location, $window, $q) {
                 var that = this;
                 var AUTH_TOKEN_NAME = 'token';
 
@@ -55,7 +55,9 @@
                 that.loadActiveUser = function() {
                     var token = $cookies.get(AUTH_TOKEN_NAME);
                     if (!token) {
-                        return;
+                        var deferred = $q.defer();
+                        deferred.reject();
+                        return deferred.promise; // return promise so that the consumer knows what to expect
                     }
                     var activeUser = $http.get('/api/user/me');
                     activeUser.then(function(response) {
