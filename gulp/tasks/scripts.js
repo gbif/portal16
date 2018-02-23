@@ -6,13 +6,9 @@ let config = rootRequire('config/build');
 let browserSync = require('browser-sync');
 let source = require('vinyl-source-stream');
 let buffer = require('vinyl-buffer');
-// let transform = require('vinyl-transform');
 let browserify = require('browserify');
 let rename = require('gulp-rename');
-//let replace = require('gulp-replace');
-// let fs = require('fs');
 let gulpif = require('gulp-if');
-//let notifier = require('node-notifier');
 let g = require('gulp-load-plugins')();
 
 gulp.task('scripts-reload', function() {
@@ -96,7 +92,7 @@ const noParseVendors = ['angular',
     'angular-svg-round-progressbar'];
 
 let watchify = require('watchify');
-let assign = require('lodash.assign');
+let assign = require('lodash').assign;
 
 function build(entry, name) {
     let dest = 'js/base';
