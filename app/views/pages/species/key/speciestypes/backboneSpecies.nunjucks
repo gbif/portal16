@@ -27,7 +27,7 @@
 
         <div class="container--narrow">
 
-            <name-usages species="speciesKey2.species" synonyms="speciesKey2.synonyms" ng.if="speciesKey2.synonyms && speciesKey2.isSpeciesOrBelow"></name-usages>
+            <name-usages species="speciesKey2.species" synonyms="speciesKey2.synonyms" ng-if="speciesKey2.synonyms.$resolved && speciesKey2.synonyms.results.length > 0 && speciesKey2.isSpeciesOrBelow"></name-usages>
 
 
             <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow" ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'} | limitTo: 1">

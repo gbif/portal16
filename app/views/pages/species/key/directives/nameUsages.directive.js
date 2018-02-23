@@ -14,6 +14,7 @@ function nameUsagesDirective() {
         templateUrl: '/templates/pages/species/key/directives/nameUsages.html',
         scope: {},
         controller: nameUsagesCtrl,
+        link: chartLink,
         controllerAs: 'nameUsages',
         bindToController: {
             species: '=',
@@ -21,20 +22,16 @@ function nameUsagesDirective() {
         }
     };
     return directive;
-
+    function chartLink(scope, element) {// , attrs, ctrl
+        scope.create(element);
+    }
     /** @ngInject */
-    function nameUsagesCtrl(OccurrenceSearch) {
+    function nameUsagesCtrl($scope, OccurrenceSearch, Highcharts, $state) {
         var vm = this;
         vm.key = vm.species.key;
-        vm.labels = [];
+        vm.categories = [];
         vm.data = [];
-        vm.colors = ['#33691E', '#689F38', '#558B2F', '#7CB342', '#9CCC65', '#8BC34A', '#AED581', '#C5E1A5'];
-        vm.options = {
-            responsive: true,
-            maintainAspectRatio: false,
-            labels: true,
-            legend: {display: true, position: 'bottom'}
-        };
+
         if (vm.synonyms && vm.synonyms.$promise) {
             vm.synonyms.$promise.then(function() {
                 OccurrenceSearch.query({taxon_key: vm.key, facet: 'taxon_key', limit: 0}).$promise
@@ -63,14 +60,94 @@ function nameUsagesDirective() {
                             return sum + parseInt(n.count);
                         }, 0);
                         vm.data.push(totalCount.count - totalMinusAccepted);
-                        vm.labels.push(vm.species.scientificName);
+                        vm.categories.push({name: vm.species.scientificName, key: vm.species.key});
 
                         for (var i = 0; i < vm.synonymNameUsages.length; i++) {
                             vm.data.push(parseInt(vm.synonymNameUsages[i].count));
-                            vm.labels.push(vm.synonymNameUsages[i].scientificName);
+                            vm.categories.push({name: vm.synonymNameUsages[i].scientificName, key: vm.synonymNameUsages[i].name});
                         }
+                        angular.element(document).ready(function() {
+                            Highcharts.chart(asPieChart({series: [{data: vm.data}], categories: vm.categories}));
+                        });
                     });
             });
+        }
+
+        $scope.create = function(element) {
+            vm.chartElement = element[0].querySelector('.nameUsageChartContainer');
+        };
+
+        function asPieChart(data) {
+            var serie = data.series[0].data.map(function(e, i) {
+                return {
+                    name: data.categories[i].name,
+                    y: e,
+                    key: data.categories[i].key
+                };
+            }).sort(function(a, b) {
+                return b.y - a.y;
+            });
+
+            var lowCount = data.series[0].total / 50;
+            var lowIndex = _.findIndex(serie, function(a) {
+                return a.y < lowCount;
+            });
+            lowIndex = Math.min(20, lowIndex);
+            var majorSerie = serie;
+            if (lowIndex != -1) {
+                lowIndex = Math.max(lowIndex, 5);
+                majorSerie = serie.slice(0, lowIndex);
+                var minor = serie.slice(lowIndex);
+                if (minor.length > 0) {
+                    majorSerie.push({y: _.sumBy(minor, 'y'), name: 'other'});
+                }
+            }
+
+            return {
+                chart: {
+                    animation: false,
+                    type: 'pie',
+                    renderTo: vm.chartElement
+                },
+                plotOptions: {
+                    series: {
+                        animation: false
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: ''// data.title
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                xAxis: {
+                    visible: false
+                },
+                yAxis: {
+                    visible: false
+                },
+                series: [{
+                    name: 'Occurrences',
+                    data: majorSerie,
+                    point: {
+                        events: {
+                            click: function() {
+                                $state.go('occurrenceSearchTable', {taxon_key: this.options.key});
+                            }
+                        }
+                    }
+                }],
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            enabled: false
+                        }
+                    }
+                }
+            };
         }
     }
 }

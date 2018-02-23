@@ -4,6 +4,9 @@ var _ = require('lodash');
 var mapHelper = require('./map');
 var chart = require('./chart');
 var wellknown = require('wellknown');
+window.Chartist = require('chartist');
+require('angular-chartist.js');
+require('chartist-plugin-axistitle');
 
 angular
     .module('portal')

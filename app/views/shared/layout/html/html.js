@@ -32,9 +32,6 @@ require('angular-scroll');
 require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
 require('nouislider-angular');
-window.Chartist = require('chartist');
-require('angular-chartist.js');
-require('chartist-plugin-axistitle');
 require('ngstorage');
 require('angular-cookies');
 require('angular-messages');
@@ -42,8 +39,6 @@ require('angular-toastr');
 require('angular-animate');
 require('angular-material');
 require('ng-file-upload');
-require('chartjs');
-require('angular-chart.js');
 require('checklist-model');// TODO remove as we hardly use it now that there is continous update on occurrenece search?
 require('angular-svg-round-progressbar');
 
@@ -53,7 +48,6 @@ require('angular-svg-round-progressbar');
         .module('portal', [
             'ngMaterial',
             'ngAnimate',
-            'chart.js',
             'ngMessages',
             'ngCookies',
             'ngStorage',
@@ -83,8 +77,7 @@ angular
     .module('portal')
     .run(runBlock)
     .config(configBlock)
-    .config(mdConfig)
-    .config(chartjsConfig);
+    .config(mdConfig);
 
 /** @ngInject */
 function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { // $log
@@ -138,39 +131,6 @@ function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfi
     });
 }
 
-/** @ngInject */
-function chartjsConfig(ChartJsProvider) {
-    // Configure all charts
-    ChartJsProvider.setOptions({
-        // chartColors: ['#61a861', '#803690', '#FF8A80'],
-        chartColors: [
-            {
-                backgroundColor: '#61a861',
-                borderColor: '#61a861',
-                hoverBackgroundColor: '#56bb54',
-                hoverBorderColor: '#56bb54'
-            },
-            {
-                backgroundColor: '#65C6BB',
-                borderColor: '#65C6BB',
-                hoverBackgroundColor: '#65C6BB',
-                hoverBorderColor: '#65C6BB'
-            },
-            {
-                backgroundColor: '#1BBC9B',
-                borderColor: '#1BBC9B',
-                hoverBackgroundColor: '#1BBC9B',
-                hoverBorderColor: '#1BBC9B'
-            }
-        ],
-        responsive: true
-    });
-    // Configure all line charts
-    ChartJsProvider.setOptions('line', {
-        showLines: true
-    });
-    // ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
-}
 
 /** @ngInject */
 function mdConfig($mdThemingProvider, $mdGestureProvider) {

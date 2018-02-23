@@ -31,7 +31,6 @@ function checklistMetrics() {
 
     /** @ngInject */
     function checklistMetrics(Highcharts, $scope, $translate, $filter, enums) {
-        console.log(enums.rank);
         var vm = this;
         vm.logScale = true;
         if (vm.dimension === 'countByIssue') {

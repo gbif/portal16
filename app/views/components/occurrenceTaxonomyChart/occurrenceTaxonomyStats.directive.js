@@ -73,7 +73,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
                     vm.loading = false;
                     vm.preparing = true;
                     var allowDrillToNode = ($state.current.parent !== 'occurrenceSearch');
-                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, res,  allowDrillToNode, function() {
+                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, res, allowDrillToNode, function() {
                         var splittedKey = this.id.split('.');
                         vm.search(splittedKey[1], this.rank);
                     });
