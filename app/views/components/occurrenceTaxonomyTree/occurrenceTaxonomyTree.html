@@ -65,7 +65,7 @@
                                     <span>No occurrences</span>
                                 </div>
                             </li>
-                            <li ng-if="vm.frequent._failed">
+                            <li ng-if="vm.frequent.$resolved && vm.frequent._failed">
                                 <div class="pipe"></div>
                                 <div class="title title--action">
                                     <span>Failed to load tree</span>

@@ -11,7 +11,8 @@ var angular = require('angular');
             return $resource('/api/chart/occurrence/frequentTaxa', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
+                        isArray: false,
+                        cancellable: true
                     }
                 }
             );
