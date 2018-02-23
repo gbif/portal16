@@ -18,7 +18,7 @@ function use(app) {
             requestStart: true,
             excludeHeaders: ['Authorization', 'cookie'],
             logger: log,
-            level: 'trace',
+            level: 'info',
             filter: function(req, res) {
                 for (let i = 0; i < excludeList.length; i++) {
                     if (req.originalUrl.startsWith(excludeList[i])) {
