@@ -196,9 +196,7 @@
     "wiredep": "^4.0.0",
     "yargs": "^6.6.0"
   },
-  "devDependencies": {
-    "eslint-config-google": "^0.9.1"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/gbif/portal16"
