@@ -18,6 +18,7 @@ let config = {
     },
     rules: {
         'comma-dangle': [2, 'never'],
+        'space-infix-ops': 1,
         'no-console': 0, // temporary disabled untli they have been evaluated and perhaps replaced with log statements
         'require-jsdoc': 0,
         'max-len': [2, { "code": 200 }],
