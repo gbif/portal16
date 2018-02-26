@@ -6,7 +6,16 @@ module.exports = function(app) {
      */
     if (app.locals.ENV_DEVELOPMENT) {
         app.use(function(err, req, res, next) { // eslint-disable-line no-unused-vars
-            // TODO needs implementation
+            let errorStatus = err.status || 500;
+            log.error(
+                {
+                    err: {
+                        type: err.type,
+                        message: err.message,
+                        stack: err.stack
+                    }
+                }, errorStatus
+            );
             res.status(err.status || 500);
             res.render('error/error', {
                 error: err,
@@ -20,7 +29,6 @@ module.exports = function(app) {
      * Likely a static file or something that require very little as there might be something very wrong.
      */
     app.use(function(err, req, res, next) { // eslint-disable-line no-unused-vars
-        // TODO needs implementation
         let errorStatus = err.status || 500;
         log.error(
             {
