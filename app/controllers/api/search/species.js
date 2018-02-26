@@ -57,7 +57,7 @@ function extractHighlights(data) {
     _.each(data.results, function(item) {
         let highlights = {descriptions: [], vernacularNames: []};
         if (item.descriptions) {
-            for (let i=0; i < item.descriptions.length; i++) {
+            for (let i = 0; i < item.descriptions.length; i++) {
                 let match = re.exec(item.descriptions[i].description);
                 if (match) {
                     highlights.descriptions.push(match[0]);
@@ -66,7 +66,7 @@ function extractHighlights(data) {
         }
 
         if (item.vernacularNames) {
-            for (let i=0; i < item.vernacularNames.length; i++) {
+            for (let i = 0; i < item.vernacularNames.length; i++) {
                 if (item.vernacularNames[i].vernacularName.indexOf('<em class="gbifHl">') > -1) {
                     highlights.vernacularNames.push(item.vernacularNames[i]);
                 }

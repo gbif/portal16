@@ -27,7 +27,7 @@ function startCustom(tests, done, progress, failed) {
     let results = [];
 
     tests.forEach(function(t) {
-        let c = t.component ||'OTHER';
+        let c = t.component || 'OTHER';
         componentCounts[c] = componentCounts[c] ? componentCounts[c] + 1 : 1;
     });
 
@@ -79,7 +79,7 @@ function createSummary(results, componentCounts) {
         worstSeverity = getMostSevere(worstSeverity, e.severity);// severityMap[worstSeverity] >= severityMap[e.severity] ? worstSeverity : e.severity;
 
         if (e.severity !== 'OPERATIONAL') {
-            componentMap[c].errors = componentMap[c].errors ||[];
+            componentMap[c].errors = componentMap[c].errors || [];
             componentMap[c].errors.push({
                 message: e.message
             });

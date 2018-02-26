@@ -99,13 +99,13 @@ function createMap(element, options) {
 
     function enableDragDrop(cb) {
         dragAndDropInteraction.on('addfeatures', function(event) {
-            var geometries =[];
+            var geometries = [];
             event.features.forEach(function(f) {
                 var original = f.getGeometry();
 
                 if (typeof original.getPolygons === 'function') {
                     var polys = original.getPolygons();
-                    for (var i =0; i< polys.length; i++) {
+                    for (var i = 0; i < polys.length; i++) {
                         geometries.push(new ol.Feature({geometry: polys[i]}));
                     }
                 } else {
@@ -199,7 +199,7 @@ function createMap(element, options) {
 
         if (_.isArray(geometry)) {
             var polys = geometry;
-            for (var i =0; i< polys.length; i++) {
+            for (var i = 0; i < polys.length; i++) {
                 geometries.push(format.readFeature(polys[i], {
                     dataProjection: 'EPSG:4326',
                     featureProjection: 'EPSG:4326'

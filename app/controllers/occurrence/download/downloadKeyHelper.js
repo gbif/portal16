@@ -76,7 +76,7 @@ function setDepths(predicate, depth) {
 function flattenSameType(predicate) {
     if (!predicate) {
         throw new Error('failed to parse predicate');
-    } else if (predicate.type == 'or' && predicate._childKeys !== 'MIXED' && predicate.depth+1 === predicate._maxDepth) {
+    } else if (predicate.type == 'or' && predicate._childKeys !== 'MIXED' && predicate.depth + 1 === predicate._maxDepth) {
         // flatten
         predicate.type = 'in';
         predicate.key = predicate._childKeys;
@@ -101,7 +101,7 @@ function addSyntheticTypes(predicate) {
     if (!predicate) {
         throw new Error('failed to parse predicate');
     } else if ( predicate.type == 'and' &&
-        intervalTypes.indexOf(predicate._childKeys)>=0 &&
+        intervalTypes.indexOf(predicate._childKeys) >= 0 &&
         predicate.predicates.length == 2 &&
         predicate.predicates.find(istype('greaterThanOrEquals')) &&
         predicate.predicates.find(istype('lessThanOrEquals'))

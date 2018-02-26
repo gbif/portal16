@@ -121,7 +121,7 @@ router.get('/species/:key/checklistdatasets', function(req, res) {
     let offset = parseInt(req.query.offset) || 0;
 
     let baseRequest = {
-        url: apiConfig.dataset.url + 'search?taxonKey='+ req.params.key +'&type=CHECKLIST'+'&limit='+limit+'&offset='+offset,
+        url: apiConfig.dataset.url + 'search?taxonKey=' + req.params.key + '&type=CHECKLIST' + '&limit=' + limit + '&offset=' + offset,
         timeout: 30000,
         method: 'GET',
         json: true,
@@ -144,7 +144,7 @@ router.get('/species/:key/checklistdatasets', function(req, res) {
             response.body.results.forEach(function(e) {
                 promises.push(
                     request({
-                        url: apiConfig.taxon.url + req.params.key +'/related?datasetKey='+ e.key,
+                        url: apiConfig.taxon.url + req.params.key + '/related?datasetKey=' + e.key,
                         timeout: 30000,
                         method: 'GET',
                         json: true

@@ -53,7 +53,7 @@ function check(config) {
         options.url = options.url.replace('{RANDOM_WORD}', randomWords());
     }
     if (config.secondsAgo) {
-        options.url = options.url.replace('{SECONDS_AGO}', Date.now() - config.secondsAgo*1000);
+        options.url = options.url.replace('{SECONDS_AGO}', Date.now() - config.secondsAgo * 1000);
     }
 
     let deferred = Q.defer();

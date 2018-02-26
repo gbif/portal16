@@ -163,7 +163,7 @@ router.get('/thegbifnetwork/regionalReps.html', function(req, res, next) {
 });
 
 router.get('/developer/:page/tpl.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/developer/'+req.params.page+'.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/developer/' + req.params.page + '.nunjucks');
 });
 
 router.get('/node/key.html', function(req, res, next) {

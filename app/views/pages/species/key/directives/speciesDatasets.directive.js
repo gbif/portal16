@@ -45,7 +45,7 @@ function speciesDatasetsDirective() {
                 });
                 SpeciesBulkParsedNames.get({q: taxonKeys.toString()}).$promise
                     .then(function(nameMap) {
-                        for (var i=0; i < data.length; i++) {
+                        for (var i = 0; i < data.length; i++) {
                             if (nameMap[data[i]._relatedTaxon.key]) {
                                 data[i]._relatedTaxon._parsedName = nameMap[data[i]._relatedTaxon.key];
                             }
@@ -55,7 +55,7 @@ function speciesDatasetsDirective() {
         }
 
         function getSpeciesDataset() {
-            if (vm.type ==='CHECKLIST') {
+            if (vm.type === 'CHECKLIST') {
                 vm.data = SpeciesChecklistDatasets.query({id: vm.key, limit: vm.defaultLimit, offset: vm.data.offset || 0})
                     .$promise.then(function(data) {
                         vm.data = data;
@@ -82,7 +82,7 @@ function speciesDatasetsDirective() {
             params[vm.offsetParam] = vm.data.offset;
             $state.go('.', params, {inherit: true, notify: false, reload: false});
             getSpeciesDataset();
-            $location.hash(vm.type.toLowerCase()+'Datasets');
+            $location.hash(vm.type.toLowerCase() + 'Datasets');
             $anchorScroll();
         };
 
@@ -92,7 +92,7 @@ function speciesDatasetsDirective() {
             params[vm.offsetParam] = vm.data.offset;
             $state.go('.', params, {inherit: true, notify: false, reload: false});
             getSpeciesDataset();
-            $location.hash(vm.type.toLowerCase()+'Datasets');
+            $location.hash(vm.type.toLowerCase() + 'Datasets');
             $anchorScroll();
         };
 
@@ -105,7 +105,7 @@ function speciesDatasetsDirective() {
 
         function setHeight() {
             if (vm.data.offset > 0 || !vm.data.endOfRecords && _.get(vm.data, 'results.length', 0) > 0) {
-                vm.height = (77* vm.data.results.length) + 25 + 'px';
+                vm.height = (77 * vm.data.results.length) + 25 + 'px';
                 vm.hasPages = true;
             }
         }

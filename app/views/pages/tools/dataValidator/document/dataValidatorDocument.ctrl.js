@@ -14,7 +14,7 @@ angular
 /** @ngInject */
 function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
     var vm = this;
-    vm.$state =$state;
+    vm.$state = $state;
     vm.dataApi = env.dataApi;
 
     Page.setTitle('Data validator');
@@ -22,7 +22,7 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
 
     vm.getEML = function(jobid) {
         $http.get(
-            vm.dataApi + 'validator/jobserver/output/' + jobid +'/DATASET_OBJECT', {params: {nonse: Math.random()}}
+            vm.dataApi + 'validator/jobserver/output/' + jobid + '/DATASET_OBJECT', {params: {nonse: Math.random()}}
 
         ).success(function(data) {
             vm.eml = data.content;

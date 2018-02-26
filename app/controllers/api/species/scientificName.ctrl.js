@@ -145,10 +145,10 @@ async function getParsedName(speciesKey) {
 
         if (species.taxonomicStatus === 'SYNONYM') {
             let accepted = await getSpecies(species.acceptedKey);
-            return name.scientificName + ' <i>('+accepted.canonicalName +')</i>';
+            return name.scientificName + ' <i>(' + accepted.canonicalName + ')</i>';
         } else {
                 let parent = await getSpecies(species.parentKey);
-                return name.scientificName+' <i>('+parent.canonicalName + ' sp.)</i>';
+                return name.scientificName + ' <i>(' + parent.canonicalName + ' sp.)</i>';
         }
         // return n;
     } else {
@@ -195,7 +195,7 @@ function formatName(name) {
     } else if (name.type == 'CANDIDATUS') {
         let candName = name.genusOrAbove;
         if (name.specificEpithet) {
-            candName += ' '+ name.specificEpithet;
+            candName += ' ' + name.specificEpithet;
         }
 
         n += '"<i>Candidatus </i>' + candName + '" ';

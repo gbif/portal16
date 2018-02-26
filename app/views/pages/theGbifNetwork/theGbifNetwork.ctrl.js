@@ -58,8 +58,8 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
             overlaps: false
         }),
         style: function(feature) {
-            var stroke = (currentlySelectedFeature === feature) ? '#000000': '#FFFFFF';
-            var zIndex= (currentlySelectedFeature === feature) ? 100 : 1;
+            var stroke = (currentlySelectedFeature === feature) ? '#000000' : '#FFFFFF';
+            var zIndex = (currentlySelectedFeature === feature) ? 100 : 1;
             var width = (currentlySelectedFeature === feature) ? 2 : 1;
             return new ol.style.Style({
                 fill: new ol.style.Fill({
@@ -197,7 +197,7 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
               }, latency);
             }
 
-        vm.contentfulResourceUrl = '/templates/the-gbif-network/'+region.toLowerCase().replace('_', '-')+'/regionArticle.html?v=' + vm.BUILD_VERSION;
+        vm.contentfulResourceUrl = '/templates/the-gbif-network/' + region.toLowerCase().replace('_', '-') + '/regionArticle.html?v=' + vm.BUILD_VERSION;
         var regionLower = region.toLowerCase().replace('_', '-');
         $state.go($state.$current, {region: regionLower}, {notify: false});
     };

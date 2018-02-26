@@ -55,7 +55,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
             handleValidationSubmitResponse(data);
         }).error(function(err, status) { // data, status, headers, config
-            if ((err && err.statusCode === 404 )|| status === 404) {
+            if ((err && err.statusCode === 404 ) || status === 404) {
                 handleValidationSubmitResponse(err);
             } else {
                 handleWSError(err, status);
@@ -127,9 +127,9 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
         } else if (data.status === 'FINISHED') {
             delete $sessionStorage.gbifRunningValidatonJob;
 
-            var port = ($location.port() !== 80 && $location.port() !== 443) ? ':'+$location.port() : '';
+            var port = ($location.port() !== 80 && $location.port() !== 443) ? ':' + $location.port() : '';
 
-            vm.jobUrl = $location.protocol()+'://'+$location.host()+port+$location.path();
+            vm.jobUrl = $location.protocol() + '://' + $location.host() + port + $location.path();
             handleValidationResult(data);
         }
     }
@@ -167,7 +167,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
             vm.extensionCount = 0;
 
-            for (var i=0; i< data.results.length; i++) {
+            for (var i = 0; i < data.results.length; i++) {
                 if (data.results[i].fileType === 'CORE') {
                     vm.coreDataType = data.results[i].rowType;
                 } else if (data.results[i].fileType === 'EXTENSION') {
@@ -191,7 +191,7 @@ return _.indexOf(vm.evaluationCategory, value.issueCategory);
 
                 // prepare terms frequency
                 if (resourceResult.termsFrequency) {
-                    for (var i=0; i < resourceResult.termsFrequency.length; i++) {
+                    for (var i = 0; i < resourceResult.termsFrequency.length; i++) {
                         var key = Object.keys(resourceResult.termsFrequency[i])[0];
                         resourceResult.termsFrequency[i].key = key;
                         resourceResult.termsFrequency[i].count = resourceResult.termsFrequency[i][key];

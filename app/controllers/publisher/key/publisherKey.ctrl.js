@@ -84,7 +84,7 @@ function confirm(req, res, next) {
             }, 'pages/custom/confirmEndorsement/confirmEndorsement');
         })
         .catch(function(err) {
-            log.error('Failed to confirm endorsement for organization['+key+'] : '+err.body);
+            log.error('Failed to confirm endorsement for organization[' + key + '] : ' + err.body);
             return helper.renderPage(req, res, next, {
                 publisherKey: key
             }, 'pages/custom/confirmEndorsement/invalidToken');

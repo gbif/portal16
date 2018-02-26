@@ -106,7 +106,7 @@ function prose(req, res, next, type, template, redirectToSlug) {
             resource.mapLegacyData(contentItem);
             resource.removeUnresovable(contentItem.main.fields, contentItem.resolved);
 
-            let img = _.get(contentItem, 'resolved.Asset[' + _.get(contentItem, 'main.fields.primaryImage.sys.id')+ '].fields.file.url');
+            let img = _.get(contentItem, 'resolved.Asset[' + _.get(contentItem, 'main.fields.primaryImage.sys.id') + '].fields.file.url');
             contentItem._meta = {
                 title: preview ? 'preview' : itemTitle,
                 description: _.get(contentItem, 'main.fields.summary'),
@@ -122,7 +122,7 @@ function prose(req, res, next, type, template, redirectToSlug) {
             // if not a preview, then make sure the title is a part of the url by redirecting if necessary
             if (!preview && redirectToSlug) {
                 if (slugTitle != entryTitle) {
-                    res.redirect(302, res.locals.gb.locales.urlPrefix + '/'+ type + '/' + entry + '/' + slugTitle);
+                    res.redirect(302, res.locals.gb.locales.urlPrefix + '/' + type + '/' + entry + '/' + slugTitle);
                     return;
                 }
             } else {

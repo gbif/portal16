@@ -26,7 +26,7 @@ router.get('/dwc/extensions/', function(req, res) {
 
             let mapped = {};
 
-            for (let i=0; i < extensions.length; i++) {
+            for (let i = 0; i < extensions.length; i++) {
                 if (extensions[i].isLatest) {
                     mapped[extensions[i].identifier] = extensions[i];
                 }

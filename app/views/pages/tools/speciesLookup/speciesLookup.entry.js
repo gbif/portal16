@@ -43,7 +43,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
     function getLowerKeysObj(obj) {
         var key, keys = Object.keys(obj);
         var n = keys.length;
-        var newobj={};
+        var newobj = {};
         while (n--) {
             key = keys[n];
             newobj[key.toLowerCase()] = obj[key];

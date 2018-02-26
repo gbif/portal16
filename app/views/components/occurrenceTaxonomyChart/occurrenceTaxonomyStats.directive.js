@@ -281,10 +281,10 @@ function paintChart(Highcharts, elm, type, res, allowDrillToNode, click) {
             useGPUTranslations: true
         }
     };
-    var options= (type === 'treemap') ? treeMapOptions : sunBurstOptions;
+    var options = (type === 'treemap') ? treeMapOptions : sunBurstOptions;
 
             if (click && typeof click === 'function') {
-        options.series[0].point ={
+        options.series[0].point = {
             events: {
                 click: click
             }

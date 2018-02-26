@@ -69,7 +69,7 @@ function checklistMetrics() {
                         data.series[0].total += sorted[i].count;
                     }
                     }
-                    data.title = $translate.instant('datasetMetrics.'+vm.dimension);
+                    data.title = $translate.instant('datasetMetrics.' + vm.dimension);
                     vm.data = data;
 
                     if (vm.myChart) {
@@ -110,7 +110,7 @@ function checklistMetrics() {
                     animation: false,
                     type: 'bar',
                     renderTo: vm.chartElement,
-                    className: (vm.dimension === 'countByIssue')? 'chart-field-issue' : ''
+                    className: (vm.dimension === 'countByIssue') ? 'chart-field-issue' : ''
                 },
                 plotOptions: {
                     series: {
@@ -136,7 +136,7 @@ function checklistMetrics() {
                 },
                 yAxis: {
                     title: {
-                        text: (vm.unit || 'Taxon' )+' count'
+                        text: (vm.unit || 'Taxon' ) + ' count'
                     },
                     type: isLogaritmic ? 'logarithmic' : 'linear',
                     minorTickInterval: isLogaritmic ? 1 : undefined,
@@ -229,13 +229,13 @@ function checklistMetrics() {
                 case 'countByKingdom':
                     return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
                 case 'countByRank':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.'+key));
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxonRank.' + key));
                 case 'countByOrigin':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.originEnum.'+key));
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.originEnum.' + key));
                 case 'countByIssue':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.issueEnum.'+key));
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.issueEnum.' + key));
                 case 'countExtRecordsByExtension':
-                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.'+key));
+                    return $filter('capitalizeFirstLetter')($translate.instant('taxon.extensionEnum.' + key));
                 case 'countNamesByLanguage':
                     return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
             }

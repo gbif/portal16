@@ -124,7 +124,7 @@ function literatureBarChartYearly(LiteratureYearly, $translate) {
  return x(d.year) + x.step() / 2;
 })
                     .attr('y', function(d) {
- return y(d.literature_number) -7;
+ return y(d.literature_number) - 7;
 })
                     .attr('class', 'text')
                     .attr('text-anchor', 'middle');

@@ -37,8 +37,8 @@ function handleRedirects(req, res, next) {
 function addTrailingSlash(str) {
     let parts = str.split('?');
     let path = parts[0];
-    let query = (parts[1] !== undefined) ? '?'+parts[1] : '';
-    return path+'/' + query;
+    let query = (parts[1] !== undefined) ? '?' + parts[1] : '';
+    return path + '/' + query;
 }
 
 

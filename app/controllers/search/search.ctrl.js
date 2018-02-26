@@ -12,7 +12,7 @@ router.get('/search', function(req, res, next) {
         description = req.__('meta.searchDescription');
 
         if (searchTerm) {
-        description += ' '+ req.__('meta.searchDescriptionDetail', {searchTerm: searchTerm});
+        description += ' ' + req.__('meta.searchDescriptionDetail', {searchTerm: searchTerm});
         }
           let context = {
                 query: searchTerm,

@@ -30,7 +30,7 @@ function vernacularNamesDirective() {
             vm.hasPages = vm.vernacularNames.results.length > 10;
             vm.limit = 10;
             vm.offset = 0;
-            vm.endOfRecords = (vm.offset+vm.limit) >= vm.vernacularNames.results.length;
+            vm.endOfRecords = (vm.offset + vm.limit) >= vm.vernacularNames.results.length;
             setHeight();
         });
 
@@ -41,14 +41,14 @@ function vernacularNamesDirective() {
         vm.next = function() {
             vm.offset = vm.offset + vm.limit;
             $state.go('.', {vnOffset: vm.offset}, {inherit: true, notify: false, reload: false});
-            vm.endOfRecords = (vm.offset+vm.limit) >= vm.vernacularNames.results.length;
+            vm.endOfRecords = (vm.offset + vm.limit) >= vm.vernacularNames.results.length;
             setHeight();
         };
 
         vm.prev = function() {
             vm.offset = vm.offset - vm.limit;
             $state.go('.', {vnOffset: vm.offset}, {inherit: true, notify: false, reload: false});
-            vm.endOfRecords = (vm.offset+vm.limit) >= vm.vernacularNames.results.length;
+            vm.endOfRecords = (vm.offset + vm.limit) >= vm.vernacularNames.results.length;
             setHeight();
         };
 

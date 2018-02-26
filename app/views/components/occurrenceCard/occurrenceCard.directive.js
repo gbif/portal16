@@ -57,13 +57,13 @@ function occurrenceCardDirective() {
             }
             var firstYear = _.toSafeInteger(results[0].name);
             var lastYear = _.toSafeInteger(results[distinct - 1].name);
-            var fullYearRange = _.range(firstYear, lastYear+1, 1);
+            var fullYearRange = _.range(firstYear, lastYear + 1, 1);
             // group
             var groupCount = 20;
             groupSize = _.toSafeInteger(Math.ceil(fullYearRange.length / groupCount));
-            startYear = lastYear - (groupCount*groupSize);
+            startYear = lastYear - (groupCount * groupSize);
             var groups = _.groupBy(results, function(e) {
-                return startYear + Math.ceil((_.toSafeInteger(e.name) - startYear) / groupSize)*groupSize;
+                return startYear + Math.ceil((_.toSafeInteger(e.name) - startYear) / groupSize) * groupSize;
             });
             var labels = [],
                 values = [];

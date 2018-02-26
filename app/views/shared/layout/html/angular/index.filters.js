@@ -198,8 +198,8 @@
                 if (typeof text === 'string') {
                     angular.forEach(text.match(urlPattern), function(url) {
                         var urlPos = text.indexOf(url);
-                        if (text.substr(urlPos-6, 4).indexOf('src') == -1) {
-                            text = text.replace(url, '<a target="' + target + '" href='+ url + ' class='+clazz+'>' + url +'</a>');
+                        if (text.substr(urlPos - 6, 4).indexOf('src') == -1) {
+                            text = text.replace(url, '<a target="' + target + '" href=' + url + ' class=' + clazz + '>' + url + '</a>');
                         }
                     });
                 }
@@ -224,17 +224,17 @@
                 }
                 switch (host) {
                     case 'www.gbif.org':
-                        return '/'+path;
+                        return '/' + path;
                     case 'gbif.org':
-                        return '/'+path;
+                        return '/' + path;
                     case 'www.gbif-uat.org':
-                        return '/'+path;
+                        return '/' + path;
                     case 'gbif-uat.org':
-                        return '/'+path;
+                        return '/' + path;
                     case 'www.gbif-dev.org':
-                        return '/'+path;
+                        return '/' + path;
                     case 'gbif-dev.org':
-                        return '/'+path;
+                        return '/' + path;
                     default:
                         return url;
                 }

@@ -48,7 +48,7 @@ function hasDuplicateLinks(text, options, threshold) {
     let count = {};
     for (let i = 0; i < links.length; i++) {
         let link = links[i];
-        count[link] = count[link] ? count[link]+ + 1 : 1;
+        count[link] = count[link] ? count[link] + + 1 : 1;
         if (count[link] >= threshold) {
             return true;
         }

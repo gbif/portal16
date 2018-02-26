@@ -37,7 +37,7 @@ function bboxFilterDirective(BUILD_VERSION) {
                 W = vm.west,
                 E = vm.east;
 
-            if (Math.abs(E-W) >= 360) {
+            if (Math.abs(E - W) >= 360) {
                 W = -180;
                 E = 180;
             }

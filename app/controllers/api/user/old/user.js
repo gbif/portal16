@@ -6,8 +6,8 @@ let Q = require('q'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     isNotDevBuild = require('../../../../config/config').env !== 'dev', // it is convenient to set cookies on localhost so don't require secure cookies for dev builds
     minute = 60000,
-    hour = 60*minute,
-    day = 24*hour;
+    hour = 60 * minute,
+    day = 24 * hour;
 
 function getDownloads(cookie, query) {
     query = query || {};
@@ -77,7 +77,7 @@ function login(req, res) {
     authRequest.requestPromise(loginRequest).then(function(data) {
         res.cookie('USER_SESSION', data.session,
             {
-                maxAge: day*300,
+                maxAge: day * 300,
                 secure: isNotDevBuild,
                 httpOnly: true
             }

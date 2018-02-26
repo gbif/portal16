@@ -221,7 +221,7 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
                     }
             });
         vm.state.table.$promise.then(function() {
-            var size = (format === 'SIMPLE_CSV')? vm.estKbCsv : vm.estKbDwcA;
+            var size = (format === 'SIMPLE_CSV') ? vm.estKbCsv : vm.estKbDwcA;
 
             var fileSizeType = (vm.state.table.count > vm.veryLargeDownloadOffset) ? 'VERY_LARGE' : 'LARGE';
 

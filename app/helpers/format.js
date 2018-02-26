@@ -201,7 +201,7 @@ function localizeLinks(dirty, urlPrefix) {
             transformTags: {
                 'a': function(tagName, attr) {
                     if (!isUrl(attr.href)) {
-                        attr.href = urlPrefix +'/' + attr.href.replace(/^\//, '');
+                        attr.href = urlPrefix + '/' + attr.href.replace(/^\//, '');
                     }
                     return {
                         tagName: 'a',
@@ -217,7 +217,7 @@ function localizeLink(url, urlPrefix) {
     url = _.isString(url) ? url : '';
     urlPrefix = urlPrefix || '';
     if (!isUrl(url)) {
-        return urlPrefix +'/' + url.replace(/^\//, '');
+        return urlPrefix + '/' + url.replace(/^\//, '');
     }
     return url;
 }

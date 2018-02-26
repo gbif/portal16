@@ -117,7 +117,7 @@ function addTaxonToTree(tree, taxon) {
         if (rank == taxon.rank.toLowerCase()) {
             treeItem.scientificName = taxon.scientificName;
             treeItem.count = taxon._count;
-            treeItem.percentage= taxon.percentage;
+            treeItem.percentage = taxon.percentage;
             break;
         }
     }

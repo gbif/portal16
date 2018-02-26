@@ -91,7 +91,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 });
                 SpeciesBulkParsedNames.get({q: taxonKeys.toString()}).$promise
                     .then(function(nameMap) {
-                        for (var i=0; i < taxa.length; i++) {
+                        for (var i = 0; i < taxa.length; i++) {
                             if (nameMap[taxa[i].key]) {
                                 taxa[i]._parsedName = nameMap[taxa[i].key];
                             }

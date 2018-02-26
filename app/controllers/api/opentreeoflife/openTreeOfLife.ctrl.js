@@ -19,7 +19,7 @@ router.get('/otl/ottid', function(req, res) {
     let nubKey = req.query.nubKey;
 
     let baseRequest = {
-        url: apiConfig.openTreeOfLife.url +'/tnrs/match_names',
+        url: apiConfig.openTreeOfLife.url + '/tnrs/match_names',
         timeout: 30000,
         method: 'POST',
         json: {'names': [canonicalName]},

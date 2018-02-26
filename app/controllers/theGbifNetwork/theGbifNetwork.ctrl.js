@@ -120,7 +120,7 @@ router.get('/templates/the-gbif-network/intro', (req, res, next) => {
 });
 
 router.get('/templates/the-gbif-network/:region/regionArticle.html', function(req, res, next) {
-    let urlAlias = '/the-gbif-network/'+req.params.region;
+    let urlAlias = '/the-gbif-network/' + req.params.region;
 
     resource.getByAlias(urlAlias, 2, false, res.locals.gb.locales.current)
         .then((contentItem) => {

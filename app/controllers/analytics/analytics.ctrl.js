@@ -26,9 +26,9 @@ function renderPage(req, res, next, path, country, about) {
     let description;
 
     if (about && country) {
-        description = req.__('meta.analyticsCountry.fromDescription', {country: req.__('country.'+country)});
+        description = req.__('meta.analyticsCountry.fromDescription', {country: req.__('country.' + country)});
     } else if (country) {
-        description = req.__('meta.analyticsCountry.publishedByDescription', {country: req.__('country.'+country)});
+        description = req.__('meta.analyticsCountry.publishedByDescription', {country: req.__('country.' + country)});
     } else {
         description = req.__('meta.analyticsGlobalDescription');
     }

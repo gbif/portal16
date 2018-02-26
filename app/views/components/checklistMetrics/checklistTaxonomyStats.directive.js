@@ -11,7 +11,7 @@ angular
 function checklistTaxonomyStats(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/components/checklistMetrics/checklistTaxonomyStats.html?v=' +BUILD_VERSION,
+        templateUrl: '/templates/components/checklistMetrics/checklistTaxonomyStats.html?v=' + BUILD_VERSION,
         scope: {},
         controller: checklistTaxonomyStats,
         link: chartLink,
@@ -124,7 +124,7 @@ function checklistTaxonomyStats(BUILD_VERSION) {
                         var rootRank = rankOrder[0];
 
 
-                        while (taxonomy[rankOrder[rootRankIndex]] && taxonomy[rankOrder[rootRankIndex]].length < 2 && rootRankIndex < rankOrder.length -1) {
+                        while (taxonomy[rankOrder[rootRankIndex]] && taxonomy[rankOrder[rootRankIndex]].length < 2 && rootRankIndex < rankOrder.length - 1) {
                             rootRankIndex++;
                             rootRank = rankOrder[rootRankIndex];
                         }

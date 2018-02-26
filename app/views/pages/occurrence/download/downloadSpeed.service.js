@@ -10,7 +10,7 @@ angular
             var result = {};
 
             for (var x = 0; x < bandwidth.length; x++) {
-                var filetime = (filesize*8) / bandwidth[x];
+                var filetime = (filesize * 8) / bandwidth[x];
 
                 var hourmod = filetime % 3600;
                 var hour = Math.floor(filetime / 3600);
@@ -23,11 +23,11 @@ angular
                     minute = '0' + minute;
                 }
 
-                var minuteTxt = (minute === 1 )? ' minute' : ' minutes';
+                var minuteTxt = (minute === 1 ) ? ' minute' : ' minutes';
 
-                var time = (hour !== '00') ? (hour + ':' + minute +' hours') : (minute + minuteTxt);
+                var time = (hour !== '00') ? (hour + ':' + minute + ' hours') : (minute + minuteTxt);
 
-                result[bandwidth[x]/1000000] = time;
+                result[bandwidth[x] / 1000000] = time;
             }
 
             return result;

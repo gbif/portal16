@@ -96,7 +96,7 @@ function filterDateDirective(BUILD_VERSION) {
             if (!date) {
                 return undefined;
             } else {
-                return (date.day) ? date.year + '-' + pad(date.month, 2)+'-'+ pad(date.day, 2): date.year + '-' + pad(date.month, 2);
+                return (date.day) ? date.year + '-' + pad(date.month, 2) + '-' + pad(date.day, 2) : date.year + '-' + pad(date.month, 2);
             }
         }
 

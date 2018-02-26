@@ -67,15 +67,15 @@ async function getOccurrenceDatasetTaxonomy(query, req) {
     }
     let taxonFacets = response.body.facets;
     let dummyTaxa = {};
-    let levelCounts = { 1: 0, 2: 0, 3: 0, 4: 0};
+    let levelCounts = {1: 0, 2: 0, 3: 0, 4: 0};
     let mapFn = function(taxon) {
         if (cancelRequest) {
             throw {type: clientCancelledRequest};
         }
         taxon.name = taxon.canonicalName;
-        taxon.id = (rankKeys.indexOf(taxon.rank.toLowerCase()+'Key')) + '.' + taxon.key;
-        let taxonRankIndex = rankKeys.indexOf(taxon.rank.toLowerCase()+'Key');
-        levelCounts[taxonRankIndex +1] ++;
+        taxon.id = (rankKeys.indexOf(taxon.rank.toLowerCase() + 'Key')) + '.' + taxon.key;
+        let taxonRankIndex = rankKeys.indexOf(taxon.rank.toLowerCase() + 'Key');
+        levelCounts[taxonRankIndex + 1] ++;
         if (taxonRankIndex > 0) { // there should be a parentrank
             let parentTaxonKey = rankKeys[taxonRankIndex - 1];
             let grandParentTaxonKey = (taxonRankIndex > 1) ? rankKeys[taxonRankIndex - 2] : undefined;
@@ -121,7 +121,7 @@ async function getOccurrenceDatasetTaxonomy(query, req) {
         taxa.push(val);
     });
 
-    return {levelCounts: levelCounts, count: response.body.count, results:taxa};
+    return {levelCounts: levelCounts, count: response.body.count, results: taxa};
 }
 
 async function getChecklistTaxonomy(key) {

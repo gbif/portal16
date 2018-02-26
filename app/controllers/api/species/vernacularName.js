@@ -34,7 +34,7 @@ async function getVernacularNamesProcessed(speciesKey) {
     let names = await getVernacularNames(speciesKey);
     let namesWithLanguage = {};
     let namesWithoutLanguage = [];
-    for (let i = 0; i< names.results.length; i++) {
+    for (let i = 0; i < names.results.length; i++) {
         if (!names.results[i].language) {
             namesWithoutLanguage.push(names.results[i]);
         } else {
@@ -63,7 +63,7 @@ async function getVernacularNamesProcessed(speciesKey) {
         });
     });
 
-    let results= [];
+    let results = [];
 
     _.each(namesWithLanguage, function(val, lang) {
         _.each(val, function(v, k) {

@@ -266,7 +266,7 @@ async function optionalFind(query) {
  * @param {number} length - Length of the random string.
  */
 function genRandomString(length) {
-    return crypto.randomBytes(Math.ceil(length/2))
+    return crypto.randomBytes(Math.ceil(length / 2))
         .toString('hex') /** convert to hexadecimal format */
         .slice(0, length); /** return required number of characters */
 }

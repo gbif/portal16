@@ -50,7 +50,7 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
         var entities = (pipeDelimited.length > newLineDelimited.length) ? pipeDelimited : newLineDelimited;
             $http({
             method: 'POST',
-            url: env.dataApi+'parser/name',
+            url: env.dataApi + 'parser/name',
             data: JSON.stringify(entities)
             }).then(function(response) {
                 vm.names = response.data;

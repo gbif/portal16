@@ -77,7 +77,7 @@ function referencesDirective() {
 
         function setHeight() {
             if (vm.references.offset > 0 || !vm.references.endOfRecords && _.get(vm.references, 'results.length', 0) > 0) {
-                vm.height = (77*5) + 'px';
+                vm.height = (77 * 5) + 'px';
                 vm.hasPages = true;
             }
         }

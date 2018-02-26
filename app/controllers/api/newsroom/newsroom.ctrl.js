@@ -9,7 +9,7 @@ module.exports = function(app) {
 };
 
 router.get('/newsroom/events/:key.:ext?', function(req, res, next) {
-let url = apiConfig.newsroom.url+'events/'+req.params.key;
+let url = apiConfig.newsroom.url + 'events/' + req.params.key;
 
 
     let newReq = http.request(url, function(newRes) {

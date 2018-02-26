@@ -13,7 +13,7 @@ function termsCtrl($cookies) {
     vm.accept = function() {
         // this will set the expiration to 12 months
         var now = new Date(),
-            exp = new Date(now.getFullYear()+1, now.getMonth(), now.getDate());
+            exp = new Date(now.getFullYear() + 1, now.getMonth(), now.getDate());
         $cookies.put('userAcceptance', 'true', {
             path: '/',
             expires: exp

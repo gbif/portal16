@@ -71,7 +71,7 @@ function extractHighlights(data, query) {
                     return k !== kwMatch;
                 });
 
-                highlights.keywords = '<em class="gbifHl">'+kwMatch+'</em>, '+ remainders.slice(0, 2).join(', ');
+                highlights.keywords = '<em class="gbifHl">' + kwMatch + '</em>, ' + remainders.slice(0, 2).join(', ');
                 if (remainders.length > 2) {
                     highlights.keywords += '.....';
                 }
