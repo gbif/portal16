@@ -1,6 +1,8 @@
 'use strict';
 
 let express = require('express'),
+    helper = rootRequire('app/models/util/util'),
+    resource = require('../../resource/key/resourceKey'),
     router = express.Router();
 
 module.exports = function(app) {
@@ -36,4 +38,22 @@ router.get('/embed/observation-trends', function(req, res, next) {
     } catch (err) {
         next(err);
     }
+});
+
+router.get('/templates/observation-trends/about', function(req, res, next) {
+    let query = {
+        'content_type': 'Tool',
+        'fields.keywords': 'observationtrends'
+    };
+    resource.getFirst(query, 2, false, res.locals.gb.locales.current)
+        .then((contentItem) => {
+            helper.renderPage(req, res, next, contentItem, 'pages/resource/key/tool/tool.nunjucks');
+        })
+        .catch(function(err) {
+            if (err.statusCode == 404) {
+                next();
+            } else {
+                next(err);
+            }
+        });
 });
