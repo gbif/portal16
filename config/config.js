@@ -124,7 +124,7 @@ let config = {
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//elk.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
-        kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
+        kibanaIndex: kibanaIndex || 'AWBqgxPaf8lu3pmE7fpp',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
