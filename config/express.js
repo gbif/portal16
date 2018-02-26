@@ -104,7 +104,12 @@ module.exports = function(app, config) {
     });
     process.on('uncaughtException', function(err) {
         // eslint-disable-next-line no-console
-        console.log('Caught exception in root: ' + err);
-        throw err;
+        console.error('FATAL: Uncaught exception.');
+        console.error(err.stack || err);
+        setTimeout(function() {
+            process.exit(1);
+        }, 200);
+        log.error('FATAL: Uncaught exception.');
+        log.error(err.stack || err);
     });
 };
