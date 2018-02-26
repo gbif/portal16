@@ -1,12 +1,13 @@
 'use strict';
 
-let i18n = require('../../../../config/i18n'),
+let i18n = require('../../../../../config/i18n'),
     _ = require('lodash'),
-    config = require('config'),
+    config = require('./config'),
     request = require('requestretry');
 
 module.exports = {
-    expandFacets: expandFacets
+    expandFacets: expandFacets,
+    expand: expand
 };
 
 /**
@@ -17,50 +18,50 @@ async function expandFacets(facets, __, includeFullObject) {
     __ = __ || i18n.__;
     includeFullObject = includeFullObject || false;
     let facetPromises = facets.map(function(facet) {
-        return expandFacet(facet, __, includeFullObject);
+        return expand(facet, __, includeFullObject);
     });
     let f = await Promise.all(facetPromises);
     return f;
 }
 
-async function expandFacet(facet, __, includeFullObject) {
+async function expand(responseBody, __, includeFullObject) {
+    __ = __ || i18n.__;
     // if enum then look up value
     // else get item from API
-    if (!_.has(config.fields[facet.field], 'type')) {
+    if (!_.has(config.fields[responseBody.field], 'type')) {
         // throw 'No such facet type configured';
         // default to raw
-        config.fields[facet.field] = {type: config.type.RAW};
+        config.fields[responseBody.field] = {type: config.type.RAW};
     }
 
-
     // preprocess
-    if (config.fields[facet.field].ordering === 'NUMERIC') {
-        facet.counts = _.sortBy(facet.counts, function(e) {
+    if (config.fields[responseBody.field].ordering === 'NUMERIC') {
+        responseBody.results = _.sortBy(responseBody.results, function(e) {
             return _.toSafeInteger(e.name);
         });
     }
-    if (config.fields[facet.field].prune) {
-        _.remove(facet.counts, config.fields[facet.field].prune);
+    if (config.fields[responseBody.field].prune) {
+        _.remove(responseBody.results, config.fields[responseBody.field].prune);
     }
 
     // resolve names
-    if (config.fields[facet.field].type == config.type.RAW) {
-        facet.counts.forEach(function(f) {
+    if (config.fields[responseBody.field].type == config.type.RAW) {
+        responseBody.results.forEach(function(f) {
             f.displayName = f.name;
         });
-        return facet;
-    } else if (config.fields[facet.field].type == config.type.ENUM) {
-        facet.counts.forEach(function(f) {
-            let translationPath = config.fields[facet.field].translationPath.replace('{VALUE}', f.name);
+        return responseBody;
+    } else if (config.fields[responseBody.field].type == config.type.ENUM) {
+        responseBody.results.forEach(function(f) {
+            let translationPath = config.fields[responseBody.field].translationPath.replace('{VALUE}', f.name);
             f.displayName = __(translationPath);
         });
-        return facet;
-    } else if (config.fields[facet.field].type == config.type.KEY) {
-        let facetPromises = facet.counts.map(function(item) {
-            return addResolveUrl(item, config.fields[facet.field], includeFullObject);
+        return responseBody;
+    } else if (config.fields[responseBody.field].type == config.type.KEY) {
+        let facetPromises = responseBody.results.map(function(item) {
+            return addResolveUrl(item, config.fields[responseBody.field], includeFullObject);
         });
         await Promise.all(facetPromises);
-        return facet;
+        return responseBody;
     }
 }
 

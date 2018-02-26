@@ -168,6 +168,7 @@
     "simplemde": "^1.11.2",
     "slug": "^0.9.1",
     "topojson": "^1.6.27",
+    "turf": "^3.0.14",
     "url-join": "^1.1.0",
     "url-regex": "^4.0.0",
     "useragent": "^2.3.0",

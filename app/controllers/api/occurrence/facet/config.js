@@ -1,0 +1,74 @@
+'use strict';
+
+let enums = require('../../../../models/enums/allEnums');
+let apiConfig = require('../../../../models/gbifdata/apiConfig');
+
+let type = {
+    ENUM: 1,
+    KEY: 2,
+    RAW: 3
+};
+let fields = {
+    BASIS_OF_RECORD: {
+        type: type.ENUM,
+        translationPath: 'basisOfRecord.{VALUE}',
+        enums: enums.basisOfRecord
+    },
+    MONTH: {
+        type: type.ENUM,
+        translationPath: 'month.{VALUE}',
+        enums: enums.month,
+        ordering: 'NUMERIC'
+    },
+    YEAR: {
+        range: {
+            type: 'INT',
+            min: 1000,
+            max: 2017 // TODO make dynamic
+        },
+        type: type.RAW,
+        ordering: 'NUMERIC'
+    },
+    DECIMAL_LATITUDE: {
+        range: {
+            type: 'FLOAT',
+            min: -90,
+            max: 90
+        },
+        type: type.RAW,
+        ordering: 'NUMERIC'
+    },
+    ISSUE: {
+        type: type.ENUM,
+        translationPath: 'occurrenceIssue.{VALUE}',
+        enums: enums.occurrenceIssue,
+        prune: function(e) {
+            return ['COORDINATE_ROUNDED', 'GEODETIC_DATUM_ASSUMED_WGS84', 'COORDINATE_REPROJECTED'].indexOf(e.name) != -1;
+        }
+    },
+    COUNTRY: {
+        type: type.ENUM,
+        translationPath: 'country.{VALUE}'
+        // enums: enums.country
+    },
+    TAXON_KEY: {
+        type: type.KEY,
+        url: apiConfig.taxon.url + '{VALUE}',
+        field: 'scientificName'
+    },
+    DATASET_KEY: {
+        type: type.KEY,
+        url: apiConfig.dataset.url + '{VALUE}',
+        field: 'title'
+    }
+};
+// All other rank keys are the same as taxonKey
+let ranks = ['KINGDOM_KEY', 'PHYLUM_KEY', 'CLASS_KEY', 'ORDER_KEY', 'FAMILY_KEY', 'GENUS_KEY', 'SPECIES_KEY'];
+ranks.forEach(function(rank) {
+    fields[rank] = fields.TAXON_KEY;
+});
+
+module.exports = {
+    type: type,
+    fields: fields
+};

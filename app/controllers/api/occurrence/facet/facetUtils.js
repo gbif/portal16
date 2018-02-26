@@ -1,9 +1,9 @@
 'use strict';
 
-let i18n = require('../../../../../config/i18n'),
+let i18n = require('../../../../config/i18n'),
     _ = require('lodash'),
-    enums = require('../../../../models/enums/allEnums'),
-    apiConfig = require('../../../../models/gbifdata/apiConfig'),
+    enums = require('../../../models/enums/allEnums'),
+    apiConfig = require('../../../models/gbifdata/apiConfig'),
     request = require('requestretry');
 
 module.exports = {
