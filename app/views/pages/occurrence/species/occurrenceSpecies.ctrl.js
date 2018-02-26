@@ -13,7 +13,7 @@ angular
     .controller('occurrenceSpeciesCtrl', occurrenceSpeciesCtrl);
 
 /** @ngInject */
-function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceTaxonSearch, $mdMedia) {
+function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceBreakdown, $mdMedia) {
     var vm = this;
     vm.mdMedia = $mdMedia;
     vm.state = OccurrenceFilter.getOccurrenceData();
@@ -35,13 +35,13 @@ function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceTaxonSearch, 
 
     var search = function() {
         var query = angular.copy(vm.state.query);
-        query.type = vm.type;
+        query.dimension = vm.type + 'Key';
 
         query.offset = vm.offset;
         query.limit = vm.limit;
         vm.endOfRecords = true;
         if (vm.checklist.$cancelRequest) vm.checklist.$cancelRequest();
-        vm.checklist = OccurrenceTaxonSearch.query(query, function(data) {
+        vm.checklist = OccurrenceBreakdown.query(query, function(data) {
             vm.offset = data.offset;
             vm.endOfRecords = data.endOfRecords;
         }, function() {

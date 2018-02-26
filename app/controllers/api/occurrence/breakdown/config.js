@@ -18,7 +18,12 @@ let fields = {
         type: type.ENUM,
         translationPath: 'month.{VALUE}',
         enums: enums.month,
-        ordering: 'NUMERIC'
+        ordering: 'NUMERIC',
+        range: {
+            type: 'INT',
+            min: 1,
+            max: 12
+        }
     },
     YEAR: {
         range: {
@@ -26,8 +31,7 @@ let fields = {
             min: 1000,
             max: 2017 // TODO make dynamic
         },
-        type: type.RAW,
-        ordering: 'NUMERIC'
+        type: type.RAW
     },
     DECIMAL_LATITUDE: {
         range: {
@@ -35,8 +39,7 @@ let fields = {
             min: -90,
             max: 90
         },
-        type: type.RAW,
-        ordering: 'NUMERIC'
+        type: type.RAW
     },
     ISSUE: {
         type: type.ENUM,

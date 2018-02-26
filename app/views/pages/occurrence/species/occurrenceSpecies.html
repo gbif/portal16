@@ -157,21 +157,21 @@
                                     <tbody>
                                     <tr ng-repeat="taxon in occSpecies.checklist.results">
                                         <td class="table-cell--narrow--very">
-                                            <a ng-click="occSpecies.updateTaxonFilter(taxon.key)" class="cursor-pointer"><span class="gb-icon-add"></span></a>
+                                            <a ng-click="occSpecies.updateTaxonFilter(taxon._resolved.key)" class="cursor-pointer"><span class="gb-icon-add"></span></a>
                                         </td>
                                         <td class="table-cell--narrow">
-                                            <a ng-href="../species/{{taxon.key}}">{{taxon._count | localNumber:occSpecies.state.query.locale}}</a>
+                                            <a ng-href="../species/{{taxon._resolved.key}}">{{taxon.count | localNumber:occSpecies.state.query.locale}}</a>
                                         </td>
 
                                         <td class="table-cell--wide">
-                                            <a ng-href="../species/{{taxon.key}}">{{taxon.scientificName}}</a>
+                                            <a ng-href="../species/{{taxon._resolved.key}}">{{taxon._resolved.scientificName}}</a>
                                         </td>
                                         <td class="table-cell--narrow"
                                             ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                                            <a ng-href="../species/{{taxon.key}}">{{taxon[t]}}</a>
+                                            <a ng-href="../species/{{taxon._resolved.key}}">{{taxon._resolved[t]}}</a>
                                         </td>
                                         <td class="table-cell--wide">
-                                            <a ng-href="../species/{{taxon.key}}">{{taxon.species}}</a>
+                                            <a ng-href="../species/{{taxon._resolved.key}}">{{taxon.species}}</a>
                                         </td>
                                     </tr>
                                     </tbody>

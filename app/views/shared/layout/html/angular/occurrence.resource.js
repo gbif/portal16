@@ -53,6 +53,16 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('OccurrenceBreakdown', function($resource) {
+            return $resource('/api/occurrence/breakdown', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
         .factory('OccurrenceDatasetSearch', function($resource) {
             return $resource('/api/occurrence/datasets', null, {
                     'query': {
