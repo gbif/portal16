@@ -19,7 +19,10 @@ function featureMapDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/map/featureMap/featureMap.html?v=' + BUILD_VERSION,
         scope: {
             features: '=',
-            mapStyle: '='
+            mapStyle: '=',
+            circle: '=',
+            point: '=',
+            baselayer: '='
         },
         link: mapLink,
         controller: featureMap,
@@ -38,7 +41,8 @@ function featureMapDirective(BUILD_VERSION) {
     function featureMap($scope) {
         var vm = this,
             map,
-            featureLayer;
+            featureLayer,
+            circleLayer;
 
         vm.styleBreaks = {
             breakpoints: [0, 700],
@@ -46,7 +50,7 @@ function featureMapDirective(BUILD_VERSION) {
         };
 
         $scope.create = function(element) {
-            map = createMap(element, vm.mapStyle);
+            map = createMap(element, vm.mapStyle, vm.baselayer, getSuggestedProjection(vm.point));
             addFeatureLayer();
         };
 
@@ -58,9 +62,16 @@ function featureMapDirective(BUILD_VERSION) {
         };
 
         $scope.$watch(function() {
- return vm.features;
-}, function() {
+            return vm.features;
+        }, function() {
             if (map && vm.features) {
+                addFeatureLayer();
+            }
+        });
+        $scope.$watch(function() {
+            return vm.circle;
+        }, function() {
+            if (map && vm.circle) {
                 addFeatureLayer();
             }
         });
@@ -68,6 +79,9 @@ function featureMapDirective(BUILD_VERSION) {
         function addFeatureLayer() {
             if (!featureLayer && _.get(vm.features, 'features.length', 0) > 0) {
                 featureLayer = setFeatures(map, vm.features);
+            }
+            if (!circleLayer && typeof vm.circle !== 'undefined') {
+                circleLayer = setCircle(map, vm.circle);
             }
         }
 
@@ -83,8 +97,12 @@ function featureMapDirective(BUILD_VERSION) {
     }
 }
 
+function getSuggestedProjection(point) {
+       // return projections.EPSG_4326;
+  return (typeof point !== 'undefined' && point[1] < 85 && point[1] > -85) ? projections.EPSG_3857 : projections.EPSG_4326;
+}
 
-function createMap(element, style) {
+function createMap(element, style, baseLayer, projection) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
     var baseMapStyle = {style: style || 'gbif-light'};
 
@@ -96,15 +114,28 @@ function createMap(element, style) {
         interactions: interactions
     });
 
-    var currentProjection = projections.EPSG_4326;
+    var currentProjection = projection;
     map.setView(currentProjection.getView(0, 0, 1));
     if (currentProjection.fitExtent) {
         map.getView().fit(currentProjection.fitExtent, {constrainResolution: false, maxZoom: 12, minZoom: 0});
     }
 
-    map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {})));
+  if (typeof baseLayer !== 'undefined') {
+      map.addLayer(projections.createBaseLayer(baseLayer.url, currentProjection, baseLayer.params));
+  } else {
+      map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {})));
+  }
     window.featureMap = map;
+    console.log(map.getView().getProjection().getMetersPerUnit());
     return map;
+}
+
+function metersToRadius(map, meters) {
+   return meters / map.getView().getProjection().getMetersPerUnit();
+}
+
+function lonLatToCurrentProjection(map, point) {
+    return ol.proj.fromLonLat(point, map.getView().getProjection());
 }
 
 function setFeatures(map, features) {
@@ -128,6 +159,30 @@ function setFeatures(map, features) {
     // layer.addTo(map);
     // map.fitBounds(layer.getBounds());
     // return layer;
+}
+
+function setCircle(map, circle) {
+    var vectorSource = new ol.source.Vector({});
+    var vectorLayer = new ol.layer.Vector({
+        source: vectorSource,
+        style: styleFunction
+    });
+    map.addLayer(vectorLayer);
+    vectorSource.addFeature(new ol.Feature({
+        geometry: new ol.geom.Circle(lonLatToCurrentProjection(map, circle.coordinates), metersToRadius(map, circle.radius)),
+        style: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color: 'yellow',
+                width: 2
+            }),
+            fill: new ol.style.Fill({
+                color: 'rgba(113, 177, 113, 0.1)'
+            })
+        })}));
+       map.getView().fit(vectorLayer.getSource().getExtent());
+      var currentZoom = map.getView().getZoom();
+       var newZoom = currentZoom > 6 ? currentZoom - 1.5 : currentZoom - 0.5;
+      map.getView().setZoom(Math.max(newZoom, 0));
 }
 
 var image = new ol.style.Circle({

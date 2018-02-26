@@ -237,5 +237,6 @@ module.exports = {
     EPSG_4326: get4326(),
     EPSG_3575: get3575(),
     EPSG_3031: get3031(),
-    EPSG_3857: get3857()
+    EPSG_3857: get3857(),
+    createBaseLayer: getLayer
 };

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="occurrenceKey__map" ng-init="occurrence.setData()">
-                <leaflet
+              <!--  <leaflet
                         leafletMap="leafletMap"
                         id="occurrenceMap"
                         defaults="occurrence.mapDefaults"
@@ -14,7 +14,9 @@
                         lf-center="occurrence.center"
                         event-broadcast="occurrence.mapEvents"
                         controls="occurrence.controls"
-                ></leaflet>
+                ></leaflet> -->
+                <feature-map features="occurrence.geoJson" circle="occurrence.circle" point="occurrence.point" baseLayer="occurrence.baselayer" mapstyle="'light'"></feature-map>
+
                 <div class="globe-context">
                     <canvas class="globe"></canvas>
                 </div>

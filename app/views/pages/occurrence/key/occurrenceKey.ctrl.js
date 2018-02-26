@@ -3,6 +3,7 @@
 var angular = require('angular'),
     parseGeometry = require('wellknown'),
     _ = require('lodash'),
+    ol = require('openlayers'),
     globeCreator = require('../../../components/map/basic/globe');
 
 angular
@@ -34,7 +35,13 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             expanded: false
         }
     };
-    vm.tiles = {
+    vm.baselayer = {
+        url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
+        params: {
+            access_token: accessToken
+        }
+    }
+   /* vm.tiles = {
         'name': 'Outdoor',
         'url': 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=' + accessToken,
         'options': {
@@ -46,7 +53,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             'showOnSelector': false,
             'palette': 'yellows_reds'
         }
-    };
+    }; */
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
         scrollWheelZoom: false
@@ -172,32 +179,38 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                 lat: data.decimalLatitude,
                 lng: data.decimalLongitude
             };
+
+           vm.point = [data.decimalLongitude, data.decimalLatitude];
         }
 
         if (data.footprintWKT && hasValidOrNoSRS(data)) {
             try {
-               var geojsonGeometry = parseStringToWKTs(data.footprintWKT);
+                var geojsonGeometry = parseStringToWKTs(data.footprintWKT);
+                vm.geoJson = {
+                    'type': 'FeatureCollection',
+                    'features': [geojsonGeometry]
+                };
                 leafletData.getMap('occurrenceMap')
-                .then(function(map) {
-                    var layer;
-                    try {
-                        layer = L.GeoJSON.geometryToLayer(geojsonGeometry);
-                        layer.addTo(map);
-                        var ext = layer.getBounds();
-                        map.fitBounds(ext);
-                    } catch (err) {
-                        vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
-                      //  console.log(err.message)
-                     //   console.log('Unparsable footprintWKT')
-                    }
-                }).catch(function(err) {
+                    .then(function(map) {
+                        var layer;
+                        try {
+                            layer = L.GeoJSON.geometryToLayer(geojsonGeometry);
+                            layer.addTo(map);
+                            var ext = layer.getBounds();
+                            map.fitBounds(ext);
+                        } catch (err) {
+                            vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
+                            //  console.log(err.message)
+                            //   console.log('Unparsable footprintWKT')
+                        }
+                    }).catch(function(err) {
                     // no coordinates and the WKT is invalid
                     vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
                     throw err;
                 });
             } catch (err) {
-               // console.log(err.message)
-              //  console.log('Unparsable footprintWKT')
+                // console.log(err.message)
+                //  console.log('Unparsable footprintWKT')
             }
         } else if (data.coordinateUncertaintyInMeters > 50) {
             vm.paths.c1 = {
@@ -209,6 +222,11 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                 },
                 radius: data.coordinateUncertaintyInMeters,
                 type: 'circle'
+            };
+            // vm.geoJson.features.push({type: 'Circle', radius: data.coordinateUncertaintyInMeters, coordinates: [data.decimalLongitude, data.decimalLatitude]});
+            vm.circle = {
+                coordinates: [data.decimalLongitude, data.decimalLatitude],
+                radius: data.coordinateUncertaintyInMeters
             };
         }
         // set static marker
