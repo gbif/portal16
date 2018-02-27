@@ -40,7 +40,7 @@ router.get('/embed/observation-trends', function(req, res, next) {
     }
 });
 
-router.get('/templates/observation-trends/about', function(req, res, next) {
+router.get('/tools/observation-trends/about', function(req, res, next) {
     let query = {
         'content_type': 'Tool',
         'fields.keywords': 'observationtrends'
