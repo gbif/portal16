@@ -100,6 +100,9 @@ function get3857() {
         },
         getOccurrenceLayer: function(params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
+        },
+        getXYZlayer: function(url, params) {
+            getLayer(url, this, params, 'XYZ');
         }
     };
 }
@@ -200,12 +203,13 @@ function get3031() {
 }
 
 
-function getLayer(baseUrl, proj, params) {
+function getLayer(baseUrl, proj, params, type) {
     params = params || {};
+    type = type || 'TileImage';
     params.srs = proj.srs;
     var progress = params.progress;
     delete params.progress;
-    var source = new ol.source.TileImage({
+    var source = new ol.source[type]({
         projection: proj.projection,
         tileGrid: proj.tileGrid,
         tilePixelRatio: pixelRatio,
@@ -237,6 +241,5 @@ module.exports = {
     EPSG_4326: get4326(),
     EPSG_3575: get3575(),
     EPSG_3031: get3031(),
-    EPSG_3857: get3857(),
-    createBaseLayer: getLayer
+    EPSG_3857: get3857()
 };

@@ -3,6 +3,7 @@
 var angular = require('angular'),
     _ = require('lodash'),
     ol = require('openlayers'),
+    querystring = require('querystring'),
     projections = require('../mapWidget/projections');
 
 require('../basic/gbTileLayer');
@@ -121,7 +122,8 @@ function createMap(element, style, baseLayer, projection) {
     }
 
   if (typeof baseLayer !== 'undefined') {
-      map.addLayer(projections.createBaseLayer(baseLayer.url, currentProjection, baseLayer.params));
+      addSimpleBaseLayer(map, baseLayer, currentProjection);
+     // map.addLayer(projections.createBaseLayer(baseLayer.url, currentProjection, baseLayer.params));
   } else {
       map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {})));
   }
@@ -254,6 +256,18 @@ var styles = {
         })
     })
 };
+
+function addSimpleBaseLayer(map, layer, projection) {
+
+    map.addLayer(new ol.layer.Tile({
+        source: new ol.source.XYZ({
+            attributions: layer.attribution,
+            url: layer.url,
+            tilePixelRatio: 2
+        })
+    }));
+
+}
 
 var styleFunction = function(feature) {
     return styles[feature.getGeometry().getType()];
