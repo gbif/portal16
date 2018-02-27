@@ -13,8 +13,12 @@ module.exports = function(app) {
 };
 
 router.get('/geoip', function(req, res) {
-    let ip = getIp(req, res),
-        country = getGeoIp(ip);
+    let ip = getIp(req, res);
+    if (!ip) {
+        noResult(res);
+        return;
+    }
+    let country = getGeoIp(ip);
 
     if (!country) {
         log.debug('unable to match ip to country using ip: ' + ip);
@@ -28,8 +32,12 @@ router.get('/geoip', function(req, res) {
 });
 
 router.get('/geoip/country', function(req, res) {
-    let ip = getIp(req, res),
-        country = getGeoIp(ip),
+    let ip = getIp(req, res);
+    if (!ip) {
+        noResult(res);
+        return;
+    }
+    let country = getGeoIp(ip),
         countryCode = _.get(country, 'country.iso_code');
 
     if (!countryCode) {
@@ -47,12 +55,15 @@ router.get('/geoip/country', function(req, res) {
     }
 });
 
+function noResult(res) {
+    res.setHeader('Cache-Control', 'no-cache');
+    res.status(404);
+    res.send();
+}
+
 function getIp(req, res) {
     let referer = _.get(req, 'headers.referer');
     if (!referer) {
-        res.setHeader('Cache-Control', 'no-cache');
-        res.status(404);
-        res.send();
         return;
     }
     let parsedReferer = url.parse(referer, true),
