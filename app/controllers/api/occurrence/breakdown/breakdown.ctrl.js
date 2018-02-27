@@ -11,7 +11,6 @@ module.exports = function(app) {
 
 router.get('/occurrence/breakdown', function(req, res) {
     let query = breakdown.parseQuery(req.query);
-    log.test(5);
     breakdown.query(query)
         .then(function(response) {
             res.send(response);
