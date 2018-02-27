@@ -14,8 +14,8 @@
                             <li ng-repeat="item in vm.fullTree.children">
                                 <div class="pipe"></div>
                                 <div class="title">
-                                    <a ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item.canonicalName}}</a>
-                                    <a href="" ng-click="vm.search(item.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item._count | localNumber }}</a>
+                                    <a ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item._resolved.canonicalName}}</a>
+                                    <a href="" ng-click="vm.search(item._resolved.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item.count | localNumber }}</a>
                                 </div>
                                 <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialExplorerTree.html'"></div>
                             </li>
@@ -65,7 +65,7 @@
                                     <span>No occurrences</span>
                                 </div>
                             </li>
-                            <li ng-if="vm.frequent.$resolved && vm.frequent._failed">
+                            <li ng-if="vm.frequent._failed">
                                 <div class="pipe"></div>
                                 <div class="title title--action">
                                     <span>Failed to load tree</span>

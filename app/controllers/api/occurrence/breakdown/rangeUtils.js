@@ -16,7 +16,8 @@ let _ = require('lodash'),
 module.exports = {
     getMinMaxRange: getMinMaxRange,
     getRanges: getRanges,
-    getRangedFacets: getRangedFacets
+    getRangedFacets: getRangedFacets,
+    query: query
 };
 
 function getMinMaxRange(query, field) {
@@ -104,22 +105,32 @@ function getRanges(field, minMax, buckets) {
     // based on the field type and minimum resolution and min max values returns an array with min max values
     // let range = ['1900,1910', '1910,1920', '1920,1930', '1930,1940'];
     let constantField = changeCase.constantCase(field);
+    let bucketSizeVaries = false;
+
     let bucketSize = (minMax.max - minMax.min) / buckets;
-    console.log(minMax);
-    if (facetConfig.fields[constantField].range.type === 'INT') {
+    let isIntegerRange = facetConfig.fields[constantField].range.type === 'INT';
+    if (isIntegerRange) {
         bucketSize = Math.ceil(bucketSize);
         bucketSize = Math.max(1, bucketSize);
     }
     bucketSize = Math.max(0.00001, bucketSize);
     bucketSize = +bucketSize.toFixed(5);
-    let range = _.range(minMax.min, minMax.max, bucketSize );
+    let range = isIntegerRange ? _.range(minMax.min, minMax.max + 1, bucketSize ) : _.range(minMax.min, minMax.max, bucketSize );
     range = range.map(function(b) {
         let start = +b.toFixed(5);
-        let end = +(start + bucketSize).toFixed(5);
+        let end = start + bucketSize;
+        if (isIntegerRange) {
+            end -= 1; // To ensure non overlapping ranges. the n,m range notation used by the API is both inclusive.
+        }
+        bucketSizeVaries = bucketSizeVaries || minMax.max < end;
+        end = Math.min(minMax.max, end);// should never be larger than maximum configured for the range. This can happen if we e.g. split 12 months into 5 buckets
+        end = +(end).toFixed(5);
         return start + ',' + end;
     });
-
-    return range;
+    return {
+        range: range,
+        bucketSizeVaries: bucketSizeVaries
+    };
 }
 
 async function getRangedFacets(query, range, field) {
@@ -158,7 +169,7 @@ async function getInterval(query) {
     return response.body.count;
 }
 
-function composeResult(offset, limit, dimension, results, ranges) {
+function composeResult(offset, limit, dimension, results, ranges, bucketSizeVaries) {
     let max = _.maxBy(results, 'count').count;
     let min = _.minBy(results, 'count').count;
     return {
@@ -167,6 +178,7 @@ function composeResult(offset, limit, dimension, results, ranges) {
         limit: limit,
         offset: offset,
         endOfRecords: ranges.length <= offset + limit,
+        bucketSizeVaries: bucketSizeVaries,
         max: max,
         min: min
     };
@@ -176,7 +188,7 @@ function addGeometryFilter(query, results) {
     // check if there is anything to intersect with
     let geomFilters = query.geometry;
 
-    if (query.geometry && query.dimension === 'decimalLatitude') {
+    if (query.dimension === 'decimalLatitude') {
         results.forEach(function(e) {
             // for all results add a geom filter corresponding to the count
             let filter = [];
@@ -184,7 +196,6 @@ function addGeometryFilter(query, results) {
 
             if (!geomFilters) {
                 filter.push(`POLYGON ((-180 ${minMax.min}, -180 ${minMax.max}, 180 ${minMax.max}, 180 ${minMax.min}, -180 ${minMax.min}))`);
-                return;
             } else {
                 geomFilters = _.isString(geomFilters) ? [geomFilters] : geomFilters;
                 let slicer = `POLYGON ((-180 ${minMax.min}, -180 ${minMax.max}, 180 ${minMax.max}, 180 ${minMax.min}, -180 ${minMax.min}))`;
@@ -195,7 +206,6 @@ function addGeometryFilter(query, results) {
                     let wkt = wkt2geojson.stringify(intersection);
                     if (wkt.startsWith('MULTIPOLYGON')) {
                         let polys = wkt.match(/\(\([0-9,\.\-\s]+\)\)/g);
-                        console.log(polys);
                         for (let i = 0; i < polys.length; i++) {
                             filter.push(`POLYGON ${polys[i]}`);
                         }
@@ -210,7 +220,7 @@ function addGeometryFilter(query, results) {
     }
 }
 
-async function rangeFacet(query) {
+async function query(query) {
     // TODO sanitize input values to type and accepted values
     let dimension = query.dimension;
     let buckets = query.buckets || 10; // Number of 'AUTO' a desired bucket count. this will only be used as a guide as their are minimum resolutions
@@ -218,21 +228,20 @@ async function rangeFacet(query) {
     let offset = query.offset || 0;
 
     let minMax = getMinMaxRange(query, dimension);
-    let ranges = getRanges(dimension, minMax, buckets);
+    let rangeOptions = getRanges(dimension, minMax, buckets);
+    let ranges = rangeOptions.range;
+    let bucketSizeVaries = rangeOptions.bucketSizeVaries;
     let queriedRange = ranges.slice(offset, offset + limit);
     let facets = await getRangedFacets(query, queriedRange, dimension);
-    let responseBody = composeResult(offset, limit, dimension, facets, ranges);
+    let responseBody = composeResult(offset, limit, dimension, facets, ranges, bucketSizeVaries);
     addGeometryFilter(query, responseBody.results);
-    // console.log(responseBody);
-    // console.log(JSON.stringify(responseBody));
-    console.log(responseBody.results[9]);
     return responseBody;
 }
 
 let t = 'POLYGON ((-73.828125 56.9449741808516, 79.453125 -48.45835188280864, 84.375 -42.03297433244139, -66.796875 60.58696734225869, -73.828125 56.9449741808516))';
 let t1 = 'POLYGON ((-73.828125 56.9449741808516, 79.453125 -48.45835188280864, 84.375 -42.03297433244139, -66.796875 60.58696734225869, -73.828125 56.9449741808516))';
 let t2 = 'POLYGON ((73.125 62.91523303947614, 75.234375 58.81374171570782, -61.87499999999999 -57.70414723434192, -64.6875 -51.618016548773696, 30.234375 37.16031654673677, -2.8125 62.2679226294176, 7.734374999999999 62.59334083012024, 31.640625 45.583289756006316, 73.125 62.91523303947614))';
-rangeFacet({dimension: 'decimalLatitude', geometry: [t1, t2], Xyear: ['1980,1997', '1978'], XtaxonKey: 1080, limit: 10, offset: 0, buckets: 10});
+// query({dimension: 'decimalLatitude', geometry: [t1, t2], Xyear: ['1980,1997', '1978'], XtaxonKey: 1080, limit: 10, offset: 0, buckets: 10});
 
 // var a = 'POLYGON ((-218.671875 10.487811882056695, -218.671875 59.17592824927136, -133.59375 59.17592824927136, -133.59375 10.487811882056695, -218.671875 10.487811882056695))';
 // // var b = 'POLYGON ((-180 38, -180 46, 180 46, 180 38, -180 38))';
@@ -241,5 +250,3 @@ rangeFacet({dimension: 'decimalLatitude', geometry: [t1, t2], Xyear: ['1980,1997
 // var poly2 = wkt2geojson(b);
 // var intersection = turf.intersect(poly1, poly2);
 // console.log(wkt2geojson.stringify(intersection));
-
-

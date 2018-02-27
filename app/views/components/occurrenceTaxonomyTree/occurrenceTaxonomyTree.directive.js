@@ -34,9 +34,9 @@ function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
     // }
 
     /** @ngInject */
-    function occurrenceTaxonomyTree($q, Species, $scope, $state, OccurrenceFrequentTaxa, OccurrenceFilter, OccurrenceTaxonSearch) {
+    function occurrenceTaxonomyTree($q, Species, $scope, $state, OccurrenceFrequentTaxa, OccurrenceFilter, OccurrenceBreakdown) {
         var vm = this;
-        vm.showFrequenyTree = true;
+        vm.showFrequenyTree = false;
 
         function updateTree() {
             if (_.get(vm.frequent, '$cancelRequest')) {
@@ -94,26 +94,26 @@ function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
             var filter = vm.filter || {};
 
             var customQuery = {offset: item.children.length, limit: 20};
-            if (item.key) {
+            if (item._resolved && item._resolved.key) {
                 var filterKeys = [];
                 vm.filteredTaxa.forEach(function(taxon) {
-                    if (hasTaxonKey(taxon, item.key, item.rank)) {
+                    if (hasTaxonKey(taxon, item._resolved.key, item._resolved.rank)) {
                         filterKeys.push(taxon.key);
                     }
                 });
-                if (filterKeys.length == 0 && item.key) {
-                    filterKeys.push(item.key);
+                if (filterKeys.length == 0 && item._resolved.key) {
+                    filterKeys.push(item._resolved.key);
                 }
                 customQuery.taxon_key = filterKeys;
             }
 
-            var rank = item.rank || '';
+            var rank = _.get(item, '_resolved.rank', '');
             var nextRank = vm.nextRank(rank);
             if (!nextRank) {
                 item.state = 'END';
                 return;
             }
-            customQuery.type = nextRank;
+            customQuery.dimension = nextRank + 'Key';
             var query = _.assign({}, filter, customQuery);
 
             if (_.get(vm.taxonSearchPromise, '$cancelRequest')) {
@@ -122,7 +122,7 @@ function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
                 vm.loadingItem.cancelled = true;
             }
 
-            vm.taxonSearchPromise = OccurrenceTaxonSearch.query(query);
+            vm.taxonSearchPromise = OccurrenceBreakdown.query(query);
             vm.loadingItem = item;
             vm.loadingItem.cancelled = false;
             vm.taxonSearchPromise.$promise
@@ -133,8 +133,8 @@ function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
                         e.children = [];
                     });
                     item.children = _.concat(item.children, data.results);
-                    item.childCount = _.sumBy(item.children, '_count');
-                    if (item.children.length == 1 && data.endOfRecords && item.rank !== 'GENUS') {
+                    item.childCount = _.sumBy(item.children, 'count');
+                    if (item.children.length == 1 && data.endOfRecords && _.get(item, '_resolved.rank') !== 'GENUS') {
                         vm.toggleTaxa(item.children[0]);
                     }
                 })

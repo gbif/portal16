@@ -11,7 +11,11 @@ let _ = require('lodash'),
     facetExpander = require('./facetExpander'),
     log = require('../../../../../config/log');
 
-async function facet(query) {
+module.exports = {
+    query: query
+};
+
+async function query(query) {
     // compose query
     // get data
     // optionally fill empty
@@ -48,29 +52,32 @@ async function facet(query) {
 }
 
 function composeQueryA(query) {
-    // TODO expect dimensionA
+    // TODO expect dimension
     // TODO limit values to positive integers
     // TODO parameterize defaults
     let facetLimit = query.limit || 20;
     let facetOffset = query.offset || 0;
-    let q = _.assign({}, query, {limit: 0, offset: 0, facetLimit: facetLimit, facetOffset: facetOffset, facet: query.dimensionA});
-    delete q.dimensionA;
+    let q = _.assign({}, query, {limit: 0, offset: 0, facetLimit: facetLimit, facetOffset: facetOffset, facet: query.dimension});
+    delete q.dimension;
     delete q.fillEnums;
     q.facetLimit = q.facetLimit + 1; // always add one so we can tell the user if there are more facet they haven't seen
     return q;
 }
 
 function composeResult(query, body) {
-    let max = _.maxBy(body.facets[0].counts, 'count').count;
-    let min = _.minBy(body.facets[0].counts, 'count').count;
+    let max = _.maxBy(body.facets[0].counts, 'count');
+    let min = _.minBy(body.facets[0].counts, 'count');
+    // body.facets[0].counts = body.facets[0].counts.slice(0, query.facetLimit - 1).map(function(e) {
+    //     return {_name: e.name, _count: e.count};
+    // });
     return {
         results: body.facets[0].counts.slice(0, query.facetLimit - 1),
         field: body.facets[0].field,
         limit: query.facetLimit - 1,
         offset: query.facetOffset,
         endOfRecords: body.facets[0].counts.length < query.facetLimit,
-        max: max,
-        min: min
+        max: max ? max.count : 0,
+        min: min ? min.count : 0
     };
 }
 
@@ -102,10 +109,10 @@ function getFullResult(results, field) {
 }
 
 async function getPlainFacets(query) {
-    console.log(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query));
     let options = {
         url: apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query),
         method: 'GET',
+        maxAttempts: 1,
         fullResponse: true,
         json: true
     };
@@ -117,4 +124,4 @@ async function getPlainFacets(query) {
     return response.body;
 }
 
-facet({dimensionA: 'speciesKey', fillEnums: true, taxonKey: 44, limit: 15, offset: 0});
+// query({dimension: 'speciesKey', fillEnums: true, taxonKey: 44, limit: 15, offset: 0});
