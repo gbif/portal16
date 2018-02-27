@@ -13,6 +13,28 @@ module.exports = {
 };
 
 async function query(query) {
+    // get fill response
+    let response = await getData(query);
+
+    // If the user has asked to select only a few values, then remove the unwanted
+    if (query.pick) {
+        response.results.forEach(function(e) {
+            if (e._resolved) {
+                e._resolved = _.pick(e._resolved, query.pick);
+            }
+        });
+    }
+    if (query.omit) {
+        response.results.forEach(function(e) {
+            if (e._resolved) {
+                e._resolved = _.omit(e._resolved, query.omit);
+            }
+        });
+    }
+    return response;
+}
+
+async function getData(query) {
     expect(query).to.be.an('object', 'Query param expected to be an object');
     expect(query.dimension).to.be.a('string', 'Dimension must be a string');
 
