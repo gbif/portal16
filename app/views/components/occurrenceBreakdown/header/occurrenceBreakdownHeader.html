@@ -1,0 +1,26 @@
+<div>
+    <h4 class="card-header text-center inline-block">Occurrences per {{ ('ocurrenceFieldNames.' + vm.api.getDimension() ) | translate }} - not proper templated yet</h4>
+    <div class="chart-header-options inline-block pull-right">
+        <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="vm.api.asPieChart()" ng-if="vm.isSupported('PIE')"></a>
+        <a href="" class="gb-icon-bar-chart inherit noUnderline" ng-click="vm.api.asBarChart()" ng-if="vm.isSupported('BAR')"></a>
+        <a href="" class="gb-icon-menu inherit noUnderline" ng-click="vm.api.asTableChart()" ng-if="vm.isSupported('TABLE')"></a>
+        <a href="" class="gb-icon-logo inherit noUnderline" ng-click="vm.api.asColumnChart()" ng-if="vm.isSupported('COLUMN')"></a>
+        <md-menu>
+            <a href="" class="gb-icon-file-download  inherit noUnderline"
+               ng-click="$mdMenu.open($event)"
+            ></a>
+            <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
+                <md-menu-item>
+                    <md-button ng-click="vm.api.png()">
+                        PNG
+                    </md-button>
+                </md-menu-item>
+
+                <md-menu-item>
+                    <md-button  ng-click="vm.api.svg()">SVG
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</div>

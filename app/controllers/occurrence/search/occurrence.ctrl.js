@@ -94,3 +94,7 @@ router.get('/occurrence/taxonomy', function(req, res) {
 router.get('/occurrence/datasets', function(req, res) {
     renderSearch(req, res);
 });
+
+router.get('/occurrence/charts', function(req, res) {
+    renderSearch(req, res);
+});

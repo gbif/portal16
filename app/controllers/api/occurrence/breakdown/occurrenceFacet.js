@@ -56,7 +56,7 @@ function composeQueryA(query) {
     // TODO expect dimension
     // TODO limit values to positive integers
     // TODO parameterize defaults
-    let facetLimit = query.limit || 20;
+    let facetLimit = query.limit || 10;
     let facetOffset = query.offset || 0;
     let q = _.assign({}, query, {limit: 0, offset: 0, facetLimit: facetLimit, facetOffset: facetOffset, facet: query.dimension});
     delete q.dimension;
