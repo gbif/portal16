@@ -19,7 +19,8 @@ function getAngularInitData(occurrence) {
         'lastParsed',
         'coordinateUncertaintyInMeters',
         'footprintWKT',
-        'footprintSRS'
+        'footprintSRS',
+        'elevation'
     ];
     let selectedData = {};
     keys.forEach(function(e) {

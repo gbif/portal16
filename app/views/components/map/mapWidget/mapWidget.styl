@@ -165,6 +165,29 @@
     }
 }
 
+.fitContainer {
+    .mapWidget {
+        height 100%
+        width 100%
+        .mapWidget__mapWrapper{
+            height 100%
+        }
+        .mapWidget__mapArea {
+            height 100%
+        }
+        .mapWidget__spacer {
+            display none
+        }
+    }
+    &--noBar {
+        .mapWidget {
+            .mapWidget__mapWrapper {
+                height 100%
+            }
+        }
+    }
+}
+
 //.ol-control {
 //    button {
 //        background-color white

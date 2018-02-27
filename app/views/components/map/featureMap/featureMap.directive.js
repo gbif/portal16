@@ -22,7 +22,7 @@ function featureMapDirective(BUILD_VERSION) {
             features: '=',
             mapStyle: '=',
             circle: '=',
-            point: '=',
+            marker: '=',
             baselayer: '='
         },
         link: mapLink,
@@ -45,13 +45,9 @@ function featureMapDirective(BUILD_VERSION) {
             featureLayer,
             circleLayer;
 
-        vm.styleBreaks = {
-            breakpoints: [0, 700],
-            classes: ['isSmall', 'isLarge']
-        };
 
         $scope.create = function(element) {
-            map = createMap(element, vm.mapStyle, vm.baselayer, getSuggestedProjection(vm.point));
+            map = createMap(element, vm.mapStyle, vm.baselayer, getSuggestedProjection(vm.marker.point));
             addFeatureLayer();
         };
 
@@ -75,6 +71,27 @@ function featureMapDirective(BUILD_VERSION) {
             if (map && vm.circle) {
                 addFeatureLayer();
             }
+        });
+        $scope.$watch(function() {
+            return vm.marker;
+        }, function() {
+            if (map && vm.marker) {
+                var markerFeature = new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat(vm.marker.point)),
+                    message: vm.marker.message
+                });
+                markerFeature.setStyle(markerStyle);
+                var vectorSource = new ol.source.Vector({
+                    features: [markerFeature]
+                });
+
+                var vectorLayer = new ol.layer.Vector({
+                    source: vectorSource
+                });
+                map.addLayer(vectorLayer);
+                }
+
+            addPopUp(map);
         });
 
         function addFeatureLayer() {
@@ -122,8 +139,7 @@ function createMap(element, style, baseLayer, projection) {
     }
 
   if (typeof baseLayer !== 'undefined') {
-      addSimpleBaseLayer(map, baseLayer, currentProjection);
-     // map.addLayer(projections.createBaseLayer(baseLayer.url, currentProjection, baseLayer.params));
+     addSimpleBaseLayer(map, baseLayer, currentProjection);
   } else {
       map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {})));
   }
@@ -193,6 +209,16 @@ var image = new ol.style.Circle({
     stroke: new ol.style.Stroke({color: 'darkseagreen', width: 2})
 });
 
+var markerStyle = new ol.style.Style({
+    image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+        anchor: [0.5, 41],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        opacity: 1,
+        src: '/img/marker.png'
+    }))
+});
+
 var styles = {
     'Point': new ol.style.Style({
         image: image
@@ -248,24 +274,75 @@ var styles = {
     }),
     'Circle': new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'darkseagreen',
-            width: 2
+            color: 'rgba(255, 0, 0, 0.8)',
+            width: 1
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(113, 177, 113, 0.1)'
+            color: 'rgba(255, 0, 0, 0.1)'
         })
     })
 };
 
 function addSimpleBaseLayer(map, layer, projection) {
-
     map.addLayer(new ol.layer.Tile({
         source: new ol.source.XYZ({
             attributions: layer.attribution,
-            url: layer.url,
-            tilePixelRatio: 2
+            url: layer.url + querystring.stringify(layer.params),
+            tilePixelRatio: (isHighDensity()) ? 2 : 1
         })
     }));
+}
+
+function isHighDensity() {
+    return ((window.matchMedia
+            && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches
+            || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches))
+            || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
+}
+
+function addPopUp(map) {
+    var container = document.getElementById('popup');
+    var content = document.getElementById('popup-content');
+    var closer = document.getElementById('popup-closer');
+
+    /**
+     * Create an overlay to anchor the popup to the map.
+     */
+    var overlay = new ol.Overlay({
+        element: container,
+        autoPan: true,
+        autoPanAnimation: {
+            duration: 250
+        }
+    });
+
+    map.addOverlay(overlay);
+    /**
+     * Add a click handler to hide the popup.
+     * @return {boolean} Don't follow the href.
+     */
+    closer.onclick = function() {
+        overlay.setPosition(undefined);
+        closer.blur();
+        return false;
+    };
+
+    // display popup on click
+   map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function(feature) {
+                return feature;
+            });
+        if (feature && typeof feature.getGeometry().getCoordinates === 'function') {
+
+            var coordinates = feature.getGeometry().getCoordinates();
+            overlay.setPosition(coordinates);
+            content.innerHTML = feature.get('message');
+        } else {
+            overlay.setPosition(undefined);
+        }
+    });
+
 
 }
 

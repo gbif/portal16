@@ -37,7 +37,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     };
     vm.baselayer = {
         url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
-        attribution: '&copy; <a href=\'https://www.mapbox.com/\'>Mapbox</a> <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\'>OpenStreetMap contributors</a>',
+        attribution: '&copy; <a href=\'https://www.mapbox.com/\' class="inherit">Mapbox</a> <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\' class="inherit">OpenStreetMap contributors</a>',
         params: {
             access_token: accessToken
         }
@@ -76,37 +76,28 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     vm.paths = {};
 
     vm.markerMessage = {
-        template: '<dl class="occurrenceKey__markerMessage">{{coordinateUncertainty}}{{elevation}}</dl>',
-        coordinateUncertaintyTemplate: '<dt>Coordinate uncertainty</dt><dd>{{coordinateUncertainty}}m</dd>',
-        elevationTemplate: '<dt>Elevation<span>{{elevationSource}}</span></dt><dd>{{elevation}}</dd>',
-        elevationAccuracyTemplate: '<dt>Elevation<span>{{elevationSource}}</span></dt><dd>{{elevation}} ±{{elevationAccuracy}}m</dd>',
+        template: '<dl class="inline">{{coordinateUncertainty}}{{elevation}}</dl>',
+        coordinateUncertaintyTemplate: '<div><dt>Coordinate uncertainty</dt><dd> {{coordinateUncertainty}}m</dd></div>',
+        elevationTemplate: '<div><dt>Elevation</dt><dd> {{elevation}}</dd></div>',
         elevation: undefined
     };
-    vm.updateMarkerMessage = function() {
-        if (!vm.markers.taxon) {
-            return;
-        }
+    vm.getMarkerMessage = function() {
         var message, elevation = '', coordinateUncertainty = '';
 
         if (vm.data.coordinateUncertaintyInMeters) {
             coordinateUncertainty = vm.markerMessage.coordinateUncertaintyTemplate.replace('{{coordinateUncertainty}}', vm.data.coordinateUncertaintyInMeters);
         }
 
-        if (vm.markerMessage.elevation) {
-            var e = vm.markerMessage.elevation.elevation + 'm';
-            var eAccuracy = vm.markerMessage.elevation.elevationAccuracy;
-            var source = vm.markerMessage.elevation.source || '';
-            if (typeof eAccuracy !== 'undefined') {
-                elevation = vm.markerMessage.elevationAccuracyTemplate.replace('{{elevation}}', e).replace('{{elevationSource}}', source).replace('{{elevationAccuracy}}', eAccuracy);
-            } else {
-                elevation = vm.markerMessage.elevationTemplate.replace('{{elevation}}', e).replace('{{elevationSource}}', source);
-            }
+        if (vm.data.elevation) {
+            var e = vm.data.elevation + 'm';
+            elevation = vm.markerMessage.elevationTemplate.replace('{{elevation}}', e);
         }
 
         if ( elevation || coordinateUncertainty) {
             message = vm.markerMessage.template.replace('{{elevation}}', elevation).replace('{{coordinateUncertainty}}', coordinateUncertainty);
-            vm.markers.taxon.message = message;
+           // vm.markers.taxon.message = message;
         }
+        return message;
     };
 
     // create globe
@@ -152,7 +143,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                 elevation: vm.data.elevation,
                 elevationAccuracy: vm.data.elevationAccuracy
             };
-            vm.updateMarkerMessage();
+            vm.getMarkerMessage();
         }
     };
 
@@ -181,7 +172,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                 lng: data.decimalLongitude
             };
 
-           vm.point = [data.decimalLongitude, data.decimalLatitude];
+           vm.marker = {point: [data.decimalLongitude, data.decimalLatitude], message: vm.getMarkerMessage()};
         }
 
         if (data.footprintWKT && hasValidOrNoSRS(data)) {

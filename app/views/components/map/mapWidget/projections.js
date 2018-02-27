@@ -100,9 +100,6 @@ function get3857() {
         },
         getOccurrenceLayer: function(params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
-        },
-        getXYZlayer: function(url, params) {
-            getLayer(url, this, params, 'XYZ');
         }
     };
 }
@@ -203,13 +200,12 @@ function get3031() {
 }
 
 
-function getLayer(baseUrl, proj, params, type) {
+function getLayer(baseUrl, proj, params) {
     params = params || {};
-    type = type || 'TileImage';
     params.srs = proj.srs;
     var progress = params.progress;
     delete params.progress;
-    var source = new ol.source[type]({
+    var source = new ol.source.TileImage({
         projection: proj.projection,
         tileGrid: proj.tileGrid,
         tilePixelRatio: pixelRatio,

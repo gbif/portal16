@@ -2,7 +2,7 @@
     <!--<div class="map-area"></div>-->
 <!--</div>-->
 
-<div class="mapWidget" element-query="vm.styleBreaks" ng-style="vm.widgetContextStyle">
+<div class="mapWidget" >
     <div class="mapWidget__mapWrapper">
         <div class="mapWidget__spacer"></div>
         <div class="mapWidget__mapArea"></div>
@@ -12,7 +12,13 @@
             <a href="" ng-click="vm.zoomOut()">-</a>
         </div>
         <div class="mapWidget__info">
-            <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
+            <span ng-if="!vm.baselayer">© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
+            <span ng-if="vm.baselayer" ng-bind-html="vm.baselayer.attribution"></span>
         </div>
     </div>
+</div>
+
+<div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
 </div>
