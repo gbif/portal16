@@ -24,6 +24,7 @@ async function query(query) {
             }
         });
     }
+    // if user has decided to omit certain field, then remove those from the response.
     if (query.omit) {
         response.results.forEach(function(e) {
             if (e._resolved) {
@@ -31,6 +32,18 @@ async function query(query) {
             }
         });
     }
+    // if no explicit filters - then use the name field instead.
+    response.results.forEach(function(e) {
+        if (!e.filter) {
+            let filter = {};
+            filter[response.field] = e.name;
+            e.filter = filter;
+        }
+        if (!e.displayName) {
+            e.displayName = e.name;
+        }
+        delete e.name;
+    });
     return response;
 }
 

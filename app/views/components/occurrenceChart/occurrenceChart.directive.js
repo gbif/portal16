@@ -250,8 +250,8 @@ function occurrenceChartDirective(BUILD_VERSION) {
             }
 
             var lineData = _.zip(_.map(data.categories, function(e) {
-return Date.UTC(_.toSafeInteger(e), 0, 1);
-}), data.series[0].data);
+                return Date.UTC(_.toSafeInteger(e), 0, 1);
+            }), data.series[0].data);
             return {
                 chart: {
                     type: 'area',

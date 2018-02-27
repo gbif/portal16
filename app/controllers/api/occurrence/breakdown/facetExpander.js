@@ -3,6 +3,7 @@
 let i18n = require('../../../../../config/i18n'),
     _ = require('lodash'),
     config = require('./config'),
+    changeCase = require('change-case'),
     request = require('requestretry');
 
 module.exports = {
@@ -26,40 +27,41 @@ async function expandFacets(facets, __, includeFullObject) {
 
 async function expand(responseBody, __, includeFullObject) {
     __ = __ || i18n.__;
+    let fieldConstantCase = changeCase.constantCase(responseBody.field);
     // if enum then look up value
     // else get item from API
-    if (!_.has(config.fields[responseBody.field], 'type')) {
+    if (!_.has(config.fields[fieldConstantCase], 'type')) {
         // throw 'No such facet type configured';
         // default to raw
-        config.fields[responseBody.field] = {type: config.type.RAW};
+        config.fields[fieldConstantCase] = {type: config.type.RAW};
     }
 
     // Preprocess
     // Notice that sorting makes little sense if the list isn't exhaustive
-    if (config.fields[responseBody.field].ordering === 'NUMERIC') {
+    if (config.fields[fieldConstantCase].ordering === 'NUMERIC') {
         responseBody.results = _.sortBy(responseBody.results, function(e) {
             return _.toSafeInteger(e.name);
         });
     }
-    if (config.fields[responseBody.field].prune) {
-        _.remove(responseBody.results, config.fields[responseBody.field].prune);
+    if (config.fields[fieldConstantCase].prune) {
+        _.remove(responseBody.results, config.fields[fieldConstantCase].prune);
     }
 
     // resolve names
-    if (config.fields[responseBody.field].type == config.type.RAW) {
+    if (config.fields[fieldConstantCase].type == config.type.RAW) {
         responseBody.results.forEach(function(f) {
             f.displayName = f.name;
         });
         return responseBody;
-    } else if (config.fields[responseBody.field].type == config.type.ENUM) {
+    } else if (config.fields[fieldConstantCase].type == config.type.ENUM) {
         responseBody.results.forEach(function(f) {
-            let translationPath = config.fields[responseBody.field].translationPath.replace('{VALUE}', f.name);
+            let translationPath = config.fields[fieldConstantCase].translationPath.replace('{VALUE}', f.name);
             f.displayName = __(translationPath);
         });
         return responseBody;
-    } else if (config.fields[responseBody.field].type == config.type.KEY) {
+    } else if (config.fields[fieldConstantCase].type == config.type.KEY) {
         let facetPromises = responseBody.results.map(function(item) {
-            return addResolveUrl(item, config.fields[responseBody.field], includeFullObject);
+            return addResolveUrl(item, config.fields[fieldConstantCase], includeFullObject);
         });
         await Promise.all(facetPromises);
         return responseBody;

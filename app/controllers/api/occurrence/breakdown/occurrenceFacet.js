@@ -8,6 +8,7 @@ let _ = require('lodash'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     facetConfig = require('./config'),
+    changeCase = require('change-case'),
     facetExpander = require('./facetExpander'),
     log = require('../../../../../config/log');
 
@@ -72,7 +73,7 @@ function composeResult(query, body) {
     // });
     return {
         results: body.facets[0].counts.slice(0, query.facetLimit - 1),
-        field: body.facets[0].field,
+        field: changeCase.snakeCase(body.facets[0].field),
         limit: query.facetLimit - 1,
         offset: query.facetOffset,
         endOfRecords: body.facets[0].counts.length < query.facetLimit,
