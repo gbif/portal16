@@ -57,7 +57,7 @@ function createMap(element, options) {
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom: false}),
+        controls: ol.control.defaults({zoom: false, attribution: false}),
         interactions: interactions
     });
     window.map = map;

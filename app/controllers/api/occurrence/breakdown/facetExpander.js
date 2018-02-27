@@ -34,7 +34,8 @@ async function expand(responseBody, __, includeFullObject) {
         config.fields[responseBody.field] = {type: config.type.RAW};
     }
 
-    // preprocess
+    // Preprocess
+    // Notice that sorting makes little sense if the list isn't exhaustive
     if (config.fields[responseBody.field].ordering === 'NUMERIC') {
         responseBody.results = _.sortBy(responseBody.results, function(e) {
             return _.toSafeInteger(e.name);
