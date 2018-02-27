@@ -74,10 +74,13 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
     function occurrenceBreakdown($timeout, $state, $scope, OccurrenceBreakdown, Highcharts) {
         var vm = this;
         var UPDATE_DELAY_TIME = 500;
-        vm.state = {};
+        vm.state = {
+            type: 'BAR'
+        };
 
         $scope.create = function(element) {
             vm.chartElement = element[0].querySelector('.chartArea');
+            vm.dimension = vm.options.dimension;
             updateChart();
         };
 
@@ -91,7 +94,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
 
         function updateContent() {
             // Validate provided options. If wrong, then show an error message instead
-            var q = _.assign(vm.options.filter, {dimension: vm.options.dimension});
+            var q = _.assign(vm.options.filter, {dimension: vm.dimension}, _.get(config, 'dimensionParams[' + vm.dimension + ']', {}));
             if (vm.content && vm.content.$cancelRequest) {
                 vm.content.$cancelRequest();
             }
@@ -105,6 +108,11 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                         console.error('failed to load data : ' + err);
                     }
                 });
+        }
+
+        function changeChartType(type) {
+            console.log('chart type changed to ' + type);
+            vm.state.type = type;
         }
 
         /* WATCH FILTERS FOR CHANGES */
@@ -121,9 +129,16 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         });
 
         $scope.$watch(function() {
+            return vm.options.dimension;
+        }, function() {
+            vm.dimension = vm.options.dimension;
+            updateContent();
+        });
+
+        $scope.$watch(function() {
             return vm.options.type;
         }, function() {
-            console.log('change type');
+            vm.type = vm.options.type;
         });
 
         /* GENERATE API TO EXPOSE TO DIRECTIVE USER */
@@ -134,13 +149,25 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             };
 
             vm.api.getDimension = function() {
-                console.log(vm.options);
-                return vm.options.dimension;
+                // console.log(vm.options);
+                return vm.dimension;
+            };
+
+            vm.api.setDimension = function(dimension) {
+                vm.dimension = dimension;
+            };
+
+            vm.api.setChartType = function(type) {
+                if (config.supportedTypes[vm.dimension].indexOf(type) > -1) {
+                    changeChartType(type);
+                } else {
+                    console.log('Attempting to change to a not supported chart type - request ignored');
+                }
             };
 
             // vm.api.isSupported = function() {
             //     console.log(vm.options);
-            //     return vm.options.dimension;
+            //     return vm.dimension;
             // };
 
             vm.api.options = config;

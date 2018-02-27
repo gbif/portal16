@@ -2,6 +2,7 @@
 
 
 var angular = require('angular');
+var config = require('../config');
 
 angular
     .module('portal')
@@ -27,10 +28,16 @@ function occurrenceBreakdownHeaderDirective(BUILD_VERSION) {
     /** @ngInject */
     function occurrenceBreakdownHeader($scope) {
         var vm = this;
+        vm.config = config;
 
         vm.isSupported = function(type) {
-            return vm.api.options.supportedTypes[vm.api.getDimension()].indexOf(type) > -1;
+            if (vm.api.getDimension) {
+                return config.supportedTypes[vm.api.getDimension()].indexOf(type) > -1;
+            } else {
+                return false;
+            }
         };
+
         // vm.exportOptions = [{
         //    textKey: 'printChart',
         //    onclick: function () {

@@ -83,9 +83,10 @@
             <div style="border:2px solid deepskyblue; margin:10px;padding:10px;">
                 {{occCharts.api}}
             </div>
-            <occurrence-breakdown-header api="occCharts.api"></occurrence-breakdown-header>
-            <occurrence-breakdown options="{dimension: 'basisOfRecord', type: 'BAR', filter: occCharts.state.query }" api="occCharts.api"></occurrence-breakdown>
+            <occurrence-breakdown-header api="occCharts.api" options="occCharts.options"></occurrence-breakdown-header>
+            <occurrence-breakdown options="occCharts.options" api="occCharts.api"></occurrence-breakdown>
         </div>
+        <button ng-click="occCharts.options1.dimension = 'month'">click</button>
 
         <!--<div>-->
             <!--<div style="border:2px solid deepskyblue; margin:10px;padding:10px;">-->

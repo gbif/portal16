@@ -18,7 +18,7 @@ router.get('/resource/search', function(req, res) {
             res.json(result);
         })
         .catch(function(err) {
-            console.trace(err.message);
+            //console.trace(err.message);// TODO log as this shouldne happen
             // console.log(JSON.stringify(req.query, null, 2));
             res.status(500);
             res.send('Unable to parse query');
@@ -38,7 +38,7 @@ router.get('/resource/key/search', function(req, res) {
             let parsedResult = transformResult(results, type, preferedLocale);
             res.json(parsedResult);
         }, function(err) {
-            console.trace(err);
+            // console.trace(err); // TODO log as this shouldne happen
             res.status(500);
             res.send(err.message);
         });
