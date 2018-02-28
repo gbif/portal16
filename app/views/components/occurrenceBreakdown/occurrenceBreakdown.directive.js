@@ -40,6 +40,7 @@ Builder:
 var angular = require('angular');
 var _ = require('lodash');
 var config = require('./config');
+var serializer = require('./serializer');
 
 require('./header/occurrenceBreakdownHeader.directive');
 
@@ -90,6 +91,9 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         function updateChart() {
             // Validate provided options. If wrong, then show an error message instead
             updateContent();
+            var str = serializer.serialize(vm.dimension, vm.options.type, 0, 0, 10);
+            console.log(str);
+            console.log(serializer.deserialize(str));
         }
 
         function updateContent() {
@@ -114,6 +118,10 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             console.log('chart type changed to ' + type);
             vm.state.type = type;
         }
+
+        vm.getFacetFilter = function(filter) {
+            return _.assign({}, vm.options.filter, filter);
+        };
 
         /* WATCH FILTERS FOR CHANGES */
         var delayedFilterTimer;

@@ -13,20 +13,25 @@ var enums = {
 };
 
 var config = {
-    dimensions: ['basisOfRecord', 'country', 'taxonKey', 'decimalLatitude', 'issue', 'datasetKey', 'month'],
+    dimensions: ['basisOfRecord', 'country', 'taxonKey', 'decimalLatitude', 'issue', 'datasetKey', 'month', 'year', 'elevation'],
     chartTypes: [BAR, COLUMN, PIE, TABLE],
     printableTypes: [BAR, COLUMN, PIE],
     supportedTypes: {
         basisOfRecord: [BAR, COLUMN, PIE, TABLE],
         month: [COLUMN, PIE],
         country: [TABLE],
-        speciesKey: [TABLE],
+        taxonKey: [TABLE],
         decimalLatitude: [BAR],
         issue: [BAR, COLUMN, PIE, TABLE],
-        datasetKey: [BAR, TABLE]
+        datasetKey: [BAR, TABLE],
+        year: [COLUMN, TABLE],
+        elevation: [BAR, TABLE]
     },
     dimensionParams: {
         decimalLatitude: {
+            buckets: 10
+        },
+        elevation: {
             buckets: 10
         }
     },

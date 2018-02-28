@@ -2,7 +2,7 @@
     <h4>Occurrence breakdown chart</h4>
     <div class="chartArea">
         <ul>
-            <li ng-repeat="item in vm.content.results"><a ng-href="/occurrence/charts?{{vm.content.field}}={{item.filter[vm.content.field]}}">{{ item.displayName }}</a> {{item.count}}</li>
+            <li ng-repeat="item in vm.content.results"><a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(item.filter))">{{ item.displayName }}</a> {{item.count}}</li>
         </ul>
     </div>
     <div>
