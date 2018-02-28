@@ -1,9 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
-    parseGeometry = require('wellknown'),
     _ = require('lodash'),
-    ol = require('openlayers'),
     globeCreator = require('../../../components/map/basic/globe');
 
 angular
@@ -11,7 +9,7 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
+function occurrenceKeyCtrl(env, hotkeys) {
     var vm = this,
         globe,
         globeCanvas = document.querySelector('.occurrenceKey__map .globe');
@@ -20,14 +18,9 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     };
     vm.mediaItems = {};
     vm.dataApi = env.dataApi;
-    // vm.similarities = {
-    //    similarRecords: []
-    // };
+
     vm.hideDetails = true;
 
-    // vm.SimilarOccurrence = SimilarOccurrence;//.getSimilar({TAXONKEY: 2435146});
-    vm.center = {zoom: 7, lat: 0, lng: 0};
-    vm.markers = {};
     var accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
     vm.highlights = {
@@ -37,43 +30,12 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     };
     vm.baselayer = {
         url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
-        attribution: '&copy; <a href=\'https://www.mapbox.com/\' class="inherit">Mapbox</a> <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\' class="inherit">OpenStreetMap contributors</a>',
+        attribution: '&copy; <a href=\'https://www.mapbox.com/\' class="inherit">Mapbox</a> '
+        + '<a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\' class="inherit">OpenStreetMap contributors</a>',
         params: {
             access_token: accessToken
         }
-    }
-   /* vm.tiles = {
-        'name': 'Outdoor',
-        'url': 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=' + accessToken,
-        'options': {
-            attribution: '&copy; <a href=\'https://www.mapbox.com/\'>Mapbox</a> <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\'>OpenStreetMap contributors</a>',
-            detectRetina: false // TODO can this be fixed? Currently the mapbox retina tiles have such a small text size that I'd prefer blurry maps that I can read
-        },
-        'type': 'xyz',
-        'layerOptions': {
-            'showOnSelector': false,
-            'palette': 'yellows_reds'
-        }
-    }; */
-    vm.mapDefaults = {
-        zoomControlPosition: 'topleft',
-        scrollWheelZoom: false
     };
-    vm.mapEvents = {
-        map: {
-            enable: [], // https://github.com/tombatossals/angular-leaflet-directive/issues/1033
-            logic: 'broadcast'
-        },
-        marker: {
-            enable: [],
-            logic: 'broadcast'
-        }
-    };
-    vm.controls = {
-        scale: true
-    };
-
-    vm.paths = {};
 
     vm.markerMessage = {
         template: '<dl class="inline">{{coordinateUncertainty}}{{elevation}}</dl>',
@@ -109,12 +71,6 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     }
 
 
-    // vm.tilePosStyle = {};
-    vm.data;
-    // vm.table = {
-    //    filter: undefined
-    // };
-
     hotkeys.add({
         combo: 'alt+d',
         description: 'Show record details',
@@ -125,6 +81,10 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     });
     vm.verbatim = gb.occurrenceRecordVerbatim;
     vm.data = gb.occurrenceRecord;
+    vm.center = {
+        zoom: 6,
+        point: [vm.data.decimalLongitude, vm.data.decimalLatitude]
+    };
 
     if ((typeof vm.data.footprintWKT === 'undefined' || !hasValidOrNoSRS(vm.data)) && (typeof vm.data.decimalLatitude === 'undefined' || typeof vm.data.decimalLongitude === 'undefined')) {
         vm.hideMap = true;
@@ -161,75 +121,21 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     }
     function setMap(data) {
         if (typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined') {
-            vm.markers.taxon = {
-                lat: data.decimalLatitude,
-                lng: data.decimalLongitude,
-                focus: false
-            };
-            vm.center = {
-                zoom: 6,
-                lat: data.decimalLatitude,
-                lng: data.decimalLongitude
-            };
-
            vm.marker = {point: [data.decimalLongitude, data.decimalLatitude], message: vm.getMarkerMessage()};
         }
 
         if (data.footprintWKT && hasValidOrNoSRS(data)) {
-            try {
-                var geojsonGeometry = parseStringToWKTs(data.footprintWKT);
-                vm.geoJson = {
-                    'type': 'FeatureCollection',
-                    'features': [geojsonGeometry]
-                };
-                leafletData.getMap('occurrenceMap')
-                    .then(function(map) {
-                        var layer;
-                        try {
-                            layer = L.GeoJSON.geometryToLayer(geojsonGeometry);
-                            layer.addTo(map);
-                            var ext = layer.getBounds();
-                            map.fitBounds(ext);
-                        } catch (err) {
-                            vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
-                            //  console.log(err.message)
-                            //   console.log('Unparsable footprintWKT')
-                        }
-                    }).catch(function(err) {
-                    // no coordinates and the WKT is invalid
-                    vm.hideMap = !(typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
-                    throw err;
-                });
-            } catch (err) {
-                // console.log(err.message)
-                //  console.log('Unparsable footprintWKT')
-            }
+            vm.wkt = data.footprintWKT;
+
         } else if (data.coordinateUncertaintyInMeters > 50) {
-            vm.paths.c1 = {
-                weight: 2,
-                color: '#ff612f',
-                latlngs: {
-                    lat: data.decimalLatitude,
-                    lng: data.decimalLongitude
-                },
-                radius: data.coordinateUncertaintyInMeters,
-                type: 'circle'
-            };
-            // vm.geoJson.features.push({type: 'Circle', radius: data.coordinateUncertaintyInMeters, coordinates: [data.decimalLongitude, data.decimalLatitude]});
             vm.circle = {
                 coordinates: [data.decimalLongitude, data.decimalLatitude],
                 radius: data.coordinateUncertaintyInMeters
             };
         }
         // set static marker
-        leafletData.getMap('occurrenceMap').then(function(map) {
-            // var a= L.latLng(data.decimalLatitude, data.decimalLongitude);
-            // var projPos = map.project(a, 0);
-            // vm.tilePosStyle = {
-            //    left: projPos.x/2.56 + '%',
-            //    top: projPos.y/2.56 + '%',
-            //    display: 'block'
-            // };
+     /*   leafletData.getMap('occurrenceMap').then(function(map) {
+
             // attach globe to map
             if (globe) {
                 globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
@@ -242,23 +148,10 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                 map.scrollWheelZoom.enable();
             });
         });
+        */
     }
 
-    function parseStringToWKTs(str) {
-        var geojsonGeometry;
-        try {
-            geojsonGeometry = parseGeometry(str);
-            if (geojsonGeometry) {
-                return geojsonGeometry;
-            } else {
-                throw 'Not valid wkt';
-            }
-        } catch (err) {
-            return {
-                error: 'FAILED_PARSING'
-            };
-        }
-    }
+
 }
 
 module.exports = occurrenceKeyCtrl;

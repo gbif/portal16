@@ -12,6 +12,8 @@ angular
     .module('portal')
     .directive('featureMap', featureMapDirective);
 
+var projection;
+
 /** @ngInject */
 function featureMapDirective(BUILD_VERSION) {
     var directive = {
@@ -20,10 +22,12 @@ function featureMapDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/map/featureMap/featureMap.html?v=' + BUILD_VERSION,
         scope: {
             features: '=',
+            wkt: '=',
             mapStyle: '=',
             circle: '=',
             marker: '=',
-            baselayer: '='
+            baselayer: '=',
+            mapcenter: '='
         },
         link: mapLink,
         controller: featureMap,
@@ -43,11 +47,13 @@ function featureMapDirective(BUILD_VERSION) {
         var vm = this,
             map,
             featureLayer,
-            circleLayer;
+            circleLayer,
+            wktLayer;
 
 
         $scope.create = function(element) {
-            map = createMap(element, vm.mapStyle, vm.baselayer, getSuggestedProjection(vm.marker.point));
+            projection = (vm.baselayer) ? projections.EPSG_3857 : projections.EPSG_4326;
+            map = createMap(element, vm.mapStyle, vm.baselayer, projection);
             addFeatureLayer();
         };
 
@@ -73,6 +79,13 @@ function featureMapDirective(BUILD_VERSION) {
             }
         });
         $scope.$watch(function() {
+            return vm.wkt;
+        }, function() {
+            if (map && vm.wkt) {
+                addFeatureLayer();
+            }
+        });
+        $scope.$watch(function() {
             return vm.marker;
         }, function() {
             if (map && vm.marker) {
@@ -89,9 +102,12 @@ function featureMapDirective(BUILD_VERSION) {
                     source: vectorSource
                 });
                 map.addLayer(vectorLayer);
+                map.getView().fit(vectorLayer.getSource().getExtent());
+                map.getView().setZoom(6);
+                if (vm.marker.message) {
+                    addPopUp(map);
                 }
-
-            addPopUp(map);
+            }
         });
 
         function addFeatureLayer() {
@@ -100,6 +116,9 @@ function featureMapDirective(BUILD_VERSION) {
             }
             if (!circleLayer && typeof vm.circle !== 'undefined') {
                 circleLayer = setCircle(map, vm.circle);
+            }
+            if (!wktLayer && typeof vm.wkt !== 'undefined') {
+                wktLayer = setWKT(map, vm.wkt);
             }
         }
 
@@ -115,10 +134,6 @@ function featureMapDirective(BUILD_VERSION) {
     }
 }
 
-function getSuggestedProjection(point) {
-       // return projections.EPSG_4326;
-  return (typeof point !== 'undefined' && point[1] < 85 && point[1] > -85) ? projections.EPSG_3857 : projections.EPSG_4326;
-}
 
 function createMap(element, style, baseLayer, projection) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
@@ -138,18 +153,18 @@ function createMap(element, style, baseLayer, projection) {
         map.getView().fit(currentProjection.fitExtent, {constrainResolution: false, maxZoom: 12, minZoom: 0});
     }
 
-  if (typeof baseLayer !== 'undefined') {
-     addSimpleBaseLayer(map, baseLayer, currentProjection);
-  } else {
-      map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {})));
-  }
+    if (typeof baseLayer !== 'undefined') {
+        addSimpleBaseLayer(map, baseLayer, currentProjection);
+    } else {
+        map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {})));
+    }
     window.featureMap = map;
     console.log(map.getView().getProjection().getMetersPerUnit());
     return map;
 }
 
 function metersToRadius(map, meters) {
-   return meters / map.getView().getProjection().getMetersPerUnit();
+    return meters / map.getView().getProjection().getMetersPerUnit();
 }
 
 function lonLatToCurrentProjection(map, point) {
@@ -179,6 +194,24 @@ function setFeatures(map, features) {
     // return layer;
 }
 
+function setWKT(map, wkt) {
+    var vectorSource = new ol.source.Vector({
+        features: [new ol.format.WKT().readFeature(wkt, {
+            dataProjection: 'EPSG:4326',
+            featureProjection: 'EPSG:3857'
+        })]
+    });
+    var vectorLayer = new ol.layer.Vector({
+        source: vectorSource,
+        style: styleFunction
+    });
+    map.addLayer(vectorLayer);
+    map.getView().fit(vectorLayer.getSource().getExtent());
+    var currentZoom = map.getView().getZoom();
+    var newZoom = currentZoom > 6 ? currentZoom - 1.5 : currentZoom - 0.5;
+    map.getView().setZoom(Math.max(newZoom, 0));
+}
+
 function setCircle(map, circle) {
     var vectorSource = new ol.source.Vector({});
     var vectorLayer = new ol.layer.Vector({
@@ -196,11 +229,12 @@ function setCircle(map, circle) {
             fill: new ol.style.Fill({
                 color: 'rgba(113, 177, 113, 0.1)'
             })
-        })}));
-       map.getView().fit(vectorLayer.getSource().getExtent());
-      var currentZoom = map.getView().getZoom();
-       var newZoom = currentZoom > 6 ? currentZoom - 1.5 : currentZoom - 0.5;
-      map.getView().setZoom(Math.max(newZoom, 0));
+        })
+    }));
+    map.getView().fit(vectorLayer.getSource().getExtent());
+    //  var currentZoom = map.getView().getZoom();
+    //  var newZoom = currentZoom > 6 ? currentZoom - 1.5 : currentZoom - 0.5;
+    map.getView().setZoom(6);
 }
 
 var image = new ol.style.Circle({
@@ -240,20 +274,20 @@ var styles = {
     }),
     'MultiPolygon': new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'darkseagreen',
+            color: 'rgb(0,0,255)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(113, 177, 113, 0.1)'
+            color: 'rgba(0,0,255, 0.1)'
         })
     }),
     'Polygon': new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'darkseagreen',
+            color: 'rgb(0,0,255)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(113, 177, 113, 0.1)'
+            color: 'rgba(0,0,255, 0.1)'
         })
     }),
     'GeometryCollection': new ol.style.Style({
@@ -295,9 +329,10 @@ function addSimpleBaseLayer(map, layer, projection) {
 
 function isHighDensity() {
     return ((window.matchMedia
-            && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches
-            || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches))
-            || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
+    && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches
+    || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), '
+        + 'only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches))
+    || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
 }
 
 function addPopUp(map) {
@@ -328,13 +363,12 @@ function addPopUp(map) {
     };
 
     // display popup on click
-   map.on('click', function(evt) {
+    map.on('click', function(evt) {
         var feature = map.forEachFeatureAtPixel(evt.pixel,
             function(feature) {
                 return feature;
             });
-        if (feature && typeof feature.getGeometry().getCoordinates === 'function') {
-
+        if (feature && typeof feature.getGeometry().getCoordinates === 'function' && feature.get('message')) {
             var coordinates = feature.getGeometry().getCoordinates();
             overlay.setPosition(coordinates);
             content.innerHTML = feature.get('message');
@@ -342,8 +376,6 @@ function addPopUp(map) {
             overlay.setPosition(undefined);
         }
     });
-
-
 }
 
 var styleFunction = function(feature) {

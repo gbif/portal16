@@ -15,7 +15,7 @@
                         event-broadcast="occurrence.mapEvents"
                         controls="occurrence.controls"
                 ></leaflet> -->
-                <feature-map class="occurrenceKey__map fitContainer" features="occurrence.geoJson" circle="occurrence.circle" marker="occurrence.marker" baseLayer="occurrence.baselayer" mapstyle="'light'"></feature-map>
+                <feature-map class="occurrenceKey__map fitContainer" features="occurrence.geoJson" wkt="occurrence.wkt" circle="occurrence.circle" marker="occurrence.marker" baseLayer="occurrence.baselayer" mapcenter="occurrence.center" mapstyle="'light'"></feature-map>
 
                 <div class="globe-context">
                     <canvas class="globe"></canvas>
