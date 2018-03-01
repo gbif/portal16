@@ -48,7 +48,7 @@
                 </p>
                 <p>
                     Internally we use a
-                    <a href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client" target="_blank">Java
+                    <a href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client">Java
                         web service client</a>
                     for the consumption of these HTTP-based, RESTful web services.
                 </p>
@@ -159,7 +159,7 @@
                         services. It may
                         be of interest to those coding against the API, and can be found in the <a
                                 href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client"
-                                target="_blank">occurrence-download-ws-client</a>.
+                                >occurrence-download-ws-client</a>.
                     </p>
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(params=false) $}
@@ -230,11 +230,11 @@
                         {% call trowM(url="/occurrence/count", resp="Count", respLink=apiBase+"occurrence/count") %}
                         Returns occurrence counts for a predefined set of dimensions.
                         The supported dimensions are enumerated in the <a href="{$ apiBase $}occurrence/count/schema"
-                                                                          target="_blank">/occurrence/count/schema</a>
+                                                                          >/occurrence/count/schema</a>
                         service.
                         An example for the count of georeferenced observations from Canada: <a
                                 href="{$ apiBase $}occurrence/count?country=CA&amp;isGeoreferenced=true&amp;basisOfRecord=OBSERVATION"
-                                target="_blank">/occurrence/count?country=CA&amp;isGeoreferenced=true&amp;basisOfRecord=OBSERVATION</a>.
+                                >/occurrence/count?country=CA&amp;isGeoreferenced=true&amp;basisOfRecord=OBSERVATION</a>.
                         {% endcall %}
 
                         {% call trowM(url="/occurrence/count/schema", resp="Count", respLink=apiBase+"occurrence/count/schema") %}
@@ -295,13 +295,13 @@
                     href='/developer/summary#common'>range queries</a>.",
             "country": "The 2-letter country code (as per <a
                     href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'
-                    target='_blank'>ISO-3166-1</a>) of the country in which the occurrence was recorded.",
-            "continent": "Continent, as defined in our <a href='"+apidocs+"/vocabulary/Continent.html' target='_blank'>Continent
+                   >ISO-3166-1</a>) of the country in which the occurrence was recorded.",
+            "continent": "Continent, as defined in our <a href='"+apidocs+"/vocabulary/Continent.html'>Continent
                 enum</a>",
             "nubKey": "A taxon key from the GBIF backbone.",
             "publishingCountry" : "The 2-letter country code (as per <a
                     href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'
-                    target='_blank'>ISO-3166-1</a>) of the owining organization's country.",
+                   >ISO-3166-1</a>) of the owining organization's country.",
             "publishingOrg": "The publishing organization key (a uuid).",
             "crawlId": "Crawl attempt that harvested this record.",
             "elevation": "Elevation (altitude) in meters above sea level. Supports <a href='/developer/summary#common'>range
@@ -309,7 +309,7 @@
             "depth" : "Depth in meters relative to altitude. For example 10 meters below a lake surface with given
             altitude. Supports <a href='/developer/summary#common'>range queries</a>.",
             "establishmentMeans": "EstablishmentMeans, as defined in our <a
-                    href='"+apidocs+"/vocabulary/EstablishmentMeans.html' target='_blank'>EstablishmentMeans enum</a>",
+                    href='"+apidocs+"/vocabulary/EstablishmentMeans.html'>EstablishmentMeans enum</a>",
             "occurrenceID" : "A single globally unique identifier for the occurrence record as provided by the
             publisher.",
             "organismId": "An identifier for the Organism instance (as opposed to a particular digital record of the
@@ -324,7 +324,7 @@
             "recordedBy": "The person who recorded the occurrence.",
             "recordNumber": "An identifier given to the record at the time it was recorded in the field.",
             "basisOfRecord": "Basis of record, as defined in our <a href='"+apidocs+"/vocabulary/BasisOfRecord.html'
-                                                                    target='_blank'>BasisOfRecord enum</a>",
+                                                                   >BasisOfRecord enum</a>",
             "protocol":"Protocol or mechanism used to provide the occurrence record.",
             "license": "The type license applied to the dataset or record.",
             "locality": "The specific description of the place.",
@@ -333,7 +333,7 @@
             department, region, etc.) in which the Location occurs.",
             "taxonKey": "A taxon key from the GBIF backbone. All included and synonym taxa are included in the search,
             so a search for aves with taxonKey=212 (i.e. <a href='"+apiBase+"occurrence/search?taxonKey=212'
-                                                            target='_blank'>/occurrence/search?taxonKey=212</a>) will
+                                                           >/occurrence/search?taxonKey=212</a>) will
             match all birds, no matter which species.",
             "scientificName": "A scientific name from the <a href='/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c'>GBIF
                 backbone</a>. All included and synonym taxa are included in the search. Under the hood a call to the <a
@@ -347,15 +347,15 @@
             POINT, LINESTRING, LINEARRING, POLYGON and MULTIPOLYGON are accepted WKT types. For example, a shape written
             as POLYGON ((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1)) would be queried as is, i.e. <a
                     href='{$ apiBase $}occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))'
-                    target='_blank'>/occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))</a>.",
+                   >/occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))</a>.",
             "hasGeospatialIssue": "Includes/excludes occurrence records which contain spatial issues (as determined in
             our record interpretation), i.e. hasGeospatialIssue=true returns only those records with spatial issues
             while hasGeospatialIssue=false includes only records without spatial issues. The absence of this parameter
             returns any record with or without spatial issues.",
             "issue": "A specific interpretation issue as defined in our <a
-                    href='"+apidocs+"/vocabulary/OccurrenceIssue.html' target='_blank'>OccurrenceIssue enum</a>",
+                    href='"+apidocs+"/vocabulary/OccurrenceIssue.html'>OccurrenceIssue enum</a>",
             "mediaType": "The kind of multimedia associated with an occurrence as defined in our <a
-                    href='"+apidocs+"/vocabulary/MediaType.html' target='_blank'>MediaType enum</a>",
+                    href='"+apidocs+"/vocabulary/MediaType.html'>MediaType enum</a>",
             "typeStatus": "Nomenclatural type (type status, typified scientific name, publication) applied to the
             subject.",
             "kingdomKey": "Kingdom classification key.",

@@ -28,7 +28,7 @@
     <tr>
         <td class="nowrap">{$ url $}</td>
         <td class="nowrap">{$ httpMethod | upper $}</td>
-        <td class="wordwrap">{% if respLink %}<a href="{$ respLink $}" target="_blank">{$ resp
+        <td class="wordwrap">{% if respLink %}<a href="{$ respLink $}">{$ resp
                 $}</a>{% else %}{$ resp $}{% endif %}</td>
         <td>{$ description $}</td>
         {% if authRequired != undefined %}
@@ -53,9 +53,9 @@
         <div class="container--narrow">
             {% if addSearchParams %}
                 {% set params = params | merge({
-                "hl": "Set hl=true to highlight terms matching the query when in fulltext search fields. The highlight will be an emphasis tag of class 'gbifH1' e.g. <a href='{$ action.cfg.apiBaseUrl $}dataset/search?q=plant&amp;hl=true' target='_blank'>/search?q=plant&amp;hl=true</a>. Fulltext search fields include: title, keyword, country, publishing country, publishing organization title, hosting organization title, and description. One additional full text field is searched which includes information from metadata documents, but the text of this field is not returned in the response.",
-                "facetMincount": "Used in combination with the facet parameter. Set facetMincount={#} to exclude facets with a count less than {#}, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;facetMincount=10000' target='_blank'>/search?facet=type&amp;limit=0&amp;facetMincount=10000</a> only shows the type value 'OCCURRENCE' because 'CHECKLIST' and 'METADATA' have counts less than 10000.",
-                "facetMultiselect": "Used in combination with the facet parameter. Set facetMultiselect=true to still return counts for values that are not currently filtered, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true' target='_blank'>/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true</a> still shows type values 'OCCURRENCE' and 'METADATA' even though type is being filtered by type=CHECKLIST"
+                "hl": "Set hl=true to highlight terms matching the query when in fulltext search fields. The highlight will be an emphasis tag of class 'gbifH1' e.g. <a href='"+apiBase+"dataset/search?q=plant&amp;hl=true'>/search?q=plant&amp;hl=true</a>. Fulltext search fields include: title, keyword, country, publishing country, publishing organization title, hosting organization title, and description. One additional full text field is searched which includes information from metadata documents, but the text of this field is not returned in the response.",
+                "facetMincount": "Used in combination with the facet parameter. Set facetMincount={#} to exclude facets with a count less than {#}, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;facetMincount=10000'>/search?facet=type&amp;limit=0&amp;facetMincount=10000</a> only shows the type value 'OCCURRENCE' because 'CHECKLIST' and 'METADATA' have counts less than 10000.",
+                "facetMultiselect": "Used in combination with the facet parameter. Set facetMultiselect=true to still return counts for values that are not currently filtered, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true'>/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true</a> still shows type values 'OCCURRENCE' and 'METADATA' even though type is being filtered by type=CHECKLIST"
                 }) %}
             {% endif %}
             <h3>Query parameters explained</h3>
