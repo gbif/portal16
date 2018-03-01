@@ -20,5 +20,9 @@
     {% if occurrence.record.individualCount > 1 %}
         <span class="badge">{$ occurrence.record.individualCount $}</span>
     {% endif %}
-    {$ occurrence.computedFields.title.verb $} {$ occurrence.computedFields.title.location $}
+    {% if occurrence.record.individualCount == 0 or occurrence.record.occurrenceStatus == 'absent' %}
+        <span class="text-error">Absent</span>
+    {% else %}
+        {$ occurrence.computedFields.title.verb $} {$ occurrence.computedFields.title.location $}
+    {% endif %}
 </div>

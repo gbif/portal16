@@ -88,6 +88,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'occurrenceDatasetsCtrl',
             controllerAs: 'occDatasets'
         })
+        .state('occurrenceSearchCharts', {
+            parent: 'occurrenceSearch',
+            url: '/charts',
+            templateUrl: '/templates/pages/occurrence/charts/occurrenceCharts.html?v=' + BUILD_VERSION,
+            controller: 'occurrenceChartsCtrl',
+            controllerAs: 'occCharts'
+        })
         .state('occurrenceSearchDownload', {
             parent: 'occurrenceSearch',
             url: '/download',

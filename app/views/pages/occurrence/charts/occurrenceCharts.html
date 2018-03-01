@@ -1,0 +1,99 @@
+<div class="wrapper-horizontal-stripes occurrence-search__table">
+
+    <section class="horizontal-stripe--paddingless white-background search-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__lower" ng-if="occCharts.hasTableData()">
+                            {{occCharts.state.table.count | localNumber:occCharts.state.query.locale }} results
+                        </span>
+
+                        <span class="article-header__category__lower" ng-if="!occCharts.hasTableData()">
+                            Loading ...
+                        </span>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="horizontal-stripe--paddingless white-background">
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchTable()">
+                                Table
+                            </a>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchGallery()">
+                                Gallery
+                            </a>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchMap()">
+                                Map
+                            </a>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchSpecies()">
+                                Taxonomy
+                            </a>
+                        </li>
+
+                        <li class="tab isActive">
+                            <span>
+                                Charts
+                            </span>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchDownload()">
+                                <span class="gb-icon-file-download"></span>
+                                <span>
+                                    Download
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="horizontal-stripe--paddingless lighter-background" ng-if="!portal.hasRole('REGISTRY_ADMIN')">
+        <div class="emptyInfo">
+            <h3>Under development</h3>
+            <p>Log in as registry administrator to explore</p>
+        </div>
+    </section>
+    <section class="horizontal-stripe--paddingless lighter-background" ng-if="portal.hasRole('REGISTRY_ADMIN')">
+        <div>
+            <h1>Tests</h1>
+        </div>
+        <div>
+            <div style="border:2px solid deepskyblue; margin:10px;padding:10px;">
+                {{occCharts.api}}
+            </div>
+            <occurrence-breakdown-header api="occCharts.api" options="occCharts.options"></occurrence-breakdown-header>
+            <occurrence-breakdown options="occCharts.options" api="occCharts.api"></occurrence-breakdown>
+        </div>
+        <button ng-click="occCharts.options1.dimension = 'month'">click</button>
+
+        <!--<div>-->
+            <!--<div style="border:2px solid deepskyblue; margin:10px;padding:10px;">-->
+                <!--{{occCharts.api2}}-->
+            <!--</div>-->
+            <!--<occurrence-breakdown-header api="occCharts.api2"></occurrence-breakdown-header>-->
+            <!--<occurrence-breakdown options="{dimension: 'country', type: 'COLUMN', filter: occCharts.state.query }" api="occCharts.api2"></occurrence-breakdown>-->
+        <!--</div>-->
+    </section>
+</div>

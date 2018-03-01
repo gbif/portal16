@@ -1,5 +1,13 @@
 'use strict';
 var angular = require('angular');
+require('./table/occurrenceTable.ctrl');
+require('./gallery/occurrenceGallery.ctrl');
+require('./map/occurrenceMap.ctrl');
+require('./species/occurrenceSpecies.ctrl');
+require('./datasets/occurrenceDatasets.ctrl');
+require('./download/occurrenceDownload.ctrl');
+require('./charts/occurrenceCharts.ctrl');
+require('../../components/occurrenceBreakdown/occurrenceBreakdown.directive');
 
 angular
     .module('portal')

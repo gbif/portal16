@@ -33,6 +33,22 @@ let fields = {
         },
         type: type.RAW
     },
+    DEPTH: {
+        range: {
+            type: 'INT',
+            min: 0,
+            max: 10000
+        },
+        type: type.RAW
+    },
+    ELEVATION: {
+        range: {
+            type: 'INT',
+            min: 0,
+            max: 10000
+        },
+        type: type.RAW
+    },
     DECIMAL_LATITUDE: {
         range: {
             type: 'FLOAT',
@@ -49,6 +65,11 @@ let fields = {
             return ['COORDINATE_ROUNDED', 'GEODETIC_DATUM_ASSUMED_WGS84', 'COORDINATE_REPROJECTED'].indexOf(e.name) != -1;
         }
     },
+    ESTABLISHMENT_MEANS: {
+        type: type.ENUM,
+        translationPath: 'establishmentMeans.{VALUE}',
+        enums: enums.establishmentMeans
+    },
     COUNTRY: {
         type: type.ENUM,
         translationPath: 'country.{VALUE}'
@@ -62,6 +83,11 @@ let fields = {
     DATASET_KEY: {
         type: type.KEY,
         url: apiConfig.dataset.url + '{VALUE}',
+        field: 'title'
+    },
+    PUBLISHING_ORG: {
+        type: type.KEY,
+        url: apiConfig.publisher.url + '{VALUE}',
         field: 'title'
     }
 };

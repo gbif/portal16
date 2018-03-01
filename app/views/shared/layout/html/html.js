@@ -283,12 +283,6 @@ require('../../../pages/search/search.ctrl');
 
 require('../../../pages/occurrence/key/occurrenceKey.ctrl');
 require('../../../pages/occurrence/occurrence.ctrl');
-require('../../../pages/occurrence/table/occurrenceTable.ctrl');
-require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
-require('../../../pages/occurrence/map/occurrenceMap.ctrl');
-require('../../../pages/occurrence/species/occurrenceSpecies.ctrl');
-require('../../../pages/occurrence/datasets/occurrenceDatasets.ctrl');
-require('../../../pages/occurrence/download/occurrenceDownload.ctrl');
 
 require('../../../pages/node/key/nodeKey.ctrl');
 require('../../../pages/installation/key/installationKey.ctrl');

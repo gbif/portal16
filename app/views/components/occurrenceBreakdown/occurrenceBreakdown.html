@@ -1,0 +1,11 @@
+<div style="border: 2px solid tomato; padding: 10px; margin: 10px;">
+    <h4>Occurrence breakdown chart</h4>
+    <div class="chartArea">
+        <ul>
+            <li ng-repeat="item in vm.content.results"><a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(item.filter))">{{ item.displayName }}</a> {{item.count}}</li>
+        </ul>
+    </div>
+    <div>
+        {{vm.options}}
+    </div>
+</div>

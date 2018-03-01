@@ -122,7 +122,7 @@ function getRanges(field, minMax, buckets) {
         if (isIntegerRange) {
             end -= 1; // To ensure non overlapping ranges. the n,m range notation used by the API is both inclusive.
         }
-        bucketSizeVaries = bucketSizeVaries || minMax.max < end;
+        bucketSizeVaries = bucketSizeVaries || end - minMax.max > 0.0001;
         end = Math.min(minMax.max, end);// should never be larger than maximum configured for the range. This can happen if we e.g. split 12 months into 5 buckets
         end = +(end).toFixed(5);
         return start + ',' + end;
@@ -174,7 +174,7 @@ function composeResult(offset, limit, dimension, results, ranges, bucketSizeVari
     let min = _.minBy(results, 'count').count;
     return {
         results: results,
-        field: dimension, // TODO transform to enum type
+        field: changeCase.snakeCase(dimension),
         limit: limit,
         offset: offset,
         endOfRecords: ranges.length <= offset + limit,
@@ -215,7 +215,9 @@ function addGeometryFilter(query, results) {
                 });
             }
 
-            e.filter = filter;
+            e.filter = {
+                geometry: filter
+            };
         });
     }
 }
