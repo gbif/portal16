@@ -1,1 +1,26 @@
-<div class="filter-location-map" style="height:300px;"></div>
+<div class="filter-location-map" style="height:300px;">
+
+<div class="mapWidget fitContainer" >
+    <div class="mapWidget__mapWrapper" >
+        <div class="mapWidget__mapArea" style="height:300px;"></div>
+        <div class="mapWidget__mapButtons">
+            <a href="" ng-click="vm.zoomIn()">+</a>
+            <a href="" ng-click="vm.zoomOut()">-</a>
+
+        </div>
+        <div class="mapWidget__drawButtons">
+            <a href="" class="gb-icon-rectangle smallIcon" ng-click="vm.enableRectangleDraw()"
+               ng-class="{'is-active': vm.rectangleDrawActive }"></a>
+            <a href="" class="gb-icon-polygon smallIcon" ng-click="vm.enablePolygonDraw()"
+               ng-class="{'is-active': vm.polygonDrawActive }"></a>
+            <a href="" class="gb-icon-trash smallIcon" ng-click="vm.removeDrawnItems()"></a>
+        </div>
+        <div class="mapWidget__info">
+            <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
+        </div>
+
+    </div>
+
+
+</div>
+</div>

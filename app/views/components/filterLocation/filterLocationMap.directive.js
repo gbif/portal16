@@ -1,7 +1,9 @@
 'use strict';
 
 var angular = require('angular'),
-    parseGeometry = require('wellknown');
+    mapController = require('./map'),
+    parseGeometry = require('wellknown'),
+    _ = require('lodash');
 
 angular
     .module('portal')
@@ -33,20 +35,57 @@ function filterLocationMapDirective(BUILD_VERSION) {
             map;
 
         $scope.create = function(element) {
-            map = createMap(element, OccurrenceFilter);
+           // map = createMap(element, OccurrenceFilter);
+           var state = OccurrenceFilter.getOccurrenceData();
+           var options = (state.query.geometry) ? {fitExtent: true, filters: state.query} : {};
+           map = mapController.createMap(element, options);
         };
-
         vm.state = OccurrenceFilter.getOccurrenceData();
         $scope.$watch(function() {
             return vm.state.query.geometry;
         }, function(newQuery) {
             var query = $filter('unique')(newQuery);
-            map.update(query);
+            if (query && map) {
+                map.update({fitExtent: true, filters: vm.state.query});
+            }
         });
+
+        vm.zoomIn = function() {
+            var view = map.map.getView();
+            view.setZoom(view.getZoom() + 1);
+        };
+
+        vm.zoomOut = function() {
+            var view = map.map.getView();
+            view.setZoom(view.getZoom() - 1);
+        };
+        vm.enableRectangleDraw = function() {
+           // map.removeDrawnItems();
+            vm.rectangleDrawActive = true;
+            map.enableDraw('Rectangle',function(wkt) {
+                OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt)});
+                vm.rectangleDrawActive = false;
+            });
+        };
+        vm.enablePolygonDraw = function() {
+            // map.removeDrawnItems();
+            vm.polygonDrawActive = true;
+            map.enableDraw('Polygon',function(wkt) {
+                OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt)});
+                vm.polygonDrawActive = false;
+            });
+        };
+
+        vm.removeDrawnItems = function() {
+            vm.rectangleDrawActive = false;
+            vm.polygonDrawActive = false;
+            map.removeDrawnItems();
+            OccurrenceFilter.updateParams({geometry: undefined});
+        };
     }
 }
 
-
+/*
 function createMap(element, OccurrenceFilter) {
     var mapElement = element[0].querySelector('.filter-location-map');
 
@@ -141,5 +180,5 @@ function createMap(element, OccurrenceFilter) {
     };
 }
 
-
+*/
 module.exports = filterLocationMapDirective;

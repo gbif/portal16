@@ -1,51 +1,33 @@
 'use strict';
 
+var _ = require('lodash');
+
 angular
     .module('portal')
     .controller('iptCtrl', iptCtrl);
 
 /** @ngInject */
-function iptCtrl($http, leafletData, env) {
+function iptCtrl($http,  env) {
     var vm = this;
-    vm.mapDefaults = {
-        zoomControlPosition: 'topleft',
-        scrollWheelZoom: false,
-        crs: L.CRS.EPSG3857
-    };
-    vm.center = {zoom: 7, lat: 0, lng: 0};
 
-    var baseMap = {
-        name: 'Classic',
+    vm.baselayer = {
         url: env.basemapTileApi + '/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-geyser-en&srs=EPSG%3A3857',
-        options: {},
-        type: 'xyz',
-        layerOptions: {
-            showOnSelector: false,
-            attribution: '&copy; <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\'>OpenStreetMap contributors</a>'
-        }
+        attribution: '&copy; <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\'>OpenStreetMap contributors</a>'
     };
-    vm.layers = {
-        baselayers: {
-            base: baseMap
-        },
-        overlays: {
-            installations: {
-                name: 'installations',
-                type: 'markercluster', // group
-                visible: true,
-                layerParams: {
-                    'showOnSelector': false,
-                    'showCoverageOnHover': false,
-                    'maxClusterRadius': 40
-                }
-            }
-        }
-    };
-    vm.installations = [];
 
     $http.get('/api/ipt/stats').success(function(data) {
         vm.countryCount = data.countryCount;
         vm.installationCount = data.installationCount;
+        var publisherUrl = '/publisher/';
+        _.each(data.geojson.features, function(feature) {
+            var message = '<h4><a href="' + publisherUrl + feature.properties.key + '">' + feature.properties.title + '</a></h4>';
+            message += '<div>Installations: ' + feature.properties.count + '</div>';
+            feature.properties.message = message;
+        });
+
+        vm.geojson = data.geojson;
+
+        /*
         L.geoJson(data.geojson, {
             onEachFeature: function(feature) {
                 // get phrase in site language in plural or singular
@@ -54,21 +36,31 @@ function iptCtrl($http, leafletData, env) {
                 var content = '<h4><a href="' + publisherUrl + feature.properties.key + '">' + feature.properties.title + '</a></h4>';
                 content += '<div>Installations: ' + feature.properties.count + '</div>';
 
-                vm.installations.push({
+                vm.installations.addLayer(L.marker({
+                    lat: feature.geometry.coordinates[1],
+                    lng: feature.geometry.coordinates[0],
+                    message: content
+                }));
+                angular.element(document).ready(function () {
+                    var map = L.map('iptmap');
+                    L.tileLayer(env.basemapTileApi + '/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-geyser-en&srs=EPSG%3A3857', {
+                        showOnSelector: false,
+                        attribution: '&copy; <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\'>OpenStreetMap contributors</a>'
+                    }).addTo(map);
+                    map.once('focus', function() {
+                        map.scrollWheelZoom.enable();
+                    });
+                    map.fitWorld().zoomIn();
+                    map.addLayer(vm.installations);
+                });
+               vm.installations.push({
                     layer: 'installations',
                     lat: feature.geometry.coordinates[1],
                     lng: feature.geometry.coordinates[0],
                     message: content
                 });
             }
-        });
-    });
-
-    leafletData.getMap('iptInstallationsMap').then(function(map) {
-        map.once('focus', function() {
-            map.scrollWheelZoom.enable();
-        });
-        map.fitWorld().zoomIn();
+        }); */
     });
 }
 

@@ -89,7 +89,7 @@ function createMap(element, options) {
         interactions: ol.interaction.defaults().extend([dragAndDropInteraction]),
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom: false})
+        controls: ol.control.defaults({zoom: false, attribution: false})
 
     });
 

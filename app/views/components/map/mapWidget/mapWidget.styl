@@ -77,6 +77,37 @@
         }
         
     }
+    &__drawButtons {
+        position absolute
+        z-index 20
+        right 0.5rem
+        top 0.5rem
+        background #aaa
+        >a {
+            background #fff
+            font-size 22px
+            display block
+            text-decoration none
+            text-align center
+            height 24px
+            width 24px
+            line-height 22px
+            background-color rgba(0,60,136,.5)
+            border 1px solid #aaa
+            background white
+            color #444
+            &:hover {
+                background #efefef
+            }
+            &.smallIcon {
+                font-size 14px
+            }
+            &.is-active {
+                color $navBar_background_color
+            }
+        }
+        
+    }
     &__progress {
         position absolute
         bottom 0

@@ -10,18 +10,9 @@
             {% include "./header.nunjucks" %}
 
             <div class="horizontal-stripe--paddingless white-background">
-                <div class="heading-image ipt__map">
-                    <leaflet
-                            leafletMap="leafletMap"
-                            id="iptInstallationsMap"
-                            class="iptInstallationsMap"
-                            defaults="ipt.mapDefaults"
-                            markers="ipt.installations"
-                            lf-center="ipt.center"
-                            height="100%"
-                            width="100%"
-                            layers="ipt.layers"
-                    ></leaflet>
+                <div class="heading-image">
+                    <feature-map class="ipt__map fitContainer" features="ipt.geojson" baselayer="ipt.baselayer" ></feature-map>
+
                 </div>
             </div>
             <div class="horizontal-stripe--paddingless white-background">

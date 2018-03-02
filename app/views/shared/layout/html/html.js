@@ -21,8 +21,6 @@ var angular = require('angular');
 require('angular-ui-router');
 require('angular-translate');
 require('angular-moment');
-require('angular-leaflet-directive');
-window.L = L;
 require('angular-hotkeys');
 require('angular-resource');
 require('angular-aria');
@@ -53,7 +51,6 @@ require('angular-svg-round-progressbar');
             'ngAria',
             'ui.router',
             'pascalprecht.translate',
-            'leaflet-directive',
             'angularMoment',
             'cfp.hotkeys',
             'ngResource',
@@ -356,7 +353,7 @@ require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');
 require('../../../pages/species/search/list/speciesList.ctrl');
 
-require('../../../components/map/basic/gbmap.directive');
+//require('../../../components/map/basic/gbmap.directive');
 require('../../../components/map/mapWidget/mapWidget.directive');// TODO decide on a map
 require('../../../components/suggest/suggest.directive');
 require('../../../components/expand/expand.directive');

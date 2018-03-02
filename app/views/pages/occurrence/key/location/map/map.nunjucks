@@ -2,19 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div  ng-init="occurrence.setData()">
-              <!--  <leaflet
-                        leafletMap="leafletMap"
-                        id="occurrenceMap"
-                        defaults="occurrence.mapDefaults"
-                        markers="occurrence.markers"
-                        paths="occurrence.paths"
-                        height="100%"
-                        width="100%"
-                        tiles="occurrence.tiles"
-                        lf-center="occurrence.center"
-                        event-broadcast="occurrence.mapEvents"
-                        controls="occurrence.controls"
-                ></leaflet> -->
+
                 <feature-map class="occurrenceKey__map fitContainer" features="occurrence.geoJson" wkt="occurrence.wkt" circle="occurrence.circle" marker="occurrence.marker" baseLayer="occurrence.baselayer" mapcenter="occurrence.center" mapstyle="'light'"></feature-map>
 
                 <div class="globe-context">

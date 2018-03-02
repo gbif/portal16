@@ -6,8 +6,6 @@ var angular = require('angular'),
     querystring = require('querystring'),
     projections = require('../mapWidget/projections');
 
-require('../basic/gbTileLayer');
-
 angular
     .module('portal')
     .directive('featureMap', featureMapDirective);
@@ -26,8 +24,7 @@ function featureMapDirective(BUILD_VERSION) {
             mapStyle: '=',
             circle: '=',
             marker: '=',
-            baselayer: '=',
-            mapcenter: '='
+            baselayer: '='
         },
         link: mapLink,
         controller: featureMap,
@@ -54,7 +51,9 @@ function featureMapDirective(BUILD_VERSION) {
         $scope.create = function(element) {
             projection = (vm.baselayer) ? projections.EPSG_3857 : projections.EPSG_4326;
             map = createMap(element, vm.mapStyle, vm.baselayer, projection);
+            addPopUp(map);
             addFeatureLayer();
+
         };
 
         vm.interactionWithMap = function() {
@@ -104,9 +103,6 @@ function featureMapDirective(BUILD_VERSION) {
                 map.addLayer(vectorLayer);
                 map.getView().fit(vectorLayer.getSource().getExtent());
                 map.getView().setZoom(6);
-                if (vm.marker.message) {
-                    addPopUp(map);
-                }
             }
         });
 
@@ -143,7 +139,7 @@ function createMap(element, style, baseLayer, projection) {
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom: false}),
+        controls: ol.control.defaults({zoom: false, attribution: false}),
         interactions: interactions
     });
 
@@ -159,7 +155,6 @@ function createMap(element, style, baseLayer, projection) {
         map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {})));
     }
     window.featureMap = map;
-    console.log(map.getView().getProjection().getMetersPerUnit());
     return map;
 }
 
@@ -173,7 +168,11 @@ function lonLatToCurrentProjection(map, point) {
 
 function setFeatures(map, features) {
     var vectorSource = new ol.source.Vector({
-        features: (new ol.format.GeoJSON()).readFeatures(features)
+        features: (new ol.format.GeoJSON()).readFeatures(features, {
+            dataProjection: 'EPSG:4326',
+            featureProjection: projection.srs
+        }),
+        wrapX: false
     });
     var vectorLayer = new ol.layer.Vector({
         source: vectorSource,
@@ -181,24 +180,13 @@ function setFeatures(map, features) {
     });
     map.addLayer(vectorLayer);
     map.getView().fit(vectorLayer.getSource().getExtent());
-    var currentZoom = map.getView().getZoom();
-    var newZoom = currentZoom > 6 ? currentZoom - 1.5 : currentZoom - 0.5;
-    map.getView().setZoom(Math.max(newZoom, 0));
-    // var layer = L.geoJson(features, {
-    //    onEachFeature: function (feature, layer) {
-    //        layer.bindPopup(JSON.stringify(feature.properties.boundingBox, null, 4));
-    //    }
-    // });
-    // layer.addTo(map);
-    // map.fitBounds(layer.getBounds());
-    // return layer;
 }
 
 function setWKT(map, wkt) {
     var vectorSource = new ol.source.Vector({
         features: [new ol.format.WKT().readFeature(wkt, {
             dataProjection: 'EPSG:4326',
-            featureProjection: 'EPSG:3857'
+            featureProjection: projection.srs
         })]
     });
     var vectorLayer = new ol.layer.Vector({
@@ -232,14 +220,15 @@ function setCircle(map, circle) {
         })
     }));
     map.getView().fit(vectorLayer.getSource().getExtent());
-    //  var currentZoom = map.getView().getZoom();
-    //  var newZoom = currentZoom > 6 ? currentZoom - 1.5 : currentZoom - 0.5;
+
     map.getView().setZoom(6);
 }
 
 var image = new ol.style.Circle({
-    radius: 5,
-    fill: null,
+    radius: 4,
+    fill: new ol.style.Fill({
+        color: 'darkseagreen'
+    }),
     stroke: new ol.style.Stroke({color: 'darkseagreen', width: 2})
 });
 
