@@ -130,7 +130,8 @@ function occurrenceKeyCtrl(env, hotkeys) {
         } else if (data.coordinateUncertaintyInMeters > 50) {
             vm.circle = {
                 coordinates: [data.decimalLongitude, data.decimalLatitude],
-                radius: data.coordinateUncertaintyInMeters
+                radius: data.coordinateUncertaintyInMeters,
+                message: vm.getMarkerMessage()
             };
         }
         // set static marker

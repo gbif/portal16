@@ -24,7 +24,8 @@ function featureMapDirective(BUILD_VERSION) {
             mapStyle: '=',
             circle: '=',
             marker: '=',
-            baselayer: '='
+            baselayer: '=',
+            hover: '='
         },
         link: mapLink,
         controller: featureMap,
@@ -51,9 +52,9 @@ function featureMapDirective(BUILD_VERSION) {
         $scope.create = function(element) {
             projection = (vm.baselayer) ? projections.EPSG_3857 : projections.EPSG_4326;
             map = createMap(element, vm.mapStyle, vm.baselayer, projection);
-            addPopUp(map);
+            var hover = vm.hover || (vm.marker && vm.marker.message);
+            addPopUp(map, hover);
             addFeatureLayer();
-
         };
 
         vm.interactionWithMap = function() {
@@ -207,7 +208,7 @@ function setCircle(map, circle) {
         style: styleFunction
     });
     map.addLayer(vectorLayer);
-    vectorSource.addFeature(new ol.Feature({
+    var featureConfig = {
         geometry: new ol.geom.Circle(lonLatToCurrentProjection(map, circle.coordinates), metersToRadius(map, circle.radius)),
         style: new ol.style.Style({
             stroke: new ol.style.Stroke({
@@ -218,7 +219,11 @@ function setCircle(map, circle) {
                 color: 'rgba(113, 177, 113, 0.1)'
             })
         })
-    }));
+    };
+    if (circle.message) {
+        featureConfig.message = circle.message;
+    }
+    vectorSource.addFeature(new ol.Feature(featureConfig));
     map.getView().fit(vectorLayer.getSource().getExtent());
 
     map.getView().setZoom(6);
@@ -306,7 +311,7 @@ var styles = {
     })
 };
 
-function addSimpleBaseLayer(map, layer, projection) {
+function addSimpleBaseLayer(map, layer) {
     map.addLayer(new ol.layer.Tile({
         source: new ol.source.XYZ({
             attributions: layer.attribution,
@@ -324,7 +329,7 @@ function isHighDensity() {
     || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
 }
 
-function addPopUp(map) {
+function addPopUp(map, hover) {
     var container = document.getElementById('popup');
     var content = document.getElementById('popup-content');
     var closer = document.getElementById('popup-closer');
@@ -365,6 +370,23 @@ function addPopUp(map) {
             overlay.setPosition(undefined);
         }
     });
+    if (hover) {
+        var select = new ol.interaction.Select({
+            condition: ol.events.condition.pointerMove
+        });
+        map.addInteraction(select);
+        select.on('select', function(e) {
+            angular.forEach(e.target.getFeatures(), function(feature) {
+                if (feature  && (typeof feature.getGeometry().getCoordinates === 'function' || typeof feature.getGeometry().getCenter === 'function') && feature.get('message')) {
+                    var coordinates = (typeof feature.getGeometry().getCoordinates === 'function') ? feature.getGeometry().getCoordinates() : feature.getGeometry().getCenter();
+                    overlay.setPosition(coordinates);
+                    content.innerHTML = feature.get('message');
+                } else {
+                    overlay.setPosition(undefined);
+                }
+            });
+        });
+    }
 }
 
 var styleFunction = function(feature) {
