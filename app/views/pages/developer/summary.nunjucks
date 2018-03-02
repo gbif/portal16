@@ -88,7 +88,7 @@
                     <h3>Communication</h3>
                     <p>
                         You can sign up to the <a href="https://lists.gbif.org/mailman/listinfo/api-users"
-                                                  target="_blank">GBIF API users mailing list</a> to post your
+                                                  >GBIF API users mailing list</a> to post your
                         questions,
                         and to keep informed about the API. We will announce new versions, and scheduled maintenance
                         downtimes before they happen.
@@ -151,7 +151,7 @@
                 <div class="container--narrow">
                     <h3>Authentication</h3>
                     <p>POST, PUT, and DELETE requests require authentication.
-                        The GBIF API uses <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic
+                        The GBIF API uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic
                             Authentication</a>
                         with any <a href="/user/profile">GBIF user account</a> that you have created before.
                     </p>
@@ -173,7 +173,7 @@
                         Often these are based on existing standards such as ISO or <a
                                 href="http://www.tdwg.org/standards/">TDWG</a>.
                         The enumerations are part of the <a href='{$ apidocs $}/vocabulary/package-summary.html'
-                                                            target='_blank'>GBIF Java API</a>,
+                                                            >GBIF Java API</a>,
                         but the currently active version can also be dynamically accessed through our JSON webservices
                         to support more dynamic clients.
                     </p>
@@ -207,7 +207,7 @@
                     <p>The GBIF API is currently at v1 which means:
                     <p>
                     <ol class="indent">
-                        <li>The API is stable - this means we won't rename or remove any REST resources or response
+                        <li>The API is stable – this means we won't rename or remove any REST resources or response
                             properties to ensure
                             backwards compatibility, but we might add new resources to the API. Any additions will be
                             announced via the API

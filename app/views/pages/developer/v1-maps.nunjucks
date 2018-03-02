@@ -359,8 +359,8 @@
                     <p>If you set <strong>&saturation</strong> to true then you can specify a <strong>&hue</strong>
                         between 0.0 and 1.0 and achieve a very different effect when visualizing the GBIF data. These
                         settings are what allow maps as seen on the <a href="/occurrence">occurrence homepage</a>. It is
-                        a very different way of describing colour from what is described above - Wikipedia has <a
-                                href="http://en.wikipedia.org/wiki/HSV_color_space" target="_blank">a
+                        a very different way of describing colour from what is described above – Wikipedia has <a
+                                href="https://en.wikipedia.org/wiki/HSV_color_space">a
                             good introduction to Hue, Saturation, and Brightness</a>.
                     </p>
                 </div>

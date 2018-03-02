@@ -40,7 +40,7 @@
                 </p>
                 <p>
                     Internally we use a
-                    <a href="https://github.com/gbif/checklistbank/tree/master/checklistbank-ws-client" target="_blank">Java
+                    <a href="https://github.com/gbif/checklistbank/tree/master/checklistbank-ws-client">Java
                         web service client</a>
                     for the consumption of these HTTP-based, RESTful JSON web services.
                 </p>
@@ -218,7 +218,7 @@
             "datasetKey": "Filters by the checklist dataset key (a uuid)",
             "sourceId": "Filters by the source identifier",
             "rank": "Filters by taxonomic rank as given in our <a href='"+apidocs+"/vocabulary/Rank.html'
-                                                                  target='_blank'>Rank enum</a>",
+                                                                 >Rank enum</a>",
             "name": "A scientific name which can be either a case insensitive filter for a canonical namestring, e.g.
             'Puma concolor', or an input to the name parser",
             "strict": "If true it (fuzzy) matches only the given name, but never a taxon in the upper classification",
@@ -232,17 +232,17 @@
             "highertaxonKey": "Filters by any of the higher Linnean rank keys. Note this is within the respective
             checklist and not searching nub keys across all checklists.",
             "status": "Filters by the taxonomic status as given in our <a
-                    href='"+apidocs+"/vocabulary/TaxonomicStatus.html' target='_blank'>TaxonomicStatus enum</a>",
+                    href='"+apidocs+"/vocabulary/TaxonomicStatus.html'>TaxonomicStatus enum</a>",
             "isExtinct": "Filters by extinction status (a boolean, e.g. isExtinct=true)",
             "habitat": "Filters by the habitat. Currently only 3 major biomes are accepted in our <a
-                    href='"+apidocs+"/vocabulary/Habitat.html' target='_blank'>Habitat enum</a>",
+                    href='"+apidocs+"/vocabulary/Habitat.html'>Habitat enum</a>",
             "threat": "Not yet implemented, but will eventually allow for filtering by a threat status enum",
             "nameType": "Filters by the name type as given in our <a href='"+apidocs+"/vocabulary/NameType.html'
-                                                                     target='_blank'>NameType enum</a>",
+                                                                    >NameType enum</a>",
             "nomenclaturalStatus": "Not yet implemented, but will eventually allow for filtering by a nomenclatural
             status enum",
             "issue": "A specific indexing issue as defined in our <a href='"+apidocs+"/vocabulary/NameUsageIssue.html'
-                                                                     target='_blank'>NameUsageIssue enum</a>",
+                                                                    >NameUsageIssue enum</a>",
             "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets
             are: datasetKey, higherTaxonKey, rank, status, nomenclaturalStatus, isExtinct, habitat, threat and
             nameType."
