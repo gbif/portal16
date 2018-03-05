@@ -18,17 +18,17 @@
 
                     <div ng-if="datasetKey.dataset.project.studyAreaDescription">
                         <h4>Study area</h4>
-                        <div ng-bind-html="datasetKey.dataset.project.studyAreaDescription"></div>
+                        <div ng-bind-html="datasetKey.dataset.project.studyAreaDescription | linky"></div>
                     </div>
 
                     <div ng-if="datasetKey.dataset.project.designDescription">
                         <h4>Description</h4>
-                        <div ng-bind-html="datasetKey.dataset.project.designDescription"></div>
+                        <div ng-bind-html="datasetKey.dataset.project.designDescription | linky"></div>
                     </div>
 
                     <div ng-if="datasetKey.dataset.project.funding">
                         <h4>Funding</h4>
-                        <div ng-bind-html="datasetKey.dataset.project.funding"></div>
+                        <div ng-bind-html="datasetKey.dataset.project.funding | linky"></div>
                     </div>
 
                     <div ng-if="datasetKey.projectEmpty" class="emptyInfo">
