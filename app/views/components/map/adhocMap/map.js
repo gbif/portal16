@@ -166,7 +166,7 @@ function createMap(element, options) {
     // }
 
     function enableDraw(cb) {
-        var source = new ol.source.Vector({wrapX: false});
+        var source = new ol.source.Vector({wrapX: true});
         var draw = new ol.interaction.Draw({
             source: source,
             type: 'Circle',
@@ -216,7 +216,7 @@ function createMap(element, options) {
             drawLayer = new ol.layer.Vector({
                 source: new ol.source.Vector(
                     {
-                        wrapX: false,
+                        wrapX: true,
                         features: geometries
 
                         }
