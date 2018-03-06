@@ -19,8 +19,6 @@ function dataValidatorCtrl($scope, $http, $state, $sessionStorage, User, AUTH_EV
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
 
     vm.resourceToValidate = {};
-
-
     vm.handleUploadFile = function(params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
@@ -30,7 +28,10 @@ function dataValidatorCtrl($scope, $http, $state, $sessionStorage, User, AUTH_EV
             method: 'POST',
             data: formData,
             transformRequest: angular.identity,
-            headers: {'Content-Type': undefined}
+            headers: {'Content-Type': undefined},
+            transformResponse: function(response, headersGetter, status){
+                return (status !== 415) ? response : {message: response};
+            }
         }).success(function(data, status) {
             handleValidationSubmitResponse(data, status);
         }).error(function(data, status) {
@@ -75,6 +76,9 @@ if ($sessionStorage.gbifRunningValidatonJob) {
     function handleWSError(data, status) {
         vm.hasError = true;
         switch (status) {
+            case 415:
+                vm.hasApi415Error = true;
+                break;
             case 413:
                 vm.hasApi413Error = true;
                 break;
