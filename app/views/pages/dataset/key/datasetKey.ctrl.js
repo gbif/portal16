@@ -107,7 +107,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
         if (projectId) {
             vm.projects = ResourceSearch.query({contentType: 'project', projectId: projectId, limit: 1});
         }
-        vm.orphanDataset = isOrphanDataset(vm.dataset);
+        vm.orphanStatus = getOrphanStatus(vm.dataset);
 
         // checkIfUserIsContact();
     });
@@ -128,8 +128,9 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
         });
     }
 
-    function isOrphanDataset(dataset) {
-      return _.findIndex(dataset.machineTags || [], {namespace: 'orphans.gbif.org', name: 'status', value: 'RESCUED'}) !== -1;
+    function getOrphanStatus(dataset) {
+      var orphanState = _.find(dataset.machineTags || [], {namespace: 'orphans.gbif.org', name: 'status'});
+      return orphanState ? orphanState.value : undefined;
     }
 
     function geoJsonFromCoverage(geographicCoverages) {

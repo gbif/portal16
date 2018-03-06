@@ -53,9 +53,16 @@
                                         {{ endpoint.url }}
                                     </a>
                                     (<span class="small" translate="endpointType.{{ endpoint.type }}"></span>)
-                                    <span ng-if="datasetKey.orphanDataset" gb-help="what-is-an-orphan-dataset" class="text-warning">Orphaned dataset</span>
                                 </li>
                             </ul>
+                        </dd>
+                    </div>
+                    <div ng-if="datasetKey.orphanStatus">
+                        <dt class="text-capitalize">Hosting status</dt>
+                        <dd>
+                            <span ng-if="datasetKey.orphanStatus === 'ORPHANED'" gb-help="what-is-an-orphan-dataset">Orphaned dataset</span>
+                            <span ng-if="datasetKey.orphanStatus === 'RESCUED'" gb-help="what-is-an-orphan-dataset">Rescued orphan dataset</span>
+                            <span ng-if="datasetKey.orphanStatus === 'ADOPTED'" gb-help="what-is-an-orphan-dataset">Adopted dataset</span>
                         </dd>
                     </div>
 
