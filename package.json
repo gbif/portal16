@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=prod node app.js",
     "local": "NODE_ENV=local node node_modules/gulp/bin/gulp.js --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials --redirects=/etc/portal16/redirects",
-    "install": "node node_modules/bower/bin/bower install; mkdir -p reports;",
+    "install": "mkdir -p reports;",
     "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;",
     "test": "node node_modules/gulp/bin/gulp.js test;"
   },
@@ -38,7 +38,6 @@
     "axis": "^0.6.1",
     "body-parser": "^1.13.3",
     "bootstrap": "3.3.7",
-    "bower": "^1.7.1",
     "browser-sync": "^2.10.1",
     "browserify": "^13.0.1",
     "btoa": "^1.1.2",
@@ -140,6 +139,7 @@
     "ngstorage": "^0.3.11",
     "node-cache": "^4.1.1",
     "normalize-url": "^2.0.1",
+    "nouislider": "11.0.3",
     "nouislider-angular": "^2.6.0",
     "nunjucks": "^2.0.0",
     "nunjucks-markdown": "^2.0.0",
@@ -175,7 +175,6 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
     "wellknown": "^0.5.0",
-    "wiredep": "^4.0.0",
     "xml2js": "^0.4.19",
     "yargs": "^6.6.0"
   },
