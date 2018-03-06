@@ -129,6 +129,20 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         }
     };
 
+    vm.filters.gbifDownloadKey = {
+        titleTranslation: 'filters.gbifDownloadKey',
+        queryKey: 'gbifDownloadKey',
+        filter: ResourceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'filters.gbifDownloadKey'
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'GBIF_DOWNLOAD_KEY'
+        }
+    };
+
     vm.filters.peerReview = {
         titleTranslation: 'filters.peerReview.title',
         queryKey: 'peerReview',

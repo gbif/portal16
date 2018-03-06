@@ -34,8 +34,7 @@ function renderDownload(req, res, next, template) {
         download.datasets = datasets;
         download.isFileAvailable = _.get(download, 'record.downloadLink') && _.get(download, 'record.status') !== 'FILE_ERASED';
 
-        let downloadDoi = _.get(download, 'record.doi', '').substring(4);
-        let promiseList = [resourceSearch.search({contentType: 'literature', q: '"' + downloadDoi + '"', limit: 0}, req.__)];
+        let promiseList = [resourceSearch.search({contentType: 'literature', gbifDownloadKey: key, limit: 0}, req.__)];
         try {
             download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
 

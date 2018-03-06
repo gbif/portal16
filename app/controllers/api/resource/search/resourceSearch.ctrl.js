@@ -18,7 +18,7 @@ router.get('/resource/search', function(req, res) {
             res.json(result);
         })
         .catch(function(err) {
-            //console.trace(err.message);// TODO log as this shouldne happen
+            // console.trace(err.message);// TODO log as this shouldne happen
             // console.log(JSON.stringify(req.query, null, 2));
             res.status(500);
             res.send('Unable to parse query');
