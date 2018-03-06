@@ -20,6 +20,7 @@ gulp.task('scripts', function() {
     return buildScripts();
 });
 
+/*
 gulp.task('vendor-scripts', function() {
     let vendor = 'js/vendor';
     return gulp.src(config.bower.jsFiles, {
@@ -31,7 +32,7 @@ gulp.task('vendor-scripts', function() {
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulp.dest(path.join(config.paths.dist, vendor)));
-});
+}); */
 
 function buildScripts() {
     return build(config.js.browserify.main.path, config.js.browserify.main.dest);

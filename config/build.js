@@ -9,7 +9,6 @@
 
 let path = require('path'),
     fs = require('fs'),
-    wiredep,
     yargs = require('yargs').argv,
     gutil = require('gulp-util'),
     rootPath = path.normalize(__dirname + '/..'),
@@ -51,35 +50,18 @@ config.paths = {
 };
 
 /**
- *  Wiredep is the lib which inject bower dependencies in your project
- *  Mainly used to inject script tags in the index.html but also used
- *  to inject css preprocessor deps and js files in karma
+ *  CSS from node modules that should go to vendor.css
  */
-config.wiredep = {
-    exclude: [],
-    // exclude: [/\/bootstrap\.js$/, /\/bootstrap\.css/],
-    directory: './bower_components'
-};
-wiredep = require('wiredep')(config.wiredep);
+let vendorCss = [];
+vendorCss.push('node_modules/chartist/dist/chartist.min.css'); // This is wrong, but the minified version is the only that hasn't a source map. I would expect to use the unminified version
+vendorCss.push('node_modules/angular-toastr/dist/angular-toastr.min.css');
+vendorCss.push('node_modules/openlayers/dist/ol.css');
+vendorCss.push('node_modules/angular-material/angular-material.css');
+vendorCss.push('node_modules/simplemde/dist/simplemde.min.css');
+vendorCss.push('node_modules/nouislider/distribute/nouislider.min.css');
 
 
-let bowerCss = !wiredep.css ? [] : wiredep.css.map(function(e) {
-    return path.relative('.', e);
-});
-
-let bowerJs = !wiredep.js ? [] : wiredep.js.map(function(e) {
-    return path.relative('.', e);
-});
-
-bowerCss.push('node_modules/chartist/dist/chartist.min.css'); // This is wrong, but the minified version is the only that hasn't a source map. I would expect to use the unminified version
-bowerCss.push('node_modules/angular-toastr/dist/angular-toastr.min.css');
-bowerCss.push('node_modules/openlayers/dist/ol.css');
-bowerCss.push('node_modules/angular-material/angular-material.css');
-bowerCss.push('node_modules/simplemde/dist/simplemde.min.css');
-config.bower = {
-    cssFiles: bowerCss,
-    jsFiles: bowerJs
-};
+config.vendorCss = vendorCss;
 
 
 /**

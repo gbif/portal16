@@ -28,6 +28,8 @@ require('angular-ui-bootstrap');
 require('angular-scroll');
 require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
+require('nouislider');
+window.noUiSlider = require('nouislider');
 require('nouislider-angular');
 require('ngstorage');
 require('angular-cookies');
@@ -38,6 +40,7 @@ require('angular-material');
 require('ng-file-upload');
 require('checklist-model');// TODO remove as we hardly use it now that there is continous update on occurrenece search?
 require('angular-svg-round-progressbar');
+window.Lightbox = require('../../../components/lightbox/lightbox');
 
 (function() {
     'use strict';

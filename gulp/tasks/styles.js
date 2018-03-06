@@ -2,8 +2,6 @@
  * Compile all stylus files in src.
  * Files are automatically added so no need to import them explictly in the stylus files
  *
- * Wiredep : if any stylus files is defined in the bower mains they will be injected into our custom stylus and compiled.
- * This allow us to overwrite variables and customize vendor files
  */
 
 'use strict';
@@ -13,7 +11,6 @@ let gulp = require('gulp'),
     config = rootRequire('config/build'),
     gulpif = require('gulp-if'),
     rename = require('gulp-rename'),
-    wiredep = require('wiredep'),
     browserSync = require('browser-sync'),
     lost = require('lost'),
     axis = require('axis'),
@@ -38,7 +35,7 @@ gulp.task('bootstrap-style', function() {
 
 gulp.task('vendor-styles', function() {
     let vendor = 'css/vendor';
-    return gulp.src(config.bower.cssFiles, {
+    return gulp.src(config.vendorCss, {
         base: vendor
     })
         .pipe(g.plumber())
