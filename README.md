@@ -13,7 +13,7 @@ A new GBIF.org, scheduled to be completed in 2016
 ### Install
 Once the project is downloaded install using
 `npm install`
-this will install dependencies from npm and bower and run a production build
+this will install dependencies from npm and run a production build
 
 ### Build for production
 The static assets (client css, fonts and js) is build with Gulp. NODe_ENV sets the endpoints. --prod sets the build type
