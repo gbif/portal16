@@ -227,6 +227,10 @@
                         return '/' + path;
                     case 'gbif.org':
                         return '/' + path;
+                    case 'www.gbif-staging.org':
+                        return '/' + path;
+                    case 'gbif-staging.org':
+                        return '/' + path;
                     case 'www.gbif-uat.org':
                         return '/' + path;
                     case 'gbif-uat.org':
