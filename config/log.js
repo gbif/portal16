@@ -31,17 +31,7 @@ prettyStdOut.pipe(process.stdout);
 let logStreams = [];
 
 if (loglevels[loglevel] > loglevels.terminal) {
-    logStreams.push(
-        {
-            level: loglevel,
-            type: 'rotating-file',
-            path: './log/portal.log',
-            period: '1d', // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
-            count: 7 // keep n back copies
-        }
-    );
-
-    // always log to console as well - this is done because only console logs currently goes into Kibana
+    // log to kibana
     logStreams.push(
         {
             type: 'raw',
@@ -51,8 +41,18 @@ if (loglevels[loglevel] > loglevels.terminal) {
             })
         }
     );
+
+    // log to console as well for errors
+    logStreams.push(
+        {
+            level: 'error',
+            type: 'raw',
+            stream: prettyStdOut // process.stdout
+        }
+    );
 }
 
+// always log to console locally
 if (loglevels[loglevel] == loglevels.terminal) {
     logStreams.push(
         {
