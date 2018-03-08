@@ -104,7 +104,7 @@
                 };
 
                 that.login = function(username, password) {
-                    var authData = $window.btoa(username + ':' + password);
+                    var authData = Base64.encode(username + ':' + password);
                     var userLogin = $http.get('/api/auth/basic', {
                         headers: {'Authorization': 'Basic ' + authData}
                     });
@@ -154,7 +154,7 @@
                 };
 
                 that.changePassword = function(userName, oldPassword, newPassword) {
-                    var authData = $window.btoa(userName + ':' + oldPassword);
+                    var authData = $window.btoa(userName + ':' + oldPassword); // the identity API assumes btoa encoded
                     var config = {
                         headers: {'Authorization': 'Basic ' + authData}
                     };
