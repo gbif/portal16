@@ -1,7 +1,8 @@
 'use strict';
 
 var angular = require('angular'),
-    parseGeometry = require('wellknown');
+    parseGeometry = require('wellknown'),
+    ol = require('openlayers');
 
 angular
     .module('portal')
@@ -195,31 +196,26 @@ function filterLocationDirective(BUILD_VERSION) {
 }
 
 module.exports = filterLocationDirective;
+var wktformat = new ol.format.WKT();
+var geojsonformat = new ol.format.GeoJSON();
 
 function parseStringToWKTs(str) {
-    var i, geojson, feature, wktGeom, leafletGeoJson, wktGeometries = [];
+    var i, geojson, feature, wktGeom, wktGeometries = [];
     // assume geojson
     try {
         var geojsonGeometry = JSON.parse(str);
-        leafletGeoJson = L.geoJson(geojsonGeometry);
-        geojson = leafletGeoJson.toGeoJSON();
-        for (i = 0; i < geojson.features.length; i++) {
-            feature = geojson.features[i];
-            wktGeom = parseGeometry.stringify(feature);
+        geojson = geojsonformat.readFeatures(geojsonGeometry);;
+        for (i = 0; i < geojson.length; i++) {
+            feature = geojson[i].getGeometry();
+            wktGeom = wktformat.writeGeometry(feature);
             wktGeometries.push(wktGeom);
         }
     } catch (e) {
         // not a json object. try to parse as wkt
         try {
-            geojsonGeometry = parseGeometry(str);
+            geojsonGeometry = wktformat.readGeometry(str);
             if (geojsonGeometry) {
-                leafletGeoJson = L.geoJson(geojsonGeometry);
-                geojson = leafletGeoJson.toGeoJSON();
-                for (i = 0; i < geojson.features.length; i++) {
-                    feature = geojson.features[i];
-                    wktGeom = parseGeometry.stringify(feature);
-                    wktGeometries.push(wktGeom);
-                }
+                wktGeometries.push(str);
             } else {
                 throw 'Not valid wkt';
             }
