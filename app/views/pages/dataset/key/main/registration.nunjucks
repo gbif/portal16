@@ -65,9 +65,14 @@
                             <span ng-if="datasetKey.orphanStatus === 'ADOPTED'" gb-help="what-is-an-orphan-dataset">Adopted dataset</span>
                         </dd>
                     </div>
-
+                    <div ng-if="datasetKey.dataset.doi">
+                        <dt class="text-capitalize">Preferred identifier</dt>
+                        <dd>
+                            <doi link="{{ datasetKey.dataset.doi }}"></doi>
+                        </dd>
+                    </div>
                     <div ng-if="datasetKey.dataset._identifiers.length > 0">
-                        <dt class="text-capitalize">Identifiers</dt>
+                        <dt class="text-capitalize">Alternative identifiers</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="identifier in datasetKey.dataset._identifiers">
@@ -75,9 +80,11 @@
                                     <a ng-href="{{ identifier.identifier }}" ng-if="identifier.type == 'DOI' && !(identifier.identifier | startsWith:'doi:')">
                                         {{ identifier.identifier }}
                                     </a> -->
-                                    <a ng-href="{{ identifier.identifier }}" ng-if="identifier.type == 'DOI' || identifier.type == 'FTP' || identifier.type == 'LSID' || identifier.type == 'URL'">
+                                    <a ng-href="{{ identifier.identifier }}" ng-if="identifier.type == 'FTP' || identifier.type == 'LSID' || identifier.type == 'URL'">
                                         {{ identifier.identifier }}
                                     </a>
+                                    <doi  link="{{ identifier.identifier }}" ng-if="identifier.type == 'DOI'">
+                                    </doi>
                                     <span ng-if="identifier.type == 'UNKNOWN'">
                                         {{ identifier.identifier }}
                                     </span>
