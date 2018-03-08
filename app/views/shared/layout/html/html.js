@@ -28,7 +28,6 @@ require('angular-ui-bootstrap');
 require('angular-scroll');
 require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
-require('nouislider');
 window.noUiSlider = require('nouislider');
 require('nouislider-angular');
 require('ngstorage');

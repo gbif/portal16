@@ -139,7 +139,7 @@
     "ngstorage": "^0.3.11",
     "node-cache": "^4.1.1",
     "normalize-url": "^2.0.1",
-    "nouislider": "11.0.3",
+    "nouislider": "leongersen/noUiSlider.git#772dc921563f56ab8c5dc145068f64b6acef5df1",
     "nouislider-angular": "^2.6.0",
     "nunjucks": "^2.0.0",
     "nunjucks-markdown": "^2.0.0",

@@ -9,7 +9,6 @@
  */
 /* exported Lightbox */
 function Lightbox() {
-
     /**
      * Constants
      */
@@ -137,7 +136,6 @@ function Lightbox() {
      */
     function isset(obj) {
         return typeof obj !== 'undefined';
-
     }
 
     /**
@@ -154,8 +152,7 @@ function Lightbox() {
         var ret;
         if (obj.getAttribute) {
             ret = obj.getAttribute(attr);
-        }
-        else if (obj.getAttributeNode) {
+        } else if (obj.getAttributeNode) {
             ret = obj.getAttributeNode(attr).value;
         }
         if (isset(ret) && ret !== '') {
@@ -177,12 +174,10 @@ function Lightbox() {
         var ret;
         if (obj.getAttribute) {
             ret = obj.getAttribute(attr);
-        }
-        else if (obj.getAttributeNode) {
+        } else if (obj.getAttributeNode) {
             ret = obj.getAttributeNode(attr).value;
         }
         return typeof ret === 'string';
-
     }
 
     /**
@@ -190,7 +185,7 @@ function Lightbox() {
      * @param  {Object} i
      */
     function clckHlpr(i) {
-        addEvent(i, 'click', function (e) {
+        addEvent(i, 'click', function(e) {
             stopPropagation(e);
             preventDefault(e);
             currGroup = getAttr(i, _const_dataattr + '-group') || false;
@@ -206,8 +201,7 @@ function Lightbox() {
     function stopPropagation(e) {
         if (e.stopPropagation) {
             e.stopPropagation();
-        }
-        else {
+        } else {
             e.returnValue = false;
         }
     }
@@ -219,8 +213,7 @@ function Lightbox() {
     function preventDefault(e) {
         if (e.preventDefault) {
             e.preventDefault();
-        }
-        else {
+        } else {
             e.returnValue = false;
         }
     }
@@ -254,7 +247,6 @@ function Lightbox() {
             if (getAttr(thumbnail, 'src') === getAttr(arr[i], 'src') &&
                 getAttr(thumbnail, _const_dataattr + '-index') === getAttr(arr[i], _const_dataattr + '-index') &&
                 getAttr(thumbnail, _const_dataattr) === getAttr(arr[i], _const_dataattr)) {
-
                 return i;
             }
         }
@@ -294,13 +286,13 @@ function Lightbox() {
         }
         // stop any already running animations
         stopAnimation();
-        var fnc = function () {
+        var fnc = function() {
             addClass(CTX.box, _const_class_prefix + '-loading');
             if (!isIE9 && typeof CTX.opt.loadingAnimation === 'number') {
                 var index = 0;
-                animationInt = setInterval(function () {
+                animationInt = setInterval(function() {
                     addClass(animationChildren[index], _const_class_prefix + '-active');
-                    setTimeout(function () {
+                    setTimeout(function() {
                         removeClass(animationChildren[index], _const_class_prefix + '-active');
                     }, CTX.opt.loadingAnimation);
                     index = index >= animationChildren.length ? 0 : index += 1;
@@ -347,7 +339,7 @@ function Lightbox() {
             } else {
                 addClass(nextBtn, _const_class_prefix + '-no-img');
             }
-            addEvent(nextBtn, 'click', function (e) {
+            addEvent(nextBtn, 'click', function(e) {
                 stopPropagation(e); // prevent closing of lightbox
                 CTX.next();
             }, false);
@@ -367,7 +359,7 @@ function Lightbox() {
             } else {
                 addClass(prevBtn, _const_class_prefix + '-no-img');
             }
-            addEvent(prevBtn, 'click', function (e) {
+            addEvent(prevBtn, 'click', function(e) {
                 stopPropagation(e); // prevent closing of lightbox
                 CTX.prev();
             }, false);
@@ -469,7 +461,7 @@ function Lightbox() {
             closeBtn.setAttribute('class', _const_class_prefix + '-close');
             closeBtn.innerHTML = 'X';
             CTX.box.appendChild(closeBtn);
-            addEvent(closeBtn, 'click', function (e) {
+            addEvent(closeBtn, 'click', function(e) {
                 stopPropagation(e);
                 CTX.close();
             }, false);
@@ -477,7 +469,7 @@ function Lightbox() {
 
         // close lightbox on background-click by default / if true
         if (!isIE8 && CTX.opt.closeOnClick) {
-            addEvent(CTX.box, 'click', function (e) {
+            addEvent(CTX.box, 'click', function(e) {
                 stopPropagation(e);
                 CTX.close();
             }, false);
@@ -506,18 +498,17 @@ function Lightbox() {
 
         // add resize-eventhandlers
         if (CTX.opt.responsive) {
-            addEvent(window, 'resize', function () {
+            addEvent(window, 'resize', function() {
                 CTX.resize();
             }, false);
             addClass(CTX.box, _const_class_prefix + '-nooverflow'); // hide scrollbars on prev/next
-        }
-        else {
+        } else {
             removeClass(CTX.box, _const_class_prefix + '-nooverflow');
         }
 
         // add keyboard event handlers
         if (CTX.opt.keyControls) {
-            addEvent(document, 'keydown', function (e) {
+            addEvent(document, 'keydown', function(e) {
                 if (isOpen) {
                     stopPropagation(e); // prevent closing of lightbox
                     if (e.keyCode === 39) {
@@ -568,12 +559,10 @@ function Lightbox() {
         if (typeof el === 'string') {
             // string with img-src given
             src = el;
-        }
-        else if (getAttr(el, _const_dataattr)) {
+        } else if (getAttr(el, _const_dataattr)) {
             // image-source given
             src = getAttr(el, _const_dataattr);
-        }
-        else {
+        } else {
             // no image-source given
             src = getAttr(el, 'src');
         }
@@ -629,7 +618,7 @@ function Lightbox() {
         /**
          * Onerror-handler for the image
          */
-        currImage.img.onerror = function (imageErrorEvent) {
+        currImage.img.onerror = function(imageErrorEvent) {
             if (CTX.opt.onloaderror) {
                 // if `event` is false, error happened on opening the box
                 imageErrorEvent._happenedWhile = event ? event : false;
@@ -639,7 +628,7 @@ function Lightbox() {
         /**
          * Onload-handler for the image
          */
-        currImage.img.onload = function () {
+        currImage.img.onload = function() {
             // store original width here
             currImage.originalWidth = this.naturalWidth || this.width;
             currImage.originalHeight = this.naturalHeight || this.height;
@@ -651,7 +640,7 @@ function Lightbox() {
                 currImage.originalHeight = dummyImg.height;
             }
             // interval to check if image is ready to show
-            var checkClassInt = setInterval(function () {
+            var checkClassInt = setInterval(function() {
                 if (hasClass(CTX.box, _const_class_prefix + '-active')) {
                     addClass(CTX.wrapper, _const_class_prefix + '-wrapper-active');
                     // set animation
@@ -673,14 +662,14 @@ function Lightbox() {
                     if (CTX.opt.nextOnClick) {
                         // add cursor pointer
                         addClass(currImage.img, _const_class_prefix + '-next-on-click');
-                        addEvent(currImage.img, 'click', function (e) {
+                        addEvent(currImage.img, 'click', function(e) {
                             stopPropagation(e);
                             CTX.next();
                         }, false);
                     }
                     // set custom clickhandler on image
                     if (CTX.opt.onimageclick) {
-                        addEvent(currImage.img, 'click', function (e) {
+                        addEvent(currImage.img, 'click', function(e) {
                             stopPropagation(e);
                             CTX.opt.onimageclick(currImage);
                         }, false);
@@ -712,7 +701,7 @@ function Lightbox() {
      * Init-function, must be called once
      * @param  {Object} opt Custom options
      */
-    CTX.load = function (opt) {
+    CTX.load = function(opt) {
         // check for IE8
         if (navigator.appVersion.indexOf('MSIE 8') > 0) {
             isIE8 = true;
@@ -736,7 +725,6 @@ function Lightbox() {
                 clckHlpr(arr[i]);
             }
         }
-
     };
 
     /**
@@ -744,7 +732,7 @@ function Lightbox() {
      * @param  {Object || string} el  Image element or a link
      * @param  {String} group
      */
-    CTX.open = function (el, group) {
+    CTX.open = function(el, group) {
         // if image and group are given, set group to false
         // to prevent errors
         if (el && group) {
@@ -756,7 +744,7 @@ function Lightbox() {
     /**
      * Calculates the new image size and resizes it
      */
-    CTX.resize = function () {
+    CTX.resize = function() {
         if (!currImage.img) {
             return;
         }
@@ -804,7 +792,7 @@ function Lightbox() {
     /**
      * Loads the next image
      */
-    CTX.next = function () {
+    CTX.next = function() {
         if (!currGroup) {
             return;
         }
@@ -812,25 +800,22 @@ function Lightbox() {
         var pos = getPos(currThumbnail, currGroup) + 1;
         if (currImages[pos]) {
             currThumbnail = currImages[pos];
-        }
-        else if (CTX.opt.carousel) {
+        } else if (CTX.opt.carousel) {
             currThumbnail = currImages[0];
-        }
-        else {
+        } else {
             return;
         }
         if (typeof CTX.opt.animation === 'number') {
             removeClass(currImage.img, _const_class_prefix + '-animating-next');
-            setTimeout(function () {
-                var cb = function () {
-                    setTimeout(function () {
+            setTimeout(function() {
+                var cb = function() {
+                    setTimeout(function() {
                         addClass(currImage.img, _const_class_prefix + '-animating-next');
                     }, CTX.opt.animation / 2);
                 };
                 openBox(currThumbnail, false, cb, 'next');
             }, CTX.opt.animation / 2);
-        }
-        else {
+        } else {
             openBox(currThumbnail, false, false, 'next');
         }
     };
@@ -838,7 +823,7 @@ function Lightbox() {
     /**
      * Loads the prev image
      */
-    CTX.prev = function () {
+    CTX.prev = function() {
         if (!currGroup) {
             return;
         }
@@ -846,26 +831,23 @@ function Lightbox() {
         var pos = getPos(currThumbnail, currGroup) - 1;
         if (currImages[pos]) {
             currThumbnail = currImages[pos];
-        }
-        else if (CTX.opt.carousel) {
+        } else if (CTX.opt.carousel) {
             currThumbnail = currImages[currImages.length - 1];
-        }
-        else {
+        } else {
             return;
         }
         // animation stuff
         if (typeof CTX.opt.animation === 'number') {
             removeClass(currImage.img, _const_class_prefix + '-animating-prev');
-            setTimeout(function () {
-                var cb = function () {
-                    setTimeout(function () {
+            setTimeout(function() {
+                var cb = function() {
+                    setTimeout(function() {
                         addClass(currImage.img, _const_class_prefix + '-animating-next');
                     }, CTX.opt.animation / 2);
                 };
                 openBox(currThumbnail, false, cb, 'prev');
             }, CTX.opt.animation / 2);
-        }
-        else {
+        } else {
             openBox(currThumbnail, false, false, 'prev');
         }
     };
@@ -873,7 +855,7 @@ function Lightbox() {
     /**
      * Closes the box
      */
-    CTX.close = function () {
+    CTX.close = function() {
         // restore Defaults
         currGroup = false;
         currThumbnail = false;
