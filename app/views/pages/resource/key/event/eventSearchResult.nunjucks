@@ -36,6 +36,10 @@
                         <span ng-if="(result.start | amDateFormat:'LL') !== (result.end | amDateFormat:'LL')"> - {{ result.end | amDateFormat:'LL' }}</span>
                         <span ng-if="(result.start | amDateFormat:'LL') === (result.end | amDateFormat:'LL') && !result.allDayEvent">{{ result.start | amDateFormat:'HH:mm Z' }}</span>
                     </div>
+                    <div ng-if="result.gbifsAttendee">
+                        <span class="gb-icon-logo"></span>
+                        <span translate="phrases.gbifWillAttend"></span>
+                    </div>
                 </div>
             </div>
         </div>
