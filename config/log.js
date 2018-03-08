@@ -46,8 +46,7 @@ if (loglevels[loglevel] > loglevels.terminal) {
     logStreams.push(
         {
             level: 'error',
-            type: 'raw',
-            stream: prettyStdOut // process.stdout
+            stream: process.stdout
         }
     );
 }
@@ -57,8 +56,7 @@ if (loglevels[loglevel] == loglevels.terminal) {
     logStreams.push(
         {
             level: 'warn',
-            type: 'raw',
-            stream: prettyStdOut // process.stdout
+            stream: process.stdout
         }
     );
 }
