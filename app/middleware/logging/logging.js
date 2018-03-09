@@ -17,6 +17,9 @@ function use(app) {
             logName: 'req_id',
             requestStart: true,
             excludeHeaders: ['Authorization', 'cookie'],
+            additionalRequestFinishData: function(req, res) {
+                return {req_url: req.originalUrl};
+            },
             logger: log,
             level: 'info',
             filter: function(req, res) {
