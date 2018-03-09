@@ -70,6 +70,11 @@ let fields = {
         translationPath: 'establishmentMeans.{VALUE}',
         enums: enums.establishmentMeans
     },
+    LICENSE: {
+        type: type.ENUM,
+        translationPath: 'license.{VALUE}',
+        enums: enums.license
+    },
     COUNTRY: {
         type: type.ENUM,
         translationPath: 'country.{VALUE}'

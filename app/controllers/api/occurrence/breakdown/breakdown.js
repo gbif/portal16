@@ -3,6 +3,7 @@ let plainFacet = require('./occurrenceFacet');
 let rangeFacets = require('./rangeUtils');
 let changeCase = require('change-case');
 let _ = require('lodash');
+let objectHash = require('object-hash');
 let facetConfig = require('./config');
 let chai = require('chai');
 let expect = chai.expect;
@@ -13,6 +14,70 @@ module.exports = {
 };
 
 async function query(query) {
+    // get fill response
+    let result = await getFormatedData(query);
+    if (query.secondDimension) {
+        result = await addSecondDimension(result, query);
+    }
+    return result;
+}
+
+async function addSecondDimension(data, query) {
+    expect(query.secondDimension).to.be.a('string', 'Dimension must be a string');
+    let constantSecondDimension = changeCase.constantCase(query.secondDimension);
+    expect(facetConfig.fields[constantSecondDimension]).to.be.an('object', 'There must exist a configuration for the dimension');
+    let isTypeEnumOrRange = facetConfig.fields[constantSecondDimension].type === facetConfig.type.ENUM || !!facetConfig.fields[constantSecondDimension].range;
+    expect(isTypeEnumOrRange).to.equal(true, 'Second dimension must be an low cardinality enum');
+
+    if (query.secondDimension == 'month') {
+        query.fillEnums = true;
+        query.buckets = undefined;
+    }
+    query.secondDimension = query.secondDimension || 2;
+
+    let dimensionPromises = data.results.map(function(e) {
+        let mergedQuery = _.assign({}, query, e.filter, {dimension: query.secondDimension, limit: 1000, offset: 0});
+        return getFormatedData(mergedQuery);
+    });
+    let secondDimensionData = await Promise.all(dimensionPromises);
+    // Get union of secondary categories and filters
+    let categories = {};
+    let max = 0;
+    let min = 0;
+    secondDimensionData.forEach(function(a) {
+        a.results.forEach(function(b) {
+            let key = objectHash(b.filter);
+            max = Math.max(max, b.count);
+            min = Math.min(min, b.count);
+            b.key = key;
+            categories[key] = categories[key] || {filter: b.filter, displayName: b.displayName, key: b.key, count: 0};
+            categories[key].count += b.count;
+        });
+        a.results = _.keyBy(a.results, 'key');
+    });
+    categories = _.values(categories);
+
+    // map secondary dimension to array on results
+    data.results.forEach(function(e, i) {
+        let results = secondDimensionData[i].results;
+        e.values = categories.map(function(c) {
+            return _.get(results[c.key], 'count', 0);
+        });
+        e.diff = e.count - _.sum(e.values);
+    });
+
+    categories.forEach(function(e) {
+       delete e.key;
+    });
+
+    data.max = max;
+    data.min = min;
+
+    data.categories = categories;
+    return data;
+}
+
+async function getFormatedData(query) {
     // get fill response
     let response = await getData(query);
 
@@ -71,5 +136,6 @@ function parseQuery(query) {
         query.limit = _.toSafeInteger(query.limit);
         query.offset = _.toSafeInteger(query.offset);
     }
+    query.fillEnums = query.fillEnums === 'true' || query.fillEnums === true;
     return query;
 }

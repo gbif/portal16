@@ -76,12 +76,15 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         var vm = this;
         var UPDATE_DELAY_TIME = 500;
         vm.state = {
-            type: 'BAR'
+            type: 'BAR',
+            offset: 0,
+            limit: 10
         };
 
         $scope.create = function(element) {
             vm.chartElement = element[0].querySelector('.chartArea');
             vm.dimension = vm.options.dimension;
+            vm.secondDimension = vm.options.secondDimension;
             updateChart();
         };
 
@@ -98,14 +101,17 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
 
         function updateContent() {
             // Validate provided options. If wrong, then show an error message instead
-            var q = _.assign(vm.options.filter, {dimension: vm.dimension}, _.get(config, 'dimensionParams[' + vm.dimension + ']', {}));
+            var q = _.assign(vm.options.filter,
+                    {dimension: vm.dimension, secondDimension: vm.secondDimension},
+                    _.get(config, 'dimensionParams[' + vm.dimension + ']', {offset: vm.state.offset, limit: vm.state.limit})
+            );
             if (vm.content && vm.content.$cancelRequest) {
                 vm.content.$cancelRequest();
             }
             vm.content = OccurrenceBreakdown.query(q);
             vm.content.$promise
                 .then(function(response) {
-                    vm.chartdata = 'chart data after transform of the data response';
+                    vm.chartdata = response;// 'chart data after transform of the data response';
                 })
                 .catch(function(err) {
                     if (err.status !== -1) {
@@ -113,6 +119,21 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                     }
                 });
         }
+
+        vm.nextPage = function() {
+            vm.state.offset = vm.state.offset + vm.state.limit;
+            updateContent();
+        };
+
+        vm.prevPage = function() {
+            vm.state.offset = Math.max(0, vm.state.offset - vm.state.limit);
+            updateContent();
+        };
+
+        vm.level = function(val) {
+            console.log(val);
+            return Math.ceil((val - vm.chartdata.min) / ((vm.chartdata.max - vm.chartdata.min) / 10));
+        };
 
         function changeChartType(type) {
             console.log('chart type changed to ' + type);

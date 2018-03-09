@@ -13,14 +13,15 @@ var enums = {
 };
 
 var config = {
-    dimensions: ['basisOfRecord', 'country', 'taxonKey', 'decimalLatitude', 'issue', 'datasetKey', 'month', 'year', 'elevation'],
+    dimensions: ['basisOfRecord', 'country', 'kingdomKey', 'speciesKey', 'decimalLatitude', 'issue', 'datasetKey', 'month', 'year', 'elevation'],
     chartTypes: [BAR, COLUMN, PIE, TABLE],
     printableTypes: [BAR, COLUMN, PIE],
     supportedTypes: {
         basisOfRecord: [BAR, COLUMN, PIE, TABLE],
         month: [COLUMN, PIE],
         country: [TABLE],
-        taxonKey: [TABLE],
+        kingdomKey: [TABLE],
+        speciesKey: [TABLE],
         decimalLatitude: [BAR],
         issue: [BAR, COLUMN, PIE, TABLE],
         datasetKey: [BAR, TABLE],

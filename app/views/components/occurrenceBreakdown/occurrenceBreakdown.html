@@ -1,11 +1,47 @@
 <div style="border: 2px solid tomato; padding: 10px; margin: 10px;">
     <h4>Occurrence breakdown chart</h4>
     <div class="chartArea">
-        <ul>
-            <li ng-repeat="item in vm.content.results"><a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(item.filter))">{{ item.displayName }}</a> {{item.count}}</li>
-        </ul>
+
+        <div><!--table-->
+            <div class="scrollable-y">
+                <div class="table-container">
+                    <table class="table search-table smaller">
+                        <thead ng-if="vm.chartdata.categories">
+                        <tr>
+                            <th class="text-capitalize"></th>
+                            <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">{{category.displayName}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="result in vm.chartdata.results">
+                            <td class="xtable-cell--wide">
+                                <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))">{{ result.displayName }}</a>
+                            </td>
+                            <td class="xtable-cell--wide" ng-if="!vm.chartdata.categories">
+                                <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))">{{ result.count | localNumber }}</a>
+                            </td>
+                            <td class="xtable-cell--wide" ng-if="!vm.chartdata.categories">
+                                <div style="height:10px;border-radius:2px;width:120px;background:deepskyblue;"></div>
+                            </td>
+                            <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">
+                                <span>{{ value | localNumber }}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="text-right" ng-if="vm.chartdata.$resolved">
+                <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.state.offset > 0">Previous</a>
+                <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartdata.endOfRecords === false">Next</a>
+            </div>
+        </div>
+
     </div>
+
     <div>
         {{vm.options}}
     </div>
+
+
 </div>

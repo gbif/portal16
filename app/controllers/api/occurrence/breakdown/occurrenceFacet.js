@@ -66,13 +66,14 @@ function composeQueryA(query) {
 }
 
 function composeResult(query, body) {
-    let max = _.maxBy(body.facets[0].counts, 'count');
-    let min = _.minBy(body.facets[0].counts, 'count');
+    let results = body.facets[0].counts.slice(0, query.facetLimit - 1);
+    let max = _.maxBy(results, 'count');
+    let min = _.minBy(results, 'count');
     // body.facets[0].counts = body.facets[0].counts.slice(0, query.facetLimit - 1).map(function(e) {
     //     return {_name: e.name, _count: e.count};
     // });
     return {
-        results: body.facets[0].counts.slice(0, query.facetLimit - 1),
+        results: results,
         field: changeCase.snakeCase(body.facets[0].field),
         limit: query.facetLimit - 1,
         offset: query.facetOffset,
@@ -88,7 +89,8 @@ function composeResult(query, body) {
  */
 function getFullResult(results, field) {
     // Get the configuration for this queryed facet field
-    let conf = facetConfig.fields[field];
+    let constantField = changeCase.constantCase(field);
+    let conf = facetConfig.fields[constantField];
     if (!conf) {
         // ignore if the field is not configured to support it
         return results;
