@@ -12,8 +12,6 @@
  */
 let helper = require('../../util/util'),
     Q = require('q'),
-    NodeCache = require('node-cache'),
-    theGbifNetworkCache = new NodeCache(),
     dataApi = require('../apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
     PublisherRegional = require('../publisher/publisherRegional'),
@@ -65,67 +63,47 @@ function getIntro(language) {
  * Get only counts of network entities (participants, publishers, literature).
  * @param query
  */
+
+
 theGbifNetwork.counts = (query) => {
     let deferred = Q.defer();
     if (!query.hasOwnProperty('gbifRegion') || query.gbifRegion === undefined) {
         query.gbifRegion = 'GLOBAL';
     }
+    let count = {};
 
-    let cacheId = 'majorCounts' + query.gbifRegion;
+    query.membershipType = 'voting_participant';
+    DirectoryParticipants.groupBy(query)
+        .then((result) => {
+            count[query.membershipType] = result.length;
+            query.membershipType = 'associate_country_participant';
+            return DirectoryParticipants.groupBy(query);
+        })
+        .then((result) => {
+            count[query.membershipType] = result.length;
+            query.membershipType = 'other_associate_participant';
+            return DirectoryParticipants.groupBy(query);
+        })
+        .then((result) => {
+            count[query.membershipType] = result.length;
+            query.membershipType = 'gbif_affiliate';
+            return DirectoryParticipants.groupBy(query);
+        })
+        .then((result) => {
+            count[query.membershipType] = result.length;
 
-    theGbifNetworkCache.get(cacheId, (err, value) => {
-        if (err) {
-            deferred.reject(err);
-        }
+            // add regional publishers
+            return PublisherRegional.groupBy(query);
+        })
 
-        if (typeof value === 'object' && value.hasOwnProperty('literatureAuthorCountries')) {
-            deferred.resolve(value);
-        } else {
-            // retrieve counts
-            let count = {};
-
-            query.membershipType = 'voting_participant';
-            DirectoryParticipants.groupBy(query)
-                .then((result) => {
-                    count[query.membershipType] = result.length;
-                    query.membershipType = 'associate_country_participant';
-                    return DirectoryParticipants.groupBy(query);
-                })
-                .then((result) => {
-                    count[query.membershipType] = result.length;
-                    query.membershipType = 'other_associate_participant';
-                    return DirectoryParticipants.groupBy(query);
-                })
-                .then((result) => {
-                    count[query.membershipType] = result.length;
-                    query.membershipType = 'gbif_affiliate';
-                    return DirectoryParticipants.groupBy(query);
-                })
-                .then((result) => {
-                    count[query.membershipType] = result.length;
-
-                    // add regional publishers
-                    return PublisherRegional.groupBy(query);
-                })
-
-                .then((publishers) => {
-                    count['publisher'] = publishers.length;
-
-                    theGbifNetworkCache.set(cacheId, count, 3600, (err, success) => {
-                        if (!err && success) {
-                            log.debug('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
-                        } else {
-                            log.warning('Variable ' + cacheId + ' failed to cache.');
-                        }
-                    });
-                    deferred.resolve(count);
-                })
-                .catch((e) => {
-                    log.error(e + ' at count().');
-                    deferred.reject(e + ' at count().');
-                });
-        }
-    });
+        .then((publishers) => {
+            count['publisher'] = publishers.length;
+            deferred.resolve(count);
+        })
+        .catch((e) => {
+            log.error(e + ' at count().');
+            deferred.reject(e + ' at count().');
+        });
 
     return deferred.promise;
 };
@@ -216,39 +194,13 @@ theGbifNetwork.getCountryFacets = () => {
  */
 theGbifNetwork.getDataCount = (participant, facetMap) => {
     let deferred = Q.defer();
-    let cacheId;
-    if (participant.hasOwnProperty('type') && participant.type === 'OTHER') {
-        cacheId = 'participant' + participant.id;
-    } else if (participant.hasOwnProperty('type') && participant.type === 'COUNTRY') {
-        cacheId = 'country' + participant.iso2;
-    } else {
-        cacheId = 'non_participant_' + participant.iso2;
-    }
 
     let functionName = participant.type === 'OTHER' ? 'getOapDataCount' : 'getCountryDataCount';
 
-    theGbifNetworkCache.get(cacheId, (err, value) => {
-        if (err) {
-            deferred.reject(err);
-        }
-        if (typeof value === 'object' && value.hasOwnProperty('counts')) {
-            deferred.resolve(value);
-        } else {
-            return theGbifNetwork[functionName](participant, facetMap)
-                .then((participant) => {
-                    if (participant.hasOwnProperty('counts')) {
-                        theGbifNetworkCache.set(cacheId, participant, 3600, (err, success) => {
-                            if (!err && success) {
-                                log.debug('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
-                            } else {
-                                log.warning('Variable ' + cacheId + ' failed to cache.');
-                            }
-                        });
-                    }
-                    deferred.resolve(participant);
-                });
-        }
-    });
+    theGbifNetwork[functionName](participant, facetMap)
+        .then((participant) => {
+            deferred.resolve(participant);
+        });
     return deferred.promise;
 };
 

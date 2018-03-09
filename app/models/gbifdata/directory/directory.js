@@ -3,8 +3,6 @@
 let crypto = require('crypto'),
     _ = require('lodash'),
     Q = require('q'),
-    NodeCache = require('node-cache'),
-    directoryCache = new NodeCache(),
     helper = require('../../util/util'),
     fs = require('fs'),
     dataApi = require('../apiConfig'),
@@ -25,23 +23,13 @@ Directory.checkCredentials = () => {
 
 Directory.getContacts = function(res) {
     let deferred = Q.defer();
-    directoryCache.get('directoryAllContacts', (err, value) => {
-        if (err) {
-            return deferred.reject(err);
-        }
-
-        if (typeof value === 'object' && value.hasOwnProperty('peopleByParticipants')) {
-            deferred.resolve(value);
-        } else {
-            Directory.retrieveContacts(res)
-                .then((contacts) => {
-                    deferred.resolve(contacts);
-                })
-                .catch((e) => {
-                    deferred.reject(e);
-                });
-        }
-    });
+    Directory.retrieveContacts(res)
+        .then((contacts) => {
+            deferred.resolve(contacts);
+        })
+        .catch((e) => {
+            deferred.reject(e);
+        });
 
     return deferred.promise;
 };
@@ -152,14 +140,6 @@ Directory.retrieveContacts = (res) => {
                 });
         })
         .then(function(contacts) {
-            directoryCache.set('directoryAllContacts', contacts, 3600, (err, success) => {
-                if (!err && success) {
-                    log.info('Variable allParticipants cached, valid for 3600 seconds.');
-                } else {
-                    log.error('Variable allParticipants failed to cache.');
-                }
-            });
-
             defer.resolve(contacts);
             log.info(calls + ' calls have been made to complete the contacts page.');
         })
