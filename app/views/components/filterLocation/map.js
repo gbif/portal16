@@ -60,7 +60,7 @@ function createMap(element, options) {
     var drawLayer = new ol.layer.Vector({
         source: source
     });
-    map.addLayer(currentProjection.getBaseLayer(_.assign({}, {style: 'gbif-geyser'}, {})));
+    map.addLayer(currentProjection.getBaseLayer(_.assign({}, {style: 'gbif-geyser-en'}, {})));
 
     map.addLayer(drawLayer);
     var format = new ol.format.WKT();

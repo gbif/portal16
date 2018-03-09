@@ -81,7 +81,7 @@ function adhocMapDirective(BUILD_VERSION) {
                 background: '#e0e0e0'
             },
             OSM: {
-                baseMap: {style: 'osm-bright'},
+                baseMap: {style: 'osm-bright-en'},
                 overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
                     style: 'orange.marker',
                     bin: 'hex',
