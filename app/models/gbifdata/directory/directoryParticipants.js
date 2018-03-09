@@ -17,48 +17,6 @@ DirectoryParticipants.prototype.record = {};
 
 DirectoryParticipants.activeMembershipTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant', 'gbif_affiliate']; // gbif_affiliate
 
-
-// accepts gbifRegion & membershipType as params
-// /api/directory/participants?gbifRegion=AFRICA&membershipType=associate_country_participant
-/* DirectoryParticipants.groupBy = (query) => {
-    let deferred = Q.defer(),
-        requestUrl = dataApi.directoryParticipants.url,
-        options = Directory.authorizeApiCall(requestUrl),
-        allParticipants;
-
-    options.timeoutMilliSeconds = 10000;
-    options.retries = 5;
-
-    directoryParticipantsCache.get('allParticipants', (err, value) => {
-        if (err) {
-            return deferred.reject(err);
-        }
-
-
-        if (value == undefined) {
-            helper.getApiDataPromise(requestUrl, options)
-                .then((result) => {
-                    directoryParticipantsCache.set('allParticipants', result.results, 3600, (err, success) => {
-                        if (!err && success) {
-                            log.info('Variable allParticipants cached, valid for 3600 seconds.');
-                        } else {
-                            log.error('Variable allParticipants failed to cache.');
-                        }
-                    });
-                    deferred.resolve(groupBy(result.results, query));
-                })
-                .catch((e) => {
-                    deferred.reject(e + ' in directoryParticipants(). ');
-                    log.error(e);
-                });
-        } else {
-            allParticipants = value;
-            deferred.resolve(groupBy(allParticipants, query));
-        }
-    });
-    return deferred.promise;
-}; */
-
 DirectoryParticipants.groupBy = (query) => {
     let deferred = Q.defer(),
         requestUrl = dataApi.directoryParticipants.url,
