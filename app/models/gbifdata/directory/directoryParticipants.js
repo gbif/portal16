@@ -4,8 +4,6 @@
 
 const Q = require('q'),
       _ = require('lodash'),
-      NodeCache = require('node-cache'),
-      directoryParticipantsCache = new NodeCache(),
       helper = require('../../util/util'),
       dataApi = require('../apiConfig'),
       log = require('../../../../config/log'),
@@ -22,7 +20,7 @@ DirectoryParticipants.activeMembershipTypes = ['voting_participant', 'associate_
 
 // accepts gbifRegion & membershipType as params
 // /api/directory/participants?gbifRegion=AFRICA&membershipType=associate_country_participant
-DirectoryParticipants.groupBy = (query) => {
+/* DirectoryParticipants.groupBy = (query) => {
     let deferred = Q.defer(),
         requestUrl = dataApi.directoryParticipants.url,
         options = Directory.authorizeApiCall(requestUrl),
@@ -58,6 +56,25 @@ DirectoryParticipants.groupBy = (query) => {
             deferred.resolve(groupBy(allParticipants, query));
         }
     });
+    return deferred.promise;
+}; */
+
+DirectoryParticipants.groupBy = (query) => {
+    let deferred = Q.defer(),
+        requestUrl = dataApi.directoryParticipants.url,
+        options = Directory.authorizeApiCall(requestUrl);
+
+    options.timeoutMilliSeconds = 10000;
+    options.retries = 5;
+
+    helper.getApiDataPromise(requestUrl, options)
+        .then((result) => {
+            deferred.resolve(groupBy(result.results, query));
+        })
+        .catch((e) => {
+            deferred.reject(e + ' in directoryParticipants(). ');
+            log.error(e);
+        });
     return deferred.promise;
 };
 
