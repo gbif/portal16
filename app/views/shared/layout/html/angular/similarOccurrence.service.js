@@ -35,7 +35,7 @@ var angular = require('angular');
                     errcb(error);
                 });
             };
-
+            // TODO if this should be used, move away from leaflet
             this.leafletBoundsToWkt = function(bounds) {
                 var bTemplate = 'w n,e n,e s,w s,w n';
                 var b = bTemplate

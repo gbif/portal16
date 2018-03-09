@@ -1,6 +1,6 @@
 <div class="card card--spaced container-fluid">
     <div class="row">
-        <div class="col-xs-12" ng-class="{'col-sm-6': publisherKey.center, 'col-md-8': publisherKey.center}">
+        <div class="col-xs-12" ng-class="{'col-sm-6': publisherKey.marker, 'col-md-8': publisherKey.marker}">
             <div class="card__content row">
                 <div class="logoImg pull-right" ng-if="publisherKey.publisher.logoUrl">
                     <img ng-src="{{ publisherKey.publisher.logoUrl | imgCache }}" onError="this.style.display = 'none'">
@@ -77,18 +77,9 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="addressMap row" ng-if="publisherKey.center">
-                <leaflet
-                        leafletMap="leafletMap"
-                        id="publisherLocationMap"
-                        defaults="publisherKey.mapDefaults"
-                        markers="publisherKey.markers"
-                        height="100%"
-                        width="100%"
-                        tiles="publisherKey.tiles"
-                        lf-center="publisherKey.center"
-                        event-broadcast="publisherKey.mapEvents"
-                ></leaflet>
+            <div class="addressMap row" ng-if="publisherKey.marker">
+                <feature-map marker="publisherKey.marker" baseLayer="publisherKey.baselayer" mapstyle="'light'"></feature-map>
+
             </div>
         </div>
     </div>
