@@ -106,7 +106,7 @@
                         {% endcall %}
 
                         {% call trow(url="/{int}/combinations", paging=false, resp="NameUsage List", respLink=apiBase+"species/5231190/combinations") %}
-                        Lists all combinations that have this name usage as their basionym
+                        Lists all (re)combinations of a given basionym, excluding the basionym itself.
                         {% endcall %}
 
                         {% call trow(url="/{int}/descriptions", resp="Description Page", paging=true, respLink=apiBase+"species/5231190/descriptions") %}
