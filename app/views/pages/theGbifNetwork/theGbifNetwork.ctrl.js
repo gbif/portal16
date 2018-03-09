@@ -36,7 +36,10 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
         target: mapElement,
         layers: [
             currentProjection.getBaseLayer({style: 'gbif-light'})
-        ]
+        ],
+        interactions: ol.interaction.defaults({mouseWheelZoom: false}),
+        controls: ol.control.defaults({attribution: false})
+
     });
 
 
