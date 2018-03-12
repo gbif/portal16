@@ -46,8 +46,8 @@ async function addSecondDimension(data, query) {
     let secondDimensionData = await Promise.all(dimensionPromises);
     // Get union of secondary categories and filters
     let categories = {};
-    let max = 0;
-    let min = 0;
+    let max = Number.MIN_SAFE_INTEGER;
+    let min = Number.MAX_SAFE_INTEGER;
     secondDimensionData.forEach(function(a) {
         a.results.forEach(function(b) {
             let key = objectHash(b.filter);

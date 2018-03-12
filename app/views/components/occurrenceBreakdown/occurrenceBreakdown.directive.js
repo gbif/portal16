@@ -113,8 +113,11 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             vm.content.$promise
                 .then(function(response) {
                     vm.chartdata = response;// 'chart data after transform of the data response';
+                    var logMin = Math.log(vm.chartdata.min);
+                    var logStart = Math.floor(logMin);
+                    var logMax = Math.log(vm.chartdata.max);
                     vm.chartdata.results.forEach(function(e) {
-                        e._relativeCount = 100 * e.count / vm.chartdata.max;
+                        e._relativeCount = 100 * (Math.log(e.count) - logStart) / (logMax - logStart);
                     });
                 })
                 .catch(function(err) {
@@ -135,7 +138,15 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         };
 
         vm.level = function(val) {
-            var percentage = Math.ceil((val - vm.chartdata.min) / ((vm.chartdata.max - vm.chartdata.min) / 100));
+            if (val === 0) {
+                return 0;
+            }
+            var logMin = vm.chartdata.min == 0 ? 0 : Math.log(vm.chartdata.min);
+            var logStart = Math.floor(logMin);
+            var logMax = Math.log(vm.chartdata.max);
+
+            // var percentage = Math.ceil((val - vm.chartdata.min) / ((vm.chartdata.max - vm.chartdata.min) / 100));
+            var percentage = Math.ceil(100 * (Math.log(val) - logStart) / (logMax - logStart));
             // cap values due to rounding errors
             return Math.max(Math.min(percentage, 100), 0);
         };
