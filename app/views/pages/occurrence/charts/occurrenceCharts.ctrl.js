@@ -13,7 +13,7 @@ function occurrenceChartsCtrl(OccurrenceFilter) {
     vm.api = {};
     vm.api2 = {};
 
-    vm.options = {dimension: 'decimalLatitude', secondDimension: 'month', type: 'BAR', filter: vm.state.query};
+    vm.options = {dimension: 'basisOfRecord', secondDimension: 'month', type: 'BAR', filter: vm.state.query};
 }
 
 module.exports = occurrenceChartsCtrl;

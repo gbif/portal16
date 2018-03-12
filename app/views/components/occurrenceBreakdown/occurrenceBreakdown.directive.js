@@ -131,8 +131,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         };
 
         vm.level = function(val) {
-            console.log(val);
-            return Math.ceil((val - vm.chartdata.min) / ((vm.chartdata.max - vm.chartdata.min) / 10));
+            return Math.ceil((val - vm.chartdata.min) / ((vm.chartdata.max - vm.chartdata.min) / 100));
         };
 
         function changeChartType(type) {
