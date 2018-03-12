@@ -14,6 +14,7 @@ var enums = {
 
 var config = {
     dimensions: ['basisOfRecord', 'country', 'kingdomKey', 'speciesKey', 'decimalLatitude', 'issue', 'datasetKey', 'month', 'year', 'elevation'],
+    secondaryDimensions: ['basisOfRecord', 'country', 'issue', 'month', 'decimalLatitude', 'year', 'elevation'],
     chartTypes: [BAR, COLUMN, PIE, TABLE],
     printableTypes: [BAR, COLUMN, PIE],
     supportedTypes: {
@@ -34,6 +35,12 @@ var config = {
         },
         elevation: {
             buckets: 10
+        },
+        month: {
+            limit: 12
+        },
+        year: {
+            fillEnums: true
         }
     },
     enum: enums

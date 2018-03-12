@@ -26,8 +26,8 @@ function modalDirective(BUILD_VERSION) {
     function modal($timeout) {
         var vm = this;
         $timeout(function() {
-vm.fadeIn = true;
-}, 0);
+            vm.fadeIn = true;
+        }, 0);
         vm.dismiss = function() {
             if (typeof vm.onDismiss == 'function') {
                 vm.fadeIn = false;

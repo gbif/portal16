@@ -25,7 +25,7 @@ async function expandFacets(facets, __, includeFullObject) {
     return f;
 }
 
-async function expand(responseBody, __, includeFullObject) {
+async function expand(responseBody, __, includeFullObject, prune) {
     __ = __ || i18n.__;
     let fieldConstantCase = changeCase.constantCase(responseBody.field);
     // if enum then look up value
@@ -43,7 +43,7 @@ async function expand(responseBody, __, includeFullObject) {
             return _.toSafeInteger(e.name);
         });
     }
-    if (config.fields[fieldConstantCase].prune) {
+    if (prune && config.fields[fieldConstantCase].prune) {
         _.remove(responseBody.results, config.fields[fieldConstantCase].prune);
     }
 

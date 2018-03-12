@@ -31,7 +31,7 @@ async function query(query) {
     if (query.fillEnums === true) {
         responseBody.results = getFullResult(responseBody.results, responseBody.field);
     }
-    responseBody = await facetExpander.expand(responseBody, null, true);
+    responseBody = await facetExpander.expand(responseBody, null, true, query.prune === 'true');
 
     // If user have asked for a secondary dimension then expand that
     // if (query.dimensionB) {
@@ -121,7 +121,7 @@ async function getPlainFacets(query) {
     };
     let response = await request(options);
     if (response.statusCode !== 200) {
-        log.warn({statusCode: response.statusCode, module: 'Occurrence facets', query: query}, response.body);
+        log.warn({statusCode: response.statusCode, module: 'Occurrence facets', url: options.url}, response.body);
         throw new Error('Failed API query');
     }
     return response.body;

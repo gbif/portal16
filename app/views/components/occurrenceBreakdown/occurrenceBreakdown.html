@@ -1,30 +1,47 @@
-<div style="border: 2px solid tomato; padding: 10px; margin: 10px;">
-    <h4>Occurrence breakdown chart</h4>
+<div>
     <div class="chartArea">
-
         <div><!--table-->
             <div class="scrollable-y">
                 <div class="table-container">
                     <table class="table search-table smaller">
                         <thead ng-if="vm.chartdata.categories">
                         <tr>
-                            <th class="text-capitalize"></th>
+                            <th class="text-capitalize p-0"></th>
+                            <th class="text-capitalize">{{vm.chartdata.field}}</th>
                             <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">{{category.displayName}}</th>
+                        </tr>
+                        </thead>
+                        <thead ng-if="!vm.chartdata.categories">
+                        <tr>
+                            <th class="text-capitalize p-0"></th>
+                            <th class="text-capitalize">{{vm.chartdata.field}}</th>
+                            <th class="text-capitalize">count</th>
+                            <th class="text-capitalize"></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="result in vm.chartdata.results">
-                            <td class="xtable-cell--wide">
-                                <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))">{{ result.displayName }}</a>
+                            <td class="p-0">
+                                <a ng-if="vm.chartdata.field == 'dataset_key'" ui-sref="datasetKey({key:result.filter.dataset_key})" class="inherit gb-icon-link"></a>
+                                <a ng-if="vm.chartdata.field == 'publisher_key'" ui-sref="publisherKey({key:result.filter.publisher_key})" class="inherit gb-icon-link"></a>
                             </td>
-                            <td class="xtable-cell--wide" ng-if="!vm.chartdata.categories">
-                                <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))">{{ result.count | localNumber }}</a>
+                            <td style="white-space: nowrap">
+                                <span class="textMaxWidth--250">
+                                    <span>{{ result.displayName }}</span>
+                                </span>
                             </td>
-                            <td class="xtable-cell--wide" ng-if="!vm.chartdata.categories">
-                                <div style="height:10px;border-radius:2px;width:120px;background:deepskyblue;"></div>
+                            <td ng-if="!vm.chartdata.categories">
+                                <span>
+                                    <a class="inherit" href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))">{{ result.count | localNumber }}</a>
+                                </span>
+                            </td>
+                            <td ng-if="!vm.chartdata.categories">
+                                <div style="width:200px">
+                                    <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="shadeLevel-50"></div>
+                                </div>
                             </td>
                             <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">
-                                <span>{{ value | localNumber }}</span>
+                                <a class="inherit" href="" ui-sref="occurrenceSearchCharts(vm.getTableFilter(vm.chartdata.categories[$index].filter, result.filter))">{{ value | localNumber }}</a>
                             </td>
                         </tr>
                         </tbody>
@@ -39,9 +56,9 @@
 
     </div>
 
-    <div>
-        {{vm.options}}
-    </div>
+    <!--<div>-->
+        <!--{{vm.options}}-->
+    <!--</div>-->
 
 
 </div>

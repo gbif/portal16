@@ -11,9 +11,11 @@ function occurrenceChartsCtrl(OccurrenceFilter) {
     vm.state = OccurrenceFilter.getOccurrenceData();
 
     vm.api = {};
-    vm.api2 = {};
+    vm.options = {dimension: 'month', secondDimension: 'basisOfRecord', type: 'BAR', filter: vm.state.query};
 
-    vm.options = {dimension: 'basisOfRecord', secondDimension: 'month', type: 'BAR', filter: vm.state.query};
+    vm.hasData = function() {
+        return typeof vm.state.table.count !== 'undefined';
+    };
 }
 
 module.exports = occurrenceChartsCtrl;

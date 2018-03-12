@@ -43,6 +43,7 @@ var config = require('./config');
 var serializer = require('./serializer');
 
 require('./header/occurrenceBreakdownHeader.directive');
+require('./settings/occurrenceBreakdownSettings.directive');
 
 angular
     .module('portal')
@@ -95,14 +96,14 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             // Validate provided options. If wrong, then show an error message instead
             updateContent();
             var str = serializer.serialize(vm.dimension, vm.options.type, 0, 0, 10);
-            console.log(str);
-            console.log(serializer.deserialize(str));
+            // console.log(str);
+            // console.log(serializer.deserialize(str));
         }
 
         function updateContent() {
             // Validate provided options. If wrong, then show an error message instead
             var q = _.assign(vm.options.filter,
-                    {dimension: vm.dimension, secondDimension: vm.secondDimension},
+                    {dimension: vm.dimension, secondDimension: vm.secondDimension, buckets: undefined},
                     _.get(config, 'dimensionParams[' + vm.dimension + ']', {offset: vm.state.offset, limit: vm.state.limit})
             );
             if (vm.content && vm.content.$cancelRequest) {
@@ -112,6 +113,9 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             vm.content.$promise
                 .then(function(response) {
                     vm.chartdata = response;// 'chart data after transform of the data response';
+                    vm.chartdata.results.forEach(function(e) {
+                        e._relativeCount = 100 * e.count / vm.chartdata.max;
+                    });
                 })
                 .catch(function(err) {
                     if (err.status !== -1) {
@@ -131,7 +135,9 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         };
 
         vm.level = function(val) {
-            return Math.ceil((val - vm.chartdata.min) / ((vm.chartdata.max - vm.chartdata.min) / 100));
+            var percentage = Math.ceil((val - vm.chartdata.min) / ((vm.chartdata.max - vm.chartdata.min) / 100));
+            // cap values due to rounding errors
+            return Math.max(Math.min(percentage, 100), 0);
         };
 
         function changeChartType(type) {
@@ -141,6 +147,10 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
 
         vm.getFacetFilter = function(filter) {
             return _.assign({}, vm.options.filter, filter);
+        };
+
+        vm.getTableFilter = function(filterA, filterB) {
+            return _.assign({}, vm.options.filter, filterA, filterB);
         };
 
         /* WATCH FILTERS FOR CHANGES */
@@ -160,6 +170,15 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             return vm.options.dimension;
         }, function() {
             vm.dimension = vm.options.dimension;
+            vm.state.offset = 0;
+            updateContent();
+        });
+
+        $scope.$watch(function() {
+            return vm.options.secondDimension;
+        }, function() {
+            vm.secondDimension = vm.options.secondDimension;
+            vm.state.offset = 0;
             updateContent();
         });
 
@@ -167,6 +186,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             return vm.options.type;
         }, function() {
             vm.type = vm.options.type;
+            vm.state.offset = 0;
         });
 
         /* GENERATE API TO EXPOSE TO DIRECTIVE USER */

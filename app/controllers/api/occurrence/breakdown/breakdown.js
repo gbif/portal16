@@ -28,12 +28,16 @@ async function addSecondDimension(data, query) {
     expect(facetConfig.fields[constantSecondDimension]).to.be.an('object', 'There must exist a configuration for the dimension');
     let isTypeEnumOrRange = facetConfig.fields[constantSecondDimension].type === facetConfig.type.ENUM || !!facetConfig.fields[constantSecondDimension].range;
     expect(isTypeEnumOrRange).to.equal(true, 'Second dimension must be an low cardinality enum');
+    query.buckets = query.buckets || 10;
 
     if (query.secondDimension == 'month') {
         query.fillEnums = true;
         query.buckets = undefined;
     }
-    query.secondDimension = query.secondDimension || 2;
+    if (query.secondDimension == 'decimalLatitude' || query.secondDimension == 'year' || query.secondDimension == 'elevation') {
+        query.fillEnums = false;
+        query.buckets = query.buckets || 10;
+    }
 
     let dimensionPromises = data.results.map(function(e) {
         let mergedQuery = _.assign({}, query, e.filter, {dimension: query.secondDimension, limit: 1000, offset: 0});
@@ -72,6 +76,7 @@ async function addSecondDimension(data, query) {
 
     data.max = max;
     data.min = min;
+    data.secondField = changeCase.snakeCase(query.secondDimension);
 
     data.categories = categories;
     return data;
