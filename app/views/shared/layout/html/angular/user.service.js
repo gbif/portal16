@@ -140,12 +140,10 @@
                     updatePassword.then(function() {
                         that.loadActiveUser()
                             .then(function() {
-                                $location.url('/user/profile');
-                                $window.location.reload();
+                                window.location = '/user/profile';
                             })
                             .catch(function() {
-                                $location.url('/user/profile');
-                                $window.location.reload();
+                                window.location = '/user/profile';
                             });
                     }, function() {
                         // TODO inform user of failed update. toast?
