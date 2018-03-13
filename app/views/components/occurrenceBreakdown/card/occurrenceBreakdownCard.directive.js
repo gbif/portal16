@@ -32,6 +32,7 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
     function occurrenceBreakdownCard($scope) {
         var vm = this;
         vm.config = config;
+        vm.display = {};
         vm.options.offset = vm.options.offset || 0;
         vm.options.limit = vm.options.limit || 10;
 
@@ -44,7 +45,6 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
         };
 
         vm.nextPage = function() {
-            console.log(4);
             vm.options.offset = vm.options.offset + vm.options.limit;
         };
 

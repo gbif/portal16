@@ -1,18 +1,18 @@
 <div class="occurrenceBreakdownCard">
-    <occurrence-breakdown-header api="vm.api" options="vm.options"></occurrence-breakdown-header>
+    <occurrence-breakdown-header api="vm.api" options="vm.options" display="vm.display"></occurrence-breakdown-header>
     <div class="card">
         <div class="card__loader text-center" ng-if="vm.api.isLoading()"><div class="loading"></div></div>
-        <div class="card__stripe card__stripe--light" ng-if="vm.options.showSettings">
+        <div class="card__stripe card__stripe--light" ng-if="vm.display.showSettings">
             <div class="card__content">
                 <occurrence-breakdown-settings api="vm.api" options="vm.options"></occurrence-breakdown-settings>
             </div>
         </div>
-        <div class="card__stripe">
+        <div class="card__stripe" ng-show="vm.options.dimension">
             <div>
                 <occurrence-breakdown options="vm.options" api="vm.api"></occurrence-breakdown>
             </div>
         </div>
-        <div class="card__stripe card__stripe--light text-right" ng-if="vm.api.data().endOfRecords === false">
+        <div class="card__stripe card__stripe--light text-right" ng-if="vm.options.dimension && vm.api.data().endOfRecords === false">
             <div class="card__content">
                 <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0" ng-if="vm.options.offset > vm.options.limit">First</a>
                 <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0">Previous</a>

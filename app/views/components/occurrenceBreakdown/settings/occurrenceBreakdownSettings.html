@@ -2,9 +2,9 @@
     <div layout="row">
         <md-input-container>
             <label>Dimension</label>
-            <md-select ng-model="vm.options.dimension">
+            <md-select ng-model="vm.options.dimension" ng-change="vm.options.offset = 0">
                 <md-option ng-value=""><em>None</em></md-option>
-                <md-option ng-repeat="item in vm.config.dimensions" ng-value="item" Xng-disabled="$index === 0">
+                <md-option ng-repeat="item in vm.config.dimensions" ng-value="item">
                     {{item}}
                 </md-option>
             </md-select>
@@ -13,7 +13,7 @@
             <label>2nd dimension</label>
             <md-select ng-model="vm.options.secondDimension">
                 <md-option ng-value=""><em>None</em></md-option>
-                <md-option ng-repeat="item in vm.config.secondaryDimensions" ng-value="item" ng-disabled="item === vm.options.dimension">
+                <md-option ng-repeat="item in vm.config.secondaryDimensions" ng-value="item">
                     {{item}}
                 </md-option>
             </md-select>

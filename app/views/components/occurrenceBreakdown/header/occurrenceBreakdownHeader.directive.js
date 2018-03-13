@@ -16,7 +16,8 @@ function occurrenceBreakdownHeaderDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/occurrenceBreakdown/header/occurrenceBreakdownHeader.html?v=' + BUILD_VERSION,
         scope: {
             api: '=',
-            options: '='
+            options: '=',
+            display: '='
         },
         controller: occurrenceBreakdownHeader,
         controllerAs: 'vm',

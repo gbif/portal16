@@ -101,10 +101,15 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         }
 
         function updateContent() {
+            if (!vm.options.dimension) {
+                vm.chartdata = undefined;
+                return;
+            }
             // Validate provided options. If wrong, then show an error message instead
             var q = _.assign({}, vm.options.filter,
                     {dimension: vm.options.dimension, secondDimension: vm.options.secondDimension, buckets: undefined},
-                    _.get(config, 'dimensionParams[' + vm.options.dimension + ']', {offset: vm.options.offset, limit: vm.options.limit})
+                    {offset: vm.options.offset, limit: vm.options.limit},
+                    _.get(config, 'dimensionParams[' + vm.options.dimension + ']')
             );
             if (vm.content && vm.content.$cancelRequest) {
                 vm.content.$cancelRequest();
@@ -144,6 +149,9 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         vm.level = function(val) {
             if (val === 0) {
                 return 0;
+            }
+            if (val === 1) {
+                return 1;
             }
             var logMin = vm.chartdata.min == 0 ? 0 : Math.log(vm.chartdata.min);
             var logStart = Math.floor(logMin);
@@ -224,7 +232,6 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             };
 
             vm.api.getDimension = function() {
-                // console.log(vm.options);
                 return vm.dimension;
             };
 
