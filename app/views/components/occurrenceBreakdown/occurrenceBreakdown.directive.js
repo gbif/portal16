@@ -102,7 +102,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
 
         function updateContent() {
             // Validate provided options. If wrong, then show an error message instead
-            var q = _.assign(vm.options.filter,
+            var q = _.assign({}, vm.options.filter,
                     {dimension: vm.dimension, secondDimension: vm.secondDimension, buckets: undefined},
                     _.get(config, 'dimensionParams[' + vm.dimension + ']', {offset: vm.state.offset, limit: vm.state.limit})
             );

@@ -69,23 +69,20 @@
         </div>
     </section>
 
-    <section class="horizontal-stripe--paddingless lighter-background" ng-if="!portal.hasRole('REGISTRY_ADMIN')">
+    <section class="horizontal-stripe--paddingless light-background" ng-if="!portal.hasRole('REGISTRY_ADMIN')">
         <div class="emptyInfo">
             <h3>Under development</h3>
             <p>Log in as registry administrator to explore</p>
         </div>
     </section>
-    <section class="horizontal-stripe--paddingless lighter-background" ng-if="portal.hasRole('REGISTRY_ADMIN')">
-        <div>
-            <h1>Tests</h1>
-        </div>
-        <div class="container-fluid">
+    <section class="horizontal-stripe--paddingless light-background" ng-if="portal.hasRole('REGISTRY_ADMIN')">
+        <div class="container-fluid m-t-1">
             <!--<div style="border:2px solid deepskyblue; margin:10px;padding:10px;">-->
                 <!--{{occCharts.api}}-->
             <!--</div>-->
             <occurrence-breakdown-header api="occCharts.api" options="occCharts.options"></occurrence-breakdown-header>
             <div class="card">
-                <div class="card__stripe card-stripe--light">
+                <div class="card__stripe card__stripe--light" ng-if="occCharts.options.showSettings">
                     <div class="card__content">
                         <occurrence-breakdown-settings api="occCharts.api" options="occCharts.options"></occurrence-breakdown-settings>
                         <!--<div class="text-right">-->

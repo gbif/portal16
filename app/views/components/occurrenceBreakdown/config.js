@@ -40,6 +40,8 @@ var config = {
             limit: 12
         },
         year: {
+        },
+        basisOfRecord: {
             fillEnums: true
         }
     },

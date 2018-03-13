@@ -3,40 +3,47 @@
         <div><!--table-->
             <div class="scrollable-y">
                 <div class="table-container">
-                    <table class="table search-table smaller">
+                    <table class="table search-table chart-table smaller" ng-class="{'table-fixed': !vm.chartdata.categories}">
                         <thead ng-if="vm.chartdata.categories">
                         <tr>
                             <th class="text-capitalize p-0"></th>
                             <th class="text-capitalize">{{vm.chartdata.field}}</th>
-                            <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">{{category.displayName}}</th>
+                            <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">
+                                <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))">{{category.displayName}}</a>
+                            </th>
                         </tr>
                         </thead>
                         <thead ng-if="!vm.chartdata.categories">
                         <tr>
-                            <th class="text-capitalize p-0"></th>
+                            <th class="text-capitalize p-0 table-cell--50px"></th>
                             <th class="text-capitalize">{{vm.chartdata.field}}</th>
-                            <th class="text-capitalize">count</th>
-                            <th class="text-capitalize"></th>
+                            <th class="text-capitalize table-cell--narrow">count</th>
+                            <th class="text-capitalize table-cell--100"></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="result in vm.chartdata.results">
                             <td class="p-0">
-                                <a ng-if="vm.chartdata.field == 'dataset_key'" ui-sref="datasetKey({key:result.filter.dataset_key})" class="inherit gb-icon-link"></a>
-                                <a ng-if="vm.chartdata.field == 'publisher_key'" ui-sref="publisherKey({key:result.filter.publisher_key})" class="inherit gb-icon-link"></a>
+                                <a ng-if="vm.chartdata.field == 'dataset_key'" ui-sref="datasetKey({key:result.filter.dataset_key})" class="inherit gb-icon-link table__symbol"></a>
+                                <a ng-if="vm.chartdata.field == 'publisher_key'" ui-sref="publisherKey({key:result.filter.publisher_key})" class="inherit gb-icon-link table__symbol"></a>
                             </td>
-                            <td style="white-space: nowrap">
-                                <span class="textMaxWidth--250">
-                                    <span>{{ result.displayName }}</span>
+                            <td>
+                                <span>
+                                    <span>
+                                        <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))" class="inherit">{{result.displayName | truncate:50 }}</a>
+                                    </span>
+                                    <span ng-if="$index === 0 && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!
+                                        <md-tooltip md-direction="right">Differently sized interval</md-tooltip>
+                                    </span>
                                 </span>
                             </td>
-                            <td ng-if="!vm.chartdata.categories">
+                            <td ng-if="!vm.chartdata.categories" class="table-cell--narrow">
                                 <span>
                                     <a class="inherit" href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))">{{ result.count | localNumber }}</a>
                                 </span>
                             </td>
                             <td ng-if="!vm.chartdata.categories">
-                                <div style="width:200px">
+                                <div style="width:100%;min-width:100px">
                                     <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="shadeLevel-50"></div>
                                 </div>
                             </td>

@@ -6,16 +6,6 @@
         <a href="" class="gb-icon-view-list inherit noUnderline" ng-click="vm.options.type = vm.config.enum.type.TABLE" ng-if="vm.isSupported('TABLE')"></a>
         <a href="" class="gb-icon-column-chart inherit noUnderline" ng-click="vm.options.type = vm.config.enum.type.COLUMN" ng-if="vm.isSupported('COLUMN')"></a>
         <md-menu>
-            <a href="" class="gb-icon-more2 inherit noUnderline" ng-click="$mdMenu.open($event)"></a>
-            <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
-                <md-menu-item ng-repeat="item in vm.config.dimensions">
-                    <md-button ng-click="vm.options.dimension = item">
-                        {{item}}
-                    </md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-        <md-menu>
             <a href="" class="gb-icon-file-download inherit noUnderline"
                ng-click="$mdMenu.open($event)"
             ></a>
@@ -32,5 +22,6 @@
                 </md-menu-item>
             </md-menu-content>
         </md-menu>
+        <a href="" class="gb-icon-more2 inherit noUnderline" ng-click="vm.options.showSettings = !vm.options.showSettings"></a>
     </div>
 </div>
