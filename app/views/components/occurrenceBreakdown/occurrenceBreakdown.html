@@ -1,4 +1,4 @@
-<div>
+<div class="occurrenceBreakdownChart">
     <div class="chartArea">
         <div><!--table-->
             <div class="scrollable-y">
@@ -54,10 +54,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="text-right" ng-if="vm.chartdata.$resolved">
-                <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.state.offset > 0">Previous</a>
-                <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartdata.endOfRecords === false">Next</a>
             </div>
         </div>
 

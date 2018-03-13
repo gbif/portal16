@@ -1,5 +1,6 @@
 'use strict';
 var angular = require('angular');
+require('../../../components/occurrenceBreakdown/card/occurrenceBreakdownCard.directive');
 
 angular
     .module('portal')
@@ -11,7 +12,7 @@ function occurrenceChartsCtrl(OccurrenceFilter) {
     vm.state = OccurrenceFilter.getOccurrenceData();
 
     vm.api = {};
-    vm.options = {dimension: 'month', secondDimension: 'basisOfRecord', type: 'BAR', filter: vm.state.query};
+    vm.options = {dimension: 'datasetKey', type: 'BAR', filter: vm.state.query};
 
     vm.hasData = function() {
         return typeof vm.state.table.count !== 'undefined';

@@ -70,32 +70,34 @@
     color tomato
 }
 
-.p-t-0 {
-    padding-top 0 !important
+for amount in 0 1 2 3 {
+    .p-{amount} {
+        padding vrBlock(amount) !important
+    }
+    .p-t-{amount} {
+        padding-top vrBlock(amount) !important
+    }
+    .p-b-{amount} {
+        padding-bottom vrBlock(amount) !important
+    }
+    .p-l-{amount} {
+        padding-left vrBlock(amount) !important
+    }
+    .p-r-{amount} {
+        padding-right vrBlock(amount) !important
+    }
 }
 
-.p-t-1 {
-    padding-top vrBlock(1) !important
+.p-05 {
+    padding vrBlock(0.5) !important
 }
 
 .p-t-05 {
     padding-top vrBlock(0.5) !important
 }
 
-.p-b-0 {
-    padding-bottom 0 !important
-}
-
 .p-b-05 {
     padding-bottom vrBlock(0.5) !important
-}
-
-.p-b-1 {
-    padding-bottom vrBlock(1) !important
-}
-
-.p-0 {
-    padding 0 !important
 }
 
 .p-l-05 {

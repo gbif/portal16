@@ -103,8 +103,8 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         function updateContent() {
             // Validate provided options. If wrong, then show an error message instead
             var q = _.assign({}, vm.options.filter,
-                    {dimension: vm.dimension, secondDimension: vm.secondDimension, buckets: undefined},
-                    _.get(config, 'dimensionParams[' + vm.dimension + ']', {offset: vm.state.offset, limit: vm.state.limit})
+                    {dimension: vm.options.dimension, secondDimension: vm.options.secondDimension, buckets: undefined},
+                    _.get(config, 'dimensionParams[' + vm.options.dimension + ']', {offset: vm.options.offset, limit: vm.options.limit})
             );
             if (vm.content && vm.content.$cancelRequest) {
                 vm.content.$cancelRequest();
@@ -117,7 +117,11 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                     var logStart = Math.floor(logMin);
                     var logMax = Math.log(vm.chartdata.max);
                     vm.chartdata.results.forEach(function(e) {
-                        e._relativeCount = 100 * (Math.log(e.count) - logStart) / (logMax - logStart);
+                        if (e.count == 0) {
+                            e._relativeCount = 0;
+                        } else {
+                            e._relativeCount = 100 * (Math.log(e.count) - logStart) / (logMax - logStart);
+                        }
                     });
                 })
                 .catch(function(err) {
@@ -126,16 +130,16 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                     }
                 });
         }
-
-        vm.nextPage = function() {
-            vm.state.offset = vm.state.offset + vm.state.limit;
-            updateContent();
-        };
-
-        vm.prevPage = function() {
-            vm.state.offset = Math.max(0, vm.state.offset - vm.state.limit);
-            updateContent();
-        };
+        //
+        // vm.nextPage = function() {
+        //     vm.state.offset = vm.state.offset + vm.state.limit;
+        //     updateContent();
+        // };
+        //
+        // vm.prevPage = function() {
+        //     vm.state.offset = Math.max(0, vm.state.offset - vm.state.limit);
+        //     updateContent();
+        // };
 
         vm.level = function(val) {
             if (val === 0) {
@@ -153,7 +157,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
 
         function changeChartType(type) {
             console.log('chart type changed to ' + type);
-            vm.state.type = type;
+            // vm.state.type = type;
         }
 
         vm.getFacetFilter = function(filter) {
@@ -177,34 +181,46 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             }, UPDATE_DELAY_TIME);
         });
 
-        $scope.$watch(function() {
-            return vm.options.dimension;
-        }, function() {
-            vm.dimension = vm.options.dimension;
-            vm.state.offset = 0;
+        $scope.$watchCollection(function() {
+            return vm.options;
+        }, function(updated, past) {
+            console.log(5);
             updateContent();
+            // if (updated.dimension !== past.dimension || updated.secondDimension !== past.secondDimension) {
+            //     updateContent();
+            // }
+            // vm.dimension = vm.options.dimension;
+            // updateContent();
         });
 
-        $scope.$watch(function() {
-            return vm.options.secondDimension;
-        }, function() {
-            vm.secondDimension = vm.options.secondDimension;
-            vm.state.offset = 0;
-            updateContent();
-        });
+        // $scope.$watch(function() {
+        //     return vm.options.secondDimension;
+        // }, function() {
+        //     vm.secondDimension = vm.options.secondDimension;
+        //     vm.state.offset = 0;
+        //     updateContent();
+        // });
 
-        $scope.$watch(function() {
-            return vm.options.type;
-        }, function() {
-            vm.type = vm.options.type;
-            vm.state.offset = 0;
-        });
+        // $scope.$watch(function() {
+        //     return vm.options.type;
+        // }, function() {
+        //     vm.type = vm.options.type;
+        //     vm.state.offset = 0;
+        // });
 
         /* GENERATE API TO EXPOSE TO DIRECTIVE USER */
         // consider splitting in to seperate file
         if (vm.api) {
             vm.api.download = function() {
                 console.log('this will download the chart');
+            };
+
+            vm.api.data = function() {
+                return vm.chartdata;
+            };
+
+            vm.api.isLoading = function() {
+                return !vm.content.$resolved;
             };
 
             vm.api.getDimension = function() {
