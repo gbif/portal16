@@ -10,16 +10,19 @@ angular
 function occurrenceChartsCtrl(OccurrenceFilter) {
     var vm = this;
     vm.state = OccurrenceFilter.getOccurrenceData();
-
-    vm.api = {};
-    vm.options = {dimension: 'country', secondDimension: 'basisOfRecord', type: 'BAR', filter: vm.state.query};
-
-    vm.api2 = {};
-    vm.options2 = {dimension: 'country', secondDimension: 'basisOfRecord', type: 'BAR', filter: vm.state.query};
+    vm.charts = [];
 
     vm.hasData = function() {
         return typeof vm.state.table.count !== 'undefined';
     };
+
+    vm.pushChart = function() {
+        vm.charts.push({
+            api: {},
+            options: {dimension: '', secondDimension: '', type: 'TABLE', filter: vm.state.query}
+        });
+    };
+    vm.pushChart();
 }
 
 module.exports = occurrenceChartsCtrl;
