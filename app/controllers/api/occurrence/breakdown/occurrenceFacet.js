@@ -79,7 +79,8 @@ function composeResult(query, body) {
         offset: query.facetOffset,
         endOfRecords: body.facets[0].counts.length < query.facetLimit,
         max: max ? max.count : 0,
-        min: min ? min.count : 0
+        min: min ? min.count : 0,
+        total: body.count
     };
 }
 

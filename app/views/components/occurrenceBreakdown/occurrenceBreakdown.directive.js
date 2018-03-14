@@ -41,6 +41,8 @@ var angular = require('angular');
 var _ = require('lodash');
 var config = require('./config');
 var serializer = require('./serializer');
+var pieChartHelper = require('./pieChartHelper');
+var columnChartHelper = require('./columnChartHelper');
 
 require('./header/occurrenceBreakdownHeader.directive');
 require('./settings/occurrenceBreakdownSettings.directive');
@@ -57,6 +59,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/occurrenceBreakdown/occurrenceBreakdown.html?v=' + BUILD_VERSION,
         scope: {
             options: '=',
+            display: '=',
             api: '='
         },
         link: chartLink,
@@ -118,16 +121,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             vm.content.$promise
                 .then(function(response) {
                     vm.chartdata = response;// 'chart data after transform of the data response';
-                    var logMin = Math.log(vm.chartdata.min);
-                    var logStart = Math.floor(logMin);
-                    var logMax = Math.log(vm.chartdata.max);
-                    vm.chartdata.results.forEach(function(e) {
-                        if (e.count == 0) {
-                            e._relativeCount = 0;
-                        } else {
-                            e._relativeCount = 100 * (Math.log(e.count) - logStart) / (logMax - logStart);
-                        }
-                    });
+                    formatData(vm.chartdata);
                 })
                 .catch(function(err) {
                     if (err.status !== -1) {
@@ -135,16 +129,44 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                     }
                 });
         }
-        //
-        // vm.nextPage = function() {
-        //     vm.state.offset = vm.state.offset + vm.state.limit;
-        //     updateContent();
-        // };
-        //
-        // vm.prevPage = function() {
-        //     vm.state.offset = Math.max(0, vm.state.offset - vm.state.limit);
-        //     updateContent();
-        // };
+
+        function formatData(chartdata) {
+            if (!chartdata || !chartdata.$resolved) {
+                return;
+            }
+            if (vm.myChart) {
+                vm.myChart.destroy();
+                vm.myChart = undefined;
+            }
+            if (vm.display.type == 'TABLE') {
+                var logMin = Math.log(chartdata.min);
+                var logStart = Math.floor(logMin);
+                var logMax = Math.log(chartdata.max);
+                chartdata.results.forEach(function(e) {
+                    if (e.count == 0) {
+                        e._relativeCount = 0;
+                    } else {
+                        e._relativeCount = 100 * (Math.log(e.count) - logStart) / (logMax - logStart);
+                    }
+                });
+            } else if (vm.display.type == 'COLUMN') {
+                var columnConfig = columnChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch);
+                columnChartHelper.setChartElementSize(vm.chartElement, columnConfig);
+                vm.myChart = Highcharts.chart(columnConfig);
+            } else if (vm.display.type == 'PIE') {
+                var pieConfig = pieChartHelper.getConfig(chartdata, vm.chartElement);
+                vm.myChart = Highcharts.chart(pieConfig);
+            }
+        }
+
+        function occurrenceSearch(filter) {
+            var q = _.assign({}, vm.options.filter, filter);
+            if ($state.current.parent == 'occurrenceSearch') {
+                $state.go('.', q);
+            } else {
+                $state.go('occurrenceSearchTable', q);
+            }
+        }
 
         vm.level = function(val) {
             if (val === 0) {
@@ -192,13 +214,19 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         $scope.$watchCollection(function() {
             return vm.options;
         }, function(updated, past) {
-            console.log(5);
             updateContent();
             // if (updated.dimension !== past.dimension || updated.secondDimension !== past.secondDimension) {
             //     updateContent();
             // }
             // vm.dimension = vm.options.dimension;
             // updateContent();
+        });
+
+        $scope.$watchCollection(function() {
+            return vm.display;
+        }, function() {
+            console.log('change type ' + vm.display.type);
+            formatData(vm.chartdata);
         });
 
         // $scope.$watch(function() {

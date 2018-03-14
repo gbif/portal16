@@ -32,7 +32,7 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
     function occurrenceBreakdownCard($scope) {
         var vm = this;
         vm.config = config;
-        vm.display = {};
+        vm.display = {showSettings: true, type: 'COLUMN'};
         vm.options.offset = vm.options.offset || 0;
         vm.options.limit = vm.options.limit || 10;
 

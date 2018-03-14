@@ -72,7 +72,28 @@ for w in 150 200 250 300 {
 		bottom 0
 		background rgba(255,255,255,0.65)
 	}
-	.chartArea {
-		z-index 1
+	//.occurrenceBreakdownChart {
+	//	z-index 1
+	//}
+}
+
+.test {
+	position: relative;
+	&:before, &:after {
+		display: block;
+		content: '';
+		width: 15px;
+		top: 0;
+		bottom: 20px;
+		z-index: 1;
+		position: absolute;
+	}
+	&:after {
+		right: 0;
+		background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+	}
+	&:before {
+		left 0
+		background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,1));
 	}
 }

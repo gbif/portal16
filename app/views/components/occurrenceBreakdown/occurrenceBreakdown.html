@@ -1,5 +1,5 @@
 <div class="occurrenceBreakdownChart">
-    <div class="chartArea" ng-if="vm.chartdata.$resolved">
+    <div class="tableArea" ng-if="vm.chartdata.$resolved && vm.display.type == 'TABLE'">
         <div><!--table-->
             <div class="scrollable-y">
                 <div class="table-container">
@@ -59,9 +59,30 @@
 
     </div>
 
-    <!--<div>-->
-        <!--{{vm.options}}-->
-    <!--</div>-->
+    <div class="card__content seperator chart chart-field-{{vm.options.dimension}}" ng-show="vm.chartdata.$resolved && vm.display.type != 'TABLE'">
+        <div class="test">
+            <div class="overflow-auto">
+                <div class="chartArea" style="min-width:100%; height:300px;" ></div>
+
+                <!--<div class="text-right small" ng-if="vm.options.type == 'BAR'">-->
+                <!--<div class="gb-btn-group" ng-show="vm.data.categories.length > 1">-->
+                <!--<label ng-model="vm.logScale" uib-btn-radio="false"-->
+                <!--ng-change="vm.toggleBarChart()">Linear</label>-->
+                <!--<label ng-model="vm.logScale" uib-btn-radio="true"-->
+                <!--ng-change="vm.toggleBarChart()">Logarithmic</label>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <!--<div ng-if="vm.data.categories.length == 0" class="chart__empty">-->
+            <!--<div>No occurrences with {{vm.options.dimension}}</div>-->
+        <!--</div>-->
+        <!--<div  ng-show="vm.loading" class="emptyInfo&#45;&#45;small">-->
+            <!--<h3>Loading ...</h3>-->
+
+        <!--</div>-->
+        <!--<ng-transclude></ng-transclude>-->
+    </div>
 
 
 </div>

@@ -114,6 +114,8 @@ async function getFormatedData(query) {
         }
         delete e.name;
     });
+
+    response.diff = response.total - _.sumBy(response.results, 'count');
     return response;
 }
 

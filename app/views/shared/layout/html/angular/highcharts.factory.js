@@ -129,13 +129,14 @@ Highcharts.theme = {
     },
     legend: {
         itemStyle: {
-            color: '#E0E0E3'
+            color: '#606063',
+            fontWeight: 'normal'
         },
         itemHoverStyle: {
-            color: '#FFF'
+            color: '#8d8f92'
         },
         itemHiddenStyle: {
-            color: '#606063'
+            color: '#bec5d0'
         }
     },
     credits: {

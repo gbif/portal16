@@ -12,7 +12,10 @@ function occurrenceChartsCtrl(OccurrenceFilter) {
     vm.state = OccurrenceFilter.getOccurrenceData();
 
     vm.api = {};
-    vm.options = {dimension: 'decimalLatitude', secondDimension: 'year', type: 'BAR', filter: vm.state.query};
+    vm.options = {dimension: 'country', secondDimension: 'basisOfRecord', type: 'BAR', filter: vm.state.query};
+
+    vm.api2 = {};
+    vm.options2 = {dimension: 'country', secondDimension: 'basisOfRecord', type: 'BAR', filter: vm.state.query};
 
     vm.hasData = function() {
         return typeof vm.state.table.count !== 'undefined';

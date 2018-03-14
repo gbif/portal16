@@ -9,7 +9,7 @@
         </div>
         <div class="card__stripe" ng-show="vm.options.dimension">
             <div>
-                <occurrence-breakdown options="vm.options" api="vm.api"></occurrence-breakdown>
+                <occurrence-breakdown options="vm.options" api="vm.api" display="vm.display"></occurrence-breakdown>
             </div>
         </div>
         <div class="card__stripe card__stripe--light text-right" ng-if="vm.options.dimension && vm.api.data().endOfRecords === false">
