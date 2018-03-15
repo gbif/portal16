@@ -5,15 +5,13 @@ module.exports = {
     setChartElementSize: setChartElementSize
 };
 
-function getConfig(data, element, clickCallback) {
+function getConfig(data, element, clickCallback, logarithmic) {
     var series = getSeries(data);
 
-    // estimate what type to use. Col is easier to read for small amounts of data, but won't fit on screen for large amounts
     var type = 'column';
+    var totalCounts = data.results.length * _.get(data, 'categories.length', 1);
+    var isLogaritmic = totalCounts > 1 ? logarithmic : false;
     var groupPadding = (data.results.length * 1.3 * _.get(data, 'categories.length', 1) > 40) ? 0.04 : 0.08;
-    // if (data.results.length * 1.3 * _.get(data, 'categories.length', 1) > 60) {
-    //     type = 'bar';
-    // }
 
     return {
         chart: {
@@ -51,12 +49,12 @@ function getConfig(data, element, clickCallback) {
             categories: data.results.map(function(e) {
                 return e.displayName;
             }),
-            crosshair: true
+            crosshair: !!data.categories && data.results.length > 1
         },
         yAxis: {
             // min: 0,
-            type: 'logarithmic',
-            minorTickInterval: 1,
+            type: isLogaritmic ? 'logarithmic' : 'linear',
+            minorTickInterval: isLogaritmic ? 1 : undefined,
             title: {
                 text: 'Occurrences'
             }
@@ -68,9 +66,11 @@ function getConfig(data, element, clickCallback) {
                     enabled: false
                 }
             }
-        }
+        },
+        _setChartElementSize: setChartElementSize
     };
 }
+
 function getSeries(data) {
     if (!data.secondField) {
         return [getSerie(data)];

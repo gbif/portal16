@@ -48,10 +48,12 @@ function getConfig(data, element) {
 }
 
 function getSerie(data) {
+    // Map data and keep empty slices. We could remove empty slices, but that would mean that the legend would change on updates
     var d = data.results.map(function(e) {
         return {
             name: e.displayName,
-            y: e.count
+            y: e.count,
+            visible: e.count > 0 // disable empty pie slices - this is to make it easier to read the legend.
         };
     });
 

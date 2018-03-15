@@ -43,6 +43,7 @@
     group()
     .badge {
         float left
+        padding: 3px 10px;
     }
     .badge:first-of-type {
         border-radius 10px 0 0 10px
@@ -104,5 +105,23 @@
         border-radius 0 10px 10px 0
         display inline-block
         border-left 1px solid lighten(#D3D3D3, 5%)
+    }
+}
+
+.badge-composite--brand {
+    @extends .badge-composite
+    .badge {
+        background $navBar_background_color
+        color white
+        font-weight inherit
+    }
+    .badge:first-of-type {
+        background darken($navBar_background_color, 10%)
+        border-right 1px solid darken($navBar_background_color, 15%)
+    }
+    .badge:last-of-type {
+        border-radius 0 10px 10px 0
+        display inline-block
+        border-left 1px solid lighten($navBar_background_color, 5%)
     }
 }

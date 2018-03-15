@@ -3,7 +3,10 @@ $_linkColor = #009FD4
     //overflow hidden
     max-width 100%
     background white
-    box-shadow 0 1px 3px rgba(0, 0, 0, 0.3)
+    //box-shadow 0 1px 3px rgba(0, 0, 0, 0.3)
+    //replace shadow with border for performance reasons. Small thing, but a start
+    border: 1px solid $stripeBorderColor;
+    border-bottom-width: 2px;
     &--flexible {
         display flex
         flex-direction column

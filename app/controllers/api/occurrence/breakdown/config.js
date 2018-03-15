@@ -63,7 +63,8 @@ let fields = {
         enums: enums.occurrenceIssue,
         prune: function(e) {
             return ['COORDINATE_ROUNDED', 'GEODETIC_DATUM_ASSUMED_WGS84', 'COORDINATE_REPROJECTED'].indexOf(e.name) != -1;
-        }
+        },
+        isOverlapping: true
     },
     ESTABLISHMENT_MEANS: {
         type: type.ENUM,

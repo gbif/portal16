@@ -46,6 +46,7 @@ var columnChartHelper = require('./columnChartHelper');
 
 require('./header/occurrenceBreakdownHeader.directive');
 require('./settings/occurrenceBreakdownSettings.directive');
+require('./highchart/highchart.directive');
 
 angular
     .module('portal')
@@ -84,6 +85,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             offset: 0,
             limit: 10
         };
+        vm.logarithmic = true;
 
         $scope.create = function(element) {
             vm.chartElement = element[0].querySelector('.chartArea');
@@ -150,14 +152,19 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                     }
                 });
             } else if (vm.display.type == 'COLUMN') {
-                var columnConfig = columnChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch);
-                columnChartHelper.setChartElementSize(vm.chartElement, columnConfig);
-                vm.myChart = Highcharts.chart(columnConfig);
+                var columnConfig = columnChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.logarithmic);
+                vm.chartConfig = columnConfig;
             } else if (vm.display.type == 'PIE') {
                 var pieConfig = pieChartHelper.getConfig(chartdata, vm.chartElement);
-                vm.myChart = Highcharts.chart(pieConfig);
+                vm.chartConfig = pieConfig;
             }
+
+            vm.pieConfig = pieChartHelper.getConfig(chartdata);
         }
+
+        vm.toggleLogarithmic = function() {
+            formatData(vm.chartdata);
+        };
 
         function occurrenceSearch(filter) {
             var q = _.assign({}, vm.options.filter, filter);
@@ -196,6 +203,21 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
 
         vm.getTableFilter = function(filterA, filterB) {
             return _.assign({}, vm.options.filter, filterA, filterB);
+        };
+
+        vm.resultType = function() {
+            var singleBucket = _.get(vm.chartdata, 'results.length', 0) === 1 &&
+                _.get(vm.chartdata, 'categories.length', 1) === 1 &&
+                _.get(vm.chartdata, 'diff', 0) === 0 &&
+                _.get(vm.chartdata, 'secondDiff', 0) === 0;
+
+            if (_.get(vm.chartdata, 'results.length', 0) === 0) {
+                return 'EMPTY';
+            } else if (singleBucket) {
+                return 'SINGLE_BUCKET';
+            } else {
+                return 'MULTIPLE_BUCKETS';
+            }
         };
 
         /* WATCH FILTERS FOR CHANGES */
@@ -256,7 +278,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             };
 
             vm.api.isLoading = function() {
-                return !vm.content.$resolved;
+                return vm.content && !vm.content.$resolved;
             };
 
             vm.api.getDimension = function() {

@@ -15,6 +15,7 @@ module.exports = {
 
 async function query(query) {
     // get fill response
+    query = getCamelCasedObject(query);
     let result = await getFormatedData(query);
     if (query.secondDimension) {
         result = await addSecondDimension(result, query);
@@ -40,8 +41,14 @@ async function addSecondDimension(data, query) {
     }
 
     let dimensionPromises = data.results.map(function(e) {
-        let mergedQuery = _.assign({}, query, e.filter, {dimension: query.secondDimension, limit: 1000, offset: 0});
-        return getFormatedData(mergedQuery);
+        let mergedQuery = _.assign({}, query, getCamelCasedObject(e.filter), {dimension: query.secondDimension, limit: 1000, offset: 0});
+        if (e.count > 0) {
+            return getFormatedData(mergedQuery);
+        } else {
+            return {
+                results: []
+            };
+        }
     });
     let secondDimensionData = await Promise.all(dimensionPromises);
     // Get union of secondary categories and filters
@@ -76,7 +83,12 @@ async function addSecondDimension(data, query) {
 
     data.max = max;
     data.min = min;
-    data.secondField = changeCase.snakeCase(query.secondDimension);
+
+    let constantDimension = changeCase.constantCase(query.secondDimension);
+    if (!facetConfig.fields[constantDimension].isOverlapping) {
+        data.secondDiff = _.sumBy(data.results, 'diff');
+    }
+    data.secondField = query.secondDimension;
 
     data.categories = categories;
     return data;
@@ -115,7 +127,10 @@ async function getFormatedData(query) {
         delete e.name;
     });
 
-    response.diff = response.total - _.sumBy(response.results, 'count');
+    let constantDimension = changeCase.constantCase(query.dimension);
+    if (!facetConfig.fields[constantDimension].isOverlapping) {
+        response.diff = response.total - _.sumBy(response.results, 'count');
+    }
     return response;
 }
 
@@ -145,4 +160,13 @@ function parseQuery(query) {
     }
     query.fillEnums = query.fillEnums === 'true' || query.fillEnums === true;
     return query;
+}
+
+function getCamelCasedObject(o) {
+    // make sure everything is camel cased
+    let q = {};
+    _.forEach(o, function(value, key) {
+        q[changeCase.camelCase(key)] = value;
+    });
+    return q;
 }

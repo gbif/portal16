@@ -37,12 +37,13 @@ var config = {
             buckets: 10
         },
         month: {
-            limit: 12
+            limit: 12,
+            fillEnums: true
         },
         year: {
         },
         basisOfRecord: {
-            fillEnums: true
+            fillEnums: false
         }
     },
     enum: enums

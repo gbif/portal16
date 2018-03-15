@@ -19,10 +19,18 @@ function occurrenceChartsCtrl(OccurrenceFilter) {
     vm.pushChart = function() {
         vm.charts.push({
             api: {},
-            options: {dimension: '', secondDimension: '', type: 'TABLE', filter: vm.state.query}
+            options: {dimension: '', secondDimension: '', filter: vm.state.query}
         });
     };
     vm.pushChart();
+
+    vm.getStates = function() {
+        console.log('get states');
+        var a = vm.charts.map(function(e) {
+            return e.api.getState();
+        });
+        console.log(a);
+    };
 }
 
 module.exports = occurrenceChartsCtrl;

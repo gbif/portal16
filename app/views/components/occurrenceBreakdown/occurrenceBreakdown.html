@@ -1,33 +1,54 @@
 <div class="occurrenceBreakdownChart">
-    <div class="tableArea" ng-if="vm.chartdata.$resolved && vm.display.type == 'TABLE'">
-        <div><!--table-->
-            <div class="scrollable-y">
-                <div class="table-container">
-                    <table class="table search-table chart-table smaller" ng-class="{'table-fixed': !vm.chartdata.categories}">
-                        <thead ng-if="vm.chartdata.categories">
-                        <tr>
-                            <th class="text-capitalize p-0"></th>
-                            <th class="text-capitalize">{{vm.chartdata.field}}</th>
-                            <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">
-                                <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))">{{category.displayName}}</a>
-                            </th>
-                        </tr>
-                        </thead>
-                        <thead ng-if="!vm.chartdata.categories">
-                        <tr>
-                            <th class="text-capitalize p-0 table-cell--50px"></th>
-                            <th class="text-capitalize">{{vm.chartdata.field}}</th>
-                            <th class="text-capitalize table-cell--narrow">count</th>
-                            <th class="text-capitalize table-cell--100"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="result in vm.chartdata.results">
-                            <td class="p-0">
-                                <a ng-if="vm.chartdata.field == 'dataset_key'" ui-sref="datasetKey({key:result.filter.dataset_key})" class="inherit gb-icon-link table__symbol"></a>
-                                <a ng-if="vm.chartdata.field == 'publisher_key'" ui-sref="publisherKey({key:result.filter.publisher_key})" class="inherit gb-icon-link table__symbol"></a>
-                            </td>
-                            <td>
+    <div ng-if="vm.resultType() === 'EMPTY'" class="emptyInfo--small">
+        <h3>No data</h3>
+    </div>
+    <div class="occurrenceBreakdownChart__single" ng-if="vm.resultType() === 'SINGLE_BUCKET'">
+        <div class="occurrenceBreakdownChart__single__number">
+            {{vm.chartdata.results[0].count |localNumber}}
+        </div>
+        <div class="occurrenceBreakdownChart__single__description">
+            <span class="badge-composite--brand">
+                <span class="badge">{{vm.chartdata.field}}</span>
+                <span class="badge">{{vm.chartdata.results[0].displayName}}</span>
+            </span>
+            <div ng-if="vm.chartdata.categories">
+                <span class="badge-composite--brand">
+                    <span class="badge">{{vm.chartdata.secondField}}</span>
+                    <span class="badge">{{vm.chartdata.categories[0].displayName}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div ng-if="vm.resultType() === 'MULTIPLE_BUCKETS'">
+        <div class="tableArea" ng-if="vm.chartdata.$resolved && vm.display.type == 'TABLE'">
+            <div><!--table-->
+                <div class="scrollable-y">
+                    <div class="table-container">
+                        <table class="table search-table chart-table smaller" ng-class="{'table-fixed': !vm.chartdata.categories}">
+                            <thead ng-if="vm.chartdata.categories">
+                            <tr>
+                                <th class="text-capitalize p-0"></th>
+                                <th class="text-capitalize">{{vm.chartdata.field}}</th>
+                                <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">
+                                    <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))">{{category.displayName}}</a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <thead ng-if="!vm.chartdata.categories">
+                            <tr>
+                                <th class="text-capitalize p-0 table-cell--50px"></th>
+                                <th class="text-capitalize">{{vm.chartdata.field}}</th>
+                                <th class="text-capitalize table-cell--narrow">count</th>
+                                <th class="text-capitalize table-cell--100"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="result in vm.chartdata.results">
+                                <td class="p-0">
+                                    <a ng-if="vm.chartdata.field == 'dataset_key'" ui-sref="datasetKey({key:result.filter.dataset_key})" class="inherit gb-icon-link table__symbol"></a>
+                                    <a ng-if="vm.chartdata.field == 'publisher_key'" ui-sref="publisherKey({key:result.filter.publisher_key})" class="inherit gb-icon-link table__symbol"></a>
+                                </td>
+                                <td>
                                 <span>
                                     <span>
                                         <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))" class="inherit">{{result.displayName | truncate:50 }}</a>
@@ -36,53 +57,42 @@
                                         <md-tooltip md-direction="right">Differently sized interval</md-tooltip>
                                     </span>
                                 </span>
-                            </td>
-                            <td ng-if="!vm.chartdata.categories" class="table-cell--narrow">
+                                </td>
+                                <td ng-if="!vm.chartdata.categories" class="table-cell--narrow">
                                 <span>
                                     <a class="inherit" href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))">{{ result.count | localNumber }}</a>
                                 </span>
-                            </td>
-                            <td ng-if="!vm.chartdata.categories">
-                                <div style="width:100%;min-width:100px">
-                                    <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="shadeLevel-50"></div>
-                                </div>
-                            </td>
-                            <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">
-                                <a class="inherit" href="" ui-sref="occurrenceSearchCharts(vm.getTableFilter(vm.chartdata.categories[$index].filter, result.filter))">{{ value | localNumber }}</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                                </td>
+                                <td ng-if="!vm.chartdata.categories">
+                                    <div style="width:100%;min-width:100px">
+                                        <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="shadeLevel-50"></div>
+                                    </div>
+                                </td>
+                                <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">
+                                    <a class="inherit" href="" ui-sref="occurrenceSearchCharts(vm.getTableFilter(vm.chartdata.categories[$index].filter, result.filter))">{{ value | localNumber }}</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
 
-    </div>
-
-    <div class="card__content seperator chart chart-field-{{vm.options.dimension}}" ng-show="vm.chartdata.$resolved && vm.display.type != 'TABLE'">
-        <div class="test">
-            <div class="overflow-auto">
-                <div class="chartArea" style="min-width:100%; height:300px;" ></div>
-
-                <!--<div class="text-right small" ng-if="vm.options.type == 'BAR'">-->
-                <!--<div class="gb-btn-group" ng-show="vm.data.categories.length > 1">-->
-                <!--<label ng-model="vm.logScale" uib-btn-radio="false"-->
-                <!--ng-change="vm.toggleBarChart()">Linear</label>-->
-                <!--<label ng-model="vm.logScale" uib-btn-radio="true"-->
-                <!--ng-change="vm.toggleBarChart()">Logarithmic</label>-->
-                <!--</div>-->
-                <!--</div>-->
+        <div class="chart" ng-show="vm.chartdata.$resolved && vm.display.type != 'TABLE'">
+            <div class="test">
+                <div class="overflow-auto">
+                    <div class="text-right small m-r-1 m-t-05" ng-if="vm.display.type == 'COLUMN'">
+                        <div class="gb-btn-group">
+                            <label ng-model="vm.logarithmic" uib-btn-radio="false"
+                                   ng-change="vm.toggleLogarithmic()">Linear</label>
+                            <label ng-model="vm.logarithmic" uib-btn-radio="true"
+                                   ng-change="vm.toggleLogarithmic()">Logarithmic</label>
+                        </div>
+                    </div>
+                    <highchart config="vm.chartConfig" ng-if="vm.chartConfig" style="min-width:100%; height:300px;" ></highchart>
+                </div>
             </div>
         </div>
-        <!--<div ng-if="vm.data.categories.length == 0" class="chart__empty">-->
-            <!--<div>No occurrences with {{vm.options.dimension}}</div>-->
-        <!--</div>-->
-        <!--<div  ng-show="vm.loading" class="emptyInfo&#45;&#45;small">-->
-            <!--<h3>Loading ...</h3>-->
-
-        <!--</div>-->
-        <!--<ng-transclude></ng-transclude>-->
     </div>
-
-
 </div>
