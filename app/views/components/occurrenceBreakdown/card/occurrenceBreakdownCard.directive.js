@@ -1,7 +1,7 @@
 'use strict';
 
 var angular = require('angular');
-var config = require('../config');
+var chartOptions = require('../config');
 
 require('../occurrenceBreakdown.directive');
 require('../header/occurrenceBreakdownHeader.directive');
@@ -19,7 +19,8 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/occurrenceBreakdown/card/occurrenceBreakdownCard.html?v=' + BUILD_VERSION,
         scope: {
             api: '=',
-            options: '='
+            config: '=',
+            filter: '='
         },
         controller: occurrenceBreakdownCard,
         controllerAs: 'vm',
@@ -32,14 +33,20 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
     function occurrenceBreakdownCard($scope) {
         var vm = this;
         vm.chartApi = {};
-        vm.config = config;
-        vm.display = {showSettings: true, type: 'COLUMN'};
-        vm.options.offset = vm.options.offset || 0;
-        vm.options.limit = vm.options.limit || 10;
+        vm.chartOptions = chartOptions;
+        vm.options = {
+            dimension: vm.config.dimension,
+            secondDimension: vm.config.secondDimension,
+            limit: vm.config.limit || 10,
+            offset: vm.config.offset || 0,
+            filter: vm.filter
+        };
+
+        vm.display = {showSettings: vm.config.customizable && vm.config.showSettings, type: vm.config.type || 'TABLE', customizable: vm.config.customizable};
 
         vm.isSupported = function(type) {
             if (vm.chartApi.getDimension) {
-                return config.supportedTypes[vm.chartApi.getDimension()].indexOf(type) > -1;
+                return chartOptions.supportedTypes[vm.chartApi.getDimension()].indexOf(type) > -1;
             } else {
                 return false;
             }
@@ -63,10 +70,6 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
             vm.api.getState = function() {
                 return vm.getState();
             };
-
-            if (Object.freeze) {
-                Object.freeze(vm.api);
-            }
         }
     }
 }

@@ -142,7 +142,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             }
             if (vm.display.type == 'TABLE') {
                 var logMin = Math.log(chartdata.min);
-                var logStart = Math.floor(logMin);
+                var logStart = Math.max(0, Math.floor(logMin));
                 var logMax = Math.log(chartdata.max);
                 chartdata.results.forEach(function(e) {
                     if (e.count == 0) {

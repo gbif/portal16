@@ -49,7 +49,13 @@
                             </a>
                         </li>
 
-                        <li class="tab isActive">
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchDatasets()">
+                                Datasets
+                            </a>
+                        </li>
+
+                        <li class="tab isActive" ng-if="portal.hasRole('REGISTRY_ADMIN')">
                             <span>
                                 Charts
                             </span>
@@ -69,19 +75,47 @@
         </div>
     </section>
 
-    <section class="horizontal-stripe--paddingless light-background" ng-if="!portal.hasRole('REGISTRY_ADMIN')">
+    <section class="horizontal-stripe--paddingless lighter-background" ng-if="!portal.hasRole('REGISTRY_ADMIN')">
         <div class="emptyInfo">
             <h3>Under development</h3>
             <p>Log in as registry administrator to explore</p>
         </div>
     </section>
-    <section class="horizontal-stripe--paddingless light-background" ng-if="portal.hasRole('REGISTRY_ADMIN')">
-        <div class="container-fluid">
-            <div ng-repeat="chart in occCharts.charts" class="m-t-1">
-                <occurrence-breakdown-card api="chart.api" options="chart.options"></occurrence-breakdown-card>
+    <section class="horizontal-stripe--paddingless lighter-background" ng-if="portal.hasRole('REGISTRY_ADMIN')">
+
+        <div class="text-center small seperator--b">
+            <div class="gb-btn-group">
+                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="true">Defaults</label>
+                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="false">Custom</label>
             </div>
-            <div class="m-t-1">
-                <a href="" class="gb-button--brand" ng-click="occCharts.pushChart()">Add</a>
+        </div>
+
+        <div class="container-fluid">
+
+            <div ng-if="occCharts.getSerializedQuery() !== ''" class="m-t-1">
+                <h4 class="card-header">Current filter</h4>
+                <div class="card">
+                    <div class="card__stripe">
+                        <div class="card__content predicateContainer">
+                            <div class="predicates isSimplePredicate">
+                                <ng-include src="'/api/occurrence/search/predicate.html?' + occCharts.getSerializedQuery()"></ng-include>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section ng-if="occCharts.$sessionStorage.occurrenceChartsShowDefaults">
+                <div ng-repeat="chart in occCharts.defaultCharts" class="m-t-1">
+                    <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter"></occurrence-breakdown-card>
+                </div>
+            </section>
+            <section ng-if="!occCharts.$sessionStorage.occurrenceChartsShowDefaults">
+                <div ng-repeat="chart in occCharts.charts" class="m-t-1">
+                    <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter"></occurrence-breakdown-card>
+                </div>
+            </section>
+            <div class="text-center m-t-1" ng-if="!occCharts.$sessionStorage.occurrenceChartsShowDefaults">
+                <a href="" class="gb-button--brand" ng-click="occCharts.pushChart('', 'TABLE', '', vm.charts, true)">Add</a>
             </div>
         </div>
         <!--<button ng-click="occCharts.getStates()">get states</button>-->
