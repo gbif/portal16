@@ -166,18 +166,18 @@
                                             <a ng-click="occSpecies.updateTaxonFilter(taxon._resolved.key)" class="cursor-pointer"><span class="gb-icon-add"></span></a>
                                         </td>
                                         <td class="table-cell--narrow">
-                                            <a ng-href="../species/{{taxon._resolved.key}}">{{taxon.count | localNumber:occSpecies.state.query.locale}}</a>
+                                            <a ui-sref="speciesKey({speciesKey:taxon._resolved.key})">{{taxon.count | localNumber:occSpecies.state.query.locale}}</a>
                                         </td>
 
                                         <td class="table-cell--wide">
-                                            <a ng-href="../species/{{taxon._resolved.key}}">{{taxon._resolved.scientificName}}</a>
+                                            <a ui-sref="speciesKey({speciesKey:taxon._resolved.key})">{{taxon._resolved.scientificName}}</a>
                                         </td>
                                         <td class="table-cell--narrow"
                                             ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                                            <a ng-href="../species/{{taxon._resolved.key}}">{{taxon._resolved[t]}}</a>
+                                            <a ui-sref="speciesKey({speciesKey:taxon._resolved.key})">{{taxon._resolved[t]}}</a>
                                         </td>
                                         <td class="table-cell--wide">
-                                            <a ng-href="../species/{{taxon._resolved.key}}">{{taxon.species}}</a>
+                                            <a ui-sref="speciesKey({speciesKey:taxon._resolved.key})">{{taxon.species}}</a>
                                         </td>
                                     </tr>
                                     </tbody>

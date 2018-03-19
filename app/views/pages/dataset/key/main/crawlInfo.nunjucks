@@ -16,7 +16,7 @@
     <div ng-if="datasetKey.processSummary.lastSuccess.finishReason !== 'NORMAL'">
         <dt class="text-capitalize">Last ingestion with changes</dt>
         <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | amDateFormat:'D MMMM YYYY' }}</span>
-        <span ng-if="!datasetKey.processSummary.lastNormal">Unknown, but none since {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</span>
+        <span ng-if="!datasetKey.processSummary.lastNormal">This dataset has no ingestion entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span></span>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
         <dt class="text-capitalize">Last ingestion with data change</dt>

@@ -93,7 +93,9 @@
                         </dd>
                     </div>
                 </dl>
-                {% include('./crawlInfo.nunjucks') %}
+                <div ng-if="!datasetKey.isBackbone">
+                    {% include('./crawlInfo.nunjucks') %}
+                </div>
                 <p ng-if="datasetKey.currentCrawlingStatus.crawlInProcess">Currently being ingested <span gb-help="time-to-index-dataset"></span></p>
             </div>
         </div>

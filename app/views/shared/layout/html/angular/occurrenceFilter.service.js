@@ -93,6 +93,7 @@ angular
             }
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
             state.data = OccurrenceTableSearch.query(apiQuery, function() {
                 state.failedFacetRequest = false;
                 // state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
