@@ -15,7 +15,7 @@
         <h3>The request failed with a server error. That shouldn't happen :(</h3>
     </div>
 
-<div class="container--narrow m-t-1">
+<div class="container--desktop m-t-1">
     {% include "../warnings/warnings.nunjucks" %}
 
 </div>
@@ -25,7 +25,7 @@
 
     <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
 
-        <div class="container--narrow">
+        <div class="container--desktop">
 
             <name-usages species="speciesKey2.species" synonyms="speciesKey2.synonyms" ng-if="speciesKey2.synonyms.$resolved && speciesKey2.synonyms.results.length > 0 && speciesKey2.isSpeciesOrBelow"></name-usages>
 

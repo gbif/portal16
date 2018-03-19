@@ -86,6 +86,10 @@ function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { // $log
             e.preventDefault();
         }
     });
+
+    $rootScope.$on('$stateChangeSuccess', function() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
 }
 
 // /** @ngInject */

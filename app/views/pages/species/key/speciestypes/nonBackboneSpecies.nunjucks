@@ -5,7 +5,7 @@
     </div>
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
 
-        <div class="container--narrow">
+        <div class="container--desktop">
 
 
             {% include "../warnings/warnings.nunjucks" %}

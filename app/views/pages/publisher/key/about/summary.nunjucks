@@ -35,7 +35,7 @@
                         <dd>
                            <ul class="inline-bullet-list">
                                <li ng-repeat="installation in publisherKey.installations.results">
-                                   <a ng-href="/installation/{{ installation.key }}">{{ installation.title }}</a>
+                                   <a ui-sref="installation({key:installation.key})" ng-href="/installation/{{ installation.key }}">{{ installation.title }}</a>
                                </li>
                            </ul>
                         </dd>
