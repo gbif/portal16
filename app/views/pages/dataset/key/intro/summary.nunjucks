@@ -20,19 +20,17 @@
                 <img ng-src="{{ datasetKey.dataset.logoUrl | imgCache }}" onError="this.style.display = 'none'">
             </div>
             <dl class="inline">
-                {#<div>#}
-                    {#<dt class="text-capitalize">Publisher</dt>#}
-                    {#<dd>#}
-                        {#<a ng-href="/publisher/{{ datasetKey.dataset.publishingOrganizationKey }}">#}
-                            {#{{ datasetKey.publisher.title }}#}
-                        {#</a>#}
-                    {#</dd>#}
-                {#</div>#}
-
                 <div>
-                    <dt class="text-capitalize">Last modified</dt>
+                    <dt class="text-capitalize">Metadata last modified</dt>
                     <dd>
                         {{ datasetKey.dataset.modified | amDateFormat:'D MMMM YYYY' }}
+                    </dd>
+                </div>
+
+                <div ng-if="datasetKey.processSummary.lastDataChange">
+                    <dt class="text-capitalize">Data last changed</dt>
+                    <dd>
+                        {{ datasetKey.processSummary.lastDataChange.finishedCrawling | amDateFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
 
