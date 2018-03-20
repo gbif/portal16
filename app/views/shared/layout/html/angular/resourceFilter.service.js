@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 'use strict';
 
 var angular = require('angular');
@@ -13,7 +14,7 @@ angular
         };
 
         // for fields where we want faceting and will always ask for all possible. This is the case for most enums
-        var exhaustiveFacetsKeys = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'relevance'];
+        var exhaustiveFacetsKeys = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'relevance', 'contractCountry'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function(facet) {
             exhaustiveFacets.push(facet);

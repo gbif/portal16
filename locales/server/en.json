@@ -1943,6 +1943,7 @@
       "matchingFunds": "Est. co-funding",
       "status": "Status",
       "programme": "programme",
+      "contractCountry": "country",
       "call": "call",
       "partner": {
         "one": "partner",
@@ -2666,6 +2667,7 @@
         "countriesOfCoverage": "country or area of coverage",
         "countriesOfResearcher": "country or area of researcher",
         "literatureType": "literature type",
+        "contractCountry": "contract country",
         "topics": "topic",
         "purposes": "purpose",
         "relevance": "relevance",
