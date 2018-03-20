@@ -43,6 +43,7 @@ var config = require('./config');
 var serializer = require('./serializer');
 var pieChartHelper = require('./pieChartHelper');
 var columnChartHelper = require('./columnChartHelper');
+var areaChartHelper = require('./areaChartHelper');
 
 require('./header/occurrenceBreakdownHeader.directive');
 require('./settings/occurrenceBreakdownSettings.directive');
@@ -155,6 +156,9 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             } else if (vm.display.type == 'COLUMN') {
                 var columnConfig = columnChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.logarithmic);
                 vm.chartConfig = columnConfig;
+            } else if (vm.display.type == 'LINE') {
+                var areaConfig = areaChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.logarithmic, Highcharts);
+                vm.chartConfig = areaConfig;
             } else if (vm.display.type == 'PIE') {
                 var pieConfig = pieChartHelper.getConfig(chartdata, vm.chartElement);
                 vm.chartConfig = pieConfig;

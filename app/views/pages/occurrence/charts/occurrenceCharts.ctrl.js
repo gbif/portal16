@@ -70,6 +70,7 @@ function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionSt
     vm.getSerializedQuery = function() {
         var query = angular.copy(vm.state.query);
         delete query.locale;
+        delete query.advanced;
         query = _.omitBy(query, angular.isUndefined);
         return $httpParamSerializer(query);
     };

@@ -2,12 +2,14 @@ var BAR = 'BAR';
 var COLUMN = 'COLUMN';
 var TABLE = 'TABLE';
 var PIE = 'PIE';
+var LINE = 'LINE';
 
 var enums = {
     type: {
         BAR: BAR,
         COLUMN: COLUMN,
         PIE: PIE,
+        LINE: LINE,
         TABLE: TABLE
     }
 };
@@ -15,7 +17,7 @@ var enums = {
 var config = {
     dimensions: ['basisOfRecord', 'country', 'kingdomKey', 'speciesKey', 'decimalLatitude', 'issue', 'datasetKey', 'month', 'year', 'elevation'],
     secondaryDimensions: ['basisOfRecord', 'country', 'issue', 'month', 'decimalLatitude', 'year', 'elevation'],
-    chartTypes: [BAR, COLUMN, PIE, TABLE],
+    chartTypes: [BAR, COLUMN, PIE, TABLE, LINE],
     printableTypes: [BAR, COLUMN, PIE],
     supportedTypes: {
         basisOfRecord: [BAR, COLUMN, PIE, TABLE],
@@ -26,7 +28,7 @@ var config = {
         decimalLatitude: [BAR],
         issue: [BAR, COLUMN, PIE, TABLE],
         datasetKey: [BAR, TABLE],
-        year: [COLUMN, TABLE],
+        year: [COLUMN, TABLE, LINE],
         elevation: [BAR, TABLE]
     },
     dimensionParams: {
@@ -41,6 +43,7 @@ var config = {
             fillEnums: true
         },
         year: {
+            limit: 1000
         },
         basisOfRecord: {
             fillEnums: false
