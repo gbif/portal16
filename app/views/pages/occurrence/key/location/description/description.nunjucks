@@ -1,4 +1,4 @@
-<section class="horizontal-stripe bare-background occurrenceKey__locationDescription" ng-if="occurrence.hideMap === true" ng-cloak >
+<section class="horizontal-stripe bare-background occurrenceKey__locationDescription" ng-if="occurrenceKey.hideMap === true" ng-cloak >
     <div class="container--normal">
         <div class="row">
             <div class="col-xs-12 col-md-6">

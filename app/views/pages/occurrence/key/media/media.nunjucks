@@ -3,7 +3,7 @@
 {% if occurrence.record.media.length > 0 %}
     <section class="horizontal-stripe light-background"
             {% if occurrence.record.media.length > 5 %}
-    expand expand-text="'Show all'" collapse-text="'Collapse'" expand-model="occurrence.mediaExpand"
+    expand expand-text="'Show all'" collapse-text="'Collapse'" expand-model="occurrenceKey.mediaExpand"
             {% endif %}>
         <div>
             <div class="card-columns{% if occurrence.record.media.length >= 5 %}-wide{% endif %}">
@@ -25,9 +25,9 @@
                                         {% endif %}
                                     {% endfor %}
                                 </dl>
-                                <a href="" class="pull-right" ng-click="occurrence.mediaItems.m{$ loop.index $} = true"
-                                   ng-if="!occurrence.mediaItems.m{$ loop.index $}">more</a>
-                                <div class="details" ng-class="{show: occurrence.mediaItems.m{$ loop.index $} }">
+                                <a href="" class="pull-right" ng-click="occurrenceKey.mediaItems.m{$ loop.index $} = true"
+                                   ng-if="!occurrenceKey.mediaItems.m{$ loop.index $}">more</a>
+                                <div class="details" ng-class="{show: occurrenceKey.mediaItems.m{$ loop.index $} }">
                                     <dl class="inline">
                                         {% for field in ['identifier', 'created', 'contributor', 'rightsHolder', 'datasetID'] %}
                                             {% if media[field] %}
@@ -49,8 +49,8 @@
 
                 <div class="card-columns-wide ng-cloak">
                     {% for media in occurrence.record.media | slice(5) %}
-                        <div class="card-figure" ng-if="occurrence.mediaExpand.isExpanded"
-                             ng-class="{isShown:occurrence.mediaExpand.isExpanded}">
+                        <div class="card-figure" ng-if="occurrenceKey.mediaExpand.isExpanded"
+                             ng-class="{isShown:occurrenceKey.mediaExpand.isExpanded}">
                             <figure>
                                 <a href="{$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
                                     <img ng-src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}&size=M"

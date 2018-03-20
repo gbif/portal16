@@ -29,6 +29,22 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
+        .state('occurrenceKey', {
+            parent: 'localization',
+            url: '/occurrence/{key:[0-9]+}',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/occurrence/key/occurrenceKey.html?v=' + BUILD_VERSION,
+                    controller: 'occurrenceKeyCtrl',
+                    controllerAs: 'occurrenceKey',
+                    resolve: {
+                        occurrence: function($stateParams, Occurrence) {
+                            return Occurrence.get({id: $stateParams.key}).$promise;
+                        }
+                    }
+                }
+            }
+        })
         .state('occurrenceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
