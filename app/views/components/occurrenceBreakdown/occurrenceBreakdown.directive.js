@@ -61,7 +61,8 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         scope: {
             options: '=',
             display: '=',
-            api: '='
+            api: '=',
+            filter: '='
         },
         link: chartLink,
         controller: occurrenceBreakdown,
@@ -111,7 +112,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 return;
             }
             // Validate provided options. If wrong, then show an error message instead
-            var q = _.assign({}, vm.options.filter,
+            var q = _.assign({}, vm.filter,
                     {dimension: vm.options.dimension, secondDimension: vm.options.secondDimension, buckets: undefined},
                     {offset: vm.options.offset, limit: vm.options.limit},
                     _.get(config, 'dimensionParams[' + vm.options.dimension + ']')
@@ -167,7 +168,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         };
 
         function occurrenceSearch(filter) {
-            var q = _.assign({}, vm.options.filter, filter);
+            var q = _.assign({}, vm.filter, filter);
             if ($state.current.parent == 'occurrenceSearch') {
                 $state.go('.', q);
             } else {
@@ -198,11 +199,11 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         }
 
         vm.getFacetFilter = function(filter) {
-            return _.assign({}, vm.options.filter, filter);
+            return _.assign({}, vm.filter, filter);
         };
 
         vm.getTableFilter = function(filterA, filterB) {
-            return _.assign({}, vm.options.filter, filterA, filterB);
+            return _.assign({}, vm.filter, filterA, filterB);
         };
 
         vm.resultType = function() {
@@ -224,7 +225,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         var delayedFilterTimer;
 
         $scope.$watchCollection(function() {
-            return vm.options.filter;
+            return vm.filter;
         }, function() {
             $timeout.cancel(delayedFilterTimer);
             vm.pendingUpdate = true;
@@ -247,7 +248,6 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         $scope.$watchCollection(function() {
             return vm.display;
         }, function() {
-            console.log('change type ' + vm.display.type);
             formatData(vm.chartdata);
         });
 
@@ -297,18 +297,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 }
             };
 
-            // vm.api.isSupported = function() {
-            //     console.log(vm.options);
-            //     return vm.dimension;
-            // };
-
             vm.api.options = config;
-
-            vm.api.hello = 'Hello from the chart directive API';
-
-            if (Object.freeze) {
-                Object.freeze(vm.api);
-            }
         }
 
         /* CLEANUP ON DESTROY */

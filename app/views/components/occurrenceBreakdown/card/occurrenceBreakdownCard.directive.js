@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var _ = require('lodash');
 var chartOptions = require('../config');
 
 require('../occurrenceBreakdown.directive');
@@ -20,7 +21,9 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
         scope: {
             api: '=',
             config: '=',
-            filter: '='
+            filter: '=',
+            chartChange: '=',
+            customFilter: '='
         },
         controller: occurrenceBreakdownCard,
         controllerAs: 'vm',
@@ -33,13 +36,22 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
     function occurrenceBreakdownCard($scope) {
         var vm = this;
         vm.chartApi = {};
+        if (vm.chartChange) {
+            vm.chartApi.chartChange = function() {
+                var state = {
+                    dimension: vm.options.dimension,
+                    secondDimension: vm.options.secondDimension,
+                    type: vm.display.type
+                };
+                vm.chartChange(state);
+            };
+        }
         vm.chartOptions = chartOptions;
         vm.options = {
             dimension: vm.config.dimension,
             secondDimension: vm.config.secondDimension,
             limit: vm.config.limit || 10,
-            offset: vm.config.offset || 0,
-            filter: vm.filter
+            offset: vm.config.offset || 0
         };
 
         vm.display = {showSettings: vm.config.customizable && vm.config.showSettings, type: vm.config.type || 'TABLE', customizable: vm.config.customizable};
@@ -59,6 +71,18 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
         vm.prevPage = function() {
             vm.options.offset = Math.max(0, vm.options.offset - vm.options.limit);
         };
+
+        function setMergedFilter() {
+            vm.mergedFilter = _.assign({}, _.get(vm, 'filter'), _.get(vm, 'customFilter'));
+        }
+        vm.mergedFilter = setMergedFilter();
+
+        /* WATCH FILTERS FOR CHANGES */
+        $scope.$watchCollection(function() {
+            return vm.filter;
+        }, function() {
+            setMergedFilter();
+        });
 
         vm.getState = function() {
             console.log(vm.options);
