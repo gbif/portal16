@@ -3,7 +3,7 @@
         <div class="card__content">
             <a href="" ui-sref="speciesSearchList({rank:result.rank})" class="inherit searchCard__type hoverBox" ng-if="result.rank" translate="taxonRank.{{ result.rank }}"></a>
             <h3 class="searchCard__headline">
-                <a ng-href="{{ urlPrefix }}/species/{{result.key}}" scientific-name key="{{ result.key }}" name="{{result.scientificName}}"></a>
+                <a ui-sref="speciesKey({speciesKey:result.key})" ng-href="{{ urlPrefix }}/species/{{result.key}}" scientific-name key="{{ result.key }}" name="{{result.scientificName}}"></a>
             </h3>
         </div>
     </div>
@@ -21,13 +21,13 @@
             <div class="searchCard__meta" ng-if="result.publishedIn">
                 Published in: {{ result.publishedIn | truncate:180 }}
             </div>
-            {# TODO find a more robst way - move to angular env and use from there fx #}
-            <div class="searchCard__meta" ng-if="result.datasetKey && result.datasetKey != 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'">
-                Checklist: <a class="" ng-href="{{ urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
+
+            <div class="searchCard__meta" ng-if="result.datasetKey && result.datasetKey != portal.constantKeys.dataset.backbone">
+                Checklist: <a class="" ui-sref="datasetKey({key:result.datasetKey})" ng-href="{{ portal.urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
                     | truncate:50 }}</a>
             </div>
             <div class="small" ng-if="result.acceptedKey">
-                Synonym of: <a ng-href="{{ urlPrefix }}/species/{{ result.acceptedKey }}">{{ result.accepted }} </a>
+                Synonym of: <a ui-sref="speciesKey({speciesKey:result.acceptedKey})" ng-href="{{ urlPrefix }}/species/{{ result.acceptedKey }}">{{ result.accepted }} </a>
             </div>
             <p class="discreet classification-list" ng-if="result.rank != 'KINGDOM'">
                 Taxonomy: <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
@@ -49,7 +49,7 @@
                 <li ng-if="result.rank">
                     <a href="" ui-sref="speciesSearchList({rank:result.rank})" translate="taxonRank.{{ result.rank }}">{{ result.rank }}</a>
                 </li>
-                <li ng-if="!result.datasetKey || result.datasetKey == 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'">
+                <li ng-if="!result.datasetKey || result.datasetKey == portal.constantKeys.dataset.backbone">
                     <a ui-sref="occurrenceSearchTable({taxon_key:result.key})"><span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.key }}">&nbsp;</span> occurrences</a>
                 </li>
             </ul>
