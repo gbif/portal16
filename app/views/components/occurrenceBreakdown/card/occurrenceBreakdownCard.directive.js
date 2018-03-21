@@ -56,14 +56,6 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
 
         vm.display = {showSettings: vm.config.customizable && vm.config.showSettings, type: vm.config.type || 'TABLE', customizable: vm.config.customizable};
 
-        vm.isSupported = function(type) {
-            if (vm.chartApi.getDimension) {
-                return chartOptions.supportedTypes[vm.chartApi.getDimension()].indexOf(type) > -1;
-            } else {
-                return false;
-            }
-        };
-
         vm.nextPage = function() {
             vm.options.offset = vm.options.offset + vm.options.limit;
         };
@@ -85,8 +77,6 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
         });
 
         vm.getState = function() {
-            console.log(vm.options);
-            console.log(vm.display);
             return vm.options;
         };
 

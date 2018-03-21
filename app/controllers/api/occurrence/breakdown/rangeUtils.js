@@ -139,8 +139,11 @@ function getRanges(field, minMax, buckets) {
     bucketSize = Math.max(0.00001, bucketSize);
     bucketSize = +bucketSize.toFixed(5);
     let range = isIntegerRange ? _.range(minMax.min, minMax.max + 1, bucketSize ) : _.range(minMax.min, minMax.max, bucketSize );
+    range = _.map(range, function(e) {
+        return +e.toFixed(5);
+    });
     range = range.map(function(b) {
-        let start = +b.toFixed(5);
+        let start = b;
         let end = start + bucketSize;
         if (isIntegerRange) {
             end -= 1; // To ensure non overlapping ranges. the n,m range notation used by the API is both inclusive.
@@ -154,6 +157,12 @@ function getRanges(field, minMax, buckets) {
         };
     });
 
+    if (!isIntegerRange) {
+        _.remove(range, function(e) {
+            return e.start === e.end;
+        });
+    }
+
     range = range.map(function(b) {
        if (b.start !== b.end) {
         return b.start + ',' + b.end;
@@ -164,7 +173,8 @@ function getRanges(field, minMax, buckets) {
 
     return {
         range: range.reverse(),
-        bucketSizeVaries: bucketSizeVaries
+        bucketSizeVaries: bucketSizeVaries,
+        bucketSize: bucketSize
     };
 }
 
@@ -204,7 +214,7 @@ async function getInterval(query) {
     return response.body.count;
 }
 
-function composeResult(offset, limit, dimension, results, ranges, bucketSizeVaries) {
+function composeResult(offset, limit, dimension, results, ranges, bucketSizeVaries, bucketSize) {
     let max = _.maxBy(results, 'count').count;
     let min = _.minBy(results, 'count').count;
     return {
@@ -214,6 +224,7 @@ function composeResult(offset, limit, dimension, results, ranges, bucketSizeVari
         offset: offset,
         endOfRecords: ranges.length <= offset + limit,
         bucketSizeVaries: bucketSizeVaries,
+        bucketSize: bucketSize,
         max: max,
         min: min
     };
@@ -270,20 +281,8 @@ async function query(query) {
     let bucketSizeVaries = rangeOptions.bucketSizeVaries;
     let queriedRange = ranges.slice(offset, offset + limit);
     let facets = await getRangedFacets(query, queriedRange, dimension);
-    let responseBody = composeResult(offset, limit, dimension, facets, ranges, bucketSizeVaries);
+    let responseBody = composeResult(offset, limit, dimension, facets, ranges, bucketSizeVaries, rangeOptions.bucketSize);
     addGeometryFilter(query, responseBody.results);
     return responseBody;
 }
 
-// let t = 'POLYGON ((-73.828125 56.9449741808516, 79.453125 -48.45835188280864, 84.375 -42.03297433244139, -66.796875 60.58696734225869, -73.828125 56.9449741808516))';
-// let t1 = 'POLYGON ((-73.828125 56.9449741808516, 79.453125 -48.45835188280864, 84.375 -42.03297433244139, -66.796875 60.58696734225869, -73.828125 56.9449741808516))';
-// let t2 = 'POLYGON ((73.125 62.91523303947614, 75.234375 58.81374171570782, -61.87499999999999 -57.70414723434192, -64.6875 -51.618016548773696, 30.234375 37.16031654673677, -2.8125 62.2679226294176, 7.734374999999999 62.59334083012024, 31.640625 45.583289756006316, 73.125 62.91523303947614))';
-// query({dimension: 'decimalLatitude', geometry: [t1, t2], Xyear: ['1980,1997', '1978'], XtaxonKey: 1080, limit: 10, offset: 0, buckets: 10});
-
-// var a = 'POLYGON ((-218.671875 10.487811882056695, -218.671875 59.17592824927136, -133.59375 59.17592824927136, -133.59375 10.487811882056695, -218.671875 10.487811882056695))';
-// // var b = 'POLYGON ((-180 38, -180 46, 180 46, 180 38, -180 38))';
-// var b = 'POLYGON ((-180 38, -180 46, 180 46, 180 38, -180 38))';
-// var poly1 = wkt2geojson(a);
-// var poly2 = wkt2geojson(b);
-// var intersection = turf.intersect(poly1, poly2);
-// console.log(wkt2geojson.stringify(intersection));

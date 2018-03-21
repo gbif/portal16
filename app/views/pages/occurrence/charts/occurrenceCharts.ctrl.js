@@ -38,6 +38,7 @@ function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionSt
     vm.pushChart('issue', 'TABLE', null, vm.defaultCharts);
     vm.pushChart('basisOfRecord', 'PIE', null, vm.defaultCharts);
     vm.pushChart('datasetKey', 'TABLE', '', vm.defaultCharts);
+    vm.pushChart('year', 'LINE', '', vm.defaultCharts);
 
     vm.setCustomChart = function() {
         vm.customChart = {

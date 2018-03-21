@@ -30,14 +30,6 @@ function occurrenceBreakdownSettingsDirective(BUILD_VERSION) {
         var vm = this;
         vm.config = config;
 
-        vm.isSupported = function(type) {
-            if (vm.api.getDimension) {
-                return config.supportedTypes[vm.api.getDimension()].indexOf(type) > -1;
-            } else {
-                return false;
-            }
-        };
-
         // vm.exportOptions = [{
         //    textKey: 'printChart',
         //    onclick: function () {

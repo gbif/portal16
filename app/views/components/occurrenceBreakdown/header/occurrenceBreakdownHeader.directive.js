@@ -33,11 +33,17 @@ function occurrenceBreakdownHeaderDirective(BUILD_VERSION) {
 
         vm.isSupported = function(type) {
             if (vm.api.getDimension) {
-                return config.supportedTypes[vm.api.getDimension()].indexOf(type) > -1;
+                return vm.api.getSupportedTypes()[type];
             } else {
                 return false;
             }
         };
+
+        // vm.updateSupportChartTypes = function() {
+        //     vm.supported.PIE = true;
+        //     vm.supported.TABLE = true;
+        // };
+        // vm.updateSupportChartTypes();
 
         // vm.exportOptions = [{
         //    textKey: 'printChart',

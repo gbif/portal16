@@ -47,6 +47,8 @@ function highchartDirective(BUILD_VERSION) {
                 vm.config.chart.renderTo = vm.chartElement;
                 if (vm.config._setChartElementSize) {
                     vm.config._setChartElementSize(vm.chartElement, vm.config);
+                } else {
+                    vm.chartElement.style.width = '100%';
                 }
                 vm.myChart = Highcharts.chart(vm.config);
             }

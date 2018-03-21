@@ -208,7 +208,8 @@ Vimeo by <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Fre
 Graph by Lakshisha from the Noun Project https://thenounproject.com/search/?q=bar%20chart&i=1231321#_=_
 Pie Chart by Royyan Razka from the Noun Project https://thenounproject.com/search/?q=pie%20chart&i=1137970#_=_
 Pie chart by Andrejs Kirma from the Noun Project https://thenounproject.com/search/?q=data%20visualisation&i=1334866#_=_
+Graph by Kirsh from the Noun Project https://thenounproject.com/search/?q=graph&i=1255772#_=_
 
 ### data
-ISO country codes - http://data.okfn.org/data/core/country-codes
+ISO country codes - http://data.okfn.org/data/core/country-codes 
 

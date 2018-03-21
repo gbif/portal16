@@ -17,6 +17,7 @@ router.get('/occurrence/breakdown', function(req, res) {
         })
         .catch(function(err) {
             res.status(500);
-            res.send(err.message);
+            res.send();
+            log.trace(err);
         });
 });

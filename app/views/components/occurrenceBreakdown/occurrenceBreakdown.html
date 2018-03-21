@@ -42,7 +42,7 @@
                             <thead ng-if="!vm.chartdata.categories">
                             <tr>
                                 <th class="text-capitalize p-0 table-cell--50px"></th>
-                                <th class="text-capitalize">{{vm.chartdata.field}}</th>
+                                <th class="text-capitalize" translate="ocurrenceFieldNames.{{vm.chartdata.field | camelCase}}"></th>
                                 <th class="text-capitalize table-cell--narrow">count</th>
                                 <th class="text-capitalize table-cell--100">Logarithmic indicator</th>
                             </tr>
@@ -70,7 +70,7 @@
                                 </td>
                                 <td ng-if="!vm.chartdata.categories">
                                     <div style="width:100%;min-width:100px">
-                                        <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="shadeLevel-50"></div>
+                                        <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="brand-background"></div>
                                     </div>
                                 </td>
                                 <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">

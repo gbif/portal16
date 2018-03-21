@@ -17,37 +17,29 @@ var enums = {
 var config = {
     dimensions: ['basisOfRecord', 'country', 'kingdomKey', 'speciesKey', 'decimalLatitude', 'issue', 'datasetKey', 'month', 'year', 'elevation'],
     secondaryDimensions: ['basisOfRecord', 'country', 'issue', 'month', 'decimalLatitude', 'year', 'elevation'],
-    chartTypes: [BAR, COLUMN, PIE, TABLE, LINE],
-    printableTypes: [BAR, COLUMN, PIE],
-    supportedTypes: {
-        basisOfRecord: [BAR, COLUMN, PIE, TABLE],
-        month: [COLUMN, PIE],
-        country: [TABLE],
-        kingdomKey: [TABLE],
-        speciesKey: [TABLE],
-        decimalLatitude: [BAR],
-        issue: [BAR, COLUMN, PIE, TABLE],
-        datasetKey: [BAR, TABLE],
-        year: [COLUMN, TABLE, LINE],
-        elevation: [BAR, TABLE]
-    },
-    dimensionParams: {
-        decimalLatitude: {
-            buckets: 10
-        },
-        elevation: {
-            buckets: 10
-        },
-        month: {
-            limit: 12,
-            fillEnums: true
-        },
-        year: {
-            limit: 1000
-        },
-        basisOfRecord: {
-            fillEnums: false
+    chartTypes: [COLUMN, PIE, TABLE, LINE],
+    printableTypes: [LINE, COLUMN, PIE],
+    getDimensionParams: function(first, second) {
+        var params = {
+            dimension: first,
+            secondDimension: second,
+            buckets: undefined
+        };
+
+        // first param
+        if (first === 'decimalLatitude' || first === 'elevation') {
+            params.buckets = 10;
+        } else if (first === 'month') {
+            params.limit = 12;
+            params.fillEnums = true;
+        } else if (first === 'basisOfRecord') {
+            params.fillEnums = true;
+        } else if (first === 'year') {
+            if (!second) {
+                params.limit = 1000;
+            }
         }
+        return params;
     },
     enum: enums
 };

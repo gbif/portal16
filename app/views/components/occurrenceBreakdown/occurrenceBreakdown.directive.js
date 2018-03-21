@@ -44,6 +44,7 @@ var serializer = require('./serializer');
 var pieChartHelper = require('./pieChartHelper');
 var columnChartHelper = require('./columnChartHelper');
 var areaChartHelper = require('./areaChartHelper');
+var helper = require('./breakdownHelper');
 
 require('./header/occurrenceBreakdownHeader.directive');
 require('./settings/occurrenceBreakdownSettings.directive');
@@ -112,11 +113,10 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 vm.chartdata = undefined;
                 return;
             }
-            // Validate provided options. If wrong, then show an error message instead
+
             var q = _.assign({}, vm.filter,
-                    {dimension: vm.options.dimension, secondDimension: vm.options.secondDimension, buckets: undefined},
                     {offset: vm.options.offset, limit: vm.options.limit},
-                    _.get(config, 'dimensionParams[' + vm.options.dimension + ']')
+                    config.getDimensionParams(vm.options.dimension, vm.options.secondDimension)
             );
             if (vm.content && vm.content.$cancelRequest) {
                 vm.content.$cancelRequest();
@@ -125,6 +125,15 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             vm.content.$promise
                 .then(function(response) {
                     vm.chartdata = response;// 'chart data after transform of the data response';
+                    // clean filters
+                    vm.chartdata.results.forEach(function(e) {
+                        helper.cleanFilter(e.filter);
+                    });
+                    if (vm.chartdata.categories) {
+                        vm.chartdata.categories.forEach(function(e) {
+                            helper.cleanFilter(e.filter);
+                        });
+                    }
                     formatData(vm.chartdata);
                 })
                 .catch(function(err) {
@@ -181,26 +190,18 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         }
 
         vm.level = function(val) {
-            if (val === 0) {
-                return 0;
+            if (val < 2) {
+                return val;
             }
-            if (val === 1) {
-                return 1;
-            }
+            // var percentage = 100 * (val - vm.chartdata.min) / (vm.chartdata.max - vm.chartdata.min);
+
             var logMin = vm.chartdata.min == 0 ? 0 : Math.log(vm.chartdata.min);
             var logStart = Math.floor(logMin);
             var logMax = Math.log(vm.chartdata.max);
+            var percentage = 100 * (Math.log(val) - logStart) / (logMax - logStart);
 
-            // var percentage = Math.ceil((val - vm.chartdata.min) / ((vm.chartdata.max - vm.chartdata.min) / 100));
-            var percentage = Math.ceil(100 * (Math.log(val) - logStart) / (logMax - logStart));
-            // cap values due to rounding errors
-            return Math.max(Math.min(percentage, 100), 0);
+            return Math.max(Math.min(Math.ceil(percentage), 100), 1); // cap values due to rounding errors
         };
-
-        function changeChartType(type) {
-            console.log('chart type changed to ' + type);
-            // vm.state.type = type;
-        }
 
         vm.getFacetFilter = function(filter) {
             return _.assign({}, vm.filter, filter);
@@ -241,6 +242,11 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         $scope.$watchCollection(function() {
             return vm.options;
         }, function(updated, past) {
+            var supportedChartTypes = vm.api.getSupportedTypes();
+            if (!supportedChartTypes[vm.display.type]) {
+                // get first supported type
+                vm.display.type = _.findKey(supportedChartTypes) || 'TABLE';
+            }
             updateContent();
             // if (updated.dimension !== past.dimension || updated.secondDimension !== past.secondDimension) {
             //     updateContent();
@@ -289,16 +295,20 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 return vm.dimension;
             };
 
-            vm.api.setDimension = function(dimension) {
-                vm.dimension = dimension;
-            };
-
-            vm.api.setChartType = function(type) {
-                if (config.supportedTypes[vm.dimension].indexOf(type) > -1) {
-                    changeChartType(type);
-                } else {
-                    console.log('Attempting to change to a not supported chart type - request ignored');
+            vm.api.getSupportedTypes = function() {
+                var dimension = vm.options.dimension;
+                var secondDimension = vm.options.secondDimension;
+                var supportedTypes = {
+                    'PIE': dimension && !secondDimension && dimension !== 'year',
+                    'TABLE': dimension && dimension !== 'year',
+                    'COLUMN': dimension && dimension !== 'year',
+                    'LINE': dimension === 'year'
+                };
+                if (dimension === 'year' && secondDimension) {
+                    supportedTypes.LINE = false;
+                    supportedTypes.TABLE = true;
                 }
+                return supportedTypes;
             };
 
             vm.api.options = config;

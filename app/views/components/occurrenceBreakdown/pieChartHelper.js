@@ -43,6 +43,13 @@ function getConfig(data, element) {
                     enabled: false
                 }
             }
+        },
+        legend: {
+            itemStyle: {
+                width: '200px',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden'
+            }
         }
     };
 }

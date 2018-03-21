@@ -43,6 +43,16 @@
                 return text.length > length ? text.slice(0, length) + '…' : text;
             };
         })
+        .filter('snakeCase', function() {
+            return function(text) {
+                return _.snakeCase(text);
+            };
+        })
+        .filter('camelCase', function() {
+            return function(text) {
+                return _.camelCase(text);
+            };
+        })
         .filter('underscoreToHyphen', function() {
             return function(text) {
                 return text.replace(/_/g, '-');

@@ -39,8 +39,19 @@ angular
     });
 
 Highcharts.theme = {
-    colors: ['#71b171', '#505160', '#68829E', '#aebd38', '#98dbc6', '#5bc8ac',
-        '#e6d72a', '#f18d9e', '#324851', '#86ac41', '#7da3a1'],
+    colors: [
+        '#71b171',
+        '#505160',
+        '#e6d72a',
+        '#68829E',
+        '#98dbc6',
+        '#f18d9e',
+        '#aebd38',
+        '#324851',
+        '#5bc8ac',
+        '#86ac41',
+        '#7da3a1'
+    ],
     chart: {
         // backgroundColor: {
         //    linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
