@@ -2,6 +2,7 @@
 let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
+    log = rootRequire('config/log'),
     helper = rootRequire('app/models/util/util'),
     utils = rootRequire('app/helpers/utils'),
     ranks = rootRequire('app/helpers/constants').linneanRanks,
@@ -93,7 +94,8 @@ function buildSolrQuery(req, rank, limit, offset) {
 function callApi(res, next, path, transform, taxonKey) {
     helper.getApiData(path, function(err, data) {
         if (data && typeof data.errorType !== 'undefined') {
-            next(new Error(err));
+            log.error(data.errorType);
+            res.sendStatus(500);
         } else if (data) {
             if (transform) {
                 transform(data, taxonKey).then(function(resolvedData) {
@@ -102,8 +104,12 @@ function callApi(res, next, path, transform, taxonKey) {
             } else {
                 res.json(data);
             }
+        } else if (err) {
+            log.error(err.message);
+            res.sendStatus(err.statusCode || 500);
         } else {
-            next(new Error(err));
+            log.error('Missing data and no error object was given');
+            res.sendStatus(500);
         }
     }, {retries: 2, timeoutMilliSeconds: 10000});
 }
