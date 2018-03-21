@@ -30,7 +30,12 @@
                                 <th class="text-capitalize p-0"></th>
                                 <th class="text-capitalize">{{vm.chartdata.field}}</th>
                                 <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">
-                                    <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))">{{category.displayName}}</a>
+                                    <span>
+                                        <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))" class="inherit">{{category.displayName}}</a>
+                                        <span ng-if="$index === 0 && vm.chartdata.secondDimension.bucketSizeVaries" class="badge badge--warning">!
+                                            <md-tooltip md-direction="right">Differently sized interval</md-tooltip>
+                                        </span>
+                                    </span>
                                 </th>
                             </tr>
                             </thead>

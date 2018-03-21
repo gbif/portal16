@@ -55,7 +55,10 @@ async function addSecondDimension(data, query) {
     let categories = {};
     let max = Number.MIN_SAFE_INTEGER;
     let min = Number.MAX_SAFE_INTEGER;
+    console.log(secondDimensionData);
+    data.secondDimension = {};
     secondDimensionData.forEach(function(a) {
+        data.secondDimension.bucketSizeVaries = a.bucketSizeVaries || data.secondDimension.bucketSizeVaries;
         a.results.forEach(function(b) {
             let key = objectHash(b.filter);
             max = Math.max(max, b.count);
