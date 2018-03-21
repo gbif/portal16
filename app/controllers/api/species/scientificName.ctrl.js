@@ -148,7 +148,9 @@ async function getParsedName(speciesKey) {
             return name.scientificName + ' <i>(' + accepted.canonicalName + ')</i>';
         } else {
                 let parent = await getSpecies(species.parentKey);
-                return name.scientificName + ' <i>(' + parent.canonicalName + ' sp.)</i>';
+                return (ranks.indexOf(parent.rank) < SPECIES_RANK_INDEX) ?
+                name.scientificName + ' <i>(' + parent.canonicalName + ' sp.)</i>' :
+                name.scientificName + ' <i>(' + parent.canonicalName + ')</i>';
         }
         // return n;
     } else {

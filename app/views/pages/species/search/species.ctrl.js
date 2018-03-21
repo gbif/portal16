@@ -6,7 +6,7 @@ angular
     .controller('speciesCtrl', speciesCtrl);
 
 /** @ngInject */
-function speciesCtrl($scope, $state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
+function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species search');
     Page.drawer(true);
@@ -52,6 +52,32 @@ function speciesCtrl($scope, $state, SpeciesFilter, Page, suggestEndpoints, Data
             suggestKey: 'key'
         }
     };
+
+ /*   vm.filters.taxonKey = {
+        titleTranslation: 'ocurrenceFieldNames.scientificName',
+        queryKey: 'highertaxon_key',
+        filter: SpeciesFilter,
+        expand: {
+            resource: Species,
+            expandedTitle: 'scientificName'
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'TAXON_KEY'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'search TRANSLATE',
+            suggestEndpoint: suggestEndpoints.taxon,
+            defaultParams: {
+                datasetKey: vm.state.query.dataset_key
+            },
+            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'scientificName',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    }; */
 
     vm.filters.constituentKey = {
         queryKey: 'constituent_key',
@@ -101,6 +127,8 @@ function speciesCtrl($scope, $state, SpeciesFilter, Page, suggestEndpoints, Data
         translationPrefix: 'taxon',
         filter: SpeciesFilter
     };
+
+
 
     vm.toggleAdvanced = function() {
         SpeciesFilter.updateParam('advanced', vm.state.query.advanced);
