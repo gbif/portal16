@@ -81,7 +81,7 @@
             <p>Log in as registry administrator to explore</p>
         </div>
     </section>
-    <section class="horizontal-stripe--paddingless lighter-background" ng-if="portal.hasRole('REGISTRY_ADMIN')">
+    <section class="horizontal-stripe--paddingless lighter-background m-b-1" ng-if="portal.hasRole('REGISTRY_ADMIN')">
 
         <div class="text-center small seperator--b">
             <div class="gb-btn-group">
@@ -106,17 +106,14 @@
             </div>
             <section ng-if="occCharts.$sessionStorage.occurrenceChartsShowDefaults">
                 <div ng-repeat="chart in occCharts.defaultCharts" class="m-t-1">
-                    <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter"></occurrence-breakdown-card>
+                    <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="occCharts.chartChange"></occurrence-breakdown-card>
                 </div>
             </section>
             <section ng-if="!occCharts.$sessionStorage.occurrenceChartsShowDefaults">
-                <div ng-repeat="chart in occCharts.charts" class="m-t-1">
-                    <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter"></occurrence-breakdown-card>
+                <div class="m-t-1">
+                    <occurrence-breakdown-card api="occCharts.customChart.api" config="occCharts.customChart.config" filter="occCharts.customChart.filter" chart-change="occCharts.chartChange"></occurrence-breakdown-card>
                 </div>
             </section>
-            <div class="text-center m-t-1" ng-if="!occCharts.$sessionStorage.occurrenceChartsShowDefaults">
-                <a href="" class="gb-button--brand" ng-click="occCharts.pushChart('', 'TABLE', '', vm.charts, true)">Add</a>
-            </div>
         </div>
         <!--<button ng-click="occCharts.getStates()">get states</button>-->
 

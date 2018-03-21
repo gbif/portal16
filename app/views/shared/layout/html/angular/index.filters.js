@@ -147,6 +147,13 @@
                 return Math.abs(num);
             };
         })
+        .filter('httpParamSerializer', function($httpParamSerializer) {
+            return function(obj) {
+                var query = angular.copy(obj);
+                query = _.omitBy(query, angular.isUndefined);
+                return $httpParamSerializer(query);
+            };
+        })
         .filter('formatBytes', function() {
             return function(bytes, decimals, language) {
                 if (bytes == 0) return '0 Bytes';

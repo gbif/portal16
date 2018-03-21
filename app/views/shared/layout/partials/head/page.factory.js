@@ -10,13 +10,14 @@ angular
 function pageFactory() {
     var title = undefined,
         drawer = false;
+
     return {
         title: function() {
- return title;
-},
+         return title;
+        },
         setTitle: function(newTitle) {
- title = newTitle;
-},
+         title = newTitle;
+        },
         drawer: function(drawerBool) {
             if (typeof drawerBool === 'boolean') {
                 drawer = drawerBool;

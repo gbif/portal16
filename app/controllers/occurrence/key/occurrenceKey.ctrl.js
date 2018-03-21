@@ -24,6 +24,19 @@ router.get('/occurrence/:key(\\d+).:ext?', function(req, res, next) {
     });
 });
 
+router.get('/api/template/occurrence/:key(\\d+)', function(req, res, next) {
+    let key = req.params.key;
+    occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
+        renderContent(req, res, next, occurrence);
+    }, function(err) {
+        if (err.type == 'NOT_FOUND') {
+            res.sendStatus(404);
+        } else {
+            res.sendStatus(500);
+        }
+    });
+});
+
 router.get('/occurrence/:key(\\d+)/verbatim', function(req, res, next) {
     let key = req.params.key;
     res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/' + key);
@@ -62,6 +75,26 @@ function renderPage(req, res, next, occurrence) {
         }
     } catch (e) {
         next(e);
+    }
+}
+
+function renderContent(req, res, next, occurrence) {
+    try {
+        let angularInitData = occurrenceKey.getAngularInitData(occurrence);
+        let contentItem = {
+            occurrence: occurrence,
+            occurrenceCoreTerms: occurrenceKey.occurrenceCoreTerms,
+            angularInitData: angularInitData,
+            occurrenceRemarks: occurrenceKey.occurrenceRemarks,
+            _meta: {
+                title: 'Occurrence Detail ' + req.params.key,
+                hasTools: true,
+                imageCacheUrl: imageCacheUrl
+            }
+        };
+        helper.renderPage(req, res, next, contentItem, 'pages/occurrence/key/occurrenceKey.template.nunjucks');
+    } catch (e) {
+        res.sendStatus(500);
     }
 }
 

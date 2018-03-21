@@ -2,7 +2,7 @@
 
 {% for group in occurrence.terms.usedGroups %}
     <section class="term-block is-collapsed"
-             ng-class="{ 'is-expanded': !occurrence.hideDetails, 'is-collapsed': occurrence.hideDetails }">
+             ng-class="{ 'is-expanded': !occurrenceKey.hideDetails, 'is-collapsed': occurrenceKey.hideDetails }">
         <div class="term-block__header">
             <h4 class="text-capitalize">{$ __('stdTerms.' + group) $}</h4>
         </div>
@@ -12,8 +12,8 @@
                 <tr>
                     <th class="text-capitalize">{$ __('stdTerms.term') $}</th>
                     <th class="text-capitalize">{$ __('stdTerms.interpreted') $}</th>
-                    <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.original') $}</th>
-                    <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.remarks') $}</th>
+                    <th class="text-capitalize" ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.original') $}</th>
+                    <th class="text-capitalize" ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.remarks') $}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,10 +36,10 @@
                                 {#<span class="small">{$ __('interpretationRemarks.comments.EXCLUDED') $}</span>#}
                             {% endif %}
                         </td>
-                        <td class="ng-cloak" ng-show="!occurrence.hideDetails">
+                        <td class="ng-cloak" ng-show="!occurrenceKey.hideDetails">
                             {$ shorten.shorten(occurrence.verbatim[term.qualifiedName]) $}
                         </td>
-                        <td class="ng-cloak" ng-show="!occurrence.hideDetails">
+                        <td class="ng-cloak" ng-show="!occurrenceKey.hideDetails">
                             {% if occurrence.issues[term.simpleName] %}
                                 {% for issue in occurrence.issues[term.simpleName] %}
                                     <span class="badge badge--{$ issue.severity | lower $}">{$ __('occurrenceIssue.' + issue.type) $}</span>

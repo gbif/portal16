@@ -1,37 +1,37 @@
 <div class="occurrenceBreakdownCard">
-    <occurrence-breakdown-header api="vm.chartApi" options="vm.options" display="vm.display"></occurrence-breakdown-header>
-    <div class="card">
+    <occurrence-breakdown-header api="vm.chartApi" options="vm.options" display="vm.display" ></occurrence-breakdown-header>
+    <div class="card card--spaced">
         <div class="card__loader text-center" ng-if="vm.chartApi.isLoading()"><div class="loading"></div></div>
         <div class="card__stripe card__stripe--light" ng-if="vm.display.showSettings">
             <div class="card__content">
                 <occurrence-breakdown-settings api="vm.chartApi" options="vm.options"></occurrence-breakdown-settings>
             </div>
         </div>
-        <!--<div class="card__stripe card__stripe&#45;&#45;dark">-->
-            <!--<div class="card__content">-->
-                <!--This chart has overwriting filters-->
-                <!--<a href="" class="inherit noUnderline pull-right gb-icon-more2" ng-click="vm.showCustomFilters = !vm.showCustomFilters"></a>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="card__stripe" ng-if="vm.showCustomFilters">-->
-            <!--<div class="card__content predicateContainer">-->
-                <!--<div class="predicates isSimplePredicate">-->
-                    <!--<ng-include src="'/api/occurrence/search/predicate.html?has_coordinate=true&has_geospatial_issue=false'"></ng-include>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div class="card__stripe" ng-if="vm.customFilter">
+            <div class="card__content card__content--warning">
+                This chart has custom filters
+                <a href="" class="inherit noUnderline pull-right gb-icon-more2" ng-click="vm.showCustomFilters = !vm.showCustomFilters"></a>
+            </div>
+        </div>
+
+        <div class="card__stripe" ng-if="vm.showCustomFilters && vm.customFilter">
+            <div class="card__content predicateContainer">
+                <div class="predicates isSimplePredicate">
+                    <ng-include src="'/api/occurrence/search/predicate.html?' + (vm.customFilter | httpParamSerializer)"></ng-include>
+                </div>
+            </div>
+        </div>
         <div class="card__stripe" ng-show="vm.options.dimension">
             <div>
-                <occurrence-breakdown options="vm.options" api="vm.chartApi" display="vm.display"></occurrence-breakdown>
+                <occurrence-breakdown options="vm.options" api="vm.chartApi" filter="vm.mergedFilter" display="vm.display"></occurrence-breakdown>
             </div>
         </div>
         <div class="card__stripe card__stripe--light text-right" ng-if="vm.options.dimension && (vm.chartApi.data().endOfRecords === false || vm.options.offset > 0)">
             <div class="card__content">
-                <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0" ng-if="vm.options.offset > vm.options.limit">First</a>
+                <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0;" ng-if="vm.options.offset > vm.options.limit">First</a>
                 <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0">Previous</a>
                 <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartApi.data().endOfRecords === false">Next</a>
             </div>
         </div>
     </div>
-    <!--<button ng-click="vm.getState()">state</button>-->
 </div>

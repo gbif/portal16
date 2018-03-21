@@ -107,7 +107,30 @@ function getRanges(field, minMax, buckets) {
     let constantField = changeCase.constantCase(field);
     let bucketSizeVaries = false;
 
-    let bucketSize = (minMax.max - minMax.min) / buckets;
+    let diff = minMax.max - minMax.min;
+    let bucketSize = diff / buckets;
+
+    if (constantField !== 'DECIMAL_LATITUDE') {
+        // use fixed intervals instead. intervals like 7 years was difficult to interpret despite being
+        if (diff > 0) {
+            bucketSize = 1;
+        }
+        if (diff > 11) {
+            bucketSize = 2;
+        }
+        if (diff > 19) {
+            bucketSize = 5;
+        }
+        if (diff > 39) {
+            bucketSize = 10;
+        }
+        if (diff > 199) {
+            bucketSize = 100;
+        }
+        if (diff > 1999) {
+            bucketSize = 1000;
+        }
+    }
     let isIntegerRange = facetConfig.fields[constantField].range.type === 'INT';
     if (isIntegerRange) {
         bucketSize = Math.ceil(bucketSize);

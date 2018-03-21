@@ -9,13 +9,20 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl(env, hotkeys) {
+function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, DatasetProcessSummary) {
     var vm = this,
         globe,
         globeCanvas = document.querySelector('.occurrenceKey__map .globe');
+    vm.key = $stateParams.key;
+    Page.setTitle('Occurrence ' + vm.key);
+    Page.drawer(false);
+
+    vm.datasetProcessSummary = DatasetProcessSummary.get({key: occurrence.datasetKey});
+
     vm.mediaExpand = {
         isExpanded: false
     };
+
     vm.mediaItems = {};
     vm.dataApi = env.dataApi;
 
@@ -79,8 +86,8 @@ function occurrenceKeyCtrl(env, hotkeys) {
             vm.expandMore = false;
         }
     });
-    vm.verbatim = gb.occurrenceRecordVerbatim;
-    vm.data = gb.occurrenceRecord;
+
+    vm.data = occurrence;
     vm.center = {
         zoom: 6,
         point: [vm.data.decimalLongitude, vm.data.decimalLatitude]
@@ -126,7 +133,6 @@ function occurrenceKeyCtrl(env, hotkeys) {
 
         if (data.footprintWKT && hasValidOrNoSRS(data)) {
             vm.wkt = data.footprintWKT;
-
         } else if (data.coordinateUncertaintyInMeters > 50) {
             vm.circle = {
                 coordinates: [data.decimalLongitude, data.decimalLatitude],
@@ -151,8 +157,6 @@ function occurrenceKeyCtrl(env, hotkeys) {
         });
         */
     }
-
-
 }
 
 module.exports = occurrenceKeyCtrl;

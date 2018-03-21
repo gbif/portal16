@@ -1,36 +1,8 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <script>
-        var gb = gb || {};
-        gb.occurrenceRecord = {$ angularInitData | rawJson | safe $};
-        //        gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
-        //        gb.rm = {$ occurrence | rawJson | safe $}
-    </script>
-    <article class="wrapper-horizontal-stripes occurrenceKey page--data"
-             ng-controller="occurrenceKeyCtrl as occurrence">
-        <div class="overlay"></div>
-
-        {% include('./header/header.nunjucks') %}
-        {% include('./highlights/highlights.nunjucks') %}
-        {% include('./location/location.nunjucks') %}
-        {% include('./dataset/dataset.nunjucks') %}
-        {% include('./details/details.nunjucks') %}
-        {% include('./media/media.nunjucks') %}
-        {% include('./extensions/extensions.nunjucks') %}
-        {% include('./citation.nunjucks') %}
-
-    </article>
-{% endblock %}
-
-{#{% include "../../../shared/layout/partials/footer/footer.nunjucks" %}#}
-
-
-{# Annotation buttons #}
-{% block tools %}
-    <div class="fab">
-        <div class="fab__trigger">
-            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" ng-click="portal.openHelpdesk()"><i class="gb-icon-bubble"></i></a>
-        </div>
+    <div class="emptyInfo--large">
+        <h3>Loading occurrence</h3>
+        <p>Hang on while we find your occurrence</p>
     </div>
 {% endblock %}

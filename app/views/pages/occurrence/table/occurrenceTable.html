@@ -126,44 +126,44 @@
                         <tbody>
                         <tr ng-repeat="result in occTable.occurrenceState.table.results">
                             <td class="table-cell--wide">
-                                <a ng-href="{{result.key}}" class="issue-bullet__no-indent" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</a>
-                                <a ng-href="{{result.key}}" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1) || !result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']">{{result.scientificName}}</a>
+                                <a ui-sref="occurrenceKey({key:result.key})" class="issue-bullet__no-indent" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</a>
+                                <a ui-sref="occurrenceKey({key:result.key})" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1) || !result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']">{{result.scientificName}}</a>
                             </td>
                             <td class="table-cell--normal">
-                                <a ng-href="{{result.key}}" translate="country.{{result.countryCode}}" ng-if="result.countryCode && result.countryCode != 'ZZ'">{{result.country}}</a>
+                                <a ui-sref="occurrenceKey({key:result.key})" translate="country.{{result.countryCode}}" ng-if="result.countryCode && result.countryCode != 'ZZ'">{{result.country}}</a>
                             </td>
                             <td class="table-cell--normal">
-                                <a ng-href="{{result.key}}">
+                                <a ui-sref="occurrenceKey({key:result.key})">
                                     {{occTable.formatCoordinates(result.decimalLatitude, result.decimalLongitude)}}
                                 </a>
                             </td>
                             <td class="table-cell--normal">
-                                <a ng-href="{{result.key}}" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
+                                <a ui-sref="occurrenceKey({key:result.key})" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
                             </td>
                             <td class="table-cell--normal">
-                                <a ng-href="{{result.key}}" ng-if="result.eventDate">
+                                <a ui-sref="occurrenceKey({key:result.key})" ng-if="result.eventDate">
                                     {{result.eventDate | amDateFormat:'YYYY MMMM'}}
                                 </a>
                             </td>
                             <td class="table-cell--wide">
-                                <a ng-href="{{result.key}}">{{result._datasetKey.title}}</a>
+                                <a ui-sref="occurrenceKey({key:result.key})">{{result._datasetKey.title}}</a>
                             </td>
                             <td class="table-cell--narrow">
-                                <a ng-href="{{result.key}}">{{result.issues.length}}</a>
+                                <a ui-sref="occurrenceKey({key:result.key})">{{result.issues.length}}</a>
                             </td>
 
                             <td class="table-cell--narrow">
-                                <a ng-href="{{result.key}}" translate="taxonRank.{{result.taxonRank}}" ng-if="result.taxonRank && result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1">{{result.taxonRank}}</a>
-                                <a ng-href="{{result.key}}" translate="taxonRank.UNKNOWN" ng-if="!result.taxonRank || result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1"></a>
+                                <a ui-sref="occurrenceKey({key:result.key})" translate="taxonRank.{{result.taxonRank}}" ng-if="result.taxonRank && result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1">{{result.taxonRank}}</a>
+                                <a ui-sref="occurrenceKey({key:result.key})" translate="taxonRank.UNKNOWN" ng-if="!result.taxonRank || result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1"></a>
                             </td>
 
                             <td class="table-cell--narrow"
                                 ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                                <a ng-href="{{result.key}}">{{result[t]}}</a>
+                                <a ui-sref="occurrenceKey({key:result.key})">{{result[t]}}</a>
                             </td>
 
                             <td class="table-cell--wide">
-                                <a ng-href="{{result.key}}">{{result.species}}</a>
+                                <a ui-sref="occurrenceKey({key:result.key})">{{result.species}}</a>
                             </td>
                         </tr>
                         </tbody>

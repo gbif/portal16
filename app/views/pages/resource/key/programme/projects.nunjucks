@@ -7,7 +7,7 @@
                     <tr>
                         <th></th>
                         <th class="text-capitalize"
-                            ng-repeat="col in ['title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'status', 'call']">
+                            ng-repeat="col in ['title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'status', 'contractCountry', 'call']">
                             <a href=""
                                ng-click="programmeKey.state.sortType = col; programmeKey.state.sortReverse = !programmeKey.state.sortReverse">
                                 <span class="inline-block text-nowrap">
@@ -53,6 +53,10 @@
                         <td class="table-cell--normal">
                             <span translate="cms.projectStatus.{{ result.status }}"
                                   ng-if="result.status">{{ result.status }}</span>
+                        </td>
+                        <td class="table-cell--normal">
+                            <span translate="country.{{ result.contractCountry }}"
+                                  ng-if="result.contractCountry">{{ result.contractCountry }}</span>
                         </td>
                         <td class="table-cell--widder">
                             <span ng-if="result.status">{{ result.call }}</span>

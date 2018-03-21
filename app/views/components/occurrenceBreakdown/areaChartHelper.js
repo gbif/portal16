@@ -1,0 +1,140 @@
+var _ = require('lodash');
+
+module.exports = {
+    getConfig: getConfig
+};
+
+function getConfig(data, element, clickCallback, logarithmic) {
+    var series = getSeries(data);
+    console.log(series);
+
+    var isLogaritmic = logarithmic;
+
+    return {
+        chart: {
+            animation: false,
+            type: 'line',
+            zoomType: 'x',
+            renderTo: element
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y}</b>'
+        },
+        plotOptions: {
+            series: {
+                connectNulls: false
+            },
+            line: {
+                animation: false,
+                marker: {
+                    radius: 4
+                },
+                lineWidth: 3,
+                states: {
+                    hover: {
+                        lineWidth: 3
+                    }
+                },
+                threshold: null,
+                point: {
+                    events: {
+                        click: function() {
+                            // vm.occurrenceSearch(data.categoryKeys[this.index]);
+                            var clickedFilter = _.assign({}, series[0].data[this.index][2]);
+                            // if (data.categories) {
+                            //     _.assign(clickedFilter, data.categories[this.series.columnIndex].filter);
+                            // }
+                            clickCallback(clickedFilter);
+                        }
+                    }
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: document.ontouchstart === undefined ?
+            'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+        },
+        xAxis: {
+            type: 'datetime'
+        },
+        yAxis: {
+            title: {
+                text: 'Occurrences'
+            },
+            min: 0
+        },
+        series: series,
+        exporting: {
+            buttons: {
+                contextButton: {
+                    enabled: false
+                }
+            }
+        }
+    };
+}
+
+function getSeries(data) {
+    var min, max, yearMap;
+    if (!data.secondField) {
+        min = _.toSafeInteger(_.minBy(data.results, function(e) {
+            return _.toSafeInteger(e.displayName);
+        }).displayName);
+        max = _.toSafeInteger(_.maxBy(data.results, function(e) {
+            return _.toSafeInteger(e.displayName);
+        }).displayName);
+
+        yearMap = {};
+        _.range(min, max + 1).forEach(function(i) {
+            yearMap[i] = [Date.UTC(i, 0, 1), 0, {year: i}];
+        });
+        data.results.forEach(function(e) {
+            yearMap[_.toSafeInteger(e.filter.year)] = [Date.UTC(_.toSafeInteger(e.filter.year), 0, 1), e.count, e.filter];
+        });
+        var lineData = _.values(yearMap);
+        // lineData = _.sortBy(lineData, ['[0]']); //sorting isn't technically guaranteed, but all browsers supposedly keep order by keys as they have been added
+        return [{
+            type: 'line',
+            name: 'occurrences per year',
+            data: lineData
+        }];
+    } else {
+        console.error('Not implemented');
+        return [];
+        // // get min max
+        // min = _.toSafeInteger(_.minBy(data.categories, function(e) {
+        //     return _.toSafeInteger(e.displayName);
+        // }).displayName);
+        // max = _.toSafeInteger(_.maxBy(data.categories, function(e) {
+        //     return _.toSafeInteger(e.displayName);
+        // }).displayName);
+        //
+        // yearMap = {};
+        // _.range(min, max + 1).forEach(function(i) {
+        //     yearMap[i] = [Date.UTC(i, 0, 1), 0, {year: i}];
+        // });
+        //
+        // return data.results.map(function(e) {
+        //     return getSerie(e, data.categories);
+        // });
+    }
+}
+
+// function getSerie(result, categories) {
+//     var lineData = result.values.map(function(e, i) {
+//         return [Date.UTC(_.toSafeInteger(categories[i].filter.year), 0, 1), e, categories[i].filter];
+//     });
+//     lineData = _.sortBy(lineData, ['[0]']);
+//
+//     return {
+//         type: 'line',
+//         name: result.displayName,
+//         data: lineData
+//     };
+// }

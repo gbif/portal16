@@ -1,4 +1,4 @@
-<section class="horizontal-stripe light-background occurrenceKey__highlights">
+<section class="horizontal-stripe light-background occurrenceKey__highlights seperator">
     <div class="container--normal">
         <div class="balanced-row">
             <div>
@@ -7,8 +7,8 @@
                         <div>
                             <dt class="text-capitalize">GBIF Taxon interpretation</dt>
                             {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 %}   <dd >none</dd>{% endif %}
-                            {% if occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 %}   <dd >
-                                <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
+                            {% if occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 %}   <dd>
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
                                     occurrence.record.scientificName $}</a>
                             </dd>{% endif %}
                         </div>
@@ -16,7 +16,7 @@
                     {% if (occurrence.record.taxonRank | isNotEmpty) and occurrence.species.taxonomicStatus !== 'SYNONYM' and occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") === -1 %}
                         <div>
                             <dt class="text-capitalize">{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
-                            <dd><a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
+                            <dd><a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
                                     occurrence.record.scientificName $}</a>
                                     </dd>
                         </div>
@@ -24,12 +24,12 @@
                     {% if occurrence.species.taxonomicStatus === 'SYNONYM' %}
                         <div>
                             <dt class="text-capitalize">{$ __('ocurrenceFieldNames.appliedName' ) $}</dt>
-                            <dd><a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
+                            <dd><a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
                                     occurrence.record.scientificName $}</a></dd>
                         </div>
                         <div>
                             <dt class="text-capitalize">{$ __('ocurrenceFieldNames.acceptedName' ) $}</dt>
-                            <dd><a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.species.key $}">{$
+                            <dd><a ui-sref="speciesKey({ speciesKey:{$ occurrence.species.key $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.species.key $}">{$
                                     occurrence.species.accepted $}</a></dd>
                         </div>
                     {% endif %}
@@ -78,15 +78,16 @@
                     <div>
                         <dt class="text-capitalize">{$ __('stdTerms.dataset') $}</dt>
                         <dd>
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$
-                                occurrence.dataset.title | truncate(80) $}</a>
+                            <a ui-sref="datasetKey({ key: occurrenceKey.data.datasetKey })" href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">
+                                {$ occurrence.dataset.title | truncate(80) $}
+                            </a>
                         </dd>
                     </div>
                     <div>
                         <dt class="text-capitalize">{$ __('stdTerms.publisher') $}</dt>
                         <dd>
-                            <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$
-                                occurrence.publisher.title | truncate(80) $}</a>
+                            <a ui-sref="publisherKey({ key: occurrenceKey.data.publishingOrgKey })" href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">
+                            {$ occurrence.publisher.title | truncate(80) $}</a>
                         </dd>
                     </div>
 
@@ -95,8 +96,7 @@
                             <dt class="text-capitalize">{$ __('stdTerms.reference') $}</dt>
                             <dd>
                                 {% if occurrence.record.references | isLink %}
-                                    <a href="{$ occurrence.record.references $}">{$ occurrence.record.references |
-                                        truncate(50) $}</a>
+                                    <a href="{$ occurrence.record.references $}">{$ occurrence.record.references | truncate(50) $}</a>
                                 {% else %}
                                     {$ occurrence.record.references | truncate(50) $}
                                 {% endif %}

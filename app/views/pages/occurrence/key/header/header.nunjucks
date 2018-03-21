@@ -4,6 +4,7 @@
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
                     <span class="article-header__category__upper"><a
+                                ui-sref="occurrenceSearchTable()"
                                 href="{$ gb.locales.urlPrefix $}/occurrence/search">{$ __('occurrence.occurrence')
                             $}</a></span>
                     <span class="article-header__category__lower">
@@ -20,7 +21,7 @@
                 <span class="classification-list discreet">
                     {% for taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] %}
                         {% if occurrence.record[taxa] and taxa != occurrence.record.taxonRank | lower %}
-                            <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record[taxa + 'Key'] $}"
+                            <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record[taxa + 'Key'] $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record[taxa + 'Key'] $}"
                                class="{$ taxa $}">{$ occurrence.record[taxa] $}</a>
                         {% endif %}
                     {% endfor %}
@@ -30,13 +31,9 @@
         </div>
 
         <div class="stripe-comment">
-            <div>
+            <div ng-if="occurrenceKey.datasetProcessSummary.lastNormal.finishedCrawling">
                 {$ __('date.synced') $}
-                {% if gb.locales.current == 'en' %}
-                    <time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>
-                {% else %}
-                    {$ occurrence.highlights.lastSynced | formatDate(gb.locales.current) $}
-                {% endif %}
+                <time am-time-ago="occurrenceKey.datasetProcessSummary.lastNormal.finishedCrawling"></time>
             </div>
             {% if occurrence.record.modified %}
                 <div>

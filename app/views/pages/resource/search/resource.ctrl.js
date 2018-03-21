@@ -46,6 +46,22 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         }
     };
 
+    vm.filters.contractCountry = {
+        titleTranslation: 'enums.cms.vocabularyTypes.contractCountry',
+        queryKey: 'contractCountry',
+        filter: ResourceFilter,
+        enumTranslationPath: 'country.',
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.TRANSLATE',
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'COUNTRY_COVERAGE'
+        }
+    };
+
     vm.filters.contentType = {
         queryKey: 'contentType',
         facetKey: 'CONTENT_TYPE',
