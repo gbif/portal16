@@ -1,9 +1,10 @@
 <div search-drawer filter="species.state" content-type="species" ng-class="{'is-active': species.showFilters}">
     <div class="site-drawer__section">
 
-        <div class="search-bar filter-group">
+        <div class="search-bar search-bar filter-group">
 
             <form class="search-bar__term" ng-submit="species.search()">
+
                 <input type="text"
                        id="siteSearch"
                        autocomplete="off"
@@ -12,8 +13,29 @@
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="species.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
                 </a>
+
+
+
             </form>
 
+        </div>
+        <div class="filter-group" ng-if="species.state.query.q">
+            <div class="m-05 m-l-1">
+                You are doing a free text search for "<i>{{species.state.query.q}}</i>" <br>
+            Limit search to
+                <select ng-model="species.state.query.qField">
+                    <option value=""><em>All</em></option>
+                    <option value="SCIENTIFIC" >
+                        Scientific names
+                    </option>
+                    <option value="VERNACULAR" >
+                        Vernacular names
+                    </option>
+                    <option value="DESCRIPTION" >
+                        Descriptions
+                    </option>
+                </select>
+            </div>
         </div>
 
         <div filter-facet filter-config="species.filters.rank" filter-state="species.state"></div>

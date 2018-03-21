@@ -6,7 +6,7 @@ angular
     .controller('speciesCtrl', speciesCtrl);
 
 /** @ngInject */
-function speciesCtrl($state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
+function speciesCtrl($scope, $state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species search');
     Page.drawer(true);
@@ -113,6 +113,14 @@ function speciesCtrl($state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUI
     //    }
     //    return false;
     // };
+
+    $scope.$watch(function() {
+        return vm.state.query.qField;
+    }, function(newval, oldval) {
+        if (newval !== oldval) {
+            vm.search();
+        }
+    });
     vm.hasData = function() {
         return typeof vm.state.data.count !== 'undefined';
     };

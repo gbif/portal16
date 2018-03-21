@@ -168,7 +168,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('speciesSearch', {
             parent: 'localization',
-            url: '/species?offset&limit&q&rank&dataset_key&constituent_key&highertaxon_key&name_type&origin&status&issue&{advanced:bool}',
+            url: '/species?offset&limit&q&rank&dataset_key&constituent_key&highertaxon_key&name_type&origin&qField&status&issue&{advanced:bool}',
             params: {
                 advanced: {
                     value: false,
