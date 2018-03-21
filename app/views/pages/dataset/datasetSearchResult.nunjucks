@@ -1,9 +1,9 @@
 <article class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <a href="" ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}" class="inherit searchCard__type hoverBox text-capitalize"></a>
+            <a href="" ui-sref="datasetSearchTable({type:result.type})" ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}" class="inherit searchCard__type hoverBox text-capitalize"></a>
             <h3 class="searchCard__headline">
-                <a ng-href="{{ urlPrefix }}/dataset/{{result.key}}">{{result.title}}</a>
+                <a ui-sref="datasetKey({key:result.key})" ng-href="{{ portal.urlPrefix }}/dataset/{{result.key}}">{{result.title}}</a>
             </h3>
         </div>
     </div>

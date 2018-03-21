@@ -4,7 +4,55 @@
         <div class="row" ng-if="projectKey.datasets.count > 0">
             <div class="col-xs-12">
                 <div ng-repeat="result in projectKey.datasets.results">
-                    <ng-include src="'/api/template/search/datasetResult.html?v=' + portal.BUILD_VERSION"></ng-include>
+
+                    <article class="card m-b-05 searchCard">
+                        <div class="card__stripe">
+                            <div class="card__content">
+                                <a href="" ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}" class="inherit searchCard__type hoverBox text-capitalize"></a>
+                                <h3 class="searchCard__headline">
+                                    <a ng-href="{{ portal.urlPrefix }}/dataset/{{result.key}}">{{result.title}}</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="card__stripe">
+                            <div class="card__content searchCard__content clearfix">
+                                <div class="searchCard__img asyncIf--isHidden" async-if="{{ portal.mapCapabilities }}?datasetKey={{ result.key }}" async-if-key="total">
+                                    <div class="teaser-map--small">
+                                        <img src="/img/tile000/basemap-grey-light2.png">
+                                        <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=DATASET&resolution=4">
+                                    </div>
+                                </div>
+                                <p ng-if="result.description">
+                                    {{result.description | stripTags | limitTo:200 }}
+                                </p>
+                                <p ng-if="!result.description" class="discreet">
+                                    No description provided
+                                </p>
+                                <p class="discreet--very smaller" ng-if="result.publishingOrganizationTitle">
+                                    Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
+                                </p>
+                                <p ng-if="result.highlights && result.highlights.description">
+                                    <span>... <span ng-bind-html="result.highlights.description"></span> ...</span>
+
+                                </p>
+                                <p ng-if="result.highlights && result.highlights.keywords">
+                                    Keywords: <span ng-bind-html="result.highlights.keywords"></span>
+                                </p>
+                                <ul class="list-chips" ng-if="result.type != 'METADATA'">
+                                    <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">
+                                        <a ng-href="/occurrence/search?dataset_key={{ result.key}}"><span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">&nbsp;</span> occurrences</a>
+                                    </li>
+                                    <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}species/search?dataset_key={{ result.key }}">
+                                        <a ng-href="/species/search?dataset_key={{ result.key}}&advanced=1"><span count="{{ portal.dataApi }}species/search?dataset_key={{ result.key }}">&nbsp;</span> records</a>
+                                    </li>
+                                    <li class="asyncIf--isHidden" async-if="/api/resource/search?contentType=literature&gbifDatasetKey={{ result.key }}">
+                                        <a ng-href="/resource/search?gbifDatasetKey={{ result.key}}&contentType=literature"><span count="/api/resource/search?contentType=literature&gbifDatasetKey={{ result.key }}">&nbsp;</span> citations</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </div>

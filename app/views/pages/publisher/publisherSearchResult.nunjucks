@@ -3,7 +3,7 @@
         <div class="card__content">
             <span class="searchCard__type" ng-if="result.created | isNew">New publisher</span>
             <h3 class="searchCard__headline">
-                <a href="{{ urlPrefix }}/publisher/{{result.key}}">
+                <a ui-sref="publisherKey({key:result.key})" href="{{ urlPrefix }}/publisher/{{result.key}}">
                     {{result.title}}
                 </a>
             </h3>
@@ -11,7 +11,7 @@
     </div>
     <div class="card__stripe">
         <div class="card__content searchCard__content clearfix">
-            <a href="{{ urlPrefix }}/publisher/{{result.key}}" class="pull-right">
+            <a ui-sref="publisherKey({key:result.key})" href="{{ urlPrefix }}/publisher/{{result.key}}" class="pull-right">
                 <img class="searchCard__img--noCrop" ng-src="{$ _meta.imageCache $}128x/{{ result.logoUrl | encodeURIComponent }}" ng-if="result.logoUrl">
             </a>
             <div class="searchCard__meta" ng-if="result.created">
