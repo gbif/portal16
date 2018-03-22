@@ -241,10 +241,10 @@ function addGeometryFilter(query, results) {
             let minMax = getMinMaxNumber(e.name, 'decimalLatitude');
 
             if (!geomFilters) {
-                filter.push(`POLYGON ((-180 ${minMax.min}, -180 ${minMax.max}, 180 ${minMax.max}, 180 ${minMax.min}, -180 ${minMax.min}))`);
+                filter.push(`POLYGON ((-180 ${minMax.max}, -180 ${minMax.min}, 180 ${minMax.min}, 180 ${minMax.max}, -180 ${minMax.max}))`);
             } else {
                 geomFilters = _.isString(geomFilters) ? [geomFilters] : geomFilters;
-                let slicer = `POLYGON ((-180 ${minMax.min}, -180 ${minMax.max}, 180 ${minMax.max}, 180 ${minMax.min}, -180 ${minMax.min}))`;
+                let slicer = `POLYGON ((-180 ${minMax.max}, -180 ${minMax.min}, 180 ${minMax.min}, 180 ${minMax.max}, -180 ${minMax.max}))`;
                 let polySlicer = wkt2geojson(slicer);
                 geomFilters.forEach(function(e) {
                     let geom = wkt2geojson(e);
