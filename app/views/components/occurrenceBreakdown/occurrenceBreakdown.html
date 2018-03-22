@@ -70,7 +70,7 @@
                                 </td>
                                 <td ng-if="!vm.chartdata.categories">
                                     <div style="width:100%;min-width:100px">
-                                        <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="brand-background"></div>
+                                        <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="brand-background p-bg"></div>
                                     </div>
                                 </td>
                                 <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">

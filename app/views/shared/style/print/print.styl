@@ -1,0 +1,25 @@
+@media print {
+    // bootstrap adds annoying urls to all links. don't do that
+    a[href]:after {
+        content none !important;
+    }
+
+    // remove menues, drawers and footer
+    body {
+        padding-top 0 !important;
+    }
+    .stickyNav, .site-footer, .site-drawer {
+        display none !important;
+    }
+    .site-content {
+        padding-left 0 !important;
+    }
+
+    // utility class to avoid page preaks within elements that shouldn't be cut
+    .p-avoid-pb {
+        page-break-inside avoid
+    }
+    .p-bg {
+        -webkit-print-color-adjust exact
+    }
+}
