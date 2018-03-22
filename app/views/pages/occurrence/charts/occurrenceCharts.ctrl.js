@@ -10,7 +10,7 @@ angular
     .controller('occurrenceChartsCtrl', occurrenceChartsCtrl);
 
 /** @ngInject */
-function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionStorage) {
+function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionStorage, Highcharts) {
     var vm = this;
     vm.state = OccurrenceFilter.getOccurrenceData();
     vm.charts = [];

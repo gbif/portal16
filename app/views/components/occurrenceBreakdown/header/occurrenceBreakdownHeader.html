@@ -4,7 +4,7 @@
         <h4 class="card-header text-center inline-block" ng-if="!vm.options.secondDimension">Occurrences per {{ ('ocurrenceFieldNames.' + vm.options.dimension ) | translate }}</h4>
         <h4 class="card-header text-center inline-block" ng-if="vm.options.secondDimension">Occurrences per {{ ('ocurrenceFieldNames.' + vm.options.dimension ) | translate }} per {{ ('ocurrenceFieldNames.' + vm.options.secondDimension ) | translate }}</h4>
     </div>
-    <div class="chart-header-options inline-block pull-right">
+    <div class="chart-header-options inline-block pull-right p-hidden">
         <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="vm.display.type = vm.config.enum.type.PIE; vm.api.chartChange()" ng-if="vm.isSupported('PIE')"></a>
         <a href="" class="gb-icon-view-list inherit noUnderline" ng-click="vm.display.type = vm.config.enum.type.TABLE; vm.api.chartChange()" ng-if="vm.isSupported('TABLE')"></a>
         <a href="" class="gb-icon-line-chart inherit noUnderline" ng-click="vm.display.type = vm.config.enum.type.LINE; vm.api.chartChange()" ng-if="vm.isSupported('LINE')"></a>
@@ -27,6 +27,6 @@
                 <!--</md-menu-item>-->
             <!--</md-menu-content>-->
         <!--</md-menu>-->
-        <a href="" class="gb-icon-more2 inherit noUnderline" ng-click="vm.display.showSettings = !vm.display.showSettings" ng-if="vm.display.customizable"></a>
+        <a href="" class="gb-icon-more2 inherit noUnderline p-hidden" ng-click="vm.display.showSettings = !vm.display.showSettings" ng-if="vm.display.customizable"></a>
     </div>
 </div>

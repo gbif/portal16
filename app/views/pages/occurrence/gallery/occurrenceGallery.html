@@ -23,7 +23,7 @@
         </div>
     </section>
 
-    <section class="horizontal-stripe--paddingless white-background">
+    <section class="horizontal-stripe--paddingless white-background p-hidden">
         <div class="container-fluid">
             <div class="row">
                 <nav class="tabs">
@@ -90,11 +90,11 @@
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" ui-sref="occurrenceKey({key:image.key})">
                     <img ng-src="{{occGallery.imageCache}}x260/{{image._images[0].identifier | encodeURIComponent}}"
                          gallery-image on-img-error="occGallery.imageFailed">
-                    <div class="summary smaller"  ng-if="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || image.issues.indexOf('TAXON_MATCH_NONE') > -1) && image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</div>
-                    <div class="summary smaller" ng-if="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && image.issues.indexOf('TAXON_MATCH_NONE') === -1) || !image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']">{{image.scientificName}}</div>
+                    <div class="summary smaller p-bg"  ng-if="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || image.issues.indexOf('TAXON_MATCH_NONE') > -1) && image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</div>
+                    <div class="summary smaller p-bg" ng-if="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && image.issues.indexOf('TAXON_MATCH_NONE') === -1) || !image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']">{{image.scientificName}}</div>
 
                 </a>
-                <div class="imageGallery__more" ng-click="occGallery.loadMore()" ng-if="!occGallery.endOfRecords"><span>More</span>
+                <div class="imageGallery__more p-hidden" ng-click="occGallery.loadMore()" ng-if="!occGallery.endOfRecords"><span>More</span>
                 </div>
                 <div class="imageGallery__more imageGallery__more__filler" ng-if="occGallery.endOfRecords"></div>
             </div>

@@ -14,7 +14,7 @@ function highchartDirective(BUILD_VERSION) {
         transclude: true,
         templateUrl: '/templates/components/occurrenceBreakdown/highchart/highchart.html?v=' + BUILD_VERSION,
         scope: {
-            config: '=',
+            config: '='
         },
         link: highchartLink,
         controller: highchart,
@@ -37,6 +37,18 @@ function highchartDirective(BUILD_VERSION) {
             vm.chartElement = element[0].querySelector('.ng_highchartArea');
             updateChart();
         };
+
+        $scope.$on('$destroy', function() {
+            if (vm.myChart) {
+                vm.myChart.destroy();
+            }
+            // Silly thing, but Highcharts isn't clearing its internal store of charts. Which for a single page angular app is an unfortunate memory hog
+            // one should think we could just always remove undefined from the array as they suggest https://github.com/highcharts/highcharts/issues/2431
+            // but doing so will leave subsequent calls to Highcharts.charts empty
+            if (Highcharts.chartCount === 0) {
+                _.remove(Highcharts.charts, _.isUndefined);
+            }
+        });
 
         function updateChart() {
             if (vm.myChart) {

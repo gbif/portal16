@@ -172,8 +172,6 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 var pieConfig = pieChartHelper.getConfig(chartdata, vm.chartElement);
                 vm.chartConfig = pieConfig;
             }
-
-            vm.pieConfig = pieChartHelper.getConfig(chartdata);
         }
 
         vm.toggleLogarithmic = function() {

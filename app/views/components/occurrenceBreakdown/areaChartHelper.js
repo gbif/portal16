@@ -6,9 +6,6 @@ module.exports = {
 
 function getConfig(data, element, clickCallback, logarithmic) {
     var series = getSeries(data);
-    console.log(series);
-
-    var isLogaritmic = logarithmic;
 
     return {
         chart: {
@@ -125,16 +122,3 @@ function getSeries(data) {
         // });
     }
 }
-
-// function getSerie(result, categories) {
-//     var lineData = result.values.map(function(e, i) {
-//         return [Date.UTC(_.toSafeInteger(categories[i].filter.year), 0, 1), e, categories[i].filter];
-//     });
-//     lineData = _.sortBy(lineData, ['[0]']);
-//
-//     return {
-//         type: 'line',
-//         name: result.displayName,
-//         data: lineData
-//     };
-// }

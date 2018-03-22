@@ -2,6 +2,7 @@
 
 var angular = require('angular');
 var Highcharts = require('highcharts');
+window.Highcharts = Highcharts;
 require('highcharts/modules/exporting')(Highcharts);
 require('highcharts/modules/boost')(Highcharts);
 require('highcharts/modules/sunburst')(Highcharts);
@@ -249,4 +250,18 @@ Highcharts.theme = {
     textColor: '#C0C0C0',
     contrastTextColor: '#F0F0F3',
     maskColor: 'rgba(255,255,255,0.3)'
+};
+
+// resize charts before printing
+window.onbeforeprint = function() {
+    Highcharts.charts.forEach(function(chart, i) {
+        if (typeof chart !== 'undefined') {
+            console.log('iterate');
+            chart.setSize(650, undefined, false);
+        }
+    });
+};
+
+window.onafterprint = function() {
+    location.reload();
 };

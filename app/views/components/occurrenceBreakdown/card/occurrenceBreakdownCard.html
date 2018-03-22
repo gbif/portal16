@@ -2,7 +2,7 @@
     <occurrence-breakdown-header api="vm.chartApi" options="vm.options" display="vm.display" ></occurrence-breakdown-header>
     <div class="card card--spaced">
         <div class="card__loader text-center" ng-if="vm.chartApi.isLoading()"><div class="loading"></div></div>
-        <div class="card__stripe card__stripe--light" ng-if="vm.display.showSettings">
+        <div class="card__stripe card__stripe--light p-hidden" ng-if="vm.display.showSettings">
             <div class="card__content">
                 <occurrence-breakdown-settings api="vm.chartApi" options="vm.options"></occurrence-breakdown-settings>
             </div>
@@ -26,11 +26,13 @@
                 <occurrence-breakdown options="vm.options" api="vm.chartApi" filter="vm.mergedFilter" display="vm.display"></occurrence-breakdown>
             </div>
         </div>
-        <div class="card__stripe card__stripe--light text-right" ng-if="vm.options.dimension && (vm.chartApi.data().endOfRecords === false || vm.options.offset > 0)">
+        <div class="card__stripe card__stripe--light text-right p-hidden" ng-if="vm.options.dimension && (vm.chartApi.data().endOfRecords === false || vm.options.offset > 0)">
             <div class="card__content">
-                <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0;" ng-if="vm.options.offset > vm.options.limit">First</a>
-                <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0">Previous</a>
-                <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartApi.data().endOfRecords === false">Next</a>
+                <div>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0;" ng-if="vm.options.offset > vm.options.limit">First</a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0">Previous</a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartApi.data().endOfRecords === false">Next</a>
+                </div>
             </div>
         </div>
     </div>

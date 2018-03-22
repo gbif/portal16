@@ -1,3 +1,6 @@
+.p-only {
+    display none !important;
+}
 @media print {
     // bootstrap adds annoying urls to all links. don't do that
     a[href]:after {
@@ -15,11 +18,25 @@
         padding-left 0 !important;
     }
 
+    .fab {
+        display none !important;
+    }
+
+    .overflow-auto {
+        overflow hidden !important;
+    }
+
     // utility class to avoid page preaks within elements that shouldn't be cut
     .p-avoid-pb {
         page-break-inside avoid
     }
     .p-bg {
-        -webkit-print-color-adjust exact
+        -webkit-print-color-adjust exact !important
+    }
+    .p-hidden {
+        display none !important;
+    }
+    .p-only {
+        display initial !important;
     }
 }
