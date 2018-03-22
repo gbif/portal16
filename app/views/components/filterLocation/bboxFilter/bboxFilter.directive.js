@@ -48,7 +48,7 @@ function bboxFilterDirective(BUILD_VERSION) {
                 return false;
             }
 
-            var str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
+            var str = 'POLYGON' + '((W S,E S,E N,W N,W S))'
                     .replace(/N/g, +N.toFixed(3))
                     .replace(/S/g, +S.toFixed(3))
                     .replace(/W/g, +W.toFixed(3))

@@ -64,6 +64,7 @@ function createMap(element, options) {
 
     map.addLayer(drawLayer);
     var format = new ol.format.WKT();
+    var geoJsonFormatter = new ol.format.GeoJSON();
 
     function enableDraw(type, cb) {
         var draw;
@@ -86,11 +87,16 @@ function createMap(element, options) {
                 var geometries = [];
 
                 source.forEachFeature(function(f) {
-                    geometries.push(format.writeGeometry(f.getGeometry(), {
+                    var asGeoJson = geoJsonFormatter.writeFeature(f, {rightHanded: true});
+                    var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
+                    geometries.push(format.writeFeature(rightHandCorrectedFeature, {
                         dataProjection: 'EPSG:4326',
-                        featureProjection: 'EPSG:3857'
+                        featureProjection: 'EPSG:3857',
+                        rightHanded: true,
+                        decimals: 5
                     }));
                 });
+
                 if (cb) {
                     cb(geometries);
                 }
