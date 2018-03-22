@@ -97,6 +97,12 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             updateChart();
         };
 
+        $scope.$on('$destroy', function() {
+            if (vm.content && vm.content.$cancelRequest) {
+                vm.content.$cancelRequest();
+            }
+        });
+
         /**
          * update the chart to match the dimension, config
          */

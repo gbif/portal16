@@ -50,7 +50,7 @@ async function expand(responseBody, __, includeFullObject, prune) {
     // resolve names
     if (config.fields[fieldConstantCase].type == config.type.RAW) {
         responseBody.results.forEach(function(f) {
-            f.displayName = f.name;
+            f.displayName = f.name.replace(',', ' - ');
         });
         return responseBody;
     } else if (config.fields[fieldConstantCase].type == config.type.ENUM) {

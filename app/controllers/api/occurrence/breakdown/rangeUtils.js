@@ -10,7 +10,7 @@ let _ = require('lodash'),
     facetConfig = require('./config'),
     changeCase = require('change-case'),
     wkt2geojson = require('wellknown'),
-    turf = require('turf'),
+    turf = require('@turf/turf'),
     log = require('../../../../../config/log');
 
 module.exports = {
@@ -35,12 +35,16 @@ function getMinMaxRange(query, field) {
         let values = _.concat([], query[field] || []);
         values.forEach(function(value) {
             minMax = getMinMaxNumber(value, field);
+            min = Math.min(minMax.min, min);
+            max = Math.max(minMax.max, max);
         });
     } else {
         minMax = getMinMaxGeometry(undefined, field);
         let values = _.concat([], query.geometry || []);
         values.forEach(function(value) {
             minMax = getMinMaxGeometry(value, field);
+            min = Math.min(minMax.min, min);
+            max = Math.max(minMax.max, max);
         });
     }
 
@@ -110,27 +114,21 @@ function getRanges(field, minMax, buckets) {
     let diff = minMax.max - minMax.min;
     let bucketSize = diff / buckets;
 
-    if (constantField !== 'DECIMAL_LATITUDE') {
-        // use fixed intervals instead. intervals like 7 years was difficult to interpret despite being
-        if (diff > 0) {
-            bucketSize = 1;
+    // an attempt to set buckets size to nice values (0.1 instead of 0.1043429) whilst keeping bucket count to around 10;
+    if (diff > 0.0000001) {
+        let b = 10000;
+        while (diff <= b) {
+            b /= 10;
         }
-        if (diff > 11) {
-            bucketSize = 2;
-        }
-        if (diff > 19) {
-            bucketSize = 5;
-        }
-        if (diff > 39) {
-            bucketSize = 10;
-        }
-        if (diff > 199) {
-            bucketSize = 100;
-        }
-        if (diff > 1999) {
-            bucketSize = 1000;
-        }
+        b /= 10;
+        if (diff / b > 20) b *= 5;
+        if (diff / b > 15) b *= 2;
+        if (diff / b < 3) b /= 5;
+        if (diff / b < 5) b /= 2;
+        b = +b.toFixed(5);
+        bucketSize = b;
     }
+
     let isIntegerRange = facetConfig.fields[constantField].range.type === 'INT';
     if (isIntegerRange) {
         bucketSize = Math.ceil(bucketSize);
@@ -249,16 +247,24 @@ function addGeometryFilter(query, results) {
                 geomFilters.forEach(function(e) {
                     let geom = wkt2geojson(e);
                     let intersection = turf.intersect(geom, polySlicer);
-                    let wkt = wkt2geojson.stringify(intersection);
-                    if (wkt.startsWith('MULTIPOLYGON')) {
-                        let polys = wkt.match(/\(\([0-9,\.\-\s]+\)\)/g);
-                        for (let i = 0; i < polys.length; i++) {
-                            filter.push(`POLYGON ${polys[i]}`);
+                    if (intersection) {
+                        turf.rewind(intersection, {mutate: true, reverse: false});
+                        let wkt = wkt2geojson.stringify(intersection);
+                        if (wkt.startsWith('MULTIPOLYGON')) {
+                            let polys = wkt.match(/\(\([0-9,\.\-\s]+\)\)/g);
+                            for (let i = 0; i < polys.length; i++) {
+                                filter.push(`POLYGON ${polys[i]}`);
+                            }
+                        } else {
+                            filter.push(wkt);
                         }
-                    } else {
-                        filter.push(wkt);
                     }
                 });
+                if (filter.length == 0) {
+                    // add slicer as there was no intersections - but this isnt right - it should return zero results but with no filter i guess? blocked somehow.
+                    // geometry and not georeferenced as filter perhaps? weird
+                    filter.push(slicer);
+                }
             }
 
             e.filter = {

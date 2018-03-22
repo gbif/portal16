@@ -92,13 +92,13 @@
 
         <div class="container-fluid">
 
-            <div ng-if="occCharts.getSerializedQuery() !== ''" class="m-t-1">
+            <div ng-if="occCharts.getSerializedQuery() !== '' && occCharts.predicateLoaded" class="m-t-1">
                 <h4 class="card-header">Current filter</h4>
                 <div class="card">
                     <div class="card__stripe">
                         <div class="card__content predicateContainer">
                             <div class="predicates isSimplePredicate">
-                                <ng-include src="'/api/occurrence/search/predicate.html?' + occCharts.getSerializedQuery()"></ng-include>
+                                <ng-include src="'/api/occurrence/search/predicate.html?' + occCharts.getSerializedQuery()" onload="occCharts.predicateLoaded = true"></ng-include>
                             </div>
                         </div>
                     </div>
