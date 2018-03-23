@@ -31,7 +31,7 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     };
 
     vm.isSecretariatUser = function() {
-        return  _.endsWith(_.get($sessionStorage, 'user.email', ''), '@gbif.org');
+        return  true;// _.endsWith(_.get($sessionStorage, 'user.email', ''), '@gbif.org');
     };
 
     function updateUser() {
