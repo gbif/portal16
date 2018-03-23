@@ -53,13 +53,13 @@ async function expand(responseBody, __, includeFullObject, prune) {
             f.displayName = f.name.replace(',', ' - ');
         });
         return responseBody;
-    } else if (config.fields[fieldConstantCase].type == config.type.ENUM) {
+    } else if (config.fields[fieldConstantCase].type == config.type.ENUM && !config.fields[fieldConstantCase].url) {
         responseBody.results.forEach(function(f) {
             let translationPath = config.fields[fieldConstantCase].translationPath.replace('{VALUE}', f.name);
             f.displayName = __(translationPath);
         });
         return responseBody;
-    } else if (config.fields[fieldConstantCase].type == config.type.KEY) {
+    } else if (config.fields[fieldConstantCase].url) {
         let facetPromises = responseBody.results.map(function(item) {
             return addResolveUrl(item, config.fields[fieldConstantCase], includeFullObject);
         });

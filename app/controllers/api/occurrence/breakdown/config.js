@@ -89,7 +89,9 @@ let fields = {
     KINGDOM_KEY: {
         type: type.ENUM,
         translationPath: 'kingdomKey.{VALUE}',
-        enums: enums.kingdomKey
+        enums: enums.kingdomKey,
+        url: apiConfig.taxon.url + '{VALUE}',
+        field: 'scientificName'
     },
     DATASET_KEY: {
         type: type.KEY,
