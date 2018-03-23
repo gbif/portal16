@@ -2282,6 +2282,8 @@
       "noFiltersAdded": "No area filters added",
       "wktPlaceholder": "WKT or GeoJSON — multipolygons are not supported",
       "invalidTextInput": "Invalid WKT or GeoJSON",
+      "tooLarge": "Geometry too large",
+      "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
       "invalidRange": "Invalid bounding box"
     }
   },
