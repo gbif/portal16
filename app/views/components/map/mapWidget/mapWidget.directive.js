@@ -366,7 +366,7 @@ function mapWidgetDirective(BUILD_VERSION) {
 
         /**
          * Get the bounds of the map as wkt string.
-         * @returns {string} format 'POLYGON((W S,W N,E N,E S,W S))'
+         * @returns {string} format 'POLYGON((W S,E S,E N,W N,W S))'
          */
         function getBoundsAsQueryString() {
             if (!map) return;
@@ -377,7 +377,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 W = extent[0],
                 E = extent[2];
 
-            var str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
+            var str = 'POLYGON' + '((W S,E S,E N,W N,W S))'
                     .replace(/N/g, N.toFixed(5))
                     .replace(/S/g, S.toFixed(5))
                     .replace(/W/g, W.toFixed(5))
@@ -428,7 +428,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             var decimalLatitudeMax = lat + offset;
             var decimalLongitudeMin = lng - offset;
             var decimalLongitudeMax = lng + offset;
-            vm.clickedGeometry = 'POLYGON' + '((W S,W N,E N,E S,W S))'
+            vm.clickedGeometry = 'POLYGON' + '((W S,E S,E N,W N,W S))'
                     .replace(/N/g, decimalLatitudeMin)
                     .replace(/S/g, decimalLatitudeMax)
                     .replace(/W/g, decimalLongitudeMin)

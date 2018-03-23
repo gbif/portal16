@@ -1,41 +1,4 @@
-/*
-end result:
-create chart by setting dimension and optional chart type and other configuration.
-change chart dimension and type and config as you see fit.
-enable active filtering. If on, then default to occSearch link if no listener provided
-
-config: what dimensions are supported. what types are supported for each type. default type per dimension. ...
-        types:
-            Print options per type
-            supported dimensions
-
-(de)serializer: compact representation of a chart that can be added to the url
-
-transformers/chart formatting: transform the api result to the formats required by the charting library
-
-Optional filter update (provide a filter the directive should listen to)
-
-print options
-
-What it does not do:
-    it isn't the interface for selecting and configuring the chart. it is the chart/table only.
-    This is because we do not necessarily want the chart to be changeable. For that there is another directive that makes use of this one.
-
-API:
-    the chart expose the action you can perform: del, supported types, downloads, change dimension?
-
-Header helper (seperate directive)
-    for creating the header with name and configurable options (chart type changing, downloads etc.)
-
-Builder:
-    choose dimension (auto selects a type)
-    user can change chart type
-    user can change dimension.
-    future: user can add a dimension
- */
-
 'use strict';
-
 
 var angular = require('angular');
 var _ = require('lodash');
@@ -97,7 +60,12 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             updateChart();
         };
 
+        /* CLEAN UP ON DESTROY */
+        // When the DOM element is removed from the page,
+        // AngularJS will trigger the $destroy event on
+        // the scope. This is a good time to cancel timers and requests
         $scope.$on('$destroy', function() {
+            $timeout.cancel(delayedFilterTimer);
             if (vm.content && vm.content.$cancelRequest) {
                 vm.content.$cancelRequest();
             }
@@ -252,11 +220,6 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 vm.display.type = _.findKey(supportedChartTypes) || 'TABLE';
             }
             updateContent();
-            // if (updated.dimension !== past.dimension || updated.secondDimension !== past.secondDimension) {
-            //     updateContent();
-            // }
-            // vm.dimension = vm.options.dimension;
-            // updateContent();
         });
 
         $scope.$watchCollection(function() {
@@ -264,21 +227,6 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         }, function() {
             formatData(vm.chartdata);
         });
-
-        // $scope.$watch(function() {
-        //     return vm.options.secondDimension;
-        // }, function() {
-        //     vm.secondDimension = vm.options.secondDimension;
-        //     vm.state.offset = 0;
-        //     updateContent();
-        // });
-
-        // $scope.$watch(function() {
-        //     return vm.options.type;
-        // }, function() {
-        //     vm.type = vm.options.type;
-        //     vm.state.offset = 0;
-        // });
 
         /* GENERATE API TO EXPOSE TO DIRECTIVE USER */
         // consider splitting in to seperate file
@@ -289,6 +237,14 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
 
             vm.api.data = function() {
                 return vm.chartdata;
+            };
+
+            vm.api.cancel = function() {
+                if (vm.content && vm.content.$cancelRequest) {
+                    vm.content.$cancelRequest();
+                    return true;
+                }
+                return false;
             };
 
             vm.api.isLoading = function() {
@@ -317,72 +273,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
 
             vm.api.options = config;
         }
-
-        /* CLEANUP ON DESTROY */
-        // When the DOM element is removed from the page,
-        // AngularJS will trigger the $destroy event on
-        // the scope. This is a good time to cancel timers and requests
-        $scope.$on('$destroy', function() {
-                $timeout.cancel(delayedFilterTimer);
-            }
-        );
     }
 }
-
-/*
- * OVERALL IDEA
- * for any occ filter.
- * define a field of a fixed subset (BoR, year, month, species?, latitude? decade? ...)
- * depending on type a fixed number of chart types.
- * Basically simlpy filter as is. add facet as per selected field. If key, then resolve. could start with only allowing enums.
- * defaults to bar chart. doughnut if single value per type. BoR or kingdom fx. Issue not.
- * for bar charts only?: similar to table layout: if several species (or another type) selected, then do breakdown per type? months fx.
- * so basically. choose field (say months). defaults to counts per month, but option to choose counts per other field per month - fx selected species or all of an enum
- *
- *
- * CHART TYPES
- * bar chart.
- * pie.
- * map country chloropleth
- * plain list? seems useful for issues fx (almost just a vertical bar chart).
- * table. choose additional dimension. At least one enum (else we cannot write 'other').
- *        iterate enums and add to filter (overwrite enum filter if already there)) and facet per other dimension. also do a plain facet on enum diff is other.
- *
- * MORE
- * more button for more facets (increase facetLimit). always ask for one more facet than asked for to decide on showing more button.
- *
- * INTERACTIVE
- * labels optional clickable to add as filter.
- *
- * SPECIAL CASES
- * taxonomy special case. interactive widget.
- * Years (and elevation and other continuous numbers) seem special as well in that you would typically want them not ordered by count, but in order.
- *
- * Years (and other continuous nr)
- * seems tricky. How to handle this?
- * Start by asking for facets with a large number, say 500. If there are more, then find extend first by asking for extremes and dividing in half?
- * Then select an appropriate interval?
- * Then filter per interval to get counts.
- *
- * fullscreen? download image/pdf? download csv data? how about citation then?
- *
- */
-
-/*
- * Have a fixed set of allowed dimensions that is supported.
- * for each dimension a set of configuration options
- *
- * fx chart options: bar, pie, line, ...
- * and for each type (or generic) there is defaults/suggestions based on type and data.
- *
- * cases:
- * no data : show text
- * 1 value : show styled box
- * few values : pie or bar or column as default. table, line as options
- * standard : bar or column as default. pie, line, table
- * many values : line or table as default. bar as option ?
- *
- * views could be: pie, bar, line, table, column
- */
 
 module.exports = occurrenceBreakdownDirective;

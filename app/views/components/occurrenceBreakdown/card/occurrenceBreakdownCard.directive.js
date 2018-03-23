@@ -64,6 +64,14 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
             vm.options.offset = Math.max(0, vm.options.offset - vm.options.limit);
         };
 
+        vm.cancel = function() {
+            var cancelled = vm.chartApi.cancel();
+            if (cancelled) {
+                vm.options.dimension = '';
+                vm.options.secondDimension = '';
+            }
+        };
+
         function setMergedFilter() {
             vm.mergedFilter = _.assign({}, _.get(vm, 'filter'), _.get(vm, 'customFilter'));
         }
@@ -73,6 +81,7 @@ function occurrenceBreakdownCardDirective(BUILD_VERSION) {
         $scope.$watchCollection(function() {
             return vm.filter;
         }, function() {
+            vm.options.offset = 0;
             setMergedFilter();
         });
 

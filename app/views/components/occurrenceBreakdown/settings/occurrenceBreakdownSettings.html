@@ -4,7 +4,7 @@
         <md-input-container md-no-float>
             <md-select ng-model="vm.options.dimension" ng-change="vm.options.secondDimension = undefined; vm.options.offset = 0; vm.api.chartChange();" placeholder="choose dimension">
                 <md-option ng-value=""><em>None</em></md-option>
-                <md-option ng-repeat="item in vm.config.dimensions" ng-value="item">
+                <md-option ng-repeat="item in vm.config.dimensions" ng-value="item" translate="filterNames.{{item | camelCase}}">
                     {{item}}
                 </md-option>
             </md-select>
@@ -15,7 +15,7 @@
         <md-input-container md-no-float>
             <md-select ng-model="vm.options.secondDimension" placeholder="choose dimension" ng-change="vm.api.chartChange();">
                 <md-option ng-value=""><em>None</em></md-option>
-                <md-option ng-repeat="item in vm.config.secondaryDimensions" ng-value="item">
+                <md-option ng-repeat="item in vm.config.secondaryDimensions" ng-value="item" translate="filterNames.{{item | camelCase}}">
                     {{item}}
                 </md-option>
             </md-select>

@@ -3,20 +3,13 @@
         <h3>No data</h3>
     </div>
     <div class="occurrenceBreakdownChart__single" ng-if="vm.resultType() === 'SINGLE_BUCKET'">
-        <div class="occurrenceBreakdownChart__single__number">
-            {{vm.chartdata.results[0].count |localNumber}}
+        <div class="occurrenceBreakdownChart__single__value">
+            <span>{{vm.chartdata.results[0].count |localNumber}} occcurrences with '{{vm.chartdata.field}}'</span>
+            <div>{{vm.chartdata.results[0].displayName | truncate:50}}</div>
         </div>
-        <div class="occurrenceBreakdownChart__single__description">
-            <span class="badge-composite--brand">
-                <span class="badge">{{vm.chartdata.field}}</span>
-                <span class="badge">{{vm.chartdata.results[0].displayName | truncate:50}}</span>
-            </span>
-            <div ng-if="vm.chartdata.categories">
-                <span class="badge-composite--brand">
-                    <span class="badge">{{vm.chartdata.secondField}}</span>
-                    <span class="badge">{{vm.chartdata.categories[0].displayName | truncate:50}}</span>
-                </span>
-            </div>
+        <div class="occurrenceBreakdownChart__single__value" ng-if="vm.chartdata.categories">
+            <span>and '{{vm.chartdata.secondField}}'</span>
+            <div>{{vm.chartdata.categories[0].displayName | truncate:50}}</div>
         </div>
     </div>
     <div ng-if="vm.resultType() === 'MULTIPLE_BUCKETS'">
@@ -28,7 +21,7 @@
                             <thead ng-if="vm.chartdata.categories">
                             <tr>
                                 <th class="text-capitalize p-0"></th>
-                                <th class="text-capitalize">{{vm.chartdata.field}}</th>
+                                <th class="text-capitalize" translate="filterNames.{{vm.chartdata.field | camelCase}}">{{vm.chartdata.field}}</th>
                                 <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">
                                     <span>
                                         <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))" class="inherit">{{category.displayName}}</a>
@@ -42,16 +35,16 @@
                             <thead ng-if="!vm.chartdata.categories">
                             <tr>
                                 <th class="text-capitalize p-0 table-cell--50px"></th>
-                                <th class="text-capitalize" translate="ocurrenceFieldNames.{{vm.chartdata.field | camelCase}}"></th>
+                                <th class="text-capitalize" translate="filterNames.{{vm.chartdata.field | camelCase}}"></th>
                                 <th class="text-capitalize table-cell--narrow">count</th>
-                                <th class="text-capitalize table-cell--100">Logarithmic indicator</th>
+                                <th class="text-capitalize table-cell--100"></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr ng-repeat="result in vm.chartdata.results">
                                 <td class="p-0">
                                     <a ng-if="vm.chartdata.field == 'dataset_key'" ui-sref="datasetKey({key:result.filter.dataset_key})" class="inherit gb-icon-link table__symbol"></a>
-                                    <a ng-if="vm.chartdata.field == 'publisher_key'" ui-sref="publisherKey({key:result.filter.publisher_key})" class="inherit gb-icon-link table__symbol"></a>
+                                    <a ng-if="vm.chartdata.field == 'publishing_org'" ui-sref="publisherKey({key:result.filter.publishing_org})" class="inherit gb-icon-link table__symbol"></a>
                                 </td>
                                 <td>
                                 <span>
