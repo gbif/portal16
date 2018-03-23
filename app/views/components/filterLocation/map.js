@@ -60,14 +60,42 @@ function createMap(element, options) {
     var drawLayer = new ol.layer.Vector({
         source: source
     });
+
+    var modify = new ol.interaction.Modify({source: source});
+    map.addInteraction(modify);
+
     map.addLayer(currentProjection.getBaseLayer(_.assign({}, {style: 'gbif-geyser-en'}, {})));
 
     map.addLayer(drawLayer);
     var format = new ol.format.WKT();
     var geoJsonFormatter = new ol.format.GeoJSON();
+    var draw, snap;
+    function disableDraw(){
+        map.removeInteraction(draw);
+        map.removeInteraction(snap);
+    }
+    function createFeatures(cb) {
+        setTimeout(function() {
+            var geometries = [];
 
+            source.forEachFeature(function(f) {
+                var asGeoJson = geoJsonFormatter.writeFeature(f, {rightHanded: true});
+                var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
+                geometries.push(format.writeFeature(rightHandCorrectedFeature, {
+                    dataProjection: 'EPSG:4326',
+                    featureProjection: 'EPSG:3857',
+                    rightHanded: true,
+                    decimals: 5
+                }));
+            });
+
+            if (cb) {
+                cb(geometries);
+            }
+            map.removeInteraction(draw);
+        });
+    }
     function enableDraw(type, cb) {
-        var draw;
         if (type === 'Rectangle'){
             draw = new ol.interaction.Draw({
                 source: source,
@@ -79,35 +107,25 @@ function createMap(element, options) {
                 source: source,
                 type: type
             });
+            snap = new ol.interaction.Snap({source: source});
+            map.addInteraction(snap);
         }
         map.addInteraction(draw);
 
-        draw.on('drawend', function() {
-            setTimeout(function() {
-                var geometries = [];
-
-                source.forEachFeature(function(f) {
-                    var asGeoJson = geoJsonFormatter.writeFeature(f, {rightHanded: true});
-                    var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
-                    geometries.push(format.writeFeature(rightHandCorrectedFeature, {
-                        dataProjection: 'EPSG:4326',
-                        featureProjection: 'EPSG:3857',
-                        rightHanded: true,
-                        decimals: 5
-                    }));
-                });
-
-                if (cb) {
-                    cb(geometries);
-                }
-                map.removeInteraction(draw);
-            });
+        draw.on('drawend', function(){
+            createFeatures(cb);
+        });
+    }
+    function enableModify(cb){
+        modify.on('modifyend', function(){
+            createFeatures(cb);
         });
     }
     function initGeometry(geometry) {
         var geometries = [];
-
-
+       if (_.isArray(geometry)){
+           geometry = _.uniq(geometry);
+       }
         if (_.isArray(geometry)) {
             var polys = geometry;
             for (var i = 0; i < polys.length; i++) {
@@ -128,12 +146,29 @@ function createMap(element, options) {
 
 
     function removeDrawnItems() {
-        map.removeLayer(drawLayer);
-        source = new ol.source.Vector({wrapX: false});
-        drawLayer = new ol.layer.Vector({
-            source: source
+        source.clear();
+    }
+    function deleteMode(cb) {
+        var geometries = [];
+        var deleteFeatureAtPixel = function(pixel) {
+            map.forEachFeatureAtPixel(pixel, function(feature) {
+                source.removeFeature(feature);
+            });
+        };
+        map.once('click', function(evt) {
+            deleteFeatureAtPixel(evt.pixel);
+            source.forEachFeature(function(f) {
+                var asGeoJson = geoJsonFormatter.writeFeature(f, {rightHanded: true});
+                var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
+                geometries.push(format.writeFeature(rightHandCorrectedFeature, {
+                    dataProjection: 'EPSG:4326',
+                    featureProjection: 'EPSG:3857',
+                    rightHanded: true,
+                    decimals: 5
+                }));
+            });
+            cb(geometries);
         });
-        map.addLayer(drawLayer);
     }
     this.update(options);
 
@@ -158,6 +193,9 @@ function createMap(element, options) {
     return {
         map: map,
         enableDraw: enableDraw,
+        disableDraw: disableDraw,
+        enableModify: enableModify,
+        deleteMode: deleteMode,
         initGeometry: initGeometry,
         removeDrawnItems: removeDrawnItems,
         update: this.update,

@@ -39,6 +39,9 @@ function filterLocationMapDirective(BUILD_VERSION) {
            var state = OccurrenceFilter.getOccurrenceData();
            var options = (state.query.geometry) ? {fitExtent: true, filters: state.query} : {};
            map = mapController.createMap(element, options);
+            map.enableModify( function(wkt) {
+                OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt), has_geospatial_issue: false});
+            });
         };
         vm.state = OccurrenceFilter.getOccurrenceData();
         $scope.$watch(function() {
@@ -46,7 +49,16 @@ function filterLocationMapDirective(BUILD_VERSION) {
         }, function(newQuery) {
             var query = $filter('unique')(newQuery);
             if (query && map) {
+                map.removeDrawnItems();
                 map.update({fitExtent: true, filters: vm.state.query});
+            }
+        });
+
+        $scope.$watch(function() {
+            return vm.state.query.has_coordinate;
+        }, function(newval, oldval) {
+            if (oldval && typeof newval === 'undefined' ) {
+                map.removeDrawnItems();
             }
         });
 
@@ -61,124 +73,48 @@ function filterLocationMapDirective(BUILD_VERSION) {
         };
         vm.enableRectangleDraw = function() {
            // map.removeDrawnItems();
-            vm.rectangleDrawActive = true;
-            map.enableDraw('Rectangle',function(wkt) {
-                OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt)});
-                vm.rectangleDrawActive = false;
-            });
+            map.disableDraw();
+            vm.polygonDrawActive = false;
+            vm.rectangleDrawActive = !vm.rectangleDrawActive;
+            if (vm.rectangleDrawActive) {
+                map.enableDraw('Rectangle', function(wkt) {
+                    OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt), has_geospatial_issue: false});
+                    vm.rectangleDrawActive = false;
+                });
+            }
         };
         vm.enablePolygonDraw = function() {
             // map.removeDrawnItems();
-            vm.polygonDrawActive = true;
-            map.enableDraw('Polygon',function(wkt) {
-                OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt)});
-                vm.polygonDrawActive = false;
-            });
+            map.disableDraw();
+            vm.rectangleDrawActive = false;
+            vm.polygonDrawActive = !vm.polygonDrawActive;
+            if (vm.polygonDrawActive) {
+                map.enableDraw('Polygon', function(wkt) {
+                    OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt), has_geospatial_issue: false});
+                    vm.polygonDrawActive = false;
+                });
+            }
         };
-
         vm.removeDrawnItems = function() {
+            if (vm.rectangleDrawActive || vm.polygonDrawActive) {
+                map.disableDraw();
+            }
             vm.rectangleDrawActive = false;
             vm.polygonDrawActive = false;
             map.removeDrawnItems();
             OccurrenceFilter.updateParams({geometry: undefined});
         };
+        vm.enableDeleteMode = function() {
+            vm.deleteMode = true;
+            map.deleteMode(function(wkt) {
+                var geom = (wkt && wkt.length > 0) ? $filter('unique')(wkt) : undefined;
+                OccurrenceFilter.updateParams({geometry: geom, has_geospatial_issue: false});
+                vm.deleteMode = false;
+            });
+        };
+
+
     }
 }
 
-/*
-function createMap(element, OccurrenceFilter) {
-    var mapElement = element[0].querySelector('.filter-location-map');
-
-    var map = L.map(mapElement, {
-        center: [0, 0],
-        scrollWheelZoom: false,
-        zoom: 2
-    });
-
-    // TODO get other projection with decent basemap
-    L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-    map.fitWorld().zoomIn();
-
-    var editableLayers = new L.FeatureGroup();
-    map.addLayer(editableLayers);
-
-    var options = {
-        position: 'topright',
-        draw: {
-            polyline: false, // Turns off this drawing tool
-            polygon: {
-                allowIntersection: false, // Restricts shapes to simple polygons
-                drawError: {
-                    color: 'tomato', // Color the shape will turn when intersects
-                    message: 'No intersections allowed!' // Message that will show when intersect
-                },
-                shapeOptions: {
-                    color: 'deepskyblue'
-                }
-            },
-            circle: false, // Turns off this drawing tool
-            rectangle: {
-                shapeOptions: {
-                    clickable: true,
-                    color: 'deepskyblue'
-                }
-            },
-            marker: false // Turns off this drawing tool
-        },
-        edit: {
-            featureGroup: editableLayers,
-            remove: true,
-            allowIntersection: false,
-            polygon: {
-                allowIntersection: false
-            },
-            rectangle: {
-                allowIntersection: false
-            }
-        }
-    };
-    var drawControl = new L.Control.Draw(options);
-    map.addControl(drawControl);
-
-    map.on(L.Draw.Event.CREATED, function(e) {
-        var layer = e.layer;
-        editableLayers.addLayer(layer);
-        updateQuery();
-    });
-
-    map.on(L.Draw.Event.DELETESTOP, updateQuery);
-    map.on(L.Draw.Event.EDITED, updateQuery);
-
-    function updateQuery() {
-        var leafletGeoJson = editableLayers.toGeoJSON();
-        var wktGeometries;
-        for (var i = 0; i < leafletGeoJson.features.length; i++) {
-            wktGeometries = wktGeometries || [];
-            var feature = leafletGeoJson.features[i];
-            var wktGeom = parseGeometry.stringify(feature);
-            wktGeometries.push(wktGeom);
-        }
-        OccurrenceFilter.updateParams({geometry: wktGeometries});
-    }
-
-    function update(geometries) {
-        geometries = geometries || [];
-        editableLayers.clearLayers();
-        geometries.forEach(function(wktStr) {
-            var geojsonGeometry = parseGeometry(wktStr);
-            editableLayers.addLayer(L.GeoJSON.geometryToLayer(geojsonGeometry));
-        });
-        setTimeout(function() {
-            map.fitBounds(editableLayers.getBounds());
-        }, 0);
-    }
-
-    return {
-        map: map,
-        update: update
-    };
-}
-
-*/
 module.exports = filterLocationMapDirective;
