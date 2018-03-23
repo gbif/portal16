@@ -11,6 +11,9 @@ module.exports = function(app) {
 
 router.get('/occurrence/breakdown', function(req, res) {
     let query = breakdown.parseQuery(req.query);
+    delete query.advanced;
+    // let locale = query.locale;
+    delete query.locale;
     breakdown.query(query)
         .then(function(response) {
             res.send(response);
@@ -18,7 +21,6 @@ router.get('/occurrence/breakdown', function(req, res) {
         .catch(function(err) {
             res.status(500);
             res.send();
-            console.trace(err);
             log.trace(err);
         });
 });

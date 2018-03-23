@@ -17,6 +17,17 @@
     "UNKNOWN": "unknown",
     "undefined": "unknown"
   },
+  "kingdomKey": {
+    "0": "incertae sedis",
+    "1": "Animalia",
+    "2": "Archaea",
+    "3": "Bacteria",
+    "4": "Chromista",
+    "5": "Fungi",
+    "6": "Plantae",
+    "7": "Protozoa",
+    "8": "Viruses"
+  },
   "typeStatus": {
     "TYPE": "type",
     "TYPE_SPECIES": "type species",
@@ -2635,7 +2646,7 @@
     "elevation": "elevation",
     "collectionCode": "collection code",
     "recordNumber": "record number",
-    "datasetKey": "dataset key",
+    "datasetKey": "dataset",
     "protocol": "protocol",
     "mediaType": "media type",
     "recordedBy": "recorded by",
@@ -2659,7 +2670,14 @@
     "geometry": "geometry",
     "decimalLatitude": "decimal latitude",
     "decimalLongitude": "decimal longitude",
-    "publishingOrg": "publisher"
+    "publishingOrg": "publisher",
+    "kingdomKey": "kingdom",
+    "phylumKey": "phylum",
+    "classKey": "class",
+    "orderKey": "order",
+    "familyKey": "family",
+    "genusKey": "genus",
+    "speciesKey": "species"
   },
   "enums": {
     "cms": {
@@ -2954,6 +2972,5 @@
       "downloadPNG": "Download JPEG image",
       "downloadXLS": "Download XLS"
     }
-
   }
 }

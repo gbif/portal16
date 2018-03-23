@@ -98,12 +98,12 @@ function getSerie(data) {
         };
     });
 
-    if (data.diff > 0) {
-        d.push({
-            name: 'other or unknown',
-            y: data.diff
-        });
-    }
+    // if (data.diff > 0) {
+    //     d.push({
+    //         name: 'other or unknown',
+    //         y: data.diff
+    //     });
+    // }
 
     var serie = {
         name: 'Occurrences',

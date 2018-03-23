@@ -55,7 +55,7 @@
                             </a>
                         </li>
 
-                        <li class="tab isActive" ng-if="portal.hasRole('REGISTRY_ADMIN')">
+                        <li class="tab isActive" ng-if="portal.isSecretariatUser()">
                             <span>
                                 Charts
                             </span>
@@ -75,13 +75,13 @@
         </div>
     </section>
 
-    <section class="horizontal-stripe--paddingless lighter-background" ng-if="!portal.hasRole('REGISTRY_ADMIN')">
+    <section class="horizontal-stripe--paddingless lighter-background" ng-if="!portal.isSecretariatUser()">
         <div class="emptyInfo">
             <h3>Under development</h3>
             <p>Log in as registry administrator to explore</p>
         </div>
     </section>
-    <section class="horizontal-stripe--paddingless lighter-background m-b-1" ng-if="portal.hasRole('REGISTRY_ADMIN')">
+    <section class="horizontal-stripe--paddingless lighter-background m-b-1" ng-if="portal.isSecretariatUser()">
 
         <div class="text-center small seperator--b p-hidden">
             <div class="gb-btn-group">
@@ -104,8 +104,8 @@
                     </div>
                 </div>
             </div>
-            <section ng-if="occCharts.$sessionStorage.occurrenceChartsShowDefaults">
-                <div ng-repeat="chart in occCharts.defaultCharts" class="m-t-1">
+            <section ng-if="occCharts.$sessionStorage.occurrenceChartsShowDefaults" class="occChart-col m-t-1">
+                <div ng-repeat="chart in occCharts.defaultCharts">
                     <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="occCharts.chartChange"></occurrence-breakdown-card>
                 </div>
             </section>

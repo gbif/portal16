@@ -86,6 +86,11 @@ let fields = {
         url: apiConfig.taxon.url + '{VALUE}',
         field: 'scientificName'
     },
+    KINGDOM_KEY: {
+        type: type.ENUM,
+        translationPath: 'kingdomKey.{VALUE}',
+        enums: enums.kingdomKey
+    },
     DATASET_KEY: {
         type: type.KEY,
         url: apiConfig.dataset.url + '{VALUE}',
@@ -98,7 +103,7 @@ let fields = {
     }
 };
 // All other rank keys are the same as taxonKey
-let ranks = ['KINGDOM_KEY', 'PHYLUM_KEY', 'CLASS_KEY', 'ORDER_KEY', 'FAMILY_KEY', 'GENUS_KEY', 'SPECIES_KEY'];
+let ranks = ['PHYLUM_KEY', 'CLASS_KEY', 'ORDER_KEY', 'FAMILY_KEY', 'GENUS_KEY', 'SPECIES_KEY'];
 ranks.forEach(function(rank) {
     fields[rank] = fields.TAXON_KEY;
 });

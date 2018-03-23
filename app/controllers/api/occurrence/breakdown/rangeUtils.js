@@ -242,7 +242,7 @@ function addGeometryFilter(query, results) {
                 filter.push(`POLYGON ((-180 ${minMax.max}, -180 ${minMax.min}, 180 ${minMax.min}, 180 ${minMax.max}, -180 ${minMax.max}))`);
             } else {
                 geomFilters = _.isString(geomFilters) ? [geomFilters] : geomFilters;
-                let slicer = `POLYGON ((-180 ${minMax.max}, -180 ${minMax.min}, 180 ${minMax.min}, 180 ${minMax.max}, -180 ${minMax.max}))`;
+                let slicer = `POLYGON ((-360 ${minMax.max}, -360 ${minMax.min}, 360 ${minMax.min}, 360 ${minMax.max}, -360 ${minMax.max}))`;
                 let polySlicer = wkt2geojson(slicer);
                 geomFilters.forEach(function(e) {
                     let geom = wkt2geojson(e);
@@ -278,8 +278,8 @@ async function query(query) {
     // TODO sanitize input values to type and accepted values
     let dimension = query.dimension;
     let buckets = query.buckets || 10; // Number of 'AUTO' a desired bucket count. this will only be used as a guide as their are minimum resolutions
-    let limit = query.limit || 10;
-    let offset = query.offset || 0;
+    let limit = query.rangeLimit || 1000;
+    let offset = query.rangeOffset || 0;
 
     let minMax = getMinMaxRange(query, dimension);
     let rangeOptions = getRanges(dimension, minMax, buckets);

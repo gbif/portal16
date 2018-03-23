@@ -1,0 +1,27 @@
+.occChart-col {
+    occurrence-breakdown-card {
+        display block
+        padding-bottom 20px
+    }
+}
+
++isAbove($largeDesktop) {
+    .occChart-col {
+        column-count 2
+        >div {
+            break-inside avoid-column
+        }
+        .table-container {
+            position initial
+        }
+    }
+}
+
+@media print {
+    .occChart-col {
+        column-count auto !important
+        >div {
+            break-inside initial
+        }
+    }
+}
