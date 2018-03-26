@@ -35,14 +35,8 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
             expanded: false
         }
     };
-    vm.baselayer = {
-        url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
-        attribution: '&copy; <a href=\'https://www.mapbox.com/\' class="inherit">Mapbox</a> '
-        + '<a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\' class="inherit">OpenStreetMap contributors</a>',
-        params: {
-            access_token: accessToken
-        }
-    };
+
+
 
     vm.markerMessage = {
         template: '<dl class="inline">{{coordinateUncertainty}}{{elevation}}</dl>',
@@ -88,10 +82,28 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
     });
 
     vm.data = occurrence;
+
     vm.center = {
-        zoom: 6,
         point: [vm.data.decimalLongitude, vm.data.decimalLatitude]
     };
+    if (vm.data.decimalLatitude && Number(vm.data.decimalLatitude) < -85) {
+        vm.projection = 'EPSG:3031';
+        vm.center.zoom = 4;
+    } else if (vm.data.decimalLatitude && Number(vm.data.decimalLatitude) > 85) {
+        vm.projection = 'EPSG:3575';
+        vm.center.zoom = 4;
+    } else if (vm.data.decimalLatitude) {
+        vm.projection = 'EPSG:3857';
+        vm.center.zoom = 6;
+        vm.baselayer = {
+            url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
+            attribution: '&copy; <a href=\'https://www.mapbox.com/\' class="inherit">Mapbox</a> '
+            + '<a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\' class="inherit">OpenStreetMap contributors</a>',
+            params: {
+                access_token: accessToken
+            }
+        };
+    }
 
     if ((typeof vm.data.footprintWKT === 'undefined' || !hasValidOrNoSRS(vm.data)) && (typeof vm.data.decimalLatitude === 'undefined' || typeof vm.data.decimalLongitude === 'undefined')) {
         vm.hideMap = true;
@@ -128,7 +140,7 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
     }
     function setMap(data) {
         if (typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined') {
-           vm.marker = {point: [data.decimalLongitude, data.decimalLatitude], message: vm.getMarkerMessage()};
+           vm.marker = {point: [data.decimalLongitude, data.decimalLatitude], message: vm.getMarkerMessage(), zoom: vm.center.zoom};
         }
 
         if (data.footprintWKT && hasValidOrNoSRS(data)) {

@@ -26,6 +26,7 @@ function iptCtrl($http, env) {
         });
 
         vm.geojson = data.geojson;
+        vm.projection = 'EPSG:3857';
     });
 }
 

@@ -11,7 +11,7 @@
 
             <div class="horizontal-stripe--paddingless white-background">
                 <div class="heading-image">
-                    <feature-map class="ipt__map fitContainer" features="ipt.geojson" hover="true" baselayer="ipt.baselayer" ></feature-map>
+                    <feature-map class="ipt__map fitContainer" features="ipt.geojson" hover="true" baselayer="ipt.baselayer" projection="ipt.projection" ></feature-map>
 
                 </div>
             </div>

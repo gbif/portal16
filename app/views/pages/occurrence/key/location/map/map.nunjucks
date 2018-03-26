@@ -3,7 +3,7 @@
         <div class="row">
             <div  ng-init="occurrenceKey.setData()">
 
-                <feature-map class="occurrenceKey__map fitContainer" features="occurrenceKey.geoJson" wkt="occurrenceKey.wkt" circle="occurrenceKey.circle" marker="occurrenceKey.marker" baseLayer="occurrenceKey.baselayer" mapcenter="occurrenceKey.center" mapstyle="'light'"></feature-map>
+                <feature-map class="occurrenceKey__map fitContainer" features="occurrenceKey.geoJson" wkt="occurrenceKey.wkt" circle="occurrenceKey.circle" marker="occurrenceKey.marker" baseLayer="occurrenceKey.baselayer" projection="occurrenceKey.projection" mapcenter="occurrenceKey.center" mapstyle="'light'"></feature-map>
 
                 {#<div class="globe-context">#}
                     {#<canvas class="globe"></canvas>#}

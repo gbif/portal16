@@ -25,6 +25,7 @@ function featureMapDirective(BUILD_VERSION) {
             circle: '=',
             marker: '=',
             baselayer: '=',
+            projection: '=',
             hover: '='
         },
         link: mapLink,
@@ -50,7 +51,9 @@ function featureMapDirective(BUILD_VERSION) {
 
 
         $scope.create = function(element) {
-            projection = (vm.baselayer) ? projections.EPSG_3857 : projections.EPSG_4326;
+            var prj = (vm.projection) ? vm.projection.replace(':', '_') : undefined;
+            projection = (prj && typeof prj !== 'undefined') ? projections[prj] : projections.EPSG_4326;
+
             map = createMap(element, vm.mapStyle, vm.baselayer, projection);
             var hover = vm.hover || (vm.marker && vm.marker.message);
             addPopUp(map, hover);
@@ -85,12 +88,12 @@ function featureMapDirective(BUILD_VERSION) {
                 addFeatureLayer();
             }
         });
-        $scope.$watch(function() {
+       $scope.$watch(function() {
             return vm.marker;
         }, function() {
             if (map && vm.marker) {
                 var markerFeature = new ol.Feature({
-                    geometry: new ol.geom.Point(ol.proj.fromLonLat(vm.marker.point)),
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat(vm.marker.point, projection.srs)),
                     message: vm.marker.message
                 });
                 markerFeature.setStyle(markerStyle);
@@ -103,7 +106,7 @@ function featureMapDirective(BUILD_VERSION) {
                 });
                 map.addLayer(vectorLayer);
                 map.getView().fit(vectorLayer.getSource().getExtent());
-                map.getView().setZoom(6);
+                map.getView().setZoom(vm.marker.zoom || 6);
             }
         });
 
@@ -134,7 +137,7 @@ function featureMapDirective(BUILD_VERSION) {
 
 function createMap(element, style, baseLayer, projection) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
-    var baseMapStyle = {style: style || 'gbif-light'};
+    var baseMapStyle = {style: style || 'gbif-geyser-en'};
 
     var interactions = ol.interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
     var map = new ol.Map({
