@@ -1,9 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
-    mapController = require('./map'),
-    parseGeometry = require('wellknown'),
-    _ = require('lodash');
+    mapController = require('./map');
 
 angular
     .module('portal')
@@ -112,8 +110,6 @@ function filterLocationMapDirective(BUILD_VERSION) {
                 vm.deleteMode = false;
             });
         };
-
-
     }
 }
 

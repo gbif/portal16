@@ -359,7 +359,7 @@ require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');
 require('../../../pages/species/search/list/speciesList.ctrl');
 
-//require('../../../components/map/basic/gbmap.directive');
+// require('../../../components/map/basic/gbmap.directive');
 require('../../../components/map/mapWidget/mapWidget.directive');// TODO decide on a map
 require('../../../components/suggest/suggest.directive');
 require('../../../components/expand/expand.directive');

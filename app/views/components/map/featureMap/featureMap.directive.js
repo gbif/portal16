@@ -377,7 +377,7 @@ function addPopUp(map, hover) {
         map.addInteraction(select);
         select.on('select', function(e) {
             angular.forEach(e.target.getFeatures(), function(feature) {
-                if (feature  && (typeof feature.getGeometry().getCoordinates === 'function' || typeof feature.getGeometry().getCenter === 'function') && feature.get('message')) {
+                if (feature && (typeof feature.getGeometry().getCoordinates === 'function' || typeof feature.getGeometry().getCenter === 'function') && feature.get('message')) {
                     var coordinates = (typeof feature.getGeometry().getCoordinates === 'function') ? feature.getGeometry().getCoordinates() : feature.getGeometry().getCenter();
                     overlay.setPosition(coordinates);
                     content.innerHTML = feature.get('message');

@@ -26,7 +26,6 @@ function iptCtrl($http, env) {
         });
 
         vm.geojson = data.geojson;
-
     });
 }
 

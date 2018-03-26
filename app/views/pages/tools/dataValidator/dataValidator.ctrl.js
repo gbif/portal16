@@ -29,7 +29,7 @@ function dataValidatorCtrl($scope, $http, $state, $sessionStorage, User, AUTH_EV
             data: formData,
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined},
-            transformResponse: function(response, headersGetter, status){
+            transformResponse: function(response, headersGetter, status) {
                 return (status !== 415) ? JSON.parse(response) : {message: response};
             }
         }).success(function(data, status) {

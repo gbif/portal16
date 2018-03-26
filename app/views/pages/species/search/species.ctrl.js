@@ -127,9 +127,6 @@ function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoi
         translationPrefix: 'taxon',
         filter: SpeciesFilter
     };
-
-
-
     vm.toggleAdvanced = function() {
         SpeciesFilter.updateParam('advanced', vm.state.query.advanced);
     };
