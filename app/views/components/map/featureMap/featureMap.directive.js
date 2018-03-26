@@ -25,8 +25,7 @@ function featureMapDirective(BUILD_VERSION) {
             circle: '=',
             marker: '=',
             baselayer: '=',
-            projection: '=',
-            hover: '='
+            projection: '='
         },
         link: mapLink,
         controller: featureMap,
@@ -55,8 +54,8 @@ function featureMapDirective(BUILD_VERSION) {
             projection = (prj && typeof prj !== 'undefined') ? projections[prj] : projections.EPSG_4326;
 
             map = createMap(element, vm.mapStyle, vm.baselayer, projection);
-            var hover = vm.hover || (vm.marker && vm.marker.message);
-            addPopUp(map, hover);
+           // var hover = vm.hover || (vm.marker && vm.marker.message);
+            addPopUp(map, (typeof vm.marker !== 'undefined'));
             addFeatureLayer();
         };
 
@@ -332,7 +331,7 @@ function isHighDensity() {
     || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
 }
 
-function addPopUp(map, hover) {
+function addPopUp(map, hasMarker) {
     var container = document.getElementById('popup');
     var content = document.getElementById('popup-content');
     var closer = document.getElementById('popup-closer');
@@ -345,7 +344,8 @@ function addPopUp(map, hover) {
         autoPan: true,
         autoPanAnimation: {
             duration: 250
-        }
+        },
+        offset: (hasMarker) ? [0, -41] : [0, 0]
     });
 
     map.addOverlay(overlay);
@@ -373,23 +373,17 @@ function addPopUp(map, hover) {
             overlay.setPosition(undefined);
         }
     });
-    if (hover) {
-        var select = new ol.interaction.Select({
-            condition: ol.events.condition.pointerMove
-        });
-        map.addInteraction(select);
-        select.on('select', function(e) {
-            angular.forEach(e.target.getFeatures(), function(feature) {
-                if (feature && (typeof feature.getGeometry().getCoordinates === 'function' || typeof feature.getGeometry().getCenter === 'function') && feature.get('message')) {
-                    var coordinates = (typeof feature.getGeometry().getCoordinates === 'function') ? feature.getGeometry().getCoordinates() : feature.getGeometry().getCenter();
-                    overlay.setPosition(coordinates);
-                    content.innerHTML = feature.get('message');
-                } else {
-                    overlay.setPosition(undefined);
-                }
+
+        map.on('pointermove', function(evt) {
+            var hit = this.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+                return (feature && (typeof feature.getGeometry().getCoordinates === 'function' || typeof feature.getGeometry().getCenter === 'function') && feature.get('message'));
             });
+            if (hit) {
+                this.getTargetElement().style.cursor = 'pointer';
+            } else {
+                this.getTargetElement().style.cursor = '';
+            }
         });
-    }
 }
 
 var styleFunction = function(feature) {
