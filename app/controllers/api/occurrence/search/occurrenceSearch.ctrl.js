@@ -69,7 +69,7 @@ function occurrenceSearch(query) {
         } else {
             deferred.reject(err);
         }
-    }, {retries: 2, timeoutMilliSeconds: 30000});
+    }, {retries: 1, timeoutMilliSeconds: 50000});
     return deferred.promise;
 }
 

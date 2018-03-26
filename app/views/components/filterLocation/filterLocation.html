@@ -113,17 +113,28 @@
                         </div>
                         <div class="card__stripe--light" ng-if="vm.inputType=='GEOJSON'">
                             <div class="card__content">
-                                <div class="clear-fix">
+                                <div>
                                     <textarea ng-model="vm.geometryString" class="noResize"
                                               placeholder="{{ 'filters.location.wktPlaceholder' | translate }}"
-                                              ng-change="vm.invalidTextInput = false"></textarea>
-                                    <span ng-class="{invisible: !vm.invalidTextInput}" class="badge--error badge"
-                                          translate="filters.location.invalidTextInput">Invalid wkt or geojson</span>
-                                    <a href="" ng-click="vm.addString()"
-                                       class="pull-right gb-button--flat text-uppercase"
-                                       translate="stdTerms.add">add</a>
+                                              ng-change="vm.invalidTextInput = false; vm.tooLarge = false;"></textarea>
+                                    <div class="clearfix">
+                                        <span ng-if="vm.invalidTextInput" class="badge--error badge"
+                                              translate="filters.location.invalidTextInput">Invalid wkt or geojson</span>
+                                        <span ng-if="vm.tooLarge" class="badge--error badge"
+                                              translate="filters.location.tooLarge">Too large</span>
+                                        <a href="" ng-click="vm.addString()" ng-class="{invisible: vm.tooLarge || vm.invalidTextInput}"
+                                           class="pull-right gb-button--flat text-uppercase"
+                                           translate="stdTerms.add">add</a>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="site-drawer__bar seperator" ng-if="vm.tooLarge && vm.singleGeometry">
+                                <a href="" ng-click="vm.useSimplified()"
+                                   class="site-drawer__bar__action">Simplify</a>
+                                <a href="" ng-click="vm.useBBox()"
+                                   class="site-drawer__bar__action">Use bounding box</a>
+                            </div>
+                            <div class="card__content card__content--error" translate="filters.location.tooLargeSuggestion" ng-if="vm.tooLarge && !vm.singleGeometry"></div>
                         </div>
                         <div class="card__stripe--light" ng-if="vm.inputType=='PAST'">
                             <div class="card__content">

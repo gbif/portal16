@@ -2,7 +2,12 @@
 
 var angular = require('angular'),
     parseGeometry = require('wellknown'),
-    ol = require('openlayers');
+    ol = require('openlayers'),
+    turf = {
+        simplify: require('@turf/simplify'),
+        bboxPolygon: require('@turf/bbox-polygon'),
+        bbox: require('@turf/bbox')
+    };
 
 angular
     .module('portal')
@@ -29,6 +34,7 @@ function filterLocationDirective(BUILD_VERSION) {
     /** @ngInject */
     function filterLocation($scope, $filter, OccurrenceFilter, $localStorage) {
         var vm = this;
+        var wktSizeLimit = 1200;
         vm.inputType = 'BBOX';
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
@@ -138,18 +144,54 @@ function filterLocationDirective(BUILD_VERSION) {
 
         vm.addString = function() {
             var parsingResult = parseStringToWKTs(vm.geometryString);
+
             if (parsingResult.geometry) {
+                vm.singleGeometry = parsingResult.geometry.length == 1;
+                // test that it isn't too large
+                if (JSON.stringify(parsingResult.geometry).length > wktSizeLimit) {
+                    vm.invalidTextInput = false;
+                    vm.tooLarge = true;
+                    return;
+                }
+
                 vm.hasCoordinate = true;
                 $filter('unique')(parsingResult.geometry).forEach(function(q) {
                     addGeometrySuggestion(q);
                     addGeometryOption(vm.geometryOptions, q, true);
                 });
                 vm.invalidTextInput = false;
+                vm.tooLarge = false;
+                vm.singleGeometry = false;
                 vm.geometryString = undefined;
                 vm.apply();
             } else {
                 vm.invalidTextInput = true;
             }
+        };
+
+        vm.useSimplified = function(tolerance) {
+            tolerance = tolerance || 0.001;
+            var parsingResult = parseStringToWKTs(vm.geometryString);
+            var geojson = parseGeometry(parsingResult.geometry[0]);
+            var options = {tolerance: tolerance, highQuality: true};
+            var simplified = turf.simplify(geojson, options);
+            var wkt = parseGeometry.stringify(simplified);
+            if (wkt.length > wktSizeLimit && tolerance <= 10) {
+                vm.useSimplified(tolerance * 4);
+            } else {
+                vm.geometryString = wkt;
+                vm.addString();
+            }
+        };
+
+        vm.useBBox = function() {
+            var parsingResult = parseStringToWKTs(vm.geometryString);
+            var geom = parseGeometry(parsingResult.geometry);
+            var bbox = turf.bbox(geom);
+            var bboxPolygon = turf.bboxPolygon(bbox);
+            var wkt = parseGeometry.stringify(bboxPolygon);
+            vm.geometryString = wkt;
+            vm.addString();
         };
 
         vm.hasCoordinateChange = function() {
@@ -204,7 +246,7 @@ function parseStringToWKTs(str) {
     // assume geojson
     try {
         var geojsonGeometry = JSON.parse(str);
-        geojson = geojsonformat.readFeatures(geojsonGeometry);;
+        geojson = geojsonformat.readFeatures(geojsonGeometry);
         for (i = 0; i < geojson.length; i++) {
             feature = geojson[i].getGeometry();
             wktGeom = wktformat.writeGeometry(feature);
