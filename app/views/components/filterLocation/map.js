@@ -70,7 +70,7 @@ function createMap(element, options) {
     var format = new ol.format.WKT();
     var geoJsonFormatter = new ol.format.GeoJSON();
     var draw, snap;
-    function disableDraw(){
+    function disableDraw() {
         map.removeInteraction(draw);
         map.removeInteraction(snap);
     }
@@ -96,7 +96,7 @@ function createMap(element, options) {
         });
     }
     function enableDraw(type, cb) {
-        if (type === 'Rectangle'){
+        if (type === 'Rectangle') {
             draw = new ol.interaction.Draw({
                 source: source,
                 type: 'Circle',
@@ -112,18 +112,18 @@ function createMap(element, options) {
         }
         map.addInteraction(draw);
 
-        draw.on('drawend', function(){
+        draw.on('drawend', function() {
             createFeatures(cb);
         });
     }
-    function enableModify(cb){
-        modify.on('modifyend', function(){
+    function enableModify(cb) {
+        modify.on('modifyend', function() {
             createFeatures(cb);
         });
     }
     function initGeometry(geometry) {
         var geometries = [];
-       if (_.isArray(geometry)){
+       if (_.isArray(geometry)) {
            geometry = _.uniq(geometry);
        }
         if (_.isArray(geometry)) {
@@ -150,6 +150,8 @@ function createMap(element, options) {
     }
     function deleteMode(cb) {
         var geometries = [];
+        map.removeInteraction(snap);
+        map.removeInteraction(modify);
         var deleteFeatureAtPixel = function(pixel) {
             map.forEachFeatureAtPixel(pixel, function(feature) {
                 source.removeFeature(feature);
@@ -168,7 +170,11 @@ function createMap(element, options) {
                 }));
             });
             cb(geometries);
-        });
+            setTimeout(function() {
+                map.addInteraction(snap);
+                map.addInteraction(modify);
+            });
+            });
     }
     this.update(options);
 
