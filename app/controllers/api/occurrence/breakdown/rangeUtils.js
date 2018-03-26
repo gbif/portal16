@@ -161,11 +161,11 @@ function getRanges(field, minMax, buckets) {
         });
     }
 
-    range = range.map(function(b) {
+    range.forEach(function(b) {
        if (b.start !== b.end) {
-        return b.start + ',' + b.end;
+        b.filter = b.start + ',' + b.end;
        } else {
-        return b.start;
+        b.filter = b.start;
        }
     });
 
@@ -179,7 +179,7 @@ function getRanges(field, minMax, buckets) {
 async function getRangedFacets(query, range, field) {
     let promises = range.map(function(interval) {
         let values = {limit: 0, offset: 0};
-        values[field] = interval;
+        values[field] = interval.filter;
         let q = _.assign({}, query, values);
         delete q.facet;
         delete q.facetLimit;
@@ -193,7 +193,7 @@ async function getRangedFacets(query, range, field) {
     return rangeList.map(function(response, i) {
         return {
             count: response,
-            name: range[i]
+            name: range[i].filter
         };
     });
 }

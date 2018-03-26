@@ -4,12 +4,29 @@
     </div>
     <div class="occurrenceBreakdownChart__single" ng-if="vm.resultType() === 'SINGLE_BUCKET'">
         <div class="occurrenceBreakdownChart__single__value">
-            <span>{{vm.chartdata.results[0].count |localNumber}} occcurrences with '{{vm.chartdata.field}}'</span>
-            <div>{{vm.chartdata.results[0].displayName | truncate:50}}</div>
+            <span>{{vm.chartdata.results[0].count |localNumber}} occcurrences with '<span translate="filterNames.{{vm.chartdata.field | camelCase}}"></span>'</span>
+
+            <div ng-switch on="vm.chartdata.field">
+                <a ng-switch-when="dataset_key" ui-sref="datasetKey({key:vm.chartdata.results[0].filter.dataset_key})" class="inherit">
+                    {{vm.chartdata.results[0].displayName | truncate:50}}
+                </a>
+                <a ng-switch-when="publishing_org" ui-sref="publisherKey({key:vm.chartdata.results[0].filter.publishing_org})" class="inherit">
+                    {{vm.chartdata.results[0].displayName | truncate:50}}
+                </a>
+                <span ng-switch-default>{{vm.chartdata.results[0].displayName | truncate:50}}</span>
+            </div>
         </div>
         <div class="occurrenceBreakdownChart__single__value" ng-if="vm.chartdata.categories">
-            <span>and '{{vm.chartdata.secondField}}'</span>
-            <div>{{vm.chartdata.categories[0].displayName | truncate:50}}</div>
+            <span>and '<span translate="filterNames.{{vm.chartdata.secondField | camelCase}}"></span>'</span>
+            <div ng-switch on="vm.chartdata.secondField">
+                <a ng-switch-when="dataset_key" ui-sref="datasetKey({key:vm.chartdata.categories[0].filter.dataset_key})" class="inherit">
+                    {{vm.chartdata.categories[0].displayName | truncate:50}}
+                </a>
+                <a ng-switch-when="publishing_org" ui-sref="publisherKey({key:vm.chartdata.categories[0].filter.publishing_org})" class="inherit">
+                    {{vm.chartdata.categories[0].displayName | truncate:50}}
+                </a>
+                <span ng-switch-default>{{vm.chartdata.categories[0].displayName | truncate:50}}</span>
+            </div>
         </div>
     </div>
     <div ng-if="vm.resultType() === 'MULTIPLE_BUCKETS'">
@@ -49,7 +66,10 @@
                                 <td>
                                 <span>
                                     <span>
-                                        <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))" class="inherit">{{result.displayName | truncate:50 }}</a>
+                                        <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))" class="inherit">
+                                            {{result.displayName | truncate:50 }}
+                                            <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} occurrences</md-tooltip>
+                                        </a>
                                     </span>
                                     <span ng-if="$index === 0 && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!
                                         <md-tooltip md-direction="right">Differently sized interval</md-tooltip>
@@ -91,6 +111,13 @@
                     <highchart config="vm.chartConfig" ng-if="vm.chartConfig" style="min-width:100%; height:300px;" ></highchart>
                 </div>
             </div>
+        </div>
+
+        <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.display.type != 'PIE' && vm.chartdata.diff > 0 && vm.chartdata.offset==0 && vm.chartdata.endOfRecords">
+            {{ vm.chartdata.diff | localNumber}} other or unknown
+        </div>
+        <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.chartdata.bucketSize">
+            {{vm.chartdata.field}} interval size : {{vm.chartdata.bucketSize}}
         </div>
     </div>
 </div>

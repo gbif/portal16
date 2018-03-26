@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var filters = require('../../shared/layout/html/angular/filters');
 
 module.exports = {
     getConfig: getConfig,
@@ -11,7 +12,13 @@ function getConfig(data, element, clickCallback, logarithmic) {
     var type = 'column';
     var totalCounts = data.results.length * _.get(data, 'categories.length', 1);
     var isLogaritmic = totalCounts > 1 ? logarithmic : false;
-    var groupPadding = (data.results.length * 1.3 * _.get(data, 'categories.length', 1) > 40) ? 0.04 : 0.08;
+
+    var groupPadding = 0;
+    var pointPadding = 0;
+    if (_.get(data, 'categories.length', 0) > 0) {
+        groupPadding = (data.results.length * 1.3 * _.get(data, 'categories.length', 1) > 40) ? 0.04 : 0.08;
+        pointPadding = null;
+    }
 
     return {
         chart: {
@@ -25,6 +32,7 @@ function getConfig(data, element, clickCallback, logarithmic) {
         plotOptions: {
             column: {
                 groupPadding: groupPadding,
+                pointPadding: pointPadding,
                 animation: false,
                 point: {
                     events: {
@@ -49,7 +57,12 @@ function getConfig(data, element, clickCallback, logarithmic) {
             categories: data.results.map(function(e) {
                 return e.displayName;
             }),
-            crosshair: !!data.categories && data.results.length > 1
+            crosshair: !!data.categories && data.results.length > 1,
+            labels: {
+                formatter: function() {
+                    return filters.truncate(this.value, 50);
+                }
+            }
         },
         yAxis: {
             // min: 0,
@@ -65,6 +78,13 @@ function getConfig(data, element, clickCallback, logarithmic) {
                 contextButton: {
                     enabled: false
                 }
+            }
+        },
+        legend: {
+            itemStyle: {
+                width: '200px',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden'
             }
         },
         _setChartElementSize: setChartElementSize

@@ -3,6 +3,7 @@
     var angular = require('angular'),
         Humanize = require('humanize-plus'),
         md = require('marked'),
+        filters = require('./filters'),
         _ = require('lodash');
 
     md.setOptions({
@@ -35,13 +36,7 @@
             };
         })
         .filter('truncate', function() {
-            return function(text, length) {
-                length = length || 10;
-                if (typeof text !== 'string') {
-                    return '';
-                }
-                return text.length > length ? text.slice(0, length) + '…' : text;
-            };
+            return filters.truncate;
         })
         .filter('snakeCase', function() {
             return function(text) {
@@ -108,7 +103,7 @@
         })
         .filter('localNumber', function() {
             return function(num, lang) {
-                if (angular.isUndefined(num)) return '';
+                if (_.isNil(num)) return '';
                 return num.toLocaleString(lang);
             };
         })
