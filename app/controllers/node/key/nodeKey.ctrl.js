@@ -19,7 +19,6 @@ let Participant = rootRequire('app/models/node/participant'),
     participantView = require('./viewModel');
 
 router.get('/node/:key.:ext?', function(req, res, next) {
-    try {
         let key = req.params.key;
         if (!utils.isGuid(key) || key == '02c40d2a-1cba-4633-90b7-e36e5e97aba8') {
             next();
@@ -43,14 +42,12 @@ router.get('/node/:key.:ext?', function(req, res, next) {
                 };
                 helper.renderPage(req, res, next, n, 'pages/node/key/seo');
             }
+        }).catch(function(err) {
+            next(err);
         });
-    } catch (err) {
-        next(err);
-    }
 });
 
 router.get('/participant/:key(\\d+).:ext?', function(req, res, next) {
-    try {
         let key = req.params.key;
         let participant = Participant.get(key);
 
@@ -68,9 +65,6 @@ router.get('/participant/:key(\\d+).:ext?', function(req, res, next) {
         }).catch(function(err) {
             next(err);
         });
-    } catch (err) {
-        next(err);
-    }
 });
 
 router.get('/api/participant/:key(\\d+)', function(req, res) {
