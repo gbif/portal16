@@ -186,7 +186,7 @@ function filterLocationDirective(BUILD_VERSION) {
 
         vm.useBBox = function() {
             var parsingResult = parseStringToWKTs(vm.geometryString);
-            var geom = parseGeometry(parsingResult.geometry);
+            var geom = parseGeometry(parsingResult.geometry[0]);
             var bbox = turf.bbox(geom);
             var bboxPolygon = turf.bboxPolygon(bbox);
             var wkt = parseGeometry.stringify(bboxPolygon);
