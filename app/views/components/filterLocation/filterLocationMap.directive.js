@@ -13,7 +13,9 @@ function filterLocationMapDirective(BUILD_VERSION) {
         restrict: 'E',
         transclude: true,
         templateUrl: '/templates/components/filterLocation/filterLocationMap.html?v=' + BUILD_VERSION,
-        scope: {},
+        scope: {
+            includeSuspicious: '='
+        },
         link: mapLink,
         controller: filterLocationMap,
         controllerAs: 'vm',
@@ -31,7 +33,7 @@ function filterLocationMapDirective(BUILD_VERSION) {
     function filterLocationMap($scope, OccurrenceFilter, $filter) {
         var vm = this,
             map;
-
+        console.log(vm.includeSuspicious);
         $scope.create = function(element) {
            // map = createMap(element, OccurrenceFilter);
            var state = OccurrenceFilter.getOccurrenceData();
@@ -76,7 +78,11 @@ function filterLocationMapDirective(BUILD_VERSION) {
             vm.rectangleDrawActive = !vm.rectangleDrawActive;
             if (vm.rectangleDrawActive) {
                 map.enableDraw('Rectangle', function(wkt) {
-                    OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt), has_geospatial_issue: false});
+                    var params = {geometry: $filter('unique')(wkt)};
+                    if (vm.includeSuspicious !== true){
+                    params.has_geospatial_issue = false
+                    }
+                    OccurrenceFilter.updateParams(params);
                     vm.rectangleDrawActive = false;
                 });
             }
@@ -88,7 +94,11 @@ function filterLocationMapDirective(BUILD_VERSION) {
             vm.polygonDrawActive = !vm.polygonDrawActive;
             if (vm.polygonDrawActive) {
                 map.enableDraw('Polygon', function(wkt) {
-                    OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt), has_geospatial_issue: false});
+                    var params = {geometry: $filter('unique')(wkt)};
+                    if (vm.includeSuspicious !== true){
+                        params.has_geospatial_issue = false
+                    }
+                    OccurrenceFilter.updateParams(params);
                     vm.polygonDrawActive = false;
                 });
             }

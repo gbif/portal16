@@ -65,7 +65,7 @@
 
             <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate !== false" class="card">
                 <div class="card__stripe" ng-class="{fadeImages: !vm.hasCoordinate}">
-                    <filter-location-map></filter-location-map>
+                    <filter-location-map include-suspicious="vm.includeSuspicious"></filter-location-map>
                 </div>
                 <div class="card__stripe">
                     <div class="card__content">
