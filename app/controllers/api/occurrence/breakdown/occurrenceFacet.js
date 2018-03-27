@@ -80,7 +80,8 @@ function composeResult(query, body) {
         endOfRecords: body.facets[0].counts.length < query.facetLimit,
         max: max ? max.count : 0,
         min: min ? min.count : 0,
-        total: body.count
+        total: body.count,
+        resultsCount: _.sumBy(results, 'count')
     };
 }
 
