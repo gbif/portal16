@@ -184,14 +184,15 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
         };
 
         vm.resultType = function() {
-            var singleBucket = _.get(vm.chartdata, 'results.length', 0) === 1 &&
-                _.get(vm.chartdata, 'categories.length', 1) === 1 &&
-                _.get(vm.chartdata, 'diff', 0) === 0 &&
-                _.get(vm.chartdata, 'secondDiff', 0) === 0;
-
-            if (_.get(vm.chartdata, 'results.length', 0) === 0) {
+            if (_.get(vm.chartdata, 'total', 0) === 0) {
                 return 'EMPTY';
-            } else if (singleBucket) {
+            }
+            var singleBucket = _.get(vm.chartdata, 'results.length', 0) === 1 &&
+            _.get(vm.chartdata, 'categories.length', 1) === 1 &&
+            _.get(vm.chartdata, 'diff', 0) === 0 &&
+            _.get(vm.chartdata, 'secondDiff', 0) === 0;
+
+            if (singleBucket) {
                 return 'SINGLE_BUCKET';
             } else {
                 return 'MULTIPLE_BUCKETS';
