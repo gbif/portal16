@@ -1,13 +1,23 @@
 <section class="horizontal-stripe--paddingless" ng-if="!occurrenceKey.hideMap">
     <div class="container-fluid">
+
         <div class="row">
-            <div  ng-init="occurrenceKey.setData()">
+            <div class="occurrenceKey__map" ng-init="occurrenceKey.setData()">
 
-                <feature-map class="occurrenceKey__map fitContainer" features="occurrenceKey.geoJson" wkt="occurrenceKey.wkt" circle="occurrenceKey.circle" marker="occurrenceKey.marker" baseLayer="occurrenceKey.baselayer" projection="occurrenceKey.projection" mapcenter="occurrenceKey.center" mapstyle="'light'"></feature-map>
+                <feature-map class="occurrenceKey__map fitContainer"
+                    features="occurrenceKey.geoJson"
+                    wkt="occurrenceKey.wkt"
+                    circle="occurrenceKey.circle"
+                    marker="occurrenceKey.marker"
+                    baseLayer="occurrenceKey.baselayer"
+                    projection="occurrenceKey.projection"
+                    mapcenter="occurrenceKey.center"
+                    on-map-move="occurrenceKey.onMapMove"
+                    mapstyle="'light'"></feature-map>
 
-                {#<div class="globe-context">#}
-                    {#<canvas class="globe"></canvas>#}
-                {#</div>#}
+                <div class="globe-context">
+                    <canvas class="globe"></canvas>
+                </div>
             </div>
         </div>
     </div>

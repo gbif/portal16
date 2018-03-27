@@ -33,7 +33,6 @@ function filterLocationMapDirective(BUILD_VERSION) {
     function filterLocationMap($scope, OccurrenceFilter, $filter) {
         var vm = this,
             map;
-        console.log(vm.includeSuspicious);
         $scope.create = function(element) {
            // map = createMap(element, OccurrenceFilter);
            var state = OccurrenceFilter.getOccurrenceData();

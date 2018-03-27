@@ -10,9 +10,9 @@ angular
 
 /** @ngInject */
 function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, DatasetProcessSummary) {
-    var vm = this,
-        globe,
-        globeCanvas = document.querySelector('.occurrenceKey__map .globe');
+    var vm = this;
+    var globe;
+    var globeCanvas;
     vm.key = $stateParams.key;
     Page.setTitle('Occurrence ' + vm.key);
     Page.drawer(false);
@@ -62,14 +62,6 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
         }
         return message;
     };
-
-    // create globe
-    if (!globe && globeCanvas) {
-        globe = globeCreator(globeCanvas, {
-            land: '#4d5258',
-            focus: 'deepskyblue'
-        });
-    }
 
 
     hotkeys.add({
@@ -124,6 +116,7 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
             };
             vm.getMarkerMessage();
         }
+
     };
 
     function hasValidOrNoSRS(data) {
@@ -140,7 +133,7 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
     }
     function setMap(data) {
         if (typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined') {
-           vm.marker = {point: [data.decimalLongitude, data.decimalLatitude], message: vm.getMarkerMessage(), zoom: vm.center.zoom};
+           vm.marker = {point: [data.decimalLongitude, data.decimalLatitude], message: vm.getMarkerMessage(), zoom: vm.center.z};
         }
 
         if (data.footprintWKT && hasValidOrNoSRS(data)) {
@@ -152,22 +145,21 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
                 message: vm.getMarkerMessage()
             };
         }
-        // set static marker
-     /*   leafletData.getMap('occurrenceMap').then(function(map) {
 
-            // attach globe to map
-            if (globe) {
-                globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
-                map.on('move', function() {
-                    globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
+        // create globe
+        angular.element(document).ready(function() {
+            globeCanvas = document.querySelector('.occurrenceKey__map .globe')
+            if (!globe && globeCanvas) {
+                globe = globeCreator(globeCanvas, {
+                    land: '#4d5258',
+                    focus: 'deepskyblue'
                 });
+                globe.setCenter(vm.data.decimalLatitude, vm.data.decimalLongitude, vm.center.zoom);
+                vm.onMapMove = function(lat, lng, zoom){
+                    globe.setCenter(lat, lng, zoom);
+                };
             }
-            // only enable scroll zoom once the map has been clicked
-            map.once('focus', function() {
-                map.scrollWheelZoom.enable();
-            });
         });
-        */
     }
 }
 

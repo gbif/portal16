@@ -25,7 +25,8 @@ function featureMapDirective(BUILD_VERSION) {
             circle: '=',
             marker: '=',
             baselayer: '=',
-            projection: '='
+            projection: '=',
+            onMapMove: '='
         },
         link: mapLink,
         controller: featureMap,
@@ -54,7 +55,20 @@ function featureMapDirective(BUILD_VERSION) {
             projection = (prj && typeof prj !== 'undefined') ? projections[prj] : projections.EPSG_4326;
 
             map = createMap(element, vm.mapStyle, vm.baselayer, projection);
-           // var hover = vm.hover || (vm.marker && vm.marker.message);
+
+            var unbind = $scope.$watch(function() {
+                return vm.onMapMove;
+            }, function() {
+                if (map && vm.onMapMove && typeof vm.onMapMove === 'function') {
+                    map.on('moveend', function() {
+                        var center = ol.proj.toLonLat(map.getView().getCenter(), projection.srs);
+                        vm.onMapMove(center[1], center[0], map.getView().getZoom());
+                    });
+                    unbind();
+                }
+            });
+
+
             addPopUp(map, (typeof vm.marker !== 'undefined'));
             addFeatureLayer();
         };
