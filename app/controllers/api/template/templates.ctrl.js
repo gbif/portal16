@@ -111,7 +111,7 @@ router.get('/country/participation.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/participation/participation.template.nunjucks');
 });
 
-router.get('/country/research.html', function(req, res, next) {
+router.get('/country/publications.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/research/research.template.nunjucks');
 });
 
