@@ -7,7 +7,9 @@
 const express = require('express'),
       router = express.Router(),
       helper = require('../../../models/util/util'),
-      worldRobinson = require('./c-robinson-quantized-topo.json');
+      worldRobinson = require('./c-robinson-quantized-topo.json'),
+      log = require('../../../../config/log');
+
 
       // apicache = require('apicache');
 
@@ -39,7 +41,8 @@ router.get('/topojson/world-robinson', (req, res, next) => {
             res.json(worldRobinson);
         })
         .catch((e) => {
-            next(e);
+            log.error(e);
+            res.sendStatus(500);
         });
 });
 
@@ -71,12 +74,13 @@ router.get('/topojson/world/participants', (req, res, next) => {
             res.json(worldTopoJson);
         })
         .catch((e) => {
-            next(e);
+            log.error(e);
+            res.sendStatus(500);
         });
 });
 
 
-router.get('/topojson/world', (req, res, next) => {
+router.get('/topojson/world', (req, res) => {
     let worldTopoJson = require('./world.topo.json');
      return res.json(worldTopoJson);
 });
