@@ -4,13 +4,14 @@ var angular = require('angular');
 var _ = require('lodash');
 
 require('../../../components/occurrenceBreakdown/card/occurrenceBreakdownCard.directive');
+var serializer = require('../../../components/occurrenceBreakdown/serializer');
 
 angular
     .module('portal')
     .controller('occurrenceChartsCtrl', occurrenceChartsCtrl);
 
 /** @ngInject */
-function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionStorage, Highcharts) {
+function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionStorage, $state) {
     var vm = this;
     vm.state = OccurrenceFilter.getOccurrenceData();
     vm.charts = [];
@@ -42,12 +43,13 @@ function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionSt
     vm.pushChart('dataset_key', 'TABLE', null, vm.defaultCharts);
 
     vm.setCustomChart = function() {
+        var state = _.get($sessionStorage, 'customChart', {});
         vm.customChart = {
             api: {},
             config: {
-                dimension: _.get($sessionStorage, 'customChart.dimension', ''),
-                secondDimension: _.get($sessionStorage, 'customChart.secondDimension', ''),
-                type: _.get($sessionStorage, 'customChart.type', 'TABLE'),
+                dimension: state.dimension,
+                secondDimension: state.secondDimension,
+                type: state.type || 'TABLE',
                 customizable: true,
                 showSettings: true
             },
