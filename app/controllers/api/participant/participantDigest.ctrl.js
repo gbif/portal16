@@ -42,24 +42,16 @@ router.get('/participants/digest', (req, res, next) => {
         .then((result) => {
             let data = result[0];
             let facetMap = result[1];
-
-
                 data.forEach((datum) => {
                     datum.iso2 = datum.countryCode;
                 });
                 let participantTasks = [];
 
                 data.forEach((participant) => {
-                    participantTasks.push(TheGbifNetwork.getDataCount(participant, facetMap)
-                        .then((participant) => {
-                            return participant;
-                        }));
+                    participantTasks.push(TheGbifNetwork.getDataCount(participant, facetMap));
                 });
 
-                return Q.all(participantTasks)
-                    .then((countedParticipants) => {
-                        return countedParticipants;
-                    });
+                return Q.all(participantTasks);
             })
             .then((countedParticipants) => {
                 participants = participants.concat(countedParticipants);
