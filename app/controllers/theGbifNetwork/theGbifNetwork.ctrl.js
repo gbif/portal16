@@ -12,7 +12,7 @@ const express = require('express'),
     resource = require('../resource/key/resourceKey');
 
 
-module.exports = function (app) {
+module.exports = function(app) {
     app.use('/', router);
 };
 
@@ -60,12 +60,12 @@ router.get('/templates/the-gbif-network/intro', (req, res, next) => {
                 intro: intro,
                 hasTitle: true
             });
-        }).catch(function (err) {
+        }).catch(function(err) {
         next(err);
     });
 });
 
-router.get('/templates/the-gbif-network/:region/regionArticle.html', function (req, res, next) {
+router.get('/templates/the-gbif-network/:region/regionArticle.html', function(req, res, next) {
     let urlAlias = '/the-gbif-network/' + req.params.region;
 
     resource.getByAlias(urlAlias, 2, false, res.locals.gb.locales.current)
@@ -73,7 +73,7 @@ router.get('/templates/the-gbif-network/:region/regionArticle.html', function (r
             helper.renderPage(req, res, next, contentItem, 'pages/theGbifNetwork/regionArticle.nunjucks');
             //  res.json(result);
         })
-        .catch(function (err) {
+        .catch(function(err) {
             if (err.statusCode == 404) {
                 next();
             } else {
