@@ -18,6 +18,9 @@ router.get('/checklist/:key/taxonomy', function(req, res) {
     let datasetKey = req.params.key;
     return getChecklistTaxonomy(datasetKey).then(function(taxa) {
         return res.json(taxa);
+    }).catch(function(err) {
+        log.warn({module: 'api/chart/checklist/:key/taxonomy', key: datasetKey}, err);
+        res.sendStatus(500);
     });
 });
 
