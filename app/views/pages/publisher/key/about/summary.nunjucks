@@ -76,7 +76,7 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4" >
             <div class="addressMap row" ng-if="publisherKey.marker">
-                <feature-map marker="publisherKey.marker" baseLayer="publisherKey.baselayer" mapstyle="'light'"></feature-map>
+                <feature-map marker="publisherKey.marker" baseLayer="publisherKey.baselayer" projection="'EPSG:3857'" mapstyle="'light'"></feature-map>
 
             </div>
         </div>
