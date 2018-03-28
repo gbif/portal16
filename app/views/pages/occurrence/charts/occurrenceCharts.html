@@ -78,7 +78,7 @@
     <section class="horizontal-stripe--paddingless lighter-background" ng-if="!portal.isSecretariatUser()">
         <div class="emptyInfo">
             <h3>Under development</h3>
-            <p>Log in as registry administrator to explore</p>
+            <p>Log in with your GBIF email (yourname@gbif.org) to see more</p>
         </div>
     </section>
     <section class="horizontal-stripe--paddingless lighter-background m-b-1" ng-if="portal.isSecretariatUser()">
@@ -91,24 +91,25 @@
         </div>
 
         <div class="container-fluid">
-
-            <div ng-if="occCharts.getSerializedQuery() !== '' && occCharts.predicateLoaded" class="m-t-1">
-                <h4 class="card-header">Current filter</h4>
-                <div class="card">
-                    <div class="card__stripe">
-                        <div class="card__content predicateContainer">
-                            <div class="predicates isSimplePredicate">
-                                <ng-include src="'/api/occurrence/search/predicate.html?' + occCharts.getSerializedQuery()" onload="occCharts.predicateLoaded = true"></ng-include>
+            <div ng-if="occCharts.$sessionStorage.occurrenceChartsShowDefaults">
+                <div ng-if="occCharts.getSerializedQuery() !== ''" ng-show="occCharts.predicateLoaded" class="m-t-1">
+                    <h4 class="card-header inline-block">Current filter</h4>
+                    <div class="card">
+                        <div class="card__stripe">
+                            <div class="card__content predicateContainer">
+                                <div class="predicates isSimplePredicate">
+                                    <ng-include src="'/api/occurrence/search/predicate.html?' + occCharts.getSerializedQuery()" onload="occCharts.predicateLoaded = true"></ng-include>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section class="occChart-col m-t-1">
+                    <div ng-repeat="chart in occCharts.defaultCharts">
+                        <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="occCharts.chartChange"></occurrence-breakdown-card>
+                    </div>
+                </section>
             </div>
-            <section ng-if="occCharts.$sessionStorage.occurrenceChartsShowDefaults" class="occChart-col m-t-1">
-                <div ng-repeat="chart in occCharts.defaultCharts">
-                    <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="occCharts.chartChange"></occurrence-breakdown-card>
-                </div>
-            </section>
             <section ng-if="!occCharts.$sessionStorage.occurrenceChartsShowDefaults">
                 <div class="m-t-1">
                     <occurrence-breakdown-card api="occCharts.customChart.api" config="occCharts.customChart.config" filter="occCharts.customChart.filter" chart-change="occCharts.chartChange"></occurrence-breakdown-card>

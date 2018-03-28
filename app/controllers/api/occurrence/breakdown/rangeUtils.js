@@ -212,7 +212,7 @@ async function getInterval(query) {
     return response.body.count;
 }
 
-function composeResult(offset, limit, dimension, results, ranges, bucketSizeVaries, bucketSize) {
+function composeResult(offset, limit, dimension, results, ranges, bucketSizeVaries, bucketSize, totalCount) {
     let max = _.maxBy(results, 'count').count;
     let min = _.minBy(results, 'count').count;
     return {
@@ -224,7 +224,9 @@ function composeResult(offset, limit, dimension, results, ranges, bucketSizeVari
         bucketSizeVaries: bucketSizeVaries,
         bucketSize: bucketSize,
         max: max,
-        min: min
+        min: min,
+        resultsCount: _.sumBy(results, 'count'),
+        total: totalCount
     };
 }
 
@@ -281,13 +283,23 @@ async function query(query) {
     let limit = query.rangeLimit || 1000;
     let offset = query.rangeOffset || 0;
 
+    // get all data to provide a total count
+    let q = _.assign({}, query);
+    delete q.facet;
+    delete q.facetLimit;
+    delete q.facetOffset;
+    delete q.dimension;
+    delete q.bucket;
+    q.limit = 0;
+    let totalCount = await getInterval(q);
+
     let minMax = getMinMaxRange(query, dimension);
     let rangeOptions = getRanges(dimension, minMax, buckets);
     let ranges = rangeOptions.range;
     let bucketSizeVaries = rangeOptions.bucketSizeVaries;
     let queriedRange = ranges.slice(offset, offset + limit);
     let facets = await getRangedFacets(query, queriedRange, dimension);
-    let responseBody = composeResult(offset, limit, dimension, facets, ranges, bucketSizeVaries, rangeOptions.bucketSize);
+    let responseBody = composeResult(offset, limit, dimension, facets, ranges, bucketSizeVaries, rangeOptions.bucketSize, totalCount);
     addGeometryFilter(query, responseBody.results);
     return responseBody;
 }
