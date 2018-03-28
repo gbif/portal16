@@ -37,6 +37,7 @@
     "async": "^2.1.2",
     "atob": "https://registry.npmjs.org/atob/-/atob-1.1.3.tgz",
     "axis": "^0.6.1",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.13.3",
     "bootstrap": "3.3.7",
     "browser-sync": "^2.10.1",

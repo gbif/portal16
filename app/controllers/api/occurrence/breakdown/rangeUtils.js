@@ -11,6 +11,7 @@ let _ = require('lodash'),
     changeCase = require('change-case'),
     wkt2geojson = require('wellknown'),
     turf = require('@turf/turf'),
+    Promise = require('bluebird'),
     log = require('../../../../../config/log');
 
 module.exports = {
@@ -170,14 +171,14 @@ function getRanges(field, minMax, buckets) {
     });
 
     return {
-        range: range.reverse(),
+        range: range, // .reverse(), // overall not reversing seems more intuitive. for decimal latitude and a table view it is different though
         bucketSizeVaries: bucketSizeVaries,
         bucketSize: bucketSize
     };
 }
 
 async function getRangedFacets(query, range, field) {
-    let promises = range.map(function(interval) {
+    let rangeList = await Promise.map(range, function(interval) {
         let values = {limit: 0, offset: 0};
         values[field] = interval.filter;
         let q = _.assign({}, query, values);
@@ -187,9 +188,8 @@ async function getRangedFacets(query, range, field) {
         delete q.dimension;
         delete q.bucket;
         return getInterval(q);
-    });
+    }, {concurrency: 2});
 
-    let rangeList = await Promise.all(promises);
     return rangeList.map(function(response, i) {
         return {
             count: response,

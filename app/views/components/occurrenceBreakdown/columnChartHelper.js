@@ -98,12 +98,14 @@ function getSeries(data) {
         var series = data.categories.map(function(e) {
             return {
                 name: e.displayName,
-                data: []
+                data: [],
+                visible: false
             };
         });
         data.results.map(function(e) {
             e.values.forEach(function(v, i) {
                 series[i].data.push(v);
+                series[i].visible = series[i].visible || v > 0;
             });
         });
         return series;

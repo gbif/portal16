@@ -2057,9 +2057,9 @@
       }
     },
     "bluebird": {
-      "version": "2.11.0",
-      "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-2.11.0.tgz",
-      "integrity": "sha1-U0uQM8AiyVecVro7Plpcqvu2UOE="
+      "version": "3.5.1",
+      "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-3.5.1.tgz",
+      "integrity": "sha512-MKiLiV+I1AA596t9w1sQJ8jkiSr5+ZKi0WKrYGUn6d1Fx+Ij4tIj+m2WMQSGczs5jZVxV339chE8iwk6F64wjA=="
     },
     "bn.js": {
       "version": "4.11.6",
@@ -9927,6 +9927,11 @@
         "useragent": "2.3.0"
       },
       "dependencies": {
+        "bluebird": {
+          "version": "2.11.0",
+          "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-2.11.0.tgz",
+          "integrity": "sha1-U0uQM8AiyVecVro7Plpcqvu2UOE="
+        },
         "lodash": {
           "version": "3.10.1",
           "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz",

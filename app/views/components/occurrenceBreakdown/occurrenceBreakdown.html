@@ -42,7 +42,7 @@
                                 <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">
                                     <span>
                                         <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))" class="inherit">{{category.displayName}}</a>
-                                        <span ng-if="$index === 0 && vm.chartdata.secondDimension.bucketSizeVaries" class="badge badge--warning">!
+                                        <span ng-if="$last && vm.chartdata.secondDimension.bucketSizeVaries" class="badge badge--warning">!
                                             <md-tooltip md-direction="right">Differently sized interval</md-tooltip>
                                         </span>
                                     </span>
@@ -71,7 +71,7 @@
                                             <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} occurrences</md-tooltip>
                                         </a>
                                     </span>
-                                    <span ng-if="$index === 0 && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!
+                                    <span ng-if="$last && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!
                                         <md-tooltip md-direction="right">Differently sized interval</md-tooltip>
                                     </span>
                                 </span>
@@ -116,8 +116,13 @@
         <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.display.type != 'PIE' && vm.chartdata.diff > 0 && vm.chartdata.offset==0 && vm.chartdata.endOfRecords">
             {{ vm.chartdata.diff | localNumber}} other or unknown
         </div>
-        <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.chartdata.bucketSize">
-            {{vm.chartdata.field}} interval size : {{vm.chartdata.bucketSize}}
+        <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.chartdata.bucketSize || vm.chartdata.secondDimension.bucketSize">
+            <div ng-if="vm.chartdata.bucketSize">
+                <span translate="filterNames.{{vm.chartdata.field | camelCase}}" class="text-capitalize"></span>: interval size {{vm.chartdata.bucketSize}}
+            </div>
+            <div ng-if="vm.chartdata.secondDimension.bucketSize">
+                <span translate="filterNames.{{vm.chartdata.secondField | camelCase}}" class="text-capitalize"></span>: interval size {{vm.chartdata.secondDimension.bucketSize}}
+            </div>
         </div>
     </div>
 </div>

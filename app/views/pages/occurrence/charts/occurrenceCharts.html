@@ -106,7 +106,7 @@
                 </div>
                 <section class="occChart-col m-t-1">
                     <div ng-repeat="chart in occCharts.defaultCharts">
-                        <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="occCharts.chartChange"></occurrence-breakdown-card>
+                        <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="occCharts.chartChange" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                     </div>
                 </section>
             </div>

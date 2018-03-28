@@ -23,11 +23,11 @@ function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionSt
         return typeof vm.state.table.count !== 'undefined';
     };
 
-    vm.pushChart = function(dimension, type, secondDimension, chartlist, customizable, customFilter) {
+    vm.pushChart = function(dimension, type, secondDimension, chartlist, customizable, customFilter, limit) {
         var list = chartlist || vm.charts;
         var chartConfig = {
             api: {},
-            config: {dimension: dimension, secondDimension: secondDimension || '', type: type, customizable: customizable, showSettings: true},
+            config: {dimension: dimension, secondDimension: secondDimension || '', type: type, customizable: customizable, showSettings: true, limit: limit},
             filter: vm.state.query,
             customFilter: customFilter
         };
@@ -38,8 +38,8 @@ function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionSt
     vm.pushChart('basisOfRecord', 'PIE', null, vm.defaultCharts);
     vm.pushChart('issue', 'TABLE', null, vm.defaultCharts);
     vm.pushChart('year', 'LINE', '', vm.defaultCharts);
-    vm.pushChart('country', 'TABLE', 'license', vm.defaultCharts);
-    vm.pushChart('datasetKey', 'TABLE', '', vm.defaultCharts);
+    vm.pushChart('license', 'PIE', null, vm.defaultCharts);
+    vm.pushChart('dataset_key', 'TABLE', null, vm.defaultCharts);
 
     vm.setCustomChart = function() {
         vm.customChart = {
