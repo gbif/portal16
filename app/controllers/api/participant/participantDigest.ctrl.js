@@ -18,8 +18,9 @@ router.get('/participant/heads/:participantId?', (req, res, next) => {
             res.json(data);
         })
         .catch((err) => {
-            log.error('Error in /api/participant/heads controller: ' + err.message);
-            next(err);
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.sendStatus(status);
         });
 });
 
@@ -33,11 +34,6 @@ router.get('/participants/digest', (req, res, next) => {
     let url = 'http://' + req.get('host') + '/api/directory/participants/active',
         query = req.query,
         participants = [];
-    // For the GLOBAL view, we don't proceed to extract numbers.
-    // if (query.membershipType !== 'other_associate_participant' || (query.gbifRegion === 'GLOBAL' || typeof query.gbifRegion === 'undefined')) {
-    //     res.json(participants);
-    // }
-    // else {
 
 
     let promises = [helper.getApiDataPromise(url, {'qs': query}), TheGbifNetwork.getCountryFacets()];
@@ -57,18 +53,12 @@ router.get('/participants/digest', (req, res, next) => {
                     participantTasks.push(TheGbifNetwork.getDataCount(participant, facetMap)
                         .then((participant) => {
                             return participant;
-                        })
-                        .catch((e) => {
-                            throw new Error(e);
                         }));
                 });
 
                 return Q.all(participantTasks)
                     .then((countedParticipants) => {
                         return countedParticipants;
-                    })
-                    .catch((e) => {
-                        throw new Error(e);
                     });
             })
             .then((countedParticipants) => {
@@ -83,18 +73,12 @@ router.get('/participants/digest', (req, res, next) => {
                                     p.endorsedPublishers = result.count;
                                 }
                                 return p;
-                            })
-                            .catch((e) => {
-                                throw new Error(e);
                             }));
                     });
 
                     return Q.all(endorsedCountTasks)
                         .then((participants) => {
                             return participants;
-                        })
-                        .catch((e) => {
-                            throw new Error(e);
                         });
                 } else {
                     throw new Error('One or more participants have no id. Abort.');
@@ -120,5 +104,4 @@ router.get('/participants/digest', (req, res, next) => {
                 let status = err.statusCode || 500;
                 res.sendStatus(status);
             });
-    // }
 });

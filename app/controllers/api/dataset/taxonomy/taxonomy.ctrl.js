@@ -96,17 +96,20 @@ function callApi(res, next, path, transform, taxonKey) {
         if (data && typeof data.errorType !== 'undefined') {
             log.error(data.errorType);
             res.sendStatus(500);
+        } else if (err) {
+            log.error(err.message);
+            res.sendStatus(err.statusCode || 500);
         } else if (data) {
             if (transform) {
                 transform(data, taxonKey).then(function(resolvedData) {
                     res.json(resolvedData);
+                }).catch(function(err) {
+                    log.error(err.message);
+                    res.sendStatus(err.statusCode || 500);
                 });
             } else {
                 res.json(data);
             }
-        } else if (err) {
-            log.error(err.message);
-            res.sendStatus(err.statusCode || 500);
         } else {
             log.error('Missing data and no error object was given');
             res.sendStatus(500);
@@ -136,12 +139,13 @@ function convertFacets(page, filterFunc) {
         promises.push(Taxon.get(key).then(function(t) {
             t.record.numOccurrences = fc.count;
             return t;
+        }).catch(function(err) {
+            log.warn(err.message);
         }));
     });
     delete page.facets;
     // finally return combined promise
-    return new Promise(function(resolve) {
-        Promise.all(promises).then(function(ps) {
+    return Promise.all(promises).then(function(ps) {
             page.results = _pruneTaxa(
                 utils.sortByRankThenAlpha(
                     _.map(
@@ -151,9 +155,8 @@ function convertFacets(page, filterFunc) {
                         })
                 )
             );
-            resolve(page);
+            return page;
         });
-    });
 }
 
 function prunePage(page, idsToIgnore) {

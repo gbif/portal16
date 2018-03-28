@@ -37,9 +37,14 @@ router.get('/resource/key/search', function(req, res) {
         .then(function(results) {
             let parsedResult = transformResult(results, type, preferedLocale);
             res.json(parsedResult);
-        }, function(err) {
+        })
+        .catch(function(err) {
             // console.trace(err); // TODO log as this shouldne happen
-            res.status(500);
+            if (err.message == 'NO RESULTS') {
+                res.status(404);
+            } else {
+                res.status(500);
+            }
             res.send(err.message);
         });
 });

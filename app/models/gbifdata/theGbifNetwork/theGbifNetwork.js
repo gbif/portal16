@@ -20,25 +20,18 @@ let helper = require('../../util/util'),
 
 let language;
 
-let theGbifNetwork = function(record) {
-    this.record = record;
-};
-
-theGbifNetwork.prototype.record = {};
+let theGbifNetwork = {};
 
 theGbifNetwork.get = function(res) {
-    let deferred = Q.defer();
     language = res.locals.gb.locales.current;
 
-    getIntro(language)
+    return getIntro(language)
         .then(function(text) {
-            deferred.resolve(text);
+            return text;
         })
         .catch(function(err) {
-            deferred.reject(err.message + 'at line 27.');
+            log.error(err.message);
         });
-
-    return deferred.promise;
 };
 
 /**
@@ -46,17 +39,15 @@ theGbifNetwork.get = function(res) {
  * @param language
  */
 function getIntro(language) {
-    let deferred = Q.defer();
     // insert intro text for each group.
     let introFile = ['theGbifNetwork/landing/'];
-    translationsHelper.getTranslationPromise(introFile, language)
+   return translationsHelper.getTranslationPromise(introFile, language)
         .then(function(translation) {
-            deferred.resolve(translation);
+            return translation;
         })
         .catch(function(err) {
-            deferred.reject(err.message);
+            log.error(err);
         });
-    return deferred.promise;
 }
 
 /**
@@ -66,14 +57,13 @@ function getIntro(language) {
 
 
 theGbifNetwork.counts = (query) => {
-    let deferred = Q.defer();
     if (!query.hasOwnProperty('gbifRegion') || query.gbifRegion === undefined) {
         query.gbifRegion = 'GLOBAL';
     }
     let count = {};
 
     query.membershipType = 'voting_participant';
-    DirectoryParticipants.groupBy(query)
+  return DirectoryParticipants.groupBy(query)
         .then((result) => {
             count[query.membershipType] = result.length;
             query.membershipType = 'associate_country_participant';
@@ -98,14 +88,11 @@ theGbifNetwork.counts = (query) => {
 
         .then((publishers) => {
             count['publisher'] = publishers.length;
-            deferred.resolve(count);
+            return count;
         })
         .catch((e) => {
-            log.error(e + ' at count().');
-            deferred.reject(e + ' at count().');
+            log.error(e.message + ' at count().');
         });
-
-    return deferred.promise;
 };
 
 /**
@@ -115,7 +102,6 @@ theGbifNetwork.counts = (query) => {
  * 4) Decorate objects with participant details.
  */
 theGbifNetwork.getCountries = (iso2) => {
-    let deferred = Q.defer();
     let requestUrl = dataApi.countryEnumeration.url;
     let options = {
         timeoutMilliSeconds: 10000,
@@ -125,7 +111,7 @@ theGbifNetwork.getCountries = (iso2) => {
 
     let promises = [helper.getApiDataPromise(requestUrl, options), theGbifNetwork.getCountryFacets()];
 
-    Q.all(promises)
+   return Q.all(promises)
         .then((result) => {
           let countries = result[0];
           let facetMap = result[1];
@@ -149,14 +135,12 @@ theGbifNetwork.getCountries = (iso2) => {
             });
             return Q.all(countryTasks)
                 .then(() => {
-                    deferred.resolve(countries);
+                    return countries;
                 });
         })
         .catch((err) => {
-            deferred.reject(err + ' getCountries().');
+            log.error(err + ' getCountries().');
         });
-
-    return deferred.promise;
 };
 
 
@@ -193,15 +177,14 @@ theGbifNetwork.getCountryFacets = () => {
  * @param participant
  */
 theGbifNetwork.getDataCount = (participant, facetMap) => {
-    let deferred = Q.defer();
-
     let functionName = participant.type === 'OTHER' ? 'getOapDataCount' : 'getCountryDataCount';
 
-    theGbifNetwork[functionName](participant, facetMap)
+   return theGbifNetwork[functionName](participant, facetMap)
         .then((participant) => {
-            deferred.resolve(participant);
+            return participant;
+        }).catch(function(err) {
+            log.error(err);
         });
-    return deferred.promise;
 };
 
 theGbifNetwork.getCountryDataCount = (country, facetMap ) => {
@@ -221,10 +204,9 @@ theGbifNetwork.getCountryDataCount = (country, facetMap ) => {
 };
 
 theGbifNetwork.getOapDataCount = (participant) => {
-    let deferred = Q.defer();
     let occurrenceFromCount = 0,
         datasetFromCount = 0;
-    theGbifNetwork.getNodes(participant.id)
+   return theGbifNetwork.getNodes(participant.id)
         .then((nodes) => {
             let publishers = [];
             let publisherTasks = [];
@@ -244,9 +226,6 @@ theGbifNetwork.getOapDataCount = (participant) => {
             return Q.all(publisherTasks)
                 .then(() => {
                     return publishers;
-                })
-                .catch((e) => {
-                    throw new Error(e);
                 });
         })
         .then((publishers) => {
@@ -269,9 +248,6 @@ theGbifNetwork.getOapDataCount = (participant) => {
                     .then((result) => {
                         datasetFromCount += result.count;
                     })
-                    .catch((e) => {
-                        throw new Error(e);
-                    })
                 );
             });
             return Q.all(tasks)
@@ -281,36 +257,29 @@ theGbifNetwork.getOapDataCount = (participant) => {
                         'datasetFromCount': datasetFromCount
                     };
                     return participant;
-                })
-                .catch((e) => {
-                    throw new Error(e);
                 });
         })
         .then((participant) => {
-            deferred.resolve(participant);
+            return participant;
         })
         .catch((e) => {
-            throw new Error(e);
+            log.error(e);
         });
-    return deferred.promise;
 };
 
 theGbifNetwork.getNodes = (participantId) => {
-    let deferred = Q.defer();
     let url = dataApi.node.url;
-    helper.getApiDataPromise(url, {'qs': {'identifier': participantId}})
+   return helper.getApiDataPromise(url, {'qs': {'identifier': participantId}})
         .then((result) => {
-            deferred.resolve(result.results);
+            return result.results;
         })
         .catch((e) => {
-            deferred.reject(e);
+           log.error(e);
         });
-    return deferred.promise;
 };
 
 theGbifNetwork.getAllPublishers = (nodeUuid) => {
-    let deferred = Q.defer(),
-        publishers = [],
+    let publishers = [],
         limit = 20;
 
     let options = {
@@ -321,14 +290,13 @@ theGbifNetwork.getAllPublishers = (nodeUuid) => {
             'limit': limit
         }
     };
-
     let url = dataApi.node.url + nodeUuid + '/organization';
-    helper.getApiDataPromise(url, options)
+  return helper.getApiDataPromise(url, options)
         .then((result) => {
             publishers = publishers.concat(result.results);
 
             if (publishers.length === result.count) {
-                deferred.resolve(publishers);
+                    return publishers;
             } else {
                 let tasks = [],
                     offset = 0;
@@ -340,32 +308,25 @@ theGbifNetwork.getAllPublishers = (nodeUuid) => {
                         .then((result) => {
                             publishers = publishers.concat(result.results);
                         })
-                        .catch((e) => {
-                            deferred.reject(e);
-                        })
                     );
                 } while (offset < result.count);
 
                 return Q.all(tasks)
                     .then(() => {
-                        deferred.resolve(publishers);
-                    })
-                    .catch((e) => {
-                        deferred.reject(e);
+                        return publishers;
                     });
             }
         })
         .catch((e) => {
-            deferred.reject(e);
+            log.error(e);
         });
-    return deferred.promise;
 };
 
 
 theGbifNetwork.validateParticipants = (participants) => {
     let valid = true;
     participants.forEach((p) => {
-        if (!p.hasOwnProperty('id')) {
+        if (typeof p === 'undefined' || !p.hasOwnProperty('id')) {
             valid = false;
         }
     });

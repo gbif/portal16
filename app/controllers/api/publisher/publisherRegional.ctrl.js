@@ -23,7 +23,7 @@ router.get('/publisher/count', (req, res, next) => {
         })
         .catch((err) => {
             log.error('Error in /api/publisher/count controller: ' + err.message);
-            next(err);
+            res.sendStatus(err.statusCode || 500);
         });
 });
 
@@ -34,6 +34,6 @@ router.get('/publisher/endorsed-by/:participantId?', (req, res, next) => {
         })
         .catch((err) => {
             log.error('Error in /api/publisher/endorsed-by/:participantId controller: ' + err.message);
-            next(err);
+            res.sendStatus(err.statusCode || 500);
         });
 });
