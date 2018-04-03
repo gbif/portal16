@@ -27,7 +27,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function occurrenceTaxonomyStats(Highcharts, OccurrenceTaxonomyChart, $state, $scope, OccurrenceFilter) {
+    function occurrenceTaxonomyStats(Highcharts, OccurrenceTaxonomyChart, $state, $scope, OccurrenceFilter, $timeout) {
         var vm = this;
         vm.loading = true;
         vm.chartType = 'sunburst';
@@ -39,9 +39,6 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
         $scope.$watchCollection(function() {
             return vm.filter;
         }, function() {
-            if (_.get(vm.taxonomy, '$cancelRequest')) {
-                vm.taxonomy.$cancelRequest();
-            }
             angular.element(document).ready(function() {
                 displayTree();
             });
@@ -65,25 +62,29 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
 
 
         function displayTree() {
-            vm.loading = true;
-            vm.error = false;
-            vm.taxonomy = OccurrenceTaxonomyChart.query(query);
-            vm.taxonomy.$promise
-                .then(function(res) {
-                    vm.loading = false;
-                    vm.preparing = true;
-                    var allowDrillToNode = ($state.current.parent !== 'occurrenceSearch');
-                    vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, res, allowDrillToNode, function() {
-                        var splittedKey = this.id.split('.');
-                        vm.search(splittedKey[1], this.rank);
+            if (vm.taxonomy && !vm.taxonomy.$resolved && _.get(vm.taxonomy, '$cancelRequest')) {
+                vm.taxonomy.$cancelRequest();
+            }
+
+            $timeout(function(){
+                vm.taxonomy = OccurrenceTaxonomyChart.query(query);
+                vm.taxonomy._loading = true;
+                vm.taxonomy._error = false;
+                vm.taxonomy.$promise
+                    .then(function(res) {
+                        vm.taxonomy._loading = false;
+                        var allowDrillToNode = ($state.current.parent !== 'occurrenceSearch');
+                        vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, res, allowDrillToNode, function() {
+                            var splittedKey = this.id.split('.');
+                            vm.search(splittedKey[1], this.rank);
+                        });
+                    })
+                    .catch(function(err) {
+                        vm.taxonomy._loading = false;
+                        vm.taxonomy._error = true;
                     });
-                    vm.preparing = false;
-                })
-                .catch(function() {
-                    vm.loading = false;
-                    vm.preparing = false;
-                    vm.error = true;
-                });
+            })
+
         }
 
 

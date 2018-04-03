@@ -25,19 +25,18 @@
 </div>
 <div class="card" layout-fill layout-padding-gt-xs>
 <div class="occ-taxonomy-content">
-    <div ng-if="occurrenceTaxonomyStats.error" class="emptyInfo--small">
+    <div ng-if="occurrenceTaxonomyStats.taxonomy.$resolved && occurrenceTaxonomyStats.taxonomy._error" class="emptyInfo--small">
     <h3 >Failed to load data ...</h3>
     </div>
-    <div ng-if="occurrenceTaxonomyStats.taxonomy.count === 0" class="emptyInfo--small">
+    <div ng-if="occurrenceTaxonomyStats.taxonomy.$resolved && occurrenceTaxonomyStats.taxonomy.count === 0" class="emptyInfo--small">
         <h3 >No occurrences </h3>
     </div>
 
-<div class="occ-taxonomy-overlay" ng-if="occurrenceTaxonomyStats.loading || occurrenceTaxonomyStats.preparing">
+<div class="occ-taxonomy-overlay" ng-if="occurrenceTaxonomyStats.taxonomy._loading ">
     <div class="occ-taxonomy-overlay-content"  layout="row" layout-align="center center">
         <span flex></span><div layout="column" layout-align="center center">
         <div class="emptyInfo--small">
-            <h3 ng-if="occurrenceTaxonomyStats.loading">Loading ...</h3>
-            <h3 ng-if="occurrenceTaxonomyStats.preparing">Preparing ...</h3>
+            <h3 ng-if="occurrenceTaxonomyStats.taxonomy._loading">Loading ...</h3>
         </div>
 
     </div><span flex></span>
