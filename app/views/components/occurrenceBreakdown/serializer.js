@@ -1,34 +1,34 @@
 'use strict';
 
-var config = require('./config');
+// var config = require('./config');
 
 module.exports = {
     serialize: serialize,
     deserialize: deserialize
 };
 
-function serialize(dimension, type, limit, offset, buckets) {
-    var d = config.dimensions.indexOf(dimension);
-    var t = config.chartTypes.indexOf(type);
-    var str = d + ':' + t + ':' + buckets;
-    if (limit !== 0) {
-        str += ':' + limit;
-    }
-    if (offset !== 0) {
-        str += ':' + offset;
+function serialize(dimension, secondDimension, type) {
+    var d = dimension;// config.dimensions.indexOf(dimension);
+    var d2 = secondDimension;// config.secondaryDimensions.indexOf(secondDimension);
+    var t = type;// config.chartTypes.indexOf(type);
+    var str = d + ':' + t;
+    if (d2) {
+        str += ':' + d2;
     }
     return str;
 }
 
 function deserialize(str) {
     var parts = str.split(':');
-    var dimension = config.dimensions[parts[0]];
-    var type = config.chartTypes[parts[1]];
+    // var dimension = config.dimensions[parts[0]];
+    var dimension = parts[0];
+    // var secondDimension = config.dimensions[parts[1]];
+    var secondDimension = parts[2];
+    // var type = config.chartTypes[parts[2]];
+    var type = parts[1];
     return {
         dimension: dimension,
-        type: type,
-        limit: parts[3] || 0,
-        offset: parts[4] || 0,
-        buckets: parts[2]
+        secondDimension: secondDimension,
+        type: type
     };
 }

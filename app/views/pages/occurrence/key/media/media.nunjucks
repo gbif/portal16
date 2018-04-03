@@ -73,12 +73,6 @@
                                                         $}</a></dd>
                                             </div>
                                         {% endif %}
-                                        <div>
-                                            <dt>license</dt>
-                                            <dd>
-                                                <a href="link-to-license">CC-BY</a>
-                                            </dd>
-                                        </div>
                                         {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder', 'datasetID'] %}
                                             {% if media[field] %}
                                                 <div>

@@ -445,8 +445,8 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('countryResearch', {
             parent: 'country',
-            url: '/research',
-            templateUrl: '/api/template/country/research.html?v=' + BUILD_VERSION,
+            url: '/publications',
+            templateUrl: '/api/template/country/publications.html?v=' + BUILD_VERSION,
             controller: 'countryResearchCtrl',
             controllerAs: 'countryResearch'
         })
