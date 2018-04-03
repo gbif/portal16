@@ -2,8 +2,7 @@
 
 // @todo merge with directory.js after readability refactor
 
-const Q = require('q'),
-      _ = require('lodash'),
+const _ = require('lodash'),
       helper = require('../../util/util'),
       dataApi = require('../apiConfig'),
       log = require('../../../../config/log'),
@@ -18,22 +17,19 @@ DirectoryParticipants.prototype.record = {};
 DirectoryParticipants.activeMembershipTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant', 'gbif_affiliate']; // gbif_affiliate
 
 DirectoryParticipants.groupBy = (query) => {
-    let deferred = Q.defer(),
-        requestUrl = dataApi.directoryParticipants.url,
+    let requestUrl = dataApi.directoryParticipants.url,
         options = Directory.authorizeApiCall(requestUrl);
 
     options.timeoutMilliSeconds = 10000;
     options.retries = 5;
 
-    helper.getApiDataPromise(requestUrl, options)
+    return helper.getApiDataPromise(requestUrl, options)
         .then((result) => {
-            deferred.resolve(groupBy(result.results, query));
+            return groupBy(result.results, query);
         })
         .catch((e) => {
-            deferred.reject(e + ' in directoryParticipants(). ');
             log.error(e);
         });
-    return deferred.promise;
 };
 
 function groupBy(participants, query) {

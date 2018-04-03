@@ -6,7 +6,6 @@
  */
 
 let helper = require('../../util/util'),
-    Q = require('q'),
     dataApi = require('../apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
     log = require('../../../../config/log');
@@ -21,8 +20,7 @@ PublisherRegional.prototype.record = {};
  * @param query
  */
 PublisherRegional.groupBy = (query) => {
-    let deferred = Q.defer(),
-        requestUrl = dataApi.publisher.url,
+    let requestUrl = dataApi.publisher.url,
         gbifRegionEnum = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA', 'GLOBAL'],
         limit = 2000,
         options = {
@@ -34,8 +32,7 @@ PublisherRegional.groupBy = (query) => {
             }
         };
 
-
-    helper.getApiDataPromise(requestUrl, options)
+  return helper.getApiDataPromise(requestUrl, options)
         .then((result) => {
             // Get all publishers from GBIF API
             return result.results;
@@ -43,36 +40,32 @@ PublisherRegional.groupBy = (query) => {
         .then((publishers) => {
             // Breakdown to region if param exists
             if (query === undefined || !query.hasOwnProperty('gbifRegion') || query.gbifRegion === undefined) {
-                return deferred.resolve(publishers);
+                return publishers;
             } else if (gbifRegionEnum.indexOf(query.gbifRegion) !== -1) {
                 DirectoryParticipants.groupBy(query)
                     .then((participants) => {
                         let participantsIso2ByRegion = participants.map((participant) => {
- return participant.countryCode;
-});
+                            return participant.countryCode;
+                        });
                         let publishersInRegion = publishers.filter((publisher) => {
                             return participantsIso2ByRegion.indexOf(publisher.country) !== -1;
                         });
-                        deferred.resolve(publishersInRegion);
+                        return publishersInRegion;
                     });
             } else {
-                deferred.reject('Invalid GBIF region enumeration.');
+                throw new Error('Invalid GBIF region enumeration.');
             }
         })
         .catch((e) => {
             let reason = e + ' in publisherRegional.groupBy().';
             log.info(reason);
-            return deferred.reject(reason);
         });
-
-    return deferred.promise;
 };
 
 PublisherRegional.numberEndorsedBy = (participantId) => {
-    let deferred = Q.defer(),
-        requestUrl = dataApi.node.url + '?identifier=' + participantId;
+    let requestUrl = dataApi.node.url + '?identifier=' + participantId;
 
-    helper.getApiDataPromise(requestUrl, {'qs': {'limit': 20}})
+  return helper.getApiDataPromise(requestUrl, {'qs': {'limit': 20}})
         .then((result) => {
             if (result.count === 1 && result.results.length === 1) {
                 let node = result.results[0];
@@ -82,16 +75,10 @@ PublisherRegional.numberEndorsedBy = (participantId) => {
                 throw new Error('More than one nodes returned.');
             }
         })
-        .then((result) => {
-            deferred.resolve(result);
-        })
         .catch((e) => {
             let reason = e + ' in publisherRegional.numberEndorsedBy().';
             log.info(reason);
-            return deferred.reject(reason);
         });
-
-    return deferred.promise;
 };
 
 module.exports = PublisherRegional;

@@ -50,7 +50,7 @@ router.get('/occurrence/search', function(req, res) {
                 res.json(data);
             }
         });
-    }, function(err) {
+    }).catch(function(err) {
         res.status(_.get(err, 'errorResponse.statusCode', 500));
         res.json({
             body: _.get(err, 'errorResponse.body', err)

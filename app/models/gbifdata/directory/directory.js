@@ -10,7 +10,6 @@ let crypto = require('crypto'),
     log = require('../../../../config/log');
 
 let Directory = {};
-let calls = 0;
 let language;
 
 Directory.checkCredentials = () => {
@@ -22,23 +21,14 @@ Directory.checkCredentials = () => {
 };
 
 Directory.getContacts = function(res) {
-    let deferred = Q.defer();
-    Directory.retrieveContacts(res)
-        .then((contacts) => {
-            deferred.resolve(contacts);
-        })
+   return Directory.retrieveContacts(res)
         .catch((e) => {
-            deferred.reject(e);
+            log.error(e);
         });
-
-    return deferred.promise;
 };
 
 Directory.retrieveContacts = (res) => {
     language = res.locals.gb.locales.current;
-
-    let defer = Q.defer();
-
     let groups = [
         'executive_committee',
         'science_committee',
@@ -55,7 +45,7 @@ Directory.retrieveContacts = (res) => {
         'people': []
     };
 
-    Directory.checkCredentials()
+ return Directory.checkCredentials()
         .then((exists) => {
             if (exists) {
                 return Q.all(groups.map(function(group) {
@@ -139,14 +129,9 @@ Directory.retrieveContacts = (res) => {
                     return contacts;
                 });
         })
-        .then(function(contacts) {
-            defer.resolve(contacts);
-            log.info(calls + ' calls have been made to complete the contacts page.');
-        })
         .catch(function(err) {
-            defer.reject(new Error(err));
+            log.error(err);
         });
-    return defer.promise;
 };
 
 Directory.applyTranslation = function(contacts, __) {
@@ -295,22 +280,19 @@ function processContacts(contacts) {
 }
 
 function getGroupIntro(group) {
-    let deferred = Q.defer();
     // insert intro text for each group.
     let groupIntroFile = ['directory/contactUs/' + group.enum + '/'];
-    translationsHelper.getTranslationPromise(groupIntroFile, language)
+   return translationsHelper.getTranslationPromise(groupIntroFile, language)
         .then(function(translation) {
             group.intro = translation[0];
-            deferred.resolve(group);
+            return group;
         })
         .catch(function(err) {
-            deferred.reject(err.message + ' in getGroupIntro()');
+            log.error(err);
         });
-    return deferred.promise;
 }
 
 function getParticipantsContacts(contacts) {
-    let deferred = Q.defer();
     let requestUrl = dataApi.directoryParticipants.url;
     let options = Directory.authorizeApiCall(requestUrl);
     let groups = [
@@ -323,7 +305,7 @@ function getParticipantsContacts(contacts) {
         {'enum': 'others', 'members': []}
     ];
 
-    helper.getApiDataPromise(requestUrl, options)
+   return helper.getApiDataPromise(requestUrl, options)
         .then(function(data) {
             // Insert participant details
             let detailsTasks = [];
@@ -381,43 +363,28 @@ function getParticipantsContacts(contacts) {
             groups.forEach(function(group) {
                 translationTasks.push(getGroupIntro(group));
             });
-            return Q.all(translationTasks)
-                .then(function(groups) {
-                    return groups;
-                });
-        })
-        .then(function(groups) {
-            deferred.resolve(groups);
+            return Q.all(translationTasks);
         })
         .catch(function(err) {
-            deferred.reject(err + 'line 403.');
+            log.error(err);
         });
-
-    return deferred.promise;
 }
 
 function getParticipantDetails(participantId) {
-    let deferred = Q.defer();
     let requestUrl = dataApi.directoryParticipant.url + participantId;
     let options = Directory.authorizeApiCall(requestUrl);
 
-    helper.getApiDataPromise(requestUrl, options)
-        .then(function(data) {
-            deferred.resolve(data);
-        })
+  return helper.getApiDataPromise(requestUrl, options)
         .catch(function(err) {
-            deferred.reject(err + ' in getParticipantDetails()');
             log.info(err + ' in getParticipantDetails()');
         });
-    return deferred.promise;
 }
 
 function getNodeDetails(nodeId) {
-    let deferred = Q.defer();
     let requestUrl = dataApi.directoryNode.url + nodeId;
     let options = Directory.authorizeApiCall(requestUrl);
 
-    helper.getApiDataPromise(requestUrl, options)
+   return helper.getApiDataPromise(requestUrl, options)
         .then(function(data) {
             return getParticipantDetails(data.participantId)
                 .then(function(result) {
@@ -427,23 +394,17 @@ function getNodeDetails(nodeId) {
                     return data;
                 });
         })
-        .then(function(data) {
-            deferred.resolve(data);
-        })
         .catch(function(err) {
-            deferred.reject(new Error(err + ' in getNodeDetails()'));
             log.info(err + ' in getNodeDetails()');
         });
-    return deferred.promise;
 }
 
 function getParticipantPeopleDetails(participant, contacts) {
-    let deferred = Q.defer();
     let peopleTasks = [];
     participant.people.forEach(function(person) {
         peopleTasks.push(getPersonContact(person.personId, contacts));
     });
-    Q.all(peopleTasks)
+   return Q.all(peopleTasks)
         .then(function(peopleDetails) {
             // merge original person info about the participant and newly retrieved person details
             participant.people.forEach(function(person, i) {
@@ -453,21 +414,18 @@ function getParticipantPeopleDetails(participant, contacts) {
                     }
                 }
             });
-            deferred.resolve(participant);
+            return participant;
         })
         .catch(function(err) {
-            deferred.reject(new Error(err + ' in getParticipantPeopleDetails()'));
             log.info(err + ' in getParticipantPeopleDetails()');
         });
-    return deferred.promise;
 }
 
 Directory.getCommitteeContacts = (group, contacts) => {
-    let deferred = Q.defer();
     let requestUrl = (group == 'gbif_secretariat') ? dataApi.directoryReport.url + group + '?format=json' : dataApi.directoryCommittee.url + group;
     let options = Directory.authorizeApiCall(requestUrl);
 
-    helper.getApiDataPromise(requestUrl, options)
+   return helper.getApiDataPromise(requestUrl, options)
         .then(function(results) {
             let personsTasks = [];
             results.forEach(function(person) {
@@ -506,21 +464,18 @@ Directory.getCommitteeContacts = (group, contacts) => {
                     }
                 }
             });
-            deferred.resolve(committee);
+            return committee;
         })
         .catch(function(err) {
-            deferred.reject(new Error(err + ' in getCommitteeContacts() while accessing ' + requestUrl));
             log.info(err + ' in getCommitteeContacts() while accessing ' + requestUrl);
         });
-    return deferred.promise;
 };
 
 function getPersonContact(personId, contacts) {
-    let deferred = Q.defer();
     let requestUrl = dataApi.directoryPerson.url + personId;
     let options = Directory.authorizeApiCall(requestUrl);
 
-    helper.getApiDataPromise(requestUrl, options)
+    return helper.getApiDataPromise(requestUrl, options)
         .then(function(data) {
             // get node name and/or participant name
             let participantTasks = [];
@@ -571,39 +526,29 @@ function getPersonContact(personId, contacts) {
         })
         .then(function(data) {
             contacts.people.push(data);
-            deferred.resolve(data);
+            return data;
         })
         .catch(function(err) {
-            deferred.reject(new Error(err + ' in getPersonContact() while accessing ' + requestUrl));
             log.info(err + ' in getPersonContact() while accessing ' + requestUrl);
         });
-    return deferred.promise;
 }
 
 Directory.getPersonDetail = (personId) => {
-    let deferred = Q.defer();
     let requestUrl = dataApi.directoryPerson.url + personId;
     let options = Directory.authorizeApiCall(requestUrl);
 
-    helper.getApiDataPromise(requestUrl, options)
-        .then((detail) => {
-            deferred.resolve(detail);
-        })
+    return helper.getApiDataPromise(requestUrl, options)
         .catch((e) => {
             let reason = e + ' in getPersonDetail().';
-            deferred.reject(new Error(reason));
             log.info(reason);
         });
-
-    return deferred.promise;
 };
 
 Directory.getParticipantHeads = (pid) => {
-    let deferred = Q.defer(),
-        heads = {},
+    let heads = {},
         pDetail = {};
 
-    getParticipantDetails(pid)
+   return getParticipantDetails(pid)
         .then((participant) => {
             pDetail.id = participant.id;
             pDetail.name = participant.name;
@@ -648,15 +593,13 @@ Directory.getParticipantHeads = (pid) => {
             return Q.all(tasks)
                 .then(() => {
                     heads.participantInfo = pDetail;
-                    deferred.resolve(heads);
+                    return heads;
                 });
         })
         .catch((e) => {
             let reason = e + ' in getParticipantHeads().';
-            deferred.reject(new Error(reason));
             log.info(reason);
         });
-    return deferred.promise;
 };
 
 Directory.setMembership = (p) => {
