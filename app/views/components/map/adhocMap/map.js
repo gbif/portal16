@@ -17,20 +17,22 @@ function createMap(element, options) {
     var progress = new Progress(progressElement);
 
     options = options || {};
-    var baseMapStyle = options.baseMap || {style: 'gbif-classic'};
+    var baseMapStyle = options.baseMap || {style: 'gbif-geyser-en'};
     var overlayStyle = options.overlays || [];
     var filters = options.filters || {};
     var currentProjection = projections.EPSG_4326;
 
     this.update = function(options) {
         options = options || {};
-        baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-classic'};
+        baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-geyser-en'};
         overlayStyle = options.overlay || overlayStyle || {};
         filters = options.filters || filters || {};
         map.getLayers().clear();
+        source.clear();
         map.setView(currentProjection.getView(0, 0, 1));
 
         map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
+        map.addLayer(drawLayer);
 
         filters = _.omitBy(_.clone(filters), function(e) {
             return _.isUndefined(e);
@@ -39,14 +41,8 @@ function createMap(element, options) {
             overlayStyle.push({});
         }
         if (_.isArray(overlayStyle)) {
-            // var isSimple = utils.isSimpleQuery(filters);
             overlayStyle.forEach(function(overlay) {
                 map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // if (isSimple) {
-                //    map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // } else {
-                //    map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // }
             });
         }
 
@@ -94,9 +90,72 @@ function createMap(element, options) {
     });
 
 
-    var drawLayer;
-    var format = new ol.format.WKT();
+   // var drawLayer;
+    var source = new ol.source.Vector({wrapX: true});
+    var drawLayer = new ol.layer.Vector({
+        source: source
+    });
+    drawLayer.setZIndex(100);
 
+    var modify = new ol.interaction.Modify({source: source});
+    var snap = new ol.interaction.Snap({source: source});
+    map.addInteraction(snap);
+    map.addInteraction(modify);
+    map.addLayer(drawLayer);
+    var format = new ol.format.WKT();
+    var geoJsonFormatter = new ol.format.GeoJSON();
+    var draw;
+    function disableDraw() {
+        map.removeInteraction(draw);
+        map.removeInteraction(snap);
+    }
+    function createFeatures(cb) {
+        setTimeout(function() {
+            var geometries = [];
+
+            source.forEachFeature(function(f) {
+                var asGeoJson = geoJsonFormatter.writeFeature(f, {rightHanded: true});
+                var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
+                geometries.push(format.writeFeature(rightHandCorrectedFeature, {
+                    dataProjection: 'EPSG:4326',
+                    featureProjection: 'EPSG:4326',
+                    rightHanded: true,
+                    decimals: 5
+                }));
+            });
+
+            if (cb) {
+                cb(geometries);
+            }
+            map.removeInteraction(draw);
+        });
+    }
+    function enableDraw(type, cb) {
+        if (type === 'Rectangle') {
+            draw = new ol.interaction.Draw({
+                source: source,
+                type: 'Circle',
+                geometryFunction: ol.interaction.Draw.createBox()
+            });
+        } else {
+            draw = new ol.interaction.Draw({
+                source: source,
+                type: type
+            });
+            snap = new ol.interaction.Snap({source: source});
+            map.addInteraction(snap);
+        }
+        map.addInteraction(draw);
+
+        draw.on('drawend', function() {
+            createFeatures(cb);
+        });
+    }
+    function enableModify(cb) {
+        modify.on('modifyend', function() {
+            createFeatures(cb);
+        });
+    }
     function enableDragDrop(cb) {
         dragAndDropInteraction.on('addfeatures', function(event) {
             var geometries = [];
@@ -113,25 +172,16 @@ function createMap(element, options) {
                 }
             });
 
-            var vectorSource = new ol.source.Vector({
-                features: geometries
-            });
-
-
-            drawLayer = new ol.layer.Vector({
-                source: vectorSource
-            });
-            map.addLayer(drawLayer);
-
-            map.getView().fit(vectorSource.getExtent());
+            source.addFeatures(geometries);
+            map.getView().fit(source.getExtent());
 
 
             setTimeout(function() {
-               var wkt = geometries.map(function(f) {
-                   var w = format.writeGeometry(f.getGeometry());
+                var wkt = geometries.map(function(f) {
+                    var w = format.writeGeometry(f.getGeometry());
 
 
-                   return w;
+                    return w;
                 });
 
                 if (cb) {
@@ -140,58 +190,62 @@ function createMap(element, options) {
             });
         });
     }
-    //
-    // function showPoly(){
-    //
-    //     var wkt = 'POLYGON((10.689 -25.092, 34.595 ' +
-    //         '-20.170, 38.814 -35.639, 13.502 ' +
-    //         '-39.155, 10.689 -25.092))';
-    //
-    //     var format = new ol.format.WKT();
-    //
-    //     var feature = format.readFeature(wkt, {
-    //         dataProjection: 'EPSG:4326',
-    //         featureProjection: 'EPSG:4326'
-    //     });
-    //
-    //     var vector = new ol.layer.Vector({
-    //         source: new ol.source.Vector({
-    //             features: [feature]
-    //         })
-    //     });
-    //     vector.setZIndex(1000);
-    //
-    //     map.addLayer(vector)
-    //
-    // }
 
-    function enableDraw(cb) {
-        var source = new ol.source.Vector({wrapX: true});
-        var draw = new ol.interaction.Draw({
-            source: source,
+    var clickedGeometryLayer;
+    var clickSource;
+    function enableClickGeometry(cb) {
+        map.removeInteraction(draw);
+        map.removeInteraction(snap);
+       clickSource = new ol.source.Vector({wrapX: true});
+        var exploreArea = new ol.interaction.Draw({
+            source: clickSource,
             type: 'Circle',
             geometryFunction: ol.interaction.Draw.createBox()
         });
 
-        drawLayer = new ol.layer.Vector({
-            source: source
+        clickedGeometryLayer = new ol.layer.Vector({
+            source: clickSource,
+            style: new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'green',
+                    width: 2
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(173,255,47, 0.1)'
+                })
+            })
         });
-        map.addLayer(drawLayer);
+        map.addLayer(clickedGeometryLayer);
 
-            map.addInteraction(draw);
+        map.addInteraction(exploreArea);
 
 
-        draw.on('drawend', function(evt) {
+        exploreArea.on('drawend', function(evt) {
             setTimeout(function() {
-                source.forEachFeature(function(f) {
-                    if (cb) {
-                       cb(format.writeGeometry(f.getGeometry()));
-                    }
-                    map.removeInteraction(draw);
+                var geometries = [];
+                clickSource.forEachFeature(function(f) {
+                    var asGeoJson = geoJsonFormatter.writeFeature(f, {rightHanded: true});
+                    var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
+                    geometries.push(format.writeFeature(rightHandCorrectedFeature, {
+                        dataProjection: 'EPSG:4326',
+                        featureProjection: 'EPSG:4326',
+                        rightHanded: true,
+                        decimals: 5
+                    }));
                 });
+
+                if (cb) {
+                    cb(geometries);
+                }
+                map.removeInteraction(exploreArea);
+                map.addInteraction(snap);
             });
-            // console.log(evt)
         });
+    }
+    function removeClickedQuery() {
+        if (clickSource) {
+            clickSource.clear();
+        }
     }
     function initGeometry(geometry) {
         var geometries = [];
@@ -211,28 +265,43 @@ function createMap(element, options) {
                 featureProjection: 'EPSG:4326'
             }));
         }
-
-
-            drawLayer = new ol.layer.Vector({
-                source: new ol.source.Vector(
-                    {
-                        wrapX: true,
-                        features: geometries
-
-                        }
-                    )
-            });
-            map.addLayer(drawLayer);
+        source.addFeatures(geometries);
+        source.addFeatures(geometries);
     }
-
 
     function removeDrawnItems() {
-        map.removeLayer(drawLayer);
+        source.clear();
     }
-    // var testControl = new ol.control.ZoomToExtent({
-    //     extent: extentFromWKT(options.filters.geometry)
-    // });
-    // map.addControl(testControl);
+
+    function deleteMode(cb) {
+        var geometries = [];
+        map.removeInteraction(snap);
+        map.removeInteraction(modify);
+        var deleteFeatureAtPixel = function(pixel) {
+            map.forEachFeatureAtPixel(pixel, function(feature) {
+                source.removeFeature(feature);
+            });
+        };
+        map.once('click', function(evt) {
+            deleteFeatureAtPixel(evt.pixel);
+            source.forEachFeature(function(f) {
+                var asGeoJson = geoJsonFormatter.writeFeature(f, {rightHanded: true});
+                var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
+                geometries.push(format.writeFeature(rightHandCorrectedFeature, {
+                    dataProjection: 'EPSG:4326',
+                    featureProjection: 'EPSG:4326',
+                    rightHanded: true,
+                    decimals: 5
+                }));
+            });
+            cb(geometries);
+            setTimeout(function() {
+                map.addInteraction(snap);
+                map.addInteraction(modify);
+            });
+        });
+    }
+
     this.update(options);
 
     this.getViewExtent = function() {
@@ -256,6 +325,11 @@ function createMap(element, options) {
     return {
         map: map,
         enableDraw: enableDraw,
+        disableDraw: disableDraw,
+        enableModify: enableModify,
+        deleteMode: deleteMode,
+        enableClickGeometry: enableClickGeometry,
+        removeClickedQuery: removeClickedQuery,
         enableDragDrop: enableDragDrop,
         removeDrawnItems: removeDrawnItems,
         update: this.update,

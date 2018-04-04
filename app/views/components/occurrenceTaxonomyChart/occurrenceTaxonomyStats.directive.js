@@ -66,7 +66,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
                 vm.taxonomy.$cancelRequest();
             }
 
-            $timeout(function(){
+            $timeout(function() {
                 vm.taxonomy = OccurrenceTaxonomyChart.query(query);
                 vm.taxonomy._loading = true;
                 vm.taxonomy._error = false;
@@ -83,8 +83,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
                         vm.taxonomy._loading = false;
                         vm.taxonomy._error = true;
                     });
-            })
-
+            });
         }
 
 

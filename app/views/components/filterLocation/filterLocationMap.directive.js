@@ -39,7 +39,11 @@ function filterLocationMapDirective(BUILD_VERSION) {
            var options = (state.query.geometry) ? {fitExtent: true, filters: state.query} : {};
            map = mapController.createMap(element, options);
             map.enableModify( function(wkt) {
-                OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt), has_geospatial_issue: false});
+                var params = {geometry: $filter('unique')(wkt)};
+                if (vm.includeSuspicious !== true) {
+                    params.has_geospatial_issue = false;
+                }
+                OccurrenceFilter.updateParams(params);
             });
         };
         vm.state = OccurrenceFilter.getOccurrenceData();
@@ -78,8 +82,8 @@ function filterLocationMapDirective(BUILD_VERSION) {
             if (vm.rectangleDrawActive) {
                 map.enableDraw('Rectangle', function(wkt) {
                     var params = {geometry: $filter('unique')(wkt)};
-                    if (vm.includeSuspicious !== true){
-                    params.has_geospatial_issue = false
+                    if (vm.includeSuspicious !== true) {
+                    params.has_geospatial_issue = false;
                     }
                     OccurrenceFilter.updateParams(params);
                     vm.rectangleDrawActive = false;
@@ -94,8 +98,8 @@ function filterLocationMapDirective(BUILD_VERSION) {
             if (vm.polygonDrawActive) {
                 map.enableDraw('Polygon', function(wkt) {
                     var params = {geometry: $filter('unique')(wkt)};
-                    if (vm.includeSuspicious !== true){
-                        params.has_geospatial_issue = false
+                    if (vm.includeSuspicious !== true) {
+                        params.has_geospatial_issue = false;
                     }
                     OccurrenceFilter.updateParams(params);
                     vm.polygonDrawActive = false;
@@ -115,7 +119,11 @@ function filterLocationMapDirective(BUILD_VERSION) {
             vm.deleteMode = true;
             map.deleteMode(function(wkt) {
                 var geom = (wkt && wkt.length > 0) ? $filter('unique')(wkt) : undefined;
-                OccurrenceFilter.updateParams({geometry: geom, has_geospatial_issue: false});
+                var params = {geometry: geom};
+                if (vm.includeSuspicious !== true) {
+                    params.has_geospatial_issue = false;
+                }
+                OccurrenceFilter.updateParams(params);
                 vm.deleteMode = false;
             });
         };

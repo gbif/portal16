@@ -35,7 +35,7 @@ function adhocMapDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function adhocMap($scope, $timeout, enums, $httpParamSerializer, OccurrenceSearch) {
+    function adhocMap($scope, enums, $httpParamSerializer, OccurrenceSearch, OccurrenceFilter, $filter) {
         var vm = this;
         vm.styleBreaks = {
             breakpoints: [0, 700],
@@ -58,12 +58,12 @@ function adhocMapDirective(BUILD_VERSION) {
         };
         vm.styles = {
             CLASSIC: {
-                baseMap: {style: 'gbif-classic'},
+                baseMap: {style: 'gbif-light'},
                 overlay: [],
                 background: '#02393d'
             },
             ORANGE_DOTS: {
-                baseMap: {style: 'gbif-light'},
+                baseMap: {style: 'gbif-geyser-en'},
                 overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
                     style: 'orange.marker',
                     bin: 'hex',
@@ -72,7 +72,7 @@ function adhocMapDirective(BUILD_VERSION) {
                 background: '#e0e0e0'
             },
             SQUARE_DOTS: {
-                baseMap: {style: 'gbif-light'},
+                baseMap: {style: 'gbif-geyser-en'},
                 overlay: [{style: 'outline.poly', bin: 'square', squareSize: 256}, {
                     style: 'orange.marker',
                     bin: 'square',
@@ -126,6 +126,9 @@ function adhocMapDirective(BUILD_VERSION) {
             map.enableDragDrop(function(geom) {
                 getOccurrencesInArea(geom);
             });
+            map.enableModify( function(wkt) {
+                OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt)});
+            });
         };
 
         vm.zoomIn = function() {
@@ -138,13 +141,60 @@ function adhocMapDirective(BUILD_VERSION) {
             view.setZoom(view.getZoom() - 1);
         };
 
-        vm.enableDraw = function() {
-            map.removeDrawnItems();
+        vm.enableClickGeometry = function() {
+           // map.removeDrawnItems();
+            map.removeClickedQuery();
             vm.activeControl = undefined;
-            vm.drawActive = true;
-            map.enableDraw(getOccurrencesInArea);
+            vm.clickQueryActive = !vm.clickQueryActive;
+            if (vm.clickQueryActive) {
+                map.enableClickGeometry(getOccurrencesInArea);
+            }
         };
-
+        vm.removeClickedQuery = function() {
+            vm.clickQueryActive = false;
+            map.removeClickedQuery();
+        };
+        vm.enableRectangleDraw = function() {
+            // map.removeDrawnItems();
+            map.disableDraw();
+            vm.polygonDrawActive = false;
+            vm.rectangleDrawActive = !vm.rectangleDrawActive;
+            if (vm.rectangleDrawActive) {
+                map.enableDraw('Rectangle', function(wkt) {
+                    OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt)});
+                    vm.rectangleDrawActive = false;
+                });
+            }
+        };
+        vm.enablePolygonDraw = function() {
+            // map.removeDrawnItems();
+            map.disableDraw();
+            vm.rectangleDrawActive = false;
+            vm.polygonDrawActive = !vm.polygonDrawActive;
+            if (vm.polygonDrawActive) {
+                map.enableDraw('Polygon', function(wkt) {
+                    OccurrenceFilter.updateParams({geometry: $filter('unique')(wkt)});
+                    vm.polygonDrawActive = false;
+                });
+            }
+        };
+        vm.removeDrawnItems = function() {
+            if (vm.rectangleDrawActive || vm.polygonDrawActive) {
+                map.disableDraw();
+            }
+            vm.rectangleDrawActive = false;
+            vm.polygonDrawActive = false;
+            map.removeDrawnItems();
+            OccurrenceFilter.updateParams({geometry: undefined});
+        };
+        vm.enableDeleteMode = function() {
+            vm.deleteMode = true;
+            map.deleteMode(function(wkt) {
+                var geom = (wkt && wkt.length > 0) ? $filter('unique')(wkt) : undefined;
+                OccurrenceFilter.updateParams({geometry: geom});
+                vm.deleteMode = false;
+            });
+        };
         vm.removeDrawnItems = function() {
             vm.drawActive = false;
             map.removeDrawnItems();
@@ -214,7 +264,7 @@ function adhocMapDirective(BUILD_VERSION) {
                 vm.activeControl = undefined;
                 vm.hasError = true;
                 if (err.status === 414 || err.status === 413) {
-                // handle request uri too long / payload too large
+                    // handle request uri too long / payload too large
                     vm.hasApi413Error = true;
                 } else {
                     vm.hasApiCriticalError = true;

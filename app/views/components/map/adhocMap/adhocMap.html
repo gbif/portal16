@@ -5,8 +5,15 @@
         <div class="mapWidget__mapButtons">
             <a href="" ng-click="vm.zoomIn()">+</a>
             <a href="" ng-click="vm.zoomOut()">-</a>
-            <a href="" class="gb-icon-select smallIcon" ng-click="vm.enableDraw()"
-               ng-class="{'is-active': vm.drawActive }"></a>
+            <a href="" class="gb-icon-select smallIcon" ng-click="vm.enableClickGeometry()"
+               ng-class="{'is-active': vm.clickQueryActive }"></a>
+        </div>
+        <div class="mapWidget__drawButtons">
+            <a href="" class="gb-icon-rectangle smallIcon" ng-click="vm.enableRectangleDraw()"
+               ng-class="{'is-active': vm.rectangleDrawActive }"></a>
+            <a href="" class="gb-icon-polygon smallIcon" ng-click="vm.enablePolygonDraw()"
+               ng-class="{'is-active': vm.polygonDrawActive }"></a>
+            <a href="" class="gb-icon-trash smallIcon" ng-click="vm.enableDeleteMode()" ng-class="{'is-active': vm.deleteMode}"></a>
         </div>
         <div class="mapWidget__info">
             <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
@@ -52,7 +59,7 @@
                             Searching for occurrences in area <span class="loading"></span>
                         </span>
                         <a href="" class="gb-icon-close_L inherit pull-right"
-                           ng-click="vm.activeControl = undefined; vm.drawActice = undefined; vm.removeDrawnItems()"></a>
+                           ng-click="vm.activeControl = undefined;  vm.removeClickedQuery()"></a>
                     </h4>
                 </div>
                 <div class="mapPopup__results seperator" ng-if="!vm.mapMenu.isLoading">
