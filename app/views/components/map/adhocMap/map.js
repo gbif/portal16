@@ -266,7 +266,6 @@ function createMap(element, options) {
             }));
         }
         source.addFeatures(geometries);
-        source.addFeatures(geometries);
     }
 
     function removeDrawnItems() {
