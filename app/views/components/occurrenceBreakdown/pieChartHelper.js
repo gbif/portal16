@@ -25,7 +25,6 @@ function getConfig(data, element, clickCallback) {
                 point: {
                     events: {
                         click: function() {
-                            console.log(this);
                             clickCallback(this.filter);
                         }
                     }
