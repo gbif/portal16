@@ -95,7 +95,8 @@ function callApi(res, next, path, transform, taxonKey) {
     helper.getApiData(path, function(err, data) {
         if (data && typeof data.errorType !== 'undefined') {
             log.error(data.errorType);
-            res.sendStatus(500);
+            let statusCode = (data.errorResponse && data.errorResponse.statusCode) ? data.errorResponse.statusCode : 500
+            res.sendStatus(statusCode);
         } else if (err) {
             log.error(err.message);
             res.sendStatus(err.statusCode || 500);
