@@ -2,7 +2,7 @@ module.exports = {
     getConfig: getConfig
 };
 
-function getConfig(data, element) {
+function getConfig(data, element, clickCallback) {
     var serie = getSerie(data);
     return {
         chart: {
@@ -21,7 +21,15 @@ function getConfig(data, element) {
                 dataLabels: {
                     enabled: false
                 },
-                showInLegend: true
+                showInLegend: true,
+                point: {
+                    events: {
+                        click: function() {
+                            console.log(this);
+                            clickCallback(this.filter);
+                        }
+                    }
+                }
             }
         },
         credits: {
@@ -59,6 +67,7 @@ function getSerie(data) {
     var d = data.results.map(function(e) {
         return {
             name: e.displayName,
+            filter: e.filter,
             y: e.count,
             visible: e.count > 0 // disable empty pie slices - this is to make it easier to read the legend.
         };

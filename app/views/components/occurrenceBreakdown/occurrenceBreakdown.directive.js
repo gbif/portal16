@@ -139,7 +139,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 var areaConfig = areaChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.logarithmic, Highcharts);
                 vm.chartConfig = areaConfig;
             } else if (vm.display.type == 'PIE') {
-                var pieConfig = pieChartHelper.getConfig(chartdata, vm.chartElement);
+                var pieConfig = pieChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch);
                 vm.chartConfig = pieConfig;
             }
         }
