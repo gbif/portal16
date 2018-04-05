@@ -61,8 +61,15 @@
                             {#Names#}
                         {#</a>#}
                     {#</li>#}
-
-                    <li class="tab" ng-if="speciesKey2.sourceTaxonExists">
+                    <li class="tab" ng-if="speciesKey2.sourceTaxonLink">
+                        <a ng-href="{{speciesKey2.sourceTaxonLink}}">
+                            <span>
+                                Reference taxon
+                            </span>
+                            <span class="gb-icon-link"></span>
+                        </a>
+                    </li>
+                    <li class="tab" ng-if="speciesKey2.sourceTaxonExists && !speciesKey2.sourceTaxonLink">
                         <a ng-href="/species/{{ speciesKey2.species.sourceTaxonKey }}">
                             <span>
                                 Reference taxon

@@ -107,8 +107,11 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
             if (vm.species.sourceTaxonKey) {
                 vm.sourceTaxon = Species.get({id: vm.species.sourceTaxonKey});
                 vm.sourceTaxon.$promise
-                    .then(function() {
+                    .then(function(sourceTx) {
                         vm.sourceTaxonExists = true;
+                        if(sourceTx.references){
+                            vm.sourceTaxonLink = sourceTx.references;
+                        }
                         vm.sourceTaxonDataset = Dataset.get({id: vm.sourceTaxon.datasetKey});
                     })
                     .catch(function() {

@@ -59,6 +59,7 @@ function nameUsagesDirective() {
                         var totalMinusAccepted = _.reduce(vm.synonymNameUsages, function(sum, n) {
                             return sum + parseInt(n.count);
                         }, 0);
+
                         vm.data.push(totalCount.count - totalMinusAccepted);
                         vm.categories.push({name: vm.species.scientificName, key: vm.species.key});
 
