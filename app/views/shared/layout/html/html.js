@@ -308,6 +308,8 @@ require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 // require('../../../pages/species/key/speciesKey.ctrl');
 require('../../../pages/species/key/speciesKey.ctrl');
 require('../../../pages/species/key/references/references.ctrl');
+require('../../../pages/species/key/metrics/speciesKeyMetrics.ctrl');
+
 
 require('../../../pages/dataset/search/dataset.ctrl');
 require('../../../pages/dataset/search/table/datasetTable.ctrl');

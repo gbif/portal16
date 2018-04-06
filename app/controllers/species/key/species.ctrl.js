@@ -18,6 +18,10 @@ router.get('/species/:key/verbatim', function render(req, res, next) {
     renderSpeciesPage(req, res, next);
 });
 
+router.get('/species/:key/metrics', function render(req, res, next) {
+    renderSpeciesPage(req, res, next);
+});
+
 router.get('/species/:key(\\d+).:ext?', function render(req, res, next) {
     renderSpeciesPage(req, res, next);
 });

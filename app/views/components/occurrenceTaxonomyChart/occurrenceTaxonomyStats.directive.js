@@ -16,7 +16,8 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
         link: chartLink,
         controllerAs: 'occurrenceTaxonomyStats',
         bindToController: {
-            filter: '='
+            filter: '=',
+            chartType: '='
         }
     };
     return directive;
@@ -30,7 +31,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
     function occurrenceTaxonomyStats(Highcharts, OccurrenceTaxonomyChart, $state, $scope, OccurrenceFilter, $timeout) {
         var vm = this;
         vm.loading = true;
-        vm.chartType = 'sunburst';
+        vm.chartType = vm.chartType || 'sunburst';
         $scope.create = function(element) {
             vm.chartElement = element[0].querySelector('.taxonomyStatsContainer');
         };

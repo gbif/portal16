@@ -8,7 +8,7 @@
                 <li ng-repeat="tax in vm.parents" class="taxonomyBrowser__parent">
                     <a href="" class="gb-icon-more2 pull-right inherit noUnderline taxonomyBrowser__action"
                        ng-if="$index==0 && vm.rootOptions.results.length > 1" ng-click="vm.showRoot()"></a>
-                    <a class="taxonomyBrowser__parent noUnderline inherit" ui-sref=".({speciesKey:tax.key})" ui-sref-opts="{inherit: false}" href="">
+                    <a class="taxonomyBrowser__parent noUnderline inherit" ng-click="vm.$state.go(vm.$state.current, {speciesKey:tax.key}, {reload: true})"  href="">
                         <div class="taxonomyBrowser__term taxonomyBrowser__rank"
                              translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                         <div class="taxonomyBrowser__description">
@@ -22,7 +22,7 @@
             <div class="taxonomyBrowser__current" ng-if="vm.taxon.key">
                 <a href="" class="gb-icon-more2 pull-right inherit noUnderline taxonomyBrowser__action"
                    ng-if="vm.parents.length == 0 && vm.rootOptions.results.length > 1" ng-click="vm.showRoot()"></a>
-                <a ui-sref=".({speciesKey:vm.acceptedTaxon.key})" ui-sref-opts="{inherit: false}" ng-if="vm.acceptedTaxon"
+                <a ng-click="vm.$state.go(vm.$state.current, {speciesKey:vm.acceptedTaxon.key}, {reload: true})" ng-if="vm.acceptedTaxon"
                    class="taxonomyBrowser__accepted inherit ">
                     <div class="taxonomyBrowser__subheadline">Accepted name</div>
                     <span class="taxonomyBrowser__term"
@@ -47,7 +47,7 @@
                                     <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
                                         <span class="synonymSymbol">≡</span>
                                         <div>
-                                            <a ui-sref=".({speciesKey:tax.key})" ui-sref-opts="{inherit: false}" ui-sref-opts="{inherit: false}" href="" class="inherit">
+                                            <a ng-click="vm.$state.go(vm.$state.current, {speciesKey:tax.key}, {reload: true})" href="" class="inherit">
                                                 <span ng-bind-html="tax._parsedName || tax.scientificName"
                                                       class="sciname"></span>
                                             </a>
@@ -74,7 +74,7 @@
                                 <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
                                     <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                                     <div>
-                                        <a ui-sref=".({speciesKey:tax.key})" href="" ui-sref-opts="{inherit: false}" class="inherit">
+                                        <a ng-click="vm.$state.go(vm.$state.current, {speciesKey:tax.key}, {reload: true})" href=""  class="inherit">
                                             <span ng-bind-html="tax._parsedName || tax.scientificName"
                                                   class="sciname"></span>
                                         </a>
@@ -91,7 +91,7 @@
             <div class="taxonomyBrowser__headline">Immediate children</div>
             <ul>
                 <li class="" ng-repeat="tax in vm.classifiedChildren">
-                    <a class="taxonomyBrowser__child noUnderline inherit" ui-sref=".({speciesKey:tax.key})" ui-sref-opts="{inherit: false}" href="">
+                    <a class="taxonomyBrowser__child noUnderline inherit" ng-click="vm.$state.go(vm.$state.current, {speciesKey:tax.key}, {reload: true})" href="">
                         <div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                         <div class="taxonomyBrowser__description">
                             <span ng-bind-html="tax._parsedName || tax.scientificName" class="sciname"></span>
@@ -124,7 +124,7 @@
             <div class="text-center m-t-2 m-b-2" ng-if="!vm.rootOptions.$resolved"><span class="loading"></span></div>
             <ul ng-if="vm.rootOptions.$resolved">
                 <li ng-repeat="option in vm.rootOptions.results">
-                    <a ui-sref=".({speciesKey:option.key})" ui-sref-opts="{inherit: false}" class="inherit noUnderline">
+                    <a ng-click="vm.$state.go(vm.$state.current, {speciesKey:option.key}, {reload: true})"class="inherit noUnderline">
                         <span>{{ option.scientificName }}</span>
                         <div class="small discreet--very">
                             <span class="text-capitalize">{{ 'taxonRank.' + option.rank | translate }}</span><span>{{ option.numDescendants | localNumber }} decendants</span>

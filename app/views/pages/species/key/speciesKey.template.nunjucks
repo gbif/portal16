@@ -20,6 +20,7 @@
                     {% include "./speciestypes/nonBackboneSpecies.nunjucks" %}
 
                     {% include "./speciestypes/verbatimSpecies.nunjucks" %}
+
                 </div>
             </div>
         </div>

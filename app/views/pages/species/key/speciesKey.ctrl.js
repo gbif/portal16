@@ -53,6 +53,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
             vm.criticalErrorHandler();
             Page.setTitle(vm.species.scientificName);
             vm.isSpeciesOrBelow = !!resp.speciesKey;
+            vm.isFamilyOrAbove = !resp.speciesKey && !resp.genusKey;
             var searchRank = vm.isSpeciesOrBelow ? undefined : 'SPECIES';
             vm.subsumedSpecies = SpeciesSearch.query({highertaxon_key: vm.key, rank: searchRank, status: ['ACCEPTED', 'DOUBTFUL'], limit: 0});
 

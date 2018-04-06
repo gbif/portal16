@@ -247,6 +247,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
+        .state('speciesKeyMetrics', {
+            parent: 'speciesKey',
+            url: '/metrics',
+            views: {
+                main: {
+                    templateUrl: '/api/template/species/key.html?v=' + BUILD_VERSION,
+                    controller: 'speciesKey2Ctrl',
+                    controllerAs: 'speciesKey2'
+                }
+            }
+        })
         .state('publisherSearch', {
             parent: 'localization',
             url: '/publisher?offset&limit&q&country',

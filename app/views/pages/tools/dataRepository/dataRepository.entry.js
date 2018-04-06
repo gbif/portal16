@@ -38,9 +38,9 @@ function dataRepositoryCtrl(User, $scope, AUTH_EVENTS, USER_ROLES, $sessionStora
             apiQuery.user = vm.username;
         }
         vm.uploads = DataPackageSearch.query(apiQuery, function(res) {
-            // console.log(res);
+             console.log(res);
         }, function(err) {
-            // console.log(err);
+             console.log(err);
         });
     };
     vm.search();

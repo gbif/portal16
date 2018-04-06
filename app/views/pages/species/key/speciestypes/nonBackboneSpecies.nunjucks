@@ -1,4 +1,4 @@
-<div ng-if="!speciesKey2.isNub && !speciesKey2.$state.is('speciesKeyVerbatim')">
+<div ng-if="!speciesKey2.isNub && speciesKey2.$state.is('speciesKey')">
 
     <div >
     {% include "../images/speciesImages.nunjucks" %}
