@@ -1,7 +1,6 @@
 'use strict';
 let express = require('express'),
     router = express.Router(),
-    _ = require('lodash'),
     breakdown = require('./breakdown'),
     log = require('../../../../../config/log');
 
