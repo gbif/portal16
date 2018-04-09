@@ -11,8 +11,7 @@ let _ = require('lodash'),
     changeCase = require('change-case'),
     wkt2geojson = require('wellknown'),
     turf = require('@turf/turf'),
-    Promise = require('bluebird'),
-    log = require('../../../../../config/log');
+    Promise = require('bluebird');
 
 module.exports = {
     getMinMaxRange: getMinMaxRange,
@@ -253,7 +252,7 @@ function addGeometryFilter(query, results) {
                         turf.rewind(intersection, {mutate: true, reverse: false});
                         let wkt = wkt2geojson.stringify(intersection);
                         if (wkt.startsWith('MULTIPOLYGON')) {
-                            let polys = wkt.match(/\(\([0-9,\.\-\s]+\)\)/g);
+                            let polys = wkt.match(/\(\([0-9,.\-\s]+\)\)/g);
                             for (let i = 0; i < polys.length; i++) {
                                 filter.push(`POLYGON ${polys[i]}`);
                             }
