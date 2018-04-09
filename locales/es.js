@@ -1,2 +1,2 @@
-let translations = require('./server/en');
+let translations = require('./server/es');
 module.exports = translations;

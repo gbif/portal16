@@ -6,9 +6,12 @@ let express = require('express'),
     router = express.Router(),
     locales = require('../../../../config/config').locales;
 let translations = {};
+
 locales.forEach(function(locale) {
     translations[locale] = require(`../../../../locales/_build/${locale}.json`);
 });
+
+console.log(translations.da.country.DK);
 
 module.exports = function(app) {
     app.use('/api', router);

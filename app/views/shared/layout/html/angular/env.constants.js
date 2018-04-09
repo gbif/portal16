@@ -27,5 +27,5 @@ angular
     ).constant('constantKeys',
         window.gb.constantKeys
     ).constant('LOCALE',
-        gb.locale
+        window.gb.locale
     ).constant('IS_TOUCH', window.gb.supportsTouch);

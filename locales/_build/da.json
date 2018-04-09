@@ -1,9 +1,9 @@
 {
   "search": {
-    "partialResultExplanation": "You’re seeing a partial search result. Sometimes our systems are very busy — instead of keeping you waiting we return what is available at the moment.",
-    "placeholder": "search",
+    "partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what is available at the moment.",
+    "placeholder": "søg",
     "taxonSearchPlaceholder": "search species ... kingdom",
-    "datasetSearchPlaceholder": "search datasets"
+    "datasetSearchPlaceholder": "søg efter datasæt"
   },
   "basisOfRecord": {
     "PRESERVED_SPECIMEN": "preserved specimen",
@@ -89,7 +89,7 @@
   "occurrence": {
     "title": {
       "verb": {
-        "PRESERVED_SPECIMEN": "collected",
+        "PRESERVED_SPECIMEN": "indsamlet",
         "FOSSIL_SPECIMEN": "collected",
         "LIVING_SPECIMEN": "collected",
         "HUMAN_OBSERVATION": "observed",
@@ -109,7 +109,7 @@
   "occurrenceDownload": {
     "csvDescription": "Tab delimited CSV. Only contains the data after GBIF interpretation.",
     "dwcaDescription": "The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.",
-    "estimatedSize": "Estimated data size",
+    "estimatedSize": "Estimated size",
     "knownIssues": "Known issues",
     "knownIssuesDescription": "A part of the GBIF processing is to flag occurrences that have suspicious fields",
     "FossilsIncluded": "Fossils",
@@ -289,7 +289,7 @@
     "grn": "Guarani",
     "gsw": "Swiss German",
     "guj": "Gujarati",
-    "gwi": "Gwich’in",
+    "gwi": "Gwich'in",
     "hai": "Haida",
     "hat": "Haitian Creole",
     "hau": "Hausa",
@@ -437,13 +437,13 @@
     "nia": "Nias",
     "nic": "Niger-Kordofanian languages",
     "niu": "Niuean",
-    "nld": "Dutch",
+    "nld": "Flemish",
     "nno": "Nynorsk, Norwegian",
     "nob": "Norwegian Bokmål",
     "nog": "Nogai",
     "non": "Norse, Old",
     "nor": "Norwegian",
-    "nqo": "N’Ko",
+    "nqo": "N'Ko",
     "nso": "Sotho, Northern",
     "nub": "Nubian languages",
     "nwc": "Old Newari",
@@ -656,7 +656,6 @@
     "BW": "Botswana",
     "BV": "Bouvet Island",
     "BR": "Brazil",
-    "BQ": "Bonaire, Sint Eustatius and Saba",
     "IO": "British Indian Ocean Territory",
     "BN": "Brunei Darussalam",
     "BG": "Bulgaria",
@@ -665,7 +664,7 @@
     "KH": "Cambodia",
     "CM": "Cameroon",
     "CA": "Canada",
-    "CV": "Cabo Verde",
+    "CV": "Cape Verde",
     "KY": "Cayman Islands",
     "CF": "Central African Republic",
     "TD": "Chad",
@@ -679,13 +678,12 @@
     "CD": "Congo, The Democratic Republic of the",
     "CK": "Cook Islands",
     "CR": "Costa Rica",
-    "CI": "Côte d’Ivoire",
+    "CI": "Cote D'Ivoire",
     "HR": "Croatia",
     "CU": "Cuba",
-    "CW": "Curaçao",
     "CY": "Cyprus",
-    "CZ": "Czechia",
-    "DK": "Denmark",
+    "CZ": "Czech Republic",
+    "DK": "Danmark",
     "DJ": "Djibouti",
     "DM": "Dominica",
     "DO": "Dominican Republic",
@@ -742,12 +740,12 @@
     "KZ": "Kazakhstan",
     "KE": "Kenya",
     "KI": "Kiribati",
-    "KP": "Democratic People’s Republic of Korea",
+    "KP": "Democratic People's Republic of Korea",
     "KR": "Korea, Republic of",
     "XK": "Kosovo",
     "KW": "Kuwait",
     "KG": "Kyrgyzstan",
-    "LA": "Lao People’s Democratic Republic",
+    "LA": "Lao People's Democratic Republic",
     "LV": "Latvia",
     "LB": "Lebanon",
     "LS": "Lesotho",
@@ -796,7 +794,7 @@
     "OM": "Oman",
     "PK": "Pakistan",
     "PW": "Palau",
-    "PS": "Palestine, State of",
+    "PS": "Palestinian Territory, Occupied",
     "PA": "Panama",
     "PG": "Papua New Guinea",
     "PY": "Paraguay",
@@ -807,15 +805,13 @@
     "PT": "Portugal",
     "PR": "Puerto Rico",
     "QA": "Qatar",
-    "RE": "Réunion",
+    "RE": "Reunion",
     "RO": "Romania",
     "RU": "Russian Federation",
     "RW": "Rwanda",
     "SH": "Saint Helena",
     "KN": "Saint Kitts and Nevis",
     "LC": "Saint Lucia",
-    "BL": "Saint Barthélemy",
-    "MF": "Saint Martin (French part)",
     "PM": "Saint Pierre and Miquelon",
     "VC": "Saint Vincent and the Grenadines",
     "WS": "Samoa",
@@ -827,7 +823,6 @@
     "SC": "Seychelles",
     "SL": "Sierra Leone",
     "SG": "Singapore",
-    "SX": "Sint Maarten (Dutch part)",
     "SK": "Slovakia",
     "SI": "Slovenia",
     "SB": "Solomon Islands",
@@ -875,10 +870,7 @@
     "EH": "Western Sahara",
     "YE": "Yemen",
     "ZM": "Zambia",
-    "XZ": "International waters",
-    "ZW": "Zimbabwe",
-    "QO": "Oceania",
-    "ZZ": "Unknown country"
+    "ZW": "Zimbabwe"
   },
   "occurrenceIssue": {
     "ZERO_COORDINATE": "Zero coordinate",
@@ -974,7 +966,7 @@
     "isVersionOf": "is version of",
     "issued": "issued",
     "language": "language",
-    "license": "Record license",
+    "license": "license",
     "mediator": "mediator",
     "medium": "medium",
     "modified": "modified",
@@ -1123,8 +1115,6 @@
     "taxonConceptID": "taxon concept ID",
     "scientificName": "scientific name",
     "acceptedNameUsage": "accepted name usage",
-    "acceptedName": "accepted name",
-    "appliedName": "applied name",
     "parentNameUsage": "parent name usage",
     "originalNameUsage": "original name usage",
     "nameAccordingTo": "name according to",
@@ -1148,7 +1138,7 @@
     "nomenclaturalStatus": "nomenclatural status",
     "taxonRemarks": "taxon remarks",
     "datasetKey": "dataset key",
-    "publishingCountry": "publishing country or area",
+    "publishingCountry": "publishing country",
     "lastInterpreted": "last interpreted",
     "elevation": "elevation",
     "elevationAccuracy": "elevation accuracy",
@@ -1176,7 +1166,7 @@
     "lastParsed": "last parsed",
     "lastCrawled": "last crawled",
     "associatedMedia": "associated media",
-    "country": "country or area",
+    "country": "country",
     "minimumElevationInMeters": "minimum elevation in metres",
     "maximumElevationInMeters": "maximum elevation in metres",
     "minimumDepthInMeters": "minimum depth in metres",
@@ -1186,77 +1176,50 @@
     "verbatimLatitude": "verbatim latitude",
     "verbatimLongitude": "verbatim longitude",
     "scientificNameAuthorship": "scientific name authorship",
-    "undefined": "unknown field",
-    "noImages": "No occurrences with images",
-    "coordinatesTextual": "This record is published without coordinates, but it includes a textual description of its location.",
-    "coordinatesMissing": "Coordinates missing"
+    "undefined": "unknown field"
   },
   "taxonRank": {
     "undefined": "unknown taxon",
     "UNKNOWN": "unknown",
     "DOMAIN": "domain",
-    "SUPERKINGDOM": "superkingdom",
     "KINGDOM": "kingdom",
     "SUBKINGDOM": "subkingdom",
-    "INFRAKINGDOM": "infrakingdom",
     "SUPERPHYLUM": "superphylum",
     "PHYLUM": "phylum",
     "SUBPHYLUM": "subphylum",
-    "INFRAPHYLUM": "infraphylum",
     "SUPERCLASS": "superclass",
     "CLASS": "class",
     "SUBCLASS": "subclass",
-    "INFRACLASS": "infraclass",
-    "PARVCLASS": "parvclass",
-    "SUPERLEGION": "superlegion",
-    "LEGION": "legion",
-    "SUBLEGION": "sublegion",
-    "INFRALEGION": "infralegion",
-    "SUPERCOHORT": "supercohort",
-    "COHORT": "cohort",
-    "SUBCOHORT": "subcohort",
-    "INFRACOHORT": "infracohort",
-    "MAGNORDER": "magnorder",
     "SUPERORDER": "superorder",
-    "GRANDORDER": "grandorder",
     "ORDER": "order",
     "SUBORDER": "suborder",
     "INFRAORDER": "infraorder",
-    "PARVORDER": "parvorder",
     "SUPERFAMILY": "superfamily",
     "FAMILY": "family",
     "SUBFAMILY": "subfamily",
-    "INFRAFAMILY": "infrafamily",
-    "SUPERTRIBE": "supertribe",
     "TRIBE": "tribe",
     "SUBTRIBE": "subtribe",
-    "INFRATRIBE": "infratribe",
     "SUPRAGENERIC_NAME": "suprageneric name",
     "GENUS": "genus",
     "SUBGENUS": "subgenus",
-    "INFRAGENUS": "infragenus",
     "SECTION": "section",
     "SUBSECTION": "subsection",
     "SERIES": "series",
     "SUBSERIES": "subseries",
     "INFRAGENERIC_NAME": "infrageneric name",
-    "SPECIES_AGGREGATE": "species aggregate",
     "SPECIES": "species",
     "INFRASPECIFIC_NAME": "infraspecific name",
-    "GREX": "grex",
     "SUBSPECIES": "subspecies",
-    "CULTIVAR_GROUP": "cultivar group",
-    "CONVARIETY": "convariety",
     "INFRASUBSPECIFIC_NAME": "infrasubspecific name",
-    "PROLES": "proles",
-    "RACE": "race",
-    "NATIO": "natio",
-    "ABERRATION": "aberration",
-    "MORPH": "morph",
     "VARIETY": "variety",
     "SUBVARIETY": "subvariety",
     "FORM": "form",
     "SUBFORM": "subform",
+    "CULTIVAR_GROUP": "cultivar group",
+    "CULTIVAR": "cultivar",
+    "STRAIN": "strain",
+    "INFORMAL": "informal",
+    "UNRANKED": "unranked",
     "PATHOVAR": "pathovar",
     "BIOVAR": "biovar",
     "CHEMOVAR": "chemovar",
@@ -1264,11 +1227,7 @@
     "PHAGOVAR": "phagovar",
     "SEROVAR": "serovar",
     "CHEMOFORM": "chemoform",
-    "FORMA_SPECIALIS": "forma specialis",
-    "CULTIVAR": "cultivar",
-    "STRAIN": "strain",
-    "OTHER": "other",
-    "UNRANKED": "unranked"
+    "FORMA_SPECIALIS": "forma specialis"
   },
   "taxon": {
     "rank": "rank",
@@ -1278,10 +1237,6 @@
     "issue": "issue",
     "status": "status",
     "nameType": "name type",
-    "origin": "origin",
-    "noOccurencesInGbif": "No occurrences in GBIF",
-    "viewInGbifBackbone": "View in GBIF backbone",
-    "publisherRecord": "Publisher record",
     "nameTypeEnum": {
       "SCIENTIFIC": "scientific name",
       "DOUBTFUL": "doubtful",
@@ -1289,7 +1244,6 @@
       "VIRUS": "virus",
       "HYBRID": "hybrid formula",
       "INFORMAL": "informal",
-      "OTU": "Operational Taxonomic Unit",
       "CULTIVAR": "cultivar",
       "CANDIDATUS": "candidatus",
       "PLACEHOLDER": "placeholder",
@@ -1329,23 +1283,7 @@
       "NAME_PARENT_MISMATCH": "name parent mismatch",
       "ORTHOGRAPHIC_VARIANT": "orthographic variant",
       "HOMONYM": "homonym",
-      "PUBLISHED_BEFORE_GENUS": "published earlier than parent name",
-      "UNPARSABLE": "name unparsable",
-      "PARTIALLY_PARSABLE": "name partially parsed"
-    },
-    "originEnum": {
-      "SOURCE": "source",
-      "DENORMED_CLASSIFICATION": "denormed classification",
-      "VERBATIM_PARENT": "verbatim parent",
-      "VERBATIM_ACCEPTED": "verbatim accepted",
-      "VERBATIM_BASIONYM": "verbatim basionym",
-      "PROPARTE": "proparte",
-      "AUTONYM": "autonym",
-      "IMPLICIT_NAME": "implicit name",
-      "MISSING_ACCEPTED": "missing accepted",
-      "BASIONYM_PLACEHOLDER": "basionym placeholder",
-      "EX_AUTHOR_SYNONYM": "ex author_synonym",
-      "OTHER": "other"
+      "PUBLISHED_BEFORE_GENUS": "published earlier than parent name"
     },
     "statusEnum": {
       "ACCEPTED": "Accepted",
@@ -1358,16 +1296,6 @@
       "DETERMINATION_SYNONYM": "Determination synonym",
       "DOUBTFUL": "Doubtful",
       "UNKNOWN": "Unknown"
-    },
-    "extensionEnum": {
-      "DESCRIPTION": "Description",
-      "DISTRIBUTION": "Distribution",
-      "IDENTIFIER": "Identifier",
-      "MULTIMEDIA": "Multimedia",
-      "REFERENCE": "Reference",
-      "SPECIES_PROFILE": "Species profile",
-      "TYPES_AND_SPECIMEN": "Types and specimen",
-      "VERNACULAR_NAME": "Vernacular name"
     }
   },
   "datasetMetrics": {
@@ -1416,7 +1344,7 @@
     "infoAboutStorage": {
       "title": "We store all download files as long as possible",
       "paragraphA": "This page will always resolve, but the file itself might be removed in the future.",
-      "paragraphB": "But what does this mean? It means that storage space and funding isn’t infinite. We strive to store all downloads forever, but prioritize downloads that have been cited."
+      "paragraphB": "But what does this mean? It means that storage space and funding isn't infinite. We strive to store all downloads forever, but prioritize downloads that have been cites."
     },
     "status": {
       "PREPARING": "preparing",
@@ -1433,36 +1361,20 @@
       },
       "and": "and",
       "or": "or",
-      "not": "not",
-      "isNotNull": "Is defined"
+      "not": "not"
     }
   },
   "network": {
     "title": "network",
-    "participatingDatasets": "{n} participating datasets"
+    "participatingDatasets": "participating datasets"
   },
   "stdTerms": {
     "contactHelpdesk": "Contact helpdesk",
-    "noDescription": "No description available",
     "resources": "resources",
-    "contacts": "{NUMBER, select, 0{contacts} 1{contact} other{contacts}}",
-    "nServedDatasets": "{NUMBER} {NUMBER, select, 0{served datasets} 1{served dataset} other{served datasets}}",
-    "roles": "roles",
-    "role": "role",
-    "name": "name",
-    "participant": "participant",
-    "since": "since",
-    "memberSince": "Member since",
-    "details": "details",
     "topics": "topics",
     "purposes": "purposes",
     "audiences": "audiences",
-    "coordinates": "coordinates",
-    "monthAndyear": "month & year",
     "ok": "ok",
-    "or": "or",
-    "selectFile": "Select file",
-    "fetchFileFromLocation": "Fetch file from location",
     "location": "location",
     "basisOfRecord": "basis of record",
     "dataset": "dataset",
@@ -1495,8 +1407,7 @@
     "remarks": "remarks",
     "specimenType": "type",
     "species": "species",
-    "infraspecies": "infraspecies",
-    "country": "country or area",
+    "country": "country",
     "installation": "installation",
     "occurrence": "occurrence",
     "catalogNr": "catalogue number",
@@ -1507,7 +1418,7 @@
     "search": "search",
     "occurrences": "occurrences",
     "datasets": "datasets",
-    "nMore": "{n} more",
+    "nMore": "%s more",
     "publishedBy": "published by",
     "publishers": "publishers",
     "dataPublishers": "data publishers",
@@ -1521,7 +1432,6 @@
     "cms": "GBIF network",
     "yes": "yes",
     "no": "no",
-    "countryNamingDisclaimer": "Names of countries and areas are based on the [ISO 3166-1 standard](https://www.iso.org/obp/ui/#search)",
     "dataType": "data type",
     "result": "{NUMBER, select, one{result} other{results}}",
     "withCoordinates": "with coordinates",
@@ -1532,12 +1442,7 @@
     "download": "download",
     "license": "license",
     "learnMore": "learn more",
-    "readMore": "read more",
-    "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
-    "citations": "{NUMBER, select, 0{citations} 1{citation} other{citations}}",
-    "nonCriticalErrorMsg": "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
-    "criticalErrorMsg": "The system is currently not able to process your request. Try to refresh the page and please report the issue if it continues.",
-    "partialPage": "Partial page"
+    "readMore": "read more"
   },
   "event": {
     "location": "Location",
@@ -1572,58 +1477,12 @@
     "FORMER": "former",
     "undefined": "unknown",
     "longForm": {
-      "VOTING": "Voting participant",
-      "ASSOCIATE": "Associate participant",
-      "OBSERVER": "Observing participant",
-      "AFFILIATE": "Affiliate participant",
-      "FORMER": "Former participant",
-      "undefined": "Unknown"
-    },
-    "description": {
-      "VOTING": "A GBIF Voting participant from {REGION}",
-      "ASSOCIATE": "An associate participant from {REGION}",
-      "OBSERVER": "A GBIF Observer Country from {REGION}",
-      "AFFILIATE": "An affiliate participant from {REGION}",
-      "FORMER": "A GBIF Former Participant from {REGION}",
+      "VOTING": "A voting particpant",
+      "ASSOCIATE": "An associate participant",
+      "OBSERVER": "An observing participant",
+      "AFFILIATE": "An affiliate participant",
+      "FORMER": "A former participant",
       "undefined": "unknown"
-    },
-    "type": {
-      "COUNTRY": {
-        "description": {
-          "VOTING": "A GBIF Voting participant from {REGION}",
-          "ASSOCIATE": "A GBIF Associate Country Participant from {REGION}",
-          "OBSERVER": "A GBIF Observer Country from {REGION}",
-          "AFFILIATE": "A GBIF affiliate Country from {REGION}",
-          "FORMER": "A former participant from {REGION}",
-          "undefined": "Not a participant"
-        },
-        "longForm": {
-          "VOTING": "Voting participant",
-          "ASSOCIATE": "Associate participant",
-          "OBSERVER": "Observing participant",
-          "AFFILIATE": "Affiliate participant",
-          "FORMER": "Former participant",
-          "undefined": "Unknown"
-        }
-      },
-      "OTHER": {
-        "description": {
-          "VOTING": "A GBIF Voting participant organization from {REGION}",
-          "ASSOCIATE": "An associate participant organization from {REGION}",
-          "OBSERVER": "An observing participant organization from {REGION}",
-          "AFFILIATE": "An affiliate participant organization from {REGION}",
-          "FORMER": "A former participant organization from {REGION}",
-          "undefined": "unknown"
-        },
-        "longForm": {
-          "VOTING": "Voting participant organization",
-          "ASSOCIATE": "Associate participant organization",
-          "OBSERVER": "Observing participant organization",
-          "AFFILIATE": "Affiliate participant organization",
-          "FORMER": "Former participant organization",
-          "undefined": "Unknown"
-        }
-      }
     }
   },
   "datasetDetails": {
@@ -1636,7 +1495,6 @@
     "_PRIMARY_CONTACT": "primary contact",
     "POINT_OF_CONTACT": "point of contact",
     "ORIGINATOR": "originator",
-    "GBIFS_STAFF_MEMBER": "GBIF staff member",
     "METADATA_AUTHOR": "metadata author",
     "PRINCIPAL_INVESTIGATOR": "principal investigator",
     "AUTHOR": "author",
@@ -1671,14 +1529,12 @@
     "NODES_COMMITTEE_CHAIR": "nodes committee chair",
     "NODES_REGIONAL_REPRESENTATIVE_AFRICA": "nodes regional representative africa",
     "NODES_REGIONAL_REPRESENTATIVE_ASIA": "nodes regional representative asia",
-    "NODES_REGIONAL_REPRESENTATIVE_LATIN_AMERICA": "nodes regional representative Latin America and the Caribbean",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_AFRICA": "nodes regional representative deputy africa",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_ASIA": "nodes regional representative deputy asia",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_EUROPE": "nodes regional representative deputy europe",
-    "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA": "nodes regional representative deputy Latin America and the Caribbean",
+    "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA": "nodes regional representative deputy latin america",
     "NODES_REGIONAL_REPRESENTATIVE_EUROPE": "nodes regional representative europe",
     "NODES_REGIONAL_REPRESENTATIVE_NORTH_AMERICA": "nodes regional representative north america",
-    "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_NORTH_AMERICA": "nodes regional representative deputy north america",
     "REGIONAL_NODE_REPRESENTATIVE": "regional node representative",
     "SCIENCE_COMMITTEE_1ST_VICE_CHAIR": "science committee 1st vice chair",
     "SCIENCE_COMMITTEE_2ND_VICE_CHAIR": "science committee 2nd vice chair",
@@ -1724,30 +1580,63 @@
       "type": "type",
       "publishingOrg": "publisher",
       "hostingOrg": "host",
-      "publishingCountry": "publishing country or area",
+      "publishingCountry": "publishing country",
       "projectId": "project"
     },
     "title": "title",
     "publishedBy": "Published by",
-    "description": "description",
-    "purpose": "purpose",
-    "methodology": "methodology",
-    "studyExtent": "study extent",
-    "qualityControl": "quality control",
-    "sampling": "sampling",
-    "methodSteps": "method steps",
-    "project": "project",
-    "about": "about",
-    "funding": "funding",
-    "contributors": "contributors",
-    "registration": "GBIF registration",
-    "dataDescription": "Data description",
-    "bibliography": "bibliography",
-    "citation": "citation",
-    "temporalCoverages": "temporal",
-    "geographicCoverages": "geographic",
-    "taxonomicCoverages": "taxonomic",
-    "additionalInfo": "additional info"
+    "submenu": {
+      "group": {
+        "introduction": {
+          "name": "introduction",
+          "chapters": {
+            "metrics": "metrics",
+            "map": "map",
+            "description": "description",
+            "purpose": "purpose"
+          }
+        },
+        "coverage": {
+          "name": "coverage",
+          "chapters": {
+            "temporalCoverages": "temporal",
+            "geographicCoverages": "geographic",
+            "taxonomicCoverages": "taxonomic"
+          }
+        },
+        "methodology": {
+          "name": "methodology",
+          "chapters": {
+            "studyExtent": "study extent",
+            "qualityControl": "quality control",
+            "sampling": "sampling",
+            "methodSteps": "method steps"
+          }
+        },
+        "project": {
+          "name": "project",
+          "chapters": {
+            "about": "about",
+            "funding": "funding"
+          }
+        },
+        "credit": {
+          "name": "credit",
+          "chapters": {
+            "contributions": "contributions",
+            "bibliography": "bibliography",
+            "citation": "citation"
+          }
+        },
+        "usage": {
+          "name": "usage",
+          "chapters": {
+            "usage metrics": "usage metrics",
+            "processing history": "processing history"
+          }
+        }
+      }
+    }
   },
   "countryPage": {
     "occurrencesAbout": "Occurrences about",
@@ -1803,7 +1692,7 @@
       "event": "event",
       "news": "news",
       "resource": "resource",
-      "dataUse": "data use",
+      "data_use": "data use",
       "project": "project",
       "gbif_participant": "participant",
       "programme": "programme",
@@ -1813,11 +1702,10 @@
       "tool": "tool",
       "link": "link",
       "generic": "generic",
-      "literature": "literature",
-      "about_region": "about the region"
+      "literature": "literature"
     },
     "literatureType": {
-      "journal": "journal article",
+      "journal": "journal",
       "book": "book",
       "generic": "generic",
       "book_section": "book section",
@@ -1860,7 +1748,7 @@
       "category_audience": "audience",
       "category_purpose": "purpose",
       "category_data_type": "data type",
-      "category_country": "country or area",
+      "category_country": "country",
       "category_literature_type": "literature type",
       "category_gbif_literature_annotation": "GBIF annotation",
       "category_literature_year": "literature year",
@@ -1945,14 +1833,10 @@
       "projectId": "Project ID",
       "grantType": "Grant type",
       "duration": "Duration",
-      "title": "Title",
-      "start": "Start",
-      "end": "End",
-      "fundsAllocated": "Funding allocated",
-      "matchingFunds": "Est. co-funding",
+      "fundingAllocated": "Funding allocated",
+      "estCoFunding": "Est. co-funding",
       "status": "Status",
       "programme": "programme",
-      "contractCountry": "Country or area",
       "call": "call",
       "partner": {
         "one": "partner",
@@ -1979,9 +1863,6 @@
         "one": "related information",
         "other": "related documents and information"
       }
-    },
-    "dataUse": {
-      "resourceUsed": "Data resources used via GBIF"
     },
     "auxiliary": {
       "subject": {
@@ -2064,16 +1945,16 @@
       }
     },
     "year": {
-      "equals": "is {from}",
-      "between": "between start of {from} and end of {to}",
-      "lessThanOrEquals": "before end of {to}",
-      "greaterThanOrEquals": "after start of {from}",
+      "equals": "is from {from}",
+      "between": "between {from} and {to}",
+      "lessThanOrEquals": "before {to}",
+      "greaterThanOrEquals": "after {from}",
       "invalid": "invalid",
       "select": {
         "equals": "is",
         "between": "between",
-        "lessThanOrEquals": "before end of",
-        "greaterThanOrEquals": "after start of"
+        "lessThanOrEquals": "before",
+        "greaterThanOrEquals": "after"
       }
     }
   },
@@ -2084,50 +1965,43 @@
     }
   },
   "directory": {
-    "group": {
-      "executiveCommittee": {
-        "title": "Executive committee",
-        "description": "The Executive Committee operates on behalf of the Governing Board when the Board is not in session and within the areas of responsibility delegated to it by the Governing Board. Among its functions are monitoring of the performance of the Secretariat in carrying out the decisions taken by the Governing Board including implementation of the Strategic Plan and the Work Programme, and management of the budget."
-      },
-      "scienceCommittee": {
-        "title": "Science committee",
-        "description": "The GBIF Science Committee is an advisory committee that oversees the development and progress of the GBIF work programme and makes recommendations to the Governing Board, the Executive Committee and the Secretariat. You can read its terms of reference [here.](/document/80877/current-terms-of-reference-for-the-science-committee)"
-      },
-      "budgetCommittee": {
-        "title": "Budget committee",
-        "description": "The Budget Committee is an advisory committee dealing with various financial issues relating to the administration of GBIF funds. Among other functions, it oversees the audit of the annual accounts submitted to the Governing Board, and it provides guidance for the selection of GBIF’s auditing company. The committee makes recommendations to the Governing Board, the Executive Committee and the Secretariat. Its terms of reference can be found [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
-      },
-      "nsg": {
-        "title": "Nodes Steering Group",
-        "description": "Established in 2011, the Nodes Steering Group (NSG) consists of the chair and vice-chairs of the [Participant Node Managers Committee](/contact-us/directory?group=nodesCommittee) joined by a regional representative from each of GBIF’s six regions ([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America/Caribbean](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)). The NSG’s objectives are to formulate specific recommendations to relevant GBIF bodies based on feedback provided by Participant nodes, and to provide advice on GBIF’s annual work programmes as they relate to the efforts of GBIF nodes."
-      },
-      "nodesCommittee": {
-        "title": "Node Managers Committee",
-        "description": "The Participant Node Managers Committee (or Nodes Committee) is a dynamic group formed by the node managers appointed by all Participants (countries and international organizations). The committee includes three Chair positions established through voting by the Governing Board for a maximum of two two-year terms."
-      },
-      "secretariat": {
-        "title": "GBIF Secretariat",
-        "description": "The GBIF Secretariat, located at the Natural History Museum in Copenhagen, Denmark, is charged with developing, executing and reporting on the GBIF work programme. The tasks of the Secretariat include:\n - operating the GBIF portal and associated informatics\n - coordinating activities of the network related to data mobilization, publishing and management\n - monitoring data gaps and use of GBIF-mediated data for science, and\n - operating central communication and collaboration services"
-      },
-      "voting": {
-        "title": "Voting participants",
-        "description": "Countries that have signed the GBIF Memorandum of Understanding and agree to make a basic financial contribution to GBIF core funds."
-      },
-      "associateCountries": {
-        "title": "Associate country participants",
-        "description": "Countries that have signed the GBIF Memorandum of Understanding but do not make a financial contribution to GBIF core funds, and do not have a vote on the GBIF Governing Board."
-      },
-      "associateParticipants": {
-        "title": "Other associate participants",
-        "description": "Intergovernmental organizations, international organizations and other organizations with an international scope, and economies, that have signed the GBIF Memorandum of Understanding."
-      }
+    "title": "Directory of Contacts",
+    "contact": "contact",
+    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
+    "voting_participant": {
+      "one": "Voting participant",
+      "other": "Voting participants"
     },
-    "columns": {
-      "role": "Role",
-      "name": "Name",
-      "participant": "Participant",
-      "participationStatus": "Participant status"
-    }
+    "associate_country_participant": {
+      "one": "Associate country participant",
+      "other": "Associate country participants"
+    },
+    "other_associate_participant": {
+      "one": "Other associate participant",
+      "other": "Other associate participants"
+    },
+    "former_participant": {
+      "one": "Former participant",
+      "other": "Former participants"
+    },
+    "gbif_affiliate": "GBIF affiliate",
+    "observer": "Observer",
+    "others": "Other",
+    "participant": "participant",
+    "delegationMembers": "delegation members",
+    "role": "role",
+    "institution": "institution",
+    "executive_committee": "Executive committee",
+    "budget_committee": "Budget committee",
+    "science_committee": "Science committee",
+    "nodes_steering_group": "Nodes steering group",
+    "nodes_committee": "Nodes committee",
+    "gbif_secretariat": "GBIF Secretariat",
+    "staff_member": "Staff member",
+    "membershipType": "Membership",
+    "governingBoard": "Governing Board",
+    "committees": "Committees",
+    "name": "name"
   },
   "gbifNetwork": {
     "title": "Directory",
@@ -2193,7 +2067,6 @@
     "voting_participant": "Voting participant",
     "associate_country_participant": "Associate country participant",
     "other_associate_participant": "Other associate participant",
-    "gbif_affiliate": "GBIF affiliate",
     "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
     "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
   },
@@ -2202,7 +2075,7 @@
     "AFRICA": "Africa",
     "ASIA": "Asia",
     "EUROPE": "Europe",
-    "LATIN_AMERICA": "Latin America and the Caribbean",
+    "LATIN_AMERICA": "Latin America",
     "NORTH_AMERICA": "North America",
     "OCEANIA": "Oceania",
     "select_region": "Select a region"
@@ -2221,8 +2094,8 @@
         "taxon": "Taxonomic scope",
         "whyImportant": "why is this dataset important",
         "howWouldYouRateIt": "how would you rate its importance",
-        "high": "essential — GBIF have no data in this area",
-        "medium": "important — GBIF have little data in this area",
+        "high": "essential - GBIF have no data in this area",
+        "medium": "important - GBIF have little data in this area",
         "low": "it would be a nice supplement to the existing data",
         "bibliographicRef": "bibliographic reference",
         "type": "dataset type",
@@ -2257,13 +2130,6 @@
       "repatriationFilter": "repatriated data",
       "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
     },
-    "peerReview": {
-      "title": "Peer-Reviewed"
-    },
-    "openAccess": {
-      "title": "Open access"
-    },
-    "gbifDownloadKey": "Download key",
     "location": {
       "north": "North",
       "south": "South",
@@ -2277,10 +2143,8 @@
       "geojson": "GeoJSON",
       "range": "Range",
       "noFiltersAdded": "No area filters added",
-      "wktPlaceholder": "WKT or GeoJSON — multipolygons are not supported",
+      "wktPlaceholder": "WKT or GeoJson - multipolygons are not supported",
       "invalidTextInput": "Invalid WKT or GeoJSON",
-      "tooLarge": "Geometry too large",
-      "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
       "invalidRange": "Invalid bounding box"
     }
   },
@@ -2296,27 +2160,27 @@
     "share": "Share",
     "dataPublishing": "Data publishing",
     "datasetClasses": "Dataset classes",
-    "publishingGuide": "Publishing data",
-    "endorsement": "Become a publisher",
-    "standards": "Standards",
+    "publishingGuide": "Publishing guide",
+    "endorsement": "Endorsement",
+    "darwinCore": "Darwin Core",
+    "digitizingCollections": "Digitizing collections",
     "dataPapers": "Data papers",
     "citizenScience": "Citizen science",
     "tools": "Tools",
     "ipt": "IPT",
     "dataValidator": "Data validator",
     "suggestDataset": "Suggest a dataset",
-    "dataRepository": "Data repository",
+    "collectionManagement": "Collection management",
     "developers": "Users",
     "api": "GBIF API",
     "rgbif": "rgbif",
     "livingAtlases": "Living Atlases",
     "maxent": "MAXENT",
-    "gbifSoftware": "Data processing",
+    "gbifSoftware": "GBIF applications",
     "gbifLabs": "GBIF Labs",
     "observationTrends": "Relative observation trends",
     "developerBlog": "Developers blog",
     "speciesMatching": "Species matching",
-    "nameParser": "Name Parser",
     "toolsCatalogue": "Tools catalogue",
     "inside": "Inside GBIF",
     "about": "About",
@@ -2325,8 +2189,9 @@
     "becomeMember": "Become a member",
     "communitySite": "Community site",
     "strategicPlan": " Strategic plan",
-    "contactUs": "Contacts",
-    "information": "News & Outreach",
+    "contactDirectory": "Directory of contacts",
+    "contactUs": "Contact us",
+    "information": "News & communications",
     "news": "News",
     "literature": "Literature",
     "newsletters": "Newsletters and lists",
@@ -2337,8 +2202,7 @@
     "capacitySupport": "Capacity enhancement",
     "bidProgramme": "BID: Biodiversity Information for Development",
     "bifaProgramme": "BIFA: Biodiversity Information Fund for Asia",
-    "funders": "Funders",
-    "governance": "Governance"
+    "funders": "Funders"
   },
   "nameParser": {
     "loadTestNames": "Load Test Names",
@@ -2348,131 +2212,15 @@
   "validation": {
     "category": {
       "RESOURCE_STRUCTURE": "Resource Structure",
-      "RESOURCE_INTEGRITY": "Resource integrity",
       "RECORD_STRUCTURE": "Record Structure",
-      "OCC_INTERPRETATION_BASED": "GBIF Occurrence Interpretation",
-      "METADATA_CONTENT": "Metadata Content",
-      "CLB_INTERPRETATION_BASED": "GBIF Taxon Interpretation"
+      "OCC_INTERPRETATION_BASED": "GBIF Occurrence Interpretation"
     },
     "issueType": {
       "DWCA_UNREADABLE": "Darwin Core Archive unreadable",
       "DWCA_META_XML_NOT_FOUND": "meta.xml file not found",
       "DWCA_META_XML_SCHEMA": "meta.xml schema validation failed",
-      "RECORD_IDENTIFIER_NOT_FOUND": "No record identifier was found within the file",
-      "CORE_ROWTYPE_UNDETERMINED": "No rowType could be found or determined",
-      "EML_NOT_FOUND": "No EML document was found",
-      "EML_GBIF_SCHEMA": "The EML document does not validate against the schema",
-      "UNKNOWN_ROWTYPE": "The rowType used for the core/extension is unknown",
-      "REQUIRED_TERM_MISSING": "A required term for the core/extension is missing",
       "COLUMN_MISMATCH": "Column mismatch",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Record referential integrity violation",
-      "UNKNOWN_TERM": "Unknown term",
-      "DUPLICATED_TERM": "Duplicated term",
-      "TITLE_MISSING_OR_TOO_SHORT": "The title of the dataset is missing or too short",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "The resource creator is missing or is incomplete",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "The description of the dataset is missing or too short",
-      "LICENSE_MISSING_OR_UNKNOWN": "The license can not be parsed, is not supported by GBIF or is simply missing",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Record not uniquely identified",
-      "UNREADABLE_SECTION_ERROR": "Unreadable section error",
-      "NoIssuesFound": "No issues found"
-    },
-    "issueHelp": {
-      "BASIS_OF_RECORD_INVALID": "The value of basisOfRecord is either missing, or invalid. Value must match Darwin Core Type Vocabulary.",
-      "COORDINATE_REPROJECTION_FAILED": "The given decimal latitude and longitude could not be reprojected to WGS84 based on the provided datum.",
-      "NO_SPECIES": "The group (currently only genera are tested) are lacking any accepted species. GBIF backbone specific issue.",
-      "RECORDED_DATE_INVALID": "A (partial) invalid date is given, such as a non existing date, invalid zero month, etc.",
-      "PRESUMED_NEGATED_LATITUDE": "Latitude appears to be negated, e.g. 32.3 instead of -32.3",
-      "UNKNOWN_TERM": "A term used in the core/extension definition is unknown",
-      "DEPTH_MIN_MAX_SWAPPED": "Set if supplied min>max",
-      "ORIGINAL_NAME_DERIVED": "Record has a original name (basionym) relationship which was derived from name & authorship comparison, but did not exist explicitly in the data. This should only be flagged in programmatically generated GBIF backbone usages. GBIF backbone specific issue.",
-      "ELEVATION_UNLIKELY": "Set if elevation is above the troposphere (17km) or below 11km (Mariana Trench).",
-      "PARENT_NAME_NOT_UNIQUE": "Record has a verbatim parent name which is not unique and refers to several records.",
-      "TAXONOMIC_STATUS_MISMATCH": "(description missing)",
-      "TITLE_MISSING_OR_TOO_SHORT": "The title of the dataset is missing or too short",
-      "COUNTRY_COORDINATE_MISMATCH": "Geographic coordinates fall outside the area defined by the referenced boundary of the country [1]",
-      "IDENTIFIED_DATE_INVALID": "The value of dateIdentified invalid. Can not be turned into a valid date.",
-      "IDENTIFIED_DATE_UNLIKELY": "The value of dateIdentified unlikely. e.g date in the future. Warning: https://github.com/gbif/parsers/issues/9",
-      "PRESUMED_SWAPPED_COORDINATE": "Latitude and longitude appear to be swapped.",
-      "COUNTRY_INVALID": "Uninterpretable country values found.",
-      "COORDINATE_OUT_OF_RANGE": "Coordinate has invalid lat/lon values out of their decimal max range.",
-      "TAXON_MATCH_NONE": "Matching to the taxonomic backbone cannot be done cause there was no match at all or several matches with too little information to keep them apart (homonyms).",
-      "SPECIES_PROFILE_INVALID": "At least one species profile extension record attached to this name usage is invalid.",
-      "ELEVATION_NON_NUMERIC": "Set if elevation is a non numeric value",
-      "COORDINATE_UNCERTAINTY_METERS_INVALID": "Indicates an invalid or very unlikely dwc:uncertaintyInMeters.",
-      "MODIFIED_DATE_UNLIKELY": "The date given for dc:modified is in the future or predates unix time (1970).",
-      "DISTRIBUTION_INVALID": "At least one distribution extension record attached to this name usage is invalid.",
-      "ZERO_COORDINATE": "Coordinate is the exact 0/0 coordinate, often indicating a bad null coordinate.",
-      "TAXON_MATCH_FUZZY": "Matching to the taxonomic backbone can only be done using a fuzzy, non exact match.",
-      "DEPTH_NOT_METRIC": "Set if supplied depth is not given in the metric system, for example using feet instead of meters",
-      "COORDINATE_ROUNDED": "Original coordinate modified by rounding to 5 decimals.",
-      "GEODETIC_DATUM_INVALID": "The geodetic datum given could not be interpreted.",
-      "COORDINATE_INVALID": "Coordinate value given in some form but GBIF is unable to interpret it.",
-      "CLASSIFICATION_NOT_APPLIED": "The denormalized classification could not be applied to the name usage. For example if the id based classification has no ranks.",
-      "CONTINENT_DERIVED_FROM_COORDINATES": "The interpreted continent is based on the coordinates, not the verbatim string information.",
-      "ACCEPTED_NAME_MISSING": "Synonym lacking an accepted name",
-      "ORIGINAL_NAME_USAGE_ID_INVALID": "The value for dwc:originalNameUsageID could not be resolved",
-      "MULTIMEDIA_INVALID": "At least one multimedia extension record attached to this name usage is invalid. This covers multimedia coming in through various extensions including Audubon core, Simple images or multimedia or EOL media. ",
-      "ORIGINAL_NAME_NOT_UNIQUE": "Record has a verbatim original name (basionym) which is not unique and refers to several records.",
-      "TYPE_STATUS_INVALID": "The given type status is impossible to interpret or seriously different from the recommended vocabulary.",
-      "CORE_ROWTYPE_UNDETERMINED": "No rowType could be found or determined",
-      "TAXON_MATCH_HIGHERRANK": "Matching to the taxonomic backbone can only be done on a higher rank and not the scientific name.",
-      "RECORDED_DATE_UNLIKELY": "The recording date is highly unlikely, falling either into the future or represents a very old date before 1600 that predates modern taxonomy",
-      "ALT_IDENTIFIER_INVALID": "At least one alternative identifier extension record attached to this name usage is invalid.",
-      "ACCEPTED_NAME_NOT_UNIQUE": "Synonym has a verbatim accepted name which is not unique and refers to several records.",
-      "DEPTH_UNLIKELY": "Set if depth is larger than 11.000m or negative.",
-      "NAME_PARENT_MISMATCH": "The (accepted) bi/trinomial name does not match the parent name and should be recombined into the parent genus/species. For example the species Picea alba with a parent genus Abies is a mismatch and should be replaced by Abies alba. GBIF backbone specific issue. ",
-      "DWCA_UNREADABLE": "Impossible to read or extract the DarwinCore Archive",
-      "RESOURCE_CREATOR_MISSING_OR_INCOMPLETE": "The resource creator is missing or is incomplete",
-      "PUBLISHED_BEFORE_GENUS": "A bi/trinomial name published earlier than the parent genus was published. This might indicate that the name should rather be a recombination. ",
-      "RANK_INVALID": "dwc:taxonRank could not be interpreted",
-      "ACCEPTED_NAME_USAGE_ID_INVALID": "The value for dwc:acceptedNameUsageID could not be resolved",
-      "CONFLICTING_BASIONYM_COMBINATION": "There have been more than one accepted name in a homotypical basionym group of names. GBIF backbone specific issue. ",
-      "INDIVIDUAL_COUNT_INVALID": "Individual count value not parsable into an integer.",
-      "CLASSIFICATION_RANK_ORDER_INVALID": "(description missing)",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "The record in an extension does not link to an existing core record",
-      "COLUMN_MISMATCH": "The number of column used on the line does not match the expected number",
-      "MULTIMEDIA_URI_INVALID": "An invalid uri is given for a multimedia object.",
-      "LICENSE_MISSING_OR_UNKNOWN": "The license can not be parsed, is not supported by GBIF or is simply missing",
-      "PARENT_CYCLE": "The child parent classification resulted into a cycle that needed to be resolved/cut.",
-      "TAXONOMIC_STATUS_INVALID": "dwc:taxonomicStatus could not be interpreted",
-      "ML_NOT_FOUND": "No EML document was found",
-      "MODIFIED_DATE_INVALID": "A (partial) invalid date is given for dc:modified, such as a non existing date, invalid zero month, etc.",
-      "REQUIRED_TERM_MISSING": "A required term for the core/extension is missing",
-      "GEODETIC_DATUM_ASSUMED_WGS84": "Indicating that the interpreted coordinates assume they are based on WGS84 datum as the datum was either not indicated or interpretable. See  GEODETIC_DATUM_INVALID.",
-      "COUNTRY_MISMATCH": "Interpreted country for dwc:country and dwc:countryCode contradict each other.",
-      "UNKNOWN_ROWTYPE": "The rowType used for the core/extension is unknown",
-      "BIB_REFERENCE_INVALID": "At least one bibliographic reference extension record attached to this name usage is invalid.",
-      "CHAINED_SYNOYM": "If a synonym points to another synonym as its accepted taxon the chain is resolved",
-      "ELEVATION_MIN_MAX_SWAPPED": "Set if supplied min > max elevation",
-      "MULTIMEDIA_DATE_INVALID": "An invalid date is given for dc:created of a multimedia object.",
-      "PARENT_NAME_USAGE_ID_INVALID": "(description missing)",
-      "COORDINATE_REPROJECTION_SUSPICIOUS": "Indicates successful coordinate reprojection according to provided datum, but which results in a datum shift larger than 0.1 decimal degrees.",
-      "BASIONYM_AUTHOR_MISMATCH": "The authorship of the original name does not match the authorship in brackets of the actual name.",
-      "COUNTRY_DERIVED_FROM_COORDINATES": "The interpreted country is based on the coordinates, not the verbatim string information.",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "The record in the core file is not uniquely identified",
-      "ELEVATION_NOT_METRIC": "Set if supplied elevation is not given in the metric system, for example using feet instead of meters",
-      "PRESUMED_NEGATED_LONGITUDE": "Longitude appears to be negated, e.g. 32.3 instead of -32.3",
-      "RECORD_IDENTIFIER_NOT_FOUND": "No record identifier was found within the file",
-      "DWCA_META_XML_SCHEMA": "meta.xml file can not be validated against its schema",
-      "COORDINATE_REPROJECTED": "The original coordinate was successfully reprojected from a different geodetic datum to WGS84.",
-      "RECORDED_DATE_MISMATCH": "The date represented by eventDate and the atomic version (year, month, day) does not represent the same date. Warning: https://github.com/gbif/parsers/issues/8",
-      "DWCA_META_XML_NOT_FOUND": "Impossible to find the meta.xml file",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "The description of the dataset is missing or too short",
-      "SCIENTIFIC_NAME_ASSEMBLED": "The scientific name was assembled from the individual name parts and not given as a whole string",
-      "DEPTH_NON_NUMERIC": "Set if depth is a non numeric value",
-      "INTERPRETATION_ERROR": "An error occurred during interpretation, leaving the record interpretation incomplete.",
-      "BACKBONE_MATCH_NONE": "Name usage could not be matched to the GBIF backbone.",
-      "EML_GBIF_SCHEMA": "The EML document does not validate against the schema",
-      "CONTINENT_COUNTRY_MISMATCH": "The interpreted continent and country do not match up.",
-      "RELATIONSHIP_MISSING": "There were problems representing all name usage relationships, i.e. the link to the parent, accepted and/or original name. The interpreted record in ChecklistBank is lacking some of the original source relation. ",
-      "NOMENCLATURAL_STATUS_INVALID": "dwc:nomenclaturalStatus could not be interpreted",
-      "COORDINATE_PRECISION_INVALID": "Indicates an invalid or very unlikely coordinatePrecision",
-      "HOMONYM": "A not synonymized homonym exists for this name in some other backbone source which have been ignored at build time.",
-      "ORTHOGRAPHIC_VARIANT": "A potential orthographic variant exists in the backbone. GBIF backbone specific issue. ",
-      "CONTINENT_INVALID": "Uninterpretable continent values found.",
-      "VERNACULAR_NAME_INVALID": "At least one vernacular name extension record attached to this name usage is invalid.",
-      "DESCRIPTION_INVALID": "At least one description extension record attached to this name usage is invalid.",
-      "REFERENCES_URI_INVALID": "An invalid uri is given for dc:references."
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Record referential integrity violation"
     },
     "fileFormat": {
       "title": "File format",
@@ -2480,74 +2228,26 @@
       "TABULAR": "Tabular File (.csv, .tsv)",
       "SPREADSHEET": "Spreadsheet (.xlsx)"
     },
-    "fileType": {
-      "title": "Row type",
-      "CORE": {
-        "title": "Core"
-      },
-      "EXTENSION": {
-        "title": "Extensions"
-      },
-      "METADATA": {
-        "description": "Metadata describing the data in EML (Ecological Metadata Language)",
-        "title": "Metadata document"
-      },
-      "META_DESCRIPTOR": {
-        "description": "Semantic annotation describing how the data is structured (files, columns, etc)",
-        "title": "Meta descriptor"
-      }
-    },
-    "fileSizeLimit": "File size limit: 100 mb",
-    "receivedMediaType": "Media Type",
     "validationProfile": {
       "title": "Validation Profile",
       "GBIF_INDEXING_PROFILE": "GBIF Indexing Profile"
     },
-    "uniqueIdentifier": "Unique identifier",
-    "reportLocation": "This report has been written to",
-    "reportDeletion": "and will be deleted after one month. Until then you can revisit the report at your convenience.",
-    "reportGenerated": "It was generated",
     "summary": "Validation Summary",
     "issues": "Validation Issues",
-    "fileHasIssues": "Some issues were detected by the validator:",
-    "fileHasNoIssues": "No issues found in the file",
     "error": "Error",
-    "errors": {
-      "400": "The file could not be processed, or it may be missing if you provided a URL.",
-      "404": "The validation job ID was not found. If you believe this is an error, please report it.",
-      "413": "The file is too large, to be processed by the data validator.",
-      "415": "Unsupported file type. The file could not be processed."
-    },
-    "backToValidator": "Start a new validation",
     "termsFrequency": {
-      "title": "Term Frequency",
+      "title": "Terms Frequency",
       "term": "Term",
       "count": "Count",
-      "percentage": "Percentage",
-      "interpreted": "Interpreted"
+      "percentage": "Percentage"
     },
     "interpretedCounts": {
-      "date": "Number of interpreted dates",
-      "taxon": "Number of rows with interpreted taxon",
+      "date": "Number of interpreted date",
+      "taxon": "Number of interpreted taxon",
       "location": "Number of interpreted coordinates"
     },
-    "interpretedValueCounts": {
-      "title": "Interpreted value counts"
-    },
-    "status": {
-      "title": "Status",
-      "SUBMITTED": "Sending file",
-      "FETCHING": "Fetching file",
-      "ACCEPTED": "Validation started",
-      "RUNNING": "Validation in progress",
-      "FINISHED": "Validation completed",
-      "FAILED": "Validation failed. Please check the file type, or if you submitted a url, please check that the file exists on the location.",
-      "CONTACTING_SERVER": "Contacting server..."
-    },
-    "jobId": "Job id",
-    "unknown": "unknown",
-    "indexeable": "The file can be indexed by GBIF",
-    "notIndexeable": "The file cannot be indexed by GBIF",
+    "status": "Status",
+    "indexeable": "Can be indexed by GBIF?",
     "numberOfLines": "Number of lines"
   },
   "terms": {
@@ -2560,36 +2260,32 @@
     "title": "participation",
     "heading": "The GBIF Network",
     "nonCountryParticipant": {
-      "one": "Participant organisation",
-      "other": "Participant organisations"
-    },
-    "gbifAffiliate": {
-      "one": "GBIF affiliate",
-      "other": "GBIF affiliates"
+      "one": "non-country participant",
+      "other": "non-country participants"
     }
   },
   "feedback": {
     "intro": {
       "title": "Feedback and questions",
-      "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
+      "example": "You can help us solve the issue by choosing a feedback type."
     },
-    "data content": {
+    "content": {
       "title": "Content",
-      "example": "Such as: That page contains a typo. That species doesn’t exist. That location seems suspect. The new URL for that organization is...",
+      "example": "E.g. that species don't exist. This taxonomy is so '90s",
       "annotate": "This publisher has a website for handling feedback. We recommend using that",
       "contactPerMail": "Get in touch with the dataset contact"
     },
     "bug": {
       "title": "Bug",
-      "example": "Such as: The search button doesn’t work. The page doesn’t load. I can’t read this because the columns overlap."
+      "example": "E.g. search button don't work. The content is displayed in the wrong way. The Gopher site doesn't respond."
     },
     "idea": {
       "title": "Idea",
-      "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
+      "example": "E.g. I want GBIF for my smart watch."
     },
     "question": {
       "title": "Helpdesk",
-      "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
+      "example": "E.g. how to download data? And what is GBIFs take on animals privacy?",
       "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
       "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
     },
@@ -2606,15 +2302,15 @@
     "placeholders": {
       "summary": "Summary",
       "description": "Detailed description",
-      "username": "Your email or Github username (public)"
+      "username": "Your email or Github username (optional)"
     },
     "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
     "bugReport": "bug",
     "issueTracking": "All issues are visible to the public at {Github}",
-    "failure": "This isn’t good — the feedback system doesn’t work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
+    "failure": "This isn't good - the feedback system doesn't work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
     "commentsNone": "No comments",
-    "commentSingular": "{commentCount} comment",
-    "commentPlural": "{commentCount} comments"
+    "commentSingular": "{{commentCount}} comment",
+    "commentPlural": "{{commentCount}} comments"
   },
   "installationType": {
     "IPT_INSTALLATION": "IPT installation",
@@ -2643,12 +2339,12 @@
     "month": "month",
     "catalogNumber": "catalog number",
     "year": "year",
-    "country": "country or area",
+    "country": "country",
     "taxonKey": "scientific name",
     "elevation": "elevation",
     "collectionCode": "collection code",
     "recordNumber": "record number",
-    "datasetKey": "dataset",
+    "datasetKey": "dataset key",
     "protocol": "protocol",
     "mediaType": "media type",
     "recordedBy": "recorded by",
@@ -2660,7 +2356,7 @@
     "lastInterpreted": "last interpreted",
     "waterBody": "water body",
     "stateProvince": "state province",
-    "publishingCountry": "publishing country or area",
+    "publishingCountry": "publishing country",
     "institutionCode": "institution code",
     "license": "license",
     "organismId": "organism id",
@@ -2669,90 +2365,56 @@
     "hasCoordinate": "has coordinate",
     "repatriated": "repatriated",
     "typeStatus": "type status",
-    "geometry": "geometry",
-    "decimalLatitude": "decimal latitude",
-    "decimalLongitude": "decimal longitude",
-    "publishingOrg": "publisher",
-    "kingdomKey": "kingdom",
-    "phylumKey": "phylum",
-    "classKey": "class",
-    "orderKey": "order",
-    "familyKey": "family",
-    "genusKey": "genus",
-    "speciesKey": "species"
+    "geometry": "geometry"
   },
   "enums": {
     "cms": {
       "vocabularyTypes": {
-        "countriesOfCoverage": "country or area of coverage",
-        "countriesOfResearcher": "country or area of researcher",
+        "countriesOfCoverage": "countries of coverage",
+        "countriesOfResearcher": "countries of researcher",
         "literatureType": "literature type",
-        "contractCountry": "Country or area",
-        "topics": "topic",
-        "purposes": "purpose",
-        "relevance": "relevance",
+        "topics": "topics",
         "language": "language"
       },
       "vocabularyTerms": {
-        "relevance": {
-          "GBIF_USED": "GBIF used",
-          "GBIF_CITED": "GBIF cited",
-          "GBIF_DISCUSSED": "GBIF discussed",
-          "GBIF_PRIMARY": "GBIF primary",
-          "GBIF_ACKNOWLEDGED": "GBIF acknowledged",
-          "GBIF_PUBLISHED": "GBIF published",
-          "GBIF_AUTHOR": "GBIF author",
-          "GBIF_MENTIONED": "GBIF mentioned",
-          "GBIF_FUNDED": "GBIF funded"
-        },
-        "topics": {
-          "AGRICULTURE": "Agriculture",
-          "BIODIVERSITY_SCIENCE": "Biodiversity science",
-          "BIOGEOGRAPHY": "Biogeography",
-          "CITIZEN_SCIENCE": "Citizen science",
-          "CLIMATE_CHANGE": "Climate change",
-          "CONSERVATION": "Conservation",
-          "DATA_MANAGEMENT": "Data management",
-          "DATA_PAPER": "Data paper",
-          "ECOLOGY": "Ecology",
-          "ECOSYSTEM_SERVICES": "Ecosystem services",
-          "EVOLUTION": "Evolution",
-          "FRESHWATER": "Freshwater",
-          "HUMAN_HEALTH": "Human health",
-          "INVASIVES": "Invasives",
-          "MARINE": "Marine",
-          "PHYLOGENETICS": "Phylogenetics",
-          "SPECIES_DISTRIBUTIONS": "Species distributions",
-          "TAXONOMY": "Taxonomy"
-        },
-        "purposes": {
-          "CAPACITY_ENHANCEMENT": "Capacity enhancement",
-          "DATA_ACCESS": "Data access",
-          "DATA_ANALYSIS": "Data analysis",
-          "DATA_CURATION_&_QUALITY": "Data curation & quality",
-          "DATA_DIGITIZATION": "Data digitization",
-          "DATA_PUBLISHING": "Data publishing"
-        },
-        "literatureType": {
-          "book": "book",
-          "book_section": "book section",
-          "conference_proceedings": "conference proceedings",
-          "generic": "generic",
-          "journal": "journal",
-          "magazine_article": "magazine article",
-          "report": "report",
-          "thesis": "thesis",
-          "web_page": "web page",
-          "working_paper": "working paper"
-        },
-        "audience": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
-          "DATA_HOLDERS": "Data holders",
-          "DATA_USERS": "Data users",
-          "DECISION_MAKERS": "Decision makers",
-          "GBIF_NETWORK": "GBIF network",
-          "PUBLIC_STAKEHOLDERS": "Public stakeholders"
-        }
+        "Evolution": "evolution",
+        "Climate change": "Climate change",
+        "Invasives": "Invasives",
+        "Conservation": "Conservation",
+        "Biodiversity science": "Biodiversity science",
+        "Species distributions": "Species distributions",
+        "Human health": "Human health",
+        "Agriculture": "Agriculture",
+        "Biogeography": "Biogeography",
+        "Marine": "Marine",
+        "literature": "literature",
+        "event": "event",
+        "dataUse": "dataUse",
+        "news": "news",
+        "tool": "tool",
+        "project": "project",
+        "programme": "programme",
+        "Ecology": "Ecology",
+        "Freshwater": "Freshwater",
+        "Data management": "Data management",
+        "Taxonomy": "Taxonomy",
+        "Ecosystem services": "Ecosystem services",
+        "Data paper": "Data paper",
+        "Phylogenetics": "Phylogenetics",
+        "journal": "journal",
+        "conference_proceedings": "conference_proceedings",
+        "book_section": "book_section",
+        "report": "report",
+        "thesis": "thesis",
+        "book": "book",
+        "working_paper": "working_paper",
+        "generic": "generic",
+        "web_page": "web_page",
+        "magazine_article": "magazine_article",
+        "eng": "eng",
+        "spa": "spa",
+        "participant": "participant",
+        "call": "call"
       }
     }
   },
@@ -2973,6 +2635,13 @@
       "downloadPDF": "Download PDF document",
       "downloadPNG": "Download JPEG image",
       "downloadXLS": "Download XLS"
+    }
+  },
+  "installation": {
+    "type": {
+      "IPT_INSTALLATION": "IPT",
+      "HTTP_INSTALLATION": "HTTP",
+      "BIOCASE_INSTALLATION": "BIOCASE"
     }
   }
 }
