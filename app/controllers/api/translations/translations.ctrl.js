@@ -4,8 +4,11 @@
  */
 let express = require('express'),
     router = express.Router(),
-    en = require('../../../../locales/server/en.json'),
-    da = require('../../../../locales/server/da.json');
+    locales = require('../../../../config/config').locales;
+let translations = {};
+locales.forEach(function(locale) {
+    translations[locale] = require(`../../../../locales/_build/${locale}.json`);
+});
 
 module.exports = function(app) {
     app.use('/api', router);
@@ -13,11 +16,9 @@ module.exports = function(app) {
 
 router.get('/translation.json', function(req, res) {
     let lang = req.query.lang;
-    if (lang == 'en') {
-        res.json(en);
-    } else if (lang == 'da') {
-        res.json(da);
+    if (typeof translations[lang] !== 'undefined') {
+        res.json(translations[lang]);
     } else {
-        res.json(en);
+        res.json(translations.en);
     }
 });
