@@ -1,5 +1,5 @@
 # IDE and OS dependent
-.idea
+.vscode
 .DS_Store
 
 # Application specific
