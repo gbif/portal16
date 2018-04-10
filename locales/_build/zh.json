@@ -1,9 +1,9 @@
 {
   "search": {
-    "partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what is available at the moment.",
-    "placeholder": "søg",
+    "partialResultExplanation": "You’re seeing a partial search result. Sometimes our systems are very busy — instead of keeping you waiting we return what is available at the moment.",
+    "placeholder": "SEARCH IN CHINESE",
     "taxonSearchPlaceholder": "search species ... kingdom",
-    "datasetSearchPlaceholder": "søg efter datasæt"
+    "datasetSearchPlaceholder": "search datasets"
   },
   "basisOfRecord": {
     "PRESERVED_SPECIMEN": "preserved specimen",
@@ -89,7 +89,7 @@
   "occurrence": {
     "title": {
       "verb": {
-        "PRESERVED_SPECIMEN": "indsamlet",
+        "PRESERVED_SPECIMEN": "collected",
         "FOSSIL_SPECIMEN": "collected",
         "LIVING_SPECIMEN": "collected",
         "HUMAN_OBSERVATION": "observed",
@@ -109,7 +109,7 @@
   "occurrenceDownload": {
     "csvDescription": "Tab delimited CSV. Only contains the data after GBIF interpretation.",
     "dwcaDescription": "The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.",
-    "estimatedSize": "Estimated size",
+    "estimatedSize": "Estimated data size",
     "knownIssues": "Known issues",
     "knownIssuesDescription": "A part of the GBIF processing is to flag occurrences that have suspicious fields",
     "FossilsIncluded": "Fossils",
@@ -289,7 +289,7 @@
     "grn": "Guarani",
     "gsw": "Swiss German",
     "guj": "Gujarati",
-    "gwi": "Gwich'in",
+    "gwi": "Gwich’in",
     "hai": "Haida",
     "hat": "Haitian Creole",
     "hau": "Hausa",
@@ -437,13 +437,13 @@
     "nia": "Nias",
     "nic": "Niger-Kordofanian languages",
     "niu": "Niuean",
-    "nld": "Flemish",
+    "nld": "Dutch",
     "nno": "Nynorsk, Norwegian",
     "nob": "Norwegian Bokmål",
     "nog": "Nogai",
     "non": "Norse, Old",
     "nor": "Norwegian",
-    "nqo": "N'Ko",
+    "nqo": "N’Ko",
     "nso": "Sotho, Northern",
     "nub": "Nubian languages",
     "nwc": "Old Newari",
@@ -665,7 +665,7 @@
     "KH": "Cambodia",
     "CM": "Cameroon",
     "CA": "Canada",
-    "CV": "Cape Verde",
+    "CV": "Cabo Verde",
     "KY": "Cayman Islands",
     "CF": "Central African Republic",
     "TD": "Chad",
@@ -679,13 +679,13 @@
     "CD": "Congo, The Democratic Republic of the",
     "CK": "Cook Islands",
     "CR": "Costa Rica",
-    "CI": "Cote D'Ivoire",
+    "CI": "Côte d’Ivoire",
     "HR": "Croatia",
     "CU": "Cuba",
     "CW": "Curaçao",
     "CY": "Cyprus",
-    "CZ": "Czech Republic",
-    "DK": "Danmark",
+    "CZ": "Czechia",
+    "DK": "Denmark",
     "DJ": "Djibouti",
     "DM": "Dominica",
     "DO": "Dominican Republic",
@@ -742,12 +742,12 @@
     "KZ": "Kazakhstan",
     "KE": "Kenya",
     "KI": "Kiribati",
-    "KP": "Democratic People's Republic of Korea",
+    "KP": "Democratic People’s Republic of Korea",
     "KR": "Korea, Republic of",
     "XK": "Kosovo",
     "KW": "Kuwait",
     "KG": "Kyrgyzstan",
-    "LA": "Lao People's Democratic Republic",
+    "LA": "Lao People’s Democratic Republic",
     "LV": "Latvia",
     "LB": "Lebanon",
     "LS": "Lesotho",
@@ -796,7 +796,7 @@
     "OM": "Oman",
     "PK": "Pakistan",
     "PW": "Palau",
-    "PS": "Palestinian Territory, Occupied",
+    "PS": "Palestine, State of",
     "PA": "Panama",
     "PG": "Papua New Guinea",
     "PY": "Paraguay",
@@ -807,7 +807,7 @@
     "PT": "Portugal",
     "PR": "Puerto Rico",
     "QA": "Qatar",
-    "RE": "Reunion",
+    "RE": "Réunion",
     "RO": "Romania",
     "RU": "Russian Federation",
     "RW": "Rwanda",
@@ -974,7 +974,7 @@
     "isVersionOf": "is version of",
     "issued": "issued",
     "language": "language",
-    "license": "license",
+    "license": "Record license",
     "mediator": "mediator",
     "medium": "medium",
     "modified": "modified",
@@ -1148,7 +1148,7 @@
     "nomenclaturalStatus": "nomenclatural status",
     "taxonRemarks": "taxon remarks",
     "datasetKey": "dataset key",
-    "publishingCountry": "publishing country",
+    "publishingCountry": "publishing country or area",
     "lastInterpreted": "last interpreted",
     "elevation": "elevation",
     "elevationAccuracy": "elevation accuracy",
@@ -1176,7 +1176,7 @@
     "lastParsed": "last parsed",
     "lastCrawled": "last crawled",
     "associatedMedia": "associated media",
-    "country": "country",
+    "country": "country or area",
     "minimumElevationInMeters": "minimum elevation in metres",
     "maximumElevationInMeters": "maximum elevation in metres",
     "minimumDepthInMeters": "minimum depth in metres",
@@ -1268,8 +1268,7 @@
     "CULTIVAR": "cultivar",
     "STRAIN": "strain",
     "OTHER": "other",
-    "UNRANKED": "unranked",
-    "INFORMAL": "informal"
+    "UNRANKED": "unranked"
   },
   "taxon": {
     "rank": "rank",
@@ -1417,7 +1416,7 @@
     "infoAboutStorage": {
       "title": "We store all download files as long as possible",
       "paragraphA": "This page will always resolve, but the file itself might be removed in the future.",
-      "paragraphB": "But what does this mean? It means that storage space and funding isn't infinite. We strive to store all downloads forever, but prioritize downloads that have been cites."
+      "paragraphB": "But what does this mean? It means that storage space and funding isn’t infinite. We strive to store all downloads forever, but prioritize downloads that have been cited."
     },
     "status": {
       "PREPARING": "preparing",
@@ -1440,7 +1439,7 @@
   },
   "network": {
     "title": "network",
-    "participatingDatasets": "participating datasets"
+    "participatingDatasets": "{n} participating datasets"
   },
   "stdTerms": {
     "contactHelpdesk": "Contact helpdesk",
@@ -1497,7 +1496,7 @@
     "specimenType": "type",
     "species": "species",
     "infraspecies": "infraspecies",
-    "country": "country",
+    "country": "country or area",
     "installation": "installation",
     "occurrence": "occurrence",
     "catalogNr": "catalogue number",
@@ -1508,7 +1507,7 @@
     "search": "search",
     "occurrences": "occurrences",
     "datasets": "datasets",
-    "nMore": "%s more",
+    "nMore": "{n} more",
     "publishedBy": "published by",
     "publishers": "publishers",
     "dataPublishers": "data publishers",
@@ -1573,12 +1572,12 @@
     "FORMER": "former",
     "undefined": "unknown",
     "longForm": {
-      "VOTING": "A voting particpant",
-      "ASSOCIATE": "An associate participant",
-      "OBSERVER": "An observing participant",
-      "AFFILIATE": "An affiliate participant",
-      "FORMER": "A former participant",
-      "undefined": "unknown"
+      "VOTING": "Voting participant",
+      "ASSOCIATE": "Associate participant",
+      "OBSERVER": "Observing participant",
+      "AFFILIATE": "Affiliate participant",
+      "FORMER": "Former participant",
+      "undefined": "Unknown"
     },
     "description": {
       "VOTING": "A GBIF Voting participant from {REGION}",
@@ -1676,7 +1675,7 @@
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_AFRICA": "nodes regional representative deputy africa",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_ASIA": "nodes regional representative deputy asia",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_EUROPE": "nodes regional representative deputy europe",
-    "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA": "nodes regional representative deputy latin america",
+    "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA": "nodes regional representative deputy Latin America and the Caribbean",
     "NODES_REGIONAL_REPRESENTATIVE_EUROPE": "nodes regional representative europe",
     "NODES_REGIONAL_REPRESENTATIVE_NORTH_AMERICA": "nodes regional representative north america",
     "NODES_REGIONAL_REPRESENTATIVE_DEPUTY_NORTH_AMERICA": "nodes regional representative deputy north america",
@@ -1725,7 +1724,7 @@
       "type": "type",
       "publishingOrg": "publisher",
       "hostingOrg": "host",
-      "publishingCountry": "publishing country",
+      "publishingCountry": "publishing country or area",
       "projectId": "project"
     },
     "title": "title",
@@ -1748,59 +1747,7 @@
     "temporalCoverages": "temporal",
     "geographicCoverages": "geographic",
     "taxonomicCoverages": "taxonomic",
-    "additionalInfo": "additional info",
-    "submenu": {
-      "group": {
-        "introduction": {
-          "name": "introduction",
-          "chapters": {
-            "metrics": "metrics",
-            "map": "map",
-            "description": "description",
-            "purpose": "purpose"
-          }
-        },
-        "coverage": {
-          "name": "coverage",
-          "chapters": {
-            "temporalCoverages": "temporal",
-            "geographicCoverages": "geographic",
-            "taxonomicCoverages": "taxonomic"
-          }
-        },
-        "methodology": {
-          "name": "methodology",
-          "chapters": {
-            "studyExtent": "study extent",
-            "qualityControl": "quality control",
-            "sampling": "sampling",
-            "methodSteps": "method steps"
-          }
-        },
-        "project": {
-          "name": "project",
-          "chapters": {
-            "about": "about",
-            "funding": "funding"
-          }
-        },
-        "credit": {
-          "name": "credit",
-          "chapters": {
-            "contributions": "contributions",
-            "bibliography": "bibliography",
-            "citation": "citation"
-          }
-        },
-        "usage": {
-          "name": "usage",
-          "chapters": {
-            "usage metrics": "usage metrics",
-            "processing history": "processing history"
-          }
-        }
-      }
-    }
+    "additionalInfo": "additional info"
   },
   "countryPage": {
     "occurrencesAbout": "Occurrences about",
@@ -1867,11 +1814,10 @@
       "link": "link",
       "generic": "generic",
       "literature": "literature",
-      "about_region": "about the region",
-      "data_use": "data use"
+      "about_region": "about the region"
     },
     "literatureType": {
-      "journal": "journal",
+      "journal": "journal article",
       "book": "book",
       "generic": "generic",
       "book_section": "book section",
@@ -1914,7 +1860,7 @@
       "category_audience": "audience",
       "category_purpose": "purpose",
       "category_data_type": "data type",
-      "category_country": "country",
+      "category_country": "country or area",
       "category_literature_type": "literature type",
       "category_gbif_literature_annotation": "GBIF annotation",
       "category_literature_year": "literature year",
@@ -2032,9 +1978,7 @@
       "relatedResource": {
         "one": "related information",
         "other": "related documents and information"
-      },
-      "fundingAllocated": "Funding allocated",
-      "estCoFunding": "Est. co-funding"
+      }
     },
     "dataUse": {
       "resourceUsed": "Data resources used via GBIF"
@@ -2120,16 +2064,16 @@
       }
     },
     "year": {
-      "equals": "is from {from}",
-      "between": "between {from} and {to}",
-      "lessThanOrEquals": "before {to}",
-      "greaterThanOrEquals": "after {from}",
+      "equals": "is {from}",
+      "between": "between start of {from} and end of {to}",
+      "lessThanOrEquals": "before end of {to}",
+      "greaterThanOrEquals": "after start of {from}",
       "invalid": "invalid",
       "select": {
         "equals": "is",
         "between": "between",
-        "lessThanOrEquals": "before",
-        "greaterThanOrEquals": "after"
+        "lessThanOrEquals": "before end of",
+        "greaterThanOrEquals": "after start of"
       }
     }
   },
@@ -2183,44 +2127,7 @@
       "name": "Name",
       "participant": "Participant",
       "participationStatus": "Participant status"
-    },
-    "title": "Directory of Contacts",
-    "contact": "contact",
-    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
-    "voting_participant": {
-      "one": "Voting participant",
-      "other": "Voting participants"
-    },
-    "associate_country_participant": {
-      "one": "Associate country participant",
-      "other": "Associate country participants"
-    },
-    "other_associate_participant": {
-      "one": "Other associate participant",
-      "other": "Other associate participants"
-    },
-    "former_participant": {
-      "one": "Former participant",
-      "other": "Former participants"
-    },
-    "gbif_affiliate": "GBIF affiliate",
-    "observer": "Observer",
-    "others": "Other",
-    "participant": "participant",
-    "delegationMembers": "delegation members",
-    "role": "role",
-    "institution": "institution",
-    "executive_committee": "Executive committee",
-    "budget_committee": "Budget committee",
-    "science_committee": "Science committee",
-    "nodes_steering_group": "Nodes steering group",
-    "nodes_committee": "Nodes committee",
-    "gbif_secretariat": "GBIF Secretariat",
-    "staff_member": "Staff member",
-    "membershipType": "Membership",
-    "governingBoard": "Governing Board",
-    "committees": "Committees",
-    "name": "name"
+    }
   },
   "gbifNetwork": {
     "title": "Directory",
@@ -2295,7 +2202,7 @@
     "AFRICA": "Africa",
     "ASIA": "Asia",
     "EUROPE": "Europe",
-    "LATIN_AMERICA": "Latin America",
+    "LATIN_AMERICA": "Latin America and the Caribbean",
     "NORTH_AMERICA": "North America",
     "OCEANIA": "Oceania",
     "select_region": "Select a region"
@@ -2314,8 +2221,8 @@
         "taxon": "Taxonomic scope",
         "whyImportant": "why is this dataset important",
         "howWouldYouRateIt": "how would you rate its importance",
-        "high": "essential - GBIF have no data in this area",
-        "medium": "important - GBIF have little data in this area",
+        "high": "essential — GBIF have no data in this area",
+        "medium": "important — GBIF have little data in this area",
         "low": "it would be a nice supplement to the existing data",
         "bibliographicRef": "bibliographic reference",
         "type": "dataset type",
@@ -2370,7 +2277,7 @@
       "geojson": "GeoJSON",
       "range": "Range",
       "noFiltersAdded": "No area filters added",
-      "wktPlaceholder": "WKT or GeoJson - multipolygons are not supported",
+      "wktPlaceholder": "WKT or GeoJSON — multipolygons are not supported",
       "invalidTextInput": "Invalid WKT or GeoJSON",
       "tooLarge": "Geometry too large",
       "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
@@ -2389,8 +2296,8 @@
     "share": "Share",
     "dataPublishing": "Data publishing",
     "datasetClasses": "Dataset classes",
-    "publishingGuide": "Publishing guide",
-    "endorsement": "Endorsement",
+    "publishingGuide": "Publishing data",
+    "endorsement": "Become a publisher",
     "standards": "Standards",
     "dataPapers": "Data papers",
     "citizenScience": "Citizen science",
@@ -2404,7 +2311,7 @@
     "rgbif": "rgbif",
     "livingAtlases": "Living Atlases",
     "maxent": "MAXENT",
-    "gbifSoftware": "GBIF applications",
+    "gbifSoftware": "Data processing",
     "gbifLabs": "GBIF Labs",
     "observationTrends": "Relative observation trends",
     "developerBlog": "Developers blog",
@@ -2418,8 +2325,8 @@
     "becomeMember": "Become a member",
     "communitySite": "Community site",
     "strategicPlan": " Strategic plan",
-    "contactUs": "Contact us",
-    "information": "News & communications",
+    "contactUs": "Contacts",
+    "information": "News & Outreach",
     "news": "News",
     "literature": "Literature",
     "newsletters": "Newsletters and lists",
@@ -2431,11 +2338,7 @@
     "bidProgramme": "BID: Biodiversity Information for Development",
     "bifaProgramme": "BIFA: Biodiversity Information Fund for Asia",
     "funders": "Funders",
-    "governance": "Governance",
-    "darwinCore": "Darwin Core",
-    "digitizingCollections": "Digitizing collections",
-    "collectionManagement": "Collection management",
-    "contactDirectory": "Directory of contacts"
+    "governance": "Governance"
   },
   "nameParser": {
     "loadTestNames": "Load Test Names",
@@ -2617,24 +2520,33 @@
     },
     "backToValidator": "Start a new validation",
     "termsFrequency": {
-      "title": "Terms Frequency",
+      "title": "Term Frequency",
       "term": "Term",
       "count": "Count",
       "percentage": "Percentage",
       "interpreted": "Interpreted"
     },
     "interpretedCounts": {
-      "date": "Number of interpreted date",
-      "taxon": "Number of interpreted taxon",
+      "date": "Number of interpreted dates",
+      "taxon": "Number of rows with interpreted taxon",
       "location": "Number of interpreted coordinates"
     },
     "interpretedValueCounts": {
       "title": "Interpreted value counts"
     },
-    "status": "Status",
+    "status": {
+      "title": "Status",
+      "SUBMITTED": "Sending file",
+      "FETCHING": "Fetching file",
+      "ACCEPTED": "Validation started",
+      "RUNNING": "Validation in progress",
+      "FINISHED": "Validation completed",
+      "FAILED": "Validation failed. Please check the file type, or if you submitted a url, please check that the file exists on the location.",
+      "CONTACTING_SERVER": "Contacting server..."
+    },
     "jobId": "Job id",
     "unknown": "unknown",
-    "indexeable": "Can be indexed by GBIF?",
+    "indexeable": "The file can be indexed by GBIF",
     "notIndexeable": "The file cannot be indexed by GBIF",
     "numberOfLines": "Number of lines"
   },
@@ -2648,8 +2560,8 @@
     "title": "participation",
     "heading": "The GBIF Network",
     "nonCountryParticipant": {
-      "one": "non-country participant",
-      "other": "non-country participants"
+      "one": "Participant organisation",
+      "other": "Participant organisations"
     },
     "gbifAffiliate": {
       "one": "GBIF affiliate",
@@ -2659,7 +2571,7 @@
   "feedback": {
     "intro": {
       "title": "Feedback and questions",
-      "example": "You can help us solve the issue by choosing a feedback type."
+      "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
     },
     "data content": {
       "title": "Content",
@@ -2669,15 +2581,15 @@
     },
     "bug": {
       "title": "Bug",
-      "example": "E.g. search button don't work. The content is displayed in the wrong way. The Gopher site doesn't respond."
+      "example": "Such as: The search button doesn’t work. The page doesn’t load. I can’t read this because the columns overlap."
     },
     "idea": {
       "title": "Idea",
-      "example": "E.g. I want GBIF for my smart watch."
+      "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
     },
     "question": {
       "title": "Helpdesk",
-      "example": "E.g. how to download data? And what is GBIFs take on animals privacy?",
+      "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
       "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
       "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
     },
@@ -2694,21 +2606,15 @@
     "placeholders": {
       "summary": "Summary",
       "description": "Detailed description",
-      "username": "Your email or Github username (optional)"
+      "username": "Your email or Github username (public)"
     },
     "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
     "bugReport": "bug",
     "issueTracking": "All issues are visible to the public at {Github}",
-    "failure": "This isn't good - the feedback system doesn't work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
+    "failure": "This isn’t good — the feedback system doesn’t work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
     "commentsNone": "No comments",
-    "commentSingular": "{{commentCount}} comment",
-    "commentPlural": "{{commentCount}} comments",
-    "content": {
-      "title": "Content",
-      "example": "E.g. that species don't exist. This taxonomy is so '90s",
-      "annotate": "This publisher has a website for handling feedback. We recommend using that",
-      "contactPerMail": "Get in touch with the dataset contact"
-    }
+    "commentSingular": "{commentCount} comment",
+    "commentPlural": "{commentCount} comments"
   },
   "installationType": {
     "IPT_INSTALLATION": "IPT installation",
@@ -2737,12 +2643,12 @@
     "month": "month",
     "catalogNumber": "catalog number",
     "year": "year",
-    "country": "country",
+    "country": "country or area",
     "taxonKey": "scientific name",
     "elevation": "elevation",
     "collectionCode": "collection code",
     "recordNumber": "record number",
-    "datasetKey": "dataset key",
+    "datasetKey": "dataset",
     "protocol": "protocol",
     "mediaType": "media type",
     "recordedBy": "recorded by",
@@ -2754,7 +2660,7 @@
     "lastInterpreted": "last interpreted",
     "waterBody": "water body",
     "stateProvince": "state province",
-    "publishingCountry": "publishing country",
+    "publishingCountry": "publishing country or area",
     "institutionCode": "institution code",
     "license": "license",
     "organismId": "organism id",
@@ -2778,11 +2684,11 @@
   "enums": {
     "cms": {
       "vocabularyTypes": {
-        "countriesOfCoverage": "countries of coverage",
-        "countriesOfResearcher": "countries of researcher",
+        "countriesOfCoverage": "country or area of coverage",
+        "countriesOfResearcher": "country or area of researcher",
         "literatureType": "literature type",
         "contractCountry": "Country or area",
-        "topics": "topics",
+        "topics": "topic",
         "purposes": "purpose",
         "relevance": "relevance",
         "language": "language"
@@ -2846,45 +2752,7 @@
           "DECISION_MAKERS": "Decision makers",
           "GBIF_NETWORK": "GBIF network",
           "PUBLIC_STAKEHOLDERS": "Public stakeholders"
-        },
-        "Evolution": "evolution",
-        "Climate change": "Climate change",
-        "Invasives": "Invasives",
-        "Conservation": "Conservation",
-        "Biodiversity science": "Biodiversity science",
-        "Species distributions": "Species distributions",
-        "Human health": "Human health",
-        "Agriculture": "Agriculture",
-        "Biogeography": "Biogeography",
-        "Marine": "Marine",
-        "literature": "literature",
-        "event": "event",
-        "dataUse": "dataUse",
-        "news": "news",
-        "tool": "tool",
-        "project": "project",
-        "programme": "programme",
-        "Ecology": "Ecology",
-        "Freshwater": "Freshwater",
-        "Data management": "Data management",
-        "Taxonomy": "Taxonomy",
-        "Ecosystem services": "Ecosystem services",
-        "Data paper": "Data paper",
-        "Phylogenetics": "Phylogenetics",
-        "journal": "journal",
-        "conference_proceedings": "conference_proceedings",
-        "book_section": "book_section",
-        "report": "report",
-        "thesis": "thesis",
-        "book": "book",
-        "working_paper": "working_paper",
-        "generic": "generic",
-        "web_page": "web_page",
-        "magazine_article": "magazine_article",
-        "eng": "eng",
-        "spa": "spa",
-        "participant": "participant",
-        "call": "call"
+        }
       }
     }
   },
@@ -3105,13 +2973,6 @@
       "downloadPDF": "Download PDF document",
       "downloadPNG": "Download JPEG image",
       "downloadXLS": "Download XLS"
-    }
-  },
-  "installation": {
-    "type": {
-      "IPT_INSTALLATION": "IPT",
-      "HTTP_INSTALLATION": "HTTP",
-      "BIOCASE_INSTALLATION": "BIOCASE"
     }
   }
 }
