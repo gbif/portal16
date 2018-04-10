@@ -43,7 +43,7 @@ let path = require('path'),
         'en': 'en-GB',
         'es': 'es',
         'ar': 'ar',
-        'zh': 'zh',
+        'zh_CN': 'zh',
         'fr': 'fr',
         'ru': 'ru',
         'pt': 'pt'
