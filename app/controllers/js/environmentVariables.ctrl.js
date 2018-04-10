@@ -12,7 +12,8 @@ let environment = {
     analyticsImg: config.analyticsImg,
     imageCache: config.dataApi + 'image/unsafe/',
     mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json',
-    domain: config.domain
+    domain: config.domain,
+    locales: config.locales
 };
 
 let constantKeys = config.publicConstantKeys;
