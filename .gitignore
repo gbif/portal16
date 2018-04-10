@@ -15,4 +15,5 @@ app/views/shared/layout/html/angular/constants.json
 app/views/shared/layout/html/angular/gitCommit.json
 app/views/shared/style/bootstrap/.build/
 config/revision.json
+locales/_build/
 npm-debug.log
