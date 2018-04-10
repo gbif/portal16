@@ -3,6 +3,8 @@
 var angular = require('angular'),
     _ = require('lodash');
 
+require('../languageMenu/languageMenu.directive');
+
 angular
     .module('portal')
     .controller('navCtrl', navCtrl);
@@ -15,7 +17,8 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
         NAV_EVENTS.toggleSearch,
         NAV_EVENTS.toggleFeedback,
         NAV_EVENTS.toggleNotifications,
-        NAV_EVENTS.toggleUserMenu
+        NAV_EVENTS.toggleUserMenu,
+        NAV_EVENTS.toggleLanguage
     ];
 
     vm.hasRole = function(roles) {
@@ -63,6 +66,10 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
 
     vm.toggleSearch = function() {
         vm.openMenu(NAV_EVENTS.toggleSearch);
+    };
+
+    vm.toggleLanguage = function() {
+        vm.openMenu(NAV_EVENTS.toggleLanguage);
     };
 
     vm.toggleUserMenu = function() {
