@@ -1,6 +1,7 @@
 // Styles useful when developing
 $develop_vertical_rythm ?= false
 $develop_pink ?= false
+$develop_translation ?= false
 
 if ($develop_vertical_rythm)
     body
@@ -31,3 +32,11 @@ if ($develop_pink)
             box-shadow inset 0 0 1px red
 
 // Border change layout. Shadows do not
+
+if ($develop_translation)
+    a[href^="/"], a[href^="https://www.gbif.org"], a[href^="http://www.gbif.org"], a[href^="https://www.gbif-uat.org"], a[href^="https://www.gbif-dev.org"] {
+        background-color red!important
+    }
+    a[href^="/de-CH"] {
+        background-color inherit!important
+    }
