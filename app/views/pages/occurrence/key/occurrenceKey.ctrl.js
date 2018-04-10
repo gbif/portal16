@@ -9,7 +9,7 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, DatasetProcessSummary) {
+function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary) {
     var vm = this;
     var globe;
     var globeCanvas;
@@ -36,6 +36,7 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
         }
     };
 
+    
 
 
     vm.markerMessage = {
@@ -74,7 +75,7 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Dataset
     });
 
     vm.data = occurrence;
-
+    vm.vernacularName = SpeciesVernacularName.get({id: vm.data.taxonKey});
     vm.center = {
         point: [vm.data.decimalLongitude, vm.data.decimalLatitude]
     };

@@ -16,7 +16,12 @@
 
 
 </h1>
-<div class="h4 article-header__sub">
+
+<div class="h4 article-header__highlights">
+    <div ng-if="occurrenceKey.vernacularName.$resolved && occurrenceKey.vernacularName.vernacularName">
+                            <span class="vernacular">{{ occurrenceKey.vernacularName.vernacularName }}</span>
+                            <span class="discreet--very">in <span translate="language.{{ occurrenceKey.vernacularName.language }}"></span></span>
+                        </div>
     {% if occurrence.record.individualCount > 1 %}
         <span class="badge">{$ occurrence.record.individualCount $}</span>
     {% endif %}
