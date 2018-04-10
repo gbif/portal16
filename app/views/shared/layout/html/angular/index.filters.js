@@ -101,8 +101,9 @@
                 }
             };
         })
-        .filter('localNumber', function() {
+        .filter('localNumber', function(LOCALE_2_LETTER) {
             return function(num, lang) {
+                lang = lang || LOCALE_2_LETTER;
                 if (_.isNil(num)) return '';
                 return num.toLocaleString(lang);
             };
@@ -159,8 +160,9 @@
                 return $httpParamSerializer(query);
             };
         })
-        .filter('formatBytes', function() {
+        .filter('formatBytes', function(LOCALE_2_LETTER) {
             return function(bytes, decimals, language) {
+                language = language || LOCALE_2_LETTER;
                 if (bytes == 0) return '0 Bytes';
                 if (bytes == 1) return '1 Byte';
                 var k = 1000;

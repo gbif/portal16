@@ -3,7 +3,7 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .directive('count', function($http, $filter, $q) {
+    .directive('count', function($http, $filter, $q, LOCALE_2_LETTER) {
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {
@@ -26,7 +26,7 @@ angular
                 });
 
                 promise.then(function(response) {
-                    var number = $filter('localNumber')(response.data.count, gb.locale);
+                    var number = $filter('localNumber')(response.data.count, LOCALE_2_LETTER);
                     element.html(number);
                     element.addClass('loaded');
                 }).catch(function() {

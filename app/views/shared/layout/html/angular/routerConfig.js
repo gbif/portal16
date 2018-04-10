@@ -9,11 +9,11 @@ angular
 
 // The annotation is necessary to work with minification and ngAnnotate when using as a commonjs Module - http://chrisdoingweb.com/blog/minifying-browserified-angular-modules/
 /** @ngInject */
-function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
+function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) {
     // TODO We need a way to handle routes when refreshing. Server needs to know about these routes.
     $stateProvider
         .state('localization', { // http://stackoverflow.com/questions/32357615/option-url-path-ui-router
-            url: '/{locale:(?:en|da|es)}?qid',
+            url: '/{locale:(?:' + LOCALE + ')}?qid',
             abstract: true,
             template: '<div ui-view="main" class="viewContentWrapper"></div>',
             params: {locale: {squash: true, value: 'en'}}
