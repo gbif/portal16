@@ -179,7 +179,9 @@
     "xml2js": "^0.4.19",
     "yargs": "^6.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "pseudoloc": "^1.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gbif/portal16"
