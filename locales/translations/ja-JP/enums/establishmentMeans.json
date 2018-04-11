@@ -1,0 +1,10 @@
+{
+    "establishmentMeans": {
+        "NATIVE": "native",
+        "INTRODUCED": "introduced",
+        "NATURALISED": "naturalized",
+        "INVASIVE": "invasive",
+        "MANAGED": "managed",
+        "UNCERTAIN": "uncertain"
+    }
+}

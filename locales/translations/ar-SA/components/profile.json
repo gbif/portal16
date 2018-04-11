@@ -1,0 +1,25 @@
+{
+    "profile": {
+        "connect": {
+            "failed": {
+                "FACEBOOK": "Unable to connect to Facebook",
+                "GITHUB": "Unable to connect to Github"
+            }
+        },
+        "login": {
+            "failed": {
+                "FACEBOOK": "Unable to login with Facebook",
+                "GITHUB": "Unable to login with Github"
+            }
+        },
+        "error": {
+            "USERNAME_NOT_UNIQUE": "This user name is already in use",
+            "LOGIN_UNKNOWN": "This login isn't associated with any accounts - if you already have an account, then login with username/email and password. Or you can register a new account.",
+            "PROVIDER_ACCOUNT_ALREADY_IN_USE": "This profile is already connected to another account",
+            "USER_ALREADY_LOGGED_IN": "You are already logged in",
+            "EMAIL_IN_USE": "The email is already in use",
+            "NO_EMAIL_PROVIDED": "No email proivded",
+            "FAILED": "Server failed to process request"
+        }
+    }
+}
