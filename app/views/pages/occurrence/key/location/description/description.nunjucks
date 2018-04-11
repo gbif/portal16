@@ -1,7 +1,7 @@
-<section class="horizontal-stripe bare-background occurrenceKey__locationDescription" ng-if="occurrenceKey.hideMap === true" ng-cloak >
+<section class="horizontal-stripe bare-background occurrenceKey__locationDescription" ng-if="occurrenceKey.hideMap">
     <div class="container--normal">
         <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-8 col-md-8">
                 <h3 class="m-t-0">{$ __('ocurrenceFieldNames.coordinatesMissing') $}</h3>
 
                 {% if occurrence.record.continent | isNotEmpty or occurrence.record.country | isNotEmpty %}
@@ -83,6 +83,9 @@
                     </dl>
                     </p>
                 {% endif %}
+            </div>
+            <div class="col-xs-4 col-md-4">
+            <country-shape-map country-code="occurrenceKey.data.countryCode"></country-shape-map>
             </div>
         </div>
     </div>

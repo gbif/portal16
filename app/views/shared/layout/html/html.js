@@ -360,6 +360,7 @@ require('../../../pages/species/search/list/speciesList.ctrl');
 
 // require('../../../components/map/basic/gbmap.directive');
 require('../../../components/map/mapWidget/mapWidget.directive');// TODO decide on a map
+require('../../../components/map/countryShapeMap/countryShapeMap.directive');
 require('../../../components/suggest/suggest.directive');
 require('../../../components/expand/expand.directive');
 require('../../../components/shorten/shorten.directive');
