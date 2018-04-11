@@ -6,29 +6,6 @@
       "INFERED": "Inferred"
     }
   },
-  "taxon": {
-    "rank": "rank",
-    "dataset": "dataset",
-    "constituentDataset": "constituent dataset",
-    "higherTaxon": "higher taxon",
-    "issue": "issue",
-    "status": "status",
-    "nameType": "name type",
-    "origin": "origin",
-    "noOccurencesInGbif": "No occurrences in GBIF",
-    "viewInGbifBackbone": "View in GBIF backbone",
-    "publisherRecord": "Publisher record",
-    "extensionEnum" : {
-      "DESCRIPTION": "Description",
-      "DISTRIBUTION": "Distribution",
-      "IDENTIFIER": "Identifier",
-      "MULTIMEDIA": "Multimedia",
-      "REFERENCE": "Reference",
-      "SPECIES_PROFILE": "Species profile",
-      "TYPES_AND_SPECIMEN": "Types and specimen",
-      "VERNACULAR_NAME": "Vernacular name"
-    }
-  },
   "datasetMetrics": {
     "countByKingdom": "Count by kingdom",
     "countByRank" : "Count by rank",
@@ -86,10 +63,6 @@
       "not": "not",
       "isNotNull": "Is defined"
     }
-  },
-  "network": {
-    "title": "network",
-    "participatingDatasets": "{n} participating datasets"
   },
   "event": {
     "location": "Location",
@@ -690,23 +663,5 @@
     "largeFileUploadWarning": "Be aware that large files can take a long time to upload",
     "downloadDeletionWarning": "This download hasn't been cited and is eligible for deletion after {DATE}.",
     "gbifWillAttend": "Attended by GBIF Secretariat"
-  },
-  "species": {
-    "distribution": {
-      "presentIn": "Present in {country}",
-      "presentInNonCountry": "Present in {location}",
-      "threatStatus": {
-        "EXTINCT": "Extinct",
-        "EXTINCT_IN_THE_WILD": "Extinct in the Wild",
-        "CRITICALLY_ENDANGERED": "Critically Endangered",
-        "ENDANGERED": "Endangered",
-        "VULNERABLE": "Vulnerable",
-        "NEAR_THREATENED": "Near Threatened",
-        "LEAST_CONCERN": "Least Concern",
-        "DATA_DEFICIENT": "Data Deficient",
-        "NOT_EVALUATED": "Not Evaluated",
-        "threatStatus": "Threat status: {status}"
-      }
-    }
   }
 }

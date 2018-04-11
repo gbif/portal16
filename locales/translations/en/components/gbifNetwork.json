@@ -66,5 +66,9 @@
         "gbif_affiliate": "GBIF affiliate",
         "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
         "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
+    },
+    "network": {
+        "title": "network",
+        "participatingDatasets": "{n} participating datasets"
     }
 }

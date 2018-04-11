@@ -45,6 +45,7 @@ function builder(locale) {
         require(`./${locale}/components/gbifNetwork`),
         require(`./${locale}/components/terms`),
         require(`./${locale}/components/map`),
+        require(`./${locale}/components/species`),
         require(`./${locale}/components/profile`),
         require(`./${locale}/misc`)
     );
