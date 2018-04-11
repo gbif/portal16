@@ -1,8 +1,8 @@
 {
     "typeStatus": {
         "TYPE": "type",
-        "TYPE_SPECIES": "type species",
-        "TYPE_GENUS": "type genus",
+        "TYPE_SPECIES": "type art",
+        "TYPE_GENUS": "type slægt",
         "ALLOLECTOTYPE": "allolectotype",
         "ALLONEOTYPE": "alloneotype",
         "ALLOTYPE": "allotype",
