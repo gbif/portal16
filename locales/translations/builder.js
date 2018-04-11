@@ -47,6 +47,8 @@ function builder(locale) {
         require(`./${locale}/components/map`),
         require(`./${locale}/components/species`),
         require(`./${locale}/components/profile`),
+        require(`./${locale}/components/cms/cms`),
+        require(`./${locale}/components/downloads`),
         require(`./${locale}/misc`)
     );
 

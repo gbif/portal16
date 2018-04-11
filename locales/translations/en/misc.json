@@ -8,6 +8,7 @@
         "roles": "roles",
         "role": "role",
         "name": "name",
+        "about": "about",
         "participant": "participant",
         "since": "since",
         "memberSince": "Member since",
