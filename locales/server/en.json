@@ -242,26 +242,6 @@
     "date": "Date",
     "languageOfEvent": "Language of event"
   },
-  "continent": {
-    "NORTH_AMERICA": "North America",
-    "OCEANIA": "Oceania",
-    "EUROPE": "Europe",
-    "ANTARCTICA": "Antarctica",
-    "SOUTH_AMERICA": "South America",
-    "AFRICA": "Africa",
-    "ASIA": "Asia"
-  },
-  "taxonomicStatus": {
-    "ACCEPTED": "accepted",
-    "DOUBTFUL": "doubtful",
-    "SYNONYM": "synonym",
-    "HETEROTYPIC_SYNONYM": "heterotypic synonym",
-    "HOMOTYPIC_SYNONYM": "homotypic synonym",
-    "PROPARTE_SYNONYM": "proparte synonym",
-    "MISAPPLIED": "misapplied",
-    "INTERMEDIATE_RANK_SYNONYM": "intermediate rank synonym",
-    "DETERMINATION_SYNONYM": "determination synonym"
-  },
   "participationStatus": {
     "VOTING": "voting",
     "ASSOCIATE": "associate",
@@ -800,16 +780,6 @@
     "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
     "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
   },
-  "region": {
-    "GLOBAL": "Global",
-    "AFRICA": "Africa",
-    "ASIA": "Asia",
-    "EUROPE": "Europe",
-    "LATIN_AMERICA": "Latin America and the Caribbean",
-    "NORTH_AMERICA": "North America",
-    "OCEANIA": "Oceania",
-    "select_region": "Select a region"
-  },
   "tools": {
     "categoryTitle": "tools",
     "categoryFeatured": "featured",
@@ -910,54 +880,6 @@
       "other": "GBIF affiliates"
     }
   },
-  "feedback": {
-    "intro": {
-      "title": "Feedback and questions",
-      "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
-    },
-    "data content": {
-      "title": "Content",
-      "example": "Such as: That page contains a typo. That species doesn’t exist. That location seems suspect. The new URL for that organization is...",
-      "annotate": "This publisher has a website for handling feedback. We recommend using that",
-      "contactPerMail": "Get in touch with the dataset contact"
-    },
-    "bug": {
-      "title": "Bug",
-      "example": "Such as: The search button doesn’t work. The page doesn’t load. I can’t read this because the columns overlap."
-    },
-    "idea": {
-      "title": "Idea",
-      "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
-    },
-    "question": {
-      "title": "Helpdesk",
-      "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
-      "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
-      "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
-    },
-    "confirmation": {
-      "title": "Thank you",
-      "example": "",
-      "seeIssue": "See issue"
-    },
-    "issues": {
-      "title": "Content issues",
-      "description": "Content issues reported by other users",
-      "create": "Leave feedback"
-    },
-    "placeholders": {
-      "summary": "Summary",
-      "description": "Detailed description",
-      "username": "Your email or Github username (public)"
-    },
-    "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
-    "bugReport": "bug",
-    "issueTracking": "All issues are visible to the public at {Github}",
-    "failure": "This isn’t good — the feedback system doesn’t work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
-    "commentsNone": "No comments",
-    "commentSingular": "{commentCount} comment",
-    "commentPlural": "{commentCount} comments"
-  },
   "enums": {
     "cms": {
       "vocabularyTypes": {
@@ -1043,29 +965,6 @@
     "USER_ALREADY_EXIST": "User already exists. Please try another username or email",
     "CONSTRAINT_VIOLATION": "Invalid or insufficient information provided"
   },
-  "profile": {
-    "connect": {
-      "failed": {
-        "FACEBOOK": "Unable to connect to Facebook",
-        "GITHUB": "Unable to connect to Github"
-      }
-    },
-    "login": {
-      "failed": {
-        "FACEBOOK": "Unable to login with Facebook",
-        "GITHUB": "Unable to login with Github"
-      }
-    },
-    "error": {
-      "USERNAME_NOT_UNIQUE": "This user name is already in use",
-      "LOGIN_UNKNOWN": "This login isn't associated with any accounts - if you already have an account, then login with username/email and password. Or you can register a new account.",
-      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "This profile is already connected to another account",
-      "USER_ALREADY_LOGGED_IN": "You are already logged in",
-      "EMAIL_IN_USE": "The email is already in use",
-      "NO_EMAIL_PROVIDED": "No email proivded",
-      "FAILED": "Server failed to process request"
-    }
-  },
   "cites": {
     "appendix": "Appendix"
   },
@@ -1104,127 +1003,6 @@
         "NOT_EVALUATED": "Not Evaluated",
         "threatStatus": "Threat status: {status}"
       }
-    }
-  },
-  "health": {
-    "statusSummary": {
-      "OPERATIONAL": "All systems operational",
-      "INFO": "All systems operational",
-      "WARNING": "We are experiencing unstable or slow systems",
-      "CRITICAL": "We are experiencing a partial outage"
-    },
-    "status": {
-      "OPERATIONAL": "Operational",
-      "WARNING": "Unstable",
-      "CRITICAL": "Not usable",
-      "INFO": "System update"
-    },
-    "components": {
-      "OCCURRENCE": {
-        "name": "Occurrence",
-        "tooltip": "E.g. searching and viewing occurrences."
-      },
-      "SPECIES": {
-        "name": "Species",
-        "tooltip": "E.g. Searching and viewing species, species suggestions"
-      },
-      "REGISTRY": {
-        "name": "Registry",
-        "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks."
-      },
-      "IDENTITY": {
-        "name": "Identity",
-        "tooltip": "For logging in and out, connecting accounts etc."
-      },
-      "MAPS": {
-        "name": "Maps",
-        "tooltip": "For displaying map images and getting info about a map."
-      },
-      "CONTENTFUL": {
-        "name": "Content mangement system (external system)",
-        "tooltip": "Dataset, publishers, installations, countries, participants and networks. "
-      },
-      "IMAGE_CACHE": {
-        "name": "Image cache",
-        "tooltip": "Responsible for most images on the website"
-      },
-      "GITHUB": {
-        "name": "Github (external system)",
-        "tooltip": "Feedback, datasets suggestions"
-      },
-      "CRAWLER": {
-        "name": "Ingestion",
-        "tooltip": "For updating datasets ﹣ new and old."
-      },
-      "RESOURCE_SEARCH": {
-        "name": "Resource search",
-        "tooltip": "E.g. for searching literature, news."
-      },
-      "CLUSTER": {
-        "name": "System load",
-        "tooltip": "The backend for handling downloads, ingestion and much more."
-      },
-      "DOWNLOAD": {
-        "name": "Downloads",
-        "tooltip": "For handling download jobs and sending users notifications"
-      }
-    },
-    "notifications": {
-      "WARNING": {
-        "title": "Services unstable",
-        "summary": "We are currently experiencing slow or unstable services."
-      },
-      "CRITICAL": {
-        "title": "Services unavailable",
-        "summary": "We are experiencing a partial outage"
-      }
-    }
-  },
-  "map": {
-    "predefined": {
-      "CLASSIC_HEX": "Classic hexagons",
-      "CLASSIC": "Classic points",
-      "STREETS": "Streets",
-      "GLACIER": "Glacier",
-      "CUSTOM": "Custom"
-    },
-    "basemap": {
-      "CLASSIC": "Magenta",
-      "LIGHT": "Light (no labels)",
-      "LIGHT_DETAILS": "Light",
-      "DARK": "Dark (no labels)",
-      "DARK_DETAILS": "Dark",
-      "OSM": "Roads"
-    },
-    "bin": {
-      "PIXEL": "Points",
-      "SMALL_HEX": "Small hexagons",
-      "LARGE_HEX": "Hexagons",
-      "SMALL_SQUARE": "Small squares",
-      "LARGE_SQUARE": "Squares"
-    },
-    "colors": {
-      "CLASSIC": "Classic",
-      "FIRE": "Fire",
-      "GLACIER": "Glacier",
-      "PURPLE_YELLOW": "Purple yellow",
-      "PURPLE_HEAT": "Purple heat",
-      "BLUE_HEAT": "Blue heat",
-      "ORANGE_HEAT": "Orange heat",
-      "GREEN": "Green",
-      "BLUE_CLUSTER": "Blue cluster",
-      "ORANGE_CLUSTER": "Orange cluster"
-    },
-    "errors": {
-      "413" : "The geometry file is too large to be processed by the data API."
-    },
-    "Highcharts": {
-      "contextButtonTitle" : "Chart context menu",
-      "downloadCSV" : "Download CSV",
-      "downloadJPEG" : "Download JPEG image",
-      "downloadPDF" : "Download PDF document",
-      "downloadPNG": "Download JPEG image",
-      "downloadXLS": "Download XLS"
     }
   }
 }
