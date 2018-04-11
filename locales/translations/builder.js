@@ -9,6 +9,7 @@ function builder(locale) {
     let translations = _.merge(
         {},
         require(`./${locale}/enums/basisOfRecord`),
+        require(`./${locale}/enums/cms`),
         require(`./${locale}/enums/continent`),
         require(`./${locale}/enums/country`),
         require(`./${locale}/enums/endpointType`),
@@ -39,6 +40,7 @@ function builder(locale) {
         require(`./${locale}/components/health`),
         require(`./${locale}/components/map`),
         require(`./${locale}/components/profile`),
+        require(`./${locale}/misc`),
         require(`../server/${locale}`)
     );
 
