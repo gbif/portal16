@@ -1,0 +1,6 @@
+{
+    "downloadFormat": {
+        "SIMPLE_CSV": "CSV",
+        "DWCA": "Darwin Core Archive"
+    }
+}
