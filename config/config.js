@@ -40,7 +40,7 @@ let path = require('path'),
     apidocs = 'https://gbif.github.io/gbif-api/apidocs/org/gbif/api',
     // locales = ['en' , 'es', 'da', 'en-IN', 'zh-Hant-TW'],
     // locales = ['en', 'zh-hant', 'da', 'de-CH'],
-    locales = ['en', 'zh-hant', 'da'],
+    locales = ['en', 'de-CH'],
     contentfulLocaleMap = {
         'en': 'en-GB',
         'es': 'es',

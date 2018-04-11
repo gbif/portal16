@@ -1,48 +1,4 @@
 {
-  "search": {
-    "partialResultExplanation": "You’re seeing a partial search result. Sometimes our systems are very busy — instead of keeping you waiting we return what is available at the moment.",
-    "placeholder": "search",
-    "taxonSearchPlaceholder": "search species ... kingdom",
-    "datasetSearchPlaceholder": "search datasets"
-  },
-  "occurrence": {
-    "title": {
-      "verb": {
-        "PRESERVED_SPECIMEN": "collected",
-        "FOSSIL_SPECIMEN": "collected",
-        "LIVING_SPECIMEN": "collected",
-        "HUMAN_OBSERVATION": "observed",
-        "MACHINE_OBSERVATION": "observed",
-        "MATERIAL_SAMPLE": "collected",
-        "OCCURRENCE": "recorded",
-        "OBSERVATION": "observed",
-        "LITERATURE": "recorded",
-        "UNKNOWN": "recorded"
-      },
-      "inCountry": "in %s",
-      "unknownLocation": "at unknown location",
-      "unknownSpecies": "Unknown Species"
-    },
-    "occurrence": "Occurrence"
-  },
-  "occurrenceDownload": {
-    "csvDescription": "Tab delimited CSV. Only contains the data after GBIF interpretation.",
-    "dwcaDescription": "The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.",
-    "estimatedSize": "Estimated data size",
-    "knownIssues": "Known issues",
-    "knownIssuesDescription": "A part of the GBIF processing is to flag occurrences that have suspicious fields",
-    "FossilsIncluded": "Fossils",
-    "FossilsIncludedDescription": "There are fossils among your results. That can mean species occurrences at unexpected locations",
-    "livingSpecimensIncluded": "Living specimens",
-    "livingSpecimensIncludedDescription": "Your search includes living specimens such as occurrences in botanical and zoological gardens.",
-    "loaderText": "Please hang on while we analyze your download",
-    "authorizationFailed": "Auth failed"
-  },
-  "date": {
-    "synced": "synced",
-    "modified": "modified",
-    "unknown": "unknown date"
-  },
   "interpretationRemarks": {
     "comments": {
       "EXCLUDED": "Excluded",
@@ -80,10 +36,6 @@
     "countExtRecordsByExtension" : "Count extensions by extension type",
     "countByOrigin" : "Count by origin",
     "countByIssue" : "Count issues by issue type"
-  },
-  "downloadFormat": {
-    "SIMPLE_CSV": "CSV",
-    "DWCA": "Darwin Core Archive"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": {
@@ -613,75 +565,6 @@
       "participationStatus": "Participant status"
     }
   },
-  "gbifNetwork": {
-    "title": "Directory",
-    "contact": "contact",
-    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
-    "voting_participant": {
-      "one": "Voting participant",
-      "other": "Voting participants"
-    },
-    "associate_country_participant": {
-      "one": "Associate country participant",
-      "other": "Associate country participants"
-    },
-    "other_associate_participant": {
-      "one": "Other associate participant",
-      "other": "Other associate participants"
-    },
-    "former_participant": {
-      "one": "Former participant",
-      "other": "Former participants"
-    },
-    "gbif_affiliate": {
-      "one": "GBIF affiliate",
-      "other": "GBIF affiliates"
-    },
-    "observer": "Observer",
-    "others": "Other",
-    "participant": "participant",
-    "delegationMembers": "delegation members",
-    "role": "role",
-    "institution": "institution",
-    "group": {
-    },
-    "executive_committee": "Executive committee",
-    "budget_committee": "Budget committee",
-    "science_committee": "Science committee",
-    "nodes_steering_group": "Nodes Steering Group",
-    "nodes_committee": "Nodes committee",
-    "gbif_secretariat": "GBIF Secretariat",
-    "staff_member": "Staff member",
-    "membershipType": "Membership",
-    "governingBoard": "Governing Board",
-    "committees": "Committees",
-    "name": "name"
-  },
-  "theGbifNetwork": {
-    "peerReviewedPublicationBy": "Peer-reviewed publications by",
-    "authorsFrom": "Authors from",
-    "countries": "Countries",
-    "chartPublicationYearly": "Yearly trend of peer-reviewed publications using GBIF-mediated data",
-    "legend": "Legend",
-    "memberSince": "Member since",
-    "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}",
-    "occurrenceDatasetWith": "occurrence {NUMBER, select, one{dataset} other{datasets}} with",
-    "record": "{NUMBER, select, one{record} other{records}}",
-    "usage": "{NUMBER, select, one{usage} other{usages}}",
-    "checklistDatasetWith": "checklist {NUMBER, select, one{dataset} other{datasets}} with",
-    "metadataDataset": "metadata-only {NUMBER, select, one{dataset} other{datasets}}",
-    "sampleEventDatasetWith": "sample event {NUMBER, select, one{dataset} other{datasets}} with",
-    "publishesDataCovering": "Publishes data covering",
-    "countriesTerritoriesAndIslands": "countries, territories and islands",
-    "peerReviewedPublication": "peer-reviewed {NUMBER, select, one{publication} other{publications}}",
-    "participant": "{NUMBER, select, one{participant} other{participants}}",
-    "voting_participant": "Voting participant",
-    "associate_country_participant": "Associate country participant",
-    "other_associate_participant": "Other associate participant",
-    "gbif_affiliate": "GBIF affiliate",
-    "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
-    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
-  },
   "tools": {
     "categoryTitle": "tools",
     "categoryFeatured": "featured",
@@ -763,12 +646,6 @@
     "loadTestNames":"Load Test Names",
     "parse": "Parse",
     "pasteInfo" : "One per line or delimited by the pipe symbol \"|\""
-  },
-  "terms": {
-    "headline": "Use of cookies on GBIF",
-    "description": "GBIF uses cookies and the like for the purposes of statistical analysis, improving the friendliness and usability of our website, tailoring content to your interests and engaging with social media. By visiting our website, you consent to our and third party use of cookies as described in our privacy and cookie policy.",
-    "readTerms": "Read terms",
-    "accept": "accept"
   },
   "participation": {
     "title": "participation",

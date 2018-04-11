@@ -11,7 +11,7 @@
                         {% if occurrence.record.eventDate | isDefined %}
                             {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}
                         {% else %}
-                            {$ __('date.unknown') $}
+                            {$ __('stdTerms.unknownDate') $}
                         {% endif %}
                     </span>
                 </nav>
@@ -31,12 +31,12 @@
 
         <div class="stripe-comment">
             <div ng-if="occurrenceKey.datasetProcessSummary.lastNormal.finishedCrawling">
-                {$ __('date.synced') $}
+                {$ __('stdTerms.synced') $}
                 <time am-time-ago="occurrenceKey.datasetProcessSummary.lastNormal.finishedCrawling"></time>
             </div>
             {% if occurrence.record.modified %}
                 <div>
-                    {$ __('date.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}
+                    {$ __('stdTerms.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}
                 </div>
             {% endif %}
         </div>
