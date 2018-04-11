@@ -1,36 +1,36 @@
 {
     "month": {
-        "1": "January",
-        "2": "February",
-        "3": "March",
-        "4": "April",
-        "5": "May",
-        "6": "June",
+        "1": "Januar",
+        "2": "Februar",
+        "3": "marts",
+        "4": "april",
+        "5": "maj",
+        "6": "juni",
         "7": "July",
-        "8": "August",
+        "8": "august",
         "9": "September",
-        "10": "October",
+        "10": "oktober",
         "11": "November",
-        "12": "December"
+        "12": "december"
     },
     "day": {
-        "0": "Sunday",
-        "1": "Monday",
-        "2": "Tuesday",
-        "3": "Wednesday",
-        "4": "Thursday",
-        "5": "Friday",
-        "6": "Saturday"
+        "0": "Søndag",
+        "1": "Mandag",
+        "2": "Tirsdag",
+        "3": "Onsdag",
+        "4": "Torsdag",
+        "5": "Fredag",
+        "6": "Lørdag"
     },
     "kingdomKey": {
         "0": "incertae sedis",
-        "1": "Animalia",
+        "1": "Dyr",
         "2": "Archaea",
-        "3": "Bacteria",
+        "3": "Bakterier",
         "4": "Chromista",
-        "5": "Fungi",
-        "6": "Plantae",
+        "5": "Svampe",
+        "6": "Planter",
         "7": "Protozoa",
-        "8": "Viruses"
+        "8": "Vira"
     }
 }
