@@ -32,6 +32,7 @@
         {% include "../partials/notifications/notifications.nunjucks" %}
         {% include "../partials/userMenu/userMenu.nunjucks" %}
         {% include "../partials/menuSearch/menuSearch.nunjucks" %}
+        {% include "../partials/languageMenu/languageMenu.nunjucks" %}
     {% endif %}
 
     <main id="main" class="main" role="main" ui-view>

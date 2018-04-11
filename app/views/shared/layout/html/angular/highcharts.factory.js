@@ -9,12 +9,12 @@ require('highcharts/modules/sunburst')(Highcharts);
 
 angular
     .module('portal')
-    .factory('Highcharts', function($filter, $translate) {
+    .factory('Highcharts', function($filter, $translate, LOCALE_2_LETTER) {
         // see https://api.highcharts.com/highcharts/lang
         Highcharts.setOptions({
             lang: {
-                thousandsSep: $filter('localNumber')(1111, gb.locale).split('1')[1],
-                decimalPoint: $filter('localNumber')(1.111, gb.locale).split('1')[1],
+                thousandsSep: $filter('localNumber')(1111, LOCALE_2_LETTER).split('1')[1],
+                decimalPoint: $filter('localNumber')(1.111, LOCALE_2_LETTER).split('1')[1],
                 months: [
                     $translate.instant('month.1'), $translate.instant('month.2'), $translate.instant('month.3'), $translate.instant('month.4'),
                         $translate.instant('month.5'), $translate.instant('month.6'), $translate.instant('month.7'), $translate.instant('month.8'),

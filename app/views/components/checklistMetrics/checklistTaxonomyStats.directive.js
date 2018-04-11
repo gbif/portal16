@@ -27,7 +27,7 @@ function checklistTaxonomyStats(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function checklistTaxonomyStats(Highcharts, DatasetChecklistTaxonomy, $filter, $state, $scope) {
+    function checklistTaxonomyStats(Highcharts, DatasetChecklistTaxonomy, $filter, $state, $scope, LOCALE_2_LETTER) {
         var vm = this;
         vm.loading = true;
         $scope.create = function(element) {
@@ -295,7 +295,7 @@ function checklistTaxonomyStats(BUILD_VERSION) {
                                     formatter: function() {
                                         // display only if larger than 1
                                         return this.y > 1 ? '<b>' + this.point.name + ':</b> ' +
-                                            $filter('localNumber')(this.y, gb.locale) : null;
+                                            $filter('localNumber')(this.y, LOCALE_2_LETTER) : null;
                                     }
                                 },
                                 id: 'versions'

@@ -6,7 +6,8 @@
     "./app/errors/**/*.spec.js",
     "./app/models/**/*.spec.js",
     "./app/nunjucks/**/*.spec.js",
-    "./app/helpers/**/*.spec.js"
+    "./app/helpers/**/*.spec.js",
+    "./app/middleware/**/*.spec.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": false

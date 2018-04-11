@@ -3,7 +3,7 @@
 let _ = require('lodash'),
     Fuse = require('fuse.js'),
     countryCodes = rootRequire('app/models/enums/basic/country'),
-    countryTranslations = rootRequire('locales/server/en').country,
+    countryTranslations = rootRequire('locales/_build/en').country,
     countries = countryCodes.map(function(key) {
         return {title: countryTranslations[key], key: key};
     }),

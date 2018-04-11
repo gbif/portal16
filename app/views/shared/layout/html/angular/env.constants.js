@@ -28,4 +28,6 @@ angular
         window.gb.constantKeys
     ).constant('LOCALE',
         window.gb.locale
+    ).constant('LOCALE_2_LETTER',
+        window.gb.locale.substr(0, 2)
     ).constant('IS_TOUCH', window.gb.supportsTouch);

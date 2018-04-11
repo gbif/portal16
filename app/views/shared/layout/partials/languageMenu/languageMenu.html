@@ -1,0 +1,34 @@
+<aside id="languageMenu" class="languageMenu menubox ng-cloak" ng-class="{'is-active': vm.isActive}"
+       click-outside="vm.isActive = false">
+	<div class="menubox__wrapper">
+		<div class="menubox__top">
+            <div class="menubox__header">
+                <div class="menubox__header__title-wrapper">
+                    <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                    <div class="menubox__header__title text-center">
+                        <span ng-if="!vm.selected">Choose a language</span>
+                    </div>
+                </div>
+				<div class="menubox__header__description text-center">
+                    <p>
+                        You are seeing this because you are an registry admin - it is under active development
+                    </p>
+				</div>
+            </div>
+        </div>
+		<div class="menubox__content">
+			<div class="menubox__section">
+				<div class="menubox__section__content">
+					<md-radio-group ng-model="vm.chosenLocale" ng-change="vm.changeLanguage()">
+						<md-radio-button 
+							ng-value="locale" 
+							class="md-primary" 
+							ng-repeat="locale in vm.locales"
+							ng-class="{'m-b-0': $last}"
+							><span translate="language.{{locale}}"></span></md-radio-button>
+					</md-radio-group>
+				</div>
+			</div>
+		</div>
+	</div>
+</aside>

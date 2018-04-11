@@ -8,6 +8,7 @@
             toggleFeedback: 'toggleFeedback',
             toggleSearch: 'toggleSearch',
             toggleUserMenu: 'toggleUserMenu',
-            toggleNotifications: 'toggleNotifications'
+            toggleNotifications: 'toggleNotifications',
+            toggleLanguage: 'toggleLanguage'
         });
 })();
