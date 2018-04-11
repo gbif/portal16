@@ -35,11 +35,11 @@
         "PLASTOPARATYPE": "plastoparatype",
         "PLASTOSYNTYPE": "plastosyntype",
         "PLASTOTYPE": "plastotype",
-        "SECONDARYTYPE": "secondary type",
-        "SUPPLEMENTARYTYPE": "supplementary type",
+        "SECONDARYTYPE": "sekundær type",
+        "SUPPLEMENTARYTYPE": "supplerende type",
         "SYNTYPE": "syntype",
         "TOPOTYPE": "topotype",
-        "ORIGINALMATERIAL": "original material",
-        "NOTATYPE": "not a type"
+        "ORIGINALMATERIAL": "originalt materiale",
+        "NOTATYPE": "ikke en type"
     }
 }
