@@ -8,6 +8,7 @@ function builder(locale) {
     locale = locale || 'en';
     let translations = _.merge(
         {},
+        require(`../server/${locale}`),
         require(`./${locale}/enums/basisOfRecord`),
         require(`./${locale}/enums/cms`),
         require(`./${locale}/enums/continent`),
@@ -40,8 +41,7 @@ function builder(locale) {
         require(`./${locale}/components/health`),
         require(`./${locale}/components/map`),
         require(`./${locale}/components/profile`),
-        require(`./${locale}/misc`),
-        require(`../server/${locale}`)
+        require(`./${locale}/misc`)
     );
 
     return translations;

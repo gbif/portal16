@@ -13,7 +13,8 @@ router.get('/occurrence/breakdown', function(req, res) {
     delete query.advanced;
     // let locale = query.locale;
     delete query.locale;
-    breakdown.query(query)
+
+    breakdown.query(query, req.__)
         .then(function(response) {
             res.send(response);
         })

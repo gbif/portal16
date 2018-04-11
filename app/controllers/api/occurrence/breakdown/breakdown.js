@@ -13,12 +13,12 @@ module.exports = {
     parseQuery: parseQuery
 };
 
-async function query(query) {
+async function query(query, __) {
     // get fill response
     query = getCamelCasedObject(query);
-    let result = await getFormatedData(query);
+    let result = await getFormatedData(query, __);
     if (query.secondDimension) {
-        result = await addSecondDimension(result, query);
+        result = await addSecondDimension(result, query, __);
     }
     return result;
 }
@@ -97,9 +97,9 @@ async function addSecondDimension(data, query) {
     return data;
 }
 
-async function getFormatedData(query) {
+async function getFormatedData(query, __) {
     // get fill response
-    let response = await getData(query);
+    let response = await getData(query, __);
 
     // If the user has asked to select only a few values, then remove the unwanted
     if (query.pick) {
@@ -137,7 +137,7 @@ async function getFormatedData(query) {
     return response;
 }
 
-async function getData(query) {
+async function getData(query, __) {
     expect(query).to.be.an('object', 'Query param expected to be an object');
     expect(query.dimension).to.be.a('string', 'Dimension must be a string');
 
@@ -149,9 +149,9 @@ async function getData(query) {
 
     // If asking for range bucketing and it is supported
     if (query.buckets && facetConfig.fields[constantDimension].range) {
-        return rangeFacets.query(query);
+        return rangeFacets.query(query, __);
     } else {
-        return plainFacet.query(query);
+        return plainFacet.query(query, __);
     }
 }
 

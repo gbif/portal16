@@ -16,7 +16,7 @@ module.exports = {
     query: query
 };
 
-async function query(query) {
+async function query(query, __) {
     // compose query
     // get data
     // optionally fill empty
@@ -31,7 +31,8 @@ async function query(query) {
     if (query.fillEnums === true) {
         responseBody.results = getFullResult(responseBody.results, responseBody.field);
     }
-    responseBody = await facetExpander.expand(responseBody, null, true, query.prune === 'true');
+
+    responseBody = await facetExpander.expand(responseBody, __, true, query.prune === 'true');
 
     // If user have asked for a secondary dimension then expand that
     // if (query.dimensionB) {
