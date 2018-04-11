@@ -11,7 +11,7 @@
                            class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdom in countryKey.kingdoms">
                             <div class="taxon-icon gb-icon-{{ kingdom.icon }}"></div>
                             <div>
-                                <div class="small">{{ kingdom.title }}</div>
+                                <div class="small" translate="kingdomKey.{{kingdom.id}}">{{ kingdom.title }}</div>
                                 <strong ng-if="countryKey.kingdomsFrom[kingdom.id].count">{{ countryKey.kingdomsFrom[kingdom.id].count | localNumber }}</strong>
                                 <strong ng-if="!countryKey.kingdomsFrom[kingdom.id].count">0</strong>
                                 <div class="small">occurrences</div>
