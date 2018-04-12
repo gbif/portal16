@@ -39,8 +39,14 @@ let path = require('path'),
     elasticContentful = yargs.elasticContentful,
     apidocs = 'https://gbif.github.io/gbif-api/apidocs/org/gbif/api',
     // locales = ['en' , 'es', 'da', 'en-IN', 'zh-Hant-TW'],
-    locales = ['en', 'zh-hant', 'da', 'de-CH'],
-    contentfulLocaleMap = {
+
+    // locales = ['en', 'zh-hant', 'da', 'de-CH'],
+    locales = ['en'];
+if (env === 'staging' || env === 'local') {
+    locales.push('de-CH');
+    locales.push('da');
+}
+let contentfulLocaleMap = {
         'en': 'en-GB',
         'es': 'es',
         'ar': 'ar',

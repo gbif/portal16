@@ -77,7 +77,7 @@
                         <div ng-if="!occDownload.stateParams.params.q && !occDownload.hasData()" class="discreet text-center">
                             <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                             <div class="discreet">
-                                <em translate="occurrenceDownload.loaderText">Please hang on while we analyze your results</em>
+                                <em translate="downloadReport.loaderText">Please hang on while we analyze your results</em>
                             </div>
                         </div>
 
@@ -163,10 +163,10 @@
                                         </a>
                                     </p>
                                     <p class="discreet small">
-                                        <span translate="occurrenceDownload.csvDescription"></span>
+                                        <span translate="downloadReport.csvDescription"></span>
                                         <a href="/data-processing#downloads" translate="stdTerms.learnMore"></a>
                                         <br/>
-                                        <span translate="occurrenceDownload.estimatedSize"></span>
+                                        <span translate="downloadReport.estimatedSize"></span>
                                         <strong>{{
                                             occDownload.estKbCsv*occDownload.state.table.count*occDownload.unzipFactor*1024 |
                                             formatBytes:0:occDownload.state.query.locale }}</strong>
@@ -183,10 +183,10 @@
                                         </a>
                                     </p>
                                     <p class="discreet small">
-                                        <span translate="occurrenceDownload.dwcaDescription"></span>
+                                        <span translate="downloadReport.dwcaDescription"></span>
                                         <a href="/data-processing#downloads" translate="stdTerms.learnMore"></a>
                                         <br/>
-                                        <span translate="occurrenceDownload.estimatedSize"></span>
+                                        <span translate="downloadReport.estimatedSize"></span>
                                         <strong>{{
                                             occDownload.estKbDwcA*occDownload.state.table.count*occDownload.unzipFactor*1024 |
                                             formatBytes:0:occDownload.state.query.locale }}</strong>
@@ -203,13 +203,13 @@
                                 <ng-include src="'/templates/components/loader/loader.html'"
                                             ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
                                 <div class="m-b-1 discreet">
-                                    <em translate="occurrenceDownload.loaderText"></em>
+                                    <em translate="downloadReport.loaderText"></em>
                                 </div>
                             </div>
                             <div class="m-t-2" ng-if="occDownload.showTaxonMatch">
                                 <div>
-                                    <h4 translate="occurrenceDownload.knownIssues"></h4>
-                                    <p class="discreet" translate="occurrenceDownload.knownIssuesDescription"></p>
+                                    <h4 translate="downloadReport.knownIssues"></h4>
+                                    <p class="discreet" translate="downloadReport.knownIssuesDescription"></p>
                                     <div>
                                         <div xng-if="occDownload.showIssueDetails">
                                             <span class="badge-composite--{{issue.severity | lowercase }}"
@@ -231,16 +231,16 @@
                             </div>
                             <div class="m-t-2" ng-if="occDownload.showFossilWarning()">
                                 <div>
-                                    <h4 translate="occurrenceDownload.FossilsIncluded"></h4>
-                                    <p class="discreet" translate="occurrenceDownload.FossilsIncludedDescription">
+                                    <h4 translate="downloadReport.FossilsIncluded"></h4>
+                                    <p class="discreet" translate="downloadReport.FossilsIncludedDescription">
                                     </p>
                                 </div>
                             </div>
 
                             <div class="m-t-2" ng-if="occDownload.showLivingWarning()">
                                 <div>
-                                    <h4 translate="occurrenceDownload.livingSpecimensIncluded"></h4>
-                                    <p class="discreet" translate="occurrenceDownload.livingSpecimensIncludedDescription">
+                                    <h4 translate="downloadReport.livingSpecimensIncluded"></h4>
+                                    <p class="discreet" translate="downloadReport.livingSpecimensIncludedDescription">
                                     </p>
                                 </div>
                             </div>

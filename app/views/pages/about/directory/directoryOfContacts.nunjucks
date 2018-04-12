@@ -8,7 +8,7 @@
                 <div class="row">
                     <header class="col-xs-12 text-center article-header">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{$ __('cms.about') $}</span>
+                            <span class="article-header__category__upper">{$ __('stdTerms.about') $}</span>
                             <span class="article-header__category__lower">{$ __('directory.contact') $}</span>
                         </nav>
                         <h1>{$ __('directory.title') $}</h1>

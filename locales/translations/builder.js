@@ -13,6 +13,7 @@ function builder(locale) {
         require(`./${locale}/enums/cms`),
         require(`./${locale}/enums/continent`),
         require(`./${locale}/enums/country`),
+        require(`./${locale}/enums/downloadFormat`),
         require(`./${locale}/enums/endpointType`),
         require(`./${locale}/enums/establishmentMeans`),
         require(`./${locale}/enums/filterNames`),
@@ -36,11 +37,18 @@ function builder(locale) {
         require(`./${locale}/enums/taxonRank`),
         require(`./${locale}/enums/typeStatus`),
         require(`./${locale}/components/menu`),
-        require(`./${locale}/components/ocurrenceFieldNames`),
+        require(`./${locale}/components/occurrenceKey/ocurrenceFieldNames`),
+        require(`./${locale}/components/occurrenceKey/occurrenceKey`),
+        require(`./${locale}/components/downloadReport`),
         require(`./${locale}/components/validation`),
         require(`./${locale}/components/health`),
+        require(`./${locale}/components/gbifNetwork`),
+        require(`./${locale}/components/terms`),
         require(`./${locale}/components/map`),
+        require(`./${locale}/components/species`),
         require(`./${locale}/components/profile`),
+        require(`./${locale}/components/cms/cms`),
+        require(`./${locale}/components/downloads`),
         require(`./${locale}/misc`)
     );
 

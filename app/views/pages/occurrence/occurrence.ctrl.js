@@ -33,7 +33,6 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
         shortName: 'canonicalName',
         longName: 'scientificName',
-        placeholder: 'search.taxonSearchPlaceholder',
         expand: true,
         resource: Species,
         filter: OccurrenceFilter
@@ -48,7 +47,6 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
         shortName: 'title',
         longName: 'title',
-        placeholder: 'search.datasetSearchPlaceholder',
         expand: false,
         resource: Dataset,
         filter: OccurrenceFilter

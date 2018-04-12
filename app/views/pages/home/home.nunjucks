@@ -22,7 +22,7 @@
                         <div class="home__header__search-bar search-box">
                             <form action="{$ gb.locales.urlPrefix $}/search"
                                   ng-submit="home.updateSearch()">
-                                <input id="siteSearchInputHome" type="text" placeholder="{$ __('search.placeholder') $}" name="q" autocomplete="off"
+                                <input id="siteSearchInputHome" type="text" placeholder="{$ __('stdTerms.search') $}" name="q" autocomplete="off"
                                        value=""
                                        ng-init="home.freeTextQuery == ''"
                                        ng-model="home.freeTextQuery"
