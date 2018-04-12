@@ -25,7 +25,6 @@
         },
         "observer": "Observer",
         "others": "Other",
-        "participant": "participant",
         "delegationMembers": "delegation members",
         "role": "role",
         "institution": "institution",
@@ -42,35 +41,18 @@
         "membershipType": "Membership",
         "governingBoard": "Governing Board",
         "committees": "Committees",
-        "name": "name"
-    },
-    "theGbifNetwork": {
-        "peerReviewedPublicationBy": "Peer-reviewed publications by",
-        "authorsFrom": "Authors from",
-        "countries": "Countries",
-        "chartPublicationYearly": "Yearly trend of peer-reviewed publications using GBIF-mediated data",
-        "legend": "Legend",
-        "memberSince": "Member since",
+        "name": "name",
         "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}",
         "occurrenceDatasetWith": "occurrence {NUMBER, select, one{dataset} other{datasets}} with",
         "record": "{NUMBER, select, one{record} other{records}}",
         "usage": "{NUMBER, select, one{usage} other{usages}}",
         "checklistDatasetWith": "checklist {NUMBER, select, one{dataset} other{datasets}} with",
         "metadataDataset": "metadata-only {NUMBER, select, one{dataset} other{datasets}}",
-        "sampleEventDatasetWith": "sample event {NUMBER, select, one{dataset} other{datasets}} with",
         "publishesDataCovering": "Publishes data covering",
         "countriesTerritoriesAndIslands": "countries, territories and islands",
         "peerReviewedPublication": "peer-reviewed {NUMBER, select, one{publication} other{publications}}",
         "participant": "{NUMBER, select, one{participant} other{participants}}",
-        "voting_participant": "Voting participant",
-        "associate_country_participant": "Associate country participant",
-        "other_associate_participant": "Other associate participant",
-        "gbif_affiliate": "GBIF affiliate",
         "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
         "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
-    },
-    "network": {
-        "title": "network",
-        "participatingDatasets": "{n} participating datasets"
     }
 }
