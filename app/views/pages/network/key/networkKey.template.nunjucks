@@ -1,0 +1,22 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="networkKey light-background">
+            <div class="wrapper-horizontal-stripes" ng-if="networkKey.network.$resolved">
+                {% include "./header.nunjucks" %}
+                {% include "./nav.nunjucks" %}
+                <div ng-if="networkKey.$state.is('network')">
+                    <ng-include src="'/api/resource/content/network?content_type=DataUse&sys.id=82507'"></ng-include>
+                </div>
+
+                <div ui-view>
+                </div>
+
+            </div>
+            <div class="wrapper-horizontal-stripes" ng-if="!networkKey.network.$resolved">
+                <div class="emptyInfo">
+                    <h3>Hang on while we find the network</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -61,6 +61,30 @@ router.get('/api/resource/tool', function(req, res, next) {
         });
 });
 
+router.get('/api/resource/content/:type', function(req, res, next) {
+    let query = req.query;
+    let type = req.params.type;
+    let template;
+    switch (type) {
+        case 'tool':
+            template = 'pages/resource/key/tool/toolMain';
+            break;
+        case 'network':
+            template = 'pages/network/key/prose';
+            break;
+        default:
+            template = 'pages/resource/key/article/main';
+    }
+    resource.getFirst(query, 2, false, query.locale)
+        .then(function(result) {
+            helper.renderPage(req, res, next, result, template);
+        })
+        .catch(function(err) {
+            res.status(500);
+            res.send(err);
+        });
+});
+
 router.get('/country2/:id/:title?.:ext?', function(req, res, next) {
     let entry = req.params.id,
         entryTitle = req.params.title,

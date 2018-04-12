@@ -1,0 +1,20 @@
+<div class="horizontal-stripe light-background seperator">
+    <section class="container--desktop ng-cloak" ng-if="networkMetrics.capabilities.total > 0">
+        <h4 class="card-header">{{ networkMetrics.withCoordinates.count | localNumber }}  georeferenced records</h4>
+        <div class="card">
+            <div>
+                <map-widget filter="{network_key:networkKey.key}" style="{suggested: 'DOTS'}" class="fixedSizes"></map-widget>
+            </div>
+        </div>
+    </section>
+
+    <div class="container--desktop">
+        <section class="networkMetrics-col m-t-1">
+            <!-- <occurrence-taxonomy-stats ng-if="networkMetrics.isFamilyOrAbove" filter="{taxon_key: networkMetrics.key}" chart-type="'treemap'"></occurrence-taxonomy-stats> -->
+            <div ng-repeat="chart in networkMetrics.defaultCharts">
+                <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="networkMetrics.chartChange" custom-filter="chart.customFilter"></occurrence-breakdown-card>
+            </div>
+        </section>
+    </div>
+
+</div>

@@ -1,0 +1,17 @@
+{% set main = main %}
+{% set resolved = resolved %}
+
+{% if main %}
+    <div class="white-background p-t-1">
+        {% include "../../resource/key/primaryImage.nunjucks" %}
+    </div>
+{% endif %}
+
+<div class="horizontal-stripe white-background p-t-1">
+    <div class="container--narrow">
+        <div class="body-text">
+            {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+        </div>
+    </div>
+</div>
+

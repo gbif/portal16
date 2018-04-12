@@ -91,6 +91,10 @@ router.get('/search/participantResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/participantSearchResult');
 });
 
+router.get('/network.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/network/key/networkKey.template.nunjucks');
+});
+
 router.get('/country.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/country.template.nunjucks');
 });
