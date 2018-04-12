@@ -4,7 +4,7 @@
         "DIGIR_INSTALLATION": "DiGIR installation",
         "TAPIR_INSTALLATION": "tapir installation",
         "BIOCASE_INSTALLATION": "biocase installation",
-        "HTTP_INSTALLATION": "http installation",
+        "HTTP_INSTALLATION": "http-installation",
         "SYMBIOTA_INSTALLATION": "symbiota installation"
     }
 }
