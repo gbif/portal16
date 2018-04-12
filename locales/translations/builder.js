@@ -43,6 +43,7 @@ function builder(locale) {
         require(`./${locale}/components/validation`),
         require(`./${locale}/components/health`),
         require(`./${locale}/components/gbifNetwork`),
+        require(`./${locale}/components/network`),
         require(`./${locale}/components/terms`),
         require(`./${locale}/components/map`),
         require(`./${locale}/components/species`),

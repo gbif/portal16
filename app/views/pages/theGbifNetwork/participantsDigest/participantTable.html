@@ -11,14 +11,14 @@
 <div class="participants__table scrollable-y  ng-cloak" ng-show="vm.tableLoaded === true && !vm.participantApiError && vm.activeParticipantsDigest.length > 0">
     <div class="table-container--participant"
         ng-init="sort = {field: 'name', reverse: false };">
-        <h4 translate="theGbifNetwork.participant"
+        <h4 translate="gbifNetwork.participant"
                   translate-values="{NUMBER: vm.activeParticipantsDigest.length}"></h4>
 
         <table class="table card">
             <thead>
             <tr>
                 <th><a ng-click="sort.field = 'name'; sort.Reverse = !sort.Reverse"
-                       translate="theGbifNetwork.participant"
+                       translate="gbifNetwork.participant"
                        translate-values="{NUMBER: 'one'}"></a>
                     <div ng-show="sort.field == 'name' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'name' && sort.Reverse" class="gb-icon-angle-up"></div>
@@ -33,20 +33,20 @@
                 </th>
                 <th>
                     <a ng-click="sort.field = 'memberSince'; sort.Reverse = !sort.Reverse">
-                        <span translate="theGbifNetwork.memberSince"></span>
+                        <span translate="stdTerms.memberSince"></span>
                     </a>
                     <div ng-show="sort.field == 'memberSince' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'memberSince' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
                 <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'"><a ng-click="sort.field = 'datasetFromCountSort'; sort.Reverse = !sort.Reverse"
-                       translate="theGbifNetwork.dataset"
+                       translate="gbifNetwork.dataset"
                        translate-values="{NUMBER: 'two'}">
                     </a>
                     <div ng-show="sort.field == 'datasetFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'datasetFromCountSort' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
                 <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'"><a ng-click="sort.field = 'occurrenceFromCountSort'; sort.Reverse = !sort.Reverse"
-                       translate="theGbifNetwork.record"
+                       translate="gbifNetwork.record"
                        translate-values="{NUMBER: 'two'}">
                     </a>
                     <div ng-show="sort.field == 'occurrenceFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
@@ -75,7 +75,7 @@
                 </td>
                 <td>
                 <span ng-if="participant.membershipType" class="text-nowrap"
-                      translate="theGbifNetwork.{{ participant.membershipType}}"></span>
+                      translate="gbifNetwork.{{ participant.membershipType}}.one"></span>
                 </td>
                 <td>
                     <span ng-if="participant.memberSince" ng-bind="participant.memberSince"></span>
