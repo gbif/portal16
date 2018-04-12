@@ -1,0 +1,52 @@
+{
+    "downloadKey": {
+        "nOccurrencesDownloaded": {
+            "one": "{{count}} occurrence downloaded",
+            "other": "{{count}} occurrences downloaded"
+        },
+        "nConstituentDatasets": {
+            "one": "Includes records from {{count}} dataset",
+            "other": "Includes records from {{count}} datasets"
+        },
+        "fileNotAvailable": "This file is no longer available for download",
+        "brokenDownload": "broken download",
+        "cancelled": "cancelled",
+        "deleted": "deleted",
+        "underProcessing": "Under processing",
+        "citation": "citation",
+        "filterApplied": "Filter applied %s",
+        "rerunQuery": "rerun query",
+        "downloadKilled": "The download request was unsuccessful. Please try it again or get in touch.",
+        "downloadDeleted": "This file has been deleted. If you need it restored then please get in touch.",
+        "storageDurationTeaser": "For how long will GBIF store this data?",
+        "file": "file",
+        "constituentDatasets": "Involved datasets",
+        "noFiltersApplied": "No filters used",
+        "apiUsageDescription": "To repeat the download on todays data using the API you can use below query.",
+        "apiFilterView": "API",
+        "humanFilterView": "Human",
+        "infoAboutStorage": {
+            "title": "We store all download files as long as possible",
+            "paragraphA": "This page will always resolve, but the file itself might be removed in the future.",
+            "paragraphB": "But what does this mean? It means that storage space and funding isn’t infinite. We strive to store all downloads forever, but prioritize downloads that have been cited."
+        },
+        "status": {
+            "PREPARING": "preparing",
+            "SUSPENDED": "suspended",
+            "RUNNING": "running",
+            "CANCELLED": "cancelled",
+            "KILLED": "killed"
+        },
+        "predicate": {
+            "joinDescriptions": {
+                "and": "All must apply",
+                "or": "At least one must apply",
+                "not": "None must be included"
+            },
+            "and": "and",
+            "or": "or",
+            "not": "not",
+            "isNotNull": "Is defined"
+        }
+    }
+}
