@@ -99,7 +99,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
         $timeout(function() {
             $anchorScroll();
         });
-        vm.projectEmpty = !vm.dataset.project || (!vm.dataset.project.studyAreaDescription && !vm.dataset.project.designDescription && !vm.dataset.project.funding);
+        vm.projectEmpty = !vm.dataset.project || (!vm.dataset.project.abstract && !vm.dataset.project.studyAreaDescription && !vm.dataset.project.designDescription && !vm.dataset.project.funding);
         vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.dataset.col === vm.dataset.parentDatasetKey;
 
         var projectId = _.get(vm.dataset, 'project.identifier');
