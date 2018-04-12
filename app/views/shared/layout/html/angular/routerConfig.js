@@ -473,12 +473,16 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             }
         })
         .state('theGbifNetwork', {
-
+            parent: 'localization',
             url: '/the-gbif-network/:region?',
             params: {region: {squash: true, value: 'global'}},
-            templateUrl: '/templates/pages/theGbifNetwork/theGbifNetwork.html?v=' + BUILD_VERSION,
-            controller: 'theGbifNetworkCtrl',
-            controllerAs: 'vm'
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/theGbifNetwork/theGbifNetwork.html?v=' + BUILD_VERSION,
+                    controller: 'theGbifNetworkCtrl',
+                    controllerAs: 'vm'
+                }
+            }
         })
         .state('dataValidator', {
             parent: 'localization',
