@@ -244,7 +244,6 @@ require('./angular/routerConfig');
 require('./angular/index.filters');
 require('./angular/occurrence.resource');
 require('./angular/dataset.resource');
-require('./angular/cms.resource');
 require('./angular/dbpedia.resource');
 require('./angular/redlist.resource');
 require('./angular/cites.resource');
@@ -320,9 +319,6 @@ require('../../../pages/dataset/key/datasetKey.ctrl');
 require('../../../pages/resource/search/resource.ctrl');
 require('../../../pages/resource/search/list/resourceList.ctrl');
 
-require('./angular/cmsFilter.service');
-require('../../../pages/cms/search/cms.ctrl');
-require('../../../pages/cms/search/table/cmsTable.ctrl');
 require('../../../pages/about/directory/directory.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 
