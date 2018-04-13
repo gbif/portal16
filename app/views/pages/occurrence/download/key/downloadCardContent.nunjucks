@@ -55,7 +55,7 @@
                                 <div>
                                     <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
                                     <dd>
-                                        <span>{$ download.record.numberDatasets | locInt(gb.locales.current) $}</span>
+                                        <span>{{ {$ download.record.numberDatasets $} | localNumber}} </span>
                                     </dd>
                                 </div>
                             {% endif %}

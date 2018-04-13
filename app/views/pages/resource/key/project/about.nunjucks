@@ -14,13 +14,13 @@
                         {% if main.fields.fundsAllocated %}
                             <div>
                                 <dt>Funding</dt>
-                                <dd>€ {$ main.fields.fundsAllocated | locInt(gb.locales.current) $}</dd>
+                                <dd>€ {{ {$ main.fields.fundsAllocated $} | localNumber }}</dd>
                             </div>
                         {% endif %}
                         {% if main.fields.matchingFunds %}
                             <div>
                                 <dt>Co funding</dt>
-                                <dd>€ {$ main.fields.matchingFunds | locInt(gb.locales.current) $}</dd>
+                                <dd>€ {{ {$ main.fields.matchingFunds $} | localNumber }} </dd>
                             </div>
                         {% endif %}
                         {% if main.fields.grantType %}
