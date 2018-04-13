@@ -31,7 +31,7 @@
                             {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                                 <span class="discreet">{$ __('downloadKey.underProcessing') | capitalize $}</span>
                             {% else %}
-                             <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: ( {$ download.record.totalRecords $} | localNumber)}"> </span>
+                             <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
                             {% endif %}
                         </h1>
                         {% if download.record.status === 'FILE_ERASED' %}
@@ -152,7 +152,7 @@
                                             <div>
                                                 <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
                                                 <dd>
-                                                    <a href="#datasets">{$ download.record.numberDatasets $} | localNumber</a>
+                                                    <a href="#datasets">{{ {$ download.record.numberDatasets $} | localNumber}}</a>
                                                 </dd>
                                             </div>
                                             {% endif %}
