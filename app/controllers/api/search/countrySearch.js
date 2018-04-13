@@ -1,70 +1,88 @@
 'use strict';
+/**
+ * This is a fragile mess. Using lunr for search is no way ideal - but it is better than fuse.io as we used before.
+ * the problem is that we do not a have a proper endpoint for searching for countries by their names. especiialy not in translated names.
+ */
+/* eslint-disable no-invalid-this */
 
 let _ = require('lodash'),
-    Fuse = require('fuse.js'),
+    lunr = require('lunr'),
+    locales = rootRequire('config/config').locales,
     countryCodes = rootRequire('app/models/enums/basic/country'),
-    countryTranslations = rootRequire('locales/_build/en').country,
-    countries = countryCodes.map(function(key) {
-        return {title: countryTranslations[key], key: key};
-    }),
-    Participant = rootRequire('app/models/node/participant'),
-    maxPatternLength = 50,
-    options = {
-        keys: ['title'],
-        threshold: 0.2,
-        distance: 100,
-        shouldSort: true,
-        tokenize: false,
-        matchAllTokens: true,
-        includeScore: true,
-        maxPatternLength: maxPatternLength
+    countryTranslations = {};
+
+locales.forEach(function(locale) {
+    countryTranslations[locale] = rootRequire(`locales/_build/${locale}`).country;
+});
+
+let countries = countryCodes.map(function(key) {
+    let nameMap = {
+        key: key
     };
+    locales.forEach(function(locale) {
+        nameMap[locale] = countryTranslations[locale][key].toLocaleLowerCase();
+    });
+    return nameMap;
+});
+let Participant = rootRequire('app/models/node/participant');
 
-let fuse = new Fuse(countries, options);
+// create index
+let idx = lunr(function() {
+    let that = this;
+    this.ref('key');
+    this.field('da');
+    locales.forEach(function(locale) {
+        that.field(locale);
+    });
 
-async function query(countryName) {
-    if (!_.isString(countryName) || maxPatternLength <= countryName.length) {
+    countries.forEach(function(doc) {
+        this.add(doc);
+    }, this);
+});
+
+async function query(countryName, locale) {
+    countryName = '' + countryName.toLocaleLowerCase();
+    let queryLocales = _.uniq([locale, 'en']);
+    let result = idx.query(function(q) {
+        countryName.split(lunr.tokenizer.separator).forEach(function(term) {
+            q.term(term, {
+                fields: queryLocales,
+                editDistance: 1
+            });
+          });
+    });
+
+    let match = result[0];
+    if (!match || match.length === 0) {
         return;
     }
-    countryName = countryName.toLowerCase();
-    let countryResults = fuse.search(countryName); // TODO how to best handle that fuse don't like pattern longer than around 50 chars
-    let match = countryResults[0];
-    if (!match) {
-        return;
-    }
-    let parts = match.item.title.toLowerCase().replace(',', ' ').split(' ');
-    let wordCount = parts.length;
-    if (match.score > 0.3 || (wordCount == 1 && match.score !== 0) || (parts[0] !== countryName && wordCount > 1 && (countryName.length / match.item.title.length) < 0.33)) {
-        return;
-    }
-    let countryKey = match.item.key;
-    if (countryResults[0]) {
-        try {
-            let participant = await Participant.getParticipantByIso(countryKey);
-            return {
-                count: 1,
-                results: [
-                    {
-                        countryCode: countryKey,
-                        participant: participant.type == 'COUNTRY' ? participant : undefined
-                    }
-                ]
-            };
-        } catch (err) {
-            console.log(err);
-            return {
-                count: 1,
-                results: [
-                    {
-                        countryCode: countryKey
-                    }
-                ]
-            };
+    result = _.chunk(result, 2)[0];
+    try {
+        let resultList = [];
+        for (let i = 0; i < result.length; i++) {
+            let key = result[i].ref;
+
+            let p;
+            try {
+                p = await Participant.getParticipantByIso(key);
+            } catch (err) {
+                // ignore
+            }
+
+            resultList.push({
+                countryCode: key,
+                participant: p && p.type == 'COUNTRY' ? p : undefined
+            });
         }
+        return {
+            count: resultList.length,
+            results: resultList
+        };
+    } catch (err) {
+        return;
     }
 }
 
 module.exports = {
     query: query
 };
-

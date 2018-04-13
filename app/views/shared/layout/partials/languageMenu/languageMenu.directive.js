@@ -47,7 +47,7 @@ function languageMenuDirective(BUILD_VERSION) {
             if (_.startsWith(pathname, '/' + LOCALE + '/')) {
                 pathname = pathname.substr(LOCALE.length + 1);
             }
-            window.location.href = localePrefix + pathname + location.hash;
+            window.location.href = localePrefix + pathname + location.search + location.hash;
         };
     }
 }

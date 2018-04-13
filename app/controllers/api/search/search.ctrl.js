@@ -45,7 +45,7 @@ async function search(query, preferedLocale, __) {
             contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'],
             local: preferedLocale, limit: 2
             }, __);
-    let country = Country.query(query);
+    let country = Country.query(query, preferedLocale);
 
     let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights, participants]);
     let response = {

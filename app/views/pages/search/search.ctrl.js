@@ -36,7 +36,8 @@ function searchCtrl($state, $stateParams, Page, $http, $cookies) {
     vm.search = function() {
         vm.searchResults = $http.get('/api/omnisearch', {
             params: {
-                q: vm.freeTextQuery
+                q: vm.freeTextQuery,
+                locale: $stateParams.locale
             }
         });
         vm.loading = true;
