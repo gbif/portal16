@@ -57,7 +57,7 @@ module.exports = function(app, config) {
     let twoletterIsoLocales = config.locales.map(function(e) {
         return e.substr(0, 2);
     });
-    require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(twoletterIsoLocales);
+    require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(config.locales);
 
     // add menu to all requests
     require(config.root + '/app/middleware/menu/menu.js').use(app);

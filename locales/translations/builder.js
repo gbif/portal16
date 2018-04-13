@@ -7,10 +7,10 @@ let path = require('path');
 module.exports = builder;
 
 function getFile(locale, file) {
-    if (locale === 'en' || fs.existsSync(path.join(__dirname, `${locale}${file}.json`))) {
-        return require(`./${locale}${file}`);
+    if (locale === 'en' || fs.existsSync(path.join(__dirname, `${file}.json`))) {
+        return require(file);
     } else {
-        console.log(`!Attention: Translation file ./${locale}${file}.json not found. Falling back to english`);
+        console.log(`!Attention: Translation file ${file}.json not found. Falling back to english`);
         return {};
     }
 }
@@ -19,49 +19,49 @@ function builder(locale) {
     locale = locale || 'en';
     let translations = _.merge(
         {},
-        require(`../server/${locale}`),
-        getFile(locale, `/enums/basisOfRecord`),
-        getFile(locale, `/enums/cms`),
-        getFile(locale, `/enums/continent`),
-        getFile(locale, `/enums/country`),
-        getFile(locale, `/enums/downloadFormat`),
-        getFile(locale, `/enums/endpointType`),
-        getFile(locale, `/enums/establishmentMeans`),
-        getFile(locale, `/enums/filterNames`),
-        getFile(locale, `/enums/installationType`),
-        getFile(locale, `/enums/integerEnums`),
-        getFile(locale, `/enums/issueEnum`),
-        getFile(locale, `/enums/issueHelp`),
-        getFile(locale, `/enums/iucnStatus`),
-        getFile(locale, `/enums/language`),
-        getFile(locale, `/enums/license`),
-        getFile(locale, `/enums/mediaType`),
-        getFile(locale, `/enums/nameTypeEnum`),
-        getFile(locale, `/enums/nameUsageOrigin`),
-        getFile(locale, `/enums/occurrenceIssue`),
-        getFile(locale, `/enums/originEnum`),
-        getFile(locale, `/enums/protocol`),
-        getFile(locale, `/enums/region`),
-        getFile(locale, `/enums/role`),
-        getFile(locale, `/enums/statusEnum`),
-        getFile(locale, `/enums/taxonomicStatus`),
-        getFile(locale, `/enums/taxonRank`),
-        getFile(locale, `/enums/typeStatus`),
-        getFile(locale, `/components/menu`),
-        getFile(locale, `/components/occurrenceKey/ocurrenceFieldNames`),
-        getFile(locale, `/components/occurrenceKey/occurrenceKey`),
-        getFile(locale, `/components/downloadReport`),
-        getFile(locale, `/components/validation`),
-        getFile(locale, `/components/health`),
-        getFile(locale, `/components/gbifNetwork`),
-        getFile(locale, `/components/network`),
-        getFile(locale, `/components/terms`),
-        getFile(locale, `/components/map`),
-        getFile(locale, `/components/species`),
-        getFile(locale, `/components/profile`),
-        getFile(locale, `/components/cms/cms`),
-        getFile(locale, `/components/downloads`),
-        getFile(locale, `/misc`)
+        getFile(locale, `../notTranslatedYet/${locale}`),
+        getFile(locale, `./${locale}/enums/basisOfRecord`),
+        getFile(locale, `./${locale}/enums/cms`),
+        getFile(locale, `./${locale}/enums/continent`),
+        getFile(locale, `./${locale}/enums/country`),
+        getFile(locale, `./${locale}/enums/downloadFormat`),
+        getFile(locale, `./${locale}/enums/endpointType`),
+        getFile(locale, `./${locale}/enums/establishmentMeans`),
+        getFile(locale, `./${locale}/enums/filterNames`),
+        getFile(locale, `./${locale}/enums/installationType`),
+        getFile(locale, `./${locale}/enums/integerEnums`),
+        getFile(locale, `./${locale}/enums/issueEnum`),
+        getFile(locale, `./${locale}/enums/issueHelp`),
+        getFile(locale, `./${locale}/enums/iucnStatus`),
+        getFile(locale, `./${locale}/enums/language`),
+        getFile(locale, `./${locale}/enums/license`),
+        getFile(locale, `./${locale}/enums/mediaType`),
+        getFile(locale, `./${locale}/enums/nameTypeEnum`),
+        getFile(locale, `./${locale}/enums/nameUsageOrigin`),
+        getFile(locale, `./${locale}/enums/occurrenceIssue`),
+        getFile(locale, `./${locale}/enums/originEnum`),
+        getFile(locale, `./${locale}/enums/protocol`),
+        getFile(locale, `./${locale}/enums/region`),
+        getFile(locale, `./${locale}/enums/role`),
+        getFile(locale, `./${locale}/enums/statusEnum`),
+        getFile(locale, `./${locale}/enums/taxonomicStatus`),
+        getFile(locale, `./${locale}/enums/taxonRank`),
+        getFile(locale, `./${locale}/enums/typeStatus`),
+        getFile(locale, `./${locale}/components/menu`),
+        getFile(locale, `./${locale}/components/occurrenceKey/ocurrenceFieldNames`),
+        getFile(locale, `./${locale}/components/occurrenceKey/occurrenceKey`),
+        getFile(locale, `./${locale}/components/downloadReport`),
+        getFile(locale, `./${locale}/components/validation`),
+        getFile(locale, `./${locale}/components/health`),
+        getFile(locale, `./${locale}/components/gbifNetwork`),
+        getFile(locale, `./${locale}/components/network`),
+        getFile(locale, `./${locale}/components/terms`),
+        getFile(locale, `./${locale}/components/map`),
+        getFile(locale, `./${locale}/components/species`),
+        getFile(locale, `./${locale}/components/profile`),
+        getFile(locale, `./${locale}/components/cms/cms`),
+        getFile(locale, `./${locale}/components/downloads`),
+        getFile(locale, `./${locale}/misc`)
     );
 
     return translations;

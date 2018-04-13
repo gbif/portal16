@@ -72,7 +72,7 @@
         <div class="node__stats">
             <a href="#datasets" class="inherit noUnderline block">
                 <div class="node__stats__count">
-                    {$ network.record.numConstituents | locInt(gb.locales.current) $}
+                   {{ {$ network.record.numConstituents $} | localNumber}} 
                 </div>
                 <div>Participating datasets</div>
             </a>

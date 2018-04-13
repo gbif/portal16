@@ -47,7 +47,7 @@
                                 <div>
                                     <dt class="text-capitalize">Occurrences</dt>
                                     <dd>
-                                        <span>{$ download.record.totalRecords | locInt(gb.locales.current) $}</span>
+                                        <span>{{ {$ download.record.totalRecords $} | localNumber}}</span>
                                     </dd>
                                 </div>
                             {% endif %}

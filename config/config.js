@@ -1,6 +1,7 @@
 let path = require('path'),
     yargs = require('yargs').argv,
     rootPath = path.normalize(__dirname + '/..'),
+    localeConfig = require('./locales'),
     env = process.env.NODE_ENV || 'local',
     port = yargs.port,
     dataApiV2 = yargs.dataapiv2,
@@ -38,24 +39,6 @@ let path = require('path'),
     },
     elasticContentful = yargs.elasticContentful,
     apidocs = 'https://gbif.github.io/gbif-api/apidocs/org/gbif/api',
-    // locales = ['en' , 'es', 'da', 'en-IN', 'zh-Hant-TW'],
-
-    // locales = ['en', 'zh-hant', 'da', 'de-CH'],
-    locales = ['en'];
-if (env === 'staging' || env === 'local') {
-    locales.push('de-CH');
-    locales.push('da');
-}
-let contentfulLocaleMap = {
-        'en': 'en-GB',
-        'es': 'es',
-        'ar': 'ar',
-        'zh-hant': 'zh',
-        'fr': 'fr',
-        'ru': 'ru',
-        'pt': 'pt'
-    },
-    defaultLocale = 'en',
     userAgent = 'GBIF_WEBSITE';
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
@@ -94,9 +77,9 @@ let config = {
         elk: elk || '//elk.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
-        locales: locales,
-        defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap,
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent
@@ -132,9 +115,9 @@ let config = {
         elk: elk || '//elk.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWBqgxPaf8lu3pmE7fpp',
-        locales: locales,
-        defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap,
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent
@@ -170,9 +153,9 @@ let config = {
         elk: elk || '//elk.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIcB5f8lu3pmEHgcY',
-        locales: locales,
-        defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap,
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent
@@ -208,9 +191,9 @@ let config = {
         elk: elk || '//elk.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
-        locales: locales,
-        defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap,
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent
@@ -246,9 +229,9 @@ let config = {
         elk: elk || '//elk.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
-        locales: locales,
-        defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap,
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent
@@ -284,9 +267,9 @@ let config = {
         elk: elk || '//elk.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
-        locales: locales,
-        defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap,
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent
