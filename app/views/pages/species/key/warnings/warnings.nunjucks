@@ -18,7 +18,7 @@
         <p ng-if="speciesKey2.species.$resolved && speciesKey2.species.issues.length > 0"><span
                     translate="stdTerms.issues"></span>: <span
                     ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning"
-                    translate="taxon.issueEnum.{{ issue }}"></span></p>
+                    translate="issueEnum.{{ issue }}"></span></p>
 
     </div>
 </div>

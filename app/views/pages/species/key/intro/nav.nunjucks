@@ -10,7 +10,7 @@
                            ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrences.count
                             | localNumber }} <span class="gb-button--brand__label">occurrences</span></a>
                         <a ng-if="speciesKey2.occurrences.count == 0"
-                           ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet" translate="taxon.noOccurencesInGbif"></a>
+                           ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet" translate="species.noOccurencesInGbif"></a>
                     </span>
                     <span ng-if="!speciesKey2.occurrences.$resolved">
                         <a class="gb-button--discreet"><span class="loading"></span> {{ 'stdTerms.occurrences' | translate }}</a>
@@ -34,12 +34,12 @@
 
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">
                     <span>
-                        <a class="gb-button--brand" ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})" translate="taxon.viewInGbifBackbone"></a>
+                        <a class="gb-button--brand" ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})" translate="species.viewInGbifBackbone"></a>
                     </span>
                     </li>
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.references">
                     <span>
-                        <a class="gb-button--brand" ng-href="{{speciesKey2.species.references}}" translate="taxon.publisherRecord"></a>
+                        <a class="gb-button--brand" ng-href="{{speciesKey2.species.references}}" translate="species.publisherRecord"></a>
                     </span>
                     </li>
                 </ul>

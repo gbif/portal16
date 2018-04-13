@@ -101,19 +101,19 @@ const expandConfig = {
     },
     ISSUE: {
         type: 'ENUM',
-        translationPath: 'taxon.issueEnum.'
+        translationPath: 'issueEnum.'
     },
     NAME_TYPE: {
         type: 'ENUM',
-        translationPath: 'taxon.nameTypeEnum.'
+        translationPath: 'nameTypeEnum.'
     },
     ORIGIN: {
         type: 'ENUM',
-        translationPath: 'taxon.originEnum.'
+        translationPath: 'originEnum.'
     },
     STATUS: {
         type: 'ENUM',
-        translationPath: 'taxon.statusEnum.'
+        translationPath: 'statusEnum.'
     },
     MEDIA: {
         type: 'TEMPLATE',
