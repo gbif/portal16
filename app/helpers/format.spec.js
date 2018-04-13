@@ -12,12 +12,5 @@ describe('formatter', function() {
         expect(format.date('1460901850', 'en')).toEqual('17 April 2016');
         // expect(format.date('nonsense', 'da')).toEqual('Invalid date');
     });
-
-    it('can localize integers', function() {
-        expect(format.localizeInteger(123456789)).toEqual('123,456,789');
-        expect(format.localizeInteger(345678, 'jp')).toEqual('345,678');
-        expect(format.localizeInteger('987654321')).toEqual('987,654,321');
-        expect(format.localizeInteger('123String')).toEqual('');
-    });
 });
 

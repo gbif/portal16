@@ -1,13 +1,7 @@
 {
     "downloadKey": {
-        "nOccurrencesDownloaded": {
-            "one": "{{count}} occurrence downloaded",
-            "other": "{{count}} occurrences downloaded"
-        },
-        "nConstituentDatasets": {
-            "one": "Includes records from {{count}} dataset",
-            "other": "Includes records from {{count}} datasets"
-        },
+        "nOccurrencesDownloaded":  "{NUMBER_FORMATTED} {NUMBER, select, one{occurrence} other{occurrences}} downloaded",
+        "nConstituentDatasets": "Includes records from {NUMBER_FORMATTED} {NUMBER, select, one{dataset} other{datasets}}",
         "fileNotAvailable": "This file is no longer available for download",
         "brokenDownload": "broken download",
         "cancelled": "cancelled",

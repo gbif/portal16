@@ -23,7 +23,7 @@
                             <span class="article-header__category__lower">{$ download.record.created | formatDate(gb.locales.current) $}</span>
                         </nav>
 
-                        <h1 class="text-center">
+                        <h1 class="text-center" ng-cloak>
                             {% if download.record.status === 'KILLED' %}
                                 <span class="error">{$ __('downloadKey.brokenDownload') | capitalize $}</span>
                             {% elif download.record.status === 'CANCELLED' %}
@@ -31,7 +31,7 @@
                             {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                                 <span class="discreet">{$ __('downloadKey.underProcessing') | capitalize $}</span>
                             {% else %}
-                                <span>{$ __n('downloadKey.nOccurrencesDownloaded', download.record.totalRecords, {count: download.record.totalRecords | locInt(gb.locales.current)}) $}</span>
+                             <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: ( {$ download.record.totalRecords $} | localNumber)}"> </span>
                             {% endif %}
                         </h1>
                         {% if download.record.status === 'FILE_ERASED' %}
@@ -152,8 +152,7 @@
                                             <div>
                                                 <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
                                                 <dd>
-                                                    <a href="#datasets">{$ download.record.numberDatasets |
-                                                        locInt(gb.locales.current) $}</a>
+                                                    <a href="#datasets">{$ download.record.numberDatasets $} | localNumber</a>
                                                 </dd>
                                             </div>
                                             {% endif %}
@@ -255,7 +254,7 @@
                 {% if download.datasets.count > 0 %}
                     <section class="m-t-2">
                         <span class="relative-anchor-offset"><a id="datasets"></a></span>
-                        <h3 class="card-header">{$ __n('downloadKey.nConstituentDatasets', download.datasets.count, {count: download.datasets.count | locInt(gb.locales.current)}) $}</h3>
+                        <h3 class="card-header"><span translate="downloadKey.nConstituentDatasets" translate-values="{NUMBER: {$ download.datasets.count $}, NUMBER_FORMATTED: ({$ download.datasets.count $} | localNumber) }"></span></h3>
                         <div class="card">
                             <div class="card__stripe">
                                 <div class="stripeList">

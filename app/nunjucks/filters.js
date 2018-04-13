@@ -129,10 +129,6 @@ module.exports = function(nunjucksConfiguration) {
     })();
 
     (function() {
-        nunjucksConfiguration.addFilter('locInt', format.localizeInteger);
-    })();
-
-    (function() {
         nunjucksConfiguration.addFilter('compactInteger', format.compactInteger);
     })();
 
@@ -353,10 +349,6 @@ module.exports = function(nunjucksConfiguration) {
 
     (function() {
         nunjucksConfiguration.addFilter('formatByte', format.formatBytes);
-    })();
-
-    (function() {
-        nunjucksConfiguration.addFilter('localizeInteger', format.localizeInteger);
     })();
 
     (function() {

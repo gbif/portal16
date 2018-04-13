@@ -1,8 +1,5 @@
-{% macro organisationsAndParticipants(title, fundingOrganisations, resolved) %}
-    <div class="horizontal-stripe bare-background">
-        <div class="container--narrow">
-            <p class="small discreet text-uppercase text-center">{$ title $}</p>
-        </div>
+{% macro organisationsAndParticipants(fundingOrganisations, resolved) %}
+    
         <div class="container-fluid">
             <div class="associated-entities">
                 <ul class="associated-entities__titles inline-bullet-list text-center">
@@ -54,5 +51,4 @@
             </div>
         </div>
 
-    </div>
 {% endmacro %}

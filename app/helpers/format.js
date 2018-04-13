@@ -125,13 +125,6 @@ function toCamelCase(text) {
     return camelCase(text);
 }
 
-function localizeInteger(number, locale) {
-    locale = locale || defaultLanguage;
-    number = Number(number);
-    if (isNaN(number)) return '';
-    return new global.Intl.NumberFormat(locale).format(number);
-}
-
 function prettifyEnum(text) {
     if (typeof text === 'undefined' || text === null) {
         return '';
@@ -332,7 +325,6 @@ function sanitizeArrayField(array, field) {
 
 module.exports = {
     date: date,
-    localizeInteger: localizeInteger,
     prettifyEnum: prettifyEnum,
     formatBytes: formatBytes,
     prettifyLicense: prettifyLicense,
