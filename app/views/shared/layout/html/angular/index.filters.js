@@ -3,6 +3,7 @@
     var angular = require('angular'),
         Humanize = require('humanize-plus'),
         md = require('marked'),
+        moment = require('moment'),
         filters = require('./filters'),
         _ = require('lodash');
 
@@ -75,6 +76,12 @@
         .filter('isNew', function(moment) {
             return function(date) {
                 return moment().subtract(90, 'd').isBefore(date);
+            };
+        })
+        .filter('momentFormat', function(LOCALE) {
+            return function(date, format) {
+                moment.locale(LOCALE);
+                return moment(date).format(format || 'LLLL');
             };
         })
         .filter('stripTags', function() {

@@ -6,7 +6,7 @@
                     <span class="article-header__category__upper"><a
                                 ui-sref="datasetSearchTable({type:datasetKey.dataset.type})" translate="dataset.longType.{{ datasetKey.dataset.type }}">
                             </a></span>
-                    <span class="article-header__category__lower">Registered {{ datasetKey.dataset.created | amDateFormat:'D MMMM YYYY' }}</span>
+                    <span class="article-header__category__lower">Registered {{ datasetKey.dataset.created | momentFormat:'D MMMM YYYY' }}</span>
                 </nav>
 
                 <h1 class="text-center">

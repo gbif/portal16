@@ -4,6 +4,8 @@ let locales = ['en'];
 if (env === 'staging' || env === 'local') {
     locales.push('de-CH');
     locales.push('da');
+    locales.push('zh');
+    locales.push('es');
     locales.push('mock-EU');
     locales.push('mock-ASIA');
 }
