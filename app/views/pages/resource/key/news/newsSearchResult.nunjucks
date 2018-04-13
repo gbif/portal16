@@ -18,7 +18,7 @@
                 {{result._summary}}
             </p>
             <p class="discreet--very smaller">
-                Published {{ result.createdAt | amDateFormat:'D MMMM YYYY'}}
+                Published {{ result.createdAt | momentFormat:'D MMMM YYYY'}}
             </p>
         </div>
     </div>

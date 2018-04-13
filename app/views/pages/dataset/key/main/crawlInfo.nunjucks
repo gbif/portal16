@@ -5,23 +5,23 @@
     </div>
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
         <dt class="text-capitalize">Last failed attempt</dt>
-        <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
+        <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess">
         <dt class="text-capitalize">Last successful ingestion</dt>
         <dd>
-            {{ datasetKey.processSummary.lastSuccess.finishedCrawling | amDateFormat:'D MMMM YYYY' }} <span>({{ datasetKey.processSummary.lastSuccess.finishReason | prettifyEnum }})</span>
+            {{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'D MMMM YYYY' }} <span>({{ datasetKey.processSummary.lastSuccess.finishReason | prettifyEnum }})</span>
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess.finishReason !== 'NORMAL'">
         <dt class="text-capitalize">Last ingestion with changes</dt>
-        <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | amDateFormat:'D MMMM YYYY' }}</span>
+        <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | momentFormat:'D MMMM YYYY' }}</span>
         <span ng-if="!datasetKey.processSummary.lastNormal">This dataset has no ingestion entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span></span>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
         <dt class="text-capitalize">Last ingestion with data change</dt>
         <dd>
-            {{ datasetKey.processSummary.lastDataChange.finishedCrawling | amDateFormat:'D MMMM YYYY' }}
+            {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
@@ -52,5 +52,5 @@
         <dd>{{ datasetKey.processSummary.finished }}</dd>
     </div>
 </dl>
-<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Last ingested before {{ '2013-11-06'  | amDateFormat:'D MMMM YYYY'}}</p>
+<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Last ingested before {{ '2013-11-06'  | momentFormat:'D MMMM YYYY'}}</p>
 <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet">This dataset has no ingestion entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>

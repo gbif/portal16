@@ -7,7 +7,7 @@
                     <dl class="inline">
                         <div ng-if="nodeKey.node.created">
                             <dt>Node established</dt>
-                            <dd>{{ nodeKey.node.created | amDateFormat:'YYYY' }}</dd>
+                            <dd>{{ nodeKey.node.created | momentFormat:'YYYY' }}</dd>
                         </div>
                         <div ng-if="nodeKey.node.homePage">
                             <dt>Website</dt>

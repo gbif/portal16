@@ -154,7 +154,7 @@
                     <!--<div class="mapWidget__controlsArea__section__content">-->
                         <!--<div ng-if="!vm.mapMenu.isLoading">-->
                             <!--<div class="emptyInfo" ng-if="vm.mapMenu.occurrences.count == 0">-->
-                                <!--<p>Data in GBIF are curated and updated continously. In some cases that mean that a point on the map has since been removed. This map was last updated <span>{{(vm.capabilities.lastUpdated || '2017-05-01') | amDateFormat:'DD MMM YYYY' }}</span></span></p>-->
+                                <!--<p>Data in GBIF are curated and updated continously. In some cases that mean that a point on the map has since been removed. This map was last updated <span>{{(vm.capabilities.lastUpdated || '2017-05-01') | momentFormat:'DD MMM YYYY' }}</span></span></p>-->
                             <!--</div>-->
                             <!--<ul ng-if="vm.mapMenu.occurrences.count > 0">-->
                                 <!--<li ng-repeat="occurrence in vm.mapMenu.occurrences.results"-->
@@ -311,7 +311,7 @@
                 <!--</div>-->
                 <!--<div class="mapPopup__results seperator" ng-if="!vm.mapMenu.isLoading">-->
                     <!--<div class="emptyInfo" ng-if="vm.mapMenu.occurrences.count == 0">-->
-                        <!--<p>Data in GBIF are curated and updated continously. In some cases that mean that a point on the map has since been removed. This map was last updated <span>{{(vm.capabilities.lastUpdated || '2017-05-01') | amDateFormat:'DD MMM YYYY' }}</span></span></p>-->
+                        <!--<p>Data in GBIF are curated and updated continously. In some cases that mean that a point on the map has since been removed. This map was last updated <span>{{(vm.capabilities.lastUpdated || '2017-05-01') | momentFormat:'DD MMM YYYY' }}</span></span></p>-->
                     <!--</div>-->
                     <!--<ul ng-if="vm.mapMenu.occurrences.count > 0">-->
                         <!--<li ng-repeat="occurrence in vm.mapMenu.occurrences.results"-->

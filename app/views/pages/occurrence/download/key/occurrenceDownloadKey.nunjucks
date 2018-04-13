@@ -174,7 +174,7 @@
                                         <div class="card">
                                             <div class="card__stripe">
                                                 <div class="card__content">
-                                                    <span translate="phrases.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | amDateFormat:'D MMMM YYYY')}"></span> <span>Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>.</span>
+                                                    <span translate="phrases.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | momentFormat:'D MMMM YYYY')}"></span> <span>Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>.</span>
                                                 </div>
                                             </div>
                                             <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">

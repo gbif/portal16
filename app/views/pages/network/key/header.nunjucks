@@ -6,7 +6,7 @@
                     <span class="article-header__category__upper"
                             translate="network.title"></span>
                     <span class="article-header__category__lower">
-                        Registered {{ networkKey.network.created | amDateFormat:'D MMMM YYYY' }}
+                        Registered {{ networkKey.network.created | momentFormat:'D MMMM YYYY' }}
                     </span>
                 </nav>
                 <h1>

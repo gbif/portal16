@@ -8,7 +8,7 @@
                 </div>
                 <div>
                     <dt>GBIF participant started</dt>
-                    <dd class="text-capitalize">{{ participantKey.participant.participant.membershipStart | amDateFormat:'YYYY' }}</dd>
+                    <dd class="text-capitalize">{{ participantKey.participant.participant.membershipStart | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div ng-if="participantKey.participant.participant.gbifRegion">
                     <dt>GBIF region</dt>
@@ -31,7 +31,7 @@
                 </div>
                 <div>
                     <dt>Node created</dt>
-                    <dd>{{ participantKey.participant.node.created | amDateFormat:'YYYY' }}</dd>
+                    <dd>{{ participantKey.participant.node.created | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div ng-if="participantKey.participant.node.nodeUrl">
                     <dt>Website</dt>

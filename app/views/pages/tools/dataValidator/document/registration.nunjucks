@@ -7,17 +7,17 @@
                 <dl class="inline">
                     <div ng-if="datasetKey.dataset.created">
                         <dt class="text-capitalize">Registration date</dt>
-                        <dd>{{ datasetKey.dataset.created | amDateFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.created | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.modified">
                         <dt class="text-capitalize">Last modification date</dt>
-                        <dd>{{ datasetKey.dataset.modified | amDateFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.modified | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.pubDate">
                         <dt class="text-capitalize">Publication date</dt>
-                        <dd>{{ datasetKey.dataset.pubDate | amDateFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.pubDate | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.host.$resolved">
@@ -84,11 +84,11 @@
                     </div>
                     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
                         <dt class="text-capitalize">Last failed attempt</dt>
-                        <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.lastSuccess">
                         <dt class="text-capitalize">Last Successful ingestion</dt>
-                        <dd>{{ datasetKey.processSummary.lastSuccess.finishedCrawling | amDateFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.finished > 0">
                         <dt class="text-capitalize">Ingestion completion reasons</dt>

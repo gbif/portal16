@@ -17,8 +17,8 @@
         <div class="card__content searchCard__content">
             <div class="clearfix">
                 <div class="searchCard__date">
-                    <div>{{ result.start | amDateFormat: 'D MMM' }}</div>
-                    <span>{{ result.start | amDateFormat:'YYYY' }}</span>
+                    <div>{{ result.start | momentFormat: 'D MMM' }}</div>
+                    <span>{{ result.start | momentFormat:'YYYY' }}</span>
                 </div>
                 <p class="m-b-025">
                     {{result._summary}}
@@ -31,10 +31,10 @@
                     </div>
                     <div>
                         <span class="gb-icon-calendar"></span>
-                        <span>{{ result.start | amDateFormat:'LL' }}</span>
-                        {# <span ng-if="!result.allDayEvent">{{ result.start | amDateFormat:'HH:mm Z' }}</span> #}
-                        <span ng-if="(result.start | amDateFormat:'LL') !== (result.end | amDateFormat:'LL')"> - {{ result.end | amDateFormat:'LL' }}</span>
-                        <span ng-if="(result.start | amDateFormat:'LL') === (result.end | amDateFormat:'LL') && !result.allDayEvent">{{ result.start | amDateFormat:'HH:mm Z' }}</span>
+                        <span>{{ result.start | momentFormat:'LL' }}</span>
+                        {# <span ng-if="!result.allDayEvent">{{ result.start | momentFormat:'HH:mm Z' }}</span> #}
+                        <span ng-if="(result.start | momentFormat:'LL') !== (result.end | momentFormat:'LL')"> - {{ result.end | momentFormat:'LL' }}</span>
+                        <span ng-if="(result.start | momentFormat:'LL') === (result.end | momentFormat:'LL') && !result.allDayEvent">{{ result.start | momentFormat:'HH:mm Z' }}</span>
                     </div>
                     <div ng-if="result.gbifsAttendee">
                         <span class="gb-icon-logo"></span>

@@ -23,14 +23,14 @@
                 <div>
                     <dt class="text-capitalize">Metadata last modified</dt>
                     <dd>
-                        {{ datasetKey.dataset.modified | amDateFormat:'D MMMM YYYY' }}
+                        {{ datasetKey.dataset.modified | momentFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
 
                 <div ng-if="datasetKey.processSummary.lastDataChange">
                     <dt class="text-capitalize">Data last changed</dt>
                     <dd>
-                        {{ datasetKey.processSummary.lastDataChange.finishedCrawling | amDateFormat:'D MMMM YYYY' }}
+                        {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
 

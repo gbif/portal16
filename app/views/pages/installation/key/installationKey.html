@@ -14,7 +14,7 @@
                                     {{ installationKey.installation.title }}
                                 </h1>
                                 <p class="text-error text-center" ng-if="installationKey.installation.deleted">
-                                    This installation was deleted {{ installationKey.installation.deleted | amDateFormat:'D MMMM YYYY' }}
+                                    This installation was deleted {{ installationKey.installation.deleted | momentFormat:'D MMMM YYYY' }}
                                 </p>
                             </header>
                         </div>
@@ -67,7 +67,7 @@
                                     </div>
                                     <div ng-if="installationKey.installation.created">
                                         <dt class="text-capitalize">Registered</dt>
-                                        <dd>{{ installationKey.installation.created | amDateFormat:'D MMMM YYYY' }}</dd>
+                                        <dd>{{ installationKey.installation.created | momentFormat:'D MMMM YYYY' }}</dd>
                                     </div>
                                     <div ng-if="installationKey.installation.endpoints.length > 0">
                                         <dt class="text-capitalize">Endpoints</dt>

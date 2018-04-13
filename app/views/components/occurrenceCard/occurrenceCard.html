@@ -18,7 +18,7 @@
                     </div>
                     <span>
                         <span translate="country.{{occurrence.countryCode}}" class="m-r-05"></span>
-                        <span>{{ occurrence.eventDate | amDateFormat:'MMMM YYYY' }}</span>
+                        <span>{{ occurrence.eventDate | momentFormat:'MMMM YYYY' }}</span>
                     </span>
                 </a>
                 <a ng-href="{{urlPrefix}}/occurrence/{{occurrence.key}}" ng-if="occurrence._image" class="occurrenceCard__list__img hideInvalid inherit noUnderline">

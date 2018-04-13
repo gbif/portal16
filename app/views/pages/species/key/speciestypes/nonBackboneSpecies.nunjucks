@@ -73,7 +73,7 @@
                             {#<div>#}
                             {#{{ speciesKey2.dataset.citation.text }}#}
                             {#<p class="small discreet m-t-1">Last#}
-                            {#modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>#}
+                            {#modified: {{ speciesKey2.species.lastInterpreted | momentFormat:'D MMMM YYYY' }}</p>#}
                             {#</div>#}
                         </div>
                         <div class="m-b-1 m-t-1" ng-bind-html="speciesKey2.species.bibliographicCitation | parseUrlFilter:'_blank': 'source'"  ng-if="!speciesKey2.isNub && (speciesKey2.verbatim && speciesKey2.verbatim.$resolved && speciesKey2.species.bibliographicCitation)">
@@ -82,7 +82,7 @@
                             {#<div>#}
                             {#{{ speciesKey2.dataset.citation.text }}#}
                             {#<p class="small discreet m-t-1">Last#}
-                            {#modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>#}
+                            {#modified: {{ speciesKey2.species.lastInterpreted | momentFormat:'D MMMM YYYY' }}</p>#}
                             {#</div>#}
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                             {#<div>#}
                                 {#{{ speciesKey2.dataset.citation.text }}#}
                                 {#<p class="small discreet m-t-1">Last#}
-                                    {#modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>#}
+                                    {#modified: {{ speciesKey2.species.lastInterpreted | momentFormat:'D MMMM YYYY' }}</p>#}
                             {#</div>#}
                         {#</div>#}
                     {#</div>#}

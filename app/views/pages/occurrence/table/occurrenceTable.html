@@ -136,7 +136,7 @@
                             </td>
                             <td class="table-cell--normal">
                                 <a ui-sref="occurrenceKey({key:result.key})" ng-if="result.eventDate">
-                                    {{result.eventDate | amDateFormat:'YYYY MMMM'}}
+                                    {{result.eventDate | momentFormat:'YYYY MMMM'}}
                                 </a>
                             </td>
                             <td class="table-cell--wide">

@@ -8,7 +8,7 @@
                 </div>
                 <div>
                     <dt>GBIF participant since</dt>
-                    <dd class="text-capitalize">{{ countryKey.country.participant.membershipStart | amDateFormat:'YYYY' }}</dd>
+                    <dd class="text-capitalize">{{ countryKey.country.participant.membershipStart | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div>
                     <dt>GBIF region</dt>
@@ -30,7 +30,7 @@
                 </div>
                 <div>
                     <dt>Node established</dt>
-                    <dd>{{ countryKey.country.prose.main.fields.nodeEstablishmentDate | amDateFormat:'YYYY' }}</dd>
+                    <dd>{{ countryKey.country.prose.main.fields.nodeEstablishmentDate | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div>
                     <dt>Website</dt>

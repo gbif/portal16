@@ -119,7 +119,7 @@
                                     {#<div>#}
                                     {#{{ speciesKey2.dataset.citation.text }}#}
                                     {#<p class="small discreet m-t-1">Last#}
-                                    {#modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>#}
+                                    {#modified: {{ speciesKey2.species.lastInterpreted | momentFormat:'D MMMM YYYY' }}</p>#}
                                     {#</div>#}
                                 </div>
                             </div>

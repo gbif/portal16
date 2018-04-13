@@ -39,10 +39,10 @@
                                   ng-if="result.grantType">{{ result.grantType }}</span>
                         </td>
                         <td class="table-cell--narrow">
-                            <span ng-if="result.start">{{ result.start | amDateFormat:'DD MMM YYYY' }}</span>
+                            <span ng-if="result.start">{{ result.start | momentFormat:'DD MMM YYYY' }}</span>
                         </td>
                         <td class="table-cell--narrow">
-                            <span ng-if="result.end">{{ result.end | amDateFormat:'DD MMM YYYY' }}</span>
+                            <span ng-if="result.end">{{ result.end | momentFormat:'DD MMM YYYY' }}</span>
                         </td>
                         <td class="table-cell--narrow">
                             <span ng-if="result.fundsAllocated">€{{ result.fundsAllocated | localNumber:'{$ gb.locales.current $}' }}</span>

@@ -7,21 +7,21 @@
                                 ui-sref="publisherSearchList()" translate="stdTerms.publisher">
                         </a></span>
                     <span class="article-header__category__lower">
-                        Since {{ publisherKey.publisher.created | amDateFormat:'D MMMM YYYY' }}
+                        Since {{ publisherKey.publisher.created | momentFormat:'D MMMM YYYY' }}
                     </span>
                 </nav>
                 <h1>
                     <span ng-class="{'text-error': publisherKey.publisher.deleted}">{{ publisherKey.publisher.title }}</span>
                 </h1>
                 <p class="text-error text-center" ng-if="publisherKey.publisher.deleted">
-                    This publisher was deleted {{ publisherKey.publisher.deleted | amDateFormat:'D MMMM YYYY' }}
+                    This publisher was deleted {{ publisherKey.publisher.deleted | momentFormat:'D MMMM YYYY' }}
                 </p>
             </header>
         </div>
 
         {#<div class="stripe-comment" ng-if="publisherKey.publisher.modified !== publisherKey.publisher.created">#}
             {#<div>#}
-                {#Modified {{ publisherKey.publisher.modified | amDateFormat:'D MMMM YYYY' }}#}
+                {#Modified {{ publisherKey.publisher.modified | momentFormat:'D MMMM YYYY' }}#}
             {#</div>#}
         {#</div>#}
     </div>

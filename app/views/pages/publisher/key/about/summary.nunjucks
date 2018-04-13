@@ -14,7 +14,7 @@
                     {#<div>#}
                         {#<dt class="text-capitalize">GBIF pubilsher since</dt>#}
                         {#<dd>#}
-                            {#{{ publisherKey.publisher.created | amDateFormat:'D MMMM YYYY' }}#}
+                            {#{{ publisherKey.publisher.created | momentFormat:'D MMMM YYYY' }}#}
                         {#</dd>#}
                     {#</div>#}
                     <div ng-if="publisherKey.publisher.endorsementApproved">
