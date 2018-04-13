@@ -101,6 +101,7 @@
         "criticalErrorMsg": "The system is currently not able to process your request. Try to refresh the page and please report the issue if it continues.",
         "partialPage": "Partial page",
         "thankYou": "Thank you",
-        "followDiscussionAtBelowLink": "Follow or join the further discussion on the link below."
+        "followDiscussionAtBelowLink": "Follow or join the further discussion on the link below.",
+        "fundedBy": "funded by"
     }
 }
