@@ -195,8 +195,10 @@
         "yourContact": "your contact information",
         "comments": "comments",
         "submit": "submit",
+        "followDiscussionBelow": "Follow or join the further discussion on the link below.",
         "followIssue": "see suggestion on github",
-        "suggestAnother": "suggest another dataset"
+        "suggestAnother": "suggest another dataset",
+        "saveFailure": "This isn't good. We couldn't save your suggestion. Please try again later or alternatively go straight to [Github](https://github.com/gbif/data-mobilization/issues) where the suggestions are managed"
       }
     },
     "observationTrends": {
