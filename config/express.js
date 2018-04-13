@@ -53,12 +53,6 @@ module.exports = function(app, config) {
     app.use(methodOverride());
     app.use(passport.initialize());
 
-    // Node doesn't include other locales than english per default. Include these to use Intl.
-    let twoletterIsoLocales = config.locales.map(function(e) {
-        return e.substr(0, 2);
-    });
-    require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(config.locales);
-
     // add menu to all requests
     require(config.root + '/app/middleware/menu/menu.js').use(app);
 

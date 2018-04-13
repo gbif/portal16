@@ -2,7 +2,7 @@ let rewire = require('rewire'),
     format = require('./format.js');
 
 // Necessary because Node does not ship with localization
-require('./intlPolyfill.js').setSupportedLocales(['en', 'da', 'jp']);
+//require('./intlPolyfill.js').setSupportedLocales(['en', 'da', 'jp']);
 
 describe('formatter', function() {
     it('can localize dates', function() {
