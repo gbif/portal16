@@ -155,6 +155,7 @@
     "phantomjs-prebuilt": "^2.1.7",
     "postcss-unmq": "^1.0.2",
     "proj4": "^2.4.3",
+    "pseudoloc": "^1.1.0",
     "q": "^1.5.1",
     "random-words": "0.0.1",
     "randomstring": "^1.1.5",
@@ -179,9 +180,7 @@
     "xml2js": "^0.4.19",
     "yargs": "^6.6.0"
   },
-  "devDependencies": {
-    "pseudoloc": "^1.1.0"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/gbif/portal16"
