@@ -23,13 +23,7 @@
         </div>
 
         <div class="horizontal-stripe white-background">
-            <div class="container--narrow">
-                <div class="row">
-                    <div class="col-xs-12">
-                        {$ translations.description | safe $}
-                    </div>
-                </div>
-            </div>
+            <ng-include src="'/api/resource/tool?content_type=Tool&fields.machineIdentifier=suggest_dataset'" ></ng-include>
         </div>
 
         <div class="horizontal-stripe light-background ng-cloak">
