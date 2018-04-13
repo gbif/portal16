@@ -8,7 +8,12 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/network/:key.:ext?', function(req, res, next) {
+router.get('/network/:key', networkPage);
+// comment in once we go to the new contentful driven network pages issue #725
+// router.get('/network/:key/dataset', networkPage);
+// router.get('/network/:key/metrics', networkPage);
+
+function networkPage(req, res, next) {
     let key = req.params.key;
     Network.get(key, {expand: []}).then(function(network) {
         try {
@@ -38,7 +43,7 @@ router.get('/network/:key.:ext?', function(req, res, next) {
             next(err);
         }
     });
-});
+}
 
 function renderPage(req, res, next, network) {
     helper.renderPage(req, res, next, {
@@ -47,5 +52,5 @@ function renderPage(req, res, next, network) {
             title: network.record.title,
             description: network.record.description
         }
-    }, 'pages/network/key/networkKey');
+    }, 'pages/network/key/seo');
 }

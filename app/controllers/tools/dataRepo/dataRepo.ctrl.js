@@ -11,8 +11,6 @@ router.get('/data-repository/upload', renderTemplate);
 router.get('/data-repository/upload/:key', renderTemplate);
 
 function renderTemplate(req, res, next) {
-// next();
-// return;
     res.render('pages/tools/dataRepository/dataRepository', {
         _meta: {
             title: 'Data repository',

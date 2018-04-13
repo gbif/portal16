@@ -1,0 +1,10 @@
+{
+    "datasetMetrics": {
+        "countByKingdom": "Count by kingdom",
+        "countByRank": "Count by rank",
+        "countNamesByLanguage": "Count names by language",
+        "countExtRecordsByExtension": "Count extensions by extension type",
+        "countByOrigin": "Count by origin",
+        "countByIssue": "Count issues by issue type"
+    }
+}

@@ -1,1 +1,0 @@
-GBIF is an intergovernmental organization established by countries based on Memorandum of Understanding. It is a vibrant community that mobilizes biodiversity data, improves the quality, and uses it for our better understanding of the nature, so we can address challenges when facing biodiversity loss and climate change.

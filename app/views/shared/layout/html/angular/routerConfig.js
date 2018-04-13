@@ -406,15 +406,33 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('network', {
             parent: 'localization',
-            url: '/network/:key?offset',
+            url: '/network/:key',
             views: {
                 main: {
+                    // change template once we go to the new contentful driven network pages issue #725
+                    // templateUrl: '/api/template/network.html?v=' + BUILD_VERSION,
                     templateUrl: '/templates/pages/network/key/networkKey.html?v=' + BUILD_VERSION,
                     controller: 'networkKeyCtrl',
                     controllerAs: 'networkKey'
                 }
             }
         })
+        // comment in once we go to the new contentful driven network pages issue #725
+        .state('networkDataset', {
+            parent: 'network',
+            url: '/dataset?offset',
+            templateUrl: '/templates/pages/network/key/dataset/networkDataset.html?v=' + BUILD_VERSION,
+            controller: 'networkDatasetCtrl',
+            controllerAs: 'networkDataset'
+        })
+        .state('networkMetrics', {
+            parent: 'network',
+            url: '/metrics',
+            templateUrl: '/templates/pages/network/key/metrics/networkMetrics.html?v=' + BUILD_VERSION,
+            controller: 'networkMetricsCtrl',
+            controllerAs: 'networkMetrics'
+        })
+        // end comment in
         .state('country', {
             parent: 'localization',
             url: '/country/:key',

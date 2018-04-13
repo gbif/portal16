@@ -21,10 +21,18 @@ function mockify(object) {
 
     _.each(object, (val, key) => {
         if (typeof val === 'string') {
-            newObject[key] = pseudoloc.str(val);
+            newObject[key] = getMockText(val);
         } else if (typeof (val) === 'object') {
             newObject[key] = mockify(val);
         }
     });
     return newObject;
+}
+
+function getMockText(str) {
+    if (str.indexOf('{') !== -1) {
+        return '[[[!' + str + '!]]]';
+    } else {
+        return pseudoloc.str(str);
+    }
 }

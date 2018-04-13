@@ -23,13 +23,7 @@
         </div>
 
         <div class="horizontal-stripe white-background">
-            <div class="container--narrow">
-                <div class="row">
-                    <div class="col-xs-12">
-                        {$ translations.description | safe $}
-                    </div>
-                </div>
-            </div>
+            <ng-include src="'/api/resource/tool?content_type=Tool&fields.machineIdentifier=suggest_dataset'" ></ng-include>
         </div>
 
         <div class="horizontal-stripe light-background ng-cloak">
@@ -267,7 +261,7 @@
                                                                 class="btn btn-default flat">{$
                                                             __('tools.suggestDataset.form.submit') $}
                                                         </button>
-                                                        <div class="text-error" ng-if="suggestDataset.state == 'FAILED'">
+                                                        <div class="text-error" ng-if="suggestDataset.state == 'FAILED'" translate="tools.suggestDataset.form.saveFailure">
                                                             {$ translations.failure | safe $}
                                                         </div>
                                                     </div>
@@ -281,8 +275,9 @@
                     </div>
                     <div class="col-xs-12 ng-cloak" ng-if="suggestDataset.state == 'SUCCESS'">
                         <div>
-                            {$ translations.thankyou | safe $}
-                            <a ng-href="{{ suggestDataset.referenceId }}" class="btn btn-default flat">{$
+                            <h4>{$ __('stdTerms.thankYou') $}</h4>
+                            <p>{$ __('tools.suggestDataset.form.followDiscussionBelow') $}</p>
+                            <a ng-href="{{ suggestDataset.referenceId }}" class="btn btn-default flat" translate="">{$
                                 __('tools.suggestDataset.form.followIssue') $}</a>
                             <a href="" onclick="window.location.reload(true);" class="btn btn-default flat">{$
                                 __('tools.suggestDataset.form.suggestAnother') $}</a>

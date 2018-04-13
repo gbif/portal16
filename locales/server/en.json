@@ -6,14 +6,6 @@
       "INFERED": "Inferred"
     }
   },
-  "datasetMetrics": {
-    "countByKingdom": "Count by kingdom",
-    "countByRank" : "Count by rank",
-    "countNamesByLanguage": "Count names by language",
-    "countExtRecordsByExtension" : "Count extensions by extension type",
-    "countByOrigin" : "Count by origin",
-    "countByIssue" : "Count issues by issue type"
-  },
   "event": {
     "location": "Location",
     "date": "Date",
@@ -178,47 +170,6 @@
     "searchDescriptionDetail": "for ‘{{searchTerm}}’",
     "iptDescription": "The Integrated Publishing Toolkit (IPT) is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the GBIF network. The IPT can also be configured with either a DataCite or EZID account in order to assign DOIs to datasets transforming it into a data repository."
   },
-  "intervals": {
-    "elevation": {
-      "equals": "is {from}m",
-      "between": "between {from} and {to}m",
-      "lessThanOrEquals": "below {to}m",
-      "greaterThanOrEquals": "above {from}m",
-      "invalid": "invalid",
-      "select": {
-        "equals": "is",
-        "between": "between",
-        "lessThanOrEquals": "below",
-        "greaterThanOrEquals": "above"
-      }
-    },
-    "depth": {
-      "equals": "is {from}m",
-      "between": "between {from} and {to}m",
-      "lessThanOrEquals": "above {to}m depth",
-      "greaterThanOrEquals": "deeper than {from}m",
-      "invalid": "invalid",
-      "select": {
-        "equals": "is",
-        "between": "between",
-        "lessThanOrEquals": "less than",
-        "greaterThanOrEquals": "deeper than"
-      }
-    },
-    "year": {
-      "equals": "is {from}",
-      "between": "between start of {from} and end of {to}",
-      "lessThanOrEquals": "before end of {to}",
-      "greaterThanOrEquals": "after start of {from}",
-      "invalid": "invalid",
-      "select": {
-        "equals": "is",
-        "between": "between",
-        "lessThanOrEquals": "before end of",
-        "greaterThanOrEquals": "after start of"
-      }
-    }
-  },
   "tools": {
     "categoryTitle": "tools",
     "categoryFeatured": "featured",
@@ -244,8 +195,10 @@
         "yourContact": "your contact information",
         "comments": "comments",
         "submit": "submit",
+        "followDiscussionBelow": "Follow or join the further discussion on the link below.",
         "followIssue": "see suggestion on github",
-        "suggestAnother": "suggest another dataset"
+        "suggestAnother": "suggest another dataset",
+        "saveFailure": "This isn't good. We couldn't save your suggestion. Please try again later or alternatively go straight to [Github](https://github.com/gbif/data-mobilization/issues) where the suggestions are managed"
       }
     },
     "observationTrends": {

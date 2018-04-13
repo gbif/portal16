@@ -1,0 +1,27 @@
+.networkMetrics-col {
+    occurrence-breakdown-card {
+        display block
+        padding-bottom 20px
+    }
+}
+
++isAbove($desktop) {
+    .networkMetrics-col {
+        column-count 2
+        >div {
+            break-inside avoid-column
+        }
+        .table-container {
+            position initial
+        }
+    }
+}
+
+@media print {
+    .networkMetrics-col {
+        column-count auto !important
+        >div {
+            break-inside initial
+        }
+    }
+}
