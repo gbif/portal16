@@ -19,7 +19,7 @@
                 <span  ng-if="speciesKey2.species.publishedIn"><span class="discreet--very">Published in:</span> <span class="source" ng-bind-html="speciesKey2.species.publishedIn | parseUrlFilter:'_blank':'inherit' "></span></span>
                 </div>
                 <div class="inline-block">
-                <span ng-if="speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey" ><span class="discreet--very">Source:</span> <a class="source" ui-sref="datasetKey({key:speciesKey2.sourceTaxonDataset.key})">{{ speciesKey2.sourceTaxonDataset.title }}</a></span>
+                <span ng-if="speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey" ><span class="discreet--very">{{'species.source' | translate}}:</span> <a class="source" ui-sref="datasetKey({key:speciesKey2.sourceTaxonDataset.key})">{{ speciesKey2.sourceTaxonDataset.title }}</a></span>
                 </div>
                 </div>
 

@@ -102,6 +102,13 @@
         "partialPage": "Partial page",
         "thankYou": "Thank you",
         "followDiscussionAtBelowLink": "Follow or join the further discussion on the link below.",
-        "fundedBy": "funded by"
+        "fundedBy": "funded by",
+        "georeferencedRecords": "georeferenced records",
+        "noOccurrencesWithCoordinates" : "No occurrences with coordinates",
+        "occurrenceRecordsWithImages" : "occurrence records with images",
+        "seeGallery" : "See gallery",
+        "description" : "Description",
+        "overview" : "Overview",
+        "metrics" : "Metrics"
     }
 }

@@ -6,8 +6,8 @@
         <div class="site-drawer__header">
             <div class="site-drawer__bar">
                 <div class="site-drawer__bar__title">
-                    <span>
-                          Classification
+                    <span translate="species.classification">
+                          
                     </span>
                 </div>
 
@@ -25,7 +25,7 @@
                            autocomplete="off"
                            class="fit-suggestions--searchBox"
                            ng-model="speciesKey2.selected"
-                           placeholder="Select a species"
+                           placeholder="{{'species.selectSpecies' | translate}}"
                            uib-typeahead="suggestion.scientificName for suggestion in speciesKey2.getSuggestions($viewValue)"
                            typeahead-on-select="speciesKey2.typeaheadSelect($item, $model, $label, $event)"
                            typeahead-focus-first="true"

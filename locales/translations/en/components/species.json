@@ -4,7 +4,6 @@
             "presentIn": "Present in {country}",
             "presentInNonCountry": "Present in {location}",
             "threatStatus": "Threat status: {status}",
-            "noOccurencesInGbif": "No occurrences in GBIF",
             "viewInGbifBackbone": "View in GBIF backbone",
             "publisherRecord": "Publisher record"
         },
@@ -15,6 +14,15 @@
         "immediateChildren" : "Immediate children",
         "descendants" : "descendants",
         "loadMore" : "More",
-        "selectRoot" : "Select root"
+        "selectRoot" : "Select root",
+        "classification" : "Classification",
+        "selectSpecies" : "Select a species",
+        "searchMsg" : "Searching 900+ million records for species data",
+        "noOccurencesInGbif" : "No occurrences in GBIF",
+        "iucnStatus" : "IUCN status",
+        "references" : "References",
+        "source" : "Source",
+        "referenceTaxon" : "Reference taxon",
+        "verbatim" : "Verbatim"
     }
 }
