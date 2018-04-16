@@ -84,6 +84,13 @@
                 return moment(date).format(format || 'LLLL');
             };
         })
+        .filter('momentFromNow', function(LOCALE) {
+            return function(date, format) {
+                var locale = LOCALE || gb.locale;
+                moment.locale(locale);
+                return moment(date).fromNow();
+            };
+        })
         .filter('stripTags', function() {
             return function(html) {
                 var tmp = document.createElement('DIV');

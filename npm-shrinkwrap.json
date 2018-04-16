@@ -1508,14 +1508,6 @@
       "resolved": "https://registry.npmjs.org/angular-messages/-/angular-messages-1.6.2.tgz",
       "integrity": "sha1-A4OLfsXMhnEVMDWlkGjy+9TjfOQ="
     },
-    "angular-moment": {
-      "version": "1.0.1",
-      "resolved": "https://registry.npmjs.org/angular-moment/-/angular-moment-1.0.1.tgz",
-      "integrity": "sha1-UJ0zJq6iP3giHP3bK2K/7eaEHTE=",
-      "requires": {
-        "moment": "2.18.1"
-      }
-    },
     "angular-resource": {
       "version": "1.5.8",
       "resolved": "https://registry.npmjs.org/angular-resource/-/angular-resource-1.5.8.tgz",

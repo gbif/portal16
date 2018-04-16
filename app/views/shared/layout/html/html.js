@@ -20,7 +20,6 @@ var angular = require('angular');
 // require('./errorLogging'); //TODO temporarily disabled as it isn't tested for DOS and stability
 require('angular-ui-router');
 require('angular-translate');
-require('angular-moment');
 require('angular-hotkeys');
 require('angular-resource');
 require('angular-aria');
@@ -44,9 +43,6 @@ require('moment/locale/es');
 require('moment/locale/da');
 require('moment/locale/zh-cn');
 // TODO test
-
-
-
 require('angular-material');
 require('ng-file-upload');
 require('checklist-model');// TODO remove as we hardly use it now that there is continous update on occurrenece search?
@@ -65,7 +61,6 @@ window.Lightbox = require('../../../components/lightbox/lightbox');
             'ngAria',
             'ui.router',
             'pascalprecht.translate',
-            'angularMoment',
             'cfp.hotkeys',
             'ngResource',
             'ui.bootstrap',
@@ -88,10 +83,9 @@ angular
     .config(mdConfig);
 
 /** @ngInject */
-function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { // $log
+function runBlock( $translate, $http, LOCALE, $rootScope) { // $log
     // $log.debug('runBlock end');
     $translate.use(LOCALE);
-    amMoment.changeLocale(LOCALE);
 
     $rootScope.$on('$stateChangeStart', function(e) {
         if (window.gb.state > 399) {

@@ -11,6 +11,7 @@ angular
 /** @ngInject */
 function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary) {
     var vm = this;
+    vm.gb = gb;
     var globe;
     var globeCanvas;
     vm.key = $stateParams.key;
@@ -35,9 +36,6 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
             expanded: false
         }
     };
-
-    
-
 
     vm.markerMessage = {
         template: '<dl class="inline">{{coordinateUncertainty}}{{elevation}}</dl>',

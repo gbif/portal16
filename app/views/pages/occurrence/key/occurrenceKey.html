@@ -2,7 +2,7 @@
     <div class="site-content__page">
         <div class="publisherKey light-background">
             <article class="wrapper-horizontal-stripes occurrenceKey page--data">
-                <ng-include src="'/api/template/occurrence/' + occurrenceKey.key + '?v=' + portal.BUILD_VERSION"></ng-include>
+                <ng-include src="'/api/template/occurrence/' + occurrenceKey.key + '?v=' + portal.BUILD_VERSION +'&locale='+occurrenceKey.gb.locale"></ng-include>
             </article>
         </div>
     </div>

@@ -30,7 +30,7 @@ function mockify(object) {
 }
 
 function getMockText(str) {
-    if (str.indexOf('{') !== -1) {
+    if ((str.indexOf('{') !== -1 ) || (str.indexOf('%s') !== -1)) {
         return '[[[!' + str + '!]]]';
     } else {
         return pseudoloc.str(str);

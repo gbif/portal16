@@ -12,7 +12,7 @@
             <span>Click to search an area</span>
         </div>
         <div class="mapWidget__info">
-            <span>Generated <time am-time-ago="(vm.capabilities.generated || '2017-05-01')"></time></span>
+            <span>Generated {{ (vm.capabilities.generated || '2017-05-01') | momentFromNow:gb.locales.current}}</span>
             <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
         </div>
     </div>

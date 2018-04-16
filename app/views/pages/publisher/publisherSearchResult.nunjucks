@@ -15,7 +15,7 @@
                 <img class="searchCard__img--noCrop" ng-src="{$ _meta.imageCache $}128x/{{ result.logoUrl | encodeURIComponent }}" ng-if="result.logoUrl">
             </a>
             <div class="searchCard__meta" ng-if="result.created">
-                Joined <span am-time-ago="result.created"></span>
+                Joined {{ result.created | momentFromNow}}
             </div>
             <div ng-if="result._contact.email[0]" class="small">
                 Contact: <a href="mailto:{{ result._contact.email[0] }}">{{ result._contact.firstName }} {{ result._contact.lastName }}</a>

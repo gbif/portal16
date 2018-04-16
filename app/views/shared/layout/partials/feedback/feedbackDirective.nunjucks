@@ -47,7 +47,7 @@
                                 <div class="card__content">
                                     <h5>{{ item.title }}</h5>
                                     <div class="feedback__comment">
-                                        <time am-time-ago="item.createdAt"></time>
+                                        {{ item.createdAt | momentFromNow}}
                                     </div>
                                 </div>
                             </a>

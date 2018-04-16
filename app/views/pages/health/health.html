@@ -22,7 +22,7 @@
                                 <div class="summaryStatus summaryStatus--{{ health.status.severity | lowercase }}">
                                     <div class="card__content">
                                         <span class="summaryStatus__message" translate="health.statusSummary.{{health.status.severity}}"></span>
-                                        <span class="pull-right summaryStatus__updatedAt">Updated <time am-time-ago="health.status.updatedAt"></time></span>
+                                        <span class="pull-right summaryStatus__updatedAt">Updated {{health.status.updatedAt | momentFromNow}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                                         <div>
                                             <div ng-bind-html="message.body | md2html" class="prose"></div>
                                             <div class="small discreet--very m-t-05">
-                                                Updated <time am-time-ago="message.updatedAt"></time>
+                                                Updated  {{ message.updatedAt | momentFromNow}}
                                             </div>
                                         </div>
                                     </div>
