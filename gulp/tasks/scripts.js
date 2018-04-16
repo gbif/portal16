@@ -62,12 +62,11 @@ gulp.task('home', function() {
     return build('./app/views/pages/home/home.entry.js', 'pages/home.js');
 });
 
-const vendors = ['angular', 'lodash', 'openlayers', 'angular-cookies', 'ngstorage', 'angular-messages', 'angular-ui-router', 'angular-translate', 'angular-moment', 'angular-hotkeys', 'angular-resource', 'angular-aria', 'angular-ui-bootstrap', 'angular-sanitize', 'nouislider-angular', 'angular-animate'];
+const vendors = ['angular', 'lodash', 'openlayers', 'angular-cookies', 'ngstorage', 'angular-messages', 'angular-ui-router', 'angular-translate', 'angular-hotkeys', 'angular-resource', 'angular-aria', 'angular-ui-bootstrap', 'angular-sanitize', 'nouislider-angular', 'angular-animate'];
 const noParseVendors = ['angular',
     'lodash',
     'angular-ui-router',
     'angular-translate',
-    'angular-moment',
     'angular-leaflet-directive',
     'angular-hotkeys',
     'angular-resource',

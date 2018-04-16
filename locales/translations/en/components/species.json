@@ -7,6 +7,14 @@
             "noOccurencesInGbif": "No occurrences in GBIF",
             "viewInGbifBackbone": "View in GBIF backbone",
             "publisherRecord": "Publisher record"
-        }
+        },
+        "acceptedName" : "Accepted name",
+        "synonym" : "Synonym",
+        "synonyms": "Synonyms",
+        "basionymOf" : "Basionym of",
+        "immediateChildren" : "Immediate children",
+        "descendants" : "descendants",
+        "loadMore" : "More",
+        "selectRoot" : "Select root"
     }
 }
