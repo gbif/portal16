@@ -4,8 +4,7 @@
             "presentIn": "Present in {country}",
             "presentInNonCountry": "Present in {location}",
             "threatStatus": "Threat status: {status}",
-            "viewInGbifBackbone": "View in GBIF backbone",
-            "publisherRecord": "Publisher record"
+            "distributions": "distributions"
         },
         "acceptedName": "Accepted name",
         "synonym": "Synonym",
@@ -23,6 +22,24 @@
         "references": "References",
         "source": "Source",
         "referenceTaxon": "Reference taxon",
-        "verbatim": "Verbatim"
+        "verbatim": "Verbatim",
+        "inLanguage": "in {language}",
+        "publishedIn": "Published in",
+        "tradeRestrictions": "Trade restrictions",
+        "basionym": "Basionym",
+        "nVernacularNames": "{NUMBER, select, 0{vernacular names} 1{vernacular name} other{vernacular names}}",
+        "nameUsagesApplied": "Name usages applied to occurrences in GBIF",
+        "appearsIn": "Appears in",
+        "viewOccurrences": "View occurrences",
+        "seeAlso": "see also",
+        "viewInGbifBackbone": "View in GBIF backbone",
+        "publisherRecord": "Publisher record",
+        "verbatimListingMsg": "This listing shows the original information as received by GBIF from the data publisher, without further interpretation processing.",
+        "interpretationMsg": "This is the interpretation of the species as published in",
+        "viewGbifSpeciesMsg": "To view GBIFs view on this species see",
+        "theBackboneVersion": "the backbone version",
+        "inferredRecordMsg": "This record has been created during indexing and did not explicitly exist in the source data as such.",
+        "noChildren": "No children",
+        "youAreBrowsing": "You are browsing"
     }
 }
