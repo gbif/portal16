@@ -4,7 +4,7 @@
     </div>
     <div class="occurrenceBreakdownChart__single" ng-if="vm.resultType() === 'SINGLE_BUCKET'">
         <div class="occurrenceBreakdownChart__single__value">
-            <span>{{vm.chartdata.results[0].count |localNumber}} occcurrences with '<span translate="filterNames.{{vm.chartdata.field | camelCase}}"></span>'</span>
+            <span>{{vm.chartdata.results[0].count |localNumber}} <span translate="stdTerms.occurrences"></span>  <span translate="stdTerms.with"></span> '<span translate="filterNames.{{vm.chartdata.field | camelCase}}"></span>'</span>
 
             <div ng-switch on="vm.chartdata.field">
                 <a ng-switch-when="dataset_key" ui-sref="datasetKey({key:vm.chartdata.results[0].filter.dataset_key})" class="inherit">
@@ -68,7 +68,7 @@
                                     <span>
                                         <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))" class="inherit">
                                             {{result.displayName | truncate:50 }}
-                                            <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} occurrences</md-tooltip>
+                                            <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} <span translate="stdTerms.occurrences"></span></md-tooltip>
                                         </a>
                                     </span>
                                     <span ng-if="$last && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!
