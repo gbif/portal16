@@ -14,7 +14,7 @@
                     <span ng-class="{'text-error': publisherKey.publisher.deleted}">{{ publisherKey.publisher.title }}</span>
                 </h1>
                 <p class="text-error text-center" ng-if="publisherKey.publisher.deleted">
-                    This publisher was deleted {{ publisherKey.publisher.deleted | momentFormat:'D MMMM YYYY' }}
+                    This publisher was deleted on {{ publisherKey.publisher.deleted | momentFormat:'D MMMM YYYY' }}
                 </p>
             </header>
         </div>

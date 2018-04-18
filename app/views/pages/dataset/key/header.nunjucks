@@ -34,7 +34,7 @@
                     </ol>
                 </div>
                 <p class="text-error" ng-if="datasetKey.dataset.deleted">
-                    This dataset was deleted {{ datasetKey.dataset.deleted | momentFormat:'D MMMM YYYY' }}.
+                    This dataset was deleted on {{ datasetKey.dataset.deleted | momentFormat:'D MMMM YYYY' }}.
                     <span ng-if="datasetKey.duplicateOfDataset">It is likely replaced by <a class="inherit underline" ui-sref="datasetKey({key: datasetKey.duplicateOfDataset.key})">{{ datasetKey.duplicateOfDataset.title }}</a></span>
                 </p>
             </header>
