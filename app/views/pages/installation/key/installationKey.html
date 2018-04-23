@@ -14,7 +14,7 @@
                                     {{ installationKey.installation.title }}
                                 </h1>
                                 <p class="text-error text-center" ng-if="installationKey.installation.deleted">
-                                    This installation was deleted {{ installationKey.installation.deleted | momentFormat:'D MMMM YYYY' }}
+                                    This installation was deleted on {{ installationKey.installation.deleted | momentFormat:'D MMMM YYYY' }}
                                 </p>
                             </header>
                         </div>
@@ -138,5 +138,3 @@
         <!--<ng-include src="'/api/template/site/footer.html?v=' + publisherKey.BUILD_VERSION"></ng-include>-->
     </div>
 </div>
-
-

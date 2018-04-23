@@ -12,7 +12,7 @@
                 <h1 scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}" ng-class="{'text-error': speciesKey2.species.deleted}">{{speciesKey2.species.scientificName}}</h1>
 
                 <p class="text-error" ng-if="speciesKey2.species.deleted">
-                    This species was deleted {{ speciesKey2.species.deleted | momentFormat:'D MMMM YYYY' }}
+                    This species was deleted on {{ speciesKey2.species.deleted | momentFormat:'D MMMM YYYY' }}
                 </p>
                 <div class="article-header__highlights header-sources" ng-if="speciesKey2.species.publishedIn || (speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey)" >
                 <div class="inline-block">
