@@ -47,7 +47,7 @@
                         </td>
                         <td class="table-cell--wide">
                             <span ng-if="name.authorship">{{ name.authorship }}</span>
-                            <span ng-if="!name.authorship" class='badge badge--warning nameParser__author-badge'>Authorship missing</span>
+                            <span ng-if="!name.authorship && !name.bracketAuthorship" class='badge badge--warning nameParser__author-badge'>Authorship missing</span>
                         </td>
                         <td class="table-cell--narrow">
                             <span >{{ name.bracketAuthorship }}</span>
