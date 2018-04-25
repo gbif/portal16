@@ -13,7 +13,7 @@
                     </h3>
 
                     <div xng-if="datasetKey.dataset.project.abstract">
-                        <div ng-bind-html="datasetKey.dataset.project.abstract"></div>
+                        <div ng-bind-html="datasetKey.dataset.project.abstract | linky"></div>
                     </div>
 
                     <div ng-if="datasetKey.dataset.project.studyAreaDescription">
