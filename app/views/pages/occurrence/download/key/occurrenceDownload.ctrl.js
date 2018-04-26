@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
+moment = require('moment'),
     _ = require('lodash');
 
 angular
@@ -8,7 +9,7 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
+function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
     var vm = this;
     vm.HUMAN = true;
     vm.maxSize = 5;

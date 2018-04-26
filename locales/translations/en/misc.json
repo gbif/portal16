@@ -93,7 +93,6 @@
         "previous" : "previous",
         "next" : "next",
         "first": "first",
-        "term": "term",
         "value": "value",
         "countryNamingDisclaimer": "Names of countries and areas are based on the [ISO 3166-1 standard](https://www.iso.org/obp/ui/#search)",
         "dataType": "data type",
