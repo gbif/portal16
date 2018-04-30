@@ -41,7 +41,6 @@ async function getItem(requestQuery, __, options) {
 async function search(requestQuery, __, options) {
     let preferedLocale = requestQuery.locale,
         query = buildQuery(requestQuery);
-
     options = options || {};
 
     query.requestTimeout = options.requestTimeout || 30000;

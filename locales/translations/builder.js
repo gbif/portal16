@@ -63,6 +63,9 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/profile`),
         getFile(locale, `./${locale}/components/cms/cms`),
         getFile(locale, `./${locale}/components/downloads`),
+        getFile(locale, `./${locale}/components/directory`),
+        getFile(locale, `./${locale}/components/contactUs`),
+        getFile(locale, `./${locale}/intervals`),
         getFile(locale, `./${locale}/misc`)
     );
 
