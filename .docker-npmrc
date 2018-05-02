@@ -1,0 +1,5 @@
+registry = http://repository.gbif.org/content/repositories/npmjs/
+@mapbox:registry=https://registry.npmjs.org/
+@types:registry=https://registry.npmjs.org/
+@turf:registry=https://registry.npmjs.org/
+tough-cookie:registry=https://registry.npmjs.org/
