@@ -88,8 +88,8 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
         vm.center.zoom = 6;
         vm.baselayer = {
             url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
-            attribution: '&copy; <a href=\'https://www.mapbox.com/\' class="inherit">Mapbox</a> '
-            + '<a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\' class="inherit">OpenStreetMap contributors</a>',
+            attribution: '&copy; <a href="https://www.mapbox.com/" class="inherit">Mapbox</a>, '
+            + '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank" class="inherit">OpenStreetMap contributors</a>',
             params: {
                 access_token: accessToken
             }
