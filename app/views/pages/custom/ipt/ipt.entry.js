@@ -11,8 +11,8 @@ function iptCtrl($http, env) {
     var vm = this;
 
     vm.baselayer = {
-        url: env.basemapTileApi + '/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-geyser-en&srs=EPSG%3A3857',
-        attribution: '&copy; <a class="inherit" href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\'>OpenStreetMap contributors</a>'
+        url: env.basemapTileApi + '/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-geyser-en',
+        attribution: '&copy; <a class="inherit" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a class="inherit" href="https://openmaptiles.org/">OpenMapTiles</a>'
     };
 
     $http.get('/api/ipt/stats').success(function(data) {
