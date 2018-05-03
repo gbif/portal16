@@ -61,6 +61,7 @@
         "country": "country or area",
         "installation": "installation",
         "occurrence": "occurrence",
+        "Occurrence": "Occurrence",
         "catalogNr": "catalogue number",
         "data_use": "data use",
         "Organism": "organism",
