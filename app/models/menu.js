@@ -201,7 +201,7 @@ module.exports = [
             },
           {
             'name': 'communitySite',
-            'url': 'http://community.gbif.org',
+            'url': 'https://discourse.gbif.org',
             'type': 'EXTERNAL'
           }
         ]
