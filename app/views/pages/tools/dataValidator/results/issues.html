@@ -24,7 +24,7 @@
                 <span  class="badge" ng-if="issueCategory === 'OCC_INTERPRETATION_BASED'"
                        translate="occurrenceIssue.{{ issueBlock.issue }}"></span>
                 <span  class="badge" ng-if="issueCategory === 'CLB_INTERPRETATION_BASED'"
-                       translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>
+                       translate="issueEnum.{{ issueBlock.issue }}"></span>
               <span class="badge" > {{  issueBlock.count }}</span>
             </span>
 
@@ -35,7 +35,7 @@
                 <span  class="badge badge--{{issueBlock.severity | lowercase }}" ng-if="!issueBlock.count && issueCategory === 'OCC_INTERPRETATION_BASED'"
                        translate="occurrenceIssue.{{ issueBlock.issue }}"></span>
                 <span  class="badge badge--{{issueBlock.severity | lowercase }}" ng-if="!issueBlock.count && issueCategory === 'CLB_INTERPRETATION_BASED'"
-                       translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>
+                       translate="issueEnum.{{ issueBlock.issue }}"></span>
 </div>
  <span ng-class="{'gb-icon-unfold-more-horizontal': !vm.issueSampleExpanded[issueBlock.issue], 'gb-icon-unfold-less-horizontal': vm.issueSampleExpanded[issueBlock.issue]}" ng-click="vm.issueSampleExpanded[issueBlock.issue] = !vm.issueSampleExpanded[issueBlock.issue]"></span>
 
