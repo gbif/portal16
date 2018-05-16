@@ -7,7 +7,7 @@ angular
     .controller('userCtrl', userCtrl);
 
 /** @ngInject */
-function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state) {
+function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state, $uibModal) {
     var vm = this;
     vm.$state = $state;
     Page.setTitle('Profile');
@@ -34,11 +34,47 @@ function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state) {
 
     $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
         vm.profile = $sessionStorage.user;
+        if (typeof vm.profile.settings.readAndUnderstoodGDPRterms === 'undefined') {
+           // alert('Our terms has changed due to the General Data Protection Regulation. Please read the new terms.');
+           openGDPRmodal();
+        }
     });
 
     $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         vm.profile = $sessionStorage.user;
     });
+
+   function openGDPRmodal() {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'gdprModal.html',
+            controller: 'gdprModalCtrl',
+            controllerAs: '$ctrl'
+        });
+
+        modalInstance.result.then(function(res) {
+           console.log(res)
+        }, function() {
+            // user clicked cancel
+        });
 }
+}
+
+angular.module('portal').controller('gdprModalCtrl', function($uibModalInstance) {
+    var $ctrl = this;
+    // $ctrl.username;
+    // $ctrl.password;
+    // $ctrl.email;
+
+    $ctrl.ok = function() {
+        $uibModalInstance.close();
+    };
+
+    $ctrl.cancel = function() {
+        $uibModalInstance.dismiss('cancel');
+    };
+});
 
 module.exports = userCtrl;
