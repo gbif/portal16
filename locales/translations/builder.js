@@ -47,6 +47,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/enums/taxonomicStatus`),
         getFile(locale, `./${locale}/enums/taxonRank`),
         getFile(locale, `./${locale}/enums/typeStatus`),
+        getFile(locale, `./${locale}/enums/extension`),
         getFile(locale, `./${locale}/components/menu`),
         getFile(locale, `./${locale}/components/feedback`),
         getFile(locale, `./${locale}/components/occurrenceKey/ocurrenceFieldNames`),
@@ -65,6 +66,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/downloads`),
         getFile(locale, `./${locale}/components/directory`),
         getFile(locale, `./${locale}/components/contactUs`),
+        getFile(locale, `./${locale}/components/metrics`),
         getFile(locale, `./${locale}/intervals`),
         getFile(locale, `./${locale}/misc`)
     );
