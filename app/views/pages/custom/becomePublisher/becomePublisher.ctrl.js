@@ -68,7 +68,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
             } else {
                 NodeCountry.query({countryCode: country}).$promise
                     .then(function(data) {
-                        if (data.key) {
+                        if (data.key && data.participationStatus !== 'OBSERVER') {
                             vm.suggestedCountryNode = data;
                             vm.form.suggestedNodeKey = vm.suggestedCountryNode.key;
                         } else {
