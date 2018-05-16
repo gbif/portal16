@@ -34,7 +34,7 @@ function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state, $uib
 
     $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
         vm.profile = $sessionStorage.user;
-        if (typeof vm.profile.settings.readAndUnderstoodGDPRterms === 'undefined') {
+        if (typeof vm.profile.settings.has_read_gdpr_terms === 'undefined') {
            // alert('Our terms has changed due to the General Data Protection Regulation. Please read the new terms.');
            openGDPRmodal();
         }
@@ -55,8 +55,11 @@ function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state, $uib
         });
 
         modalInstance.result.then(function(res) {
-           console.log(res)
+            vm.profile.settings.has_read_gdpr_terms = true;
+            User.update(vm.profile);
         }, function() {
+            delete vm.profile.settings.has_read_gdpr_terms;
+            User.update(vm.profile);
             // user clicked cancel
         });
 }

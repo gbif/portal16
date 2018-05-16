@@ -249,7 +249,8 @@ function getClientUser(user) {
         email: user.email,
         roles: user.roles,
         settings: {
-            country: user.settings.country
+            country: user.settings.country,
+            has_read_gdpr_terms: user.settings.has_read_gdpr_terms
         },
         connectedAcounts: {
             facebook: _.has(user, 'systemSettings["auth.facebook.id"]'),
@@ -269,7 +270,8 @@ function sanitizeUpdatedUser(user) {
         lastName: user.lastName,
         email: user.email,
         settings: {
-            country: user.settings.country
+            country: user.settings.country,
+            has_read_gdpr_terms: user.settings.has_read_gdpr_terms
         }
     };
 }

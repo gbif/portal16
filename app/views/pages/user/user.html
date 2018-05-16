@@ -67,7 +67,7 @@
         <div class="gb-modal-body" id="modal-body">
             <div class="gb-modal-body__content horizontal-stripe white-background">
                 <p >
-                   Please read the terms of use here
+                   Please read the terms of use <a ng-href="/terms" target="_blank">here</a> 
                 </p>
          
             </div>
@@ -75,8 +75,6 @@
         </div>
         <div class="gb-modal-footer">
             <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()">Cancel</a>
-            <!--<a href="" class="gb-button&#45;&#45;primary" type="button" ng-click="$ctrl.ok()"-->
-            <!--ng-class="{invisible: !$ctrl.username || !$ctrl.password || !$ctrl.email}">Understood</a>-->
             <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()">Understood, and don't show me this again</a>
         </div>
     </script>
