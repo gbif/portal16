@@ -99,7 +99,7 @@
                             <div class="search-box">
                                 <input type="text"
                                        focus-me="true"
-                                       placeholder="Search"
+                                       placeholder="{{ 'stdTerms.search' | translate }}"
                                        name="lowerTaxon"
                                        autocomplete="off"
                                        class="fit-suggestions"

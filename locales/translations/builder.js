@@ -52,6 +52,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/feedback`),
         getFile(locale, `./${locale}/components/occurrenceKey/ocurrenceFieldNames`),
         getFile(locale, `./${locale}/components/occurrenceKey/occurrenceKey`),
+        getFile(locale, `./${locale}/components/occurrenceSearch`),
         getFile(locale, `./${locale}/components/downloadReport`),
         getFile(locale, `./${locale}/components/validation`),
         getFile(locale, `./${locale}/components/health`),
