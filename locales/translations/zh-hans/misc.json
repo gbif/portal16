@@ -1,5 +1,7 @@
 {
     "stdTerms": {
+        "simple": "Simple",
+        "advanced": "Advanced",
         "contactHelpdesk": "Contact helpdesk",
         "noDescription": "No description available",
         "resources": "resources",
