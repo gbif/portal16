@@ -131,6 +131,7 @@
         "verbatimDepth": "verbatim depth",
         "minimumDistanceAboveSurfaceInMeters": "minimum distance above surface in metres",
         "maximumDistanceAboveSurfaceInMeters": "maximum distance above surface in metres",
+        "location": "location",
         "locationAccordingTo": "location according to",
         "locationRemarks": "location remarks",
         "decimalLatitude": "decimal latitude",
