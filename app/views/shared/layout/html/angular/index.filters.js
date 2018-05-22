@@ -91,6 +91,11 @@
                 return moment(date).fromNow();
             };
         })
+        .filter('momentIsPast', function() {
+            return function(date) {
+                return moment(date).isBefore();
+            };
+        })
         .filter('stripTags', function() {
             return function(html) {
                 var tmp = document.createElement('DIV');
