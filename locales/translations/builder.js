@@ -68,6 +68,8 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/directory`),
         getFile(locale, `./${locale}/components/contactUs`),
         getFile(locale, `./${locale}/components/metrics`),
+        getFile(locale, `./${locale}/components/resource`),
+        getFile(locale, `./${locale}/components/dataset`),
         getFile(locale, `./${locale}/intervals`),
         getFile(locale, `./${locale}/misc`)
     );

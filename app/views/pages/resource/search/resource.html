@@ -8,7 +8,7 @@
                        autocomplete="off"
                        class="fit-suggestions"
                        ng-model="resource.state.query.q"
-                       placeholder="Search for resources"
+                       placeholder="{{'resource.searchForResources' | translate}}"
                        uib-typeahead="suggestion.title for suggestion in resource.getSuggestions($viewValue)"
                        typeahead-on-select="resource.typeaheadSelect($item, $model, $label, $event)"
                        typeahead-focus-first="false">
@@ -68,10 +68,10 @@
 
         <div class="site-drawer__comment">
             <p>
-                Search for news, events, documents and much more. If you are looking for species occurrences then try our <a ui-sref="occurrenceSearchTable()" href="">occurrence search</a> instead.
+                <span translate="resource.searchForNewsEventsDocuments"></span> <a ui-sref="occurrenceSearchTable()" href=""><span translate="stdTerms.occurrence"></span> <span translate="stdTerms.search"></span></a> <span translate="stdTerms.instead"></span>.
             </p>
             <p>
-                Cannot find what you are looking for? You are always welcome to <a href="" ng-click="resource.openHelpdesk()">contact helpdesk</a></p>
+                <span translate="resource.cannotFindWhatYouAreLookingFor"></span> <a href="" ng-click="resource.openHelpdesk()" translate="resource.contactHelpdesk"></a></p>
             </p>
         </div>
     </div>
@@ -93,14 +93,14 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper">Search resources</span>
+                                    <span class="article-header__category__upper"><span translate="stdTerms.search"></span> <span translate="cms.contentType.resources"></span></span>
                         <span class="article-header__category__lower" ng-if="resource.hasData()">
-                            {{resource.state.data.count | localNumber:resource.state.query.locale }} results
+                            {{resource.state.data.count | localNumber:resource.state.query.locale }} <span translate="stdTerms.result" translate-values="{NUMBER: resource.state.data.count}"></span>
                         </span>
                         <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest">
-                            Loading ...
+                            <span translate="stdTerms.loading"></span> ...
                         </span>
-                        <span class="article-header__category__lower" ng-if="resource.state.failedRequest">
+                        <span class="article-header__category__lower" ng-if="resource.state.failedRequest" translate="stdTerms.failed">
                             Failed
                         </span>
                                 </nav>

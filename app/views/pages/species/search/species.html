@@ -9,7 +9,7 @@
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="species.state.query.q"
-                       placeholder="Search for species">
+                       placeholder="{{'species.searchForSpecies' | translate}}">
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="species.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
                 </a>
@@ -89,7 +89,7 @@
                         <span class="article-header__category__lower" ng-if="!species.hasData() && !species.state.failedRequest">
                             <span translate="stdTerms.loading"></span> ...
                         </span>
-                        <span class="article-header__category__lower" ng-if="species.state.failedRequest" translate="species.failed">
+                        <span class="article-header__category__lower" ng-if="species.state.failedRequest" translate="stdTerms.failed">
                             
                         </span>
                                 </nav>
