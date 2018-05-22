@@ -48,6 +48,7 @@
         "noResultsTryClearingYourFilters": "No results – try clearing your filters",
         "theRequestFailedWithAserverError": "The request failed with a server error. That shouldn't happen :(",
         "failed": "Failed",
-        "filters": "Filters"
+        "filters": "Filters",
+        "searchForSpecies": "Search for species"
     }
 }
