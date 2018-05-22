@@ -68,12 +68,12 @@
                 }
             };
         })
-        .filter('isPast', function(moment) {
+        .filter('isPast', function() {
             return function(date) {
-                return moment().isAfter(date);
+                return moment(date).isBefore();
             };
         })
-        .filter('isNew', function(moment) {
+        .filter('isNew', function() {
             return function(date) {
                 return moment().subtract(90, 'd').isBefore(date);
             };
@@ -89,11 +89,6 @@
                 var locale = LOCALE || gb.locale;
                 moment.locale(locale);
                 return moment(date).fromNow();
-            };
-        })
-        .filter('momentIsPast', function() {
-            return function(date) {
-                return moment(date).isBefore();
             };
         })
         .filter('stripTags', function() {
