@@ -75,6 +75,7 @@
         "search": "search",
         "occurrences": "occurrences",
         "loading": "loading",
+        "failed": "failed",
         "datasets": "datasets",
         "nMore": "{n} more",
         "publishedBy": "published by",
@@ -126,6 +127,7 @@
         "overview": "Overview",
         "metrics": "Metrics",
         "sourcePlural": "{NUMBER, select, 0{sources} 1{source} other{sources}}",
-        "datasetPlural": "{NUMBER, select, 0{datasets} 1{dataset} other{datasets}}"
+        "datasetPlural": "{NUMBER, select, 0{datasets} 1{dataset} other{datasets}}",
+        "instead": "instead"
     }
 }
