@@ -13,7 +13,7 @@ function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
     vm.imageCache = env.imageCache;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.dataApi = env.dataApi;
-    vm.locale = window.gb.locale;
+    vm.locale = gb.locale;
 
     //* pagination */
     function updatePaginationCounts() {

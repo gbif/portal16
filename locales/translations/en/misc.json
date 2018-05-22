@@ -128,6 +128,7 @@
         "metrics" : "Metrics",
         "sourcePlural" : "{NUMBER, select, 0{sources} 1{source} other{sources}}",
         "datasetPlural" : "{NUMBER, select, 0{datasets} 1{dataset} other{datasets}}",
-        "instead": "instead"
+        "instead": "instead",
+        "everything" : "everything"
     }
 }

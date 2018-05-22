@@ -6,7 +6,7 @@
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="occurrence.freeTextQuery"
-                       placeholder="Search all fields">
+                       placeholder="{{'occurrenceSearch.searchAllFields' | translate}}">
                 <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="occurrence.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
