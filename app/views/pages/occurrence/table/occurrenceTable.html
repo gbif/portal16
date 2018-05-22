@@ -7,7 +7,7 @@
                     <nav class="article-header__category article-header__category--deep">
                         <span class="article-header__category__upper">{{'stdTerms.search' | translate}} {{'stdTerms.occurrences' | translate}}</span>
                         <span class="article-header__category__lower" ng-if="occTable.hasData()">
-                            {{occTable.occurrenceState.table.count | localNumber:occTable.occurrenceState.query.locale }} <span translate="stdTerms.result" translate-values="{NUMBER: occCharts.state.table.count}"></span>
+                            {{occTable.occurrenceState.table.count | localNumber:occTable.occurrenceState.query.locale }} <span translate="stdTerms.result" translate-values="{NUMBER: occTable.state.table.count}"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="!occTable.hasData()">
@@ -176,6 +176,9 @@
                                 class="pagination-sm"
                                 boundary-link-numbers="false"
                                 rotate="false"
+                                first-text="{{'stdTerms.first' | translate}}"
+                                next-text="{{'stdTerms.next' | translate}}"
+                                previous-text="{{'stdTerms.previous' | translate}}"
                                 ng-change="occTable.pageChanged()"
                                 ng-show="occTable.occurrenceState.table.count > occTable.limit">
                         </uib-pagination>
