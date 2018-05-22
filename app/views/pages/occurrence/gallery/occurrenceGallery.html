@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__upper">{{'stdTerms.search' | translate}} {{'stdTerms.occurrences' | translate}}</span>
                         <span class="article-header__category__lower" ng-if="occGallery.count >= 0">
-                            {{occGallery.count | localNumber:occGallery.occurrenceState.query.locale }} with images
+                            {{occGallery.count | localNumber:occGallery.occurrenceState.query.locale }} <span translate="occurrenceSearch.withImages"> </span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="occGallery.count < 0">
-                            Loading ...
+                            <span translate="stdTerms.loading"></span> ...
                         </span>
                     </nav>
                     <!--<div class="search-header__description">-->

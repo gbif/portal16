@@ -5,6 +5,8 @@
         "map": "Map",
         "taxonomy": "Taxonomy",
         "charts": "Charts",
-        "download": "Download"
+        "download": "Download",
+        "withImages": "with images",
+        "withCoordinates": "with coordinates"
     }
 }
