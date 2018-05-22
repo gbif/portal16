@@ -74,6 +74,7 @@
         "unknownDate": "unknown date",
         "search": "search",
         "occurrences": "occurrences",
+        "loading": "loading",
         "datasets": "datasets",
         "nMore": "{n} more",
         "publishedBy": "published by",
