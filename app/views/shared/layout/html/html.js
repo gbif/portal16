@@ -34,20 +34,19 @@ require('angular-cookies');
 require('angular-messages');
 require('angular-toastr');
 require('angular-animate');
-
-
-// TODO unclear how to best load the locales we need. It is annoying to have it in code.
-// That would make it difficult to add new locales and makes it impossible to have different in environments
-require('moment');
-require('moment/locale/es');
-require('moment/locale/da');
-require('moment/locale/zh-cn');
-// TODO test
 require('angular-material');
 require('ng-file-upload');
 require('checklist-model');// TODO remove as we hardly use it now that there is continous update on occurrenece search?
 require('angular-svg-round-progressbar');
 window.Lightbox = require('../../../components/lightbox/lightbox');
+
+// TODO unclear how to best load the locales we need. It is annoying to have it in code.
+// That would make it difficult to add new locales and makes it impossible to have different in environments
+// For now they are manually added in code as needed
+require('moment');
+require('moment/locale/es');
+require('moment/locale/da');
+require('moment/locale/zh-cn');
 
 (function() {
     'use strict';

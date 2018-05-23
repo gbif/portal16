@@ -1,7 +1,9 @@
 'use strict';
+
 let express = require('express'),
     router = express.Router(),
-    config = rootRequire('config/config');
+    config = rootRequire('config/config'),
+    localeConfig = rootRequire('config/locales');
 
 let environment = {
     managementToolsSite: config.managementToolsSite,
@@ -13,7 +15,11 @@ let environment = {
     imageCache: config.dataApi + 'image/unsafe/',
     mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json',
     domain: config.domain,
-    locales: config.locales
+    locales: localeConfig.locales,
+    localeMappings: {
+        moment: localeConfig.localeMappings.moment,
+        jsLocale: localeConfig.localeMappings.jsLocale
+    }
 };
 
 let constantKeys = config.publicConstantKeys;
