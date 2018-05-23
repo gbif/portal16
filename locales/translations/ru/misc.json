@@ -1,5 +1,6 @@
 {
     "stdTerms": {
+        "citation": "citation",
         "simple": "Simple",
         "advanced": "Advanced",
         "contactHelpdesk": "Contact helpdesk",
@@ -39,6 +40,7 @@
         "Event": "event",
         "Taxon": "taxon",
         "Identification": "identification",
+        "identifier": "identifier",
         "GeologicalContext": "geological context",
         "term": "term",
         "interpreted": "interpreted",
@@ -56,6 +58,13 @@
         "sendPublisherMail": "Send publisher a mail",
         "aboutTheDataset": "About the dataset",
         "Crawling": "crawling",
+        "creator": "creator",
+        "created": "created",
+        "title": "title",
+        "contributor": "contributor",
+        "rightsHolder": "rights holder",
+        "audience": "audience",
+        "source": "source",
         "remarks": "remarks",
         "specimenType": "type",
         "species": "species",
@@ -109,8 +118,10 @@
         "total": "total",
         "download": "download",
         "license": "license",
+        "references": "references",
         "learnMore": "learn more",
         "readMore": "read more",
+        "more": "more",
         "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
         "citations": "{NUMBER, select, 0{citations} 1{citation} other{citations}}",
         "nonCriticalErrorMsg": "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
@@ -129,6 +140,7 @@
         "sourcePlural": "{NUMBER, select, 0{sources} 1{source} other{sources}}",
         "datasetPlural": "{NUMBER, select, 0{datasets} 1{dataset} other{datasets}}",
         "instead": "instead",
-        "everything": "everything"
+        "everything": "everything",
+        "coordinateUncertainty": "coordinate uncertainty"
     }
 }
