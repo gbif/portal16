@@ -1,4 +1,5 @@
 'use strict';
+
 let express = require('express'),
     router = express.Router(),
     config = rootRequire('config/config'),

@@ -40,6 +40,12 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                     resolve: {
                         occurrence: function($stateParams, Occurrence) {
                             return Occurrence.get({id: $stateParams.key}).$promise;
+                        },
+                        TRANSLATION_UNCERTAINTY: function($translate) {
+                            return $translate('stdTerms.coordinateUncertainty');
+                        },
+                        TRANSLATION_ELEVATION: function($translate) {
+                            return $translate('ocurrenceFieldNames.elevation');
                         }
                     }
                 }
