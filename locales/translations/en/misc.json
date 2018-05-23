@@ -141,6 +141,8 @@
         "datasetPlural" : "{NUMBER, select, 0{datasets} 1{dataset} other{datasets}}",
         "instead": "instead",
         "everything" : "everything",
-        "coordinateUncertainty" : "coordinate uncertainty"
+        "coordinateUncertainty" : "coordinate uncertainty",
+        "records" : "{NUMBER, select, 0{records} 1{record} other{records}}",
+        "noDescriptionProvided": "No description provided"
     }
 }

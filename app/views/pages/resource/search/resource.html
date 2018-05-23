@@ -61,8 +61,8 @@
 
         <div class="filter-group text-center" ng-if="resource.state.query.contentType == 'event'">
             <div class="gb-btn-group">
-                <a ui-sref="resourceSearchList({_showPastEvents:undefined})" ui-sref-opts="{inherit: true}" ng-class="{active: !resource.state.query._showPastEvents}">Upcoming</a>
-                <a ui-sref="resourceSearchList({_showPastEvents:true})" ui-sref-opts="{inherit: true}" ng-class="{active: resource.state.query._showPastEvents}">Past</a>
+                <a ui-sref="resourceSearchList({_showPastEvents:undefined})" ui-sref-opts="{inherit: true}" ng-class="{active: !resource.state.query._showPastEvents}" translate="resource.upcoming">Upcoming</a>
+                <a ui-sref="resourceSearchList({_showPastEvents:true})" ui-sref-opts="{inherit: true}" ng-class="{active: resource.state.query._showPastEvents}" translate="resource.past">Past</a>
             </div>
         </div>
 
