@@ -247,12 +247,5 @@
   },
   "faq": {
     "description": "These are some of the most frequently asked questions about GBIF and GBIF.org. Please contact us if your questions aren’t answered here."
-  },
-  "phrases": {
-    "defaultPageTitle": "GBIF",
-    "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
-    "largeFileUploadWarning": "Be aware that large files can take a long time to upload",
-    "downloadDeletionWarning": "This download hasn't been cited and is eligible for deletion after {DATE}.",
-    "gbifWillAttend": "Attended by GBIF Secretariat"
   }
 }
