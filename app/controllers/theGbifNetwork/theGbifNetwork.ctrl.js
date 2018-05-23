@@ -35,7 +35,7 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
     }
 
 
-    let contentPromise = ( region !== 'GLOBAL') ? resource.getByAlias(req.path, 2, false) : Q.resolve(false);
+    let contentPromise = ( region !== 'GLOBAL') ? resource.getByAlias(req.path, 2, false, res.locals.gb.locales.current) : Q.resolve(false);
 
     contentPromise.then((result) => {
             let opts = {};
