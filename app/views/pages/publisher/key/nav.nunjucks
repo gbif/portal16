@@ -8,8 +8,7 @@
                             <li class="tab tab-right ng-cloak">
                                 <span>
                                     <a ui-sref="occurrenceSearchTable({publishing_org:publisherKey.key})" class="gb-button--brand">
-                                        {{ publisherKey.occurrences.count | localNumber }}
-                                        <span>
+                                        <span translate="stdTerms.nOccurrences" translate-values="{ NUMBER_FORMATED: (publisherKey.occurrences.count | localNumber), NUMBER: publisherKey.occurrences.count }">
                                             Occurrences
                                         </span>
                                     </a>
@@ -19,8 +18,7 @@
                             <li class="tab tab-right ng-cloak">
                                 <span>
                                     <a ui-sref="datasetSearchTable({publishing_org:publisherKey.key})" class="gb-button--primary">
-                                        {{ publisherKey.datasets.count | localNumber }}
-                                        <span>
+                                        <span translate="stdTerms.nDatasets" translate-values="{ NUMBER_FORMATED: (publisherKey.datasets.count | localNumber), NUMBER: publisherKey.datasets.count }">
                                             Datasets
                                         </span>
                                     </a>
@@ -30,8 +28,7 @@
                             <li class="tab tab-right ng-cloak" ng-if="publisherKey.literature.count > 0">
                                 <span>
                                     <a ui-sref="resourceSearchList({publishingOrganizationKey:publisherKey.key, contentType: 'literature'})" class="gb-button--dark">
-                                        {{ publisherKey.literature.count | localNumber }}
-                                        <span translate="stdTerms.citations" translate-values="{ NUMBER: publisherKey.literature.count }">
+                                        <span translate="stdTerms.nCitations" translate-values="{ NUMBER_FORMATED: (publisherKey.literature.count | localNumber), NUMBER: publisherKey.literature.count }">
                                             Citations
                                         </span>
                                     </a>
@@ -42,7 +39,7 @@
                     <nav class="tabs tabs--noBorder">
                         <ul>
                             <li class="tab" ng-class="{isActive: publisherKey.$state.is('publisherKey')}">
-                                <a ui-sref="publisherKey({key:publisherKey.key})">
+                                <a ui-sref="publisherKey({key:publisherKey.key})" translate="stdTerms.about">
                                     About
                                 </a>
                             </li>
@@ -50,8 +47,8 @@
                             <li class="tab" ng-if="publisherKey.publisher.homepage[0]">
                                 <a ng-href="{{ publisherKey.publisher.homepage[0] }}">
                                     <span class="gb-icon-link"></span>
-                                    <span>
-                                        Publisher Homepage
+                                    <span translate="stdTerms.homepage">
+                                        Homepage
                                     </span>
                                 </a>
                             </li>
