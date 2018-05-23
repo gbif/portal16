@@ -20,7 +20,7 @@ if (env === 'staging' || env === 'local') {
     locales.push('mock-ASIA');
 }
 
-let contentfulLocaleMap = _.keyBy(locales);
+let contentfulLocaleMap = {}; // the contentful map should not handle locales that are not included in our contentful space hence no : _.keyBy(locales);
 // overwrites
 contentfulLocaleMap['en'] = 'en-GB';
 contentfulLocaleMap['es'] = 'es';
