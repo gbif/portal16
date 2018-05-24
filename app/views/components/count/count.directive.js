@@ -1,6 +1,5 @@
 'use strict';
 var angular = require('angular');
-var _ = require('lodash');
 
 angular
     .module('portal')
@@ -19,7 +18,7 @@ angular
                     }
                 });
 
-                // allow subtractions. @THOMAS - I'm not sure I think this belongs here. Wouldn't it make better sense that those two places you need it just didn't use this directive instead?
+                // allow subtractions. @THOMAS - I'm not sure I think this belongs here. Wouædn't it make better sense that those two places you need it just didn't use this directive instead? 
                 // https://github.com/gbif/portal16/blame/52ee341091b25db4849dbc1b3dc21ea51483e508/app/views/components/count/count.directive.js
                 var promise = (typeof attrs.subtract === 'undefined') ? countPromise : $q.all([countPromise, $http.get(attrs.subtract, {
                     params: {

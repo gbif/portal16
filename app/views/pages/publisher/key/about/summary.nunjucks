@@ -63,10 +63,10 @@
                         <dt class="text-capitalize" translate="stdTerms.hosting">Hosting</dt>
                         <dd>
                             <dd>
-                            <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})" translate="stdTerms.nDatasets" translate-values="{ NUMBER_FORMATED: (publisherKey.hostStats.datasetCount | localNumber), NUMBER: publisherKey.hostStats.datasetCount }"></a> 
+                            <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})" tx="stdTerms.nDatasets" tx-nr="publisherKey.hostStats.datasetCount"></a> 
                                 (<ul class="inline-bullet-list">
-                                    <li translate="stdTerms.nPublishers" translate-values="{ NUMBER_FORMATED: (publisherKey.hostStats.publisherCount | localNumber), NUMBER: publisherKey.hostStats.publisherCount }"></li>
-                                    <li translate="stdTerms.nCountries" translate-values="{ NUMBER_FORMATED: (publisherKey.hostStats.countryCount | localNumber), NUMBER: publisherKey.hostStats.countryCount }"></li>
+                                    <li tx="stdTerms.nPublishers" tx-nr="publisherKey.hostStats.publisherCount"></li>
+                                    <li tx="stdTerms.nCountries" tx-nr="publisherKey.hostStats.countryCount"></li>
                                 </ul>)
                         </dd>
                         </dd>
