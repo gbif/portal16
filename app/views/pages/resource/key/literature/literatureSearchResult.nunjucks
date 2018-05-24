@@ -55,7 +55,7 @@
                 </li>
             </ul>
             <div ng-if="result._gbifDOIs.length > 0">
-                <span class="small discreet--very">Data used in study</span>
+                <span class="small discreet--very"><span translate="resource.dataUsedInStudy"></span></span>
                 <ul class="list-chips">
                     <li ng-repeat="doi in result._gbifDOIs | limitTo: 50">
                         <doi link="{{ doi }}"></doi>

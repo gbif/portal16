@@ -18,7 +18,7 @@
                 {{result._summary}}
             </p>
             <p class="discreet--very smaller" ng-if="result.programme.title">
-                Programme: <a ng-href="{{ urlPrefix }}/programme/{{ result.programme.id }}" class="inherit">{{ result.programme.title | limitTo:150 }}</a>
+                <span translate="resource.programme"></span>: <a ng-href="{{ urlPrefix }}/programme/{{ result.programme.id }}" class="inherit">{{ result.programme.title | limitTo:150 }}</a>
             </p>
             <ul class="list-chips">
                 <li ng-repeat="purpose in result.purposes">

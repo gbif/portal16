@@ -68,26 +68,25 @@
                 }
             };
         })
-        .filter('isPast', function(moment) {
+        .filter('isPast', function() {
             return function(date) {
-                return moment().isAfter(date);
+                return moment(date).isBefore();
             };
         })
-        .filter('isNew', function(moment) {
+        .filter('isNew', function() {
             return function(date) {
                 return moment().subtract(90, 'd').isBefore(date);
             };
         })
-        .filter('momentFormat', function(LOCALE) {
+        .filter('momentFormat', function(LOCALE, LOCALE_MAPPINGS) {
+            moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
             return function(date, format) {
-                moment.locale(LOCALE);
                 return moment(date).format(format || 'LLLL');
             };
         })
-        .filter('momentFromNow', function(LOCALE) {
+        .filter('momentFromNow', function(LOCALE, LOCALE_MAPPINGS) {
+            moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
             return function(date, format) {
-                var locale = LOCALE || gb.locale;
-                moment.locale(locale);
                 return moment(date).fromNow();
             };
         })

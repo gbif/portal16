@@ -38,6 +38,7 @@
             "lessThanOrEquals": "before end of",
             "greaterThanOrEquals": "after start of"
           }
-        }
+        },
+        "noFilter": "No filter"
       }
 }

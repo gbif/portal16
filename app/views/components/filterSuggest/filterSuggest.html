@@ -34,7 +34,7 @@
                    autocomplete="off"
                    class="fit-suggestions"
                    ng-model="vm.selected"
-                   placeholder="search"
+                   placeholder="{{ 'stdTerms.search' | translate }}"
                    uib-typeahead="suggestion for suggestion in vm.getSuggestions($viewValue)"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"

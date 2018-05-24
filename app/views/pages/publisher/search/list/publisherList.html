@@ -15,6 +15,9 @@
                         class="pagination-sm"
                         boundary-link-numbers="false"
                         rotate="false"
+                        first-text="{{'stdTerms.first' | translate}}"
+                        next-text="{{'stdTerms.next' | translate}}"
+                        previous-text="{{'stdTerms.previous' | translate}}"
                         ng-change="publisherList.pageChanged()"
                         ng-show="publisherList.state.data.count > publisherList.limit">
                 </uib-pagination>

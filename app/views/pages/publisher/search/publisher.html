@@ -8,7 +8,7 @@
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="publisher.state.query.q"
-                       placeholder="Search">
+                       placeholder="{{ 'stdTerms.search' | translate }}">
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="publisher.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
                 </a>

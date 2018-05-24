@@ -9,6 +9,7 @@
         "acceptedName" : "Accepted name",
         "synonym" : "Synonym",
         "synonyms": "Synonyms",
+        "synonymOf": "synonymOf",
         "basionymOf" : "Basionym of",
         "immediateChildren" : "Immediate children",
         "descendants" : "descendants",
@@ -40,7 +41,15 @@
         "theBackboneVersion": "the backbone version",
         "inferredRecordMsg": "This record has been created during indexing and did not explicitly exist in the source data as such.",
         "noChildren" : "No children",
-        "youAreBrowsing": "You are browsing"
+        "youAreBrowsing": "You are browsing",
+        "simple": "simple",
+        "advanced": "advanced",
+        "youAreCurrentlySearchingInGBIFtaxonomy": "You are currently searching for species in the GBIF taxonomy. To search other checklists try advanced mode.",
+        "noResultsTryClearingYourFilters": "No results – try clearing your filters",
+        "theRequestFailedWithAserverError": "The request failed with a server error. That shouldn't happen :(",
+        "failed": "Failed",
+        "filters": "Filters",
+        "searchForSpecies": "Search for species"
 
     }
 }

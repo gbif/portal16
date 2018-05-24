@@ -6,7 +6,6 @@
 
 const express = require('express'),
     router = express.Router(),
-    TheGbifNetwork = rootRequire('app/models/gbifdata/theGbifNetwork/theGbifNetwork'),
     Q = require('q'),
     helper = rootRequire('app/models/util/util'),
     resource = require('../resource/key/resourceKey');
@@ -36,33 +35,18 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
     }
 
 
-    let contentPromise = ( region !== 'GLOBAL') ? resource.getByAlias(req.path, 2, false) : Q.resolve(false);
-    let introPromise = TheGbifNetwork.get(res);
+    let contentPromise = ( region !== 'GLOBAL') ? resource.getByAlias(req.path, 2, false, res.locals.gb.locales.current) : Q.resolve(false);
 
-    Q.all([introPromise, contentPromise])
-        .then((result) => {
-            let opts = {intro: result[0][0]};
-            if (result[1] !== false && result[1].main) {
-                opts.main = result[1].main;
+    contentPromise.then((result) => {
+            let opts = {};
+            if (result !== false && result.main) {
+                opts.main = result.main;
             }
             res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', opts);
         })
         .catch((err) => {
             next(err);
         });
-});
-
-router.get('/templates/the-gbif-network/intro', (req, res, next) => {
-    TheGbifNetwork.get(res)
-        .then((data) => {
-            let intro = data[0];
-            res.render('pages/theGbifNetwork/intro.nunjucks', {
-                intro: intro,
-                hasTitle: true
-            });
-        }).catch(function(err) {
-        next(err);
-    });
 });
 
 router.get('/templates/the-gbif-network/:region/regionArticle.html', function(req, res, next) {

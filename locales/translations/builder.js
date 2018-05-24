@@ -52,6 +52,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/feedback`),
         getFile(locale, `./${locale}/components/occurrenceKey/ocurrenceFieldNames`),
         getFile(locale, `./${locale}/components/occurrenceKey/occurrenceKey`),
+        getFile(locale, `./${locale}/components/occurrenceSearch`),
         getFile(locale, `./${locale}/components/downloadReport`),
         getFile(locale, `./${locale}/components/validation`),
         getFile(locale, `./${locale}/components/health`),
@@ -67,6 +68,11 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/directory`),
         getFile(locale, `./${locale}/components/contactUs`),
         getFile(locale, `./${locale}/components/metrics`),
+        getFile(locale, `./${locale}/components/resource`),
+        getFile(locale, `./${locale}/components/dataset`),
+        getFile(locale, `./${locale}/components/search`),
+        getFile(locale, `./${locale}/components/publisher`),
+        getFile(locale, `./${locale}/components/country`),
         getFile(locale, `./${locale}/intervals`),
         getFile(locale, `./${locale}/misc`)
     );

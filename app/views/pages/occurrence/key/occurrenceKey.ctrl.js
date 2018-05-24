@@ -9,7 +9,7 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary) {
+function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION) {
     var vm = this;
     vm.gb = gb;
     var globe;
@@ -39,8 +39,8 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
 
     vm.markerMessage = {
         template: '<dl class="inline">{{coordinateUncertainty}}{{elevation}}</dl>',
-        coordinateUncertaintyTemplate: '<div><dt>Coordinate uncertainty</dt><dd> {{coordinateUncertainty}}m</dd></div>',
-        elevationTemplate: '<div><dt>Elevation</dt><dd> {{elevation}}</dd></div>',
+        coordinateUncertaintyTemplate: '<div><dt>' + TRANSLATION_UNCERTAINTY + '</dt><dd> {{coordinateUncertainty}}m</dd></div>',
+        elevationTemplate: '<div><dt>' + TRANSLATION_ELEVATION + '</dt><dd> {{elevation}}</dd></div>',
         elevation: undefined
     };
     vm.getMarkerMessage = function() {
@@ -115,7 +115,6 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
             };
             vm.getMarkerMessage();
         }
-
     };
 
     function hasValidOrNoSRS(data) {
@@ -154,7 +153,7 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
                     focus: 'deepskyblue'
                 });
                 globe.setCenter(vm.data.decimalLatitude, vm.data.decimalLongitude, vm.center.zoom);
-                vm.onMapMove = function(lat, lng, zoom){
+                vm.onMapMove = function(lat, lng, zoom) {
                     globe.setCenter(lat, lng, zoom);
                 };
             }

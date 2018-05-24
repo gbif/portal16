@@ -6,7 +6,7 @@
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="occurrence.freeTextQuery"
-                       placeholder="Search all fields">
+                       placeholder="{{'occurrenceSearch.searchAllFields' | translate}}">
                 <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="occurrence.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
@@ -40,9 +40,9 @@
         <div class="filter-group text-center">
             <div class="gb-btn-group">
                 <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="false"
-                       ng-change="occurrence.toggleAdvanced()">Simple</label>
+                       ng-change="occurrence.toggleAdvanced()" translate="stdTerms.simple"></label>
                 <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="true"
-                       ng-change="occurrence.toggleAdvanced()">Advanced</label>
+                       ng-change="occurrence.toggleAdvanced()" translate="stdTerms.advanced"></label>
             </div>
         </div>
 
