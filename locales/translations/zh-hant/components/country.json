@@ -1,0 +1,9 @@
+{
+    "country": {
+        "memberSince": "Member since",
+        "occurrencesAbout": "occurrences about",
+        "publishedOccurrences": "published occurrences",
+        "endorsedPublishers": "endorsed publishers",
+        "website": "Website"
+    }
+}
