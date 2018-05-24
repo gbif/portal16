@@ -13,7 +13,7 @@
                                 <h1 ng-class="{'text-error': installationKey.installation.deleted}">
                                     {{ installationKey.installation.title }}
                                 </h1>
-                                <p class="text-error text-center" ng-if="installationKey.installation.deleted"  translate="phrases.deletedOn" translate-values="{DATE: (installationKey.installation.deleted | momentFormat:'D MMMM YYYY') }">
+                                <p class="text-error text-center" ng-if="installationKey.installation.deleted"  translate="phrases.deletedOnDate" translate-values="{DATE: (installationKey.installation.deleted | momentFormat:'D MMMM YYYY') }">
                                     <!--This publisher was deleted on DATE-->
                                 </p>
                             </header>
