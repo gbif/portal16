@@ -1,5 +1,6 @@
 'use strict';
 var angular = require('angular');
+var _ = require('lodash');
 
 angular
     .module('portal')
@@ -9,14 +10,16 @@ angular
             link: function(scope, element, attrs) {
                 var url = attrs.count;
                 var countTranslation = attrs.countTranslation;
+                
+                // get async count from endpoint
                 element.html('<span class="loading"></span>');
-
                 var countPromise = $http.get(url, {
                     params: {
                         limit: 0
                     }
                 });
 
+                // allow subtractions. @THOMAS - I'm not sure I think this belongs here. Wouædn't it make better sense that those two places you need it just didn't use this directive instead? https://github.com/gbif/portal16/blame/52ee341091b25db4849dbc1b3dc21ea51483e508/app/views/components/count/count.directive.js
                 var promise = (typeof attrs.subtract === 'undefined') ? countPromise : $q.all([countPromise, $http.get(attrs.subtract, {
                     params: {
                         limit: 0
@@ -29,6 +32,7 @@ angular
                 promise.then(function(response) {
                     var number = $filter('localNumber')(response.data.count, LOCALE);
                     if (countTranslation) {
+                        // Allow async counts to be used in translations
                         $translate(countTranslation, {NUMBER: number, NUMBER_FORMATED: number.toLocaleString(LOCALE)}).then(function(translation) {
                             element.html(translation);
                         });
