@@ -1,20 +1,20 @@
 <section class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceFromCount > 0">
-    <h4 class="text-muted small text-uppercase">Data from {{ 'country.' + countryKey.countryCode | translate }}</h4>
+    <h4 class="text-muted small text-uppercase"><span translate="country.dataFrom"></span> {{ 'country.' + countryKey.countryCode | translate }}</h4>
 
     <div class="card container-fluid ng-cloak">
         <div class="row summaryStats">
             <a ui-sref="occurrenceSearchTable({publishing_country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
                     <div class="summaryStats__simple__count" count="{{ portal.dataApi }}occurrence/search?publishingCountry={{ countryKey.countryCode }}"></div>
-                    <div class="summaryStats__simple__description">
-                        Published occurrences
+                    <div class="summaryStats__simple__description" translate="country.publishedOccurrences">
+                        
                     </div>
                 </div>
             </a>
             <a ui-sref="datasetSearchTable({publishing_country:countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
                     <div class="summaryStats__simple__count" count="{{ portal.dataApi }}dataset/search?publishingCountry={{ countryKey.countryCode }}"></div>
-                    <div class="summaryStats__simple__description">
+                    <div class="summaryStats__simple__description" translate="country.publishedDatasets">
                         Published datasets
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                 <div>
                     <div class="summaryStats__simple__count">{{countryKey.countriesCount}}</div>
                     <div class="summaryStats__simple__description">
-                        countries and areas covered by data from {{ 'country.' + countryKey.countryCode | translate }}
+                        <span translate="country.countriesAndAreasCoveredByDataFrom"></span> {{ 'country.' + countryKey.countryCode | translate }}
                     </div>
                 </div>
             </a>
@@ -39,7 +39,7 @@
                 <div>
                     <div class="summaryStats__simple__count" count="/api/publisher/search?isEndorsed=true&country={{ countryKey.countryCode }}"></div>
                     <div class="summaryStats__simple__description">
-                        Publishers from {{ 'country.' + countryKey.countryCode | translate }}
+                        <span translate="country.publishersFrom"></span> {{ 'country.' + countryKey.countryCode | translate }}
                     </div>
                 </div>
             </a>
