@@ -50,7 +50,8 @@
                     <a href="" ui-sref="speciesSearchList({rank:result.rank})" translate="taxonRank.{{ result.rank }}">{{ result.rank }}</a>
                 </li>
                 <li ng-if="!result.datasetKey || result.datasetKey == portal.constantKeys.dataset.backbone">
-                    <a ui-sref="occurrenceSearchTable({taxon_key:result.key})"><span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.key }}">&nbsp;</span> <span translate="stdTerms.occurrences"></span></a>
+                    <a ui-sref="occurrenceSearchTable({taxon_key:result.key})">
+                    <span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.key }}" count-translation="stdTerms.nOccurrences">&nbsp;</span>
                 </li>
             </ul>
         </div>
