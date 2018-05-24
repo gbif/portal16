@@ -44,7 +44,7 @@ function userMenuDirective(BUILD_VERSION) {
         $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
             vm.isActive = false;
             vm.profile = $sessionStorage.user;
-        if (typeof vm.profile.settings.has_read_gdpr_terms_ === 'undefined') {
+        if (typeof vm.profile.settings.has_read_gdpr_terms === 'undefined') {
            // alert('Our terms has changed due to the General Data Protection Regulation. Please read the new terms.');
            openGDPRmodal();
         }
