@@ -10,7 +10,7 @@ angular
             link: function(scope, element, attrs) {
                 var url = attrs.count;
                 var countTranslation = attrs.countTranslation;
-                
+
                 // get async count from endpoint
                 element.html('<span class="loading"></span>');
                 var countPromise = $http.get(url, {
@@ -19,7 +19,8 @@ angular
                     }
                 });
 
-                // allow subtractions. @THOMAS - I'm not sure I think this belongs here. Wouædn't it make better sense that those two places you need it just didn't use this directive instead? https://github.com/gbif/portal16/blame/52ee341091b25db4849dbc1b3dc21ea51483e508/app/views/components/count/count.directive.js
+                // allow subtractions. @THOMAS - I'm not sure I think this belongs here. Wouldn't it make better sense that those two places you need it just didn't use this directive instead?
+                // https://github.com/gbif/portal16/blame/52ee341091b25db4849dbc1b3dc21ea51483e508/app/views/components/count/count.directive.js
                 var promise = (typeof attrs.subtract === 'undefined') ? countPromise : $q.all([countPromise, $http.get(attrs.subtract, {
                     params: {
                         limit: 0
