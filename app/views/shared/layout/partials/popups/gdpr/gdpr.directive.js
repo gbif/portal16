@@ -20,7 +20,7 @@ function gdprDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function gdpr($scope, $sessionStorage, AUTH_EVENTS, User, $uibModal) {
+    function gdpr($scope, $sessionStorage, AUTH_EVENTS, User, $uibModal, $location) {
     var vm = this;
     $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         vm.profile = $sessionStorage.user;
@@ -51,6 +51,9 @@ function gdprDirective(BUILD_VERSION) {
         modalInstance.result.then(function(res) {
             vm.profile.settings.has_read_gdpr_terms = true;
             User.update(vm.profile);
+        }, function() {
+            delete $sessionStorage.has_seen_gdpr_popup;
+            User.logout('/');
         });
 }
 }
