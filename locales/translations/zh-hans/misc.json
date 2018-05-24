@@ -136,7 +136,7 @@
         "learnMore": "learn more",
         "readMore": "read more",
         "more": "more",
-        "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
         "citations": "{NUMBER, select, 0{citations} 1{citation} other{citations}}",
         "nonCriticalErrorMsg": "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
         "criticalErrorMsg": "The system is currently not able to process your request. Try to refresh the page and please report the issue if it continues.",
