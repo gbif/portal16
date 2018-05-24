@@ -1,9 +1,13 @@
+var _ = require('lodash');
+
 module.exports = {
     defaults: {
         basemap: 1,
         bin: 1,
         color: 8
     },
+    supportedMapLocales: _.keyBy(['ar', 'da', 'de', 'en', 'es', 'fr', 'ja', 'pt', 'ru', 'zh']),
+    localizedStyles: _.keyBy(['gbif-geyser', 'gbif-tuatara', 'osm-bright']),
     basemaps: [
         {
             name: 'CLASSIC',
@@ -15,7 +19,7 @@ module.exports = {
         },
         {
             name: 'LIGHT_DETAILS',
-            query: {style: 'gbif-geyser-en'}
+            query: {style: 'gbif-geyser'}
         },
         {
             name: 'DARK',
@@ -23,11 +27,11 @@ module.exports = {
         },
         {
             name: 'DARK_DETAILS',
-            query: {style: 'gbif-tuatara-en'}
+            query: {style: 'gbif-tuatara'}
         },
         {
             name: 'OSM',
-            query: {style: 'osm-bright-en'}
+            query: {style: 'osm-bright'}
         }
     ],
     binning: [
@@ -129,7 +133,8 @@ module.exports = {
             overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}]
         },
         STREETS: {
-            baseMap: {style: 'osm-bright-en'},
+            baseMap: {style: 'osm-bright'},
+            localized: true,
             overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
                 style: 'orange.marker',
                 bin: 'hex',
@@ -137,7 +142,8 @@ module.exports = {
             }]
         },
         GLACIER: {
-            baseMap: {style: 'gbif-tuatara-en'},
+            baseMap: {style: 'gbif-tuatara'},
+            localized: true,
             overlay: [{style: 'glacier.point'}]
         }
     }

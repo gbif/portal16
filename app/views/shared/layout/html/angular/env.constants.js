@@ -28,6 +28,8 @@ angular
         window.gb.constantKeys
     ).constant('LOCALE',
         window.gb.locale
+    ).constant('URL_PREFIX',
+        window.gb.urlPrefix
     ).constant('LOCALE_MAPPINGS',
         window.gb.env.localeMappings
     ).constant('LOCALE_2_LETTER',

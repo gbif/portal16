@@ -160,6 +160,17 @@
         "registered": "registered",
         "endpoints": "endpoints",
         "hostedBy": "hosted by",
+        "explore": "explore",
+        "year": "year",
+        "style": "style",
+        "filters": "filters",
+        "projection": "projection",
+        "select": "select",
+        "custom": "custom",
+        "baseMap": "base map",
+        "binning": "binning",
+        "colors": "colors",
+        "exploreArea": "explore area",
         "records" : "{NUMBER, select, 0{records} 1{record} other{records}}",
         "noDescriptionProvided": "No description provided"
     },
@@ -170,8 +181,11 @@
         "downloadDeletionWarning": "This download hasn't been cited and is eligible for deletion after {DATE}.",
         "gbifWillAttend": "Attended by GBIF Secretariat",
         "deletedOn": "Deleted on {DATE}",
+        "generatedDateAgo": "Generarated {DATE_AGO}",
         "endorsedBy": "Endorsed by",
         "seeGallery": "See gallery",
-        "pendingEndorsementBy": "Pending endorsement by"
+        "pendingEndorsementBy": "Pending endorsement by",
+        "clickToSearchArea": "Click to search an area",
+        "anyYear": "Any year"
     }
 }

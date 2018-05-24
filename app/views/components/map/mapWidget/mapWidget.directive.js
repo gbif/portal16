@@ -38,8 +38,9 @@ function mapWidgetDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, $localStorage) {
+    function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, $localStorage, URL_PREFIX, LOCALE, LOCALE_2_LETTER) {
         var vm = this;
+        vm.URL_PREFIX = URL_PREFIX;
         vm.moment = moment;
 
         vm.styleBreaks = {
@@ -142,7 +143,9 @@ function mapWidgetDirective(BUILD_VERSION) {
             map = mapController.createMap(element, {
                 baseMap: activeStyle.baseMap,
                 overlay: activeStyle.overlay,
-                filters: getQuery()
+                locallized: activeStyle.locallized,
+                filters: getQuery(),
+                locale: LOCALE_2_LETTER
             });
 
             // set up zoom control

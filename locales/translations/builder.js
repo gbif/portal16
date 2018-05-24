@@ -40,6 +40,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/enums/nameUsageOrigin`),
         getFile(locale, `./${locale}/enums/occurrenceIssue`),
         getFile(locale, `./${locale}/enums/originEnum`),
+        getFile(locale, `./${locale}/enums/projections`),
         getFile(locale, `./${locale}/enums/protocol`),
         getFile(locale, `./${locale}/enums/region`),
         getFile(locale, `./${locale}/enums/role`),
