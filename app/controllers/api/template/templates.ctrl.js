@@ -23,6 +23,10 @@ router.get('/terms.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'shared/layout/partials/popups/terms/terms');
 });
 
+router.get('/gdpr.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'shared/layout/partials/popups/gdpr/gdpr.html');
+});
+
 router.get('/search/eventResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/event/eventSearchResult');
 });
