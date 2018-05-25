@@ -118,12 +118,12 @@
                     return userLogin;
                 };
 
-                that.logout = function() {
+                that.logout = function(loc) {
                     var logout = $http.get('/api/user/logout');
                     logout.then(function() {
                         delete $sessionStorage.user;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
-                        window.location = '/user/profile';
+                        window.location = loc || '/user/profile';
                     }, function() {
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_FAILED);
                     });
