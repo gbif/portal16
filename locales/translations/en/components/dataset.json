@@ -70,14 +70,7 @@
           "lastWithChange": "Last ingestion with changes",
           "noEntries": "This dataset has no ingestion entries",
           "lastWithDataChange": "Last ingestion with data change",
-          "occInLastIngestion": "Occurrences in last ingestion",
-          "failedSinceSuccess": "failedSinceSuccess",
-          "failedSinceSuccess": "failedSinceSuccess",
-          "failedSinceSuccess": "failedSinceSuccess",
-          "failedSinceSuccess": "failedSinceSuccess",
-          "failedSinceSuccess": "failedSinceSuccess",
-          "failedSinceSuccess": "failedSinceSuccess",
-          "failedSinceSuccess": "failedSinceSuccess",
+          "occInLastIngestion": "Occurrences in last ingestion"
         }
       }
 }
