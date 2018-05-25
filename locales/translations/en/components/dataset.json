@@ -70,7 +70,11 @@
           "lastWithChange": "Last ingestion with changes",
           "noEntries": "This dataset has no ingestion entries",
           "lastWithDataChange": "Last ingestion with data change",
-          "occInLastIngestion": "Occurrences in last ingestion"
+          "occInLastIngestion": "Occurrences in last ingestion",
+          "completionReasons": "Ingestion completion reasons",
+          "unfinished": "Unfinished ingestions",
+          "total": "Ingestions in total",
+          "lastIngestedBeforeDate": "Last ingested before {DATE}"
         }
       }
 }

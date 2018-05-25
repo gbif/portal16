@@ -29,12 +29,12 @@
         <dd>
             <span>
                 {{ datasetKey.processSummary.lastDataChange.fragmentsEmitted | localNumber }}
-                <span class="c-error-badge" ng-if="datasetKey.isOutOfSync" translate="phrases.outOfSync">Out of sync</span>
+                <span class="c-error-badge" ng-if="datasetKey.isOutOfSync" translate="phrases.outOfSync"></span>
             </span>
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.finished > 0">
-        <dt class="text-capitalize" translate="dataset.registry.completionReasons">Ingestion completion reasons</dt>
+        <dt class="text-capitalize" translate="dataset.registry.completionReasons"></dt>
         <dd>
             <ul class="inline-bullet-list">
                 <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
@@ -44,13 +44,13 @@
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.unfinished > 0">
-        <dt class="text-capitalize" translate="dataset.registry.unfinished">Unfinished ingestions</dt>
+        <dt class="text-capitalize" translate="dataset.registry.unfinished"></dt>
         <dd>{{ datasetKey.processSummary.unfinished }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.analyzedCount">
-        <dt class="text-capitalize" translate="dataset.registry.total">Ingestions in total</dt>
+        <dt class="text-capitalize" translate="dataset.registry.total"></dt>
         <dd>{{ datasetKey.processSummary.finished }}</dd>
     </div>
 </dl>
-<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'" translate="dataset.registry.lastBeforeDate" translate-values="{DATE: ''2013-11-06'  | momentFormat:'D MMMM YYYY''}">Last ingested before {{ '2013-11-06'  | momentFormat:'D MMMM YYYY'}}</p>
-<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet" translate="dataset.registry.noEntries">This dataset has no ingestion entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>
+<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'" translate="dataset.registry.lastIngestedBeforeDate" translate-values="{DATE: ''2013-11-06'  | momentFormat:'D MMMM YYYY''}"></p>
+<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet"><span translate="dataset.registry.noEntries"></span><span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>
