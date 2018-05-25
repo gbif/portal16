@@ -2,7 +2,7 @@
     <div>
         <a href="" id="taxonomicCoverages"></a>
         <div class="anchor-block--tabs" id="taxonomicCoveragesBlock">
-            <h3>Taxonomic coverage</h3>
+            <h3 translate="dataset.taxonomicCoverages"></h3>
             <div class="dataset-key__taxonomicCoverages__content">
                 <div ng-repeat="taxonomicCoverage in datasetKey.dataset._computedValues.taxonomicCoverages">
 

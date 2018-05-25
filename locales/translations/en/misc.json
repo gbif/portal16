@@ -215,6 +215,7 @@
         "withTaxonMatch": "With taxon match",
         "withCoordinates": "With coordinates",
         "withYear": "With year",
+        "viewArticle": "View article",
         "acceptedNames": "Accepted names",
         "overlapWithNub": "Overlap with GBIF Backbone",
         "overlapWithCol": "Overlap with Catalogue of Life",

@@ -2,7 +2,7 @@
     <div>
         <a href="" id="dataDescription"></a>
         <div class="anchor-block--tabs" id="dataDescriptionBlock">
-            <h4>Data description</h4>
+            <h4 translate="dataset.dataDescription">Data description</h4>
             <div>
                 <dl class="inline">
 

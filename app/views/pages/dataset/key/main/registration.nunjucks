@@ -2,7 +2,7 @@
     <div>
         <a href="" id="registration"></a>
         <div class="anchor-block--tabs" id="registrationBlock">
-            <h4 translate="dataset.registration">Registration</h4>
+            <h4 translate="dataset.registration"></h4>
             <div>
                 <dl class="inline">
                     <div ng-if="datasetKey.dataset.created">

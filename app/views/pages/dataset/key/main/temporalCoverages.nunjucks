@@ -2,7 +2,7 @@
     <div>
         <a href="" id="temporalCoverages"></a>
         <div class="anchor-block--tabs" id="temporalCoveragesBlock">
-            <h3>Temporal coverage</h3>
+            <h3 translate="dataset.temporalCoverages"></h3>
             <div>
                 <div ng-repeat="period in datasetKey.dataset.temporalCoverages">
                     <span ng-if="period['@type'] == 'range'">
