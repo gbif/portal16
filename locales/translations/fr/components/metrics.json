@@ -23,6 +23,7 @@
         "showOccPer": "Show number of occurrences per",
         "andBreakdownPer": "And optionally break those down per",
         "logarithmic": "Logarithmic",
+        "singleTypeResults": "{NUMBER} occurrences where '{FIELD}' equals:",
         "chooseDimension": "Choose dimension"
     }
 }
