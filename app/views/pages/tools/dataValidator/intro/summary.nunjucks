@@ -132,14 +132,14 @@
                     </dd>
                 </div>
                 <div>
-                    <dt class="text-capitalize">Core row type</dt>
+                    <dt class="text-capitalize" translate="validation.coreRowType">Core row type</dt>
                     <dd >
                         {{ (vm.coreDataType && vm.dwcextensions[vm.coreDataType]) ? vm.dwcextensions[vm.coreDataType].title : vm.coreDataType | translate }}
                     </dd>
                 </div>
 
                 <div>
-                    <dt class="text-capitalize">Extensions</dt>
+                    <dt class="text-capitalize" translate="validation.fileType.EXTENSION.title">Extensions</dt>
                     <dd>
                         {{ vm.extensionCount }}
                     </dd>

@@ -187,8 +187,11 @@
         "synonyms": "synonyms",
         "logs": "logs",
         "records" : "{NUMBER, select, 0{records} 1{record} other{records}}",
-        "noDescriptionProvided": "No description provided"
-    },
+        "noDescriptionProvided": "No description provided",
+        "absent": "Absent",
+        "submit": "submit",
+        "dropHere": "drop here"
+        },
     "phrases": {
         "defaultPageTitle": "GBIF",
         "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",

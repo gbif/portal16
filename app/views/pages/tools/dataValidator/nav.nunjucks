@@ -9,7 +9,7 @@
 
                             <li class="tab tab-right ng-cloak" ng-if="vm.jobid && (vm.jobStatus ==='FINISHED' || vm.jobStatus ==='FAILED') ">
                                         <span>
-                                            <a ui-sref="dataValidator()" class="gb-button--brand">
+                                            <a ui-sref="dataValidator()" class="gb-button--brand" translate="validation.newValidation">
                                                 New validation
                                             </a>
                                         </span>
@@ -17,18 +17,18 @@
 
 
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidator')}" ng-if="!vm.jobid">
-                                <a ui-sref="dataValidator()">
+                                <a ui-sref="dataValidator()" translate="validation.newDataValidation">
                                     New data validation
                                 </a>
                             </li>
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidatorKey')}" ng-if="vm.jobid">
-                                <a ui-sref="dataValidatorKey({jobid:vm.jobid})">
+                                <a ui-sref="dataValidatorKey({jobid:vm.jobid})" class="uppercase-first" translate="stdTerms.summary">
                                     Summary
                                 </a>
                             </li>
 
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidatorKeyDocument')}" ng-if="vm.jobStatus ==='FINISHED' && vm.validationResults.summary.fileFormat === 'DWCA'">
-                                <a ui-sref="dataValidatorKeyDocument({jobid:vm.jobid})">
+                                <a ui-sref="dataValidatorKeyDocument({jobid:vm.jobid})" translate="validation.metaData">
                                     Meta data
                                 </a>
                             </li>
@@ -36,14 +36,14 @@
                                 {#<a ui-sref="dataValidatorExtensions()" ng-if="!vm.jobid">#}
                                     {#Darwin core extensions#}
                                 {#</a>#}
-                                <a ui-sref="dataValidatorExtensionsKey({jobid:vm.jobid})" ng-if="vm.jobid">
+                                <a ui-sref="dataValidatorExtensionsKey({jobid:vm.jobid})" ng-if="vm.jobid" translate="validation.darwinCoreExtensions">
                                     Darwin core extensions
                                 </a>
 
                             </li>
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidatorAbout') || vm.$state.is('dataValidatorAboutKey') }" ng-if="!vm.jobid">
-                                <a ui-sref="dataValidatorAbout()" ng-if="!vm.jobid">About</a>
-                                <a ui-sref="dataValidatorAboutKey({jobid:vm.jobid})" ng-if="vm.jobid">About</a>
+                                <a ui-sref="dataValidatorAbout()" ng-if="!vm.jobid" class="uppercase-first" translate="stdTerms.about">About</a>
+                                <a ui-sref="dataValidatorAboutKey({jobid:vm.jobid})" class="uppercase-first" ng-if="vm.jobid" translate="stdTerms.about">About</a>
                             </li>
 
 

@@ -45,7 +45,7 @@
         <li ng-if="vm.endorsedPublisher > 0">
             <strong ng-bind="vm.endorsedPublisher"></strong>
             <span translate="gbifNetwork.endorsedDataPublisher"
-                  translate-values="{ NUMBER: vm.endorsedPublisher }"></span>
+                  translate-values="{ NUMBER: vm.endorsedPublisher | localNumber }"></span>
         </li>
         <li ng-if="vm.digest.counts.datasetFromCount">
             <a href="/dataset/search?type=OCCURRENCE&publishing_country={{ vm.digest.iso2 }}">

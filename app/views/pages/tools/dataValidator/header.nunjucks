@@ -3,20 +3,20 @@
         <div class="row">
             <header class="col-xs-12 text-center" >
                 <nav class="article-header__category article-header__category--deep" ng-if="!vm.jobid">
-                    <span class="article-header__category__upper">Tools</span>
-                    <span class="article-header__category__lower">Data validator</span>
+                    <span class="article-header__category__upper" translate="menu.tools">Tools</span>
+                    <span class="article-header__category__lower" translate="validation.dataValidator">Data validator</span>
                 </nav>
                 <nav class="article-header__category article-header__category--deep" ng-if="vm.jobid">
-                    <span class="article-header__category__upper">Validation report</span>
+                    <span class="article-header__category__upper" translate="validation.validationReport">Validation report</span>
                     <span class="article-header__category__lower">{{  vm.generatedDate | momentFormat:'D MMMM YYYY'}}</span>
                 </nav>
                 <h1 class="text-center" ng-if="vm.jobid">
                     <span >{{ vm.validationResults.summary.fileName }}</span>
                 </h1>
-                <p class="source" ng-if="vm.jobid">
+                <p class="source" ng-if="vm.jobid" translate="validation.reportProducedByGbifDataValidator">
                     Report produced by GBIF data validator
                 </p>
-                <p ng-class="{'m-t-1': (vm.$state.is('dataValidator') || vm.$state.is('dataValidatorAbout') )}">This an early access version. Please report issues and feedback <a href="#" ng-click="vm.toggleFeedback()">here.</a></p>
+                <p ng-class="{'m-t-1': (vm.$state.is('dataValidator') || vm.$state.is('dataValidatorAbout') )}"><span translate="validation.thisIsAnEarlyAccessVersion"></span> <a href="#" ng-click="vm.toggleFeedback()" translate="validation.here"></a></p>
             </header>
         </div>
     </div>
