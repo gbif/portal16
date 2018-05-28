@@ -220,6 +220,11 @@
         "acceptedNames": "Accepted names",
         "overlapWithNub": "Overlap with GBIF Backbone",
         "overlapWithCol": "Overlap with Catalogue of Life",
-        "replacedBy": "Replaced by"
+        "replacedBy": "Replaced by",
+        "checklistMetrics": "Checklist metrics",
+        "occurrenceMetrics": "Occurrence metrics",
+        "unknownRank": "Unkown {RANK}",
+        "taxonomicOccDistribution": "Taxonomic distribution of occurrences",
+        "noStatsForMetadata": "No stats available for metadata only datasets"
     }
 }
