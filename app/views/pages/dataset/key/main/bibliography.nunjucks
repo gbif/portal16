@@ -3,7 +3,7 @@
     <div>
         <a href="" id="bibliography"></a>
         <div class="anchor-block--tabs" id="bibliographyBlock">
-            <h3>Bibliography</h3>
+            <h3 translate="dataset.bibliography"></h3>
             <div class="dataset-key__bibliography__list small">
                 <ol>
                     <li ng-repeat="reference in datasetKey.dataset.bibliographicCitations">
@@ -13,9 +13,7 @@
                         <div>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="identifier in reference._identifiers">
-                                    <a ng-if="identifier.type == 'PDF'" ng-href="{{identifier.ref}}">View article</a>
-                                    <a ng-if="identifier.type == 'DOI'" ng-href="{{identifier.ref}}">View article</a>
-                                    <a ng-if="identifier.type == 'URL'" ng-href="{{identifier.ref}}">View article</a>
+                                    <a ng-if="identifier.type == 'PDF' || identifier.type == 'DOI' || identifier.type == 'URL'" ng-href="{{identifier.ref}}" translate="phrases.viewArticle"></a>
                                     <a ng-if="identifier.type == 'ISSN'" ng-href="{{identifier.ref}}">{{ identifier.text }}</a>
                                     <span ng-if="identifier.type == 'STR'">{{ identifier.text }}</span>
                                 </li>

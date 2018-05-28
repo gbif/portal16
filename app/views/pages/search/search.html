@@ -122,7 +122,7 @@
 
                                         <div ng-if="rootSearch.results.datasets.count > 0">
                                             <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase" translate="sdtTerms.datasets">Datasets</span>
+                                                <span class="discreet--very text-uppercase" translate="stdTerms.datasets">Datasets</span>
                                                 <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.datasets.count | localNumber}} <span translate="stdTerms.result" translate-values="{NUMBER: rootSearch.results.datasets.count}"></span></a>
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.datasets.results">
@@ -141,7 +141,7 @@
                                         </div>
                                         <div ng-if="rootSearch.results.participants.count > 0">
                                             <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase" translate="sdtTerms.participants">Participants</span>
+                                                <span class="discreet--very text-uppercase" translate="stdTerms.participants">Participants</span>
                                                 <span class="discreet--very text-uppercase pull-right">{{ rootSearch.results.participants.count | localNumber}} <span translate="stdTerms.result" translate-values="{NUMBER: rootSearch.results.participants.count}"></span></span>
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.participants.results">
@@ -160,7 +160,7 @@
 
                                         <div ng-if="rootSearch.results.resources.count > 0">
                                             <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase" translate="sdtTerms.resources">Resources</span>
+                                                <span class="discreet--very text-uppercase" translate="stdTerms.resources">Resources</span>
                                                 <a href="" ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.resources.count | localNumber}} <span translate="stdTerms.result" translate-values="{NUMBER: rootSearch.results.resources.count}"></span></a>
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.resources.results">

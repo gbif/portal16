@@ -2,7 +2,7 @@
     <div>
         <a href="" id="purpose"></a>
         <div class="anchor-block--tabs" id="purposeBlock">
-            <h3>Purpose</h3>
+            <h3 translate="dataset.purpose"></h3>
             <div ng-bind-html="datasetKey.dataset.purpose"></div>
         </div>
     </div>

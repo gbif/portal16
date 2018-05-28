@@ -432,8 +432,8 @@ function mapWidgetDirective(BUILD_VERSION) {
             var decimalLongitudeMin = lng - offset;
             var decimalLongitudeMax = lng + offset;
             vm.clickedGeometry = 'POLYGON' + '((W S,E S,E N,W N,W S))'
-                    .replace(/N/g, decimalLatitudeMin)
-                    .replace(/S/g, decimalLatitudeMax)
+                    .replace(/N/g, decimalLatitudeMax)
+                    .replace(/S/g, decimalLatitudeMin)
                     .replace(/W/g, decimalLongitudeMin)
                     .replace(/E/g, decimalLongitudeMax);
 
