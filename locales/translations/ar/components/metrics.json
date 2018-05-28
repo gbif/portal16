@@ -6,5 +6,12 @@
         "countExtRecordsByExtension": "Count extensions by extension type",
         "countByOrigin": "Count by origin",
         "countByIssue": "Count issues by issue type"
+    },
+    "metrics": {
+        "explore": "Explore",
+        "majorGroups": "Major groups",
+        "failedToLoad": "Failed to load tree",
+        "noChildren": "No immediate children",
+        "noOccurrences": "No occurrences"
     }
 }
