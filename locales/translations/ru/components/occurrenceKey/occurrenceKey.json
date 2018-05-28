@@ -17,6 +17,7 @@
             "unknownLocation": "at unknown location",
             "unknownSpecies": "Unknown Species"
         },
-        "occurrence": "Occurrence"
+        "occurrence": "Occurrence",
+        "inLanguage": "in {LANGUAGE_TRANSLATED}"
     }
 }
