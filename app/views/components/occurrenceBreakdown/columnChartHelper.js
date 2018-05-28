@@ -6,8 +6,9 @@ module.exports = {
     setChartElementSize: setChartElementSize
 };
 
-function getConfig(data, element, clickCallback, logarithmic) {
-    var series = getSeries(data);
+function getConfig(data, element, clickCallback, translations, logarithmic) {
+    translations = translations || {};
+    var series = getSeries(data, translations);
 
     var type = 'column';
     var totalCounts = data.results.length * _.get(data, 'categories.length', 1);
@@ -69,7 +70,7 @@ function getConfig(data, element, clickCallback, logarithmic) {
             type: isLogaritmic ? 'logarithmic' : 'linear',
             minorTickInterval: isLogaritmic ? 1 : undefined,
             title: {
-                text: 'Occurrences'
+                text: translations.occurrences || 'occurrences'
             }
         },
         series: series,
@@ -91,9 +92,9 @@ function getConfig(data, element, clickCallback, logarithmic) {
     };
 }
 
-function getSeries(data) {
+function getSeries(data, translations) {
     if (!data.secondField) {
-        return [getSerie(data)];
+        return [getSerie(data, translations)];
     } else {
         var series = data.categories.map(function(e) {
             return {
@@ -112,7 +113,7 @@ function getSeries(data) {
     }
 }
 
-function getSerie(data) {
+function getSerie(data, translations) {
     var d = data.results.map(function(e) {
         return {
             name: e.displayName,
@@ -128,7 +129,7 @@ function getSerie(data) {
     // }
 
     var serie = {
-        name: 'Occurrences',
+        name: translations.occurrences || 'Occurrences',
         data: d
     };
     return serie;

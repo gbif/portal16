@@ -50,6 +50,7 @@
         "sinceDate": "since {DATE}",
         "pRecords": "{NUMBER, select, 0{records} 1{record} other{records}}",
         "pOccurrence": "{NUMBER, select, 0{occurrences} 1{occurrence} other{occurrences}}",
+        "otherOrUknown": "other or unknown",
         "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 0{other or unknown} 1{other or unknown} other{other or unknown}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 0{occurrences} 1{occurrence} other{occurrences}}",
         "nDatasets": "{NUMBER_FORMATED} {NUMBER, select, 0{datasets} 1{dataset} other{datasets}}",
