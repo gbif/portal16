@@ -104,6 +104,16 @@
         "unknown": "unknown",
         "indexeable": "The file can be indexed by GBIF",
         "notIndexeable": "The file cannot be indexed by GBIF",
-        "numberOfLines": "Number of lines"
+        "numberOfLines": "Number of lines",
+        "reportProducedByGbifDataValidator": "Report produced by GBIF data validator",
+        "validationReport": "Validation report",
+        "dataValidator": "Data validator",
+        "thisIsAnEarlyAccessVersion": "This an early access version. Please report issues and feedback",
+        "here": "here.",
+        "newDataValidation": "New data validation",
+        "newValidation": "New validation",
+        "metaData": "Meta data",
+        "darwinCoreExtensions": "Darwin core extensions",
+        "coreRowType": "Core row type"
     }
 }
