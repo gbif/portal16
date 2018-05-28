@@ -12,6 +12,7 @@ function countryTrendsCtrl($stateParams, $state) {
     vm.direction = $stateParams.direction;
     vm.showAbout = vm.direction == 'about';
     vm.countryCode = gb.countryCode;
+    vm.locale = gb.locale;
     vm.aboutTemplate = '/api/country/' + vm.countryCode + '/trends/' + vm.direction;
 
     vm.changeToPublished = function() {

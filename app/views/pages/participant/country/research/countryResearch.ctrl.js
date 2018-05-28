@@ -11,6 +11,7 @@ function countryResearchCtrl($stateParams, ResourceSearch) {
     var vm = this;
     vm.countryCode = $stateParams.key;
     vm.limit = 20;
+    vm.locale = gb.locale;
     vm.showLiteratureFrom = true;
     ResourceSearch.query({countriesOfCoverage: vm.countryCode, contentType: 'literature', limit: vm.limit}, function(data) {
         vm.literatureAbout = data;

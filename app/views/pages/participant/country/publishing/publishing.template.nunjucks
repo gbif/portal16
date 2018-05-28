@@ -29,7 +29,7 @@
                                 <div class="card__content__title">
                                     <h3 translate="country.nCountriesAndAreas" translate-values="{NUMBER: countryKey.countriesCount, NUMBER_FORMATED: (countryKey.countriesCount | localNumber)}"></h3>
                                     <p>
-                                        {{ 'country.' + countryKey.countryCode | translate }} <span translate="country.publishesRecordsRelatingToBiodiversity"></span> <span translate="country.nOtherCountriesAndAreas" translate-values="{NUMBER: countryKey.countriesCount, NUMBER_FORMATED: (countryKey.countriesCount | localNumber)}"></span>
+                                        <span translate="country.publishesRecordsRelatingToBiodiversity" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate), NUMBER: countryKey.countriesCount, NUMBER_FORMATED: (countryKey.countriesCount | localNumber)}"></span>
                                     </p>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
             <div class="container--desktop">
                 <h4 class="text-muted small text-uppercase" translate="country.publishingTrends"></h4>
             </div>
-            <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/published'" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
+            <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/published?locale='+countryKey.locale" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
         </section>
     </div>
     <div class="emptyInfo" ng-if="countryPublishing.datasetsFrom.$resolved && countryPublishing.datasetsFrom.count == 0">

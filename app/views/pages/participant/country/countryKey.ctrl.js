@@ -18,6 +18,7 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;
+    vm.locale = gb.locale;
     vm.countryCode = $stateParams.key;
     vm.$state = $state;
     Page.drawer(false);

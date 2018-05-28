@@ -55,8 +55,8 @@ if (loglevels[loglevel] > loglevels.terminal) {
 if (loglevels[loglevel] == loglevels.terminal) {
     logStreams.push(
         {
-            level: 'error',
-            stream: prettyStdOut
+            level: 'warn',
+            stream: process.stdout
         }
     );
 }

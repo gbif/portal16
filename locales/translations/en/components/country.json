@@ -9,6 +9,7 @@
         "publications" : "Publications",
         "dataPublishing": "Data publishing",
         "dataAbout" : "Data about",
+        "dataAboutCountry" : "Data about {TRANSLATED_COUNTRY}",
         "summary" : "Summary",
         "memberStatus": "Member status",
         "gbifParticipantSince": "GBIF participant since",
@@ -17,17 +18,24 @@
         "nodeName": "Node name",
         "nodeEstablished": "Node established",
         "participantNodeManager": "Participant node manager",
-        "dataFrom": "Data from",
+        "dataFrom": "Data from {TRANSLATED_COUNTRY}",
         "publishedDatasets": "published datasets",
-        "countriesAndAreasCoveredByDataFrom": "countries and areas covered by data from",
-        "publishersFrom": "publishers from",
+        "countriesAndAreasCoveredByDataFrom": "countries and areas covered by data from {TRANSLATED_COUNTRY}",
+        "publishersFrom": "publishers from {TRANSLATED_COUNTRY}",
         "nCountriesAndAreas": "{NUMBER_FORMATED} {NUMBER, select, 0{countries and areas} 1{country or area} other{countries and areas}}",
-        "nOtherCountriesAndAreas": "{NUMBER_FORMATED} {NUMBER, select, 0{other countries and areas} 1{other country or area} other{other countries and areas}}",
-        "publishesRecordsRelatingToBiodiversity": "publishes records relating to biodiversity from",
+        "publishesRecordsRelatingToBiodiversity": "{TRANSLATED_COUNTRY} publishes records relating to biodiversity from {NUMBER_FORMATED} {NUMBER, select, 0{other countries and areas} 1{other country or area} other{other countries and areas}}",
         "largestOccurrenceDatasets": "Largest occurrence datasets",
         "publishingTrends": "Publishing trends",
         "noDataPublishingActivity": "No data publishing activity",
-        "noInstitutionsHavePublished": "No institutions from this country have published data through GBIF"
+        "noInstitutionsHavePublished": "No institutions from this country have published data through GBIF",
+        "countriesAndAreasContributeData": "countries and areas contribute data",
+        "countriesAndAreasPublishingDataAbout": "Countries and areas publishing data about {TRANSLATED_COUNTRY}",
+        "largestOccDatasetsAbout": "Largest occurrence datasets about {TRANSLATED_COUNTRY}",
+        "trendsAboutCountry": "Trends about {TRANSLATED_COUNTRY}",
+        "nFrom" : "{NUMBER_FORMATTED} from",
+        "nAbout" : "{NUMBER_FORMATTED} about",
+        "viewAllN": "View all {NUMBER_FORMATTED}",
+        "noPublications": "No publications"
 
     }
 }
