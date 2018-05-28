@@ -8,12 +8,12 @@
             <div ng-if="!datasetActivity.loadingDownloads && !datasetActivity.failedToLoadDownloads">
                 <div class="body-text">
                     <div>
-                        <h3>{{ datasetActivity.downloads.count | localNumber }} download events</h3>
+                        <h3 tx="dataset.nDownloadEvents" tx-nr="datasetActivity.downloads.count"></h3>
                     </div>
                 </div>
 
                 <div ng-repeat="download in datasetActivity.downloads.results">
-                    <h4 class="text-uppercase small discreet">{{ download.numberRecords | localNumber }} occurrences from this dataset</h4>
+                    <h4 class="text-uppercase small discreet" tx="dataset.nFromDataset" tx-nr="download.numberRecords"></h4>
                     <div class="card m-b-2">
                         <ng-include src="'/occurrence/download/' + download.downloadKey + '/card'"></ng-include>
                     </div>
@@ -26,6 +26,9 @@
                             max-size="datasetActivity.maxSize"
                             items-per-page="datasetActivity.limit"
                             class="pagination-sm"
+                            first-text="{{'stdTerms.first' | translate}}"
+                            next-text="{{'stdTerms.next' | translate}}"
+                            previous-text="{{'stdTerms.previous' | translate}}"
                             boundary-link-numbers="false"
                             rotate="false"
                             ng-change="datasetActivity.pageChanged()">
