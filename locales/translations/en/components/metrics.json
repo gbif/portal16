@@ -6,5 +6,23 @@
         "countExtRecordsByExtension": "Count extensions by extension type",
         "countByOrigin": "Count by origin",
         "countByIssue": "Count issues by issue type"
+    },
+    "metrics": {
+        "explore": "Explore",
+        "majorGroups": "Major groups",
+        "failedToLoad": "Failed to load tree",
+        "noChildren": "No immediate children",
+        "noOccurrences": "No occurrences",
+        "occurrencesPerField": "Occurrences per {FIELD}",
+        "occurrencesPerFieldx2": "Occurrences per {FIELD} per {FIELD2}",
+        "customFilters": "This chart has custom filters",
+        "linear": "Linear",
+        "count": "Count",
+        "intervalSize": "Interval size",
+        "intervalDiffers": "Differently sized interval",
+        "showOccPer": "Show number of occurrences per",
+        "andBreakdownPer": "And optionally break those down per",
+        "logarithmic": "Logarithmic",
+        "chooseDimension": "Choose dimension"
     }
 }

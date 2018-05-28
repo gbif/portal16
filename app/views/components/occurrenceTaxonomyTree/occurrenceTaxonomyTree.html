@@ -7,8 +7,8 @@
                     <li>
                         <div class="pipe"></div>
                         <div class="title occurrenceTaxonomyTree__toggle">
-                            <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: !vm.showFrequenyTree}">Explore</a>
-                            <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: vm.showFrequenyTree}">Major groups</a>
+                            <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: !vm.showFrequenyTree}" translate="metrics.explore"></a>
+                            <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: vm.showFrequenyTree}" translate="metrics.majorGroups"></a>
                         </div>
                         <ul class="hasTreeLines" ng-if="!vm.showFrequenyTree">
                             <li ng-repeat="item in vm.fullTree.children">
@@ -34,13 +34,13 @@
                             <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'END' && vm.fullTree.children.length == 0">
                                 <div class="pipe"></div>
                                 <div class="title title--action">
-                                    <span>No occurrences</span>
+                                    <span translate="metrics.noOccurrences"></span>
                                 </div>
                             </li>
                             <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'FAILED'">
                                 <div class="pipe"></div>
                                 <div class="title title--action">
-                                    <span>Failed to load tree</span>
+                                    <span translate="metrics.failedToLoad"></span>
                                 </div>
                             </li>
                         </ul>
@@ -62,13 +62,13 @@
                             <li ng-if="vm.frequent.$resolved && vm.tree.length == 0">
                                 <div class="pipe"></div>
                                 <div class="title title--action">
-                                    <span>No occurrences</span>
+                                    <span translate="metrics.noOccurrences"></span>
                                 </div>
                             </li>
                             <li ng-if="vm.frequent.$resolved && vm.frequent._failed">
                                 <div class="pipe"></div>
                                 <div class="title title--action">
-                                    <span>Failed to load tree</span>
+                                    <span translate="metrics.failedToLoad"></span>
                                 </div>
                             </li>
                         </ul>
