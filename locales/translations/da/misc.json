@@ -192,7 +192,8 @@
         "noDescriptionProvided": "No description provided",
         "absent": "Absent",
         "submit": "submit",
-        "dropHere": "drop here"
+        "dropHere": "drop here",
+        "parser": "Parser"
     },
     "phrases": {
         "defaultPageTitle": "GBIF",
@@ -230,6 +231,10 @@
         "occurrenceMetrics": "Occurrence metrics",
         "unknownRank": "Unkown {RANK}",
         "taxonomicOccDistribution": "Taxonomic distribution of occurrences",
-        "noStatsForMetadata": "No stats available for metadata only datasets"
+        "noStatsForMetadata": "No stats available for metadata only datasets",
+        "pasteNamesToParse": "Paste names to parse here",
+        "excludeUnparsed": "Exclude unparsed",
+        "generateCsv": "Generate csv",
+        "parsingNames": "Parsing names - hang on"
     }
 }
