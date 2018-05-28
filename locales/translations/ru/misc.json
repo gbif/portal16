@@ -17,6 +17,7 @@
         "since": "since",
         "memberSince": "Member since",
         "details": "details",
+        "none": "none",
         "topics": "topics",
         "purposes": "purposes",
         "audiences": "audiences",
@@ -49,6 +50,7 @@
         "sinceDate": "since {DATE}",
         "pRecords": "{NUMBER, select, 0{records} 1{record} other{records}}",
         "pOccurrence": "{NUMBER, select, 0{occurrences} 1{occurrence} other{occurrences}}",
+        "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 0{other or unknown} 1{other or unknown} other{other or unknown}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 0{occurrences} 1{occurrence} other{occurrences}}",
         "nDatasets": "{NUMBER_FORMATED} {NUMBER, select, 0{datasets} 1{dataset} other{datasets}}",
         "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, 0{publishers} 1{publisher} other{publishers}}",
@@ -187,7 +189,10 @@
         "synonyms": "synonyms",
         "logs": "logs",
         "records": "{NUMBER, select, 0{records} 1{record} other{records}}",
-        "noDescriptionProvided": "No description provided"
+        "noDescriptionProvided": "No description provided",
+        "absent": "Absent",
+        "submit": "submit",
+        "dropHere": "drop here"
     },
     "phrases": {
         "defaultPageTitle": "GBIF",
