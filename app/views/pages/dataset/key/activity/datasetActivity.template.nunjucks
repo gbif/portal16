@@ -1,20 +1,5 @@
 <div class="horizontal-stripe--paddingless">
     <div class="container--narrow">
-
-        {#<div class="ng-cloak">#}
-            {#<div ng-if="datasetActivity.state == 'LOADING'">#}
-                {#<ng-include src="'/templates/components/loader/loader.html'"></ng-include>#}
-            {#</div>#}
-            {#<div ng-if="datasetActivity.state == 'LOADED'">#}
-                {#<h5>Frequency of used filters in downloads</h5>#}
-                {#<div style="max-width: 800px">#}
-                    {#<chartist class="ct-chart ct-golden-section" chartist-data="datasetActivity.data"#}
-                    {#chartist-chart-options="datasetActivity.options"#}
-                    {#chartist-chart-type="Bar"></chartist>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-
         <div class="m-t-2">
             <div ng-if="datasetActivity.loadingDownloads">
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
