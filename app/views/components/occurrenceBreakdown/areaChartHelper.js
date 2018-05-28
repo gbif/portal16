@@ -80,7 +80,7 @@ function getConfig(data, element, clickCallback, logarithmic) {
 function getSeries(data) {
     var min, max, yearMap;
     if (!data.secondField) {
-        min =_.toSafeInteger(_.get(_.minBy(data.results, function(e) {
+        min = _.toSafeInteger(_.get(_.minBy(data.results, function(e) {
             return _.toSafeInteger(e.displayName);
         }), 'displayName', 0));
         max = _.toSafeInteger(_.get(_.maxBy(data.results, function(e) {

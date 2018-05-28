@@ -1,9 +1,9 @@
 <div>
     <div layout='row' layout-fill layout-margin layout-align='start center'>
-        <span>Show number of occurrences per</span>
+        <span translate="metrics.showOccPer"></span>
         <md-input-container md-no-float>
-            <md-select ng-model="vm.options.dimension" ng-change="vm.options.secondDimension = undefined; vm.options.offset = 0; vm.api.chartChange();" placeholder="choose dimension">
-                <md-option ng-value=""><em>None</em></md-option>
+            <md-select ng-model="vm.options.dimension" ng-change="vm.options.secondDimension = undefined; vm.options.offset = 0; vm.api.chartChange();" placeholder="{{ 'metrics.chooseDimension' | translate }}">
+                <md-option ng-value=""><em translate="stdTerms.none"></em></md-option>
                 <md-option ng-repeat="item in vm.config.dimensions" ng-value="item" translate="filterNames.{{item | camelCase}}">
                     {{item}}
                 </md-option>
@@ -11,7 +11,7 @@
         </md-input-container>
     </div>
     <div layout='row' layout-fill layout-margin layout-align='start center' ng-if="vm.options.dimension">
-        <span>And optionally break those down per</span>
+        <span translate="metrics.andBreakdownPer"></span>
         <md-input-container md-no-float>
             <md-select ng-model="vm.options.secondDimension" placeholder="choose dimension" ng-change="vm.api.chartChange();">
                 <md-option ng-value=""><em>None</em></md-option>
