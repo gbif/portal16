@@ -4,7 +4,7 @@
 
         {% if main.fields.citation %}
             <section class="no-break">
-                <h4>Citations</h4>
+                <h4 translate="stdTerms.citations" translate-values="{NUMBER: 2}">Citations</h4>
                 {$ main.fields.citation | renderMarkdown | sanitize | linkify | safe $}
             </section>
         {% endif %}
@@ -14,11 +14,11 @@
         {#{% if main.fields.countriesOfResearcher | isNotEmpty or main.fields.countriesOfCoverage | isNotEmpty or main.fields.topics | isNotEmpty or main.fields.audiences | isNotEmpty or main.fields.purposes | isNotEmpty or main.fields.organisingParticipants | isNotEmpty %}#}
         {% if main.fields | hasAtLeastOneKey(['countriesOfResearcher', 'countriesOfCoverage', 'topics', 'audiences', 'purposes']) %}
             <section class="no-break">
-                <h4>Subject</h4>
+                <h4 translate="cms.auxiliary.subject">Subject</h4>
                 <ul class="list-chips">
                     {% if main.fields.countriesOfResearcher.length > 0 %}
                         <li class="list-chips__category">
-                            Researchers country:
+                            {{'cms.auxiliary.researchersCountry' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.countriesOfResearcher %}
@@ -29,7 +29,7 @@
 
                     {% if main.fields.countriesOfCoverage.length > 0 %}
                         <li class="list-chips__category">
-                            Country coverage:
+                            {{'cms.auxiliary.countryCoverage' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.countriesOfCoverage %}
@@ -40,7 +40,7 @@
 
                     {% if main.fields.topics.length > 0 %}
                         <li class="list-chips__category">
-                            Topics:
+                            {{'cms.auxiliary.topics' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.topics %}
@@ -51,7 +51,7 @@
 
                     {% if main.fields.audiences.length > 0 %}
                         <li class="list-chips__category">
-                            Audiences:
+                            {{'cms.auxiliary.audiences' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.audiences %}
@@ -62,7 +62,7 @@
 
                     {% if main.fields.purposes.length > 0 %}
                         <li class="list-chips__category">
-                            Purposes:
+                            {{'cms.auxiliary.purposes' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.purposes %}
@@ -76,7 +76,7 @@
 
         {% if main.fields.organisingParticipants %}
             <section class="no-break">
-                <h4>Organising Participants</h4>
+                <h4 translate="cms.auxiliary.organisingParticipants">Organising Participants</h4>
                 <ul class="list-chips">
                     {% for participant in main.fields.organisingParticipants %}
                         {% if resolved.Entry[participant.sys.id] %}

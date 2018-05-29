@@ -12,6 +12,7 @@ function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
     var vm = this;
     vm.key = gb.programmeKey;
     vm.imageCache = env.imageCache;
+    vm.locale = gb.locale;
     vm.state = {
         sortType: 'title'
     };

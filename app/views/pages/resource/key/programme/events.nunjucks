@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div ng-repeat="result in programmeKey.events.data.results">
-                    <ng-include src="'/api/template/search/eventResult.html?v={$ BUILD_VERSION $}'"></ng-include>
+                    <ng-include src="'/api/template/search/eventResult.html?v={$ BUILD_VERSION $}'+'&locale='+programmeKey.locale"></ng-include>
                 </div>
             </div>
         </div>

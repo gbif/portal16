@@ -55,6 +55,11 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             vm.showRoot();
         }
 
+        vm.gotoSpecies = function(key) {
+            delete $stateParams.root;
+            vm.$state.go(vm.$state.current, {speciesKey: key}, {reload: true})
+        }
+
         vm.getChildren = function(limit, offset) {
             vm.loadingChildren = true;
             var children = TaxonomyChildren.query({

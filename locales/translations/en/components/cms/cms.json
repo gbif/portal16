@@ -79,6 +79,7 @@
         "project": {
             "project": "Project",
             "projectId": "Project ID",
+            "projectIdentifier": "Project identifier",
             "grantType": "Grant type",
             "duration": "Duration",
             "title": "Title",
@@ -86,10 +87,19 @@
             "end": "End",
             "fundsAllocated": "Funding allocated",
             "matchingFunds": "Est. co-funding",
+            "funding": "Funding",
+            "coFunding": "Co funding",
+            "fundedBy": "Funded by",
+            "coFundedBy": "Co funded by",
+            "typeOfGrant": "Type of grant",
+            "projectStart": "Project start",
             "status": "Status",
             "programme": "programme",
             "contractCountry": "Country or area",
+            "newsAndEvents": "News & events",
             "call": "call",
+            "projectLead": "Project lead",
+            "contactDetalils": "Contact details",
             "partner": {
                 "one": "partner",
                 "other": "partners"
@@ -121,6 +131,15 @@
         },
         "literature": {
             "keywords": "Keywords"
+        }, 
+        "auxiliary" : {
+            "subject": "Subject",
+            "researchersCountry": "Researchers country",
+            "countryCoverage": "Country coverage",
+            "topics": "Topics",
+            "audiences" : "Audiences",
+            "purposes": "Purposes",
+            "organisingParticipants": "Organising Participants"
         }
     }
 }

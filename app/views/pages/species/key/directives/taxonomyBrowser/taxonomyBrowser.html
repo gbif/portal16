@@ -123,7 +123,7 @@
             <div class="text-center m-t-2 m-b-2" ng-if="!vm.rootOptions.$resolved"><span class="loading"></span></div>
             <ul ng-if="vm.rootOptions.$resolved">
                 <li ng-repeat="option in vm.rootOptions.results">
-                    <a ng-click="vm.$state.go(vm.$state.current, {speciesKey:option.key}, {reload: true})"class="inherit noUnderline">
+                    <a ng-click="vm.gotoSpecies(option.key)"class="inherit noUnderline">
                         <span>{{ option.scientificName }}</span>
                         <div class="small discreet--very">
                             <span class="text-capitalize">{{ 'taxonRank.' + option.rank | translate }}</span><span>{{ option.numDescendants | localNumber }} {{species.descendants | translate}}</span>
