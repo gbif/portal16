@@ -21,8 +21,8 @@
             </div>
 
             <div >
-                <h4 class="text-muted small text-uppercase m-t-1">
-                    Last crawled {{ speciesKey2.verbatim.lastCrawled | date : 'longDate' }}
+                <h4 class="text-muted small text-uppercase m-t-1" translate="species.lastCrawled" translate-values="{DATE_FORMATTED: (speciesKey2.verbatim.lastCrawled | date : 'longDate')}">
+                    
                 </h4>
                 <div class="card m-b-05 searchCard " >
                     <div class="card__stripe">
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div ng-if="speciesKey2.verbatimHasExtensions">
-            <h3 class="m-t-2">Extensions</h3>
+            <h3 class="m-t-2" translate="species.extensions">Extensions</h3>
             </div>
             <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if="speciesKey2.dwcextensions[nameSpace] && extension.length > 0">
 

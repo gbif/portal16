@@ -113,7 +113,7 @@
                         <div class="card">
                             <div class="card__content">
                                 <div class="m-b-1 m-t-1" >
-                                    <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> in <span ng-bind-html="speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'"></span>
+                                    <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> {{'stdterms.in' | translate}} <span ng-bind-html="speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'"></span>
 
                                     {#<p class="discreet text-uppercase small">Please cite as</p>#}
                                     {#<div>#}
