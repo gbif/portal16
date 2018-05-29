@@ -71,7 +71,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead() $}
                         <tbody>
-                        {$ trowD(url="", resp="Dataset List", respLink=apiBase+"dataset", paging=true, params=["q","country","type","identifier","identifierType"], description="Lists all datasets")$}
+                        {$ trowD(url="", resp="Dataset List", respLink=apiBase+"dataset", paging=true, params=["q","country","type","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all datasets")$}
                         {$ trowD(url="", method="POST", resp="UUID", auth=true, description="Creates a new dataset") $}
                         {$ trowD(url="/{UUID}", resp="Dataset", respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e", description="Gets details for the single dataset") $}
                         {$ trowD(url="/{UUID}", method="PUT", auth=true, description="Updates the dataset") $}
@@ -159,7 +159,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead() $}
                         <tbody>
-                        {$ trowI(url="", resp="Installation List", respLink=apiBase+"installation", paging=true, params=["q","identifier","identifierType"], description="Lists all installations") $}
+                        {$ trowI(url="", resp="Installation List", respLink=apiBase+"installation", paging=true, params=["q","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all installations") $}
                         {$ trowI(url="", method="POST", resp="UUID", auth=true, description="Creates a new installation") $}
                         {$ trowI(url="/{UUID}", resp="Installation", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed", description="Gets details for the single installation") $}
                         {$ trowI(url="/{UUID}", method="PUT", auth=true, description="Updates the installation") $}
@@ -208,7 +208,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead() $}
                         <tbody>
-                        {$ trowO(url="", resp="Organization List", respLink=apiBase+"organization", paging=true, params=["q","country","identifier","identifierType","isEndorsed"], description="Lists all organizations") $}
+                        {$ trowO(url="", resp="Organization List", respLink=apiBase+"organization", paging=true, params=["q","country","identifier","identifierType","isEndorsed","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all organizations") $}
                         {$ trowO(url="", method="POST", resp="UUID", auth=true, description="Creates a new organization") $}
                         {$ trowO(url="/{UUID}", resp="Organization", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530", description="Gets details for the single organization") $}
                         {$ trowO(url="/{UUID}", method="PUT", auth=true, description="Updates the organization") $}
@@ -259,7 +259,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead() $}
                         <tbody>
-                        {$ trowNo(url="", resp="Node List", respLink=apiBase+"node", paging=true, params=["q","identifier","identifierType"], description="Lists all nodes") $}
+                        {$ trowNo(url="", resp="Node List", respLink=apiBase+"node", paging=true, params=["q","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all nodes") $}
                         {$ trowNo(url="", method="POST", resp="UUID", auth=true, description="Creates a new node") $}
                         {$ trowNo(url="/{UUID}", resp="Node", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce", description="Gets details for the single node") $}
                         {$ trowNo(url="/{UUID}", method="PUT", auth=true, description="Updates the node") $}
@@ -307,7 +307,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead() $}
                         <tbody>
-                        {$ trowNe(url="", resp="Network List", respLink=apiBase+"network", paging=true, params=["q","identifier","identifierType"], description="Lists all networks") $}
+                        {$ trowNe(url="", resp="Network List", respLink=apiBase+"network", paging=true, params=["q","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all networks") $}
                         {$ trowNe(url="", method="POST", resp="UUID", auth=true, description="Creates a new network") $}
                         {$ trowNe(url="/{UUID}", resp="Network", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3", description="Gets details for the single network") $}
                         {$ trowNe(url="/{UUID}", method="PUT", auth=true, description="Updates the network") $}
@@ -347,6 +347,9 @@
             "identifier": "The value for this parameter can be a simple string or integer, e.g. identifier=120",
             "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier type as given in our <a href='"+apiBase+"enumeration/basic/IdentifierType'>IdentifierType enum</a>",
             "isEndorsed": "Filters organizations by whether they are endorsed or not.",
+            "machineTagNamespace": "Filters for entities with a machine tag in the specified namespace.",
+            "machineTagName": "Filters for entities with a machine tag with the specified name (use in combination with the machineTagNamespace parameter).",
+            "machineTagValue": "Filters for entities with a machine tag with the specified value (use in combination with the machineTagNamespace and machineTagName parameters).",
             "subtype": "Not yet implemented, but will eventually allow filtering of datasets by their dataset subtype as given in our <a href='"+apiBase+"enumeration/basic/DatasetSubtype'>DatasetSubtype enum</a>.",
             "license": "The type of license applied to the dataset.",
             "keyword": "Filters datasets by a case insensitive plain text keyword. The search is done on the merged collection of tags, the dataset keywordCollections and temporalCoverages.",
