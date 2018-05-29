@@ -95,6 +95,7 @@
         "country": "country or area",
         "installation": "installation",
         "installations": "installations",
+        "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 0{installations} 1{installation} other{installations}}",
         "installationType": "installation type",
         "occurrence": "occurrence",
         "Occurrence": "Occurrence",
@@ -236,6 +237,7 @@
         "pasteNamesToParse": "Paste names to parse here",
         "excludeUnparsed": "Exclude unparsed",
         "generateCsv": "Generate csv",
-        "parsingNames": "Parsing names - hang on"
+        "parsingNames": "Parsing names - hang on",
+        "dontSeeYourIpt": "Don't see your IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") your coordinates."
     }
 }
