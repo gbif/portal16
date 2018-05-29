@@ -96,7 +96,9 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             $q.all({
                     response: vm.content.$promise,
                     occurrences_translation: $translate('stdTerms.occurrences'),
-                    otherOrUknown_translation: $translate('stdTerms.otherOrUknown')
+                    otherOrUknown_translation: $translate('stdTerms.otherOrUknown'),
+                    clickToZoom_translation: $translate('metrics.clickToZoom'),
+                    pinchToZoom_translation: $translate('metrics.pinchToZoom')
                 })
                 .then(function(resolved) {
                     var response = resolved.response;
@@ -112,7 +114,9 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                     }
                     vm.translations = {
                         occurrences: resolved.occurrences_translation,
-                        otherOrUknown: resolved.otherOrUknown_translation
+                        otherOrUknown: resolved.otherOrUknown_translation,
+                        clickToZoom: resolved.clickToZoom_translation,
+                        pinchToZoom: resolved.pinchToZoom_translation
                     };
                     formatData(vm.chartdata);
                 })
