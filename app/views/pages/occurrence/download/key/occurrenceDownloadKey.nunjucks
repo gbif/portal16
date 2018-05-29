@@ -76,7 +76,7 @@
                                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                                             <li class="tab tab-right ng-cloak" ng-if="downloadKey.isUsersDownload && downloadKey.isCancelable">
                                                 <span>
-                                                    <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)">Cancel</a>
+                                                    <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)" translate="stdTerms.cancel"></a>
                                                 </span>
                                             </li>
                                         {% endif %}
@@ -104,10 +104,10 @@
                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                         <div class="card__stripe">
                             <div class="card__content card__content--warning--large">
-                                <p>The download has been started and is currently being processed.</p>
-                                <p>Please expect 10 to 15 minutes for the download to complete.</p>
+                                <p >{$ __('downloadKey.downloadStarted') $}</p>
+                                <p>{$ __('downloadKey.downloadExpectTime') $}</p>
                                 <div ng-if="downloadKey.isUsersDownload" class="ng-cloak">
-                                    <p>A notification email with a link to download the results will be sent to the following address once ready: {{ downloadKey.download.request.notificationAddresses[0] }}</p>
+                                    <p>{$ __('downloadKey.notificationEmailAddresses') $}{{ downloadKey.download.request.notificationAddresses[0] }}</p>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +158,7 @@
                                             {% endif %}
                                         </dl>
                                         <div>
-                                            <div>Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">data user agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.</div>
+                                            <div ng-bind-html="'downloadKey.readDatauseAndTerms' | translate:'{TERMS_LINK: \'{$ gb.locales.urlPrefix $}/terms/data-user\', GUIDE_LINK: \'{$ gb.locales.urlPrefix $}/citation-guidelines\'}' | md2html"></div>
                                             <div>
                                             {#<span gb-help="for-how-long-will-does-gbif-store-downloads">{$ __('downloadKey.storageDurationTeaser') $}</span>#}
                                             {% if not download.record.doi %}
@@ -174,7 +174,7 @@
                                         <div class="card">
                                             <div class="card__stripe">
                                                 <div class="card__content">
-                                                    <span translate="phrases.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | momentFormat:'D MMMM YYYY')}"></span> <span>Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>.</span>
+                                                    <span translate="downloadKey.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | momentFormat:'D MMMM YYYY')}"></span> <span>Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>.</span>
                                                 </div>
                                             </div>
                                             <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">
@@ -220,36 +220,7 @@
                             </div>
                         </div>
                     </div>
-
-
-                    {#<div class="storyline__chapter">#}
-                        {#<div class="storyline__bullet"><span class="gb-icon-cloud-upload"></span></div>#}
-                        {#<div class="storyline__block">#}
-                            {#<div class="empty-box body-text">#}
-                                {#No cleaned versions shared#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="storyline__pipe"></div>#}
-                    {#</div>#}
-                    {#<div class="storyline__chapter">#}
-                        {#<div class="storyline__bullet"><span class="gb-icon-quote"></span></div>#}
-                        {#<div class="storyline__block">#}
-                            {#<div class="empty-box body-text">#}
-                                {#No known usages#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
                 </section>
-
-                {#<section class="m-t-2 ng-cloak">#}
-                    {#<h3 class="card-header">Literature usage</h3>#}
-                    {#<div ng-repeat="result in downloadKey.literature.results" class="card--spaced">#}
-                        {#<ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION"></ng-include>#}
-                    {#</div>#}
-                    {#<div class="text-right" ng-if="downloadKey.literature.count > downloadKey.literature.results.length">#}
-                        {#<a class="gb-button--discreet" ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{  downloadKey.doi }}"'>See all</a>#}
-                    {#</div>#}
-                {#</section>#}
 
                 {% if download.datasets.count > 0 %}
                     <section class="m-t-2">

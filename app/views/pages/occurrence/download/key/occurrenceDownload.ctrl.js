@@ -58,7 +58,7 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootSc
             .then(function(response) {
                 vm.download = response.data;
                 parseDeletionDate(vm.download);
-                vm.isUsersDownload = vm.download.request.creator == vm.profile.userName;
+                vm.isUsersDownload = vm.download.request.creator == _.get(vm.profile, 'userName');
                 if (vm.isUsersDownload && vm.isCancelable) {
                     if (response.data.status !== 'RUNNING' && response.data.status !== 'PREPARING') {
                         vm.isCancelable = false;
