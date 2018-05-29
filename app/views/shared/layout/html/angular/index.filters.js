@@ -18,6 +18,18 @@
         smartypants: false
     });
 
+    // Get reference
+    var renderer = new md.Renderer();
+
+    // Override function
+    renderer.link = function(href, title, text) {
+        title = title || '';
+        if (href.substr(0, 1) === '/') {
+            href = window.gb.urlPrefix + href;
+        }
+        return '<a title="' + title + '" href="' + href + '">' + text + '</a>';
+    };
+
     angular
         .module('portal')
         .filter('prettifyEnum', function() {
@@ -236,7 +248,7 @@
         })
         .filter('md2html', function() {
             return function(markdown) {
-                return (markdown) ? md(markdown) : '';
+                return (markdown) ? md(markdown, {renderer: renderer}) : '';
             };
         })
         .filter('gbifUrlAsRelative', function() {
