@@ -14,6 +14,7 @@ function nameParserCtrl($http, $scope, hotkeys, $location) {
         pageSize: 20
     };
     vm.error;
+    vm.locale = gb.locale;
     vm.$location = $location;
 
     window.onbeforeunload = function(e) {

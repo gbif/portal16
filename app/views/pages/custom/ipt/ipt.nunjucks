@@ -19,11 +19,11 @@
                 <div class="heading-image">
                     <div class="container-fluid">
                         <div class="row ipt__map-stats">
-                            <div class="col-xs-12 col-sm-6 text-center">{{ ipt.installationCount }} installations</div>
-                            <div class="col-xs-12 col-sm-6 text-center">{{ ipt.countryCount }}  countries</div>
+                            <div class="col-xs-12 col-sm-6 text-center" translate="stdTerms.nInstallations" translate-values="{NUMBER: ipt.installationCount, NUMBER_FORMATED: (ipt.installationCount | localNumber)}"></div>
+                            <div class="col-xs-12 col-sm-6 text-center" translate="stdTerms.nCountries" translate-values="{NUMBER: ipt.countryCount, NUMBER_FORMATED: (ipt.countryCount | localNumber)}"> </div>
                         </div>
                         <div class="small discreet">
-                            <div>Don't see your IPT? Send <a href="mailto:helpdesk@gbif.org" title="Mail to GBIF Helpdesk requesting IPT be added to map">GBIF</a> your coordinates.</div>
+                            <div ng-bind-html="'phrases.dontSeeYourIpt' | translate | md2html"></div>
                         </div>
                     </div>
                 </div>
