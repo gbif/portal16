@@ -1,17 +1,18 @@
 {
     "endpointType": {
         "EML": "EML",
-        "FEED": "FEED",
+        "FEED": "RSS feed",
         "WFS": "WFS",
         "WMS": "WMS",
         "TCS_RDF": "TCS RDF",
         "TCS_XML": "TCS XML",
-        "DWC_ARCHIVE": "DWC ARCHIVE",
-        "DIGIR": "DIGIR",
-        "DIGIR_MANIS": "DIGIR MANIS",
+        "DWC_ARCHIVE": "Darwin Core Archive",
+        "DIGIR": "DiGIR",
+        "DIGIR_MANIS": "DiGIR MANIS",
         "TAPIR": "TAPIR",
-        "BIOCASE": "BIOCASE",
+        "BIOCASE": "BioCASe",
+        "BIOCASE_XML_ARCHIVE": "BioCASe XML Archive",
         "OAI_PMH": "OAI PMH",
-        "OTHER": "OTHER"
+        "OTHER": "Other"
     }
 }
