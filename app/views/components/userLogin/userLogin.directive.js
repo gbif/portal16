@@ -38,6 +38,11 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
         vm.challenge;
         vm.verificationFailed = false;
 
+        toastService.error({
+            translate: 'stdTerms.dataset',
+            feedback: true
+        });
+
         // read flash cookie and remove it
         var loginFlashInfo = $cookies.get('loginFlashInfo') || '{}';
         $cookies.remove('loginFlashInfo', {path: '/'});
