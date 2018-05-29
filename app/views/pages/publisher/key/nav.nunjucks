@@ -34,7 +34,6 @@
                         <ul>
                             <li class="tab" ng-class="{isActive: publisherKey.$state.is('publisherKey')}">
                                 <a ui-sref="publisherKey({key:publisherKey.key})" translate="stdTerms.about">
-                                    About
                                 </a>
                             </li>
 
@@ -42,7 +41,6 @@
                                 <a ng-href="{{ publisherKey.publisher.homepage[0] }}">
                                     <span class="gb-icon-link"></span>
                                     <span translate="stdTerms.homepage">
-                                        Homepage
                                     </span>
                                 </a>
                             </li>
