@@ -45,10 +45,14 @@ var angular = require('angular');
 
             function translatedToast(type, settings, defaultSettings) {
                 if (settings.translate) {
-                    $translate(settings.translate).then(function(translation) {
-                        settings.message = translation;
-                        toast(type, settings, defaultError);
-                    });
+                    $translate(settings.translate)
+                        .then(function(translation) {
+                            settings.message = translation;
+                            toast(type, settings, defaultError);
+                        })
+                        .catch(function(err) {
+                            toast(type, settings, defaultError);
+                        });
                 } else {
                     toast(type, settings, defaultError);
                 }
