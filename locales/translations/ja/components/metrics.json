@@ -24,6 +24,8 @@
         "andBreakdownPer": "And optionally break those down per",
         "logarithmic": "Logarithmic",
         "singleTypeResults": "{NUMBER} occurrences where '{FIELD}' equals:",
-        "chooseDimension": "Choose dimension"
+        "chooseDimension": "Choose dimension",
+        "clickToZoom": "Click and drag in the plot area to zoom in",
+        "pinchToZoom": "Pinch the chart to zoom in"
     }
 }
