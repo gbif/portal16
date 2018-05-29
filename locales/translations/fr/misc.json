@@ -194,6 +194,7 @@
         "noDescriptionProvided": "No description provided",
         "absent": "Absent",
         "submit": "submit",
+        "cancel": "Cancel",
         "dropHere": "drop here",
         "parser": "Parser"
     },
@@ -201,7 +202,6 @@
         "defaultPageTitle": "GBIF",
         "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
         "largeFileUploadWarning": "Be aware that large files can take a long time to upload",
-        "downloadDeletionWarning": "This download hasn't been cited and is eligible for deletion after {DATE}.",
         "gbifWillAttend": "Attended by GBIF Secretariat",
         "deletedOnDate": "Deleted on {DATE}",
         "becauseTrustedContact": "Because you are trusted contact",
