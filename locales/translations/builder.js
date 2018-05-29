@@ -51,6 +51,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/enums/extension`),
         getFile(locale, `./${locale}/components/menu`),
         getFile(locale, `./${locale}/components/feedback`),
+        getFile(locale, `./${locale}/components/footer`),
         getFile(locale, `./${locale}/components/occurrenceKey/ocurrenceFieldNames`),
         getFile(locale, `./${locale}/components/occurrenceKey/occurrenceKey`),
         getFile(locale, `./${locale}/components/occurrenceSearch`),
