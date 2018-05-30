@@ -18,12 +18,12 @@ function countryAboutCtrl($stateParams, OccurrenceTableSearch, OccurrenceDataset
     });
 
     vm.charts = [];
-    vm.pushChart = function(dimension, type, customFilters) {
+    vm.pushChart = function(dimension, type, customFilter) {
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: '', type: type, showSettings: false},
             filter: {country: vm.countryCode},
-            customFilters: customFilters
+            customFilter: customFilter
         };
         vm.charts.push(chartConfig);
     };
