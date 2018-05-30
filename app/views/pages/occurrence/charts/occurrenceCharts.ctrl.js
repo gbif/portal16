@@ -4,7 +4,6 @@ var angular = require('angular');
 var _ = require('lodash');
 
 require('../../../components/occurrenceBreakdown/card/occurrenceBreakdownCard.directive');
-var serializer = require('../../../components/occurrenceBreakdown/serializer');
 
 angular
     .module('portal')

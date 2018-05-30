@@ -5,7 +5,7 @@ var angular = require('angular');
 (function() {
     angular
         .module('portal')
-        .service('toastService', function(NAV_EVENTS, toastr, $rootScope) {
+        .service('toastService', function(NAV_EVENTS, toastr, $rootScope, $translate) {
             // TODO errors needs translating
             var defaultError = {
                 feedback: true,
@@ -43,6 +43,21 @@ var angular = require('angular');
             //    defaultSettings.defaultErrorMessage = translation;
             // });
 
+            function translatedToast(type, settings, defaultSettings) {
+                if (settings.translate) {
+                    $translate(settings.translate)
+                        .then(function(translation) {
+                            settings.message = translation;
+                            toast(type, settings, defaultError);
+                        })
+                        .catch(function(err) {
+                            toast(type, settings, defaultError);
+                        });
+                } else {
+                    toast(type, settings, defaultError);
+                }
+            }
+            
             function toast(type, settings, defaultSettings) {
                 settings = settings || {};
                 var mergedSettings = angular.merge({}, defaultSettings, settings);
@@ -65,23 +80,23 @@ var angular = require('angular');
             }
 
             this.error = function(settings) {
-                toast('error', settings, defaultError);
+                translatedToast('error', settings, defaultError);
             };
 
             this.partialFailure = function(settings) {
-                toast('error', settings, defaultPartialFailure);
+                translatedToast('error', settings, defaultPartialFailure);
             };
 
             this.warning = function(settings) {
-                toast('warning', settings, defaultWarning);
+                translatedToast('warning', settings, defaultWarning);
             };
 
             this.partialResult = function(settings) {
-                toast('warning', settings, defaultPartialResult);
+                translatedToast('warning', settings, defaultPartialResult);
             };
 
             this.info = function(settings) {
-                toast('info', settings, defaultInfo);
+                translatedToast('info', settings, defaultInfo);
             };
 
             function showFeedback(event) {

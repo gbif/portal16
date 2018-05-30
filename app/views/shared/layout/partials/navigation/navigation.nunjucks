@@ -85,28 +85,11 @@
                             </li>
                         {% endif %}
                     {% endfor %}
-                    {#<li class="mainMenu__firstLevel hide-on-laptop">#}
-                        {#<a class="mainMenu__parentItem" href=""#}
-                           {#ng-click="nav.mobileMenuActive = false; nav.toggleFeedback()">Feedback</a>#}
-                    {#</li>#}
-                    {#<li class="mainMenu__firstLevel hide-on-laptop">#}
-                        {#<a class="mainMenu__parentItem" href="/search">Search</a>#}
-                    {#</li>#}
                     <li class="mainMenu__firstLevel hide-on-laptop">
-                        <a class="mainMenu__parentItem" href="{$ gb.locales.urlPrefix $}/user/profile">User profile <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
+                        <a class="mainMenu__parentItem" href="{$ gb.locales.urlPrefix $}/user/profile"><span translate="profile.userProfile">User profile</span> <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
                     </li>
                 </ul>
             </nav>
-            {#<nav class="user-menu">#}
-            {#<ul>#}
-            {#<li class="user-menu__firstLevel"><a href="https://account.box.com/login"#}
-            {#class="user-menu_log-in user-menu__parentItem">Log in</a></li>#}
-            {#<li class="user-menu__firstLevel"><a href="/pricing"#}
-            {#class="user-menu_sign-up user-menu__parentItem">Sign Up</a>#}
-            {#</li>#}
-            {#</ul>#}
-            {#</nav>#}
-
         </div>
 
     </div>

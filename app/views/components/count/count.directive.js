@@ -8,6 +8,7 @@ angular
             restrict: 'A',
             link: function(scope, element, attrs) {
                 var url = attrs.count;
+                var countType = attrs.countType;
                 var countTranslation = attrs.countTranslation;
 
                 // get async count from endpoint
@@ -30,7 +31,7 @@ angular
                 });
 
                 promise.then(function(response) {
-                    var number = $filter('localNumber')(response.data.count, LOCALE);
+                    var number = $filter('localNumber')(getCount(response.data, countType), LOCALE);
                     if (countTranslation) {
                         // Allow async counts to be used in translations
                         $translate(countTranslation, {NUMBER: number, NUMBER_FORMATED: number.toLocaleString(LOCALE)}).then(function(translation) {
@@ -46,3 +47,11 @@ angular
             }
         };
     });
+
+function getCount(data, type) {
+    if (type === 'facet') {
+        return data.facets[0].counts.length;
+    } else {
+        return data.count;
+    }
+}

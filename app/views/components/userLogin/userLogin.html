@@ -2,33 +2,29 @@
     <div class="userLogin__loader" ng-if="vm.waiting">
         <div class="text-center prose-body">
             <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-            <div class="m-t-1 discreet">Please hang on</div>
+            <div class="m-t-1 discreet" translate="stdTerms.loading"></div>
         </div>
     </div>
     <nav class="discreetTabs" ng-if="vm.loginState || vm.createState">
         <ul>
             <li ng-class="{isActive: vm.loginState}">
-                <a href="" class="inherit noUnderline" ng-click="vm.changeState('LOGIN')">Login</a>
+                <a href="" class="inherit noUnderline" ng-click="vm.changeState('LOGIN')" translate="profile.loginText"></a>
             </li>
             <li ng-class="{isActive: vm.createState}">
-                <a href="" class="inherit noUnderline" ng-click="vm.changeState('CREATE')">Register</a>
+                <a href="" class="inherit noUnderline" ng-click="vm.changeState('CREATE')" translate="profile.register"></a>
             </li>
         </ul>
     </nav>
 
     <div ng-if="vm.loggedinState">
         <div>
-            <!--<div>-->
-                <!--<img src=""></div>-->
-            <!--</div>-->
             <div>
                 <div class="body-text">{{vm.user.firstName}} {{vm.user.lastName}}</div>
                 <div class="discreet">{{vm.user.userName}}</div>
-                <!--<div class="discreet small">{{vm.user.firstName}} {{vm.user.lastName}}</div>-->
             </div>
             <div class="m-t-1">
-                <a href="" class="gb-button--flat text-uppercase small" ng-click="vm.logout()">Logout</a>
-                <a href="/user/profile" class="gb-button--brand pull-right text-uppercase">Profile</a>
+                <a href="" class="gb-button--flat text-uppercase small" ng-click="vm.logout()" translate="profile.logout"></a>
+                <a href="/user/profile" class="gb-button--brand pull-right text-uppercase" translate="profile.profile"></a>
             </div>
         </div>
     </div>
@@ -36,44 +32,38 @@
     <form class="userLogin__form gb-form" name="vm.loginUserForm" ng-if="vm.loginState" ng-submit="vm.submitLogin()">
         <div class="gb-form__group">
             <label>
-                <span>Username or email</span>
+                <span translate="profile.usernameEmail"></span>
                 <input type="text" name="username" required ng-model="vm.username" focus-me="true">
             </label>
         </div>
         <div class="gb-form__group">
             <label>
-                <span>Password</span>
+                <span translate="profile.password"></span>
                 <input type="password" name="password" required ng-model="vm.password">
             </label>
             <div class="text-right">
-                <a href="" class="small" ng-click="vm.changeState('RESET')">Forgot your password?</a>
+                <a href="" class="small" ng-click="vm.changeState('RESET')" translate="profile.forgotPassword"></a>
             </div>
         </div>
-        <p ng-if="vm.invalidLogin" class="small text-error">
-            Unable to log in. Unknown user or password.
+        <p ng-if="vm.invalidLogin" class="small text-error" translate="profile.unknownUser">
+            
         </p>
         <p ng-if="vm.errorMessage" class="small text-error" translate="profile.error.{{vm.errorMessage}}"></p>
         <p class="m-t-1">
-            <button class="gb-button--brand" type="submit">Sign in</button>
-            <div class="text-uppercase text-center discreet">Or</div>
-            <a href="/auth/facebook/login" class="gb-button--facebook center-block m-t-05"><i></i><span class="gb-button--facebook__label">Continue with Facebook</span></a>
-            <a href="/auth/github/login" class="gb-button--github center-block m-t-05"><i></i><span class="gb-button--facebook__label">Continue with Github</span></a>
-            <a href="/auth/orcid/login" class="gb-button--orcid center-block m-t-05"><i></i><span class="gb-button--facebook__label">Continue with ORCiD</span></a>
+            <button class="gb-button--brand" type="submit" translate="profile.signIn"></button>
+            <div class="text-uppercase text-center discreet" translate="profile.or"></div>
+            <a href="/auth/facebook/login" class="gb-button--facebook center-block m-t-05"><i></i><span class="gb-button--facebook__label" translate="profile.continueWithProvider" translate-values="{PROVIDER: 'Facebook'}"></span></a>
+            <a href="/auth/github/login" class="gb-button--github center-block m-t-05"><i></i><span class="gb-button--facebook__label" translate="profile.continueWithProvider" translate-values="{PROVIDER: 'Github'}"></span></a>
+            <a href="/auth/orcid/login" class="gb-button--orcid center-block m-t-05"><i></i><span class="gb-button--facebook__label" translate="profile.continueWithProvider" translate-values="{PROVIDER: 'ORCiD'}"></span></a>
         </p>
-        <p class="small discreet">
-            By signing in you accept GBIFs <a ng-href="{{ portal.urlPrefix }}/terms" target="_blank">terms</a> and <a ng-href="{{ portal.urlPrefix }}/terms/privacy-policy" target="_blank">privacy policy</a>.
-        </p>
+        <div class="small discreet" ng-bind-html="profile.signInAgreement | translate | md2html"></div>
     </form>
 
     <form name="vm.createUserForm" class="gb-form" ng-if="vm.createState">
-        <div ng-if="vm.disableRegistration" class="m-t-05">
-            Please use <a href="http://www.gbif.org/user/login">GBIF.org</a> for user creation for now. Your account should be synced within a day. Thank you.
-        </div>
-
         <div ng-if="!vm.disableRegistration && !vm.verification">
             <div class="gb-form__group">
                 <label>
-                    <span>Country</span>
+                    <span translate="profile.country"></span>
                     <input type="text"
                            required
                            name="country"
@@ -89,50 +79,48 @@
                            typeahead-focus-first="true">
                 </label>
                 <div ng-messages="vm.createUserForm.country.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Country required</div>
+                    <div ng-message="required" translate="profile.countryRequired"></div>
                 </div>
             </div>
             <div class="gb-form__group">
                 <label>
-                    <span>Email</span>
+                    <span translate="profile.email"></span>
                     <input type="text" ng-pattern="vm.emailPattern" name="email" required ng-model="vm.email">
                 </label>
                 <div ng-messages="vm.createUserForm.email.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Email required</div>
-                    <div ng-message="pattern">Please enter a valid email</div>
+                    <div ng-message="required" translate="profile.emailRequired"></div>
+                    <div ng-message="pattern" translate="profile.invalidEmail"></div>
                 </div>
             </div>
             <div class="gb-form__group">
                 <label>
-                    <span>Username</span>
+                    <span translate="profile.username"></span>
                     <input type="text" name="username" ng-pattern="vm.userNamePattern" required ng-model="vm.username">
                 </label>
                 <div ng-messages="vm.createUserForm.username.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Username required</div>
-                    <div ng-message="pattern">A valid username is 3-64 characters and only contains letters a-z (lowercase) and ._-</div>
+                    <div ng-message="required" translate="profile.usernameRequired"></div>
+                    <div ng-message="pattern" translate="profile.invalidUsername"></div>
                 </div>
             </div>
             <div class="gb-form__group">
                 <label>
-                    <span>Password</span>
+                    <span translate="profile.password"></span>
                     <input type="password" name="password" ng-minlength="6" ng-maxlength="256" required ng-model="vm.password">
                 </label>
                 <div ng-messages="vm.createUserForm.password.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Password is required</div>
-                    <div ng-message="minlength">Password must be 6 characters or more</div>
-                    <div ng-message="maxlength">You password may not be above 256 characters</div>
+                    <div ng-message="required" translate="profile.passwordRequired"></div>
+                    <div ng-message="minlength" translate="profile.passwordLength"></div>
+                    <div ng-message="maxlength" translate="profile.passwordMaxLength"></div>
                 </div>
             </div>
 
             <p class="m-t-1">
-                <a href="" class="gb-button--brand" ng-click="vm.createNext()">Next</a>
-                <div class="text-uppercase text-center discreet">Or</div>
-                <a href="" class="gb-button--facebook center-block m-t-05"ng-click="vm.state = 'REGISTER'; vm.authProvider = 'FACEBOOK'; vm.changeState('EXTERNAL_AUTH_STATE')"><i></i><span class="gb-button--facebook__label">Sign up with Facebook</span></a>
-                <a href="" class="gb-button--github center-block m-t-05" ng-click="vm.state = 'REGISTER'; vm.authProvider = 'GITHUB'; vm.changeState('EXTERNAL_AUTH_STATE')"><i></i><span class="gb-button--github__label">Sign up with Github</span></a>
+                <a href="" class="gb-button--brand" ng-click="vm.createNext()" translate="profile.next"></a>
+                <div class="text-uppercase text-center discreet" translate="profile.or"></div>
+                <a href="" class="gb-button--facebook center-block m-t-05"ng-click="vm.state = 'REGISTER'; vm.authProvider = 'FACEBOOK'; vm.changeState('EXTERNAL_AUTH_STATE')"><i></i><span class="gb-button--facebook__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Facebook'}"></span></a>
+                <a href="" class="gb-button--github center-block m-t-05" ng-click="vm.state = 'REGISTER'; vm.authProvider = 'GITHUB'; vm.changeState('EXTERNAL_AUTH_STATE')"><i></i><span class="gb-button--github__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Github'}"></span></a>
             </p>
-            <div class="small text-error" role="alert" ng-if="vm.formInvalid && vm.createUserForm.$invalid">
-                Please fill in form
-            </div>
+            <div class="small text-error" role="alert" ng-if="vm.formInvalid && vm.createUserForm.$invalid" translate="profile.pleaseFillForm"></div>
             <div class="text-error small" role="alert">
                 <div ng-if="vm.creationFailure" translate="error.{{vm.creationFailure}}">{{vm.creationFailure}}</div>
             </div>
@@ -143,9 +131,7 @@
                 <div></div>
                 <div class="verification__query">
                     <div class="verification__description">
-                        <div>
-                            Select all images below like this one:
-                        </div>
+                        <div translate="profile.selectAllImages"></div>
                     </div>
                     <div class="verification__img">
                         <img ng-src="/api/verification/image?id={{vm.challenge.challenge}}">
@@ -158,35 +144,24 @@
                 </div>
             </div>
             <p class="m-t-1">
-                <button type="submit" class="gb-button--brand" ng-click="vm.signup()">Sign up</button>
+                <button type="submit" class="gb-button--brand" ng-click="vm.signup()" translate="profile.signUp"></button>
             </p>
-            <p class="small discreet">
-                By creating an account you accept GBIFs <a ng-href="{{ portal.urlPrefix }}/terms" target="_blank">terms</a> and <a ng-href="{{ portal.urlPrefix }}/terms/privacy-policy" target="_blank">privacy policy</a>.
-            </p>
+            <div class="small discreet" ng-bind-html="profile.signInAgreement | translate | md2html"></div>
         </div>
         
     </form>
 
     <form class="gb-form" name="vm.resetPasswordForm" ng-if="vm.resetState" ng-submit="vm.resetPassword()" autocomplete="off">
-        <div ng-if="vm.disableRegistration">
-            <p>
-                Please use <a href="http://www.gbif.org/user/password">GBIF.org</a> to reset your password. Your account should be synced within a day. Thank you.
-            </p>
-            <p class="m-t-1 userLogin__reset clearfix">
-                <a href="" class="gb-button--flat text-uppercase small" ng-click="vm.changeState('LOGIN')">BACK</a>
-            </p>
-        </div>
-
         <div ng-if="!vm.disableRegistration">
             <div class="gb-form__group">
                 <label>
-                    <span>Email</span>
+                    <span translate="profile.email"></span>
                     <input type="text" name="email" required ng-model="vm.userNameOrEmail" focus-me="true">
                 </label>
             </div>
             <p class="m-t-1 userLogin__reset clearfix">
-                <a href="" class="gb-button--flat text-uppercase small" ng-click="vm.changeState('LOGIN')">Cancel</a>
-                <button class="gb-button--brand pull-right" type="submit">Reset password</button>
+                <a href="" class="gb-button--flat text-uppercase small" ng-click="vm.changeState('LOGIN')" translate="profile.cancel"></a>
+                <button class="gb-button--brand pull-right" type="submit" translate="profile.resetPassword"></button>
             </p>
         </div>
     </form>
@@ -195,7 +170,7 @@
         <div>
             <div class="gb-form__group">
                 <label>
-                    <span>Country</span>
+                    <span translate="profile.country"></span>
                     <input type="text"
                            required
                            name="country"
@@ -211,52 +186,46 @@
                            typeahead-focus-first="true">
                 </label>
                 <div ng-messages="vm.createUserExternalAuth.country.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Country required</div>
+                    <div ng-message="required" translate="profile.countryRequired"></div>
                 </div>
             </div>
             <div class="gb-form__group">
                 <label>
-                    <span>Username</span>
+                    <span translate="profile.username"></span>
                     <input type="text" name="username" ng-pattern="vm.userNamePattern" required ng-model="vm.username">
                 </label>
                 <div ng-messages="vm.createUserExternalAuth.username.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Username required</div>
-                    <div ng-message="pattern">A valid username is 3-64 characters and only contains letters a-z (lowercase) and ._-</div>
+                    <div ng-message="required" translate="profile.usernameRequired"></div>
+                    <div ng-message="pattern" translate="profile.invalidUsername"></div>
                 </div>
             </div>
 
             <p class="m-t-1">
-                <a ng-if="vm.authProvider == 'FACEBOOK'" ng-click="vm.createFromProvider(vm.country, vm.username, 'facebook')" href="" class="gb-button--facebook center-block m-t-05" type="submit"><i></i><span class="gb-button--facebook__label">Sign up with Facebook</span></a>
-                <a ng-if="vm.authProvider == 'GITHUB'" ng-click="vm.createFromProvider(vm.country, vm.username, 'github')" href="" class="gb-button--github center-block m-t-05" type="submit"><i></i><span class="gb-button--github__label">Sign up with Github</span></a>
+                <a ng-if="vm.authProvider == 'FACEBOOK'" ng-click="vm.createFromProvider(vm.country, vm.username, 'facebook')" href="" class="gb-button--facebook center-block m-t-05" type="submit"><i></i><span class="gb-button--facebook__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Facebook'}"></span></a>
+                <a ng-if="vm.authProvider == 'GITHUB'" ng-click="vm.createFromProvider(vm.country, vm.username, 'github')" href="" class="gb-button--github center-block m-t-05" type="submit"><i></i><span class="gb-button--github__label" translate="profile.signUpGithub" translate-values="{PROVIDER: 'Github'}"></span></a>
             </p>
             <div class="small text-error" role="alert" ng-if="vm.errorMessage" translate="profile.error.{{vm.errorMessage}}"></div>
 
-            <div class="small text-error" role="alert" ng-if="vm.formInvalid && vm.createUserExternalAuth.$invalid">
-                Please fill in form
-            </div>
+            <div class="small text-error" role="alert" ng-if="vm.formInvalid && vm.createUserExternalAuth.$invalid" translate="profile.pleaseFillForm"></div>
             <!--<div class="text-error small" role="alert">-->
                 <!--<div ng-if="vm.creationFailure" translate="error.{{vm.creationFailure}}">{{vm.creationFailure}}</div>-->
             <!--</div>-->
             <p class="m-t-1 userLogin__reset clearfix">
-                <a href="" class="gb-button--flat text-uppercase small" ng-click="vm.changeState('CREATE')">BACK</a>
+                <a href="" class="gb-button--flat text-uppercase small" ng-click="vm.changeState('CREATE')" translate="profile.back"></a>
             </p>
         </div>
     </form>
 
     <div ng-if="vm.createdState">
-        <div class="body-text">Account created</div>
-        <p class="m-t-1">
-            You have been sent an email with a verification link to ensure it is your mail. Welcome to GBIF
-        </p>
+        <div class="body-text" translate="profile.accountCreated"></div>
+        <p class="m-t-1" translate="profile.verficationLinkSent"></p>
     </div>
 
     <div ng-if="vm.resetMailSentState">
-        <div class="body-text">Password reset request</div>
-        <p class="m-t-1">
-            We have sent you a mail with a link to reset your password.
-        </p>
+        <div class="body-text" translate="profile.resetPasswordRequest"></div>
+        <p class="m-t-1" translate="profile.resetPasswordMessage"></p>
         <p class="m-t-1 clearfix">
-            <a href="" class="gb-button--flat pull-right text-uppercase small" ng-click="vm.changeState('LOGIN')">Back</a>
+            <a href="" class="gb-button--flat pull-right text-uppercase small" ng-click="vm.changeState('LOGIN')" translate="profile.back"></a>
         </p>
     </div>
 
