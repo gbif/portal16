@@ -157,16 +157,10 @@
             {% if country and about %}
                 <p>{$ __('trends.thisChartShowsTheNumberOfRecordsAboutBiodiversityOccurringInCountry', {TRANSLATED_COUNTRY:__('country.'+ country.code ) }) $}</p>
                 {% elif country %}
-                <p>This chart shows the number of records shared by publishers within {$
-                    __('country.'+country.code) $}
-                    over time, with separate colours for records about species occurring in {$
-                    __('country.'+country.code) $} and those occurring in other countries.</p>
+                <p>{$ __('trends.thisChartShowsTheNumberOfRecordsSharedByPublishersWithin', {TRANSLATED_COUNTRY:__('country.'+ country.code ) }) $}</p>
+                
             {% else %}
-                <p>This chart shows the total number of records published through GBIF over time, with
-                    separate
-                    colours for records published from within the country where the species occurred, and
-                    those
-                    shared by publishers from other countries.</p>
+                <p>{$ __('trends.thisChartShowsGlobalTrends') $}</p>
             {% endif %}
             <div class="chart-flex-columns">
                 <div class="chart">

@@ -2,10 +2,10 @@
     <div class="card__stripe">
         <div class="card__content">
             <h3 class="searchCard__headline">
-                <a href="{{ urlPrefix }}{{result.urlAlias}}" ng-if="result.urlAlias">
+                <a href="{{ portal.urlPrefix }}{{result.urlAlias}}" ng-if="result.urlAlias">
                     {{result.title}}
                 </a>
-                <a href="{{ urlPrefix }}/article/{{result.id}}/{{result._slug}}" ng-if="!result.urlAlias">
+                <a href="{{ portal.urlPrefix }}/article/{{result.id}}/{{result._slug}}" ng-if="!result.urlAlias">
                     {{result.title}}
                 </a>
             </h3>
@@ -13,10 +13,10 @@
     </div>
     <div class="card__stripe">
         <div class="card__content searchCard__content clearfix">
-            <a href="{{ urlPrefix }}{{result.urlAlias}}" ng-if="result.urlAlias">
+            <a href="{{ portal.urlPrefix }}{{result.urlAlias}}" ng-if="result.urlAlias">
                 <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
             </a>
-            <a href="{{ urlPrefix }}/article/{{result.id}}/{{result._slug}}" ng-if="!result.urlAlias">
+            <a href="{{ portal.urlPrefix }}/article/{{result.id}}/{{result._slug}}" ng-if="!result.urlAlias">
                 <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
             </a>
             <p>

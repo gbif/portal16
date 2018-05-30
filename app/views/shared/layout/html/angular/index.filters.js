@@ -258,26 +258,27 @@
 
                 var host = result[3];
                 var path = result[5];
+                var locale = (!gb.locale || gb.locale === 'en') ? '' : gb.locale + '/';
                 if (!host) {
                 return url;
                 }
                 switch (host) {
                     case 'www.gbif.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'gbif.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'www.gbif-staging.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'gbif-staging.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'www.gbif-uat.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'gbif-uat.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'www.gbif-dev.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'gbif-dev.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     default:
                         return url;
                 }

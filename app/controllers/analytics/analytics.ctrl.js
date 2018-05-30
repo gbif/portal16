@@ -38,6 +38,7 @@ function renderPage(req, res, next, path, country, about) {
         res.render('pages/analytics/analytics', {
             country: country,
             about: about,
+            year: new Date().getFullYear(),
             thumbBase: apiCfg.image.url + 'fit-in/300x250/http://' + cfg.analyticsImg + path + '/figure/',
             imgBase: apiCfg.image.url + 'http://' + cfg.analyticsImg + path + '/figure/',
             _meta: {
