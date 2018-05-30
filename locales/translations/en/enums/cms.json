@@ -49,7 +49,8 @@
                     "DATA_ANALYSIS": "Data analysis",
                     "DATA_CURATION_&_QUALITY": "Data curation & quality",
                     "DATA_DIGITIZATION": "Data digitization",
-                    "DATA_PUBLISHING": "Data publishing"
+                    "DATA_PUBLISHING": "Data publishing",
+                    "DATA_CURATION_QUALITY" : "Data curation quality"
                 },
                 "literatureType": {
                     "book": "book",
