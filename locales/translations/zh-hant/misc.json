@@ -237,6 +237,8 @@
         "excludeUnparsed": "Exclude unparsed",
         "generateCsv": "Generate csv",
         "parsingNames": "Parsing names - hang on",
+        "errorNotAuthorized": "Looks like you aren't authorized to view this page",
+        "errorTryToRefresh": "Maybe you have been logged out? Try to refresh the page and let us know if the issue persists. We are sorry about the inconvenience.",
         "dontSeeYourIpt": "Don't see your IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") your coordinates."
     }
 }
