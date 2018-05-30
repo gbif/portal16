@@ -6,6 +6,7 @@ let queryResolver = require('./queryResolver');
 let router = express.Router();
 let request = require('requestretry');
 let downloadHelper = require('./downloadKeyHelper');
+let apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 
 module.exports = function(app) {
     app.use('/api/occurrence', router);
@@ -24,8 +25,7 @@ router.get('/search/predicate.html', function(req, res, next) {
 async function getPredicate(query) {
     let options = {
         // url: 'http://api.gbif.org/v1/occurrence/download/0016308-180131172636756',
-        // url: apiConfig.occurrenceSearch.url + '/predicate?' + querystring.stringify(query),
-        url: 'http://api.gbif-dev.org/v1/occurrence/search/predicate?' + querystring.stringify(query),
+        url: apiConfig.occurrenceSearch.url + 'predicate?' + querystring.stringify(query),
         method: 'GET',
         maxAttempts: 1,
         fullResponse: true,

@@ -19,60 +19,19 @@
         </div>
     </div>
 
-    <div class="container--desktop">
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <div class="card">
-                    <div class="card__content seperator--b">
-                        <div class="card__content__title">
-                            <h3 translate="country.nCountriesAndAreas" translate-values="{NUMBER: countryKey.publishingCountriesCount, NUMBER_FORMATED: (countryKey.publishingCountriesCount | localNumber)}"></h3>
-                            <p translate="country.countriesAndAreasPublishingDataAbout" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate)}">
-                            </p>
-                        </div>
-                    </div>
-                    <md-content>
-                        <md-list flex style="max-height: 500px;">
-                            {#<md-subheader class="md-no-sticky">Countries, territories or islands publishing data about Spain</md-subheader>#}
-                            <md-list-item class="md-2-line" ng-repeat="item in countryKey.publishingCountries">
-                                <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode, publishing_country: item.name, advanced: 1})" class="inherit noUnderline md-list-item-text" layout="column">
-                                    <h3 class="text-capitalize">{{ 'country.' + item.name | translate }}</h3>
-                                    <p translate="stdTerms.nOccurrences" translate-values="{NUMBER: item.count, NUMBER_FORMATED: (item.count | localNumber)}"></p>
-                                </a>
-                            </md-list-item>
-                        </md-list>
-                    </md-content>
-                </div>
+    <div class="container--desktop ng-cloak">
+        <section class="occChart-col m-t-1">
+            <div ng-repeat="chart in countryAbout.charts">
+                <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="card">
-                    <div class="card__content seperator--b">
-                        <div class="card__content__title">
-                            <h3 class="uppercase-first" translate="stdTerms.datasets"></h3>
-                            <p translate="country.largestOccDatasetsAbout" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate)}">
-                            </p>
-                        </div>
-                    </div>
-                    <md-content>
-                        <md-list flex style="max-height: 500px;">
-                            {#<md-subheader class="md-no-sticky">Countries, territories or islands publishing data about Spain</md-subheader>#}
-                            <md-list-item class="md-2-line" ng-repeat="dataset in countryAbout.datasetsAbout.results">
-                                <div class="md-list-item-text" layout="column">
-                                    <h3><a ui-sref="datasetKey({key:dataset.key})">{{ dataset.title }}</a></h3>
-                                    <p translate="stdTerms.nOccurrences" translate-values="{NUMBER: item.count, NUMBER_FORMATED: (dataset._count | localNumber)}"></p>
-                                </div>
-                            </md-list-item>
-                        </md-list>
-                    </md-content>
-                </div>
-            </div>
-        </div>
+        </section>
     </div>
 
 </section>
 
 <section class="light-background p-t-05" ng-if="countryKey.occurrenceCount > 0">
     <div class="container--desktop">
-        <h4 class="text-muted small text-uppercase" translate="country.trendsAboutCountry" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate )}"></h4>
+        <h4 class="card-header" translate="country.trendsAboutCountry" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate )}"></h4>
     </div>
     <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about?locale='+countryKey.locale" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
 </section>

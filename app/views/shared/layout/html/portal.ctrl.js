@@ -38,6 +38,7 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
         $sessionStorage.customChart = state;
         $sessionStorage.occurrenceChartsShowDefaults = false;
         $state.go('occurrenceSearchCharts', query, {inherit: false});
+        return false;
     };
 
     function updateUser() {

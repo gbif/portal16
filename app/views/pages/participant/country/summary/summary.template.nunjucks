@@ -4,6 +4,7 @@
     {% include "../publishing/map.nunjucks" %}
 
     <section class="container--desktop m-b-1 ng-cloak" ng-if="countryKey.country.isActiveParticipant">
+        <h4 class="card-header">Participant summary</h4>
         <section class="card card--spaced">
             <div class="card__content">
                 <div class="container-fluid">

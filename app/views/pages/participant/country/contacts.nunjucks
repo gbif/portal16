@@ -1,12 +1,11 @@
-<section class="horizontal-stripe bare-background m-t-1" id="contacts" ng-if="countryKey.country.participant && countryKey.country.participant.participationStatus !== 'OBSERVER' && countryKey.country.participant.participationStatus !== 'FORMER' &&  (countryKey.country.node || countryKey.country.activePeople.length > 0)">
-    <div class="container--desktop">
-        <div>
-            <h4 class="text-muted small text-uppercase" translate="stdTerms.contacts" translate-values="{ NUMBER: countryKey.country.activePeople.length}">Contacts</h4>
-            <div class="contactsCard card card--spaced">
-                <contact contact-info="countryKey.country.node" id="nodeAddress"></contact>
-                <contact contact-info="contact" ng-repeat="contact in countryKey.country.activePeople" id="contact{{contact.id}}"></contact>
-                <div>{{contact.id}}</div>
-            </div>
+
+<section class="container--desktop m-b-1" id="contacts" ng-if="countryKey.country.participant && countryKey.country.participant.participationStatus !== 'OBSERVER' && countryKey.country.participant.participationStatus !== 'FORMER' &&  (countryKey.country.node || countryKey.country.activePeople.length > 0)">
+    <div>
+        <h4 class="card-header" translate="stdTerms.contacts" translate-values="{ NUMBER: countryKey.country.activePeople.length}">Contacts</h4>
+        <div class="contactsCard card card--spaced">
+            <contact contact-info="countryKey.country.node" id="nodeAddress"></contact>
+            <contact contact-info="contact" ng-repeat="contact in countryKey.country.activePeople" id="contact{{contact.id}}"></contact>
+            <div>{{contact.id}}</div>
         </div>
     </div>
 </section>
