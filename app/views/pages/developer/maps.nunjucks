@@ -161,7 +161,7 @@
                     </p>
 
                     <p>
-                        <em>One</em> primary search parameter is permitted, from these: <code>taxonKey</code>, <code>datasetKey</code>, <code>country</code>, <code>publisher</code>, <code>publishingCountry</code>.
+                        <em>One</em> primary search parameter is permitted, from these: <code>taxonKey</code>, <code>datasetKey</code>, <code>country</code>, <code>publishingOrg</code>, <code>publishingCountry</code>.
                     </p>
 
                     <p>
