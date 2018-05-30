@@ -1,5 +1,5 @@
 <section class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceCount > 0">
-    <h4 class="text-muted small text-uppercase" translate="country.dataAboutCountry" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate)}"></h4>
+    <h4 class="card-header" translate="country.dataAboutCountry" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate)}"></h4>
 
     <div class="card container-fluid ng-cloak">
         <div class="row summaryStats">

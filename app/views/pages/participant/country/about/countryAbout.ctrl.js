@@ -16,6 +16,24 @@ function countryAboutCtrl($stateParams, OccurrenceTableSearch, OccurrenceDataset
     }, function() {
         // TODO handle request error
     });
+
+    vm.charts = [];
+    vm.pushChart = function(dimension, type, customFilters) {
+        var chartConfig = {
+            api: {},
+            config: {dimension: dimension, secondDimension: '', type: type, showSettings: false},
+            filter: {country: vm.countryCode},
+            customFilters: customFilters
+        };
+        vm.charts.push(chartConfig);
+    };
+
+    vm.pushChart('month', 'COLUMN');
+    vm.pushChart('basisOfRecord', 'PIE');
+    vm.pushChart('publishingCountry', 'TABLE');
+    vm.pushChart('year', 'LINE', {year: '1950,*'});
+    vm.pushChart('license', 'PIE');
+    vm.pushChart('datasetKey', 'TABLE');
 }
 
 module.exports = countryAboutCtrl;
