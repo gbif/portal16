@@ -8,9 +8,9 @@
                     <div class="card__content">
                         <div class="text-center">
                             <div class="h3" translate="profile.welcome"></div>
-                            <p translate="profile.accountConfirmed"></p>
+                            <p>{$ __('profile.accountConfirmed') $}</p>
                             <p>
-                                <a ng-href="{{confirmUser.destinationUrl}}" ng-if="confirmUser.destinationUrl" class="ng-cloak gb-button--brand text-uppercase" translate="profile.continue"></a>
+                                <a ng-href="{{confirmUser.destinationUrl}}" ng-if="confirmUser.destinationUrl" class="ng-cloak gb-button--brand text-uppercase">{$ __('profile.continue') $}</a>
                             </p>
                         </div>
                     </div>
