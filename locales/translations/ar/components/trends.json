@@ -52,6 +52,16 @@
         "halfDegree": "0.5 degree",
         "pointOneDegree": "0.1 degree",
         "dataSharingWithCountryOfOrigin": "Data sharing with country of origin",
-        "thisChartShowsTheNumberOfRecordsAboutBiodiversityOccurringInCountry": "This chart shows the number of records about biodiversity occurring in {{TRANSLATED_COUNTRY}}, with separate colours for records published from within {{TRANSLATED_COUNTRY}}, and those shared by publishers from other countries."
+        "thisChartShowsTheNumberOfRecordsAboutBiodiversityOccurringInCountry": "This chart shows the number of records about biodiversity occurring in {{TRANSLATED_COUNTRY}}, with separate colours for records published from within {{TRANSLATED_COUNTRY}}, and those shared by publishers from other countries.",
+        "thisChartShowsTheNumberOfRecordsSharedByPublishersWithin": "This chart shows the number of records shared by publishers within {{TRANSLATED_COUNTRY}} over time, with separate colours for records about species occurring in {{TRANSLATED_COUNTRY}} and those occurring in other countries.",
+        "thisChartShowsGlobalTrends": "This chart shows the total number of records published through GBIF over time, with separate colours for records published from within the country where the species occurred, and those shared by publishers from other countries.",
+        "analytics": "Analytics",
+        "global": "Global",
+        "changeOverTimeInDataAboutSpeciesFromCountry": "Change over time in data about species from {{TRANSLATED_COUNTRY}} available from GBIF.org.",
+        "changeOverTimeInTheDataPublishedByInstitutionsWithin": "Change over time in the data published by institutions within {{TRANSLATED_COUNTRY}} available from GBIF.org",
+        "trendsInDataAvailabilityOnTheGbifNetwork": "Trends in data availability on the GBIF network, 2008 to {{YEAR}}",
+        "globalDataTrends": "Global data trends",
+        "countryDataTrends": "{{TRANSLATED_COUNTRY}} data trends",
+        "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} publishing trends"
     }
 }
