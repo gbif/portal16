@@ -24,9 +24,6 @@
                                             <input type="text" name="firstName" ng-model="userProfile.profile.firstName"
                                                    ng-disabled="!userProfile.inEditMode">
                                         </label>
-                                        <!--<div ng-messages="vm.createUserForm.firstName.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
-                                        <!--<div ng-message="required">Username required</div>-->
-                                        <!--</div>-->
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
@@ -36,9 +33,6 @@
                                             <input type="text" name="lastName" ng-model="userProfile.profile.lastName"
                                                    ng-disabled="!userProfile.inEditMode">
                                         </label>
-                                        <!--<div ng-messages="vm.createUserForm.username.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
-                                        <!--<div ng-message="required">Username required</div>-->
-                                        <!--</div>-->
                                     </div>
                                 </div>
 
@@ -48,7 +42,7 @@
                                             <span>Email</span>
                                             <input type="text" ng-pattern="userProfile.emailPattern" name="email"
                                                    required ng-model="userProfile.profile.email"
-                                                   ng-disabled="!userProfile.inEditMode">
+                                                   ng-disabled="true">
                                         </label>
                                         <div ng-messages="userProfile.profileForm.email.$error" class="text-error small"
                                              role="alert" ng-show="userProfile.profileFormInvalid">
@@ -158,17 +152,6 @@
 
                             </div>
                         </fieldset>
-                        <div>
-                            <!--<p ng-if="vm.invalidLogin" class="small text-error">-->
-                            <!--Unable to log in. Unknown user or password.-->
-                            <!--</p>-->
-                            <!--<p class="m-t-1">-->
-                            <!--<button class="gb-button&#45;&#45;brand" type="submit">Change password</button>-->
-                            <!--</p>-->
-                            <!--&lt;!&ndash;<p class="small discreet">&ndash;&gt;-->
-                            <!--By signing in you accept GBIFs <a href="http://www.gbif.org/terms/overview">terms</a> and <a href="http://www.gbif.org/terms/privacy-policy">privacy policy</a>.-->
-                            <!--</p>-->
-                        </div>
                     </form>
                 </div>
             </div>

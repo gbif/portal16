@@ -7,7 +7,7 @@
             <div ng-repeat="download in userDownloads.downloads.results">
                 <a href="" class="gb-button--error m-b-05" ng-if="download.status == 'RUNNING' || download.status == 'PREPARING'" ng-click="userDownloads.cancelDownload(download.key)">Cancel download</a>
                 <div class="card m-b-2">
-                    <ng-include src="'/occurrence/download/' + download.key + '/card'"></ng-include>
+                    <ng-include src="'/occurrence/download/' + download.key + '/card?locale=' + portal.LOCALE"></ng-include>
                 </div>
             </div>
 
@@ -25,13 +25,13 @@
             </div>
 
             <div class="emptyInfo" ng-if="!userDownloads.loadingDownloads && userDownloads.downloads.count === 0">
-                <h3>You haven't downloaded anything yet</h3>
-                <p>Get started by searching for some <a href="{{urlPrefix}}/occurrence/search">occurrences</a></p>
+                <h3 translate="profile.noDownloads"></h3>
+                <div ng-bind-html="profile.suggestToSearchOccurrences | translate | md2html"></div>
             </div>
 
             <div class="emptyInfo" ng-if="!userDownloads.loadingDownloads && userDownloads.failedToLoadDownloads">
-                <h3>Looks like you aren't authorized to view your own downloads – that seems wrong!</h3>
-                <p>Maybe you have been logged out? Try to refresh the page and let us know if the issue persists. We are sorry about the inconvenience.</p>
+                <h3 translate="phrases.errorNotAuthorized"></h3>
+                <p translate="phrases.errorTryToRefresh"></p>
             </div>
 
         </div>

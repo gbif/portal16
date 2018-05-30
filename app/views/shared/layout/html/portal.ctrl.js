@@ -8,7 +8,7 @@ angular
     .controller('portalCtrl', portalCtrl);
 
 /** @ngInject */
-function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, env, constantKeys, NAV_EVENTS, IS_TOUCH, Page, User, $state) {
+function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, env, constantKeys, NAV_EVENTS, IS_TOUCH, LOCALE, Page, User, $state) {
     var vm = this;
     vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
@@ -19,6 +19,7 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     vm.imageCache = env.imageCache;
     vm.mapCapabilities = env.mapCapabilities;
     vm.IS_TOUCH = IS_TOUCH;
+    vm.LOCALE = LOCALE;
     vm.getDrawer = Page.drawer;
 
     vm.openHelpdesk = function(type) {
