@@ -32,6 +32,8 @@ function create(req, res) {
         log.warn('Endorsement request for ' + req.body.title + ' was flagged as possible spam and redirected to the secretariat.');
         // No need to get a node from registry
         node = Promise.resolve();
+    } else if (req.body.suggestedNodeKey === 'other') {
+        node = Promise.resolve();
     } else {
         node = Node.get(req.body.suggestedNodeKey);
     }
