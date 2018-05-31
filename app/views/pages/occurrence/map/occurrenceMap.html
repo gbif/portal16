@@ -5,9 +5,9 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">{{'stdTerms.search' | translate}} {{'stdTerms.occurrences' | translate}}</span>
+                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
                         <span class="article-header__category__lower" ng-if="occMap.count >= 0">
-                            {{occMap.count | localNumber:occMap.occurrenceState.query.locale }} <span translate="occurrenceSearch.withCoordinates"> </span>
+                            <span tx="stdTerms.nWithCoordinates" tx-nr="occMap.count"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="occMap.count < 0">
