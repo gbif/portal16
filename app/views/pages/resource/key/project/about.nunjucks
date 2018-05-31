@@ -48,10 +48,10 @@
                         </div>
                         {% endif %}
 
-                        {% if resolved.Entry[main.fields.programme.sys.id].fields.acronym %}
+                        {% if resolved.Entry[main.fields.programme.sys.id].fields.title %}
                             <div>
                                 <dt translate="cms.contentType.programme">Programme</dt>
-                                <dd><a href="{$ gb.locales.urlPrefix $}/programme/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.acronym $}</a></dd>
+                                <dd><a href="{$ gb.locales.urlPrefix $}/programme/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.title $}</a></dd>
                             </div>
                         {% endif %}
                         {% if main.fields.projectId %}
