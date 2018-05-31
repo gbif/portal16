@@ -28,7 +28,7 @@
                                 </div>
                                 {% if main.fields.__singleDay and not main.fields.allDayEvent %}
                                 <div>
-                                    <span class="gb-icon-clock"></span>{$ main.fields.start | timeRange(main.fields.end) $}
+                                    <span class="gb-icon-clock"></span>{$ main.fields.start | timeRange(main.fields.end, gb.locales.current) $}
                                     {% if main.fields.showTimeZone %}
                                     <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
                                     {% endif %}

@@ -11,6 +11,7 @@ let slug = require('slug');
 let URLSearchParams = require('url').URLSearchParams;
 let linkTools = require('./links/links');
 let defaultLanguage = require('../../config/config').defaultLocale;
+let localeConfig = require('../../config/locales');
 
 // GBIF/UN date style
 moment.updateLocale('en', {
@@ -31,7 +32,7 @@ let dateFormats = ['YYYY-MM', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss Z
 
 function date(date, locale, format) {
     let day;
-    locale = locale || defaultLanguage;
+    locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
     format = _.isUndefined(format) ? 'LL' : format; // localized format http://momentjs.com/docs/#/displaying/format/
     if (!isNaN(Number(date))) {
         day = moment.unix(date).locale(locale);
@@ -48,7 +49,7 @@ function getSlug(str) {
 function dateRange(start, end, showHours, locale) {
     let startDate;
     let endDate;
-    locale = locale || defaultLanguage;
+    locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
 
     // parse start date
     if (!isNaN(Number(start))) {
@@ -90,10 +91,10 @@ function dateRange(start, end, showHours, locale) {
     }
 }
 
-function timeRange(start, end) {
+function timeRange(start, end, locale) {
     let startDate;
     let endDate;
-    let locale = defaultLanguage;
+    locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
 
     // parse start date
     if (!isNaN(Number(start))) {
