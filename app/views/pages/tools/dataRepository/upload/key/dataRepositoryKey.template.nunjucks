@@ -9,7 +9,7 @@
                         <div class="row">
                             <header class="col-xs-12 text-center">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <a class="article-header__category__upper" href="/data-repository">Repository Upload</a>
+                                    <a class="article-header__category__upper" ng-href="{{portal.urlPrefix}}/data-repository">Repository Upload</a>
                                     <span class="article-header__category__lower">{{ dataRepositoryKey.upload.created | momentFormat:'D MMMM YYYY' }}</span>
                                 </nav>
                                 <h1 class="text-center">

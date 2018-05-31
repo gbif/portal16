@@ -22,12 +22,12 @@
 
                     <div ng-if="datasetKey.host.$resolved">
                         <dt class="text-capitalize">Host</dt>
-                        <dd><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
+                        <dd><a ng-href="{{portal.urlPrefix}}/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
                     </div>
 
                     <div ng-if="datasetKey.installation.$resolved">
                         <dt class="text-capitalize">Installation</dt>
-                        <dd><a ng-href="/installation/{{ datasetKey.installation.key }}">{{ datasetKey.installation.title }}</a></dd>
+                        <dd><a ng-href="{{portal.urlPrefix}}/installation/{{ datasetKey.installation.key }}">{{ datasetKey.installation.title }}</a></dd>
                     </div>
 
 

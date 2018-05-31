@@ -2,7 +2,7 @@
     <h4 class="card-header--bold" tx="stdTerms.nOccWithImages" tx-nr="publisherKey.images.count"></h4>
     <div class="galleryBar">
         <div>
-            <a ng-repeat="occurrence in publisherKey.images.results" ng-href="{$ gb.locales.urlPrefix $}/occurrence/{{occurrence.key}}" ng-if="occurrence._image" class="galleryBar__img showBroken inherit noUnderline hoverBox">
+            <a ng-repeat="occurrence in publisherKey.images.results" ui-sref="occurrenceKey({key:occurrence.key})" href="" ng-if="occurrence._image" class="galleryBar__img showBroken inherit noUnderline hoverBox">
                 <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
             </a>
         </div>
