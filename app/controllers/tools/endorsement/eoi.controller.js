@@ -59,7 +59,7 @@ function handleError(res, statusCode) {
     return function(err) {
         // throw err;
         res.status(err.statusCode || statusCode);
-        log.error('Become a publisher form submission failure: ' + err.body);
+        log.error('Become a publisher form submission failure: ' + err.message);
         res.send(); // should be safe to send, could just be user exists ? We dont use the err in the frontend currently, no reason to send it
     };
 }
