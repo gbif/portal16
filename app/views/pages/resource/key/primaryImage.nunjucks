@@ -7,7 +7,7 @@
                      gallery-image>
             </div>
             <figcaption class="container--narrow">
-                {$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | sanitize | safe $}
+                {$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | sanitizeTrusted(gb.locales.urlPrefix) | safe $}
             </figcaption>
         </figure>
     </div>
@@ -20,7 +20,7 @@
                      alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}">
                 {% if resolved.Asset[main.fields.primaryImage.sys.id].fields.description %}
                     <figcaption>
-                        <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}</div>
+                        <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
                     </figcaption>
                 {% endif %}
             </figure>

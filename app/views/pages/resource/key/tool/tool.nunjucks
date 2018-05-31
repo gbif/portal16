@@ -16,7 +16,7 @@
                             <h1>{$ main.fields.title $}</h1>
                             {% if main.fields.summary %}
                             <div class="article-header__intro">
-                                {$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                                {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                             </div>
                             {% endif %}
 

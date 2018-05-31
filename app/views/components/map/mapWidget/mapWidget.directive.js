@@ -452,7 +452,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.clickedQuery.clickedGeometry = vm.clickedGeometry;
             vm.clickedQuery.has_geospatial_issue = false;
             vm.clickedQuery.has_coordinate = true;
-            window.location.href = '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
+            window.location.href = URL_PREFIX + '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
             // vm.activeControl = vm.controls.OCCURRENCES;
             // vm.mapMenu.isLoading = true;
             // vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {

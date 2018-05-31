@@ -128,7 +128,7 @@
         <article class="card card--flexible article-box hoverBox">
             {#<div>#}
             {% if article.primaryImage %}
-                <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+                <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
                     <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
                          alt="" class="article-thumb">
                 </a>
@@ -136,7 +136,7 @@
             <div class="card__stripe--expandable inherit">
                 <div class="card__content">
                     <h4 class="article-box__title">
-                        <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) $}</a>
                     </h4>
                     <span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span>
                 </div>
@@ -149,7 +149,7 @@
 {% macro eventArticle(article, __) %}
     {% if article %}
         <article class="card card--flexible article-box hoverBox">
-            <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+            <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
                 <div class="date-box">
                     <img src="data:image/gif;base64,R0lGODdhAgABAIAAAAAAAAAAACwAAAAAAgABAAAIBQABAAgIADs="
                          alt="" class="article-thumb invisible">
@@ -167,7 +167,7 @@
             <div class="card__stripe--expandable inherit">
                 <div class="card__content">
                     <h4 class="article-box__title">
-                        <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">
+                        <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">
                             {$ article.title | truncate(80) $}
                         </a>
                     </h4>

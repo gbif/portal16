@@ -19,7 +19,7 @@
                     </div>
                     <div class="card__content clearfix">
                         <div class="clearfix">
-                            {$ (main.fields.body or main.fields.summary) | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                            {$ (main.fields.body or main.fields.summary) | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                         </div>
                     </div>
                     {% if main.fields.citation %}
