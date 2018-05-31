@@ -127,7 +127,7 @@
             }
         },
         "dataUse": {
-            "resourceUsed": "Data resources used via GBIF"
+
         },
         "literature": {
             "keywords": "Keywords"
