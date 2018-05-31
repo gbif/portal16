@@ -195,7 +195,8 @@
         "submit": "submit",
         "cancel": "Cancel",
         "dropHere": "drop here",
-        "parser": "Parser"
+        "parser": "Parser",
+        "omniSearchPlaceholder": "Occurrences, species, news ..."
     },
     "phrases": {
         "defaultPageTitle": "GBIF",
