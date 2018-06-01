@@ -1,6 +1,6 @@
 {
-    "network": {
-        "title": "network",
-        "participatingDatasets": "{n} participating datasets"
-    }
+  "network": {
+    "title": "Network",
+    "participatingDatasets": "{n} participating datasets"
+  }
 }
