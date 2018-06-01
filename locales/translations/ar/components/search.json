@@ -1,10 +1,10 @@
 {
-    "search": {
-        "placeholder": "Occurrences, species, news ...",
-        "noSearchTermsEntered": "No search terms entered",
-        "notSureWhatYouAreLookingFor": "Not sure what you are looking for? How about looking at some",
-        "picsOfSpOccs": "pictures of species occurrences",
-        "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for?",
-        "trySpecifyingAType": "Try specifying a type"
-    }
+  "search": {
+    "placeholder": "Occurrences, species, news ...",
+    "noSearchTermsEntered": "No search terms entered",
+    "notSureWhatYouAreLookingFor": "Not sure what you are looking for? How about looking at some",
+    "picsOfSpOccs": "Pictures of species occurrences",
+    "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for?",
+    "trySpecifyingAType": "Try specifying a type"
+  }
 }
