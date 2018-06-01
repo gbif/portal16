@@ -23,7 +23,7 @@
         </div>
 
         <div class="horizontal-stripe white-background">
-            <ng-include src="'/api/resource/tool?content_type=Tool&fields.machineIdentifier=suggest_dataset'" ></ng-include>
+            <ng-include src="portal.urlPrefix + '/api/resource/tool?content_type=Tool&fields.machineIdentifier=suggest_dataset'" ></ng-include>
         </div>
 
         <div class="horizontal-stripe light-background ng-cloak">
