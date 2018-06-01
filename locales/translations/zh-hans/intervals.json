@@ -1,44 +1,44 @@
 {
-    "intervals": {
-        "elevation": {
-            "equals": "is {from}m",
-            "between": "between {from} and {to}m",
-            "lessThanOrEquals": "below {to}m",
-            "greaterThanOrEquals": "above {from}m",
-            "invalid": "invalid",
-            "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "below",
-                "greaterThanOrEquals": "above"
-            }
-        },
-        "depth": {
-            "equals": "is {from}m",
-            "between": "between {from} and {to}m",
-            "lessThanOrEquals": "above {to}m depth",
-            "greaterThanOrEquals": "deeper than {from}m",
-            "invalid": "invalid",
-            "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "less than",
-                "greaterThanOrEquals": "deeper than"
-            }
-        },
-        "year": {
-            "equals": "is {from}",
-            "between": "between start of {from} and end of {to}",
-            "lessThanOrEquals": "before end of {to}",
-            "greaterThanOrEquals": "after start of {from}",
-            "invalid": "invalid",
-            "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "before end of",
-                "greaterThanOrEquals": "after start of"
-            }
-        },
-        "noFilter": "No filter"
-    }
+  "intervals": {
+    "elevation": {
+      "equals": "Is {from}m",
+      "between": "Between {from} and {to}m",
+      "lessThanOrEquals": "Below {to}m",
+      "greaterThanOrEquals": "Above {from}m",
+      "invalid": "Invalid",
+      "select": {
+        "equals": "Is",
+        "between": "Between",
+        "lessThanOrEquals": "Below",
+        "greaterThanOrEquals": "Above"
+      }
+    },
+    "depth": {
+      "equals": "Is {from}m",
+      "between": "Between {from} and {to}m",
+      "lessThanOrEquals": "Above {to}m depth",
+      "greaterThanOrEquals": "Deeper than {from}m",
+      "invalid": "Invalid",
+      "select": {
+        "equals": "Is",
+        "between": "Between",
+        "lessThanOrEquals": "Less than",
+        "greaterThanOrEquals": "Deeper than"
+      }
+    },
+    "year": {
+      "equals": "Is {from}",
+      "between": "Between start of {from} and end of {to}",
+      "lessThanOrEquals": "Before end of {to}",
+      "greaterThanOrEquals": "After start of {from}",
+      "invalid": "Invalid",
+      "select": {
+        "equals": "Is",
+        "between": "Between",
+        "lessThanOrEquals": "Before end of",
+        "greaterThanOrEquals": "After start of"
+      }
+    },
+    "noFilter": "No filter"
+  }
 }
