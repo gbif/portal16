@@ -129,14 +129,14 @@
                                     <div class="card__content">
                                         <dl class="inline">
                                             <div>
-                                                <dt class="text-capitalize">{$ __('downloadKey.citation') $}</dt>
+                                                <dt>{$ __('downloadKey.citation') $}</dt>
                                                 <dd>
                                                     GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download https://doi.org/{$ download.record.doi $}
                                                 </dd>
                                             </div>
                                             {% if download.record.license %}
                                             <div>
-                                                <dt class="text-capitalize">{$ __('downloadKey.license') $}</dt>
+                                                <dt>{$ __('downloadKey.license') $}</dt>
                                                 <dd>
                                                     <license link="{$ download.record.license $}"></license>
                                                 </dd>
@@ -144,13 +144,13 @@
                                             {% endif %}
                                             {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
                                             <div>
-                                                <dt class="text-capitalize">{$ __('downloadKey.file') $}</dt>
+                                                <dt>{$ __('downloadKey.file') $}</dt>
                                                 <dd>
                                                     <span>{$ download.record.size | formatByte $} {$ __('downloadFormat.' + download.record.request.format) $}</span>
                                                 </dd>
                                             </div>
                                             <div>
-                                                <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
+                                                <dt>{$ __('downloadKey.constituentDatasets') $}</dt>
                                                 <dd class="ng-cloak">
                                                     <a href="#datasets">{{ {$ download.record.numberDatasets $} | localNumber}}</a>
                                                 </dd>

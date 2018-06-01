@@ -45,7 +45,7 @@
 
                     <div class="mapWidget__controlsArea__section__header" ng-if="vm.styleBreaks.current == 0">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
-                        <h4 translate="stdTerms.filters" class="text-capitalize">Filters</h4>
+                        <h4 translate="stdTerms.filters">Filters</h4>
                     </div>
                     <div ng-class="{'mapWidget__controlsArea__section__content': vm.styleBreaks.current == 0}">
                         <div class="time-slider time-slider__card">
@@ -63,7 +63,7 @@
                         <div ng-if="vm.styleBreaks.current == 0">
                             <div class="mapWidget__checkbox" ng-repeat="(bor, val) in vm.basisOfRecord">
                                 <md-checkbox ng-model="vm.basisOfRecord[bor]" aria-label="{{bor}}" ng-change="vm.updateFilters()" class="md-primary">
-                                    <span class="text-capitalize" translate="basisOfRecord.{{bor}}"></span>
+                                    <span translate="basisOfRecord.{{bor}}"></span>
                                 </md-checkbox>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                 <div class="mapWidget__controlsArea__section" ng-if="vm.activeControl == vm.controls.STYLE">
                     <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
-                        <h4 translate="stdTerms.style" class="text-capitalize">Style</h4>
+                        <h4 translate="stdTerms.style">Style</h4>
                         <div>
                             <nav class="discreetTabs">
                                 <ul>
@@ -92,7 +92,7 @@
                         <div ng-if="vm.styleTab == 'CREATE'">
                             <div>
                                 <md-input-container>
-                                    <label translate="stdTerms.baseMap" class="text-capitalize">Base map</label>
+                                    <label translate="stdTerms.baseMap">Base map</label>
                                     <md-select ng-model="vm.selectedBaseMap" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="basemap in vm.basemaps" ng-value="basemap">
                                             {{'map.basemap.' + basemap.name | translate }}
@@ -102,7 +102,7 @@
                             </div>
                             <div>
                                 <md-input-container>
-                                    <label translate="stdTerms.binning" class="text-capitalize">Binning</label>
+                                    <label translate="stdTerms.binning">Binning</label>
                                     <md-select ng-model="vm.selectedBinning" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="bin in vm.binningOptions" ng-value="bin">
                                             {{'map.bin.' + bin.name | translate }}
@@ -112,7 +112,7 @@
                             </div>
                             <div>
                                 <md-input-container>
-                                    <label translate="stdTerms.colors" class="text-capitalize">Colors</label>
+                                    <label translate="stdTerms.colors">Colors</label>
                                     <md-select ng-model="vm.selectedColor" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="colors in vm.colorOptions | filter:{ type: vm.selectedBinning.type }" ng-value="colors">
                                             {{'map.colors.' + colors.name | translate }}
@@ -134,13 +134,13 @@
                 <div class="mapWidget__controlsArea__section"  ng-if="vm.activeControl == vm.controls.BOR">
                     <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
-                        <h4 translate="filterNames.basisOfRecord" class="text-capitalize">Basis of record</h4>
+                        <h4 translate="filterNames.basisOfRecord">Basis of record</h4>
                     </div>
                     <div class="mapWidget__controlsArea__section__content">
                         <div>
                             <div class="mapWidget__checkbox" ng-repeat="(bor, val) in vm.basisOfRecord">
                                 <md-checkbox ng-model="vm.basisOfRecord[bor]" aria-label="{{bor}}" ng-change="vm.updateFilters()" class="md-primary">
-                                    <span class="text-capitalize" translate="basisOfRecord.{{bor}}"></span>
+                                    <span translate="basisOfRecord.{{bor}}"></span>
                                 </md-checkbox>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                 <div class="mapWidget__controlsArea__section" ng-if="vm.activeControl == vm.controls.PROJECTION">
                     <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
-                        <h4 translate="stdTerms.projection" class="text-capitalize">Projection</h4>
+                        <h4 translate="stdTerms.projection">Projection</h4>
                     </div>
                     <div class="mapWidget__controlsArea__section__content">
                         <div>

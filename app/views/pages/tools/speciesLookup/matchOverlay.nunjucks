@@ -34,7 +34,7 @@
             <div ng-if="speciesLookup.itemToEdit.match.usageKey"
                  ng-click="speciesLookup.selectAlternative(speciesLookup.itemToEdit, speciesLookup.itemToEdit.match)">
                 {{ speciesLookup.itemToEdit.match.scientificName }}
-                <span class="small discreet text-capitalize"
+                <span class="small discreet"
                       translate="taxonRank.{{ speciesLookup.itemToEdit.match.rank }}">{{ speciesLookup.itemToEdit.match.rank }}</span>
                 <div class="small discreet classification-list">
 			        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
@@ -47,7 +47,7 @@
                  ng-click="speciesLookup.selectAlternative(speciesLookup.itemToEdit, alternative)"
                  ng-if="speciesLookup.itemToEdit.match.alternatives">
                 {{ alternative.scientificName }}
-                <span class="small discreet text-capitalize"
+                <span class="small discreet"
                       translate="taxonRank.{{ alternative.rank }}">{{ alternative.rank }}</span>
                 <div class="small discreet classification-list">
 			        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"

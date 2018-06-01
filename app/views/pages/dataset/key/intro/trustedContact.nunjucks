@@ -50,11 +50,11 @@
                 <h4 class="card-header" translate="dataset.gbifIngestionStatus"></h4>
                 <dl class="inline m-b-05">
                     <div>
-                        <dt class="text-capitalize" translate="dataset.ingestionStatus"></dt>
+                        <dt translate="dataset.ingestionStatus"></dt>
                         <dd ng-class="{'c-error-badge': datasetKey.componentHealth.CRAWLER !== 'OPERATIONAL'}" translate="health.status.{{datasetKey.componentHealth.CRAWLER || 'CRITICAL'}}"></dd>
                     </div>
                     <div>
-                        <dt class="text-capitalize" translate="dataset.itemInIngestionQueue"></dt>
+                        <dt translate="dataset.itemInIngestionQueue"></dt>
                         <dd>{{ datasetKey.currentCrawlingStatus.queueLength }}</dd>
                     </div>
                 </dl>

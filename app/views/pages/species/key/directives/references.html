@@ -7,8 +7,8 @@
                     <div>
                         <div ng-bind-html="result.citation" class="max2Lines">{{ result.citation }}</div>
                         <div class="small">
-                            <span class="source text-capitalize" ng-if="result.type">{{ result.type}} – </span>
-                            <span class="source text-capitalize" ng-if="result.source">{{ result.source }} </span>
+                            <span class="source" ng-if="result.type">{{ result.type}} – </span>
+                            <span class="source" ng-if="result.source">{{ result.source }} </span>
                             <a class="" ng-href="{{result.doi}}" ng-if="result.doi">
                                 {{result.doi}}
                             </a>

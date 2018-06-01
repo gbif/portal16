@@ -8,7 +8,7 @@
                 <table class="table search-table">
                     <thead>
                     <tr>
-                        <th class="text-capitalize"
+                        <th
                             ng-repeat="col in ['scientificName', 'parsed', 'type', 'genusOrAbove', 'specificEpithet', 'infraSpecificEpithet', 'authorship', 'bracketAuthorship', 'sensu',   'canonicalName', 'canonicalNameWithMarker', 'canonicalNameComplete', 'rankMarker']">
                             <a href=""
                                ng-click="nameParser.state.sortType = col; nameParser.state.sortReverse = !nameParser.state.sortReverse">

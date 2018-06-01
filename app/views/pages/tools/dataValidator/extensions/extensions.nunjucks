@@ -23,26 +23,26 @@
 
                                             <dl class="inline">
                                                 <div ng-if="extension.issued">
-                                                    <dt class="text-capitalize" >Issued</dt>
+                                                    <dt >Issued</dt>
                                                     <dd >
                                                         {{ extension.issued }}
                                                     </dd>
                                                 </div>
                                                 <div>
-                                                    <dt class="text-capitalize" >Identifier</dt>
+                                                    <dt >Identifier</dt>
                                                     <dd >
                                                         {{ extension.identifier }}
                                                     </dd>
                                                 </div>
 
                                                 <div ng-if="extension.subject">
-                                                    <dt class="text-capitalize" >Subject</dt>
+                                                    <dt >Subject</dt>
                                                     <dd >
                                                         {{ extension.subject }}
                                                     </dd>
                                                 </div>
                                                 <div ng-if="extension.url">
-                                                    <dt class="text-capitalize" >Url</dt>
+                                                    <dt >Url</dt>
                                                     <dd class="dataValidator__clickable-links">
                                                        <a ng-href="{{ extension.url }}">{{ extension.url }}</a>
                                                     </dd>

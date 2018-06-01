@@ -1,7 +1,7 @@
 <script type="text/ng-template" id="taxonSuggestTemplate.html">
     <a ng-href="" class="seperator species-list">
         <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
-        <span class="small discreet text-capitalize"
+        <span class="small discreet"
               translate="taxonRank.{{ match.model.rank }}">{{ match.model.rank }}</span>
         <div class="small discreet classification-list">
 	        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"

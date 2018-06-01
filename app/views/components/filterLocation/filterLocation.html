@@ -1,7 +1,7 @@
 <div class="filter-group filter-group--location">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
-            <span class="text-capitalize" translate="ocurrenceFieldNames.location">Location</span>
+            <span translate="ocurrenceFieldNames.location">Location</span>
             <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
         </h4>
@@ -57,7 +57,7 @@
                 <label>
                     <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
                         <span class="filter-group__filter__name">
-                            <span class="filter-group__filter__name__title text-capitalize"
+                            <span class="filter-group__filter__name__title"
                                   ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
                         </span>
                 </label>
@@ -75,7 +75,7 @@
                                     <input type="checkbox" ng-model="geometry.active"
                                            ng-change="vm.removeFromList($index, geometry)">
                                     <span class="filter-group__filter__name">
-                                        <span class="filter-group__filter__name__title text-capitalize"
+                                        <span class="filter-group__filter__name__title"
                                               ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
                                     </span>
                                 </label>
@@ -144,7 +144,7 @@
                                             <input type="checkbox" ng-model="geometry.active"
                                                    ng-change="vm.addToList($index, geometry)">
                                         <span class="filter-group__filter__name">
-                                            <span class="filter-group__filter__name__title text-capitalize"
+                                            <span class="filter-group__filter__name__title"
                                                   ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
                                         </span>
                                         </label>

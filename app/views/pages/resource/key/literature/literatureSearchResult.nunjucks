@@ -20,8 +20,8 @@
     <div class="card__stripe">
         <div class="card__content searchCard__content">
             <div class="searchCard__meta">
-                <span ng-repeat="author in result.authors | limitTo:6 " class="text-capitalize">{{ author.lastName }}, {{ author.firstName | limitTo:1 }}. </span>
-                <span class="text-capitalize" ng-if="result.authors[6]">... - </span>
+                <span ng-repeat="author in result.authors | limitTo:6 ">{{ author.lastName }}, {{ author.firstName | limitTo:1 }}. </span>
+                <span ng-if="result.authors[6]">... - </span>
                 ({{ result.year }})
                 {{ result.source }}
                 <span ng-if="!result.identifiers.doi && !result.websites[0]">
@@ -45,13 +45,13 @@
             </div>
             <ul class="list-chips">
                 <li>
-                    <a class="text-capitalize" ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
                 </li>
                 <li ng-if="result.openAccess">
-                    <a class="text-capitalize" ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&openAccess=true" translate="filters.openAccess.title"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&openAccess=true" translate="filters.openAccess.title"></a>
                 </li>
                 <li ng-if="result.peerReview">
-                    <a class="text-capitalize" ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&peerReview=true" translate="filters.peerReview.title"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&peerReview=true" translate="filters.peerReview.title"></a>
                 </li>
             </ul>
             <div ng-if="result._gbifDOIs.length > 0">

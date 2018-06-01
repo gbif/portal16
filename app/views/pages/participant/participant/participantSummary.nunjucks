@@ -4,15 +4,15 @@
             <dl class="inline">
                 <div>
                     <dt>Member status</dt>
-                    <dd class="text-capitalize">{{ 'participationStatus.' + participantKey.participant.participant.participationStatus | translate }}</dd>
+                    <dd>{{ 'participationStatus.' + participantKey.participant.participant.participationStatus | translate }}</dd>
                 </div>
                 <div>
                     <dt>GBIF participant started</dt>
-                    <dd class="text-capitalize">{{ participantKey.participant.participant.membershipStart | momentFormat:'YYYY' }}</dd>
+                    <dd>{{ participantKey.participant.participant.membershipStart | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div ng-if="participantKey.participant.participant.gbifRegion">
                     <dt>GBIF region</dt>
-                    <dd class="text-capitalize">{{ 'region.' + participantKey.participant.participant.gbifRegion | translate }}</dd>
+                    <dd>{{ 'region.' + participantKey.participant.participant.gbifRegion | translate }}</dd>
                 </div>
                 <div>
                     <dt>Head of delegation</dt>

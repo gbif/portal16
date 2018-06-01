@@ -6,7 +6,7 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th class="text-capitalize"
+                        <th
                             ng-repeat="col in ['title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'status', 'contractCountry', 'call']">
                             <a href=""
                                ng-click="programmeKey.state.sortType = col; programmeKey.state.sortReverse = !programmeKey.state.sortReverse">

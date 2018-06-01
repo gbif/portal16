@@ -30,37 +30,37 @@
                              click-outside="vm.expandContentTypeMenu = false"
                              click-outside-unless="!vm.expandContentTypeMenu">
                             <ul>
-                                <li class="text-capitalize seperator--b">
+                                <li class="seperator--b">
                                     <a ui-sref="omniSearch({q:vm.filter.query.q, locale: vm.filter.query.locale})" ui-sref-opts="{inherit: false}"
                                        translate="stdTerms.all">
                                         All
                                     </a>
                                 </li>
-                                <li ng-if="vm.contentType != 'occurrences'" class="text-capitalize">
+                                <li ng-if="vm.contentType != 'occurrences'">
                                     <a ui-sref="occurrenceSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
                                        ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
                                         Occurrences
                                     </a>
                                 </li>
-                                <li ng-if="vm.contentType != 'species'" class="text-capitalize">
+                                <li ng-if="vm.contentType != 'species'">
                                     <a ui-sref="speciesSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
                                        ui-sref-opts="{inherit: false}" translate="stdTerms.species">
                                         Species
                                     </a>
                                 </li>
-                                <li ng-if="vm.contentType != 'datasets'" class="text-capitalize">
+                                <li ng-if="vm.contentType != 'datasets'">
                                     <a ui-sref="datasetSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
                                        ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
                                         Datasets
                                     </a>
                                 </li>
-                                <li ng-if="vm.contentType != 'publishers'" class="text-capitalize">
+                                <li ng-if="vm.contentType != 'publishers'">
                                     <a ui-sref="publisherSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
                                        ui-sref-opts="{inherit: false}" translate="stdTerms.publishers">
                                         Publishers
                                     </a>
                                 </li>
-                                <li ng-if="vm.contentType != 'cms'" class="text-capitalize">
+                                <li ng-if="vm.contentType != 'cms'">
                                     <a ui-sref="resourceSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})" ui-sref-opts="{inherit: false}"
                                        translate="stdTerms.resources">
                                         Resources

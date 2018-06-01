@@ -32,7 +32,7 @@
                     <dl class="inline">
                         {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
                             <div>
-                                <dt class="text-capitalize">{$ __('downloadKey.date') $}</dt>
+                                <dt>{$ __('downloadKey.date') $}</dt>
                                 <dd>
                                     <span>{$ download.record.created | formatDate(gb.locales.current) $}</span>
                                 </dd>
@@ -45,7 +45,7 @@
                         {% if download.record.totalRecords or download.record.numberDatasets %}
                             {% if download.record.totalRecords %}
                                 <div>
-                                    <dt class="text-capitalize">{$ __('downloadKey.occurrences') $}</dt>
+                                    <dt>{$ __('downloadKey.occurrences') $}</dt>
                                     <dd>
                                         <span>{{ {$ download.record.totalRecords $} | localNumber}}</span>
                                     </dd>
@@ -53,7 +53,7 @@
                             {% endif %}
                             {% if download.record.numberDatasets %}
                                 <div>
-                                    <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
+                                    <dt>{$ __('downloadKey.constituentDatasets') $}</dt>
                                     <dd>
                                         <span>{{ {$ download.record.numberDatasets $} | localNumber}} </span>
                                     </dd>

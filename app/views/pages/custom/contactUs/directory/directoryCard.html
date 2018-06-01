@@ -9,7 +9,7 @@
             <table class="table search-table smaller">
                 <thead>
                 <tr>
-                    <th class="text-capitalize"
+                    <th
                         ng-repeat="col in ['name', 'role']">
                         <a href=""
                            ng-click="contactDirectory.changeSortOrder(col)">
@@ -34,8 +34,8 @@
                         <span>{{ person.name }}</span>
                     </td>
                     <td>
-                        <span ng-if="person.roles" class="text-capitalize" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
-                        <span ng-if="!person.role" class="text-capitalize">{{ person.jobTitle }}</span>
+                        <span ng-if="person.roles" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
+                        <span ng-if="!person.role">{{ person.jobTitle }}</span>
                     </td>
                 </tr>
                 </tbody>

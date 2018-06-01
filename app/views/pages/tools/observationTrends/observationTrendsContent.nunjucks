@@ -170,29 +170,29 @@
                                 <div class="card__content">
                                     <dl class="inline">
                                         <div>
-                                            <dt class="text-capitalize">Slope</dt>
+                                            <dt>Slope</dt>
                                             <dd>{{ observationTrends.selectedArea.apiData.slope | number : 5 }}</dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize" title="Sum of squared errors of prediction">
+                                            <dt title="Sum of squared errors of prediction">
                                                 SSE
                                             </dt>
                                             <dd>{{ observationTrends.selectedArea.apiData.SSE | number : 5 }}</dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">Mean square error</dt>
+                                            <dt>Mean square error</dt>
                                             <dd>{{ observationTrends.selectedArea.apiData.meanSquareError | number : 5 }}</dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">Significance</dt>
+                                            <dt>Significance</dt>
                                             <dd>{{ observationTrends.selectedArea.apiData.significance | number : 5 }}</dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">Slope standard error</dt>
+                                            <dt>Slope standard error</dt>
                                             <dd>{{ observationTrends.selectedArea.apiData.slopeStdErr | number : 5 }}</dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">Years with data</dt>
+                                            <dt>Years with data</dt>
                                             <dd>{{ observationTrends.tableData.years.length }}</dd>
                                         </div>
                                     </dl>

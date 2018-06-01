@@ -36,9 +36,9 @@
                         <table class="table search-table chart-table smaller" ng-class="{'table-fixed': !vm.chartdata.categories}">
                             <thead ng-if="vm.chartdata.categories">
                             <tr>
-                                <th class="text-capitalize p-0"></th>
-                                <th class="text-capitalize" translate="filterNames.{{vm.chartdata.field | camelCase}}">{{vm.chartdata.field}}</th>
-                                <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">
+                                <th class="p-0"></th>
+                                <th translate="filterNames.{{vm.chartdata.field | camelCase}}">{{vm.chartdata.field}}</th>
+                                <th ng-repeat="category in vm.chartdata.categories">
                                     <span>
                                         <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))" class="inherit">{{category.displayName}}</a>
                                         <span ng-if="$last && vm.chartdata.secondDimension.bucketSizeVaries" class="badge badge--warning">!
@@ -50,10 +50,10 @@
                             </thead>
                             <thead ng-if="!vm.chartdata.categories">
                             <tr>
-                                <th class="text-capitalize p-0 table-cell--50px"></th>
-                                <th class="text-capitalize" translate="filterNames.{{vm.chartdata.field | camelCase}}"></th>
-                                <th class="text-capitalize table-cell--narrow" translate="metrics.count"></th>
-                                <th class="text-capitalize table-cell--100"></th>
+                                <th class="p-0 table-cell--50px"></th>
+                                <th translate="filterNames.{{vm.chartdata.field | camelCase}}"></th>
+                                <th class="table-cell--narrow" translate="metrics.count"></th>
+                                <th class="table-cell--100"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -115,10 +115,10 @@
         <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.display.type != 'PIE' && vm.chartdata.diff > 0 && vm.chartdata.offset==0 && vm.chartdata.endOfRecords" tx="stdTerms.pOtherOrUknown" tx-nr="vm.chartdata.diff"></div>
         <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.chartdata.bucketSize || vm.chartdata.secondDimension.bucketSize">
             <div ng-if="vm.chartdata.bucketSize">
-                <span translate="filterNames.{{vm.chartdata.field | camelCase}}" class="text-capitalize"></span>: <span translate="metrics.intervalSize"></span> {{vm.chartdata.bucketSize}}
+                <span translate="filterNames.{{vm.chartdata.field | camelCase}}"></span>: <span translate="metrics.intervalSize"></span> {{vm.chartdata.bucketSize}}
             </div>
             <div ng-if="vm.chartdata.secondDimension.bucketSize">
-                <span translate="filterNames.{{vm.chartdata.secondField | camelCase}}" class="text-capitalize"></span>: <span translate="metrics.intervalSize"></span> {{vm.chartdata.secondDimension.bucketSize}}
+                <span translate="filterNames.{{vm.chartdata.secondField | camelCase}}"></span>: <span translate="metrics.intervalSize"></span> {{vm.chartdata.secondDimension.bucketSize}}
             </div>
         </div>
     </div>

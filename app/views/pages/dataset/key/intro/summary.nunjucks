@@ -14,21 +14,21 @@
             </div>
             <dl class="inline">
                 <div>
-                    <dt class="text-capitalize" translate="dataset.registry.metdataLastModified"></dt>
+                    <dt translate="dataset.registry.metdataLastModified"></dt>
                     <dd>
                         {{ datasetKey.dataset.modified | momentFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
 
                 <div ng-if="datasetKey.processSummary.lastDataChange">
-                    <dt class="text-capitalize" translate="dataset.registry.dataLastChanged"></dt>
+                    <dt translate="dataset.registry.dataLastChanged"></dt>
                     <dd>
                         {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
 
                 <div>
-                    <dt class="text-capitalize" translate="stdTerms.license"></dt>
+                    <dt translate="stdTerms.license"></dt>
                     <dd>
                         <license link="{{ datasetKey.dataset.license }}"></license>
                     </dd>

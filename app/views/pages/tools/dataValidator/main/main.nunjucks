@@ -50,7 +50,7 @@
                                             <div class="row" ng-if="resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'">
                                                 <dl class="inline">
                                                 <div class="col-xs-12">
-                                                    <dt class="text-capitalize" translate="validation.fileType.title"></dt>
+                                                    <dt translate="validation.fileType.title"></dt>
                                                     <dd class="dataValidator__clickable-links">
                                                         <a ng-click="resultPerResource.showDescription = (resultPerResource.showDescription === undefined) ? true : !resultPerResource.showDescription">{{ (vm.dwcextensions[resultPerResource.rowType]) ? vm.dwcextensions[resultPerResource.rowType].title : resultPerResource.rowType}}</a>
 
@@ -66,28 +66,28 @@
 
 
                                                 <div class="col-xs-6">
-                                                    <dt class="text-capitalize" translate="validation.numberOfLines"></dt>
+                                                    <dt translate="validation.numberOfLines"></dt>
                                                     <dd>
                                                         {{ resultPerResource.numberOfLinesWithData  | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
 
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['dwc:year']">
-                                                    <dt class="text-capitalize" translate="validation.interpretedCounts.date"></dt>
+                                                    <dt translate="validation.interpretedCounts.date"></dt>
                                                     <dd>
                                                         {{ resultPerResource.interpretedValueCounts['dwc:year'] | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
 
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
-                                                    <dt class="text-capitalize" translate="validation.interpretedCounts.taxon"></dt>
+                                                    <dt translate="validation.interpretedCounts.taxon"></dt>
                                                     <dd>
                                                         {{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
 
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['dwc:decimalLatitude']">
-                                                    <dt class="text-capitalize" translate="validation.interpretedCounts.location"></dt>
+                                                    <dt translate="validation.interpretedCounts.location"></dt>
                                                     <dd>
                                                         {{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] | localNumber:gb.locale }}
                                                     </dd>

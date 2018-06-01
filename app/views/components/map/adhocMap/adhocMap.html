@@ -77,7 +77,7 @@
                                 </div>
                                 <a ng-href="/occurrence/{{occurrence.key}}" class="occurrence-list-item__name" ng-if="occurrence.scientificName">{{occurrence.scientificName}}</a>
                                 <a ng-href="/occurrence/{{occurrence.key}}" class="occurrence-list-item__name text-error" ng-if="!occurrence.scientificName">Unkown species</a>
-                                <!--<span class="small discreet text-capitalize" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
+                                <!--<span class="small discreet" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
                                 <div class="small discreet classification-list">
                                             <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                                                   ng-if="occurrence[taxa] && taxa != occurrence.taxonRank.toLowerCase()">

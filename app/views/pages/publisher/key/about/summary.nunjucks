@@ -7,30 +7,30 @@
 
                 <dl class="inline">
                     <div ng-if="publisherKey.publisher.description">
-                        <dt class="text-capitalize" translate="stdTerms.description">Description</dt>
+                        <dt translate="stdTerms.description">Description</dt>
                         <dd ng-bind-html="publisherKey.publisher.description">
                         </dd>
                     </div>
                     {#<div>#}
-                        {#<dt class="text-capitalize">GBIF pubilsher since</dt>#}
+                        {#<dt>GBIF pubilsher since</dt>#}
                         {#<dd>#}
                             {#{{ publisherKey.publisher.created | momentFormat:'D MMMM YYYY' }}#}
                         {#</dd>#}
                     {#</div>#}
                     <div ng-if="publisherKey.publisher.endorsementApproved">
-                        <dt class="text-capitalize" translate="phrases.endorsedBy">Endorsed by</dt>
+                        <dt translate="phrases.endorsedBy">Endorsed by</dt>
                         <dd>
                             <a ng-href="{{portal.urlPrefix}}/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.publisher.endorsementApproved === false">
-                        <dt class="text-capitalize" translate="phrases.pendingEndorsementBy">Pending endorsement by</dt>
+                        <dt translate="phrases.pendingEndorsementBy">Pending endorsement by</dt>
                         <dd>
                             <a ng-href="/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.installations.count > 0">
-                        <dt class="text-capitalize" translate="stdTerms.installations">Installations</dt>
+                        <dt translate="stdTerms.installations">Installations</dt>
                         <dd>
                            <ul class="inline-bullet-list">
                                <li ng-repeat="installation in publisherKey.installations.results">
@@ -40,27 +40,27 @@
                         </dd>
                     </div>
                     <div ng-if="publisherKey.adminContact">
-                        <dt class="text-capitalize" translate="stdTerms.administrativeContact">Administrative contact</dt>
+                        <dt translate="stdTerms.administrativeContact">Administrative contact</dt>
                         <dd>
                             <a ng-href="mailto:{{ publisherKey.adminContact.email[0] }}">{{ publisherKey.adminContact.firstName }} {{ publisherKey.adminContact.lastName }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.technicalContact">
-                        <dt class="text-capitalize" translate="stdTerms.technicalContact">Technical contact</dt>
+                        <dt translate="stdTerms.technicalContact">Technical contact</dt>
                         <dd>
                             <a ng-href="mailto:{{ publisherKey.technicalContact.email[0] }}">{{ publisherKey.technicalContact.firstName }} {{ publisherKey.technicalContact.lastName }}</a>
                         </dd>
                     </div>
 
                     <div ng-if="publisherKey.publisher.country">
-                        <dt class="text-capitalize" translate="stdTerms.country">Country or area</dt>
+                        <dt translate="stdTerms.country">Country or area</dt>
                         <dd>
                             <a ui-sref="countrySummary({key:publisherKey.publisher.country})">{{ 'country.' + publisherKey.publisher.country | translate }}</a>
                         </dd>
                     </div>
 
                     <div ng-if="publisherKey.hostStats.datasetCount" class="m-t-1">
-                        <dt class="text-capitalize" translate="stdTerms.hosting">Hosting</dt>
+                        <dt translate="stdTerms.hosting">Hosting</dt>
                         <dd>
                             <dd>
                             <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})" tx="stdTerms.nDatasets" tx-nr="publisherKey.hostStats.datasetCount"></a> 
@@ -72,7 +72,7 @@
                         </dd>
                     </div>
                     {#<div ng-if="publisherKey.publisher.email[0]">#}
-                        {#<dt class="text-capitalize">Publisher</dt>#}
+                        {#<dt>Publisher</dt>#}
                         {#<dd>#}
                             {#<a ng-href="mailto:{{ publisherKey.publisher.email[0] }}">{{ publisherKey.publisher.email[0] }}</a>#}
                         {#</dd>#}

@@ -1,31 +1,31 @@
 <dl class="inline m-b-05">
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-        <dt class="text-capitalize" translate="dataset.registry.failedSinceSuccess"></dt>
+        <dt translate="dataset.registry.failedSinceSuccess"></dt>
         <dd ng-class="{'c-error-badge': datasetKey.processSummary.failuresSinceLastSuccess > 0}">{{ datasetKey.processSummary.failuresSinceLastSuccess }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-        <dt class="text-capitalize" translate="dataset.registry.lastFailed"></dt>
+        <dt translate="dataset.registry.lastFailed"></dt>
         <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess">
-        <dt class="text-capitalize" translate="dataset.registry.lastSuccess"></dt>
+        <dt translate="dataset.registry.lastSuccess"></dt>
         <dd>
             {{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'D MMMM YYYY' }} <span>(<span translate="dataset.crawl.finishReason.{{datasetKey.processSummary.lastSuccess.finishReason}}"></span>)</span>
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess.finishReason !== 'NORMAL'">
-        <dt class="text-capitalize" translate="dataset.registry.lastWithChange"></dt>
+        <dt translate="dataset.registry.lastWithChange"></dt>
         <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | momentFormat:'D MMMM YYYY' }}</span>
         <span ng-if="!datasetKey.processSummary.lastNormal"><span translate="dataset.registry.noEntries"></span> <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span></span>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
-        <dt class="text-capitalize" translate="dataset.registry.lastWithDataChange"></dt>
+        <dt translate="dataset.registry.lastWithDataChange"></dt>
         <dd>
             {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
-        <dt class="text-capitalize" translate="dataset.registry.occInLastIngestion"></dt>
+        <dt translate="dataset.registry.occInLastIngestion"></dt>
         <dd>
             <span>
                 {{ datasetKey.processSummary.lastDataChange.fragmentsEmitted | localNumber }}
@@ -34,7 +34,7 @@
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.finished > 0">
-        <dt class="text-capitalize" translate="dataset.registry.completionReasons"></dt>
+        <dt translate="dataset.registry.completionReasons"></dt>
         <dd>
             <ul class="inline-bullet-list">
                 <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
@@ -44,11 +44,11 @@
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.unfinished > 0">
-        <dt class="text-capitalize" translate="dataset.registry.unfinished"></dt>
+        <dt translate="dataset.registry.unfinished"></dt>
         <dd>{{ datasetKey.processSummary.unfinished }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.analyzedCount">
-        <dt class="text-capitalize" translate="dataset.registry.total"></dt>
+        <dt translate="dataset.registry.total"></dt>
         <dd>{{ datasetKey.processSummary.finished }}</dd>
     </div>
 </dl>

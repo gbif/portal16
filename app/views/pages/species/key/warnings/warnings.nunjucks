@@ -9,7 +9,7 @@
         <span ng-if="speciesKey2.species.origin !== 'SOURCE'">
 
                 <p translate="species.inferredRecordMsg"></p>
-                    <p><span class="text-capitalize" translate="stdTerms.origin"></span>: <span translate=" nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>
+                    <p><span translate="stdTerms.origin"></span>: <span translate=" nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>
 
             </span>
 

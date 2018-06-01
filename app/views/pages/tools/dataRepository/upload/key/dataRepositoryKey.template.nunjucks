@@ -88,37 +88,37 @@
                                 <div class="card__content">
                                     <dl class="inline">
                                         <div>
-                                            <dt class="text-capitalize">Creation date</dt>
+                                            <dt>Creation date</dt>
                                             <dd>
                                                 <span>{{ dataRepositoryKey.upload.created | momentFormat:'D MMMM YYYY' }}</span>
                                             </dd>
                                         </div>
                                         <div ng-if="dataRepositoryKey.upload.created != dataRepositoryKey.upload.modified">
-                                            <dt class="text-capitalize">Last modified</dt>
+                                            <dt>Last modified</dt>
                                             <dd>
                                                 <span>{{ dataRepositoryKey.upload.modified | momentFormat:'D MMMM YYYY' }}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">License</dt>
+                                            <dt>License</dt>
                                             <dd>
                                                 <span translate="license.{{ dataRepositoryKey.upload.license }}"></span>
                                             </dd>
                                         </div>
                                         <div ng-if="dataRepositoryKey.upload.isIdenticalto">
-                                            <dt class="text-capitalize">Is identical to</dt>
+                                            <dt>Is identical to</dt>
                                             <dd>
                                                 <doi link="{{ dataRepositoryKey.upload.isIdenticalto }}"></doi>
                                             </dd>
                                         </div>
                                         <div ng-if="dataRepositoryKey.upload.IsNewVersionOf">
-                                            <dt class="text-capitalize">Is new version of</dt>
+                                            <dt>Is new version of</dt>
                                             <dd>
                                                 <doi link="{{ dataRepositoryKey.upload.IsNewVersionOf }}"></doi>
                                             </dd>
                                         </div>
                                         {#<div ng-if="dataRepositoryKey.upload.IsDerivedFrom">#}
-                                            {#<dt class="text-capitalize">Is derived from</dt>#}
+                                            {#<dt>Is derived from</dt>#}
                                             {#<dd>#}
                                                 {#<a href="">25 other resources</a>#}
                                             {#</dd>#}

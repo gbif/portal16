@@ -126,7 +126,7 @@
                     <a ng-click="vm.gotoSpecies(option.key)"class="inherit noUnderline">
                         <span>{{ option.scientificName }}</span>
                         <div class="small discreet--very">
-                            <span class="text-capitalize">{{ 'taxonRank.' + option.rank | translate }}</span><span>{{ option.numDescendants | localNumber }} {{species.descendants | translate}}</span>
+                            <span>{{ 'taxonRank.' + option.rank | translate }}</span><span>{{ option.numDescendants | localNumber }} {{species.descendants | translate}}</span>
                         </div>
                     </a>
                 </li>

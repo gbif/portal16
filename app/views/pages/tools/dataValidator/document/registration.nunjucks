@@ -6,33 +6,33 @@
             <div>
                 <dl class="inline">
                     <div ng-if="datasetKey.dataset.created">
-                        <dt class="text-capitalize">Registration date</dt>
+                        <dt>Registration date</dt>
                         <dd>{{ datasetKey.dataset.created | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.modified">
-                        <dt class="text-capitalize">Last modification date</dt>
+                        <dt>Last modification date</dt>
                         <dd>{{ datasetKey.dataset.modified | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.pubDate">
-                        <dt class="text-capitalize">Publication date</dt>
+                        <dt>Publication date</dt>
                         <dd>{{ datasetKey.dataset.pubDate | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.host.$resolved">
-                        <dt class="text-capitalize">Host</dt>
+                        <dt>Host</dt>
                         <dd><a ng-href="{{portal.urlPrefix}}/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
                     </div>
 
                     <div ng-if="datasetKey.installation.$resolved">
-                        <dt class="text-capitalize">Installation</dt>
+                        <dt>Installation</dt>
                         <dd><a ng-href="{{portal.urlPrefix}}/installation/{{ datasetKey.installation.key }}">{{ datasetKey.installation.title }}</a></dd>
                     </div>
 
 
                     <div ng-if="datasetKey.installation.contacts.length > 0">
-                        <dt class="text-capitalize">Installation contacts</dt>
+                        <dt>Installation contacts</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="person in datasetKey.installation.contacts" ng-if="person.email[0]">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div ng-if="datasetKey.dataset._endpoints.length > 0">
-                        <dt class="text-capitalize">Endpoints</dt>
+                        <dt>Endpoints</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="endpoint in datasetKey.dataset._endpoints" ng-if="endpoint.url">
@@ -59,7 +59,7 @@
                     </div>
 
                     <div ng-if="datasetKey.dataset._identifiers.length > 0">
-                        <dt class="text-capitalize">Identifiers</dt>
+                        <dt>Identifiers</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="identifier in datasetKey.dataset._identifiers">
@@ -79,19 +79,19 @@
                     </div>
 
                     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-                        <dt class="text-capitalize">Failed attempts since last successful ingestion</dt>
+                        <dt>Failed attempts since last successful ingestion</dt>
                         <dd>{{ datasetKey.processSummary.failuresSinceLastSuccess }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-                        <dt class="text-capitalize">Last failed attempt</dt>
+                        <dt>Last failed attempt</dt>
                         <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.lastSuccess">
-                        <dt class="text-capitalize">Last Successful ingestion</dt>
+                        <dt>Last Successful ingestion</dt>
                         <dd>{{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.finished > 0">
-                        <dt class="text-capitalize">Ingestion completion reasons</dt>
+                        <dt>Ingestion completion reasons</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
@@ -101,11 +101,11 @@
                         </dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.unfinished > 0">
-                        <dt class="text-capitalize">Unfinished ingestions</dt>
+                        <dt>Unfinished ingestions</dt>
                         <dd>{{ datasetKey.processSummary.unfinished }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.analyzedCount">
-                        <dt class="text-capitalize">Ingestions in total</dt>
+                        <dt>Ingestions in total</dt>
                         <dd>{{ datasetKey.processSummary.analyzedCount }}</dd>
                     </div>
                     {# TODO Is it worth menioning that there are no logged ingestion attempts #}

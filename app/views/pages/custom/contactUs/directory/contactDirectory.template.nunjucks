@@ -29,7 +29,7 @@
                         <table class="table search-table smaller">
                             <thead>
                             <tr>
-                                <th class="text-capitalize"
+                                <th
                                     ng-repeat="col in ['name', 'role', 'participant']">
                                     {#<span class="inline-block text-nowrap">#}
                                         {#<span translate="directory.columns.{{ col }}">{{ col }}</span>#}
@@ -56,7 +56,7 @@
                                     <span>{{ person.firstName }} {{ person.surname }}</span>
                                 </td>
                                 <td>
-                                    <span class="text-capitalize">{{ 'role.' + person.role | translate }}</span>
+                                    <span>{{ 'role.' + person.role | translate }}</span>
                                 </td>
                                 <td>
                                     <span>{{ person.participant }}</span>
@@ -84,7 +84,7 @@
                         <table class="table search-table smaller">
                             <thead>
                             <tr>
-                                <th class="text-capitalize"
+                                <th
                                     ng-repeat="col in ['name', 'role', 'participant', 'participationStatus']">
                                     {#<span class="inline-block text-nowrap">#}
                                         {#<span translate="directory.columns.{{ col }}">{{ col }}</span>#}
@@ -111,13 +111,13 @@
                                     <span>{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
                                 </td>
                                 <td>
-                                    <span class="text-capitalize" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
+                                    <span ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
                                 </td>
                                 <td>
-                                    <span class="text-capitalize">{{ person.participant }}</span>
+                                    <span>{{ person.participant }}</span>
                                 </td>
                                 <td>
-                                    <span class="text-capitalize">{{ 'participationStatus.' + person.participationStatus | translate }}</span>
+                                    <span>{{ 'participationStatus.' + person.participationStatus | translate }}</span>
                                 </td>
                             </tr>
                             </tbody>

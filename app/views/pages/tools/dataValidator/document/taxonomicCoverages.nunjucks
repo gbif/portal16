@@ -11,7 +11,7 @@
                     <span ng-repeat="coverage in taxonomicCoverage.coverages">{{ coverage.scientificName }}<span ng-if="!$last">, </span></span>
 
                     {#<div class="dataset-key__taxonomicCoverages__rank" ng-repeat="rank in taxonomicCoverage._ranks" ng-if="rank.taxa">#}
-                        {#<h4 translate="taxonRank.{{ rank.rank }}" class="text-capitalize"></h4>#}
+                        {#<h4 translate="taxonRank.{{ rank.rank }}"></h4>#}
                         {#<div class="dataset-key__taxonomicCoverages__columns">#}
                             {#<span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey.dataset.type == 'CHECKLIST'">#}
                                 {#<a ui-sref="speciesSearchList({advanced:true,dataset_key: datasetKey.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa">#}

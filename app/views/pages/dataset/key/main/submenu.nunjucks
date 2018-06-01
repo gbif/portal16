@@ -9,56 +9,56 @@
                     {#<a href="#summary">Summary</a>#}
                 {#</li>#}
                 <li class="nav-chapter" du-scrollspy="descriptionBlock" ng-if="datasetKey.dataset.description">
-                    <a href="#description" translate="dataset.description" class="text-capitalize"></a>
+                    <a href="#description" translate="dataset.description"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="purposeBlock" ng-if="datasetKey.dataset.purpose">
-                    <a href="#purpose" translate="dataset.purpose" class="text-capitalize"></a>
+                    <a href="#purpose" translate="dataset.purpose"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="temporalCoveragesBlock"
                     ng-if="datasetKey.dataset.temporalCoverages.length > 0">
-                    <a href="#temporalCoverages" translate="dataset.temporalCoverages" class="text-capitalize"></a>
+                    <a href="#temporalCoverages" translate="dataset.temporalCoverages"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="geographicCoveragesBlock"
                     ng-if="datasetKey.dataset.geographicCoverages.length > 0">
-                    <a href="#geographicCoverages" translate="dataset.geographicCoverages" class="text-capitalize"></a>
+                    <a href="#geographicCoverages" translate="dataset.geographicCoverages"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="taxonomicCoveragesBlock" ng-if="datasetKey.dataset._computedValues.taxonomicCoverages.length > 0">
-                    <a href="#taxonomicCoverages" translate="dataset.taxonomicCoverages" class="text-capitalize"></a>
+                    <a href="#taxonomicCoverages" translate="dataset.taxonomicCoverages"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="methodologyBlock" ng-if="datasetKey.dataset.samplingDescription">
-                    <a href="#methodology" translate="dataset.methodology" class="text-capitalize"></a>
+                    <a href="#methodology" translate="dataset.methodology"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="additionalInfoBlock" ng-if="datasetKey.dataset.additionalInfo">
-                    <a href="#additionalInfo" translate="dataset.additionalInfo" class="text-capitalize"></a>
+                    <a href="#additionalInfo" translate="dataset.additionalInfo"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="bibliographyBlock"
                     ng-if="datasetKey.dataset.bibliographicCitations.length > 0">
-                    <a href="#bibliography" translate="dataset.bibliography" class="text-capitalize"></a>
+                    <a href="#bibliography" translate="dataset.bibliography"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="contributorsBlock"
                     ng-if="datasetKey.dataset._computedValues.contributors.all.length > 0">
-                    <a href="#contributors" translate="dataset.contributors" class="text-capitalize"></a>
+                    <a href="#contributors" translate="dataset.contributors"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="dataDescriptionBlock"
                     ng-if="datasetKey.dataset.dataLanguage || datasetKey.dataset.language || datasetKey.dataset.dataDescriptions.length > 0">
-                    <a href="#dataDescription" translate="dataset.dataDescription" class="text-capitalize"></a>
+                    <a href="#dataDescription" translate="dataset.dataDescription"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="registrationBlock">
-                    <a href="#registration" translate="dataset.registration" class="text-capitalize"></a>
+                    <a href="#registration" translate="dataset.registration"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="citationBlock" ng-if="datasetKey.dataset.citation">
-                    <a href="#citation" translate="dataset.citation" class="text-capitalize"></a>
+                    <a href="#citation" translate="dataset.citation"></a>
                 </li>
 
             </ul>

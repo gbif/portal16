@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div>
-                <h3 translate="dataset.description" class="text-capitalize"></h3>
+                <h3 translate="dataset.description"></h3>
                 <div ng-bind-html="datasetKey.dataset.description"></div>
                 <div ng-if="datasetKey.ebirdKey === datasetKey.key && datasetKey.publishingCountries.facets[0].counts.length > 1">
                     <h4 translate="dataset.publishingCountriesAreas">Publishing countries and areas</h4>

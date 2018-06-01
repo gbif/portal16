@@ -7,17 +7,17 @@
                 <dl class="inline">
 
                     <div ng-if="datasetKey.dataset.language">
-                        <dt class="text-capitalize">Metadata language</dt>
+                        <dt>Metadata language</dt>
                         <dd translate="language.{{ datasetKey.dataset.language }}"></dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.dataLanguage">
-                        <dt class="text-capitalize">Data language</dt>
+                        <dt>Data language</dt>
                         <dd translate="language.{{ datasetKey.dataset.dataLanguage }}"></dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.dataDescriptions.length > 0">
-                        <dt class="text-capitalize">External description</dt>
+                        <dt>External description</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="descr in datasetKey.dataset.dataDescriptions">

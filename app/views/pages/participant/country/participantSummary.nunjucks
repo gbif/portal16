@@ -4,15 +4,15 @@
             <dl class="inline">
                 <div>
                     <dt translate="country.memberStatus">Member status</dt>
-                    <dd class="text-capitalize">{{ 'participationStatus.' + countryKey.country.participant.participationStatus | translate }}</dd>
+                    <dd>{{ 'participationStatus.' + countryKey.country.participant.participationStatus | translate }}</dd>
                 </div>
                 <div>
                     <dt translate="country.gbifParticipantSince">GBIF participant since</dt>
-                    <dd class="text-capitalize">{{ countryKey.country.participant.membershipStart | momentFormat:'YYYY' }}</dd>
+                    <dd>{{ countryKey.country.participant.membershipStart | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div>
                     <dt translate="country.gbifRegion">GBIF region</dt>
-                    <dd class="text-capitalize">{{ 'region.' + countryKey.country.participant.gbifRegion | translate }}</dd>
+                    <dd>{{ 'region.' + countryKey.country.participant.gbifRegion | translate }}</dd>
                 </div>
                 <div>
                     <dt translate="country.headOfDelegation">Head of delegation</dt>

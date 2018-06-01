@@ -1,7 +1,7 @@
 <div class="filter-group filter-group--search">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
-            <span class="text-capitalize" translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
+            <span translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
             <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
         </h4>
@@ -13,9 +13,9 @@
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-click="vm.query = undefined; vm.apply();" checked="true">
-                    <span class="filter-group__filter__name text-capitalize" translate="stdTerms.yes"
+                    <span class="filter-group__filter__name" translate="stdTerms.yes"
                           ng-if="vm.query === 'true'">yes</span>
-                    <span class="filter-group__filter__name text-capitalize" translate="stdTerms.no"
+                    <span class="filter-group__filter__name" translate="stdTerms.no"
                           ng-if="vm.query === 'false'">no</span>
                 </label>
             </div>
@@ -23,9 +23,9 @@
 
         <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded">
             <div class="gb-btn-group m-t-05 m-b-05">
-                <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="" ng-change="vm.apply()" translate="stdTerms.all">All</label>
-                <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="'true'" ng-change="vm.apply()" translate="stdTerms.yes">Yes</label>
-                <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="'false'" ng-change="vm.apply()" translate="stdTerms.no">No</label>
+                <label ng-model="vm.query" uib-btn-radio="" ng-change="vm.apply()" translate="stdTerms.all">All</label>
+                <label ng-model="vm.query" uib-btn-radio="'true'" ng-change="vm.apply()" translate="stdTerms.yes">Yes</label>
+                <label ng-model="vm.query" uib-btn-radio="'false'" ng-change="vm.apply()" translate="stdTerms.no">No</label>
             </div>
             <p translate="{{vm.filterConfig.descriptionTranslation}}" ng-if="vm.filterConfig.descriptionTranslation"></p>
         </div>

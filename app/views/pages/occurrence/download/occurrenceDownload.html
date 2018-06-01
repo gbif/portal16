@@ -108,42 +108,42 @@
                                 <div class="card__content">
                                     <dl class="inline">
                                         <div>
-                                            <dt class="text-capitalize" translate="stdTerms.total">Total</dt>
+                                            <dt translate="stdTerms.total">Total</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
                                                 <span ng-if="occDownload.hasData()">{{occDownload.state.table.count | localNumber:occDownload.state.query.locale }}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize" translate="stdTerms.license">License</dt>
+                                            <dt translate="stdTerms.license">License</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
                                                 <span ng-if="occDownload.hasData()">{{occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize" translate="stdTerms.yearRange">Year range</dt>
+                                            <dt translate="stdTerms.yearRange">Year range</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showRange" class="loading"></span>
                                                 <span ng-if="occDownload.showRange">{{occDownload.minYear}}–{{occDownload.maxYear}}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize" translate="stdTerms.withYear">With year</dt>
+                                            <dt translate="stdTerms.withYear">With year</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showYears" class="loading"></span>
                                                 <span ng-if="occDownload.showYears">{{ occDownload.withDate | formatAsPercentage }} %</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize" translate="stdTerms.withCoordinates">With coordinates</dt>
+                                            <dt translate="stdTerms.withCoordinates">With coordinates</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showCoordinates" class="loading"></span>
                                                 <span ng-if="occDownload.showCoordinates">{{ occDownload.hasCoordinates | formatAsPercentage }} %</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize" translate="stdTerms.withTaxonMatch"></dt>
+                                            <dt translate="stdTerms.withTaxonMatch"></dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showTaxonMatch" class="loading"></span>
                                                 <span ng-if="occDownload.showTaxonMatch">{{ occDownload.withTaxonMatch | formatAsPercentage }} %</span>

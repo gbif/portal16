@@ -36,7 +36,7 @@
 
                     <div ng-if="speciesKey2.vernacularName.vernacularName" >
                         <div>
-                            <span class="vernacular text-capitalize">{{ speciesKey2.vernacularName.vernacularName }}</span>
+                            <span class="vernacular">{{ speciesKey2.vernacularName.vernacularName }}</span>
                             <span class="discreet--very" translate="species.inLanguage" translate-values="{language: speciesKey2.$translate.instant('language.'+ speciesKey2.vernacularName.language)}"></span>
                            </span>
                         </div>
@@ -67,13 +67,13 @@
                     </div>
 
 
-                    <div ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym" class="text-capitalize">
+                    <div ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym">
                         <div>
                             <span class="article-header__meta"> {{(speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey === speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey !== speciesKey2.species.key) ? 'Homotypic synonym' : 'Synonym' }} of</span>
                             <span class="discreet--very"><a scientific-name key="{{ speciesKey2.species.acceptedKey }}" name="{{speciesKey2.species.accepted}}" class="inherit text-transform__none" ui-sref="speciesKey({speciesKey: speciesKey2.species.acceptedKey})"></a></span>
                         </div>
                     </div>
-                    <div ng-if="speciesKey2.species.$resolved && !speciesKey2.isSynonym && speciesKey2.species.basionymKey" class="text-capitalize">
+                    <div ng-if="speciesKey2.species.$resolved && !speciesKey2.isSynonym && speciesKey2.species.basionymKey">
                         <div>
                             <span class="article-header__meta">{{'species.basionym' | translate}}:</span>
                             <span class="discreet--very"><a scientific-name key="{{ speciesKey2.species.basionymKey }}" name="{{speciesKey2.species.basionym}}" class="inherit text-transform__none" ui-sref="speciesKey({speciesKey: speciesKey2.species.basionymKey})"></a></span>

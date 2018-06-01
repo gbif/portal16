@@ -11,7 +11,7 @@
         <div class="card__content clearfix">
 
             <p ng-if="result.participant">
-                <span translate="country.memberSince"></span>: {{ result.participant.membershipStart }} ● <span class="text-capitalize">{{'stdTerms.country' | translate}}:</span> {{ "country."+ result.participant.countryCode  | translate }} <span ng-if="result.participant.participantUrl">●</span> </span><a ng-href="{{ result.participant.participantUrl }}" ng-if="result.participant.participantUrl"><span translate="country.website"></span> <span class="gb-icon-link"></span> </a>
+                <span translate="country.memberSince"></span>: {{ result.participant.membershipStart }} ● <span>{{'stdTerms.country' | translate}}:</span> {{ "country."+ result.participant.countryCode  | translate }} <span ng-if="result.participant.participantUrl">●</span> </span><a ng-href="{{ result.participant.participantUrl }}" ng-if="result.participant.participantUrl"><span translate="country.website"></span> <span class="gb-icon-link"></span> </a>
             </p>
 
             <ul class="list-chips">

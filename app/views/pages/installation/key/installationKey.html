@@ -56,21 +56,21 @@
                                 <div ng-bind-html="installationKey.installation.description"></div>
                                 <dl class="inline m-t-05">
                                     <div ng-if="installationKey.installation.type">
-                                        <dt class="text-capitalize" translate="stdTerms.installationType">Installation type</dt>
+                                        <dt translate="stdTerms.installationType">Installation type</dt>
                                         <dd translate="installationType.{{installationKey.installation.type}}">
                                         </dd>
                                     </div>
                                     <div ng-if="installationKey.publisher.$resolved">
-                                        <dt class="text-capitalize" translate="stdTerms.hostedBy">Hosted by</dt>
+                                        <dt translate="stdTerms.hostedBy">Hosted by</dt>
                                         <dd><a ui-sref="publisherKey({ key: installationKey.publisher.key})">{{installationKey.publisher.title}}</a>
                                         </dd>
                                     </div>
                                     <div ng-if="installationKey.installation.created">
-                                        <dt class="text-capitalize" translate="stdTerms.registered">Registered</dt>
+                                        <dt translate="stdTerms.registered">Registered</dt>
                                         <dd>{{ installationKey.installation.created | momentFormat:'D MMMM YYYY' }}</dd>
                                     </div>
                                     <div ng-if="installationKey.installation.endpoints.length > 0">
-                                        <dt class="text-capitalize" translate="stdTerms.endpoints">Endpoints</dt>
+                                        <dt translate="stdTerms.endpoints">Endpoints</dt>
                                         <dd>
                                             <ul class="inline-bullet-list">
                                                 <li ng-repeat="endpoint in installationKey.installation.endpoints">

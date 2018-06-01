@@ -4,16 +4,16 @@
     <section class="term-block is-collapsed"
              ng-class="{ 'is-expanded': !occurrenceKey.hideDetails, 'is-collapsed': occurrenceKey.hideDetails }">
         <div class="term-block__header">
-            <h4 class="text-capitalize">{$ __('stdTerms.' + group) $}</h4>
+            <h4>{$ __('stdTerms.' + group) $}</h4>
         </div>
         <div class="term-block__terms">
             <table class="table table--compact">
                 <thead>
                 <tr>
-                    <th class="text-capitalize">{$ __('stdTerms.term') $}</th>
-                    <th class="text-capitalize">{$ __('stdTerms.interpreted') $}</th>
-                    <th class="text-capitalize" ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.original') $}</th>
-                    <th class="text-capitalize" ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.remarks') $}</th>
+                    <th>{$ __('stdTerms.term') $}</th>
+                    <th>{$ __('stdTerms.interpreted') $}</th>
+                    <th ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.original') $}</th>
+                    <th ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.remarks') $}</th>
                 </tr>
                 </thead>
                 <tbody>

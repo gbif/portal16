@@ -6,7 +6,7 @@
         <div class="card__content">
             <table>
                 <tr>
-                    <td translate="stdTerms.details" class="text-capitalize"></td>
+                    <td translate="stdTerms.details"></td>
                     <td>
                         <div>
                             <div ng-if="vm.person.institutionName" class="text-italic discreet--very">{{vm.person.institutionName}}</div>
@@ -18,24 +18,24 @@
                     </td>
                 </tr>
                 <tr>
-                    <td translate="stdTerms.roles" class="text-capitalize"></td>
+                    <td translate="stdTerms.roles" ></td>
                     <td>
                         <ul>
                             <li ng-repeat="role in vm.person.roles">
-                                <div class="text-capitalize">{{ 'role.' + role.role | translate }}</div>
+                                <div >{{ 'role.' + role.role | translate }}</div>
                                 <div ng-if="role.role == 'GBIFS_STAFF_MEMBER'">{{ vm.person.jobTitle }}</div>
-                                <div class="discreet small"><span translate="stdTerms.since" class="text-capitalize"></span> {{role.term.start | momentFormat:'D MMMM YYYY' }}</div>
+                                <div class="discreet small"><span translate="stdTerms.since" ></span> {{role.term.start | momentFormat:'D MMMM YYYY' }}</div>
                             </li>
                             <li ng-repeat="role in vm.person.participants">
-                                <div class="text-capitalize">{{ 'role.' + role.role | translate }}</div>
+                                <div >{{ 'role.' + role.role | translate }}</div>
                                 <div class="discreet small">
                                     <a ng-href="{{portal.urlPrefix}}/country/{{role.participant.countryCode}}" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
                                     <a ng-href="{{portal.urlPrefix}}/participant/{{role.participant.id}}" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
                                 </div>
-                                <div class="discreet small"><span translate="stdTerms.since" class="text-capitalize"></span> {{role.term.start | momentFormat:'D MMMM YYYY' }}</div>
+                                <div class="discreet small"><span translate="stdTerms.since" ></span> {{role.term.start | momentFormat:'D MMMM YYYY' }}</div>
                             </li>
                             <li ng-repeat="role in vm.person.nodes">
-                                <div class="text-capitalize">{{ 'role.' + role.role | translate }}</div>
+                                <div >{{ 'role.' + role.role | translate }}</div>
                                 <div ng-if="role.participant" class="discreet small">
                                     <a ng-href="{{portal.urlPrefix}}/country/{{role.participant.countryCode}}" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
                                     <a ng-href="{{portal.urlPrefix}}/participant/{{role.participant.id}}" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>

@@ -31,12 +31,12 @@
             <ng-include src="'/templates/components/loader/loader.html'" ></ng-include>
         </li>
         <li ng-if="vm.heads.HEAD_OF_DELEGATION.firstName">
-            <span class="text-capitalize" translate="role.HEAD_OF_DELEGATION"></span>
+            <span translate="role.HEAD_OF_DELEGATION"></span>
             <strong ng-bind="vm.heads.HEAD_OF_DELEGATION.firstName"></strong>
             <strong ng-bind="vm.heads.HEAD_OF_DELEGATION.surname"></strong>
         </li>
         <li ng-if="vm.heads.NODE_MANAGER.firstName">
-            <span class="text-capitalize" translate="role.NODE_MANAGER"></span>
+            <span translate="role.NODE_MANAGER"></span>
             <strong ng-bind="vm.heads.NODE_MANAGER.firstName"></strong>
             <strong ng-bind="vm.heads.NODE_MANAGER.surname"></strong>
         </li>

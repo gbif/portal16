@@ -29,7 +29,7 @@
                         <div class="card__content card__content--warning">
                             <table class="table table--compact">
                                 <thead>
-                                <th class="text-capitalize" translate="stdTerms.term"></th><th class="text-capitalize" translate="stdTerms.value"></th>
+                                <th translate="stdTerms.term"></th><th translate="stdTerms.value"></th>
 
                                 </thead>
                                 <tbody>

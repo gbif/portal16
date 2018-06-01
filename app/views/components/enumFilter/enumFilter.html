@@ -1,7 +1,7 @@
 <div class="filter-group" ng-mouseover="vm.isHovered = true">
     <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
         <h4>
-            <span class="text-capitalize" translate="ocurrenceFieldNames.{{vm.title}}">{{vm.title}}</span>
+            <span translate="ocurrenceFieldNames.{{vm.title}}">{{vm.title}}</span>
             <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
         </h4>
@@ -17,7 +17,7 @@
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(enumName)"
                              ng-if="vm.showFacetCount()"></div>
-                        <span class="text-capitalize"
+                        <span
                               translate="{{vm.translationPrefix}}.{{enumName}}">{{enumName}}</span>
                         <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()">{{vm.filterState.data.facets[vm.facetKey].counts[enumName].count | localNumber:vm.filterState.query.locale}}</span>
                     </span>
