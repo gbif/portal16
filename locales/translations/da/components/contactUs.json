@@ -1,8 +1,8 @@
 {
-    "contactUs": {
-        "tabs": {
-            "main": "contact us",
-            "directory": "directory"
-        }
+  "contactUs": {
+    "tabs": {
+      "main": "Contact us",
+      "directory": "Directory"
     }
+  }
 }
