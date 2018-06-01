@@ -42,7 +42,7 @@
         "governingBoard": "Governing Board",
         "committees": "Committees",
         "name": "name",
-        "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}",
+        "endorsedDataPublisher": "has endorsed {NUMBER_FORMATTED} data {NUMBER, select, one{publisher} other{publishers}}",
         "occurrenceDatasetWith": "occurrence {NUMBER, select, one{dataset} other{datasets}} with",
         "record": "{NUMBER, select, one{record} other{records}}",
         "usage": "{NUMBER, select, one{usage} other{usages}}",
