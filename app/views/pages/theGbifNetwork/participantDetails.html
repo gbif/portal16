@@ -43,9 +43,8 @@
     </ul>
     <ul class="info-pane__digest participant-details-list m-b-1">
         <li ng-if="vm.endorsedPublisher > 0">
-            <strong ng-bind="vm.endorsedPublisher"></strong>
             <span translate="gbifNetwork.endorsedDataPublisher"
-                  translate-values="{ NUMBER: (vm.endorsedPublisher | localNumber) }"></span>
+                  translate-values="{NUMBER_FORMATTED: (vm.endorsedPublisher | localNumber), NUMBER: vm.endorsedPublisher }"></span>
         </li>
         <li ng-if="vm.digest.counts.datasetFromCount">
             <a ui-sref="datasetSearchTable({type: 'OCCURRENCE', publishing_country: vm.digest.iso2})">
