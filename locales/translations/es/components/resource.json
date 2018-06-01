@@ -1,16 +1,16 @@
 {
-    "resource": {
-        "searchForNewsEventsDocuments": "Search for news, events, documents and much more. If you are looking for species occurrences then try our",
-        "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for? You are always welcome to",
-        "contactHelpdesk": "contact helpdesk",
-        "searchForResources": "Search for resources",
-        "addToCalendar": "Add to calendar",
-        "viewOnGBIF": "View on GBIF",
-        "published": "Published",
-        "programme": "Programme",
-        "dataUsedInStudy": "Data used in study",
-        "upcoming": "upcoming",
-        "past": "past",
-        "subscribeToCalendar": "Subscribe to calendar"
-    }
+  "resource": {
+    "searchForNewsEventsDocuments": "Search for news, events, documents and much more. If you are looking for species occurrences then try our",
+    "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for? You are always welcome to",
+    "contactHelpdesk": "Contact helpdesk",
+    "searchForResources": "Search for resources",
+    "addToCalendar": "Add to calendar",
+    "viewOnGBIF": "View on GBIF",
+    "published": "Published",
+    "programme": "Programme",
+    "dataUsedInStudy": "Data used in study",
+    "upcoming": "Upcoming",
+    "past": "Past",
+    "subscribeToCalendar": "Subscribe to calendar"
+  }
 }
