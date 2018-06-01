@@ -7,6 +7,7 @@
                 "literatureType": "literature type",
                 "contractCountry": "Country or area",
                 "topics": "topic",
+                "audiences": "audiences",
                 "purposes": "purpose",
                 "relevance": "relevance",
                 "language": "language"
@@ -64,7 +65,7 @@
                     "web_page": "web page",
                     "working_paper": "working paper"
                 },
-                "audience": {
+                "audiences": {
                     "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
                     "DATA_HOLDERS": "Data holders",
                     "DATA_USERS": "Data users",
