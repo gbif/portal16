@@ -10,7 +10,7 @@
                    ui-sref-opts="{inherit: false}"
                    class="gb-icon-angle-left site-drawer__bar__icon inherit"
                    tooltip-placement="right"
-                   uib-tooltip="Search everything">
+                   uib-tooltip="{{ 'stdTerms.searchEverything' | translate }}">
                 </a>
                 <div class="site-drawer__bar__title">
                     <a href=""
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <a href="" ng-click="vm.clear()" class="gb-icon-trash discreet inherit site-drawer__bar__icon"
-                   tooltip-placement="left" uib-tooltip="Clear filters">
+                   tooltip-placement="left" uib-tooltip="{{ 'stdTerms.clearFilters' | translate }}">
                     <span class="count badge" ng-show="vm.getFilterCount() > 0">{{vm.getFilterCount()}}</span>
                 </a>
             </div>

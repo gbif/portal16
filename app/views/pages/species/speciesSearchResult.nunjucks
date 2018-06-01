@@ -30,7 +30,7 @@
                 <span translate="species.synonymOf"></span>: <a ui-sref="speciesKey({speciesKey:result.acceptedKey})" ng-href="{{ portal.urlPrefix }}/species/{{ result.acceptedKey }}">{{ result.accepted }} </a>
             </div>
             <p class="discreet classification-list" ng-if="result.rank != 'KINGDOM'">
-                <span translate="occurrenceSearch.taxonomy"></span>: <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                {{ 'occurrenceSearch.taxonomy' | translate }} : <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                       ng-if="result[taxa] && taxa != result.rank.toLowerCase()"
                       ng-bind-html="result[taxa]"></span>
             </p>
