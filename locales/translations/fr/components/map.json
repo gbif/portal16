@@ -1,49 +1,49 @@
 {
-    "map": {
-        "predefined": {
-            "CLASSIC_HEX": "Classic hexagons",
-            "CLASSIC": "Classic points",
-            "STREETS": "Streets",
-            "GLACIER": "Glacier",
-            "CUSTOM": "Custom"
-        },
-        "basemap": {
-            "CLASSIC": "Magenta",
-            "LIGHT": "Light (no labels)",
-            "LIGHT_DETAILS": "Light",
-            "DARK": "Dark (no labels)",
-            "DARK_DETAILS": "Dark",
-            "OSM": "Roads"
-        },
-        "bin": {
-            "PIXEL": "Points",
-            "SMALL_HEX": "Small hexagons",
-            "LARGE_HEX": "Hexagons",
-            "SMALL_SQUARE": "Small squares",
-            "LARGE_SQUARE": "Squares"
-        },
-        "colors": {
-            "CLASSIC": "Classic",
-            "FIRE": "Fire",
-            "GLACIER": "Glacier",
-            "PURPLE_YELLOW": "Purple yellow",
-            "PURPLE_HEAT": "Purple heat",
-            "BLUE_HEAT": "Blue heat",
-            "ORANGE_HEAT": "Orange heat",
-            "GREEN": "Green",
-            "BLUE_CLUSTER": "Blue cluster",
-            "ORANGE_CLUSTER": "Orange cluster"
-        },
-        "errors": {
-            "413": "The geometry file is too large to be processed by the data API."
-        },
-        "Highcharts": {
-            "contextButtonTitle": "Chart context menu",
-            "downloadCSV": "Download CSV",
-            "downloadJPEG": "Download JPEG image",
-            "downloadPDF": "Download PDF document",
-            "downloadPNG": "Download JPEG image",
-            "downloadXLS": "Download XLS"
-        }
+  "map": {
+    "predefined": {
+      "CLASSIC_HEX": "Classic hexagons",
+      "CLASSIC": "Classic points",
+      "STREETS": "Streets",
+      "GLACIER": "Glacier",
+      "CUSTOM": "Custom"
+    },
+    "basemap": {
+      "CLASSIC": "Magenta",
+      "LIGHT": "Light (no labels)",
+      "LIGHT_DETAILS": "Light",
+      "DARK": "Dark (no labels)",
+      "DARK_DETAILS": "Dark",
+      "OSM": "Roads"
+    },
+    "bin": {
+      "PIXEL": "Points",
+      "SMALL_HEX": "Small hexagons",
+      "LARGE_HEX": "Hexagons",
+      "SMALL_SQUARE": "Small squares",
+      "LARGE_SQUARE": "Squares"
+    },
+    "colors": {
+      "CLASSIC": "Classic",
+      "FIRE": "Fire",
+      "GLACIER": "Glacier",
+      "PURPLE_YELLOW": "Purple yellow",
+      "PURPLE_HEAT": "Purple heat",
+      "BLUE_HEAT": "Blue heat",
+      "ORANGE_HEAT": "Orange heat",
+      "GREEN": "Green",
+      "BLUE_CLUSTER": "Blue cluster",
+      "ORANGE_CLUSTER": "Orange cluster"
+    },
+    "errors": {
+      "413": "The geometry file is too large to be processed by the data API."
+    },
+    "Highcharts": {
+      "contextButtonTitle": "Chart context menu",
+      "downloadCSV": "Download CSV",
+      "downloadJPEG": "Download JPEG image",
+      "downloadPDF": "Download PDF document",
+      "downloadPNG": "Download JPEG image",
+      "downloadXLS": "Download XLS"
     }
+  }
 }
