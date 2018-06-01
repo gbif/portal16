@@ -23,6 +23,8 @@
         "audiences": "audiences",
         "coordinates": "coordinates",
         "monthAndyear": "month & year",
+        "clearFilters": "Clear filters",
+        "searchEverything": "Search everything",
         "ok": "ok",
         "or": "or",
         "selectFile": "Select file",
@@ -249,6 +251,7 @@
         "parsingNames": "Parsing names - hang on",
         "errorNotAuthorized": "Looks like you aren't authorized to view this page",
         "errorTryToRefresh": "Try to reload the page and let us know if the issue persists. We are sorry about the inconvenience.",
+        "noResultsMessage": "No results – try to loosen your filters",
         "dontSeeYourIpt": "Don't see your IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") your coordinates."
     }
 }
