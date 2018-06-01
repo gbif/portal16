@@ -2,15 +2,15 @@
     "enums": {
         "cms": {
             "vocabularyTypes": {
-                "countriesOfCoverage": "country or area of coverage",
-                "countriesOfResearcher": "country or area of researcher",
-                "literatureType": "literature type",
+                "countriesOfCoverage": "Country or area of coverage",
+                "countriesOfResearcher": "Country or area of researcher",
+                "literatureType": "Literature type",
                 "contractCountry": "Country or area",
-                "topics": "topic",
-                "audiences": "audiences",
-                "purposes": "purpose",
-                "relevance": "relevance",
-                "language": "language"
+                "topics": "Topic",
+                "audiences": "Audiences",
+                "purposes": "Purpose",
+                "relevance": "Relevance",
+                "language": "Language"
             },
             "vocabularyTerms": {
                 "relevance": {

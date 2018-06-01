@@ -133,11 +133,6 @@
         }, 
         "auxiliary" : {
             "subject": "Subject",
-            "researchersCountry": "Researchers country",
-            "countryCoverage": "Country coverage",
-            "topics": "Topics",
-            "audiences" : "Audiences",
-            "purposes": "Purposes",
             "organisingParticipants": "Organising Participants"
         }
     }
