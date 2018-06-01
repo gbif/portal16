@@ -159,7 +159,7 @@
                             <dt translate="cms.project.contactDetalils">Contact details</dt>
                             <dd>
                                 <div>
-                                    {$ main.fields.leadContact | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                                    {$ main.fields.leadContact | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
 
                                 </div>
                             </dd>

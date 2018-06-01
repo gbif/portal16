@@ -10,7 +10,7 @@
 <div class="horizontal-stripe white-background p-t-1">
     <div class="container--narrow">
         <div class="body-text">
-            {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+            {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
         </div>
     </div>
 </div>

@@ -20,7 +20,7 @@
                     <div ng-if="publisherKey.publisher.endorsementApproved">
                         <dt class="text-capitalize" translate="phrases.endorsedBy">Endorsed by</dt>
                         <dd>
-                            <a ng-href="/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
+                            <a ng-href="{{portal.urlPrefix}}/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.publisher.endorsementApproved === false">

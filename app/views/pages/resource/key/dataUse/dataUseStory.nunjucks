@@ -13,11 +13,11 @@
                     </nav>
                     <h1>{$ main.fields.title $}</h1>
                     <div class="article-header__intro">
-                        {$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                        {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                     </div>
                     {% if main.fields.resourceUsed | isNotEmpty %}
                     <span class="article-header__meta">
-                        {$ __("cms.dataUse.resourceUsed") $} : {$ main.fields.resourceUsed | striptags $}
+                        Data resources used via GBIF : {$ main.fields.resourceUsed | striptags $}
                     </span>
                     {% endif %}
                 </header>

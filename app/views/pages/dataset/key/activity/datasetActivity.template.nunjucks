@@ -15,7 +15,7 @@
                 <div ng-repeat="download in datasetActivity.downloads.results">
                     <h4 class="text-uppercase small discreet" tx="dataset.nFromDataset" tx-nr="download.numberRecords"></h4>
                     <div class="card m-b-2">
-                        <ng-include src="'/occurrence/download/' + download.downloadKey + '/card'"></ng-include>
+                        <ng-include src="'/occurrence/download/' + download.downloadKey + '/card?locale=' + portal.LOCALE"></ng-include>
                     </div>
                 </div>
 

@@ -187,6 +187,16 @@ function compactInteger(nr) {
     return Humanize.compactInteger(nr, 0);
 }
 
+function prefixLinkUrl(str, urlPrefix) {
+    if (_.isString(str)) {
+        str = str.replace(/^http(s)?:\/\/www\.gbif((-dev)|(-uat))?\.org/, '');
+    }
+    if (!isUrl(str)) {
+        str = urlPrefix + '/' + str.replace(/^\//, '');
+    }
+    return str;
+}
+
 function localizeLinks(dirty, urlPrefix) {
     urlPrefix = urlPrefix || '';
     dirty = dirty || '';
@@ -195,9 +205,7 @@ function localizeLinks(dirty, urlPrefix) {
             allowedAttributes: false,
             transformTags: {
                 'a': function(tagName, attr) {
-                    if (!isUrl(attr.href)) {
-                        attr.href = urlPrefix + '/' + attr.href.replace(/^\//, '');
-                    }
+                    attr.href = prefixLinkUrl(attr.href, urlPrefix);
                     return {
                         tagName: 'a',
                         attribs: attr
@@ -211,14 +219,13 @@ function localizeLinks(dirty, urlPrefix) {
 function localizeLink(url, urlPrefix) {
     url = _.isString(url) ? url : '';
     urlPrefix = urlPrefix || '';
-    if (!isUrl(url)) {
-        return urlPrefix + '/' + url.replace(/^\//, '');
-    }
+    url = prefixLinkUrl(url, urlPrefix);
     return url;
 }
 
-function sanitizeTrusted(dirty) {
+function sanitizeTrusted(dirty, urlPrefix) {
     dirty = dirty || '';
+    urlPrefix = urlPrefix || '';
     let allowedTags = ['img', 'h2', 'iframe', 'span'];
     let clean;
     clean = sanitizeHtml(dirty, {
@@ -229,6 +236,7 @@ function sanitizeTrusted(dirty) {
             transformTags: {
                 'a': function(tagName, attr) {
                     if (attr.href) {
+                        attr.href = prefixLinkUrl(attr.href, urlPrefix);
                         let linkUrl = url.parse(attr.href);
                         let urlPathname = linkUrl.pathname;
                         let urlParams = new URLSearchParams(linkUrl.search);

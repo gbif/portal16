@@ -45,54 +45,19 @@
         <li ng-if="vm.endorsedPublisher > 0">
             <strong ng-bind="vm.endorsedPublisher"></strong>
             <span translate="gbifNetwork.endorsedDataPublisher"
-                  translate-values="{ NUMBER: vm.endorsedPublisher | localNumber }"></span>
+                  translate-values="{ NUMBER: (vm.endorsedPublisher | localNumber) }"></span>
         </li>
         <li ng-if="vm.digest.counts.datasetFromCount">
-            <a href="/dataset/search?type=OCCURRENCE&publishing_country={{ vm.digest.iso2 }}">
+            <a ui-sref="datasetSearchTable({type: 'OCCURRENCE', publishing_country: vm.digest.iso2})">
                 <strong ng-bind="vm.digest.counts.datasetFromCount | localNumber:gb.locale"></strong>
             </a>
             <span translate="gbifNetwork.occurrenceDatasetWith"
                   translate-values="{ NUMBER: vm.digest.counts.datasetFromCount}"></span>
-            <a href="/occurrence/search?publishing_country={{ vm.digest.iso2 }}&advanced=1">
+            <a ui-sref="occurrenceSearchTable({advanced: true, publishing_country: vm.digest.iso2})">
                 <strong ng-bind="vm.digest.counts.occurrenceFromCount | localNumber:gb.locale"></strong>
             </a>
             <span translate="gbifNetwork.record"
                   translate-values="{ NUMBER: vm.digest.counts.occurrenceFromCount}"></span>
-        </li>
-        <li ng-if="vm.digest.counts.checklistDatasetFromCount">
-            <a href="/dataset/search?type=CHECKLIST&publishing_country={{ vm.digest.iso2 }}">
-                <strong ng-bind="vm.digest.counts.checklistDatasetFromCount | localNumber:gb.locale"></strong>
-            </a>
-            <span translate="gbifNetwork.checklistDatasetWith"
-                  translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromCount}"></span>
-            <strong ng-bind="vm.digest.counts.checklistDatasetFromRecordCount | localNumber:gb.locale"></strong>
-            <span translate="gbifNetwork.usage"
-                  translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromRecordCount}"></span>
-        </li>
-        <li ng-if="vm.digest.counts.metadataDatasetFromCount">
-            <a href="/dataset/search?type=METADATA&publishing_country={{ vm.digest.iso2 }}">
-                <strong ng-bind="vm.digest.counts.metadataDatasetFromCount | localNumber:gb.locale"></strong>
-            </a>
-            <span translate="gbifNetwork.metadataDataset"
-                  translate-values="{NUMBER: vm.digest.counts.metadataDatasetFromCount}"></span>
-        </li>
-    </ul>
-    <ul class="info-pane__digest participant-details-list m-b-1">
-        <li ng-if="vm.digest.counts.occurrenceContributingToCount">
-            <span translate="gbifNetwork.publishesDataCovering"></span><br/>
-            <a href="/occurrence/search?publishing_country={{ vm.digest.iso2 }}&repatriated=true&advanced=1">
-                <strong ng-bind="vm.digest.counts.occurrenceContributingToCount | localNumber:gb.locale"></strong>
-            </a>
-            <span translate="gbifNetwork.countriesTerritoriesAndIslands"></span>
-        </li>
-    </ul>
-    <ul class="info-pane__digest participant-details-list m-b-1">
-        <li ng-if="vm.digest.counts.literatureAuthoredByCount">
-            <a href="/cms/search?type=literature&category_author_from_country={{ vm.digest.iso2 }}">
-                <strong ng-bind="vm.digest.counts.literatureAuthoredByCount"></strong>
-            </a>
-            <span translate="gbifNetwork.peerReviewedPublication"
-                  translate-values="{NUMBER: vm.digest.counts.literatureAuthoredByCount}"></span>
         </li>
     </ul>
     <footer>

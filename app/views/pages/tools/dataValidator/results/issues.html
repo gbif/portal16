@@ -109,7 +109,7 @@
                 <tr ng-repeat="row in issueBlock.relatedData">
                     <td ng-repeat="(key, val) in row" class="table-cell--wide">
                     <span ng-if="key !== 'rowType'">{{ val }}</span>
-                    <a ng-href="/tools/data-validator/{{vm.jobid}}/extensions#{{vm.dwcextensions[val].title | spaceToHyphen}}" ng-if="key === 'rowType'">{{ vm.dwcextensions[val].title}}</a>
+                    <a ng-href="{{portal.urlPrefix}}/tools/data-validator/{{vm.jobid}}/extensions#{{vm.dwcextensions[val].title | spaceToHyphen}}" ng-if="key === 'rowType'">{{ vm.dwcextensions[val].title}}</a>
 
 
                     </td>
