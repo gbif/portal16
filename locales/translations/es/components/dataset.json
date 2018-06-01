@@ -21,6 +21,8 @@
             "projectId": "project"
         },
         "title": "Title",
+        "projectId": "Project ID",
+        "studyArea": "Study area",
         "publishedBy": "Published by",
         "description": "Description",
         "purpose": "Purpose",
