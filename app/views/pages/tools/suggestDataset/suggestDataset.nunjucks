@@ -153,7 +153,7 @@
                                                                     ng-model="suggestDataset.suggestion.type">
                                                                 {% for typeOption in ["undefined", "OCCURRENCE", "CHECKLIST", "SAMPLING_EVENT", "METADATA"] %}
                                                                     <option value="{$ typeOption | prettifyEnum $}">
-                                                                        {$__('dataset.type.' + typeOption) | capitalize
+                                                                        {$__('dataset.type.' + typeOption)
                                                                         $}
                                                                     </option>
                                                                 {% endfor %}
@@ -198,7 +198,7 @@
                                                                 <input type="radio" name="license" id="license4"
                                                                        value="Unspecified"
                                                                        ng-model="suggestDataset.suggestion.license">
-                                                                {$ __('license.UNSPECIFIED') | capitalize $}
+                                                                {$ __('license.UNSPECIFIED') $}
                                                             </label>
                                                         </div>
                                                         <div class="radio">
@@ -206,7 +206,7 @@
                                                                 <input type="radio" name="license" id="license5"
                                                                        value="Not open"
                                                                        ng-model="suggestDataset.suggestion.license">
-                                                                {$ __('tools.suggestDataset.NOT_OPEN') | capitalize $}
+                                                                {$ __('tools.suggestDataset.NOT_OPEN') $}
                                                             </label>
                                                         </div>
                                                     </div>

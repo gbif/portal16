@@ -25,11 +25,11 @@
 
                         <h1 class="text-center" ng-cloak>
                             {% if download.record.status === 'KILLED' %}
-                                <span class="error">{$ __('downloadKey.brokenDownload') | capitalize $}</span>
+                                <span class="error">{$ __('downloadKey.brokenDownload') $}</span>
                             {% elif download.record.status === 'CANCELLED' %}
-                                <span class="error">{$ __('downloadKey.cancelled') | capitalize $}</span>
+                                <span class="error">{$ __('downloadKey.cancelled') $}</span>
                             {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
-                                <span class="discreet">{$ __('downloadKey.underProcessing') | capitalize $}</span>
+                                <span class="discreet">{$ __('downloadKey.underProcessing') $}</span>
                             {% else %}
                              <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
                             {% endif %}
@@ -208,7 +208,7 @@
                                     <div ng-show="!downloadKey.HUMAN" class="ng-cloak">
                                         <div>
                                             {$ __('downloadKey.apiUsageDescription') $}
-                                            <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') | capitalize $}</a></div>
+                                            <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') $}</a></div>
                                         <pre>
                                             <code>
 {$ download.predicateString | safe $}

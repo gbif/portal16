@@ -90,7 +90,7 @@
                         {% set pages = ["summary", "registry", "species", "occurrence", "maps", "news"] %}
                         {% for page in pages %}
                             <li class="tab {% if active == page %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/developer/{$ page $}">{$ page | capitalize $}</a>
+                                <a href="{$ gb.locales.urlPrefix $}/developer/{$ page $}">{$ page $}</a>
                             </li>
                         {% endfor %}
                     </ul>
@@ -110,7 +110,7 @@
                 <ul class="nav-chapters">
                     {% for id,sect in sections %}
                         <li class="nav-chapter" du-scrollspy="{$ id $}">
-                            <a href="#{$ id $}">{$ sect | capitalize $}</a>
+                            <a href="#{$ id $}">{$ sect $}</a>
                         </li>
                     {% endfor %}
                 </ul>

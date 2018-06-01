@@ -19,7 +19,7 @@
 
                     {% if contributor.roles.length > 0 %}
                         {% for role in contributor.roles %}
-                            <span class="dataset-key__contributors__roles">{$ __('role.' + role) | capitalize $}</span>{% if not loop.last %}, {% endif %}
+                            <span class="dataset-key__contributors__roles">{$ __('role.' + role) $}</span>{% if not loop.last %}, {% endif %}
                         {% endfor %}
                         <br>
                     {% endif %}

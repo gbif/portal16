@@ -154,7 +154,7 @@
                                             {% if participant.participationStatus %}
                                                 <div>
                                                     <dt>Member status</dt>
-                                                    <dd>{$ __('participationStatus.' + participant.participationStatus) | capitalize $}</dd>
+                                                    <dd>{$ __('participationStatus.' + participant.participationStatus) $}</dd>
                                                 </div>
                                             {% endif %}
                                             {% if participant.membershipStart %}
@@ -166,7 +166,7 @@
                                             {% if participant.gbifRegion %}
                                                 <div>
                                                     <dt>GBIF region</dt>
-                                                    <dd>{$ __('region.' + participant.gbifRegion) | capitalize $}</dd>
+                                                    <dd>{$ __('region.' + participant.gbifRegion) $}</dd>
                                                 </div>
                                             {% endif %}
                                         </dl>
