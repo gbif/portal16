@@ -17,8 +17,8 @@
                 <h4 translate="cms.auxiliary.subject">Subject</h4>
                 <ul class="list-chips">
                     {% if main.fields.countriesOfResearcher.length > 0 %}
-                        <li class="list-chips__category">
-                            {{'cms.auxiliary.researchersCountry' | translate}}:
+                        <li class="list-chips__category uppercase-first">
+                            {{'enums.cms.vocabularyTypes.countriesOfResearcher' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.countriesOfResearcher %}
@@ -28,8 +28,8 @@
                     {% endfor %}
 
                     {% if main.fields.countriesOfCoverage.length > 0 %}
-                        <li class="list-chips__category">
-                            {{'cms.auxiliary.countryCoverage' | translate}}:
+                        <li class="list-chips__category uppercase-first">
+                            {{'enums.cms.vocabularyTypes.countriesOfCoverage' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.countriesOfCoverage %}
@@ -39,8 +39,8 @@
                     {% endfor %}
 
                     {% if main.fields.topics.length > 0 %}
-                        <li class="list-chips__category">
-                            {{'cms.auxiliary.topics' | translate}}:
+                        <li class="list-chips__category  uppercase-first">
+                            {{'enums.cms.vocabularyTypes.topics' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.topics %}
@@ -50,8 +50,8 @@
                     {% endfor %}
 
                     {% if main.fields.audiences.length > 0 %}
-                        <li class="list-chips__category">
-                            {{'cms.auxiliary.audiences' | translate}}:
+                        <li class="list-chips__category  uppercase-first">
+                            {{'enums.cms.vocabularyTypes.audiences' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.audiences %}
@@ -61,8 +61,8 @@
                     {% endfor %}
 
                     {% if main.fields.purposes.length > 0 %}
-                        <li class="list-chips__category">
-                            {{'cms.auxiliary.purposes' | translate}}:
+                        <li class="list-chips__category  uppercase-first">
+                            {{'enums.cms.vocabularyTypes.purposes' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.purposes %}
