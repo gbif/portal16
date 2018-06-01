@@ -1,50 +1,50 @@
 {
-    "feedback": {
-        "intro": {
-            "title": "Feedback and questions",
-            "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
-        },
-        "data content": {
-            "title": "Content",
-            "example": "Such as: That page contains a typo. That species doesn’t exist. That location seems suspect. The new URL for that organization is...",
-            "annotate": "This publisher has a website for handling feedback. We recommend using that",
-            "contactPerMail": "Get in touch with the dataset contact"
-        },
-        "bug": {
-            "title": "Bug",
-            "example": "Such as: The search button doesn’t work. The page doesn’t load. I can’t read this because the columns overlap."
-        },
-        "idea": {
-            "title": "Idea",
-            "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
-        },
-        "question": {
-            "title": "Helpdesk",
-            "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
-            "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
-            "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
-        },
-        "confirmation": {
-            "title": "Thank you",
-            "example": "",
-            "seeIssue": "See issue"
-        },
-        "issues": {
-            "title": "Content issues",
-            "description": "Content issues reported by other users",
-            "create": "Leave feedback"
-        },
-        "placeholders": {
-            "summary": "Summary",
-            "description": "Detailed description",
-            "username": "Your email or Github username (public)"
-        },
-        "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
-        "bugReport": "bug",
-        "issueTracking": "All issues are visible to the public at {Github}",
-        "failure": "This isn’t good — the feedback system doesn’t work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
-        "commentsNone": "No comments",
-        "commentSingular": "{commentCount} comment",
-        "commentPlural": "{commentCount} comments"
-    }
+  "feedback": {
+    "intro": {
+      "title": "Feedback and questions",
+      "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
+    },
+    "data content": {
+      "title": "Content",
+      "example": "Such as: That page contains a typo. That species doesn’t exist. That location seems suspect. The new URL for that organization is...",
+      "annotate": "This publisher has a website for handling feedback. We recommend using that",
+      "contactPerMail": "Get in touch with the dataset contact"
+    },
+    "bug": {
+      "title": "Bug",
+      "example": "Such as: The search button doesn’t work. The page doesn’t load. I can’t read this because the columns overlap."
+    },
+    "idea": {
+      "title": "Idea",
+      "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
+    },
+    "question": {
+      "title": "Helpdesk",
+      "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
+      "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
+      "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
+    },
+    "confirmation": {
+      "title": "Thank you",
+      "example": "",
+      "seeIssue": "See issue"
+    },
+    "issues": {
+      "title": "Content issues",
+      "description": "Content issues reported by other users",
+      "create": "Leave feedback"
+    },
+    "placeholders": {
+      "summary": "Summary",
+      "description": "Detailed description",
+      "username": "Your email or Github username (public)"
+    },
+    "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
+    "bugReport": "Bug",
+    "issueTracking": "All issues are visible to the public at {Github}",
+    "failure": "This isn’t good — the feedback system doesn’t work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
+    "commentsNone": "No comments",
+    "commentSingular": "{commentCount} comment",
+    "commentPlural": "{commentCount} comments"
+  }
 }

@@ -19,7 +19,6 @@ function builder(locale) {
     locale = locale || 'en';
     let translations = _.merge(
         {},
-        getFile(locale, `../notTranslatedYet/${locale}`),
         getFile(locale, `./${locale}/enums/basisOfRecord`),
         getFile(locale, `./${locale}/enums/cms`),
         getFile(locale, `./${locale}/enums/continent`),
@@ -78,7 +77,8 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/trends`),
         getFile(locale, `./${locale}/components/eoi`),
         getFile(locale, `./${locale}/intervals`),
-        getFile(locale, `./${locale}/misc`)
+        getFile(locale, `./${locale}/misc`),
+        getFile(locale, `./${locale}/doNotTranslate`)
     );
 
     return translations;

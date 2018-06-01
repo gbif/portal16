@@ -1,7 +1,7 @@
 {
-    "mediaType": {
-        "StillImage": "image",
-        "Sound": "audio",
-        "MovingImage": "video"
-    }
+  "mediaType": {
+    "StillImage": "Image",
+    "Sound": "Audio",
+    "MovingImage": "Video"
+  }
 }

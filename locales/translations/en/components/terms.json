@@ -1,8 +1,8 @@
 {
-    "terms": {
-        "headline": "Use of cookies on GBIF",
-        "description": "GBIF uses cookies and the like for the purposes of statistical analysis, improving the friendliness and usability of our website, tailoring content to your interests and engaging with social media. By visiting our website, you consent to our and third party use of cookies as described in our privacy and cookie policy.",
-        "readTerms": "Read terms",
-        "accept": "accept"
-    }
+  "terms": {
+    "headline": "Use of cookies on GBIF",
+    "description": "GBIF uses cookies and the like for the purposes of statistical analysis, improving the friendliness and usability of our website, tailoring content to your interests and engaging with social media. By visiting our website, you consent to our and third party use of cookies as described in our privacy and cookie policy.",
+    "readTerms": "Read terms",
+    "accept": "Accept"
+  }
 }
