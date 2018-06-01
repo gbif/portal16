@@ -1,13 +1,13 @@
 {
-    "occurrenceSearch": {
-        "table": "Table",
-        "gallery": "Gallery",
-        "map": "Map",
-        "taxonomy": "Taxonomy",
-        "charts": "Charts",
-        "download": "Download",
-        "withImages": "with images",
-        "withCoordinates": "with coordinates",
-        "searchAllFields": "Search all fields"
-    }
+  "occurrenceSearch": {
+    "table": "Table",
+    "gallery": "Gallery",
+    "map": "Map",
+    "taxonomy": "Taxonomy",
+    "charts": "Charts",
+    "download": "Download",
+    "withImages": "With images",
+    "withCoordinates": "With coordinates",
+    "searchAllFields": "Search all fields"
+  }
 }
