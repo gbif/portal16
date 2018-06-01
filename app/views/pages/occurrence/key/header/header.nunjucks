@@ -9,7 +9,7 @@
                             $}</a></span>
                     <span class="article-header__category__lower">
                         {% if occurrence.record.eventDate | isDefined %}
-                            {{ occurrenceKey.record.eventDate | momentFormat:'D MMMM YYYY' }}
+                            {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}
                         {% else %}
                             {$ __('stdTerms.unknownDate') $}
                         {% endif %}
@@ -36,7 +36,7 @@
             </div>
             {% if occurrence.record.modified %}
                 <div>
-                    {$ __('stdTerms.modified') $} {{ occurrenceKey.record.modified | momentFormat:'D MMMM YYYY' }}
+                    {$ __('stdTerms.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}
                 </div>
             {% endif %}
         </div>
