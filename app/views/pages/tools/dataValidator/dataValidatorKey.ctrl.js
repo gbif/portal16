@@ -1,7 +1,7 @@
 'use strict';
 var _ = require('lodash'),
-moment = require('moment-timezone'),
-fixedUtil = require('../../dataset/key/main/submenu');
+    moment = require('moment-timezone'),
+    fixedUtil = require('../../dataset/key/main/submenu');
 
 require('./feedback.service');
 
@@ -15,6 +15,7 @@ angular
 
 /** @ngInject */
 function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env) {
+    var MAX_RUNNING_HOURS = 2;
     var vm = this;
     vm.dataApi = env.dataApi;
     vm.$state = $state;
@@ -38,9 +39,9 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
         vm.dataApi + 'validator/evaluation/nonindexable'
 
     ).success(function(data) {
-       vm.criticalIssues = _.keyBy(data, function(s) {
-           return s;
-       });
+        vm.criticalIssues = _.keyBy(data, function(s) {
+            return s;
+        });
     });
 
 
@@ -52,10 +53,23 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
             // server gives timestamp in millsec. But it seems to be in Copenhagen time. So we subtract the copenhagen UTC offset from the date
             vm.startTimestamp = moment.utc(data.startTimestamp).subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes').fromNow();
             vm.generatedDate = moment.utc(data.startTimestamp).subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes');
+/*
+console.log(moment.duration(moment()
+.diff(moment.utc(data.startTimestamp).subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes'), 'minutes')).humanize());
 
-            handleValidationSubmitResponse(data);
+console.log(moment.utc().tz('Europe/Copenhagen')
+.diff(moment.utc(data.startTimestamp), 'minutes'))
+
+            if (data.status === 'RUNNING' && moment.utc().subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes')
+                .diff(moment.utc(data.startTimestamp).subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes'), 'hours') > MAX_RUNNING_HOURS) {
+                handleWSError(new Error('Backend spend more than ' + MAX_RUNNING_HOURS + ' running'), 500);
+            } else {
+                handleValidationSubmitResponse(data);
+            }
+            */
+           handleValidationSubmitResponse(data);
         }).error(function(err, status) { // data, status, headers, config
-            if ((err && err.statusCode === 404 ) || status === 404) {
+            if ((err && err.statusCode === 404) || status === 404) {
                 handleValidationSubmitResponse(err);
             } else {
                 handleWSError(err, status);
@@ -75,7 +89,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     }
 
     function loadEvaluationCategory() {
-       return $http({
+        return $http({
             url: vm.dataApi + 'validator/enumeration/simple/EvaluationCategory'
         }).success(function(data) {
             vm.evaluationCategory = data;
@@ -86,7 +100,6 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     vm.retries404 = 10;
     function handleValidationSubmitResponse(data) {
         vm.jobStatus = data.status;
-
         if ((data.status === 'RUNNING' || data.status === 'ACCEPTED' || data.status === 'NOT_FOUND') && data.jobId) {
             /* currently the validator webservice may return 404 and then after a few attempts it will return 200
                 We give it 5 attempts before throwing 404
@@ -94,7 +107,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
              */
             vm.jobId = data.jobId;
             if (data.status === 'NOT_FOUND') {
-                vm.retries404 --;
+                vm.retries404--;
             } else {
                 vm.retries404 = 10;
             }
@@ -135,100 +148,100 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     }
 
     var sortIssues = function(issues) {
-      return _.sortBy(issues, [
-        function(issue) {
-            return (issue.severity === 'INFO') ? 3 : (issue.severity === 'WARNING') ? 2 : 1;
-        },
-          function(issue) {
-              return (issue.count) ? (- parseInt(issue.count)) : 0;
-          }
+        return _.sortBy(issues, [
+            function(issue) {
+                return (issue.severity === 'INFO') ? 3 : (issue.severity === 'WARNING') ? 2 : 1;
+            },
+            function(issue) {
+                return (issue.count) ? (- parseInt(issue.count)) : 0;
+            }
         ]);
     };
 
     function getIssueSeverity(e) {
-              //  return (vm.remarks[e]) ? vm.remarks[e].severity : "WARNING";
+        //  return (vm.remarks[e]) ? vm.remarks[e].severity : "WARNING";
         return (vm.remarks[e]) ? vm.remarks[e].severity : (vm.criticalIssues[e]) ? 'ERROR' : 'WARNING';
     }
 
     vm.getIssueSeverity = getIssueSeverity;
 
     function handleValidationResult(responseData) {
-            var data = responseData.result;
+        var data = responseData.result;
 
-            data.results.sort(function(a, b) {
-                if (a.fileType === 'CORE' && b.fileType !== 'CORE') {
-                    return -1;
-                } else if (a.fileType !== 'CORE' && b.fileType === 'CORE') {
-                    return 1;
-                } else {
-                    return 0;
-                }
+        data.results.sort(function(a, b) {
+            if (a.fileType === 'CORE' && b.fileType !== 'CORE') {
+                return -1;
+            } else if (a.fileType !== 'CORE' && b.fileType === 'CORE') {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+
+        vm.extensionCount = 0;
+
+        for (var i = 0; i < data.results.length; i++) {
+            if (data.results[i].fileType === 'CORE') {
+                vm.coreDataType = data.results[i].rowType;
+            } else if (data.results[i].fileType === 'EXTENSION') {
+                vm.extensionCount++;
+            }
+        }
+
+        vm.validationResults = {
+            summary: _.omit(data, 'results'),
+            results: []
+        };
+        vm.validationResults.summary.issueTypesFound = {};
+        vm.unknownTermMap = {};
+
+        angular.forEach(data.results, function(resourceResult) {
+            var vmResourceResult = _.omit(resourceResult, 'issues');
+            // the order of the evaluationCategory is important
+            vmResourceResult.issues = _.orderBy(resourceResult.issues, function(value) {
+                return _.indexOf(vm.evaluationCategory, value.issueCategory);
             });
 
-            vm.extensionCount = 0;
-
-            for (var i = 0; i < data.results.length; i++) {
-                if (data.results[i].fileType === 'CORE') {
-                    vm.coreDataType = data.results[i].rowType;
-                } else if (data.results[i].fileType === 'EXTENSION') {
-                    vm.extensionCount ++;
+            // prepare terms frequency
+            if (resourceResult.termsFrequency) {
+                for (var i = 0; i < resourceResult.termsFrequency.length; i++) {
+                    var key = Object.keys(resourceResult.termsFrequency[i])[0];
+                    resourceResult.termsFrequency[i].key = key;
+                    resourceResult.termsFrequency[i].count = resourceResult.termsFrequency[i][key];
                 }
             }
 
-            vm.validationResults = {
-                summary: _.omit(data, 'results'),
-                results: []
-            };
-            vm.validationResults.summary.issueTypesFound = {};
-             vm.unknownTermMap = {};
-
-        angular.forEach(data.results, function(resourceResult) {
-                var vmResourceResult = _.omit(resourceResult, 'issues');
-                // the order of the evaluationCategory is important
-                vmResourceResult.issues = _.orderBy(resourceResult.issues, function(value) {
-return _.indexOf(vm.evaluationCategory, value.issueCategory);
-});
-
-                // prepare terms frequency
-                if (resourceResult.termsFrequency) {
-                    for (var i = 0; i < resourceResult.termsFrequency.length; i++) {
-                        var key = Object.keys(resourceResult.termsFrequency[i])[0];
-                        resourceResult.termsFrequency[i].key = key;
-                        resourceResult.termsFrequency[i].count = resourceResult.termsFrequency[i][key];
-                    }
-                }
-
-                if (resourceResult.interpretedValueCounts && _.isEmpty(resourceResult.interpretedValueCounts)) {
-                    delete vmResourceResult.interpretedValueCounts;
-                }
+            if (resourceResult.interpretedValueCounts && _.isEmpty(resourceResult.interpretedValueCounts)) {
+                delete vmResourceResult.interpretedValueCounts;
+            }
 
 
-                vmResourceResult.issuesMap = {};
-                var issueBlock, issueSample;
+            vmResourceResult.issuesMap = {};
+            var issueBlock, issueSample;
 
-               var unknownTermIssueSamples = _.map(_.filter(resourceResult.issues, function(i) {
+            var unknownTermIssueSamples = _.map(_.filter(resourceResult.issues, function(i) {
                 return i.issue === 'UNKNOWN_TERM';
-               }), function(s) {
- return s.relatedData;
-});
+            }), function(s) {
+                return s.relatedData;
+            });
             var duplicatedTermIssuesSamples = _.map(_.filter(resourceResult.issues, function(i) {
                 return i.issue === 'DUPLICATED_TERM';
             }), function(s) {
- return s.relatedData;
-});
+                return s.relatedData;
+            });
 
             resourceResult.issues = _.filter(resourceResult.issues, function(i) {
                 return i.issue !== 'DUPLICATED_TERM' && i.issue !== 'UNKNOWN_TERM';
             });
 
-                if (unknownTermIssueSamples && unknownTermIssueSamples.length > 0) {
-                    resourceResult.issues.push({
-                        issue: 'UNKNOWN_TERM',
-                        issueCategory: 'RESOURCE_STRUCTURE',
-                        relatedData: unknownTermIssueSamples
+            if (unknownTermIssueSamples && unknownTermIssueSamples.length > 0) {
+                resourceResult.issues.push({
+                    issue: 'UNKNOWN_TERM',
+                    issueCategory: 'RESOURCE_STRUCTURE',
+                    relatedData: unknownTermIssueSamples
 
-                    });
-                }
+                });
+            }
 
             if (duplicatedTermIssuesSamples && duplicatedTermIssuesSamples.length > 0) {
                 resourceResult.issues.push({
@@ -239,82 +252,82 @@ return _.indexOf(vm.evaluationCategory, value.issueCategory);
                 });
             }
 
-                //
-                // var grouped = _.groupBy(resourceResult.issues, function(i){
-                //     return (i.issue === "UNKNOWN_TERM" ||  i.issue === "DUPLICATED_TERM") ? i.issue : 'OTHER';
-                // })
-                // if(grouped["UNKNOWN_TERM"]){
-                //
-                // }
-                angular.forEach(resourceResult.issues, function(value) {
-                    this[value.issueCategory] = this[value.issueCategory] || [];
-                    if (value.issue === 'UNKNOWN_TERM' || value.issue === 'DUPLICATED_TERM') {
-                        vm.unknownTermMap[value.relatedData] = true;
-                    }
-                    value.severity = getIssueSeverity(value.issue);
-                    vm.validationResults.summary.hasIssues = true;
-                    vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
-                    vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] = vm.remarks[value.issue] || {severity: getIssueSeverity(value.issue), id: value.issue};
+            //
+            // var grouped = _.groupBy(resourceResult.issues, function(i){
+            //     return (i.issue === "UNKNOWN_TERM" ||  i.issue === "DUPLICATED_TERM") ? i.issue : 'OTHER';
+            // })
+            // if(grouped["UNKNOWN_TERM"]){
+            //
+            // }
+            angular.forEach(resourceResult.issues, function(value) {
+                this[value.issueCategory] = this[value.issueCategory] || [];
+                if (value.issue === 'UNKNOWN_TERM' || value.issue === 'DUPLICATED_TERM') {
+                    vm.unknownTermMap[value.relatedData] = true;
+                }
+                value.severity = getIssueSeverity(value.issue);
+                vm.validationResults.summary.hasIssues = true;
+                vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
+                vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] = vm.remarks[value.issue] || {severity: getIssueSeverity(value.issue), id: value.issue};
 
 
-                    // rewrite sample to exclude redundant information (e.g. evaluationType)
+                // rewrite sample to exclude redundant information (e.g. evaluationType)
 
-                    issueBlock = _.omit(value, 'sample');
-                    angular.forEach(value.sample, function(sample) {
-                        this.sample = this.sample || [];
-                        issueSample = {};
-                        issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);
-                        issueSample.relatedData = sample.relatedData;
-                        issueSample.allData = _.assign({}, issueSample.issueData, issueSample.relatedData);
-                        this.sample.push(issueSample);
-                    }, issueBlock);
+                issueBlock = _.omit(value, 'sample');
+                angular.forEach(value.sample, function(sample) {
+                    this.sample = this.sample || [];
+                    issueSample = {};
+                    issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);
+                    issueSample.relatedData = sample.relatedData;
+                    issueSample.allData = _.assign({}, issueSample.issueData, issueSample.relatedData);
+                    this.sample.push(issueSample);
+                }, issueBlock);
 
-                    if (issueBlock.related) {
-                        issueBlock.sample = _.sortBy(issueBlock.sample, [function(o) {
-                            return (_.isArray(o.relatedData)) ? - Object.keys(o.relatedData).length : 0;
-}
-
-                        ]);
+                if (issueBlock.related) {
+                    issueBlock.sample = _.sortBy(issueBlock.sample, [function(o) {
+                        return (_.isArray(o.relatedData)) ? - Object.keys(o.relatedData).length : 0;
                     }
 
+                    ]);
+                }
 
-                    if (issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData && issueBlock.sample[0].relatedData) {
-                        issueBlock.headers = Object.keys(issueBlock.sample[0].issueData).concat(Object.keys(issueBlock.sample[0].relatedData));
-                    } else if (issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData ) {
-                        issueBlock.headers = Object.keys(issueBlock.sample[0].issueData);
-                    }
 
-                    this[value.issueCategory].push(issueBlock);
-                }, vmResourceResult.issuesMap);
-               _.each(vmResourceResult.issuesMap, function(val, key) {
-                   vmResourceResult.issuesMap[key] = sortIssues(val);
-                });
-                this.push(vmResourceResult);
-            }, vm.validationResults.results);
+                if (issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData && issueBlock.sample[0].relatedData) {
+                    issueBlock.headers = Object.keys(issueBlock.sample[0].issueData).concat(Object.keys(issueBlock.sample[0].relatedData));
+                } else if (issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData) {
+                    issueBlock.headers = Object.keys(issueBlock.sample[0].issueData);
+                }
+
+                this[value.issueCategory].push(issueBlock);
+            }, vmResourceResult.issuesMap);
+            _.each(vmResourceResult.issuesMap, function(val, key) {
+                vmResourceResult.issuesMap[key] = sortIssues(val);
+            });
+            this.push(vmResourceResult);
+        }, vm.validationResults.results);
 
         _.each(vm.validationResults.summary.issueTypesFound, function(val, key) {
-                vm.validationResults.summary.issueTypesFound[key] = _.values(sortIssues(val));
+            vm.validationResults.summary.issueTypesFound[key] = _.values(sortIssues(val));
         });
 
         vm.validationResults.summary.issueTypesFoundSorted = _.sortBy(_.map(vm.validationResults.summary.issueTypesFound, function(value, key) {
             return {key: key, issues: value};
         }),
-        function(r) {
-            switch (r.key) {
-                case 'RESOURCE_STRUCTURE':
-                    return 0;
-                case 'RESOURCE_INTEGRITY':
-                    return 1;
-                case 'RECORD_STRUCTURE':
-                    return 2;
-                case 'METADATA_CONTENT':
-                    return 3;
-                case 'OCC_INTERPRETATION_BASED':
-                    return 4;
-                case 'CLB_INTERPRETATION_BASED':
-                    return 5;
-            }
-        });
+            function(r) {
+                switch (r.key) {
+                    case 'RESOURCE_STRUCTURE':
+                        return 0;
+                    case 'RESOURCE_INTEGRITY':
+                        return 1;
+                    case 'RECORD_STRUCTURE':
+                        return 2;
+                    case 'METADATA_CONTENT':
+                        return 3;
+                    case 'OCC_INTERPRETATION_BASED':
+                        return 4;
+                    case 'CLB_INTERPRETATION_BASED':
+                        return 5;
+                }
+            });
 
 
         vm.validationResults.results = _.sortBy(vm.validationResults.results, function(r) {

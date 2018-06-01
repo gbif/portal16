@@ -76,6 +76,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/publisher`),
         getFile(locale, `./${locale}/components/country`),
         getFile(locale, `./${locale}/components/trends`),
+        getFile(locale, `./${locale}/components/eoi`),
         getFile(locale, `./${locale}/intervals`),
         getFile(locale, `./${locale}/misc`)
     );
