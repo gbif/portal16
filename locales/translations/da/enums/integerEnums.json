@@ -1,36 +1,36 @@
 {
-    "month": {
-        "1": "Januar",
-        "2": "Februar",
-        "3": "marts",
-        "4": "april",
-        "5": "maj",
-        "6": "juni",
-        "7": "July",
-        "8": "august",
-        "9": "September",
-        "10": "oktober",
-        "11": "November",
-        "12": "december"
-    },
-    "day": {
-        "0": "Søndag",
-        "1": "Mandag",
-        "2": "Tirsdag",
-        "3": "Onsdag",
-        "4": "Torsdag",
-        "5": "Fredag",
-        "6": "Lørdag"
-    },
-    "kingdomKey": {
-        "0": "incertae sedis",
-        "1": "Dyr",
-        "2": "Archaea",
-        "3": "Bakterier",
-        "4": "Chromista",
-        "5": "Svampe",
-        "6": "Planter",
-        "7": "Protozoa",
-        "8": "Vira"
-    }
+  "month": {
+    "1": "Januar",
+    "2": "Februar",
+    "3": "marts",
+    "4": "april",
+    "5": "maj",
+    "6": "juni",
+    "7": "July",
+    "8": "august",
+    "9": "September",
+    "10": "oktober",
+    "11": "November",
+    "12": "december"
+  },
+  "day": {
+    "0": "Søndag",
+    "1": "Mandag",
+    "2": "Tirsdag",
+    "3": "Onsdag",
+    "4": "Torsdag",
+    "5": "Fredag",
+    "6": "Lørdag"
+  },
+  "kingdomKey": {
+    "0": "Incertae sedis",
+    "1": "Dyr",
+    "2": "Archaea",
+    "3": "Bakterier",
+    "4": "Chromista",
+    "5": "Svampe",
+    "6": "Planter",
+    "7": "Protozoa",
+    "8": "Vira"
+  }
 }
