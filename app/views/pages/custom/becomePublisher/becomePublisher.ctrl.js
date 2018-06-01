@@ -189,7 +189,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
                     anchorYUnits: 'pixels',
                     size: [25, 41],
                     opacity: 1,
-                    src: '/img/marker-icon.png'
+                    src: '/img/marker.png'
                 }))
             });
 
