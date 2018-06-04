@@ -57,10 +57,10 @@
                             </ul>
                         </dd>
                     </div>
-                    <div xng-if="datasetKey.orphanStatus">
+                    <div ng-if="datasetKey.orphanStatus">
                         <dt translate="dataset.registry.hostingStatus"></dt>
                         <dd>
-                            <span xng-if="datasetKey.orphanStatus === 'ORPHANED'" gb-help="what-is-an-orphan-dataset"><span translate="dataset.registry.orphaned"></span></span>
+                            <span ng-if="datasetKey.orphanStatus === 'ORPHANED'" gb-help="what-is-an-orphan-dataset"><span translate="dataset.registry.orphaned"></span></span>
                             <span ng-if="datasetKey.orphanStatus === 'RESCUED'" gb-help="what-is-an-orphan-dataset"><span translate="dataset.registry.rescued"></span></span>
                             <span ng-if="datasetKey.orphanStatus === 'ADOPTED'" gb-help="what-is-an-orphan-dataset"><span translate="dataset.registry.adopted"></span></span>
                         </dd>

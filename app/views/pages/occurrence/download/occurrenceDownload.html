@@ -211,7 +211,7 @@
                                     <h4 translate="downloadReport.knownIssues"></h4>
                                     <p class="discreet" translate="downloadReport.knownIssuesDescription"></p>
                                     <div>
-                                        <div xng-if="occDownload.showIssueDetails">
+                                        <div ng-if="occDownload.showIssueDetails">
                                             <span class="badge-composite--{{issue.severity | lowercase }}"
                                                   ng-repeat="issue in occDownload.issues | limitTo:occDownload.issueLimit">
                                                 <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>

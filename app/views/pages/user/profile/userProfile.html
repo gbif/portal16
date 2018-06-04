@@ -42,7 +42,7 @@
                                             <span translate="profile.email"></span>
                                             <input type="text" ng-pattern="userProfile.emailPattern" name="email"
                                                    required ng-model="userProfile.profile.email"
-                                                   xng-disabled="true">
+                                                   ng-disabled="true">
                                         </label>
                                         <div ng-messages="userProfile.profileForm.email.$error" class="text-error small"
                                              role="alert" ng-show="userProfile.profileFormInvalid">

@@ -13,7 +13,7 @@
                         {{ datasetKey.dataset.project.title }}
                     </h3>
 
-                    <div xng-if="datasetKey.dataset.project.abstract">
+                    <div ng-if="datasetKey.dataset.project.abstract">
                         <div ng-bind-html="datasetKey.dataset.project.abstract | linky"></div>
                     </div>
 

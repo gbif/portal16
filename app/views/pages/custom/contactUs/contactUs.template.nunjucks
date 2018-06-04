@@ -1,7 +1,7 @@
 <div class="site-content">
     <div class="site-content__page">
         <div class="white-background">
-            <div class="wrapper-horizontal-stripes" Xng-if="datasetKey.dataset.$resolved">
+            <div class="wrapper-horizontal-stripes" ng-if="datasetKey.dataset.$resolved">
 
                 {% include "./header.nunjucks" %}
 
