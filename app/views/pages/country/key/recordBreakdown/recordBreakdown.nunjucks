@@ -12,7 +12,7 @@
                 &nbsp;</span>
             <span>occurrence records from {$ __('country.' + country.code) $}</span>
         </h4>
-        <div class="gb-btn-group inline-block pull-right" xng-if="countryKey.isParticipant">
+        <div class="gb-btn-group inline-block pull-right" ng-if="countryKey.isParticipant">
             <label ng-model="countryActivity.showAbout" uib-btn-radio="true"
                    ng-change="countryActivity.toggle()">About</label>
             <label ng-model="countryActivity.showAbout" uib-btn-radio="false"

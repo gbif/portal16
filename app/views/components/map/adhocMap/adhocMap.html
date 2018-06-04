@@ -38,14 +38,14 @@
 
                 </div>
             </div>
-            <div class="mapPopup fixedSize" ng-if="!vm.ignoreCoordinateIssues && (vm.filter.has_coordinate !== 'true' || vm.filter.has_geospatial_issue !== 'false')">
+            <div class="mapPopup fixedSize" ng-if="vm.ignoreCoordinateIssues !==true && (vm.filter.has_coordinate !== 'true' && vm.filter.has_geospatial_issue !== 'false' )">
                 <div class="card small">
                     <div class="card__stripe">
                         <div class="card__content" ng-bind-html="'help.locationFilterWarning' | translate | md2html">
                         </div>
                     </div>
                     <div class="card__stripe--actions">
-                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" class="gb-button--flat text-uppercase" translate="help.yesHideThem"></a>
+                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})"  class="gb-button--flat text-uppercase" translate="help.yesHideThem"></a>
                         <a href="" class="gb-button--flat text-uppercase" ng-click="vm.ignoreCoordinateIssues = true" translate="help.noShowThem"></a>
                     </div>
                 </div>
