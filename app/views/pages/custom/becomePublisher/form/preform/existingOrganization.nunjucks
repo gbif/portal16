@@ -35,7 +35,7 @@
         </md-card-content>
         <md-card-content class="seperator">
             <div>
-                <md-checkbox ng-model="eoi.state.notExisting" class="md-primary m-b-0" translate="eoi.myOrgIsNotRegistered"></md-checkbox>
+                <md-checkbox ng-model="eoi.state.notExisting" class="md-primary m-b-0" > <span translate="eoi.myOrgIsNotRegistered"></span></md-checkbox>
             </div>
         </md-card-content>
     </md-card>
