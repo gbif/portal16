@@ -72,6 +72,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
                             vm.suggestedCountryNode = data;
                             vm.form.suggestedNodeKey = vm.suggestedCountryNode.key;
                         } else {
+                            delete vm.suggestedCountryNode;
                             vm.form.suggestedNodeKey = 'other';
                         }
                     });
