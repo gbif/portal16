@@ -148,6 +148,14 @@ function createMap(element, options) {
     function removeDrawnItems() {
         source.clear();
     }
+    var deleteListener;
+
+    function exitDeleteMode() {
+       if (deleteListener) {
+        ol.Observable.unByKey(deleteListener);
+       }
+    }
+
     function deleteMode(cb) {
         var geometries = [];
         map.removeInteraction(snap);
@@ -157,7 +165,7 @@ function createMap(element, options) {
                 source.removeFeature(feature);
             });
         };
-        map.once('click', function(evt) {
+        deleteListener = map.once('click', function(evt) {
             deleteFeatureAtPixel(evt.pixel);
             source.forEachFeature(function(f) {
                 var asGeoJson = geoJsonFormatter.writeFeature(f, {rightHanded: true});
@@ -202,6 +210,7 @@ function createMap(element, options) {
         disableDraw: disableDraw,
         enableModify: enableModify,
         deleteMode: deleteMode,
+        exitDeleteMode: exitDeleteMode,
         initGeometry: initGeometry,
         removeDrawnItems: removeDrawnItems,
         update: this.update,
