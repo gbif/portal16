@@ -4,7 +4,7 @@
 
         {% if main.fields.citation %}
             <section class="no-break">
-                <h4 translate="stdTerms.citations" translate-values="{NUMBER: 2}">Citations</h4>
+                <h4 translate="stdTerms.citation"></h4>
                 {$ main.fields.citation | renderMarkdown | sanitize | linkify | safe $}
             </section>
         {% endif %}
