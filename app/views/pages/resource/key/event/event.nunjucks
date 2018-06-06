@@ -19,7 +19,7 @@
                                 {% if main.fields.primaryLink %}
                                 <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small">{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
                                 {% endif %}
-                                <a ng-href="/api/newsroom/events/{$ main.sys.id $}.ics" class="gb-button--discreet small"><span class="gb-icon-calendar"></span> Add to calendar</a>
+                                <a ng-href="/api/newsroom/events/{$ main.sys.id $}.ics" class="gb-button--discreet small"><span class="gb-icon-calendar"></span> <span translate="resource.addToCalendar"></span></a>
                             </div>
 
                             <div class="article-header__highlights">
@@ -62,24 +62,24 @@
                             <dl class="inline">
                                 {% if main.fields.venue %}
                                     <div>
-                                        <dt>Venue</dt>
+                                        <dt>{$ __('resource.venue') $}</dt>
                                         <dd>{$ main.fields.venue | safe $}</dd>
                                     </div>
                                 {% endif %}
                                 {% if main.fields.location %}
                                     <div>
-                                        <dt>Location</dt>
+                                        <dt>{$ __('resource.location') $}</dt>
                                         <dd>{$ main.fields.location | safe $}</dd>
                                     </div>
                                 {% endif %}
                                 {% if main.fields.country %}
                                     <div>
-                                        <dt>Country</dt>
+                                        <dt>{$ __('stdTerms.country') $}</dt>
                                         <dd>{$ __('country.' + main.fields.country.sys.id) $}</dd>
                                     </div>
                                 {% endif %}
                                 <div>
-                                    <dt>When</dt>
+                                    <dt>{$ __('resource.when') $}</dt>
                                     {% if main.fields.allDayEvent %}
                                         <dd>{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</dd>
                                     {% else  %}
@@ -93,7 +93,7 @@
                                 </div>
                                 {% if main.fields.eventLanguage %}
                                     <div>
-                                        <dt>Language</dt>
+                                        <dt>{$ __('resource.language') $}</dt>
                                         <dd>{$ main.fields.eventLanguage $}</dd>
                                     </div>
                                 {% endif %}
