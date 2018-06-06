@@ -3,35 +3,22 @@
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline" translate="eoi.whatAndHow">What and how</span>
-                <span class="md-subhead" translate="eoi.helpUsUnderstand">Help us understand what kind of data you plan to publish, and what support you may need.</span>
+                <span class="md-subhead" translate="eoi.helpUsUnderstand"></span>
             </md-card-title-text>
         </md-card-title>
 
         <md-card-content>
             <div>
                 <div layout="row">
-                    <p ng-bind-html="('eoi.publOfFourTypesOfData' | translate )"> GBIF.org supports publication of four types of data, explained <a href="/dataset-classes" target="_blank">here.</a> Responsibility for formatting the data and hosting the original datasets remains with the data publisher, but we can help you find appropriate technical solutions.     </p>           </div>
-                {#<div layout="row">#}
-                    {#<md-input-container flex="100">#}
-                        {#<label>Data sample</label>#}
-                        {#<input type="url" name="sample" ng-model="eoi.form.comments.sampleUrl">#}
-                        {#<div class="hint discreet--very small">Please provide a reference to a the data that you plan to publish. E.g. a csv file or a website</div>#}
-                        {#<div ng-messages="eoi.publisherForm.sample.$error">#}
-                            {#<div ng-message="url">Invalid url</div>#}
-                        {#</div>#}
-                    {#</md-input-container>#}
-                {#</div>#}
-
-                    <p translate="eoi.whichTypesOfData">Which types of data do you expect to publish?</p>
+                    <p ng-bind-html="('eoi.publOfFourTypesOfData' | translate | md2html )"></p>
+                </div>
+                    <p translate="eoi.whichTypesOfData"></p>
                     <fieldset class="standard">
-
                         <div layout-wrap layout-gt-sm="row">
-
 
                                 <md-checkbox ng-model="eoi.form.comments.expectToPublishDataTypes.ResourceMetaData" aria-label="Resources metadata" class="md-primary md-align-top-left">
                                    <span translate="eoi.resourcesMetaData"> Resources metadata</span>
                                 </md-checkbox>
-
 
                                 <md-checkbox ng-model="eoi.form.comments.expectToPublishDataTypes.ChecklistData" aria-label="Checklist data" class="md-primary md-align-top-left">
                                     <span translate="eoi.checkListData">Checklist data</span>
@@ -51,9 +38,7 @@
 
 
                 <div class="m-b-1">
-                    <p translate="eoi.doYouHaveCapacity">
-                        Do you have EITHER the capacity to run a live server, OR access to a server, through which you will make your original dataset available to GBIF.org?
-                    </p>
+                    <p translate="eoi.doYouHaveCapacity"></p>
                     <md-radio-group ng-model="eoi.form.comments.serverCapable" name="serverCapable" layout="row" layout-align="start" ng-required="true">
                         <md-radio-button value="yes" class="md-primary"><span translate="eoi.yes">Yes</span></md-radio-button>
                         <md-radio-button value="no"  class="md-primary"><span translate="eoi.no">No</span></md-radio-button>
@@ -64,9 +49,7 @@
                 </div>
 
                 <div class="m-b-1">
-                    <p ng-bind-html="'eoi.areYouPlanningToInstallAndRun' | translate | md2html">
-                        Are you planning to install and run publishing software (such as the <a href="/ipt" target="_blank">Integrated Publishing Toolkit – IPT</a>) to publish your data directly to GBIF.org?
-                    </p>
+                    <p ng-bind-html="'eoi.areYouPlanningToInstallAndRun' | translate | md2html"></p>
                     <md-radio-group ng-model="eoi.form.comments.toolPlanned" name="toolPlanned" layout="row" layout-align="start" required>
                         <md-radio-button value="yes" class="md-primary"><span translate="eoi.yes">Yes</span></md-radio-button>
                         <md-radio-button value="no"  class="md-primary"><span translate="eoi.no">No</span></md-radio-button>
@@ -74,9 +57,7 @@
                     <div ng-messages="eoi.publisherForm.toolPlanned.$error" ng-if="eoi.submitAttempted" class="text-error small">
                         <div ng-message="required" translate="eoi.pleaseSelectAValue">Please select a value</div>
                     </div>
-                    <div class="m-t-1 text-warning" ng-if="eoi.form.comments.toolPlanned == 'yes'" ng-bind-html="'eoi.reuseTrustedIPThosting' | translate | md2html">
-                        In this case, it is recommended that you first try reusing an existing trusted <a href="https://github.com/gbif/ipt/wiki/dataHostingCentres" target="_blank">IPT data hosting centre</a>
-                    </div>
+                    <div class="m-t-1 text-warning" ng-if="eoi.form.comments.toolPlanned == 'yes'" ng-bind-html="'eoi.reuseTrustedIPThosting' | translate | md2html"></div>
                 </div>
 
                 <div class="m-b-1">
