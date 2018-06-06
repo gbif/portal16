@@ -9,7 +9,7 @@ angular
     .controller('becomePublisherCtrl', becomePublisherCtrl);
 
 /** @ngInject */
-function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry) {
+function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry, $scope, $sessionStorage, NOTIFICATIONS) {
     var vm = this;
     vm.MAGIC_OBIS_KEY = constantKeys.node.OBIS_NODE_KEY;
     vm.state = {
@@ -31,7 +31,6 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         suggestedNodeKey: 'other'
 
     };
-
 
     vm.getPublisherSuggestions = function(val) {
         var deferred = $q.defer();
@@ -233,6 +232,11 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         body.contacts.push(body.pointOfContact);
         return body;
     }
+
+    vm.notifications = $sessionStorage.notifications;
+    $scope.$on(NOTIFICATIONS.CHANGED, function(event, notifications) {
+        vm.notifications = notifications;
+    });
 }
 
 module.exports = becomePublisherCtrl;

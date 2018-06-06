@@ -1,6 +1,10 @@
 <div class="horizontal-stripe light-background seperator ng-cloak">
     <div class="container--narrow" ng-if="!eoi.state.submissionComplete">
 
+        <div class="text-center" ng-if="eoi.notifications.components.REGISTRY !== 'OPERATIONAL'">
+            <span class="error-block" translate="eoi.outage"></span>
+        </div>
+
         {% include "./preform/existingOrganization.nunjucks" %}
 
         <div ng-if="eoi.state.notExisting">

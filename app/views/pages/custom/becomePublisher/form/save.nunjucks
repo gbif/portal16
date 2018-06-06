@@ -1,4 +1,6 @@
-<div layout="row" layout-align="end" flex>
+<div class="text-center" ng-if="eoi.notifications.components.REGISTRY !== 'OPERATIONAL'">
+    <span class="error-block" translate="eoi.outage"></span>
+</div>
+<div layout="row" layout-align="end" flex ng-if="eoi.notifications.components.REGISTRY === 'OPERATIONAL'">
     <md-button type="submit" class="md-raised md-primary" ng-click="eoi.submitAttempted = true"><span translate="eoi.registerOrg">Register organization</span></md-button>
-    {#<md-button ng-click="eoi.createOrganization()" class="md-raised md-primary">TEST</md-button>#}
 </div>
