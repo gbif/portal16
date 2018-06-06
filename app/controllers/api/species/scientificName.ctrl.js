@@ -150,7 +150,7 @@ async function getParsedName(speciesKey) {
                 let parent = await getSpecies(species.parentKey);
                 return (ranks.indexOf(parent.rank) < SPECIES_RANK_INDEX) ?
                 name.scientificName + ' <i>(' + parent.canonicalName + ' sp.)</i>' :
-                name.scientificName + ' <i>(' + parent.canonicalName + ')</i>';
+                name.scientificName + ' <i>(aff. ' + parent.canonicalName + ')</i>';
         }
         // return n;
     } else {
