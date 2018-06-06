@@ -1,7 +1,7 @@
 <div class="card m-b-05 searchCard" ng-class="{'event--past': (result.end | isPast)}">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.event') $}</span>
+            <span class="searchCard__type" translate="cms.contentType.event"></span>
             <h3 class="searchCard__headline">
                 <a ng-href="{{ result.primaryLink.url }}" ng-if="result.primaryLink.url">
                     {{result.title}}
