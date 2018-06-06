@@ -25,28 +25,23 @@
                                 <p ng-if="result.description">
                                     {{result.description | stripTags | limitTo:200 }}
                                 </p>
-                                <p ng-if="!result.description" class="discreet">
-                                    No description provided
+                                <p ng-if="!result.description" class="discreet" translate="stdTerms.noDescriptionProvided">
                                 </p>
                                 <p class="discreet--very smaller" ng-if="result.publishingOrganizationTitle">
-                                    Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
+                                    <span translate="dataset.publishedBy"></span> {{ result.publishingOrganizationTitle | limitTo:100 }}
                                 </p>
                                 <p ng-if="result.highlights && result.highlights.description">
                                     <span>... <span ng-bind-html="result.highlights.description"></span> ...</span>
-
-                                </p>
-                                <p ng-if="result.highlights && result.highlights.keywords">
-                                    Keywords: <span ng-bind-html="result.highlights.keywords"></span>
                                 </p>
                                 <ul class="list-chips" ng-if="result.type != 'METADATA'">
                                     <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">
-                                        <a ng-href="/occurrence/search?dataset_key={{ result.key}}"><span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">&nbsp;</span> occurrences</a>
+                                        <a ng-href="/occurrence/search?dataset_key={{ result.key}}"><span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}" count-translation="stdTerms.nOccurrences">&nbsp;</span></a>
                                     </li>
                                     <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}species/search?dataset_key={{ result.key }}">
-                                        <a ng-href="/species/search?dataset_key={{ result.key}}&advanced=1"><span count="{{ portal.dataApi }}species/search?dataset_key={{ result.key }}">&nbsp;</span> records</a>
+                                        <a ng-href="/species/search?dataset_key={{ result.key}}&advanced=1"><span count="{{ portal.dataApi }}species/search?dataset_key={{ result.key }}" count-translation="stdTerms.nRecords">&nbsp;</span></a>
                                     </li>
                                     <li class="asyncIf--isHidden" async-if="/api/resource/search?contentType=literature&gbifDatasetKey={{ result.key }}">
-                                        <a ng-href="/resource/search?gbifDatasetKey={{ result.key}}&contentType=literature"><span count="/api/resource/search?contentType=literature&gbifDatasetKey={{ result.key }}">&nbsp;</span> citations</a>
+                                        <a ng-href="/resource/search?gbifDatasetKey={{ result.key}}&contentType=literature"><span count="/api/resource/search?contentType=literature&gbifDatasetKey={{ result.key }}" count-translation="stdTerms.nCitations">&nbsp;</span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -57,7 +52,7 @@
             </div>
         </div>
         <div class="emptyInfo" ng-if="!projectKey.projectId || projectKey.datasets.count === 0">
-            <h3>There is no datasets associated with this project</h3>
+            <h3 translate="resource.noDatasets"></h3>
         </div>
     </div>
 </div>
