@@ -7,7 +7,7 @@ angular
     .controller('countryPublishingCtrl', countryPublishingCtrl);
 
 /** @ngInject */
-function countryPublishingCtrl($stateParams, DatasetSearch, OccurrenceDatasetSearch) {
+function countryPublishingCtrl($stateParams, DatasetSearch, OccurrenceDatasetSearch, LOCALE) {
     var vm = this;
     vm.countryCode = $stateParams.key;
 
@@ -28,7 +28,7 @@ function countryPublishingCtrl($stateParams, DatasetSearch, OccurrenceDatasetSea
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: '', type: type, showSettings: false},
-            filter: {publishingCountry: vm.countryCode},
+            filter: {publishingCountry: vm.countryCode, locale: LOCALE},
             customFilter: customFilter
         };
         vm.charts.push(chartConfig);

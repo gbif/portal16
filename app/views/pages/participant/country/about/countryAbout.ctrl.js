@@ -7,7 +7,7 @@ angular
     .controller('countryAboutCtrl', countryAboutCtrl);
 
 /** @ngInject */
-function countryAboutCtrl($stateParams, OccurrenceTableSearch, OccurrenceDatasetSearch) {
+function countryAboutCtrl($stateParams, OccurrenceTableSearch, OccurrenceDatasetSearch, LOCALE) {
     var vm = this;
     vm.countryCode = $stateParams.key;
 
@@ -22,7 +22,7 @@ function countryAboutCtrl($stateParams, OccurrenceTableSearch, OccurrenceDataset
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: '', type: type, showSettings: false},
-            filter: {country: vm.countryCode},
+            filter: {country: vm.countryCode, locale: LOCALE},
             customFilter: customFilter
         };
         vm.charts.push(chartConfig);
