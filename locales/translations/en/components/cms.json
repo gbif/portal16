@@ -134,5 +134,10 @@
       "subject": "Subject",
       "organisingParticipants": "Organising Participants"
     }
+  },
+  "event": {
+    "location": "Location",
+    "date": "Date",
+    "languageOfEvent": "Language of event"
   }
 }
