@@ -1,15 +1,4 @@
 {
-  "countryPage": {
-    "occurrencesAbout": "Occurrences about",
-    "occurrencesFrom": "Occurrences from",
-    "MemberSince": "Member since",
-    "countryDescription": {
-      "VOTING": "%s is a voting participant of GBIF",
-      "ASSOCIATE": "%s is an associate participant of GBIF",
-      "undefined": "",
-      "FORMER": "%s is a former participant of GBIF"
-    }
-  },
   "meta": {
     "resourceDescription": "Search for resources in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
     "analyticsCountry": {
@@ -20,10 +9,6 @@
     "analyticsTitle": "Data trends",
     "eoiDescription": "To prepare for publishing data through GBIF, we ask prospective new publishers to complete this online form. Before GBIF indexes your datasets, your institution must receive endorsement as a data publisher from one of the countries or organizations participating in GBIF, through a GBIF Participant node. If your country is not yet participating in GBIF, we will seek endorsement on your behalf from the GBIF community.",
     "eoiTitle": "Become a publisher",
-    "observationTrendsTitle": "Observation Trends",
-    "observationTrendsDescription": "A pilot to explore whether relative observation trends for species distribution within GBIF provide useful information for researchers",
-    "speciesLookupDescription": "Normalize species names from a CSV file against the GBIF backbone. The file is expected to be have a column called ‘scientificName’ and an optional column ‘kingdom’ and ‘id’.",
-    "speciesLookupTitle": "Species name matching",
     "nameParserTitle": "Name Parser",
     "nameParserDescription": "This is a simple html form to make use of the GBIF name parser. The parser is written in java and based on regular expressions to disect name strings into its components. It does only keep name parts required to reconstruct a full 3-parted name with an optional subgenus, but ignores additional infraspecific parts such as the subspecies given for varieties. Please see our [API documentation](/developer/species#parser) for details.",
     "nameParserRequirements": "You can copy paste a list of names, one per row, or upload a text file with a name per line. Uploaded files have to be encoded as utf8!",
