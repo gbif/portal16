@@ -28,7 +28,7 @@
                 <div>
                     <a href="#funding" class="inherit">
                         <span class="gb-icon-euro"></span>
-                        {{ {$ main.fields.fundsAllocated $} | localNumber }}
+                         {$ main.fields.fundsAllocated.toLocaleString() $} 
                     </a>
                 </div>
                 {% endif %}

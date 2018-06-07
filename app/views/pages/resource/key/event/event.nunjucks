@@ -19,7 +19,7 @@
                                 {% if main.fields.primaryLink %}
                                 <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small">{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
                                 {% endif %}
-                                <a ng-href="/api/newsroom/events/{$ main.sys.id $}.ics" class="gb-button--discreet small"><span class="gb-icon-calendar"></span> <span translate="resource.addToCalendar"></span></a>
+                                <a ng-href="/api/newsroom/events/{$ main.sys.id $}.ics" class="gb-button--discreet small"><span class="gb-icon-calendar"></span> {$ __('resource.addToCalendar') $} </a>
                             </div>
 
                             <div class="article-header__highlights">
