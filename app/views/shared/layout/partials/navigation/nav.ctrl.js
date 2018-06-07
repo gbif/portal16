@@ -94,12 +94,13 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
 
     function updateUser() {
         vm.loginGreeting = _.get($sessionStorage.user, 'userName');
-        if (!vm.loginGreeting) {
-            $translate('profile.loginText').then(function(translation) {
+        $translate('profile.loginText').then(function(translation) {
+            if (!vm.loginGreeting) {
                 vm.loginGreeting = translation;
-            });
-        }
+            }
+        });
     }
+    
     updateUser();
     $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         updateUser();
