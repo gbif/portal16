@@ -54,7 +54,10 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
         if ($stateParams.root) {
             vm.showRoot();
         }
-
+        vm.noRootSelector = function() {
+            delete $stateParams.root;
+            vm.$state.go(vm.$state.current, {}, {reload: true});
+        };
         vm.gotoSpecies = function(key) {
             delete $stateParams.root;
             vm.$state.go(vm.$state.current, {speciesKey: key}, {reload: true});

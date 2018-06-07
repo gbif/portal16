@@ -116,3 +116,22 @@
     </div>
 </div>
 
+<div class="page__overlay" ng-if="vm.showRootSelector" ng-click="vm.noRootSelector()">
+    <div class="content__overlay__card">
+        <div class="content__overlay__card__header seperator--b" translate="species.selectRoot"></div>
+        <div class="content__overlay__card__list">
+            <div class="text-center m-t-2 m-b-2" ng-if="!vm.rootOptions.$resolved"><span class="loading"></span></div>
+            <ul ng-if="vm.rootOptions.$resolved">
+                <li ng-repeat="option in vm.rootOptions.results">
+                    <a ng-click="vm.gotoSpecies(option.key)"class="inherit noUnderline">
+                        <span>{{ option.scientificName }}</span>
+                        <div class="small discreet--very">
+                            <span>{{ 'taxonRank.' + option.rank | translate }}</span><span>{{ option.numDescendants | localNumber }} {{species.descendants | translate}}</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
