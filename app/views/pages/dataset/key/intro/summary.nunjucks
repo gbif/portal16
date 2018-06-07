@@ -26,7 +26,10 @@
                         {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
-
+                <div>
+                    <dt translate="stdTerms.host">Host</dt>
+                    <dd><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
+                </div>
                 <div>
                     <dt translate="stdTerms.license"></dt>
                     <dd>
