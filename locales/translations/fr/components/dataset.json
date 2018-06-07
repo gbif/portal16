@@ -92,5 +92,11 @@
       "adopted": "Adopted dataset",
       "lastIngestedBeforeDate": "Last ingested before {DATE}"
     }
+  },
+  "datasetKey": {
+    "originalArchive": "Source archive",
+    "annotatedEml": "GBIF annotated metadata",
+    "recommended": "Recommended",
+    "processedOccurrences": "GBIF annotated archive"
   }
 }
