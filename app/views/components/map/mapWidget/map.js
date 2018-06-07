@@ -29,7 +29,7 @@ function createMap(element, options) {
         if (optionsConfig.localizedStyles[baseMapStyle.style]) {
             baseMapStyle.style += '-' + locale;
         }
-        console.log(baseMapStyle);
+
         overlayStyle = options.overlay || overlayStyle || {};
         filters = options.filters || filters || {};
         map.getLayers().clear();
