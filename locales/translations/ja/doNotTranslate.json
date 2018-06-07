@@ -1,26 +1,4 @@
 {
-  "datasetDetails": {
-    "georeferenced": "Georeferenced",
-    "records": "Records"
-  },
-  "node": {
-    "introText": {
-      "COUNTRY": {
-        "VOTING": "A voting participant from {country}, {region}",
-        "ASSOCIATE": "An associate participant from {country}, {region}",
-        "OBSERVER": "An observing participant from {country}, {region}",
-        "AFFILIATE": "An affiliate participant from {country}, {region}",
-        "FORMER": "A former participant from {country}, {region}"
-      },
-      "OTHER": {
-        "VOTING": "A voting member from {country}, {region}",
-        "ASSOCIATE": "An associate member from {country}, {region}",
-        "OBSERVER": "An observing member from {country}, {region}",
-        "AFFILIATE": "An affiliate member from {country}, {region}",
-        "FORMER": "A former member from {country}, {region}"
-      }
-    }
-  },
   "countryPage": {
     "occurrencesAbout": "Occurrences about",
     "occurrencesFrom": "Occurrences from",
