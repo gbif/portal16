@@ -1,7 +1,7 @@
 {
   "resource": {
-    "searchForNewsEventsDocuments": "Search for news, events, documents and much more. If you are looking for species occurrences then try our",
-    "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for? You are always welcome to",
+    "searchForNewsEventsDocuments": "Search for news, events, documents and much more. If you are looking for species occurrences then try our occurrence search.",
+    "occurrenceSearch": "occurrence search",
     "contactHelpdesk": "Contact helpdesk",
     "searchForResources": "Search for resources",
     "addToCalendar": "Add to calendar",
