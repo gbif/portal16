@@ -1,78 +1,4 @@
 {
-  "interpretationRemarks": {
-    "comments": {
-      "EXCLUDED": "Excluded",
-      "AUTHORED": "Altered",
-      "INFERED": "Inferred"
-    }
-  },
-  "event": {
-    "location": "Location",
-    "date": "Date",
-    "languageOfEvent": "Language of event"
-  },
-  "participationStatus": {
-    "VOTING": "Voting",
-    "ASSOCIATE": "Associate",
-    "OBSERVER": "Observer",
-    "AFFILIATE": "Affiliate",
-    "FORMER": "Former",
-    "undefined": "Unknown",
-    "longForm": {
-      "VOTING": "Voting participant",
-      "ASSOCIATE": "Associate participant",
-      "OBSERVER": "Observing participant",
-      "AFFILIATE": "Affiliate participant",
-      "FORMER": "Former participant",
-      "undefined": "Unknown"
-    },
-    "description": {
-      "VOTING": "A GBIF Voting participant from {REGION}",
-      "ASSOCIATE": "An associate participant from {REGION}",
-      "OBSERVER": "A GBIF Observer Country from {REGION}",
-      "AFFILIATE": "An affiliate participant from {REGION}",
-      "FORMER": "A GBIF Former Participant from {REGION}",
-      "undefined": "Unknown"
-    },
-    "type": {
-      "COUNTRY": {
-        "description": {
-          "VOTING": "A GBIF Voting participant from {REGION}",
-          "ASSOCIATE": "A GBIF Associate Country Participant from {REGION}",
-          "OBSERVER": "A GBIF Observer Country from {REGION}",
-          "AFFILIATE": "A GBIF affiliate Country from {REGION}",
-          "FORMER": "A former participant from {REGION}",
-          "undefined": "Not a participant"
-        },
-        "longForm": {
-          "VOTING": "Voting participant",
-          "ASSOCIATE": "Associate participant",
-          "OBSERVER": "Observing participant",
-          "AFFILIATE": "Affiliate participant",
-          "FORMER": "Former participant",
-          "undefined": "Unknown"
-        }
-      },
-      "OTHER": {
-        "description": {
-          "VOTING": "A GBIF Voting participant organization from {REGION}",
-          "ASSOCIATE": "An associate participant organization from {REGION}",
-          "OBSERVER": "An observing participant organization from {REGION}",
-          "AFFILIATE": "An affiliate participant organization from {REGION}",
-          "FORMER": "A former participant organization from {REGION}",
-          "undefined": "Unknown"
-        },
-        "longForm": {
-          "VOTING": "Voting participant organization",
-          "ASSOCIATE": "Associate participant organization",
-          "OBSERVER": "Observing participant organization",
-          "AFFILIATE": "Affiliate participant organization",
-          "FORMER": "Former participant organization",
-          "undefined": "Unknown"
-        }
-      }
-    }
-  },
   "datasetDetails": {
     "georeferenced": "Georeferenced",
     "records": "Records"
@@ -127,90 +53,6 @@
     "searchDescriptionDetail": "For ‘{{searchTerm}}’",
     "iptDescription": "The Integrated Publishing Toolkit (IPT) is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the GBIF network. The IPT can also be configured with either a DataCite or EZID account in order to assign DOIs to datasets transforming it into a data repository."
   },
-  "tools": {
-    "categoryTitle": "Tools",
-    "categoryFeatured": "Featured",
-    "suggestDataset": {
-      "NOT_OPEN": "Not an open license",
-      "title": "Suggest a dataset",
-      "pleaseDescribeTheDataset": "Please describe the dataset",
-      "form": {
-        "title": "Title",
-        "link": "Internet link to data",
-        "region": "Geographic coverage",
-        "taxon": "Taxonomic scope",
-        "whyImportant": "Why is this dataset important",
-        "howWouldYouRateIt": "How would you rate its importance",
-        "high": "Essential — GBIF have no data in this area",
-        "medium": "Important — GBIF have little data in this area",
-        "low": "It would be a nice supplement to the existing data",
-        "bibliographicRef": "Bibliographic reference",
-        "type": "Dataset type",
-        "license": "License information",
-        "dataHolderContact": "Dataholders contact information",
-        "publicAlert": "These details will be public",
-        "yourContact": "Your contact information",
-        "comments": "Comments",
-        "submit": "Submit",
-        "followDiscussionBelow": "Follow or join the further discussion on the link below.",
-        "followIssue": "See suggestion on github",
-        "suggestAnother": "Suggest another dataset",
-        "saveFailure": "This isn't good. We couldn't save your suggestion. Please try again later or alternatively go straight to [Github](https://github.com/gbif/data-mobilization/issues) where the suggestions are managed"
-      }
-    },
-    "observationTrends": {
-      "drawerTitle": "Relative observation trends",
-      "intro": "A pilot to explore whether relative observation trends for species within GBIF provide useful information for researchers",
-      "aboutLink": "Read about this tool",
-      "selectSpecies": "Select species",
-      "noData": "We have no georeferenced data about the selected species after year 1900",
-      "selectHigherTaxa": "Select higher taxon",
-      "selectArea": "Select an area",
-      "hexagon": "Hexagon",
-      "draw": "Draw",
-      "clear": "Clear",
-      "resultIntro": "Change in relative observation frequency for the selected area",
-      "embedIntro": "All data mediated through the {GBIF network}"
-    }
-  },
-  "filters": {
-    "noPreference": "No preference",
-    "repatriation": {
-      "repatriationFilter": "Repatriated data",
-      "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
-    },
-    "peerReview": {
-      "title": "Peer-Reviewed"
-    },
-    "openAccess": {
-      "title": "Open access"
-    },
-    "gbifDownloadKey": "Download key",
-    "location": {
-      "north": "North",
-      "south": "South",
-      "west": "West",
-      "east": "East",
-      "withCoordinates": "Including coordinates",
-      "withoutCoordinates": "Without coordinates",
-      "includeFlaggedAsSuspicious": "Include records where coordinates are flagged as suspicious",
-      "onlyShowFlagged": "Only show records that are flagged as suspicious",
-      "past": "Recently used",
-      "geojson": "GeoJSON",
-      "range": "Range",
-      "noFiltersAdded": "No area filters added",
-      "wktPlaceholder": "WKT or GeoJSON — multipolygons are not supported",
-      "invalidTextInput": "Invalid WKT or GeoJSON",
-      "tooLarge": "Geometry too large",
-      "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
-      "invalidRange": "Invalid bounding box"
-    }
-  },
-  "nameParser": {
-    "loadTestNames": "Load Test Names",
-    "parse": "Parse",
-    "pasteInfo": "One per line or delimited by the pipe symbol \"|\""
-  },
   "participation": {
     "title": "Participation",
     "heading": "The GBIF Network",
@@ -222,16 +64,6 @@
       "one": "GBIF affiliate",
       "other": "GBIF affiliates"
     }
-  },
-  "datasetKey": {
-    "originalArchive": "Source archive",
-    "annotatedEml": "GBIF annotated metadata",
-    "recommended": "Recommended",
-    "processedOccurrences": "GBIF annotated archive"
-  },
-  "error": {
-    "USER_ALREADY_EXIST": "User already exists. Please try another username or email",
-    "CONSTRAINT_VIOLATION": "Invalid or insufficient information provided"
   },
   "cites": {
     "appendix": "Appendix"
