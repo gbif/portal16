@@ -19,5 +19,12 @@
     },
     "occurrence": "Occurrence",
     "inLanguage": "In {LANGUAGE_TRANSLATED}"
+  },
+  "interpretationRemarks": {
+    "comments": {
+      "EXCLUDED": "Excluded",
+      "AUTHORED": "Altered",
+      "INFERED": "Inferred"
+    }
   }
 }
