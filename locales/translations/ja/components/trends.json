@@ -62,6 +62,12 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "Trends in data availability on the GBIF network, 2008 to {{YEAR}}",
     "globalDataTrends": "Global data trends",
     "countryDataTrends": "{{TRANSLATED_COUNTRY}} data trends",
-    "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} publishing trends"
+    "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} publishing trends",
+    "analyticsCountry": {
+      "fromDescription": "Change over time in data about species from {{country}} available from GBIF.org",
+      "publishedByDescription": "Change over time in the data published by institutions within {{country}} available from GBIF.org"
+    },
+    "analyticsGlobalDescription": "Trends in data availability on the GBIF network, 2008 to 2016",
+    "analyticsTitle": "Data trends"
   }
 }
