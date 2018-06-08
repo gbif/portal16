@@ -149,7 +149,9 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
                 center: [0, 0],
                 zoom: 1
             }),
-            interactions: ol.interaction.defaults({mouseWheelZoom: false})
+            interactions: ol.interaction.defaults({mouseWheelZoom: false}),
+            logo: false,
+        controls: ol.control.defaults({attribution: false})
         });
         map.on('singleclick', function(evt) {
             setPinOnMap(evt);

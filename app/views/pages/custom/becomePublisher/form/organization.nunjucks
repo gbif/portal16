@@ -116,6 +116,9 @@
             <div class="md-card-image" id="organizationMap"></div>
             <md-button class="md-raised md-warn" ng-if="eoi.dynamicPinLayer" ng-click="eoi.clear()" translate="eoi.clear">Clear</md-button>
             <md-button class="md-raised md-primary" ng-if="!eoi.dynamicPinLayer" ng-click="eoi.add()" translate="eoi.clickMapToAddOrg">Click on the map to add your organization</md-button>
+            <div class="mapWidget__info">
+            <span>© <a href="https://www.mapbox.com/" class="inherit">MapBox</a>, © <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors.</span>
+        </div>
         </div>
 
     </md-card>
