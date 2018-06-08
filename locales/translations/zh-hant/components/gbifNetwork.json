@@ -53,6 +53,16 @@
     "peerReviewedPublication": "Peer-reviewed {NUMBER, select, one{publication} other{publications}}",
     "participant": "{NUMBER, select, one{participant} other{participants}}",
     "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
-    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
+    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}",
+    "participation": {
+      "nonCountryParticipant": {
+        "one": "Participant organisation",
+        "other": "Participant organisations"
+      },
+      "gbifAffiliate": {
+        "one": "GBIF affiliate",
+        "other": "GBIF affiliates"
+      }
+    }
   }
 }
