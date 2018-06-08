@@ -1,0 +1,7 @@
+{
+    "nameParser": {
+        "loadTestNames": "Load Test Names",
+        "parse": "Parse",
+        "pasteInfo": "One per line or delimited by the pipe symbol \"|\""
+    }
+}
