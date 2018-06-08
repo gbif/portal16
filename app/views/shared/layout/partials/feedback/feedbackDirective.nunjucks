@@ -85,13 +85,11 @@
                         </p>
                         <div class="text-center">
                             <a href="" class="inherit gg-button--flat" ng-click="vm.forceShowForm = true">
-                                tell GBIF <span class="gb-icon-angle-down large"></span>
+                                <span translate="feedback.tellGbif"></span> <span class="gb-icon-angle-down large"></span>
                             </a>
                         </div>
                     </div>
-                    <div ng-if="vm.forceShowForm" class="feedback__comment">We recommend using <a
-                                ng-href="{{ vm.contentFeedback.annotation.url }}">{{ vm.contentFeedback.annotation.name }}</a>
-                    </div>
+                    <div ng-if="vm.forceShowForm" class="feedback__comment" ng-bind-html="'feedback.weRecommendX' | translate:{NAME: vm.contentFeedback.annotation.name, LINK: vm.contentFeedback.annotation.url} | md2html"></div>
                 </div>
 
                 <div ng-if="vm.contentFeedback.type == 'MAIL'" class="menubox__section__content">
@@ -109,11 +107,12 @@
                         </div>
                         <div class="text-center">
                             <a href="" class="inherit gg-button--flat" ng-click="vm.forceShowForm = true">
-                                tell GBIF <span class="gb-icon-angle-down large"></span>
+                                <span translate="feedback.tellGbif"></span> <span class="gb-icon-angle-down large"></span>
                             </a>
                         </div>
                     </div>
-                    <div ng-if="vm.forceShowForm" class="feedback__comment">We recommend sending a mail to
+                    <div ng-if="vm.forceShowForm" class="feedback__comment">
+                        <span translate="feedback.recommendMail"></span>
                         <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">{{ vm.contentFeedback.contacts.firstContact.email }}</a>
                     </div>
                 </div>
@@ -124,12 +123,7 @@
                  ng-if="vm.type.QUESTION == vm.selected || vm.type.FUNCTIONALITY == vm.selected || vm.type.IDEA == vm.selected || ( (!vm.contentFeedback.type || vm.forceShowForm) && vm.type.CONTENT == vm.selected)">
 
                  <div ng-if="!vm.hasUserToken()" class="menubox__section__content">
-                     <p>
-                        Please login to leave feedback. Alternatively you can use <a href="https://github.com/gbif/portal-feedback/issues">Github</a>.
-                     </p>
-                     <p>
-                        Why? Unfortunately we are seeing lots of spam advertisement in our feedback system if we do not require users to login.
-                     </p>
+                     <div ng-bind-html="'feedback.pleaseLogin' | translate | md2html"></div>
                  </div>
                 <div ng-if="vm.hasUserToken()">
                     <form name="vm.functionalityForm" novalidate>
