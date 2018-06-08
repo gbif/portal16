@@ -8,29 +8,24 @@
                        ng-if="vm.selected"></a>
                     <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
                     <div class="menubox__header__title text-center">
-                        <span ng-if="!vm.selected">{$ __('feedback.intro.title') $}</span>
+                        <span ng-if="!vm.selected" translate="feedback.intro.title"></span>
                         <span ng-if="vm.selected" translate="feedback.{{ vm.selected }}.title"></span>
                     </div>
                 </div>
                 <div class="menubox__header__description text-center">
-                    <p ng-if="!vm.selected">
-                        {$ __('feedback.intro.example') $}
-                    </p>
+                    <p ng-if="!vm.selected" translate="feedback.intro.example"></p>
                     <p ng-if="vm.selected && vm.selected != vm.ISSUES"
                        translate="feedback.{{ vm.selected }}.example"></p>
                     <p ng-if="vm.selected == vm.ISSUES">
                         {#{$ __('feedback.issues.description') $}#}
                         {#<br/>#}
-                        <a href="" class="gb-button--brand text-uppercase" ng-click="vm.gotoRoot()">{$
-                            __('feedback.issues.create') $}</a>
+                        <a href="" class="gb-button--brand text-uppercase" ng-click="vm.gotoRoot()" translate="feedback.issues.create"></a>
                     </p>
 
                     <p ng-if="vm.selected == vm.CONFIRMATION">
                         <a ng-href="{{ vm.referenceId }}" class="gb-button--brand text-uppercase inherit"
-                           ng-if="vm.referenceId">{$
-                            __('feedback.confirmation.seeIssue') $}</a>
-                        <a href="" class="gb-button--brand text-uppercase" ng-click="vm.gotoRoot()">{$
-                            __('feedback.issues.create') $}</a>
+                           ng-if="vm.referenceId" translate="feedback.confirmation.seeIssue"></a>
+                        <a href="" class="gb-button--brand text-uppercase" ng-click="vm.gotoRoot()" translate="feedback.issues.create"></a>
                     </p>
                 </div>
             </div>
@@ -55,9 +50,7 @@
                     </li>
                 </ul>
                 <div class="menubox__section__content clearfix" ng-if="vm.comments.count > vm.comments.results.length">
-                    <a ng-href="{{ vm.comments.url }}" target="_blank" class="btn btn-default flat pull-right">{$
-                        __('stdTerms.seeAll') $}
-                    </a>
+                    <a ng-href="{{ vm.comments.url }}" target="_blank" class="btn btn-default flat pull-right" translate="stdTerms.seeAll"></a>
                 </div>
             </div>
 
