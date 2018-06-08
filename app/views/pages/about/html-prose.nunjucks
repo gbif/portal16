@@ -3,7 +3,7 @@
 {% block tools %}
     <div class="fab" fab>
         <div class="fab__trigger">
-            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('menu.sdf') $}"><i
+            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('menu.share') $}"><i
                         class="gb-icon-share"></i></a>
         </div>
         <ul class="fab__options">
