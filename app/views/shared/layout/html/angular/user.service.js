@@ -49,7 +49,12 @@
                 };
 
                 that.getAuthToken = function() {
-                    return $cookies.get(AUTH_TOKEN_NAME);
+                    var token = $cookies.get(AUTH_TOKEN_NAME);
+                    if (!token) {
+                        delete $sessionStorage.user;
+                        $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
+                    }
+                    return token;
                 };
 
                 that.loadActiveUser = function() {

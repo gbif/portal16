@@ -18,8 +18,8 @@
     ng-class="{'hasDrawer': portal.getDrawer()}"
     ng-controller="portalCtrl as portal">
 {# if the users haven't enable javascript then tell them that the site do nto work without #}
-<div class="no-js-enabled" style="display: none"><span>{$ __('help.noJavascriptEnabled') $}</span></div>
-<div class="ie-splash" style="display:none"><span>{$ __('help.isSplashScreen') $}</span></div>
+<div class="no-js-enabled" style="display: none"><span>{$ __('phrases.noJavascriptEnabled') $}</span></div>
+<div class="ie-splash" style="display:none"><span>{$ __('phrases.isSplashScreen') $}</span></div>
 
 {% if not _meta.removeMenu %}
     {% include "../partials/navigation/navigation.nunjucks" %}

@@ -9,10 +9,10 @@ module.exports = function(app) {
 router.get('/search', function(req, res, next) {
     try {
         let searchTerm = req.query.q,
-        description = req.__('meta.searchDescription');
+        description = req.__('search.searchDescription');
 
         if (searchTerm) {
-        description += ' ' + req.__('meta.searchDescriptionDetail', {searchTerm: searchTerm});
+        description += ' ' + req.__('search.searchDescriptionDetail', {searchTerm: searchTerm});
         }
           let context = {
                 query: searchTerm,

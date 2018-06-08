@@ -83,8 +83,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/trends`),
         getFile(locale, `./${locale}/components/eoi`),
         getFile(locale, `./${locale}/intervals`),
-        getFile(locale, `./${locale}/misc`),
-        getFile(locale, `./${locale}/doNotTranslate`)
+        getFile(locale, `./${locale}/misc`)
     );
 
     return translations;

@@ -26,11 +26,11 @@ function renderPage(req, res, next, path, country, about) {
     let description;
 
     if (about && country) {
-        description = req.__('meta.analyticsCountry.fromDescription', {country: req.__('country.' + country)});
+        description = req.__('trends.analyticsCountry.fromDescription', {country: req.__('country.' + country)});
     } else if (country) {
-        description = req.__('meta.analyticsCountry.publishedByDescription', {country: req.__('country.' + country)});
+        description = req.__('trends.analyticsCountry.publishedByDescription', {country: req.__('country.' + country)});
     } else {
-        description = req.__('meta.analyticsGlobalDescription');
+        description = req.__('trends.analyticsGlobalDescription');
     }
 
 
@@ -42,7 +42,7 @@ function renderPage(req, res, next, path, country, about) {
             thumbBase: apiCfg.image.url + 'fit-in/300x250/http://' + cfg.analyticsImg + path + '/figure/',
             imgBase: apiCfg.image.url + 'http://' + cfg.analyticsImg + path + '/figure/',
             _meta: {
-                title: req.__('meta.analyticsTitle'),
+                title: req.__('trends.analyticsTitle'),
                 description: description,
                 imageCache: apiCfg.image.url,
                 image: 'http://' + cfg.analyticsImg + path + '/figure/occ_repatriation.png'

@@ -78,7 +78,7 @@
     <section class="horizontal-stripe light-background seperator" ng-if="occGallery.count > 0">
         <div class="container-fluid">
             <div class="small discreet" ng-if="occGallery.occurrenceState.query.license">
-                <p translate="help.imageLicenseInfo"></p>
+                <p translate="phrases.imageLicenseInfo"></p>
             </div>
             <div class="imageGallery">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" ui-sref="occurrenceKey({key:image.key})">
