@@ -62,7 +62,7 @@ function get4326() {
         },
         getAdhocLayer: function(params) {
             params.srs = '4326';// only supports this projection
-            return getLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
+            return getAdhocLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
         }
     };
 }
@@ -210,6 +210,90 @@ function getLayer(baseUrl, proj, params) {
         tileGrid: proj.tileGrid,
         tilePixelRatio: pixelRatio,
         url: baseUrl + querystring.stringify(params),
+        wrapX: proj.wrapX
+    });
+    if (progress) {
+        source.on('tileloadstart', function() {
+            progress.addLoading();
+        });
+
+        source.on('tileloadend', function() {
+            progress.addLoaded();
+        });
+        source.on('tileloaderror', function() {
+            progress.addLoaded();
+        });
+    }
+
+    return new ol.layer.Tile({
+        extent: proj.extent,
+        source: source,
+        useInterimTilesOnError: false,
+        visible: true
+    });
+}
+
+
+// currently map resolution isn't too good.
+// it is neccessary to hardcode resolution to zoom levels
+/*
+0: 32
+1: 64
+2: 128
+3: 256
+4: 128
+5: 256
+6: 512
+7: 1024
+8: 256
+9: 512
+10: 1042
+11: 2048
+12: 1024
+13: 2048
+14: 4096
+*/
+function getAdhocLayer(baseUrl, proj, params) {
+    params = params || {};
+    params.srs = proj.srs;
+    var progress = params.progress;
+    delete params.progress;
+    var source = new ol.source.XYZ({
+        projection: proj.projection,
+        tileGrid: proj.tileGrid,
+        tilePixelRatio: pixelRatio,
+        xurl: baseUrl + querystring.stringify(params),
+        tileUrlFunction: function(tileCoord, pixelRatio, proj) {
+            var squareSizePerZoomLevel = [
+                256, // 32 none of the styles provided by the API looks good in this resolution,
+                256, // 64 none of the styles provided by the API looks good in this resolution,
+                256, // 128 none of the styles provided by the API looks good in this resolution,
+                256,
+                256, // 128 none of the styles provided by the API looks good in this resolution,
+                256,
+                512,
+                1024,
+                256,
+                512,
+                1042,
+                2048,
+                1024,
+                2048,
+                4096
+            ];
+            var z = tileCoord[0].toString();
+            var x = tileCoord[1].toString();
+            // for reasons unknown y is negative https://stackoverflow.com/questions/38730404/in-openlayers-3-why-are-the-tms-y-coordinates-negative
+            var y = ( -tileCoord[2] - 1).toString();
+
+            params.squareSize = squareSizePerZoomLevel[z] || 32;
+            var str = baseUrl + querystring.stringify(params);
+
+            str = str.replace('{z}', z);
+            str = str.replace('{x}', x);
+            str = str.replace('{y}', y);
+            return str;
+        },
         wrapX: proj.wrapX
     });
     if (progress) {
