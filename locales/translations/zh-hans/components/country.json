@@ -35,6 +35,10 @@
     "nFrom": "{NUMBER_FORMATTED} from",
     "nAbout": "{NUMBER_FORMATTED} about",
     "viewAllN": "View all {NUMBER_FORMATTED}",
-    "noPublications": "No publications"
+    "noPublications": "No publications",
+    "pending": "Pending",
+    "latestDatasetsPublished": "Latest datasets published",
+    "noDatasets": "No published datasets",
+    "noEndorsedPublishers": "No endorsed publishers"
   }
 }
