@@ -415,15 +415,12 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             url: '/network/:key',
             views: {
                 main: {
-                    // change template once we go to the new contentful driven network pages issue #725
-                    // templateUrl: '/api/template/network.html?v=' + BUILD_VERSION,
-                    templateUrl: '/templates/pages/network/key/networkKey.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/template/network.html?v=' + BUILD_VERSION,
                     controller: 'networkKeyCtrl',
                     controllerAs: 'networkKey'
                 }
             }
         })
-        // comment in once we go to the new contentful driven network pages issue #725
         .state('networkDataset', {
             parent: 'network',
             url: '/dataset?offset',

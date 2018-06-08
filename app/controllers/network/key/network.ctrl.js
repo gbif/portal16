@@ -9,9 +9,8 @@ module.exports = function(app) {
 };
 
 router.get('/network/:key', networkPage);
-// comment in once we go to the new contentful driven network pages issue #725
-// router.get('/network/:key/dataset', networkPage);
-// router.get('/network/:key/metrics', networkPage);
+router.get('/network/:key/dataset', networkPage);
+router.get('/network/:key/metrics', networkPage);
 
 function networkPage(req, res, next) {
     let key = req.params.key;
