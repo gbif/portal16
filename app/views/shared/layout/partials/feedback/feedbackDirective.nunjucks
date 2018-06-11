@@ -129,58 +129,54 @@
                     <form name="vm.functionalityForm" novalidate>
                         <div class="feedback-input">
                             <label>
-                                <span>{$ __('feedback.placeholders.summary') $}</span>
+                                <span translate="feedback.placeholders.summary"></span>
                                 <input type="text"
                                        ng-model="vm.issue.title"
-                                       placeholder="{$ __('feedback.placeholders.summary') $}"
+                                       placeholder="{{ 'feedback.placeholders.summary' | translate }}"
                                        focus-me="true" required>
                             </label>
                         </div>
 
                         <div class="feedback__textarea">
                             <label>
-                                <span>{$ __('feedback.placeholders.description') $}</span>
+                                <span translate="feedback.placeholders.description"></span>
                                 <textarea rows="3"
                                           ng-model="vm.issue.description"
-                                          placeholder="{$ __('feedback.placeholders.description') $}" ng->
+                                          placeholder="{{ 'feedback.placeholders.description' | translate }}" ng->
                                 </textarea>
                                 <div class="feedback-input__info" ng-if="!(vm.issue.description.length > 200)">
                                     <a href="https://guides.github.com/features/mastering-markdown/" target="_blank"
                                        tabindex="-1"
-                                       class="inherit">Markdown</a> support
+                                       class="inherit" translate="feedback.markdownSupport"></a>
                                 </div>
                             </label>
                         </div>
 
                         <div class="feedback-input">
                             <label>
-                                <span>{$ __('feedback.placeholders.username') $}</span>
+                                <span translate="feedback.placeholders.username'"></span>
                                 <input type="text"
                                        ng-model="vm.issue.contact"
-                                       placeholder="{$ __('feedback.placeholders.username') $}" ng-required="vm.type.QUESTION == vm.selected">
+                                       placeholder="{{ 'feedback.placeholders.username' | translate }}" ng-required="vm.type.QUESTION == vm.selected">
                             </label>
                         </div>
 
                         <div class="menubox__section__content p-t-05">
 
                             <div class="feedback__comment">
-                                <p>
-                                    {$ __('feedback.issueTracking') |
-                                    insertLinks('https://github.com/gbif/portal-feedback/issues', '_blank') | safe $}
-                                </p>
-                                <p ng-if="vm.type.QUESTION == vm.selected">{$ __('feedback.question.comment') | linkify |
-                                    safe $}</p>
+                                <div ng-bind-html="'feedback.issueTracking' | translate | md2html"></div>
+                                <div ng-if="vm.type.QUESTION == vm.selected" ng-bind-html="'feedback.question.comment' | translate | md2html"></div>
                             </div>
                             <div class="clearfix">
                                 <button ng-disabled="!vm.functionalityForm.$valid || vm.state == 'SENDING'" type="submit"
                                         ng-click="vm.createIssue(vm.issue)"
-                                        class="btn btn-default flat pull-right">{$
-                                    __('tools.suggestDataset.form.submit') $}
+                                        class="btn btn-default flat pull-right" 
+                                        translate="tools.suggestDataset.form.submit">
                                 </button>
                             </div>
-                            <div ng-if="vm.state == 'FAILED'" class="feedback__failure">
-                                {$ __('feedback.failure') | insertLinks('https://github.com/gbif/portal-feedback/issues',
-                                '_blank') | safe $}
+                            <div ng-if="vm.state == 'FAILED'" 
+                                class="feedback__failure"
+                                ng-bind-html="'feedback.failure' | translate | md2html">
                             </div>
                         </div>
                     </form>
