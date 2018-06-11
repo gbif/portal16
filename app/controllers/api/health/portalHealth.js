@@ -2,7 +2,6 @@
 
 let notificationsComplete = require('./notifications.model')(),
     severityHelper = require('./severity'),
-    i18n = rootRequire('config/i18n'),
     objectHash = require('object-hash'),
     _ = require('lodash');
 
@@ -10,7 +9,7 @@ module.exports = {
     getHealth: getHealth
 };
 
-async function getHealth() {
+async function getHealth(__) {
     // get current health status
     let getStatus = await notificationsComplete;
     let status = _.cloneDeep(getStatus());
@@ -36,10 +35,10 @@ async function getHealth() {
     status.health.severity = max.severity;
     status.severity = severityHelper.getMostSevere(status.health.severity, status.messages.severity);
 
-    return getNotifications(status);
+    return getNotifications(status, __);
 }
 
-function getNotifications(status) {
+function getNotifications(status, __) {
     let notifications = [].concat(_.get(status, 'messages.list', []));
     notifications = notifications.map(function(e) {
         return _.pick(e, ['title', 'summary', 'url', 'severity']);
@@ -47,8 +46,8 @@ function getNotifications(status) {
     let healthSeverity = _.get(status, 'health.severity');
     if (healthSeverity !== 'OPERATIONAL') {
         notifications.push({
-            title: i18n.__('health.notifications.' + healthSeverity + '.title'),
-            summary: i18n.__('health.notifications.' + healthSeverity + '.summary'),
+            title: __('health.notifications.' + healthSeverity + '.title'),
+            summary: __('health.notifications.' + healthSeverity + '.summary'),
             severity: _.get(status, 'health.severity'),
             url: '/health'
         });

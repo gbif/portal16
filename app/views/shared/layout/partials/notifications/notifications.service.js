@@ -16,15 +16,24 @@
         .module('portal')
         .service('Notifications', function(User, USER_ROLES, $window, $http, $timeout, $rootScope, NOTIFICATIONS, HEALTH, $sessionStorage) {
                 function update() {
-                    $http.get('/api/health/portal?hash=' + _.get($sessionStorage.notifications, 'hash', '_empty'))
+                    var url;
+                    if (_.get($sessionStorage.notifications, 'locale') !== gb.locale) {
+                        url = '/api/health/portal?hash=' + '_empty' + '&locale=' + gb.locale;
+                    } else {
+                        url = '/api/health/portal?hash=' + _.get($sessionStorage.notifications, 'hash', '_empty') + '&locale=' + gb.locale;
+                    }
+                    $http.get(url)
                         .then(function(response) {
                             var notifications;
                             if (response.status == 200) {
                                 notifications = response.data;
                                 if (_.get($sessionStorage.notifications, 'hash') != notifications.hash) {
-                                    $sessionStorage.notifications = notifications;
+                                    $sessionStorage.notifications = _.extend({}, notifications, {locale: gb.locale});
                                     $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
                                     pushNotification(notifications);
+                                } else if (_.get($sessionStorage.notifications, 'locale') !== gb.locale) {
+                                    $sessionStorage.notifications = _.extend({}, notifications, {locale: gb.locale});
+                                    $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
                                 }
                             } else {
                                 notifications = $sessionStorage.notifications;
