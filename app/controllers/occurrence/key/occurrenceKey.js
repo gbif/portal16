@@ -3,7 +3,6 @@ let Q = require('q'),
     _ = require('lodash'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
-    getTitle = require('./title'),
     occurrencIssues = require('./issues'),
     Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
@@ -147,9 +146,7 @@ function getOccurrenceModel(occurrenceKey, __) {
 
     Q.all(promises).spread(function(occurrence, occurrenceMeta) {
         occurrence.highlights = highlight(occurrence);
-        occurrence.computedFields = {
-            title: getTitle(occurrence, __)
-        };
+        occurrence.computedFields = {};
         occurrence.annotation = getAnnotation(occurrence.record);
         occurrence.terms = getUsedOccurrenceCoreTerms(occurrence, occurrenceMeta.terms);
         occurrence.issues = occurrencIssues.getFieldsWithIssues(occurrence.record.issues, occurrenceMeta.remarks);

@@ -1,20 +1,30 @@
 {
   "occurrence": {
     "title": {
-      "verb": {
-        "PRESERVED_SPECIMEN": "Collected",
-        "FOSSIL_SPECIMEN": "Collected",
-        "LIVING_SPECIMEN": "Collected",
-        "HUMAN_OBSERVATION": "Observed",
-        "MACHINE_OBSERVATION": "Observed",
-        "MATERIAL_SAMPLE": "Collected",
-        "OCCURRENCE": "Recorded",
-        "OBSERVATION": "Observed",
-        "LITERATURE": "Recorded",
-        "UNKNOWN": "Recorded"
+      "inCountry": {
+        "PRESERVED_SPECIMEN": "Collected in {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Collected in {COUNTRY}",
+        "LIVING_SPECIMEN": "Collected in {COUNTRY}",
+        "HUMAN_OBSERVATION": "Observed in {COUNTRY}",
+        "MACHINE_OBSERVATION": "Observed in {COUNTRY}",
+        "MATERIAL_SAMPLE": "Collected in {COUNTRY}",
+        "OCCURRENCE": "Recorded in {COUNTRY}",
+        "OBSERVATION": "Observed in {COUNTRY}",
+        "LITERATURE": "Recorded in {COUNTRY}",
+        "UNKNOWN": "Recorded in {COUNTRY}"
       },
-      "inCountry": "In %s",
-      "unknownLocation": "At unknown location",
+      "unknownLocation": {
+        "PRESERVED_SPECIMEN": "Collected at unknown location",
+        "FOSSIL_SPECIMEN": "Collected at unknown location",
+        "LIVING_SPECIMEN": "Collected at unknown location",
+        "HUMAN_OBSERVATION": "Observed at unknown location",
+        "MACHINE_OBSERVATION": "Observed at unknown location",
+        "MATERIAL_SAMPLE": "Collected at unknown location",
+        "OCCURRENCE": "Recorded at unknown location",
+        "OBSERVATION": "Observed at unknown location",
+        "LITERATURE": "Recorded at unknown location",
+        "UNKNOWN": "Recorded at unknown location"
+      },
       "unknownSpecies": "Unknown Species"
     },
     "occurrence": "Occurrence",
