@@ -50,6 +50,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/enums/typeStatus`),
         getFile(locale, `./${locale}/enums/extension`),
         getFile(locale, `./${locale}/enums/error`),
+        getFile(locale, `./${locale}/enums/datasetType`),
         getFile(locale, `./${locale}/components/menu`),
         getFile(locale, `./${locale}/components/feedback`),
         getFile(locale, `./${locale}/components/filters`),
