@@ -111,7 +111,7 @@
 
                     {% if main.fields.additionalPartners | isNotEmpty %}
                     <div>
-                        <dt translate="cms.project.partner.other">Partners</dt>
+                        <dt translate="cms.project.partners">Partners</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 {% for partner in main.fields.additionalPartners %}
