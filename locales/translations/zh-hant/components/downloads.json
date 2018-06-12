@@ -37,11 +37,6 @@
     "downloadStarted": "The download has been started and is currently being processed.",
     "downloadExpectTime": "Please expect 10 to 15 minutes for the download to complete.",
     "notificationEmailAddresses": "A notification email with a link to download the results will be sent to the following address once ready: ",
-    "infoAboutStorage": {
-      "title": "We store all download files as long as possible",
-      "paragraphA": "This page will always resolve, but the file itself might be removed in the future.",
-      "paragraphB": "But what does this mean? It means that storage space and funding isn’t infinite. We strive to store all downloads forever, but prioritize downloads that have been cited."
-    },
     "status": {
       "PREPARING": "Preparing",
       "SUSPENDED": "Suspended",
