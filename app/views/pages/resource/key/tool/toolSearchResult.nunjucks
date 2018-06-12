@@ -1,7 +1,7 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.tool') $}</span>
+            <span class="searchCard__type">{$ __('enums.cms.contentType.tool') $}</span>
             <h3 class="searchCard__headline">
                 <a ng-if="!result.primaryLink || (result.primaryLink.url | gbifUrlAsRelative).indexOf('/') !==0" ng-href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                     {{result.title}}

@@ -98,16 +98,10 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper"><span translate="stdTerms.search"></span> <span translate="cms.contentType.resources"></span></span>
-                        <span class="article-header__category__lower" ng-if="resource.hasData()">
-                            {{resource.state.data.count | localNumber:resource.state.query.locale }} <span translate="stdTerms.result" translate-values="{NUMBER: resource.state.data.count}"></span>
-                        </span>
-                        <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest">
-                            <span translate="stdTerms.loading"></span> ...
-                        </span>
-                        <span class="article-header__category__lower" ng-if="resource.state.failedRequest" translate="stdTerms.failed">
-                            Failed
-                        </span>
+                                    <span class="article-header__category__upper" translate="stdTerms.searchResources"></span>
+                                    <span class="article-header__category__lower" ng-if="resource.hasData()" tx="stdTerms.nResults" tx-nr="resource.state.data.count"></span>
+                                    <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest" translate="stdTerms.loading"></span>
+                                    <span class="article-header__category__lower" ng-if="resource.state.failedRequest" translate="stdTerms.failed"></span>
                                 </nav>
                             </div>
                         </div>
@@ -126,49 +120,49 @@
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('news')" ng-class="{isActive: resource.state.query.contentType == 'news'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['news'], _showPastEvents:undefined, offset:undefined})" translate="cms.contentType.news">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['news'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.news">
                                             News
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('dataUse')" ng-class="{isActive: resource.state.query.contentType == 'dataUse'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['dataUse'], _showPastEvents:undefined, offset:undefined})" translate="cms.contentType.dataUse">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['dataUse'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.dataUse">
                                             Data use
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('event')" ng-class="{isActive: resource.state.query.contentType == 'event'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['event'], _showPastEvents:undefined, offset:undefined})" translate="cms.contentType.events">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['event'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.events">
                                             Events
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('project')" ng-class="{isActive: resource.state.query.contentType == 'project'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['project'], _showPastEvents:undefined, offset:undefined})" translate="cms.contentType.projects">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['project'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.projects">
                                             Projects
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('programme')" ng-class="{isActive: resource.state.query.contentType == 'programme'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['programme'], _showPastEvents:undefined, offset:undefined})" translate="cms.contentType.programmes">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['programme'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.programmes">
                                             Programmes
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('tool')" ng-class="{isActive: resource.state.query.contentType == 'tool'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['tool'], _showPastEvents:undefined, offset:undefined})" translate="cms.contentType.tools">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['tool'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.tools">
                                             Tools
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('document')" ng-class="{isActive: resource.state.query.contentType == 'document'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['document'], _showPastEvents:undefined, offset:undefined})" translate="cms.contentType.documents">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['document'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.documents">
                                             Documents
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('literature')" ng-class="{isActive: resource.state.query.contentType == 'literature'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['literature'], _showPastEvents:undefined, offset:undefined})" translate="cms.contentType.literature">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['literature'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.literature">
                                             Literature
                                         </a>
                                     </li>

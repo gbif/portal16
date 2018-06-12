@@ -1,7 +1,7 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type uppercase-first"> {{'cms.contentType.dataUse' | translate }}</span>
+            <span class="searchCard__type uppercase-first"> {{'enums.cms.contentType.dataUse' | translate }}</span>
             <h3 class="searchCard__headline">
                 <a href="{{ portal.urlPrefix }}/data-use/{{result.id}}/{{result._slug}}">
                     {{result.title}}

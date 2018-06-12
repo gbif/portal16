@@ -4,7 +4,7 @@
             <div class="article-header">
                 <nav class="article-header__category article-header__category--deep">
                     <span class="article-header__category__upper">
-                        <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=document">{$ __('cms.contentType.document') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=document">{$ __('enums.cms.contentType.document') $}</a>
                     </span>
                     <span class="article-header__category__lower">{$ main.sys.createdAt | formatDate(gb.locales.current) $}</span>
                 </nav>

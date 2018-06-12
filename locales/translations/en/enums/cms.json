@@ -12,7 +12,31 @@
         "relevance": "Relevance",
         "language": "Language"
       },
+      "contentType": {
+        "event": "Event",
+        "news": "News",
+        "resource": "Resource",
+        "dataUse": "Data use",
+        "project": "Project",
+        "participant": "Participant",
+        "programme": "Programme",
+        "document": "Document",
+        "tool": "Tool",
+        "literature": "Literature"
+      },
       "vocabularyTerms": {
+        "projectGrantType": {
+          "REGIONAL": "Regional grant",
+          "SMALL": "Small grant",
+          "NATIONAL": "National grant",
+          "undefined": "Not specified"
+        },
+        "projectStatus": {
+          "APPROVED": "Approved",
+          "CLOSED": "Closed",
+          "IN_PROGRESS": "In progress",
+          "undefined": "Not specified"
+        },
         "relevance": {
           "GBIF_USED": "GBIF used",
           "GBIF_CITED": "GBIF cited",
@@ -54,16 +78,26 @@
           "DATA_CURATION_QUALITY": "Data curation quality"
         },
         "literatureType": {
+          "journal": "Journal article",
           "book": "Book",
+          "generic": "Generic",
           "book_section": "Book section",
           "conference_proceedings": "Conference proceedings",
-          "generic": "Generic",
-          "journal": "Journal",
-          "magazine_article": "Magazine article",
+          "working_paper": "Working paper",
           "report": "Report",
-          "thesis": "Thesis",
           "web_page": "Web page",
-          "working_paper": "Working paper"
+          "thesis": "Thesis",
+          "magazine_article": "Magazine article",
+          "statute": "Statute",
+          "patent": "Patent",
+          "newspaper_article": "Newspaper article",
+          "computer_program": "Computer program",
+          "hearing": "Hearing",
+          "television_broadcast": "Television broadcast",
+          "encyclopedia_article": "Encyclopedia article",
+          "case": "Case",
+          "film": "Film",
+          "bill": "Bill"
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",

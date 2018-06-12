@@ -26,7 +26,7 @@
                         {% if main.fields.grantType %}
                             <div>
                                 <dt translate="cms.project.typeOfGrant">Type of grant</dt>
-                                <dd>{$ __('cms.projectGrantType.' + main.fields.grantType) $}</dd>
+                                <dd>{$ __('enums.cms.vocabularyTerms.projectGrantType.' + main.fields.grantType) $}</dd>
                             </div>
                         {% endif %}
                     </dl>
@@ -50,7 +50,7 @@
 
                         {% if resolved.Entry[main.fields.programme.sys.id].fields.title %}
                             <div>
-                                <dt translate="cms.contentType.programme">Programme</dt>
+                                <dt translate="enums.cms.contentType.programme">Programme</dt>
                                 <dd><a href="{$ gb.locales.urlPrefix $}/programme/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.title $}</a></dd>
                             </div>
                         {% endif %}

@@ -1,7 +1,7 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.literature') $}</span>
+            <span class="searchCard__type">{$ __('enums.cms.contentType.literature') $}</span>
             <h3 class="searchCard__headline">
                 <a ng-href="https://doi.org/{{result.identifiers.doi}}" ng-if="result.identifiers.doi">
                     {{result.title}}
@@ -45,7 +45,7 @@
             </div>
             <ul class="list-chips">
                 <li>
-                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="enums.cms.vocabularyTerms.literatureType.{{ result.literatureType }}"></a>
                 </li>
                 <li ng-if="result.openAccess">
                     <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&openAccess=true" translate="filters.openAccess.title"></a>
