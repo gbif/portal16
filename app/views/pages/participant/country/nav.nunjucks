@@ -35,7 +35,7 @@
                 </li> -->
                 <li class="tab tab-right">
                     <span>
-                        <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })" class="gb-button--discreet" translate="cms.contentType.news"></a>
+                        <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })" class="gb-button--discreet" translate="cms.search.news"></a>
                     </span>
                 </li>
             </ul>

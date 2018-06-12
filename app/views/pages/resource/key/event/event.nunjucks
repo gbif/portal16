@@ -9,7 +9,7 @@
                         <header class="col-xs-12 text-center">
                             <nav class="article-header__category article-header__category--deep">
                                 <span class="article-header__category__upper">
-                                    <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=event">{$ __('cms.contentType.event') $}</a>
+                                    <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=event">{$ __('enums.cms.contentType.event') $}</a>
                                 </span>
                                 <span class="article-header__category__lower">{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</span>
                             </nav>

@@ -1,27 +1,15 @@
 {
   "cms": {
-    "contentType": {
-      "event": "Event",
+    "search": {
       "events": "Events",
       "news": "News",
-      "resource": "Resource",
       "resources": "Resources",
-      "dataUse": "Data use",
-      "project": "Project",
       "projects": "Projects",
-      "gbif_participant": "Participant",
-      "programme": "Programme",
       "programmes": "Programmes",
-      "dataset": "Featured dataset",
-      "document": "Document",
       "documents": "Documents",
-      "presentation": "Presentation",
-      "tool": "Tool",
       "tools": "Tools",
-      "link": "Link",
-      "generic": "Generic",
-      "literature": "Literature",
-      "about_region": "About the region"
+      "dataUse": "Data use",
+      "literature": "Literature"
     },
     "programme": {
       "projects": "Projects",
@@ -56,7 +44,6 @@
         "other": "Partners"
       }
     },
-    "dataUse": {},
     "literature": {
       "keywords": "Keywords"
     },

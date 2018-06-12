@@ -7,18 +7,18 @@
 
             {% if main.fields.news.length > 0 %}
                 <li class="tab" ng-class="{isActive: programmeKey.hash == 'news'}">
-                    <a href="#news" class="trigger" >{$ __('cms.contentType.news') $}</a>
+                    <a href="#news" class="trigger" >{$ __('cms.search.news') $}</a>
                 </li>
             {% endif %}
 
             {% if main.fields.events.length > 0 %}
                 <li class="tab" ng-class="{isActive: programmeKey.hash == 'events'}">
-                    <a href="#events" class="trigger" >{$ __('cms.contentType.events') $}</a>
+                    <a href="#events" class="trigger" >{$ __('cms.search.events') $}</a>
                 </li>
             {% endif %}
 
             <li class="tab" ng-class="{isActive: programmeKey.hash == 'projects', hidden: programmeKey.projects.count == 0}">
-                <a href="#projects" class="trigger" >{$ __('cms.programme.projects') $}</a>
+                <a href="#projects" class="trigger" >{$ __('cms.search.projects') $}</a>
             </li>
 
             {% if main.fields.primaryLink.sys.id %}
