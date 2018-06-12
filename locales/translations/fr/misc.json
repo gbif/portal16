@@ -119,10 +119,6 @@
     "publishers": "Publishers",
     "dataPublishers": "Data publishers",
     "host": "Host",
-    "nPublishedDatasets": {
-      "one": "%s published dataset",
-      "other": "%s published datasets"
-    },
     "invert": "Reverse",
     "clear": "Clear",
     "add": "Add",
