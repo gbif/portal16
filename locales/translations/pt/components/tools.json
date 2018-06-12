@@ -42,9 +42,7 @@
             "draw": "Draw",
             "clear": "Clear",
             "resultIntro": "Change in relative observation frequency for the selected area",
-            "embedIntro": "All data mediated through the {GBIF network}",
-            "observationTrendsTitle": "Observation Trends",
-            "observationTrendsDescription": "A pilot to explore whether relative observation trends for species distribution within GBIF provide useful information for researchers"
+            "embedIntro": "All data mediated through the {GBIF network}"
         },
         "speciesLookup": {
             "description": "Normalize species names from a CSV file against the GBIF backbone. The file is expected to be have a column called ‘scientificName’ and an optional column ‘kingdom’ and ‘id’.",
