@@ -11,10 +11,6 @@
       "dataUse": "Data use",
       "literature": "Literature"
     },
-    "programme": {
-      "projects": "Projects",
-      "relatedNews": "Related news"
-    },
     "project": {
       "project": "Project",
       "projectId": "Project ID",
@@ -39,10 +35,7 @@
       "call": "Call",
       "projectLead": "Project lead",
       "contactDetalils": "Contact details",
-      "partner": {
-        "one": "Partner",
-        "other": "Partners"
-      }
+      "partners": "Partners"
     },
     "literature": {
       "keywords": "Keywords"
@@ -51,10 +44,5 @@
       "subject": "Subject",
       "organisingParticipants": "Organising Participants"
     }
-  },
-  "event": {
-    "location": "Location",
-    "date": "Date",
-    "languageOfEvent": "Language of event"
   }
 }
