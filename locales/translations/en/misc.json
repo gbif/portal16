@@ -155,7 +155,6 @@
     "fundedBy": "Funded by",
     "noOccurrencesWithCoordinates": "No occurrences with coordinates",
     "nOccurrenceRecordsWithImages": "{NUMBER_FORMATTED} {NUMBER, select, 0{occurrence records} 1{occurrence record} other{occurrence records}} with images",
-    "seeGallery": "See gallery",
     "description": "Description",
     "overview": "Overview",
     "metrics": "Metrics",
