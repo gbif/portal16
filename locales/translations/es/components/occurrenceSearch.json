@@ -6,6 +6,7 @@
     "taxonomy": "Taxonomy",
     "charts": "Charts",
     "download": "Download",
-    "searchAllFields": "Search all fields"
+    "searchAllFields": "Search all fields",
+    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
   }
 }
