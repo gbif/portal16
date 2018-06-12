@@ -21,13 +21,8 @@
         },
         "projectStatus": {
           "APPROVED": "Approved",
-          "CANCELLED": "Cancelled",
           "CLOSED": "Closed",
           "IN_PROGRESS": "In progress",
-          "DELAYED": "Delayed",
-          "PRE_APPROVED": "Pre-approved",
-          "UNDER_EVALUATION": "Under evaluation",
-          "EXPRESSION_OF_INTEREST": "Expression of interest",
           "undefined": "Not specified"
         },
         "relevance": {
