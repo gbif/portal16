@@ -55,10 +55,6 @@
     },
     "fileSizeLimit": "File size limit: 100 mb",
     "receivedMediaType": "Media Type",
-    "validationProfile": {
-      "title": "Validation Profile",
-      "GBIF_INDEXING_PROFILE": "GBIF Indexing Profile"
-    },
     "uniqueIdentifier": "Unique identifier",
     "reportLocation": "This report has been written to",
     "reportDeletion": "And will be deleted after one month. Until then you can revisit the report at your convenience.",
