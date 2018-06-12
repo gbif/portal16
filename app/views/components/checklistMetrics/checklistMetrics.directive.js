@@ -34,13 +34,13 @@ function checklistMetrics() {
         var vm = this;
         vm.logScale = true;
         if (vm.dimension === 'countByIssue') {
-            vm.unit = 'issues';
-        }
-        if (vm.dimension === 'countExtRecordsByExtension') {
-            vm.unit = 'extensions';
-        }
-        if (vm.dimension === 'countNamesByLanguage') {
-            vm.unit = 'names';
+            vm.unit = 'stdTerms.issues';
+        } else if (vm.dimension === 'countExtRecordsByExtension') {
+            vm.unit = 'species.extensions';
+        } else if (vm.dimension === 'countNamesByLanguage') {
+            vm.unit = 'species.vernacularNames';
+        } else {
+            vm.unit = 'species.taxa';
         }
 
         $scope.create = function(element) {
@@ -136,7 +136,7 @@ function checklistMetrics() {
                 },
                 yAxis: {
                     title: {
-                        text: (vm.unit || 'Taxon' ) + ' count'
+                        text: $translate.instant(vm.unit)
                     },
                     type: isLogaritmic ? 'logarithmic' : 'linear',
                     minorTickInterval: isLogaritmic ? 1 : undefined,

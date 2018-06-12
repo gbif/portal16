@@ -77,26 +77,22 @@
                         <div flex-gt-sm="50" flex="100" >
 
                                 <occurrence-taxonomy-stats
-                                        filter="datasetStats.filter"></occurrence-taxonomy-stats>
+                                        filter="datasetStats.filter" chart-type="'sunburst'"></occurrence-taxonomy-stats>
                         </div>
                     </div>
                 <div layout-gt-sm="row" class="m-t-1" layout-padding>
                     <div ng-if="datasetKey.occurrences.count > 0" flex-gt-sm="50" flex="100" >
-                        <occurrence-chart-header api="datasetStats.charts[0].api" options="datasetStats.charts[0].options"></occurrence-chart-header>
-                        <div class="card " layout-fill layout-padding>
-                        <occurrence-chart filter="datasetStats.charts[0].filter"
-                                          dimension="datasetStats.charts[0].dimension" api="datasetStats.charts[0].api"
-                                          options="datasetStats.charts[0].options" ></occurrence-chart>
+
+                        <occurrence-breakdown-card api="datasetStats.charts[0].api" config="datasetStats.charts[0].config" filter="datasetStats.charts[0].filter"  custom-filter="datasetStats.charts[0].customFilter"></occurrence-breakdown-card>
+
+                        </div>
+                        <div ng-if="datasetKey.occurrences.count > 0 && datasetKey.withYear.count > 0" flex-gt-sm="50" flex="100"
+                         >
+                                                 <occurrence-breakdown-card api="datasetStats.charts[1].api" config="datasetStats.charts[1].config" filter="datasetStats.charts[1].filter"  custom-filter="datasetStats.charts[1].customFilter"></occurrence-breakdown-card>
+
                         </div>
                     </div>
-                    <div ng-if="datasetKey.occurrences.count > 0 && datasetKey.withYear.count > 0" flex-gt-sm="50" flex="100"
-                         >
-                        <occurrence-chart-header api="datasetStats.charts[1].api" options="datasetStats.charts[1].options"></occurrence-chart-header>
-                        <div class="card " layout-fill layout-padding>
-                        <occurrence-chart filter="datasetStats.charts[1].filter"
-                                          dimension="datasetStats.charts[1].dimension" api="datasetStats.charts[1].api"
-                                          options="datasetStats.charts[1].options" ></occurrence-chart>
-                        </div>
+                    
                     </div>
 
                 </div>

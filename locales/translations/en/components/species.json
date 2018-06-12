@@ -55,6 +55,7 @@
     "filters": "Filters",
     "searchForSpecies": "Search for species",
     "lastCrawled": "Last crawled {DATE_FORMATTED}",
-    "extensions": "Extensions"
+    "extensions": "Extensions",
+    "taxa": "Taxa"
   }
 }

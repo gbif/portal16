@@ -26,6 +26,8 @@
     "singleTypeResults": "{NUMBER} occurrences where '{FIELD}' equals:",
     "chooseDimension": "Choose dimension",
     "clickToZoom": "Click and drag in the plot area to zoom in",
-    "pinchToZoom": "Pinch the chart to zoom in"
+    "pinchToZoom": "Pinch the chart to zoom in",
+    "numAcceptedSpByHigher": "Number of accepted species by higher taxon",
+    "noRankedAbove": "The checklist has no ranked taxa above Species."
   }
 }

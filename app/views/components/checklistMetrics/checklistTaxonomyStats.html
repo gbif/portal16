@@ -1,5 +1,5 @@
 <div>
-<h4 class="card-header text-center inline-block">Number of accepted species by higher taxon</h4>
+<h4 class="card-header text-center inline-block" translate="metrics.numAcceptedSpByHigher">Number of accepted species by higher taxon</h4>
 <div class="chart-header-options inline-block pull-right" ng-show="!checklistTaxonomyStats.loading && !checklistTaxonomyStats.preparing && checklistTaxonomyStats.hasRankedTaxa">
     <md-menu >
         <a href="" class="gb-icon-file-download  inherit noUnderline"
@@ -35,7 +35,7 @@
     </div>
     <div class="chartArea" ng-show="checklistTaxonomyStats.hasRankedTaxa"></div>
     <div  ng-show="!checklistTaxonomyStats.loading && !checklistTaxonomyStats.preparing && !checklistTaxonomyStats.hasRankedTaxa" class="emptyInfo--small">
-            <h3>The checklist has no ranked taxa above Species.</h3>
+            <h3 translate="metrics.noRankedAbove">The checklist has no ranked taxa above Species.</h3>
 
      </div>
 
