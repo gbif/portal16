@@ -47,7 +47,7 @@ function generateEnum(enumName) {
             }
         }
         let translationKey = (translationKeys[enm]) ? translationKeys[enm] : enm;
-        let translated = require(TRANSLATED_ENUM_DIR + translationKey);        
+        let translated = require(TRANSLATED_ENUM_DIR + translationKey);
         for (let i = 0; i < body.length; i++ ) {
             if (!translated[translationKey] || !translated[translationKey].hasOwnProperty(body[i])) {
                 console.log('!! Translation missing for "' + body[i] + '" in enums/' + translationKey + '.json');

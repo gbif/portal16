@@ -14,9 +14,11 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher) {
+function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
     var vm = this;
-    Page.setTitle('Occurrence search');
+    $translate('resource.occurrenceSearch').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(true);
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 

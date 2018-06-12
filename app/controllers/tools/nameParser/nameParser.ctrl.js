@@ -11,7 +11,7 @@ router.get('/tools/name-parser', function(req, res) {
     res.render('pages/tools/nameParser/nameParser', {
         _meta: {
             title: req.__('nameParser.nameParserTitle'),
-            description: req.__('nameParserDescription.nameParserDescription')
+            description: req.__('nameParser.nameParserDescription')
         }
     });
 });
@@ -20,7 +20,7 @@ router.get('/tools/name-parser/about', function(req, res) {
     res.render('pages/tools/nameParser/nameParser', {
         _meta: {
             title: req.__('nameParser.nameParserTitle'),
-            description: req.__('nameParserDescription.nameParserDescription')
+            description: req.__('nameParser.nameParserDescription')
         }
     });
 });

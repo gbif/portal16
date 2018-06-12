@@ -13,7 +13,7 @@ router.get('/data-repository/upload/:key', renderTemplate);
 function renderTemplate(req, res, next) {
     res.render('pages/tools/dataRepository/dataRepository', {
         _meta: {
-            title: 'Data repository',
+            title: req.__('menu.dataRepository'),
             noIndex: true
         }
     });
