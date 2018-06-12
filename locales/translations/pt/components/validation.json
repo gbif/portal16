@@ -104,6 +104,7 @@
     "reportProducedByGbifDataValidator": "Report produced by GBIF data validator",
     "validationReport": "Validation report",
     "dataValidator": "Data validator",
+    "dataValidatorDescription": "The GBIF data validator is a service that allows anyone with a GBIF-relevant dataset to receive a report on the syntactical correctness and the validity of the content contained within the dataset.",
     "thisIsAnEarlyAccessVersion": "This an early access version. Please report issues and feedback",
     "here": "Here.",
     "newDataValidation": "New data validation",
