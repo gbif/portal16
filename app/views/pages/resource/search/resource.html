@@ -98,16 +98,10 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper"><span translate="stdTerms.search"></span> <span translate="cms.contentType.resources"></span></span>
-                        <span class="article-header__category__lower" ng-if="resource.hasData()">
-                            {{resource.state.data.count | localNumber:resource.state.query.locale }} <span translate="stdTerms.result" translate-values="{NUMBER: resource.state.data.count}"></span>
-                        </span>
-                        <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest">
-                            <span translate="stdTerms.loading"></span> ...
-                        </span>
-                        <span class="article-header__category__lower" ng-if="resource.state.failedRequest" translate="stdTerms.failed">
-                            Failed
-                        </span>
+                                    <span class="article-header__category__upper" translate="stdTerms.searchResources"></span>
+                                    <span class="article-header__category__lower" ng-if="resource.hasData()" tx="stdTerms.nResults" tx-nr="resource.state.data.count"></span>
+                                    <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest" translate="stdTerms.loading"></span>
+                                    <span class="article-header__category__lower" ng-if="resource.state.failedRequest" translate="stdTerms.failed"></span>
                                 </nav>
                             </div>
                         </div>
