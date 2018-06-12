@@ -23,28 +23,6 @@
       "literature": "Literature",
       "about_region": "About the region"
     },
-    "literatureType": {
-      "journal": "Journal article",
-      "book": "Book",
-      "generic": "Generic",
-      "book_section": "Book section",
-      "conference_proceedings": "Conference proceedings",
-      "working_paper": "Working paper",
-      "report": "Report",
-      "web_page": "Web page",
-      "thesis": "Thesis",
-      "magazine_article": "Magazine article",
-      "statute": "Statute",
-      "patent": "Patent",
-      "newspaper_article": "Newspaper article",
-      "computer_program": "Computer program",
-      "hearing": "Hearing",
-      "television_broadcast": "Television broadcast",
-      "encyclopedia_article": "Encyclopedia article",
-      "case": "Case",
-      "film": "Film",
-      "bill": "Bill"
-    },
     "projectGrantType": {
       "REGIONAL": "Regional grant",
       "SMALL": "Small grant",

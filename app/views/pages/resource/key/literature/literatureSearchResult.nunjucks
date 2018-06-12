@@ -45,7 +45,7 @@
             </div>
             <ul class="list-chips">
                 <li>
-                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="enums.cms.vocabularyTerms.literatureType.{{ result.literatureType }}"></a>
                 </li>
                 <li ng-if="result.openAccess">
                     <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&openAccess=true" translate="filters.openAccess.title"></a>

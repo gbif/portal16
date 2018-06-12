@@ -1,12 +1,22 @@
 [
+  "journal",
   "book",
+  "generic",
   "book_section",
   "conference_proceedings",
-  "generic",
-  "journal",
-  "magazine_article",
+  "working_paper",
   "report",
-  "thesis",
   "web_page",
-  "working_paper"
+  "thesis",
+  "magazine_article",
+  "statute",
+  "patent",
+  "newspaper_article",
+  "computer_program",
+  "hearing",
+  "television_broadcast",
+  "encyclopedia_article",
+  "case",
+  "film",
+  "bill"
 ]
