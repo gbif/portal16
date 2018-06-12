@@ -7,7 +7,6 @@
     "noDescription": "No description available",
     "resources": "Resources",
     "contacts": "{NUMBER, select, 0{contacts} 1{contact} other{contacts}}",
-    "nServedDatasets": "{NUMBER} {NUMBER, select, 0{served datasets} 1{served dataset} other{served datasets}}",
     "roles": "Roles",
     "role": "Role",
     "name": "Name",
@@ -78,7 +77,6 @@
     "field": "Field",
     "breakdown": "Breakdown",
     "feedbackOnData": "Feedback on data",
-    "sendPublisherMail": "Send publisher a mail",
     "aboutTheDataset": "About the dataset",
     "Crawling": "Crawling",
     "creator": "Creator",
@@ -202,8 +200,7 @@
     "submit": "Submit",
     "cancel": "Cancel",
     "dropHere": "Drop here",
-    "parser": "Parser",
-    "omniSearchPlaceholder": "Occurrences, species, news ..."
+    "parser": "Parser"
   },
   "phrases": {
     "defaultPageTitle": "GBIF",
