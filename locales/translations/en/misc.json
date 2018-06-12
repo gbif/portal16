@@ -109,7 +109,6 @@
     "failed": "Failed",
     "datasets": "Datasets",
     "nMoreDatasets": "{NUMBER} more {NUMBER, select, one{dataset} other{datasets}}",
-    "publishedBy": "Published by",
     "publishers": "Publishers",
     "host": "Host",
     "invert": "Reverse",
