@@ -23,12 +23,6 @@
       "literature": "Literature",
       "about_region": "About the region"
     },
-    "projectGrantType": {
-      "REGIONAL": "Regional grant",
-      "SMALL": "Small grant",
-      "NATIONAL": "National grant",
-      "undefined": "Not specified"
-    },
     "projectStatus": {
       "APPROVED": "Approved",
       "CANCELLED": "Cancelled",

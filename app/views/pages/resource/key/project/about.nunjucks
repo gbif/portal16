@@ -26,7 +26,7 @@
                         {% if main.fields.grantType %}
                             <div>
                                 <dt translate="cms.project.typeOfGrant">Type of grant</dt>
-                                <dd>{$ __('cms.projectGrantType.' + main.fields.grantType) $}</dd>
+                                <dd>{$ __('enums.cms.vocabularyTerms.projectGrantType.' + main.fields.grantType) $}</dd>
                             </div>
                         {% endif %}
                     </dl>

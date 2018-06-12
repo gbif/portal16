@@ -13,6 +13,12 @@
         "language": "Language"
       },
       "vocabularyTerms": {
+        "projectGrantType": {
+          "REGIONAL": "Regional grant",
+          "SMALL": "Small grant",
+          "NATIONAL": "National grant",
+          "undefined": "Not specified"
+        },
         "relevance": {
           "GBIF_USED": "GBIF used",
           "GBIF_CITED": "GBIF cited",

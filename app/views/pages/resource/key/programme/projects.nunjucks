@@ -35,7 +35,7 @@
                             {#<div class="discreet" ng-if="result.projectId">{{result.projectId}}</div>#}
                         </td>
                         <td class="table-cell--normal">
-                            <span translate="cms.projectGrantType.{{ result.grantType }}"
+                            <span translate="enums.cms.vocabularyTerms.projectGrantType.{{ result.grantType }}"
                                   ng-if="result.grantType">{{ result.grantType }}</span>
                         </td>
                         <td class="table-cell--narrow">
