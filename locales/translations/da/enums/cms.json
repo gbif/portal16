@@ -12,6 +12,18 @@
         "relevance": "Relevance",
         "language": "Language"
       },
+      "contentType": {
+        "event": "Event",
+        "news": "News",
+        "resource": "Resource",
+        "dataUse": "Data use",
+        "project": "Project",
+        "participant": "Participant",
+        "programme": "Programme",
+        "document": "Document",
+        "tool": "Tool",
+        "literature": "Literature"
+      },
       "vocabularyTerms": {
         "projectGrantType": {
           "REGIONAL": "Regional grant",
