@@ -6,13 +6,6 @@
       "SAMPLING_EVENT": "Sampling event",
       "METADATA": "Metadata dataset"
     },
-    "type": {
-      "OCCURRENCE": "Occurrence",
-      "CHECKLIST": "Checklist",
-      "SAMPLING_EVENT": "Sampling event",
-      "METADATA": "Metadata",
-      "undefined": "Unknown"
-    },
     "terms": {
       "type": "Type",
       "publishingOrg": "Publisher",
