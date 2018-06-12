@@ -181,7 +181,6 @@
     "finished": "Finished",
     "synonyms": "Synonyms",
     "logs": "Logs",
-    "records": "{NUMBER, select, 0{records} 1{record} other{records}}",
     "noDescriptionProvided": "No description provided",
     "absent": "Absent",
     "submit": "Submit",
