@@ -45,16 +45,6 @@
       "film": "Film",
       "bill": "Bill"
     },
-    "gbifLiterature": {
-      "gbif_used": "GBIF-mediated data used",
-      "gbif_cited": "GBIF-authored paper cited",
-      "gbif_vip": "Featured by GBIF",
-      "gbif_discussed": "GBIF is discussed",
-      "gbif_primary": "GBIF as main source of data",
-      "gbif_acknowledged": "GBIF acknowledged",
-      "gbif_author": "Authored by GBIF",
-      "gbif_published": "About data published in GBIF"
-    },
     "projectGrantType": {
       "REGIONAL": "Regional grant",
       "SMALL": "Small grant",
@@ -103,27 +93,6 @@
       "partner": {
         "one": "Partner",
         "other": "Partners"
-      },
-      "funder": {
-        "one": "Funder",
-        "other": "Funders"
-      },
-      "relatedDataset": {
-        "one": "Dataset",
-        "other": "Datasets"
-      },
-      "relatedNews": "Related news",
-      "relatedEvent": {
-        "one": "Related event",
-        "other": "Related events"
-      },
-      "relatedProject": {
-        "one": "Related project",
-        "other": "Related projects"
-      },
-      "relatedResource": {
-        "one": "Related information",
-        "other": "Related documents and information"
       }
     },
     "dataUse": {},
