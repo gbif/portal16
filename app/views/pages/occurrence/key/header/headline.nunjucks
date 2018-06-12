@@ -27,7 +27,9 @@
     {% endif %}
     {% if occurrence.record.individualCount == 0 and occurrence.record.occurrenceStatus == 'absent' %}
         <span class="text-error" translate="stdTerms.absent"></span>
+    {% elif occurrence.record.countryCode | isNotEmpty %}
+        <span translate="occurrence.title.inCountry.{$ occurrence.record.basisOfRecord $}" translate-values="{COUNTRY: '{$ __('country.' + occurrence.record.countryCode) $}' }"></span>
     {% else %}
-        {$ occurrence.computedFields.title.verb $} {$ occurrence.computedFields.title.location $}
+        <span translate="occurrence.title.unknownLocation.{$ occurrence.record.basisOfRecord $}"></span>
     {% endif %}
 </div>
