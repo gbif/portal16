@@ -6,7 +6,7 @@
       "SAMPLING_EVENT": "Sampling event",
       "METADATA": "Metadata dataset"
     },
-    "terms": {
+    "search": {
       "type": "Type",
       "publishingOrg": "Publisher",
       "hostingOrg": "Host",
