@@ -105,7 +105,7 @@ function renderCountry(req, res, next) {
                 context._meta.title = res.__('country.' + isoCode);
                 if (_.has(context, 'participant.participationStatus')) {
                     context._meta.description = res.__mf(
-                        'participationStatus.type.COUNTRY.description.' + context.participant.participationStatus,
+                        'participationStatus.description.' + context.participant.participationStatus,
                         {REGION: res.__('region.' + context.participant.gbifRegion)}
                     );
                 }
