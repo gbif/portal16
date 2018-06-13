@@ -3,21 +3,21 @@
         <div>
             <dl class="inline">
                 <div>
-                    <dt translate="country.memberStatus">Member status </dt>
+                    <dt translate="countryKey.memberStatus">Member status </dt>
                     <dd>{{ 'participationStatus.' + participantKey.participant.participant.participationStatus | translate }}</dd>
                 </div>
                 <div>
-                    <dt translate="country.gbifParticipantSince">GBIF participant since</dt>
+                    <dt translate="countryKey.gbifParticipantSince">GBIF participant since</dt>
                     <dd>{{ participantKey.participant.participant.membershipStart | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div ng-if="participantKey.participant.participant.gbifRegion">
-                    <dt translate="country.gbifRegion">GBIF region</dt>
+                    <dt translate="countryKey.gbifRegion">GBIF region</dt>
                     <dd>{{ 'region.' + participantKey.participant.participant.gbifRegion | translate }}</dd>
                 </div>
                 <div>
-                    <dt translate="country.headOfDelegation">Head of delegation</dt>
+                    <dt translate="countryKey.headOfDelegation">Head of delegation</dt>
                     <dd ng-if="participantKey.participant.headOfDelegation.personId"><a href="#contact{{participantKey.participant.headOfDelegation.personId}}">{{ participantKey.participant.contacts[participantKey.participant.headOfDelegation.personId].firstName }} {{ participantKey.participant.contacts[participantKey.participant.headOfDelegation.personId].surname }}</a></dd>
-                    <dd ng-if="!participantKey.participant.headOfDelegation.personId" translate="country.pending">Pending</dd>
+                    <dd ng-if="!participantKey.participant.headOfDelegation.personId" translate="countryKey.pending">Pending</dd>
                 </div>
             </dl>
         </div>
@@ -26,21 +26,21 @@
         <div>
             <dl class="inline">
                 <div>
-                    <dt translate="country.nodeName">Node name</dt>
+                    <dt translate="countryKey.nodeName">Node name</dt>
                     <dd><a ng-href="#nodeAddress">{{ participantKey.participant.node.name }}</a></dd>
                 </div>
                 <div>
-                    <dt translate="country.nodeEstablished">Node established</dt>
+                    <dt translate="countryKey.nodeEstablished">Node established</dt>
                     <dd>{{ participantKey.participant.node.created | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div ng-if="participantKey.participant.node.nodeUrl">
-                    <dt translate="country.website">Website</dt>
+                    <dt translate="countryKey.website">Website</dt>
                     <dd><a ng-href="{{ participantKey.participant.node.nodeUrl }}">{{ participantKey.participant.node.nodeUrl }}</a></dd>
                 </div>
                 <div>
-                    <dt translate="country.participantNodeManager">Participant node manager</dt>
+                    <dt translate="countryKey.participantNodeManager">Participant node manager</dt>
                     <dd ng-if="participantKey.participant.nodeManager.personId"><a ng-href="#contact{{participantKey.participant.nodeManager.personId}}">{{ participantKey.participant.contacts[participantKey.participant.nodeManager.personId].firstName }} {{ participantKey.participant.contacts[participantKey.participant.nodeManager.personId].surname }}</a></dd>
-                    <dd ng-if="!participantKey.participant.nodeManager.personId" translate="country.pending">Pending</dd>
+                    <dd ng-if="!participantKey.participant.nodeManager.personId" translate="countryKey.pending">Pending</dd>
                 </div>
             </dl>
         </div>

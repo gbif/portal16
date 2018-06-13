@@ -13,14 +13,14 @@
                 <img class="searchCard__img--noCrop" src="{{ result.countryCode | flag }}" gb-load>
             </div>
             <p ng-if="result.participant">
-                <span translate="country.memberSince"></span>: {{ result.participant.membershipStart }}
+                <span translate="countryKey.memberSince"></span>: {{ result.participant.membershipStart }}
             </p>
             <ul class="list-chips">
                 <li>
-                    <a ui-sref="occurrenceSearchTable({country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?country={{ result.countryCode }}">&nbsp;</span> <span translate="country.occurrencesAbout"></span></a>
+                    <a ui-sref="occurrenceSearchTable({country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?country={{ result.countryCode }}">&nbsp;</span> <span translate="countryKey.occurrencesAbout"></span></a>
                 </li>
                 <li>
-                    <a ui-sref="occurrenceSearchTable({publishing_country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?publishing_country={{ result.countryCode }}">&nbsp;</span> <span translate="country.publishedOccurrences"></span></a>
+                    <a ui-sref="occurrenceSearchTable({publishing_country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?publishing_country={{ result.countryCode }}">&nbsp;</span> <span translate="countryKey.publishedOccurrences"></span></a>
                 </li>
             </ul>
         </div>

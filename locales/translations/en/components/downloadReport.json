@@ -9,7 +9,6 @@
     "FossilsIncludedDescription": "There are fossils among your results. That can mean species occurrences at unexpected locations",
     "livingSpecimensIncluded": "Living specimens",
     "livingSpecimensIncludedDescription": "Your search includes living specimens such as occurrences in botanical and zoological gardens.",
-    "loaderText": "Please hang on while we analyze your download",
-    "authorizationFailed": "Auth failed"
+    "loaderText": "Please hang on while we analyze your download"
   }
 }

@@ -3,19 +3,19 @@
         <div class="tabs" ng-class="{'tabs--noBorder': !countryKey.$state.is('countryParticipation')}">
             <ul class="anchorTabs">
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countrySummary')}">
-                    <a ui-sref="countrySummary()" translate="country.summary">Summary</a>
+                    <a ui-sref="countrySummary()" translate="countryKey.summary">Summary</a>
                 </li>
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryAbout')}">
-                    <a ui-sref="countryAbout()" translate="country.dataAbout">Data about</a>
+                    <a ui-sref="countryAbout()" translate="countryKey.dataAbout">Data about</a>
                 </li>
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryPublishing')}">
-                    <a ui-sref="countryPublishing()" translate="country.dataPublishing">Data publishing</a>
+                    <a ui-sref="countryPublishing()" translate="countryKey.dataPublishing">Data publishing</a>
                 </li>
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryResearch')}">
-                    <a ui-sref="countryResearch()" translate="country.publications">Publications</a>
+                    <a ui-sref="countryResearch()" translate="countryKey.publications">Publications</a>
                 </li>
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryParticipation')}" ng-if="countryKey.country.isActiveParticipant">
-                    <a ui-sref="countryParticipation()" translate="country.participartion">Participation</a>
+                    <a ui-sref="countryParticipation()" translate="countryKey.participartion">Participation</a>
                 </li>
 
                 {% if main.fields.primaryLink.sys.id %}

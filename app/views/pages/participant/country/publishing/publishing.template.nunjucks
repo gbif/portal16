@@ -32,14 +32,14 @@
 
         <section class="light-background p-t-05" ng-if="countryKey.occurrenceFromCount > 0">
             <div class="container--desktop">
-                <h4 class="card-header" translate="country.publishingTrends"></h4>
+                <h4 class="card-header" translate="countryKey.publishingTrends"></h4>
             </div>
             <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/published?locale='+countryKey.locale" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
         </section>
     </div>
     <div class="emptyInfo" ng-if="countryPublishing.datasetsFrom.$resolved && countryPublishing.datasetsFrom.count == 0">
-        <h3 translate="country.noDataPublishingActivity">No data publishing activity</h3>
-        <p translate="country.noInstitutionsHavePublished">No institutions from this country have published data through GBIF</p>
+        <h3 translate="countryKey.noDataPublishingActivity">No data publishing activity</h3>
+        <p translate="countryKey.noInstitutionsHavePublished">No institutions from this country have published data through GBIF</p>
     </div>
     <div class="emptyInfo" ng-if="!countryPublishing.datasetsFrom.$resolved">
         <h3 class="loading"></h3>

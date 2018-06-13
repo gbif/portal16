@@ -3,8 +3,8 @@
 
     <div layout="row" layout-align="center start" ng-cloak>
         <div class="nameParser__prose" >
-        <p ng-bind-html="'nameParserDescription.nameParserDescription' | translate | md2html"></p>
-            <p ng-bind-html="'nameParserDescription.nameParserRequirements' | translate | md2html"></p>
+        <p ng-bind-html="'nameParser.nameParserDescription' | translate | md2html"></p>
+            <p ng-bind-html="'nameParser.nameParserRequirements' | translate | md2html"></p>
 
         </div>
     </div>

@@ -31,7 +31,7 @@
 
 <section class="light-background p-t-05" ng-if="countryKey.occurrenceCount > 0">
     <div class="container--desktop">
-        <h4 class="card-header" translate="country.trendsAboutCountry" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate )}"></h4>
+        <h4 class="card-header" translate="countryKey.trendsAboutCountry" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate )}"></h4>
     </div>
     <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about?locale='+countryKey.locale" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
 </section>
