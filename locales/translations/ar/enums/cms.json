@@ -25,6 +25,9 @@
         "literature": "Literature"
       },
       "vocabularyTerms": {
+        "articleType": {
+          "Nodes guidance": "Nodes guidance"
+        },
         "projectGrantType": {
           "REGIONAL": "Regional grant",
           "SMALL": "Small grant",
