@@ -40,7 +40,6 @@
     "inIngestionQueue": "Is in ingestion queue",
     "addingToQueue": "Adding to queue",
     "unableToStart": "Unable to start ingestion",
-    "ingestionCompletionReasons": "Ingestion completion reasons",
     "ingestionChartExplainer": "Most recent ingestions. Top left is the latest.",
     "ingestionStatus": "Ingestion status",
     "itemInIngestionQueue": "Items in ingestion queue",
