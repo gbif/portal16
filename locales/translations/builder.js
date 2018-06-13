@@ -42,7 +42,6 @@ function builder(locale) {
         getFile(locale, `./${locale}/enums/projections`),
         getFile(locale, `./${locale}/enums/region`),
         getFile(locale, `./${locale}/enums/role`),
-        getFile(locale, `./${locale}/enums/statusEnum`),
         getFile(locale, `./${locale}/enums/taxonomicStatus`),
         getFile(locale, `./${locale}/enums/participationStatus`),
         getFile(locale, `./${locale}/enums/taxonRank`),
