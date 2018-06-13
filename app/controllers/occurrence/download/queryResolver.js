@@ -49,7 +49,7 @@ let queryResolver = {
     },
     protocol: {
         type: 'ENUM',
-        valueTranslation: 'protocol.'
+        valueTranslation: 'endpointType.'
     },
     license: {
         type: 'ENUM',

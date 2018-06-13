@@ -12,7 +12,6 @@ module.exports = {
     'license': require('./basic/license.json'),
     'datasetType': require('./basic/datasetType.json'),
     'downloadFormats': require('./basic/downloadFormats.json'),
-    'protocol': require('./basic/protocol.json'),
     'speciesOrigin': require('./basic/speciesOrigin.json'),
     'kingdomKey': require('./basic/kingdomKey.json'),
     'cms': {
