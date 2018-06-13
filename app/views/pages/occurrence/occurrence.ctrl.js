@@ -327,9 +327,9 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         titleTranslation: 'ocurrenceFieldNames.protocol',
         queryKey: 'protocol',
         filter: OccurrenceFilter,
-        enumTranslationPath: 'protocol.',
+        enumTranslationPath: 'endpointType.',
         showAll: true,
-        enums: enums.protocol,
+        enums: enums.endpointType,
         reversible: true,
         facets: {
             hasFacets: true,

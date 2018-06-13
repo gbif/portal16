@@ -13,7 +13,7 @@
                     <span ng-class="{'text-error': datasetKey.dataset.deleted}">{{ datasetKey.dataset.title }}</span>
                 </h1>
                 <p ng-class="{'text-error': datasetKey.dataset.deleted, source: !datasetKey.dataset.deleted}">
-                    <span translate="stdTerms.publishedBy"></span> <a class="inherit underline" ui-sref="publisherKey({key:datasetKey.dataset.publishingOrganizationKey})">
+                    <span translate="dataset.publishedBy"></span> <a class="inherit underline" ui-sref="publisherKey({key:datasetKey.dataset.publishingOrganizationKey})">
                         {{ datasetKey.publisher.title }}
                     </a>
                     <br/>

@@ -35,7 +35,7 @@
     "apiFilterView": "API",
     "humanFilterView": "Human",
     "downloadStarted": "The download has been started and is currently being processed.",
-    "downloadExpectTime": "Please expect 10 to 15 minutes for the download to complete.",
+    "downloadExpectTime": "Please expect up to 3 hours for the download to complete. Most downloads will complete within 15 minutes.",
     "notificationEmailAddresses": "A notification email with a link to download the results will be sent to the following address once ready: ",
     "status": {
       "PREPARING": "Preparing",
