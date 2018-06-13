@@ -158,7 +158,6 @@
     "overview": "Overview",
     "metrics": "Metrics",
     "sourcePlural": "{NUMBER, select, 0{sources} 1{source} other{sources}}",
-    "instead": "Instead",
     "everything": "Everything",
     "coordinateUncertainty": "Coordinate uncertainty",
     "summary": "Summary",
