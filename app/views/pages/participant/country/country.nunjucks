@@ -4,7 +4,7 @@
     <article class="wrapper-horizontal-stripes hidden">
         <div class="container--narrow">
             <h1>{$ __('country.' + country.countryCode) $}</h1>
-            <p>{$ __mf('participationStatus.type.COUNTRY.description.' + participant.participationStatus, { REGION: __('region.' + participant.gbifRegion) }) $}</p>
+            <p>{$ __mf('participationStatus.description.' + participant.participationStatus, { REGION: __('region.' + participant.gbifRegion) }) $}</p>
         </div>
         <div>
             {% set main = prose.main %}
