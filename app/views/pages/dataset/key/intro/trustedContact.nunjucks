@@ -27,7 +27,7 @@
     <div class="card__stripe container-fluid clearfix" ng-if="datasetKey.showTrustedDatasetDetails">
         <div class="row card__content">
             <div class="col-md-3 hidden-sm hidden-xs" ng-if="datasetKey.processSummary.analyzedCount > 0">
-                <h4 class="card-header text-center" translate="dataset.ingestionCompletionReasons"></h4>
+                <h4 class="card-header text-center" translate="dataset.registry.completionReasons"></h4>
                 <div>
                     <div class="processSummary">
                         <span ng-repeat="recentItem in datasetKey.processSummary.recent" class="processSummary__{{ recentItem.finishReason }}">
