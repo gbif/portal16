@@ -2,9 +2,10 @@
 
     {% include "./map.nunjucks" %}
 
-    <div class="container--desktop m-b-3 m-t-3 ng-cloak" ng-if="countryKey.occurrenceCount > 0 && countryKey.kingdomsAbout">
-        <div class="taxonBreakdown">
-            <div>
+    <div class="container--desktop ng-cloak" ng-if="countryKey.occurrenceCount > 0 && countryKey.kingdomsAbout">
+        <h3 class="card-header" translate="metrics.occurrencesPerField" translate-values="{FIELD: ('filterNames.kingdomKey' | translate )}"></h3>
+        <div class="card taxonBreakdown">
+            <div class="card__content">
                 <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode, taxon_key: kingdom.id})"
                    class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdom in countryKey.kingdoms">
                     <div class="taxon-icon gb-icon-{{ kingdom.icon }}"></div>
