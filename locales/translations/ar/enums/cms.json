@@ -16,7 +16,7 @@
         "event": "Event",
         "news": "News",
         "resource": "Resource",
-        "dataUse": "Feature",
+        "dataUse": "Data use",
         "project": "Project",
         "participant": "Participant",
         "programme": "Programme",
