@@ -1,7 +1,7 @@
 
 angular
     .module('portal')
-    .factory('DownloadSpeed', function() {
+    .factory('DownloadSpeed', function($translate) {
         return {
            calculate: function(filesize) {
           var bandwidth = [2000000, 10000000, 100000000];
@@ -23,9 +23,9 @@ angular
                     minute = '0' + minute;
                 }
 
-                var minuteTxt = (minute === 1 ) ? ' minute' : ' minutes';
+                var minuteTxt = (minute === 1 ) ? ' ' + $translate.instant('downloadKey.minute').toLowerCase() : ' ' + $translate.instant('downloadKey.minutes').toLowerCase();
 
-                var time = (hour !== '00') ? (hour + ':' + minute + ' hours') : (minute + minuteTxt);
+                var time = (hour !== '00') ? (hour + ':' + minute + ' ' + $translate.instant('downloadKey.hours').toLowerCase()) : (minute + minuteTxt);
 
                 result[bandwidth[x] / 1000000] = time;
             }
