@@ -4,7 +4,7 @@
       "presentIn": "Present in {country}",
       "presentInNonCountry": "Present in {location}",
       "threatStatus": "Threat status: {status}",
-      "distributions": "Distributions"
+      "distributionPlural": "Distributions"
     },
     "acceptedName": "Accepted name",
     "synonym": "Synonym",
@@ -39,7 +39,6 @@
     "verbatimListingMsg": "This listing shows the original information as received by GBIF from the data publisher, without further interpretation processing.",
     "interpretationMsg": "This is the interpretation of the species as published in {DATASET}.",
     "viewGbifSpeciesMsg": "To view GBIFs view on this species see [the backbone version](/species/{NUBKEY})",
-    "theBackboneVersion": "The backbone version",
     "inferredRecordMsg": "This record has been created during indexing and did not explicitly exist in the source data as such.",
     "noChildren": "No children",
     "scientificNames": "Scientific names",
