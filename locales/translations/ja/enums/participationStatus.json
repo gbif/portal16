@@ -5,60 +5,6 @@
         "OBSERVER": "Observer",
         "AFFILIATE": "Affiliate",
         "FORMER": "Former",
-        "undefined": "Unknown",
-        "longForm": {
-            "VOTING": "Voting participant",
-            "ASSOCIATE": "Associate participant",
-            "OBSERVER": "Observing participant",
-            "AFFILIATE": "Affiliate participant",
-            "FORMER": "Former participant",
-            "undefined": "Unknown"
-        },
-        "description": {
-            "VOTING": "A GBIF Voting participant from {REGION}",
-            "ASSOCIATE": "An associate participant from {REGION}",
-            "OBSERVER": "A GBIF Observer Country from {REGION}",
-            "AFFILIATE": "An affiliate participant from {REGION}",
-            "FORMER": "A GBIF Former Participant from {REGION}",
-            "undefined": "Unknown"
-        },
-        "type": {
-            "COUNTRY": {
-                "description": {
-                    "VOTING": "A GBIF Voting participant from {REGION}",
-                    "ASSOCIATE": "A GBIF Associate Country Participant from {REGION}",
-                    "OBSERVER": "A GBIF Observer Country from {REGION}",
-                    "AFFILIATE": "A GBIF affiliate Country from {REGION}",
-                    "FORMER": "A former participant from {REGION}",
-                    "undefined": "Not a participant"
-                },
-                "longForm": {
-                    "VOTING": "Voting participant",
-                    "ASSOCIATE": "Associate participant",
-                    "OBSERVER": "Observing participant",
-                    "AFFILIATE": "Affiliate participant",
-                    "FORMER": "Former participant",
-                    "undefined": "Unknown"
-                }
-            },
-            "OTHER": {
-                "description": {
-                    "VOTING": "A GBIF Voting participant organization from {REGION}",
-                    "ASSOCIATE": "An associate participant organization from {REGION}",
-                    "OBSERVER": "An observing participant organization from {REGION}",
-                    "AFFILIATE": "An affiliate participant organization from {REGION}",
-                    "FORMER": "A former participant organization from {REGION}",
-                    "undefined": "Unknown"
-                },
-                "longForm": {
-                    "VOTING": "Voting participant organization",
-                    "ASSOCIATE": "Associate participant organization",
-                    "OBSERVER": "Observing participant organization",
-                    "AFFILIATE": "Affiliate participant organization",
-                    "FORMER": "Former participant organization",
-                    "undefined": "Unknown"
-                }
-            }
-        }
+        "undefined": "Unknown"
     }
 }
