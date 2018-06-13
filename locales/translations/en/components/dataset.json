@@ -52,6 +52,10 @@
     "lastIngestionSuccess": "Last ingestion a success",
     "lastIngestionFailed": "Last ingestion failed",
     "publishingCountriesAreas": "Publishing countries and areas",
+    "originalArchive": "Source archive",
+    "annotatedEml": "GBIF annotated metadata",
+    "recommended": "Recommended",
+    "processedOccurrences": "GBIF annotated archive",
     "crawl": {
       "finishReason": {
         "NORMAL": "Normal",
@@ -84,11 +88,5 @@
       "adopted": "Adopted dataset",
       "lastIngestedBeforeDate": "Last ingested before {DATE}"
     }
-  },
-  "datasetKey": {
-    "originalArchive": "Source archive",
-    "annotatedEml": "GBIF annotated metadata",
-    "recommended": "Recommended",
-    "processedOccurrences": "GBIF annotated archive"
   }
 }

@@ -87,10 +87,10 @@
                                 <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
                                     aria-labelledby="btn-append-to-body">
                                     <li role="menuitem" ng-if="datasetKey.occurrences.count > 0">
-                                        <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey.key})"><span translate="datasetKey.processedOccurrences"></span> <span class="small text-brand-color" translate="datasetKey.recommended"></span></a>
+                                        <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey.key})"><span translate="dataset.processedOccurrences"></span> <span class="small text-brand-color" translate="dataset.recommended"></span></a>
                                     </li>
-                                    <li role="menuitem" ng-if="datasetKey.dataset.license != 'unspecified' && datasetKey.originalArchive.url"><a href="{{ datasetKey.originalArchive.url }}"><span translate="datasetKey.originalArchive"></span> <span class="discreet--very small" translate="endpointType.{{ datasetKey.originalArchive.type }}"></span></a></li>
-                                    <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey.key }}/document"><span translate="datasetKey.annotatedEml"></span> <span class="discreet--very small" translate="endpointType.EML"></span></a></li>
+                                    <li role="menuitem" ng-if="datasetKey.dataset.license != 'unspecified' && datasetKey.originalArchive.url"><a href="{{ datasetKey.originalArchive.url }}"><span translate="dataset.originalArchive"></span> <span class="discreet--very small" translate="endpointType.{{ datasetKey.originalArchive.type }}"></span></a></li>
+                                    <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey.key }}/document"><span translate="dataset.annotatedEml"></span> <span class="discreet--very small" translate="endpointType.EML"></span></a></li>
                                 </ul>
                             </li>
 
