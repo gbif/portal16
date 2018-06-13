@@ -36,14 +36,6 @@
     },
     "errors": {
       "413": "The geometry file is too large to be processed by the data API."
-    },
-    "Highcharts": {
-      "contextButtonTitle": "Chart context menu",
-      "downloadCSV": "Download CSV",
-      "downloadJPEG": "Download JPEG image",
-      "downloadPDF": "Download PDF document",
-      "downloadPNG": "Download PNG image",
-      "downloadXLS": "Download XLS"
     }
   }
 }
