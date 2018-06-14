@@ -63,7 +63,7 @@
 
 
             <div class="m-t-1" >
-                <h4 class="text-muted small text-uppercase" translate="stdTerms.citations" translate-values="{NUMBER: 1}"></h4>
+                <h4 class="text-muted small text-uppercase" translate="stdTerms.citation"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div class="m-b-1 m-t-1"   ng-if="speciesKey2.isNub || (speciesKey2.verbatim && speciesKey2.verbatim.$resolved && !speciesKey2.species.bibliographicCitation)">
