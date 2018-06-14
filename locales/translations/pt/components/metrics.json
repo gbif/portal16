@@ -1,10 +1,33 @@
 {
-    "datasetMetrics": {
-        "countByKingdom": "Count by kingdom",
-        "countByRank": "Count by rank",
-        "countNamesByLanguage": "Count names by language",
-        "countExtRecordsByExtension": "Count extensions by extension type",
-        "countByOrigin": "Count by origin",
-        "countByIssue": "Count issues by issue type"
-    }
+  "datasetMetrics": {
+    "countByKingdom": "Count by kingdom",
+    "countByRank": "Count by rank",
+    "countNamesByLanguage": "Count names by language",
+    "countExtRecordsByExtension": "Count extensions by extension type",
+    "countByOrigin": "Count by origin",
+    "countByIssue": "Count issues by issue type"
+  },
+  "metrics": {
+    "explore": "Explore",
+    "majorGroups": "Major groups",
+    "failedToLoad": "Failed to load tree",
+    "noChildren": "No immediate children",
+    "noOccurrences": "No occurrences",
+    "occurrencesPerField": "Occurrences per {FIELD}",
+    "occurrencesPerFieldx2": "Occurrences per {FIELD} per {FIELD2}",
+    "customFilters": "This chart has custom filters",
+    "linear": "Linear",
+    "count": "Count",
+    "intervalSize": "Interval size",
+    "intervalDiffers": "Differently sized interval",
+    "showOccPer": "Show number of occurrences per",
+    "andBreakdownPer": "And optionally break those down per",
+    "logarithmic": "Logarithmic",
+    "singleTypeResults": "{NUMBER} occurrences where '{FIELD}' equals:",
+    "chooseDimension": "Choose dimension",
+    "clickToZoom": "Click and drag in the plot area to zoom in",
+    "pinchToZoom": "Pinch the chart to zoom in",
+    "numAcceptedSpByHigher": "Number of accepted species by higher taxon",
+    "noRankedAbove": "The checklist has no ranked taxa above Species."
+  }
 }

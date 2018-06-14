@@ -1,0 +1,11 @@
+{
+  "taxon": {
+    "rank": "Rank",
+    "constituentDataset": "Constituent dataset",
+    "higherTaxon": "Higher taxon",
+    "status": "Status",
+    "issue": "Issue",
+    "nameType": "Name type",
+    "origin": "Origin"
+  }
+}

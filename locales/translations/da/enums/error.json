@@ -1,0 +1,6 @@
+{
+    "error": {
+        "USER_ALREADY_EXIST": "Brugeren findes allerede. Prøv et andet brugernavn eller e-mail",
+        "CONSTRAINT_VIOLATION": "Ugyldige eller manglende oplysninger"
+    }
+}

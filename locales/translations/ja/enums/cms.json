@@ -1,77 +1,116 @@
 {
-    "enums": {
-        "cms": {
-            "vocabularyTypes": {
-                "countriesOfCoverage": "country or area of coverage",
-                "countriesOfResearcher": "country or area of researcher",
-                "literatureType": "literature type",
-                "contractCountry": "Country or area",
-                "topics": "topic",
-                "purposes": "purpose",
-                "relevance": "relevance",
-                "language": "language"
-            },
-            "vocabularyTerms": {
-                "relevance": {
-                    "GBIF_USED": "GBIF used",
-                    "GBIF_CITED": "GBIF cited",
-                    "GBIF_DISCUSSED": "GBIF discussed",
-                    "GBIF_PRIMARY": "GBIF primary",
-                    "GBIF_ACKNOWLEDGED": "GBIF acknowledged",
-                    "GBIF_PUBLISHED": "GBIF published",
-                    "GBIF_AUTHOR": "GBIF author",
-                    "GBIF_MENTIONED": "GBIF mentioned",
-                    "GBIF_FUNDED": "GBIF funded"
-                },
-                "topics": {
-                    "AGRICULTURE": "Agriculture",
-                    "BIODIVERSITY_SCIENCE": "Biodiversity science",
-                    "BIOGEOGRAPHY": "Biogeography",
-                    "CITIZEN_SCIENCE": "Citizen science",
-                    "CLIMATE_CHANGE": "Climate change",
-                    "CONSERVATION": "Conservation",
-                    "DATA_MANAGEMENT": "Data management",
-                    "DATA_PAPER": "Data paper",
-                    "ECOLOGY": "Ecology",
-                    "ECOSYSTEM_SERVICES": "Ecosystem services",
-                    "EVOLUTION": "Evolution",
-                    "FRESHWATER": "Freshwater",
-                    "HUMAN_HEALTH": "Human health",
-                    "INVASIVES": "Invasives",
-                    "MARINE": "Marine",
-                    "PHYLOGENETICS": "Phylogenetics",
-                    "SPECIES_DISTRIBUTIONS": "Species distributions",
-                    "TAXONOMY": "Taxonomy"
-                },
-                "purposes": {
-                    "CAPACITY_ENHANCEMENT": "Capacity enhancement",
-                    "DATA_ACCESS": "Data access",
-                    "DATA_ANALYSIS": "Data analysis",
-                    "DATA_CURATION_&_QUALITY": "Data curation & quality",
-                    "DATA_DIGITIZATION": "Data digitization",
-                    "DATA_PUBLISHING": "Data publishing"
-                },
-                "literatureType": {
-                    "book": "book",
-                    "book_section": "book section",
-                    "conference_proceedings": "conference proceedings",
-                    "generic": "generic",
-                    "journal": "journal",
-                    "magazine_article": "magazine article",
-                    "report": "report",
-                    "thesis": "thesis",
-                    "web_page": "web page",
-                    "working_paper": "working paper"
-                },
-                "audience": {
-                    "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
-                    "DATA_HOLDERS": "Data holders",
-                    "DATA_USERS": "Data users",
-                    "DECISION_MAKERS": "Decision makers",
-                    "GBIF_NETWORK": "GBIF network",
-                    "PUBLIC_STAKEHOLDERS": "Public stakeholders"
-                }
-            }
+  "enums": {
+    "cms": {
+      "vocabularyTypes": {
+        "countriesOfCoverage": "Country or area of coverage",
+        "countriesOfResearcher": "Country or area of researcher",
+        "literatureType": "Literature type",
+        "contractCountry": "Country or area",
+        "topics": "Topic",
+        "audiences": "Audiences",
+        "purposes": "Purpose",
+        "relevance": "Relevance",
+        "language": "Language"
+      },
+      "contentType": {
+        "event": "Event",
+        "news": "News",
+        "resource": "Resource",
+        "dataUse": "Data use",
+        "project": "Project",
+        "participant": "Participant",
+        "programme": "Programme",
+        "document": "Document",
+        "tool": "Tool",
+        "literature": "Literature"
+      },
+      "vocabularyTerms": {
+        "articleType": {
+          "Nodes guidance": "Nodes guidance"
+        },
+        "projectGrantType": {
+          "REGIONAL": "Regional grant",
+          "SMALL": "Small grant",
+          "NATIONAL": "National grant",
+          "undefined": "Not specified"
+        },
+        "projectStatus": {
+          "APPROVED": "Approved",
+          "CLOSED": "Closed",
+          "IN_PROGRESS": "In progress",
+          "undefined": "Not specified"
+        },
+        "relevance": {
+          "GBIF_USED": "GBIF used",
+          "GBIF_CITED": "GBIF cited",
+          "GBIF_DISCUSSED": "GBIF discussed",
+          "GBIF_PRIMARY": "GBIF primary",
+          "GBIF_ACKNOWLEDGED": "GBIF acknowledged",
+          "GBIF_PUBLISHED": "GBIF published",
+          "GBIF_AUTHOR": "GBIF author",
+          "GBIF_MENTIONED": "GBIF mentioned",
+          "GBIF_FUNDED": "GBIF funded"
+        },
+        "topics": {
+          "AGRICULTURE": "Agriculture",
+          "BIODIVERSITY_SCIENCE": "Biodiversity science",
+          "BIOGEOGRAPHY": "Biogeography",
+          "CITIZEN_SCIENCE": "Citizen science",
+          "CLIMATE_CHANGE": "Climate change",
+          "CONSERVATION": "Conservation",
+          "DATA_MANAGEMENT": "Data management",
+          "DATA_PAPER": "Data paper",
+          "ECOLOGY": "Ecology",
+          "ECOSYSTEM_SERVICES": "Ecosystem services",
+          "EVOLUTION": "Evolution",
+          "FRESHWATER": "Freshwater",
+          "HUMAN_HEALTH": "Human health",
+          "INVASIVES": "Invasives",
+          "MARINE": "Marine",
+          "PHYLOGENETICS": "Phylogenetics",
+          "SPECIES_DISTRIBUTIONS": "Species distributions",
+          "TAXONOMY": "Taxonomy"
+        },
+        "purposes": {
+          "CAPACITY_ENHANCEMENT": "Capacity enhancement",
+          "DATA_ACCESS": "Data access",
+          "DATA_ANALYSIS": "Data analysis",
+          "DATA_CURATION_&_QUALITY": "Data curation & quality",
+          "DATA_DIGITIZATION": "Data digitization",
+          "DATA_PUBLISHING": "Data publishing",
+          "DATA_CURATION_QUALITY": "Data curation quality"
+        },
+        "literatureType": {
+          "journal": "Journal article",
+          "book": "Book",
+          "generic": "Generic",
+          "book_section": "Book section",
+          "conference_proceedings": "Conference proceedings",
+          "working_paper": "Working paper",
+          "report": "Report",
+          "web_page": "Web page",
+          "thesis": "Thesis",
+          "magazine_article": "Magazine article",
+          "statute": "Statute",
+          "patent": "Patent",
+          "newspaper_article": "Newspaper article",
+          "computer_program": "Computer program",
+          "hearing": "Hearing",
+          "television_broadcast": "Television broadcast",
+          "encyclopedia_article": "Encyclopedia article",
+          "case": "Case",
+          "film": "Film",
+          "bill": "Bill"
+        },
+        "audiences": {
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
+          "DATA_HOLDERS": "Data holders",
+          "DATA_USERS": "Data users",
+          "DECISION_MAKERS": "Decision makers",
+          "GBIF_NETWORK": "GBIF network",
+          "PUBLIC_STAKEHOLDERS": "Public stakeholders"
         }
+      }
     }
+  }
 }

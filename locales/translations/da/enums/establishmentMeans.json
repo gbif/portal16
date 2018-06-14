@@ -1,10 +1,10 @@
 {
-    "establishmentMeans": {
-        "NATIVE": "native",
-        "INTRODUCED": "introduced",
-        "NATURALISED": "naturalized",
-        "INVASIVE": "invasive",
-        "MANAGED": "managed",
-        "UNCERTAIN": "uncertain"
-    }
+  "establishmentMeans": {
+    "NATIVE": "Hjemmehørende",
+    "INTRODUCED": "Indført",
+    "NATURALISED": "Naturaliseret",
+    "INVASIVE": "Invasiv",
+    "MANAGED": "Overvåget",
+    "UNCERTAIN": "Usikker"
+  }
 }

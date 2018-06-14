@@ -1,58 +1,53 @@
 {
-    "gbifNetwork": {
-        "title": "Directory",
-        "contact": "contact",
-        "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
-        "voting_participant": {
-            "one": "Voting participant",
-            "other": "Voting participants"
-        },
-        "associate_country_participant": {
-            "one": "Associate country participant",
-            "other": "Associate country participants"
-        },
-        "other_associate_participant": {
-            "one": "Other associate participant",
-            "other": "Other associate participants"
-        },
-        "former_participant": {
-            "one": "Former participant",
-            "other": "Former participants"
-        },
-        "gbif_affiliate": {
-            "one": "GBIF affiliate",
-            "other": "GBIF affiliates"
-        },
-        "observer": "Observer",
-        "others": "Other",
-        "delegationMembers": "delegation members",
-        "role": "role",
-        "institution": "institution",
-        "group": {
+  "gbifNetwork": {
+    "title": "Directory",
+    "contact": "Contact",
+    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
+    "voting_participant": {
+      "one": "Voting participant",
+      "other": "Voting participants"
+    },
+    "associate_country_participant": {
+      "one": "Associate country participant",
+      "other": "Associate country participants"
+    },
+    "other_associate_participant": {
+      "one": "Other associate participant",
+      "other": "Other associate participants"
+    },
+    "former_participant": {
+      "one": "Former participant",
+      "other": "Former participants"
+    },
+    "gbif_affiliate": {
+      "one": "GBIF affiliate",
+      "other": "GBIF affiliates"
+    },
+    "role": "Role",
+    "institution": "Institution",
+    "group": {
 
-        },
-        "executive_committee": "Executive committee",
-        "budget_committee": "Budget committee",
-        "science_committee": "Science committee",
-        "nodes_steering_group": "Nodes Steering Group",
-        "nodes_committee": "Nodes committee",
-        "gbif_secretariat": "GBIF Secretariat",
-        "staff_member": "Staff member",
-        "membershipType": "Membership",
-        "governingBoard": "Governing Board",
-        "committees": "Committees",
-        "name": "name",
-        "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}",
-        "occurrenceDatasetWith": "occurrence {NUMBER, select, one{dataset} other{datasets}} with",
-        "record": "{NUMBER, select, one{record} other{records}}",
-        "usage": "{NUMBER, select, one{usage} other{usages}}",
-        "checklistDatasetWith": "checklist {NUMBER, select, one{dataset} other{datasets}} with",
-        "metadataDataset": "metadata-only {NUMBER, select, one{dataset} other{datasets}}",
-        "publishesDataCovering": "Publishes data covering",
-        "countriesTerritoriesAndIslands": "countries, territories and islands",
-        "peerReviewedPublication": "peer-reviewed {NUMBER, select, one{publication} other{publications}}",
-        "participant": "{NUMBER, select, one{participant} other{participants}}",
-        "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
-        "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
+    },
+    "gbif_secretariat": "GBIF Secretariat",
+    "membershipType": "Membership",
+    "governingBoard": "Governing Board",
+    "committees": "Committees",
+    "name": "Name",
+    "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, select, one{publisher} other{publishers}}",
+    "occurrenceDatasetWith": "Occurrence {NUMBER, select, one{dataset} other{datasets}} with",
+    "record": "{NUMBER, select, one{record} other{records}}",
+    "participant": "{NUMBER, select, one{participant} other{participants}}",
+    "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
+    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}",
+    "participation": {
+      "nonCountryParticipant": {
+        "one": "Participant organisation",
+        "other": "Participant organisations"
+      },
+      "gbifAffiliate": {
+        "one": "GBIF affiliate",
+        "other": "GBIF affiliates"
+      }
     }
+  }
 }

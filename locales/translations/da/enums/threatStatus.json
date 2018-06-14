@@ -1,13 +1,13 @@
 {
     "threatStatus": {
-        "EXTINCT": "Extinct",
-        "EXTINCT_IN_THE_WILD": "Extinct in the Wild",
-        "CRITICALLY_ENDANGERED": "Critically Endangered",
-        "ENDANGERED": "Endangered",
-        "VULNERABLE": "Vulnerable",
-        "NEAR_THREATENED": "Near Threatened",
-        "LEAST_CONCERN": "Least Concern",
-        "DATA_DEFICIENT": "Data Deficient",
-        "NOT_EVALUATED": "Not Evaluated"
+        "EXTINCT": "Uddød",
+        "EXTINCT_IN_THE_WILD": "Uddød i naturen",
+        "CRITICALLY_ENDANGERED": "Kritisk truet",
+        "ENDANGERED": "Truet",
+        "VULNERABLE": "Sårbar",
+        "NEAR_THREATENED": "Næsten truet",
+        "LEAST_CONCERN": "Mindste bekymring",
+        "DATA_DEFICIENT": "Data mangelfuld",
+        "NOT_EVALUATED": "Ikke evalueret"
     }
 }

@@ -1,13 +1,13 @@
 {
-    "iucnStatus": {
-        "EX": "Extinct",
-        "EW": "Extinct in the Wild",
-        "CR": "Critically Endangered",
-        "EN": "Endangered",
-        "VU": "Vulnerable",
-        "NT": "Near Threatened",
-        "LC": "Least Concern",
-        "DD": "Data Deficient",
-        "NE": "Not Evaluated"
-    }
+  "iucnStatus": {
+    "EX": "Uddød",
+    "EW": "Uddød i naturen",
+    "CR": "Kritisk truet",
+    "EN": "Truet",
+    "VU": "Sårbar",
+    "NT": "Næsten truet",
+    "LC": "Mindste bekymring",
+    "DD": "Data mangelfuld",
+    "NE": "Ikke evalueret"
+  }
 }
