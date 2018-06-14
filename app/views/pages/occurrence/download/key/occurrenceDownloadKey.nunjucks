@@ -76,7 +76,7 @@
                                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                                             <li class="tab tab-right ng-cloak" ng-if="downloadKey.isUsersDownload && downloadKey.isCancelable">
                                                 <span>
-                                                    <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)" translate="download.cancel"></a>
+                                                    <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)" translate="downloadKey.cancel"></a>
                                                 </span>
                                             </li>
                                         {% endif %}
