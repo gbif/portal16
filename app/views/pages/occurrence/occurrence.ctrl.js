@@ -309,6 +309,66 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         }
     };
 
+    vm.filters.eventId = {
+        titleTranslation: 'ocurrenceFieldNames.eventID',
+        queryKey: 'event_id',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.eventID',
+            suggestEndpoint: suggestEndpoints.eventId
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'EVENT_ID'
+        }
+    };
+
+    vm.filters.samplingProtocol = {
+        titleTranslation: 'ocurrenceFieldNames.samplingProtocol',
+        queryKey: 'sampling_protocol',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.samplingProtocol',
+            suggestEndpoint: suggestEndpoints.samplingProtocol
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'SAMPLING_PROTOCOL'
+        }
+    };
+
+    vm.filters.networkKey = {
+        titleTranslation: 'network.title',
+        queryKey: 'gbif_network',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'network.title',
+            suggestEndpoint: suggestEndpoints.networkKey
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'GBIF_NETWORK'
+        }
+    };
+
+    vm.filters.installationKey = {
+        titleTranslation: 'stdTerms.installation',
+        queryKey: 'installation_key',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'stdTerms.installation',
+            suggestEndpoint: suggestEndpoints.installationKey
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'INSTALLAION_KEY'
+        }
+    };
+
     vm.filters.basisOfRecord = {
         titleTranslation: 'ocurrenceFieldNames.basisOfRecord',
         queryKey: 'basis_of_record',

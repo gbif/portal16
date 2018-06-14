@@ -27,7 +27,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         queryKey: 'type',
         facetKey: 'TYPE',
         title: 'type',
-        translationPrefix: 'dataset.terms',
+        translationPrefix: 'dataset.search',
         filter: DatasetFilter
     };
 
@@ -71,7 +71,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.publishingCountry = {
-        titleTranslation: 'dataset.terms.publishingCountry',
+        titleTranslation: 'dataset.search.publishingCountry',
         queryKey: 'publishing_country',
         filter: DatasetFilter,
         enumTranslationPath: 'country.',
@@ -100,7 +100,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         },
         search: {
             isSearchable: true,
-            placeholder: 'dataset.terms.publishingOrg',
+            placeholder: 'dataset.search.publishingOrg',
             suggestEndpoint: suggestEndpoints.publisher,
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
@@ -110,7 +110,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.hostingOrg = {
-        titleTranslation: 'dataset.terms.hostingOrg',
+        titleTranslation: 'dataset.search.hostingOrg',
         queryKey: 'hosting_org',
         filter: DatasetFilter,
         expand: {
@@ -123,7 +123,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         },
         search: {
             isSearchable: true,
-            placeholder: 'dataset.terms.hostingOrg',
+            placeholder: 'dataset.search.hostingOrg',
             suggestEndpoint: suggestEndpoints.publisher,
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
@@ -133,7 +133,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.projectId = {
-        titleTranslation: 'dataset.terms.projectId',
+        titleTranslation: 'dataset.search.projectId',
         queryKey: 'project_id',
         filter: DatasetFilter,
         facets: {
@@ -142,7 +142,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         },
         search: {
             isSearchable: true,
-            placeholder: 'dataset.terms.projectId'
+            placeholder: 'dataset.search.projectId'
         }
     };
 
