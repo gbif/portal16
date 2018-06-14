@@ -1,44 +1,44 @@
 {
   "intervals": {
     "elevation": {
-      "equals": "Is {from}m",
-      "between": "Between {from} and {to}m",
-      "lessThanOrEquals": "Below {to}m",
-      "greaterThanOrEquals": "Above {from}m",
-      "invalid": "Invalid",
+      "equals": "Er {from}m",
+      "between": "Mellem {from} og {to}m",
+      "lessThanOrEquals": "Lavere end {to}m",
+      "greaterThanOrEquals": "Højere end {from}m",
+      "invalid": "Ugyldig",
       "select": {
-        "equals": "Is",
-        "between": "Between",
-        "lessThanOrEquals": "Below",
-        "greaterThanOrEquals": "Above"
+        "equals": "Er",
+        "between": "Mellem",
+        "lessThanOrEquals": "Under",
+        "greaterThanOrEquals": "Over"
       }
     },
     "depth": {
-      "equals": "Is {from}m",
-      "between": "Between {from} and {to}m",
-      "lessThanOrEquals": "Above {to}m depth",
-      "greaterThanOrEquals": "Deeper than {from}m",
-      "invalid": "Invalid",
+      "equals": "Er {from}m",
+      "between": "Mellem {from} og {to}m",
+      "lessThanOrEquals": "Under {to}m dybde",
+      "greaterThanOrEquals": "Dybere end {from}m",
+      "invalid": "Ugyldig",
       "select": {
-        "equals": "Is",
-        "between": "Between",
-        "lessThanOrEquals": "Less than",
-        "greaterThanOrEquals": "Deeper than"
+        "equals": "Er",
+        "between": "Mellem",
+        "lessThanOrEquals": "Mindre end",
+        "greaterThanOrEquals": "Dybere end"
       }
     },
     "year": {
-      "equals": "Is {from}",
-      "between": "Between start of {from} and end of {to}",
-      "lessThanOrEquals": "Before end of {to}",
-      "greaterThanOrEquals": "After start of {from}",
-      "invalid": "Invalid",
+      "equals": "Er {from}",
+      "between": "Fra starten af {from} til slutningen af {to}",
+      "lessThanOrEquals": "Før slutningen af {to}",
+      "greaterThanOrEquals": "Efter starten af {from}",
+      "invalid": "Ugyldig",
       "select": {
-        "equals": "Is",
-        "between": "Between",
-        "lessThanOrEquals": "Before end of",
-        "greaterThanOrEquals": "After start of"
+        "equals": "Er",
+        "between": "Mellem",
+        "lessThanOrEquals": "Før slutningen af",
+        "greaterThanOrEquals": "Efter starten på"
       }
     },
-    "noFilter": "No filter"
+    "noFilter": "Intet filter"
   }
 }
