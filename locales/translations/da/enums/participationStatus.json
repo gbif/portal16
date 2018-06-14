@@ -1,10 +1,10 @@
 {
     "participationStatus": {
-        "VOTING": "Voting",
-        "ASSOCIATE": "Associate",
-        "OBSERVER": "Observer",
-        "AFFILIATE": "Affiliate",
-        "FORMER": "Former",
-        "undefined": "Unknown"
+        "VOTING": "Stemmende",
+        "ASSOCIATE": "Associeret",
+        "OBSERVER": "Observatør",
+        "AFFILIATE": "Affilieret",
+        "FORMER": "Tidligere",
+        "undefined": "Ukendt"
     }
 }
