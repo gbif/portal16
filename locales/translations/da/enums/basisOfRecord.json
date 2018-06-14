@@ -2,13 +2,13 @@
   "basisOfRecord": {
     "PRESERVED_SPECIMEN": "Bevaret eksemplar",
     "FOSSIL_SPECIMEN": "Fossilt eksemplar",
-    "LIVING_SPECIMEN": "Living specimen",
+    "LIVING_SPECIMEN": "Levende eksemplar",
     "OBSERVATION": "Observation",
-    "HUMAN_OBSERVATION": "Human observation",
-    "MACHINE_OBSERVATION": "Machine observation",
-    "MATERIAL_SAMPLE": "Material sample",
-    "LITERATURE": "Literature",
-    "UNKNOWN": "Unknown",
-    "undefined": "Unknown"
+    "HUMAN_OBSERVATION": "Menneskelig observation",
+    "MACHINE_OBSERVATION": "Maskinel observation",
+    "MATERIAL_SAMPLE": "Materiale prøve",
+    "LITERATURE": "Litteratur",
+    "UNKNOWN": "Ukendt",
+    "undefined": "Ukendt"
   }
 }
