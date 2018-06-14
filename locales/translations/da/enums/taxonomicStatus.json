@@ -1,12 +1,12 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "Accepted",
-    "DOUBTFUL": "Doubtful",
+    "ACCEPTED": "Accepteret",
+    "DOUBTFUL": "Tvivlsom",
     "SYNONYM": "Synonym",
-    "HETEROTYPIC_SYNONYM": "Heterotypic synonym",
-    "HOMOTYPIC_SYNONYM": "Homotypic synonym",
+    "HETEROTYPIC_SYNONYM": "Heterotypisk synonym",
+    "HOMOTYPIC_SYNONYM": "Homotypisk synonym",
     "PROPARTE_SYNONYM": "Proparte synonym",
-    "MISAPPLIED": "Misapplied",
+    "MISAPPLIED": "Misanvendt",
     "INTERMEDIATE_RANK_SYNONYM": "Intermediate rank synonym",
     "DETERMINATION_SYNONYM": "Determination synonym"
   }
