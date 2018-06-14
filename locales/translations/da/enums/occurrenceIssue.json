@@ -39,14 +39,14 @@
     "ELEVATION_NON_NUMERIC": "Elevation ikke numerisk",
     "MODIFIED_DATE_INVALID": "Ugyldig ændringsdato",
     "MODIFIED_DATE_UNLIKELY": "Usandsynlig ændringsdato",
-    "IDENTIFIED_DATE_UNLIKELY": "Identified date unlikely",
-    "IDENTIFIED_DATE_INVALID": "Identified date invalid",
-    "BASIS_OF_RECORD_INVALID": "Basis of record invalid",
-    "TYPE_STATUS_INVALID": "Type status invalid",
-    "MULTIMEDIA_DATE_INVALID": "Multimedia date invalid",
-    "MULTIMEDIA_URI_INVALID": "Multimedia uri invalid",
-    "REFERENCES_URI_INVALID": "References uri invalid",
-    "INTERPRETATION_ERROR": "Interpretation error",
-    "INDIVIDUAL_COUNT_INVALID": "Individual count invalid"
+    "IDENTIFIED_DATE_UNLIKELY": "Usandsynlig identifikationsdato",
+    "IDENTIFIED_DATE_INVALID": "Ugyldig identifikationsdato",
+    "BASIS_OF_RECORD_INVALID": "Ugyldig observationstype",
+    "TYPE_STATUS_INVALID": "Ugyldig typestatus",
+    "MULTIMEDIA_DATE_INVALID": "Ugyldig multimediedato",
+    "MULTIMEDIA_URI_INVALID": "Multimedie-uri ugyldig",
+    "REFERENCES_URI_INVALID": "Reference-uri ugyldig",
+    "INTERPRETATION_ERROR": "Fortolkningsfejl",
+    "INDIVIDUAL_COUNT_INVALID": "Individantal ugyldigt"
   }
 }
