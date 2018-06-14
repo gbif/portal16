@@ -2,9 +2,23 @@
     <article class="wrapper-horizontal-stripes">
         <div class="horizontal-stripe article-header white-background">
             <header class="text-center">
+                {% if main.fields.displayDate and main.fields.articleType %}
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">{$ __('enums.cms.vocabularyTerms.articleType.' + main.fields.articleType) $}</span>
+                    <span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>
+                </nav>
+                {% elif main.fields.articleType %}
+                <nav class="article-header__category">
+                    <span class="article-header__category__upper">{$ __('enums.cms.vocabularyTerms.articleType.' + main.fields.articleType) $}</span>
+                </nav>
+                {% elif main.fields.displayDate %}
+                <nav class="article-header__category">
+                    <span class="article-header__category__upper">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>
+                </nav>
+                {% endif %}
                 <h1>{$ main.fields.title $}</h1>
                 <div class="article-header__intro">
-                    {$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                    {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 </div>
                 {% if main.fields.numberOfResourceUsed | isNotEmpty %}
                     <span class="article-header__meta">

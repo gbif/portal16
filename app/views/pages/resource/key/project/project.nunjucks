@@ -32,10 +32,10 @@
 
         {% if main.fields.fundsAllocated and resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations | isNotEmpty %}
         <div class="horizontal-stripe bare-background">
-        <div class="container--narrow">
-            <p class="small discreet text-uppercase text-center">€ {{ {$ main.fields.fundsAllocated $} | localNumber}} <span translate="stdTerms.fundedBy"></span></p>
-        </div>
-         {$ funderMacro.organisationsAndParticipants(resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations, resolved) $}
+            <div class="container--narrow">
+                <p class="small discreet text-uppercase text-center">€ {{ {$ main.fields.fundsAllocated $} | localNumber}} <span translate="stdTerms.fundedBy"></span></p>
+            </div>
+            {$ funderMacro.organisationsAndParticipants(resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations, resolved) $}
         </div>
         {% endif %}
 

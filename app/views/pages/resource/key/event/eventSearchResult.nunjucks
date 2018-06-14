@@ -1,7 +1,7 @@
 <div class="card m-b-05 searchCard" ng-class="{'event--past': (result.end | isPast)}">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.event') | capitalize $}</span>
+            <span class="searchCard__type" translate="enums.cms.contentType.event"></span>
             <h3 class="searchCard__headline">
                 <a ng-href="{{ result.primaryLink.url }}" ng-if="result.primaryLink.url">
                     {{result.title}}
@@ -46,8 +46,9 @@
     </div>
     <div class="card__stripe" ng-if="!(result.end | isPast)">
         <div class="card__content">
-            <a ng-href="/api/newsroom/events/{{result.id}}.ics" class="gb-button--discreet text-uppercase small"><span class="gb-icon-calendar"></span> Add to calendar</a>
-            <a href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}" class="gb-button--flat text-uppercase small" ng-if="result.primaryLink.url">View on GBIF</a>
+            <a ng-href="/api/newsroom/events/{{result.id}}.ics" class="gb-button--discreet text-uppercase small"><span class="gb-icon-calendar"></span> <span translate="resource.addToCalendar"></span></a>
+            <a href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}" class="gb-button--flat text-uppercase small" ng-if="result.primaryLink.url"> <span translate="resource.viewOnGBIF"></span></a>
+            
         </div>
     </div>
 </div>

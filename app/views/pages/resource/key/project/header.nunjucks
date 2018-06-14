@@ -3,10 +3,10 @@
         <header class="text-center">
             <nav class="article-header__category article-header__category--deep">
                 <span class="article-header__category__upper">
-                    <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=project">{$ __('cms.contentType.project') $}</a>
+                    <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=project">{$ __('enums.cms.contentType.project') $}</a>
                 </span>
                 <span class="article-header__category__lower">
-                    {$ __('cms.projectStatus.' + main.fields.status) $}
+                    {$ __('enums.cms.vocabularyTerms.projectStatus.' + main.fields.status) $}
                 </span>
             </nav>
             <h1>{$ main.fields.title $}</h1>
@@ -28,7 +28,7 @@
                 <div>
                     <a href="#funding" class="inherit">
                         <span class="gb-icon-euro"></span>
-                        {{ {$ main.fields.fundsAllocated $} | localNumber }}
+                         {$ main.fields.fundsAllocated.toLocaleString() $} 
                     </a>
                 </div>
                 {% endif %}

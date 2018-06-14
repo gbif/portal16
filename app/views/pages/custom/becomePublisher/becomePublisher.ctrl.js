@@ -9,7 +9,7 @@ angular
     .controller('becomePublisherCtrl', becomePublisherCtrl);
 
 /** @ngInject */
-function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry) {
+function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry, $scope, $sessionStorage, NOTIFICATIONS) {
     var vm = this;
     vm.MAGIC_OBIS_KEY = constantKeys.node.OBIS_NODE_KEY;
     vm.state = {
@@ -31,7 +31,6 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         suggestedNodeKey: 'other'
 
     };
-
 
     vm.getPublisherSuggestions = function(val) {
         var deferred = $q.defer();
@@ -68,10 +67,11 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
             } else {
                 NodeCountry.query({countryCode: country}).$promise
                     .then(function(data) {
-                        if (data.key) {
+                        if (data.key && data.participationStatus !== 'OBSERVER') {
                             vm.suggestedCountryNode = data;
                             vm.form.suggestedNodeKey = vm.suggestedCountryNode.key;
                         } else {
+                            delete vm.suggestedCountryNode;
                             vm.form.suggestedNodeKey = 'other';
                         }
                     });
@@ -149,7 +149,9 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
                 center: [0, 0],
                 zoom: 1
             }),
-            interactions: ol.interaction.defaults({mouseWheelZoom: false})
+            interactions: ol.interaction.defaults({mouseWheelZoom: false}),
+            logo: false,
+        controls: ol.control.defaults({attribution: false})
         });
         map.on('singleclick', function(evt) {
             setPinOnMap(evt);
@@ -189,7 +191,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
                     anchorYUnits: 'pixels',
                     size: [25, 41],
                     opacity: 1,
-                    src: '/img/marker-icon.png'
+                    src: '/img/marker.png'
                 }))
             });
 
@@ -232,6 +234,11 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         body.contacts.push(body.pointOfContact);
         return body;
     }
+
+    vm.notifications = $sessionStorage.notifications;
+    $scope.$on(NOTIFICATIONS.CHANGED, function(event, notifications) {
+        vm.notifications = notifications;
+    });
 }
 
 module.exports = becomePublisherCtrl;

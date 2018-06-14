@@ -1,39 +1,27 @@
 <div search-drawer filter="species.state" content-type="species" ng-class="{'is-active': species.showFilters}">
     <div class="site-drawer__section">
-
         <div class="search-bar search-bar filter-group">
-
             <form class="search-bar__term" ng-submit="species.search()">
-
                 <input type="text"
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="species.state.query.q"
-                       placeholder="Search for species">
+                       placeholder="{{'species.searchForSpecies' | translate}}">
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="species.search()">
-                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    <span class="sr-only" translate="stdTerms.search"></span>
                 </a>
-
-
-
             </form>
-
         </div>
+
         <div class="filter-group" ng-if="species.state.query.q">
             <div class="m-05 m-l-1">
-                You are doing a free text search for "<i>{{species.state.query.q}}</i>" <br>
-            Limit search to
+                <span translate="species.freeTextSearchFor" translate-values="{QUERY: species.state.query.q}"></span><br>
+            <span translate="species.limitSearchTo"></span>
                 <select ng-model="species.state.query.qField">
-                    <option value=""><em>All</em></option>
-                    <option value="SCIENTIFIC" >
-                        Scientific names
-                    </option>
-                    <option value="VERNACULAR" >
-                        Vernacular names
-                    </option>
-                    <option value="DESCRIPTION" >
-                        Descriptions
-                    </option>
+                    <option value=""><em>{{ 'stdTerms.all' | translate }}</em></option>
+                    <option value="SCIENTIFIC" translate="species.scientificNames"></option>
+                    <option value="VERNACULAR" translate="species.vernacularNames"></option>
+                    <option value="DESCRIPTION" translate="species.descriptions"></option>
                 </select>
             </div>
         </div>
@@ -59,11 +47,9 @@
              ng-if="species.state.query.advanced"></div>
 
         <div class="site-drawer__comment" ng-if="!species.state.query.advanced">
-            <div>You are currently searching for species in the GBIF taxonomy. To search other checklists try advanced
-                mode.
-            </div>
+            <div translate="species.youAreCurrentlySearchingInGBIFtaxonomy"></div>
             <div class="p-t-05">
-                <a href="" class="inherit" ng-click="species.state.query.advanced=true; species.toggleAdvanced()">ADVANCED</a>
+                <a href="" class="inherit" ng-click="species.state.query.advanced=true; species.toggleAdvanced()" translate="species.advanced"></a>
             </div>
         </div>
 
@@ -82,16 +68,10 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper">Search species</span>
-                        <span class="article-header__category__lower" ng-if="species.hasData()">
-                            {{species.state.data.count | localNumber:species.state.query.locale }} results
-                        </span>
-                        <span class="article-header__category__lower" ng-if="!species.hasData() && !species.state.failedRequest">
-                            Loading ...
-                        </span>
-                        <span class="article-header__category__lower" ng-if="species.state.failedRequest">
-                            Failed
-                        </span>
+                                    <span class="article-header__category__upper">{{'species.searchSpecies' | translate}}</span>
+                                    <span class="article-header__category__lower" ng-if="species.hasData()" tx="stdTerms.nResults" tx-nr="species.state.data.count"></span>
+                                    <span class="article-header__category__lower" ng-if="!species.hasData() && !species.state.failedRequest" translate="stdTerms.loading"></span>
+                                    <span class="article-header__category__lower" ng-if="species.state.failedRequest" translate="stdTerms.failed"></span>
                                 </nav>
                             </div>
                         </div>
@@ -104,15 +84,11 @@
                             <nav class="tabs">
                                 <ul>
                                     <li class="tab" ng-class="{isActive: !species.state.query.advanced}">
-                                        <a href="" ui-sref="speciesSearchList({advanced:undefined})" ui-sref-opts="{inherit: true}">
-                                            Simple
-                                        </a>
+                                        <a href="" ui-sref="speciesSearchList({advanced:undefined})" ui-sref-opts="{inherit: true}" translate="species.simple"></a>
                                     </li>
 
                                     <li class="tab" ng-class="{isActive: species.state.query.advanced}">
-                                        <a href="" ui-sref="speciesSearchList({advanced:1})" ui-sref-opts="{inherit: true}">
-                                            Advanced
-                                        </a>
+                                        <a href="" ui-sref="speciesSearchList({advanced:1})" ui-sref-opts="{inherit: true}" translate="species.advanced"></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -128,23 +104,22 @@
 
                         </div>
                         <div class="emptyInfo" ng-if="species.state.data.count === 0">
-                            <h3>No results – try clearing your filters</h3>
+                            <h3 translate="phrases.noResultsMessage"></h3>
                         </div>
                     </div>
                     <div class="emptyInfo" ng-if="species.state.failedRequest">
-                        <h3>The request failed with a server error. That shouldn't happen :(</h3>
+                        <h3 translate="phrases.errorTryToRefresh"></h3>
                     </div>
                 </div>
             </div>
 
         </div>
 
-
     </div>
 
     <div class="fab hide-on-laptop">
         <a href="" class="gb-button--brand" ng-click="species.showFilters = !species.showFilters" ng-if="!species.showFilters">
-            <span><span class="gb-icon-filters"></span> Filters</span>
+            <span><span class="gb-icon-filters"></span> <span translate="species.filters"></span></span>
         </a>
     </div>
 </div>

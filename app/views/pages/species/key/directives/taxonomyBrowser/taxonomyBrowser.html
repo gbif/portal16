@@ -1,6 +1,5 @@
 <div class="taxonomyBrowser">
-    <div ng-if="vm.hasCriticalError" class="emptyInfo">
-        This shouldn't happen. Seems that the server isn't responding as expected. Try to refresh and report the issue. We are sorry about the inconvenience.
+    <div ng-if="vm.hasCriticalError" class="emptyInfo" translate="stdTerms.criticalErrorMsg">
     </div>
     <div ng-if="!vm.hasCriticalError">
         <div>
@@ -24,7 +23,7 @@
                    ng-if="vm.parents.length == 0 && vm.rootOptions.results.length > 1" ng-click="vm.showRoot()"></a>
                 <a ng-click="vm.$state.go(vm.$state.current, {speciesKey:vm.acceptedTaxon.key}, {reload: true})" ng-if="vm.acceptedTaxon"
                    class="taxonomyBrowser__accepted inherit ">
-                    <div class="taxonomyBrowser__subheadline">Accepted name</div>
+                    <div class="taxonomyBrowser__subheadline" translate="species.acceptedName"></div>
                     <span class="taxonomyBrowser__term"
                           translate="taxonRank.{{ vm.acceptedTaxon.rank || 'UNRANKED'}}"></span>
 
@@ -32,7 +31,7 @@
                     <span ng-bind-html="vm.acceptedTaxon._parsedName || vm.acceptedTaxon.scientificName"
                           class="taxonomyBrowser__description sciname"></span>
                 </a>
-                <div class="taxonomyBrowser__subheadline m-t-1" ng-if="vm.taxon.synonym">Synonym</div>
+                <div class="taxonomyBrowser__subheadline m-t-1" ng-if="vm.taxon.synonym" translate="species.synonym"></div>
                 <div class="taxonomyBrowser__synonym__bordered" ng-if="vm.taxon.synonym">
                     <div class="taxonomyBrowser__description" ng-class="{taxonomyBrowser__synonym: vm.taxon.synonym}">
                         <span ng-if="vm.taxon.synonym" class="synonymSymbol">{{vm.taxon.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
@@ -41,7 +40,7 @@
                                   class="sciname"></span>
                         </div>
                         <div class="taxonomyBrowser__basionyms" ng-if="vm.taxon.synonym && vm.combinations.length > 0">
-                            <div class="taxonomyBrowser__subheadline">Basionym of</div>
+                            <div class="taxonomyBrowser__subheadline" translate="species.basionymOf"></div>
                             <ul>
                                 <li ng-repeat="tax in vm.combinations">
                                     <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
@@ -67,7 +66,7 @@
                 </div>
 
                 <div class="taxonomyBrowser__synonyms" ng-if="vm.synonyms.length > 0">
-                    <div class="taxonomyBrowser__subheadline m-t-1">Synonyms</div>
+                    <div class="taxonomyBrowser__subheadline m-t-1" trasnlate="species.synonyms"></div>
                     <div class="taxonomyBrowser__synonym__bordered">
                         <ul>
                             <li ng-repeat="tax in vm.synonyms">
@@ -88,7 +87,7 @@
         </div>
 
         <div ng-if="vm.classifiedChildren.length > 0">
-            <div class="taxonomyBrowser__headline">Immediate children</div>
+            <div class="taxonomyBrowser__headline" translate="species.immediateChildren"></div>
             <ul>
                 <li class="" ng-repeat="tax in vm.classifiedChildren">
                     <a class="taxonomyBrowser__child noUnderline inherit" ng-click="vm.$state.go(vm.$state.current, {speciesKey:tax.key}, {reload: true})" href="">
@@ -97,7 +96,7 @@
                             <span ng-bind-html="tax._parsedName || tax.scientificName" class="sciname"></span>
                             <div>
                                <span ng-show="!vm.isOcc && tax.numDescendants > 0"
-                                     class="inherit small discreet--very">{{ tax.numDescendants | compactInteger }} descendants</span>
+                                     class="inherit small discreet--very">{{ tax.numDescendants | compactInteger }} {{species.descendants | translate}}</span>
                             </div>
                         </div>
 
@@ -108,26 +107,26 @@
             </ul>
 
             <div ng-if="!vm.endOfChildren && !vm.loadingChildren" class="m-t-2 text-center">
-                <a href="" ng-click="vm.getChildren(100)" class="gb-button--discreet">More</a>
+                <a href="" ng-click="vm.getChildren(100)" class="gb-button--discreet" translate="species.loadMore"></a>
             </div>
         </div>
         <div ng-if="!vm.loadingChildren && vm.classifiedChildren.length == 0" class="emptyInfo">
-            <h3>No children</h3>
+            <h3 translate="species.noChildren"></h3>
         </div>
     </div>
 </div>
 
-<div class="page__overlay" ng-if="vm.showRootSelector" ng-click="vm.showRootSelector = false">
+<div class="page__overlay" ng-if="vm.showRootSelector" ng-click="vm.noRootSelector()">
     <div class="content__overlay__card">
-        <div class="content__overlay__card__header seperator--b">Select root</div>
+        <div class="content__overlay__card__header seperator--b" translate="species.selectRoot"></div>
         <div class="content__overlay__card__list">
             <div class="text-center m-t-2 m-b-2" ng-if="!vm.rootOptions.$resolved"><span class="loading"></span></div>
             <ul ng-if="vm.rootOptions.$resolved">
                 <li ng-repeat="option in vm.rootOptions.results">
-                    <a ng-click="vm.$state.go(vm.$state.current, {speciesKey:option.key}, {reload: true})"class="inherit noUnderline">
+                    <a ng-click="vm.gotoSpecies(option.key)"class="inherit noUnderline">
                         <span>{{ option.scientificName }}</span>
                         <div class="small discreet--very">
-                            <span class="text-capitalize">{{ 'taxonRank.' + option.rank | translate }}</span><span>{{ option.numDescendants | localNumber }} decendants</span>
+                            <span>{{ 'taxonRank.' + option.rank | translate }}</span><span>{{ option.numDescendants | localNumber }} {{species.descendants | translate}}</span>
                         </div>
                     </a>
                 </li>
@@ -135,3 +134,4 @@
         </div>
     </div>
 </div>
+

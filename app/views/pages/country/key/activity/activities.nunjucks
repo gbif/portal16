@@ -1,7 +1,0 @@
-{% include('../recordBreakdown/recordBreakdown.nunjucks') %}
-
-{#<div>#}
-    {#{% include('../countryCoverage/countryCoverage.nunjucks') %}#}
-
-    {#{% include('../datasetBreakdown/datasetBreakdown.nunjucks') %}#}
-{#</div>#}

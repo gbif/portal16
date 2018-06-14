@@ -3,10 +3,14 @@ let Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence,
     Node = require('../../../models/gbifdata/gbifdata').Node,
     request = require('requestretry'),
     getAnnotations = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
+    localeFromQuery = require('../../../middleware/i18n/localeFromQuery'),
+    locales = require('../../../../config/config').locales,
     _ = require('lodash');
 
 function getFeedbackContentType(path, cb) {
     path = path || '';
+    let queryLocale = localeFromQuery.getLocaleFromUrl(path, locales);
+    path = localeFromQuery.removeLocaleFromUrl(path, queryLocale);
     // parse path
     // if occurrence then get occurrence and dataset
     // if select list of annotatable datasets, then refer to their site.

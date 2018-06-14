@@ -81,6 +81,11 @@ let fields = {
         translationPath: 'country.{VALUE}'
         // enums: enums.country
     },
+    PUBLISHING_COUNTRY: {
+        type: type.ENUM,
+        translationPath: 'country.{VALUE}'
+        // enums: enums.country
+    },
     TAXON_KEY: {
         type: type.KEY,
         url: apiConfig.taxon.url + '{VALUE}',

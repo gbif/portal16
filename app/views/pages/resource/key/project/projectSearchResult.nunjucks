@@ -1,9 +1,9 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.project') | capitalize $}</span>
+            <span class="searchCard__type">{$ __('enums.cms.contentType.project') $}</span>
             <h3 class="searchCard__headline">
-                <a ng-href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
+                <a ng-href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                     {{result.title}}
                 </a>
             </h3>
@@ -11,18 +11,18 @@
     </div>
     <div class="card__stripe">
         <div class="card__content searchCard__content clearfix">
-            <a href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
+            <a href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                 <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
             </a>
             <p>
                 {{result._summary}}
             </p>
             <p class="discreet--very smaller" ng-if="result.programme.title">
-                Programme: <a ng-href="{{ urlPrefix }}/programme/{{ result.programme.id }}" class="inherit">{{ result.programme.title | limitTo:150 }}</a>
+                <span translate="resource.programme"></span>: <a ng-href="{{ portal.urlPrefix }}/programme/{{ result.programme.id }}" class="inherit">{{ result.programme.title | limitTo:150 }}</a>
             </p>
             <ul class="list-chips">
                 <li ng-repeat="purpose in result.purposes">
-                    <a ng-href="{{ urlPrefix }}/resource/search?contentType=project&purposes={{ purpose }}" translate="enums.cms.vocabularyTerms.purposes.{{ purpose }}"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=project&purposes={{ purpose }}" translate="enums.cms.vocabularyTerms.purposes.{{ purpose }}"></a>
                 </li>
             </ul>
         </div>

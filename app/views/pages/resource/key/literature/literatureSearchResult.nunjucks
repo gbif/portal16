@@ -1,7 +1,7 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.literature') | capitalize $}</span>
+            <span class="searchCard__type">{$ __('enums.cms.contentType.literature') $}</span>
             <h3 class="searchCard__headline">
                 <a ng-href="https://doi.org/{{result.identifiers.doi}}" ng-if="result.identifiers.doi">
                     {{result.title}}
@@ -20,8 +20,8 @@
     <div class="card__stripe">
         <div class="card__content searchCard__content">
             <div class="searchCard__meta">
-                <span ng-repeat="author in result.authors | limitTo:6 " class="text-capitalize">{{ author.lastName }}, {{ author.firstName | limitTo:1 }}. </span>
-                <span class="text-capitalize" ng-if="result.authors[6]">... - </span>
+                <span ng-repeat="author in result.authors | limitTo:6 ">{{ author.lastName }}, {{ author.firstName | limitTo:1 }}. </span>
+                <span ng-if="result.authors[6]">... - </span>
                 ({{ result.year }})
                 {{ result.source }}
                 <span ng-if="!result.identifiers.doi && !result.websites[0]">
@@ -45,17 +45,17 @@
             </div>
             <ul class="list-chips">
                 <li>
-                    <a class="text-capitalize" ng-href="/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="enums.cms.vocabularyTerms.literatureType.{{ result.literatureType }}"></a>
                 </li>
                 <li ng-if="result.openAccess">
-                    <a class="text-capitalize" ng-href="/resource/search?contentType=literature&openAccess=true" translate="filters.openAccess.title"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&openAccess=true" translate="filters.openAccess.title"></a>
                 </li>
                 <li ng-if="result.peerReview">
-                    <a class="text-capitalize" ng-href="/resource/search?contentType=literature&peerReview=true" translate="filters.peerReview.title"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&peerReview=true" translate="filters.peerReview.title"></a>
                 </li>
             </ul>
             <div ng-if="result._gbifDOIs.length > 0">
-                <span class="small discreet--very">Data used in study</span>
+                <span class="small discreet--very"><span translate="resource.dataUsedInStudy"></span></span>
                 <ul class="list-chips">
                     <li ng-repeat="doi in result._gbifDOIs | limitTo: 50">
                         <doi link="{{ doi }}"></doi>

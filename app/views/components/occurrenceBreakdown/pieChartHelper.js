@@ -2,8 +2,9 @@ module.exports = {
     getConfig: getConfig
 };
 
-function getConfig(data, element, clickCallback) {
-    var serie = getSerie(data);
+function getConfig(data, element, clickCallback, translations) {
+    translations = translations || {};
+    var serie = getSerie(data, translations);
     return {
         chart: {
             animation: false,
@@ -61,7 +62,7 @@ function getConfig(data, element, clickCallback) {
     };
 }
 
-function getSerie(data) {
+function getSerie(data, translations) {
     // Map data and keep empty slices. We could remove empty slices, but that would mean that the legend would change on updates
     var d = data.results.map(function(e) {
         return {
@@ -74,13 +75,13 @@ function getSerie(data) {
 
     if (data.diff > 0) {
         d.push({
-            name: 'other or unknown',
+            name: translations.otherOrUknown || 'other or unknown',
             y: data.diff
         });
     }
 
     var serie = {
-        name: 'Occurrences',
+        name: translations.occurrences || 'Occurrences',
         data: d
     };
     return serie;

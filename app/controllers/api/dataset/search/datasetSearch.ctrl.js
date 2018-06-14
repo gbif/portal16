@@ -78,7 +78,7 @@ function datasetSearch(query) {
 const expandConfig = {
     TYPE: {
         type: 'ENUM',
-        translationPath: 'dataset.type.'
+        translationPath: 'datasetType.'
     },
     PUBLISHING_COUNTRY: {
         type: 'ENUM',

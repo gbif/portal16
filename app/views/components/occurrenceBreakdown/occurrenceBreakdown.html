@@ -4,8 +4,7 @@
     </div>
     <div class="occurrenceBreakdownChart__single" ng-if="vm.resultType() === 'SINGLE_BUCKET'">
         <div class="occurrenceBreakdownChart__single__value">
-            <span>{{vm.chartdata.results[0].count |localNumber}} occcurrences with '<span translate="filterNames.{{vm.chartdata.field | camelCase}}"></span>'</span>
-
+            <span translate="metrics.singleTypeResults" translate-values="{NUMBER: (vm.chartdata.results[0].count | localNumber), FIELD: ('filterNames.' + (vm.chartdata.field | camelCase) | translate )}"></span>
             <div ng-switch on="vm.chartdata.field">
                 <a ng-switch-when="dataset_key" ui-sref="datasetKey({key:vm.chartdata.results[0].filter.dataset_key})" class="inherit">
                     {{vm.chartdata.results[0].displayName | truncate:50}}
@@ -37,13 +36,13 @@
                         <table class="table search-table chart-table smaller" ng-class="{'table-fixed': !vm.chartdata.categories}">
                             <thead ng-if="vm.chartdata.categories">
                             <tr>
-                                <th class="text-capitalize p-0"></th>
-                                <th class="text-capitalize" translate="filterNames.{{vm.chartdata.field | camelCase}}">{{vm.chartdata.field}}</th>
-                                <th class="text-capitalize" ng-repeat="category in vm.chartdata.categories">
+                                <th class="p-0"></th>
+                                <th translate="filterNames.{{vm.chartdata.field | camelCase}}">{{vm.chartdata.field}}</th>
+                                <th ng-repeat="category in vm.chartdata.categories">
                                     <span>
                                         <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))" class="inherit">{{category.displayName}}</a>
                                         <span ng-if="$last && vm.chartdata.secondDimension.bucketSizeVaries" class="badge badge--warning">!
-                                            <md-tooltip md-direction="right">Differently sized interval</md-tooltip>
+                                            <md-tooltip md-direction="right"><span translate="metrics.intervalDiffers"></span></md-tooltip>
                                         </span>
                                     </span>
                                 </th>
@@ -51,10 +50,10 @@
                             </thead>
                             <thead ng-if="!vm.chartdata.categories">
                             <tr>
-                                <th class="text-capitalize p-0 table-cell--50px"></th>
-                                <th class="text-capitalize" translate="filterNames.{{vm.chartdata.field | camelCase}}"></th>
-                                <th class="text-capitalize table-cell--narrow">count</th>
-                                <th class="text-capitalize table-cell--100"></th>
+                                <th class="p-0 table-cell--50px"></th>
+                                <th translate="filterNames.{{vm.chartdata.field | camelCase}}"></th>
+                                <th class="table-cell--narrow" translate="metrics.count"></th>
+                                <th class="table-cell--100"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -68,11 +67,11 @@
                                     <span>
                                         <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))" class="inherit">
                                             {{result.displayName | truncate:50 }}
-                                            <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} occurrences</md-tooltip>
+                                            <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} <span translate="stdTerms.occurrences"></span></md-tooltip>
                                         </a>
                                     </span>
                                     <span ng-if="$last && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!
-                                        <md-tooltip md-direction="right">Differently sized interval</md-tooltip>
+                                        <md-tooltip md-direction="right"><span translate="metrics.intervalDiffers"></span></md-tooltip>
                                     </span>
                                 </span>
                                 </td>
@@ -102,9 +101,9 @@
                 <div class="text-right small m-r-1 m-t-05 p-hidden" ng-if="vm.display.type == 'COLUMN'">
                     <div class="gb-btn-group">
                         <label ng-model="vm.logarithmic" uib-btn-radio="false"
-                               ng-change="vm.toggleLogarithmic()">Linear</label>
+                               ng-change="vm.toggleLogarithmic()" translate="metrics.linear"></label>
                         <label ng-model="vm.logarithmic" uib-btn-radio="true"
-                               ng-change="vm.toggleLogarithmic()">Logarithmic</label>
+                               ng-change="vm.toggleLogarithmic()" translate="metrics.logarithmic"></label>
                     </div>
                 </div>
                 <div class="overflow-auto">
@@ -113,15 +112,13 @@
             </div>
         </div>
 
-        <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.display.type != 'PIE' && vm.chartdata.diff > 0 && vm.chartdata.offset==0 && vm.chartdata.endOfRecords">
-            {{ vm.chartdata.diff | localNumber}} other or unknown
-        </div>
+        <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.display.type != 'PIE' && vm.chartdata.diff > 0 && vm.chartdata.offset==0 && vm.chartdata.endOfRecords" tx="stdTerms.pOtherOrUknown" tx-nr="vm.chartdata.diff"></div>
         <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.chartdata.bucketSize || vm.chartdata.secondDimension.bucketSize">
             <div ng-if="vm.chartdata.bucketSize">
-                <span translate="filterNames.{{vm.chartdata.field | camelCase}}" class="text-capitalize"></span>: interval size {{vm.chartdata.bucketSize}}
+                <span translate="filterNames.{{vm.chartdata.field | camelCase}}"></span>: <span translate="metrics.intervalSize"></span> {{vm.chartdata.bucketSize}}
             </div>
             <div ng-if="vm.chartdata.secondDimension.bucketSize">
-                <span translate="filterNames.{{vm.chartdata.secondField | camelCase}}" class="text-capitalize"></span>: interval size {{vm.chartdata.secondDimension.bucketSize}}
+                <span translate="filterNames.{{vm.chartdata.secondField | camelCase}}"></span>: <span translate="metrics.intervalSize"></span> {{vm.chartdata.secondDimension.bucketSize}}
             </div>
         </div>
     </div>

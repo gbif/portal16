@@ -1,7 +1,7 @@
 <div class="filter-group" ng-mouseover="vm.isHovered = true">
     <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
         <h4>
-            <span class="text-capitalize" translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
+            <span translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
             <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
         </h4>
@@ -18,7 +18,7 @@
                 <label>
                     <input type="checkbox" checked="true" ng-click="vm.remove(q)">
                     <span>
-                        <!--<span class="text-capitalize">{{ vm.getParsedQuery(q.queryString) }}</span>-->
+                        <!--<span>{{ vm.getParsedQuery(q.queryString) }}</span>-->
                         <span   translate="{{vm.filterConfig.intervalTranslation}}{{ vm.getParsedQuery(q.queryString).type }}" 
                                 translate-values="{ from: vm.getParsedQuery(q.queryString).values[0], to: vm.getParsedQuery(q.queryString).values[1]}"></span>
                     </span>

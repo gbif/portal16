@@ -22,20 +22,20 @@
                                     {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source', 'license', 'references'] %}
                                         {% if media[field] %}
                                             <div>
-                                                <dt>{$ field $}</dt>
+                                                <dt translate="stdTerms.{$ field $}">{$ field $}</dt>
                                                 <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
                                             </div>
                                         {% endif %}
                                     {% endfor %}
                                 </dl>
                                 <a href="" class="pull-right" ng-click="occurrenceKey.mediaItems.m{$ loop.index $} = true"
-                                   ng-if="!occurrenceKey.mediaItems.m{$ loop.index $}">more</a>
+                                   ng-if="!occurrenceKey.mediaItems.m{$ loop.index $}" translate="stdTerms.more">more</a>
                                 <div class="details" ng-class="{show: occurrenceKey.mediaItems.m{$ loop.index $} }">
                                     <dl class="inline">
-                                        {% for field in ['identifier', 'created', 'contributor', 'rightsHolder', 'datasetID'] %}
+                                        {% for field in ['identifier', 'created', 'contributor', 'rightsHolder'] %}
                                             {% if media[field] %}
                                                 <div>
-                                                    <dt>{$ field $}</dt>
+                                                    <dt translate="stdTerms.{$ field $}">{$ field $}</dt>
                                                     <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
                                                 </div>
                                             {% endif %}
@@ -66,7 +66,7 @@
                                         {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source'] %}
                                             {% if media[field] %}
                                                 <div>
-                                                    <dt>{$ field $}</dt>
+                                                    <dt translate="stdTerms.{$ field $}">{$ field $}</dt>
                                                     <dd>{$ media[field] $}</dd>
                                                 </div>
                                             {% endif %}
@@ -78,10 +78,10 @@
                                                         $}</a></dd>
                                             </div>
                                         {% endif %}
-                                        {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder', 'datasetID'] %}
+                                        {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder'] %}
                                             {% if media[field] %}
                                                 <div>
-                                                    <dt>{$ field $}</dt>
+                                                    <dt translate="stdTerms.{$ field $}">{$ field $}</dt>
                                                     <dd>{$ media[field] $}</dd>
                                                 </div>
                                             {% endif %}

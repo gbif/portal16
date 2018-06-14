@@ -1,20 +1,5 @@
 <div class="horizontal-stripe--paddingless">
     <div class="container--narrow">
-
-        {#<div class="ng-cloak">#}
-            {#<div ng-if="datasetActivity.state == 'LOADING'">#}
-                {#<ng-include src="'/templates/components/loader/loader.html'"></ng-include>#}
-            {#</div>#}
-            {#<div ng-if="datasetActivity.state == 'LOADED'">#}
-                {#<h5>Frequency of used filters in downloads</h5>#}
-                {#<div style="max-width: 800px">#}
-                    {#<chartist class="ct-chart ct-golden-section" chartist-data="datasetActivity.data"#}
-                    {#chartist-chart-options="datasetActivity.options"#}
-                    {#chartist-chart-type="Bar"></chartist>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-
         <div class="m-t-2">
             <div ng-if="datasetActivity.loadingDownloads">
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
@@ -23,14 +8,14 @@
             <div ng-if="!datasetActivity.loadingDownloads && !datasetActivity.failedToLoadDownloads">
                 <div class="body-text">
                     <div>
-                        <h3>{{ datasetActivity.downloads.count | localNumber }} download events</h3>
+                        <h3 tx="dataset.nDownloadEvents" tx-nr="datasetActivity.downloads.count"></h3>
                     </div>
                 </div>
 
                 <div ng-repeat="download in datasetActivity.downloads.results">
-                    <h4 class="text-uppercase small discreet">{{ download.numberRecords | localNumber }} occurrences from this dataset</h4>
+                    <h4 class="text-uppercase small discreet" tx="dataset.nFromDataset" tx-nr="download.numberRecords"></h4>
                     <div class="card m-b-2">
-                        <ng-include src="'/occurrence/download/' + download.downloadKey + '/card'"></ng-include>
+                        <ng-include src="'/occurrence/download/' + download.downloadKey + '/card?locale=' + portal.LOCALE"></ng-include>
                     </div>
                 </div>
 
@@ -41,6 +26,9 @@
                             max-size="datasetActivity.maxSize"
                             items-per-page="datasetActivity.limit"
                             class="pagination-sm"
+                            first-text="{{'stdTerms.first' | translate}}"
+                            next-text="{{'stdTerms.next' | translate}}"
+                            previous-text="{{'stdTerms.previous' | translate}}"
                             boundary-link-numbers="false"
                             rotate="false"
                             ng-change="datasetActivity.pageChanged()">

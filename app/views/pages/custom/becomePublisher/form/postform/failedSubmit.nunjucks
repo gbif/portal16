@@ -1,5 +1,5 @@
 <section id="step_failed" ng-if="eoi.state.submissionComplete && eoi.state.submissionError">
-    <h2>Submission failed</h2>
-    <p>For some reason, your submission failed.</p>
-    <p>Please contact us about your interest at helpdesk@gbif.org.</p>
+    <h2 translate="eoi.submissionFailed">Submission failed</h2>
+    <p translate="eoi.forSomeReason">For some reason, your submission failed.</p>
+    <p translate="eoi.pleaseContactUs">Please contact us about your interest at helpdesk@gbif.org.</p>
 </section>

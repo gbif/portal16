@@ -5,10 +5,6 @@ _ = require('lodash');
 require('../../../../components/checklistMetrics/checklistTaxonomyStats.directive.js');
 require('../../../../components/occurrenceTaxonomyChart/occurrenceTaxonomyStats.directive.js');
 require('../../../../components/checklistMetrics/checklistMetrics.directive.js');
-
-
-require('../../../../components/occurrenceChart/occurrenceChart.directive');
-require('../../../../components/occurrenceChart/occurrenceChartHeader.directive');
 require('../../../../components/occurrenceTaxonomyTree/occurrenceTaxonomyTree.directive');
 
 angular
@@ -42,26 +38,18 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
         showHeader: false
     };
 
-    vm.addNewChart = function(dimension) {
-        vm.charts.push(
-            {
-                filter: {dataset_key: vm.key},
-                api: {},
-                options: {showHeader: false, dimension: dimension, type: 'PIE'}
-            }
-        );
-    };
-
     vm.charts = [
         {
-            filter: {dataset_key: vm.key},
             api: {},
-            options: {showHeader: false, dimension: 'issue', type: 'BAR'}
+            config: {dimension: 'issue', secondDimension: '', type: 'TABLE', customizable: false, showSettings: true},
+            filter: {dataset_key: vm.key, locale: gb.locale},
+            customFilter: undefined
         },
         {
-            filter: {dataset_key: vm.key},
             api: {},
-            options: {showHeader: false, dimension: 'year', type: 'LINE'}
+            config: {dimension: 'year', secondDimension: '', type: 'LINE', customizable: false, showSettings: true},
+            filter: {dataset_key: vm.key, locale: gb.locale},
+            customFilter: undefined
         }
     ];
     vm.chartDimension;

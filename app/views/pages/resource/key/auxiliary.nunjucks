@@ -4,7 +4,7 @@
 
         {% if main.fields.citation %}
             <section class="no-break">
-                <h4>Citations</h4>
+                <h4 translate="stdTerms.citation"></h4>
                 {$ main.fields.citation | renderMarkdown | sanitize | linkify | safe $}
             </section>
         {% endif %}
@@ -13,12 +13,12 @@
         {#This assumes that there is always tags to show. TODO hide if no available tags#}
         {#{% if main.fields.countriesOfResearcher | isNotEmpty or main.fields.countriesOfCoverage | isNotEmpty or main.fields.topics | isNotEmpty or main.fields.audiences | isNotEmpty or main.fields.purposes | isNotEmpty or main.fields.organisingParticipants | isNotEmpty %}#}
         {% if main.fields | hasAtLeastOneKey(['countriesOfResearcher', 'countriesOfCoverage', 'topics', 'audiences', 'purposes']) %}
-            <section class="no-break">
-                <h4>Subject</h4>
+            <section class="no-break ng-cloak">
+                <h4 translate="cms.auxiliary.subject">Subject</h4>
                 <ul class="list-chips">
                     {% if main.fields.countriesOfResearcher.length > 0 %}
-                        <li class="list-chips__category">
-                            Researchers country:
+                        <li class="list-chips__category uppercase-first">
+                            {{'enums.cms.vocabularyTypes.countriesOfResearcher' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.countriesOfResearcher %}
@@ -28,8 +28,8 @@
                     {% endfor %}
 
                     {% if main.fields.countriesOfCoverage.length > 0 %}
-                        <li class="list-chips__category">
-                            Country coverage:
+                        <li class="list-chips__category uppercase-first">
+                            {{'enums.cms.vocabularyTypes.countriesOfCoverage' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.countriesOfCoverage %}
@@ -39,35 +39,35 @@
                     {% endfor %}
 
                     {% if main.fields.topics.length > 0 %}
-                        <li class="list-chips__category">
-                            Topics:
+                        <li class="list-chips__category  uppercase-first">
+                            {{'enums.cms.vocabularyTypes.topics' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.topics %}
                         <li>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search?topics={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?topics={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ __('enums.cms.vocabularyTerms.topics.'+(resolved.Entry[tag.sys.id].fields.term | constantCase)) $}</a>
                         </li>
                     {% endfor %}
 
                     {% if main.fields.audiences.length > 0 %}
-                        <li class="list-chips__category">
-                            Audiences:
+                        <li class="list-chips__category  uppercase-first">
+                            {{'enums.cms.vocabularyTypes.audiences' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.audiences %}
                         <li>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search?audiences={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?audiences={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ __('enums.cms.vocabularyTerms.audiences.'+(resolved.Entry[tag.sys.id].fields.term | constantCase)) $}</a>
                         </li>
                     {% endfor %}
 
                     {% if main.fields.purposes.length > 0 %}
-                        <li class="list-chips__category">
-                            Purposes:
+                        <li class="list-chips__category  uppercase-first">
+                            {{'enums.cms.vocabularyTypes.purposes' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.purposes %}
                         <li>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search?purposes={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?purposes={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ __('enums.cms.vocabularyTerms.purposes.'+(resolved.Entry[tag.sys.id].fields.term | constantCase))  $}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -76,7 +76,7 @@
 
         {% if main.fields.organisingParticipants %}
             <section class="no-break">
-                <h4>Organising Participants</h4>
+                <h4 translate="cms.auxiliary.organisingParticipants">Organising Participants</h4>
                 <ul class="list-chips">
                     {% for participant in main.fields.organisingParticipants %}
                         {% if resolved.Entry[participant.sys.id] %}

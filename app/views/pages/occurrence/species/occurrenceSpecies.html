@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
                         <span class="article-header__category__lower" ng-if="occSpecies.hasTableData()">
-                            {{occSpecies.state.table.count | localNumber:occSpecies.state.query.locale }} results
+                            <span tx="stdTerms.nResults" tx-nr="occSpecies.state.table.count"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="!occSpecies.hasTableData()">
-                            Loading ...
+                            <span translate="stdTerms.loading"></span> ...
                         </span>
 
                     </nav>
@@ -31,31 +31,31 @@
                 <nav class="tabs">
                     <ul>
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchTable()">
+                            <a href="" ui-sref="occurrenceSearchTable()" translate="occurrenceSearch.table">
                                 Table
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchGallery()">
+                            <a href="" ui-sref="occurrenceSearchGallery()" translate="occurrenceSearch.gallery">
                                 Gallery
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchMap()">
+                            <a href="" ui-sref="occurrenceSearchMap()" translate="occurrenceSearch.map">
                                 Map
                             </a>
                         </li>
 
                         <li class="tab isActive">
-                            <span>
+                            <span translate="occurrenceSearch.taxonomy">
                                 Taxonomy
                             </span>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchCharts()">
+                            <a href="" ui-sref="occurrenceSearchCharts()" translate="occurrenceSearch.charts">
                                 Charts
                             </a>
                         </li>
@@ -63,7 +63,7 @@
                         <li class="tab">
                             <a href="" ui-sref="occurrenceSearchDownload()">
                                 <span class="gb-icon-file-download"></span>
-                                <span>
+                                <span translate="occurrenceSearch.download">
                                     Download
                                 </span>
                             </a>
@@ -100,7 +100,7 @@
                 <div flex-gt-sm="50" flex="100" >
 
                     <occurrence-taxonomy-stats
-                            filter="occSpecies.state.query"></occurrence-taxonomy-stats>
+                            filter="occSpecies.state.query" chart-type="'sunburst'"></occurrence-taxonomy-stats>
                 </div>
             </div>
 
@@ -145,10 +145,10 @@
                                         <th>
                                             <span class="gb-icon-filters"></span>
                                         </th>
-                                        <th class="text-capitalize">
+                                        <th>
                                             occurrences
                                         </th>
-                                        <th class="text-capitalize"
+                                        <th
                                             ng-repeat="field in ['scientificName', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
                                             {{ field }}
                                         </th>
@@ -190,6 +190,9 @@
                                             class="pagination-sm"
                                             boundary-link-numbers="false"
                                             rotate="false"
+                                            first-text="{{'stdTerms.first' | translate}}"
+                                            next-text="{{'stdTerms.next' | translate}}"
+                                            previous-text="{{'stdTerms.previous' | translate}}"
                                             ng-change="occSpecies.pageChanged()"
                                             ng-show="occSpecies.checklist.offset || occSpecies.checklist.results.length == occSpecies.limit">
                                     </uib-pagination>

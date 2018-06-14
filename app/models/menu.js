@@ -167,6 +167,10 @@ module.exports = [
             'url': '/funders'
           },
           {
+            'name': 'partnerships',
+            'url': '/partners'
+          },
+          {
             'name': 'strategicPlan',
             'url': '/strategic-plan'
           },
@@ -201,7 +205,7 @@ module.exports = [
             },
           {
             'name': 'communitySite',
-            'url': 'http://community.gbif.org',
+            'url': 'https://discourse.gbif.org',
             'type': 'EXTERNAL'
           }
         ]
@@ -223,7 +227,8 @@ module.exports = [
           },
           {
             'name': 'livingAtlases',
-            'url': '/programme/82953/living-atlases'
+            'url': 'http://living-atlases.gbif.org',
+            'type': 'EXTERNAL'
           }
         ]
       }

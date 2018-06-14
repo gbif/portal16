@@ -17,3 +17,4 @@ app/views/shared/style/bootstrap/.build/
 config/revision.json
 locales/_build/
 npm-debug.log
+*.ignore.js

@@ -6,15 +6,15 @@
                     <span class="article-header__category__upper"><a
                                 ui-sref="publisherSearchList()" translate="stdTerms.publisher">
                         </a></span>
-                    <span class="article-header__category__lower">
-                        Since {{ publisherKey.publisher.created | momentFormat:'D MMMM YYYY' }}
+                    <span class="article-header__category__lower" translate="stdTerms.sinceDate" translate-values="{DATE: (publisherKey.publisher.created | momentFormat:'D MMMM YYYY') }">
+                        <!--Since DATE-->
                     </span>
                 </nav>
                 <h1>
                     <span ng-class="{'text-error': publisherKey.publisher.deleted}">{{ publisherKey.publisher.title }}</span>
                 </h1>
-                <p class="text-error text-center" ng-if="publisherKey.publisher.deleted">
-                    This publisher was deleted {{ publisherKey.publisher.deleted | momentFormat:'D MMMM YYYY' }}
+                <p class="text-error text-center" ng-if="publisherKey.publisher.deleted" translate="phrases.deletedOnDate" translate-values="{DATE: (publisherKey.publisher.deleted | momentFormat:'D MMMM YYYY') }">
+                    <!--This publisher was deleted on DATE-->
                 </p>
             </header>
         </div>

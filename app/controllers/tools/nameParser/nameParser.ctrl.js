@@ -10,8 +10,8 @@ module.exports = function(app) {
 router.get('/tools/name-parser', function(req, res) {
     res.render('pages/tools/nameParser/nameParser', {
         _meta: {
-            title: req.__('meta.nameParserTitle'),
-            description: req.__('meta.nameParserDescription')
+            title: req.__('nameParser.nameParserTitle'),
+            description: req.__('nameParser.nameParserDescription')
         }
     });
 });
@@ -19,8 +19,8 @@ router.get('/tools/name-parser', function(req, res) {
 router.get('/tools/name-parser/about', function(req, res) {
     res.render('pages/tools/nameParser/nameParser', {
         _meta: {
-            title: req.__('meta.nameParserTitle'),
-            description: req.__('meta.nameParserDescription')
+            title: req.__('nameParser.nameParserTitle'),
+            description: req.__('nameParser.nameParserDescription')
         }
     });
 });

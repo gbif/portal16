@@ -42,7 +42,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function occurrenceBreakdown($timeout, $state, $scope, OccurrenceBreakdown, Highcharts) {
+    function occurrenceBreakdown($timeout, $state, $scope, OccurrenceBreakdown, Highcharts, $translate, $q) {
         var vm = this;
         var UPDATE_DELAY_TIME = 500;
         vm.state = {
@@ -92,8 +92,16 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 vm.content.$cancelRequest();
             }
             vm.content = OccurrenceBreakdown.query(q);
-            vm.content.$promise
-                .then(function(response) {
+            $translate('occurrences');
+            $q.all({
+                    response: vm.content.$promise,
+                    occurrences_translation: $translate('stdTerms.occurrences'),
+                    otherOrUknown_translation: $translate('stdTerms.otherOrUknown'),
+                    clickToZoom_translation: $translate('metrics.clickToZoom'),
+                    pinchToZoom_translation: $translate('metrics.pinchToZoom')
+                })
+                .then(function(resolved) {
+                    var response = resolved.response;
                     vm.chartdata = response;// 'chart data after transform of the data response';
                     // clean filters
                     vm.chartdata.results.forEach(function(e) {
@@ -104,6 +112,12 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                             helper.cleanFilter(e.filter);
                         });
                     }
+                    vm.translations = {
+                        occurrences: resolved.occurrences_translation,
+                        otherOrUknown: resolved.otherOrUknown_translation,
+                        clickToZoom: resolved.clickToZoom_translation,
+                        pinchToZoom: resolved.pinchToZoom_translation
+                    };
                     formatData(vm.chartdata);
                 })
                 .catch(function(err) {
@@ -133,13 +147,13 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                     }
                 });
             } else if (vm.display.type == 'COLUMN') {
-                var columnConfig = columnChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.logarithmic);
+                var columnConfig = columnChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.translations, vm.logarithmic);
                 vm.chartConfig = columnConfig;
             } else if (vm.display.type == 'LINE') {
-                var areaConfig = areaChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.logarithmic, Highcharts);
+                var areaConfig = areaChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.translations, vm.logarithmic, Highcharts);
                 vm.chartConfig = areaConfig;
             } else if (vm.display.type == 'PIE') {
-                var pieConfig = pieChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch);
+                var pieConfig = pieChartHelper.getConfig(chartdata, vm.chartElement, occurrenceSearch, vm.translations);
                 vm.chartConfig = pieConfig;
             }
         }

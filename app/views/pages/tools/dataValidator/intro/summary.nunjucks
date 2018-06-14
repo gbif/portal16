@@ -10,13 +10,13 @@
             <dl class="inline" ng-if="vm.jobId">
 
                 <div>
-                    <dt class="text-capitalize" translate="validation.jobId"></dt>
+                    <dt translate="validation.jobId"></dt>
                     <dd >{{ vm.jobId }}
 
                     </dd>
                 </div>
                 <div>
-                    <dt class="text-capitalize" >started</dt>
+                    <dt >started</dt>
                     <dd >{{ vm.startTimestamp }}
 
                     </dd>
@@ -75,7 +75,7 @@
                        <tr ng-repeat="category in vm.validationResults.summary.issueTypesFoundSorted">
                            <td >{{ 'validation.category.'+category.key | translate }}</td>
                        <td >
-                           <span ng-repeat="issue in category.issues" class="badge badge--{{issue.severity | lowercase }}">{{ (category.key === 'OCC_INTERPRETATION_BASED') ? "occurrenceIssue."+issue.id : (category.key === 'CLB_INTERPRETATION_BASED')?  "taxon.issueEnum."+issue.id : "validation.issueType."+issue.id | translate }}</span>
+                           <span ng-repeat="issue in category.issues" class="badge badge--{{issue.severity | lowercase }}">{{ (category.key === 'OCC_INTERPRETATION_BASED') ? "occurrenceIssue."+issue.id : (category.key === 'CLB_INTERPRETATION_BASED')?  "issueEnum."+issue.id : "validation.issueType."+issue.id | translate }}</span>
 
                        </td>
                        </tr>
@@ -112,7 +112,7 @@
 
             <dl class="inline">
                 {#<div>#}
-                    {#<dt class="text-capitalize">Publisher</dt>#}
+                    {#<dt>Publisher</dt>#}
                     {#<dd>#}
                         {#<a ng-href="/publisher/{{ datasetKey.dataset.publishingOrganizationKey }}">#}
                             {#{{ datasetKey.publisher.title }}#}
@@ -120,26 +120,26 @@
                     {#</dd>#}
                 {#</div>#}
                 <div>
-                    <dt class="text-capitalize" translate="validation.fileFormat.title"></dt>
+                    <dt translate="validation.fileFormat.title"></dt>
                     <dd translate="validation.fileFormat.{{ vm.validationResults.summary.fileFormat }}">
 
                     </dd>
                 </div>
                 <div>
-                    <dt class="text-capitalize" translate="validation.receivedMediaType"></dt>
+                    <dt translate="validation.receivedMediaType"></dt>
                     <dd >{{ vm.validationResults.summary.receivedMediaType }}
 
                     </dd>
                 </div>
                 <div>
-                    <dt class="text-capitalize">Core row type</dt>
+                    <dt translate="validation.coreRowType">Core row type</dt>
                     <dd >
                         {{ (vm.coreDataType && vm.dwcextensions[vm.coreDataType]) ? vm.dwcextensions[vm.coreDataType].title : vm.coreDataType | translate }}
                     </dd>
                 </div>
 
                 <div>
-                    <dt class="text-capitalize">Extensions</dt>
+                    <dt translate="validation.fileType.EXTENSION.title">Extensions</dt>
                     <dd>
                         {{ vm.extensionCount }}
                     </dd>

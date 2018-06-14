@@ -13,11 +13,11 @@
                             {$ main.fields.summary $}
                         </h1>
                         <div class="home__searchFilters">
-                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ home.freeTextQuery }}">Occurrences</a>
-                            <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ home.freeTextQuery }}">Species</a>
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ home.freeTextQuery }}">Datasets</a>
-                            <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ home.freeTextQuery }}">Publishers</a>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/resource/search?q={{ home.freeTextQuery }}">Resources</a>
+                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.occurrences') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.species') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.datasets') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.publishers') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/resource/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.resources') $}</a>
                         </div>
                         <div class="home__header__search-bar search-box">
                             <form action="{$ gb.locales.urlPrefix $}/search"
@@ -35,8 +35,8 @@
                             </form>
                         </div>
                         <div class="home__quicklinks">
-                            <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">{$ main.fields.aboutTitle $}</a>
-                            <a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode">About GBIF <span translate="country.{{ home.country.countryCode }}"></span></a>
+                            <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">{$ __('menu.whatIsGbif') $}</a>
+                            <a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode"><span translate="homepage.aboutGbifCountry" translate-values="{COUNTRY: (('country.' + home.country.countryCode) | translate) }"></span></a>
                         </div>
                     </div>
                     <div class="caption">
@@ -51,20 +51,20 @@
                 <div class="home__counts">
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/occurrence/search" class="inherit noUnderline">
-                            <h3 class="discreet">Occurrence records</h3>
-                            <div count="{{ portal.dataApi }}occurrence/search">850,000,000</div>
+                            <h3 class="discreet">{$ __('homepage.counts.occurrences') $}</h3>
+                            <div count="{{ portal.dataApi }}occurrence/search">980,000,000</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
-                            <h3 class="discreet">Datasets</h3>
-                            <div count="{{ portal.dataApi }}dataset/search">36,000</div>
+                            <h3 class="discreet">{$ __('homepage.counts.datasets') $}</h3>
+                            <div count="{{ portal.dataApi }}dataset/search">39,000</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
-                            <h3 class="discreet">Publishing institutions</h3>
-                            <div count="{{ portal.dataApi }}organization" subtract="{{ portal.dataApi }}organization/nonPublishing">1,100</div>
+                            <h3 class="discreet">{$ __('homepage.counts.publishers') $}</h3>
+                            <div count="{{ portal.dataApi }}organization" subtract="{{ portal.dataApi }}organization/nonPublishing">1,150</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
@@ -72,9 +72,9 @@
 
                         <a ng-href="/about-species-counts" class="inherit noUnderline">
                         {#<a ng-href="{{ portal.urlPrefix }}/species/search?rank=SPECIES&status=ACCEPTED" class="inherit noUnderline">#}
-                            <h3 class="discreet">Species</h3>
+                            <h3 class="discreet">{$ __('homepage.counts.species') $}</h3>
                             {#<div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}&rank=SPECIES&status=ACCEPTED">1,700,00</div>#}
-                            <p>{$ main.fields.aboutSpeciesCounts $}</p>
+                            <p>{$ __('homepage.counts.speciesSubtitle') $}</p>
                         </a>
                     </article>
                 </div>
@@ -128,7 +128,7 @@
         <article class="card card--flexible article-box hoverBox">
             {#<div>#}
             {% if article.primaryImage %}
-                <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+                <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
                     <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
                          alt="" class="article-thumb">
                 </a>
@@ -136,7 +136,7 @@
             <div class="card__stripe--expandable inherit">
                 <div class="card__content">
                     <h4 class="article-box__title">
-                        <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) $}</a>
                     </h4>
                     <span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span>
                 </div>
@@ -149,7 +149,7 @@
 {% macro eventArticle(article, __) %}
     {% if article %}
         <article class="card card--flexible article-box hoverBox">
-            <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+            <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
                 <div class="date-box">
                     <img src="data:image/gif;base64,R0lGODdhAgABAIAAAAAAAAAAACwAAAAAAgABAAAIBQABAAgIADs="
                          alt="" class="article-thumb invisible">
@@ -167,7 +167,7 @@
             <div class="card__stripe--expandable inherit">
                 <div class="card__content">
                     <h4 class="article-box__title">
-                        <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">
+                        <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">
                             {$ article.title | truncate(80) $}
                         </a>
                     </h4>

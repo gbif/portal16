@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__upper">{{'stdTerms.search' | translate}} {{'stdTerms.occurrences' | translate}}</span>
                         <span class="article-header__category__lower" ng-if="occDatasets.hasTableData()">
-                            {{occDatasets.state.table.count | localNumber:occDatasets.state.query.locale }} results
+                            {{occDatasets.state.table.count | localNumber:occDatasets.state.query.locale }} <span translate="stdTerms.result" translate-values="{NUMBER: occDatasets.state.table.count}"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="!occDatasets.hasTableData()">
-                            Loading ...
+                            <span translate="stdTerms.loading"></span> ...
                         </span>
 
                     </nav>
@@ -31,37 +31,37 @@
                 <nav class="tabs">
                     <ul>
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchTable()">
+                            <a href="" ui-sref="occurrenceSearchTable()" translate="occurrenceSearch.table">
                                 Table
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchGallery()">
+                            <a href="" ui-sref="occurrenceSearchGallery()" translate="occurrenceSearch.gallery">
                                 Gallery
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchMap()">
+                            <a href="" ui-sref="occurrenceSearchMap()" translate="occurrenceSearch.map">
                                 Map
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchSpecies()">
+                            <a href="" ui-sref="occurrenceSearchSpecies()" translate="occurrenceSearch.taxonomy">
                                 Taxonomy
                             </a>
                         </li>
 
                         <li class="tab isActive">
-                            <span>
+                            <span translate="occurrenceSearch.datasets">
                                 Datasets
                             </span>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchCharts()">
+                            <a href="" ui-sref="occurrenceSearchCharts()" translate="occurrenceSearch.charts">
                                 Charts
                             </a>
                         </li>
@@ -69,7 +69,7 @@
                         <li class="tab">
                             <a href="" ui-sref="occurrenceSearchDownload()">
                                 <span class="gb-icon-file-download"></span>
-                                <span>
+                                <span translate="occurrenceSearch.download">
                                     Download
                                 </span>
                             </a>
@@ -111,7 +111,7 @@
                     <table class="table search-table smaller">
                         <thead>
                         <tr>
-                            <th class="text-capitalize"
+                            <th
                                 ng-repeat="field in ['occurrences', 'dataset', 'publisher', 'type']">
                                 {{ field }}
                             </th>

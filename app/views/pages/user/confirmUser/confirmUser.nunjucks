@@ -7,12 +7,10 @@
                 <div class="card card--spaced">
                     <div class="card__content">
                         <div class="text-center">
-                            <div class="h3">Welcome to GBIF</div>
+                            <div class="h3" translate="profile.welcome"></div>
+                            <p>{$ __('profile.accountConfirmed') $}</p>
                             <p>
-                                Your account has been confirmed and you are now logged in
-                            </p>
-                            <p>
-                                <a ng-href="{{confirmUser.destinationUrl}}" ng-if="confirmUser.destinationUrl" class="ng-cloak gb-button--brand text-uppercase">Continue</a>
+                                <a ng-href="{{confirmUser.destinationUrl}}" ng-if="confirmUser.destinationUrl" class="ng-cloak gb-button--brand text-uppercase">{$ __('profile.continue') $}</a>
                             </p>
                         </div>
                     </div>

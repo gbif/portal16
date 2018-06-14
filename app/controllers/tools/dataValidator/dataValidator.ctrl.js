@@ -11,7 +11,8 @@ module.exports = function(app) {
 router.get('/tools/data-validator', function(req, res) {
     res.render('pages/tools/dataValidator/dataValidator', {
         _meta: {
-            title: 'Data validator',
+            title: req.__('validation.dataValidator'),
+            description: req.__('validation.dataValidatorDescription'),
             noIndex: true
         }
     });
@@ -29,7 +30,8 @@ router.get('/tools/data-validator/:jobid/extensions', render);
 function render(req, res, next) {
     res.render('pages/tools/dataValidator/dataValidator', {
         _meta: {
-            title: 'Data validator',
+            title: req.__('validation.dataValidator'),
+            description: req.__('validation.dataValidatorDescription'),
             noIndex: true
         },
         jobId: req.params.jobid

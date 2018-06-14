@@ -17,7 +17,7 @@
                 <div layout-padding class="m-b-minus-10">
 
                     <div flex="100" >
-                        <h3 class="card-header">Checklist metrics</h3>
+                        <h3 class="card-header" translate="phrases.checklistMetrics"></h3>
                         <div class="card" layout-padding>
                             <div class="card__content container-fluid">
                                 {% include('../intro/checklistStats.nunjucks') %}
@@ -56,7 +56,7 @@
             <div layout-padding class="m-b-minus-10">
 
                 <div flex="100" >
-                    <h3 class="card-header">Occurrence metrics</h3>
+                    <h3 class="card-header" translate="phrases.occurrenceMetrics"></h3>
                 <div class="card">
                     <div class="card__content container-fluid" layout-padding>
                         {% include('../intro/stats.nunjucks') %}
@@ -68,8 +68,7 @@
                     <div layout-gt-sm="row" layout-padding>
 
                         <div flex-gt-sm="50" flex="100" >
-                            <h4 class="card-header text-center inline-block">Taxonomic distribution of
-                                occurrences</h4>
+                            <h4 class="card-header text-center inline-block" translate="phrases.taxonomicOccDistribution"></h4>
                             <div class="card " layout-fill layout-padding>
                                 <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"
                                                           options="{limit:10}"></occurrence-taxonomy-tree>
@@ -78,26 +77,18 @@
                         <div flex-gt-sm="50" flex="100" >
 
                                 <occurrence-taxonomy-stats
-                                        filter="datasetStats.filter"></occurrence-taxonomy-stats>
+                                        filter="datasetStats.filter" chart-type="'sunburst'"></occurrence-taxonomy-stats>
                         </div>
                     </div>
                 <div layout-gt-sm="row" class="m-t-1" layout-padding>
                     <div ng-if="datasetKey.occurrences.count > 0" flex-gt-sm="50" flex="100" >
-                        <occurrence-chart-header api="datasetStats.charts[0].api" options="datasetStats.charts[0].options"></occurrence-chart-header>
-                        <div class="card " layout-fill layout-padding>
-                        <occurrence-chart filter="datasetStats.charts[0].filter"
-                                          dimension="datasetStats.charts[0].dimension" api="datasetStats.charts[0].api"
-                                          options="datasetStats.charts[0].options" ></occurrence-chart>
+                        <occurrence-breakdown-card api="datasetStats.charts[0].api" config="datasetStats.charts[0].config" filter="datasetStats.charts[0].filter"  custom-filter="datasetStats.charts[0].customFilter"></occurrence-breakdown-card>
+                        </div>
+                        <div ng-if="datasetKey.occurrences.count > 0 && datasetKey.withYear.count > 0" flex-gt-sm="50" flex="100">
+                        <occurrence-breakdown-card api="datasetStats.charts[1].api" config="datasetStats.charts[1].config" filter="datasetStats.charts[1].filter"  custom-filter="datasetStats.charts[1].customFilter"></occurrence-breakdown-card>
                         </div>
                     </div>
-                    <div ng-if="datasetKey.occurrences.count > 0 && datasetKey.withYear.count > 0" flex-gt-sm="50" flex="100"
-                         >
-                        <occurrence-chart-header api="datasetStats.charts[1].api" options="datasetStats.charts[1].options"></occurrence-chart-header>
-                        <div class="card " layout-fill layout-padding>
-                        <occurrence-chart filter="datasetStats.charts[1].filter"
-                                          dimension="datasetStats.charts[1].dimension" api="datasetStats.charts[1].api"
-                                          options="datasetStats.charts[1].options" ></occurrence-chart>
-                        </div>
+                    
                     </div>
 
                 </div>
@@ -106,7 +97,7 @@
 
             <div class="row" ng-if="datasetKey.dataset.type == 'METADATA'">
                 <div class="emptyInfo">
-                    <h3>No stats avilable for metadata only datasets</h3>
+                    <h3 translate="phrases.noStatsForMetadata"></h3>
                 </div>
             </div>
 

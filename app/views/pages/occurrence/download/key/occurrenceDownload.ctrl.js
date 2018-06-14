@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
+moment = require('moment'),
     _ = require('lodash');
 
 angular
@@ -8,7 +9,7 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
+function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
     var vm = this;
     vm.HUMAN = true;
     vm.maxSize = 5;
@@ -57,7 +58,7 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, moment, $location,
             .then(function(response) {
                 vm.download = response.data;
                 parseDeletionDate(vm.download);
-                vm.isUsersDownload = vm.download.request.creator == vm.profile.userName;
+                vm.isUsersDownload = (typeof vm.download.request.creator === 'string' && (vm.download.request.creator == _.get(vm.profile, 'userName')));
                 if (vm.isUsersDownload && vm.isCancelable) {
                     if (response.data.status !== 'RUNNING' && response.data.status !== 'PREPARING') {
                         vm.isCancelable = false;

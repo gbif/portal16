@@ -14,7 +14,7 @@
 
         {% if main.fields | hasAtLeastOneKey(['body', 'nodeHistory', 'nodeMission', 'nodeStructure', 'nodeFunding']) %}
             <div class="body-text">
-                {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
 
                 {% if main.fields.primaryImage and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width <= 800 %}
                     <figure>
@@ -22,7 +22,7 @@
                              alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}" style="max-width:500px">
                         {% if resolved.Asset[main.fields.primaryImage.sys.id].fields.description %}
                             <figcaption>
-                                <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}</div>
+                                <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
                             </figcaption>
                         {% endif %}
                     </figure>
@@ -30,22 +30,22 @@
 
                 {% if main.fields.nodeHistory %}
                 <h3>History</h3>
-                {$ main.fields.nodeHistory | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                {$ main.fields.nodeHistory | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 {% endif %}
 
                 {% if main.fields.nodeMission %}
                 <h3>Mission</h3>
-                {$ main.fields.nodeMission | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                {$ main.fields.nodeMission | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 {% endif %}
 
                 {% if main.fields.nodeStructure %}
                 <h3>Structure</h3>
-                {$ main.fields.nodeStructure | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                {$ main.fields.nodeStructure | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 {% endif %}
 
                 {% if main.fields.nodeFunding %}
                 <h3>Funding</h3>
-                {$ main.fields.nodeFunding | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                {$ main.fields.nodeFunding | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 {% endif %}
 
 

@@ -20,7 +20,6 @@ var angular = require('angular');
 // require('./errorLogging'); //TODO temporarily disabled as it isn't tested for DOS and stability
 require('angular-ui-router');
 require('angular-translate');
-require('angular-moment');
 require('angular-hotkeys');
 require('angular-resource');
 require('angular-aria');
@@ -35,23 +34,19 @@ require('angular-cookies');
 require('angular-messages');
 require('angular-toastr');
 require('angular-animate');
-
-
-// TODO unclear how to best load the locales we need. It is annoying to have it in code.
-// That would make it difficult to add new locales and makes it impossible to have different in environments
-require('moment');
-require('moment/locale/es');
-require('moment/locale/da');
-require('moment/locale/zh-cn');
-// TODO test
-
-
-
 require('angular-material');
 require('ng-file-upload');
 require('checklist-model');// TODO remove as we hardly use it now that there is continous update on occurrenece search?
 require('angular-svg-round-progressbar');
 window.Lightbox = require('../../../components/lightbox/lightbox');
+
+// TODO unclear how to best load the locales we need. It is annoying to have it in code.
+// That would make it difficult to add new locales and makes it impossible to have different in environments
+// For now they are manually added in code as needed
+require('moment');
+require('moment/locale/es');
+require('moment/locale/da');
+require('moment/locale/zh-cn');
 
 (function() {
     'use strict';
@@ -65,7 +60,6 @@ window.Lightbox = require('../../../components/lightbox/lightbox');
             'ngAria',
             'ui.router',
             'pascalprecht.translate',
-            'angularMoment',
             'cfp.hotkeys',
             'ngResource',
             'ui.bootstrap',
@@ -88,10 +82,9 @@ angular
     .config(mdConfig);
 
 /** @ngInject */
-function runBlock(amMoment, $translate, $http, LOCALE, $rootScope) { // $log
+function runBlock( $translate, $http, LOCALE, $rootScope) { // $log
     // $log.debug('runBlock end');
     $translate.use(LOCALE);
-    amMoment.changeLocale(LOCALE);
 
     $rootScope.$on('$stateChangeStart', function(e) {
         if (window.gb.state > 399) {
@@ -291,7 +284,7 @@ require('../partials/notifications/notifications.directive');
 require('./angular/nav.constants');
 require('../partials/navigation/nav.ctrl');
 require('../partials/popups/terms/terms.directive');
-
+require('../partials/popups/gdpr/gdpr.directive');
 
 require('../../../pages/search/search.ctrl');
 
@@ -385,6 +378,7 @@ require('../../../components/filterFacet/filterFacet.directive');
 
 require('../../../components/filterFacetedEnum/filterFacetedEnum.directive');
 require('../../../components/count/count.directive');
+require('../../../components/tx/tx.directive');
 require('../../../components/asyncIf/asyncIf.directive');
 require('../../../components/elementQuery/elementQuery.directive');
 require('../../../components/taxonImg/taxonImg.directive');

@@ -2,6 +2,6 @@
 
 {% block page %}
 <div class="hidden">
-    {$ person | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+    {$ person | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
 </div>
 {% endblock %}

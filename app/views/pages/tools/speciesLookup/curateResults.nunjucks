@@ -8,7 +8,7 @@
                 <table class="table search-table">
                     <thead>
                     <tr>
-                        <th class="text-capitalize"
+                        <th
                             ng-repeat="col in ['originalName', 'preferedKingdom', 'matchType', 'confidence', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'originalId']">
                             <a href=""
                                ng-click="speciesLookup.state.sortType = col; speciesLookup.state.sortReverse = !speciesLookup.state.sortReverse">

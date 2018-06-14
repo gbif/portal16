@@ -4,40 +4,41 @@
         <div>
             <div class="card">
                 <div class="card__content container--narrow p-b-1">
-                    <span ng-if="datasetKey.dataset.project.identifier" class="pull-right discreet--very small">Project id:
-                        <a ng-href="{{ datasetKey.projects.results[0]._url }}" ng-if="datasetKey.projects.count == 1">{{ datasetKey.dataset.project.identifier }}</a>
+                    <span ng-if="datasetKey.dataset.project.identifier" class="pull-right discreet--very small">
+                        <span translate="dataset.projectId"></span>
+                        <a ng-href="{{portal.urlPrefix}}{{ datasetKey.projects.results[0]._url }}" ng-if="datasetKey.projects.count == 1">{{ datasetKey.dataset.project.identifier }}</a>
                         <span ng-if="datasetKey.projects.count != 1">{{ datasetKey.dataset.project.identifier }}</span>
                     </span>
                     <h3>
                         {{ datasetKey.dataset.project.title }}
                     </h3>
 
-                    <div xng-if="datasetKey.dataset.project.abstract">
-                        <div ng-bind-html="datasetKey.dataset.project.abstract"></div>
+                    <div ng-if="datasetKey.dataset.project.abstract">
+                        <div ng-bind-html="datasetKey.dataset.project.abstract | linky"></div>
                     </div>
 
                     <div ng-if="datasetKey.dataset.project.studyAreaDescription">
-                        <h4>Study area</h4>
+                        <h4 translate="dataset.studyArea"></h4>
                         <div ng-bind-html="datasetKey.dataset.project.studyAreaDescription | linky"></div>
                     </div>
 
                     <div ng-if="datasetKey.dataset.project.designDescription">
-                        <h4>Description</h4>
+                        <h4 translate="dataset.description"></h4>
                         <div ng-bind-html="datasetKey.dataset.project.designDescription | linky"></div>
                     </div>
 
                     <div ng-if="datasetKey.dataset.project.funding">
-                        <h4>Funding</h4>
+                        <h4 translate="dataset.funding"></h4>
                         <div ng-bind-html="datasetKey.dataset.project.funding | linky"></div>
                     </div>
 
                     <div ng-if="datasetKey.projectEmpty" class="emptyInfo">
-                        <p>{$ __('stdTerms.noDescription') $}</p>
+                        <p translate="stdTerms.noDescription"></p>
                     </div>
                 </div>
             </div>
             <div ng-if="datasetKey.dataset._computedValues.projectContacts.all.length > 0">
-                <h4>Project contacts</h4>
+                <h4 translate="stdTerms.contacts"></h4>
                 <contacts contact-list="datasetKey.dataset._computedValues.projectContacts.all"></contacts>
                 <div class="card contactsCard">
                     <contact contact-info="contact" ng-repeat="contact in datasetKey.dataset._computedValues.projectContacts.all"></contact>

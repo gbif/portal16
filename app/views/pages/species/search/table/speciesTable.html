@@ -10,7 +10,7 @@
                             <table class="table search-table">
                                 <thead>
                                 <tr>
-                                    <th class="text-capitalize table-cell--wide"
+                                    <th class="table-cell--wide"
                                         ng-repeat="field in ['scientificName', 'taxonRank', 'status', 'dataset', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
                                         {{field}}
                                     </th>
@@ -33,11 +33,11 @@
                                             <div>{{species.scientificName}}</div>
                                         </a>
                                     </td>
-                                    <td class="table-cell--normal text-capitalize">
+                                    <td class="table-cell--normal">
                                         <a ng-href="{{species.key}}" translate="taxonRank.{{species.rank}}"
                                            ng-if="species.rank">{{species.rank}}</a>
                                     </td>
-                                    <td class="table-cell--narrow text-capitalize">
+                                    <td class="table-cell--narrow">
                                         <a ng-href="{{species.key}}">
                                     <span ng-if="species.taxonomicStatus == 'ACCEPTED'">
                                         <span translate="taxonomicStatus.{{species.taxonomicStatus}}">
@@ -85,6 +85,9 @@
                                         class="pagination-sm"
                                         boundary-link-numbers="false"
                                         rotate="false"
+                                        first-text="{{'stdTerms.first' | translate}}"
+                                        next-text="{{'stdTerms.next' | translate}}"
+                                        previous-text="{{'stdTerms.previous' | translate}}"
                                         ng-change="speciesTable.pageChanged()"
                                         ng-show="speciesTable.state.data.count > speciesTable.limit">
                                 </uib-pagination>

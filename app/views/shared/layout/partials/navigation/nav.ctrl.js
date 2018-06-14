@@ -11,7 +11,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) { // notice that the user is included as a dependency only to trigger the call to me endpoint
+function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout, URL_PREFIX, $translate) { // notice that the user is included as a dependency only to trigger the call to me endpoint
     var vm = this;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
@@ -75,7 +75,7 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
     vm.toggleUserMenu = function() {
         if ($sessionStorage.user) {
             if (!$state.includes('user')) {
-                $window.location = '/user/profile';
+                $window.location = URL_PREFIX + '/user/profile';
             }
         } else {
             vm.openMenu(NAV_EVENTS.toggleUserMenu);
@@ -93,8 +93,14 @@ function navCtrl(User, Notifications, $location, $http, $window, $rootScope, NAV
     vm.getIssues();
 
     function updateUser() {
-        vm.loginGreeting = _.get($sessionStorage.user, 'userName', 'Login');
+        vm.loginGreeting = _.get($sessionStorage.user, 'userName');
+        $translate('profile.loginText').then(function(translation) {
+            if (!vm.loginGreeting) {
+                vm.loginGreeting = translation;
+            }
+        });
     }
+    
     updateUser();
     $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         updateUser();

@@ -31,68 +31,32 @@
             <ng-include src="'/templates/components/loader/loader.html'" ></ng-include>
         </li>
         <li ng-if="vm.heads.HEAD_OF_DELEGATION.firstName">
-            <span class="text-capitalize" translate="role.HEAD_OF_DELEGATION"></span>
+            <span translate="role.HEAD_OF_DELEGATION"></span>
             <strong ng-bind="vm.heads.HEAD_OF_DELEGATION.firstName"></strong>
             <strong ng-bind="vm.heads.HEAD_OF_DELEGATION.surname"></strong>
         </li>
         <li ng-if="vm.heads.NODE_MANAGER.firstName">
-            <span class="text-capitalize" translate="role.NODE_MANAGER"></span>
+            <span translate="role.NODE_MANAGER"></span>
             <strong ng-bind="vm.heads.NODE_MANAGER.firstName"></strong>
             <strong ng-bind="vm.heads.NODE_MANAGER.surname"></strong>
         </li>
     </ul>
     <ul class="info-pane__digest participant-details-list m-b-1">
         <li ng-if="vm.endorsedPublisher > 0">
-            <strong ng-bind="vm.endorsedPublisher"></strong>
-            <span translate="theGbifNetwork.endorsedDataPublisher"
-                  translate-values="{ NUMBER: vm.endorsedPublisher }"></span>
+            <span translate="gbifNetwork.endorsedDataPublisher"
+                  translate-values="{NUMBER_FORMATTED: (vm.endorsedPublisher | localNumber), NUMBER: vm.endorsedPublisher }"></span>
         </li>
         <li ng-if="vm.digest.counts.datasetFromCount">
-            <a href="/dataset/search?type=OCCURRENCE&publishing_country={{ vm.digest.iso2 }}">
+            <a ui-sref="datasetSearchTable({type: 'OCCURRENCE', publishing_country: vm.digest.iso2})">
                 <strong ng-bind="vm.digest.counts.datasetFromCount | localNumber:gb.locale"></strong>
             </a>
-            <span translate="theGbifNetwork.occurrenceDatasetWith"
+            <span translate="gbifNetwork.occurrenceDatasetWith"
                   translate-values="{ NUMBER: vm.digest.counts.datasetFromCount}"></span>
-            <a href="/occurrence/search?publishing_country={{ vm.digest.iso2 }}&advanced=1">
+            <a ui-sref="occurrenceSearchTable({advanced: true, publishing_country: vm.digest.iso2})">
                 <strong ng-bind="vm.digest.counts.occurrenceFromCount | localNumber:gb.locale"></strong>
             </a>
-            <span translate="theGbifNetwork.record"
+            <span translate="gbifNetwork.record"
                   translate-values="{ NUMBER: vm.digest.counts.occurrenceFromCount}"></span>
-        </li>
-        <li ng-if="vm.digest.counts.checklistDatasetFromCount">
-            <a href="/dataset/search?type=CHECKLIST&publishing_country={{ vm.digest.iso2 }}">
-                <strong ng-bind="vm.digest.counts.checklistDatasetFromCount | localNumber:gb.locale"></strong>
-            </a>
-            <span translate="theGbifNetwork.checklistDatasetWith"
-                  translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromCount}"></span>
-            <strong ng-bind="vm.digest.counts.checklistDatasetFromRecordCount | localNumber:gb.locale"></strong>
-            <span translate="theGbifNetwork.usage"
-                  translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromRecordCount}"></span>
-        </li>
-        <li ng-if="vm.digest.counts.metadataDatasetFromCount">
-            <a href="/dataset/search?type=METADATA&publishing_country={{ vm.digest.iso2 }}">
-                <strong ng-bind="vm.digest.counts.metadataDatasetFromCount | localNumber:gb.locale"></strong>
-            </a>
-            <span translate="theGbifNetwork.metadataDataset"
-                  translate-values="{NUMBER: vm.digest.counts.metadataDatasetFromCount}"></span>
-        </li>
-    </ul>
-    <ul class="info-pane__digest participant-details-list m-b-1">
-        <li ng-if="vm.digest.counts.occurrenceContributingToCount">
-            <span translate="theGbifNetwork.publishesDataCovering"></span><br/>
-            <a href="/occurrence/search?publishing_country={{ vm.digest.iso2 }}&repatriated=true&advanced=1">
-                <strong ng-bind="vm.digest.counts.occurrenceContributingToCount | localNumber:gb.locale"></strong>
-            </a>
-            <span translate="theGbifNetwork.countriesTerritoriesAndIslands"></span>
-        </li>
-    </ul>
-    <ul class="info-pane__digest participant-details-list m-b-1">
-        <li ng-if="vm.digest.counts.literatureAuthoredByCount">
-            <a href="/cms/search?type=literature&category_author_from_country={{ vm.digest.iso2 }}">
-                <strong ng-bind="vm.digest.counts.literatureAuthoredByCount"></strong>
-            </a>
-            <span translate="theGbifNetwork.peerReviewedPublication"
-                  translate-values="{NUMBER: vm.digest.counts.literatureAuthoredByCount}"></span>
         </li>
     </ul>
     <footer>

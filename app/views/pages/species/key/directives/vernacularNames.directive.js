@@ -23,8 +23,9 @@ function vernacularNamesDirective() {
     return directive;
 
     /** @ngInject */
-    function vernacularnamesCtrl($scope, $state, $stateParams, SpeciesVernacularNames) {
+    function vernacularnamesCtrl($scope, $state, $stateParams, SpeciesVernacularNames, $translate) {
         var vm = this;
+        vm.$translate = $translate;
         vm.vernacularNames = SpeciesVernacularNames.get({id: vm.key});
         vm.vernacularNames.$promise.then(function() {
             vm.hasPages = vm.vernacularNames.results.length > 10;

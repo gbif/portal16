@@ -144,6 +144,8 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.enableClickGeometry = function() {
            // map.removeDrawnItems();
             map.removeClickedQuery();
+            map.disableDraw();
+            map.exitDeleteMode();
             vm.activeControl = undefined;
             vm.clickQueryActive = !vm.clickQueryActive;
             if (vm.clickQueryActive) {
@@ -157,6 +159,9 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.enableRectangleDraw = function() {
             // map.removeDrawnItems();
             map.disableDraw();
+            map.exitDeleteMode();
+            vm.deleteMode = false;
+            vm.removeClickedQuery();
             vm.polygonDrawActive = false;
             vm.rectangleDrawActive = !vm.rectangleDrawActive;
             if (vm.rectangleDrawActive) {
@@ -169,6 +174,9 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.enablePolygonDraw = function() {
             // map.removeDrawnItems();
             map.disableDraw();
+            map.exitDeleteMode();
+            vm.deleteMode = false;
+            vm.removeClickedQuery();
             vm.rectangleDrawActive = false;
             vm.polygonDrawActive = !vm.polygonDrawActive;
             if (vm.polygonDrawActive) {

@@ -11,6 +11,7 @@ let slug = require('slug');
 let URLSearchParams = require('url').URLSearchParams;
 let linkTools = require('./links/links');
 let defaultLanguage = require('../../config/config').defaultLocale;
+let localeConfig = require('../../config/locales');
 
 // GBIF/UN date style
 moment.updateLocale('en', {
@@ -31,7 +32,7 @@ let dateFormats = ['YYYY-MM', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss Z
 
 function date(date, locale, format) {
     let day;
-    locale = locale || defaultLanguage;
+    locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
     format = _.isUndefined(format) ? 'LL' : format; // localized format http://momentjs.com/docs/#/displaying/format/
     if (!isNaN(Number(date))) {
         day = moment.unix(date).locale(locale);
@@ -48,7 +49,7 @@ function getSlug(str) {
 function dateRange(start, end, showHours, locale) {
     let startDate;
     let endDate;
-    locale = locale || defaultLanguage;
+    locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
 
     // parse start date
     if (!isNaN(Number(start))) {
@@ -90,10 +91,10 @@ function dateRange(start, end, showHours, locale) {
     }
 }
 
-function timeRange(start, end) {
+function timeRange(start, end, locale) {
     let startDate;
     let endDate;
-    let locale = defaultLanguage;
+    locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
 
     // parse start date
     if (!isNaN(Number(start))) {
@@ -186,6 +187,16 @@ function compactInteger(nr) {
     return Humanize.compactInteger(nr, 0);
 }
 
+function prefixLinkUrl(str, urlPrefix) {
+    if (_.isString(str)) {
+        str = str.replace(/^http(s)?:\/\/www\.gbif((-dev)|(-uat))?\.org/, '');
+    }
+    if (!isUrl(str) && _.startsWith(str, '/')) {
+        str = urlPrefix + '/' + str.replace(/^\//, '');
+    }
+    return str;
+}
+
 function localizeLinks(dirty, urlPrefix) {
     urlPrefix = urlPrefix || '';
     dirty = dirty || '';
@@ -194,9 +205,7 @@ function localizeLinks(dirty, urlPrefix) {
             allowedAttributes: false,
             transformTags: {
                 'a': function(tagName, attr) {
-                    if (!isUrl(attr.href)) {
-                        attr.href = urlPrefix + '/' + attr.href.replace(/^\//, '');
-                    }
+                    attr.href = prefixLinkUrl(attr.href, urlPrefix);
                     return {
                         tagName: 'a',
                         attribs: attr
@@ -210,14 +219,13 @@ function localizeLinks(dirty, urlPrefix) {
 function localizeLink(url, urlPrefix) {
     url = _.isString(url) ? url : '';
     urlPrefix = urlPrefix || '';
-    if (!isUrl(url)) {
-        return urlPrefix + '/' + url.replace(/^\//, '');
-    }
+    url = prefixLinkUrl(url, urlPrefix);
     return url;
 }
 
-function sanitizeTrusted(dirty) {
+function sanitizeTrusted(dirty, urlPrefix) {
     dirty = dirty || '';
+    urlPrefix = urlPrefix || '';
     let allowedTags = ['img', 'h2', 'iframe', 'span'];
     let clean;
     clean = sanitizeHtml(dirty, {
@@ -228,6 +236,7 @@ function sanitizeTrusted(dirty) {
             transformTags: {
                 'a': function(tagName, attr) {
                     if (attr.href) {
+                        attr.href = prefixLinkUrl(attr.href, urlPrefix);
                         let linkUrl = url.parse(attr.href);
                         let urlPathname = linkUrl.pathname;
                         let urlParams = new URLSearchParams(linkUrl.search);

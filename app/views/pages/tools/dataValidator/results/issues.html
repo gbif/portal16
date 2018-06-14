@@ -24,7 +24,7 @@
                 <span  class="badge" ng-if="issueCategory === 'OCC_INTERPRETATION_BASED'"
                        translate="occurrenceIssue.{{ issueBlock.issue }}"></span>
                 <span  class="badge" ng-if="issueCategory === 'CLB_INTERPRETATION_BASED'"
-                       translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>
+                       translate="issueEnum.{{ issueBlock.issue }}"></span>
               <span class="badge" > {{  issueBlock.count }}</span>
             </span>
 
@@ -35,7 +35,7 @@
                 <span  class="badge badge--{{issueBlock.severity | lowercase }}" ng-if="!issueBlock.count && issueCategory === 'OCC_INTERPRETATION_BASED'"
                        translate="occurrenceIssue.{{ issueBlock.issue }}"></span>
                 <span  class="badge badge--{{issueBlock.severity | lowercase }}" ng-if="!issueBlock.count && issueCategory === 'CLB_INTERPRETATION_BASED'"
-                       translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>
+                       translate="issueEnum.{{ issueBlock.issue }}"></span>
 </div>
  <span ng-class="{'gb-icon-unfold-more-horizontal': !vm.issueSampleExpanded[issueBlock.issue], 'gb-icon-unfold-less-horizontal': vm.issueSampleExpanded[issueBlock.issue]}" ng-click="vm.issueSampleExpanded[issueBlock.issue] = !vm.issueSampleExpanded[issueBlock.issue]"></span>
 
@@ -55,7 +55,7 @@
             <div ng-show="vm.issueSampleExpanded[issueBlock.issue]">
                 <!-- comment in when issue help items are in prod contentful-->
 
-              <span gb-help="validation.issueHelp.{{issueBlock.issue}}" gb-help-options="{isCms: false}" class="pull-right"></span>
+              <span gb-help="issueHelp.{{issueBlock.issue}}" gb-help-options="{isCms: false}" class="pull-right"></span>
 
 
                 <table ng-if="issueBlock.sample" class="table table-bordered table-striped m-t-1"
@@ -109,7 +109,7 @@
                 <tr ng-repeat="row in issueBlock.relatedData">
                     <td ng-repeat="(key, val) in row" class="table-cell--wide">
                     <span ng-if="key !== 'rowType'">{{ val }}</span>
-                    <a ng-href="/tools/data-validator/{{vm.jobid}}/extensions#{{vm.dwcextensions[val].title | spaceToHyphen}}" ng-if="key === 'rowType'">{{ vm.dwcextensions[val].title}}</a>
+                    <a ng-href="{{portal.urlPrefix}}/tools/data-validator/{{vm.jobid}}/extensions#{{vm.dwcextensions[val].title | spaceToHyphen}}" ng-if="key === 'rowType'">{{ vm.dwcextensions[val].title}}</a>
 
 
                     </td>

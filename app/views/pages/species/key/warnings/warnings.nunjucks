@@ -1,17 +1,15 @@
 <div class="card"
      ng-if="!speciesKey2.isNub || speciesKey2.species.origin !== 'SOURCE' || speciesKey2.species.issues.length > 0">
     <div class="card__content card__content--warning">
-        <p ng-if="!speciesKey2.isNub">This is the interpretation of the species as published
-            in {{ speciesKey2.dataset.title }}.
-            <span ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">To view GBIFs view on this species see <a
-                        ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})">the backbone version</a>
+        <p ng-if="!speciesKey2.isNub"><span translate="species.interpretationMsg" translate-values="{DATASET: speciesKey2.dataset.title}"></span>
+            <span ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey"><span ng-bind-html="'species.viewGbifSpeciesMsg' | translate:'{NUBKEY:'+speciesKey2.species.nubKey+'}'  | md2html"></span> 
                              </span>
         </p>
 
         <span ng-if="speciesKey2.species.origin !== 'SOURCE'">
 
-                <p>This record has been created during indexing and did not explicitly exist in the source data as such.</p>
-                    <p>Origin: <span translate=" nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>
+                <p translate="species.inferredRecordMsg"></p>
+                    <p><span translate="stdTerms.origin"></span>: <span translate=" nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>
 
             </span>
 

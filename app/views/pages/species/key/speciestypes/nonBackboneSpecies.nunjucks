@@ -12,13 +12,13 @@
 
 
             <div class="m-t-1" ng-if="speciesKey2.descriptions.results.length > 0">
-                <h4 class="text-muted small text-uppercase">Description</h4>
+                <h4 class="text-muted small text-uppercase" translate="stdTerms.description"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div ng-repeat="description in speciesKey2.descriptions.results" class="m-b-1">
                             <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
                             <div ng-bind-html="description.description"></div>
-                            <p class="small source" ng-if="description.source">Source: <a class="inherit"
+                            <p class="small source" ng-if="description.source"><span translate="stdTerms.sourcePlural" translate-values="{NUMBER: 1}"></span>: <a class="inherit"
                                                                ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a>
                             </p>
                         </div>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="m-t-1" ng-if="speciesKey2.species.remarks">
-                <h4 class="text-muted small text-uppercase">Remarks</h4>
+                <h4 class="text-muted small text-uppercase" translate="stdTerms.remarks"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div >
@@ -39,7 +39,7 @@
             </div>
 
             <div class="m-t-1" ng-if="speciesKey2.distributions.results.length > 0">
-                <h4 class="text-muted small text-uppercase">Distributions</h4>
+                <h4 class="text-muted small text-uppercase" translate="species.distribution.distributionPlural"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div ng-repeat="distribution in speciesKey2.distributions.results" class="m-b-1">
@@ -63,7 +63,7 @@
 
 
             <div class="m-t-1" >
-                <h4 class="text-muted small text-uppercase">Citation</h4>
+                <h4 class="text-muted small text-uppercase" translate="stdTerms.citation"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div class="m-b-1 m-t-1"   ng-if="speciesKey2.isNub || (speciesKey2.verbatim && speciesKey2.verbatim.$resolved && !speciesKey2.species.bibliographicCitation)">

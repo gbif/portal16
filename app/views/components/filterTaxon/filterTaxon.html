@@ -1,7 +1,7 @@
 <div class="filter-group filter-group--search">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
-            <span class="text-capitalize" translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
+            <span translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
             <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
         </h4>
@@ -34,7 +34,7 @@
                    autocomplete="off"
                    class="fit-suggestions"
                    ng-model="vm.selected"
-                   placeholder="search"
+                   placeholder="{{ 'stdTerms.search' | translate }}"
                    uib-typeahead="suggestion[vm.filterConfig.search.suggestTitle] for suggestion in vm.getSuggestions($viewValue)"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"

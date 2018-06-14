@@ -6,7 +6,7 @@
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="occurrence.freeTextQuery"
-                       placeholder="Search all fields">
+                       placeholder="{{'occurrenceSearch.searchAllFields' | translate}}">
                 <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="occurrence.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
@@ -40,9 +40,9 @@
         <div class="filter-group text-center">
             <div class="gb-btn-group">
                 <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="false"
-                       ng-change="occurrence.toggleAdvanced()">Simple</label>
+                       ng-change="occurrence.toggleAdvanced()" translate="stdTerms.simple"></label>
                 <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="true"
-                       ng-change="occurrence.toggleAdvanced()">Advanced</label>
+                       ng-change="occurrence.toggleAdvanced()" translate="stdTerms.advanced"></label>
             </div>
         </div>
 
@@ -115,6 +115,20 @@
         <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
+        <!--
+        <div filter-suggest filter-config="occurrence.filters.eventId" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.networkKey" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.installationKey" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.samplingProtocol" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+        -->
+
         <div filter-date filter-config="occurrence.filters.lastInterpreted" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
@@ -132,8 +146,16 @@
 
     <div class="site-content__page lighter-background">
         <div class="occurrence-search-results">
-            <div ui-view>
+            <div ui-view ng-if="!occurrence.occurrenceState.failedRequest">
 
+            </div>
+            <div ng-if="occurrence.occurrenceState.failedRequest" class="emptyInfo">
+                <h3>
+                    Unable to process request
+                </h3>
+                <p>
+                    Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues
+                </p>
             </div>
         </div>
     </div>

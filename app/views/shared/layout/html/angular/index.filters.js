@@ -18,6 +18,18 @@
         smartypants: false
     });
 
+    // Get reference
+    var renderer = new md.Renderer();
+
+    // Override function
+    renderer.link = function(href, title, text) {
+        title = title || '';
+        if (href.substr(0, 1) === '/') {
+            href = window.gb.urlPrefix + href;
+        }
+        return '<a title="' + title + '" href="' + href + '">' + text + '</a>';
+    };
+
     angular
         .module('portal')
         .filter('prettifyEnum', function() {
@@ -68,20 +80,26 @@
                 }
             };
         })
-        .filter('isPast', function(moment) {
+        .filter('isPast', function() {
             return function(date) {
-                return moment().isAfter(date);
+                return moment(date).isBefore();
             };
         })
-        .filter('isNew', function(moment) {
+        .filter('isNew', function() {
             return function(date) {
                 return moment().subtract(90, 'd').isBefore(date);
             };
         })
-        .filter('momentFormat', function(LOCALE) {
+        .filter('momentFormat', function(LOCALE, LOCALE_MAPPINGS) {
+            moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
             return function(date, format) {
-                moment.locale(LOCALE);
                 return moment(date).format(format || 'LLLL');
+            };
+        })
+        .filter('momentFromNow', function(LOCALE, LOCALE_MAPPINGS) {
+            moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
+            return function(date, format) {
+                return moment(date).fromNow();
             };
         })
         .filter('stripTags', function() {
@@ -230,7 +248,7 @@
         })
         .filter('md2html', function() {
             return function(markdown) {
-                return (markdown) ? md(markdown) : '';
+                return (markdown) ? md(markdown, {renderer: renderer}) : '';
             };
         })
         .filter('gbifUrlAsRelative', function() {
@@ -240,26 +258,27 @@
 
                 var host = result[3];
                 var path = result[5];
+                var locale = (!gb.locale || gb.locale === 'en') ? '' : gb.locale + '/';
                 if (!host) {
                 return url;
                 }
                 switch (host) {
                     case 'www.gbif.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'gbif.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'www.gbif-staging.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'gbif-staging.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'www.gbif-uat.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'gbif-uat.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'www.gbif-dev.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     case 'gbif-dev.org':
-                        return '/' + path;
+                        return '/' + locale + path;
                     default:
                         return url;
                 }

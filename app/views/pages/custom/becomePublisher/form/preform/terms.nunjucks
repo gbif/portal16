@@ -2,7 +2,7 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Terms and conditions</span>
+                <span class="md-headline" translate="eoi.termsAndConditions"></span>
             </md-card-title-text>
         </md-card-title>
 
@@ -10,20 +10,18 @@
             <fieldset class="standard">
                 <div layout-wrap layout-gt-sm="row">
                     <div>
-                        <md-checkbox ng-model="eoi.terms.agreement" aria-label="Data sharing agreement" class="md-primary md-align-top-left">
-                            I have read and understood <a href="/terms/data-publisher" target="_blank">GBIF's Data Publisher Agreement</a> and agree to its terms.
+                        <md-checkbox ng-model="eoi.terms.agreement" aria-label="Data sharing agreement" class="md-primary md-align-top-left" >
+                        <span ng-bind-html="('eoi.iHaveReadAndUnderstood' | translate | md2html)"></span>
                         </md-checkbox>
                     </div>
                     <div>
                         <md-checkbox ng-model="eoi.terms.authorized" aria-label="I apply on behalf of my organization" class="md-primary md-align-top-left">
-                            I understand that I am seeking registration on behalf of my organization, and confirm that
-                            the responsible authorities of my organization are aware of this registration.
+                            <span translate="eoi.iUnderstandThatIAmSeekingRegistrationOnBehalf"></span>
                         </md-checkbox>
                     </div>
                     <div>
                         <md-checkbox ng-model="eoi.terms.public" aria-label="information provided is public" class="md-primary md-align-top-left">
-                            I understand that my organizational information, including the contact details provided,
-                            will be made publicly available through GBIF.org.
+                            <span translate="eoi.iUnderstandThatMyOrganizationalInformation"></span>
                         </md-checkbox>
                     </div>
                 </div>

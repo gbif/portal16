@@ -38,8 +38,9 @@ function mapWidgetDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, $localStorage) {
+    function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, $localStorage, URL_PREFIX, LOCALE, LOCALE_2_LETTER) {
         var vm = this;
+        vm.URL_PREFIX = URL_PREFIX;
         vm.moment = moment;
 
         vm.styleBreaks = {
@@ -142,7 +143,9 @@ function mapWidgetDirective(BUILD_VERSION) {
             map = mapController.createMap(element, {
                 baseMap: activeStyle.baseMap,
                 overlay: activeStyle.overlay,
-                filters: getQuery()
+                locallized: activeStyle.locallized,
+                filters: getQuery(),
+                locale: LOCALE_2_LETTER
             });
 
             // set up zoom control
@@ -429,8 +432,8 @@ function mapWidgetDirective(BUILD_VERSION) {
             var decimalLongitudeMin = lng - offset;
             var decimalLongitudeMax = lng + offset;
             vm.clickedGeometry = 'POLYGON' + '((W S,E S,E N,W N,W S))'
-                    .replace(/N/g, decimalLatitudeMin)
-                    .replace(/S/g, decimalLatitudeMax)
+                    .replace(/N/g, decimalLatitudeMax)
+                    .replace(/S/g, decimalLatitudeMin)
                     .replace(/W/g, decimalLongitudeMin)
                     .replace(/E/g, decimalLongitudeMax);
 
@@ -449,7 +452,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.clickedQuery.clickedGeometry = vm.clickedGeometry;
             vm.clickedQuery.has_geospatial_issue = false;
             vm.clickedQuery.has_coordinate = true;
-            window.location.href = '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
+            window.location.href = URL_PREFIX + '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
             // vm.activeControl = vm.controls.OCCURRENCES;
             // vm.mapMenu.isLoading = true;
             // vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {

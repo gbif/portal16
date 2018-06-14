@@ -46,7 +46,7 @@ router.get('/health/ping', function(req, res) {
 });
 
 router.get('/health/portal', function(req, res) {
-    portalHealth.getHealth()
+    portalHealth.getHealth(req.__)
         .then(function(status) {
             res.setHeader('Cache-Control', 'public, max-age=5'); // 5 seconds
             if (req.query.hash !== status.hash) {

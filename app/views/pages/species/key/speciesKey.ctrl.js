@@ -19,7 +19,6 @@ angular
 // eslint-disable-next-line max-len
 function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations, SpeciesDistributions, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesVernacularNames, constantKeys, Page, MapCapabilities, BUILD_VERSION, $translate, $mdMedia) {
     var vm = this;
-    Page.setTitle('Species');
     vm.$translate = $translate;
     Page.drawer(true);
     vm.$mdMedia = $mdMedia;

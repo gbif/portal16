@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
                         <span class="article-header__category__lower" ng-if="occGallery.count >= 0">
-                            {{occGallery.count | localNumber:occGallery.occurrenceState.query.locale }} with images
+                            <span tx="stdTerms.nWithImages" tx-nr="occGallery.count"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="occGallery.count < 0">
-                            Loading ...
+                            <span translate="stdTerms.loading"></span> ...
                         </span>
                     </nav>
                     <!--<div class="search-header__description">-->
@@ -29,31 +29,31 @@
                 <nav class="tabs">
                     <ul>
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchTable()">
+                            <a href="" ui-sref="occurrenceSearchTable()" translate="occurrenceSearch.table">
                                 Table
                             </a>
                         </li>
 
                         <li class="tab isActive">
-                            <span>
+                            <span translate="occurrenceSearch.gallery">
                                 Gallery
                             </span>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchMap()">
+                            <a href="" ui-sref="occurrenceSearchMap()" translate="occurrenceSearch.map">
                                 Map
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchSpecies()">
+                            <a href="" ui-sref="occurrenceSearchSpecies()" translate="occurrenceSearch.taxonomy">
                                 Taxonomy
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchCharts()">
+                            <a href="" ui-sref="occurrenceSearchCharts()" translate="occurrenceSearch.charts">
                                 Charts
                             </a>
                         </li>
@@ -61,7 +61,7 @@
                         <li class="tab">
                             <a href="" ui-sref="occurrenceSearchDownload()">
                                 <span class="gb-icon-file-download"></span>
-                                <span>
+                                <span translate="occurrenceSearch.download">
                                     Download
                                 </span>
                             </a>
@@ -78,7 +78,7 @@
     <section class="horizontal-stripe light-background seperator" ng-if="occGallery.count > 0">
         <div class="container-fluid">
             <div class="small discreet" ng-if="occGallery.occurrenceState.query.license">
-                <p translate="help.imageLicenseInfo"></p>
+                <p translate="phrases.imageLicenseInfo"></p>
             </div>
             <div class="imageGallery">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" ui-sref="occurrenceKey({key:image.key})">

@@ -4,17 +4,17 @@
             <div class="container--normal">
                 <nav class="site-footer__menu">
                     <div>
-                        <a href="{$ gb.locales.urlPrefix $}/what-is-gbif">What is GBIF?</a>
-                        <a href="{$ gb.locales.urlPrefix $}/developer/summary">API</a>
-                        <a href="{$ gb.locales.urlPrefix $}/faq">FAQ</a>
-                        <a href="{$ gb.locales.urlPrefix $}/newsletters">Newsletter</a>
-                        <a href="{$ gb.locales.urlPrefix $}/terms/privacy-policy">Privacy</a>
-                        <a href="{$ gb.locales.urlPrefix $}/terms">Terms and agreements</a>
-                        <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">Citation</a>
-                        <a href="{$ gb.locales.urlPrefix $}/acknowledgements">Acknowledgements</a>
+                        <a href="{$ gb.locales.urlPrefix $}/what-is-gbif">{$ __('footer.whatIsGbif') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/developer/summary">{$ __('footer.api') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/faq">{$ __('footer.faq') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/newsletters">{$ __('footer.newsletter') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/terms/privacy-policy">{$ __('footer.privacy') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/terms">{$ __('footer.terms') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">{$ __('footer.citation') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/acknowledgements">{$ __('footer.acknowledgements') $}</a>
                     </div>
                     <div>
-                        <a href="{$ gb.locales.urlPrefix $}/contact-us">Contact</a>
+                        <a href="{$ gb.locales.urlPrefix $}/contact-us">{$ __('footer.contact') $}</a>
                         <span>
                             <span href=""><span>GBIF Secretariat </span>Universitetsparken 15</span>
                             <span href="">DK-2100 Copenhagen Ø</span>

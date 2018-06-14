@@ -1,13 +1,6 @@
 {#checklist stats#}
 <div class="row summaryStats" ng-if="datasetKey.taxa.count > 0">
     <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: 'ACCEPTED'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
-        {#<div>#}
-        {#<div class="summaryStats__circle summaryStats__circle--species"></div>#}
-        {#<div class="summaryStats__percentage">#}
-        {#<span>{{ datasetKey.stats.accepted | localNumber }}</span>#}
-        {#<div>Accepted names</div>#}
-        {#</div>#}
-        {#</div>#}
         <div>
             <div class="summaryStats__circle">
                 <round-progress
@@ -20,7 +13,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.stats.accepted | localNumber }}</span>
-                <div>Accepted names</div>
+                <div translate="phrases.acceptedNames"></div>
             </div>
         </div>
     </a>
@@ -37,7 +30,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.stats.synonyms | localNumber }}</span>
-                <div>Synonyms</div>
+                <div translate="stdTerms.synonyms"></div>
             </div>
         </div>
     </a>
@@ -54,7 +47,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.metrics.nubCoveragePct }}%</span>
-                <div>Overlap with GBIF Backbone</div>
+                <div translate="phrases.overlapWithNub"></div>
             </div>
         </div>
     </div>
@@ -71,7 +64,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.metrics.colCoveragePct }}%</span>
-                <div><span>Overlap with Catalogue of Life</span></div>
+                <div><span translate="phrases.overlapWithCol"></span></div>
             </div>
         </div>
     </div>

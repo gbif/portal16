@@ -101,6 +101,7 @@ function renderPage(req, res, next, data, template) {
     data._meta.domain = config.domain;
     data._meta.originalUrl = req.originalUrl;
     data._meta.fbAppId = config.fbAppId;
+    data._meta.locale = res.locale;
     try {
         if (req.params.ext == 'debug') {
             res.json(data);

@@ -1,5 +1,5 @@
 <div class="m-t-1" ng-if="vm.vernacularNames.$resolved && vm.vernacularNames.results.length > 0" id="vernacularnames">
-    <h4 class="text-muted small text-uppercase">Vernacular names</h4>
+    <h4 class="text-muted small text-uppercase" translate="species.nVernacularNames" translate-values="{NUMBER: 100}"></h4>
     <!--<span class="discreet text-uppercase small">References</span>-->
     <section  class="card--references card">
 
@@ -9,16 +9,17 @@
                     <div  >
                         <div>
                             <span class="vernacular">{{ name.datasets[0].vernacularName }}</span>
-                            <span class="discreet--very">in <span translate="language.{{ name.language }}"></span></span>
+                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: vm.$translate.instant('language.'+ name.language)}"></span>
                         </div>
                         <div class="small" ng-if="vm.isNub ==='true'">
-                            {{(name.datasets.length === 1) ? 'source' : 'sources' }}:
+                            <span translate="stdTerms.sourcePlural"
+            translate-values="{NUMBER: name.datasets.length}"></span>:
                             <a class="" ui-sref=".({speciesKey:name.datasets[0].sourceTaxonKey})" >
                                 <span ng-bind-html="name.datasets[0].source"></span>
                             </a>
 
                             <a class="inherit cursor-pointer"  ng-click="vm.showDatasets(name)" ng-if="name.datasets.length > 1">
-                              + <span translate="stdTerms.nMore" translate-values="{n: name.datasets.length-1}" ></span><span> {{(name.datasets.length-1 <  2) ? 'stdTerms.dataset' : 'stdTerms.datasets' | translate}}</span>
+                              + <span translate="stdTerms.nMoreDatasets" translate-values="{NUMBER: name.datasets.length-1}" ></span></span>
                             </a>
 
                         </div>
@@ -29,8 +30,8 @@
         </div>
         <div ng-if="vm.hasPages">
             <div class="clearfix m-05">
-                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.offset==0}">Previous</a>
-                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.endOfRecords}">Next</a>
+                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.offset==0}" translate="stdTerms.previous"></a>
+                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.endOfRecords}" translate="stdTerms.next"></a>
             </div>
         </div>
     </section>
@@ -39,9 +40,10 @@
 <div class="page__overlay" ng-if="vm.showCurrentDatasets" ng-click="vm.showCurrentDatasets = false">
     <div class="content__overlay__card">
         <div class="content__overlay__card__header seperator--b">
-            <div class="text-capitalize">
+            <div>
                 <span class="article-header__meta">{{ vm.currentName.vernacularName }}</span>
-                <span class="discreet--very">in <span translate="language.{{ vm.currentName.language }}"></span></span>
+                <span class="discreet--very" translate="species.inLanguage" translate-values="{language: vm.$translate.instant('language.'+ vm.currentName.language)}"></span>
+                </span>
             </div>
         <div class="content__overlay__card__list">
 

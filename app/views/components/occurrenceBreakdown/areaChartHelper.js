@@ -4,8 +4,9 @@ module.exports = {
     getConfig: getConfig
 };
 
-function getConfig(data, element, clickCallback, logarithmic) {
-    var series = getSeries(data);
+function getConfig(data, element, clickCallback, translations, logarithmic) {
+    translations = translations || {};
+    var series = getSeries(data, translations);
 
     return {
         chart: {
@@ -55,14 +56,14 @@ function getConfig(data, element, clickCallback, logarithmic) {
         },
         subtitle: {
             text: document.ontouchstart === undefined ?
-            'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+            translations.clickToZoom : translations.pinchToZoom
         },
         xAxis: {
             type: 'datetime'
         },
         yAxis: {
             title: {
-                text: 'Occurrences'
+                text: translations.occurrences || 'Occurrences'
             },
             min: 0
         },
@@ -77,10 +78,10 @@ function getConfig(data, element, clickCallback, logarithmic) {
     };
 }
 
-function getSeries(data) {
+function getSeries(data, translations) {
     var min, max, yearMap;
     if (!data.secondField) {
-        min =_.toSafeInteger(_.get(_.minBy(data.results, function(e) {
+        min = _.toSafeInteger(_.get(_.minBy(data.results, function(e) {
             return _.toSafeInteger(e.displayName);
         }), 'displayName', 0));
         max = _.toSafeInteger(_.get(_.maxBy(data.results, function(e) {
@@ -98,7 +99,7 @@ function getSeries(data) {
         // lineData = _.sortBy(lineData, ['[0]']); //sorting isn't technically guaranteed, but all browsers supposedly keep order by keys as they have been added
         return [{
             type: 'line',
-            name: 'occurrences per year',
+            name: translations.occurrences || 'occurrences',
             data: lineData
         }];
     } else {

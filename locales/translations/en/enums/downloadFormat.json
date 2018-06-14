@@ -1,6 +1,7 @@
 {
-    "downloadFormat": {
-        "SIMPLE_CSV": "CSV",
-        "DWCA": "Darwin Core Archive"
-    }
+  "downloadFormat": {
+    "SIMPLE_AVRO": "Apache Avro",
+    "SIMPLE_CSV": "CSV",
+    "DWCA": "Darwin Core Archive"
+  }
 }

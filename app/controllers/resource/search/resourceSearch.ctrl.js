@@ -10,7 +10,7 @@ function renderSearch(req, res) {
         _meta: {
             hasTools: true,
             title: req.__('stdTerms.resources'),
-            description: req.__('meta.resourceDescription')
+            description: req.__('resource.resourceDescription')
 
         }
     });

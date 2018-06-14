@@ -38,7 +38,7 @@
                     <table class="table search-table">
                         <thead>
                         <tr>
-                            <th class="text-capitalize"
+                            <th
                                 ng-repeat="field in ['scientificName', 'prefered kingdom']">{{ field }}</th>
                         </tr>
                         </thead>

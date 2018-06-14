@@ -3,13 +3,13 @@
 var ol = require('openlayers'),
     _ = require('lodash'),
     Progress = require('./progress'),
+    optionsConfig = require('./options'),
     // utils = require('../../../shared/layout/html/utils/utils'),
     projections = require('./projections');
 
 module.exports = {
     createMap: createMap
 };
-
 
 function createMap(element, options) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
@@ -20,11 +20,16 @@ function createMap(element, options) {
     var baseMapStyle = options.baseMap || {style: 'gbif-classic'};
     var overlayStyle = options.overlays || [];
     var filters = options.filters || {};
+    var locale = optionsConfig.supportedMapLocales[options.locale] || 'en';
     var currentProjection;
 
     this.update = function(options) {
         options = options || {};
         baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-classic'};
+        if (optionsConfig.localizedStyles[baseMapStyle.style]) {
+            baseMapStyle.style += '-' + locale;
+        }
+
         overlayStyle = options.overlay || overlayStyle || {};
         filters = options.filters || filters || {};
         map.getLayers().clear();

@@ -13,8 +13,8 @@
                                 <h1 ng-class="{'text-error': installationKey.installation.deleted}">
                                     {{ installationKey.installation.title }}
                                 </h1>
-                                <p class="text-error text-center" ng-if="installationKey.installation.deleted">
-                                    This installation was deleted {{ installationKey.installation.deleted | momentFormat:'D MMMM YYYY' }}
+                                <p class="text-error text-center" ng-if="installationKey.installation.deleted"  translate="phrases.deletedOnDate" translate-values="{DATE: (installationKey.installation.deleted | momentFormat:'D MMMM YYYY') }">
+                                    <!--This publisher was deleted on DATE-->
                                 </p>
                             </header>
                         </div>
@@ -22,21 +22,21 @@
                 </div>
 
                 <section class="horizontal-stripe--paddingless white-background" ng-if="installationKey.installation.homepage.length > 0">
-                    <div class="container--narrow">
+                    <div class="container--normal">
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="tabs__wrapper">
                                     <nav class="tabs tabs--noBorder">
                                         <ul>
                                             <li class="tab isActive">
-                                                <span>
+                                                <span translate="stdTerms.summary">
                                                     Summary
                                                 </span>
                                             </li>
                                             <li class="tab">
                                                 <a ng-href="{{ installationKey.installation.homepage[0] }}">
                                                     <span class="gb-icon-link"></span>
-                                                    <span>
+                                                    <span translate="stdTerms.homepage">
                                                         Homepage
                                                     </span>
                                                 </a>
@@ -50,27 +50,27 @@
                 </section>
 
                 <section class="horizontal-stripe--paddingless p-t-1 seperator">
-                    <div class="container--narrow">
+                    <div class="container--normal">
                         <div class="card card--spaced m-b-1">
                             <div class="card__content">
                                 <div ng-bind-html="installationKey.installation.description"></div>
                                 <dl class="inline m-t-05">
                                     <div ng-if="installationKey.installation.type">
-                                        <dt class="text-capitalize">Installation type</dt>
+                                        <dt translate="stdTerms.installationType">Installation type</dt>
                                         <dd translate="installationType.{{installationKey.installation.type}}">
                                         </dd>
                                     </div>
                                     <div ng-if="installationKey.publisher.$resolved">
-                                        <dt class="text-capitalize">Hosted by</dt>
+                                        <dt translate="stdTerms.hostedBy">Hosted by</dt>
                                         <dd><a ui-sref="publisherKey({ key: installationKey.publisher.key})">{{installationKey.publisher.title}}</a>
                                         </dd>
                                     </div>
                                     <div ng-if="installationKey.installation.created">
-                                        <dt class="text-capitalize">Registered</dt>
+                                        <dt translate="stdTerms.registered">Registered</dt>
                                         <dd>{{ installationKey.installation.created | momentFormat:'D MMMM YYYY' }}</dd>
                                     </div>
                                     <div ng-if="installationKey.installation.endpoints.length > 0">
-                                        <dt class="text-capitalize">Endpoints</dt>
+                                        <dt translate="stdTerms.endpoints">Endpoints</dt>
                                         <dd>
                                             <ul class="inline-bullet-list">
                                                 <li ng-repeat="endpoint in installationKey.installation.endpoints">
@@ -83,8 +83,9 @@
                             </div>
                         </div>
                         <div class="m-b-1" ng-if="installationKey.installation._computedValues.contributors.all.length > 0">
-                            <h4 class="small discreet text-uppercase" translate="stdTerms.contacts"
-                                translate-values="{ NUMBER: installationKey.installation._computedValues.contributors.all.length + 1}">
+                            <h4 class="small discreet text-uppercase" 
+                                translate="stdTerms.nContacts" 
+                                translate-values="{ NUMBER_FORMATED: (installationKey.installation._computedValues.contributors.all.length | localNumber), NUMBER: installationKey.installation._computedValues.contributors.all.length }">
                                 Contacts</h4>
 
                             <div class="contactsCard card card--spaced">
@@ -94,8 +95,9 @@
                         </div>
                         <div class="m-b-1" ng-if="installationKey.servedDatasets.count > 0">
                             <span class="relative-anchor-offset"><a id="servedDatasets"></a></span>
-                            <h4 class="small discreet text-uppercase" translate="stdTerms.nServedDatasets"
-                                translate-values="{ NUMBER: installationKey.servedDatasets.count}">
+                            <h4 class="small discreet text-uppercase" 
+                                translate="stdTerms.nDatasets" 
+                                translate-values="{ NUMBER_FORMATED: (installationKey.servedDatasets.count | localNumber), NUMBER: installationKey.servedDatasets.count }">
                                 Served datasets
                             </h4>
 
@@ -138,5 +140,3 @@
         <!--<ng-include src="'/api/template/site/footer.html?v=' + publisherKey.BUILD_VERSION"></ng-include>-->
     </div>
 </div>
-
-

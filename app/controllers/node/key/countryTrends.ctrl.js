@@ -8,6 +8,10 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
+router.get('/api/global/trends.:ext?', function(req, res, next) {
+    renderGlobalPartialTrendsPage(req, res, next, true, 'pages/country/key/trends/about');
+});
+
 router.get('/api/country/:key/trends/about.:ext?', function(req, res, next) {
     let key = req.params.key.toUpperCase();
     let country = {
@@ -48,6 +52,30 @@ function renderPartialTrendsPage(req, res, next, country, isAbout, template) {
                 }
             });
         }
+    } catch (e) {
+        next(e);
+    }
+}
+
+function renderGlobalPartialTrendsPage(req, res, next, isAbout, template) {
+    try {
+            res.render(template, {
+                isAbout,
+                imgUrls: {// TODO more or less just copied from Markus' initial implemetation. Not translatable
+                    from: {
+                        thumbBase: imageCacheUrl + 'fit-in/300x250/http://' + cfg.analyticsImg + 'global/figure/',
+                        imgBase: imageCacheUrl + 'http://' + cfg.analyticsImg + 'global/figure/'
+                    },
+                    about: {
+                        thumbBase: imageCacheUrl + 'fit-in/300x250/http://' + cfg.analyticsImg + 'global/figure/',
+                        imgBase: imageCacheUrl + 'http://' + cfg.analyticsImg + 'global/figure/'
+                    }
+                },
+                _meta: {
+                    title: 'Global trends',
+                    imageCacheUrl: imageCacheUrl
+                }
+            });
     } catch (e) {
         next(e);
     }

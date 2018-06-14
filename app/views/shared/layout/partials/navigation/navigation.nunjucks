@@ -2,7 +2,7 @@
      ng-class="{'mobileMenu--active': nav.mobileMenuActive, 'mainMenu--firstLevelActive': nav.activeMenu, hasOffset: nav.scrollOffset > 0}"
      ng-controller="navCtrl as nav">
     <div class="stickyNav__container">
-        <a href="/" id="block-logo" class="gbif-logo">
+        <a ng-href="{$ gb.locales.urlPrefix $}/" id="block-logo" class="gbif-logo">
             <svg viewBox="90 239.1 539.7 523.9" xmlns="http://www.w3.org/2000/svg">
                 <path class="gbif-logo-svg"
                       d="M325.5,495.4c0-89.7,43.8-167.4,174.2-167.4C499.6,417.9,440.5,495.4,325.5,495.4"/>
@@ -85,28 +85,11 @@
                             </li>
                         {% endif %}
                     {% endfor %}
-                    {#<li class="mainMenu__firstLevel hide-on-laptop">#}
-                        {#<a class="mainMenu__parentItem" href=""#}
-                           {#ng-click="nav.mobileMenuActive = false; nav.toggleFeedback()">Feedback</a>#}
-                    {#</li>#}
-                    {#<li class="mainMenu__firstLevel hide-on-laptop">#}
-                        {#<a class="mainMenu__parentItem" href="/search">Search</a>#}
-                    {#</li>#}
                     <li class="mainMenu__firstLevel hide-on-laptop">
-                        <a class="mainMenu__parentItem" href="/user/profile">User profile <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
+                        <a class="mainMenu__parentItem" href="{$ gb.locales.urlPrefix $}/user/profile"><span translate="profile.userProfile">User profile</span> <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
                     </li>
                 </ul>
             </nav>
-            {#<nav class="user-menu">#}
-            {#<ul>#}
-            {#<li class="user-menu__firstLevel"><a href="https://account.box.com/login"#}
-            {#class="user-menu_log-in user-menu__parentItem">Log in</a></li>#}
-            {#<li class="user-menu__firstLevel"><a href="/pricing"#}
-            {#class="user-menu_sign-up user-menu__parentItem">Sign Up</a>#}
-            {#</li>#}
-            {#</ul>#}
-            {#</nav>#}
-
         </div>
 
     </div>

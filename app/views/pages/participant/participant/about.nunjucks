@@ -7,7 +7,7 @@
 
         {% if main.fields | hasAtLeastOneKey(['body', 'nodeHistory', 'nodeMission', 'nodeStructure', 'nodeFunding']) %}
             <div class="body-text">
-                {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 {% if registryNode.key == '7f48e0c8-5c96-49ec-b972-30748e339115' %}
                     <p>
                         The Participant Node Managers Committee is a body that can endorse an institution to publish data through the GBIF network. Wherever possible, a national Node or thematic network is preferred to endorse an institution to help ensure the most relevant technical and administrative support is given. In the absence of such a suitable Node the committee can endorse publishers.
@@ -56,7 +56,7 @@
                                         {% if participant.participationStatus %}
                                             <div>
                                                 <dt>Member status</dt>
-                                                <dd>{$ __('participationStatus.' + participant.participationStatus) | capitalize $}</dd>
+                                                <dd>{$ __('participationStatus.' + participant.participationStatus) $}</dd>
                                             </div>
                                         {% endif %}
                                         {% if participant.membershipStart %}
@@ -68,7 +68,7 @@
                                         {% if participant.gbifRegion %}
                                             <div>
                                                 <dt>GBIF region</dt>
-                                                <dd>{$ __('region.' + participant.gbifRegion) | capitalize $}</dd>
+                                                <dd>{$ __('region.' + participant.gbifRegion) $}</dd>
                                             </div>
                                         {% endif %}
                                         {% if participant.countryCode %}

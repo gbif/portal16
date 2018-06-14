@@ -1,7 +1,7 @@
 <div class="site-content">
     <div class="site-content__page">
         <div class="white-background">
-            <div class="wrapper-horizontal-stripes" Xng-if="datasetKey.dataset.$resolved">
+            <div class="wrapper-horizontal-stripes" >
 
                 {% include "./header.nunjucks" %}
 
@@ -37,7 +37,7 @@
             {#<header class="text-center">#}
                 {#<h1>{$ main.fields.title $}</h1>#}
                 {#<div class="article-header__intro">#}
-                    {#{$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}#}
+                    {#{$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}#}
                 {#</div>#}
                 {#{% if main.fields.numberOfResourceUsed | isNotEmpty %}#}
                     {#<span class="article-header__meta">#}

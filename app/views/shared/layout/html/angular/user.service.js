@@ -49,7 +49,12 @@
                 };
 
                 that.getAuthToken = function() {
-                    return $cookies.get(AUTH_TOKEN_NAME);
+                    var token = $cookies.get(AUTH_TOKEN_NAME);
+                    if (!token) {
+                        delete $sessionStorage.user;
+                        $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
+                    }
+                    return token;
                 };
 
                 that.loadActiveUser = function() {
@@ -118,12 +123,12 @@
                     return userLogin;
                 };
 
-                that.logout = function() {
+                that.logout = function(loc) {
                     var logout = $http.get('/api/user/logout');
                     logout.then(function() {
                         delete $sessionStorage.user;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
-                        window.location = '/user/profile';
+                        window.location = loc || '/user/profile';
                     }, function() {
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_FAILED);
                     });

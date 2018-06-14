@@ -8,7 +8,7 @@
                     {% for name, fields in occurrence.usedExtensionFields %}
 
                         {% if occurrence.usedExtensionFields[name] | isNotEmpty %}
-                            <h5 class="card-header">{$ name | prettifyEnum | capitalize $}</h5>
+                            <h5 class="card-header">{$ name | prettifyEnum $}</h5>
                             <div {% if occurrence.verbatim.extensions[name].length >= 6 %}expand{% endif %}
                                  class="card card-table" expand-text="'Show all {$ extensions.length $}'"
                                  collapse-text="'Collapse'">

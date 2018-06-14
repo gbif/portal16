@@ -13,8 +13,8 @@ router.get('/tools/observation-trends', function(req, res, next) {
     try {
         res.render('pages/tools/observationTrends/observationTrends', {
             _meta: {
-                title: req.__('meta.observationTrendsTitle'),
-                description: req.__('meta.observationTrendsDescription')
+                title: req.__('tools.observationTrends.drawerTitle'),
+                description: req.__('tools.observationTrends.intro')
             },
             aboutUrl: 'tools/observation-trends/about'
         });
@@ -27,8 +27,8 @@ router.get('/embed/observation-trends', function(req, res, next) {
     try {
         res.render('pages/tools/observationTrends/observationTrendsEmbed', {
             _meta: {
-                title: req.__('meta.observationTrendsTitle'),
-                description: req.__('meta.observationTrendsDescription'),
+                title: req.__('tools.observationTrends.drawerTitle'),
+                description: req.__('tools.observationTrends.intro'),
                 hideFooter: true,
                 removeMenu: true,
                 useEmbeddedStyleSheet: true

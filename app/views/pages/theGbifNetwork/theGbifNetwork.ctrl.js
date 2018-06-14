@@ -17,6 +17,7 @@ angular
 function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService, $timeout) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
+    vm.locale = gb.locale;
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
     var regionCenters = {
         'GLOBAL': {zoom: 2, lat: 0, lng: 9, extent: [-160.1015625, -84.55078125, 178.1015625, 84.55078125]},
@@ -200,7 +201,7 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
               }, latency);
             }
 
-        vm.contentfulResourceUrl = '/templates/the-gbif-network/' + region.toLowerCase().replace('_', '-') + '/regionArticle.html?v=' + vm.BUILD_VERSION;
+        vm.contentfulResourceUrl = '/templates/the-gbif-network/' + region.toLowerCase().replace('_', '-') + '/regionArticle.html?v=' + vm.BUILD_VERSION + '&locale=' + vm.locale;
         var regionLower = region.toLowerCase().replace('_', '-');
         $state.go($state.$current, {region: regionLower}, {notify: false});
     };

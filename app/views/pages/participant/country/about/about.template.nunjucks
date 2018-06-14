@@ -2,9 +2,10 @@
 
     {% include "./map.nunjucks" %}
 
-    <div class="container--desktop m-b-3 m-t-3 ng-cloak" ng-if="countryKey.occurrenceCount > 0 && countryKey.kingdomsAbout">
-        <div class="taxonBreakdown">
-            <div>
+    <div class="container--desktop ng-cloak" ng-if="countryKey.occurrenceCount > 0 && countryKey.kingdomsAbout">
+        <h3 class="card-header" translate="metrics.occurrencesPerField" translate-values="{FIELD: ('filterNames.kingdomKey' | translate )}"></h3>
+        <div class="card taxonBreakdown">
+            <div class="card__content">
                 <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode, taxon_key: kingdom.id})"
                    class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdom in countryKey.kingdoms">
                     <div class="taxon-icon gb-icon-{{ kingdom.icon }}"></div>
@@ -12,69 +13,26 @@
                         <div class="small" translate="kingdomKey.{{kingdom.id}}">{{ kingdom.title }}</div>
                         <strong ng-if="countryKey.kingdomsAbout[kingdom.id].count">{{ countryKey.kingdomsAbout[kingdom.id].count | localNumber }}</strong>
                         <strong ng-if="!countryKey.kingdomsAbout[kingdom.id].count">0</strong>
-                        <div class="small">occurrences</div>
+                        <div class="small" translate="stdTerms.pOccurrence" translate-values="{NUMBER: countryKey.kingdomsAbout[kingdom.id].count}">occurrences</div>
                     </div>
                 </a>
             </div>
         </div>
     </div>
 
-    <div class="container--desktop">
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <div class="card">
-                    <div class="card__content seperator--b">
-                        <div class="card__content__title">
-                            <h3>{{ countryKey.publishingCountriesCount }} countries and areas</h3>
-                            <p>
-                                Countries and areas publishing data about {{ 'country.' + countryKey.countryCode | translate }}
-                            </p>
-                        </div>
-                    </div>
-                    <md-content>
-                        <md-list flex style="max-height: 500px;">
-                            {#<md-subheader class="md-no-sticky">Countries, territories or islands publishing data about Spain</md-subheader>#}
-                            <md-list-item class="md-2-line" ng-repeat="item in countryKey.publishingCountries">
-                                <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode, publishing_country: item.name, advanced: 1})" class="inherit noUnderline md-list-item-text" layout="column">
-                                    <h3 class="text-capitalize">{{ 'country.' + item.name | translate }}</h3>
-                                    <p>{{ item.count | localNumber }} occurrences</p>
-                                </a>
-                            </md-list-item>
-                        </md-list>
-                    </md-content>
-                </div>
+    <div class="container--desktop ng-cloak">
+        <section class="occChart-col m-t-1">
+            <div ng-repeat="chart in countryAbout.charts">
+                <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="card">
-                    <div class="card__content seperator--b">
-                        <div class="card__content__title">
-                            <h3>Datasets</h3>
-                            <p>
-                                Largest occurrence datasets about {{ 'country.' + countryKey.countryCode | translate }}
-                            </p>
-                        </div>
-                    </div>
-                    <md-content>
-                        <md-list flex style="max-height: 500px;">
-                            {#<md-subheader class="md-no-sticky">Countries, territories or islands publishing data about Spain</md-subheader>#}
-                            <md-list-item class="md-2-line" ng-repeat="dataset in countryAbout.datasetsAbout.results">
-                                <div class="md-list-item-text" layout="column">
-                                    <h3><a ui-sref="datasetKey({key:dataset.key})">{{ dataset.title }}</a></h3>
-                                    <p>{{ dataset._count | localNumber }} occurrences</p>
-                                </div>
-                            </md-list-item>
-                        </md-list>
-                    </md-content>
-                </div>
-            </div>
-        </div>
+        </section>
     </div>
 
 </section>
 
 <section class="light-background p-t-05" ng-if="countryKey.occurrenceCount > 0">
     <div class="container--desktop">
-        <h4 class="text-muted small text-uppercase">Trends about {{ 'country.' + countryKey.countryCode | translate }}</h4>
+        <h4 class="card-header" translate="countryKey.trendsAboutCountry" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate )}"></h4>
     </div>
-    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about'" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
+    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about?locale='+countryKey.locale" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
 </section>

@@ -1,7 +1,7 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.news') | capitalize $}</span>
+            <span class="searchCard__type">{$ __('enums.cms.contentType.news') $}</span>
             <h3 class="searchCard__headline">
                 <a ng-href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                     {{result.title}}
@@ -18,7 +18,7 @@
                 {{result._summary}}
             </p>
             <p class="discreet--very smaller">
-                Published {{ result.createdAt | momentFormat:'D MMMM YYYY'}}
+                <span translate="resource.published"></span> {{ result.createdAt | momentFormat:'D MMMM YYYY'}}
             </p>
         </div>
     </div>

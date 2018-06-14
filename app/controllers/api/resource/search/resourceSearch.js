@@ -11,7 +11,7 @@ const _ = require('lodash'),
 let knownFilters =
     ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher',
      'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey',
-     'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId', 'programmeTag', 'contractCountry'];
+     'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId', 'programmeTag', 'contractCountry', 'networkKey'];
 let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 let client = new elasticsearch.Client({
@@ -41,7 +41,6 @@ async function getItem(requestQuery, __, options) {
 async function search(requestQuery, __, options) {
     let preferedLocale = requestQuery.locale,
         query = buildQuery(requestQuery);
-
     options = options || {};
 
     query.requestTimeout = options.requestTimeout || 30000;

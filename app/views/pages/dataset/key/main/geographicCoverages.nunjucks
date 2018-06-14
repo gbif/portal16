@@ -2,7 +2,7 @@
     <div>
         <a href="" id="geographicCoverages"></a>
         <div class="anchor-block--tabs" id="geographicCoveragesBlock">
-            <h3>Geographic coverages</h3>
+            <h3 translate="dataset.geographicCoverages"></h3>
             <div>
                 <div ng-repeat="geographicCoverage in datasetKey.dataset.geographicCoverages">
                     <div ng-if="geographicCoverage.description" ng-bind-html="geographicCoverage.description"></div>

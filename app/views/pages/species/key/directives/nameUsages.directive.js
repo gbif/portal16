@@ -26,7 +26,7 @@ function nameUsagesDirective() {
         scope.create(element);
     }
     /** @ngInject */
-    function nameUsagesCtrl($scope, OccurrenceSearch, Highcharts, $state) {
+    function nameUsagesCtrl($scope, OccurrenceSearch, Highcharts, $state, $translate) {
         var vm = this;
         vm.key = vm.species.key;
         vm.categories = [];
@@ -131,7 +131,7 @@ function nameUsagesDirective() {
                     visible: false
                 },
                 series: [{
-                    name: 'Occurrences',
+                    name: $translate.instant('stdTerms.occurrences'),
                     data: majorSerie,
                     point: {
                         events: {

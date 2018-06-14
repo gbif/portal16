@@ -3,19 +3,19 @@
         <div>
             <dl class="inline">
                 <div>
-                    <dt>Member status</dt>
-                    <dd class="text-capitalize">{{ 'participationStatus.' + countryKey.country.participant.participationStatus | translate }}</dd>
+                    <dt translate="countryKey.memberStatus">Member status</dt>
+                    <dd>{{ 'participationStatus.' + countryKey.country.participant.participationStatus | translate }}</dd>
                 </div>
                 <div>
-                    <dt>GBIF participant since</dt>
-                    <dd class="text-capitalize">{{ countryKey.country.participant.membershipStart | momentFormat:'YYYY' }}</dd>
+                    <dt translate="countryKey.gbifParticipantSince">GBIF participant since</dt>
+                    <dd>{{ countryKey.country.participant.membershipStart | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div>
-                    <dt>GBIF region</dt>
-                    <dd class="text-capitalize">{{ 'region.' + countryKey.country.participant.gbifRegion | translate }}</dd>
+                    <dt translate="countryKey.gbifRegion">GBIF region</dt>
+                    <dd>{{ 'region.' + countryKey.country.participant.gbifRegion | translate }}</dd>
                 </div>
                 <div>
-                    <dt>Head of delegation</dt>
+                    <dt translate="countryKey.headOfDelegation">Head of delegation</dt>
                     <dd><a href="#contact{{countryKey.country.headOfDelegation.personId}}">{{ countryKey.country.contacts[countryKey.country.headOfDelegation.personId].firstName }} {{ countryKey.country.contacts[countryKey.country.headOfDelegation.personId].surname }}</a></dd>
                 </div>
             </dl>
@@ -25,19 +25,19 @@
         <div>
             <dl class="inline">
                 <div>
-                    <dt>Node name</dt>
+                    <dt translate="countryKey.nodeName">Node name</dt>
                     <dd><a ng-href="#nodeAddress">{{ countryKey.country.node.name }}</a></dd>
                 </div>
                 <div>
-                    <dt>Node established</dt>
+                    <dt translate="countryKey.nodeEstablished">Node established</dt>
                     <dd>{{ countryKey.country.prose.main.fields.nodeEstablishmentDate | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div>
-                    <dt>Website</dt>
+                    <dt translate="countryKey.website">Website</dt>
                     <dd><a ng-href="{{ countryKey.country.node.nodeUrl }}">{{ countryKey.country.node.nodeUrl }}</a></dd>
                 </div>
                 <div>
-                    <dt>Participant node manager</dt>
+                    <dt translate="countryKey.participantNodeManager">Participant node manager</dt>
                     <dd><a ng-href="#contact{{countryKey.country.nodeManager.personId}}">{{ countryKey.country.contacts[countryKey.country.nodeManager.personId].firstName }} {{ countryKey.country.contacts[countryKey.country.nodeManager.personId].surname }}</a></dd>
                 </div>
             </dl>

@@ -6,7 +6,7 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th class="text-capitalize"
+                        <th
                             ng-repeat="col in ['title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'status', 'contractCountry', 'call']">
                             <a href=""
                                ng-click="programmeKey.state.sortType = col; programmeKey.state.sortReverse = !programmeKey.state.sortReverse">
@@ -35,7 +35,7 @@
                             {#<div class="discreet" ng-if="result.projectId">{{result.projectId}}</div>#}
                         </td>
                         <td class="table-cell--normal">
-                            <span translate="cms.projectGrantType.{{ result.grantType }}"
+                            <span translate="enums.cms.vocabularyTerms.projectGrantType.{{ result.grantType }}"
                                   ng-if="result.grantType">{{ result.grantType }}</span>
                         </td>
                         <td class="table-cell--narrow">
@@ -51,7 +51,7 @@
                             <span ng-if="result.matchingFunds">€{{ result.matchingFunds | localNumber:'{$ gb.locales.current $}' }}</span>
                         </td>
                         <td class="table-cell--normal">
-                            <span translate="cms.projectStatus.{{ result.status }}"
+                            <span translate="enums.cms.vocabularyTerms.projectStatus.{{ result.status }}"
                                   ng-if="result.status">{{ result.status }}</span>
                         </td>
                         <td class="table-cell--normal">

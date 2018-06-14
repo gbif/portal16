@@ -3,7 +3,7 @@
         <div class="card__content">
             <a href="" ui-sref="speciesSearchList({rank:result.rank})" class="inherit searchCard__type hoverBox" ng-if="result.rank" translate="taxonRank.{{ result.rank }}"></a>
             <h3 class="searchCard__headline">
-                <a ui-sref="speciesKey({speciesKey:result.key})" ng-href="{{ urlPrefix }}/species/{{result.key}}" scientific-name key="{{ result.key }}" name="{{result.scientificName}}"></a>
+                <a ui-sref="speciesKey({speciesKey:result.key})" ng-href="{{ portal.urlPrefix }}/species/{{result.key}}" scientific-name key="{{ result.key }}" name="{{result.scientificName}}"></a>
             </h3>
         </div>
     </div>
@@ -19,23 +19,23 @@
             <div class="pull-right hideInvalid" taxon-img="{{ result.key }}" ng-if="result.key !== result.nubKey && (result.rank == 'SPECIES' || result.rank == 'GENUS')"></div>
 
             <div class="searchCard__meta" ng-if="result.publishedIn">
-                Published in: {{ result.publishedIn | truncate:180 }}
+                <span translate="species.publishedIn"></span>: {{ result.publishedIn | truncate:180 }}
             </div>
 
             <div class="searchCard__meta" ng-if="result.datasetKey && result.datasetKey != portal.constantKeys.dataset.backbone">
-                Checklist: <a class="" ui-sref="datasetKey({key:result.datasetKey})" ng-href="{{ portal.urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
+                <span translate="stdTerms.checklist"></span>: <a class="" ui-sref="datasetKey({key:result.datasetKey})" ng-href="{{ portal.urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
                     | truncate:50 }}</a>
             </div>
             <div class="small" ng-if="result.acceptedKey">
-                Synonym of: <a ui-sref="speciesKey({speciesKey:result.acceptedKey})" ng-href="{{ urlPrefix }}/species/{{ result.acceptedKey }}">{{ result.accepted }} </a>
+                <span translate="species.synonymOf"></span>: <a ui-sref="speciesKey({speciesKey:result.acceptedKey})" ng-href="{{ portal.urlPrefix }}/species/{{ result.acceptedKey }}">{{ result.accepted }} </a>
             </div>
             <p class="discreet classification-list" ng-if="result.rank != 'KINGDOM'">
-                Taxonomy: <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                {{ 'occurrenceSearch.taxonomy' | translate }} : <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                       ng-if="result[taxa] && taxa != result.rank.toLowerCase()"
                       ng-bind-html="result[taxa]"></span>
             </p>
             <p ng-if="result.highlights && result.highlights.vernacularNames && result.highlights.vernacularNames.length > 0">
-                Vernacular name: <span ng-bind-html="result.highlights.vernacularNames[0].vernacularName"></span> <span ng-if="result.highlights.vernacularNames[0].language">in <span translate="language.{{result.highlights.vernacularNames[0].language  }}"></span></span>
+                <span translate="extensionEnum.VERNACULAR_NAME"></span>: <span ng-bind-html="result.highlights.vernacularNames[0].vernacularName"></span> <span ng-if="result.highlights.vernacularNames[0].language">in <span translate="language.{{result.highlights.vernacularNames[0].language  }}"></span></span>
 
             </p>
             <p ng-if="result.highlights && result.highlights.descriptions && result.highlights.descriptions.length > 0">
@@ -50,7 +50,8 @@
                     <a href="" ui-sref="speciesSearchList({rank:result.rank})" translate="taxonRank.{{ result.rank }}">{{ result.rank }}</a>
                 </li>
                 <li ng-if="!result.datasetKey || result.datasetKey == portal.constantKeys.dataset.backbone">
-                    <a ui-sref="occurrenceSearchTable({taxon_key:result.key})"><span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.key }}">&nbsp;</span> occurrences</a>
+                    <a ui-sref="occurrenceSearchTable({taxon_key:result.key})">
+                    <span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.key }}" count-translation="stdTerms.nOccurrences">&nbsp;</span>
                 </li>
             </ul>
         </div>

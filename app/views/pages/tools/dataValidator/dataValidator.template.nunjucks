@@ -43,7 +43,7 @@
                                 </div>
                                 <p class="ng-cloak" translate="stdTerms.or"></p>
                             </div>
-                            <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="vm.handleDrop">Drop here</p>
+                            <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="vm.handleDrop">{{'stdTerms.dropHere' | translate}}</p>
                             <!-- <input type="file" id="input" onchange="angular.element(this).scope().handleFiles(this.files)"/> -->
                             <!-- <p ng-if="speciesLookup.invalidFileFormat">
                                 Invalid file format
@@ -64,7 +64,7 @@
                             </div>
 
                             <button type="submit" class="md-raised md-primary md-button md-ink-ripple"
-                            ng-click="vm.handleFileUrl(vm.resourceToValidate)">Submit
+                            ng-click="vm.handleFileUrl(vm.resourceToValidate)" translate="stdTerms.submit">Submit
                             </button>
                                 <div class="smaller discreet--very" translate="validation.fileSizeLimit"></div>
                             </form>

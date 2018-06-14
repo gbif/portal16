@@ -1,9 +1,9 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.document') | capitalize $}</span>
+            <span class="searchCard__type uppercase-first" translate="enums.cms.contentType.document"></span>
             <h3 class="searchCard__headline">
-                <a href="{{ urlPrefix }}/document/{{result.id}}/{{result._slug}}" ng-if="!result.urlAlias">
+                <a href="{{ portal.urlPrefix }}/document/{{result.id}}/{{result._slug}}" ng-if="!result.urlAlias">
                     {{result.title}}
                 </a>
             </h3>

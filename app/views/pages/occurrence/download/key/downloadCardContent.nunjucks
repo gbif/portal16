@@ -32,7 +32,7 @@
                     <dl class="inline">
                         {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
                             <div>
-                                <dt class="text-capitalize">Date</dt>
+                                <dt>{$ __('downloadKey.date') $}</dt>
                                 <dd>
                                     <span>{$ download.record.created | formatDate(gb.locales.current) $}</span>
                                 </dd>
@@ -45,7 +45,7 @@
                         {% if download.record.totalRecords or download.record.numberDatasets %}
                             {% if download.record.totalRecords %}
                                 <div>
-                                    <dt class="text-capitalize">Occurrences</dt>
+                                    <dt>{$ __('downloadKey.occurrences') $}</dt>
                                     <dd>
                                         <span>{{ {$ download.record.totalRecords $} | localNumber}}</span>
                                     </dd>
@@ -53,7 +53,7 @@
                             {% endif %}
                             {% if download.record.numberDatasets %}
                                 <div>
-                                    <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
+                                    <dt>{$ __('downloadKey.constituentDatasets') $}</dt>
                                     <dd>
                                         <span>{{ {$ download.record.numberDatasets $} | localNumber}} </span>
                                     </dd>
@@ -84,12 +84,12 @@
 {% if (download.record.status === 'SUCCEEDED' and not download.isFileDeleted) or download.isSimple %}
 <div class="card__stripe light-background">
     <div class="card__content clearfix">
-        <a href="/occurrence/download/{$ download.record.key $}" class="gb-button--flat text-uppercase pull-right small">Show</a>
+        <a href="/occurrence/download/{$ download.record.key $}" class="gb-button--flat text-uppercase pull-right small">{$ __('downloadKey.show') $}</a>
         {#{% if download.record.status === 'SUCCEEDED' and not download.isFileDeleted %}#}
             {#<a href="{$ download.record.downloadLink $}" class="gb-button--flat text-uppercase small">Download</a>#}
         {#{% endif %}#}
         {% if download.isSimple %}
-            <a href="/occurrence/search?{$ download.isSimple $}" class="gb-button--flat text-uppercase pull-right small">Rerun query</a>
+            <a href="/occurrence/search?{$ download.isSimple $}" class="gb-button--flat text-uppercase pull-right small">{$ __('downloadKey.rerunQuery') $}</a>
         {% endif %}
     </div>
 </div>

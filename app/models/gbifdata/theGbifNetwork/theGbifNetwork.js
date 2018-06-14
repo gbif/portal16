@@ -15,34 +15,9 @@ let helper = require('../../util/util'),
     dataApi = require('../apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
     PublisherRegional = require('../publisher/publisherRegional'),
-    translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 
-let language;
-
 let theGbifNetwork = {};
-
-theGbifNetwork.get = function(res) {
-    language = res.locals.gb.locales.current;
-
-    return getIntro(language)
-        .catch(function(err) {
-            log.error(err.message);
-        });
-};
-
-/**
- * Get introduction text for The GBIF Network page.
- * @param language
- */
-function getIntro(language) {
-    // insert intro text for each group.
-    let introFile = ['theGbifNetwork/landing/'];
-    return translationsHelper.getTranslationPromise(introFile, language)
-        .catch(function(err) {
-            log.error(err);
-        });
-}
 
 /**
  * Get only counts of network entities (participants, publishers, literature).

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12 ng-cloak" ng-if="!countryResearch.literatureFrom.$resolved || !countryResearch.literatureAbout.$resolved">
                 <div class="emptyInfo">
-                    <h3>Loading</h3>
+                    <h3 class="uppercase-first" translate="stdTerms.loading">Loading</h3>
                     <span class="loading"></span>
                 </div>
             </div>
@@ -19,41 +19,41 @@
 
                     <a href=""
                        ng-class="{'gb-button--brand': countryResearch.showLiteratureFrom, 'gb-button--discreet': !countryResearch.showLiteratureFrom}"
-                       ng-click="countryResearch.showLiteratureFrom = !countryResearch.showLiteratureFrom"> {{ countryResearch.literatureFrom.count }} from</a>
+                       ng-click="countryResearch.showLiteratureFrom = !countryResearch.showLiteratureFrom" translate="countryKey.nFrom" translate-values="{NUMBER_FORMATTED: (countryResearch.literatureFrom.count | localNumber)}"> </a>
                     <a href=""
                        ng-class="{'gb-button--brand': !countryResearch.showLiteratureFrom, 'gb-button--discreet': countryResearch.showLiteratureFrom}"
-                       ng-click="countryResearch.showLiteratureFrom = !countryResearch.showLiteratureFrom">{{ countryResearch.literatureAbout.count }} about</a>
+                       ng-click="countryResearch.showLiteratureFrom = !countryResearch.showLiteratureFrom" translate="countryKey.nAbout" translate-values="{NUMBER_FORMATTED: (countryResearch.literatureAbout.count | localNumber)}"></a>
                 </div>
 
                 <div ng-if="!countryResearch.showLiteratureFrom">
                     <div ng-if="countryResearch.literatureAbout.count > 0">
-                        <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION"
+                        <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION+'&locale='+countryResearch.locale"
                                     ng-repeat="result in countryResearch.literatureAbout.results" ></ng-include>
                         <div ng-if="countryResearch.literatureAbout.count > countryResearch.limit" class="text-center m-t-1">
-                            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: countryResearch.countryCode})" class="gb-button--discreet">View all {{ countryResearch.literatureAbout.count }}</a>
+                            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: countryResearch.countryCode})" class="gb-button--discreet" translate="countryKey.viewAllN" translate-values="{NUMBER_FORMATTED: (countryResearch.literatureAbout.count | localNumber)}"></a>
                         </div>
                     </div>
                     <div class="emptyInfo" ng-if="countryResearch.literatureAbout.count == 0">
-                        <h3>No publications</h3>
+                        <h3 translate="countryKey.noPublications">No publications</h3>
                     </div>
                 </div>
 
                 <div ng-if="countryResearch.showLiteratureFrom">
                     <div ng-if="countryResearch.literatureFrom.count > 0">
-                        <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION"
+                        <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION+'&locale='+countryResearch.locale"
                                     ng-repeat="result in countryResearch.literatureFrom.results"></ng-include>
                         <div ng-if="countryResearch.literatureFrom.count > countryResearch.limit" class="text-center m-t-1">
-                            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryResearch.countryCode})" class="gb-button--discreet">View all {{ countryResearch.literatureFrom.count }}</a>
+                            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryResearch.countryCode})" class="gb-button--discreet" translate="countryKey.viewAllN" translate-values="{NUMBER_FORMATTED: (countryResearch.literatureFrom.count | localNumber)}"></a>
                         </div>
                     </div>
                     <div class="emptyInfo" ng-if="countryResearch.literatureFrom.count == 0">
-                        <h3>No publications</h3>
+                        <h3 translate="countryKey.noPublications">No publications</h3>
                     </div>
                 </div>
 
             </div>
             <div class="emptyInfo" ng-if="countryResearch.literatureFrom.count == 0 && countryResearch.literatureAbout.count == 0">
-                <h3>No publications</h3>
+                <h3 translate="countryKey.noPublications">No publications</h3>
             </div>
         </div>
     </div>

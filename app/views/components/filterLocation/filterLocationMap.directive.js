@@ -77,6 +77,8 @@ function filterLocationMapDirective(BUILD_VERSION) {
         vm.enableRectangleDraw = function() {
            // map.removeDrawnItems();
             map.disableDraw();
+            map.exitDeleteMode();
+            vm.deleteMode = false;
             vm.polygonDrawActive = false;
             vm.rectangleDrawActive = !vm.rectangleDrawActive;
             if (vm.rectangleDrawActive) {
@@ -93,6 +95,8 @@ function filterLocationMapDirective(BUILD_VERSION) {
         vm.enablePolygonDraw = function() {
             // map.removeDrawnItems();
             map.disableDraw();
+            map.exitDeleteMode();
+            vm.deleteMode = false;
             vm.rectangleDrawActive = false;
             vm.polygonDrawActive = !vm.polygonDrawActive;
             if (vm.polygonDrawActive) {
@@ -117,6 +121,9 @@ function filterLocationMapDirective(BUILD_VERSION) {
         };
         vm.enableDeleteMode = function() {
             vm.deleteMode = true;
+            map.disableDraw();
+            vm.rectangleDrawActive = false;
+            vm.polygonDrawActive = false;
             map.deleteMode(function(wkt) {
                 var geom = (wkt && wkt.length > 0) ? $filter('unique')(wkt) : undefined;
                 var params = {geometry: geom};

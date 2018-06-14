@@ -1,7 +1,7 @@
 <div ng-if="participantKey.endorsed.count > 0">
     <span class="relative-anchor-offset"><a id="endorsedPublishers"></a></span>
     <div class="container--narrow">
-        <p class="small discreet text-uppercase">
+        <p class="small discreet text-uppercase" translate="countryKey.endorsedPublishers">
             Endorsed publishers
         </p>
         <div>
@@ -19,6 +19,9 @@
                             ng-model="participantKey.currentPage_endorsed"
                             max-size="participantKey.maxSize"
                             items-per-page="participantKey.limit"
+                            first-text="{{'stdTerms.first' | translate}}"
+                            next-text="{{'stdTerms.next' | translate}}"
+                            previous-text="{{'stdTerms.previous' | translate}}"
                             class="pagination-sm"
                             boundary-link-numbers="false"
                             rotate="false"
@@ -30,5 +33,5 @@
     </div>
 </div>
 <div class="emptyInfo--small" ng-if="!participantKey.endorsed.count">
-    <h3>No endorsed publishers</h3>
+    <h3 translate="countryKey.noEndorsedPublishers">No endorsed publishers</h3>
 </div>

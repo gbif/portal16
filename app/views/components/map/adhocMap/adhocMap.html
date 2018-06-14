@@ -16,7 +16,7 @@
             <a href="" class="gb-icon-trash smallIcon" ng-click="vm.enableDeleteMode()" ng-class="{'is-active': vm.deleteMode}"></a>
         </div>
         <div class="mapWidget__info">
-            <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
+            <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
         </div>
 
     </div>
@@ -38,15 +38,15 @@
 
                 </div>
             </div>
-            <div class="mapPopup fixedSize" ng-if="!vm.ignoreCoordinateIssues && (vm.filter.has_coordinate !== 'true' || vm.filter.has_geospatial_issue !== 'false')">
+            <div class="mapPopup fixedSize" ng-if="vm.ignoreCoordinateIssues !==true && (vm.filter.has_coordinate !== 'true' && vm.filter.has_geospatial_issue !== 'false' )">
                 <div class="card small">
                     <div class="card__stripe">
-                        <div class="card__content" ng-bind-html="'help.locationFilterWarning' | translate | md2html">
+                        <div class="card__content" ng-bind-html="'phrases.locationFilterWarning' | translate | md2html">
                         </div>
                     </div>
                     <div class="card__stripe--actions">
-                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" class="gb-button--flat text-uppercase" translate="help.yesHideThem"></a>
-                        <a href="" class="gb-button--flat text-uppercase" ng-click="vm.ignoreCoordinateIssues = true" translate="help.noShowThem"></a>
+                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})"  class="gb-button--flat text-uppercase" translate="phrases.yesHideThem"></a>
+                        <a href="" class="gb-button--flat text-uppercase" ng-click="vm.ignoreCoordinateIssues = true" translate="phrases.noShowThem"></a>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                                 </div>
                                 <a ng-href="/occurrence/{{occurrence.key}}" class="occurrence-list-item__name" ng-if="occurrence.scientificName">{{occurrence.scientificName}}</a>
                                 <a ng-href="/occurrence/{{occurrence.key}}" class="occurrence-list-item__name text-error" ng-if="!occurrence.scientificName">Unkown species</a>
-                                <!--<span class="small discreet text-capitalize" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
+                                <!--<span class="small discreet" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
                                 <div class="small discreet classification-list">
                                             <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                                                   ng-if="occurrence[taxa] && taxa != occurrence.taxonRank.toLowerCase()">

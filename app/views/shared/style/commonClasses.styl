@@ -104,16 +104,6 @@
         //}
         
     }
-    $__metaCapitalized {
-        font-weight bold
-        display inline-block
-    }
-    
-    $__metaCapitalized:first-letter {
-        
-            text-transform: uppercase;
-        
-    }
     &__sub {
         margin-top vrBlock(0.5)
     }
@@ -330,17 +320,10 @@ $articleCategorySeparatorSpacing = 6px
 
     section {
         border-bottom solid 5px transparent //to imitate paragraphs without margin leakage to next column
-        //div {
-        //    display inline-block
-        //}
-        div.h4 {
-            text-transform capitalize
-        }
         h5 {
             //font-weight 500
             margin-right 0.5em
             margin-bottom 0.3em
-            text-transform capitalize
             &:after {
                 content: ":"
             }
@@ -717,4 +700,12 @@ h1, h2, h3, h4, h5, h6 {
     &:hover > .header-anchor {
         visibility visible
     }
+}
+
+.error-block {
+    display inline-block
+    margin-top 10px
+    background tomato
+    color white
+    padding 10px
 }

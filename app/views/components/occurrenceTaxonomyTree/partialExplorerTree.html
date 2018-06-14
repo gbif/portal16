@@ -23,20 +23,20 @@
     <li ng-if="item.expanded && item.state == 'EMPTY'">
         <div class="pipe"></div>
         <div class="title title--action">
-            <span>No immediate children</span>
+            <span translate="metrics.noChildren"></span>
         </div>
     </li>
     <li ng-if="item.expanded && item.state == 'END' && item.childCount !== item.count">
         <div class="pipe"></div>
         <div class="title title--action">
-            <span>Unknown {{vm.nextRank(item._resolved.rank)}}</span>
+            <span translate="phrases.unknownRank" translate-values="{RANK: vm.nextRank(item._resolved.rank)}"></span>
             <span class="discreet--very occurrenceTaxonomyTree__filter">{{ (item.count - item.childCount) | localNumber }}</span>
         </div>
     </li>
     <li ng-if="item.expanded && item.state == 'FAILED'">
         <div class="pipe"></div>
         <div class="title title--action">
-            <span>Failed to load tree</span>
+            <span translate="metrics.failedToLoad"></span>
         </div>
     </li>
 </ul>

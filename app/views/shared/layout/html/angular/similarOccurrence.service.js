@@ -1,13 +1,14 @@
 'use strict';
 
 var angular = require('angular');
+var moment = require('moment');
 
 (function() {
     'use strict';
 
     angular
         .module('portal')
-        .service('SimilarOccurrence', function(OccurrenceSearch, moment) {
+        .service('SimilarOccurrence', function(OccurrenceSearch) {
             var that = this;
             that.dateBufferInDays = 0;
             that.limit = 50;

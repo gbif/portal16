@@ -134,7 +134,7 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                 vm.waiting = false;
             }, function() {
                 toastService.error({
-                    message: 'Hmm - this isn\'t good. Please try to refresh. If the problem persists, then please let us know.',
+                    translate: 'login.criticalFailure',
                     feedback: true
                 });
                 vm.waiting = false;
@@ -155,9 +155,9 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                 vm.waiting = false;
                 if (err.status < 500) { // 401 seems an odd error code for 'no such entry' but that is what the API returns
                     // TODO move error messages to translation file
-                    toastService.error({message: 'Unknown username or email', feedback: true});
+                    toastService.error({translate: 'login.unknownUser', feedback: true});
                 } else {
-                    toastService.error({message: 'We couldn\'t reset you password right now - please try again later. Sorry for the inconvenience', feedback: true});
+                    toastService.error({translate: 'login.tryAgainLater', feedback: true});
                 }
             });
         };

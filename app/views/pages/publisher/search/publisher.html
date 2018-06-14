@@ -8,9 +8,9 @@
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="publisher.state.query.q"
-                       placeholder="Search">
+                       placeholder="{{ 'stdTerms.search' | translate }}">
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="publisher.search()">
-                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    <span class="sr-only" translate="stdTerms.search"></span>
                 </a>
             </form>
 
@@ -32,16 +32,10 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper">Search Publishers</span>
-                        <span class="article-header__category__lower" ng-if="publisher.hasData()">
-                            {{publisher.state.data.count | localNumber:publisher.state.query.locale }} results
-                        </span>
-                        <span class="article-header__category__lower" ng-if="!publisher.hasData() && !publisher.state.failedRequest">
-                            Loading ...
-                        </span>
-                        <span class="article-header__category__lower" ng-if="publisher.state.failedRequest">
-                            Failed
-                        </span>
+                                    <span class="article-header__category__upper" translate="stdTerms.searchPublishers"></span>
+                                    <span class="article-header__category__lower" ng-if="publisher.hasData()" tx="stdTerms.nResults" tx-nr="publisher.state.data.count"></span>
+                                    <span class="article-header__category__lower" ng-if="!publisher.hasData() && !publisher.state.failedRequest" translate="stdTerms.loading"></span>
+                                    <span class="article-header__category__lower" ng-if="publisher.state.failedRequest" translate="stdTerms.failed"></span>
                                 </nav>
                             </div>
                         </div>
@@ -54,9 +48,7 @@
                             <nav class="tabs">
                                 <ul>
                                     <li class="tab" ng-class="{isActive: !publisher.state.query.advanced}">
-                                        <span>
-                                            All
-                                        </span>
+                                        <span translate="stdTerms.all"></span>
                                     </li>
                                 </ul>
                             </nav>
@@ -72,11 +64,11 @@
 
                         </div>
                         <div class="emptyInfo" ng-if="publisher.state.data.count === 0">
-                            <h3>No results – try clearing your filters</h3>
+                            <h3 translate="phrases.noResultsMessage"></h3>
                         </div>
                     </div>
                     <div class="emptyInfo" ng-if="publisher.state.failedRequest">
-                        <h3>The request failed with a server error. That shouldn't happen :(</h3>
+                        <h3 translate="phrases.errorTryToRefresh"></h3>
                     </div>
                 </div>
             </div>
@@ -87,7 +79,7 @@
 
     <div class="fab hide-on-laptop">
         <a href="" class="gb-button--brand" ng-click="publisher.showFilters = !publisher.showFilters" ng-if="!publisher.showFilters">
-            <span><span class="gb-icon-filters"></span> Filters</span>
+            <span><span class="gb-icon-filters"></span><span translate="stdTerms.filters"></span></span>
         </a>
     </div>
 </div>

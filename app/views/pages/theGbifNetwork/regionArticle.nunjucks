@@ -1,37 +1,15 @@
  <div>
-        {#<article class="wrapper-horizontal-stripes">#}
-            {#<div class="horizontal-stripe article-header white-background">#}
-                {#<header class="text-center">#}
-                    {#<nav class="article-header__category article-header__category--deep">#}
-                        {#<span class="article-header__category__upper">{$#}
-                                {#__('cms.contentType.about_region') $}</span>#}
-                        {#<span class="article-header__category__lower">{$ (main.sys.updatedAt) | formatDate(gb.locales.current) $}</span>#}
-                    {#</nav>#}
-                    {#<h1>{$ main.fields.title $}</h1>#}
-                    {#<div class="article-header__intro">#}
-                        {#{$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}#}
-                    {#</div>#}
+    <div class="white-background p-t-1" >
+        <div class="container--normal">
+            <div class="body-text--markdown">
+                <h3>{$ main.fields.title $}</h3>
+            </div>
+            {% include "../resource/key/body.nunjucks" %}
 
-                {#</header>#}
-            {#</div>#}
-
-            {#{% include "../resource/key/primaryImage.nunjucks" %}#}
-
-
-
-            <div class="white-background p-t-1" >
-                <div class="container--normal">
-                    <div class="body-text--markdown">
-                        <h3>{$ main.fields.title $}</h3>
-                    </div>
-                    {% include "../resource/key/body.nunjucks" %}
-
-                    <div class="article-secondary">
-                        {% include "../resource/key/documentsLinks.nunjucks" %}
-                    </div>
-
-                </div>
+            <div class="article-secondary">
+                {% include "../resource/key/documentsLinks.nunjucks" %}
             </div>
 
-        {#</article>#}
+        </div>
     </div>
+</div>

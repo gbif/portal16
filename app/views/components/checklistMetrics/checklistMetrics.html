@@ -29,9 +29,9 @@
     <div class="text-right small" ng-if="checklistMetrics.options.type == 'BAR'">
         <div class="gb-btn-group">
             <label ng-model="checklistMetrics.logScale" uib-btn-radio="false"
-                   ng-change="checklistMetrics.toggleBarChart()">Linear</label>
+                   ng-change="checklistMetrics.toggleBarChart()" translate="metrics.linear">Linear</label>
             <label ng-model="checklistMetrics.logScale" uib-btn-radio="true"
-                   ng-change="checklistMetrics.toggleBarChart()">Logarithmic</label>
+                   ng-change="checklistMetrics.toggleBarChart()" translate="metrics.logarithmic">Logarithmic</label>
         </div>
     </div>
     <div  ng-show="checklistMetrics.loading" class="emptyInfo--small">

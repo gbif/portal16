@@ -2,8 +2,8 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Technical contact</span>
-                <span class="md-subhead">Who can we approach for technical information such as sending passwords to register data publishing tools?</span>
+                <span class="md-headline" translate="eoi.technicalContact">Technical contact</span>
+                <span class="md-subhead" translate="eoi.techContactDescription">Who can we approach for technical information such as sending passwords to register data publishing tools?</span>
             </md-card-title-text>
         </md-card-title>
 
@@ -11,35 +11,35 @@
             <div>
                 <div layout="row">
                     <md-input-container flex="50">
-                        <label>First name</label>
+                        <label translate="eoi.firstName">First name</label>
                         <input required name="techContactFirstName" ng-model="eoi.form.technicalContact.firstName">
                         <div ng-messages="eoi.publisherForm.techContactFirstName.$error">
-                            <div ng-message="required">This is required.</div>
+                            <div ng-message="required" translate="eoi.thisIsRequired">This is required.</div>
                         </div>
                     </md-input-container>
 
                     <md-input-container flex="50">
-                        <label>Last name</label>
+                        <label translate="eoi.lastName">Last name</label>
                         <input required type="text" name="techContactLastName" ng-model="eoi.form.technicalContact.lastName">
                         <div ng-messages="eoi.publisherForm.techContactLastName.$error">
-                            <div ng-message="required">This is required</div>
+                            <div ng-message="required" translate="eoi.thisIsRequired">This is required</div>
                         </div>
                     </md-input-container>
                 </div>
 
                 <div layout="row">
                     <md-input-container flex="50">
-                        <label>Email</label>
+                        <label translate="eoi.email">Email</label>
                         <input required type="email" name="techContactEmail" ng-model="eoi.form.technicalContact.email">
                         <div ng-messages="eoi.publisherForm.techContactEmail.$error">
-                            <div ng-message="email">Please provide a valid email</div>
+                            <div ng-message="email" translate="eoi.pleaseProvideAValidEmail">Please provide a valid email</div>
                         </div>
                     </md-input-container>
 
                     <md-input-container flex="50">
-                        <label>Phone</label>
+                        <label translate="eoi.phone">Phone</label>
                         <input name="techContactPhone" ng-model="eoi.form.technicalContact.phone">
-                        <div class="hint discreet--very small">Remember to prefix with country code</div>
+                        <div class="hint discreet--very small" translate="eoi.rememberToPrefixWithCountryCode">Remember to prefix with country code</div>
                     </md-input-container>
 
                     {#<md-input-container flex="50">#}

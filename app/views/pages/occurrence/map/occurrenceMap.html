@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
                         <span class="article-header__category__lower" ng-if="occMap.count >= 0">
-                            {{occMap.count | localNumber:occMap.occurrenceState.query.locale }} with coordinates
+                            <span tx="stdTerms.nWithCoordinates" tx-nr="occMap.count"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="occMap.count < 0">
-                            Loading ...
+                            <span translate="stdTerms.loading"></span> ...
                         </span>
                     </nav>
                     <!--<div class="search-header__description">-->
@@ -28,31 +28,31 @@
                 <nav class="tabs">
                     <ul>
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchTable()">
+                            <a href="" ui-sref="occurrenceSearchTable()" translate="occurrenceSearch.table">
                                 Table
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchGallery()">
+                            <a href="" ui-sref="occurrenceSearchGallery()" translate="occurrenceSearch.gallery">
                                 Gallery
                             </a>
                         </li>
 
                         <li class="tab isActive">
-                            <span>
+                            <span translate="occurrenceSearch.map">
                                 Map
                             </span>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchSpecies()">
+                            <a href="" ui-sref="occurrenceSearchSpecies()" translate="occurrenceSearch.taxonomy">
                                 Taxonomy
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchCharts()">
+                            <a href="" ui-sref="occurrenceSearchCharts()" translate="occurrenceSearch.charts">
                                 Charts
                             </a>
                         </li>
@@ -60,7 +60,7 @@
                         <li class="tab">
                             <a href="" ui-sref="occurrenceSearchDownload()">
                                 <span class="gb-icon-file-download"></span>
-                                <span>
+                                <span translate="occurrenceSearch.download">
                                     Download
                                 </span>
                             </a>

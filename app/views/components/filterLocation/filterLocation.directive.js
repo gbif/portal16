@@ -255,8 +255,7 @@ function parseStringToWKTs(str) {
     } catch (e) {
         // not a json object. try to parse as wkt
         try {
-            geojsonGeometry = wktformat.readGeometry(str);
-            if (geojsonGeometry) {
+            if (isValidWKT(str)) {
                 wktGeometries.push(str);
             } else {
                 throw 'Not valid wkt';
@@ -272,7 +271,17 @@ function parseStringToWKTs(str) {
     };
 }
 
-function isValidWKT(str) {
-    var geojsonGeometry = parseGeometry(str);
-    return !!geojsonGeometry;
+function isValidWKT(testWKT) {
+    try {
+        var f = wktformat.readFeature(testWKT);
+        var asGeoJson = geojsonformat.writeFeature(f, {rightHanded: true});
+        var rightHandCorrectedFeature = geojsonformat.readFeature(asGeoJson);
+        var newWkt = wktformat.writeFeature(rightHandCorrectedFeature, {
+            rightHanded: true
+        });
+
+        return testWKT === newWkt;
+    } catch (err) {
+        return false;
+    }
 }

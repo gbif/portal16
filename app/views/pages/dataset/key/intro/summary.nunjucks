@@ -4,44 +4,40 @@
             <div ng-if="datasetKey.dataset.description.length < 750" ng-bind-html="datasetKey.dataset.description"></div>
             <div ng-if="datasetKey.dataset.description.length >= 750">
                 {{ datasetKey.dataset.description | stripTags | truncate: 500 }}
-                <a class="m-l-1" href="#description">more</a>
+                <a class="m-l-1" href="#description" translate="stdTerms.more"></a>
             </div>
-            <div class="discreet-comment" ng-if="!datasetKey.dataset.description">
-                {$ __('stdTerms.noDescription') $}
-            </div>
+            <div class="discreet-comment" ng-if="!datasetKey.dataset.description" translate="stdTerms.noDescription"></div>
         </div>
-        {#<div class="col-xs-12 col-sm-6 col-md-2">#}
-            {#<div class="pull-right">#}
-                {#<img ng-src="{{ datasetKey.images.results[0]._image.identifier | imgCache:200:150 }}">#}
-            {#</div>#}
-        {#</div>#}
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="logoImg" ng-if="datasetKey.dataset.logoUrl">
                 <img ng-src="{{ datasetKey.dataset.logoUrl | imgCache }}" onError="this.style.display = 'none'">
             </div>
             <dl class="inline">
                 <div>
-                    <dt class="text-capitalize">Metadata last modified</dt>
+                    <dt translate="dataset.registry.metdataLastModified"></dt>
                     <dd>
                         {{ datasetKey.dataset.modified | momentFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
 
                 <div ng-if="datasetKey.processSummary.lastDataChange">
-                    <dt class="text-capitalize">Data last changed</dt>
+                    <dt translate="dataset.registry.dataLastChanged"></dt>
                     <dd>
                         {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
-
                 <div>
-                    <dt class="text-capitalize">License</dt>
+                    <dt translate="stdTerms.host">Host</dt>
+                    <dd><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
+                </div>
+                <div>
+                    <dt translate="stdTerms.license"></dt>
                     <dd>
                         <license link="{{ datasetKey.dataset.license }}"></license>
                     </dd>
                 </div>
                 <div>
-                    <a href="#citation" class="doi"><span class="gb-icon-quote"></span><span>How to cite</span></a>
+                    <a href="#citation" class="doi"><span class="gb-icon-quote"></span><span translate="phrases.howToCite"></span></a>
                     <doi link="{{ datasetKey.dataset.doi }}"></doi>
                 </div>
             </dl>

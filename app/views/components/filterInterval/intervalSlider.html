@@ -1,7 +1,7 @@
 <div class="filter-group__filter__interval">
     <div uib-dropdown on-toggle="toggled(open)" class="filter-group__filter__interval__option-trigger">
         <a href="" uib-dropdown-toggle>
-            <span ng-if="vm.intervalOptions.inActive">No filter</span>
+            <span ng-if="vm.intervalOptions.inActive" translate="intervals.noFilter"></span>
             <span ng-if="!vm.intervalOptions.inActive" translate="{{vm.intervalOptions.intervalTranslation}}select.{{vm.selected}}">{{vm.selected}}</span>
             <i></i>
         </a>

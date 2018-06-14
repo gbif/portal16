@@ -85,14 +85,15 @@
                 <td ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'">
                     <a ng-if="participant.type === 'COUNTRY'"
                        ng-bind="participant.datasetFromCountSort | localNumber:gb.locale"
-                       href="/dataset/search?type=OCCURRENCE&publishing_country={{ participant.iso2 }}"></a>
+                       ui-sref="datasetSearchTable({type: 'OCCURRENCE', publishing_country: participant.iso2})"
+                       href=""></a>
                     <span ng-if="participant.type === 'OTHER'" ng-bind="participant.datasetFromCountSort | localNumber:gb.locale"></span>
                 </td>
 
                 <td ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'">
                     <a ng-if="participant.type === 'COUNTRY'"
                        ng-bind="participant.occurrenceFromCountSort | localNumber:gb.locale"
-                       href="/occurrence/search?publishing_country={{ participant.iso2 }}&advanced=1"></a>
+                       ui-sref="occurrenceSearchTable({advanced: true, publishing_country: participant.iso2})"></a>
                     <span ng-if="participant.type === 'OTHER'" ng-bind="participant.occurrenceFromCountSort | localNumber:gb.locale"></span>
                 </td>
                 <td  ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'" ng-bind="participant.endorsedPublishers | localNumber:gb.locale"></td>

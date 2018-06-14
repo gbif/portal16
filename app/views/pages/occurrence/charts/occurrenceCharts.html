@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
                         <span class="article-header__category__lower" ng-if="occCharts.hasData()">
-                            {{occCharts.state.table.count | localNumber:occCharts.state.query.locale }} results
+                            <span tx="stdTerms.nResults" tx-nr="occCharts.state.table.count"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="!occCharts.hasData()">
-                            Loading ...
+                            <span translate="stdTerms.loading"></span> ...
                         </span>
 
                     </nav>
@@ -26,31 +26,31 @@
                 <nav class="tabs">
                     <ul>
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchTable()">
+                            <a href="" ui-sref="occurrenceSearchTable()" translate="occurrenceSearch.table">
                                 Table
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchGallery()">
+                            <a href="" ui-sref="occurrenceSearchGallery()" translate="occurrenceSearch.gallery">
                                 Gallery
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchMap()">
+                            <a href="" ui-sref="occurrenceSearchMap()" translate="occurrenceSearch.map">
                                 Map
                             </a>
                         </li>
 
                         <li class="tab">
-                            <a href="" ui-sref="occurrenceSearchSpecies()">
+                            <a href="" ui-sref="occurrenceSearchSpecies()" translate="occurrenceSearch.taxonomy">
                                 Taxonomy
                             </a>
                         </li>
 
                         <li class="tab isActive" >
-                            <span>
+                            <span translate="occurrenceSearch.charts">
                                 Charts
                             </span>
                         </li>
@@ -58,7 +58,7 @@
                         <li class="tab">
                             <a href="" ui-sref="occurrenceSearchDownload()">
                                 <span class="gb-icon-file-download"></span>
-                                <span>
+                                <span translate="occurrenceSearch.download">
                                     Download
                                 </span>
                             </a>
@@ -73,13 +73,13 @@
 
         <div class="text-center small seperator--b p-hidden">
             <div class="gb-btn-group">
-                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="true">Defaults</label>
-                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="false">Custom</label>
+                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="true" translate="stdTerms.default"></label>
+                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="false" translate="stdTerms.custom"></label>
             </div>
         </div>
 
         <div class="text-center" style="margin-bottom: -20px;">
-            <span style="display: inline-block; margin-top: 10px; background:tomato; color: white; padding: 10px;">We are still testing, but feel free to click around</span>
+            <span class="error-block">We are still testing, but feel free to click around</span>
         </div>
 
         <div class="container-fluid">

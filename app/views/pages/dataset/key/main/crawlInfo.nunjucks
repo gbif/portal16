@@ -1,56 +1,56 @@
 <dl class="inline m-b-05">
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-        <dt class="text-capitalize">Failed attempts since last successful ingestion</dt>
+        <dt translate="dataset.registry.failedSinceSuccess"></dt>
         <dd ng-class="{'c-error-badge': datasetKey.processSummary.failuresSinceLastSuccess > 0}">{{ datasetKey.processSummary.failuresSinceLastSuccess }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
-        <dt class="text-capitalize">Last failed attempt</dt>
+        <dt translate="dataset.registry.lastFailed"></dt>
         <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess">
-        <dt class="text-capitalize">Last successful ingestion</dt>
+        <dt translate="dataset.registry.lastSuccess"></dt>
         <dd>
-            {{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'D MMMM YYYY' }} <span>({{ datasetKey.processSummary.lastSuccess.finishReason | prettifyEnum }})</span>
+            {{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'D MMMM YYYY' }} <span>(<span translate="dataset.crawl.finishReason.{{datasetKey.processSummary.lastSuccess.finishReason}}"></span>)</span>
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess.finishReason !== 'NORMAL'">
-        <dt class="text-capitalize">Last ingestion with changes</dt>
+        <dt translate="dataset.registry.lastWithChange"></dt>
         <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | momentFormat:'D MMMM YYYY' }}</span>
-        <span ng-if="!datasetKey.processSummary.lastNormal">This dataset has no ingestion entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span></span>
+        <span ng-if="!datasetKey.processSummary.lastNormal"><span translate="dataset.registry.noEntries"></span> <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span></span>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
-        <dt class="text-capitalize">Last ingestion with data change</dt>
+        <dt translate="dataset.registry.lastWithDataChange"></dt>
         <dd>
             {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
-        <dt class="text-capitalize">Occurrences in last ingestion</dt>
+        <dt translate="dataset.registry.occInLastIngestion"></dt>
         <dd>
             <span>
                 {{ datasetKey.processSummary.lastDataChange.fragmentsEmitted | localNumber }}
-                <span class="c-error-badge" ng-if="datasetKey.isOutOfSync">Out of sync</span>
+                <span class="c-error-badge" ng-if="datasetKey.isOutOfSync" translate="phrases.outOfSync"></span>
             </span>
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.finished > 0">
-        <dt class="text-capitalize">Ingestion completion reasons</dt>
+        <dt translate="dataset.registry.completionReasons"></dt>
         <dd>
             <ul class="inline-bullet-list">
                 <li ng-repeat="(key, value) in datasetKey.processSummary.stats">
-                    {{ value/datasetKey.processSummary.finished | formatAsPercentage }}% {{ key | prettifyEnum }}
+                    {{ value/datasetKey.processSummary.finished | formatAsPercentage }}% <span translate="dataset.crawl.finishReason.{{key}}"></span>
                 </li>
             </ul>
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.unfinished > 0">
-        <dt class="text-capitalize">Unfinished ingestions</dt>
+        <dt translate="dataset.registry.unfinished"></dt>
         <dd>{{ datasetKey.processSummary.unfinished }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.analyzedCount">
-        <dt class="text-capitalize">Ingestions in total</dt>
+        <dt translate="dataset.registry.total"></dt>
         <dd>{{ datasetKey.processSummary.finished }}</dd>
     </div>
 </dl>
-<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Last ingested before {{ '2013-11-06'  | momentFormat:'D MMMM YYYY'}}</p>
-<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet">This dataset has no ingestion entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>
+<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'" translate="dataset.registry.lastIngestedBeforeDate" translate-values="{DATE: ''2013-11-06'  | momentFormat:'D MMMM YYYY''}"></p>
+<p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet"><span translate="dataset.registry.noEntries"></span><span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div ng-repeat="result in programmeKey.news.results">
-                    <ng-include src="'/api/template/search/newsResult.html?v=' + portal.BUILD_VERSION"></ng-include>
+                    <ng-include src="'/api/template/search/newsResult.html?v=' + portal.BUILD_VERSION+'&locale='+programmeKey.locale"></ng-include>
                 </div>
             </div>
         </div>

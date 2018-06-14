@@ -1,37 +1,19 @@
 <div>
     <div class="inline-block" ng-if="!vm.api.isLoading()">
-        <h4 class="card-header text-center inline-block" ng-if="!vm.options.dimension">Occurrences breakdown per field</h4>
+        <h4 class="card-header text-center inline-block" ng-if="!vm.options.dimension"><span translate="stdTerms.occurrences"></span> <span translate="stdTerms.breakdown"></span> <span translate="stdTerms.per"></span> <span translate="stdTerms.field"></span> </h4>
         <div class="inline-block" ng-if="vm.options.dimension">
-            <h4 class="card-header text-center inline-block" ng-if="!vm.options.secondDimension">Occurrences per <span translate="filterNames.{{ vm.options.dimension | camelCase }}"></span></h4>
-            <h4 class="card-header text-center inline-block" ng-if="vm.options.secondDimension">Occurrences per <span translate="filterNames.{{ vm.options.dimension | camelCase }}"></span> per <span translate="filterNames.{{ vm.options.secondDimension | camelCase }}"></span></h4>
+            <h4 class="card-header text-center inline-block" ng-if="!vm.options.secondDimension" translate="metrics.occurrencesPerField" translate-values="{FIELD: ('filterNames.' + (vm.options.dimension | camelCase ) | translate)}"></h4>
+            <h4 class="card-header text-center inline-block" ng-if="vm.options.secondDimension" translate="metrics.occurrencesPerFieldx2" translate-values="{FIELD: ('filterNames.' + (vm.options.dimension | camelCase ) | translate), FIELD2: ('filterNames.' + (vm.options.secondDimension | camelCase ) | translate)}"></h4>
         </div>
     </div>
     <div ng-if="vm.api.isLoading()" class="inline-block">
-        <h4 class="card-header text-center inline-block">Loading <span class="loading"></span></h4>
+        <h4 class="card-header text-center inline-block"><span translate="stdTerms.loading"></span> <span class="loading"></span></h4>
     </div>
     <div class="chart-header-options inline-block pull-right p-hidden">
         <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="vm.display.type = vm.config.enum.type.PIE; vm.api.chartChange()" ng-if="vm.isSupported('PIE')"></a>
         <a href="" class="gb-icon-view-list inherit noUnderline" ng-click="vm.display.type = vm.config.enum.type.TABLE; vm.api.chartChange()" ng-if="vm.isSupported('TABLE')"></a>
         <a href="" class="gb-icon-line-chart inherit noUnderline" ng-click="vm.display.type = vm.config.enum.type.LINE; vm.api.chartChange()" ng-if="vm.isSupported('LINE')"></a>
         <a href="" class="gb-icon-col-chart inherit noUnderline" ng-click="vm.display.type = vm.config.enum.type.COLUMN; vm.api.chartChange()" ng-if="vm.isSupported('COLUMN')"></a>
-
-        <!--<md-menu>-->
-            <!--<a href="" class="gb-icon-file-download inherit noUnderline"-->
-               <!--ng-click="$mdMenu.open($event)"-->
-            <!--&gt;</a>-->
-            <!--<md-menu-content width="2" ng-mouseleave="$mdMenu.close()">-->
-                <!--<md-menu-item>-->
-                    <!--<md-button ng-click="vm.api.png()">-->
-                        <!--PNG-->
-                    <!--</md-button>-->
-                <!--</md-menu-item>-->
-
-                <!--<md-menu-item>-->
-                    <!--<md-button  ng-click="vm.api.svg()">SVG-->
-                    <!--</md-button>-->
-                <!--</md-menu-item>-->
-            <!--</md-menu-content>-->
-        <!--</md-menu>-->
         <a href="" class="gb-icon-more2 inherit noUnderline p-hidden" ng-click="vm.display.showSettings = !vm.display.showSettings" ng-if="vm.display.customizable"></a>
     </div>
 </div>

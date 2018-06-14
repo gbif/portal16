@@ -1,5 +1,5 @@
 <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetKey.capabilities.total > 0">
-    <h4 class="card-header--bold">{{ datasetKey.withCoordinates.count | localNumber }}  georeferenced records</h4>
+    <h4 class="card-header--bold" tx="stdTerms.nGeoreferencedRecords" tx-nr="datasetKey.withCoordinates.count"></h4>
     <div class="card">
         <div ng-if="datasetKey.key">
             {#<gbmap dataset-key="datasetKey.key" mapstyle="'light'"></gbmap>#}

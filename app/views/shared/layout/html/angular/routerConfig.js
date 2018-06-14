@@ -40,6 +40,12 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                     resolve: {
                         occurrence: function($stateParams, Occurrence) {
                             return Occurrence.get({id: $stateParams.key}).$promise;
+                        },
+                        TRANSLATION_UNCERTAINTY: function($translate) {
+                            return $translate('stdTerms.coordinateUncertainty');
+                        },
+                        TRANSLATION_ELEVATION: function($translate) {
+                            return $translate('ocurrenceFieldNames.elevation');
                         }
                     }
                 }
@@ -48,7 +54,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         .state('occurrenceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
-            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&type_status&organism_id&locality&water_body&state_province&protocol&license&repatriated&{advanced:bool}&geometry',
+            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&type_status&organism_id&locality&water_body&state_province&protocol&license&repatriated&{advanced:bool}&geometry&event_id&gbif_network&sampling_protocol&installation_key',
             params: {
                 advanced: {
                     value: false,
@@ -409,15 +415,12 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             url: '/network/:key',
             views: {
                 main: {
-                    // change template once we go to the new contentful driven network pages issue #725
-                    // templateUrl: '/api/template/network.html?v=' + BUILD_VERSION,
-                    templateUrl: '/templates/pages/network/key/networkKey.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/template/network.html?v=' + BUILD_VERSION,
                     controller: 'networkKeyCtrl',
                     controllerAs: 'networkKey'
                 }
             }
         })
-        // comment in once we go to the new contentful driven network pages issue #725
         .state('networkDataset', {
             parent: 'network',
             url: '/dataset?offset',

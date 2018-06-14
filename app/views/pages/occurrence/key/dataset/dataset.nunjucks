@@ -13,7 +13,7 @@
                             {$ occurrence.dataset.description | linkify | safe $}
                         {% else %}
                             {$ occurrence.dataset.description | sanitize | linkify | truncateHtml(500) | safe $}
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}#description">more</a>
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}#description" translate="stdTerms.more">more</a>
                         {% endif %}
                     </div>
                 {% endif %}

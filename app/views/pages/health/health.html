@@ -7,7 +7,7 @@
                     <div class="container">
                         <div class="row">
                             <header class="col-xs-12">
-                                <h1>
+                                <h1 translate="phrases.systemHealth">
                                     System health
                                 </h1>
                             </header>
@@ -22,22 +22,21 @@
                                 <div class="summaryStatus summaryStatus--{{ health.status.severity | lowercase }}">
                                     <div class="card__content">
                                         <span class="summaryStatus__message" translate="health.statusSummary.{{health.status.severity}}"></span>
-                                        <span class="pull-right summaryStatus__updatedAt">Updated <time am-time-ago="health.status.updatedAt"></time></span>
+                                        <span class="pull-right summaryStatus__updatedAt" translate="phrases.updatedTimeAgo" translate-values="{TIME_AGO: (health.status.updatedAt | momentFromNow)}"></span>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
                         <section class="m-t-2" ng-if="health.status.messages.list.length > 0">
-                            <h3 class="card-header">Messages</h3>
+                            <h3 class="card-header" translate="stdTerms.messages">Messages</h3>
                             <div class="card card--spaced">
                                 <div class="card__stripe status--{{ message.severity | lowercase }}" ng-repeat="message in health.status.messages.list">
                                     <div class="card__content">
                                         <h4 class="card-header statusLabel">{{ message.title }}</h4>
                                         <div>
                                             <div ng-bind-html="message.body | md2html" class="prose"></div>
-                                            <div class="small discreet--very m-t-05">
-                                                Updated <time am-time-ago="message.updatedAt"></time>
+                                            <div class="small discreet--very m-t-05" translate="phrases.updatedTimeAgo" translate-values="{TIME_AGO: (message.updatedAt | momentFromNow)}">
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +45,7 @@
                         </section>
 
                         <section class="m-t-2">
-                            <h3 class="card-header">Automated monitoring</h3>
+                            <h3 class="card-header" translate="phrases.automatedMonitoring"></h3>
                             <div class="card card--spaced">
                                 <div class="card__stripe status--{{ component.severity | lowercase }}" ng-repeat="component in health.status.health.components">
                                     <div class="card__content">
@@ -59,7 +58,7 @@
                         </section>
 
                         <section class="m-t-2">
-                            <h3 class="card-header">System Load</h3>
+                            <h3 class="card-header" translate="phrases.systemLoad"></h3>
                             <div class="card card--spaced">
                                 <div class="card__stripe status--{{ health.status.load.components.CLUSTER.severity | lowercase }}">
                                     <div class="card__content">
@@ -71,14 +70,14 @@
                                 <div class="card__stripe status--{{ health.status.load.components.CRAWLER.severity | lowercase }}">
                                     <div class="card__content">
                                         <span translate="health.components.CRAWLER.name"></span>
-                                        <span class="pull-right statusLabel">{{ health.status.load.components.CRAWLER.load || 0 }} in queue</span>
+                                        <span class="pull-right statusLabel" translate="stdTerms.nInQueue" translate-values="{NUMBER: (health.status.load.components.CRAWLER.load || 0)}"></span>
                                     </div>
                                 </div>
 
                                 <div class="card__stripe status--{{ health.status.load.components.DOWNLOAD.severity | lowercase }}">
                                     <div class="card__content">
                                         <span translate="health.components.DOWNLOAD.name"></span>
-                                        <span class="pull-right statusLabel">{{ health.status.load.components.DOWNLOAD.load || 0 }} in queue</span>
+                                        <span class="pull-right statusLabel" translate="stdTerms.nInQueue" translate-values="{NUMBER: (health.status.load.components.DOWNLOAD.load || 0)}"></span>
                                     </div>
                                 </div>
                             </div>
@@ -95,29 +94,21 @@
                                 </div>
                             </div>
                         </section>
-
-                        <!--<section class="m-t-1">-->
-                            <!--<h3 class="card-header">Past messages</h3>-->
-                            <!--<div>-->
-                                <!--Planned outage 12. May 2017-->
-                            <!--</div>-->
-                        <!--</section>-->
                     </div>
                     <div class="wrapper-horizontal-stripes" ng-if="!health.loaded && !health.failed">
                         <div class="emptyInfo">
-                            <h3>Hang on while we analyze system health</h3>
+                            <h3 translate="phrases.hangOnWhileLoading"></h3>
                         </div>
                     </div>
                     <div class="wrapper-horizontal-stripes" ng-if="health.failed">
                         <div class="emptyInfo">
-                            <h3>This is ironic – the status page failed. That isn't a good sign.</h3>
+                            <h3 translate="phrases.statusPageFailed"></h3>
                         </div>
                     </div>
                 </div>
                 <div class="discreet--very container--narrow m-b-1" ng-if="health.gitCommit">
-                    Current version: <a ng-href="https://github.com/gbif/portal16/commit/{{health.gitCommit}}" class="inherit">{{health.gitCommit}}</a>
+                    <span translate="stdTerms.version"></span>: <a ng-href="https://github.com/gbif/portal16/commit/{{health.gitCommit}}" class="inherit">{{health.gitCommit}}</a>
                 </div>
-
 
             </div>
         </div>

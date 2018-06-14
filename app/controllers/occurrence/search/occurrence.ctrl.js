@@ -60,8 +60,8 @@ function renderSearch(req, res) {
             title: 'Occurrences',
             _meta: {
                 hasTools: true,
-                title: res.__('stdTerms.search'),
-                description: 'Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.'
+                title: req.__('stdTerms.search'),
+                description: req.__('occurrenceSearch.description')
             }
         });
     }

@@ -2,7 +2,7 @@
     <div>
         <a href="" id="contributors"></a>
         <div class="anchor-block--tabs" id="contributorsBlock">
-            <h3>Contributors</h3>
+            <h3 translate="dataset.contributors"></h3>
             <div class="contactsCard card">
                 <contact contact-info="contact" ng-repeat="contact in datasetKey.dataset._computedValues.contributors.all"></contact>
             </div>

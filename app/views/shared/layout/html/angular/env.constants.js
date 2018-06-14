@@ -20,6 +20,10 @@ angular
         stateProvince: env.dataApi + 'occurrence/search/stateProvince',
         taxon: env.dataApi + 'species/suggest',
         dataset: env.dataApi + 'dataset/suggest',
+        eventId: env.dataApi + 'occurrence/search/eventId',
+        networkKey: env.dataApi + 'occurrence/search/networkKey',
+        installationKey: env.dataApi + 'occurrence/search/installationKey',
+        samplingProtocol: env.dataApi + 'occurrence/search/samplingProtocol',
         publisher: env.dataApi + 'organization/suggest'
     }).constant('token', {
     }).constant('BUILD_VERSION',
@@ -28,6 +32,10 @@ angular
         window.gb.constantKeys
     ).constant('LOCALE',
         window.gb.locale
+    ).constant('URL_PREFIX',
+        window.gb.urlPrefix
+    ).constant('LOCALE_MAPPINGS',
+        window.gb.env.localeMappings
     ).constant('LOCALE_2_LETTER',
         window.gb.locale.substr(0, 2)
     ).constant('IS_TOUCH', window.gb.supportsTouch);

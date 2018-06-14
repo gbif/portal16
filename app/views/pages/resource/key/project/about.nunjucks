@@ -1,5 +1,5 @@
 {% include "../primaryImage.nunjucks" %}
-
+ 
 <div class="horizontal-stripe white-background">
     <div class="container--narrow">
         {% include "../body.nunjucks" %}
@@ -13,20 +13,20 @@
                     <dl class="inline">
                         {% if main.fields.fundsAllocated %}
                             <div>
-                                <dt>Funding</dt>
+                                <dt translate="cms.project.funding"></dt>
                                 <dd>€ {{ {$ main.fields.fundsAllocated $} | localNumber }}</dd>
                             </div>
                         {% endif %}
                         {% if main.fields.matchingFunds %}
                             <div>
-                                <dt>Co funding</dt>
+                                <dt translate="cms.project.coFunding"></dt>
                                 <dd>€ {{ {$ main.fields.matchingFunds $} | localNumber }} </dd>
                             </div>
                         {% endif %}
                         {% if main.fields.grantType %}
                             <div>
-                                <dt>Type of grant</dt>
-                                <dd>{$ __('cms.projectGrantType.' + main.fields.grantType) $}</dd>
+                                <dt translate="cms.project.typeOfGrant">Type of grant</dt>
+                                <dd>{$ __('enums.cms.vocabularyTerms.projectGrantType.' + main.fields.grantType) $}</dd>
                             </div>
                         {% endif %}
                     </dl>
@@ -40,23 +40,23 @@
                         {% if main.fields.start and main.fields.end %}
                         <div>
                             {% if main.fields.start == main.fields.end %}
-                                <dt>Project start</dt>
+                                <dt translate="cms.project.projectStart">Project start</dt>
                             {% else %}
-                                <dt>Duration</dt>
+                                <dt translate="cms.project.duration">Duration</dt>
                             {% endif %}
                             <dd>{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</dd>
                         </div>
                         {% endif %}
 
-                        {% if resolved.Entry[main.fields.programme.sys.id].fields.acronym %}
+                        {% if resolved.Entry[main.fields.programme.sys.id].fields.title %}
                             <div>
-                                <dt>Programme</dt>
-                                <dd><a href="{$ gb.locales.urlPrefix $}/programme/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.acronym $}</a></dd>
+                                <dt translate="enums.cms.contentType.programme">Programme</dt>
+                                <dd><a href="{$ gb.locales.urlPrefix $}/programme/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.title $}</a></dd>
                             </div>
                         {% endif %}
                         {% if main.fields.projectId %}
                             <div>
-                                <dt>Project identifier</dt>
+                                <dt translate="cms.project.projectIdentifier">Project identifier</dt>
                                 <dd>{$ main.fields.projectId $}</dd>
                             </div>
                         {% endif %}
@@ -72,7 +72,7 @@
 
                     {% if main.fields.fundsAllocated and resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations | isNotEmpty %}
                         <div>
-                            <dt>Funded by</dt>
+                            <dt translate="cms.project.fundedBy">Funded by</dt>
                             <dd>
                                 <ul class="inline-bullet-list">
                                     {% for funder in resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations %}
@@ -91,7 +91,7 @@
 
                     {% if main.fields.matchingFunds and main.fields.fundingOrganisations | isNotEmpty %}
                         <div>
-                            <dt>Co funded by</dt>
+                            <dt translate="cms.project.coFundedBy">Co funded by</dt>
                             <dd>
                                 <ul class="inline-bullet-list">
                                     {% for funder in main.fields.fundingOrganisations %}
@@ -111,7 +111,7 @@
 
                     {% if main.fields.additionalPartners | isNotEmpty %}
                     <div>
-                        <dt>Partners</dt>
+                        <dt translate="cms.project.partners">Partners</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 {% for partner in main.fields.additionalPartners %}
@@ -137,7 +137,7 @@
                     {% endif %}
                     {% if resolved.Entry[main.fields.leadPartner.sys.id] %}
                     <div>
-                        <dt>Project lead</dt>
+                        <dt translate="cms.project.projectLead">Project lead</dt>
                         <dd>
                             {% if resolved.Entry[main.fields.leadPartner.sys.id].sys.contentType.sys.id == "Participant" %}
                                 {# if country #}
@@ -156,10 +156,10 @@
                     {% endif %}
                     {% if main.fields.leadContact %}
                         <div>
-                            <dt>Contact details</dt>
+                            <dt translate="cms.project.contactDetalils">Contact details</dt>
                             <dd>
                                 <div>
-                                    {$ main.fields.leadContact | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                                    {$ main.fields.leadContact | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
 
                                 </div>
                             </dd>

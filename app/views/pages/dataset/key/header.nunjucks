@@ -6,27 +6,26 @@
                     <span class="article-header__category__upper"><a
                                 ui-sref="datasetSearchTable({type:datasetKey.dataset.type})" translate="dataset.longType.{{ datasetKey.dataset.type }}">
                             </a></span>
-                    <span class="article-header__category__lower">Registered {{ datasetKey.dataset.created | momentFormat:'D MMMM YYYY' }}</span>
+                    <span class="article-header__category__lower" translate="phrases.registeredDate" translate-values="{DATE: (datasetKey.dataset.created | momentFormat:'D MMMM YYYY')}"></span>
                 </nav>
 
                 <h1 class="text-center">
                     <span ng-class="{'text-error': datasetKey.dataset.deleted}">{{ datasetKey.dataset.title }}</span>
                 </h1>
                 <p ng-class="{'text-error': datasetKey.dataset.deleted, source: !datasetKey.dataset.deleted}">
-                    Published by <a class="inherit underline" ui-sref="publisherKey({key:datasetKey.dataset.publishingOrganizationKey})">
+                    <span translate="dataset.publishedBy"></span> <a class="inherit underline" ui-sref="publisherKey({key:datasetKey.dataset.publishingOrganizationKey})">
                         {{ datasetKey.publisher.title }}
                     </a>
-                    <span class="source" ng-if="datasetKey.parentDataset.title"> - This dataset is a constituent of <a class="source underline" ui-sref="datasetKey({key:datasetKey.parentDataset.key})">{{ datasetKey.parentDataset.title }}</a></span>
+                    <br/>
+                    <span class="source" ng-if="datasetKey.parentDataset.title"> 
+                        <span translate="phrases.constituentOf"></span> <a class="source underline" ui-sref="datasetKey({key:datasetKey.parentDataset.key})">{{ datasetKey.parentDataset.title }}</a>
+                    </span>
                 </p>
                 <div ng-if="datasetKey.dataset._computedValues.contributors.highlighted.length > 0">
                     <ol class="inline-bullet-list">
                         <li ng-repeat="contributor in datasetKey.dataset._computedValues.contributors.highlighted">
                             <a ng-href="{{ portal.urlPrefix }}/dataset/{{ datasetKey.key }}#contributors"
-                               class="inherit"
-                               {#tooltip-placement="bottom"#}
-                               {#tooltip-popup-delay="300"#}
-                               {#uib-tooltip="{{ datasetKey.getRoles(contributor) }}"#}
-                               >
+                               class="inherit">
                                     <i class="gb-icon-mail" ng-if="contributor._primaryContact"></i>
                                 {{ contributor.firstName }} {{ contributor.lastName }}
                             </a>
@@ -34,8 +33,9 @@
                     </ol>
                 </div>
                 <p class="text-error" ng-if="datasetKey.dataset.deleted">
-                    This dataset was deleted {{ datasetKey.dataset.deleted | momentFormat:'D MMMM YYYY' }}.
-                    <span ng-if="datasetKey.duplicateOfDataset">It is likely replaced by <a class="inherit underline" ui-sref="datasetKey({key: datasetKey.duplicateOfDataset.key})">{{ datasetKey.duplicateOfDataset.title }}</a></span>
+                    <span translate="phrases.deletedOnDate" translate-values="{DATE: (datasetKey.dataset.deleted | momentFormat:'D MMMM YYYY') }"></span>
+                    <br/>
+                    <span ng-if="datasetKey.duplicateOfDataset"><span translate="phrases.replacedBy"></span> <a class="inherit underline" ui-sref="datasetKey({key: datasetKey.duplicateOfDataset.key})">{{ datasetKey.duplicateOfDataset.title }}</a></span>
                 </p>
             </header>
         </div>

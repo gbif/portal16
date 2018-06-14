@@ -2,9 +2,9 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">GBIF projects</span>
-                <span class="md-subhead">Are you associated with a project funded by a GBIF programme ?</span>
-                <span class="discreet--very small">For example: Biodiversity Information for Development (BID), Biodiversity Information Fund for Asia (BIFA), Capacity Enhancement Support Programme (CESP).</span>
+                <span class="md-headline" translate="eoi.gbifProjects">GBIF projects</span>
+                <span class="md-subhead" translate="eoi.areYouAssociatedWithProgramme">Are you associated with a project funded by a GBIF programme ?</span>
+                <span class="discreet--very small" translate="eoi.exampleProgramme">For example: Biodiversity Information for Development (BID), Biodiversity Information Fund for Asia (BIFA), Capacity Enhancement Support Programme (CESP).</span>
             </md-card-title-text>
         </md-card-title>
 
@@ -16,13 +16,13 @@
     <div layout="row">
         <div flex="50">
             <md-radio-group ng-model="eoi.form.comments.isAssociatedWithGBIFfundedProject" layout="row">
-                <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>
-                <md-radio-button value="no" class="md-primary">No</md-radio-button>
+                <md-radio-button value="yes" class="md-primary" translate="eoi.yes">Yes</md-radio-button>
+                <md-radio-button value="no" class="md-primary" translate="eoi.no">No</md-radio-button>
             </md-radio-group>
         </div>
         <div flex="50">
             <md-input-container layout-fill ng-show="eoi.form.comments.isAssociatedWithGBIFfundedProject === 'yes'">
-                <label>Please enter the project identifier - e.g. BID-CA2016-0000-NAC</label>
+                <label translate="eoi.pleaseEnterProjectIdentifier">Please enter the project identifier - e.g. BID-CA2016-0000-NAC</label>
                 <input  type="text" name="projectIdentifier" ng-model="eoi.form.comments.projectIdentifier" >
 
             </md-input-container>

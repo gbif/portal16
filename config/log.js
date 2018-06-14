@@ -56,7 +56,7 @@ if (loglevels[loglevel] == loglevels.terminal) {
     logStreams.push(
         {
             level: 'error',
-            stream: prettyStdOut
+            stream: process.stdout
         }
     );
 }

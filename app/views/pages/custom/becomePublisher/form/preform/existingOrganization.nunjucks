@@ -2,7 +2,7 @@
     <md-card>
         <md-card-title ng-if="!eoi.state.notExisting">
             <md-card-title-text>
-                <span class="md-subhead">First, please see if your organization is already registered as a GBIF publisher.</span>
+                <span class="md-subhead" translate="eoi.firstPleaseSeeIfYourOrg"></span>
             </md-card-title-text>
         </md-card-title>
 
@@ -15,7 +15,7 @@
                                  md-items="item in eoi.getPublisherSuggestions(eoi.publisherSearchText)"
                                  md-item-text="item.title"
                                  md-selected-item-change="eoi.selectedPublisherChange(item)"
-                                 md-floating-label="Search organizations">
+                                 md-floating-label="{{'eoi.searchOrganisations' | translate }}">
                     <md-item-template>
                         <span md-highlight-text="eoi.publisherSearchText">{{item.title}}</span>
                     </md-item-template>
@@ -26,8 +26,8 @@
             {#</div>#}
         </md-card-content>
         <md-card-content class="light-background seperator" ng-if="eoi.publisher && !eoi.state.notExisting">
-            <p class="discreet">
-                If you are affiliated with the selected organization, you should approach the contact for practical knowledge of data publishing.
+            <p class="discreet" translate="eoi.ifYouAreAffiliatedWithTheSelectedOrganization">
+                
             </p>
             <div ng-repeat="result in [eoi.publisher]">
                 <ng-include src="'/api/template/search/publisherResult.html?v=' + portal.BUILD_VERSION"></ng-include>
@@ -35,7 +35,7 @@
         </md-card-content>
         <md-card-content class="seperator">
             <div>
-                <md-checkbox ng-model="eoi.state.notExisting" class="md-primary m-b-0">My organization is not already registered.</md-checkbox>
+                <md-checkbox ng-model="eoi.state.notExisting" class="md-primary m-b-0" > <span translate="eoi.myOrgIsNotRegistered"></span></md-checkbox>
             </div>
         </md-card-content>
     </md-card>

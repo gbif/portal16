@@ -9,7 +9,7 @@
                 <div class="row">
                     <header class="col-xs-12">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{$ __('tools.categoryTitle') $}</span>
+                            <span class="article-header__category__upper">{$ __('cms.search.tools') $}</span>
                             <span class="article-header__category__lower">
                                 {$ __('tools.categoryFeatured') $}
                             </span>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="horizontal-stripe white-background">
-            <ng-include src="'/api/resource/tool?content_type=Tool&fields.machineIdentifier=suggest_dataset'" ></ng-include>
+            <ng-include src="portal.urlPrefix + '/api/resource/tool?content_type=Tool&fields.machineIdentifier=suggest_dataset'" ></ng-include>
         </div>
 
         <div class="horizontal-stripe light-background ng-cloak">
@@ -153,7 +153,7 @@
                                                                     ng-model="suggestDataset.suggestion.type">
                                                                 {% for typeOption in ["undefined", "OCCURRENCE", "CHECKLIST", "SAMPLING_EVENT", "METADATA"] %}
                                                                     <option value="{$ typeOption | prettifyEnum $}">
-                                                                        {$__('dataset.type.' + typeOption) | capitalize
+                                                                        {$__('datasetType.' + typeOption)
                                                                         $}
                                                                     </option>
                                                                 {% endfor %}
@@ -198,7 +198,7 @@
                                                                 <input type="radio" name="license" id="license4"
                                                                        value="Unspecified"
                                                                        ng-model="suggestDataset.suggestion.license">
-                                                                {$ __('license.UNSPECIFIED') | capitalize $}
+                                                                {$ __('license.UNSPECIFIED') $}
                                                             </label>
                                                         </div>
                                                         <div class="radio">
@@ -206,7 +206,7 @@
                                                                 <input type="radio" name="license" id="license5"
                                                                        value="Not open"
                                                                        ng-model="suggestDataset.suggestion.license">
-                                                                {$ __('tools.suggestDataset.NOT_OPEN') | capitalize $}
+                                                                {$ __('tools.suggestDataset.NOT_OPEN') $}
                                                             </label>
                                                         </div>
                                                     </div>

@@ -3,7 +3,7 @@
         <div class="card__content">
             <span href="" class="inherit searchCard__type hoverBox" ng-if="result.participant" translate="participationStatus.longForm.{{ result.participant.participationStatus }}"></span>
             <h3 class="searchCard__headline">
-                <a ng-href="{{ urlPrefix }}/country/{{result.countryCode}}" translate="country.{{ result.countryCode }}">{{ result.countryCode }}</a>
+                <a ng-href="{{ portal.urlPrefix }}/country/{{result.countryCode}}" translate="country.{{ result.countryCode }}">{{ result.countryCode }}</a>
             </h3>
         </div>
     </div>
@@ -13,14 +13,14 @@
                 <img class="searchCard__img--noCrop" src="{{ result.countryCode | flag }}" gb-load>
             </div>
             <p ng-if="result.participant">
-                Member since: {{ result.participant.membershipStart }}
+                <span translate="countryKey.memberSince"></span>: {{ result.participant.membershipStart }}
             </p>
             <ul class="list-chips">
                 <li>
-                    <a ui-sref="occurrenceSearchTable({country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?country={{ result.countryCode }}">&nbsp;</span> occurrences about</a>
+                    <a ui-sref="occurrenceSearchTable({country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?country={{ result.countryCode }}">&nbsp;</span> <span translate="countryKey.occurrencesAbout"></span></a>
                 </li>
                 <li>
-                    <a ui-sref="occurrenceSearchTable({publishing_country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?publishing_country={{ result.countryCode }}">&nbsp;</span> published occurrences</a>
+                    <a ui-sref="occurrenceSearchTable({publishing_country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?publishing_country={{ result.countryCode }}">&nbsp;</span> <span translate="countryKey.publishedOccurrences"></span></a>
                 </li>
             </ul>
         </div>

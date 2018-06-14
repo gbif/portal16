@@ -7,17 +7,17 @@
                 <dl class="inline">
 
                     <div ng-if="vm.eml.language">
-                        <dt class="text-capitalize">Metadata language</dt>
+                        <dt>Metadata language</dt>
                         <dd translate="language.{{ vm.eml.language }}"></dd>
                     </div>
 
                     <div ng-if="vm.eml.dataLanguage">
-                        <dt class="text-capitalize">Data language</dt>
+                        <dt>Data language</dt>
                         <dd translate="language.{{ vm.eml.dataLanguage }}"></dd>
                     </div>
 
                     <div ng-if="vm.eml.dataDescriptions.length > 0">
-                        <dt class="text-capitalize">External description</dt>
+                        <dt>External description</dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="descr in vm.eml.dataDescriptions">

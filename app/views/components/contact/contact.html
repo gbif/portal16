@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="small discreet">
-        <div class="text-capitalize" ng-if="vm.contact.roles.length > 0">
+        <div ng-if="vm.contact.roles.length > 0">
             <ul class="inline-bullet-list">
                 <li ng-repeat="role in vm.getRoles(vm.contact.roles)">
                     <span translate="role.{{role}}"></span>

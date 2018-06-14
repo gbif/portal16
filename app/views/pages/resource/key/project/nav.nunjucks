@@ -2,17 +2,17 @@
     <div class="tabs">
         <ul class="anchorTabs">
             <li class="tab" ng-class="{isActive: !projectKey.hash || projectKey.hash == 'about'}">
-                <a href="#about" class="trigger">About</a>
+                <a href="#about" class="trigger" >{$ __('stdTerms.about') $}</a>
             </li>
 
             {% if main.fields.news | isNotEmpty or main.fields.events | isNotEmpty %}
             <li class="tab" ng-class="{isActive: projectKey.hash == 'news'}">
-                <a href="#news" class="trigger">News & events</a>
+                <a href="#news" class="trigger" >{$ __('cms.project.newsAndEvents') $}</a>
             </li>
             {% endif %}
 
             <li class="tab ng-cloak" ng-class="{isActive: projectKey.hash == 'datasets'}" ng-if="projectKey.datasets.count > 0">
-                <a href="#datasets" class="trigger">Datasets</a>
+                <a href="#datasets" class="trigger" >{$ __('stdTerms.datasets') $}</a>
             </li>
 
             {% if main.fields.primaryLink.sys.id %}

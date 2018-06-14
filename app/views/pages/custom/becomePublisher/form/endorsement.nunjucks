@@ -2,8 +2,8 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Endorsing node</span>
-                <span class="md-subhead">To support publishers and review data quality all publishers are associated with a GBIF node. Please check the suggestion below, and correct it if needed:</span>
+                <span class="md-headline" translate="eoi.endorsingNode">Endorsing node</span>
+                <span class="md-subhead" translate="eoi.pleaseCheckSuggestionBelow">To support publishers and review data quality all publishers are associated with a GBIF node. Please check the suggestion below, and correct it if needed:</span>
             </md-card-title-text>
         </md-card-title>
 
@@ -11,23 +11,25 @@
             <div layout="row">
                 <div flex="100">
                     <md-radio-group ng-model="eoi.form.suggestedNodeKey">
-                        <md-radio-button value="other" class="md-primary" ng-if="!eoi.suggestedCountryNode">Help me with endorsement</md-radio-button>
-                        <md-radio-button ng-show="eoi.suggestedCountryNode" value="{{ eoi.suggestedCountryNode.key }}" class="md-primary">{{ eoi.suggestedCountryNode.title }} <span class="discreet--very">suggested</span></md-radio-button>
+                        <md-radio-button value="other" class="md-primary" ng-if="!eoi.suggestedCountryNode" ><span translate="eoi.helpMeWithEndorsement">Help me with endorsement</span></md-radio-button>
+                        <md-radio-button ng-show="eoi.suggestedCountryNode" value="{{ eoi.suggestedCountryNode.key }}" class="md-primary">{{ eoi.suggestedCountryNode.title }} <span class="discreet--very" translate="eoi.suggested">suggested</span></md-radio-button>
                         <md-radio-button ng-show="eoi.suggestedNonCountryNode" value="{{ eoi.suggestedNonCountryNode.key }}" class="md-primary">{{ eoi.suggestedNonCountryNode.title }} </md-radio-button>
                         <md-radio-button value="{{ eoi.MAGIC_OBIS_KEY }}" class="md-primary">
+                        <span translate="eoi.marineDataPublishers">
                             Marine data publishers: request endorsement for OBIS (Ocean Biogeographic Information System) related data
+                            </span>
                         </md-radio-button>
 
                     </md-radio-group>
 
                     <div layout="column">
-                        <p>Or select another associated organisation:</p>
+                        <p translate="eoi.orSelectAnotherAssOrg">Or select another associated organisation:</p>
                         <md-input-container flex="50">
-                            <label>Click to select</label>
+                            <label translate="eoi.clickToSelect">Click to select</label>
 
 
                             <md-select name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
-                                <md-option><em>None</em></md-option>
+                                <md-option><em translate="eoi.none">None</em></md-option>
                                 <md-option ng-repeat="participant in eoi.nonCountryParticipants" ng-value="participant.id">
                                     {{participant.name}}
                                 </md-option>

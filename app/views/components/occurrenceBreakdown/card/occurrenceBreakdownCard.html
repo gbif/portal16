@@ -9,7 +9,7 @@
         </div>
         <div class="card__stripe" ng-if="vm.customFilter">
             <div class="card__content card__content--warning">
-                This chart has custom filters
+                <span translate="metrics.customFilters"></span>
                 <a href="" class="inherit noUnderline pull-right gb-icon-more2" ng-click="vm.showCustomFilters = !vm.showCustomFilters"></a>
             </div>
         </div>
@@ -29,9 +29,9 @@
         <div class="card__stripe card__stripe--light text-right p-hidden" ng-if="vm.options.dimension && (vm.chartApi.data().endOfRecords === false || vm.options.offset > 0)">
             <div class="card__content p-t-05 p-b-05">
                 <div>
-                    <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0;" ng-if="vm.options.offset > vm.options.limit">First</a>
-                    <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0">Previous</a>
-                    <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartApi.data().endOfRecords === false">Next</a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0;" ng-if="vm.options.offset > vm.options.limit" translate="stdTerms.first"></a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0" translate="stdTerms.previous"></a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartApi.data().endOfRecords === false" translate="stdTerms.next"></a>
                 </div>
             </div>
         </div>

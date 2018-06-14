@@ -19,17 +19,17 @@
                 <div class="row">
                     <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{$ __('stdTerms.download') $}</span>
+                            <span class="article-header__category__upper">{$ __('downloadKey.download') $}</span>
                             <span class="article-header__category__lower">{$ download.record.created | formatDate(gb.locales.current) $}</span>
                         </nav>
 
                         <h1 class="text-center" ng-cloak>
                             {% if download.record.status === 'KILLED' %}
-                                <span class="error">{$ __('downloadKey.brokenDownload') | capitalize $}</span>
+                                <span class="error">{$ __('downloadKey.brokenDownload') $}</span>
                             {% elif download.record.status === 'CANCELLED' %}
-                                <span class="error">{$ __('downloadKey.cancelled') | capitalize $}</span>
+                                <span class="error">{$ __('downloadKey.cancelled') $}</span>
                             {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
-                                <span class="discreet">{$ __('downloadKey.underProcessing') | capitalize $}</span>
+                                <span class="discreet">{$ __('downloadKey.underProcessing') $}</span>
                             {% else %}
                              <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
                             {% endif %}
@@ -57,7 +57,7 @@
                                         <li class="tab tab-right">
                                             {% if download.record.status === 'SUCCEEDED' and download.isFileAvailable %}
                                                 <span>
-                                                    <a href="{$ download.record.downloadLink $}" class="gb-button--brand">{$ __('stdTerms.download') $}</a>
+                                                    <a href="{$ download.record.downloadLink $}" class="gb-button--brand">{$ __('downloadKey.download') $}</a>
                                                 </span>
                                             {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download.record.status === 'SUSPENDED'%}
                                                 <span class="gb-button--flat gb-button--loader m-t-0">
@@ -69,14 +69,14 @@
                                         {% if download._citationCount %}
                                         <li class="tab tab-right ng-cloak">
                                             <span>
-                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&gbifDownloadKey={{  downloadKey.key }}' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: {$ download._citationCount $} }"></a>
+                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&gbifDownloadKey={{  downloadKey.key }}' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER_FORMATED: {$ download._citationCount $}, NUMBER: {$ download._citationCount $} }"></a>
                                             </span>
                                         </li>
                                         {% endif %}
                                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                                             <li class="tab tab-right ng-cloak" ng-if="downloadKey.isUsersDownload && downloadKey.isCancelable">
                                                 <span>
-                                                    <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)">Cancel</a>
+                                                    <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)" translate="downloadKey.cancel"></a>
                                                 </span>
                                             </li>
                                         {% endif %}
@@ -104,10 +104,10 @@
                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                         <div class="card__stripe">
                             <div class="card__content card__content--warning--large">
-                                <p>The download has been started and is currently being processed.</p>
-                                <p>Please expect 10 to 15 minutes for the download to complete.</p>
+                                <p >{$ __('downloadKey.downloadStarted') $}</p>
+                                <p>{$ __('downloadKey.downloadExpectTime') $}</p>
                                 <div ng-if="downloadKey.isUsersDownload" class="ng-cloak">
-                                    <p>A notification email with a link to download the results will be sent to the following address once ready: {{ downloadKey.download.request.notificationAddresses[0] }}</p>
+                                    <p>{$ __('downloadKey.notificationEmailAddresses') $}{{ downloadKey.download.request.notificationAddresses[0] }}</p>
                                 </div>
                             </div>
                         </div>
@@ -129,14 +129,14 @@
                                     <div class="card__content">
                                         <dl class="inline">
                                             <div>
-                                                <dt class="text-capitalize">{$ __('downloadKey.citation') $}</dt>
+                                                <dt>{$ __('downloadKey.citation') $}</dt>
                                                 <dd>
-                                                    GBIF.org ({$ download.record.created | formatDate(gb.locales.current, 'DD MMMM YYYY') $}) GBIF Occurrence Download https://doi.org/{$ download.record.doi $}
+                                                    GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download https://doi.org/{$ download.record.doi $}
                                                 </dd>
                                             </div>
                                             {% if download.record.license %}
                                             <div>
-                                                <dt class="text-capitalize">{$ __('stdTerms.license') $}</dt>
+                                                <dt>{$ __('downloadKey.license') $}</dt>
                                                 <dd>
                                                     <license link="{$ download.record.license $}"></license>
                                                 </dd>
@@ -144,25 +144,25 @@
                                             {% endif %}
                                             {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
                                             <div>
-                                                <dt class="text-capitalize">{$ __('downloadKey.file') $}</dt>
+                                                <dt>{$ __('downloadKey.file') $}</dt>
                                                 <dd>
                                                     <span>{$ download.record.size | formatByte $} {$ __('downloadFormat.' + download.record.request.format) $}</span>
                                                 </dd>
                                             </div>
                                             <div>
-                                                <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
-                                                <dd>
+                                                <dt>{$ __('downloadKey.constituentDatasets') $}</dt>
+                                                <dd class="ng-cloak">
                                                     <a href="#datasets">{{ {$ download.record.numberDatasets $} | localNumber}}</a>
                                                 </dd>
                                             </div>
                                             {% endif %}
                                         </dl>
                                         <div>
-                                            <div>Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">data user agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.</div>
+                                            <div ng-bind-html="'downloadKey.readDatauseAndTerms' | translate | md2html"></div>
                                             <div>
                                             {#<span gb-help="for-how-long-will-does-gbif-store-downloads">{$ __('downloadKey.storageDurationTeaser') $}</span>#}
                                             {% if not download.record.doi %}
-                                                <span gb-help="how-and-when-does-gbif-assign-digital-object-identifiers-dois">This download predates our use of DOIs</span>
+                                                <span gb-help="how-and-when-does-gbif-assign-digital-object-identifiers-dois">{$ __('downloadKey.predatesDoi') $}</span>
                                             {% endif %}
                                             </div>
                                         </div>
@@ -174,14 +174,15 @@
                                         <div class="card">
                                             <div class="card__stripe">
                                                 <div class="card__content">
-                                                    <span translate="phrases.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | momentFormat:'D MMMM YYYY')}"></span> <span>Read more about our <a href="{$ gb.locales.urlPrefix $}/faq?question=for-how-long-will-does-gbif-store-downloads">deletion policy</a>.</span>
+                                                    <div translate="downloadKey.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | momentFormat:'D MMMM YYYY')}"></div>
+                                                    <div ng-bind-html="'downloadKey.aboutDeletionPolicy' | translate | md2html"></div>
                                                 </div>
                                             </div>
                                             <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">
-                                                <a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ portal.env.domain }}/occurrence/download/{{ downloadKey.key }} has been used and cited in: ">Tell us about usage</a>
+                                                <a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ portal.env.domain }}/occurrence/download/{{ downloadKey.key }} has been used and cited in: " translate="downloadKey.tellUs"></a>
                                                 {% if download.record.status !== 'FILE_ERASED' %}
-                                                    <a href="" ng-click="downloadKey.postponeDeletion()" ng-if="downloadKey.willBeDeletedSoon && downloadKey.isUsersDownload" class="gb-button--flat text-uppercase">Postpone deletion</a>
-                                                    <a href="" ng-click="downloadKey.deleteDownload()" ng-if="!downloadKey.readyForDeletion && downloadKey.isUsersDownload" class="gb-button--flat text-error text-uppercase">Delete download</a>
+                                                    <a href="" ng-click="downloadKey.postponeDeletion()" ng-if="downloadKey.willBeDeletedSoon && downloadKey.isUsersDownload" class="gb-button--flat text-uppercase" translate="downloadKey.postpone"></a>
+                                                    <a href="" ng-click="downloadKey.deleteDownload()" ng-if="!downloadKey.readyForDeletion && downloadKey.isUsersDownload" class="gb-button--flat text-error text-uppercase" translate="downloadKey.deleteDownload"></a>
                                                 {% endif %}
                                             </div>
                                         </div>
@@ -207,7 +208,7 @@
                                     <div ng-show="!downloadKey.HUMAN" class="ng-cloak">
                                         <div>
                                             {$ __('downloadKey.apiUsageDescription') $}
-                                            <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') | capitalize $}</a></div>
+                                            <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') $}</a></div>
                                         <pre>
                                             <code>
 {$ download.predicateString | safe $}
@@ -220,36 +221,7 @@
                             </div>
                         </div>
                     </div>
-
-
-                    {#<div class="storyline__chapter">#}
-                        {#<div class="storyline__bullet"><span class="gb-icon-cloud-upload"></span></div>#}
-                        {#<div class="storyline__block">#}
-                            {#<div class="empty-box body-text">#}
-                                {#No cleaned versions shared#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="storyline__pipe"></div>#}
-                    {#</div>#}
-                    {#<div class="storyline__chapter">#}
-                        {#<div class="storyline__bullet"><span class="gb-icon-quote"></span></div>#}
-                        {#<div class="storyline__block">#}
-                            {#<div class="empty-box body-text">#}
-                                {#No known usages#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
                 </section>
-
-                {#<section class="m-t-2 ng-cloak">#}
-                    {#<h3 class="card-header">Literature usage</h3>#}
-                    {#<div ng-repeat="result in downloadKey.literature.results" class="card--spaced">#}
-                        {#<ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION"></ng-include>#}
-                    {#</div>#}
-                    {#<div class="text-right" ng-if="downloadKey.literature.count > downloadKey.literature.results.length">#}
-                        {#<a class="gb-button--discreet" ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{  downloadKey.doi }}"'>See all</a>#}
-                    {#</div>#}
-                {#</section>#}
 
                 {% if download.datasets.count > 0 %}
                     <section class="m-t-2">
@@ -266,10 +238,10 @@
                                                         <span class="numberBadge {% if dataset.numberRecords >= 1000000 %}numberBadge--millions{% elif dataset.numberRecords >= 1000 %}numberBadge--thousands{% endif %}">{$ dataset.numberRecords | compactInteger $}</span>
                                                     </div>
                                                     <div class="title">
-                                                        {$ dataset.datasetTitle or '[Dataset title missing]' $}
+                                                        {$ dataset.datasetTitle or '[' + __('downloadKey.titleMissing')+ ']' $}
                                                     </div>
                                                     <span class="meta meta--hoverOnly">{$ dataset.datasetDOI $}</span>
-                                                    <span class="meta--right meta--hoverOnly">{$ dataset.numberRecords $} records at time of download</span>
+                                                    <span class="meta--right meta--hoverOnly" tx="downloadKey.nRecordsAtTime" tx-nr="234987629">{$ dataset.numberRecords $} records at time of download</span>
                                                     {#<span class="doi m-t-1"><span>DOI</span><span>{$ dataset.datasetDOI | readableDOI $}</span></span>#}
                                                     {#<span class="discreet">{$ dataset.numberRecords $} records at time of download</span>#}
                                                 </a>
@@ -286,6 +258,9 @@
                                                 items-per-page="{$ download.datasets.limit $}"
                                                 class="pagination-sm"
                                                 boundary-link-numbers="false"
+                                                first-text="{$ __('stdTerms.first') $}"
+                                                next-text="{$ __('stdTerms.next') $}"
+                                                previous-text="{$ __('stdTerms.previous') $}"
                                                 rotate="false"
                                                 ng-change="downloadKey.pageChanged()">
                                         </uib-pagination>

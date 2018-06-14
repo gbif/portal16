@@ -3,7 +3,7 @@
         <div class="card__content">
             <a ng-href="/the-gbif-network/participant-organisations" class="inherit searchCard__type hoverBox" ng-if="result.participant" translate="participationStatus.longForm.{{ result.participant.participationStatus }}"></a>
             <h3 class="searchCard__headline">
-                <a ng-href="{{ urlPrefix }}/participant/{{result.participant.id}}" >{{ result.participant.name }}</a>
+                <a ng-href="{{ portal.urlPrefix }}/participant/{{result.participant.id}}" >{{ result.participant.name }}</a>
             </h3>
         </div>
     </div>
@@ -11,15 +11,15 @@
         <div class="card__content clearfix">
 
             <p ng-if="result.participant">
-                Member since: {{ result.participant.membershipStart }} ● Country: {{ "country."+ result.participant.countryCode  | translate }} <span ng-if="result.participant.participantUrl">●</span> </span><a ng-href="{{ result.participant.participantUrl }}" ng-if="result.participant.participantUrl">Website <span class="gb-icon-link"></span> </a>
+                <span translate="countryKey.memberSince"></span>: {{ result.participant.membershipStart }} ● <span>{{'stdTerms.country' | translate}}:</span> {{ "country."+ result.participant.countryCode  | translate }} <span ng-if="result.participant.participantUrl">●</span> </span><a ng-href="{{ result.participant.participantUrl }}" ng-if="result.participant.participantUrl"><span translate="countryKey.website"></span> <span class="gb-icon-link"></span> </a>
             </p>
 
             <ul class="list-chips">
                 <li ng-if="result.registryNode">
-                    <a ng-href="/participant/{{result.participant.id}}#datasets"><span count="{{ portal.dataApi }}node/{{ result.registryNode.key }}/dataset/?limit=1">&nbsp;</span> datasets</a>
+                    <a ng-href="/participant/{{result.participant.id}}#datasets"><span count="{{ portal.dataApi }}node/{{ result.registryNode.key }}/dataset/?limit=1">&nbsp;</span> <span translate="stdTerms.datasets"></span></a>
                 </li>
                 <li ng-if="result.registryNode">
-                    <a ng-href="/participant/{{result.participant.id}}#endorsedPublishers"><span count="{{ portal.dataApi }}node/{{ result.registryNode.key }}/organization/?limit=1">&nbsp;</span> endorsed publishers</a>
+                    <a ng-href="/participant/{{result.participant.id}}#endorsedPublishers"><span count="{{ portal.dataApi }}node/{{ result.registryNode.key }}/organization/?limit=1">&nbsp;</span> <span translate="countryKey.endorsedPublishers"></span></a>
                 </li>
             </ul>
         </div>

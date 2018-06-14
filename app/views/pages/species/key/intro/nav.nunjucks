@@ -8,7 +8,7 @@
                         <a ng-if="speciesKey2.occurrences.count > 0" href=""
                            class="gb-button--brand"
                            ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrences.count
-                            | localNumber }} <span class="gb-button--brand__label">occurrences</span></a>
+                            | localNumber }} <span class="gb-button--brand__label">{{ 'stdTerms.occurrences' | translate }}</span></a>
                         <a ng-if="speciesKey2.occurrences.count == 0"
                            ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet" translate="species.noOccurencesInGbif"></a>
                     </span>
@@ -51,14 +51,14 @@
                     {#</li>#}
 
                     <li class="tab" ng-class="{isActive: speciesKey2.$state.is('speciesKey')}">
-                        <a ui-sref="speciesKey({key: speciesKey.key})">
-                            Overview
+                        <a ui-sref="speciesKey({speciesKey: speciesKey2.key})" translate="stdTerms.overview">
+                            
                         </a>
                     </li>
 
                     <li class="tab" ng-class="{isActive: speciesKey2.$state.is('speciesKeyMetrics')}" ng-if="speciesKey2.isNub && speciesKey2.occurrences.$resolved && speciesKey2.occurrences.count > 0">
-                        <a ui-sref="speciesKeyMetrics({key: speciesKey.key})">
-                            Metrics
+                        <a ui-sref="speciesKeyMetrics({speciesKey: speciesKey2.key})" translate="stdTerms.metrics">
+                            
                         </a>
                     </li>
                     {#<li class="tab" Xng-class="{isActive: speciesKey.$state.is('speciesKey')}">#}
@@ -68,24 +68,22 @@
                     {#</li>#}
                     <li class="tab" ng-if="speciesKey2.sourceTaxonLink">
                         <a ng-href="{{speciesKey2.sourceTaxonLink}}">
-                            <span>
-                                Reference taxon
+                            <span translate="species.referenceTaxon">
                             </span>
                             <span class="gb-icon-link"></span>
                         </a>
                     </li>
                     <li class="tab" ng-if="speciesKey2.sourceTaxonExists && !speciesKey2.sourceTaxonLink">
-                        <a ng-href="/species/{{ speciesKey2.species.sourceTaxonKey }}">
-                            <span>
-                                Reference taxon
+                        <a ui-sref="speciesKey({speciesKey: speciesKey2.species.sourceTaxonKey})" >
+                            <span translate="species.referenceTaxon">
                             </span>
                             <span class="gb-icon-link"></span>
                         </a>
                     </li>
                     <li class="tab" ng-if="!speciesKey2.isNub && speciesKey2.verbatim.$resolved && speciesKey2.verbatim.extensions" ng-class="{isActive: speciesKey2.$state.is('speciesKeyVerbatim')}">
                         <a  ui-sref="speciesKeyVerbatim({ speciesKey: speciesKey2.species.key })">
-                            <span>
-                                Verbatim
+                            <span translate="species.verbatim">
+                                
                             </span>
 
                         </a>

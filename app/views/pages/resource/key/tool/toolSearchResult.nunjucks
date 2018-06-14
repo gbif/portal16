@@ -1,9 +1,9 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">{$ __('cms.contentType.tool') | capitalize $}</span>
+            <span class="searchCard__type">{$ __('enums.cms.contentType.tool') $}</span>
             <h3 class="searchCard__headline">
-                <a ng-if="!result.primaryLink || (result.primaryLink.url | gbifUrlAsRelative).indexOf('/') !==0" ng-href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
+                <a ng-if="!result.primaryLink || (result.primaryLink.url | gbifUrlAsRelative).indexOf('/') !==0" ng-href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                     {{result.title}}
                 </a>
                 <a ng-if="result.primaryLink && (result.primaryLink.url | gbifUrlAsRelative).indexOf('/') ===0" ng-href="{{ result.primaryLink.url | gbifUrlAsRelative  }}">
@@ -14,7 +14,7 @@
     </div>
     <div class="card__stripe">
         <div class="card__content searchCard__content clearfix">
-            <a href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
+            <a href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                 <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
             </a>
             <p>

@@ -2,68 +2,68 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Organization details</span>
-                <span class="md-subhead">Your chance to tell GBIF users who you are and what you do.</span>
+                <span class="md-headline" translate="eoi.orgDetails">Organization details</span>
+                <span class="md-subhead" translate="eoi.yourChanceToTellGBIF">Your chance to tell GBIF users who you are and what you do.</span>
             </md-card-title-text>
         </md-card-title>
 
         <md-card-content>
             <div layout="row">
                 <md-input-container flex="50">
-                    <label>Organization name</label>
+                    <label translate="eoi.orgName">Organization name</label>
                     <input required name="organizationTitle" ng-model="eoi.form.title">
                     <div ng-messages="eoi.publisherForm.organizationTitle.$error">
-                        <div ng-message="required">This is required.</div>
+                        <div ng-message="required" translate="eoi.thisIsRequired">This is required.</div>
                     </div>
                 </md-input-container>
 
                 <md-input-container flex="50">
-                    <label>Home page</label>
+                    <label translate="eoi.homePage">Home page</label>
                     <input type="url" pattern="((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)" name="organizationHomepage" ng-model="eoi.form.homepage">
                     <div ng-messages="eoi.publisherForm.organizationHomepage.$error">
-                        <div ng-message="url">Please provide a valid website address</div>
+                        <div ng-message="url" translate="eoi.pleaseProvideAvalidWebsite">Please provide a valid website address</div>
                     </div>
                 </md-input-container>
             </div>
             <div layout="row">
                 <md-input-container flex="50">
-                    <label>Email</label>
+                    <label translate="eoi.email">Email</label>
                     <input type="email" name="organizationEmail" ng-model="eoi.form.email">
-                    <div class="hint discreet--very small">Organization email e.g. secretariat@fibg-museum.org</div>
+                    <div class="hint discreet--very small" translate="eoi.orgEmailExample">Organization email e.g. secretariat@fibg-museum.org</div>
                     <div ng-messages="eoi.publisherForm.organizationEmail.$error">
-                        <div ng-message="email">Please provide a valid email</div>
+                        <div ng-message="email" translate="eoi.pleaseProvideAValidEmail">Please provide a valid email</div>
                     </div>
                 </md-input-container>
 
                 <md-input-container flex="50">
-                    <label>Phone</label>
+                    <label translate="eoi.phone">Phone</label>
                     <input name="organizationPhone" ng-model="eoi.form.phone">
                 </md-input-container>
             </div>
             <div layout="row">
                 <md-input-container flex="100">
-                    <label>Address</label>
+                    <label translate="eoi.address">Address</label>
                     <input required name="organizationAddress" ng-model="eoi.form.address" >
                     <div ng-messages="eoi.form.organizationAddress.$error">
-                        <div ng-message="required">This is required.</div>
+                        <div ng-message="required" translate="eoi.thisIsRequired">This is required.</div>
                     </div>
                 </md-input-container>
             </div>
             <div layout="row">
                 <md-input-container flex="50">
-                    <label>City</label>
+                    <label translate="eoi.city">City</label>
                     <input required name="organizationCity" ng-model="eoi.form.city">
                     <div ng-messages="eoi.publisherForm.organizationCity.$error">
-                        <div ng-message="required">This is required.</div>
+                        <div ng-message="required" translate="eoi.thisIsRequired">This is required.</div>
                     </div>
                 </md-input-container>
 
                 <md-input-container flex="50">
-                    <label>Province</label>
+                    <label translate="eoi.province">Province</label>
                     <input name="organizationProvince" ng-model="eoi.form.province">
                 </md-input-container>
                 <md-input-container flex="50">
-                    <label>Postal code</label>
+                    <label translate="eoi.postalCode">Postal code</label>
                     <input name="organizationPostalCode" ng-model="eoi.form.postalCode">
                 </md-input-container>
             </div>
@@ -71,22 +71,22 @@
                 <md-input-container flex="50">
                     <label>Country</label>
                     <md-select required name="organizationCountry" ng-model="eoi.form.country" ng-change="eoi.changeCountry(eoi.form.country)">
-                        <md-option><em>None</em></md-option>
+                        <md-option><em translate="eoi.none">None</em></md-option>
                         <md-option ng-repeat="country in eoi.countries" ng-value="country.key">
                             {{country.title}}
                         </md-option>
                     </md-select>
                     <div ng-messages="eoi.publisherForm.organizationCountry.$error">
-                        <div ng-message="required">Please select a country</div>
+                        <div ng-message="required" translate="eoi.pleaseSelectCountry">Please select a country</div>
                     </div>
                 </md-input-container>
 
                 <md-input-container flex="50">
-                    <label>Logo</label>
+                    <label translate="eoi.logo">Logo</label>
                     <input type="url" name="organizationLogoUrl" ng-model="eoi.form.logoUrl" pattern="((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)">
-                    <div class="hint discreet--very small">E.g. http://my.organization.org/images/logo.png</div>
+                    <div class="hint discreet--very small" translate="eoi.exampleImageUrl">E.g. http://my.organization.org/images/logo.png</div>
                     <div ng-messages="eoi.publisherForm.organizationLogoUrl.$error">
-                        <div ng-message="url">Invalid url</div>
+                        <div ng-message="url" translate="eoi.invalidUrl">Invalid url</div>
                     </div>
                 </md-input-container>
             </div>
@@ -105,17 +105,20 @@
             </div>
             <div layout="row">
                 <md-input-container flex="100">
-                    <label>Description</label>
+                    <label translate="eoi.description">Description</label>
                     <textarea required ng-model="eoi.form.description" rows="5" md-select-on-focus name="organizationDescription"></textarea>
-                    <div class="hint discreet--very small">Briefly describe the scope of your institution/organization in relation to GBIF's mission (e.g. collection holdings, research focus, biodiversity information management, etc.). This description will appear on your publisher page.</div>
+                    <div class="hint discreet--very small" translate="eoi.brieflyDescribeScope">Briefly describe the scope of your institution/organization in relation to GBIF's mission (e.g. collection holdings, research focus, biodiversity information management, etc.). This description will appear on your publisher page.</div>
                 </md-input-container>
             </div>
         </md-card-content>
 
         <div class="eoi-map">
             <div class="md-card-image" id="organizationMap"></div>
-            <md-button class="md-raised md-warn" ng-if="eoi.dynamicPinLayer" ng-click="eoi.clear()">Clear</md-button>
-            <md-button class="md-raised md-primary" ng-if="!eoi.dynamicPinLayer" ng-click="eoi.add()">Click on the map to add your organization</md-button>
+            <md-button class="md-raised md-warn" ng-if="eoi.dynamicPinLayer" ng-click="eoi.clear()" translate="eoi.clear">Clear</md-button>
+            <md-button class="md-raised md-primary" ng-if="!eoi.dynamicPinLayer" ng-click="eoi.add()" translate="eoi.clickMapToAddOrg">Click on the map to add your organization</md-button>
+            <div class="mapWidget__info">
+            <span>© <a href="https://www.mapbox.com/" class="inherit">MapBox</a>, © <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors.</span>
+        </div>
         </div>
 
     </md-card>

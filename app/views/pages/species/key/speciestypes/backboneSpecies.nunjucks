@@ -8,11 +8,11 @@
     </div>
 
     <div ng-if="!speciesKey2.images.$resolved || !speciesKey2.capabilities.$resolved" class="emptyInfo">
-        <h3>Searching 800+ million records for species data</h3>
+        <h3 translate="species.searchMsg"></h3>
     </div>
 
     <div class="emptyInfo" ng-if="speciesKey2.failedRequest">
-        <h3>The request failed with a server error. That shouldn't happen :(</h3>
+        <h3 translate="stdTerms.criticalErrorMsg"></h3>
     </div>
 
 <div class="container--desktop m-t-1">
@@ -31,14 +31,14 @@
 
 
             <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow" ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'} | limitTo: 1">
-                        <h4 class="text-muted small text-uppercase">Description</h4>
+                        <h4 class="text-muted small text-uppercase" translate="stdTerms.description"></h4>
                         <div class="card">
                             <div class="card__content">
                                 <div ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'}" class="m-b-1">
                                     <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
                                     <div ng-bind-html="description.description"></div>
-                                    <p class="small source">Source: <a class="inherit"
-                                                                       ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a>
+                                    <p class="small source"><span translate="stdTerms.sourcePlural" translate-values="{NUMBER: 1}"></span>: <a class="inherit"
+                                                                     ui-sref="speciesKey({key: description.sourceTaxonKey})">{{ description.source }}</a>
                                     </p>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
 
 
                     <div class="m-t-1" ng-show="speciesKey2.status && speciesKey2.status.category != 'NE'">
-                        <h4 class="text-muted small text-uppercase">IUCN status</h4>
+                        <h4 class="text-muted small text-uppercase">{{'species.iucnStatus' | translate}}</h4>
                         <div class="card">
                             <iucn-status threat-status="speciesKey2.status" name="{{ speciesKey2.species.canonicalName }}"></iucn-status>
                         </div>
@@ -80,7 +80,7 @@
 
 
                     <div class="m-t-1" ng-show="speciesKey2.references.hasResults">
-                        <h4 class="text-muted small text-uppercase">References</h4>
+                        <h4 class="text-muted small text-uppercase">{{'species.references' | translate}}</h4>
                         <references key="{{ speciesKey2.key }}" references="speciesKey2.references"></references>
                     </div>
 
@@ -109,11 +109,11 @@
 
 
                     <div class="m-t-1" >
-                        <h4 class="text-muted small text-uppercase">Citation</h4>
+                        <h4 class="text-muted small text-uppercase" translate="stdTerms.citation"></h4>
                         <div class="card">
                             <div class="card__content">
                                 <div class="m-b-1 m-t-1" >
-                                    <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> in <span ng-bind-html="speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'"></span>
+                                    <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> {{'stdterms.in' | translate}} <span ng-bind-html="speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'"></span>
 
                                     {#<p class="discreet text-uppercase small">Please cite as</p>#}
                                     {#<div>#}

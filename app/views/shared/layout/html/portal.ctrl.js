@@ -8,7 +8,7 @@ angular
     .controller('portalCtrl', portalCtrl);
 
 /** @ngInject */
-function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, env, constantKeys, NAV_EVENTS, IS_TOUCH, Page, User) {
+function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, env, constantKeys, NAV_EVENTS, IS_TOUCH, LOCALE, Page, User, $state) {
     var vm = this;
     vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
@@ -19,6 +19,7 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     vm.imageCache = env.imageCache;
     vm.mapCapabilities = env.mapCapabilities;
     vm.IS_TOUCH = IS_TOUCH;
+    vm.LOCALE = LOCALE;
     vm.getDrawer = Page.drawer;
 
     vm.openHelpdesk = function(type) {
@@ -32,6 +33,13 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
 
     vm.isSecretariatUser = function() {
         return _.endsWith(_.get($sessionStorage, 'user.email', ''), '@gbif.org');
+    };
+
+    vm.uiShowChart = function(query, state) {
+        $sessionStorage.customChart = state;
+        $sessionStorage.occurrenceChartsShowDefaults = false;
+        $state.go('occurrenceSearchCharts', query, {inherit: false});
+        return false;
     };
 
     function updateUser() {

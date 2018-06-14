@@ -5,8 +5,8 @@
         <section class="horizontal-stripe">
             <div class="container--narrow">
                 <div class="emptyInfo">
-                    <h3>Invalid reset link</h3>
-                    <p>Try resetting your password again. Links in emails must be used within 30 minutes and only work once.</p>
+                    <h3>{$ __('profile.invalidLink') $}</h3>
+                    <p>{$ __('profile.invalidLinkMessage') $}</p>
                 </div>
             </div>
         </section>
