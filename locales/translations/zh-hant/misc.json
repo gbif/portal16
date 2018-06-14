@@ -146,7 +146,6 @@
     "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
     "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 0{records} 1{record} other{records}}",
     "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0{results} 1{result} other{results}}",
-    "citations": "{NUMBER, select, 0{Citations} 1{Citation} other{Citations}}",
     "nonCriticalErrorMsg": "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
     "criticalErrorMsg": "The system is currently not able to process your request. Try to refresh the page and please report the issue if it continues.",
     "partialPage": "Partial page",
