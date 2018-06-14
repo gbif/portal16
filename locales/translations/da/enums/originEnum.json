@@ -1,6 +1,6 @@
 {
   "originEnum": {
-    "SOURCE": "Source",
+    "SOURCE": "Kilde",
     "DENORMED_CLASSIFICATION": "Denormed classification",
     "VERBATIM_PARENT": "Verbatim parent",
     "VERBATIM_ACCEPTED": "Verbatim accepted",
