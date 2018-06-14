@@ -1,6 +1,6 @@
 {
   "occurrenceIssue": {
-    "ZERO_COORDINATE": "Zero coordinate",
+    "ZERO_COORDINATE": "Nul-koordinat",
     "COORDINATE_OUT_OF_RANGE": "Coordinate out of range",
     "COORDINATE_INVALID": "Coordinate invalid",
     "COORDINATE_ROUNDED": "Coordinate rounded",
