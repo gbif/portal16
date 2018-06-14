@@ -1,7 +1,7 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "Preserved specimen",
-    "FOSSIL_SPECIMEN": "Fossil specimen",
+    "PRESERVED_SPECIMEN": "Bevaret eksemplar",
+    "FOSSIL_SPECIMEN": "Fossilt eksemplar",
     "LIVING_SPECIMEN": "Living specimen",
     "OBSERVATION": "Observation",
     "HUMAN_OBSERVATION": "Human observation",
