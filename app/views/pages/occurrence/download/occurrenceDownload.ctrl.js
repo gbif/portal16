@@ -17,7 +17,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, $localStorage) {
+function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed) {
     var vm = this;
     vm.stateParams = $state;
     vm.downloadFormats = enums.downloadFormats;
@@ -263,11 +263,6 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
         var downloadUrl = endpoints.download + '?' + $httpParamSerializer(query);
 
         $http.get(downloadUrl).then(function(response) {
-            if ($localStorage.gbif_running_downloads) {
-                $localStorage.gbif_running_downloads.push(response.data);
-            } else {
-                $localStorage.gbif_running_downloads = [response.data];
-            }
             window.location.href = 'download/' + response.data;
         }, function(err) {
             // TODO alert user of failure

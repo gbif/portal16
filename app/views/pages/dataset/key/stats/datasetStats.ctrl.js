@@ -38,20 +38,10 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
         showHeader: false
     };
 
-    vm.addNewChart = function(dimension) {
-        vm.charts.push(
-            {
-                filter: {dataset_key: vm.key},
-                api: {},
-                options: {showHeader: false, dimension: dimension, type: 'PIE'}
-            }
-        );
-    };
-
     vm.charts = [
         {
             api: {},
-            config: {dimension: 'issue', secondDimension: '', type: 'BAR', customizable: false, showSettings: true},
+            config: {dimension: 'issue', secondDimension: '', type: 'TABLE', customizable: false, showSettings: true},
             filter: {dataset_key: vm.key, locale: gb.locale},
             customFilter: undefined
         },
