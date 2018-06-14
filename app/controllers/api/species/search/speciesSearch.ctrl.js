@@ -113,7 +113,7 @@ const expandConfig = {
     },
     STATUS: {
         type: 'ENUM',
-        translationPath: 'TaxonomicStatus.'
+        translationPath: 'taxonomicStatus.'
     },
     MEDIA: {
         type: 'TEMPLATE',
