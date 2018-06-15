@@ -14,7 +14,7 @@
       },
       "contentType": {
         "event": "Event",
-        "news": "News",
+        "news": "ニュース",
         "resource": "Resource",
         "dataUse": "Data use",
         "project": "Project",
@@ -55,10 +55,10 @@
           "AGRICULTURE": "Agriculture",
           "BIODIVERSITY_SCIENCE": "Biodiversity science",
           "BIOGEOGRAPHY": "Biogeography",
-          "CITIZEN_SCIENCE": "Citizen science",
+          "CITIZEN_SCIENCE": "市民科学",
           "CLIMATE_CHANGE": "Climate change",
           "CONSERVATION": "Conservation",
-          "DATA_MANAGEMENT": "Data management",
+          "DATA_MANAGEMENT": "データ管理",
           "DATA_PAPER": "Data paper",
           "ECOLOGY": "Ecology",
           "ECOSYSTEM_SERVICES": "Ecosystem services",
@@ -72,12 +72,12 @@
           "TAXONOMY": "Taxonomy"
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "Capacity enhancement",
+          "CAPACITY_ENHANCEMENT": "能力増強",
           "DATA_ACCESS": "Data access",
           "DATA_ANALYSIS": "Data analysis",
           "DATA_CURATION_&_QUALITY": "Data curation & quality",
           "DATA_DIGITIZATION": "Data digitization",
-          "DATA_PUBLISHING": "Data publishing",
+          "DATA_PUBLISHING": "データ出版",
           "DATA_CURATION_QUALITY": "Data curation quality"
         },
         "literatureType": {
@@ -103,11 +103,11 @@
           "bill": "Bill"
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "生物多様性に関する知識の専門家",
           "DATA_HOLDERS": "Data holders",
-          "DATA_USERS": "Data users",
+          "DATA_USERS": "データ ユーザー",
           "DECISION_MAKERS": "Decision makers",
-          "GBIF_NETWORK": "GBIF network",
+          "GBIF_NETWORK": "GBIF ネットワーク",
           "PUBLIC_STAKEHOLDERS": "Public stakeholders"
         }
       }
