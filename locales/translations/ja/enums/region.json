@@ -1,11 +1,11 @@
 {
   "region": {
     "GLOBAL": "Global",
-    "AFRICA": "Africa",
-    "ASIA": "Asia",
-    "EUROPE": "Europe",
+    "AFRICA": "アフリカ",
+    "ASIA": "アジア",
+    "EUROPE": "ヨーロッパ",
     "LATIN_AMERICA": "Latin America and the Caribbean",
-    "NORTH_AMERICA": "North America",
-    "OCEANIA": "Oceania"
+    "NORTH_AMERICA": "北アメリカ",
+    "OCEANIA": "オセアニア"
   }
 }
