@@ -58,7 +58,7 @@
           "CITIZEN_SCIENCE": "Citizen science",
           "CLIMATE_CHANGE": "Climate change",
           "CONSERVATION": "Conservation",
-          "DATA_MANAGEMENT": "Data management",
+          "DATA_MANAGEMENT": "La gestion des données",
           "DATA_PAPER": "Data paper",
           "ECOLOGY": "Ecology",
           "ECOSYSTEM_SERVICES": "Ecosystem services",
@@ -72,7 +72,7 @@
           "TAXONOMY": "Taxonomy"
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "Capacity enhancement",
+          "CAPACITY_ENHANCEMENT": "Renforcement des capacités",
           "DATA_ACCESS": "Data access",
           "DATA_ANALYSIS": "Data analysis",
           "DATA_CURATION_&_QUALITY": "Data curation & quality",
@@ -103,12 +103,12 @@
           "bill": "Bill"
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Experts en biodiversité",
           "DATA_HOLDERS": "Data holders",
-          "DATA_USERS": "Data users",
+          "DATA_USERS": "Les utilisateurs de données",
           "DECISION_MAKERS": "Decision makers",
-          "GBIF_NETWORK": "GBIF network",
-          "PUBLIC_STAKEHOLDERS": "Public stakeholders"
+          "GBIF_NETWORK": "le réseau GBIF",
+          "PUBLIC_STAKEHOLDERS": "Les parties prenantes publiques"
         }
       }
     }
