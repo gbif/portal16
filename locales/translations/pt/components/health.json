@@ -22,7 +22,7 @@
         "tooltip": "E.g. Searching and viewing species, species suggestions"
       },
       "REGISTRY": {
-        "name": "Registry",
+        "name": "Inscrição",
         "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks."
       },
       "IDENTITY": {
