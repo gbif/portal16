@@ -18,7 +18,7 @@
         "tooltip": "E.g. searching and viewing occurrences."
       },
       "SPECIES": {
-        "name": "Species",
+        "name": "種情報",
         "tooltip": "E.g. Searching and viewing species, species suggestions"
       },
       "REGISTRY": {
