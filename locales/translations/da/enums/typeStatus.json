@@ -1,8 +1,8 @@
 {
   "typeStatus": {
     "TYPE": "Type",
-    "TYPE_SPECIES": "Type species",
-    "TYPE_GENUS": "Type genus",
+    "TYPE_SPECIES": "Typeart",
+    "TYPE_GENUS": "Typeslægt",
     "ALLOLECTOTYPE": "Allolectotype",
     "ALLONEOTYPE": "Alloneotype",
     "ALLOTYPE": "Allotype",
@@ -35,8 +35,8 @@
     "PLASTOPARATYPE": "Plastoparatype",
     "PLASTOSYNTYPE": "Plastosyntype",
     "PLASTOTYPE": "Plastotype",
-    "SECONDARYTYPE": "Secondary type",
-    "SUPPLEMENTARYTYPE": "Supplementary type",
+    "SECONDARYTYPE": "Sekundær type",
+    "SUPPLEMENTARYTYPE": "Supplerende type",
     "SYNTYPE": "Syntype",
     "TOPOTYPE": "Topotype",
     "ORIGINALMATERIAL": "Originalt materiale",
