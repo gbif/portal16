@@ -1,12 +1,12 @@
 {
   "occurrenceSearch": {
-    "table": "Table",
-    "gallery": "Gallery",
-    "map": "Map",
+    "table": "",
+    "gallery": "",
+    "map": "",
     "taxonomy": "Taksonomi",
-    "charts": "Charts",
-    "download": "Download",
-    "searchAllFields": "Search all fields",
-    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
+    "charts": "",
+    "download": "",
+    "searchAllFields": "",
+    "description": ""
   }
 }
