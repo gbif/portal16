@@ -1,116 +1,116 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "Resource Structure",
-      "RESOURCE_INTEGRITY": "Resource integrity",
-      "RECORD_STRUCTURE": "Record Structure",
-      "OCC_INTERPRETATION_BASED": "GBIF Occurrence Interpretation",
-      "METADATA_CONTENT": "Metadata Content",
-      "CLB_INTERPRETATION_BASED": "GBIF Taxon Interpretation"
+      "RESOURCE_STRUCTURE": "",
+      "RESOURCE_INTEGRITY": "",
+      "RECORD_STRUCTURE": "",
+      "OCC_INTERPRETATION_BASED": "",
+      "METADATA_CONTENT": "",
+      "CLB_INTERPRETATION_BASED": ""
     },
     "issueType": {
-      "DWCA_UNREADABLE": "Darwin Core Archive unreadable",
-      "DWCA_META_XML_NOT_FOUND": "Meta.xml file not found",
-      "DWCA_META_XML_SCHEMA": "Meta.xml schema validation failed",
-      "RECORD_IDENTIFIER_NOT_FOUND": "No record identifier was found within the file",
-      "CORE_ROWTYPE_UNDETERMINED": "No rowType could be found or determined",
-      "EML_NOT_FOUND": "No EML document was found",
-      "EML_GBIF_SCHEMA": "The EML document does not validate against the schema",
-      "UNKNOWN_ROWTYPE": "The rowType used for the core/extension is unknown",
-      "REQUIRED_TERM_MISSING": "A required term for the core/extension is missing",
-      "COLUMN_MISMATCH": "Column mismatch",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Record referential integrity violation",
-      "UNKNOWN_TERM": "Unknown term",
-      "DUPLICATED_TERM": "Duplicated term",
-      "TITLE_MISSING_OR_TOO_SHORT": "The title of the dataset is missing or too short",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "The resource creator is missing or is incomplete",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "The description of the dataset is missing or too short",
-      "LICENSE_MISSING_OR_UNKNOWN": "The license can not be parsed, is not supported by GBIF or is simply missing",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Record not uniquely identified",
-      "UNREADABLE_SECTION_ERROR": "Unreadable section error",
-      "NoIssuesFound": "No issues found"
+      "DWCA_UNREADABLE": "",
+      "DWCA_META_XML_NOT_FOUND": "",
+      "DWCA_META_XML_SCHEMA": "",
+      "RECORD_IDENTIFIER_NOT_FOUND": "",
+      "CORE_ROWTYPE_UNDETERMINED": "",
+      "EML_NOT_FOUND": "",
+      "EML_GBIF_SCHEMA": "",
+      "UNKNOWN_ROWTYPE": "",
+      "REQUIRED_TERM_MISSING": "",
+      "COLUMN_MISMATCH": "",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
+      "UNKNOWN_TERM": "",
+      "DUPLICATED_TERM": "",
+      "TITLE_MISSING_OR_TOO_SHORT": "",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
+      "LICENSE_MISSING_OR_UNKNOWN": "",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
+      "UNREADABLE_SECTION_ERROR": "",
+      "NoIssuesFound": ""
     },
     "fileFormat": {
-      "title": "File format",
-      "DWCA": "Darwin Core Archive",
-      "TABULAR": "Tabular File (.csv, .tsv)",
-      "SPREADSHEET": "Spreadsheet (.xlsx)"
+      "title": "",
+      "DWCA": "",
+      "TABULAR": "",
+      "SPREADSHEET": ""
     },
     "fileType": {
-      "title": "Row type",
+      "title": "",
       "CORE": {
         "title": "Noyau"
       },
       "EXTENSION": {
-        "title": "Extensions"
+        "title": ""
       },
       "METADATA": {
-        "description": "Metadata describing the data in EML (Ecological Metadata Language)",
-        "title": "Metadata document"
+        "description": "",
+        "title": ""
       },
       "META_DESCRIPTOR": {
-        "description": "Semantic annotation describing how the data is structured (files, columns, etc)",
-        "title": "Meta descriptor"
+        "description": "",
+        "title": ""
       }
     },
-    "fileSizeLimit": "File size limit: 100 mb",
-    "receivedMediaType": "Media Type",
-    "uniqueIdentifier": "Unique identifier",
-    "reportLocation": "This report has been written to",
-    "reportDeletion": "And will be deleted after one month. Until then you can revisit the report at your convenience.",
-    "reportGenerated": "It was generated",
-    "summary": "Validation Summary",
-    "issues": "Validation Issues",
-    "fileHasIssues": "Some issues were detected by the validator:",
-    "fileHasNoIssues": "No issues found in the file",
-    "error": "Error",
+    "fileSizeLimit": "",
+    "receivedMediaType": "",
+    "uniqueIdentifier": "",
+    "reportLocation": "",
+    "reportDeletion": "",
+    "reportGenerated": "",
+    "summary": "",
+    "issues": "",
+    "fileHasIssues": "",
+    "fileHasNoIssues": "",
+    "error": "",
     "errors": {
-      "400": "The file could not be processed, or it may be missing if you provided a URL.",
-      "404": "The validation job ID was not found. If you believe this is an error, please report it.",
-      "413": "The file is too large, to be processed by the data validator.",
-      "415": "Unsupported file type. The file could not be processed."
+      "400": "",
+      "404": "",
+      "413": "",
+      "415": ""
     },
-    "backToValidator": "Start a new validation",
+    "backToValidator": "",
     "termsFrequency": {
-      "title": "Term Frequency",
-      "term": "Term",
-      "count": "Count",
-      "percentage": "Percentage",
-      "interpreted": "Interpreted"
+      "title": "",
+      "term": "",
+      "count": "",
+      "percentage": "",
+      "interpreted": ""
     },
     "interpretedCounts": {
-      "date": "Number of interpreted dates",
-      "taxon": "Number of rows with interpreted taxon",
-      "location": "Number of interpreted coordinates"
+      "date": "",
+      "taxon": "",
+      "location": ""
     },
     "interpretedValueCounts": {
-      "title": "Interpreted value counts"
+      "title": ""
     },
     "status": {
-      "title": "Status",
-      "SUBMITTED": "Sending file",
-      "FETCHING": "Fetching file",
-      "ACCEPTED": "Validation started",
-      "RUNNING": "Validation in progress",
-      "FINISHED": "Validation completed",
-      "FAILED": "Validation failed. Please check the file type, or if you submitted a url, please check that the file exists on the location.",
-      "CONTACTING_SERVER": "Contacting server..."
+      "title": "",
+      "SUBMITTED": "",
+      "FETCHING": "",
+      "ACCEPTED": "",
+      "RUNNING": "",
+      "FINISHED": "",
+      "FAILED": "",
+      "CONTACTING_SERVER": ""
     },
-    "jobId": "Job id",
-    "unknown": "Unknown",
-    "indexeable": "The file can be indexed by GBIF",
-    "notIndexeable": "The file cannot be indexed by GBIF",
-    "numberOfLines": "Number of lines",
-    "reportProducedByGbifDataValidator": "Report produced by GBIF data validator",
-    "validationReport": "Validation report",
-    "dataValidator": "Data validator",
-    "dataValidatorDescription": "The GBIF data validator is a service that allows anyone with a GBIF-relevant dataset to receive a report on the syntactical correctness and the validity of the content contained within the dataset.",
-    "thisIsAnEarlyAccessVersion": "This an early access version. Please report issues and feedback",
-    "here": "Here.",
-    "newDataValidation": "New data validation",
-    "newValidation": "New validation",
-    "metaData": "Meta data",
-    "darwinCoreExtensions": "Darwin core extensions",
-    "coreRowType": "Core row type"
+    "jobId": "",
+    "unknown": "",
+    "indexeable": "",
+    "notIndexeable": "",
+    "numberOfLines": "",
+    "reportProducedByGbifDataValidator": "",
+    "validationReport": "",
+    "dataValidator": "",
+    "dataValidatorDescription": "",
+    "thisIsAnEarlyAccessVersion": "",
+    "here": "",
+    "newDataValidation": "",
+    "newValidation": "",
+    "metaData": "",
+    "darwinCoreExtensions": "",
+    "coreRowType": ""
   }
 }
