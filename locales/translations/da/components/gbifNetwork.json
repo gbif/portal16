@@ -23,7 +23,7 @@
       "one": "GBIF affiliate",
       "other": "GBIF affiliates"
     },
-    "role": "Role",
+    "role": "Rolle",
     "institution": "Institution",
     "group": {
 
@@ -32,7 +32,7 @@
     "membershipType": "Membership",
     "governingBoard": "Governing Board",
     "committees": "Committees",
-    "name": "Name",
+    "name": "Navn",
     "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, select, one{publisher} other{publishers}}",
     "occurrenceDatasetWith": "Occurrence {NUMBER, select, one{dataset} other{datasets}} with",
     "record": "{NUMBER, select, one{record} other{records}}",
