@@ -1,75 +1,75 @@
 {
   "health": {
     "statusSummary": {
-      "OPERATIONAL": "All systems operational",
-      "INFO": "All systems operational",
-      "WARNING": "We are experiencing unstable or slow systems",
-      "CRITICAL": "We are experiencing a partial outage"
+      "OPERATIONAL": "",
+      "INFO": "",
+      "WARNING": "",
+      "CRITICAL": ""
     },
     "status": {
-      "OPERATIONAL": "Operational",
-      "WARNING": "Unstable",
-      "CRITICAL": "Not usable",
-      "INFO": "System update"
+      "OPERATIONAL": "",
+      "WARNING": "",
+      "CRITICAL": "",
+      "INFO": ""
     },
     "components": {
       "OCCURRENCE": {
         "name": "Находка",
-        "tooltip": "E.g. searching and viewing occurrences."
+        "tooltip": ""
       },
       "SPECIES": {
         "name": "Виды",
-        "tooltip": "E.g. Searching and viewing species, species suggestions"
+        "tooltip": ""
       },
       "REGISTRY": {
         "name": "Реестр",
-        "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks."
+        "tooltip": ""
       },
       "IDENTITY": {
-        "name": "Identity",
-        "tooltip": "For logging in and out, connecting accounts etc."
+        "name": "",
+        "tooltip": ""
       },
       "MAPS": {
-        "name": "Maps",
-        "tooltip": "For displaying map images and getting info about a map."
+        "name": "",
+        "tooltip": ""
       },
       "CONTENTFUL": {
-        "name": "Content mangement system (external system)",
-        "tooltip": "Dataset, publishers, installations, countries, participants and networks. "
+        "name": "",
+        "tooltip": ""
       },
       "IMAGE_CACHE": {
-        "name": "Image cache",
-        "tooltip": "Responsible for most images on the website"
+        "name": "",
+        "tooltip": ""
       },
       "GITHUB": {
-        "name": "Github (external system)",
-        "tooltip": "Feedback, datasets suggestions"
+        "name": "",
+        "tooltip": ""
       },
       "CRAWLER": {
-        "name": "Ingestion",
-        "tooltip": "For updating datasets ﹣ new and old."
+        "name": "",
+        "tooltip": ""
       },
       "RESOURCE_SEARCH": {
-        "name": "Resource search",
-        "tooltip": "E.g. for searching literature, news."
+        "name": "",
+        "tooltip": ""
       },
       "CLUSTER": {
-        "name": "System load",
-        "tooltip": "The backend for handling downloads, ingestion and much more."
+        "name": "",
+        "tooltip": ""
       },
       "DOWNLOAD": {
-        "name": "Downloads",
-        "tooltip": "For handling download jobs and sending users notifications"
+        "name": "",
+        "tooltip": ""
       }
     },
     "notifications": {
       "WARNING": {
-        "title": "Services unstable",
-        "summary": "We are currently experiencing slow or unstable services."
+        "title": "",
+        "summary": ""
       },
       "CRITICAL": {
-        "title": "Services unavailable",
-        "summary": "We are experiencing a partial outage"
+        "title": "",
+        "summary": ""
       }
     }
   }
