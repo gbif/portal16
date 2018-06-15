@@ -2,7 +2,7 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "Executive committee",
+        "title": "Direktionen",
         "description": "The Executive Committee operates on behalf of the Governing Board when the Board is not in session and within the areas of responsibility delegated to it by the Governing Board. Among its functions are monitoring of the performance of the Secretariat in carrying out the decisions taken by the Governing Board including implementation of the Strategic Plan and the Work Programme, and management of the budget."
       },
       "scienceCommittee": {
@@ -39,8 +39,8 @@
       }
     },
     "columns": {
-      "role": "Role",
-      "name": "Name",
+      "role": "Rolle",
+      "name": "Navn",
       "participant": "Participant",
       "participationStatus": "Participant status"
     }
