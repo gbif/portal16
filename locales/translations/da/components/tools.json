@@ -6,7 +6,7 @@
             "title": "Suggest a dataset",
             "pleaseDescribeTheDataset": "Please describe the dataset",
             "form": {
-                "title": "Title",
+                "title": "Titel",
                 "link": "Internet link to data",
                 "region": "Geographic coverage",
                 "taxon": "Taxonomic scope",
