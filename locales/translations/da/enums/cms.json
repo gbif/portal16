@@ -2,15 +2,15 @@
   "enums": {
     "cms": {
       "vocabularyTypes": {
-        "countriesOfCoverage": "Country or area of coverage",
-        "countriesOfResearcher": "Country or area of researcher",
-        "literatureType": "Literature type",
-        "contractCountry": "Country or area",
-        "topics": "Topic",
-        "audiences": "Audiences",
-        "purposes": "Purpose",
-        "relevance": "Relevance",
-        "language": "Language"
+        "countriesOfCoverage": "Land eller område der diskuteres",
+        "countriesOfResearcher": "Forskers land eller område",
+        "literatureType": "Litteraturtype",
+        "contractCountry": "Land eller område",
+        "topics": "Emne",
+        "audiences": "Publikum",
+        "purposes": "Formål",
+        "relevance": "Relevans",
+        "language": "Sprog"
       },
       "contentType": {
         "event": "Event",
