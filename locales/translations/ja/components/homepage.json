@@ -2,9 +2,9 @@
     "homepage": {
         "counts": {
             "occurrences": "Occurrence records",
-            "datasets": "Datasets",
+            "datasets": "データセット",
             "publishers": "Publishing institutions",
-            "species": "Species",
+            "species": "種情報",
             "speciesSubtitle": "Learn more about the number of species covered by data in GBIF.org."
         },
         "aboutGbifCountry": "About GBIF {COUNTRY}",
