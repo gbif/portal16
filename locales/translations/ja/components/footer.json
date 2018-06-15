@@ -1,13 +1,13 @@
 {
   "footer": {
-    "whatIsGbif": "What is GBIF?",
+    "whatIsGbif": "GBIFとは",
     "api": "API",
     "faq": "FAQ",
-    "newsletter": "Newsletter",
+    "newsletter": "ニュースレター＆リスト",
     "privacy": "Privacy",
     "terms": "Terms and agreements",
     "citation": "Citation",
     "acknowledgements": "Acknowledgements",
-    "contact": "Contact"
+    "contact": "コンタクト"
   }
 }
