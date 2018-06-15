@@ -1,9 +1,9 @@
 {
   "cms": {
     "search": {
-      "events": "Events",
-      "news": "News",
-      "resources": "Resources",
+      "events": "イベント",
+      "news": "ニュース",
+      "resources": "ナレッジベース",
       "projects": "Projects",
       "programmes": "Programmes",
       "documents": "Documents",
