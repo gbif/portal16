@@ -8,7 +8,7 @@
     "AD": "Andorra",
     "AO": "Angola",
     "AI": "Anguilla",
-    "AQ": "Antarctica",
+    "AQ": "南極大陸",
     "AG": "Antigua and Barbuda",
     "AR": "Argentina",
     "AM": "Armenia",
@@ -252,7 +252,7 @@
     "ZM": "Zambia",
     "XZ": "International waters",
     "ZW": "Zimbabwe",
-    "QO": "Oceania",
+    "QO": "オセアニア",
     "ZZ": "Unknown country"
   }
 }
