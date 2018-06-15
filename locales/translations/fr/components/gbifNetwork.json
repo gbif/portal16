@@ -1,52 +1,52 @@
 {
   "gbifNetwork": {
-    "title": "Directory",
+    "title": "",
     "contact": "Contactez-nous",
-    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
+    "contactUsSubtitle": "",
     "voting_participant": {
-      "one": "Voting participant",
-      "other": "Voting participants"
+      "one": "",
+      "other": ""
     },
     "associate_country_participant": {
-      "one": "Associate country participant",
-      "other": "Associate country participants"
+      "one": "",
+      "other": ""
     },
     "other_associate_participant": {
-      "one": "Other associate participant",
-      "other": "Other associate participants"
+      "one": "",
+      "other": ""
     },
     "former_participant": {
-      "one": "Former participant",
-      "other": "Former participants"
+      "one": "",
+      "other": ""
     },
     "gbif_affiliate": {
-      "one": "GBIF affiliate",
-      "other": "GBIF affiliates"
+      "one": "",
+      "other": ""
     },
-    "role": "Role",
-    "institution": "Institution",
+    "role": "",
+    "institution": "",
     "group": {
 
     },
     "gbif_secretariat": "Le Secrétariat du GBIF",
-    "membershipType": "Membership",
-    "governingBoard": "Governing Board",
-    "committees": "Committees",
-    "name": "Name",
-    "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, select, one{publisher} other{publishers}}",
-    "occurrenceDatasetWith": "Occurrence {NUMBER, select, one{dataset} other{datasets}} with",
-    "record": "{NUMBER, select, one{record} other{records}}",
-    "participant": "{NUMBER, select, one{participant} other{participants}}",
-    "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
-    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}",
+    "membershipType": "",
+    "governingBoard": "",
+    "committees": "",
+    "name": "",
+    "endorsedDataPublisher": "",
+    "occurrenceDatasetWith": "",
+    "record": "",
+    "participant": "",
+    "dataset": "",
+    "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipant": {
-        "one": "Participant organisation",
-        "other": "Participant organisations"
+        "one": "",
+        "other": ""
       },
       "gbifAffiliate": {
-        "one": "GBIF affiliate",
-        "other": "GBIF affiliates"
+        "one": "",
+        "other": ""
       }
     }
   }
