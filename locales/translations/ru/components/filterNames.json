@@ -8,7 +8,7 @@
     "elevation": "Elevation",
     "collectionCode": "Collection code",
     "recordNumber": "Record number",
-    "datasetKey": "Dataset",
+    "datasetKey": "Набор данных",
     "protocol": "Protocol",
     "mediaType": "Media type",
     "recordedBy": "Recorded by",
@@ -39,6 +39,6 @@
     "orderKey": "Order",
     "familyKey": "Family",
     "genusKey": "Genus",
-    "speciesKey": "Species"
+    "speciesKey": "Виды"
   }
 }
