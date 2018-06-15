@@ -1,16 +1,16 @@
 {
   "nameUsageOrigin": {
-    "SOURCE": "Record came straight from source record.",
-    "DENORMED_CLASSIFICATION": "Implicit usage from a denormalised classification.",
-    "VERBATIM_PARENT": "Implicit usage from a verbatim parent name usage.",
-    "VERBATIM_ACCEPTED": "Implicit usage from a verbatim accepted name usage.",
-    "VERBATIM_BASIONYM": "Implicit usage from a verbatim basionym/original name.",
-    "PROPARTE": "Duplicated usage from a single pro parte record.",
-    "AUTONYM": "Generated, missing autonym.",
-    "IMPLICIT_NAME": "Generated, missing genus or species for ‘orphaned’ lower name.",
-    "MISSING_ACCEPTED": "Artificial accepted usage for a synonym if its missing to preserve the taxonomic hierarchy.",
-    "BASIONYM_PLACEHOLDER": "Placeholder usage for a missing or implicit basionym.",
-    "EX_AUTHOR_SYNONYM": "Implicit synonym based on the illegitimate ex author. See ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
-    "OTHER": "Other origin"
+    "SOURCE": "",
+    "DENORMED_CLASSIFICATION": "",
+    "VERBATIM_PARENT": "",
+    "VERBATIM_ACCEPTED": "",
+    "VERBATIM_BASIONYM": "",
+    "PROPARTE": "",
+    "AUTONYM": "",
+    "IMPLICIT_NAME": "",
+    "MISSING_ACCEPTED": "",
+    "BASIONYM_PLACEHOLDER": "",
+    "EX_AUTHOR_SYNONYM": "",
+    "OTHER": ""
   }
 }
