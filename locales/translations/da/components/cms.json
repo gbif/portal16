@@ -23,26 +23,26 @@
       "fundsAllocated": "Midler tildelt",
       "matchingFunds": "Est. sam-finansiering",
       "funding": "Finansiering",
-      "coFunding": "Co funding",
-      "fundedBy": "Funded by",
-      "coFundedBy": "Co funded by",
-      "typeOfGrant": "Type of grant",
-      "projectStart": "Project start",
+      "coFunding": "Sam-finansiering",
+      "fundedBy": "Finansieret af",
+      "coFundedBy": "Samfinansieret af",
+      "typeOfGrant": "Type af tilskud",
+      "projectStart": "Projektstart",
       "status": "Status",
-      "programme": "Programme",
-      "contractCountry": "Country or area",
-      "newsAndEvents": "News & events",
+      "programme": "Program",
+      "contractCountry": "Land eller område",
+      "newsAndEvents": "Nyheder & events",
       "call": "Call",
-      "projectLead": "Project lead",
-      "contactDetalils": "Contact details",
-      "partners": "Partners"
+      "projectLead": "Projektleder",
+      "contactDetalils": "Kontaktinformation",
+      "partners": "Partnere"
     },
     "literature": {
       "keywords": "Keywords"
     },
     "auxiliary": {
-      "subject": "Subject",
-      "organisingParticipants": "Organising Participants"
+      "subject": "Emne",
+      "organisingParticipants": "Organiserende participanter"
     }
   }
 }
