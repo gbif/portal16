@@ -1,14 +1,14 @@
 {
     "contactUs": {
         "tabs": {
-            "main": "contact us",
-            "directory": "directory"
+            "main": "Kontakt os",
+            "directory": "Telefonbog"
         }
     },
     "directory": {
         "group": {
             "executiveCommittee": {
-                "title": "Executive committee",
+                "title": "Direktionen",
                 "description": "The Executive Committee operates on behalf of the Governing Board when the Board is not in session and within the areas of responsibility delegated to it by the Governing Board. Among its functions are monitoring of the performance of the Secretariat in carrying out the decisions taken by the Governing Board including implementation of the Strategic Plan and the Work Programme, and management of the budget."
             },
             "scienceCommittee": {
@@ -32,11 +32,11 @@
                 "description": "The GBIF Secretariat, located at the Natural History Museum in Copenhagen, Denmark, is charged with developing, executing and reporting on the GBIF work programme. The tasks of the Secretariat include:\n - operating the GBIF portal and associated informatics\n - coordinating activities of the network related to data mobilization, publishing and management\n - monitoring data gaps and use of GBIF-mediated data for science, and\n - operating central communication and collaboration services"
             },
             "voting": {
-                "title": "Voting participants",
+                "title": "Stemmende participanter",
                 "description": "Countries that have signed the GBIF Memorandum of Understanding and agree to make a basic financial contribution to GBIF core funds."
             },
             "associateCountries": {
-                "title": "Associate country participants",
+                "title": "Associerede landeparticipanter",
                 "description": "Countries that have signed the GBIF Memorandum of Understanding but do not make a financial contribution to GBIF core funds, and do not have a vote on the GBIF Governing Board."
             },
             "associateParticipants": {
@@ -45,8 +45,8 @@
             }
         },
         "columns": {
-            "role": "Role",
-            "name": "Name",
+            "role": "Rolle",
+            "name": "Navn",
             "participant": "Participant",
             "participationStatus": "Participant status"
         }
