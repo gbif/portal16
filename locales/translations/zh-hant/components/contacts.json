@@ -1,10 +1,4 @@
 {
-    "contactUs": {
-        "tabs": {
-            "main": "contact us",
-            "directory": "directory"
-        }
-    },
     "directory": {
         "group": {
             "executiveCommittee": {

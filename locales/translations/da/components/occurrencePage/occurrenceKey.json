@@ -7,34 +7,34 @@
         "LIVING_SPECIMEN": "Samlet i {COUNTRY}",
         "HUMAN_OBSERVATION": "Observet i {COUNTRY}",
         "MACHINE_OBSERVATION": "Observet i {COUNTRY}",
-        "MATERIAL_SAMPLE": "Collected in {COUNTRY}",
-        "OCCURRENCE": "Recorded in {COUNTRY}",
+        "MATERIAL_SAMPLE": "Indsamlet i {COUNTRY}",
+        "OCCURRENCE": "Observet i {COUNTRY}",
         "OBSERVATION": "Observet i {COUNTRY}",
-        "LITERATURE": "Recorded in {COUNTRY}",
-        "UNKNOWN": "Recorded in {COUNTRY}"
+        "LITERATURE": "Observet i {COUNTRY}",
+        "UNKNOWN": "Observet i {COUNTRY}"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "Collected at unknown location",
-        "FOSSIL_SPECIMEN": "Collected at unknown location",
-        "LIVING_SPECIMEN": "Collected at unknown location",
-        "HUMAN_OBSERVATION": "Observed at unknown location",
-        "MACHINE_OBSERVATION": "Observed at unknown location",
-        "MATERIAL_SAMPLE": "Collected at unknown location",
-        "OCCURRENCE": "Recorded at unknown location",
-        "OBSERVATION": "Observed at unknown location",
-        "LITERATURE": "Recorded at unknown location",
-        "UNKNOWN": "Recorded at unknown location"
+        "PRESERVED_SPECIMEN": "Indsamlet på et ukendt sted",
+        "FOSSIL_SPECIMEN": "Indsamlet på et ukendt sted",
+        "LIVING_SPECIMEN": "Indsamlet på et ukendt sted",
+        "HUMAN_OBSERVATION": "Observeret på et ukendt sted",
+        "MACHINE_OBSERVATION": "Observeret på et ukendt sted",
+        "MATERIAL_SAMPLE": "Indsamlet på et ukendt sted",
+        "OCCURRENCE": "Observeret på et ukendt sted",
+        "OBSERVATION": "Observeret på et ukendt sted",
+        "LITERATURE": "Observeret på et ukendt sted",
+        "UNKNOWN": "Observeret på et ukendt sted"
       },
-      "unknownSpecies": "Unknown Species"
+      "unknownSpecies": "Ukendt art"
     },
-    "occurrence": "Occurrence",
-    "inLanguage": "In {LANGUAGE_TRANSLATED}"
+    "occurrence": "Observation",
+    "inLanguage": "På {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "Excluded",
-      "AUTHORED": "Altered",
-      "INFERED": "Inferred"
+      "EXCLUDED": "Ekskluderet",
+      "AUTHORED": "Ændret",
+      "INFERED": "Udledt"
     }
   }
 }

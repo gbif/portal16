@@ -2,47 +2,47 @@
   "cms": {
     "search": {
       "events": "Events",
-      "news": "News",
-      "resources": "Resources",
-      "projects": "Projects",
-      "programmes": "Programmes",
-      "documents": "Documents",
-      "tools": "Tools",
-      "dataUse": "Data use",
-      "literature": "Literature"
+      "news": "Nyheder",
+      "resources": "Ressourcer",
+      "projects": "Projekter",
+      "programmes": "Programmer",
+      "documents": "Dokumenter",
+      "tools": "Værktøjer",
+      "dataUse": "Databrug",
+      "literature": "Litteratur"
     },
     "project": {
-      "project": "Project",
-      "projectId": "Project ID",
-      "projectIdentifier": "Project identifier",
-      "grantType": "Grant type",
-      "duration": "Duration",
-      "title": "Title",
+      "project": "Projekt",
+      "projectId": "Projekt-ID",
+      "projectIdentifier": "Projektidentifikator",
+      "grantType": "Tilskudstype",
+      "duration": "Varighed",
+      "title": "Titel",
       "start": "Start",
-      "end": "End",
-      "fundsAllocated": "Funding allocated",
-      "matchingFunds": "Est. co-funding",
-      "funding": "Funding",
-      "coFunding": "Co funding",
-      "fundedBy": "Funded by",
-      "coFundedBy": "Co funded by",
-      "typeOfGrant": "Type of grant",
-      "projectStart": "Project start",
+      "end": "Slut",
+      "fundsAllocated": "Midler tildelt",
+      "matchingFunds": "Est. sam-finansiering",
+      "funding": "Finansiering",
+      "coFunding": "Sam-finansiering",
+      "fundedBy": "Finansieret af",
+      "coFundedBy": "Samfinansieret af",
+      "typeOfGrant": "Type af tilskud",
+      "projectStart": "Projektstart",
       "status": "Status",
-      "programme": "Programme",
-      "contractCountry": "Country or area",
-      "newsAndEvents": "News & events",
+      "programme": "Program",
+      "contractCountry": "Land eller område",
+      "newsAndEvents": "Nyheder & events",
       "call": "Call",
-      "projectLead": "Project lead",
-      "contactDetalils": "Contact details",
-      "partners": "Partners"
+      "projectLead": "Projektleder",
+      "contactDetalils": "Kontaktinformation",
+      "partners": "Partnere"
     },
     "literature": {
       "keywords": "Keywords"
     },
     "auxiliary": {
-      "subject": "Subject",
-      "organisingParticipants": "Organising Participants"
+      "subject": "Emne",
+      "organisingParticipants": "Organiserende participanter"
     }
   }
 }
