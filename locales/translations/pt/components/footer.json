@@ -1,13 +1,13 @@
 {
   "footer": {
-    "whatIsGbif": "What is GBIF?",
-    "api": "API",
-    "faq": "FAQ",
-    "newsletter": "Newsletter",
-    "privacy": "Privacy",
-    "terms": "Terms and agreements",
+    "whatIsGbif": "",
+    "api": "",
+    "faq": "",
+    "newsletter": "",
+    "privacy": "",
+    "terms": "",
     "citation": "Citações",
-    "acknowledgements": "Acknowledgements",
+    "acknowledgements": "",
     "contact": "Nos contact"
   }
 }
