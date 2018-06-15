@@ -1,6 +1,6 @@
 {
   "menu": {
-    "home": "Home",
+    "home": "Page d’accueil",
     "get": "Get data",
     "occurrences": "Occurrences",
     "species": "Species",
@@ -14,7 +14,7 @@
     "publishingGuide": "Publishing data",
     "endorsement": "Become a publisher",
     "standards": "Standards",
-    "dataPapers": "Data papers",
+    "dataPapers": "Les “data papers” ",
     "citizenScience": "Citizen science",
     "tools": "Tools",
     "ipt": "IPT",
@@ -36,7 +36,7 @@
     "toolsCatalogue": "Tools catalogue",
     "inside": "Inside GBIF",
     "about": "About",
-    "whatIsGbif": "What is GBIF?",
+    "whatIsGbif": "Qu'est-ce que le GBIF ?",
     "GbifNetwork": "The GBIF Network",
     "becomeMember": "Become a member",
     "communitySite": "Community forum",
@@ -51,7 +51,7 @@
     "awards": "Awards",
     "ProgrammesProjects": "Programmes & projects",
     "capacitySupport": "CESP: Capacity Enhancement Support Programme",
-    "bidProgramme": "BID: Biodiversity Information for Development",
+    "bidProgramme": "BID: l'Information sur la Biodiversité pour le Développement",
     "bifaProgramme": "BIFA: Biodiversity Information Fund for Asia",
     "funders": "Funders",
     "governance": "Governance"
