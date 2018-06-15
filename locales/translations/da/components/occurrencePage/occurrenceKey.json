@@ -3,13 +3,13 @@
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Samlet i {COUNTRY}",
-        "FOSSIL_SPECIMEN": "Collected in {COUNTRY}",
-        "LIVING_SPECIMEN": "Collected in {COUNTRY}",
-        "HUMAN_OBSERVATION": "Observed in {COUNTRY}",
-        "MACHINE_OBSERVATION": "Observed in {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Samlet i {COUNTRY}",
+        "LIVING_SPECIMEN": "Samlet i {COUNTRY}",
+        "HUMAN_OBSERVATION": "Observet i {COUNTRY}",
+        "MACHINE_OBSERVATION": "Observet i {COUNTRY}",
         "MATERIAL_SAMPLE": "Collected in {COUNTRY}",
         "OCCURRENCE": "Recorded in {COUNTRY}",
-        "OBSERVATION": "Observed in {COUNTRY}",
+        "OBSERVATION": "Observet i {COUNTRY}",
         "LITERATURE": "Recorded in {COUNTRY}",
         "UNKNOWN": "Recorded in {COUNTRY}"
       },
