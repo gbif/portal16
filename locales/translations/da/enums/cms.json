@@ -91,24 +91,24 @@
           "web_page": "Webside",
           "thesis": "Afhandling",
           "magazine_article": "Magasin-artikel",
-          "statute": "Statute",
+          "statute": "Statut",
           "patent": "Patent",
-          "newspaper_article": "Newspaper article",
-          "computer_program": "Computer program",
-          "hearing": "Hearing",
-          "television_broadcast": "Television broadcast",
-          "encyclopedia_article": "Encyclopedia article",
+          "newspaper_article": "Avisartikel",
+          "computer_program": "Computerprogram",
+          "hearing": "Hørelse",
+          "television_broadcast": "Tv-udsendelse",
+          "encyclopedia_article": "Leksikon artikel",
           "case": "Case",
           "film": "Film",
           "bill": "Bill"
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
-          "DATA_HOLDERS": "Data holders",
-          "DATA_USERS": "Data users",
-          "DECISION_MAKERS": "Decision makers",
-          "GBIF_NETWORK": "GBIF network",
-          "PUBLIC_STAKEHOLDERS": "Public stakeholders"
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Eksperter i biodiversitet",
+          "DATA_HOLDERS": "Dataejere",
+          "DATA_USERS": "Databrugere",
+          "DECISION_MAKERS": "Beslutningstagere",
+          "GBIF_NETWORK": "GBIF netværk",
+          "PUBLIC_STAKEHOLDERS": "Offentlige aktører"
         }
       }
     }
