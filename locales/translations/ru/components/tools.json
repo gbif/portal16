@@ -3,7 +3,7 @@
         "categoryFeatured": "Featured",
         "suggestDataset": {
             "NOT_OPEN": "Not an open license",
-            "title": "Suggest a dataset",
+            "title": "Сообщить о наборе данных",
             "pleaseDescribeTheDataset": "Please describe the dataset",
             "form": {
                 "title": "Title",
