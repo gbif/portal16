@@ -1,9 +1,9 @@
 {
   "cms": {
     "search": {
-      "events": "Events",
-      "news": "News",
-      "resources": "Resources",
+      "events": "Мероприятия",
+      "news": "Новости",
+      "resources": "Ресурсы",
       "projects": "Projects",
       "programmes": "Programmes",
       "documents": "Documents",
