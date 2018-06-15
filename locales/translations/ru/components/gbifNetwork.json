@@ -1,7 +1,7 @@
 {
   "gbifNetwork": {
     "title": "Directory",
-    "contact": "Contact",
+    "contact": "Информация для связи",
     "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
     "voting_participant": {
       "one": "Voting participant",
@@ -28,7 +28,7 @@
     "group": {
 
     },
-    "gbif_secretariat": "GBIF Secretariat",
+    "gbif_secretariat": "Секретариат GBIF",
     "membershipType": "Membership",
     "governingBoard": "Governing Board",
     "committees": "Committees",
