@@ -1,13 +1,13 @@
 {
   "footer": {
-    "whatIsGbif": "What is GBIF?",
+    "whatIsGbif": "Что такое GBIF?",
     "api": "API",
-    "faq": "FAQ",
-    "newsletter": "Newsletter",
+    "faq": "Часто задаваемые вопросы",
+    "newsletter": "Информационный бюллетень",
     "privacy": "Privacy",
     "terms": "Terms and agreements",
-    "citation": "Citation",
+    "citation": "Цитата",
     "acknowledgements": "Acknowledgements",
-    "contact": "Contact"
+    "contact": "Информация для связи"
   }
 }
