@@ -1,42 +1,42 @@
 {
     "intervals": {
         "elevation": {
-            "equals": "is {from}m",
-            "between": "between {from} and {to}m",
-            "lessThanOrEquals": "below {to}m",
-            "greaterThanOrEquals": "above {from}m",
-            "invalid": "invalid",
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
             "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "below",
-                "greaterThanOrEquals": "above"
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
             }
         },
         "depth": {
-            "equals": "is {from}m",
-            "between": "between {from} and {to}m",
-            "lessThanOrEquals": "above {to}m depth",
-            "greaterThanOrEquals": "deeper than {from}m",
-            "invalid": "invalid",
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
             "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "less than",
-                "greaterThanOrEquals": "deeper than"
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
             }
         },
         "year": {
-            "equals": "is {from}",
-            "between": "between start of {from} and end of {to}",
-            "lessThanOrEquals": "before end of {to}",
-            "greaterThanOrEquals": "after start of {from}",
-            "invalid": "invalid",
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
             "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "before end of",
-                "greaterThanOrEquals": "after start of"
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
             }
         }
     }
