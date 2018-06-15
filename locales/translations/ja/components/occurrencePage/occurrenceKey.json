@@ -2,39 +2,39 @@
   "occurrence": {
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "Collected in {COUNTRY}",
-        "FOSSIL_SPECIMEN": "Collected in {COUNTRY}",
-        "LIVING_SPECIMEN": "Collected in {COUNTRY}",
-        "HUMAN_OBSERVATION": "Observed in {COUNTRY}",
-        "MACHINE_OBSERVATION": "Observed in {COUNTRY}",
-        "MATERIAL_SAMPLE": "Collected in {COUNTRY}",
-        "OCCURRENCE": "Recorded in {COUNTRY}",
-        "OBSERVATION": "Observed in {COUNTRY}",
-        "LITERATURE": "Recorded in {COUNTRY}",
-        "UNKNOWN": "Recorded in {COUNTRY}"
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "Collected at unknown location",
-        "FOSSIL_SPECIMEN": "Collected at unknown location",
-        "LIVING_SPECIMEN": "Collected at unknown location",
-        "HUMAN_OBSERVATION": "Observed at unknown location",
-        "MACHINE_OBSERVATION": "Observed at unknown location",
-        "MATERIAL_SAMPLE": "Collected at unknown location",
-        "OCCURRENCE": "Recorded at unknown location",
-        "OBSERVATION": "Observed at unknown location",
-        "LITERATURE": "Recorded at unknown location",
-        "UNKNOWN": "Recorded at unknown location"
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
       },
-      "unknownSpecies": "Unknown Species"
+      "unknownSpecies": ""
     },
-    "occurrence": "Occurrence",
-    "inLanguage": "In {LANGUAGE_TRANSLATED}"
+    "occurrence": "",
+    "inLanguage": ""
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "Excluded",
-      "AUTHORED": "Altered",
-      "INFERED": "Inferred"
+      "EXCLUDED": "",
+      "AUTHORED": "",
+      "INFERED": ""
     }
   }
 }
