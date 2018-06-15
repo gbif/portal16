@@ -35,7 +35,7 @@
     "publOfFourTypesOfData": "GBIF.org supports publication of four types of data, explained [here.](/dataset-classes) Responsibility for formatting the data and hosting the original datasets remains with the data publisher, but we can help you find appropriate technical solutions.",
     "whichTypesOfData": "Which types of data do you expect to publish?",
     "resourcesMetaData": "Resources metadata",
-    "checkListData": "Checklist data",
+    "checkListData": "チェックリストのデータ",
     "occurrenceOnlyData": "Occurrence-only data",
     "samplingEventData": "Sampling-event data",
     "doYouHaveCapacity": "Do you have EITHER the capacity to run a live server, OR access to a server, through which you will make your original dataset available to GBIF.org?",
@@ -78,6 +78,6 @@
     "yourOrgDetailsAreHere": "Your organization details are here.",
     "outage": "We are experiencing a partial outage and do not accept registrations at the moment",
     "eoiDescription": "To prepare for publishing data through GBIF, we ask prospective new publishers to complete this online form. Before GBIF indexes your datasets, your institution must receive endorsement as a data publisher from one of the countries or organizations participating in GBIF, through a GBIF Participant node. If your country is not yet participating in GBIF, we will seek endorsement on your behalf from the GBIF community.",
-    "eoiTitle": "Become a publisher"
+    "eoiTitle": "承認"
   }
 }
