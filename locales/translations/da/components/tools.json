@@ -1,54 +1,54 @@
 {
     "tools": {
-        "categoryFeatured": "Featured",
+        "categoryFeatured": "",
         "suggestDataset": {
-            "NOT_OPEN": "Not an open license",
-            "title": "Suggest a dataset",
-            "pleaseDescribeTheDataset": "Please describe the dataset",
+            "NOT_OPEN": "",
+            "title": "",
+            "pleaseDescribeTheDataset": "",
             "form": {
                 "title": "Titel",
-                "link": "Internet link to data",
-                "region": "Geographic coverage",
-                "taxon": "Taxonomic scope",
-                "whyImportant": "Why is this dataset important",
-                "howWouldYouRateIt": "How would you rate its importance",
-                "high": "Essential — GBIF have no data in this area",
-                "medium": "Important — GBIF have little data in this area",
-                "low": "It would be a nice supplement to the existing data",
-                "bibliographicRef": "Bibliographic reference",
-                "type": "Dataset type",
-                "license": "License information",
-                "dataHolderContact": "Dataholders contact information",
-                "publicAlert": "These details will be public",
-                "yourContact": "Your contact information",
-                "comments": "Comments",
-                "submit": "Submit",
-                "followDiscussionBelow": "Follow or join the further discussion on the link below.",
-                "followIssue": "See suggestion on github",
-                "suggestAnother": "Suggest another dataset",
-                "saveFailure": "This isn't good. We couldn't save your suggestion. Please try again later or alternatively go straight to [Github](https://github.com/gbif/data-mobilization/issues) where the suggestions are managed"
+                "link": "",
+                "region": "",
+                "taxon": "",
+                "whyImportant": "",
+                "howWouldYouRateIt": "",
+                "high": "",
+                "medium": "",
+                "low": "",
+                "bibliographicRef": "",
+                "type": "",
+                "license": "",
+                "dataHolderContact": "",
+                "publicAlert": "",
+                "yourContact": "",
+                "comments": "",
+                "submit": "",
+                "followDiscussionBelow": "",
+                "followIssue": "",
+                "suggestAnother": "",
+                "saveFailure": ""
             }
         },
         "observationTrends": {
-            "drawerTitle": "Relative observation trends",
-            "intro": "A pilot to explore whether relative observation trends for species within GBIF provide useful information for researchers",
-            "aboutLink": "Read about this tool",
-            "selectSpecies": "Select species",
-            "noData": "We have no georeferenced data about the selected species after year 1900",
-            "selectHigherTaxa": "Select higher taxon",
-            "selectArea": "Select an area",
-            "hexagon": "Hexagon",
-            "draw": "Draw",
-            "clear": "Clear",
-            "resultIntro": "Change in relative observation frequency for the selected area",
-            "embedIntro": "All data mediated through the {GBIF network}"
+            "drawerTitle": "",
+            "intro": "",
+            "aboutLink": "",
+            "selectSpecies": "",
+            "noData": "",
+            "selectHigherTaxa": "",
+            "selectArea": "",
+            "hexagon": "",
+            "draw": "",
+            "clear": "",
+            "resultIntro": "",
+            "embedIntro": ""
         },
         "speciesLookup": {
-            "description": "Normalize species names from a CSV file against the GBIF backbone. The file is expected to be have a column called ‘scientificName’ and an optional column ‘kingdom’ and ‘id’.",
-            "title": "Species name matching"
+            "description": "",
+            "title": ""
         },
         "ipt": {
-            "description": "The Integrated Publishing Toolkit (IPT) is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the GBIF network. The IPT can also be configured with either a DataCite or EZID account in order to assign DOIs to datasets transforming it into a data repository."
+            "description": ""
         }
     }
 }
