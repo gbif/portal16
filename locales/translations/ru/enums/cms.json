@@ -14,7 +14,7 @@
       },
       "contentType": {
         "event": "Event",
-        "news": "News",
+        "news": "Новости",
         "resource": "Resource",
         "dataUse": "Data use",
         "project": "Project",
@@ -58,7 +58,7 @@
           "CITIZEN_SCIENCE": "Citizen science",
           "CLIMATE_CHANGE": "Climate change",
           "CONSERVATION": "Conservation",
-          "DATA_MANAGEMENT": "Data management",
+          "DATA_MANAGEMENT": "Управление данными",
           "DATA_PAPER": "Data paper",
           "ECOLOGY": "Ecology",
           "ECOSYSTEM_SERVICES": "Ecosystem services",
@@ -77,7 +77,7 @@
           "DATA_ANALYSIS": "Data analysis",
           "DATA_CURATION_&_QUALITY": "Data curation & quality",
           "DATA_DIGITIZATION": "Data digitization",
-          "DATA_PUBLISHING": "Data publishing",
+          "DATA_PUBLISHING": "Публикация данных",
           "DATA_CURATION_QUALITY": "Data curation quality"
         },
         "literatureType": {
@@ -103,11 +103,11 @@
           "bill": "Bill"
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Эксперты по биоразнообразию",
           "DATA_HOLDERS": "Data holders",
-          "DATA_USERS": "Data users",
+          "DATA_USERS": "Пользователи данных",
           "DECISION_MAKERS": "Decision makers",
-          "GBIF_NETWORK": "GBIF network",
+          "GBIF_NETWORK": "Сеть GBIF",
           "PUBLIC_STAKEHOLDERS": "Public stakeholders"
         }
       }
