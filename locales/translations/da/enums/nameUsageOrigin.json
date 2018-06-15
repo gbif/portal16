@@ -2,15 +2,15 @@
   "nameUsageOrigin": {
     "SOURCE": "Optegnelsen kom direkte fra kilden.",
     "DENORMED_CLASSIFICATION": "Implicit brug fra en denormaliseret klassifikation.",
-    "VERBATIM_PARENT": "Implicit usage from a verbatim parent name usage.",
-    "VERBATIM_ACCEPTED": "Implicit usage from a verbatim accepted name usage.",
-    "VERBATIM_BASIONYM": "Implicit usage from a verbatim basionym/original name.",
-    "PROPARTE": "Duplicated usage from a single pro parte record.",
-    "AUTONYM": "Generated, missing autonym.",
-    "IMPLICIT_NAME": "Generated, missing genus or species for ‘orphaned’ lower name.",
-    "MISSING_ACCEPTED": "Artificial accepted usage for a synonym if its missing to preserve the taxonomic hierarchy.",
-    "BASIONYM_PLACEHOLDER": "Placeholder usage for a missing or implicit basionym.",
-    "EX_AUTHOR_SYNONYM": "Implicit synonym based on the illegitimate ex author. See ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
-    "OTHER": "Other origin"
+    "VERBATIM_PARENT": "Implicit brug fra et uprocesseret forældrenavnebrug.",
+    "VERBATIM_ACCEPTED": "Implicit brug fra et uprocesseret accepteret navnebrug.",
+    "VERBATIM_BASIONYM": "Implicit brug fra et uprocesseret basionym/oprindeligt navn.",
+    "PROPARTE": "Duplikeret brug fra en enkelt pro parte record.",
+    "AUTONYM": "Genereret, manglende autonym.",
+    "IMPLICIT_NAME": "Genereret, manglende slaegt eller art for ' forældreløst' lavere navn.",
+    "MISSING_ACCEPTED": "Kunstig accepteret brug for et synonym, hvis det mangler for at bevare det taksonomiske hierarki.",
+    "BASIONYM_PLACEHOLDER": "Pladsholder-brug for et manglende eller implicit basionym.",
+    "EX_AUTHOR_SYNONYM": "Implicit synonym baseret på den illegitime ex forfatter. Se ICN artikel 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
+    "OTHER": "Anden oprindelse"
   }
 }
