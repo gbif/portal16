@@ -1,7 +1,7 @@
 {
   "nameUsageOrigin": {
-    "SOURCE": "Record came straight from source record.",
-    "DENORMED_CLASSIFICATION": "Implicit usage from a denormalised classification.",
+    "SOURCE": "Optegnelsen kom direkte fra kilden.",
+    "DENORMED_CLASSIFICATION": "Implicit brug fra en denormaliseret klassifikation.",
     "VERBATIM_PARENT": "Implicit usage from a verbatim parent name usage.",
     "VERBATIM_ACCEPTED": "Implicit usage from a verbatim accepted name usage.",
     "VERBATIM_BASIONYM": "Implicit usage from a verbatim basionym/original name.",
