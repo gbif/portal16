@@ -1,41 +1,41 @@
 {
   "map": {
     "predefined": {
-      "CLASSIC_HEX": "Classic hexagons",
-      "CLASSIC": "Classic points",
-      "STREETS": "Streets",
-      "GLACIER": "Glacier",
-      "CUSTOM": "Custom"
+      "CLASSIC_HEX": "",
+      "CLASSIC": "",
+      "STREETS": "",
+      "GLACIER": "",
+      "CUSTOM": ""
     },
     "basemap": {
-      "CLASSIC": "Magenta",
-      "LIGHT": "Light (no labels)",
-      "LIGHT_DETAILS": "Light",
-      "DARK": "Dark (no labels)",
-      "DARK_DETAILS": "Dark",
-      "OSM": "Roads"
+      "CLASSIC": "",
+      "LIGHT": "",
+      "LIGHT_DETAILS": "",
+      "DARK": "",
+      "DARK_DETAILS": "",
+      "OSM": ""
     },
     "bin": {
-      "PIXEL": "Points",
-      "SMALL_HEX": "Small hexagons",
-      "LARGE_HEX": "Hexagons",
-      "SMALL_SQUARE": "Small squares",
-      "LARGE_SQUARE": "Squares"
+      "PIXEL": "",
+      "SMALL_HEX": "",
+      "LARGE_HEX": "",
+      "SMALL_SQUARE": "",
+      "LARGE_SQUARE": ""
     },
     "colors": {
-      "CLASSIC": "Classic",
-      "FIRE": "Fire",
-      "GLACIER": "Glacier",
-      "PURPLE_YELLOW": "Purple yellow",
-      "PURPLE_HEAT": "Purple heat",
-      "BLUE_HEAT": "Blue heat",
-      "ORANGE_HEAT": "Orange heat",
-      "GREEN": "Green",
-      "BLUE_CLUSTER": "Blue cluster",
-      "ORANGE_CLUSTER": "Orange cluster"
+      "CLASSIC": "",
+      "FIRE": "",
+      "GLACIER": "",
+      "PURPLE_YELLOW": "",
+      "PURPLE_HEAT": "",
+      "BLUE_HEAT": "",
+      "ORANGE_HEAT": "",
+      "GREEN": "",
+      "BLUE_CLUSTER": "",
+      "ORANGE_CLUSTER": ""
     },
     "errors": {
-      "413": "The geometry file is too large to be processed by the data API."
+      "413": ""
     }
   }
 }
