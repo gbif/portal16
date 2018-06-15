@@ -1,9 +1,9 @@
 {
     "datasetType": {
         "OCCURRENCE": "Registro",
-        "CHECKLIST": "Checklist",
-        "SAMPLING_EVENT": "Sampling event",
+        "CHECKLIST": "",
+        "SAMPLING_EVENT": "",
         "METADATA": "Metadatos",
-        "undefined": "Unknown"
+        "undefined": ""
     }
 }
