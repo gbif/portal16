@@ -14,7 +14,7 @@
         "description": "The Budget Committee is an advisory committee dealing with various financial issues relating to the administration of GBIF funds. Among other functions, it oversees the audit of the annual accounts submitted to the Governing Board, and it provides guidance for the selection of GBIF’s auditing company. The committee makes recommendations to the Governing Board, the Executive Committee and the Secretariat. Its terms of reference can be found [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
-        "title": "Nodes Steering Group",
+        "title": "Comité de pilotage des points nodaux",
         "description": "Established in 2011, the Nodes Steering Group (NSG) consists of the chair and vice-chairs of the [Participant Node Managers Committee](/contact-us/directory?group=nodesCommittee) joined by a regional representative from each of GBIF’s six regions ([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America/Caribbean](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)). The NSG’s objectives are to formulate specific recommendations to relevant GBIF bodies based on feedback provided by Participant nodes, and to provide advice on GBIF’s annual work programmes as they relate to the efforts of GBIF nodes."
       },
       "nodesCommittee": {
@@ -22,7 +22,7 @@
         "description": "The Participant Node Managers Committee (or Nodes Committee) is a dynamic group formed by the node managers appointed by all Participants (countries and international organizations). The committee includes three Chair positions established through voting by the Governing Board for a maximum of two two-year terms."
       },
       "secretariat": {
-        "title": "GBIF Secretariat",
+        "title": "Secretariado de GBIF",
         "description": "The GBIF Secretariat, located at the Natural History Museum in Copenhagen, Denmark, is charged with developing, executing and reporting on the GBIF work programme. The tasks of the Secretariat include:\n - operating the GBIF portal and associated informatics\n - coordinating activities of the network related to data mobilization, publishing and management\n - monitoring data gaps and use of GBIF-mediated data for science, and\n - operating central communication and collaboration services"
       },
       "voting": {
