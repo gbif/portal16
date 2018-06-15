@@ -14,15 +14,15 @@
     },
     "components": {
       "OCCURRENCE": {
-        "name": "Occurrence",
+        "name": "Находка",
         "tooltip": "E.g. searching and viewing occurrences."
       },
       "SPECIES": {
-        "name": "Species",
+        "name": "Виды",
         "tooltip": "E.g. Searching and viewing species, species suggestions"
       },
       "REGISTRY": {
-        "name": "Registry",
+        "name": "Реестр",
         "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks."
       },
       "IDENTITY": {
