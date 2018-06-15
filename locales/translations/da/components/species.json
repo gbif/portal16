@@ -35,7 +35,7 @@
     "searchSpecies": "Søg taxa",
     "seeAlso": "Se også",
     "viewInGbifBackbone": "Se i GBIF backbone",
-    "publisherRecord": "Publisher record",
+    "publisherRecord": "",
     "verbatimListingMsg": "Denne side viser den originale, uprocesserede information som GBIF modtog den fra dataudgiveren.",
     "interpretationMsg": "Dette er fortolknongen af dette taxon som publiceret i {DATASET}.",
     "viewGbifSpeciesMsg": "For at se GBIFs fortolkning af dette taxon, se [backboneversionen](/species/{NUBKEY})",
