@@ -6,13 +6,6 @@
       "SAMPLING_EVENT": "Sampling event",
       "METADATA": "Metadata dataset"
     },
-    "search": {
-      "type": "Type",
-      "publishingOrg": "Publisher",
-      "hostingOrg": "Host",
-      "publishingCountry": "Publishing country or area",
-      "projectId": "Project"
-    },
     "title": "Title",
     "projectId": "Project ID",
     "studyArea": "Study area",
@@ -48,7 +41,6 @@
     "geographicCoverages": "Geographic",
     "taxonomicCoverages": "Taxonomic",
     "additionalInfo": "Additional info",
-    "searchForDatasets": "Search for datasets",
     "lastIngestionSuccess": "Last ingestion a success",
     "lastIngestionFailed": "Last ingestion failed",
     "publishingCountriesAreas": "Publishing countries and areas",

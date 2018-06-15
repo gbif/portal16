@@ -1,26 +1,21 @@
 <div search-drawer filter="dataset.state" content-type="datasets" ng-class="{'is-active': dataset.showFilters}">
     <div class="site-drawer__section">
         <div class="search-bar filter-group">
-
             <form class="search-bar__term" ng-submit="dataset.search()">
                 <input type="text"
                        id="siteSearch"
                        autocomplete="off"
                        class="fit-suggestions"
                        ng-model="dataset.state.query.q"
-                       placeholder="{{'dataset.searchForDatasets' | translate}}"
+                       placeholder="{{'datasetSearch.searchPlaceholder' | translate}}"
                        uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
                        typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
                        typeahead-focus-first="false">
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.search()">
-                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    <span class="sr-only">{$ __('search.search') $}</span>
                 </a>
             </form>
-
         </div>
-
-
-        <!--<div filter-facet filter-config="dataset.filters.type" filter-state="dataset.state"></div>-->
 
         <div filter-taxon filter-config="dataset.filters.publisher" filter-state="dataset.state"></div>
 
@@ -28,17 +23,9 @@
 
         <div filter-enum filter-config="dataset.filters.publishingCountry" filter-state="dataset.state"></div>
 
-        <!-- Removed as that part of the API has been retracted -->
-        <!--<div filter-taxon filter-config="dataset.filters.taxonKey" filter-state="dataset.state"></div>-->
-
         <div filter-suggest filter-config="dataset.filters.projectId" filter-state="dataset.state"></div>
 
         <div filter-enum filter-config="dataset.filters.license" filter-state="dataset.state"></div>
-
-        <!--<div filter-enum filter-config="dataset.filters.type" filter-state="dataset.state"></div>-->
-        <!--<div filter-enum filter-config="dataset.filters.publishingCountry" filter-state="dataset.state"></div>-->
-
-        <!--<div filter-suggest filter-config="dataset.filters.hostingOrg" filter-state="dataset.state"></div>-->
 
     </div>
 </div>
@@ -54,8 +41,8 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper" translate="stdTerms.searchDatasets"></span>
-                                    <span class="article-header__category__lower" ng-if="dataset.hasData()" tx="stdTerms.nResults" tx-nr="dataset.state.data.count"></span>
+                                    <span class="article-header__category__upper" translate="datasetSearch.searchDatasets"></span>
+                                    <span class="article-header__category__lower" ng-if="dataset.hasData()" tx="search.nResults" tx-nr="dataset.state.data.count"></span>
                                     <span class="article-header__category__lower" ng-if="!dataset.hasData() && !dataset.state.failedRequest" translate="stdTerms.loading"></span>
                                     <span class="article-header__category__lower" ng-if="dataset.state.failedRequest" translate="stdTerms.failed"></span>
                                 </nav>
@@ -70,7 +57,7 @@
                             <nav class="tabs">
                                 <ul>
                                     <li class="tab" ng-class="{isActive: !dataset.state.query.type}">
-                                        <a href="" ui-sref="datasetSearchTable({type:[], q: dataset.state.query.q, locale: dataset.state.query.locale})" ui-sref-opts="{inherit: true}" translate="stdTerms.all">
+                                        <a href="" ui-sref="datasetSearchTable({type:[], q: dataset.state.query.q, locale: dataset.state.query.locale})" ui-sref-opts="{inherit: true}" translate="datasetSearch.allDatasetTypes">
                                             All
                                         </a>
                                     </li>
@@ -104,11 +91,11 @@
 
                         </div>
                         <div class="emptyInfo" ng-if="dataset.state.data.count === 0">
-                            <h3>No results – try clearing your filters</h3>
+                            <h3 translate="phrases.noResultsMessage"></h3>
                         </div>
                     </div>
                     <div class="emptyInfo" ng-if="dataset.state.failedRequest">
-                        <h3>The request failed with a server error. That shouldn't happen :(</h3>
+                        <h3 translate="phrases.errorTryToRefresh"></h3>
                     </div>
                 </div>
             </div>
@@ -119,7 +106,7 @@
 
     <div class="fab hide-on-laptop">
         <a href="" class="gb-button--brand" ng-click="dataset.showFilters = !dataset.showFilters" ng-if="!dataset.showFilters">
-            <span><span class="gb-icon-filters"></span> Filters</span>
+            <span><span class="gb-icon-filters"></span><span translate="search.filters"></span></span>
         </a>
     </div>
 </div>

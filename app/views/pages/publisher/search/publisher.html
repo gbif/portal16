@@ -1,4 +1,4 @@
-<div search-drawer filter="publisher.state" content-type="publisher" ng-class="{'is-active': publisher.showFilters}">
+<div search-drawer filter="publisher.state" content-type="publishers" ng-class="{'is-active': publisher.showFilters}">
     <div class="site-drawer__section">
 
         <div class="search-bar filter-group">
@@ -8,9 +8,9 @@
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="publisher.state.query.q"
-                       placeholder="{{ 'stdTerms.search' | translate }}">
+                       placeholder="{{ 'publisherSearch.searchPlaceholder' | translate }}">
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="publisher.search()">
-                    <span class="sr-only" translate="stdTerms.search"></span>
+                    <span class="sr-only" translate="search.search"></span>
                 </a>
             </form>
 
@@ -32,8 +32,8 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper" translate="stdTerms.searchPublishers"></span>
-                                    <span class="article-header__category__lower" ng-if="publisher.hasData()" tx="stdTerms.nResults" tx-nr="publisher.state.data.count"></span>
+                                    <span class="article-header__category__upper" translate="publisherSearch.searchPublishers"></span>
+                                    <span class="article-header__category__lower" ng-if="publisher.hasData()" tx="search.nResults" tx-nr="publisher.state.data.count"></span>
                                     <span class="article-header__category__lower" ng-if="!publisher.hasData() && !publisher.state.failedRequest" translate="stdTerms.loading"></span>
                                     <span class="article-header__category__lower" ng-if="publisher.state.failedRequest" translate="stdTerms.failed"></span>
                                 </nav>
@@ -48,7 +48,7 @@
                             <nav class="tabs">
                                 <ul>
                                     <li class="tab" ng-class="{isActive: !publisher.state.query.advanced}">
-                                        <span translate="stdTerms.all"></span>
+                                        <span translate="publisherSearch.allPublishers"></span>
                                     </li>
                                 </ul>
                             </nav>

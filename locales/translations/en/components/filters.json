@@ -1,5 +1,6 @@
 {
     "filters": {
+        "searchPlaceholder": "Search",
         "noPreference": "No preference",
         "repatriation": {
             "repatriationFilter": "Repatriated data",
@@ -30,6 +31,14 @@
             "tooLarge": "Geometry too large",
             "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
             "invalidRange": "Invalid bounding box"
+        },
+        "names": {
+            "publishingOrg": "Publisher",
+            "hostingOrg": "Host",
+            "license": "License",
+            "publishingCountry": "Publishing country or area",
+            "countryOrArea": "Country or area",
+            "projectId": "Project"
         }
     }
 }

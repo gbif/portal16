@@ -22,7 +22,7 @@ function publisherCtrl($state, hotkeys, PublisherFilter, Page) {
     vm.filters = {};
 
     vm.filters.countryCode = {
-        titleTranslation: 'ocurrenceFieldNames.country',
+        titleTranslation: 'filters.names.countryOrArea',
         queryKey: 'country',
         filter: PublisherFilter,
         enumTranslationPath: 'country.',

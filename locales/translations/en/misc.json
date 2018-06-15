@@ -22,8 +22,6 @@
     "audiences": "Audiences",
     "coordinates": "Coordinates",
     "monthAndyear": "Month & year",
-    "clearFilters": "Clear filters",
-    "searchEverything": "Search everything",
     "ok": "Ok",
     "or": "or",
     "selectFile": "Select file",
@@ -134,7 +132,6 @@
     "total": "Total",
     "download": "Download",
     "searchOccurrences": "Search occurrences",
-    "searchDatasets": "Search datasets",
     "searchPublishers": "Search publishers",
     "searchResources": "Search resources",
     "datasetHomePage": "Dataset homepage",
@@ -156,7 +153,6 @@
     "overview": "Overview",
     "metrics": "Metrics",
     "sourcePlural": "{NUMBER, select, 0{sources} 1{source} other{sources}}",
-    "everything": "Everything",
     "coordinateUncertainty": "Coordinate uncertainty",
     "summary": "Summary",
     "registered": "Registered",
@@ -226,7 +222,7 @@
     "generateCsv": "Generate csv",
     "parsingNames": "Parsing names - hang on",
     "errorNotAuthorized": "Looks like you aren't authorized to view this page",
-    "errorTryToRefresh": "Try to reload the page and let us know if the issue persists. We are sorry about the inconvenience.",
+    "errorTryToRefresh": "System error. Try to reload the page and let us know if the issue persists. We are sorry about the inconvenience.",
     "noResultsMessage": "No results – try to loosen your filters",
     "dontSeeYourIpt": "Don't see your IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") your coordinates.",
     "faqDescription": "These are some of the most frequently asked questions about GBIF and GBIF.org. Please contact us if your questions aren’t answered here.",
@@ -237,7 +233,5 @@
     "noJavascriptEnabled": "We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.",
     "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.",
     "imageLicenseInfo": "Be aware that licenses applied to images may differ from those applied to occurrence records"
-    
-    
   }
 }
