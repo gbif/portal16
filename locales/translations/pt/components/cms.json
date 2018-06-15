@@ -1,48 +1,48 @@
 {
   "cms": {
     "search": {
-      "events": "Events",
-      "news": "News",
-      "resources": "Resources",
-      "projects": "Projects",
-      "programmes": "Programmes",
-      "documents": "Documents",
-      "tools": "Tools",
-      "dataUse": "Data use",
-      "literature": "Literature"
+      "events": "",
+      "news": "",
+      "resources": "",
+      "projects": "",
+      "programmes": "",
+      "documents": "",
+      "tools": "",
+      "dataUse": "",
+      "literature": ""
     },
     "project": {
-      "project": "Project",
-      "projectId": "Project ID",
-      "projectIdentifier": "Project identifier",
-      "grantType": "Grant type",
-      "duration": "Duration",
-      "title": "Title",
-      "start": "Start",
-      "end": "End",
-      "fundsAllocated": "Funding allocated",
-      "matchingFunds": "Est. co-funding",
-      "funding": "Funding",
-      "coFunding": "Co funding",
-      "fundedBy": "Funded by",
-      "coFundedBy": "Co funded by",
-      "typeOfGrant": "Type of grant",
-      "projectStart": "Project start",
-      "status": "Status",
-      "programme": "Programme",
-      "contractCountry": "Country or area",
-      "newsAndEvents": "News & events",
-      "call": "Call",
-      "projectLead": "Project lead",
-      "contactDetalils": "Contact details",
-      "partners": "Partners"
+      "project": "",
+      "projectId": "",
+      "projectIdentifier": "",
+      "grantType": "",
+      "duration": "",
+      "title": "",
+      "start": "",
+      "end": "",
+      "fundsAllocated": "",
+      "matchingFunds": "",
+      "funding": "",
+      "coFunding": "",
+      "fundedBy": "",
+      "coFundedBy": "",
+      "typeOfGrant": "",
+      "projectStart": "",
+      "status": "",
+      "programme": "",
+      "contractCountry": "",
+      "newsAndEvents": "",
+      "call": "",
+      "projectLead": "",
+      "contactDetalils": "",
+      "partners": ""
     },
     "literature": {
-      "keywords": "Keywords"
+      "keywords": ""
     },
     "auxiliary": {
-      "subject": "Subject",
-      "organisingParticipants": "Organising Participants"
+      "subject": "",
+      "organisingParticipants": ""
     }
   }
 }
