@@ -1,16 +1,16 @@
 {
   "originEnum": {
     "SOURCE": "Kilde",
-    "DENORMED_CLASSIFICATION": "Denormed classification",
-    "VERBATIM_PARENT": "Verbatim parent",
-    "VERBATIM_ACCEPTED": "Verbatim accepted",
-    "VERBATIM_BASIONYM": "Verbatim basionym",
-    "PROPARTE": "Proparte",
-    "AUTONYM": "Autonym",
-    "IMPLICIT_NAME": "Implicit name",
-    "MISSING_ACCEPTED": "Missing accepted",
-    "BASIONYM_PLACEHOLDER": "Basionym placeholder",
-    "EX_AUTHOR_SYNONYM": "Ex author_synonym",
-    "OTHER": "Other"
+    "DENORMED_CLASSIFICATION": "",
+    "VERBATIM_PARENT": "",
+    "VERBATIM_ACCEPTED": "",
+    "VERBATIM_BASIONYM": "",
+    "PROPARTE": "",
+    "AUTONYM": "",
+    "IMPLICIT_NAME": "",
+    "MISSING_ACCEPTED": "",
+    "BASIONYM_PLACEHOLDER": "",
+    "EX_AUTHOR_SYNONYM": "",
+    "OTHER": ""
   }
 }
