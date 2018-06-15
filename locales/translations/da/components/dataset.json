@@ -1,25 +1,25 @@
 {
   "dataset": {
     "longType": {
-      "OCCURRENCE": "Occurrence dataset",
-      "CHECKLIST": "Checklist dataset",
+      "OCCURRENCE": "Observationsdatasæt",
+      "CHECKLIST": "Checklistedatasæt",
       "SAMPLING_EVENT": "Sampling event",
-      "METADATA": "Metadata dataset"
+      "METADATA": "Metadata datasæt"
     },
     "search": {
       "type": "Type",
-      "publishingOrg": "Publisher",
-      "hostingOrg": "Host",
-      "publishingCountry": "Publishing country or area",
-      "projectId": "Project"
+      "publishingOrg": "Udgiver",
+      "hostingOrg": "Vært",
+      "publishingCountry": "Udgivende land eller område",
+      "projectId": "Projekt"
     },
-    "title": "Title",
-    "projectId": "Project ID",
-    "studyArea": "Study area",
-    "publishedBy": "Published by",
-    "description": "Description",
-    "purpose": "Purpose",
-    "methodology": "Methodology",
+    "title": "Titel",
+    "projectId": "Projekt-ID",
+    "studyArea": "Undersøgt område",
+    "publishedBy": "Udgivet af",
+    "description": "Beskriveslse",
+    "purpose": "Formål",
+    "methodology": "Metode",
     "studyExtent": "Study extent",
     "qualityControl": "Quality control",
     "sampling": "Sampling",
