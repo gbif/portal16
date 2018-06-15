@@ -85,8 +85,8 @@
           "book": "Bog",
           "generic": "Generisk",
           "book_section": "Bogafsnit",
-          "conference_proceedings": "Conference proceedings",
-          "working_paper": "Working paper",
+          "conference_proceedings": "",
+          "working_paper": "",
           "report": "Rapport",
           "web_page": "Webside",
           "thesis": "Afhandling",
@@ -100,7 +100,7 @@
           "encyclopedia_article": "Leksikon artikel",
           "case": "Case",
           "film": "Film",
-          "bill": "Bill"
+          "bill": ""
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Eksperter i biodiversitet",
