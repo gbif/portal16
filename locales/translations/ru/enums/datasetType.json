@@ -1,9 +1,9 @@
 {
     "datasetType": {
         "OCCURRENCE": "Находка",
-        "CHECKLIST": "Checklist",
-        "SAMPLING_EVENT": "Sampling event",
+        "CHECKLIST": "",
+        "SAMPLING_EVENT": "",
         "METADATA": "Метаданные",
-        "undefined": "Unknown"
+        "undefined": ""
     }
 }
