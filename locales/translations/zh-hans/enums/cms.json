@@ -1,16 +1,22 @@
 {
   "enums": {
     "cms": {
-      "vocabularyTypes": {
+      "filters": {
         "countriesOfCoverage": "",
         "countriesOfResearcher": "",
         "literatureType": "",
-        "contractCountry": "",
+        "contractCountry": "国家",
         "topics": "",
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": ""
+        "language": "",
+        "year": "年份",
+        "datasetKey": "",
+        "publishingOrg": "",
+        "peerReview": "",
+        "openAccess": "",
+        "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "",
