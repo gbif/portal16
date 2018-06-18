@@ -8,12 +8,12 @@
                        autocomplete="off"
                        class="fit-suggestions"
                        ng-model="resource.state.query.q"
-                       placeholder="{{'resource.searchForResources' | translate}}"
+                       placeholder="{{'search.search' | translate}}"
                        uib-typeahead="suggestion.title for suggestion in resource.getSuggestions($viewValue)"
                        typeahead-on-select="resource.typeaheadSelect($item, $model, $label, $event)"
                        typeahead-focus-first="false">
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="resource.search()">
-                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    <span class="sr-only" translate="search.search"></span>
                 </a>
             </form>
 
@@ -98,8 +98,8 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper" translate="stdTerms.searchResources"></span>
-                                    <span class="article-header__category__lower" ng-if="resource.hasData()" tx="stdTerms.nResults" tx-nr="resource.state.data.count"></span>
+                                    <span class="article-header__category__upper" translate="search.header.searchResources"></span>
+                                    <span class="article-header__category__lower" ng-if="resource.hasData()" tx="search.nResults" tx-nr="resource.state.data.count"></span>
                                     <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest" translate="stdTerms.loading"></span>
                                     <span class="article-header__category__lower" ng-if="resource.state.failedRequest" translate="stdTerms.failed"></span>
                                 </nav>

@@ -25,7 +25,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     // facet filters
 
     vm.filters.license = {
-        titleTranslation: 'filters.names.license',
+        titleTranslation: 'filterNames.license',
         queryKey: 'license',
         filter: DatasetFilter,
         enumTranslationPath: 'license.',
@@ -38,7 +38,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.publishingCountry = {
-        titleTranslation: 'filters.names.publishingCountry',
+        titleTranslation: 'filterNames.publishingCountry',
         queryKey: 'publishing_country',
         filter: DatasetFilter,
         enumTranslationPath: 'country.',
@@ -53,7 +53,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.publisher = {
-        titleTranslation: 'filters.names.publishingOrg',
+        titleTranslation: 'filterNames.publishingOrg',
         queryKey: 'publishing_org',
         filter: DatasetFilter,
         expand: {
@@ -75,7 +75,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.hostingOrg = {
-        titleTranslation: 'filters.names.hostingOrg',
+        titleTranslation: 'filterNames.hostingOrg',
         queryKey: 'hosting_org',
         filter: DatasetFilter,
         expand: {
@@ -97,7 +97,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.projectId = {
-        titleTranslation: 'filters.names.projectId',
+        titleTranslation: 'filterNames.projectId',
         queryKey: 'project_id',
         filter: DatasetFilter,
         facets: {

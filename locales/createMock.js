@@ -11,7 +11,8 @@ let translatedPaths = [
     'search.',
     'datasetSearch.',
     'publisherSearch.',
-    'filters.'
+    'filters.',
+    'filterNames.'
 ];
 let translatedJson = mockify(enJson);
 

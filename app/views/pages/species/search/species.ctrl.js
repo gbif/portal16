@@ -19,19 +19,12 @@ function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoi
         queryKey: 'rank',
         facetKey: 'RANK',
         title: 'rank',
-        translationPrefix: 'taxon',
+        translationPrefix: 'filterNames',
         filter: SpeciesFilter
     };
 
-    // vm.filters.datasetKey = {
-    //     queryKey: 'dataset_key',
-    //     facetKey: 'DATASET_KEY',
-    //     title: 'dataset',
-    //     translationPrefix: 'taxon',
-    //     filter: SpeciesFilter
-    // };
     vm.filters.dataset = {
-        titleTranslation: 'stdTerms.dataset',
+        titleTranslation: 'filterNames.datasetKey',
         queryKey: 'dataset_key',
         filter: SpeciesFilter,
         expand: {
@@ -53,46 +46,33 @@ function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoi
         }
     };
 
- /*   vm.filters.taxonKey = {
-        titleTranslation: 'ocurrenceFieldNames.scientificName',
-        queryKey: 'highertaxon_key',
+    vm.filters.constituentKey = {
+        titleTranslation: 'filterNames.constituentKey',
+        queryKey: 'constituent_key',
         filter: SpeciesFilter,
         expand: {
-            resource: Species,
-            expandedTitle: 'scientificName'
+            resource: Dataset,
+            expandedTitle: 'title'
         },
         facets: {
-            hasFacets: false,
-            facetKey: 'TAXON_KEY'
+            hasFacets: true,
+            facetKey: 'CONSTITUENT_KEY'
         },
         search: {
             isSearchable: true,
-            placeholder: 'search TRANSLATE',
-            suggestEndpoint: suggestEndpoints.taxon,
-            defaultParams: {
-                datasetKey: vm.state.query.dataset_key
-            },
-            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
-            suggestTitle: 'scientificName',
+            suggestEndpoint: suggestEndpoints.dataset,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'title',
             suggestShortName: 'title',
             suggestKey: 'key'
         }
-    }; */
-
-    vm.filters.constituentKey = {
-        queryKey: 'constituent_key',
-        facetKey: 'CONSTITUENT_KEY',
-        title: 'constituentDataset',
-        translationPrefix: 'taxon',
-        filter: SpeciesFilter
     };
-
 
     vm.filters.highertaxonKey = {
         queryKey: 'highertaxon_key',
         facetKey: 'HIGHERTAXON_KEY',
-        title: 'higherTaxon',
-        translationPrefix: 'taxon',
+        title: 'higherTaxonKey',
+        translationPrefix: 'filterNames',
         filter: SpeciesFilter
     };
 
@@ -100,7 +80,7 @@ function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoi
         queryKey: 'status',
         facetKey: 'STATUS',
         title: 'status',
-        translationPrefix: 'taxon',
+        translationPrefix: 'filterNames',
         filter: SpeciesFilter
     };
 
@@ -108,7 +88,7 @@ function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoi
         queryKey: 'issue',
         facetKey: 'ISSUE',
         title: 'issue',
-        translationPrefix: 'taxon',
+        translationPrefix: 'filterNames',
         filter: SpeciesFilter
     };
 
@@ -116,7 +96,7 @@ function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoi
         queryKey: 'name_type',
         facetKey: 'NAME_TYPE',
         title: 'nameType',
-        translationPrefix: 'taxon',
+        translationPrefix: 'filterNames',
         filter: SpeciesFilter
     };
 
@@ -124,20 +104,12 @@ function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoi
         queryKey: 'origin',
         facetKey: 'ORIGIN',
         title: 'origin',
-        translationPrefix: 'taxon',
+        translationPrefix: 'filterNames',
         filter: SpeciesFilter
     };
     vm.toggleAdvanced = function() {
         SpeciesFilter.updateParam('advanced', vm.state.query.advanced);
     };
-
-
-    // vm.isSingleDataset = function(){
-    //    if (vm.state.data.facets && vm.state.data.facets.DATASET_KEY && vm.state.data.facets.DATASET_KEY.counts && Object.keys(vm.state.data.facets.DATASET_KEY.counts).length == 1) {
-    //        return true;
-    //    }
-    //    return false;
-    // };
 
     $scope.$watch(function() {
         return vm.state.query.qField;

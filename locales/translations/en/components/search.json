@@ -16,6 +16,15 @@
     "search": "Search",
     "clearFilters": "Clear filters",
     "filters": "Filters",
+    "simple": "Simple",
+    "advanced": "Advanced",
+    "allResultTypes": "all",
+    "header": {
+      "searchDatasets": "Search datasets",
+      "searchPublishers": "Search publishers",
+      "searchSpecies": "Search species",
+      "searchResources": "Search resources"
+    },
     "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0{results} 1{result} other{results}}"
   }
 }

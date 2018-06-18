@@ -29,6 +29,7 @@ contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';
 contentfulLocaleMap['ru'] = 'ru';
 contentfulLocaleMap['pt'] = 'pt';
+contentfulLocaleMap['zh'] = 'zh';
 contentfulLocaleMap['zh-hant-TW'] = 'zh';
 
 // Moment occasionally use other names for the languages. Provide them here

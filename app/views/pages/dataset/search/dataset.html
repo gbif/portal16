@@ -7,7 +7,7 @@
                        autocomplete="off"
                        class="fit-suggestions"
                        ng-model="dataset.state.query.q"
-                       placeholder="{{'datasetSearch.searchPlaceholder' | translate}}"
+                       placeholder="{{'search.search' | translate}}"
                        uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
                        typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
                        typeahead-focus-first="false">
@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper" translate="datasetSearch.searchDatasets"></span>
+                                    <span class="article-header__category__upper" translate="search.header.searchDatasets"></span>
                                     <span class="article-header__category__lower" ng-if="dataset.hasData()" tx="search.nResults" tx-nr="dataset.state.data.count"></span>
                                     <span class="article-header__category__lower" ng-if="!dataset.hasData() && !dataset.state.failedRequest" translate="stdTerms.loading"></span>
                                     <span class="article-header__category__lower" ng-if="dataset.state.failedRequest" translate="stdTerms.failed"></span>
@@ -57,7 +57,7 @@
                             <nav class="tabs">
                                 <ul>
                                     <li class="tab" ng-class="{isActive: !dataset.state.query.type}">
-                                        <a href="" ui-sref="datasetSearchTable({type:[], q: dataset.state.query.q, locale: dataset.state.query.locale})" ui-sref-opts="{inherit: true}" translate="datasetSearch.allDatasetTypes">
+                                        <a href="" ui-sref="datasetSearchTable({type:[], q: dataset.state.query.q, locale: dataset.state.query.locale})" ui-sref-opts="{inherit: true}" translate="search.allResultTypes">
                                             All
                                         </a>
                                     </li>
