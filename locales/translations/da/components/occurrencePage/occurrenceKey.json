@@ -1,5 +1,9 @@
 {
   "occurrence": {
+    "coordinates": "Koordinater",
+    "issues": "Bemærkninger",
+    "dataset": "",
+    "monthAndyear": "Måned & år",
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Samlet i {COUNTRY}",
