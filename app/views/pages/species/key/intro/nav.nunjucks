@@ -39,7 +39,7 @@
                     </li>
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.references">
                     <span>
-                        <a class="gb-button--brand" ng-href="{{speciesKey2.species.references}}" translate="species.publisherRecord"></a>
+                        <a class="gb-button--brand" ng-href="{{speciesKey2.species.references}}" translate="species.referenceTaxon"></a>
                     </span>
                     </li>
                 </ul>
