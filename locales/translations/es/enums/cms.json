@@ -1,16 +1,22 @@
 {
   "enums": {
     "cms": {
-      "vocabularyTypes": {
+      "filters": {
         "countriesOfCoverage": "",
         "countriesOfResearcher": "",
         "literatureType": "",
-        "contractCountry": "",
+        "contractCountry": "País",
         "topics": "",
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": ""
+        "language": "",
+        "year": "Año",
+        "datasetKey": "Juego de datos",
+        "publishingOrg": "",
+        "peerReview": "",
+        "openAccess": "Acceso abierto",
+        "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "",
