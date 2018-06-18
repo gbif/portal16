@@ -31,14 +31,6 @@
             "tooLarge": "",
             "tooLargeSuggestion": "",
             "invalidRange": ""
-        },
-        "names": {
-            "publishingOrg": "",
-            "hostingOrg": "",
-            "license": "",
-            "publishingCountry": "",
-            "countryOrArea": "",
-            "projectId": ""
         }
     }
 }
