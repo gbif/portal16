@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="caption">
-                        {$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.description | sanitize | safe $}
+                        {$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.description | sanitizeTrusted(gb.locales.urlPrefix) | safe $}
                     </div>
                 </div>
             </div>
