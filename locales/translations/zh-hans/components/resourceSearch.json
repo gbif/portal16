@@ -1,0 +1,38 @@
+{
+    "resourceSearch": {
+        "upcoming": "",
+        "past": "",
+        "searchForNewsEventsDocuments": "",
+        "occurrenceSearch": "",
+        "subscribeToCalendar": "",
+        "citationExplainer": "",
+        "types": {
+            "events": "",
+            "news": "",
+            "resources": "",
+            "projects": "",
+            "programmes": "",
+            "documents": "",
+            "tools": "",
+            "dataUse": "",
+            "literature": ""
+        },
+        "filters": {
+            "countriesOfCoverage": "",
+            "countriesOfResearcher": "",
+            "literatureType": "",
+            "contractCountry": "国家",
+            "topics": "",
+            "audiences": "",
+            "purposes": "",
+            "relevance": "",
+            "language": "",
+            "year": "年份",
+            "gbifDatasetKey": "",
+            "publishingOrganizationKey": "",
+            "peerReview": "",
+            "openAccess": "",
+            "gbifDownloadKey": ""
+        }
+    }
+}
