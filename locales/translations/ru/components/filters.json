@@ -6,13 +6,6 @@
             "repatriationFilter": "",
             "description": ""
         },
-        "peerReview": {
-            "title": ""
-        },
-        "openAccess": {
-            "title": "Открытый доступ"
-        },
-        "gbifDownloadKey": "",
         "location": {
             "north": "",
             "south": "",
