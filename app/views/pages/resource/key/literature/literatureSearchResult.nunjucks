@@ -48,10 +48,10 @@
                     <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="enums.cms.vocabularyTerms.literatureType.{{ result.literatureType }}"></a>
                 </li>
                 <li ng-if="result.openAccess">
-                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&openAccess=true" translate="filters.openAccess.title"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&openAccess=true" translate="resourceSearch.filters.openAccess"></a>
                 </li>
                 <li ng-if="result.peerReview">
-                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&peerReview=true" translate="filters.peerReview.title"></a>
+                    <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&peerReview=true" translate="resourceSearch.filters.peerReview"></a>
                 </li>
             </ul>
             <div ng-if="result._gbifDOIs.length > 0">

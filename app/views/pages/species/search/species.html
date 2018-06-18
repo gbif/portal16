@@ -6,22 +6,22 @@
                        id="siteSearch"
                        autocomplete="off"
                        ng-model="species.state.query.q"
-                       placeholder="{{'species.searchForSpecies' | translate}}">
+                       placeholder="{{'search.search' | translate}}">
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="species.search()">
-                    <span class="sr-only" translate="stdTerms.search"></span>
+                    <span class="sr-only" translate="search.search"></span>
                 </a>
             </form>
         </div>
 
         <div class="filter-group" ng-if="species.state.query.q">
             <div class="m-05 m-l-1">
-                <span translate="species.freeTextSearchFor" translate-values="{QUERY: species.state.query.q}"></span><br>
-            <span translate="species.limitSearchTo"></span>
+                <span translate="speciesSearch.freeTextSearchFor" translate-values="{QUERY: species.state.query.q}"></span><br>
+            <span translate="speciesSearch.limitSearchTo"></span>
                 <select ng-model="species.state.query.qField">
-                    <option value=""><em>{{ 'stdTerms.all' | translate }}</em></option>
-                    <option value="SCIENTIFIC" translate="species.scientificNames"></option>
-                    <option value="VERNACULAR" translate="species.vernacularNames"></option>
-                    <option value="DESCRIPTION" translate="species.descriptions"></option>
+                    <option value=""><em>{{ 'speciesSearch.limitResultsTo.all' | translate }}</em></option>
+                    <option value="SCIENTIFIC" translate="speciesSearch.limitResultsTo.scientificNames"></option>
+                    <option value="VERNACULAR" translate="speciesSearch.limitResultsTo.vernacularNames"></option>
+                    <option value="DESCRIPTION" translate="speciesSearch.limitResultsTo.descriptions"></option>
                 </select>
             </div>
         </div>
@@ -37,7 +37,7 @@
         <div filter-taxon filter-config="species.filters.dataset" filter-state="species.state"
              ng-if="species.state.query.advanced"></div>
 
-        <div filter-facet filter-config="species.filters.constituentKey" filter-state="species.state"
+        <div filter-taxon filter-config="species.filters.constituentKey" filter-state="species.state"
              ng-if="species.state.query.advanced"></div>
 
         <div filter-facet filter-config="species.filters.nameType" filter-state="species.state"
@@ -47,9 +47,9 @@
              ng-if="species.state.query.advanced"></div>
 
         <div class="site-drawer__comment" ng-if="!species.state.query.advanced">
-            <div translate="species.youAreCurrentlySearchingInGBIFtaxonomy"></div>
+            <div translate="speciesSearch.youAreCurrentlySearchingInGBIFtaxonomy"></div>
             <div class="p-t-05">
-                <a href="" class="inherit" ng-click="species.state.query.advanced=true; species.toggleAdvanced()" translate="species.advanced"></a>
+                <a href="" class="gb-button--flat text-uppercase inherit" ng-click="species.state.query.advanced=true; species.toggleAdvanced()" translate="speciesSearch.SearchAcrossChecklists"></a>
             </div>
         </div>
 
@@ -68,8 +68,8 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper">{{'species.searchSpecies' | translate}}</span>
-                                    <span class="article-header__category__lower" ng-if="species.hasData()" tx="stdTerms.nResults" tx-nr="species.state.data.count"></span>
+                                    <span class="article-header__category__upper" translate="search.header.searchSpecies"></span>
+                                    <span class="article-header__category__lower" ng-if="species.hasData()" tx="search.nResults" tx-nr="species.state.data.count"></span>
                                     <span class="article-header__category__lower" ng-if="!species.hasData() && !species.state.failedRequest" translate="stdTerms.loading"></span>
                                     <span class="article-header__category__lower" ng-if="species.state.failedRequest" translate="stdTerms.failed"></span>
                                 </nav>
@@ -84,11 +84,11 @@
                             <nav class="tabs">
                                 <ul>
                                     <li class="tab" ng-class="{isActive: !species.state.query.advanced}">
-                                        <a href="" ui-sref="speciesSearchList({advanced:undefined})" ui-sref-opts="{inherit: true}" translate="species.simple"></a>
+                                        <a href="" ui-sref="speciesSearchList({advanced:undefined})" ui-sref-opts="{inherit: true}" translate="search.simple"></a>
                                     </li>
 
                                     <li class="tab" ng-class="{isActive: species.state.query.advanced}">
-                                        <a href="" ui-sref="speciesSearchList({advanced:1})" ui-sref-opts="{inherit: true}" translate="species.advanced"></a>
+                                        <a href="" ui-sref="speciesSearchList({advanced:1})" ui-sref-opts="{inherit: true}" translate="search.advanced"></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -119,7 +119,7 @@
 
     <div class="fab hide-on-laptop">
         <a href="" class="gb-button--brand" ng-click="species.showFilters = !species.showFilters" ng-if="!species.showFilters">
-            <span><span class="gb-icon-filters"></span> <span translate="species.filters"></span></span>
+            <span><span class="gb-icon-filters"></span> <span translate="search.filters"></span></span>
         </a>
     </div>
 </div>

@@ -1,16 +1,16 @@
 {
-    "originEnum": {
-        "SOURCE": "source",
-        "DENORMED_CLASSIFICATION": "denormed classification",
-        "VERBATIM_PARENT": "verbatim parent",
-        "VERBATIM_ACCEPTED": "verbatim accepted",
-        "VERBATIM_BASIONYM": "verbatim basionym",
-        "PROPARTE": "proparte",
-        "AUTONYM": "autonym",
-        "IMPLICIT_NAME": "implicit name",
-        "MISSING_ACCEPTED": "missing accepted",
-        "BASIONYM_PLACEHOLDER": "basionym placeholder",
-        "EX_AUTHOR_SYNONYM": "ex author_synonym",
-        "OTHER": "other"
-    }
+  "originEnum": {
+    "SOURCE": "Source",
+    "DENORMED_CLASSIFICATION": "Denormed classification",
+    "VERBATIM_PARENT": "Verbatim parent",
+    "VERBATIM_ACCEPTED": "Verbatim accepted",
+    "VERBATIM_BASIONYM": "Verbatim basionym",
+    "PROPARTE": "Proparte",
+    "AUTONYM": "Autonym",
+    "IMPLICIT_NAME": "Implicit name",
+    "MISSING_ACCEPTED": "Missing accepted",
+    "BASIONYM_PLACEHOLDER": "Basionym placeholder",
+    "EX_AUTHOR_SYNONYM": "Ex author_synonym",
+    "OTHER": "Other"
+  }
 }

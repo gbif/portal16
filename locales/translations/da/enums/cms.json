@@ -1,77 +1,116 @@
 {
-    "enums": {
-        "cms": {
-            "vocabularyTypes": {
-                "countriesOfCoverage": "country or area of coverage",
-                "countriesOfResearcher": "country or area of researcher",
-                "literatureType": "literature type",
-                "contractCountry": "Country or area",
-                "topics": "topic",
-                "purposes": "purpose",
-                "relevance": "relevance",
-                "language": "language"
-            },
-            "vocabularyTerms": {
-                "relevance": {
-                    "GBIF_USED": "GBIF used",
-                    "GBIF_CITED": "GBIF cited",
-                    "GBIF_DISCUSSED": "GBIF discussed",
-                    "GBIF_PRIMARY": "GBIF primary",
-                    "GBIF_ACKNOWLEDGED": "GBIF acknowledged",
-                    "GBIF_PUBLISHED": "GBIF published",
-                    "GBIF_AUTHOR": "GBIF author",
-                    "GBIF_MENTIONED": "GBIF mentioned",
-                    "GBIF_FUNDED": "GBIF funded"
-                },
-                "topics": {
-                    "AGRICULTURE": "Agriculture",
-                    "BIODIVERSITY_SCIENCE": "Biodiversity science",
-                    "BIOGEOGRAPHY": "Biogeography",
-                    "CITIZEN_SCIENCE": "Citizen science",
-                    "CLIMATE_CHANGE": "Climate change",
-                    "CONSERVATION": "Conservation",
-                    "DATA_MANAGEMENT": "Data management",
-                    "DATA_PAPER": "Data paper",
-                    "ECOLOGY": "Ecology",
-                    "ECOSYSTEM_SERVICES": "Ecosystem services",
-                    "EVOLUTION": "Evolution",
-                    "FRESHWATER": "Freshwater",
-                    "HUMAN_HEALTH": "Human health",
-                    "INVASIVES": "Invasives",
-                    "MARINE": "Marine",
-                    "PHYLOGENETICS": "Phylogenetics",
-                    "SPECIES_DISTRIBUTIONS": "Species distributions",
-                    "TAXONOMY": "Taxonomy"
-                },
-                "purposes": {
-                    "CAPACITY_ENHANCEMENT": "Capacity enhancement",
-                    "DATA_ACCESS": "Data access",
-                    "DATA_ANALYSIS": "Data analysis",
-                    "DATA_CURATION_&_QUALITY": "Data curation & quality",
-                    "DATA_DIGITIZATION": "Data digitization",
-                    "DATA_PUBLISHING": "Data publishing"
-                },
-                "literatureType": {
-                    "book": "book",
-                    "book_section": "book section",
-                    "conference_proceedings": "conference proceedings",
-                    "generic": "generic",
-                    "journal": "journal",
-                    "magazine_article": "magazine article",
-                    "report": "report",
-                    "thesis": "thesis",
-                    "web_page": "web page",
-                    "working_paper": "working paper"
-                },
-                "audience": {
-                    "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
-                    "DATA_HOLDERS": "Data holders",
-                    "DATA_USERS": "Data users",
-                    "DECISION_MAKERS": "Decision makers",
-                    "GBIF_NETWORK": "GBIF network",
-                    "PUBLIC_STAKEHOLDERS": "Public stakeholders"
-                }
-            }
+  "enums": {
+    "cms": {
+      "vocabularyTypes": {
+        "countriesOfCoverage": "Land eller område der diskuteres",
+        "countriesOfResearcher": "Forskers land eller område",
+        "literatureType": "Litteraturtype",
+        "contractCountry": "Land eller område",
+        "topics": "Emne",
+        "audiences": "Publikum",
+        "purposes": "Formål",
+        "relevance": "Relevans",
+        "language": "Sprog"
+      },
+      "contentType": {
+        "event": "Event",
+        "news": "Nyheder",
+        "resource": "Ressource",
+        "dataUse": "Databrug",
+        "project": "Projekt",
+        "participant": "Participant",
+        "programme": "Program",
+        "document": "Dokument",
+        "tool": "Værktøj",
+        "literature": "Litteratur"
+      },
+      "vocabularyTerms": {
+        "articleType": {
+          "Nodes guidance": "Vejledning til noder"
+        },
+        "projectGrantType": {
+          "REGIONAL": "Regionale tilskud",
+          "SMALL": "Småt tilskud",
+          "NATIONAL": "Nationalt tilskud",
+          "undefined": "Ikke specificeret"
+        },
+        "projectStatus": {
+          "APPROVED": "Godkendt",
+          "CLOSED": "Lukket",
+          "IN_PROGRESS": "Igangværende",
+          "undefined": "Ikke specificeret"
+        },
+        "relevance": {
+          "GBIF_USED": "GBIF bruges",
+          "GBIF_CITED": "GBIF citeret",
+          "GBIF_DISCUSSED": "GBIF drøftet",
+          "GBIF_PRIMARY": "GBIF primære",
+          "GBIF_ACKNOWLEDGED": "GBIF anerkendt",
+          "GBIF_PUBLISHED": "GBIF udgivet",
+          "GBIF_AUTHOR": "GBIF forfatter",
+          "GBIF_MENTIONED": "GBIF nævnt",
+          "GBIF_FUNDED": "GBIF finansieret"
+        },
+        "topics": {
+          "AGRICULTURE": "Landbrug",
+          "BIODIVERSITY_SCIENCE": "Biodiversitetsvidenskab",
+          "BIOGEOGRAPHY": "Biogeografi",
+          "CITIZEN_SCIENCE": "Citizen science",
+          "CLIMATE_CHANGE": "Klimaændringer",
+          "CONSERVATION": "Bevarelse",
+          "DATA_MANAGEMENT": "Data management",
+          "DATA_PAPER": "Data-artikel",
+          "ECOLOGY": "Økologi",
+          "ECOSYSTEM_SERVICES": "Økosystemfunktioner",
+          "EVOLUTION": "Evolution",
+          "FRESHWATER": "Ferskvand",
+          "HUMAN_HEALTH": "Menneskers sundhed",
+          "INVASIVES": "Invasiv",
+          "MARINE": "Marine",
+          "PHYLOGENETICS": "Fylogenetik",
+          "SPECIES_DISTRIBUTIONS": "Arts-distributioner",
+          "TAXONOMY": "Taksonomi"
+        },
+        "purposes": {
+          "CAPACITY_ENHANCEMENT": "Kapacitetsforøgelse",
+          "DATA_ACCESS": "Adgang til data",
+          "DATA_ANALYSIS": "Analyse af data",
+          "DATA_CURATION_&_QUALITY": "Datakuration & kvalitet",
+          "DATA_DIGITIZATION": "Data-digitalisering",
+          "DATA_PUBLISHING": "Data-udgivelse",
+          "DATA_CURATION_QUALITY": "Datakuration & kvalitet"
+        },
+        "literatureType": {
+          "journal": "Tidsskriftsartikel",
+          "book": "Bog",
+          "generic": "Generisk",
+          "book_section": "Bogafsnit",
+          "conference_proceedings": "Conference proceedings",
+          "working_paper": "Working paper",
+          "report": "Rapport",
+          "web_page": "Webside",
+          "thesis": "Afhandling",
+          "magazine_article": "Magasin-artikel",
+          "statute": "Statut",
+          "patent": "Patent",
+          "newspaper_article": "Avisartikel",
+          "computer_program": "Computerprogram",
+          "hearing": "Hørelse",
+          "television_broadcast": "Tv-udsendelse",
+          "encyclopedia_article": "Leksikon artikel",
+          "case": "Case",
+          "film": "Film",
+          "bill": "Bill"
+        },
+        "audiences": {
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Eksperter i biodiversitet",
+          "DATA_HOLDERS": "Dataejere",
+          "DATA_USERS": "Databrugere",
+          "DECISION_MAKERS": "Beslutningstagere",
+          "GBIF_NETWORK": "GBIF netværk",
+          "PUBLIC_STAKEHOLDERS": "Offentlige aktører"
         }
+      }
     }
+  }
 }

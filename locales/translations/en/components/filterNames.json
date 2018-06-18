@@ -15,7 +15,7 @@
     "eventDate": "Event date",
     "hasGeospatialIssue": "Has geospatial issue",
     "basisOfRecord": "Basis of record",
-    "issue": "Issue",
+    "issue": "Remarks",
     "locality": "Locality",
     "lastInterpreted": "Last interpreted",
     "waterBody": "Water body",
@@ -39,6 +39,15 @@
     "orderKey": "Order",
     "familyKey": "Family",
     "genusKey": "Genus",
-    "speciesKey": "Species"
+    "speciesKey": "Species",
+    "hostingOrg": "Host",
+    "countryOrArea": "Country or area",
+    "projectId": "Project",
+    "rank": "Rank",
+    "constituentKey": "Constituent dataset",
+    "higherTaxonKey": "Higher taxon",
+    "status": "Status",
+    "nameType": "Name type",
+    "origin": "Origin"
   }
 }

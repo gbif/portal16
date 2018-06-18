@@ -6,6 +6,16 @@ let mockLocale = 'de-CH';
 let _ = require('lodash');
 
 let enJson = require(dir + 'en');
+let translatedPaths = [
+    'menu.',
+    'search.',
+    'datasetSearch.',
+    'publisherSearch.',
+    'filters.',
+    'filterNames.',
+    'speciesSearch.',
+    'resourceSearch.'
+];
 let translatedJson = mockify(enJson);
 
 fs.writeFile(dir + mockLocale + '.json', JSON.stringify(translatedJson, null, 2), function(err) {
@@ -16,14 +26,19 @@ fs.writeFile(dir + mockLocale + '.json', JSON.stringify(translatedJson, null, 2)
     console.log('Translation files was succesfully build');
 });
 
-function mockify(object) {
+function mockify(object, path) {
     const newObject = _.clone(object);
 
     _.each(object, (val, key) => {
         if (typeof val === 'string') {
-            newObject[key] = getMockText(val);
+            if (isTranslatedKey(path + key)) {
+                newObject[key] = getMockText(val);
+            } else {
+                newObject[key] = val;
+            }
         } else if (typeof (val) === 'object') {
-            newObject[key] = mockify(val);
+            let nestedPath = path ? path + key + '.' : key + '.';
+            newObject[key] = mockify(val, nestedPath);
         }
     });
     return newObject;
@@ -35,4 +50,14 @@ function getMockText(str) {
     } else {
         return pseudoloc.str(str);
     }
+}
+
+function isTranslatedKey(path) {
+    let index = _.findIndex(translatedPaths, function(e) {
+        return _.startsWith(path, e);
+    });
+    if (index >= 0) {
+        return true;
+    }
+    return false;
 }

@@ -9,7 +9,7 @@
                 <div class="row">
                     <header class="col-xs-12">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{$ __('cms.search.tools') $}</span>
+                            <span class="article-header__category__upper">{$ __('resourceSearch.types.tools') $}</span>
                             <span class="article-header__category__lower">
                                 {$ __('tools.categoryFeatured') $}
                             </span>

@@ -18,7 +18,7 @@
                 <ul class="list-chips">
                     {% if main.fields.countriesOfResearcher.length > 0 %}
                         <li class="list-chips__category uppercase-first">
-                            {{'enums.cms.vocabularyTypes.countriesOfResearcher' | translate}}:
+                            {{'resourceSearch.filters.countriesOfResearcher' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.countriesOfResearcher %}
@@ -29,7 +29,7 @@
 
                     {% if main.fields.countriesOfCoverage.length > 0 %}
                         <li class="list-chips__category uppercase-first">
-                            {{'enums.cms.vocabularyTypes.countriesOfCoverage' | translate}}:
+                            {{'resourceSearch.filters.countriesOfCoverage' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.countriesOfCoverage %}
@@ -40,7 +40,7 @@
 
                     {% if main.fields.topics.length > 0 %}
                         <li class="list-chips__category  uppercase-first">
-                            {{'enums.cms.vocabularyTypes.topics' | translate}}:
+                            {{'resourceSearch.filters.topics' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.topics %}
@@ -51,7 +51,7 @@
 
                     {% if main.fields.audiences.length > 0 %}
                         <li class="list-chips__category  uppercase-first">
-                            {{'enums.cms.vocabularyTypes.audiences' | translate}}:
+                            {{'resourceSearch.filters.audiences' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.audiences %}
@@ -62,7 +62,7 @@
 
                     {% if main.fields.purposes.length > 0 %}
                         <li class="list-chips__category  uppercase-first">
-                            {{'enums.cms.vocabularyTypes.purposes' | translate}}:
+                            {{'resourceSearch.filters.purposes' | translate}}:
                         </li>
                     {% endif %}
                     {% for tag in main.fields.purposes %}

@@ -54,8 +54,8 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/nameParser`),
         getFile(locale, `./${locale}/components/footer`),
         getFile(locale, `./${locale}/components/filterNames`),
-        getFile(locale, `./${locale}/components/occurrenceKey/ocurrenceFieldNames`),
-        getFile(locale, `./${locale}/components/occurrenceKey/occurrenceKey`),
+        getFile(locale, `./${locale}/components/occurrencePage/ocurrenceFieldNames`),
+        getFile(locale, `./${locale}/components/occurrencePage/occurrenceKey`),
         getFile(locale, `./${locale}/components/occurrenceSearch`),
         getFile(locale, `./${locale}/components/downloadReport`),
         getFile(locale, `./${locale}/components/validation`),
@@ -67,6 +67,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/highcharts`),
         getFile(locale, `./${locale}/components/map`),
         getFile(locale, `./${locale}/components/species`),
+        getFile(locale, `./${locale}/components/speciesSearch`),
         getFile(locale, `./${locale}/components/homepage`),
         getFile(locale, `./${locale}/components/taxon`),
         getFile(locale, `./${locale}/components/profile`),
@@ -76,6 +77,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/contactUs`),
         getFile(locale, `./${locale}/components/metrics`),
         getFile(locale, `./${locale}/components/resource`),
+        getFile(locale, `./${locale}/components/resourceSearch`),
         getFile(locale, `./${locale}/components/dataset`),
         getFile(locale, `./${locale}/components/tools`),
         getFile(locale, `./${locale}/components/search`),
@@ -83,7 +85,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/country`),
         getFile(locale, `./${locale}/components/trends`),
         getFile(locale, `./${locale}/components/eoi`),
-        getFile(locale, `./${locale}/intervals`),
+        getFile(locale, `./${locale}/components/intervals`),
         getFile(locale, `./${locale}/misc`)
     );
 

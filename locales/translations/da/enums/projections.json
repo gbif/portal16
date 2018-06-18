@@ -1,0 +1,8 @@
+{
+  "projections": {
+    "ARCTIC": "Arktis",
+    "MERCATOR": "Mercator",
+    "ANTARCTIC": "Antarktis",
+    "PLATE_CAREE": "Plade Carée"
+  }
+}

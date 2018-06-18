@@ -1,0 +1,10 @@
+{
+    "Highcharts": {
+        "contextButtonTitle": "Chart context menu",
+        "downloadCSV": "Download CSV",
+        "downloadJPEG": "Download JPEG image",
+        "downloadPDF": "Download PDF document",
+        "downloadPNG": "Download PNG image",
+        "downloadXLS": "Download XLS"
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "cms": {
+    "search": {
+      "events": "Events",
+      "news": "Nyheder",
+      "resources": "Ressourcer",
+      "projects": "Projekter",
+      "programmes": "Programmer",
+      "documents": "Dokumenter",
+      "tools": "Værktøjer",
+      "dataUse": "Databrug",
+      "literature": "Litteratur"
+    },
+    "project": {
+      "project": "Projekt",
+      "projectId": "Projekt-ID",
+      "projectIdentifier": "Projektidentifikator",
+      "grantType": "Tilskudstype",
+      "duration": "Varighed",
+      "title": "Titel",
+      "start": "Start",
+      "end": "Slut",
+      "fundsAllocated": "Midler tildelt",
+      "matchingFunds": "Est. sam-finansiering",
+      "funding": "Finansiering",
+      "coFunding": "Sam-finansiering",
+      "fundedBy": "Finansieret af",
+      "coFundedBy": "Samfinansieret af",
+      "typeOfGrant": "Type af tilskud",
+      "projectStart": "Projektstart",
+      "status": "Status",
+      "programme": "Program",
+      "contractCountry": "Land eller område",
+      "newsAndEvents": "Nyheder & events",
+      "call": "Call",
+      "projectLead": "Projektleder",
+      "contactDetalils": "Kontaktinformation",
+      "partners": "Partnere"
+    },
+    "literature": {
+      "keywords": "Keywords"
+    },
+    "auxiliary": {
+      "subject": "Emne",
+      "organisingParticipants": "Organiserende participanter"
+    }
+  }
+}

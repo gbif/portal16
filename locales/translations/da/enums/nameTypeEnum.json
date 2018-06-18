@@ -1,15 +1,15 @@
 {
-    "nameTypeEnum": {
-        "SCIENTIFIC": "scientific name",
-        "DOUBTFUL": "doubtful",
-        "BLACKLISTED": "blacklisted",
-        "VIRUS": "virus",
-        "HYBRID": "hybrid formula",
-        "INFORMAL": "informal",
-        "OTU": "Operational Taxonomic Unit",
-        "CULTIVAR": "cultivar",
-        "CANDIDATUS": "candidatus",
-        "PLACEHOLDER": "placeholder",
-        "NO_NAME": "no name"
-    }
+  "nameTypeEnum": {
+    "SCIENTIFIC": "Videnskabeligt navn",
+    "DOUBTFUL": "Tvivlsom",
+    "BLACKLISTED": "Sortlistet",
+    "VIRUS": "Virus",
+    "HYBRID": "Hybrid formel",
+    "INFORMAL": "Uformel",
+    "OTU": "Operationel taksonomisk enhed",
+    "CULTIVAR": "Kultivar",
+    "CANDIDATUS": "Candidatus",
+    "PLACEHOLDER": "Pladsholder",
+    "NO_NAME": "Intet navn"
+  }
 }

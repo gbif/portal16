@@ -10,18 +10,18 @@
                    ui-sref-opts="{inherit: false}"
                    class="gb-icon-angle-left site-drawer__bar__icon inherit"
                    tooltip-placement="right"
-                   uib-tooltip="{{ 'stdTerms.searchEverything' | translate }}">
+                   uib-tooltip="{{ 'search.everything' | translate }}">
                 </a>
                 <div class="site-drawer__bar__title">
                     <a href=""
                        class="inherit"
                        ng-click="vm.expandContentTypeMenu = true"
                        ng-if="!vm.expandContentTypeMenu">
-                        <span translate="stdTerms.{{vm.contentType}}"> </span>
+                        <span translate="search.{{vm.contentType}}"> </span>
                         <!--<span class="gb-icon-angle-down"></span>-->
                     </a>
                     <span ng-if="vm.expandContentTypeMenu">
-                          <span translate="stdTerms.{{vm.contentType}}"></span>
+                          <span translate="search.{{vm.contentType}}"></span>
                         <!--<span class="gb-icon-angle-up"></span>-->
                     </span>
                     <div class="stripe-menu" ng-class="{'is-expanded': vm.expandContentTypeMenu}">
@@ -32,37 +32,37 @@
                             <ul>
                                 <li class="seperator--b">
                                     <a ui-sref="omniSearch({q:vm.filter.query.q, locale: vm.filter.query.locale})" ui-sref-opts="{inherit: false}"
-                                       translate="stdTerms.all">
+                                       translate="search.everything">
                                         All
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'occurrences'">
                                     <a ui-sref="occurrenceSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                       ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
+                                       ui-sref-opts="{inherit: false}" translate="search.occurrences">
                                         Occurrences
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'species'">
                                     <a ui-sref="speciesSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                       ui-sref-opts="{inherit: false}" translate="stdTerms.species">
+                                       ui-sref-opts="{inherit: false}" translate="search.species">
                                         Species
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'datasets'">
                                     <a ui-sref="datasetSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                       ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
+                                       ui-sref-opts="{inherit: false}" translate="search.datasets">
                                         Datasets
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'publishers'">
                                     <a ui-sref="publisherSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                       ui-sref-opts="{inherit: false}" translate="stdTerms.publishers">
+                                       ui-sref-opts="{inherit: false}" translate="search.publishers">
                                         Publishers
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'cms'">
                                     <a ui-sref="resourceSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})" ui-sref-opts="{inherit: false}"
-                                       translate="stdTerms.resources">
+                                       translate="search.resources">
                                         Resources
                                     </a>
                                 </li>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <a href="" ng-click="vm.clear()" class="gb-icon-trash discreet inherit site-drawer__bar__icon"
-                   tooltip-placement="left" uib-tooltip="{{ 'stdTerms.clearFilters' | translate }}">
+                   tooltip-placement="left" uib-tooltip="{{ 'search.clearFilters' | translate }}">
                     <span class="count badge" ng-show="vm.getFilterCount() > 0">{{vm.getFilterCount()}}</span>
                 </a>
             </div>

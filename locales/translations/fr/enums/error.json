@@ -1,0 +1,6 @@
+{
+    "error": {
+        "USER_ALREADY_EXIST": "User already exists. Please try another username or email",
+        "CONSTRAINT_VIOLATION": "Invalid or insufficient information provided"
+    }
+}

@@ -1,7 +1,5 @@
 {
   "resource": {
-    "searchForNewsEventsDocuments": "Search for news, events, documents and much more. If you are looking for species occurrences then try our occurrence search.",
-    "occurrenceSearch": "Occurrence search",
     "contactHelpdesk": "Contact helpdesk",
     "searchForResources": "Search for resources",
     "addToCalendar": "Add to calendar",
@@ -14,9 +12,6 @@
     "published": "Published",
     "programme": "Programme",
     "dataUsedInStudy": "Data used in study",
-    "upcoming": "Upcoming",
-    "past": "Past",
-    "subscribeToCalendar": "Subscribe to calendar",
     "resourceDescription": "Search for resources in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
   }
 }

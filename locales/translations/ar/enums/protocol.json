@@ -1,17 +1,18 @@
 {
-    "protocol": {
-        "EML": "EML",
-        "FEED": "RSS feed",
-        "WFS": "WFS",
-        "WMS": "WMS",
-        "TCS_RDF": "TCS RDF",
-        "TCS_XML": "TCS XML",
-        "DWC_ARCHIVE": "Darwin Core Archive",
-        "DIGIR": "DIGIR",
-        "DIGIR_MANIS": "DIGIR MaNIS",
-        "TAPIR": "TAPIR",
-        "BIOCASE": "BioCASE",
-        "OAI_PMH": "OAI PMH",
-        "OTHER": "Other"
-    }
+  "protocol": {
+    "EML": "EML",
+    "FEED": "RSS feed",
+    "WFS": "WFS",
+    "WMS": "WMS",
+    "TCS_RDF": "TCS RDF",
+    "TCS_XML": "TCS XML",
+    "DWC_ARCHIVE": "Darwin Core Archive",
+    "DIGIR": "DiGIR",
+    "DIGIR_MANIS": "DiGIR MaNIS",
+    "TAPIR": "TAPIR",
+    "BIOCASE": "BioCASe",
+    "BIOCASE_XML_ARCHIVE": "BioCASe XML Archive",
+    "OAI_PMH": "OAI PMH",
+    "OTHER": "Other"
+  }
 }
