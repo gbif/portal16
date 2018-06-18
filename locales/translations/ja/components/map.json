@@ -1,5 +1,19 @@
 {
   "map": {
+    "clickToSearchArea": "",
+    "generatedDateAgo": "",
+    "anyYear": "",
+    "exploreArea": "",
+    "explore": "",
+    "style": "",
+    "filters": "",
+    "projection": "",
+    "select": "",
+    "custom": "",
+    "baseMap": "",
+    "binning": "",
+    "year": "",
+    "chooseColors": "",
     "predefined": {
       "CLASSIC_HEX": "",
       "CLASSIC": "",
