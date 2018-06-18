@@ -39,6 +39,15 @@
     "orderKey": "",
     "familyKey": "",
     "genusKey": "",
-    "speciesKey": ""
+    "speciesKey": "",
+    "hostingOrg": "",
+    "countryOrArea": "",
+    "projectId": "",
+    "rank": "",
+    "constituentKey": "",
+    "higherTaxonKey": "",
+    "status": "",
+    "nameType": "",
+    "origin": ""
   }
 }
