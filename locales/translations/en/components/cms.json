@@ -1,16 +1,5 @@
 {
   "cms": {
-    "search": {
-      "events": "Events",
-      "news": "News",
-      "resources": "Resources",
-      "projects": "Projects",
-      "programmes": "Programmes",
-      "documents": "Documents",
-      "tools": "Tools",
-      "dataUse": "Data use",
-      "literature": "Literature"
-    },
     "project": {
       "project": "Project",
       "projectId": "Project ID",

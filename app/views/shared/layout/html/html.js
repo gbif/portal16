@@ -324,7 +324,6 @@ require('../../../pages/dataset/key/datasetKey.ctrl');
 require('../../../pages/resource/search/resource.ctrl');
 require('../../../pages/resource/search/list/resourceList.ctrl');
 
-require('../../../pages/about/directory/directory.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 
 require('../../../pages/participant/country/countryKey.ctrl');

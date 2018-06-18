@@ -65,17 +65,15 @@
 
         <div class="filter-group text-center" ng-if="resource.state.query.contentType == 'event'">
             <div class="gb-btn-group">
-                <a ui-sref="resourceSearchList({_showPastEvents:undefined})" ui-sref-opts="{inherit: true}" ng-class="{active: !resource.state.query._showPastEvents}" translate="resource.upcoming">Upcoming</a>
-                <a ui-sref="resourceSearchList({_showPastEvents:true})" ui-sref-opts="{inherit: true}" ng-class="{active: resource.state.query._showPastEvents}" translate="resource.past">Past</a>
+                <a ui-sref="resourceSearchList({_showPastEvents:undefined})" ui-sref-opts="{inherit: true}" ng-class="{active: !resource.state.query._showPastEvents}" translate="resourceSearch.upcoming">Upcoming</a>
+                <a ui-sref="resourceSearchList({_showPastEvents:true})" ui-sref-opts="{inherit: true}" ng-class="{active: resource.state.query._showPastEvents}" translate="resourceSearch.past">Past</a>
             </div>
         </div>
 
         <div class="site-drawer__comment">
+            <p translate="resourceSearch.searchForNewsEventsDocuments"></p>
             <p>
-                <span translate="resource.searchForNewsEventsDocuments"></span> 
-            </p>
-            <p>
-                <a class="gb-button"ui-sref="occurrenceSearchTable()" href=""><span translate="resource.occurrenceSearch"></span> </a> 
+                <a class="gb-button--flat text-uppercase" ui-sref="occurrenceSearchTable()" translate="resourceSearch.occurrenceSearch"></a> 
             </p>
             
         </div>
@@ -114,55 +112,55 @@
                             <nav class="tabs">
                                 <ul>
                                     <li class="tab" ng-class="{isActive: !resource.state.query.contentType}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:[], q: resource.state.query.q, locale: resource.state.query.locale})" ui-sref-opts="{inherit: false}" translate="stdTerms.all">
+                                        <a href="" ui-sref="resourceSearchList({contentType:[], q: resource.state.query.q, locale: resource.state.query.locale})" ui-sref-opts="{inherit: false}" translate="search.allResultTypes">
                                             All
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('news')" ng-class="{isActive: resource.state.query.contentType == 'news'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['news'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.news">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['news'], _showPastEvents:undefined, offset:undefined})" translate="resourceSearch.types.news">
                                             News
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('dataUse')" ng-class="{isActive: resource.state.query.contentType == 'dataUse'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['dataUse'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.dataUse">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['dataUse'], _showPastEvents:undefined, offset:undefined})" translate="resourceSearch.types.dataUse">
                                             Data use
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('event')" ng-class="{isActive: resource.state.query.contentType == 'event'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['event'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.events">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['event'], _showPastEvents:undefined, offset:undefined})" translate="resourceSearch.types.events">
                                             Events
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('project')" ng-class="{isActive: resource.state.query.contentType == 'project'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['project'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.projects">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['project'], _showPastEvents:undefined, offset:undefined})" translate="resourceSearch.types.projects">
                                             Projects
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('programme')" ng-class="{isActive: resource.state.query.contentType == 'programme'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['programme'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.programmes">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['programme'], _showPastEvents:undefined, offset:undefined})" translate="resourceSearch.types.programmes">
                                             Programmes
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('tool')" ng-class="{isActive: resource.state.query.contentType == 'tool'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['tool'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.tools">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['tool'], _showPastEvents:undefined, offset:undefined})" translate="resourceSearch.types.tools">
                                             Tools
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('document')" ng-class="{isActive: resource.state.query.contentType == 'document'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['document'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.documents">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['document'], _showPastEvents:undefined, offset:undefined})" translate="resourceSearch.types.documents">
                                             Documents
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('literature')" ng-class="{isActive: resource.state.query.contentType == 'literature'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['literature'], _showPastEvents:undefined, offset:undefined})" translate="cms.search.literature">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['literature'], _showPastEvents:undefined, offset:undefined})" translate="resourceSearch.types.literature">
                                             Literature
                                         </a>
                                     </li>
@@ -198,11 +196,11 @@
 
                         </div>
                         <div class="emptyInfo" ng-if="resource.state.data.count === 0">
-                            <h3>No results – try clearing your filters</h3>
+                            <h3 translate="phrases.noResultsMessage"></h3>
                         </div>
                     </div>
                     <div class="emptyInfo" ng-if="resource.state.failedRequest">
-                        <h3>The request failed with a server error. That shouldn't happen :(</h3>
+                        <h3 translate="phrases.errorTryToRefresh"></h3>
                     </div>
                 </div>
             </div>
@@ -212,7 +210,7 @@
 
     <div class="fab hide-on-laptop">
         <a href="" class="gb-button--brand" ng-click="resource.showFilters = !resource.showFilters" ng-if="!resource.showFilters">
-            <span><span class="gb-icon-filters"></span> Filters</span>
+            <span><span class="gb-icon-filters"></span><span translate="search.filters"></span></span>
         </a>
     </div>
 </div>

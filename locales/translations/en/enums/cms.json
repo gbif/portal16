@@ -1,7 +1,7 @@
 {
   "enums": {
     "cms": {
-      "vocabularyTypes": {
+      "filters": {
         "countriesOfCoverage": "Country or area of coverage",
         "countriesOfResearcher": "Country or area of researcher",
         "literatureType": "Literature type",
@@ -10,7 +10,13 @@
         "audiences": "Audiences",
         "purposes": "Purpose",
         "relevance": "Relevance",
-        "language": "Language"
+        "language": "Language",
+        "year": "Year",
+        "datasetKey": "Dataset",
+        "publishingOrg": "Publisher",
+        "peerReview": "Peer-Reviewed",
+        "openAccess": "Open access",
+        "gbifDownloadKey": "Download key"
       },
       "contentType": {
         "event": "Event",

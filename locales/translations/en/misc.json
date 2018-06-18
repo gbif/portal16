@@ -226,7 +226,6 @@
     "noResultsMessage": "No results – try to loosen your filters",
     "dontSeeYourIpt": "Don't see your IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") your coordinates.",
     "faqDescription": "These are some of the most frequently asked questions about GBIF and GBIF.org. Please contact us if your questions aren’t answered here.",
-    "citationExplainer": "Read more about literature, how it’s discovered and linked to GBIF-mediated data.",
     "locationFilterWarning": "GBIF’s indexing and quality-check routines have flagged the coordinates for some records as suspicious. Would you like to filter these records from your current map view?\n**Note:** you can always reset the view to see all georeferenced records by going to the ‘Location’ filter and choosing to ‘include records where coordinates are flagged as suspicious’.",
     "noShowThem": "No, show them",
     "yesHideThem": "Yes, hide them",

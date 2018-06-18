@@ -15,13 +15,13 @@
 
         <div class="filter-group" ng-if="species.state.query.q">
             <div class="m-05 m-l-1">
-                <span translate="species.freeTextSearchFor" translate-values="{QUERY: species.state.query.q}"></span><br>
-            <span translate="species.limitSearchTo"></span>
+                <span translate="speciesSearch.freeTextSearchFor" translate-values="{QUERY: species.state.query.q}"></span><br>
+            <span translate="speciesSearch.limitSearchTo"></span>
                 <select ng-model="species.state.query.qField">
-                    <option value=""><em>{{ 'stdTerms.all' | translate }}</em></option>
-                    <option value="SCIENTIFIC" translate="species.scientificNames"></option>
-                    <option value="VERNACULAR" translate="species.vernacularNames"></option>
-                    <option value="DESCRIPTION" translate="species.descriptions"></option>
+                    <option value=""><em>{{ 'speciesSearch.limitResultsTo.all' | translate }}</em></option>
+                    <option value="SCIENTIFIC" translate="speciesSearch.limitResultsTo.scientificNames"></option>
+                    <option value="VERNACULAR" translate="speciesSearch.limitResultsTo.vernacularNames"></option>
+                    <option value="DESCRIPTION" translate="speciesSearch.limitResultsTo.descriptions"></option>
                 </select>
             </div>
         </div>
@@ -47,9 +47,9 @@
              ng-if="species.state.query.advanced"></div>
 
         <div class="site-drawer__comment" ng-if="!species.state.query.advanced">
-            <div translate="species.youAreCurrentlySearchingInGBIFtaxonomy"></div>
+            <div translate="speciesSearch.youAreCurrentlySearchingInGBIFtaxonomy"></div>
             <div class="p-t-05">
-                <a href="" class="inherit" ng-click="species.state.query.advanced=true; species.toggleAdvanced()" translate="species.advanced"></a>
+                <a href="" class="gb-button--flat text-uppercase inherit" ng-click="species.state.query.advanced=true; species.toggleAdvanced()" translate="speciesSearch.SearchAcrossChecklists"></a>
             </div>
         </div>
 
