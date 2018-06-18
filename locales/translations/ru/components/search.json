@@ -16,6 +16,15 @@
     "search": "",
     "clearFilters": "",
     "filters": "",
+    "simple": "",
+    "advanced": "",
+    "allResultTypes": "",
+    "header": {
+      "searchDatasets": "",
+      "searchPublishers": "",
+      "searchSpecies": "",
+      "searchResources": ""
+    },
     "nResults": ""
   }
 }
