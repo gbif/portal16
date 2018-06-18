@@ -1,6 +1,6 @@
 {
   "taxon": {
-    "rank": "",
+    "rank": "Niveau du taxon",
     "constituentDataset": "",
     "higherTaxon": "",
     "status": "",
