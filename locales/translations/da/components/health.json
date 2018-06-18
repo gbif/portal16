@@ -1,5 +1,13 @@
 {
   "health": {
+    "systemHealth": "",
+    "description": "",
+    "automatedMonitoring": "",
+    "updatedTimeAgo": "",
+    "systemLoad": "",
+    "messages": "",
+    "version": "",
+    "nInQueue": "{NUMBER} i kø",
     "statusSummary": {
       "OPERATIONAL": "",
       "INFO": "",
