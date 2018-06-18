@@ -23,41 +23,10 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {};
-    // suggest complex
-    vm.filters.scientificName = {
-        queryKey: 'taxon_key',
-        translationPrefix: 'ocurrenceFieldNames',
-        title: 'scientificName',
-        suggestEndpoint: suggestEndpoints.taxon,
-        defaultParams: {
-            datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
-        },
-        suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
-        shortName: 'canonicalName',
-        longName: 'scientificName',
-        expand: true,
-        resource: Species,
-        filter: OccurrenceFilter
-    };
-
-    vm.filters.dataset = {
-        queryKey: 'dataset_key',
-        title: 'dataset',
-        translationPrefix: 'stdTerms',
-        suggestEndpoint: suggestEndpoints.dataset,
-        defaultParams: {},
-        suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
-        shortName: 'title',
-        longName: 'title',
-        expand: false,
-        resource: Dataset,
-        filter: OccurrenceFilter
-    };
 
     // enums
-
     vm.filters.typeStatus = {
-        titleTranslation: 'ocurrenceFieldNames.typeStatus',
+        titleTranslation: 'filterNames.typeStatus',
         queryKey: 'type_status',
         filter: OccurrenceFilter,
         enumTranslationPath: 'typeStatus.',
@@ -71,7 +40,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.issue = {
-        titleTranslation: 'ocurrenceFieldNames.issue',
+        titleTranslation: 'filterNames.issue',
         queryKey: 'issue',
         filter: OccurrenceFilter,
         enumTranslationPath: 'occurrenceIssue.',
@@ -85,7 +54,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.mediaType = {
-        titleTranslation: 'ocurrenceFieldNames.mediaType',
+        titleTranslation: 'filterNames.mediaType',
         queryKey: 'media_type',
         filter: OccurrenceFilter,
         enumTranslationPath: 'mediaType.',
@@ -98,7 +67,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.establishmentMeans = {
-       titleTranslation: 'ocurrenceFieldNames.establishmentMeans',
+       titleTranslation: 'filterNames.establishmentMeans',
        queryKey: 'establishment_means',
        filter: OccurrenceFilter,
        enumTranslationPath: 'establishmentMeans.',
@@ -112,7 +81,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.license = {
-        titleTranslation: 'ocurrenceFieldNames.license',
+        titleTranslation: 'filterNames.license',
         queryKey: 'license',
         filter: OccurrenceFilter,
         enumTranslationPath: 'license.',
@@ -127,12 +96,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     // suggest filters
 
     vm.filters.recordedBy = {
-        titleTranslation: 'ocurrenceFieldNames.recordedBy',
+        titleTranslation: 'filterNames.recordedBy',
         queryKey: 'recorded_by',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.recordedBy',
             suggestEndpoint: suggestEndpoints.recordedBy
         },
         facets: {
@@ -141,12 +109,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.occurrenceId = {
-        titleTranslation: 'ocurrenceFieldNames.occurrenceId',
+        titleTranslation: 'filterNames.occurrenceId',
         queryKey: 'occurrence_id',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.occurrenceId',
             suggestEndpoint: suggestEndpoints.occurrenceId
         },
         facets: {
@@ -156,12 +123,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.recordNumber = {
-        titleTranslation: 'ocurrenceFieldNames.recordNumber',
+        titleTranslation: 'filterNames.recordNumber',
         queryKey: 'record_number',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.recordNumber',
             suggestEndpoint: suggestEndpoints.recordNumber
         },
         facets: {
@@ -171,12 +137,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.organismId = {
-        titleTranslation: 'ocurrenceFieldNames.organismID',
+        titleTranslation: 'filterNames.organismId',
         queryKey: 'organism_id',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.organismID',
             suggestEndpoint: suggestEndpoints.organismId
         },
         facets: {
@@ -186,12 +151,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.catalogNumber = {
-        titleTranslation: 'ocurrenceFieldNames.catalogNumber',
+        titleTranslation: 'filterNames.catalogNumber',
         queryKey: 'catalog_number',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.catalogNumber',
             suggestEndpoint: suggestEndpoints.catalogNumber
         },
         facets: {
@@ -201,12 +165,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.locality = {
-        titleTranslation: 'ocurrenceFieldNames.locality',
+        titleTranslation: 'filterNames.locality',
         queryKey: 'locality',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.locality',
             suggestEndpoint: suggestEndpoints.locality
         },
         facets: {
@@ -216,12 +179,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.waterBody = {
-        titleTranslation: 'ocurrenceFieldNames.waterBody',
+        titleTranslation: 'filterNames.waterBody',
         queryKey: 'water_body',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.waterBody',
             suggestEndpoint: suggestEndpoints.waterBody
         },
         facets: {
@@ -231,12 +193,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.stateProvince = {
-        titleTranslation: 'ocurrenceFieldNames.stateProvince',
+        titleTranslation: 'filterNames.stateProvince',
         queryKey: 'state_province',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.stateProvince',
             suggestEndpoint: suggestEndpoints.stateProvince
         },
         facets: {
@@ -247,7 +208,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
 
 
     vm.filters.institutionCode = {
-        titleTranslation: 'ocurrenceFieldNames.institutionCode',
+        titleTranslation: 'filterNames.institutionCode',
         queryKey: 'institution_code',
         filter: OccurrenceFilter,
         facets: {
@@ -256,18 +217,16 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         },
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.institutionCode',
             suggestEndpoint: suggestEndpoints.institutionCode
         }
     };
 
     vm.filters.collectionCode = {
-        titleTranslation: 'ocurrenceFieldNames.collectionCode',
+        titleTranslation: 'filterNames.collectionCode',
         queryKey: 'collection_code',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.collectionCode',
             suggestEndpoint: suggestEndpoints.collectionCode
         },
         facets: {
@@ -277,14 +236,13 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
 
     // enums 2
     vm.filters.countryCode = {
-        titleTranslation: 'ocurrenceFieldNames.country',
+        titleTranslation: 'filterNames.country',
         queryKey: 'country',
         filter: OccurrenceFilter,
         enumTranslationPath: 'country.',
         reversible: false,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.occurrenceState.query.locale
         },
         facets: {
@@ -294,13 +252,12 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.publishingCountry = {
-        titleTranslation: 'ocurrenceFieldNames.publishingCountry',
+        titleTranslation: 'filterNames.publishingCountry',
         queryKey: 'publishing_country',
         filter: OccurrenceFilter,
         enumTranslationPath: 'country.',
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.occurrenceState.query.locale
         },
         facets: {
@@ -310,12 +267,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.eventId = {
-        titleTranslation: 'ocurrenceFieldNames.eventID',
+        titleTranslation: 'filterNames.eventID',
         queryKey: 'event_id',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.eventID',
             suggestEndpoint: suggestEndpoints.eventId
         },
         facets: {
@@ -325,12 +281,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.samplingProtocol = {
-        titleTranslation: 'ocurrenceFieldNames.samplingProtocol',
+        titleTranslation: 'filterNames.samplingProtocol',
         queryKey: 'sampling_protocol',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.samplingProtocol',
             suggestEndpoint: suggestEndpoints.samplingProtocol
         },
         facets: {
@@ -340,12 +295,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.networkKey = {
-        titleTranslation: 'network.title',
+        titleTranslation: 'filterNames.gbifNetwork',
         queryKey: 'gbif_network',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'network.title',
             suggestEndpoint: suggestEndpoints.networkKey
         },
         facets: {
@@ -355,12 +309,11 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.installationKey = {
-        titleTranslation: 'stdTerms.installation',
+        titleTranslation: 'filterNames.installationKey',
         queryKey: 'installation_key',
         filter: OccurrenceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'stdTerms.installation',
             suggestEndpoint: suggestEndpoints.installationKey
         },
         facets: {
@@ -370,7 +323,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.basisOfRecord = {
-        titleTranslation: 'ocurrenceFieldNames.basisOfRecord',
+        titleTranslation: 'filterNames.basisOfRecord',
         queryKey: 'basis_of_record',
         filter: OccurrenceFilter,
         enumTranslationPath: 'basisOfRecord.',
@@ -384,7 +337,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.protocol = {
-        titleTranslation: 'ocurrenceFieldNames.protocol',
+        titleTranslation: 'filterNames.protocol',
         queryKey: 'protocol',
         filter: OccurrenceFilter,
         enumTranslationPath: 'endpointType.',
@@ -398,7 +351,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.month = {
-        titleTranslation: 'ocurrenceFieldNames.month',
+        titleTranslation: 'filterNames.month',
         queryKey: 'month',
         filter: OccurrenceFilter,
         enumTranslationPath: 'month.',
@@ -418,7 +371,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
      If these filters grow and it is starting to become a headache aligning them, then this decision should be reconsidered
      */
     vm.filters.dataset = {
-        titleTranslation: 'stdTerms.dataset',
+        titleTranslation: 'filterNames.datasetKey',
         queryKey: 'dataset_key',
         filter: OccurrenceFilter,
         expand: {
@@ -431,7 +384,6 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         },
         search: {
             isSearchable: true,
-            placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.dataset,
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
@@ -441,7 +393,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.taxonKey = {
-        titleTranslation: 'ocurrenceFieldNames.scientificName',
+        titleTranslation: 'filterNames.taxonKey',
         queryKey: 'taxon_key',
         filter: OccurrenceFilter,
         expand: {
@@ -454,7 +406,6 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         },
         search: {
             isSearchable: true,
-            placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.taxon,
             defaultParams: {
                 datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
@@ -467,7 +418,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.publisher = {
-        titleTranslation: 'stdTerms.publisher',
+        titleTranslation: 'filterNames.publishingOrg',
         queryKey: 'publishing_org',
         filter: OccurrenceFilter,
         expand: {
@@ -480,7 +431,6 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         },
         search: {
             isSearchable: true,
-            placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.publisher,
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
@@ -491,7 +441,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
 
     // intervals
     vm.filters.year = {
-        titleTranslation: 'ocurrenceFieldNames.year',
+        titleTranslation: 'filterNames.year',
         intervalTranslation: 'intervals.year.',
         queryKey: 'year',
         filter: OccurrenceFilter,
@@ -504,7 +454,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.elevation = {
-        titleTranslation: 'ocurrenceFieldNames.elevation',
+        titleTranslation: 'filterNames.elevation',
         intervalTranslation: 'intervals.elevation.',
         queryKey: 'elevation',
         filter: OccurrenceFilter,
@@ -516,7 +466,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.depth = {
-        titleTranslation: 'ocurrenceFieldNames.depth',
+        titleTranslation: 'filterNames.depth',
         intervalTranslation: 'intervals.depth.',
         queryKey: 'depth',
         filter: OccurrenceFilter,
@@ -529,7 +479,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
 
     // ternary "all, yes, no" aka optional boolean
     vm.filters.repatriated = {
-        titleTranslation: 'filters.repatriation.repatriationFilter',
+        titleTranslation: 'filterNames.repatriated',
         descriptionTranslation: 'filters.repatriation.description',
         queryKey: 'repatriated',
         filter: OccurrenceFilter
@@ -537,14 +487,14 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
 
     // dates
     vm.filters.lastInterpreted = {
-        titleTranslation: 'ocurrenceFieldNames.lastInterpreted',
+        titleTranslation: 'filterNames.lastInterpreted',
         intervalTranslation: 'intervals.year.',
         queryKey: 'last_interpreted',
         filter: OccurrenceFilter
     };
 
     vm.filters.eventDate = {
-        titleTranslation: 'ocurrenceFieldNames.eventDate',
+        titleTranslation: 'filterNames.eventDate',
         intervalTranslation: 'intervals.year.',
         queryKey: 'event_date',
         filter: OccurrenceFilter
@@ -552,7 +502,6 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
 
     // location
     vm.filters.location = {
-        titleTranslation: 'ocurrenceFieldNames.location',
         filter: OccurrenceFilter,
         queryKey: 'geometry',
         expanded: false

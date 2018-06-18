@@ -4,9 +4,14 @@
         "noPreference": "No preference",
         "invert": "Reverse",
         "clear": "Clear",
+        "add": "Add",
         "repatriation": {
-            "repatriationFilter": "Repatriated data",
             "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
+        },
+        "ternary": {
+            "yes": "Yes",
+            "no": "No",
+            "all": "All"
         },
         "location": {
             "north": "North",

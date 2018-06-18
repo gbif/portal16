@@ -17,7 +17,7 @@ function renderPage(req, res, searchString) {
         title: 'Dataset',
         _meta: {
             bodyClass: 'dataset',
-            title: res.__('stdTerms.search'),
+            title: res.__('search.search'),
             description: 'Search for datasets in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.'
 
         }

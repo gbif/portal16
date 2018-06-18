@@ -5,9 +5,9 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
+                        <span class="article-header__category__upper" translate="search.header.searchOccurrences"></span>
                         <span class="article-header__category__lower" ng-if="occCharts.hasData()">
-                            <span tx="stdTerms.nResults" tx-nr="occCharts.state.table.count"></span>
+                            <span tx="search.nResults" tx-nr="occCharts.state.table.count"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="!occCharts.hasData()">

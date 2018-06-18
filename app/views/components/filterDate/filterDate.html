@@ -61,68 +61,9 @@
             <a href="" class="site-drawer__bar__action" ng-click="vm.clear()"
                ng-class="{invisible: vm.query.length == 0}"><span translate="filters.clear">Clear</span></a>
             <a href="" class="site-drawer__bar__action" ng-click="vm.add()"
-               ng-class="{invisible: !vm.queryString}"><span translate="stdTerms.add">Add</span></a>
+               ng-class="{invisible: !vm.queryString}"><span translate="filters.add">Add</span></a>
         </div>
 
     </div>
-
-
-    <!--<div class="filter-group__filter" ng-class="{'filter-group__filter&#45;&#45;collapsed': !vm.filterConfig.expanded}">-->
-        <!--<div ng-if="vm.query.length > 0 && !vm.filterConfig.expanded" class="is-padded overflow-hidden">-->
-            <!--<div class="checkbox" ng-repeat="key in vm.query">-->
-                <!--{{key}}-->
-            <!--</div>-->
-        <!--</div>-->
-
-
-            <!--<div class="is-padded m-b-05" ng-if="vm.filterConfig.expanded">-->
-
-                <!--<div class="checkbox is-padded" ng-repeat="q in vm.intervals">-->
-                    <!--<label>-->
-                        <!--<input type="checkbox" checked="true" ng-click="vm.remove(q)">-->
-                    <!--<span>-->
-                        <!--<span ng-if="vm.getParsedQuery(q).type === 'invalid'">{{q}} – invalid date</span>-->
-                        <!--<span ng-if="vm.getParsedQuery(q).type !== 'invalid'" translate="{{vm.filterConfig.intervalTranslation}}{{ vm.getParsedQuery(q).type }}" translate-values="{ from: vm.getParsedQuery(q).values[0], to: vm.getParsedQuery(q).values[1]}"></span>-->
-                    <!--</span>-->
-                    <!--</label>-->
-                <!--</div>-->
-
-                <!--<div uib-dropdown on-toggle="toggled(open)" class="filter-group__filter__interval__option-trigger">-->
-                    <!--<a href="" uib-dropdown-toggle>-->
-                         <!--<span translate="{{vm.filterConfig.intervalTranslation}}select.{{vm.dates.type}}">{{vm.dates.type}}</span>-->
-                        <!--<i></i>-->
-                    <!--</a>-->
-                    <!--<ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">-->
-                        <!--<li ng-repeat="choice in vm.options">-->
-                            <!--<a href="" ng-click="vm.selectType(choice)" class="small" translate="{{vm.filterConfig.intervalTranslation}}select.{{choice}}">{{choice}}</a>-->
-                        <!--</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-
-                <!--<div>-->
-                    <!--<input type="number" ng-model="vm.dates.from.year" min="1000" max="9999" pattern="\d{4}" step="1" ng-change="vm.change()" ng-blur="vm.stringifyQuery()"/>-->
-                    <!--<select ng-model="vm.dates.from.month" ng-change="vm.stringifyQuery()">-->
-                        <!--<option value="{{month}}" ng-repeat="month in vm.months" translate="month.{{month}}">{{month}}</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-                <!--<div ng-if="vm.dates.type === 'between'">-->
-                    <!--<div>and</div>-->
-                    <!--<input type="number" ng-model="vm.dates.to.year" min="1000" max="9999" pattern="\d{4}" step="1" ng-change="vm.change()" ng-blur="vm.stringifyQuery()"/>-->
-                    <!--<select ng-model="vm.dates.to.month" ng-change="vm.stringifyQuery()">-->
-                        <!--<option value="{{month}}" ng-repeat="month in vm.months" translate="month.{{month}}">{{month}}</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-
-            <!--</div>-->
-            <!--<div class="site-drawer__bar seperator" ng-if="vm.expanded">-->
-                <!--<a href="" class="site-drawer__bar__action" ng-click="vm.clear()"-->
-                   <!--ng-class="{invisible: vm.query.length == 0}"><span translate="filters.clear">Clear</span></a>-->
-                <!--<a href="" class="site-drawer__bar__action" ng-click="vm.add()"-->
-                   <!--ng-class="{invisible: !vm.queryString}"><span translate="stdTerms.add">Add</span></a>-->
-            <!--</div>-->
-
-
-
-    <!--</div>-->
 </div>
 
