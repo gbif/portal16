@@ -1,16 +1,5 @@
 {
   "cms": {
-    "search": {
-      "events": "",
-      "news": "",
-      "resources": "",
-      "projects": "",
-      "programmes": "",
-      "documents": "",
-      "tools": "",
-      "dataUse": "",
-      "literature": ""
-    },
     "project": {
       "project": "",
       "projectId": "",
@@ -30,7 +19,7 @@
       "projectStart": "",
       "status": "",
       "programme": "",
-      "contractCountry": "",
+      "contractCountry": "País",
       "newsAndEvents": "",
       "call": "",
       "projectLead": "",
