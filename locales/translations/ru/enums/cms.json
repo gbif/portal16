@@ -1,7 +1,7 @@
 {
   "enums": {
     "cms": {
-      "vocabularyTypes": {
+      "filters": {
         "countriesOfCoverage": "",
         "countriesOfResearcher": "",
         "literatureType": "",
@@ -10,7 +10,13 @@
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": ""
+        "language": "",
+        "year": "",
+        "datasetKey": "Набор данных",
+        "publishingOrg": "",
+        "peerReview": "",
+        "openAccess": "Открытый доступ",
+        "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "",
