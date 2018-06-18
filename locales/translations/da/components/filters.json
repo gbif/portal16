@@ -4,9 +4,14 @@
         "noPreference": "",
         "invert": "Omvend",
         "clear": "",
+        "add": "Tilføj",
         "repatriation": {
-            "repatriationFilter": "",
             "description": ""
+        },
+        "ternary": {
+            "yes": "",
+            "no": "",
+            "all": "Alle"
         },
         "location": {
             "north": "",
