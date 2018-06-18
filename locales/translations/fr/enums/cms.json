@@ -1,16 +1,22 @@
 {
   "enums": {
     "cms": {
-      "vocabularyTypes": {
+      "filters": {
         "countriesOfCoverage": "",
         "countriesOfResearcher": "",
         "literatureType": "",
-        "contractCountry": "",
+        "contractCountry": "Pays",
         "topics": "",
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": ""
+        "language": "",
+        "year": "Année",
+        "datasetKey": "Ensemble de données",
+        "publishingOrg": "",
+        "peerReview": "",
+        "openAccess": "le libre accès",
+        "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "",
