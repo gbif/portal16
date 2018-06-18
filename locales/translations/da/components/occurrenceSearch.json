@@ -7,6 +7,9 @@
     "charts": "",
     "download": "",
     "searchAllFields": "",
-    "description": ""
+    "description": "",
+    "nWithCoordinates": "{NUMBER_FORMATED} med koordinater",
+    "nWithImages": "{NUMBER_FORMATED} with {NUMBER, select, 0{billeder} 1{billede} other{billeder}}",
+    "failedSearch": ""
   }
 }
