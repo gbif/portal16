@@ -13,16 +13,16 @@
                             {$ main.fields.summary $}
                         </h1>
                         <div class="home__searchFilters">
-                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.occurrences') $}</a>
-                            <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.species') $}</a>
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.datasets') $}</a>
-                            <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.publishers') $}</a>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/resource/search?q={{ home.freeTextQuery }}">{$ __('stdTerms.resources') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ home.freeTextQuery }}">{$ __('search.occurrences') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ home.freeTextQuery }}">{$ __('search.species') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ home.freeTextQuery }}">{$ __('search.datasets') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ home.freeTextQuery }}">{$ __('search.publishers') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/resource/search?q={{ home.freeTextQuery }}">{$ __('search.resources') $}</a>
                         </div>
                         <div class="home__header__search-bar search-box">
                             <form action="{$ gb.locales.urlPrefix $}/search"
                                   ng-submit="home.updateSearch()">
-                                <input id="siteSearchInputHome" type="text" placeholder="{$ __('stdTerms.search') $}" name="q" autocomplete="off"
+                                <input id="siteSearchInputHome" type="text" placeholder="{$ __('search.search') $}" name="q" autocomplete="off"
                                        value=""
                                        ng-init="home.freeTextQuery == ''"
                                        ng-model="home.freeTextQuery"
@@ -30,7 +30,7 @@
                                        focus-me="true">
                                 <a class="search-box__submit gb-icon-search2 inherit noUnderline"
                                    ng-href="{$ gb.locales.urlPrefix $}/search?q={{ home.freeTextQuery }}" type="submit">
-                                    <span class="sr-only">search</span>
+                                    <span class="sr-only">{$ __('search.search') $}</span>
                                 </a>
                             </form>
                         </div>
