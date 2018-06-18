@@ -1,7 +1,5 @@
 {
   "resource": {
-    "searchForNewsEventsDocuments": "",
-    "occurrenceSearch": "",
     "contactHelpdesk": "",
     "searchForResources": "",
     "addToCalendar": "",
@@ -14,9 +12,6 @@
     "published": "",
     "programme": "",
     "dataUsedInStudy": "",
-    "upcoming": "",
-    "past": "",
-    "subscribeToCalendar": "",
     "resourceDescription": ""
   }
 }
