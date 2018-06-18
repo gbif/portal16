@@ -15,8 +15,8 @@
                     <input type="checkbox" ng-model="vm.checkboxModel[key]" ng-change="vm.apply(option, checked)"
                            ng-disabled="vm.disabled">
                     <span class="filter-group__filter__name">
-                        <span ng-class="{'filter-group__filter__name__title' : !vm.checkboxModel[key]}"
-                              class="uppercase-first">{{option.title}}</span>
+                        <span ng-class="{'filter-group__filter__name__title' : !vm.checkboxModel[key], 'discreet--very': !option.title}"
+                              class="uppercase-first">{{(option.title) ? option.title : ('participationStatus.undefined' | translate) }}</span>
                         <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()">{{option.count | localNumber:vm.filterState.query.locale}}</span>
                     </span>
                 </label>
