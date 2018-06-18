@@ -16,6 +16,15 @@
     "search": "Søg",
     "clearFilters": "Nulstil filtre",
     "filters": "Filtre",
+    "simple": "Simple",
+    "advanced": "Avanceret",
+    "allResultTypes": "",
+    "header": {
+      "searchDatasets": "Datasæt",
+      "searchPublishers": "Udgivere",
+      "searchSpecies": "Søg taxa",
+      "searchResources": "Resourcer"
+    },
     "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0{resultater} 1{resultat} other{resultater}}"
   }
 }
