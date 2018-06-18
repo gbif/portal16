@@ -15,7 +15,7 @@
     "eventDate": "Begivenhedsdato",
     "hasGeospatialIssue": "Har geospatiale problemer",
     "basisOfRecord": "Observationstype",
-    "issue": "Bemærkning",
+    "issue": "Bemærkninger",
     "locality": "Lokalitet",
     "lastInterpreted": "Sidst fortolket",
     "waterBody": "Vandområde",
@@ -39,6 +39,15 @@
     "orderKey": "Orden",
     "familyKey": "Familie",
     "genusKey": "Slægt",
-    "speciesKey": "Art"
+    "speciesKey": "Art",
+    "hostingOrg": "Vært",
+    "countryOrArea": "Land eller område",
+    "projectId": "Projekt",
+    "rank": "",
+    "constituentKey": "",
+    "higherTaxonKey": "",
+    "status": "",
+    "nameType": "",
+    "origin": ""
   }
 }
