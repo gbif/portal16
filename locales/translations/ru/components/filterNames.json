@@ -39,6 +39,15 @@
     "orderKey": "",
     "familyKey": "",
     "genusKey": "",
-    "speciesKey": "Виды"
+    "speciesKey": "Виды",
+    "hostingOrg": "",
+    "countryOrArea": "",
+    "projectId": "",
+    "rank": "",
+    "constituentKey": "",
+    "higherTaxonKey": "",
+    "status": "",
+    "nameType": "",
+    "origin": ""
   }
 }
