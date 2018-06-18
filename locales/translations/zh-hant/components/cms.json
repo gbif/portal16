@@ -1,16 +1,5 @@
 {
   "cms": {
-    "search": {
-      "events": "",
-      "news": "",
-      "resources": "",
-      "projects": "",
-      "programmes": "",
-      "documents": "",
-      "tools": "",
-      "dataUse": "",
-      "literature": ""
-    },
     "project": {
       "project": "",
       "projectId": "",
