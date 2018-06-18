@@ -2,6 +2,8 @@
     "filters": {
         "searchPlaceholder": "",
         "noPreference": "",
+        "invert": "",
+        "clear": "",
         "repatriation": {
             "repatriationFilter": "",
             "description": ""
