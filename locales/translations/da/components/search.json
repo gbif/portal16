@@ -23,7 +23,8 @@
       "searchDatasets": "Datasæt",
       "searchPublishers": "Udgivere",
       "searchSpecies": "Søg taxa",
-      "searchResources": "Resourcer"
+      "searchResources": "Resourcer",
+      "searchOccurrences": "Observationer"
     },
     "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0{resultater} 1{resultat} other{resultater}}"
   }
