@@ -6,13 +6,6 @@
             "repatriationFilter": "",
             "description": ""
         },
-        "peerReview": {
-            "title": ""
-        },
-        "openAccess": {
-            "title": "Acceso abierto"
-        },
-        "gbifDownloadKey": "",
         "location": {
             "north": "",
             "south": "",
