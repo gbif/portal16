@@ -7,6 +7,9 @@
     "charts": "",
     "download": "",
     "searchAllFields": "",
-    "description": ""
+    "description": "",
+    "nWithCoordinates": "",
+    "nWithImages": "",
+    "failedSearch": ""
   }
 }
