@@ -1,6 +1,6 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "",
+    "SCIENTIFIC": "Nom scientifique du taxon",
     "DOUBTFUL": "",
     "BLACKLISTED": "",
     "VIRUS": "",
