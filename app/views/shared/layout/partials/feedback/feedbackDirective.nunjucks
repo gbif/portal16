@@ -171,7 +171,7 @@
                                 <button ng-disabled="!vm.functionalityForm.$valid || vm.state == 'SENDING'" type="submit"
                                         ng-click="vm.createIssue(vm.issue)"
                                         class="btn btn-default flat pull-right" 
-                                        translate="tools.suggestDataset.form.submit">
+                                        translate="feedback.submit">
                                 </button>
                             </div>
                             <div ng-if="vm.state == 'FAILED'" 

@@ -16,7 +16,7 @@ let translatedPaths = [
     // 'speciesSearch.',
     // 'resourceSearch.',
     // 'pagination.',
-    'health.'
+    'feedback.'
 ];
 let translatedJson = mockify(enJson);
 
