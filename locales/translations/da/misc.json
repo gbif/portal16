@@ -226,7 +226,6 @@
     "noResultsMessage": "Ingen resultater – prøv at fjerne nogle filtre",
     "dontSeeYourIpt": "Ikke kan se din IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail til GBIF Helpdesk med anmodning om at IPT føjes til kort\") dine koordinater.",
     "faqDescription": "Disse er nogle af de oftest stillede spørgsmål om GBIF og GBIF.org. Du er velkommen til at kontakte os hvis dit spørgsmål ikke besvares her.",
-    "citationExplainer": "Læs mere om litteratur, hvordan det er opdaget og knyttet til GBIF-medieret data.",
     "locationFilterWarning": "Vores kvalitetskontrol markerer mistænkelige placeringer. Ønsker du at skjule mistænkeligt placeret observationer?",
     "noShowThem": "Vis alt",
     "yesHideThem": "Skjul mistænkelige",
