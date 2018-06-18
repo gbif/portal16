@@ -31,14 +31,6 @@
             "tooLarge": "",
             "tooLargeSuggestion": "",
             "invalidRange": ""
-        },
-        "names": {
-            "publishingOrg": "Udgiver",
-            "hostingOrg": "Vært",
-            "license": "",
-            "publishingCountry": "",
-            "countryOrArea": "Land eller område",
-            "projectId": "Projekt"
         }
     }
 }
