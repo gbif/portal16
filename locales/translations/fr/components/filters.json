@@ -6,13 +6,6 @@
             "repatriationFilter": "",
             "description": ""
         },
-        "peerReview": {
-            "title": ""
-        },
-        "openAccess": {
-            "title": "le libre accès"
-        },
-        "gbifDownloadKey": "",
         "location": {
             "north": "",
             "south": "",
