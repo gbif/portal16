@@ -1,7 +1,7 @@
 {
   "enums": {
     "cms": {
-      "vocabularyTypes": {
+      "filters": {
         "countriesOfCoverage": "Land eller område der diskuteres",
         "countriesOfResearcher": "Forskers land eller område",
         "literatureType": "Litteraturtype",
@@ -10,7 +10,13 @@
         "audiences": "Publikum",
         "purposes": "Formål",
         "relevance": "Relevans",
-        "language": "Sprog"
+        "language": "Sprog",
+        "year": "",
+        "datasetKey": "",
+        "publishingOrg": "Udgiver",
+        "peerReview": "",
+        "openAccess": "",
+        "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "Event",
