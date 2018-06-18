@@ -1,5 +1,12 @@
 {
   "health": {
+    "systemHealth": "System health",
+    "automatedMonitoring": "Automated monitoring",
+    "updatedTimeAgo": "Updated {TIME_AGO}",
+    "systemLoad": "System load",
+    "messages": "Messages",
+    "version": "Version",
+    "nInQueue": "{NUMBER} in queue",
     "statusSummary": {
       "OPERATIONAL": "All systems operational",
       "INFO": "All systems operational",

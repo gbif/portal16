@@ -258,9 +258,9 @@
                                                 items-per-page="{$ download.datasets.limit $}"
                                                 class="pagination-sm"
                                                 boundary-link-numbers="false"
-                                                first-text="{$ __('stdTerms.first') $}"
-                                                next-text="{$ __('stdTerms.next') $}"
-                                                previous-text="{$ __('stdTerms.previous') $}"
+                                                first-text="{$ __('pagination.first') $}"
+                                                next-text="{$ __('pagination.next') $}"
+                                                previous-text="{$ __('pagination.previous') $}"
                                                 rotate="false"
                                                 ng-change="downloadKey.pageChanged()">
                                         </uib-pagination>
