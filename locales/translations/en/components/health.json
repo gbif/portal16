@@ -1,6 +1,7 @@
 {
   "health": {
     "systemHealth": "System health",
+    "description": "What is the status of the various GBIF services",
     "automatedMonitoring": "Automated monitoring",
     "updatedTimeAgo": "Updated {TIME_AGO}",
     "systemLoad": "System load",
