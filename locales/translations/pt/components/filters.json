@@ -4,9 +4,14 @@
         "noPreference": "",
         "invert": "",
         "clear": "",
+        "add": "",
         "repatriation": {
-            "repatriationFilter": "",
             "description": ""
+        },
+        "ternary": {
+            "yes": "",
+            "no": "",
+            "all": ""
         },
         "location": {
             "north": "",
