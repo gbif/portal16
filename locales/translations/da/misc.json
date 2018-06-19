@@ -180,7 +180,7 @@
     "replacedBy": "Erstattet af",
     "checklistMetrics": "Tjekliste-statistik",
     "occurrenceMetrics": "Observations-statistik",
-    "unknownRank": "Ukendt {RANK}",
+    "unknownRank": "",
     "noStatsForMetadata": "Ingen statistik tilgængelig for rene metadata datasæt",
     "pasteNamesToParse": "Indsætte navne til fortolkning her",
     "excludeUnparsed": "Udeluk ufortolkede",
