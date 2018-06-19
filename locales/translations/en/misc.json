@@ -180,7 +180,7 @@
     "replacedBy": "Replaced by",
     "checklistMetrics": "Checklist metrics",
     "occurrenceMetrics": "Occurrence metrics",
-    "unknownRank": "Unkown {RANK}",
+    "unknownRank": "Unknown {RANK}",
     "noStatsForMetadata": "No stats available for metadata only datasets",
     "pasteNamesToParse": "Paste names to parse here",
     "excludeUnparsed": "Exclude unparsed",

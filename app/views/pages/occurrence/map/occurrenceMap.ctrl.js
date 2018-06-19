@@ -29,7 +29,6 @@ function occurrenceMapCtrl($state, $scope, OccurrenceSearch, OccurrenceFilter) {
         }
         query = angular.copy(query);
         query.has_coordinate = angular.isDefined(query.has_coordinate) ? query.has_coordinate : 'true';
-        console.log(query);
         query.limit = 0;
         latestData = OccurrenceSearch.query(query, function(data) {
             vm.count = data.count;
