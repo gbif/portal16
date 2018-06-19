@@ -13,6 +13,12 @@
     "failedSearch": "",
     "noImages": "",
     "imageLicenseInfo": "",
-    "showMoreImages": ""
+    "showMoreImages": "",
+    "default": "",
+    "custom": "",
+    "noOccurrencesWithCoordinates": "",
+    "containsSuspicious": "",
+    "hideSuspiciousCoordinates": "",
+    "currentFilter": ""
   }
 }
