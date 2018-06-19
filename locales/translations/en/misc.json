@@ -120,7 +120,6 @@
     "datasetHomePage": "Dataset homepage",
     "license": "License",
     "references": "References",
-    "readMore": "Read more",
     "more": "More",
     "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
     "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 0{records} 1{record} other{records}}",

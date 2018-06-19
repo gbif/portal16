@@ -14,7 +14,7 @@ let translatedPaths = [
     // 'filters.',
     // 'filterNames.',
     // 'occurrenceSearch.',
-    'downloadReport.',
+    'downloadKey.',
     // 'speciesSearch.',
     // 'resourceSearch.',
     'pagination.'
