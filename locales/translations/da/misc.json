@@ -45,7 +45,6 @@
     "pRecords": "{NUMBER, select, 0{optegnelser} 1{optegnelse} other{optegnelser}}",
     "pOccurrence": "{NUMBER, select, 0{observationer} 1{observation} other{observationer}}",
     "otherOrUknown": "Anden eller ukendt",
-    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 0{andre eller ukendte} 1{anden eller ukendt} other{andre eller ukendte}}",
     "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 0{observationer} 1{observation} other{observationer}}",
     "nDatasets": "{NUMBER_FORMATED} {NUMBER, select, 0{datasæts} 1{datasæt} other{datasæts}}",
     "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, 0{udgivere} 1{udgiver} other{udgivere}}",
