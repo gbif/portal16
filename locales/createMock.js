@@ -9,12 +9,15 @@ let enJson = require(dir + 'en');
 let translatedPaths = [
     'menu.',
     'search.',
-    'datasetSearch.',
-    'publisherSearch.',
+    // 'datasetSearch.',
+    // 'publisherSearch.',
     'filters.',
     'filterNames.',
-    'speciesSearch.',
-    'resourceSearch.'
+    'occurrenceSearch.',
+    'metrics.'
+    // 'speciesSearch.',
+    // 'resourceSearch.',
+    // 'pagination.',
 ];
 let translatedJson = mockify(enJson);
 

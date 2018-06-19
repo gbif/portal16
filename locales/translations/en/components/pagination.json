@@ -1,0 +1,7 @@
+{
+    "pagination": {
+        "previous": "Previous",
+        "next": "Next",
+        "first": "First"
+    }
+}

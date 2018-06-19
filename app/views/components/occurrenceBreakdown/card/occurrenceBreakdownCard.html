@@ -29,9 +29,9 @@
         <div class="card__stripe card__stripe--light text-right p-hidden" ng-if="vm.options.dimension && (vm.chartApi.data().endOfRecords === false || vm.options.offset > 0)">
             <div class="card__content p-t-05 p-b-05">
                 <div>
-                    <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0;" ng-if="vm.options.offset > vm.options.limit" translate="stdTerms.first"></a>
-                    <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0" translate="stdTerms.previous"></a>
-                    <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartApi.data().endOfRecords === false" translate="stdTerms.next"></a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0;" ng-if="vm.options.offset > vm.options.limit" translate="pagination.first"></a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0" translate="pagination.previous"></a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" ng-if="vm.chartApi.data().endOfRecords === false" translate="pagination.next"></a>
                 </div>
             </div>
         </div>

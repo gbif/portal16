@@ -250,7 +250,6 @@
     "verbatimLongitude": "Verbatim longitude",
     "scientificNameAuthorship": "Scientific name authorship",
     "undefined": "Unknown field",
-    "noImages": "No occurrences with images",
     "coordinatesTextual": "This record is published without coordinates, but it includes a textual description of its location.",
     "coordinatesMissing": "Coordinates missing"
   }

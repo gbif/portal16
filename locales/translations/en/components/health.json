@@ -1,5 +1,13 @@
 {
   "health": {
+    "systemHealth": "System health",
+    "description": "What is the status of the various GBIF services",
+    "automatedMonitoring": "Automated monitoring",
+    "updatedTimeAgo": "Updated {TIME_AGO}",
+    "systemLoad": "System load",
+    "messages": "Messages",
+    "version": "Version",
+    "nInQueue": "{NUMBER} in queue",
     "statusSummary": {
       "OPERATIONAL": "All systems operational",
       "INFO": "All systems operational",

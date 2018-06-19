@@ -13,6 +13,7 @@
     "failedToLoad": "Failed to load tree",
     "noChildren": "No immediate children",
     "noOccurrences": "No occurrences",
+    "occurrences": "Occurrences",
     "occurrencesPerField": "Occurrences per {FIELD}",
     "occurrencesPerFieldx2": "Occurrences per {FIELD} per {FIELD2}",
     "customFilters": "This chart has custom filters",
@@ -28,6 +29,17 @@
     "clickToZoom": "Click and drag in the plot area to zoom in",
     "pinchToZoom": "Pinch the chart to zoom in",
     "numAcceptedSpByHigher": "Number of accepted species by higher taxon",
-    "noRankedAbove": "The checklist has no ranked taxa above Species."
+    "noRankedAbove": "The checklist has no ranked taxa above Species.",
+    "taxonomicOccDistribution": "Taxonomic distribution of occurrences",
+    "groupByX": "Group by {TYPE}",
+    "majorRanksPlural": {
+      "KINGDOM": "Kingdoms",
+      "PHYLUM": "Phyla",
+      "CLASS": "Classes",
+      "ORDER": "Orders",
+      "FAMILY": "Families",
+      "GENUS": "Genera",
+      "SPECIES": "Species"
+    }
   }
 }

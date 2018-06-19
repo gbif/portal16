@@ -1,5 +1,9 @@
 {
   "occurrence": {
+    "coordinates": "Coordinates",
+    "issues": "Issues",
+    "dataset": "Dataset",
+    "monthAndyear": "Month & year",
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Collected in {COUNTRY}",

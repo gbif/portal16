@@ -7,6 +7,12 @@
     "charts": "Charts",
     "download": "Download",
     "searchAllFields": "Search all fields",
-    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
+    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
+    "nWithCoordinates": "{NUMBER_FORMATED} with coordinates",
+    "nWithImages": "{NUMBER_FORMATED} with {NUMBER, select, 0{images} 1{image} other{images}}",
+    "failedSearch": "Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues",
+    "noImages": "No occurrences with images",
+    "imageLicenseInfo": "Be aware that licenses applied to images may differ from those applied to occurrence records",
+    "showMoreImages": "More"
   }
 }

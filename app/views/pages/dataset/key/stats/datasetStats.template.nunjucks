@@ -68,7 +68,7 @@
                     <div layout-gt-sm="row" layout-padding>
 
                         <div flex-gt-sm="50" flex="100" >
-                            <h4 class="card-header text-center inline-block" translate="phrases.taxonomicOccDistribution"></h4>
+                            <h4 class="card-header text-center inline-block" translate="metrics.taxonomicOccDistribution"></h4>
                             <div class="card " layout-fill layout-padding>
                                 <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"
                                                           options="{limit:10}"></occurrence-taxonomy-tree>

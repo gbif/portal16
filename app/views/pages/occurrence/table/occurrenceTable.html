@@ -5,21 +5,14 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
+                        <span class="article-header__category__upper" translate="search.header.searchOccurrences"></span>
                         <span class="article-header__category__lower" ng-if="occTable.hasData()">
-                            <span tx="stdTerms.nResults" tx-nr="occTable.occurrenceState.table.count"></span>
+                            <span tx="search.nResults" tx-nr="occTable.occurrenceState.table.count"></span>
                         </span>
-
                         <span class="article-header__category__lower" ng-if="!occTable.hasData()">
                             <span translate="stdTerms.loading"></span> ...
                         </span>
-
                     </nav>
-                    <!--<div class="search-header__description">-->
-                    <!--<span ng-if="occTable.hasData()">-->
-                    <!--{{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results-->
-                    <!--</span>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -77,41 +70,19 @@
     <section class="horizontal-stripe--paddingless lighter-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
 
-        <div ng-if="occTable.occurrenceState.failedRequest" class="emptyInfo">
-            <h3>
-                Unable to process request
-            </h3>
-            <p>
-                Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues
-            </p>
-        </div>
-        <!--<div class="container-fluid">-->
-        <!--<div class="row">-->
-        <!--<div class="col-xs-12 small">-->
-        <!--<span ng-if="occTable.hasData()">-->
-        <!--{{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results-->
-        <!--</span>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-
         <div class="occurrence-search__table__area" ng-if="occTable.hasData()">
             <div class="scrollable-y">
                 <div class="table-container">
                     <table class="table search-table smaller">
                         <thead>
                         <tr>
-                            <!--<th-->
-                                <!--ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'monthAndyear', 'dataset', 'remarks', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']" translate="stdTerms.{{field}}">-->
-                                <!--{{field}}-->
-                            <!--</th>-->
                             <th class="table-cell--wide" translate="ocurrenceFieldNames.scientificName"></th>
                             <th class="table-cell--normal" translate="ocurrenceFieldNames.country"></th>
-                            <th class="table-cell--normal" translate="stdTerms.coordinates"></th>
+                            <th class="table-cell--normal" translate="occurrence.coordinates"></th>
                             <th class="table-cell--normal" translate="ocurrenceFieldNames.basisOfRecord"></th>
-                            <th class="table-cell--narrow" translate="stdTerms.monthAndyear"></th>
-                            <th class="table-cell--wide" translate="stdTerms.dataset"></th>
-                            <th class="table-cell--narrow" translate="stdTerms.remarks"></th>
+                            <th class="table-cell--narrow" translate="occurrence.monthAndyear"></th>
+                            <th class="table-cell--wide" translate="occurrence.dataset"></th>
+                            <th class="table-cell--narrow" translate="occurrence.issues"></th>
                             <th class="table-cell--narrow" translate="ocurrenceFieldNames.taxonRank"></th>
                             <th class="table-cell--narrow" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']" translate="ocurrenceFieldNames.{{t}}"></th>
                             <th class="table-cell--wide" translate="ocurrenceFieldNames.species"></th>
@@ -176,9 +147,9 @@
                                 class="pagination-sm"
                                 boundary-link-numbers="false"
                                 rotate="false"
-                                first-text="{{'stdTerms.first' | translate}}"
-                                next-text="{{'stdTerms.next' | translate}}"
-                                previous-text="{{'stdTerms.previous' | translate}}"
+                                first-text="{{'pagination.first' | translate}}"
+                                next-text="{{'pagination.next' | translate}}"
+                                previous-text="{{'pagination.previous' | translate}}"
                                 ng-change="occTable.pageChanged()"
                                 ng-show="occTable.occurrenceState.table.count > occTable.limit">
                         </uib-pagination>

@@ -1,7 +1,7 @@
 <div class="filter-group filter-group--location">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
-            <span translate="ocurrenceFieldNames.location">Location</span>
+            <span translate="filterNames.location">Location</span>
             <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
         </h4>
@@ -124,7 +124,7 @@
                                               translate="filters.location.tooLarge">Too large</span>
                                         <a href="" ng-click="vm.addString()" ng-class="{invisible: vm.tooLarge || vm.invalidTextInput}"
                                            class="pull-right gb-button--flat text-uppercase"
-                                           translate="stdTerms.add">add</a>
+                                           translate="filters.add">add</a>
                                     </div>
                                 </div>
                             </div>
