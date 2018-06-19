@@ -1,7 +1,6 @@
 'use strict';
 let express = require('express'),
     router = express.Router(),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     format = rootRequire('app/helpers/format'),
     taxonomicCoverage = require('./taxonomicCoverage'),
     bibliography = require('./bibliography'),
@@ -10,7 +9,7 @@ let express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
     auth = require('../../../auth/auth.service'),
-    request = require('requestretry');
+    Dataset = require('../../../../models/gbifdata/gbifdata').Dataset;
 
 module.exports = function(app) {
     app.use('/api', router);
@@ -54,18 +53,10 @@ router.get('/dataset/:key.:ext?', function(req, res, next) {
 });
 
 async function getDataset(key) {
-    let baseRequest = {
-        url: apiConfig.dataset.url + key,
-        method: 'GET',
-        json: true,
-        fullResponse: true
-    };
+   let response = await Dataset.get(key, {expand: ['network']});
 
-    let response = await request(baseRequest);
-    if (response.statusCode > 299) {
-        throw response;
-    }
-    let dataset = response.body;
+   let dataset = response.record;
+    dataset.network = response.network;
     dataset._computedValues = {};
     dataset._computedValues.contributors = contributors.getContributors(dataset.contacts);
 

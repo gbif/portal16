@@ -30,6 +30,12 @@
                     <dt translate="stdTerms.host">Host</dt>
                     <dd><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
                 </div>
+                <div ng-if="datasetKey.dataset.network && datasetKey.dataset.network.length > 0">
+                    <dt class="uppercase-first" translate="stdTerms.networkPlural" translate-values="{NUMBER: datasetKey.dataset.network.length}">Networks</dt>
+                    <dd><ul class="inline-bullet-list">
+                        <li ng-repeat="nw in datasetKey.dataset.network"><a ui-sref="network({key: nw.key})">{{nw.title}}</a></li>
+                    </ul></dd>
+                </div>
                 <div>
                     <dt translate="stdTerms.license"></dt>
                     <dd>

@@ -153,6 +153,7 @@
     "overview": "Overview",
     "metrics": "Metrics",
     "sourcePlural": "{NUMBER, select, 0{sources} 1{source} other{sources}}",
+    "networkPlural": "{NUMBER, select, 0{Networks} 1{Network} other{Networks}}",
     "coordinateUncertainty": "Coordinate uncertainty",
     "summary": "Summary",
     "registered": "Registered",
