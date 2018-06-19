@@ -31,22 +31,7 @@
                                ng-click="vm.hasError=false"></a>
                                 <h4 ng-if="vm.hasApiCriticalError" ><span translate="stdTerms.criticalErrorMsg"></span></h4>
                                 <h4 ng-if="vm.hasApi413Error" ><span translate="map.errors.413"></span></h4>
-
-
                         </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="mapPopup fixedSize" ng-if="vm.ignoreCoordinateIssues !==true && (vm.filter.has_coordinate !== 'true' && vm.filter.has_geospatial_issue !== 'false' )">
-                <div class="card small">
-                    <div class="card__stripe">
-                        <div class="card__content" ng-bind-html="'phrases.locationFilterWarning' | translate | md2html">
-                        </div>
-                    </div>
-                    <div class="card__stripe--actions">
-                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})"  class="gb-button--flat text-uppercase" translate="phrases.yesHideThem"></a>
-                        <a href="" class="gb-button--flat text-uppercase" ng-click="vm.ignoreCoordinateIssues = true" translate="phrases.noShowThem"></a>
                     </div>
                 </div>
             </div>

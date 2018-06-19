@@ -112,7 +112,7 @@
             </div>
         </div>
 
-        <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.display.type != 'PIE' && vm.chartdata.diff > 0 && vm.chartdata.offset==0 && vm.chartdata.endOfRecords" tx="stdTerms.pOtherOrUknown" tx-nr="vm.chartdata.diff"></div>
+        <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.display.type != 'PIE' && vm.chartdata.diff > 0 && vm.chartdata.offset==0 && vm.chartdata.endOfRecords" tx="metrics.pOtherOrUknown" tx-nr="vm.chartdata.diff"></div>
         <div class="seperator p-05 discreet--very small" ng-show="vm.chartdata.$resolved && vm.chartdata.bucketSize || vm.chartdata.secondDimension.bucketSize">
             <div ng-if="vm.chartdata.bucketSize">
                 <span translate="filterNames.{{vm.chartdata.field | camelCase}}"></span>: <span translate="metrics.intervalSize"></span> {{vm.chartdata.bucketSize}}

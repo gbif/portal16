@@ -19,13 +19,36 @@ function occurrenceMapCtrl($state, $scope, OccurrenceSearch, OccurrenceFilter) {
 
     var latestData = {};
     var search = function(query) {
-        query = angular.copy(query);
-        query.hasCoordinate = 'true';
-        query.limit = 0;
         vm.count = -1;
         if (latestData.$cancelRequest) latestData.$cancelRequest();
+        if (query.has_coordinate === 'false') {
+            if (latestData.$cancelRequest) latestData.$cancelRequest();
+            vm.count = 0;
+            searchForSuspicious(query);
+            return;
+        }
+        query = angular.copy(query);
+        query.has_coordinate = angular.isDefined(query.has_coordinate) ? query.has_coordinate : 'true';
+        console.log(query);
+        query.limit = 0;
         latestData = OccurrenceSearch.query(query, function(data) {
             vm.count = data.count;
+        }, function() {
+            // TODO handle request error
+        });
+        searchForSuspicious(query);
+    };
+
+    var latestSuspiciousData = {};
+    var searchForSuspicious = function(query) {
+        if (latestSuspiciousData.$cancelRequest) latestSuspiciousData.$cancelRequest();
+        vm.suspiciousCount = -1;
+        if (query.has_geospatial_issue === 'false' || query.has_coordinate === 'false') {
+            return;
+        }
+        query.has_geospatial_issue = 'true';
+        latestSuspiciousData = OccurrenceSearch.query(query, function(data) {
+            vm.suspiciousCount = data.count;
         }, function() {
             // TODO handle request error
         });

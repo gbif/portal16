@@ -10,7 +10,7 @@ let translatedPaths = [
     'menu.',
     'search.',
     // 'datasetSearch.',
-    // 'publisherSearch.',
+    'pagination.',
     'filters.',
     'filterNames.',
     'occurrenceSearch.',
