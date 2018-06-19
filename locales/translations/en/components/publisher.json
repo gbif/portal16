@@ -4,7 +4,7 @@
       "aboutPublisher": "About",
       "publishersHomepage": "Homepage"
     },
-    "joined": "Joined",
+    "joinedAgo": "Joined {TIME_AGO}",
     "newPublisher": "New publisher",
     "technicalContact": "Technical contact",
     "country": "Country or area",
