@@ -119,8 +119,8 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                     });
             }
         });
-
-    vm.species.$promise.then(function() {
+    // Disable Open Tree Of Life
+   /* vm.species.$promise.then(function() {
         $http.get('/api/otl/ottid', {
             params: {
                 canonicalName: vm.species.canonicalName,
@@ -129,7 +129,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
         }).then(function(response) {
             vm.ott_id = response.data.ott_id;
         });
-    });
+    }); */
 
     function getCitesStatus(kingdom, name) {
         vm.cites = CitesApi.get({
