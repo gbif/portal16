@@ -22,7 +22,7 @@ router.get('/otl/ottid', function(req, res) {
         url: apiConfig.openTreeOfLife.url + '/tnrs/match_names',
         timeout: 30000,
         method: 'POST',
-        json: {'names': [canonicalName]},
+        json: {'names': [canonicalName], 'do_approximate_matching': false},
         fullResponse: true
     };
     return request(baseRequest)
