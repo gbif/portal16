@@ -13,6 +13,7 @@
     "failedToLoad": "",
     "noChildren": "",
     "noOccurrences": "",
+    "occurrences": "",
     "occurrencesPerField": "",
     "occurrencesPerFieldx2": "",
     "customFilters": "",
@@ -28,6 +29,17 @@
     "clickToZoom": "",
     "pinchToZoom": "",
     "numAcceptedSpByHigher": "",
-    "noRankedAbove": ""
+    "noRankedAbove": "",
+    "taxonomicOccDistribution": "Taksonomisk distribution af observationer",
+    "groupByX": "",
+    "majorRanksPlural": {
+      "KINGDOM": "",
+      "PHYLUM": "",
+      "CLASS": "",
+      "ORDER": "",
+      "FAMILY": "",
+      "GENUS": "",
+      "SPECIES": ""
+    }
   }
 }
