@@ -68,13 +68,13 @@
         </div>
     </section>
     <div ng-if="occGallery.count === 0" class="emptyInfo">
-        <h3 translate="ocurrenceFieldNames.noImages"></h3>
+        <h3 translate="occurrenceSearch.noImages"></h3>
     </div>
     <ng-include src="'/templates/components/loader/loader.html'" ng-if="occGallery.count < 0"></ng-include>
     <section class="horizontal-stripe light-background seperator" ng-if="occGallery.count > 0">
         <div class="container-fluid">
             <div class="small discreet" ng-if="occGallery.occurrenceState.query.license">
-                <p translate="phrases.imageLicenseInfo"></p>
+                <p translate="occurrenceSearch.imageLicenseInfo"></p>
             </div>
             <div class="imageGallery">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" ui-sref="occurrenceKey({key:image.key})">
@@ -84,7 +84,7 @@
                     <div class="summary smaller p-bg" ng-if="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && image.issues.indexOf('TAXON_MATCH_NONE') === -1) || !image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']">{{image.scientificName}}</div>
 
                 </a>
-                <div class="imageGallery__more p-hidden" ng-click="occGallery.loadMore()" ng-if="!occGallery.endOfRecords"><span>More</span>
+                <div class="imageGallery__more p-hidden" ng-click="occGallery.loadMore()" ng-if="!occGallery.endOfRecords"><span translate="occurrenceSearch.showMoreImages"></span>
                 </div>
                 <div class="imageGallery__more imageGallery__more__filler" ng-if="occGallery.endOfRecords"></div>
             </div>

@@ -13,7 +13,8 @@ let translatedPaths = [
     // 'publisherSearch.',
     'filters.',
     'filterNames.',
-    'occurrenceSearch.'
+    'occurrenceSearch.',
+    'metrics.'
     // 'speciesSearch.',
     // 'resourceSearch.',
     // 'pagination.',

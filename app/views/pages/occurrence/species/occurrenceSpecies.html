@@ -9,17 +9,10 @@
                         <span class="article-header__category__lower" ng-if="occSpecies.hasTableData()">
                             <span tx="search.nResults" tx-nr="occSpecies.state.table.count"></span>
                         </span>
-
                         <span class="article-header__category__lower" ng-if="!occSpecies.hasTableData()">
                             <span translate="stdTerms.loading"></span> ...
                         </span>
-
                     </nav>
-                    <!--<div class="search-header__description">-->
-                    <!--<span ng-if="occSpecies.hasData()">-->
-                    <!--{{occSpecies.occurrenceState.data.count | localNumber:occSpecies.occurrenceState.query.locale }} results-->
-                    <!--</span>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -75,32 +68,16 @@
     </section>
 
     <section class="horizontal-stripe--paddingless lighter-background">
-
-
-        <!--<div class="container-fluid">-->
-        <!--<div class="row">-->
-        <!--<div class="col-xs-12 small">-->
-        <!--<span ng-if="occSpecies.hasData()">-->
-        <!--{{occSpecies.occurrenceState.data.count | localNumber:occSpecies.occurrenceState.query.locale }} results-->
-        <!--</span>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
         <div ng-class="{'container-fluid' : occSpecies.mdMedia('gt-xs')}" layout="column">
             <div layout-gt-sm="row" layout-padding>
-
                 <div flex-gt-sm="50" flex="100" >
-                    <h4 class="card-header text-center inline-block">Taxonomic distribution of
-                        occurrences</h4>
+                    <h4 class="card-header text-center inline-block" translate="metrics.taxonomicOccDistribution"></h4>
                     <div class="card " layout-fill layout-padding>
-                        <occurrence-taxonomy-tree filter="occSpecies.state.query"
-                                                  options="{limit:10}"></occurrence-taxonomy-tree>
+                        <occurrence-taxonomy-tree filter="occSpecies.state.query" options="{limit:10}"></occurrence-taxonomy-tree>
                     </div>
                 </div>
-                <div flex-gt-sm="50" flex="100" >
-
-                    <occurrence-taxonomy-stats
-                            filter="occSpecies.state.query" chart-type="'sunburst'"></occurrence-taxonomy-stats>
+                <div flex-gt-sm="50" flex="100">
+                    <occurrence-taxonomy-stats filter="occSpecies.state.query" chart-type="'sunburst'"></occurrence-taxonomy-stats>
                 </div>
             </div>
 
@@ -108,49 +85,33 @@
                 <div class="m-b-0 m-h-18">
                 <div ng-if="occSpecies.hasData()" layout="row" >
                     <div class="taxon-list-header" flex="30">
-                    <h4 class="card-header">{{occSpecies.type}} list</h4>
+                        <h4 class="card-header" translate="metrics.majorRanksPlural.{{ occSpecies.type | uppercase }}"></h4>
                     </div>
                     <div layout-fill></div>
-                    <div >
-
-
-                            <md-select class="taxon-group-select"  ng-model="occSpecies.type" >
-
-                                <md-option ng-repeat="type in occSpecies.types" ng-value="type">
-                                    Group by {{type}}
-                                </md-option>
-                            </md-select>
-
+                    <div>
+                        <md-select class="taxon-group-select"  ng-model="occSpecies.type" >
+                            <md-option ng-repeat="type in occSpecies.types" ng-value="type">
+                                {{ 'metrics.groupByX' | translate:({TYPE: ('taxonRank.' + (type | uppercase) | translate) }) }}
+                            </md-option>
+                        </md-select>
                     </div>
                 </div>
                 </div>
                 <div class="occurrence-taxon-list">
                     <div class="occurrence-search__table__area card" layout-padding>
                         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occSpecies.hasData() && !occSpecies.state.failedRequest"></ng-include>
-
-                        <div ng-if="occSpecies.state.failedRequest" class="emptyInfo">
-                            <h3>
-                                Unable to process request
-                            </h3>
-                            <p>
-                                Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues
-                            </p>
-                        </div>
                         <div class="scrollable-y" ng-if="occSpecies.hasData()">
                             <div class="table-container">
-                                <!--<div class="table-container__overlay" ng-if="!occSpecies.hasData()"></div>-->
                                 <table class="table search-table smaller">
                                     <thead>
                                     <tr>
                                         <th>
                                             <span class="gb-icon-filters"></span>
                                         </th>
-                                        <th>
-                                            occurrences
-                                        </th>
+                                        <th translate="metrics.occurrences"></th>
                                         <th
-                                            ng-repeat="field in ['scientificName', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
-                                            {{ field }}
+                                            ng-repeat="field in ['taxonKey', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey']">
+                                            {{ ('filterNames.' + field) | translate }}
                                         </th>
                                     </tr>
                                     </thead>
@@ -196,12 +157,7 @@
                                             ng-change="occSpecies.pageChanged()"
                                             ng-show="occSpecies.checklist.offset || occSpecies.checklist.results.length == occSpecies.limit">
                                     </uib-pagination>
-                                    <!--<ul class="pagination-sm pagination">-->
-                                    <!--<li class="pagination-prev"><a href="" ng-click="selectPage(page - 1, $event)" class="ng-binding">Previous</a></li>-->
-                                    <!--<li class="pagination-next"><a href="" ng-click="selectPage(page + 1, $event)" class="ng-binding">Next</a></li>-->
-                                    <!--</ul>-->
                                 </div>
-
                             </div>
                         </div>
                     </div>

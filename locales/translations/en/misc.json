@@ -181,7 +181,6 @@
     "checklistMetrics": "Checklist metrics",
     "occurrenceMetrics": "Occurrence metrics",
     "unknownRank": "Unkown {RANK}",
-    "taxonomicOccDistribution": "Taxonomic distribution of occurrences",
     "noStatsForMetadata": "No stats available for metadata only datasets",
     "pasteNamesToParse": "Paste names to parse here",
     "excludeUnparsed": "Exclude unparsed",
@@ -196,7 +195,6 @@
     "noShowThem": "No, show them",
     "yesHideThem": "Yes, hide them",
     "noJavascriptEnabled": "We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.",
-    "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.",
-    "imageLicenseInfo": "Be aware that licenses applied to images may differ from those applied to occurrence records"
+    "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser."
   }
 }
