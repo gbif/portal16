@@ -32,6 +32,7 @@
     "noRankedAbove": "",
     "taxonomicOccDistribution": "Taksonomisk distribution af observationer",
     "groupByX": "",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 0{andre eller ukendte} 1{anden eller ukendt} other{andre eller ukendte}}",
     "majorRanksPlural": {
       "KINGDOM": "",
       "PHYLUM": "",
