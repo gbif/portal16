@@ -8,12 +8,15 @@
     "countByIssue": ""
   },
   "metrics": {
+    "checklistMetrics": "",
+    "occurrenceMetrics": "",
     "explore": "",
     "majorGroups": "",
     "failedToLoad": "",
     "noChildren": "",
     "noOccurrences": "",
     "occurrences": "",
+    "otherOrUknown": "",
     "occurrencesPerField": "",
     "occurrencesPerFieldx2": "",
     "customFilters": "",
