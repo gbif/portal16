@@ -141,6 +141,7 @@
     "overview": "Oversigt",
     "metrics": "Metrisk",
     "sourcePlural": "{NUMBER, select, 0{kilder} 1{kilde} other{kilder}}",
+    "networkPlural": "",
     "coordinateUncertainty": "Koordinat usikkerhed",
     "summary": "Oversigt",
     "registered": "Registreret",
