@@ -120,7 +120,6 @@
     "datasetHomePage": "Datasæt hjemmeside",
     "license": "Licens",
     "references": "Referencer",
-    "readMore": "Læs mere",
     "more": "Mere",
     "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 0{citationer} 1{citation} other{citationer}}",
     "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 0{optegnelser} 1{optegnelse} other{optegnelser}}",
