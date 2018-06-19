@@ -8,12 +8,15 @@
     "countByIssue": ""
   },
   "metrics": {
+    "checklistMetrics": "Tjekliste-statistik",
+    "occurrenceMetrics": "Observations-statistik",
     "explore": "",
     "majorGroups": "",
     "failedToLoad": "",
     "noChildren": "",
     "noOccurrences": "",
     "occurrences": "",
+    "otherOrUknown": "Anden eller ukendt",
     "occurrencesPerField": "",
     "occurrencesPerFieldx2": "",
     "customFilters": "",
