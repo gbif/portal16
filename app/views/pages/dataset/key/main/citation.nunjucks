@@ -2,7 +2,7 @@
     <div>
         <a href="" id="citation"></a>
         <div class="anchor-block--tabs" id="citationBlock">
-            <h4 translate="dataset.citation"></h4>
+            <h3 translate="dataset.citation"></h3>
             <div class="small">
                 {{ datasetKey.dataset.citation.text }}
             </div>

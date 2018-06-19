@@ -13,7 +13,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.stats.accepted | localNumber }}</span>
-                <div translate="phrases.acceptedNames"></div>
+                <div translate="dataset.metricHighlights.acceptedNames"></div>
             </div>
         </div>
     </a>
@@ -30,7 +30,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.stats.synonyms | localNumber }}</span>
-                <div translate="stdTerms.synonyms"></div>
+                <div translate="dataset.metricHighlights.synonyms"></div>
             </div>
         </div>
     </a>
@@ -47,7 +47,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.metrics.nubCoveragePct }}%</span>
-                <div translate="phrases.overlapWithNub"></div>
+                <div translate="dataset.metricHighlights.overlapWithNub"></div>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.metrics.colCoveragePct }}%</span>
-                <div><span translate="phrases.overlapWithCol"></span></div>
+                <div><span translate="dataset.metricHighlights.overlapWithCol"></span></div>
             </div>
         </div>
     </div>

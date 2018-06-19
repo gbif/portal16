@@ -4,7 +4,7 @@
             <div class="summaryStats__circle summaryStats__circle--occurrences"></div>
             <div class="summaryStats__percentage">
                 <span>{{ datasetKey.occurrences.count | localNumber }}</span>
-                <div translate="stdTerms.occurrences" translate-values="{NUMBER: datasetKey.occurrences.count}"></div>
+                <div translate="dataset.metricHighlights.occurrences" translate-values="{NUMBER: datasetKey.occurrences.count}"></div>
             </div>
         </div>
     </a>
@@ -22,7 +22,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ ( (datasetKey.occurrences.count - datasetKey.withoutTaxon.count) / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
-                <div translate="phrases.withTaxonMatch"></div>
+                <div translate="dataset.metricHighlights.withTaxonMatch"></div>
             </div>
         </div>
     </a>
@@ -40,7 +40,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ (datasetKey.withCoordinates.count / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
-                <div translate="phrases.withCoordinates"></div>
+                <div translate="dataset.metricHighlights.withCoordinates"></div>
             </div>
         </div>
     </a>
@@ -58,7 +58,7 @@
             </div>
             <div class="summaryStats__percentage">
                 <span>{{ ( datasetKey.withYear.count / datasetKey.occurrences.count) | formatAsPercentage:100 }}%</span>
-                <div translate="phrases.withYear"></div>
+                <div translate="dataset.metricHighlights.withYear"></div>
             </div>
         </div>
     </a>

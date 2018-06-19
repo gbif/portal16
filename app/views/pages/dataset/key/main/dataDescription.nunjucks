@@ -2,22 +2,22 @@
     <div>
         <a href="" id="dataDescription"></a>
         <div class="anchor-block--tabs" id="dataDescriptionBlock">
-            <h4 translate="dataset.dataDescription">Data description</h4>
+            <h3 translate="dataset.dataDescription"></h3>
             <div>
                 <dl class="inline">
 
                     <div ng-if="datasetKey.dataset.language">
-                        <dt>Metadata language</dt>
+                        <dt translate="dataset.metadataLanguage"></dt>
                         <dd translate="language.{{ datasetKey.dataset.language }}"></dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.dataLanguage">
-                        <dt>Data language</dt>
+                        <dt translate="dataset.dataLanguage"></dt>
                         <dd translate="language.{{ datasetKey.dataset.dataLanguage }}"></dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.dataDescriptions.length > 0">
-                        <dt>External description</dt>
+                        <dt translate="dataset.dataDescriptions"></dt>
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="descr in datasetKey.dataset.dataDescriptions">

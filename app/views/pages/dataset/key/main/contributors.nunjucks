@@ -1,8 +1,8 @@
 <section class="horizontal-stripe--paddingless dataset-key__contributors" ng-if="datasetKey.dataset._computedValues.contributors.all.length > 0">
     <div>
-        <a href="" id="contributors"></a>
-        <div class="anchor-block--tabs" id="contributorsBlock">
-            <h3 translate="dataset.contributors"></h3>
+        <a href="" id="contacts"></a>
+        <div class="anchor-block--tabs" id="contactsBlock">
+            <h3 translate="dataset.contacts"></h3>
             <div class="contactsCard card">
                 <contact contact-info="contact" ng-repeat="contact in datasetKey.dataset._computedValues.contributors.all"></contact>
             </div>

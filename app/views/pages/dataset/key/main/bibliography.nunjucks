@@ -13,7 +13,7 @@
                         <div>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="identifier in reference._identifiers">
-                                    <a ng-if="identifier.type == 'PDF' || identifier.type == 'DOI' || identifier.type == 'URL'" ng-href="{{identifier.ref}}" translate="phrases.viewArticle"></a>
+                                    <a ng-if="identifier.type == 'PDF' || identifier.type == 'DOI' || identifier.type == 'URL'" ng-href="{{identifier.ref}}" translate="dataset.viewArticle"></a>
                                     <a ng-if="identifier.type == 'ISSN'" ng-href="{{identifier.ref}}">{{ identifier.text }}</a>
                                     <span ng-if="identifier.type == 'STR'">{{ identifier.text }}</span>
                                 </li>

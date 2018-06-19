@@ -13,10 +13,10 @@ let translatedPaths = [
     // 'pagination.',
     // 'filters.',
     // 'filterNames.',
-    // 'occurrenceSearch.',
-    'downloadKey.',
-    // 'speciesSearch.',
-    // 'resourceSearch.',
+    'galleryBar.',
+    'publisher.',
+    'metrics.',
+    // 'map.',
     'pagination.'
 ];
 let translatedJson = mockify(enJson);

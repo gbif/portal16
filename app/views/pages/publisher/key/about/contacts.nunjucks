@@ -1,14 +1,11 @@
 <section class="horizontal-stripe--paddingless dataset-key__contributors m-t-1" id="contacts">
     <div class="container--desktop">
         <div>
-            <h4 class="text-muted small text-uppercase" translate="stdTerms.contacts" translate-values="{ NUMBER: publisherKey.publisher._computedValues.contributors.all.length + 1}">Contacts</h4>
-
+            <h4 class="card-header--bold" translate="publisher.contacts" translate-values="{ NUMBER: publisherKey.publisher._computedValues.contributors.all.length + 1}">Contacts</h4>
             <div class="contactsCard card card--spaced">
                 <contact contact-info="publisherKey.publisher"></contact>
                 <contact contact-info="contact" ng-repeat="contact in publisherKey.publisher._computedValues.contributors.all"></contact>
             </div>
-
-
         </div>
     </div>
 </section>

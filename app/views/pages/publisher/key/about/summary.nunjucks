@@ -1,36 +1,30 @@
 <div class="card card--spaced container-fluid">
     <div class="row">
-        <div class="col-xs-12 card__content" ng-class="{'col-sm-6': publisherKey.marker, 'col-md-8': publisherKey.marker}">
+        <div class="col-xs-12 card__content">
                 <div class="logoImg pull-right" ng-if="publisherKey.publisher.logoUrl">
                     <img ng-src="{{ publisherKey.publisher.logoUrl | imgCache }}" onError="this.style.display = 'none'">
                 </div>
 
                 <dl class="inline">
                     <div ng-if="publisherKey.publisher.description">
-                        <dt translate="stdTerms.description">Description</dt>
+                        <dt translate="publisher.description"></dt>
                         <dd ng-bind-html="publisherKey.publisher.description">
                         </dd>
                     </div>
-                    {#<div>#}
-                        {#<dt>GBIF pubilsher since</dt>#}
-                        {#<dd>#}
-                            {#{{ publisherKey.publisher.created | momentFormat:'D MMMM YYYY' }}#}
-                        {#</dd>#}
-                    {#</div>#}
                     <div ng-if="publisherKey.publisher.endorsementApproved">
-                        <dt translate="phrases.endorsedBy">Endorsed by</dt>
+                        <dt translate="publisher.endorsedBy"></dt>
                         <dd>
                             <a ng-href="{{portal.urlPrefix}}/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.publisher.endorsementApproved === false">
-                        <dt translate="phrases.pendingEndorsementBy">Pending endorsement by</dt>
+                        <dt translate="publisher.pendingEndorsementBy"></dt>
                         <dd>
                             <a ng-href="/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.installations.count > 0">
-                        <dt translate="stdTerms.installations">Installations</dt>
+                        <dt translate="publisher.installations"></dt>
                         <dd>
                            <ul class="inline-bullet-list">
                                <li ng-repeat="installation in publisherKey.installations.results">
@@ -40,27 +34,27 @@
                         </dd>
                     </div>
                     <div ng-if="publisherKey.adminContact">
-                        <dt translate="stdTerms.administrativeContact">Administrative contact</dt>
+                        <dt translate="publisher.administrativeContact"></dt>
                         <dd>
                             <a ng-href="mailto:{{ publisherKey.adminContact.email[0] }}">{{ publisherKey.adminContact.firstName }} {{ publisherKey.adminContact.lastName }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.technicalContact">
-                        <dt translate="stdTerms.technicalContact">Technical contact</dt>
+                        <dt translate="publisher.technicalContact"></dt>
                         <dd>
                             <a ng-href="mailto:{{ publisherKey.technicalContact.email[0] }}">{{ publisherKey.technicalContact.firstName }} {{ publisherKey.technicalContact.lastName }}</a>
                         </dd>
                     </div>
 
                     <div ng-if="publisherKey.publisher.country">
-                        <dt translate="stdTerms.country">Country or area</dt>
+                        <dt translate="publisher.country"></dt>
                         <dd>
                             <a ui-sref="countrySummary({key:publisherKey.publisher.country})">{{ 'country.' + publisherKey.publisher.country | translate }}</a>
                         </dd>
                     </div>
 
                     <div ng-if="publisherKey.hostStats.datasetCount" class="m-t-1">
-                        <dt translate="stdTerms.hosting">Hosting</dt>
+                        <dt translate="publisher.hosting"></dt>
                         <dd>
                             <dd>
                             <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})" tx="stdTerms.nDatasets" tx-nr="publisherKey.hostStats.datasetCount"></a> 
@@ -71,19 +65,11 @@
                         </dd>
                         </dd>
                     </div>
-                    {#<div ng-if="publisherKey.publisher.email[0]">#}
-                        {#<dt>Publisher</dt>#}
-                        {#<dd>#}
-                            {#<a ng-href="mailto:{{ publisherKey.publisher.email[0] }}">{{ publisherKey.publisher.email[0] }}</a>#}
-                        {#</dd>#}
-                    {#</div>#}
-                    {#<a class="gb-button--discreet text-uppercase" href="#contacts">Contact details</a>#}
                 </dl>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4" >
-            <div class="addressMap row" ng-if="publisherKey.marker">
+        <div class="col-xs-12">
+            <div class="addressMap row fitSize" ng-if="publisherKey.marker">
                 <feature-map marker="publisherKey.marker" baseLayer="publisherKey.baselayer" projection="'EPSG:3857'" mapstyle="'light'"></feature-map>
-
             </div>
         </div>
     </div>
