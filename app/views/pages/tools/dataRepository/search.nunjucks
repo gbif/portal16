@@ -7,7 +7,7 @@
                            autocomplete="off"
                            ng-model="dataRepository.q"
                            placeholder="{{ 'stdTerms.search' | translate }}"
-                           ng-keydown="dataRepository.closeOnEsc($event)">
+                           xng-keydown="dataRepository.closeOnEsc($event)">
                     <a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"
                        ng-click="dataRepository.search()">
                         <span class="sr-only">{$ __('stdTerms.search') $}</span>
