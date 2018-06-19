@@ -7,17 +7,17 @@ let _ = require('lodash');
 
 let enJson = require(dir + 'en');
 let translatedPaths = [
-    'menu.',
-    'search.',
+    // 'menu.',
+    // 'search.',
     // 'datasetSearch.',
-    // 'publisherSearch.',
-    'filters.',
-    'filterNames.',
-    'occurrenceSearch.',
-    'metrics.'
+    // 'pagination.',
+    // 'filters.',
+    // 'filterNames.',
+    // 'occurrenceSearch.',
+    'downloadKey.',
     // 'speciesSearch.',
     // 'resourceSearch.',
-    // 'pagination.',
+    'pagination.'
 ];
 let translatedJson = mockify(enJson);
 

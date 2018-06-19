@@ -23,9 +23,9 @@ angular
                     minute = '0' + minute;
                 }
 
-                var minuteTxt = (minute === 1 ) ? ' ' + $translate.instant('downloadKey.minute').toLowerCase() : ' ' + $translate.instant('downloadKey.minutes').toLowerCase();
+                var minuteTxt = (minute === 1 ) ? ' ' + $translate.instant('downloadReport.minute').toLowerCase() : ' ' + $translate.instant('downloadReport.minutes').toLowerCase();
 
-                var time = (hour !== '00') ? (hour + ':' + minute + ' ' + $translate.instant('downloadKey.hours').toLowerCase()) : (minute + minuteTxt);
+                var time = (hour !== '00') ? (hour + ':' + minute + ' ' + $translate.instant('downloadReport.hours').toLowerCase()) : (minute + minuteTxt);
 
                 result[bandwidth[x] / 1000000] = time;
             }

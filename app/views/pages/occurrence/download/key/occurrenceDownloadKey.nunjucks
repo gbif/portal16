@@ -116,13 +116,13 @@
                             {% if download.record.status === 'KILLED' or download.record.status === 'CANCELLED' %}
                                 <div class="card__content card__content--error--large">
                                     {$ __('downloadKey.downloadKilled') $}
-                                    <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                                    <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('downloadKey.contactHelpdesk') $}</a>
                                 </div>
                             {% else %}
                                 {% if download.record.status === 'FILE_ERASED' %}
                                     <div class="card__content card__content--error--large seperator--b">
                                         {$ __('downloadKey.downloadDeleted') $}
-                                        <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                                        <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('downloadKey.contactHelpdesk') $}</a>
                                     </div>
                                 {% endif %}
                                 <div class="card__stripe">
@@ -208,7 +208,7 @@
                                     <div ng-show="!downloadKey.HUMAN" class="ng-cloak">
                                         <div>
                                             {$ __('downloadKey.apiUsageDescription') $}
-                                            <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') $}</a></div>
+                                            <a href="/developer/occurrence#predicates">{$ __('downloadKey.readMore') $}</a></div>
                                         <pre>
                                             <code>
 {$ download.predicateString | safe $}
