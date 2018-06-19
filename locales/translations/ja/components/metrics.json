@@ -33,6 +33,7 @@
     "taxonomicOccDistribution": "",
     "groupByX": "",
     "pOtherOrUknown": "",
+    "unknownRank": "",
     "majorRanksPlural": {
       "KINGDOM": "",
       "PHYLUM": "",
