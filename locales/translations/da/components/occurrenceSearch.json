@@ -10,6 +10,9 @@
     "description": "",
     "nWithCoordinates": "{NUMBER_FORMATED} med koordinater",
     "nWithImages": "{NUMBER_FORMATED} with {NUMBER, select, 0{billeder} 1{billede} other{billeder}}",
-    "failedSearch": ""
+    "failedSearch": "",
+    "noImages": "",
+    "imageLicenseInfo": "Være opmærksom på, at licenser anvendt på billeder kan afvige fra observationens licens",
+    "showMoreImages": "Flere"
   }
 }
