@@ -1,6 +1,23 @@
 {
   "publisher": {
-    "joined": "",
-    "newPublisher": ""
+    "tabs": {
+      "aboutPublisher": "",
+      "publishersHomepage": "Hjemmeside"
+    },
+    "joinedAgo": "",
+    "newPublisher": "",
+    "technicalContact": "",
+    "country": "Land eller område",
+    "hosting": "",
+    "description": "Beskriveslse",
+    "endorsedBy": "",
+    "pendingEndorsementBy": "",
+    "installations": "Installationer",
+    "contacts": "",
+    "administrativeContact": "",
+    "header": {
+      "publisher": "",
+      "sinceDate": "Siden {DATE}"
+    }
   }
 }
