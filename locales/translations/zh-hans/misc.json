@@ -181,7 +181,6 @@
     "checklistMetrics": "",
     "occurrenceMetrics": "",
     "unknownRank": "",
-    "taxonomicOccDistribution": "",
     "noStatsForMetadata": "",
     "pasteNamesToParse": "",
     "excludeUnparsed": "",
@@ -196,7 +195,6 @@
     "noShowThem": "",
     "yesHideThem": "",
     "noJavascriptEnabled": "",
-    "isSplashScreen": "",
-    "imageLicenseInfo": ""
+    "isSplashScreen": ""
   }
 }
