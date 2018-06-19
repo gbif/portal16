@@ -7,8 +7,6 @@
     "brokenDownload": "",
     "cancelled": "",
     "cancel": "",
-    "understood": "",
-    "proceed": "",
     "deleted": "",
     "download": "",
     "occurrences": "",
@@ -56,23 +54,6 @@
       "or": "",
       "not": "",
       "isNotNull": ""
-    },
-    "hours": "",
-    "minute": "",
-    "minutes": "",
-    "sizeZippedForDownload": "",
-    "freeOfCost": "",
-    "promoteTransperant": "",
-    "ifAnalysingData": "",
-    "largeDownload": "",
-    "requestingFullDownload": "",
-    "occFiltersExplainedHere": "",
-    "estSizeIs": "",
-    "estDLtimes": "",
-    "nMbitConn": "",
-    "onceDownloaded": "",
-    "datasetHasNumRows": "",
-    "youWillNotBeAble": "",
-    "difficultToAnalyse": ""
+    }
   }
 }
