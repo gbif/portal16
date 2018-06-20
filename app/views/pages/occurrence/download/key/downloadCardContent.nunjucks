@@ -68,7 +68,9 @@
 </div>
 <div class="card__stripe">
     <div class="card__content predicateContainer">
-        {% if not download.noFilters %}
+        {% if download._hugeQuery %}
+            <div class="gb-badge--error">Huge query</div>
+        {% elif not download.noFilters %}
             <div class="toggle small">
             </div>
             <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}">
