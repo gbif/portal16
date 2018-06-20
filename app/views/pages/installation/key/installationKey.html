@@ -8,7 +8,7 @@
                         <div class="row">
                             <header class="col-xs-12">
                                 <nav class="article-header__category">
-                                    <span class="article-header__category__upper" translate="stdTerms.installation"></span>
+                                    <span class="article-header__category__upper" translate="installation.installation"></span>
                                 </nav>
                                 <h1 ng-class="{'text-error': installationKey.installation.deleted}">
                                     {{ installationKey.installation.title }}
@@ -29,16 +29,12 @@
                                     <nav class="tabs tabs--noBorder">
                                         <ul>
                                             <li class="tab isActive">
-                                                <span translate="stdTerms.summary">
-                                                    Summary
-                                                </span>
+                                                <span translate="installation.about"></span>
                                             </li>
                                             <li class="tab">
                                                 <a ng-href="{{ installationKey.installation.homepage[0] }}">
                                                     <span class="gb-icon-link"></span>
-                                                    <span translate="stdTerms.homepage">
-                                                        Homepage
-                                                    </span>
+                                                    <span translate="installation.homepage"></span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -56,21 +52,21 @@
                                 <div ng-bind-html="installationKey.installation.description"></div>
                                 <dl class="inline m-t-05">
                                     <div ng-if="installationKey.installation.type">
-                                        <dt translate="stdTerms.installationType">Installation type</dt>
+                                        <dt translate="installation.installationType"></dt>
                                         <dd translate="installationType.{{installationKey.installation.type}}">
                                         </dd>
                                     </div>
                                     <div ng-if="installationKey.publisher.$resolved">
-                                        <dt translate="stdTerms.hostedBy">Hosted by</dt>
+                                        <dt translate="installation.hostedBy"></dt>
                                         <dd><a ui-sref="publisherKey({ key: installationKey.publisher.key})">{{installationKey.publisher.title}}</a>
                                         </dd>
                                     </div>
                                     <div ng-if="installationKey.installation.created">
-                                        <dt translate="stdTerms.registered">Registered</dt>
+                                        <dt translate="installation.registered"></dt>
                                         <dd>{{ installationKey.installation.created | momentFormat:'D MMMM YYYY' }}</dd>
                                     </div>
                                     <div ng-if="installationKey.installation.endpoints.length > 0">
-                                        <dt translate="stdTerms.endpoints">Endpoints</dt>
+                                        <dt translate="installation.endpoints"></dt>
                                         <dd>
                                             <ul class="inline-bullet-list">
                                                 <li ng-repeat="endpoint in installationKey.installation.endpoints">
@@ -83,22 +79,17 @@
                             </div>
                         </div>
                         <div class="m-b-1" ng-if="installationKey.installation._computedValues.contributors.all.length > 0">
-                            <h4 class="small discreet text-uppercase" 
-                                translate="stdTerms.nContacts" 
-                                translate-values="{ NUMBER_FORMATED: (installationKey.installation._computedValues.contributors.all.length | localNumber), NUMBER: installationKey.installation._computedValues.contributors.all.length }">
-                                Contacts</h4>
-
+                            <h4 class="card-header" tx="stdTerms.nContacts" tx-nr="installationKey.installation._computedValues.contributors.all.length"></h4>
                             <div class="contactsCard card card--spaced">
                                 <contact contact-info="contact" ng-repeat="contact in installationKey.installation._computedValues.contributors.all"></contact>
                             </div>
-
                         </div>
                         <div class="m-b-1" ng-if="installationKey.servedDatasets.count > 0">
                             <span class="relative-anchor-offset"><a id="servedDatasets"></a></span>
-                            <h4 class="small discreet text-uppercase" 
+                            <h4 class="card-header" 
                                 translate="stdTerms.nDatasets" 
                                 translate-values="{ NUMBER_FORMATED: (installationKey.servedDatasets.count | localNumber), NUMBER: installationKey.servedDatasets.count }">
-                                Served datasets
+                                
                             </h4>
 
                             <div>

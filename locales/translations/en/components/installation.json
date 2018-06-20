@@ -1,0 +1,12 @@
+{
+    "installation": {
+        "installation": "Installation",
+        "about": "About",
+        "homepage": "Homepage",
+        "installationType": "Installation type",
+        "hostedBy": "Hosted by",
+        "registered": "Registered",
+        "endpoints": "Endpoints",
+        "contacts": "Contacts"
+    }
+}

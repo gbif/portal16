@@ -62,6 +62,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/downloadReport`),
         getFile(locale, `./${locale}/components/validation`),
         getFile(locale, `./${locale}/components/health`),
+        getFile(locale, `./${locale}/components/installation`),
         getFile(locale, `./${locale}/components/gbifNetwork`),
         getFile(locale, `./${locale}/components/network`),
         getFile(locale, `./${locale}/components/terms`),

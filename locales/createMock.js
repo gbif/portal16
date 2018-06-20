@@ -14,7 +14,7 @@ let translatedPaths = [
     // 'filters.',
     // 'filterNames.',
     'galleryBar.',
-    'publisher.',
+    'installation.',
     'metrics.',
     // 'map.',
     'pagination.'
