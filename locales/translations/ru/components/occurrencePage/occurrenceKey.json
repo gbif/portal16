@@ -1,9 +1,49 @@
 {
   "occurrence": {
     "coordinates": "",
+    "unknownDate": "",
+    "absent": "",
     "issues": "",
     "dataset": "Набор данных",
     "monthAndyear": "",
+    "citation": "Цитата",
+    "readFullDescription": "",
+    "showMoreInfo": "",
+    "noTaxonMatch": "",
+    "gbifTaxonInterpretation": "",
+    "aboutTheDataset": "",
+    "noLocationInformation": "",
+    "subMenu": {
+      "diagnostics": "",
+      "menu": "",
+      "showDiagnostics": "",
+      "hideDiagnostics": "",
+      "aboutDarwinCore": "",
+      "raw": ""
+    },
+    "groups": {
+      "Record": "Запись",
+      "Occurrence": "Находка",
+      "Event": "",
+      "Identification": "",
+      "Taxon": "",
+      "Location": "",
+      "Organism": "",
+      "MaterialSample": "",
+      "GeologicalContext": "",
+      "other": ""
+    },
+    "term": "",
+    "interpreted": "",
+    "original": "",
+    "remarks": "",
+    "highlights": {
+      "location": "",
+      "specimenType": "",
+      "publisher": "",
+      "reference": "",
+      "verbatimName": ""
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "",
