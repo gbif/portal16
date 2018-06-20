@@ -29,7 +29,7 @@
         <dd>
             <span>
                 {{ datasetKey.processSummary.lastDataChange.fragmentsEmitted | localNumber }}
-                <span class="c-error-badge" ng-if="datasetKey.isOutOfSync" translate="phrases.outOfSync"></span>
+                <span class="c-error-badge" ng-if="datasetKey.isOutOfSync" translate="dataset.outOfSync"></span>
             </span>
         </dd>
     </div>

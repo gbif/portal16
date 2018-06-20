@@ -1,5 +1,5 @@
 <div class="card-head">
-    <h4 class="card-header--bold" translate="phrases.becauseTrustedContact"></h4>
+    <h4 class="card-header--bold" translate="dataset.becauseTrustedContact"></h4>
     <div class="card-menu">
         <a href="" class="card-menu__option inherit noUnderline" ng-click="datasetKey.showTrustedDatasetDetails = !datasetKey.showTrustedDatasetDetails" ng-class="{'gb-icon-unfold-more-horizontal': !datasetKey.showTrustedDatasetDetails, 'gb-icon-unfold-less-horizontal': datasetKey.showTrustedDatasetDetails}"></a>
     </div>
@@ -10,12 +10,12 @@
             <a href="" ng-click="datasetKey.showTrustedDatasetDetails = true">
                 <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0" translate="dataset.lastIngestionSuccess"></span>
                 <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0" translate="dataset.lastIngestionFailed"></span>
-                <span class="gb-badge--red inline-block" ng-if="datasetKey.isOutOfSync" translate="phrases.outOfSync"></span>
+                <span class="gb-badge--red inline-block" ng-if="datasetKey.isOutOfSync" translate="dataset.outOfSync"></span>
             </a>
             <div class="pull-right" ng-if="datasetKey.crawlingState != 'FAILED'">
                 <a ng-href="{{ portal.env.managementToolsSite }}crawl-history?uuid={{ datasetKey.key }}" class="gb-button--flat text-uppercase" translate="dataset.history"></a>
                 <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="datasetKey.crawlingState == 'FINISHED'" translate="dataset.ingestNow"></a>
-                <a ng-href="{$ publicKibana $}app/kibana#/discover?_g=(time:(from:now-7d,mode:quick,to:now))&_a=(filters:!((meta:(alias:!n,disabled:!f,index:{$ kibanaIndex $},key:datasetKey,negate:!f,type:phrase,value:'{{datasetKey.key}}'),query:(match:(datasetKey:(query:'{{datasetKey.key}}',type:phrase))))),index:{$ kibanaIndex $})" class="gb-button--flat text-uppercase" translate="stdTerms.logs">Logs</a>
+                <a ng-href="{$ publicKibana $}app/kibana#/discover?_g=(time:(from:now-7d,mode:quick,to:now))&_a=(filters:!((meta:(alias:!n,disabled:!f,index:{$ kibanaIndex $},key:datasetKey,negate:!f,type:phrase,value:'{{datasetKey.key}}'),query:(match:(datasetKey:(query:'{{datasetKey.key}}',type:phrase))))),index:{$ kibanaIndex $})" class="gb-button--flat text-uppercase" translate="dataset.logs">Logs</a>
                 <a class="gb-button--discreet" href="https://crawler.gbif.org/" ng-if="datasetKey.crawlingState == 'IN_QUEUE'" translate="dataset.inIngestionQueue"></a>
                 <span class="gb-button--discreet" ng-if="datasetKey.crawlingState == 'STARTED'" translate="dataset.addingToQueue"></span>
             </div>
@@ -33,7 +33,7 @@
                         <span ng-repeat="recentItem in datasetKey.processSummary.recent" class="processSummary__{{ recentItem.finishReason }}">
                             <md-tooltip md-direction="top">
                                 
-                                {{ recentItem.startedCrawling | momentFormat:'D MMMM YYYY' }} <span translate="stdTerms.finished"></span>: <span translate="dataset.crawl.finishReason.{{recentItem.finishReason}}"></span>
+                                {{ recentItem.startedCrawling | momentFormat:'D MMMM YYYY' }} <span translate="dataset.finished"></span>: <span translate="dataset.crawl.finishReason.{{recentItem.finishReason}}"></span>
                             </md-tooltip>
                         </span>
                         <span ng-repeat="recentItem in datasetKey.range(25 - datasetKey.processSummary.recent.length) track by $index" class="processSummary__EMPTY }}"></span>

@@ -1,5 +1,6 @@
 {
   "map": {
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 0{georeferenced records} 1{georeferenced record} other{georeferenced records}}",
     "clickToSearchArea": "Click to search an area",
     "generatedDateAgo": "Generarated {DATE_AGO}",
     "anyYear": "Any year",

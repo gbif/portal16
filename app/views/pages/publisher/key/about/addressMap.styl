@@ -1,9 +1,15 @@
+$publisherMapHeight = 200px;
 .addressMap{
   position relative
   z-index 10
-  height:100%
+  .mapWidget {
+    height $publisherMapHeight
+    width 100%
+    .mapWidget__mapWrapper{
+        height $publisherMapHeight
+    }
+  }
   >* {
     z-index 10
   }
-  
 }

@@ -8,12 +8,15 @@
     "countByIssue": "Count issues by issue type"
   },
   "metrics": {
+    "checklistMetrics": "Checklist metrics",
+    "occurrenceMetrics": "Occurrence metrics",
     "explore": "Explore",
     "majorGroups": "Major groups",
     "failedToLoad": "Failed to load tree",
     "noChildren": "No immediate children",
     "noOccurrences": "No occurrences",
     "occurrences": "Occurrences",
+    "otherOrUknown": "Other or unknown",
     "occurrencesPerField": "Occurrences per {FIELD}",
     "occurrencesPerFieldx2": "Occurrences per {FIELD} per {FIELD2}",
     "customFilters": "This chart has custom filters",

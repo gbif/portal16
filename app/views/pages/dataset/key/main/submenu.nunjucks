@@ -43,9 +43,9 @@
                     <a href="#bibliography" translate="dataset.bibliography"></a>
                 </li>
 
-                <li class="nav-chapter" du-scrollspy="contributorsBlock"
+                <li class="nav-chapter" du-scrollspy="contactsBlock"
                     ng-if="datasetKey.dataset._computedValues.contributors.all.length > 0">
-                    <a href="#contributors" translate="dataset.contributors"></a>
+                    <a href="#contacts" translate="dataset.contacts"></a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="dataDescriptionBlock"

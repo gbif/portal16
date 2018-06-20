@@ -6,7 +6,7 @@
                     <span class="article-header__category__upper"><a
                                 ui-sref="datasetSearchTable({type:datasetKey.dataset.type})" translate="dataset.longType.{{ datasetKey.dataset.type }}">
                             </a></span>
-                    <span class="article-header__category__lower" translate="phrases.registeredDate" translate-values="{DATE: (datasetKey.dataset.created | momentFormat:'D MMMM YYYY')}"></span>
+                    <span class="article-header__category__lower" translate="dataset.registeredDate" translate-values="{DATE: (datasetKey.dataset.created | momentFormat:'D MMMM YYYY')}"></span>
                 </nav>
 
                 <h1 class="text-center">
@@ -18,13 +18,13 @@
                     </a>
                     <br/>
                     <span class="source" ng-if="datasetKey.parentDataset.title"> 
-                        <span translate="phrases.constituentOf"></span> <a class="source underline" ui-sref="datasetKey({key:datasetKey.parentDataset.key})">{{ datasetKey.parentDataset.title }}</a>
+                        <span translate="dataset.constituentOf"></span> <a class="source underline" ui-sref="datasetKey({key:datasetKey.parentDataset.key})">{{ datasetKey.parentDataset.title }}</a>
                     </span>
                 </p>
                 <div ng-if="datasetKey.dataset._computedValues.contributors.highlighted.length > 0">
                     <ol class="inline-bullet-list">
                         <li ng-repeat="contributor in datasetKey.dataset._computedValues.contributors.highlighted">
-                            <a ng-href="{{ portal.urlPrefix }}/dataset/{{ datasetKey.key }}#contributors"
+                            <a ng-href="{{ portal.urlPrefix }}/dataset/{{ datasetKey.key }}#contacts"
                                class="inherit">
                                     <i class="gb-icon-mail" ng-if="contributor._primaryContact"></i>
                                 {{ contributor.firstName }} {{ contributor.lastName }}

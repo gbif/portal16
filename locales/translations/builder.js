@@ -51,6 +51,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/menu`),
         getFile(locale, `./${locale}/components/feedback`),
         getFile(locale, `./${locale}/components/filters`),
+        getFile(locale, `./${locale}/components/galleryBar`),
         getFile(locale, `./${locale}/components/nameParser`),
         getFile(locale, `./${locale}/components/pagination`),
         getFile(locale, `./${locale}/components/footer`),

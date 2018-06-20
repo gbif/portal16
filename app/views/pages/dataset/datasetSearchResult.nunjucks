@@ -18,7 +18,7 @@
             <p ng-if="result.description">
                 {{result.description | stripTags | truncate:200 }}
             </p>
-            <p ng-if="!result.description" class="discreet" translate="stdTerms.noDescriptionProvided">
+            <p ng-if="!result.description" class="discreet" translate="dataset.noDescriptionProvided">
                 
             </p>
             <p class="discreet--very smaller" ng-if="result.publishingOrganizationTitle">
@@ -29,7 +29,7 @@
 
             </p>
             <p ng-if="result.highlights && result.highlights.keywords">
-                <span translate="cms.literature.keywords"></span>: <span ng-bind-html="result.highlights.keywords"></span>
+                <span translate="dataset.keywords"></span>: <span ng-bind-html="result.highlights.keywords"></span>
             </p>
             <ul class="list-chips" ng-if="result.type != 'METADATA'">
                 <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">

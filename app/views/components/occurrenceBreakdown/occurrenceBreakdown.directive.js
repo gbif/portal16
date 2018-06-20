@@ -95,8 +95,8 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
             $translate('occurrences');
             $q.all({
                     response: vm.content.$promise,
-                    occurrences_translation: $translate('stdTerms.occurrences'),
-                    otherOrUknown_translation: $translate('stdTerms.otherOrUknown'),
+                    occurrences_translation: $translate('metrics.occurrences'),
+                    otherOrUknown_translation: $translate('metrics.otherOrUknown'),
                     clickToZoom_translation: $translate('metrics.clickToZoom'),
                     pinchToZoom_translation: $translate('metrics.pinchToZoom')
                 })

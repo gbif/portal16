@@ -33,12 +33,12 @@
                     </div>
 
                     <div ng-if="datasetKey.projectEmpty" class="emptyInfo">
-                        <p translate="stdTerms.noDescription"></p>
+                        <p translate="dataset.noDescriptionProvided"></p>
                     </div>
                 </div>
             </div>
             <div ng-if="datasetKey.dataset._computedValues.projectContacts.all.length > 0">
-                <h4 translate="stdTerms.contacts"></h4>
+                <h4 translate="dataset.contacts"></h4>
                 <contacts contact-list="datasetKey.dataset._computedValues.projectContacts.all"></contacts>
                 <div class="card contactsCard">
                     <contact contact-info="contact" ng-repeat="contact in datasetKey.dataset._computedValues.projectContacts.all"></contact>
