@@ -1,9 +1,49 @@
 {
   "occurrence": {
     "coordinates": "Koordinater",
+    "unknownDate": "Ukendt dato",
+    "absent": "",
     "issues": "Bemærkninger",
     "dataset": "",
     "monthAndyear": "Måned & år",
+    "citation": "",
+    "readFullDescription": "",
+    "showMoreInfo": "",
+    "noTaxonMatch": "",
+    "gbifTaxonInterpretation": "",
+    "aboutTheDataset": "Om datasættet",
+    "noLocationInformation": "",
+    "subMenu": {
+      "diagnostics": "",
+      "menu": "Menu",
+      "showDiagnostics": "",
+      "hideDiagnostics": "",
+      "aboutDarwinCore": "",
+      "raw": ""
+    },
+    "groups": {
+      "Record": "",
+      "Occurrence": "",
+      "Event": "Event",
+      "Identification": "",
+      "Taxon": "",
+      "Location": "",
+      "Organism": "",
+      "MaterialSample": "",
+      "GeologicalContext": "",
+      "other": ""
+    },
+    "term": "",
+    "interpreted": "",
+    "original": "Original",
+    "remarks": "Bemærkninger",
+    "highlights": {
+      "location": "",
+      "specimenType": "",
+      "publisher": "Udgiver",
+      "reference": "Reference",
+      "verbatimName": ""
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Samlet i {COUNTRY}",
