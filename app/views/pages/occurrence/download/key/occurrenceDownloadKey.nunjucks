@@ -195,16 +195,22 @@
                         <div class="card__stripe--light">
                             <div class="card__content predicateContainer">
                                 {% if not download.noFilters %}
+                                    {% if not download._hugeQuery %}
                                     <div class="toggle small">
                                         <a href="" class="inherit discreet" ng-if="downloadKey.HUMAN"
                                            ng-click="downloadKey.HUMAN = false">{$  __('downloadKey.apiFilterView') $}</a>
                                         <a href="" class="inherit discreet ng-cloak" ng-if="!downloadKey.HUMAN"
                                            ng-click="downloadKey.HUMAN = true">{$  __('downloadKey.humanFilterView') $}</a>
                                     </div>
+                                    {% endif %}
+                                    {% if download._hugeQuery %}
+                                        <div ng-init="downloadKey.HUMAN = false"></div>
+                                    {% else %}
                                     <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}"
                                          ng-show="downloadKey.HUMAN">
                                         {$ predicate.print(download.record.request.predicate, __) $}
                                     </div>
+                                    {% endif %}
                                     <div ng-show="!downloadKey.HUMAN" class="ng-cloak">
                                         <div>
                                             {$ __('downloadKey.apiUsageDescription') $}

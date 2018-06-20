@@ -2,9 +2,7 @@
     <div class="container--narrow">
         <div class="ng-cloak" ng-if="networkDataset.datasets.count > 0">
             <span class="relative-anchor-offset"><a id="datasets"></a></span>
-            <h4 class="card-header" translate="network.participatingDatasets"
-                translate-values="{n: networkDataset.datasets.count}">
-            </h4>
+            <h4 class="card-header" tx="network.nParticipatingDatasets" tx-nr="networkDataset.datasets.count"></h4>
             <div>
                 <div ng-show="networkDataset.datasets.count > 0">
                     <div ng-repeat="result in networkDataset.datasets.results">

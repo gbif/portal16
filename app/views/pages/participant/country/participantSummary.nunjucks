@@ -3,19 +3,19 @@
         <div>
             <dl class="inline">
                 <div>
-                    <dt translate="countryKey.memberStatus">Member status</dt>
+                    <dt translate="participant.memberStatus"></dt>
                     <dd>{{ 'participationStatus.' + countryKey.country.participant.participationStatus | translate }}</dd>
                 </div>
                 <div>
-                    <dt translate="countryKey.gbifParticipantSince">GBIF participant since</dt>
+                    <dt translate="participant.gbifParticipantSince"></dt>
                     <dd>{{ countryKey.country.participant.membershipStart | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div>
-                    <dt translate="countryKey.gbifRegion">GBIF region</dt>
+                    <dt translate="participant.gbifRegion"></dt>
                     <dd>{{ 'region.' + countryKey.country.participant.gbifRegion | translate }}</dd>
                 </div>
                 <div>
-                    <dt translate="countryKey.headOfDelegation">Head of delegation</dt>
+                    <dt translate="participant.headOfDelegation"></dt>
                     <dd><a href="#contact{{countryKey.country.headOfDelegation.personId}}">{{ countryKey.country.contacts[countryKey.country.headOfDelegation.personId].firstName }} {{ countryKey.country.contacts[countryKey.country.headOfDelegation.personId].surname }}</a></dd>
                 </div>
             </dl>
@@ -25,19 +25,19 @@
         <div>
             <dl class="inline">
                 <div>
-                    <dt translate="countryKey.nodeName">Node name</dt>
+                    <dt translate="participant.nodeName"></dt>
                     <dd><a ng-href="#nodeAddress">{{ countryKey.country.node.name }}</a></dd>
                 </div>
                 <div>
-                    <dt translate="countryKey.nodeEstablished">Node established</dt>
+                    <dt translate="participant.nodeEstablished"></dt>
                     <dd>{{ countryKey.country.prose.main.fields.nodeEstablishmentDate | momentFormat:'YYYY' }}</dd>
                 </div>
                 <div>
-                    <dt translate="countryKey.website">Website</dt>
+                    <dt translate="participant.website"></dt>
                     <dd><a ng-href="{{ countryKey.country.node.nodeUrl }}">{{ countryKey.country.node.nodeUrl }}</a></dd>
                 </div>
                 <div>
-                    <dt translate="countryKey.participantNodeManager">Participant node manager</dt>
+                    <dt translate="participant.participantNodeManager"></dt>
                     <dd><a ng-href="#contact{{countryKey.country.nodeManager.personId}}">{{ countryKey.country.contacts[countryKey.country.nodeManager.personId].firstName }} {{ countryKey.country.contacts[countryKey.country.nodeManager.personId].surname }}</a></dd>
                 </div>
             </dl>

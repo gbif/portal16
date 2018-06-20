@@ -8,7 +8,7 @@
                 <div class="row">
                     <header class="col-xs-12">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{$ __('stdTerms.installation') $}</span>
+                            <span class="article-header__category__upper">{$ __('installation.installation') $}</span>
                             <span class="article-header__category__lower">
                                 {$ installation.record.created | formatDate(gb.locales.current) $}
                             </span>

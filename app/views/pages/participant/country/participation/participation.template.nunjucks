@@ -5,7 +5,7 @@
         <section class="horizontal-stripe seperator light-background m-t-1" id="contacts" ng-if="countryKey.country.node || countryKey.country.activePeople.length > 0">
             <div class="container--narrow">
                 <div>
-                    <h4 class="card-header--bold" translate="stdTerms.contacts" translate-values="{ NUMBER: countryKey.country.activePeople.length}">Contacts</h4>
+                    <h4 class="card-header" translate="stdTerms.contacts" translate-values="{ NUMBER: countryKey.country.activePeople.length + 1}"></h4>
                     <div class="contactsCard card card--spaced">
                         <contact contact-info="countryKey.country.node" id="nodeAddress"></contact>
                         <contact contact-info="contact" ng-repeat="contact in countryKey.country.activePeople" id="contact{{contact.id}}"></contact>
@@ -19,7 +19,7 @@
         <h3 class="loading"></h3>
     </div>
     <div class="emptyInfo" ng-if="countryKey.country.$resolved && !countryKey.country.isActiveParticipant">
-        <h3>Not a participant</h3>
-        <p>This country is not a participant of GBIF</p>
+        <h3 translate="countryKey.notParticipant"></h3>
+        <p translate="countryKey.notParticipantDescription"></p>
     </div>
 </div>

@@ -38,6 +38,13 @@ function renderDownload(req, res, next, template) {
         try {
             download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
 
+            // if unreasonably long request, then returtn a dumbed down version to display to the user
+            if (download.predicateString.length > 7000) {
+                download._hugeQuery = true;
+                renderPage(req, res, next, download, template);
+                return;
+            }
+
             if (!download.record.request.predicate) {
                 download.noFilters = true;
                 Promise.all(promiseList).then(function(completedPromises) {
