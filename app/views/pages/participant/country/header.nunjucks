@@ -2,10 +2,6 @@
     <div class="container--desktop">
         <div class="row">
             <header class="col-xs-12 text-center">
-{#                <nav class="article-header__category">
-                    <span class="article-header__category__upper">Country</span>
-                </nav>#}
-
                 <h1 class="text-center">
                     <span translate="country.{{ countryKey.countryCode }}"></span>
                     <span class="isInvalid hideInvalid"><img class="country__headerFlag" ng-src="{{ countryKey.countryCode | flag }}" gb-load/></span>
@@ -13,9 +9,7 @@
                 <div ng-if="countryKey.country.$resolved" class="ng-cloak">
                     <div translate="participationStatus.description.{{ countryKey.country.participant.participationStatus }}" translate-values="{REGION: ('region.' + countryKey.country.participant.gbifRegion | translate)}" ng-if="countryKey.country.participant.participationStatus"></div>
                 </div>
-                {#<div class="small discreet--very" translate="stdTerms.countryNamingDisclaimer"></div>#}
-                <div class="small discreet--very" ng-bind-html="'stdTerms.countryNamingDisclaimer' | translate | md2html"></div>
-
+                <div class="small discreet--very" ng-bind-html="'countryKey.countryNamingDisclaimer' | translate | md2html"></div>
             </header>
         </div>
     </div>

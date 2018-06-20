@@ -6,7 +6,7 @@
             <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
                     <div class="summaryStats__simple__count" count="{{ portal.dataApi }}occurrence/search?country={{ countryKey.countryCode }}"></div>
-                    <div class="summaryStats__simple__description" translate="stdTerms.occurrences">
+                    <div class="summaryStats__simple__description" translate="countryKey.counts.occurrences">
                         Occurrences
                     </div>
                 </div>
@@ -14,7 +14,7 @@
             <a ng-click="portal.uiShowChart({country: countryKey.countryCode}, {dimension: 'datasetKey'})" href="" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
                     <div class="summaryStats__simple__count">{{countryKey.datasetCount}}</div>
-                    <div class="summaryStats__simple__description" translate="stdTerms.datasets">
+                    <div class="summaryStats__simple__description" translate="countryKey.counts.datasets">
                         Datasets
                     </div>
                 </div>
@@ -22,7 +22,7 @@
             <a ng-click="portal.uiShowChart({country: countryKey.countryCode}, {dimension: 'publishingCountry'})" href="" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
                     <div class="summaryStats__simple__count">{{countryKey.publishingCountriesCount}}</div>
-                    <div class="summaryStats__simple__description" translate="countryKey.countriesAndAreasContributeData">
+                    <div class="summaryStats__simple__description" translate="countryKey.counts.countriesAndAreasContributeData">
                         countries and areas contribute data
                     </div>
                 </div>
@@ -31,7 +31,7 @@
             <a ng-click="portal.uiShowChart({country: countryKey.countryCode}, {dimension: 'publishingOrg'})" href="" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
                     <div class="summaryStats__simple__count" count-type="facet" count="{{ portal.dataApi }}occurrence/search?country={{ countryKey.countryCode }}&limit=0&facet=publishingOrg&facetLimit=999999"></div>
-                    <div class="summaryStats__simple__description" translate="stdTerms.publishers">
+                    <div class="summaryStats__simple__description" translate="countryKey.counts.publishers">
                         Publishers
                     </div>
                 </div>

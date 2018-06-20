@@ -1,0 +1,19 @@
+{
+    "participant": {
+        "participant": "Participant",
+        "participantSummary": "Participant summary",
+        "endorsedPublishers": "Endorsed publishers",
+        "noEndorsedPublishers": "No endorsed publishers",
+        "memberStatus": "Member status",
+        "gbifParticipantSince": "GBIF participant since",
+        "headOfDelegation": "Head of delegation",
+        "gbifRegion": "GBIF region",
+        "nodeName": "Node name",
+        "nodeEstablished": "Node established",
+        "website": "Website",
+        "participantNodeManager": "Participant node manager",
+        "pending": "Pending",
+        "latestDatasetsPublished": "Latest datasets published",
+        "noDatasets": "No published datasets"
+    }
+}

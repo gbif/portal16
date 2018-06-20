@@ -6,7 +6,6 @@
         "installationType": "Installation type",
         "hostedBy": "Hosted by",
         "registered": "Registered",
-        "endpoints": "Endpoints",
-        "contacts": "Contacts"
+        "endpoints": "Endpoints"
     }
 }

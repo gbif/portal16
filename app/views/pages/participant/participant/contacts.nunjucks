@@ -1,7 +1,7 @@
-<section class="horizontal-stripe bare-background" id="contacts" ng-if="participantKey.participant && (participantKey.participant.node || participantKey.participant.activePeople.length > 0)">
+<section id="contacts" ng-if="participantKey.participant && (participantKey.participant.node || participantKey.participant.activePeople.length > 0)">
     <div class="container--narrow">
         <div>
-            <h4 class="text-muted small text-uppercase" translate="stdTerms.contacts" translate-values="{ NUMBER: participantKey.participant.activePeople.length}">Contacts</h4>
+            <h4 class="card-header" tx="stdTerms.contacts" tx-nr="participantKey.participant.activePeople.length"></h4>
             <div class="contactsCard card card--spaced">
                 <contact contact-info="participantKey.participant.node" id="nodeAddress"></contact>
                 <contact contact-info="contact" ng-repeat="contact in participantKey.participant.activePeople" id="contact{{contact.id}}"></contact>

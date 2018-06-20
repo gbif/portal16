@@ -1,5 +1,0 @@
-<div class="emptyInfo">
-    <h3>This country is not a participant in GBIF</h3>
-    <p>But you will still find data about its biodiversity, and some of its institutions may be publishing datasets!</p>
-    <a href="" ui-sref="countryActivity()" class="gb-button--discreet">See activities</a>
-</div>
