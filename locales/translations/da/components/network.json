@@ -1,6 +1,13 @@
 {
   "network": {
-    "title": "",
-    "participatingDatasets": ""
+    "network": "",
+    "tabs": {
+      "summary": "",
+      "homepage": "",
+      "metrics": "Metrisk",
+      "datasets": ""
+    },
+    "registeredDate": "",
+    "nParticipatingDatasets": ""
   }
 }
