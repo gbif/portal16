@@ -1,0 +1,11 @@
+{
+    "installation": {
+        "installation": "Installation",
+        "about": "",
+        "homepage": "Hjemmeside",
+        "installationType": "Installationstype",
+        "hostedBy": "",
+        "registered": "Registreret",
+        "endpoints": "Endpoints"
+    }
+}
