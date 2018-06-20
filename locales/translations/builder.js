@@ -67,7 +67,6 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/network`),
         getFile(locale, `./${locale}/components/terms`),
         getFile(locale, `./${locale}/components/participationStatus`),
-        getFile(locale, `./${locale}/components/highcharts`),
         getFile(locale, `./${locale}/components/participant`),
         getFile(locale, `./${locale}/components/map`),
         getFile(locale, `./${locale}/components/species`),
