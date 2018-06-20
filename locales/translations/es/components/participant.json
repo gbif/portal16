@@ -1,0 +1,19 @@
+{
+    "participant": {
+        "participant": "",
+        "participantSummary": "",
+        "endorsedPublishers": "",
+        "noEndorsedPublishers": "",
+        "memberStatus": "",
+        "gbifParticipantSince": "",
+        "headOfDelegation": "Jefe de delegación",
+        "gbifRegion": "",
+        "nodeName": "",
+        "nodeEstablished": "",
+        "website": "",
+        "participantNodeManager": "",
+        "pending": "",
+        "latestDatasetsPublished": "",
+        "noDatasets": ""
+    }
+}
