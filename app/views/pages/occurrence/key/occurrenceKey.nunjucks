@@ -6,6 +6,5 @@
     </script>
     <div class="emptyInfo--large">
         <h3 translate="stdTerms.loading">Loading</h3>
-        <p>Hang on while we find your occurrence</p>
     </div>
 {% endblock %}

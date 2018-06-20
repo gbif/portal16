@@ -9,7 +9,7 @@
                         {$ __('ocurrenceFieldNames.coordinatesTextual') $}
                     <dl class="inline">
                         <div>
-                            <dt>{$ __('stdTerms.location') $}</dt>
+                            <dt>{$ __('occurrence.highlights.location') $}</dt>
                             <dd class="classification-list">
 
                                 {% if occurrence.record.continent | isNotEmpty %}
@@ -72,21 +72,23 @@
                     </p>
                 {% else %}
                     <p>
-                        There is no location information published for this record
-                    <dl>
-                        {% if occurrence.record.informationWithheld | isNotEmpty %}
-                            <div>
-                                <dt>{$ __('ocurrenceFieldNames.informationWithheld') $}</dt>
-                                <dd>{$ occurrence.record.informationWithheld $}</dd>
-                            </div>
-                        {% endif %}
-                    </dl>
+                        <span translate="occurrence.noLocationInformation"></span>
+                        <dl>
+                            {% if occurrence.record.informationWithheld | isNotEmpty %}
+                                <div>
+                                    <dt>{$ __('ocurrenceFieldNames.informationWithheld') $}</dt>
+                                    <dd>{$ occurrence.record.informationWithheld $}</dd>
+                                </div>
+                            {% endif %}
+                        </dl>
                     </p>
                 {% endif %}
             </div>
+            {% if occurrence.record.country | isNotEmpty %}
             <div class="col-xs-4 col-md-4">
-            <country-shape-map country-code="occurrenceKey.data.countryCode"></country-shape-map>
+                <country-shape-map country-code="occurrenceKey.data.countryCode"></country-shape-map>
             </div>
+            {% endif %}
         </div>
     </div>
 </section>

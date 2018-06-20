@@ -6,11 +6,11 @@
                ng-click="occurrenceKey.hideDetails = !occurrenceKey.hideDetails;"
                ng-class="{'gb-icon-compare-fat-reverse': !occurrenceKey.hideDetails}"
                tooltip-placement="top"
-               uib-tooltip="{$ __('stdTerms.diagnostics') $}"></a>
+               uib-tooltip="{$ __('occurrence.subMenu.diagnostics') $}"></a>
             <a href="" class="gb-icon-more2 stripe-menu__menu stripe-menu__option"
                ng-click="occurrenceKey.expandMore = !occurrenceKey.expandMore"
                tooltip-placement="top"
-               uib-tooltip="{$ __('stdTerms.menu') $}"></a>
+               uib-tooltip="{$ __('occurrence.subMenu.menu') $}"></a>
             <div class="stripe-menu__drop-down"
                  click-outside="occurrenceKey.expandMore = false"
                  click-outside-unless="!occurrenceKey.expandMore">
@@ -18,17 +18,17 @@
                     <li>
                         <a href="" class="inherit uppercase-first"
                            ng-click="occurrenceKey.hideDetails = !occurrenceKey.hideDetails; occurrenceKey.expandMore = false;">
-                            <span ng-show="occurrenceKey.hideDetails">{$ __('stdTerms.showDiagnostics') $} (Alt+d)</span>
-                            <span ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.hideDiagnostics') $} (Alt+d)</span>
+                            <span ng-show="occurrenceKey.hideDetails">{$ __('occurrence.subMenu.showDiagnostics') $} (Alt+d)</span>
+                            <span ng-show="!occurrenceKey.hideDetails">{$ __('occurrence.subMenu.hideDiagnostics') $} (Alt+d)</span>
                         </a>
                     </li>
                     <li class="uppercase-first">
                         <a href="{{ portal.dataApi }}occurrence/{$ occurrence.record.key $}/fragment">
-                            {$ __('stdTerms.raw') $}
+                            {$ __('occurrence.subMenu.raw') $}
                         </a>
                     </li>
                     <li class="seperator uppercase-first">
-                        <a href="http://rs.tdwg.org/dwc/terms/">{$ __('stdTerms.aboutDarwinCore') $}</a>
+                        <a href="http://rs.tdwg.org/dwc/terms/">{$ __('occurrence.subMenu.aboutDarwinCore') $}</a>
                     </li>
                 </ul>
             </div>

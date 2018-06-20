@@ -14,10 +14,10 @@ let translatedPaths = [
     // 'filters.',
     // 'filterNames.',
     // 'galleryBar.',
-    'participant.',
-    'participationStatus.',
-    'countryKey.',
-    'metrics.',
+    'occurrence.',
+    'ocurrenceFieldNames.',
+    // 'countryKey.',
+    // 'metrics.',
     // 'map.',
     'pagination.'
 ];

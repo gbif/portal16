@@ -1,7 +1,7 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
 {% if occurrence.record.media.length > 0 %}
-    <section class="horizontal-stripe light-background"
+    <section class="horizontal-stripe light-background seperator"
             {% if occurrence.record.media.length > 5 %}
     expand expand-text="'Show all'" collapse-text="'Collapse'" expand-model="occurrenceKey.mediaExpand"
             {% endif %}>
@@ -22,20 +22,20 @@
                                     {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source', 'license', 'references'] %}
                                         {% if media[field] %}
                                             <div>
-                                                <dt translate="stdTerms.{$ field $}">{$ field $}</dt>
+                                                <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
                                                 <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
                                             </div>
                                         {% endif %}
                                     {% endfor %}
                                 </dl>
                                 <a href="" class="pull-right" ng-click="occurrenceKey.mediaItems.m{$ loop.index $} = true"
-                                   ng-if="!occurrenceKey.mediaItems.m{$ loop.index $}" translate="stdTerms.more">more</a>
+                                   ng-if="!occurrenceKey.mediaItems.m{$ loop.index $}" translate="occurrence.showMoreInfo"></a>
                                 <div class="details" ng-class="{show: occurrenceKey.mediaItems.m{$ loop.index $} }">
                                     <dl class="inline">
                                         {% for field in ['identifier', 'created', 'contributor', 'rightsHolder'] %}
                                             {% if media[field] %}
                                                 <div>
-                                                    <dt translate="stdTerms.{$ field $}">{$ field $}</dt>
+                                                    <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
                                                     <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
                                                 </div>
                                             {% endif %}
@@ -57,7 +57,7 @@
                             <figure>
                         {% if media.type === 'StillImage' %}
                                 <a ng-if= href="{$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
-                                    <img ng-src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}&size=M"
+                                    <img ng-src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}"
                                          onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
                                 </a>
                         {% endif %}
@@ -66,22 +66,21 @@
                                         {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source'] %}
                                             {% if media[field] %}
                                                 <div>
-                                                    <dt translate="stdTerms.{$ field $}">{$ field $}</dt>
+                                                    <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
                                                     <dd>{$ media[field] $}</dd>
                                                 </div>
                                             {% endif %}
                                         {% endfor %}
                                         {% if media.references %}
                                             <div>
-                                                <dt>reference</dt>
-                                                <dd><a href="{$ media.references $}">{$ media.references | truncate(30)
-                                                        $}</a></dd>
+                                                <dt translate="ocurrenceFieldNames.reference"></dt>
+                                                <dd><a href="{$ media.references $}">{$ media.references | truncate(30) $}</a></dd>
                                             </div>
                                         {% endif %}
                                         {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder'] %}
                                             {% if media[field] %}
                                                 <div>
-                                                    <dt translate="stdTerms.{$ field $}">{$ field $}</dt>
+                                                    <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
                                                     <dd>{$ media[field] $}</dd>
                                                 </div>
                                             {% endif %}

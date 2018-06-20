@@ -11,7 +11,7 @@
                         {% if occurrence.record.eventDate | isDefined %}
                             {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}
                         {% else %}
-                            {$ __('stdTerms.unknownDate') $}
+                            {$ __('occurrence.unknownDate') $}
                         {% endif %}
                     </span>
                 </nav>

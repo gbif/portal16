@@ -2,15 +2,13 @@
     <div class="site-content__page">
         <div class="publisherKey light-background">
             <article class="wrapper-horizontal-stripes occurrenceKey page--data">
-                <ng-include src="'/api/template/occurrence/' + occurrenceKey.key + '?v=' + portal.BUILD_VERSION +'&locale='+occurrenceKey.gb.locale"></ng-include>
+                <ng-include src="'/api/template/occurrence/' + occurrenceKey.key + '?v=' + portal.BUILD_VERSION +'&locale=' + occurrenceKey.gb.locale"></ng-include>
             </article>
         </div>
     </div>
-
     <div class="fab">
         <div class="fab__trigger">
             <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" ng-click="portal.openHelpdesk()"><i class="gb-icon-bubble"></i></a>
         </div>
     </div>
-
 </div>

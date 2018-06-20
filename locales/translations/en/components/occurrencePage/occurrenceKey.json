@@ -1,9 +1,49 @@
 {
   "occurrence": {
     "coordinates": "Coordinates",
+    "unknownDate": "Unknown date",
+    "absent": "Absent",
     "issues": "Issues",
     "dataset": "Dataset",
     "monthAndyear": "Month & year",
+    "citation": "Citation",
+    "readFullDescription": "more",
+    "showMoreInfo": "more",
+    "noTaxonMatch": "none",
+    "gbifTaxonInterpretation": "GBIF Taxon interpretation",
+    "aboutTheDataset": "About the dataset",
+    "noLocationInformation": "There is no location information published for this record",
+    "subMenu": {
+      "diagnostics": "Diagnostics",
+      "menu": "Menu",
+      "showDiagnostics": "Show diagnostics",
+      "hideDiagnostics": "Hide diagnostics",
+      "aboutDarwinCore": "About Darwin Core",
+      "raw": "Raw"
+    },
+    "groups": {
+      "Record": "Record",
+      "Occurrence": "Occurrence",
+      "Event": "Event",
+      "Identification": "Identification",
+      "Taxon": "Taxon",
+      "Location": "Location",
+      "Organism": "Organism",
+      "MaterialSample": "MaterialSample",
+      "GeologicalContext": "Geological context",
+      "other": "Other"
+    },
+    "term": "Term",
+    "interpreted": "Interpreted",
+    "original": "Original",
+    "remarks": "Remarks",
+    "highlights": {
+      "location": "Location",
+      "specimenType": "Specimen type",
+      "publisher": "Publisher",
+      "reference": "Reference",
+      "verbatimName": "Verbatim name"
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Collected in {COUNTRY}",
