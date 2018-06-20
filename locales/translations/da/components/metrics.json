@@ -37,6 +37,7 @@
     "groupByX": "",
     "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 0{andre eller ukendte} 1{anden eller ukendt} other{andre eller ukendte}}",
     "unknownRank": "",
+    "vernacularNames": "Almindelige navne",
     "majorRanksPlural": {
       "KINGDOM": "",
       "PHYLUM": "",
