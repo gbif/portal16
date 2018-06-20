@@ -9,7 +9,7 @@
                     <div  >
                         <div>
                             <span class="vernacular">{{ name.datasets[0].vernacularName }}</span>
-                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: vm.$translate.instant('language.'+ name.language)}"></span>
+                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: (('language.'+ name.language) | translate)}"></span>
                         </div>
                         <div class="small" ng-if="vm.isNub ==='true'">
                             <span translate="stdTerms.sourcePlural"
@@ -42,7 +42,7 @@
         <div class="content__overlay__card__header seperator--b">
             <div>
                 <span class="article-header__meta">{{ vm.currentName.vernacularName }}</span>
-                <span class="discreet--very" translate="species.inLanguage" translate-values="{language: vm.$translate.instant('language.'+ vm.currentName.language)}"></span>
+                <span class="discreet--very" translate="species.inLanguage" translate-values="{language: (('language.'+ vm.currentName.language) | translate}"></span>
                 </span>
             </div>
         <div class="content__overlay__card__list">

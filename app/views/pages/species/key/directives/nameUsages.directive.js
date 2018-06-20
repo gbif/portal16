@@ -31,7 +31,6 @@ function nameUsagesDirective() {
         vm.key = vm.species.key;
         vm.categories = [];
         vm.data = [];
-
         if (vm.synonyms && vm.synonyms.$promise) {
             vm.synonyms.$promise.then(function() {
                 OccurrenceSearch.query({taxon_key: vm.key, facet: 'taxon_key', limit: 0}).$promise
@@ -68,7 +67,12 @@ function nameUsagesDirective() {
                             vm.categories.push({name: vm.synonymNameUsages[i].scientificName, key: vm.synonymNameUsages[i].name});
                         }
                         angular.element(document).ready(function() {
-                            Highcharts.chart(asPieChart({series: [{data: vm.data}], categories: vm.categories}));
+                           $translate('stdTerms.occurrences').then(function(res){
+                                vm.seriesName = res;
+                                Highcharts.chart(asPieChart({series: [{data: vm.data}], categories: vm.categories}));
+
+                           });
+
                         });
                     });
             });
@@ -131,7 +135,7 @@ function nameUsagesDirective() {
                     visible: false
                 },
                 series: [{
-                    name: $translate.instant('stdTerms.occurrences'),
+                    name: vm.seriesName,
                     data: majorSerie,
                     point: {
                         events: {

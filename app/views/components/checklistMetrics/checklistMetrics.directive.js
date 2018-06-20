@@ -30,18 +30,22 @@ function checklistMetrics() {
     }
 
     /** @ngInject */
-    function checklistMetrics(Highcharts, $scope, $translate, $filter, enums) {
+    function checklistMetrics(Highcharts, $scope, $translate, $filter, enums, $q) {
         var vm = this;
         vm.logScale = true;
+        var translations = {};
+        var u;
         if (vm.dimension === 'countByIssue') {
-            vm.unit = 'stdTerms.issues';
+            u = 'stdTerms.issues';
         } else if (vm.dimension === 'countExtRecordsByExtension') {
-            vm.unit = 'species.extensions';
+            u = 'species.extensions';
         } else if (vm.dimension === 'countNamesByLanguage') {
-            vm.unit = 'species.vernacularNames';
+            u = 'metrics.vernacularNames';
         } else {
-            vm.unit = 'species.taxa';
+            u = 'species.taxa';
         }
+        translations.unit = $translate(u);
+
 
         $scope.create = function(element) {
             vm.chartElement = element[0].querySelector('.chartArea');
@@ -59,30 +63,42 @@ function checklistMetrics() {
                     });
                     var sorted = (vm.dimension !== 'countByRank') ? _.orderBy(mappedData, ['count'], ['desc']) :
                         _.sortBy(mappedData, [function(r) {
- return enums.rank.indexOf(r.key);
-}]);
-
+                            return enums.rank.indexOf(r.key);
+                        }]);
+                    var translatedCategories = {};
                     for (var i = 0; i < sorted.length; i++) {
-                    if (sorted[i].count > 0) {
-                        data.categories.push(getTranslation(vm.dimension, sorted[i].key));
-                        data.series[0].data.push(sorted[i].count);
-                        data.series[0].total += sorted[i].count;
-                    }
-                    }
-                    data.title = $translate.instant('datasetMetrics.' + vm.dimension);
-                    vm.data = data;
-
-                    if (vm.myChart) {
-                        vm.myChart.destroy();
+                        translatedCategories[sorted[i].key] = getTranslation(vm.dimension, sorted[i].key);
                     }
 
-                    setChartHeight();
-                    vm.chartElement.style.height = vm.chartHeight + 'px';
-                    if (vm.options.type == 'BAR') {
-                        vm.myChart = Highcharts.chart(asBarChart(vm.data, vm.logScale));
-                    } else if (vm.options.type == 'PIE') {
-                        vm.myChart = Highcharts.chart(asPieChart(vm.data));
-                    }
+                    translations.categories = $q.all(translatedCategories);
+                    translations.title = $translate('datasetMetrics.' + vm.dimension);
+                    translations.other = $translate('stdTerms.other');
+
+                    $q.all(translations).then(function(res) {
+                        for (var i = 0; i < sorted.length; i++) {
+                            if (sorted[i].count > 0) {
+                                data.categories.push(res.categories[sorted[i].key]);
+                                data.series[0].data.push(sorted[i].count);
+                                data.series[0].total += sorted[i].count;
+                            }
+                        }
+                        data.title = res.title;
+                        vm.unit = res.unit;
+                        vm.other = res.other;
+                        vm.data = data;
+                        setChartHeight();
+                        if (vm.myChart) {
+                            vm.myChart.destroy();
+                        }
+                        vm.chartElement.style.height = vm.chartHeight + 'px';
+                        if (vm.options.type == 'BAR') {
+                            vm.myChart = Highcharts.chart(asBarChart(vm.data, vm.logScale));
+                        } else if (vm.options.type == 'PIE') {
+                            vm.myChart = Highcharts.chart(asPieChart(vm.data));
+                        }
+                    }, function(err) {
+                        console.log(err);
+                    });
                 } else {
                     vm.error = true;
                 }
@@ -136,14 +152,14 @@ function checklistMetrics() {
                 },
                 yAxis: {
                     title: {
-                        text: $translate.instant(vm.unit)
+                        text: vm.unit
                     },
                     type: isLogaritmic ? 'logarithmic' : 'linear',
                     minorTickInterval: isLogaritmic ? 1 : undefined,
                     visible: true
                 },
                 series: [{
-                    name: vm.unit || 'Taxa',
+                    name: vm.unit,
                     data: data.series[0].data
                 }],
                 credits: {
@@ -180,7 +196,7 @@ function checklistMetrics() {
                 majorSerie = serie.slice(0, lowIndex);
                 var minor = serie.slice(lowIndex);
                 if (minor.length > 0) {
-                    majorSerie.push({y: _.sumBy(minor, 'y'), name: 'other'});
+                    majorSerie.push({y: _.sumBy(minor, 'y'), name: vm.other});
                 }
             }
 
@@ -211,7 +227,7 @@ function checklistMetrics() {
                     visible: false
                 },
                 series: [{
-                    name: vm.unit || 'Taxa',
+                    name: vm.unit,
                     data: majorSerie
                 }],
                 exporting: {
@@ -227,17 +243,17 @@ function checklistMetrics() {
         function getTranslation(dimension, key) {
             switch (dimension) {
                 case 'countByKingdom':
-                    return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
+                    return $q.resolve($filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase()));
                 case 'countByRank':
-                    return $translate.instant('taxonRank.' + key);
+                    return $translate('taxonRank.' + key);
                 case 'countByOrigin':
-                    return $translate.instant('originEnum.' + key);
+                    return $translate('originEnum.' + key);
                 case 'countByIssue':
-                    return $translate.instant('issueEnum.' + key);
+                    return $translate('issueEnum.' + key);
                 case 'countExtRecordsByExtension':
-                    return $translate.instant('extensionEnum.' + key);
+                    return $translate('extensionEnum.' + key);
                 case 'countNamesByLanguage':
-                    return $filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase());
+                    return $q.resolve($filter('capitalizeFirstLetter')(key.replace('_', ' ').toLowerCase()));
             }
         }
 

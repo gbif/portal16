@@ -37,7 +37,7 @@
                     <div ng-if="speciesKey2.vernacularName.vernacularName" >
                         <div>
                             <span class="vernacular">{{ speciesKey2.vernacularName.vernacularName }}</span>
-                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: speciesKey2.$translate.instant('language.'+ speciesKey2.vernacularName.language)}"></span>
+                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: (('language.'+ speciesKey2.vernacularName.language) | translate}"></span>
                            </span>
                         </div>
                     </div>

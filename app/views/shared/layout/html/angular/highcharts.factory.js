@@ -9,33 +9,42 @@ require('highcharts/modules/sunburst')(Highcharts);
 
 angular
     .module('portal')
-    .factory('Highcharts', function($filter, $translate, LOCALE_2_LETTER) {
+    .factory('Highcharts', function($filter, $translate, LOCALE_2_LETTER, $q) {
         // see https://api.highcharts.com/highcharts/lang
-        Highcharts.setOptions({
-            lang: {
+        var translations = {
+            'month.1': $translate('month.1'),
+            'month.2': $translate('month.2'),
+            'month.3': $translate('month.3'),
+            'month.4': $translate('month.4'),
+            'month.5': $translate('month.5'),
+            'month.6': $translate('month.6'),
+            'month.7': $translate('month.7'),
+            'month.8': $translate('month.8'),
+            'month.9': $translate('month.9'),
+            'month.10': $translate('month.10'),
+            'month.11': $translate('month.11'),
+            'month.12': $translate('month.12'),
+            'day.0': $translate('day.0'),
+            'day.1': $translate('day.1'),
+            'day.2': $translate('day.2'),
+            'day.3': $translate('day.3'),
+            'day.4': $translate('day.4'),
+            'day.5': $translate('day.5'),
+            'day.6': $translate('day.6')
+        };
+        $q.all(translations).then(function(res) {
+            Highcharts.theme.lang = {
                 thousandsSep: $filter('localNumber')(1111, LOCALE_2_LETTER).split('1')[1],
                 decimalPoint: $filter('localNumber')(1.111, LOCALE_2_LETTER).split('1')[1],
                 months: [
-                    $translate.instant('month.1'), $translate.instant('month.2'), $translate.instant('month.3'), $translate.instant('month.4'),
-                        $translate.instant('month.5'), $translate.instant('month.6'), $translate.instant('month.7'), $translate.instant('month.8'),
-                            $translate.instant('month.9'), $translate.instant('month.10'), $translate.instant('month.11'), $translate.instant('month.12')
+                    res['month.1'], res['month.2'], res['month.3'], res['month.4'], res['month.5'], res['month.6'], res['month.7'], res['month.8'], res['month.9'], res['month.10'], res['month.11'], res['month.12']
                 ],
                 weekdays: [
-                    $translate.instant('day.0'), $translate.instant('day.1'), $translate.instant('day.2'), $translate.instant('day.3'),
-                    $translate.instant('day.4'), $translate.instant('day.5'), $translate.instant('day.6')
-                ],
-                contextButtonTitle: $translate.instant('Highcharts.contextButtonTitle'),
-                downloadCSV: $translate.instant('Highcharts.downloadCSV'),
-                downloadJPEG: $translate.instant('Highcharts.downloadJPEG'),
-                downloadPDF: $translate.instant('Highcharts.downloadPDF'),
-                downloadPNG: $translate.instant('Highcharts.downloadPNG'),
-                downloadXLS: $translate.instant('Highcharts.downloadXLS')
-            }
+                    res['day.0'], res['day.1'], res['day.2'], res['day.3'], res['day.4'], res['day.5'], res['day.6']
+                ]
+            };
+            Highcharts.setOptions(Highcharts.theme);
         });
-
-        // Apply the theme
-        Highcharts.setOptions(Highcharts.theme);
-
         return Highcharts;
     });
 
