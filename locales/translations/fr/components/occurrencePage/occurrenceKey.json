@@ -1,9 +1,49 @@
 {
   "occurrence": {
     "coordinates": "",
+    "unknownDate": "",
+    "absent": "",
     "issues": "",
     "dataset": "Ensemble de données",
     "monthAndyear": "",
+    "citation": "Citation",
+    "readFullDescription": "",
+    "showMoreInfo": "",
+    "noTaxonMatch": "",
+    "gbifTaxonInterpretation": "",
+    "aboutTheDataset": "",
+    "noLocationInformation": "",
+    "subMenu": {
+      "diagnostics": "",
+      "menu": "",
+      "showDiagnostics": "",
+      "hideDiagnostics": "",
+      "aboutDarwinCore": "",
+      "raw": ""
+    },
+    "groups": {
+      "Record": "Enregistrement",
+      "Occurrence": "Une occurrence",
+      "Event": "",
+      "Identification": "",
+      "Taxon": "",
+      "Location": "",
+      "Organism": "",
+      "MaterialSample": "",
+      "GeologicalContext": "",
+      "other": ""
+    },
+    "term": "",
+    "interpreted": "",
+    "original": "",
+    "remarks": "",
+    "highlights": {
+      "location": "",
+      "specimenType": "",
+      "publisher": "",
+      "reference": "",
+      "verbatimName": ""
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "",
