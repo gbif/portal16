@@ -1,6 +1,6 @@
 <div class="m-t-1" ng-if="vm.data.results.length > 0" >
 
-<h4   class="text-muted small text-uppercase" id="{{(vm.type === 'CHECKLIST') ? 'checklistDatasets' : 'occurrenceDatasets'}}" translate="species.appearsIn" translate-values="{NUMBER_FORMATTED: (vm.data.count | localNumber), DATASET_TYPE_TRANSLATED: ('stdTerms.'+vm.type.toLowerCase() | translate), NUMBER: vm.data.count}"></h4>
+<h4 class="card-header--bold" id="{{(vm.type === 'CHECKLIST') ? 'checklistDatasets' : 'occurrenceDatasets'}}" translate="species.appearsIn" translate-values="{NUMBER_FORMATTED: (vm.data.count | localNumber), DATASET_TYPE_TRANSLATED: ('stdTerms.'+vm.type.toLowerCase() | translate), NUMBER: vm.data.count}"></h4>
 
 <div >
     <!--<span class="discreet text-uppercase small">References</span>-->

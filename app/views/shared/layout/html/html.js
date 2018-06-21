@@ -366,7 +366,6 @@ require('../../../components/expand/expand.directive');
 require('../../../components/shorten/shorten.directive');
 require('../../../components/fab/fab.directive');
 require('../../../components/searchDrawer/searchDrawer.directive');
-require('../../../components/enumFilter/enumFilter.directive');
 require('../../../components/filterTaxon/filterTaxon.directive');
 require('../../../components/filterSuggest/filterSuggest.directive');
 require('../../../components/filterLocation/filterLocation.directive');
