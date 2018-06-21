@@ -68,7 +68,7 @@
 
             <div class="emptyInfo" ng-if="datasetConstituents.failedToLoadDownloads">
                 <h3 translate="stdTerms.failed"></h3>
-                <p translate="phrases.errorTryToRefresh"></p>
+                <p translate="phrases.criticalErrorMsg"></p>
             </div>
 
         </div>

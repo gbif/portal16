@@ -2,21 +2,16 @@
      ng-if="!speciesKey2.isNub || speciesKey2.species.origin !== 'SOURCE' || speciesKey2.species.issues.length > 0">
     <div class="card__content card__content--warning">
         <p ng-if="!speciesKey2.isNub"><span translate="species.interpretationMsg" translate-values="{DATASET: speciesKey2.dataset.title}"></span>
-            <span ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey"><span ng-bind-html="'species.viewGbifSpeciesMsg' | translate:'{NUBKEY:'+speciesKey2.species.nubKey+'}'  | md2html"></span> 
-                             </span>
+            <span ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey"><span ng-bind-html="'species.viewGbifSpeciesMsg' | translate:'{NUBKEY:' + speciesKey2.species.nubKey+'}'  | md2html"></span></span>
         </p>
-
-        <span ng-if="speciesKey2.species.origin !== 'SOURCE'">
-
-                <p translate="species.inferredRecordMsg"></p>
-                    <p><span translate="stdTerms.origin"></span>: <span translate=" nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>
-
-            </span>
-
-        <p ng-if="speciesKey2.species.$resolved && speciesKey2.species.issues.length > 0"><span
-                    translate="stdTerms.issues"></span>: <span
-                    ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning"
-                    translate="issueEnum.{{ issue }}"></span></p>
-
+        <div ng-if="speciesKey2.species.origin !== 'SOURCE'">
+            <p translate="species.inferredRecordMsg"></p>
+            <p>
+                <span translate="species.origin"></span>: <span translate=" nameUsageOrigin.{{ speciesKey2.species.origin }}"></span>
+            </p>
+        </div>
+        <p ng-if="speciesKey2.species.$resolved && speciesKey2.species.issues.length > 0">
+            <span translate="species.issues"></span>: <span ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning" translate="issueEnum.{{ issue }}"></span>
+        </p>
     </div>
 </div>

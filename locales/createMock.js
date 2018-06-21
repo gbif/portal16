@@ -14,10 +14,9 @@ let translatedPaths = [
     // 'filters.',
     // 'filterNames.',
     // 'galleryBar.',
-    'occurrence.',
-    'ocurrenceFieldNames.',
+    'species.',
     // 'countryKey.',
-    // 'metrics.',
+    'metrics.',
     // 'map.',
     'pagination.'
 ];

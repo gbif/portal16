@@ -1,115 +1,70 @@
 <div ng-if="speciesKey2.isNub && speciesKey2.$state.is('speciesKey')">
-
-
-
     {% include "../images/occurrenceImages.nunjucks" %}
+    
     <div ng-if="speciesKey2.images.$resolved">
         {% include "../map/map.nunjucks" %}
     </div>
-
     <div ng-if="!speciesKey2.images.$resolved || !speciesKey2.capabilities.$resolved" class="emptyInfo">
         <h3 translate="species.searchMsg"></h3>
     </div>
-
     <div class="emptyInfo" ng-if="speciesKey2.failedRequest">
-        <h3 translate="stdTerms.criticalErrorMsg"></h3>
+        <h3 translate="phrases.criticalErrorMsg"></h3>
     </div>
-
-<div class="container--desktop m-t-1">
-    {% include "../warnings/warnings.nunjucks" %}
-
-</div>
-
-
-
-
+    <div class="container--desktop m-t-1">
+        {% include "../warnings/warnings.nunjucks" %}
+    </div>
     <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
-
         <div class="container--desktop">
-
             <name-usages species="speciesKey2.species" synonyms="speciesKey2.synonyms" ng-if="speciesKey2.synonyms.$resolved && speciesKey2.synonyms.results.length > 0 && speciesKey2.isSpeciesOrBelow && speciesKey2.occurrences.$resolved && speciesKey2.occurrences.count > 0"></name-usages>
-
-
             <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow" ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'} | limitTo: 1">
-                        <h4 class="text-muted small text-uppercase" translate="stdTerms.description"></h4>
-                        <div class="card">
-                            <div class="card__content">
-                                <div ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'}" class="m-b-1">
-                                    <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
-                                    <div ng-bind-html="description.description"></div>
-                                    <p class="small source"><span translate="stdTerms.sourcePlural" translate-values="{NUMBER: 1}"></span>: <a class="inherit"
-                                                                     ui-sref="speciesKey({key: description.sourceTaxonKey})">{{ description.source }}</a>
-                                    </p>
-                                </div>
-                            </div>
+                <h4 class="card-header" translate="species.description"></h4>
+                <div class="card">
+                    <div class="card__content">
+                        <div ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'}" class="m-b-1">
+                            <h5 class="card-header">{{ description.type }}</h5>
+                            <div ng-bind-html="description.description"></div>
+                            <p class="small source">
+                                <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>: <a class="inherit" ui-sref="speciesKey({key: description.sourceTaxonKey})">{{ description.source }}</a>
+                            </p>
                         </div>
                     </div>
-
-
-
-
-
-                    <div class="m-t-1" ng-show="speciesKey2.status && speciesKey2.status.category != 'NE'">
-                        <h4 class="text-muted small text-uppercase">{{'species.iucnStatus' | translate}}</h4>
-                        <div class="card">
-                            <iucn-status threat-status="speciesKey2.status" name="{{ speciesKey2.species.canonicalName }}"></iucn-status>
-                        </div>
-                    </div>
-
-                    <div class="m-t-1" ng-show="speciesKey2.references.hasResults">
-                        <h4 class="text-muted small text-uppercase">{{'species.references' | translate}}</h4>
-                        <references key="{{ speciesKey2.key }}" references="speciesKey2.references"></references>
-                    </div>
-
-
-                <vernacular-names key="{{ speciesKey2.key }}" is-nub="{{ speciesKey2.isNub }}" ></vernacular-names>
-
-
+                </div>
+            </div>
+            <div class="m-t-1" ng-show="speciesKey2.status && speciesKey2.status.category != 'NE'">
+                <h4 class="card-header">{{'species.iucnStatus' | translate}}</h4>
+                <div class="card">
+                    <iucn-status threat-status="speciesKey2.status" name="{{ speciesKey2.species.canonicalName }}"></iucn-status>
+                </div>
+            </div>
+            <div class="m-t-1" ng-show="speciesKey2.references.hasResults">
+                <h4 class="card-header">{{'species.references' | translate}}</h4>
+                <references key="{{ speciesKey2.key }}" references="speciesKey2.references"></references>
+            </div>
+            <vernacular-names key="{{ speciesKey2.key }}" is-nub="{{ speciesKey2.isNub }}" ></vernacular-names>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
-
                     <species-datasets type="CHECKLIST" key="{{ speciesKey2.key }}"></species-datasets>
-
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
-
-
-
                     <species-datasets type="OCCURRENCE" key="{{ speciesKey2.key }}"></species-datasets>
-
                 </div>
-
             </div>
-                <div class=" m-t-1">
-                    <type-specimen key="{{ speciesKey2.key }}" rank="{{ speciesKey2.species.rank }}"></type-specimen>
-                </div>
-
-
-                    <div class="m-t-1" >
-                        <h4 class="text-muted small text-uppercase" translate="stdTerms.citation"></h4>
-                        <div class="card">
-                            <div class="card__content">
-                                <div class="m-b-1 m-t-1" >
-                                    <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> {{'stdterms.in' | translate}} <span ng-bind-html="speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'"></span>
-
-                                    {#<p class="discreet text-uppercase small">Please cite as</p>#}
-                                    {#<div>#}
-                                    {#{{ speciesKey2.dataset.citation.text }}#}
-                                    {#<p class="small discreet m-t-1">Last#}
-                                    {#modified: {{ speciesKey2.species.lastInterpreted | momentFormat:'D MMMM YYYY' }}</p>#}
-                                    {#</div>#}
-                                </div>
-                            </div>
+            <div class=" m-t-1">
+                <type-specimen key="{{ speciesKey2.key }}" rank="{{ speciesKey2.species.rank }}"></type-specimen>
+            </div>
+            <div class="m-t-1" >
+                <h4 class="card-header" translate="species.citation"></h4>
+                <div class="card">
+                    <div class="card__content">
+                        <div class="m-b-1 m-t-1" >
+                            <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> {{'species.in' | translate}} <span ng-bind-html="speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'"></span>
                         </div>
                     </div>
-
-
-                {% include "../partners/partners.nunjucks" %}
-
+                </div>
+            </div>
+            {% include "../partners/partners.nunjucks" %}
         </div>
-
     </div>
-
 </div>
 
 <div class="container--desktop">

@@ -1,5 +1,5 @@
 <div class="container--desktop m-t-1" ng-if="speciesKey2.capabilities.total > 0">
-    <h4 class="text-muted small text-uppercase" translate="map.nGeoreferencedRecords" translate-values="{NUMBER_FORMATED: (speciesKey2.capabilities.total | localNumber), NUMBER: speciesKey2.capabilities.total}"></h4>
+    <h4 class="card-header" translate="map.nGeoreferencedRecords" translate-values="{NUMBER_FORMATED: (speciesKey2.capabilities.total | localNumber), NUMBER: speciesKey2.capabilities.total}"></h4>
     <div class="card">
         <div ng-if="speciesKey2.key">
             <map-widget filter="{taxon_key: speciesKey2.key}" class="fixedSizes"></map-widget>
@@ -7,8 +7,8 @@
     </div>
 </div>
 
-<div  class="container--desktop" ng-if="speciesKey2.capabilities.total === 0">
+<div  class="container--desktop" ng-if="speciesKey2.capabilities.total === 0 && speciesKey2.occurrences.count > 0">
     <div class="emptyInfo--small">
-        <h3 translate="stdTerms.noOccurrencesWithCoordinates"></h3>
+        <h3 translate="map.noOccurrencesWithCoordinates"></h3>
     </div>
 </div>

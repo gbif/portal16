@@ -72,7 +72,6 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/species`),
         getFile(locale, `./${locale}/components/speciesSearch`),
         getFile(locale, `./${locale}/components/homepage`),
-        getFile(locale, `./${locale}/components/taxon`),
         getFile(locale, `./${locale}/components/profile`),
         getFile(locale, `./${locale}/components/cms`),
         getFile(locale, `./${locale}/components/downloads`),

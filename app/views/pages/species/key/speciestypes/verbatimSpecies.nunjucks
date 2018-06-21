@@ -1,65 +1,43 @@
-<div ng-if="!speciesKey2.isNub && speciesKey2.$state.is('speciesKeyVerbatim') && speciesKey2.dwcextensions.$resolved">
-    <div class="container--desktop m-t-1">
-
-
-    </div>
-
-
+<div ng-if="!speciesKey2.isNub && speciesKey2.$state.is('speciesKeyVerbatim') && speciesKey2.dwcextensions.$resolved" class="horizontal-stripe">
         <div class="container--desktop">
-
-            <div class="card"
-                 >
+            <div class="card">
                 <div class="card__content card__content--warning">
-                    <p translate="species.verbatimListingMsg">
-
-
-                    </p>
-
-
-
+                    <p translate="species.verbatimListingMsg"></p>
                 </div>
             </div>
-
-            <div >
-                <h4 class="text-muted small text-uppercase m-t-1" translate="species.lastCrawled" translate-values="{DATE_FORMATTED: (speciesKey2.verbatim.lastCrawled | date : 'longDate')}">
-                    
-                </h4>
-                <div class="card m-b-05 searchCard " >
+            <div>
+                <h4 class="card-header m-t-1" translate="species.lastCrawled" translate-values="{DATE_FORMATTED: (speciesKey2.verbatim.lastCrawled | date : 'longDate')}"> </h4>
+                <div class="card m-b-05 searchCard">
                     <div class="card__stripe">
                         <div class="card__content card__content--warning">
                             <table class="table table--compact">
                                 <thead>
-                                <th translate="stdTerms.term"></th><th translate="stdTerms.value"></th>
-
+                                    <th translate="species.term"></th><th translate="species.value"></th>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="(key, value) in speciesKey2.verbatim" ng-if="key!=='key' && key!=='extensions' && key!=='lastCrawled' ">
-                                    <td class="verbatim-table--key">
-                                        {{ key.substr(key.lastIndexOf("/")+1) }}<br>
-                                        <a ng-if="speciesKey2.$mdMedia('gt-xs')" ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
-                                    </td>
-                                    <td ng-if="speciesKey2.$mdMedia('gt-xs')" ng-bind-html="value | parseUrlFilter"></td>
-                                    <td ng-if="speciesKey2.$mdMedia('xs')" ng-bind-html="value"></td>
-                                </tr>
-
-
+                                    <tr ng-repeat="(key, value) in speciesKey2.verbatim" ng-if="key!=='key' && key!=='extensions' && key!=='lastCrawled' ">
+                                        <td class="verbatim-table--key">
+                                            {{ key.substr(key.lastIndexOf("/")+1) }}<br>
+                                            <a ng-if="speciesKey2.$mdMedia('gt-xs')" ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
+                                        </td>
+                                        <td ng-if="speciesKey2.$mdMedia('gt-xs')" ng-bind-html="value | parseUrlFilter"></td>
+                                        <td ng-if="speciesKey2.$mdMedia('xs')" ng-bind-html="value"></td>
+                                    </tr>
                                 </tbody>
-
                             </table>
-
                         </div>
                     </div>
-
                 </div>
             </div>
             <div ng-if="speciesKey2.verbatimHasExtensions">
-            <h3 class="m-t-2" translate="species.extensions">Extensions</h3>
+                <h3 class="m-t-2" translate="species.extensions"></h3>
             </div>
             <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if="speciesKey2.dwcextensions[nameSpace] && extension.length > 0">
-
-                    <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="{{speciesKey2.dwcextensions[nameSpace].url}}" >
-                            {{speciesKey2.dwcextensions[nameSpace].title}} <span class="gb-icon-link"></span>
-                        </a></h4>
+                <h4 class="card-header extension-header">
+                    <a class="inherit"  ng-href="{{speciesKey2.dwcextensions[nameSpace].url}}" >
+                        {{speciesKey2.dwcextensions[nameSpace].title}} <span class="gb-icon-link"></span>
+                    </a>
+                </h4>
                 <p class="discreet--very smaller extension-subheader">{{speciesKey2.dwcextensions[nameSpace].description}}</p>
                     <div >
                         <div class="card m-b-05 searchCard " ng-repeat="item in extension">
@@ -67,37 +45,24 @@
                                 <div class="card__content card__content--warning">
                                 <table class="table table--compact">
                                     <thead>
-                                    <th>Term</th><th>Value</th>
-
+                                        <th translate="species.term"></th><th translate="species.value"></th>
                                     </thead>
                                     <tbody>
                                        <tr ng-repeat="(key, value) in item">
-                                       <td class="verbatim-table--key">
-                                       {{ key.substr(key.lastIndexOf("/")+1) }}<br>
-                                       <a ng-if="speciesKey2.$mdMedia('gt-xs')" ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
-                                       </td>
-                                           <td ng-if="speciesKey2.$mdMedia('gt-xs')" ng-bind-html="value | parseUrlFilter"></td>
-                                           <td ng-if="speciesKey2.$mdMedia('xs')" ng-bind-html="value"></td>
+                                        <td class="verbatim-table--key">
+                                            {{ key.substr(key.lastIndexOf("/")+1) }}<br>
+                                            <a ng-if="speciesKey2.$mdMedia('gt-xs')" ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
+                                        </td>
+                                            <td ng-if="speciesKey2.$mdMedia('gt-xs')" ng-bind-html="value | parseUrlFilter"></td>
+                                            <td ng-if="speciesKey2.$mdMedia('xs')" ng-bind-html="value"></td>
                                        </tr>
-
-
                                     </tbody>
-
                                 </table>
-
-                                </div>
                             </div>
-
                         </div>
                     </div>
-
+                </div>
             </div>
         </div>
-
-
-
-
-
-
-</div>
+    </div>
 </div>
