@@ -39,7 +39,7 @@ function renderDownload(req, res, next, template) {
             download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
 
             // if unreasonably long request, then returtn a dumbed down version to display to the user
-            if (download.predicateString.length > 7000) {
+            if (download.predicateString && download.predicateString.length > 7000) {
                 download._hugeQuery = true;
                 renderPage(req, res, next, download, template);
                 return;
