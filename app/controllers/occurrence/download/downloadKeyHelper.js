@@ -228,6 +228,9 @@ function addEndpointTask(predicate, config, tasks) {
             return getResource(config.url + value);
         })).then(function(values) {
             predicate.values = _.map(values, config.field);
+        })
+        .catch(function() {
+            predicate.values = [predicate.value];
         });
         tasks.push(listPromise);
     } else {
