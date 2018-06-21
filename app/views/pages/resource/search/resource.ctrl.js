@@ -21,7 +21,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         enumTranslationPath: 'country.',
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {
@@ -37,7 +36,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         enumTranslationPath: 'country.',
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {
@@ -53,7 +51,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         enumTranslationPath: 'country.',
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {

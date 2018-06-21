@@ -29,7 +29,6 @@ function publisherCtrl($state, hotkeys, PublisherFilter, Page) {
         singleSelect: true,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {
