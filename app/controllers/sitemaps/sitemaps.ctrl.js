@@ -4,6 +4,7 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     pager = require('./pager'),
     species = require('./species'),
+    log = require('../../../config/log'),
     prose = require('./prose');
 
 
@@ -24,6 +25,9 @@ router.get('/sitemap-prose.xml', function(req, res, next) {
         helper.renderPage(req, res, next, {
             pages: pages
         }, 'sitemaps/prose');
+    }).catch(function(err) {
+        log.error(err);
+        next(err);
     });
 });
 
@@ -76,6 +80,10 @@ function getIntervals(f, template) {
             helper.renderPage(req, res, next, {
                 pages: pages
             }, template);
+        })
+        .catch(function(err) {
+            log.error(err);
+            next(err);
         });
     };
 }
@@ -91,6 +99,9 @@ function getList(f, template) {
             helper.renderPage(req, res, next, {
                 pages: pages
             }, template);
+        }).catch(function(err) {
+            log.error(err);
+            next(err);
         });
     };
 }
