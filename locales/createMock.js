@@ -13,7 +13,7 @@ let translatedPaths = [
     // 'pagination.',
     // 'filters.',
     // 'filterNames.',
-    'occurrenceSearch.',
+    'directory.',
     // 'occurrence.',
     // 'ocurrenceFieldNames.',
     // 'metrics.',

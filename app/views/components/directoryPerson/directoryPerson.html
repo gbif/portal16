@@ -6,7 +6,7 @@
         <div class="card__content">
             <table>
                 <tr>
-                    <td translate="stdTerms.details"></td>
+                    <td translate="directory.details"></td>
                     <td>
                         <div>
                             <div ng-if="vm.person.institutionName" class="text-italic discreet--very">{{vm.person.institutionName}}</div>
@@ -18,30 +18,30 @@
                     </td>
                 </tr>
                 <tr>
-                    <td translate="stdTerms.roles" ></td>
+                    <td translate="directory.roles"></td>
                     <td>
                         <ul>
                             <li ng-repeat="role in vm.person.roles">
                                 <div >{{ 'role.' + role.role | translate }}</div>
                                 <div ng-if="role.role == 'GBIFS_STAFF_MEMBER'">{{ vm.person.jobTitle }}</div>
-                                <div class="discreet small"><span translate="stdTerms.since" ></span> {{role.term.start | momentFormat:'D MMMM YYYY' }}</div>
+                                <div class="discreet small"><span translate="directory.sinceDate" translate-values="{DATE: (role.term.start | momentFormat:'D MMMM YYYY')}"></span></div>
                             </li>
                             <li ng-repeat="role in vm.person.participants">
                                 <div >{{ 'role.' + role.role | translate }}</div>
                                 <div class="discreet small">
-                                    <a ng-href="{{portal.urlPrefix}}/country/{{role.participant.countryCode}}" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
-                                    <a ng-href="{{portal.urlPrefix}}/participant/{{role.participant.id}}" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
+                                    <a ui-sref="countrySummary({key: role.participant.countryCode})" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
+                                    <a ui-sref="participant({key: role.participant.id})" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
                                 </div>
-                                <div class="discreet small"><span translate="stdTerms.since" ></span> {{role.term.start | momentFormat:'D MMMM YYYY' }}</div>
+                                <div class="discreet small"><span translate="directory.sinceDate" translate-values="{DATE: (role.term.start | momentFormat:'D MMMM YYYY')}"></span></div>
                             </li>
                             <li ng-repeat="role in vm.person.nodes">
                                 <div >{{ 'role.' + role.role | translate }}</div>
                                 <div ng-if="role.participant" class="discreet small">
-                                    <a ng-href="{{portal.urlPrefix}}/country/{{role.participant.countryCode}}" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
-                                    <a ng-href="{{portal.urlPrefix}}/participant/{{role.participant.id}}" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
+                                    <a ui-sref="countrySummary({key: role.participant.countryCode})" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
+                                    <a ui-sref="participant({key: role.participant.id})" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
                                 </div>
                                 <div ng-if="!role.participant">
-                                    <a ng-href="{{portal.urlPrefix}}/node/{{role.nodeId}}">{{ role.node.name }}</a>
+                                    <a ng-href="{{vm.URL_PREFIX}}/node/{{role.nodeId}}">{{ role.node.name }}</a>
                                 </div>
                             </li>
                         </ul>
@@ -54,8 +54,8 @@
         <div class="loading"></div>
     </div>
     <div ng-if="vm.person.$resolved && vm.error" class="emptyInfo">
-        <h3 ng-if="vm.error.status == -1">No internet connection found</h3>
-        <h3 ng-if="vm.error.status < 500 && vm.error.status > 0">Nothing to see here. The contact you are searching for might no longer be active in GBIF</h3>
-        <h3 ng-if="vm.error.status >= 500">Hmm – something isn't working properly. Try refreshing and let us know if the problem continues.</h3>
+        <h3 ng-if="vm.error.status == -1" translate="phrases.noConnection"></h3>
+        <h3 ng-if="vm.error.status < 500 && vm.error.status > 0" translate="phrases.noInformationFound"></h3>
+        <h3 ng-if="vm.error.status >= 500" translate="phrases.criticalErrorMsg"></h3>
     </div>
 </div>

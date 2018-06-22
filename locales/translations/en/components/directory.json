@@ -43,6 +43,10 @@
       "name": "Name",
       "participant": "Participant",
       "participationStatus": "Participant status"
-    }
+    },
+    "details": "Details",
+    "roles": "Roles",
+    "sinceDate": "Since {DATE}",
+    "showAllContacts": "All"
   }
 }

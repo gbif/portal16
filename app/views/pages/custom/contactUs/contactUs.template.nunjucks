@@ -2,64 +2,17 @@
     <div class="site-content__page">
         <div class="white-background">
             <div class="wrapper-horizontal-stripes" >
-
                 {% include "./header.nunjucks" %}
-
                 <div>
                     {% include "./nav.nunjucks" %}
                 </div>
-
                 <div class="p-t-05" ng-if="contactUs.$state.is('contactUs')">
                     {% include "./main.nunjucks" %}
                 </div>
-
-                {#{% include "../../resource/key/article/articleContent.nunjucks" %}#}
-
                 <div ui-view>
                 </div>
-
             </div>
-            {#<div class="wrapper-horizontal-stripes" Xng-if="!datasetKey.dataset.$resolved">#}
-                {#<div class="emptyInfo">#}
-                    {#<h3>Loading</h3>#}
-                {#</div>#}
-            {#</div>#}
         </div>
         {% include "../../resource/key/preview.nunjucks" %}
-        {#<ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>#}
     </div>
 </div>
-
-
-{#<div>#}
-    {#<article class="wrapper-horizontal-stripes">#}
-        {#<div class="horizontal-stripe article-header white-background">#}
-            {#<header class="text-center">#}
-                {#<h1>{$ main.fields.title $}</h1>#}
-                {#<div class="article-header__intro">#}
-                    {#{$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}#}
-                {#</div>#}
-                {#{% if main.fields.numberOfResourceUsed | isNotEmpty %}#}
-                    {#<span class="article-header__meta">#}
-                    {#{$ main.fields.numberOfResourceUsed | striptags $}#}
-                    {#</span>#}
-                {#{% endif %}#}
-            {#</header>#}
-        {#</div>#}
-
-        {#{% include "../primaryImage.nunjucks" %}#}
-
-        {#<div class="horizontal-stripe white-background">#}
-            {#<div class="container--narrow">#}
-                {#{% include "../body.nunjucks" %}#}
-
-                {#<div class="article-secondary">#}
-                    {#{% include "../documentsLinks.nunjucks" %}#}
-                {#</div>#}
-
-                {#{% include "../auxiliary.nunjucks" %}#}
-            {#</div>#}
-        {#</div>#}
-
-    {#</article>#}
-{#</div>#}

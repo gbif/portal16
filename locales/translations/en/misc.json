@@ -61,6 +61,8 @@
     "parsingNames": "Parsing names - hang on",
     "errorNotAuthorized": "Looks like you aren't authorized to view this page",
     "partialPage": "Partial page",
+    "noInformationFound": "No information found",
+    "noConnection": "No internet connection found",
     "criticalErrorMsg": "The system is currently not able to process your request. Try to refresh the page and please report the issue if it continues.",
     "nonCriticalErrorMsg": "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
     "noResultsMessage": "No results – try to loosen your filters",

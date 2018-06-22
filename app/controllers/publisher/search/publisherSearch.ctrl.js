@@ -9,7 +9,7 @@ function renderSearch(req, res) {
     res.render('pages/publisher/search/publisherSearch', {
         title: 'Publishers',
         _meta: {
-            title: res.__('stdTerms.search'),
+            title: res.__('search.search'),
             description: 'Search for publishers in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.'
 
         }
