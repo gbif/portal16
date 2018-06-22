@@ -76,6 +76,7 @@
                     <table class="table search-table smaller">
                         <thead>
                         <tr>
+                            <!--th class="table-cell- -narrow gb-icon-more2" ng-click="occTable.showTableCustomization($event)"> </th-->
                             <th class="table-cell--wide" translate="ocurrenceFieldNames.scientificName"></th>
                             <th class="table-cell--normal" translate="ocurrenceFieldNames.country"></th>
                             <th class="table-cell--normal" translate="occurrence.coordinates"></th>
@@ -90,6 +91,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="result in occTable.occurrenceState.table.results">
+                            <!--td class="table-cell"></td-->
                             <td class="table-cell--wide">
                                 <a ui-sref="occurrenceKey({key:result.key})" class="issue-bullet__no-indent" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</a>
                                 <a ui-sref="occurrenceKey({key:result.key})" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1) || !result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']">{{result.scientificName}}</a>
@@ -159,3 +161,20 @@
         </div>
     </section>
 </div>
+
+
+<script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+    <div style="background: tomato; width:500px"><h2>hej</h2>
+      <md-checkbox ng-model="test.check1" aria-label="Checkbox 1">
+        Checkbox 1: {{ test.check1 }}
+      </md-checkbox>
+  <md-checkbox ng-model="test.check2" aria-label="Checkbox 2">
+        Checkbox 2: {{ test.check2 }}
+      </md-checkbox>
+    </div>
+      <md-button ng-click="answer(test)">
+        Useful
+      </md-button>
+  </form>
+</md-dialog>
+</script>

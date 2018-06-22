@@ -13,7 +13,7 @@ angular
     .controller('occurrenceTableCtrl', occurrenceTableCtrl);
 
 /** @ngInject */
-function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
+function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $mdDialog) {
     var vm = this, offset;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     // a pretty print for coordinates.
@@ -71,6 +71,36 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     vm.hasData = function() {
         return typeof vm.occurrenceState.table.count !== 'undefined';
     };
+
+
+    vm.showTableCustomization = function(ev) {
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: 'dialog1.tmpl.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: true
+        })
+        .then(function(answer) {
+          $scope.status = 'You said the information was "' + JSON.stringify(answer) + '".';
+        }, function() {
+          $scope.status = 'You cancelled the dialog.';
+        });
+      };
+
+      function DialogController($scope, $mdDialog) {
+        $scope.hide = function() {
+          $mdDialog.hide();
+        };
+
+        $scope.cancel = function() {
+          $mdDialog.cancel();
+        };
+
+        $scope.answer = function(answer) {
+          $mdDialog.hide(answer);
+        };
+      }
 }
 
 module.exports = occurrenceTableCtrl;
