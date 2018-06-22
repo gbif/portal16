@@ -19,6 +19,8 @@
     "noOccurrencesWithCoordinates": "Ingen observationer med koordinater",
     "containsSuspicious": "",
     "hideSuspiciousCoordinates": "",
-    "currentFilter": ""
+    "currentFilter": "",
+    "selectColumns": "",
+    "done": ""
   }
 }
