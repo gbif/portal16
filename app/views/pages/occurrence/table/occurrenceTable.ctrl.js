@@ -13,7 +13,7 @@ angular
     .controller('occurrenceTableCtrl', occurrenceTableCtrl);
 
 /** @ngInject */
-function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $mdDialog) {
+function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessionStorage, $mdDialog) {
     var vm = this, offset;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     // a pretty print for coordinates.
@@ -72,35 +72,56 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $mdDial
         return typeof vm.occurrenceState.table.count !== 'undefined';
     };
 
+    // ---- Popup to handle columns selection ----
+    vm.columns = ['country', 'coordinates', 'eventDate', 'basisOfRecord', 'dataset', 'issues', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy', 'publisher', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
+    vm.translationKeyOverwrites = {
+        coordinates: 'occurrence.coordinates',
+        eventDate: 'occurrence.monthAndyear',
+        issues: 'occurrence.issues',
+        dataset: 'occurrence.dataset'
+    };
+    vm.sessionStorage = $sessionStorage;
+
+    // Set defaults if there is no configuration in session storage
+    if (!vm.sessionStorage.occurrenceSearchColumns) {
+        var defaultColumns = ['country', 'coordinates', 'eventDate', 'basisOfRecord', 'dataset', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
+        var defaultSelectedColumns = {};
+        vm.columns.forEach(function(col) {
+            defaultSelectedColumns[col] = false;
+        });
+        defaultColumns.forEach(function(col) {
+            defaultSelectedColumns[col] = true;
+        });
+        vm.sessionStorage.occurrenceSearchColumns = defaultSelectedColumns;
+    }
+
+    vm.showCol = function(colName) {
+        return vm.sessionStorage.occurrenceSearchColumns[colName];
+    };
 
     vm.showTableCustomization = function(ev) {
         $mdDialog.show({
-          controller: DialogController,
-          templateUrl: 'dialog1.tmpl.html',
-          parent: angular.element(document.body),
-          targetEvent: ev,
-          clickOutsideToClose: true
+            locals: {data: {occurrenceSearchColumns: vm.sessionStorage.occurrenceSearchColumns}},
+            controller: DialogController,
+            templateUrl: 'customTableColumns.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true
         })
         .then(function(answer) {
-          $scope.status = 'You said the information was "' + JSON.stringify(answer) + '".';
+          // dialog closed
         }, function() {
-          $scope.status = 'You cancelled the dialog.';
+          // Dialog cancelled
         });
       };
 
-      function DialogController($scope, $mdDialog) {
+    function DialogController($scope, $mdDialog, data) {
+        $scope.data = data;
+
         $scope.hide = function() {
-          $mdDialog.hide();
+            $mdDialog.hide();
         };
-
-        $scope.cancel = function() {
-          $mdDialog.cancel();
-        };
-
-        $scope.answer = function(answer) {
-          $mdDialog.hide(answer);
-        };
-      }
+    }
 }
 
 module.exports = occurrenceTableCtrl;

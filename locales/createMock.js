@@ -13,10 +13,10 @@ let translatedPaths = [
     // 'pagination.',
     // 'filters.',
     // 'filterNames.',
-    // 'galleryBar.',
-    'species.',
-    // 'countryKey.',
-    'metrics.',
+    'occurrenceSearch.',
+    // 'occurrence.',
+    // 'ocurrenceFieldNames.',
+    // 'metrics.',
     // 'map.',
     'pagination.'
 ];

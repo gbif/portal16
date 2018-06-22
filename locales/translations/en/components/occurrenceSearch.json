@@ -19,6 +19,8 @@
     "noOccurrencesWithCoordinates": "No occurrences with coordinates",
     "containsSuspicious": "This map contains occurrences flagged by GBIF as having suspicious coordinates.",
     "hideSuspiciousCoordinates": "Hide them",
-    "currentFilter": "Current filter"
+    "currentFilter": "Current filter",
+    "selectColumns": "Select table columns",
+    "done": "Done"
   }
 }
