@@ -50,7 +50,7 @@
                     </li>
                 </ul>
                 <div class="menubox__section__content clearfix" ng-if="vm.comments.count > vm.comments.results.length">
-                    <a ng-href="{{ vm.comments.url }}" target="_blank" class="btn btn-default flat pull-right" translate="stdTerms.seeAll"></a>
+                    <a ng-href="{{ vm.comments.url }}" target="_blank" class="btn btn-default flat pull-right" translate="feedback.seeAllComments"></a>
                 </div>
             </div>
 

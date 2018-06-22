@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12 ng-cloak" ng-if="!countryResearch.literatureFrom.$resolved || !countryResearch.literatureAbout.$resolved">
                 <div class="emptyInfo">
-                    <h3 class="uppercase-first" translate="stdTerms.loading">Loading</h3>
+                    <h3 class="uppercase-first" translate="phrases.loading">Loading</h3>
                     <span class="loading"></span>
                 </div>
             </div>

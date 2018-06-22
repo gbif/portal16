@@ -24,7 +24,7 @@
                     <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
                     <a href="" type="submit" class="gb-icon-search search-bar__search"
                        ng-click="speciesLookup.search()">
-                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                        <span class="sr-only">{$ __('search.search') $}</span>
                     </a>
                 </form>
             </div>

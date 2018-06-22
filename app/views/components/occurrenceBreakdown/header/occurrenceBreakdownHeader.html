@@ -7,7 +7,7 @@
         </div>
     </div>
     <div ng-if="vm.api.isLoading()" class="inline-block">
-        <h4 class="card-header text-center inline-block"><span translate="stdTerms.loading"></span> <span class="loading"></span></h4>
+        <h4 class="card-header text-center inline-block"><span translate="phrases.loading"></span> <span class="loading"></span></h4>
     </div>
     <div class="chart-header-options inline-block pull-right p-hidden">
         <a href="" class="gb-icon-pie-chart inherit noUnderline" ng-click="vm.display.type = vm.config.enum.type.PIE; vm.api.chartChange()" ng-if="vm.isSupported('PIE')"></a>

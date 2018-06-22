@@ -70,8 +70,8 @@
                                 <nav class="article-header__category article-header__category--deep">
                                     <span class="article-header__category__upper" translate="search.header.searchSpecies"></span>
                                     <span class="article-header__category__lower" ng-if="species.hasData()" tx="search.nResults" tx-nr="species.state.data.count"></span>
-                                    <span class="article-header__category__lower" ng-if="!species.hasData() && !species.state.failedRequest" translate="stdTerms.loading"></span>
-                                    <span class="article-header__category__lower" ng-if="species.state.failedRequest" translate="stdTerms.failed"></span>
+                                    <span class="article-header__category__lower" ng-if="!species.hasData() && !species.state.failedRequest" translate="phrases.loading"></span>
+                                    <span class="article-header__category__lower" ng-if="species.state.failedRequest" translate="phrases.failed"></span>
                                 </nav>
                             </div>
                         </div>

@@ -23,14 +23,14 @@
             </div>
 
             <div class="searchCard__meta" ng-if="result.datasetKey && result.datasetKey != portal.constantKeys.dataset.backbone">
-                <span translate="stdTerms.checklist"></span>: <a class="" ui-sref="datasetKey({key:result.datasetKey})" ng-href="{{ portal.urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
+                <span translate="datasetType.CHECKLIST"></span>: <a class="" ui-sref="datasetKey({key:result.datasetKey})" ng-href="{{ portal.urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
                     | truncate:50 }}</a>
             </div>
             <div class="small" ng-if="result.acceptedKey">
                 <span translate="species.synonymOf"></span>: <a ui-sref="speciesKey({speciesKey:result.acceptedKey})" ng-href="{{ portal.urlPrefix }}/species/{{ result.acceptedKey }}">{{ result.accepted }} </a>
             </div>
             <p class="discreet classification-list" ng-if="result.rank != 'KINGDOM'">
-                {{ 'occurrenceSearch.taxonomy' | translate }} : <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                {{ 'species.classification' | translate }} : <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                       ng-if="result[taxa] && taxa != result.rank.toLowerCase()"
                       ng-bind-html="result[taxa]"></span>
             </p>

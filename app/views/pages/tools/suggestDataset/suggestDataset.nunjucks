@@ -275,7 +275,7 @@
                     </div>
                     <div class="col-xs-12 ng-cloak" ng-if="suggestDataset.state == 'SUCCESS'">
                         <div>
-                            <h4>{$ __('stdTerms.thankYou') $}</h4>
+                            <h4>{$ __('tools.suggestDataset.thankYou') $}</h4>
                             <p>{$ __('tools.suggestDataset.form.followDiscussionBelow') $}</p>
                             <a ng-href="{{ suggestDataset.referenceId }}" class="btn btn-default flat" translate="">{$
                                 __('tools.suggestDataset.form.followIssue') $}</a>

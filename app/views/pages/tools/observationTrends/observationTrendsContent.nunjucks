@@ -77,16 +77,6 @@
                             </div>
                             <span class="site-drawer__bar__icon inherit invisible embeded-only"></span>
                         </div>
-                        {#<div class="site-drawer__tabs">#}
-                        {#<a href="">#}
-                        {#<div class="gb-icon-microscope"></div>#}
-                        {#<span>Explore</span>#}
-                        {#</a>#}
-                        {#<a href="">#}
-                        {#<div class="gb-icon-info"></div>#}
-                        {#<span>Info</span>#}
-                        {#</a>#}
-                        {#</div>#}
                     </div>
                 </div>
                 <div class="site-drawer__section" id="observationTrends_scrollContainer">
@@ -99,7 +89,7 @@
                             <div class="search-box">
                                 <input type="text"
                                        focus-me="true"
-                                       placeholder="{{ 'stdTerms.search' | translate }}"
+                                       placeholder="{{ 'search.search' | translate }}"
                                        name="lowerTaxon"
                                        autocomplete="off"
                                        class="fit-suggestions"
