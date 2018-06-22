@@ -61,6 +61,8 @@
     "parsingNames": "Fortolker navne - vent venligst",
     "errorNotAuthorized": "Ser ud som om du ikke er autoriseret til at se denne side",
     "partialPage": "",
+    "noInformationFound": "",
+    "noConnection": "",
     "criticalErrorMsg": "",
     "nonCriticalErrorMsg": "",
     "noResultsMessage": "Ingen resultater – prøv at fjerne nogle filtre",
