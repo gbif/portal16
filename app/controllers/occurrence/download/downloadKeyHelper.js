@@ -164,7 +164,7 @@ function attachPredicatesAsParams(predicate) {
                 val = '*,' + val;
             }
             queryList.push(predicate.key.toLowerCase() + '=' + encodeURIComponent(val));
-        } if (!_.isUndefined(predicate.geometry)) {
+        } else if (!_.isUndefined(predicate.geometry)) {
             queryList.push('geometry=' + encodeURIComponent(predicate.geometry));
         }
     }
