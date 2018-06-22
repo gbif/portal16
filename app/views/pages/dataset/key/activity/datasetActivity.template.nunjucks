@@ -5,7 +5,7 @@
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
             </div>
 
-            <div ng-if="!datasetActivity.loadingDownloads && !datasetActivity.failedToLoadDownloads">
+            <div ng-if="!datasetActivity.loadingDownloads && !datasetActivity.failedToLoadDownloads && datasetActivity.downloads.count > 0">
                 <div class="body-text">
                     <div>
                         <h3 tx="dataset.nDownloadEvents" tx-nr="datasetActivity.downloads.count"></h3>
