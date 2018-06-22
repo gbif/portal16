@@ -31,12 +31,12 @@
 
         <div class="stripe-comment">
             <div ng-if="occurrenceKey.datasetProcessSummary.lastNormal.finishedCrawling">
-                {$ __('stdTerms.synced') $}
+                {$ __('occurrence.synced') $}
                 <span ng-bind="occurrenceKey.datasetProcessSummary.lastNormal.finishedCrawling | momentFromNow:gb.locales.current"></span>
             </div>
             {% if occurrence.record.modified %}
                 <div>
-                    {$ __('stdTerms.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}
+                    {$ __('occurrence.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}
                 </div>
             {% endif %}
         </div>

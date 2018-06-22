@@ -67,7 +67,7 @@
                                     <span>
                                         <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))" class="inherit">
                                             {{result.displayName | truncate:50 }}
-                                            <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} <span translate="stdTerms.occurrences"></span></md-tooltip>
+                                            <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} <span translate="metrics.occurrences"></span></md-tooltip>
                                         </a>
                                     </span>
                                     <span ng-if="$last && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!

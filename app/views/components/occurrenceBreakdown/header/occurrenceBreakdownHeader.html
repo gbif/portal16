@@ -1,6 +1,6 @@
 <div>
     <div class="inline-block" ng-if="!vm.api.isLoading()">
-        <h4 class="card-header text-center inline-block" ng-if="!vm.options.dimension"><span translate="stdTerms.occurrences"></span> <span translate="stdTerms.breakdown"></span> <span translate="stdTerms.per"></span> <span translate="stdTerms.field"></span> </h4>
+        <h4 class="card-header text-center inline-block" ng-if="!vm.options.dimension" translate="metrics.occurrencesBreakdownPerField"></h4>
         <div class="inline-block" ng-if="vm.options.dimension">
             <h4 class="card-header text-center inline-block" ng-if="!vm.options.secondDimension" translate="metrics.occurrencesPerField" translate-values="{FIELD: ('filterNames.' + (vm.options.dimension | camelCase ) | translate)}"></h4>
             <h4 class="card-header text-center inline-block" ng-if="vm.options.secondDimension" translate="metrics.occurrencesPerFieldx2" translate-values="{FIELD: ('filterNames.' + (vm.options.dimension | camelCase ) | translate), FIELD2: ('filterNames.' + (vm.options.secondDimension | camelCase ) | translate)}"></h4>

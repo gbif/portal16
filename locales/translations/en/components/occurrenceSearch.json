@@ -21,6 +21,8 @@
     "hideSuspiciousCoordinates": "Hide them",
     "currentFilter": "Current filter",
     "selectColumns": "Select table columns",
-    "done": "Done"
+    "done": "Done",
+    "yesCorrectSuggestion": "Yes",
+    "noWrongSuggestion": "No"
   }
 }
