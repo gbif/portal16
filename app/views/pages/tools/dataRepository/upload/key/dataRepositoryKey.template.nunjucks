@@ -31,7 +31,7 @@
                                         <ul>
                                             <li class="tab tab-right ng-cloak">
                                                 <span>
-                                                    <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{ dataRepositoryKey.upload.doi }}"' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER_FORMATED: (dataRepositoryKey.citations.count | localNumber)  NUMBER: dataRepositoryKey.citations.count }"></a>
+                                                    <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{ dataRepositoryKey.upload.doi }}"' class="gb-button--dark" translate="counts.nCitations" translate-values="{ NUMBER_FORMATED: (dataRepositoryKey.citations.count | localNumber)  NUMBER: dataRepositoryKey.citations.count }"></a>
                                                 </span>
                                             </li>
                                         </ul>

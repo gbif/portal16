@@ -8,7 +8,7 @@
                             <li class="tab tab-right ng-cloak">
                                 <span>
                                     <a ui-sref="occurrenceSearchTable({publishing_org:publisherKey.key})" class="gb-button--brand">
-                                        <span tx="stdTerms.nOccurrences" tx-nr="publisherKey.occurrences.count"></span>
+                                        <span tx="counts.nOccurrences" tx-nr="publisherKey.occurrences.count"></span>
                                     </a>
                                 </span>
                             </li>
@@ -16,7 +16,7 @@
                             <li class="tab tab-right ng-cloak">
                                 <span>
                                     <a ui-sref="datasetSearchTable({publishing_org:publisherKey.key})" class="gb-button--primary">
-                                        <span tx="stdTerms.nDatasets" tx-nr="publisherKey.datasets.count"></span>
+                                        <span tx="counts.nDatasets" tx-nr="publisherKey.datasets.count"></span>
                                     </a>
                                 </span>
                             </li>
@@ -24,7 +24,7 @@
                             <li class="tab tab-right ng-cloak" ng-if="publisherKey.literature.count > 0">
                                 <span>
                                     <a ui-sref="resourceSearchList({publishingOrganizationKey:publisherKey.key, contentType: 'literature'})" class="gb-button--dark">
-                                        <span tx="stdTerms.nCitations" tx-nr="publisherKey.literature.count"></span>
+                                        <span tx="counts.nCitations" tx-nr="publisherKey.literature.count"></span>
                                     </a>
                                 </span>
                             </li>

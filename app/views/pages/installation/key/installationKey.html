@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="m-b-1" ng-if="installationKey.installation._computedValues.contributors.all.length > 0">
-                            <h4 class="card-header" tx="stdTerms.nContacts" tx-nr="installationKey.installation._computedValues.contributors.all.length"></h4>
+                            <h4 class="card-header" tx="counts.nContacts" tx-nr="installationKey.installation._computedValues.contributors.all.length"></h4>
                             <div class="contactsCard card card--spaced">
                                 <contact contact-info="contact" ng-repeat="contact in installationKey.installation._computedValues.contributors.all"></contact>
                             </div>
@@ -87,7 +87,7 @@
                         <div class="m-b-1" ng-if="installationKey.servedDatasets.count > 0">
                             <span class="relative-anchor-offset"><a id="servedDatasets"></a></span>
                             <h4 class="card-header" 
-                                translate="stdTerms.nDatasets" 
+                                translate="counts.nDatasets" 
                                 translate-values="{ NUMBER_FORMATED: (installationKey.servedDatasets.count | localNumber), NUMBER: installationKey.servedDatasets.count }">
                                 
                             </h4>

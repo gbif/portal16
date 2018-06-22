@@ -49,6 +49,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/enums/error`),
         getFile(locale, `./${locale}/enums/datasetType`),
         getFile(locale, `./${locale}/components/menu`),
+        getFile(locale, `./${locale}/components/counts`),
         getFile(locale, `./${locale}/components/feedback`),
         getFile(locale, `./${locale}/components/filters`),
         getFile(locale, `./${locale}/components/galleryBar`),

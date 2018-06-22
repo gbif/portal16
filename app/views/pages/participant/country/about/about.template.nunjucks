@@ -13,7 +13,7 @@
                         <div class="small" translate="kingdomKey.{{kingdom.id}}">{{ kingdom.title }}</div>
                         <strong ng-if="countryKey.kingdomsAbout[kingdom.id].count">{{ countryKey.kingdomsAbout[kingdom.id].count | localNumber }}</strong>
                         <strong ng-if="!countryKey.kingdomsAbout[kingdom.id].count">0</strong>
-                        <div class="small" translate="stdTerms.pOccurrence" translate-values="{NUMBER: countryKey.kingdomsAbout[kingdom.id].count}"></div>
+                        <div class="small" translate="counts.pOccurrence" translate-values="{NUMBER: countryKey.kingdomsAbout[kingdom.id].count}"></div>
                     </div>
                 </a>
             </div>
