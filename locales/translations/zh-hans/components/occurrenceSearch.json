@@ -19,6 +19,8 @@
     "noOccurrencesWithCoordinates": "",
     "containsSuspicious": "",
     "hideSuspiciousCoordinates": "",
-    "currentFilter": ""
+    "currentFilter": "",
+    "selectColumns": "",
+    "done": ""
   }
 }
