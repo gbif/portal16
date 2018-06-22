@@ -43,6 +43,10 @@
       "name": "Navn",
       "participant": "Participant",
       "participationStatus": "Participant status"
-    }
+    },
+    "details": "Detaljer",
+    "roles": "Roller",
+    "sinceDate": "Siden {DATE}",
+    "showAllContacts": "Alle"
   }
 }
