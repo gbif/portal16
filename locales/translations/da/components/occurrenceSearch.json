@@ -21,6 +21,8 @@
     "hideSuspiciousCoordinates": "",
     "currentFilter": "",
     "selectColumns": "",
-    "done": ""
+    "done": "",
+    "yesCorrectSuggestion": "",
+    "noWrongSuggestion": ""
   }
 }
