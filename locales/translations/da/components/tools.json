@@ -49,7 +49,8 @@
             "title": ""
         },
         "ipt": {
-            "description": ""
+            "description": "",
+            "dontSeeYourIpt": "Ikke kan se din IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail til GBIF Helpdesk med anmodning om at IPT føjes til kort\") dine koordinater."
         }
     }
 }
