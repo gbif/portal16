@@ -9,6 +9,9 @@
         "parser": "",
         "nameParserTitle": "",
         "dropHere": "",
+        "excludeUnparsed": "Udeluk ufortolkede",
+        "generateCsv": "Generer csv",
+        "parsingNames": "Fortolker navne - vent venligst",
         "nameParserDescription": "",
         "nameParserRequirements": ""
     }
