@@ -107,10 +107,19 @@
     "dataValidatorDescription": "The GBIF data validator is a service that allows anyone with a GBIF-relevant dataset to receive a report on the syntactical correctness and the validity of the content contained within the dataset.",
     "thisIsAnEarlyAccessVersion": "This an early access version. Please report issues and feedback",
     "here": "Here.",
-    "newDataValidation": "New data validation",
-    "newValidation": "New validation",
-    "metaData": "Meta data",
-    "darwinCoreExtensions": "Darwin core extensions",
-    "coreRowType": "Core row type"
+    "coreRowType": "Core row type",
+    "submit": "Submit",
+    "dropHere": "Drop here",
+    "or": "or",
+    "selectFile": "Select file",
+    "fetchFileFromLocation": "Fetch file from location",
+    "tabs": {
+      "newDataValidation": "New data validation",
+      "newValidation": "New validation",
+      "about": "About",
+      "darwinCoreExtensions": "Darwin core extensions",
+      "metaData": "Meta data",
+      "summary": "Summary"
+    }
   }
 }

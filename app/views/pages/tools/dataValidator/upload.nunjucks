@@ -3,7 +3,7 @@
     <div class="text-center">
         <div class="dataValidator__input-file">
             <input type="file" name="myfile" file-upload on-file-change="dataValidator.handleUploadFile">
-            <a href="" translate="stdTerm.selectFile">Select file</a>
+            <a href="" translate="validation.selectFile"></a>
         </div>
     </div>
 
@@ -13,7 +13,7 @@
             <input type="text" name="fileurl" ng-model="resourceToValidate.fileUrl"/><br/>
             <br/>
             <button type="submit"
-                    ng-click="dataValidator.handleFileUrl(resourceToValidate)" translate="stdTerms.submit">Submit
+                    ng-click="dataValidator.handleFileUrl(resourceToValidate)" translate="validation.submit">
             </button>
         </form>
     </div>

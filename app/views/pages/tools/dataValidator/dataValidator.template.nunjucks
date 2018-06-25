@@ -12,13 +12,6 @@
                     {% include "./nav.nunjucks" %}
                 </div>
 
-                {#<div id="tabsScrollable">#}
-                    {#{% include "./nav.nunjucks" %}#}
-                {#</div>#}
-                {#<div class="tabs-fixed-container" id="tabsFixedContainer" ng-init="datasetKey.attachTabListener()">#}
-                    {#{% include "./nav.nunjucks" %}#}
-                {#</div>#}
-
                 <div ng-if="vm.hasUser">
 
                     <div ng-if="vm.hasError" class="emptyInfo--small">
@@ -39,22 +32,18 @@
                             <div class="text-center m-t-1">
                                 <div class="speciesLookup__input-file">
                                     <input type="file" name="myfile" file-upload on-file-change="vm.handleUploadFile"/>
-                                    <a href="" translate="stdTerms.selectFile"></a>
+                                    <a href="" translate="validation.selectFile"></a>
                                 </div>
-                                <p class="ng-cloak" translate="stdTerms.or"></p>
+                                <p class="ng-cloak" translate="validation.or"></p>
                             </div>
-                            <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="vm.handleDrop">{{'stdTerms.dropHere' | translate}}</p>
-                            <!-- <input type="file" id="input" onchange="angular.element(this).scope().handleFiles(this.files)"/> -->
-                            <!-- <p ng-if="speciesLookup.invalidFileFormat">
-                                Invalid file format
-                            </p> -->
+                            <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="vm.handleDrop">{{'validation.dropHere' | translate}}</p>
                             <div class="text-center m-t-2 ng-cloak" ng-if="vm.error">
                                 <p>Cannot read file</p>
                                 <span class="badge badge--error ng-cloak">{{ vm.error }}</span>
                             </div>
 
                             <div class="text-center m-t-1">
-                                <p class="ng-cloak"><span translate="stdTerms.or"></span> <span translate="stdTerms.fetchFileFromLocation"></span>:</p>
+                                <p class="ng-cloak"><span translate="validation.or"></span> <span translate="validation.fetchFileFromLocation"></span>:</p>
                             <form name="fileUrlForm" novalidate>
                             <div layout="row">
                             <md-input-container md-no-float class="md-block" flex-gt-xs="33" flex-offset-gt-xs="33" flex>
@@ -64,13 +53,11 @@
                             </div>
 
                             <button type="submit" class="md-raised md-primary md-button md-ink-ripple"
-                            ng-click="vm.handleFileUrl(vm.resourceToValidate)" translate="stdTerms.submit">Submit
+                            ng-click="vm.handleFileUrl(vm.resourceToValidate)" translate="validation.submit">Submit
                             </button>
                                 <div class="smaller discreet--very" translate="validation.fileSizeLimit"></div>
                             </form>
                             </div>
-
-
                         </div>
                         <div class="m-t-1" ng-if="vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING'" layout="row">
                            <span flex></span><md-progress-circular></md-progress-circular><span flex></span>
