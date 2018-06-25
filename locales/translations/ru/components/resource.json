@@ -1,16 +1,22 @@
 {
   "resource": {
+    "resources": "Ресурсы",
     "contactHelpdesk": "",
     "searchForResources": "",
     "addToCalendar": "",
     "venue": "",
     "location": "",
+    "country": "",
     "noDatasets": "",
     "when": "",
     "language": "",
     "viewOnGBIF": "",
     "published": "",
     "programme": "",
+    "fundedBy": "",
+    "about": "",
+    "datasets": "",
+    "gbifWillAttend": "",
     "dataUsedInStudy": "",
     "resourceDescription": ""
   }
