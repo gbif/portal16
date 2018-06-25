@@ -107,10 +107,19 @@
     "dataValidatorDescription": "",
     "thisIsAnEarlyAccessVersion": "",
     "here": "",
-    "newDataValidation": "",
-    "newValidation": "",
-    "metaData": "",
-    "darwinCoreExtensions": "",
-    "coreRowType": ""
+    "coreRowType": "",
+    "submit": "",
+    "dropHere": "",
+    "or": "eller",
+    "selectFile": "Vælg fil",
+    "fetchFileFromLocation": "Hent fil fra url",
+    "tabs": {
+      "newDataValidation": "",
+      "newValidation": "",
+      "about": "",
+      "darwinCoreExtensions": "",
+      "metaData": "",
+      "summary": ""
+    }
   }
 }
