@@ -37,8 +37,8 @@ angular
                 thousandsSep: $filter('localNumber')(1111, LOCALE_2_LETTER).split('1')[1],
                 decimalPoint: $filter('localNumber')(1.111, LOCALE_2_LETTER).split('1')[1],
                 months: [
-                    res['month.1'], res['month.2'], res['month.3'], res['month.4'], res['month.5'], res['month.6'], res['month.7'], res['month.8'], res['month.9'], res['month.10'], res['month.11'], res['month.12']
-                ],
+                    res['month.1'], res['month.2'], res['month.3'], res['month.4'], res['month.5'],
+                    res['month.6'], res['month.7'], res['month.8'], res['month.9'], res['month.10'], res['month.11'], res['month.12']],
                 weekdays: [
                     res['day.0'], res['day.1'], res['day.2'], res['day.3'], res['day.4'], res['day.5'], res['day.6']
                 ]

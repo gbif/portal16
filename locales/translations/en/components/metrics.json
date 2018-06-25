@@ -8,6 +8,10 @@
     "countByIssue": "Count issues by issue type"
   },
   "metrics": {
+    "issues": "Issues",
+    "extensions": "Extensions",
+    "taxa": "Taxa",
+    "other": "Other",
     "checklistMetrics": "Checklist metrics",
     "occurrenceMetrics": "Occurrence metrics",
     "explore": "Explore",
