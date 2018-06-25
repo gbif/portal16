@@ -1,16 +1,22 @@
 {
   "resource": {
+    "resources": "",
     "contactHelpdesk": "Kontakt helpdesk",
     "searchForResources": "",
     "addToCalendar": "",
     "venue": "",
     "location": "",
+    "country": "Land eller område",
     "noDatasets": "",
     "when": "",
     "language": "Sprog",
     "viewOnGBIF": "",
     "published": "",
     "programme": "",
+    "fundedBy": "Finansieret af",
+    "about": "",
+    "datasets": "",
+    "gbifWillAttend": "",
     "dataUsedInStudy": "",
     "resourceDescription": ""
   }
