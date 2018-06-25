@@ -29,10 +29,10 @@
             <div class="site-drawer__bar">
                 <a href="" class="site-drawer__bar__action"
                    ng-click="occurrence.addTaxon(occurrence.freeTextSpeciesSuggestion)">
-                    <span translate="stdTerms.yes">Yes</span>
+                    <span translate="occurrenceSearch.yesCorrectSuggestion"></span>
                 </a>
                 <a href="" class="site-drawer__bar__action" ng-click="occurrence.showFreeTextSpeciesSuggestion = false">
-                    <span translate="stdTerms.no">No</span>
+                    <span translate="occurrenceSearch.noWrongSuggestion"></span>
                 </a>
             </div>
         </div>
@@ -149,7 +149,7 @@
             <div ui-view ng-if="!occurrence.occurrenceState.failedRequest">
             </div>
             <div ng-if="occurrence.occurrenceState.failedRequest" class="emptyInfo">
-                <h3 translate="stdTerms.failed"></h3>
+                <h3 translate="phrases.failed"></h3>
                 <p translate="occurrenceSearch.failedSearch"></p>
             </div>
         </div>

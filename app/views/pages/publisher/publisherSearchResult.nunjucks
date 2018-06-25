@@ -25,7 +25,7 @@
             </p>
             <ul class="list-chips">
                 <li ng-if="result.numPublishedDatasets">
-                    <a href="" ui-sref="datasetSearchTable({publishing_org:result.key})"><span class="uppercase-first" tx="stdTerms.nDatasets" tx-nr="result.numPublishedDatasets"></span></a>
+                    <a href="" ui-sref="datasetSearchTable({publishing_org:result.key})"><span class="uppercase-first" tx="counts.nDatasets" tx-nr="result.numPublishedDatasets"></span></a>
                 </li>
                 <li ng-if="result.country">
                     <a href="" ui-sref=".({country:result.country})" translate="country.{{ result.country }}">{{ result.country }}</a>

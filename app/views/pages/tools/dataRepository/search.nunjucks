@@ -6,11 +6,10 @@
                     <input type="text"
                            autocomplete="off"
                            ng-model="dataRepository.q"
-                           placeholder="{{ 'stdTerms.search' | translate }}"
-                           xng-keydown="dataRepository.closeOnEsc($event)">
+                           placeholder="{{ 'search.search' | translate }}">
                     <a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"
                        ng-click="dataRepository.search()">
-                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                        <span class="sr-only">{$ __('search.search') $}</span>
                     </a>
                 </form>
             </div>

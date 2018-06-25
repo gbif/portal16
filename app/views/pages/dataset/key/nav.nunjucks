@@ -6,35 +6,35 @@
                     <div class="tabs__actions">
                         <ul>
                             <li class="tab tab-right ng-cloak" ng-if="datasetKey.dataset.type == 'OCCURRENCE' || datasetKey.dataset.type == 'SAMPLING_EVENT' || datasetKey.occurrences.count > 0">
-                                        <span>
-                                            <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="gb-button--brand">
-                                                {{ datasetKey.occurrences.count | localNumber }}
-                                                <span class="gb-button--brand__label" translate="stdTerms.pOccurrence" translate-values="{NUMBER: datasetKey.occurrences.count}">
-                                                    Occurrences
-                                                </span>
-                                            </a>
+                                <span>
+                                    <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="gb-button--brand">
+                                        {{ datasetKey.occurrences.count | localNumber }}
+                                        <span class="gb-button--brand__label" translate="counts.pOccurrence" translate-values="{NUMBER: datasetKey.occurrences.count}">
+                                            Occurrences
                                         </span>
+                                    </a>
+                                </span>
                             </li>
 
                             <li class="tab tab-right ng-cloak" ng-if="datasetKey.taxa.count > 0">
-                                        <span>
-                                            <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, origin: 'SOURCE', advanced:true})" class="gb-button--primary">
-                                                {{ datasetKey.taxa.count | localNumber }}
-                                                <span class="gb-button--primary__label"  translate="stdTerms.pRecords" translate-values="{NUMBER: datasetKey.taxa.count}">
-                                                    Records
-                                                </span>
-                                            </a>
+                                <span>
+                                    <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, origin: 'SOURCE', advanced:true})" class="gb-button--primary">
+                                        {{ datasetKey.taxa.count | localNumber }}
+                                        <span class="gb-button--primary__label"  translate="counts.pRecords" translate-values="{NUMBER: datasetKey.taxa.count}">
+                                            Records
                                         </span>
+                                    </a>
+                                </span>
                             </li>
 
                             <li class="tab tab-right ng-cloak" ng-if="datasetKey.literature.count > 0">
-                                        <span>
-                                            <a ui-sref="resourceSearchList({gbifDatasetKey:datasetKey.key, contentType: 'literature'})" class="gb-button--dark">
-                                                <span tx="stdTerms.nCitations" tx-nr="datasetKey.literature.count">
-                                                    Citations
-                                                </span>
-                                            </a>
+                                <span>
+                                    <a ui-sref="resourceSearchList({gbifDatasetKey:datasetKey.key, contentType: 'literature'})" class="gb-button--dark">
+                                        <span tx="counts.nCitations" tx-nr="datasetKey.literature.count">
+                                            Citations
                                         </span>
+                                    </a>
+                                </span>
                             </li>
                         </ul>
                     </div>

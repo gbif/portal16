@@ -34,8 +34,8 @@
                                 <nav class="article-header__category article-header__category--deep">
                                     <span class="article-header__category__upper" translate="search.header.searchPublishers"></span>
                                     <span class="article-header__category__lower" ng-if="publisher.hasData()" tx="search.nResults" tx-nr="publisher.state.data.count"></span>
-                                    <span class="article-header__category__lower" ng-if="!publisher.hasData() && !publisher.state.failedRequest" translate="stdTerms.loading"></span>
-                                    <span class="article-header__category__lower" ng-if="publisher.state.failedRequest" translate="stdTerms.failed"></span>
+                                    <span class="article-header__category__lower" ng-if="!publisher.hasData() && !publisher.state.failedRequest" translate="phrases.loading"></span>
+                                    <span class="article-header__category__lower" ng-if="publisher.state.failedRequest" translate="phrases.failed"></span>
                                 </nav>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="emptyInfo" ng-if="publisher.state.failedRequest">
-                        <h3 translate="phrases.errorTryToRefresh"></h3>
+                        <h3 translate="phrases.criticalErrorMsg"></h3>
                     </div>
                 </div>
             </div>

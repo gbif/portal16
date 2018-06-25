@@ -7,10 +7,10 @@
                     <input type="text"
                            autocomplete="off"
                            ng-model="faq.q"
-                           placeholder="{{ 'stdTerms.search' | translate }}">
+                           placeholder="{{ 'search.search' | translate }}">
                     <a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"
                        ng-click="faq.search()">
-                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                        <span class="sr-only">{$ __('search.search') $}</span>
                     </a>
                 </form>
             </div>

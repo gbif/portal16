@@ -5,6 +5,7 @@
           "NOT_OPEN": "Not an open license",
           "title": "Suggest a dataset",
           "pleaseDescribeTheDataset": "Please describe the dataset",
+          "thankYou": "Thank you",
           "form": {
             "title": "Title",
             "link": "Internet link to data",

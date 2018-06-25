@@ -1,19 +1,11 @@
 <aside class="site-drawer is-locked"  ng-class="{'is-active': speciesKey2.showFilters}">
-    <!--<div class="site-drawer__fab" ng-style="vm.fabStyle">-->
-    <!--Apply filters-->
-    <!--</div>-->
     <div class="site-drawer__content">
         <div class="site-drawer__header">
             <div class="site-drawer__bar">
                 <div class="site-drawer__bar__title">
-                    <span translate="species.classification">
-                          
-                    </span>
+                    <span translate="species.classification"></span>
                 </div>
-
             </div>
-
-
         </div>
 
         <div class="site-drawer__section">
@@ -31,13 +23,7 @@
                            typeahead-focus-first="true"
                            typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html"
                            ng-keyup="speciesKey2.searchOnEnter($event)">
-                    <!--<a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"-->
-                    <!--ng-click="speciesKey2.updateSearch()">-->
-                    <!--<span class="sr-only">{$ __('stdTerms.search') $}</span>-->
-                    <!--</a>-->
-
                 </form>
-
 
             </div>
             <div class="checklist-info" ng-if="speciesKey2.species.$resolved && !speciesKey2.isNub">

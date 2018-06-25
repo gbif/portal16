@@ -69,7 +69,7 @@
                                         {% if download._citationCount %}
                                         <li class="tab tab-right ng-cloak">
                                             <span>
-                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&gbifDownloadKey={{  downloadKey.key }}' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER_FORMATED: {$ download._citationCount $}, NUMBER: {$ download._citationCount $} }"></a>
+                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&gbifDownloadKey={{  downloadKey.key }}' class="gb-button--dark" translate="counts.nCitations" translate-values="{ NUMBER_FORMATED: {$ download._citationCount $}, NUMBER: {$ download._citationCount $} }"></a>
                                             </span>
                                         </li>
                                         {% endif %}

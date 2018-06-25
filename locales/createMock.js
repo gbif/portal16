@@ -16,6 +16,11 @@ let translatedPaths = [
     'galleryBar.',
     'publisher.',
     'metrics.',
+
+    'directory.',
+    // 'occurrence.',
+    // 'ocurrenceFieldNames.',
+    // 'metrics.',
     // 'map.',
     'pagination.'
 ];

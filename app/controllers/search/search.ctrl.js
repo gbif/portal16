@@ -19,7 +19,7 @@ router.get('/search', function(req, res, next) {
                 _meta: {
                     bodyClass: 'omnisearch',
                     tileApi: baseConfig.tileApi,
-                    title: req.__('stdTerms.search'),
+                    title: req.__('search.search'),
                     description: description
                 }
             };

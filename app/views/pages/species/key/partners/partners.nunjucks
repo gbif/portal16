@@ -1,5 +1,5 @@
     <div class="m-t-1" ng-if="speciesKey2.images.$resolved && speciesKey2.mappedOccurrences.$resolved">
-            <h4 class="text-muted small text-uppercase" translate="species.seeAlso"></h4>
+            <h4 class="card-header" translate="species.seeAlso"></h4>
 
             <div class="card" >
                     <div class="container-fluid card--padded">

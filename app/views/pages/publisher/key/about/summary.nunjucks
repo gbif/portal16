@@ -57,10 +57,10 @@
                         <dt translate="publisher.hosting"></dt>
                         <dd>
                             <dd>
-                            <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})" tx="stdTerms.nDatasets" tx-nr="publisherKey.hostStats.datasetCount"></a> 
+                            <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})" tx="counts.nDatasets" tx-nr="publisherKey.hostStats.datasetCount"></a> 
                                 (<ul class="inline-bullet-list">
-                                    <li tx="stdTerms.nPublishers" tx-nr="publisherKey.hostStats.publisherCount"></li>
-                                    <li tx="stdTerms.nCountries" tx-nr="publisherKey.hostStats.countryCount"></li>
+                                    <li tx="counts.nPublishers" tx-nr="publisherKey.hostStats.publisherCount"></li>
+                                    <li tx="counts.nCountries" tx-nr="publisherKey.hostStats.countryCount"></li>
                                 </ul>)
                         </dd>
                         </dd>

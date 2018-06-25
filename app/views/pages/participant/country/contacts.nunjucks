@@ -1,7 +1,7 @@
 
 <section class="container--desktop m-b-1" id="contacts" ng-if="countryKey.country.participant && countryKey.country.participant.participationStatus !== 'OBSERVER' && countryKey.country.participant.participationStatus !== 'FORMER' &&  (countryKey.country.node || countryKey.country.activePeople.length > 0)">
     <div>
-        <h4 class="card-header" translate="stdTerms.contacts" translate-values="{ NUMBER: countryKey.country.activePeople.length + 1}"></h4>
+        <h4 class="card-header" translate="counts.contacts" translate-values="{ NUMBER: countryKey.country.activePeople.length + 1}"></h4>
         <div class="contactsCard card card--spaced">
             <contact contact-info="countryKey.country.node" id="nodeAddress"></contact>
             <contact contact-info="contact" ng-repeat="contact in countryKey.country.activePeople" id="contact{{contact.id}}"></contact>

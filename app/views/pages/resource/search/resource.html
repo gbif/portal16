@@ -98,8 +98,8 @@
                                 <nav class="article-header__category article-header__category--deep">
                                     <span class="article-header__category__upper" translate="search.header.searchResources"></span>
                                     <span class="article-header__category__lower" ng-if="resource.hasData()" tx="search.nResults" tx-nr="resource.state.data.count"></span>
-                                    <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest" translate="stdTerms.loading"></span>
-                                    <span class="article-header__category__lower" ng-if="resource.state.failedRequest" translate="stdTerms.failed"></span>
+                                    <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest" translate="phrases.loading"></span>
+                                    <span class="article-header__category__lower" ng-if="resource.state.failedRequest" translate="phrases.failed"></span>
                                 </nav>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                         </div>
                     </div>
                     <div class="emptyInfo" ng-if="resource.state.failedRequest">
-                        <h3 translate="phrases.errorTryToRefresh"></h3>
+                        <h3 translate="phrases.criticalErrorMsg"></h3>
                     </div>
                 </div>
             </div>

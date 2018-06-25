@@ -31,7 +31,7 @@
                                 {% if term.simpleName == "organismID" %}
                                 <span class="chip">
                                     <a ui-sref="occurrenceSearchTable({organism_id: '{$ occurrence.record[term.simpleName] $}' })">
-                                        <span count="{{ portal.dataApi }}occurrence/search?organism_id={$ occurrence.record[term.simpleName] $}" count-translation="stdTerms.nOccurrences">&nbsp;</span>
+                                        <span count="{{ portal.dataApi }}occurrence/search?organism_id={$ occurrence.record[term.simpleName] $}" count-translation="counts.nOccurrences">&nbsp;</span>
                                     </a>
                                 </span>
                                 {% endif %}

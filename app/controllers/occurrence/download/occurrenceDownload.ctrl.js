@@ -89,7 +89,7 @@ function renderPage(req, res, next, download, template) {
                 download: download,
                 title: 'Ocurrences',
                 _meta: {
-                    title: res.__('stdTerms.download')
+                    title: res.__('downloadKey.download')
                 }
             });
         }

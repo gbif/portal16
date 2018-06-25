@@ -1,5 +1,5 @@
 {
-    "datasetType": {
+  "datasetType": {
     "OCCURRENCE": "Occurrence",
     "CHECKLIST": "Checklist",
     "SAMPLING_EVENT": "Sampling event",

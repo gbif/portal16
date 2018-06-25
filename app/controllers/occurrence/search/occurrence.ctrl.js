@@ -60,7 +60,7 @@ function renderSearch(req, res) {
             title: 'Occurrences',
             _meta: {
                 hasTools: true,
-                title: req.__('stdTerms.search'),
+                title: req.__('search.search'),
                 description: req.__('occurrenceSearch.description')
             }
         });
