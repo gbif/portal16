@@ -58,6 +58,7 @@ function getMockText(str) {
 }
 
 function isTranslatedKey(path) {
+    return true;
     let index = _.findIndex(translatedPaths, function(e) {
         return _.startsWith(path, e);
     });

@@ -5,7 +5,7 @@
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
             </div>
             <div ng-repeat="download in userDownloads.downloads.results">
-                <a href="" class="gb-button--error m-b-05" ng-if="download.status == 'RUNNING' || download.status == 'PREPARING'" ng-click="userDownloads.cancelDownload(download.key)">Cancel download</a>
+                <a href="" class="gb-button--error m-b-05" ng-if="download.status == 'RUNNING' || download.status == 'PREPARING'" ng-click="userDownloads.cancelDownload(download.key)" translate="downloadKey.cancel"></a>
                 <div class="card m-b-2">
                     <ng-include src="'/occurrence/download/' + download.key + '/card?locale=' + portal.LOCALE"></ng-include>
                 </div>
