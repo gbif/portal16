@@ -13,11 +13,9 @@ let translatedPaths = [
     // 'pagination.',
     // 'filters.',
     // 'filterNames.',
-    // 'galleryBar.',
-    'occurrence.',
-    'ocurrenceFieldNames.',
-    // 'countryKey.',
-    // 'metrics.',
+    'galleryBar.',
+    'publisher.',
+    'metrics.',
     // 'map.',
     'pagination.'
 ];

@@ -36,13 +36,13 @@ function checklistMetrics() {
         var translations = {};
         var u;
         if (vm.dimension === 'countByIssue') {
-            u = 'stdTerms.issues';
+            u = 'metrics.issues';
         } else if (vm.dimension === 'countExtRecordsByExtension') {
-            u = 'species.extensions';
+            u = 'metrics.extensions';
         } else if (vm.dimension === 'countNamesByLanguage') {
             u = 'metrics.vernacularNames';
         } else {
-            u = 'species.taxa';
+            u = 'metrics.taxa';
         }
         translations.unit = $translate(u);
 
@@ -72,7 +72,7 @@ function checklistMetrics() {
 
                     translations.categories = $q.all(translatedCategories);
                     translations.title = $translate('datasetMetrics.' + vm.dimension);
-                    translations.other = $translate('stdTerms.other');
+                    translations.other = $translate('metrics.other');
 
                     $q.all(translations).then(function(res) {
                         for (var i = 0; i < sorted.length; i++) {

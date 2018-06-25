@@ -67,12 +67,10 @@ function nameUsagesDirective() {
                             vm.categories.push({name: vm.synonymNameUsages[i].scientificName, key: vm.synonymNameUsages[i].name});
                         }
                         angular.element(document).ready(function() {
-                           $translate('stdTerms.occurrences').then(function(res){
+                           $translate('stdTerms.occurrences').then(function(res) {
                                 vm.seriesName = res;
                                 Highcharts.chart(asPieChart({series: [{data: vm.data}], categories: vm.categories}));
-
                            });
-
                         });
                     });
             });
