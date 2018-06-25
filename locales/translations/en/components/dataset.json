@@ -26,7 +26,7 @@
     "metrics": "Metrics",
     "constituents": "Constituents",
     "download": "Download",
-    "datasetHomepage": "Homepage",
+    "datasetHomepage": "Home page",
     "becauseTrustedContact": "Because you are trusted contact",
     "nConstituentDatasets": "{NUMBER_FORMATED} {NUMBER, select, 0{constituent datasets} 1{constituent dataset} other{constituent datasets}}",
     "consistuentDatasets": "Constituent datasets",
