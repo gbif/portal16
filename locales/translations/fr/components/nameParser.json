@@ -2,7 +2,13 @@
     "nameParser": {
         "loadTestNames": "",
         "parse": "",
+        "or": "",
+        "selectFile": "",
+        "pasteNamesToParse": "",
+        "about": "",
+        "parser": "",
         "nameParserTitle": "",
+        "dropHere": "",
         "nameParserDescription": "",
         "nameParserRequirements": ""
     }
