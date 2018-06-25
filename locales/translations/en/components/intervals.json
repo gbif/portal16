@@ -1,5 +1,6 @@
 {
     "intervals": {
+        "noFilter": "No filter",
         "elevation": {
             "equals": "is {from}m",
             "between": "between {from} and {to}m",
