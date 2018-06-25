@@ -1,5 +1,6 @@
 {
     "intervals": {
+        "noFilter": "",
         "elevation": {
             "equals": "",
             "between": "",
