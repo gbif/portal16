@@ -8,6 +8,10 @@
     "countByIssue": ""
   },
   "metrics": {
+    "issues": "Bemærkninger",
+    "extensions": "",
+    "taxa": "Taxa",
+    "other": "",
     "checklistMetrics": "Tjekliste-statistik",
     "occurrenceMetrics": "Observations-statistik",
     "explore": "",
