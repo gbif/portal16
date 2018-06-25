@@ -1,16 +1,22 @@
 {
   "resource": {
+    "resources": "ナレッジベース",
     "contactHelpdesk": "",
     "searchForResources": "",
     "addToCalendar": "",
     "venue": "",
     "location": "",
+    "country": "",
     "noDatasets": "",
     "when": "",
     "language": "",
     "viewOnGBIF": "",
     "published": "",
     "programme": "",
+    "fundedBy": "",
+    "about": "・・・について",
+    "datasets": "",
+    "gbifWillAttend": "",
     "dataUsedInStudy": "",
     "resourceDescription": ""
   }
