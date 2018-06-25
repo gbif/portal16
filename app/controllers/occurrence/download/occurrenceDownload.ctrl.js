@@ -36,41 +36,40 @@ function renderDownload(req, res, next, template) {
         download.isFileAvailable = _.get(download, 'record.downloadLink') && _.get(download, 'record.status') !== 'FILE_ERASED';
 
         let promiseList = [resourceSearch.search({contentType: 'literature', gbifDownloadKey: key, limit: 0}, req.__)];
-           
+
         download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
 
-            // if unreasonably long request, then returtn a dumbed down version to display to the user
-            if (download.predicateString && download.predicateString.length > 7000) {
-                download._hugeQuery = true;
-                renderPage(req, res, next, download, template);
-                return;
-            }
+        // if unreasonably long request, then returtn a dumbed down version to display to the user
+        if (download.predicateString && download.predicateString.length > 10000) {
+            download._hugeQuery = true;
+            renderPage(req, res, next, download, template);
+            return;
+        }
 
-            if (!download.record.request.predicate) {
-                download.noFilters = true;
-               return Promise.all(promiseList).then(function(completedPromises) {
-                    download._citationCount = completedPromises[0].count;
-                    renderPage(req, res, next, download, template);
-                })
-            } else {
-                downloadHelper.addChildKeys(download.record.request.predicate);
-                downloadHelper.addSyntheticTypes(download.record.request.predicate);
-                downloadHelper.setDepths(download.record.request.predicate);
-                download.isSimple = downloadHelper.getSimpleQuery(download.record.request.predicate);
-                downloadHelper.flattenSameType(download.record.request.predicate);
-                downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
+        if (!download.record.request.predicate) {
+            download.noFilters = true;
             return Promise.all(promiseList).then(function(completedPromises) {
-                    download._citationCount = completedPromises[0].count;
-                    renderPage(req, res, next, download, template);
-                })
-            }
-        
+                download._citationCount = completedPromises[0].count;
+                renderPage(req, res, next, download, template);
+            });
+        } else {
+            downloadHelper.addChildKeys(download.record.request.predicate);
+            downloadHelper.addSyntheticTypes(download.record.request.predicate);
+            downloadHelper.setDepths(download.record.request.predicate);
+            download.isSimple = downloadHelper.getSimpleQuery(download.record.request.predicate);
+            downloadHelper.flattenSameType(download.record.request.predicate);
+            downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
+            return Promise.all(promiseList).then(function(completedPromises) {
+                download._citationCount = completedPromises[0].count;
+                renderPage(req, res, next, download, template);
+            });
+        }
     }).catch(function(err) {
         if (err.type == 'NOT_FOUND') {
             next();
         } else {
             log.error(err);
-            next(err);                    
+            next(err);
         }
     });
 }
