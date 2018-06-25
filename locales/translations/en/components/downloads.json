@@ -11,6 +11,7 @@
     "deleted": "Deleted",
     "download": "Download",
     "occurrences": "Occurrences",
+    "largeQueryMessage": "Very large filter. See the download for details.",
     "date": "Date",
     "show": "Show",
     "license": "License",

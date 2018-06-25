@@ -67,9 +67,9 @@
     {% endif %}
 </div>
 <div class="card__stripe">
-    <div class="card__content predicateContainer">
+    <div class="card__content {% if download._hugeQuery %} card__content--warning {% endif %}predicateContainer">
         {% if download._hugeQuery %}
-            <div class="gb-badge--error">Huge query</div>
+            <div>{$ __('downloadKey.largeQueryMessage') $}</div>
         {% elif not download.noFilters %}
             <div class="toggle small">
             </div>
