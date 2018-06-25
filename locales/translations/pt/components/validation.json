@@ -107,10 +107,19 @@
     "dataValidatorDescription": "",
     "thisIsAnEarlyAccessVersion": "",
     "here": "",
-    "newDataValidation": "",
-    "newValidation": "",
-    "metaData": "",
-    "darwinCoreExtensions": "",
-    "coreRowType": ""
+    "coreRowType": "",
+    "submit": "",
+    "dropHere": "",
+    "or": "",
+    "selectFile": "",
+    "fetchFileFromLocation": "",
+    "tabs": {
+      "newDataValidation": "",
+      "newValidation": "",
+      "about": "",
+      "darwinCoreExtensions": "",
+      "metaData": "",
+      "summary": ""
+    }
   }
 }
