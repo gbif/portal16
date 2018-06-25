@@ -9,6 +9,9 @@
         "parser": "",
         "nameParserTitle": "",
         "dropHere": "",
+        "excludeUnparsed": "",
+        "generateCsv": "",
+        "parsingNames": "",
         "nameParserDescription": "",
         "nameParserRequirements": ""
     }
