@@ -102,7 +102,7 @@
             <div class="col-xs-12 col-sm-6">
                 <div class="clearfix">
                     <div class="switch-group pull-right">
-                        <p translate="phrases.excludeUnparsed">Exclude unparsed</p>
+                        <p translate="nameParser.excludeUnparsed">Exclude unparsed</p>
                         <input id="nameParserDiscardInCsv" type="checkbox" ng-model="nameParser.exclude"
                                aria-label="Discard"/>
                         <label for="nameParserDiscardInCsv" class="switch"></label>
@@ -110,9 +110,9 @@
                 </div>
 
                 <div class="nameParser__generate" ng-if="nameParser.lookupComplete">
-                    <a href="" ng-click="nameParser.generateCsv()" class="text-uppercase pull-right" translate="phrases.generateCsv">generate CSV</a>
+                    <a href="" ng-click="nameParser.generateCsv()" class="text-uppercase pull-right" translate="nameParser.generateCsv">generate CSV</a>
                 </div>
-                <div ng-if="!nameParser.lookupComplete" class="pull-right discreet" translate="phrases.parsingNames">
+                <div ng-if="!nameParser.lookupComplete" class="pull-right discreet" translate="nameParser.parsingNames">
                     Parsing names - hang on
                 </div>
             </div>

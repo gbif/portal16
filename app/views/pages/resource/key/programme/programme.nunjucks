@@ -37,7 +37,7 @@
         {% import "../funder.macro.nunjucks" as funderMacro %}
         <div class="horizontal-stripe bare-background">
             <div class="container--narrow">
-                <p class="small discreet text-uppercase text-center" translate="stdTerms.fundedBy"></p>
+                <p class="small discreet text-uppercase text-center" translate="resource.fundedBy"></p>
             </div>
             {$ funderMacro.organisationsAndParticipants(main.fields.fundingOrganisations, resolved) $}
         </div>

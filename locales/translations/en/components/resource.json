@@ -1,16 +1,22 @@
 {
   "resource": {
+    "resources": "Resources",
     "contactHelpdesk": "Contact helpdesk",
     "searchForResources": "Search for resources",
     "addToCalendar": "Add to calendar",
     "venue": "Venue",
     "location": "Location",
+    "country": "Country or area",
     "noDatasets": "There is no datasets to show",
     "when": "When",
     "language": "Language",
     "viewOnGBIF": "View on GBIF",
     "published": "Published",
     "programme": "Programme",
+    "fundedBy": "Funded by",
+    "about": "About",
+    "datasets": "datasets",
+    "gbifWillAttend": "Attended by GBIF Secretariat",
     "dataUsedInStudy": "Data used in study",
     "resourceDescription": "Search for resources in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
   }

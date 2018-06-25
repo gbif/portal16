@@ -71,8 +71,8 @@
         </section>
 
         <div class="emptyInfo">
-            <p translate="phrases.faqDescription">These are some of the most frequently asked questions about GBIF and GBIF.org. Please contact us if your questions aren’t answered here.</p>
-            <a href="" class="gb-button--discreet" translate="stdTerms.contactHelpdesk" ng-click="faq.openHelpdesk()"></a>
+            <div ng-bind-html="faq.faqItem.body"></div>
+            <a href="" class="gb-button--discreet" translate="phrases.contactHelpdesk" ng-click="faq.openHelpdesk()"></a>
         </div>
     </div>
 </div>

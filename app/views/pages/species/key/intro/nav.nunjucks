@@ -4,32 +4,25 @@
             <div class="tabs__actions">
                 <ul>
                     <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
-                    <span ng-if="speciesKey2.occurrences.$resolved">
-                        <a ng-if="speciesKey2.occurrences.count > 0" href=""
-                           class="gb-button--brand"
-                           ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrences.count | localNumber }} 
-                           <span class="gb-button--brand__label" translate="counts.pOccurrence" translate-values="{NUMBER: speciesKey2.occurrences.count}"></span>
-                        </a>
-                        <a ng-if="speciesKey2.occurrences.count == 0"
-                           ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet" translate="species.noOccurencesInGbif"></a>
-                    </span>
-                    <span ng-if="!speciesKey2.occurrences.$resolved">
-                        <a class="gb-button--discreet"><span class="loading"></span> {{ 'stdTerms.occurrences' | translate }}</a>
-                    </span>
+                        <span>
+                            <a ng-if="speciesKey2.occurrences.count > 0" href=""
+                                class="gb-button--brand"
+                                ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrences.count | localNumber }} 
+                                <span class="gb-button--brand__label" translate="counts.pOccurrence" translate-values="{NUMBER: speciesKey2.occurrences.count}"></span>
+                            </a>
+                            <a ng-if="speciesKey2.occurrences.count == 0" ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet" translate="species.noOccurencesInGbif"></a>
+                        </span>
                     </li>
 
                     <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
-                    <span ng-if="speciesKey2.subsumedSpecies.$resolved">
-                        <a ng-if="speciesKey2.subsumedSpecies.count > 0" href=""
-                           class="gb-button--primary"
-                           ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, rank: 'SPECIES', status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count | localNumber }}
-                            <span ng-if="speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="stdTerms.infraspecies"></span>
-                            <span ng-if="!speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="stdTerms.species"></span>
-                        </a>
-                    </span>
-                    <span ng-if="!speciesKey2.subsumedSpecies.$resolved">
-                        <a class="gb-button--discreet"><span class="loading"></span> {{ 'stdTerms.species' | translate }}</a>
-                    </span>
+                        <span>
+                            <a ng-if="speciesKey2.subsumedSpecies.count > 0" href=""
+                            class="gb-button--primary"
+                            ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, rank: 'SPECIES', status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count | localNumber }}
+                                <span ng-if="speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="counts.pInfraspecies" translate-values="{NUMBER: speciesKey2.subsumedSpecies.count}"></span>
+                                <span ng-if="!speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="counts.pSpecies" translate-values="{NUMBER: speciesKey2.subsumedSpecies.count}"></span>
+                            </a>
+                        </span>
                     </li>
 
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">

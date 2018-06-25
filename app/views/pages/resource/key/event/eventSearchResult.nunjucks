@@ -38,7 +38,7 @@
                     </div>
                     <div ng-if="result.gbifsAttendee">
                         <span class="gb-icon-logo"></span>
-                        <span translate="phrases.gbifWillAttend"></span>
+                        <span translate="resource.gbifWillAttend"></span>
                     </div>
                 </div>
             </div>

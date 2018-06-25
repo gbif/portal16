@@ -72,15 +72,15 @@
                 </span>
 
         <span>
-                    <span ng-if="vm.currentRegion !== 'GLOBAL'" class="theGbifNetWork__badges" ng-if="vm.tableLoaded" ng-cloak>{{ vm.count.publisher | localNumber }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></span>
-                    <span ng-if="vm.currentRegion === 'GLOBAL'" class="theGbifNetWork__badges"  ng-cloak><span count="//api.gbif.org/v1/organization" subtract="//api.gbif.org/v1/organization/nonPublishing"></span> <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></span>
+                    <span ng-if="vm.currentRegion !== 'GLOBAL'" class="theGbifNetWork__badges" ng-if="vm.tableLoaded" ng-cloak>{{ vm.count.publisher | localNumber }} <span class="gb-button--brand__label" translate="counts.pPublishers" translate-values="{NUMBER: vm.count.publisher}"></span></span>
+                    <span ng-if="vm.currentRegion === 'GLOBAL'" class="theGbifNetWork__badges"  ng-cloak><span count="//api.gbif.org/v1/organization" subtract="//api.gbif.org/v1/organization/nonPublishing"></span> <span class="gb-button--brand__label" translate="counts.pPublishers" translate-values="{NUMBER: vm.count.publisher}"></span></span>
 
 
 
                 </span>
 
             <span ng-if="vm.tableLoaded && vm.currentRegion !== 'GLOBAL' && vm.currentRegion !== 'GBIF_AFFILIATES'">
-                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count.occurrence | localNumber }} <span class="gb-button--brand__label" translate="stdTerms.occurrences"></span></span>
+                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count.occurrence | localNumber }} <span class="gb-button--brand__label" translate="counts.pOccurrence"></span></span>
 
                 </span>
         </div>

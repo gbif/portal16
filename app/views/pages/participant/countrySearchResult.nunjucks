@@ -17,10 +17,10 @@
             </p>
             <ul class="list-chips">
                 <li>
-                    <a ui-sref="occurrenceSearchTable({country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?country={{ result.countryCode }}">&nbsp;</span> <span translate="countryKey.occurrencesAbout"></span></a>
+                    <a ui-sref="occurrenceSearchTable({country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?country={{ result.countryCode }}" count-translation="counts.nOccurrencesAbout">&nbsp;</span></a>
                 </li>
                 <li>
-                    <a ui-sref="occurrenceSearchTable({publishing_country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?publishing_country={{ result.countryCode }}">&nbsp;</span> <span translate="countryKey.publishedOccurrences"></span></a>
+                    <a ui-sref="occurrenceSearchTable({publishing_country:result.countryCode})"><span count="{{ portal.dataApi }}occurrence/search?publishing_country={{ result.countryCode }}" count-translation="counts.nOccurrencesPublished">&nbsp;</span></a>
                 </li>
             </ul>
         </div>

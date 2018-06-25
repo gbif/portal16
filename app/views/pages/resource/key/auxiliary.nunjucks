@@ -4,7 +4,7 @@
 
         {% if main.fields.citation %}
             <section class="no-break">
-                <h4 translate="stdTerms.citation"></h4>
+                <h4 translate="cms.auxiliary.citation"></h4>
                 {$ main.fields.citation | renderMarkdown | sanitize | linkify | safe $}
             </section>
         {% endif %}
@@ -14,7 +14,7 @@
         {#{% if main.fields.countriesOfResearcher | isNotEmpty or main.fields.countriesOfCoverage | isNotEmpty or main.fields.topics | isNotEmpty or main.fields.audiences | isNotEmpty or main.fields.purposes | isNotEmpty or main.fields.organisingParticipants | isNotEmpty %}#}
         {% if main.fields | hasAtLeastOneKey(['countriesOfResearcher', 'countriesOfCoverage', 'topics', 'audiences', 'purposes']) %}
             <section class="no-break ng-cloak">
-                <h4 translate="cms.auxiliary.subject">Subject</h4>
+                <h4 translate="cms.auxiliary.subject"></h4>
                 <ul class="list-chips">
                     {% if main.fields.countriesOfResearcher.length > 0 %}
                         <li class="list-chips__category uppercase-first">
@@ -76,7 +76,7 @@
 
         {% if main.fields.organisingParticipants %}
             <section class="no-break">
-                <h4 translate="cms.auxiliary.organisingParticipants">Organising Participants</h4>
+                <h4 translate="cms.auxiliary.organisingParticipants"></h4>
                 <ul class="list-chips">
                     {% for participant in main.fields.organisingParticipants %}
                         {% if resolved.Entry[participant.sys.id] %}
@@ -92,37 +92,3 @@
     </div>
 </div>
 {% endif %}
-
-{#{% if main.fields.links or main.fields.organisingParticipants%}#}
-    {#<div class="article-auxiliary prose-columns">#}
-        {#<div>#}
-            {#{% if main.fields.links %}#}
-                {#<section>#}
-                    {#<h4>Links</h4>#}
-                    {#<ul class="inline-list">#}
-                        {#{% for link in main.fields.links %}#}
-                            {#<li>#}
-                                {#<a href="{$ resolved.Entry[link.sys.id].fields.url $}">{$ resolved.Entry[link.sys.id].fields.label $}</a>#}
-                            {#</li>#}
-                        {#{% endfor %}#}
-                    {#</ul>#}
-                {#</section>#}
-            {#{% endif %}#}
-
-            {#{% if main.fields.organisingParticipants %}#}
-                {#<section class="no-break">#}
-                    {#<h4>Organising Participants</h4>#}
-                    {#<ul class="list-chips">#}
-                        {#{% for participant in main.fields.organisingParticipants %}#}
-                            {#<li>#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[participant.sys.id].fields.country.sys.id $}">{$ resolved.Entry[participant.sys.id].fields.title $}</a>#}
-                            {#</li>#}
-                        {#{% endfor %}#}
-                    {#</ul>#}
-                {#</section>#}
-            {#{% endif %}#}
-
-        {#</div>#}
-    {#</div>#}
-{#{% endif %}#}
-

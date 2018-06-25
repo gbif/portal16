@@ -2,7 +2,7 @@
     <div class="tabs" ng-class="{'tabs--noBorder': programmeKey.hash && programmeKey.hash !== 'about'}">
         <ul class="anchorTabs">
             <li class="tab" ng-class="{isActive: !programmeKey.hash || programmeKey.hash == 'about'}">
-                <a href="#about" class="trigger" >{$ __('stdTerms.about') $}</a>
+                <a href="#about" class="trigger" >{$ __('resource.about') $}</a>
             </li>
 
             {% if main.fields.news.length > 0 %}
