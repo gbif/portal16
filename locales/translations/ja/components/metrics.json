@@ -8,6 +8,10 @@
     "countByIssue": ""
   },
   "metrics": {
+    "issues": "",
+    "extensions": "",
+    "taxa": "",
+    "other": "",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
     "explore": "",
