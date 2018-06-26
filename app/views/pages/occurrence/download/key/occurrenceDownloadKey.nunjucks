@@ -247,9 +247,7 @@
                                                         {$ dataset.datasetTitle or '[' + __('downloadKey.titleMissing')+ ']' $}
                                                     </div>
                                                     <span class="meta meta--hoverOnly">{$ dataset.datasetDOI $}</span>
-                                                    <span class="meta--right meta--hoverOnly" tx="downloadKey.nRecordsAtTime" tx-nr="234987629">{$ dataset.numberRecords $} records at time of download</span>
-                                                    {#<span class="doi m-t-1"><span>DOI</span><span>{$ dataset.datasetDOI | readableDOI $}</span></span>#}
-                                                    {#<span class="discreet">{$ dataset.numberRecords $} records at time of download</span>#}
+                                                    <span class="meta--right meta--hoverOnly" tx="downloadKey.nRecordsAtTime" tx-nr="{$ dataset.numberRecords $}"></span>
                                                 </a>
                                             </li>
                                         {% endfor %}
