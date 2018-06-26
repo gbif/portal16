@@ -49,7 +49,7 @@ translationMap['zh'] = 'zh-hant';
 if (env === 'staging' || env === 'local') {
     translationMap['de-MOCK'] = 'gsw';
     translationMap['ko-MOCK'] = 'kor';
-    translationMap['ar-MOCK'] = 'jrb';
+    translationMap['ar-MOCK'] = 'ara';
 }
 
 // Moment occasionally use other names for the languages. Provide them here
