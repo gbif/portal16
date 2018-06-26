@@ -36,8 +36,10 @@
     "endorsedDataPublisher": "",
     "occurrenceDatasetWith": "",
     "record": "",
-    "participant": "",
+    "records": "",
+    "nParticipants": "",
     "dataset": "",
+    "datasets": "",
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipant": {
@@ -48,6 +50,15 @@
         "one": "",
         "other": ""
       }
-    }
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "",
+      "NODE_MANAGER": ""
+    },
+    "publishers": "",
+    "memberSince": "Medlem siden",
+    "participant": "Participant",
+    "pPublishers": "",
+    "pOccurrence": "{NUMBER, select, 0{observationer} 1{observation} other{observationer}}"
   }
 }
