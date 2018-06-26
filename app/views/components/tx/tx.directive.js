@@ -15,7 +15,7 @@ angular
                 scope.$watch('txNr', function(newValue, oldValue) {
                     var nr = typeof(newValue) !== 'undefined' ? newValue : oldValue;
                     nr = _.toSafeInteger(nr);
-                    $translate(scope.tx, {NUMBER: nr, NUMBER_FORMATED: nr.toLocaleString(LOCALE)}).then(function(translation) {
+                    $translate(scope.tx, {NUMBER: nr, NUMBER_FORMATED: $filter('localNumber')(nr)}).then(function(translation) {
                         element.html(translation);
                     });
                 }, true);

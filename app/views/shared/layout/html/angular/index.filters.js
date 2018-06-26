@@ -126,9 +126,9 @@
                 }
             };
         })
-        .filter('localNumber', function(LOCALE) {
+        .filter('localNumber', function(LOCALE_MAPPINGS, LOCALE) {
             return function(num, lang) {
-                lang = lang || LOCALE;
+                lang = lang ? LOCALE_MAPPINGS.numbers[lang] : (LOCALE_MAPPINGS.numbers[LOCALE] || LOCALE);
                 if (_.isNil(num)) return '';
                 return num.toLocaleString(lang);
             };
@@ -185,9 +185,9 @@
                 return $httpParamSerializer(query);
             };
         })
-        .filter('formatBytes', function(LOCALE) {
+        .filter('formatBytes', function(LOCALE, LOCALE_MAPPINGS) {
             return function(bytes, decimals, language) {
-                language = language || LOCALE;
+                language = language ? LOCALE_MAPPINGS.numbers[language] : (LOCALE_MAPPINGS.numbers[LOCALE] || LOCALE);
                 if (bytes == 0) return '0 Bytes';
                 if (bytes == 1) return '1 Byte';
                 var k = 1000;

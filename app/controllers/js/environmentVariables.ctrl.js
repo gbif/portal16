@@ -18,7 +18,9 @@ let environment = {
     locales: localeConfig.locales,
     localeMappings: {
         moment: localeConfig.localeMappings.moment,
-        jsLocale: localeConfig.localeMappings.jsLocale
+        jsLocale: localeConfig.localeMappings.jsLocale,
+        translation: localeConfig.localeMappings.translation,
+        numbers: localeConfig.localeMappings.numbers
     }
 };
 
