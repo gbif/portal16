@@ -36,8 +36,10 @@
     "endorsedDataPublisher": "",
     "occurrenceDatasetWith": "",
     "record": "",
-    "participant": "",
+    "records": "",
+    "nParticipants": "",
     "dataset": "",
+    "datasets": "",
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipant": {
@@ -48,6 +50,15 @@
         "one": "",
         "other": ""
       }
-    }
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "Chef de délegation",
+      "NODE_MANAGER": "Le responsable du point nodal"
+    },
+    "publishers": "",
+    "memberSince": "",
+    "participant": "",
+    "pPublishers": "",
+    "pOccurrence": ""
   }
 }
