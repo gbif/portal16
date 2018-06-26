@@ -3,6 +3,6 @@
 {% block page %}
     <section class="404 errorPage m-t-2">
         <h1 class="giant gb-icon-dodo">500</h1>
-        <p>Internal server error</p>
+        <p translate="phrases.internalserverError">Internal server error</p>
     </section>
 {% endblock %}

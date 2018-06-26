@@ -5,11 +5,12 @@
         <section>
             <div class="horizontal-stripe">
                 <h1 class="giant gb-icon-dodo">404</h1>
-                <p>This page might have existed once, but we can no longer find it.</p>
-                <p>
-                    We released an improved and updated GBIF.org in August 2017, so some URLs may have changed. Please try our much-improved <a href="/search">search</a> to find what you're looking for.
+                <p translate="phrases.pageMightHaveExisted">This page might have existed once, but we can no longer find it.</p>
+                <p >
+                    <span ng-bind-html="'phrases.weReleasedAnewSite' | translate | md2html"> We released an improved and updated GBIF.org in August 2017, so some URLs may have changed. Please try our much-improved <a href="/search">search</a> to find what you're looking for.
+                        </span>
                     <br/>
-                    If the problem persists, please contact us at <a href="mailto:helpdesk@gbif.org">helpdesk@gbif.org</a>.
+                    <span ng-bind-html="'phrases.ifTheProblemExists' | translate | md2html">If the problem persists, please contact us at <a href="mailto:helpdesk@gbif.org">helpdesk@gbif.org</a>.</span>
                 </p>
             </div>
             <div class="horizontal-stripe">
