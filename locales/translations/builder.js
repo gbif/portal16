@@ -89,7 +89,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/trends`),
         getFile(locale, `./${locale}/components/eoi`),
         getFile(locale, `./${locale}/components/intervals`),
-        getFile(locale, `./${locale}/misc`)
+        getFile(locale, `./${locale}/components/phrases`)
     );
 
     return translations;

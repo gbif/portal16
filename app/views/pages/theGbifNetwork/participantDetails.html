@@ -24,19 +24,19 @@
             <strong translate="gbifNetwork.{{vm.currentParticipantProps.membershipType}}.one"></strong>
         </li>
         <li ng-if="vm.currentParticipantProps.membershipStart">
-            <span translate="countryKey.memberSince"></span>
+            <span translate="gbifNetwork.memberSince"></span>
             <span ng-bind="vm.currentParticipantProps.membershipStart"></span>
         </li>
         <li ng-if="vm.digestLoaded === false">
             <ng-include src="'/templates/components/loader/loader.html'" ></ng-include>
         </li>
         <li ng-if="vm.heads.HEAD_OF_DELEGATION.firstName">
-            <span translate="role.HEAD_OF_DELEGATION"></span>
+            <span translate="gbifNetwork.roles.HEAD_OF_DELEGATION"></span>
             <strong ng-bind="vm.heads.HEAD_OF_DELEGATION.firstName"></strong>
             <strong ng-bind="vm.heads.HEAD_OF_DELEGATION.surname"></strong>
         </li>
         <li ng-if="vm.heads.NODE_MANAGER.firstName">
-            <span translate="role.NODE_MANAGER"></span>
+            <span translate="gbifNetwork.roles.NODE_MANAGER"></span>
             <strong ng-bind="vm.heads.NODE_MANAGER.firstName"></strong>
             <strong ng-bind="vm.heads.NODE_MANAGER.surname"></strong>
         </li>

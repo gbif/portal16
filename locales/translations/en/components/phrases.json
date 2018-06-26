@@ -1,14 +1,4 @@
 {
-  "stdTerms": {
-    "role": "Role",
-    "name": "Name",
-    "participant": "Participant",
-    "memberSince": "Member since",
-    "publisher": "Publisher",
-    "occurrence": "Occurrence",
-    "occurrences": "Occurrences",
-    "publishers": "Publishers"
-  },
   "phrases": {
     "contactHelpdesk": "Contact helpdesk",
     "defaultPageTitle": "GBIF",
