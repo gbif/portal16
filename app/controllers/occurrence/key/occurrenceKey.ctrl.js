@@ -15,7 +15,7 @@ router.get('/occurrence/:key(\\d+).:ext?', function(req, res, next) {
     let key = req.params.key;
     occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
         renderPage(req, res, next, occurrence);
-    }, function(err) {
+    }).catch(function(err) {
         if (err.type == 'NOT_FOUND') {
             next();
         } else {
@@ -28,7 +28,7 @@ router.get('/api/template/occurrence/:key(\\d+)', function(req, res, next) {
     let key = req.params.key;
     occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
         renderContent(req, res, next, occurrence);
-    }, function(err) {
+    }).catch(function(err) {
         if (err.type == 'NOT_FOUND') {
             res.sendStatus(404);
         } else {

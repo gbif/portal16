@@ -4,6 +4,7 @@ let Q = require('q'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     occurrencIssues = require('./issues'),
+    log = require('../../../../config/log'),
     Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
 function getAngularInitData(occurrence) {
@@ -134,7 +135,6 @@ function getUsedExtensionTerms(verbatim) {
 
 
 function getOccurrenceModel(occurrenceKey, __) {
-    let deferred = Q.defer();
     let getOptions = {
         expand: ['publisher', 'dataset', 'datasetProcess', 'verbatim', 'taxonName', 'species']
     };
@@ -144,7 +144,7 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrenceCoreTerms()
     ];
 
-    Q.all(promises).spread(function(occurrence, occurrenceMeta) {
+   return Q.all(promises).spread(function(occurrence, occurrenceMeta) {
         occurrence.highlights = highlight(occurrence);
         occurrence.computedFields = {};
         occurrence.annotation = getAnnotation(occurrence.record);
@@ -153,14 +153,10 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrence.issueSummary = occurrencIssues.getSummary(occurrence.record.issues, occurrenceMeta.remarks);
         occurrence.fieldsWithDifferences = occurrencIssues.getFieldsWithDifferences(occurrence.record, occurrence.verbatim, occurrence.terms.terms);
         occurrence.usedExtensionFields = getUsedExtensionTerms(occurrence.verbatim);
-        deferred.resolve(occurrence);
-    }, function(err) {
-        deferred.reject(err);
-    }).fail(function(err) {
-        deferred.reject(err);
-    }).done();
-
-    return deferred.promise;
+        return occurrence;
+    }).catch(function(err) {
+        log.error(err);
+    });
 }
 
 module.exports = {
