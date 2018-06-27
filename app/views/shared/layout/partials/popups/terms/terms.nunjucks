@@ -3,19 +3,12 @@
         <div class="card__stripe">
             <div class="card__content">
                 <h4 translate="terms.headline"></h4>
-                <p>
-                    {$ __('terms.description') $}
-
-                </p>
+                <div translate="terms.description"></div>
             </div>
         </div>
         <div class="card__stripe card__stripe--actions">
-            <a href="{{ portal.urlPrefix }}/terms/privacy-policy">
-                {$ __('terms.readTerms') $}
-            </a>
-            <a href="" ng-click="vm.accept()">
-                {$ __('terms.accept') $}
-            </a>
+            <a href="{{ portal.urlPrefix }}/terms/privacy-policy" translate="terms.readTerms"></a>
+            <a href="" ng-click="vm.accept()" translate="terms.accept"></a>
         </div>
     </div>
 </aside>

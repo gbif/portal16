@@ -39,7 +39,7 @@
                             <a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode"><span translate="homepage.aboutGbifCountry" translate-values="{COUNTRY: (('country.' + home.country.countryCode) | translate) }"></span></a>
                         </div>
                     </div>
-                    <div class="caption">
+                    <div class="img_caption">
                         {$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.description | sanitizeTrusted(gb.locales.urlPrefix) | safe $}
                     </div>
                 </div>

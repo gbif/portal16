@@ -6,13 +6,13 @@
                 <div class="menubox__header__title-wrapper">
                     <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
                     <div class="menubox__header__title text-center">
-                        <span ng-if="!vm.selected">Choose a language</span>
+                        <span ng-if="!vm.selected" translate="phrases.changeLanguage"></span>
                     </div>
                 </div>
-				<div class="menubox__header__description text-center">
-                    <p>
-                        You are seeing this because you are an registry admin - it is under active development
-                    </p>
+				<div class="menubox__header__description text-center" ng-if="vm.suggestedLanguage.matched && vm.suggestedLanguage.matched !== vm.chosenLocale">
+                    <div>
+						<a href="" ng-click="vm.chosenLocale = vm.suggestedLanguage.matched; vm.changeLanguage()" class="gb-button--brand">{{vm.LOCALE_MAPPINGS.localNames[vm.suggestedLanguage.matched]}}</a>
+                    </div>
 				</div>
             </div>
         </div>
@@ -26,7 +26,7 @@
 							ng-repeat="locale in vm.locales"
 							ng-class="{'m-b-0': $last}"
 							>
-							<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}"></span>
+							<span>{{vm.LOCALE_MAPPINGS.localNames[locale]}}</span>
 							<span class="discreet--very" ng-if="vm.chosenLocale !== 'en'">
 							(
 								<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}" translate-language="en"></span>

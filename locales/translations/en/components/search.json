@@ -20,6 +20,7 @@
     "simple": "Simple",
     "advanced": "Advanced",
     "allResultTypes": "all",
+    "suggestions": "Suggestions",
     "header": {
       "searchDatasets": "Search datasets",
       "searchPublishers": "Search publishers",
