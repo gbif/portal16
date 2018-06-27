@@ -15,6 +15,7 @@ if (env === 'uat') {
     // locales.push('es');
 }
 if (env === 'staging' || env === 'local' || env === 'dev') {
+    locales.push('da');
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
     locales.push('ar-MOCK');
