@@ -46,6 +46,7 @@ translationMap['ar'] = 'ara';
 translationMap['fr'] = 'fra';
 translationMap['ru'] = 'rus';
 translationMap['pt'] = 'por';
+translationMap['da'] = 'dan';
 translationMap['zh'] = 'zh-hant';
 // mock test languages
 translationMap['de-MOCK'] = 'gsw';
