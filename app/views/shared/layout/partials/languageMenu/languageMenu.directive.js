@@ -23,7 +23,7 @@ function languageMenuDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function languageMenu($scope, NAV_EVENTS, AUTH_EVENTS, LOCALE, LOCALE_MAPPINGS, env) {
+    function languageMenu($http, $localStorage, $scope, NAV_EVENTS, AUTH_EVENTS, LOCALE, LOCALE_MAPPINGS, env) {
         var vm = this;
         vm.locales = env.locales;
         vm.LOCALE_MAPPINGS = LOCALE_MAPPINGS;
@@ -37,6 +37,18 @@ function languageMenuDirective(BUILD_VERSION) {
                 vm.isActive = data.state;
             }
         });
+
+        if (!$localStorage.hasSuggestedLanguage) {
+            $http.get('/api/translation/suggested')
+                .then(function(response) {
+                    vm.suggestedLanguage = response.data;
+                    vm.isActive = vm.suggestedLanguage.matched !== vm.chosenLocale;
+                })
+                .catch(function(err) {
+                    // ignore errors
+                });
+            $localStorage.hasSuggestedLanguage = true;
+        }
 
         vm.close = function() {
             vm.isActive = false;

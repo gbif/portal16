@@ -16,6 +16,7 @@
     "noResultsMessage": "No results – try to loosen your filters",
     "noJavascriptEnabled": "We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.",
     "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.",
-    "404Text":"This page might have existed once, but we can no longer find it.\nPlease try our [search](/search) to find what you're looking for. You are always welcome to contact us at [helpdesk@gbif.org](mailto:helpdesk@gbif.org)."
+    "404Text":"This page might have existed once, but we can no longer find it.\nPlease try our [search](/search) to find what you're looking for. You are always welcome to contact us at [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
+    "changeLanguage": "Change language"
   }
 }

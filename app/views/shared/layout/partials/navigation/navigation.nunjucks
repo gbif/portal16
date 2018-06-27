@@ -13,10 +13,10 @@
         </a>
 
         <div class="stickyNav__actions">
+            <a href="" class="stickyNav__actions__action gb-icon-translate ng-cloak" ng-click="nav.toggleLanguage()" ng-if="nav.multiLingual"></a>
             <a href="" class="stickyNav__actions__action gb-icon-heartbeat stickyNav__actions__action--notification ng-cloak" ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0" ng-class="{'is-info': nav.notifications.severity == 'INFO'}"></a>
             <a href="" class="stickyNav__actions__action gb-icon-heartbeat ng-cloak" ng-href="{{ portal.urlPrefix }}/health" ng-if="nav.notifications.count == 0"></a>
             <a href="" class="stickyNav__actions__action gb-icon-search2" ng-click="nav.toggleSearch()"></a>
-            <a href="" class="stickyNav__actions__action gb-icon-translate ng-cloak" ng-click="nav.toggleLanguage()" ng-if="portal.hasRole('REGISTRY_ADMIN')"></a>
             <a href="" class="stickyNav__actions__action gb-icon-bubble" ng-click="nav.toggleFeedback()" ng-class="{'stickyNav__actions__action--notification': nav.commentCount}"></a>
             <a href="" class="stickyNav__actions__menu gb-icon-menu" ng-click="nav.toggleMobileMenu()" ng-class="{'gb-icon-close_L': nav.mobileMenuActive, 'gb-icon-menu': !nav.mobileMenuActive}"></a>
             <a class="stickyNav__actions__login" href="" ng-click="nav.toggleUserMenu()">

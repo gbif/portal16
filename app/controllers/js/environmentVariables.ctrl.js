@@ -5,6 +5,13 @@ let express = require('express'),
     config = rootRequire('config/config'),
     localeConfig = rootRequire('config/locales');
 
+// add the local names of the supported locales
+let translations = require('../api/translations/translations');
+let localNameMap = {};
+localeConfig.locales.forEach(function(e) {
+    localNameMap[e] = translations[e].language[localeConfig.localeMappings.translation[e]];
+});
+
 let environment = {
     managementToolsSite: config.managementToolsSite,
     dataApiV2: config.dataApiV2,
@@ -21,7 +28,7 @@ let environment = {
         jsLocale: localeConfig.localeMappings.jsLocale,
         translation: localeConfig.localeMappings.translation,
         numbers: localeConfig.localeMappings.numbers,
-        localNames: localeConfig.localeMappings.localNames
+        localNames: localNameMap
     }
 };
 
