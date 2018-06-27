@@ -19,7 +19,7 @@
                         <div>
                             <dt>{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
                             <dd>
-                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}" scientific-name key="{$ occurrence.record.taxonKey $}">
                                     {$ occurrence.record.scientificName $}
                                 </a>
                             </dd>
