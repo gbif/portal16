@@ -4,16 +4,16 @@
     <section class="term-block is-collapsed"
              ng-class="{ 'is-expanded': !occurrenceKey.hideDetails, 'is-collapsed': occurrenceKey.hideDetails }">
         <div class="term-block__header">
-            <h4>{$ __('stdTerms.' + group) $}</h4>
+            <h4>{$ __('occurrence.groups.' + group) $}</h4>
         </div>
         <div class="term-block__terms">
             <table class="table table--compact">
                 <thead>
                 <tr>
-                    <th>{$ __('stdTerms.term') $}</th>
-                    <th>{$ __('stdTerms.interpreted') $}</th>
-                    <th ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.original') $}</th>
-                    <th ng-show="!occurrenceKey.hideDetails">{$ __('stdTerms.remarks') $}</th>
+                    <th>{$ __('occurrence.term') $}</th>
+                    <th>{$ __('occurrence.interpreted') $}</th>
+                    <th ng-show="!occurrenceKey.hideDetails">{$ __('occurrence.original') $}</th>
+                    <th ng-show="!occurrenceKey.hideDetails">{$ __('occurrence.remarks') $}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,7 @@
                                 {% if term.simpleName == "organismID" %}
                                 <span class="chip">
                                     <a ui-sref="occurrenceSearchTable({organism_id: '{$ occurrence.record[term.simpleName] $}' })">
-                                        <span count="{{ portal.dataApi }}occurrence/search?organism_id={$ occurrence.record[term.simpleName] $}" count-translation="stdTerms.nOccurrences">&nbsp;</span>
+                                        <span count="{{ portal.dataApi }}occurrence/search?organism_id={$ occurrence.record[term.simpleName] $}" count-translation="counts.nOccurrences">&nbsp;</span>
                                     </a>
                                 </span>
                                 {% endif %}

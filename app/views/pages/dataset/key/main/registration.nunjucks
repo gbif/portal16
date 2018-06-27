@@ -2,7 +2,7 @@
     <div>
         <a href="" id="registration"></a>
         <div class="anchor-block--tabs" id="registrationBlock">
-            <h4 translate="dataset.registration"></h4>
+            <h3 translate="dataset.registration"></h3>
             <div>
                 <dl class="inline">
                     <div ng-if="datasetKey.dataset.created">
@@ -21,12 +21,12 @@
                     </div>
 
                     <div ng-if="datasetKey.host.$resolved">
-                        <dt translate="stdTerms.host">Host</dt>
+                        <dt translate="dataset.registry.hostedBy"></dt>
                         <dd><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
                     </div>
 
                     <div ng-if="datasetKey.installation.$resolved">
-                        <dt translate="stdTerms.installation">Installation</dt>
+                        <dt translate="dataset.registry.installation">Installation</dt>
                         <dd><a ng-href="/installation/{{ datasetKey.installation.key }}">{{ datasetKey.installation.title }}</a></dd>
                     </div>
 

@@ -69,7 +69,7 @@
                                         {% if download._citationCount %}
                                         <li class="tab tab-right ng-cloak">
                                             <span>
-                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&gbifDownloadKey={{  downloadKey.key }}' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER_FORMATED: {$ download._citationCount $}, NUMBER: {$ download._citationCount $} }"></a>
+                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&gbifDownloadKey={{  downloadKey.key }}' class="gb-button--dark" translate="counts.nCitations" translate-values="{ NUMBER_FORMATED: {$ download._citationCount $}, NUMBER: {$ download._citationCount $} }"></a>
                                             </span>
                                         </li>
                                         {% endif %}
@@ -94,7 +94,7 @@
             <div class="container--normal">
                 <section>
                     <h3 class="card-header">
-                        {$ __('downloadKey.filterApplied', download.record.created | formatDate(gb.locales.current)) $}
+                        <span translate="downloadKey.filterApplied" translate-values="{DATE: '{$ download.record.created | formatDate(gb.locales.current) $}' }">&nbsp;</span>
                         {% if download.isSimple %}
                             <a href="/occurrence/search?{$ download.isSimple $}"
                                class="pull-right inherit discreet p-r-1">{$ __('downloadKey.rerunQuery') $}</a>
@@ -116,13 +116,13 @@
                             {% if download.record.status === 'KILLED' or download.record.status === 'CANCELLED' %}
                                 <div class="card__content card__content--error--large">
                                     {$ __('downloadKey.downloadKilled') $}
-                                    <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                                    <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('downloadKey.contactHelpdesk') $}</a>
                                 </div>
                             {% else %}
                                 {% if download.record.status === 'FILE_ERASED' %}
                                     <div class="card__content card__content--error--large seperator--b">
                                         {$ __('downloadKey.downloadDeleted') $}
-                                        <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                                        <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('downloadKey.contactHelpdesk') $}</a>
                                     </div>
                                 {% endif %}
                                 <div class="card__stripe">
@@ -195,20 +195,26 @@
                         <div class="card__stripe--light">
                             <div class="card__content predicateContainer">
                                 {% if not download.noFilters %}
+                                    {% if not download._hugeQuery %}
                                     <div class="toggle small">
                                         <a href="" class="inherit discreet" ng-if="downloadKey.HUMAN"
                                            ng-click="downloadKey.HUMAN = false">{$  __('downloadKey.apiFilterView') $}</a>
                                         <a href="" class="inherit discreet ng-cloak" ng-if="!downloadKey.HUMAN"
                                            ng-click="downloadKey.HUMAN = true">{$  __('downloadKey.humanFilterView') $}</a>
                                     </div>
+                                    {% endif %}
+                                    {% if download._hugeQuery %}
+                                        <div ng-init="downloadKey.HUMAN = false"></div>
+                                    {% else %}
                                     <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}"
                                          ng-show="downloadKey.HUMAN">
                                         {$ predicate.print(download.record.request.predicate, __) $}
                                     </div>
+                                    {% endif %}
                                     <div ng-show="!downloadKey.HUMAN" class="ng-cloak">
                                         <div>
                                             {$ __('downloadKey.apiUsageDescription') $}
-                                            <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') $}</a></div>
+                                            <a href="/developer/occurrence#predicates">{$ __('downloadKey.readMore') $}</a></div>
                                         <pre>
                                             <code>
 {$ download.predicateString | safe $}
@@ -241,9 +247,7 @@
                                                         {$ dataset.datasetTitle or '[' + __('downloadKey.titleMissing')+ ']' $}
                                                     </div>
                                                     <span class="meta meta--hoverOnly">{$ dataset.datasetDOI $}</span>
-                                                    <span class="meta--right meta--hoverOnly" tx="downloadKey.nRecordsAtTime" tx-nr="234987629">{$ dataset.numberRecords $} records at time of download</span>
-                                                    {#<span class="doi m-t-1"><span>DOI</span><span>{$ dataset.datasetDOI | readableDOI $}</span></span>#}
-                                                    {#<span class="discreet">{$ dataset.numberRecords $} records at time of download</span>#}
+                                                    <span class="meta--right meta--hoverOnly" tx="downloadKey.nRecordsAtTime" tx-nr="{$ dataset.numberRecords $}"></span>
                                                 </a>
                                             </li>
                                         {% endfor %}
@@ -258,9 +262,9 @@
                                                 items-per-page="{$ download.datasets.limit $}"
                                                 class="pagination-sm"
                                                 boundary-link-numbers="false"
-                                                first-text="{$ __('stdTerms.first') $}"
-                                                next-text="{$ __('stdTerms.next') $}"
-                                                previous-text="{$ __('stdTerms.previous') $}"
+                                                first-text="{$ __('pagination.first') $}"
+                                                next-text="{$ __('pagination.next') $}"
+                                                previous-text="{$ __('pagination.previous') $}"
                                                 rotate="false"
                                                 ng-change="downloadKey.pageChanged()">
                                         </uib-pagination>

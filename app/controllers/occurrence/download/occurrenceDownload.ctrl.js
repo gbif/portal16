@@ -5,6 +5,7 @@ let express = require('express'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch'),
     queryResolver = require('./queryResolver'),
+    log = require('../../../../config/log'),
     router = express.Router(),
     _ = require('lodash'),
     downloadHelper = require('./downloadKeyHelper');
@@ -35,42 +36,39 @@ function renderDownload(req, res, next, template) {
         download.isFileAvailable = _.get(download, 'record.downloadLink') && _.get(download, 'record.status') !== 'FILE_ERASED';
 
         let promiseList = [resourceSearch.search({contentType: 'literature', gbifDownloadKey: key, limit: 0}, req.__)];
-        try {
-            download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
 
-            if (!download.record.request.predicate) {
-                download.noFilters = true;
-                Promise.all(promiseList).then(function(completedPromises) {
-                    download._citationCount = completedPromises[0].count;
-                    renderPage(req, res, next, download, template);
-                }).catch(function(err) {
-                console.log(err);
-                    next(err);
-                });
-            } else {
-                downloadHelper.addChildKeys(download.record.request.predicate);
-                downloadHelper.addSyntheticTypes(download.record.request.predicate);
-                downloadHelper.setDepths(download.record.request.predicate);
-                download.isSimple = downloadHelper.getSimpleQuery(download.record.request.predicate);
-                downloadHelper.flattenSameType(download.record.request.predicate);
-                downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
-                Promise.all(promiseList).then(function(completedPromises) {
-                    download._citationCount = completedPromises[0].count;
-                    renderPage(req, res, next, download, template);
-                });
-            }
-        } catch (err) {
-            console.log(err);
-            if (err.type == 'NOT_FOUND') {
-                next();
-            } else {
-                next(err);
-            }
+        download.predicateString = JSON.stringify(download.record.request.predicate, undefined, 2);
+
+        // if unreasonably long request, then returtn a dumbed down version to display to the user
+        if (download.predicateString && download.predicateString.length > 10000) {
+            download._hugeQuery = true;
+            renderPage(req, res, next, download, template);
+            return;
         }
-    }, function(err) {
+
+        if (!download.record.request.predicate) {
+            download.noFilters = true;
+            return Promise.all(promiseList).then(function(completedPromises) {
+                download._citationCount = completedPromises[0].count;
+                renderPage(req, res, next, download, template);
+            });
+        } else {
+            downloadHelper.addChildKeys(download.record.request.predicate);
+            downloadHelper.addSyntheticTypes(download.record.request.predicate);
+            downloadHelper.setDepths(download.record.request.predicate);
+            download.isSimple = downloadHelper.getSimpleQuery(download.record.request.predicate);
+            downloadHelper.flattenSameType(download.record.request.predicate);
+            downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
+            return Promise.all(promiseList).then(function(completedPromises) {
+                download._citationCount = completedPromises[0].count;
+                renderPage(req, res, next, download, template);
+            });
+        }
+    }).catch(function(err) {
         if (err.type == 'NOT_FOUND') {
             next();
         } else {
+            log.error(err);
             next(err);
         }
     });
@@ -90,7 +88,7 @@ function renderPage(req, res, next, download, template) {
                 download: download,
                 title: 'Ocurrences',
                 _meta: {
-                    title: res.__('stdTerms.download')
+                    title: res.__('downloadKey.download')
                 }
             });
         }

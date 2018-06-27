@@ -1,5 +1,5 @@
 <div class="container--desktop m-t-1 ng-cloak" ng-if="publisherKey.capabilities.total > 0">
-    <h4 class="card-header--bold" tx="stdTerms.nGeoreferencedRecords" tx-nr="publisherKey.withCoordinates.count"></h4>
+    <h4 class="card-header--bold" tx="map.nGeoreferencedRecords" tx-nr="publisherKey.withCoordinates.count"></h4>
     <div class="card">
         <div ng-if="publisherKey.key">
             <map-widget filter="{publishing_org: publisherKey.key}" style="{suggested: 'CLASSIC'}" class="fixedSizes"></map-widget>

@@ -1,17 +1,18 @@
 {
     "filters": {
+        "searchPlaceholder": "Search",
         "noPreference": "No preference",
+        "invert": "Reverse",
+        "clear": "Clear",
+        "add": "Add",
         "repatriation": {
-            "repatriationFilter": "Repatriated data",
             "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
         },
-        "peerReview": {
-            "title": "Peer-Reviewed"
+        "ternary": {
+            "yes": "Yes",
+            "no": "No",
+            "all": "All"
         },
-        "openAccess": {
-            "title": "Open access"
-        },
-        "gbifDownloadKey": "Download key",
         "location": {
             "north": "North",
             "south": "South",

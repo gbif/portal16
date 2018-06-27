@@ -3,7 +3,7 @@
         <span translate="metrics.showOccPer"></span>
         <md-input-container md-no-float>
             <md-select ng-model="vm.options.dimension" ng-change="vm.options.secondDimension = undefined; vm.options.offset = 0; vm.api.chartChange();" placeholder="{{ 'metrics.chooseDimension' | translate }}">
-                <md-option ng-value=""><em translate="stdTerms.none"></em></md-option>
+                <md-option ng-value=""><em translate="metrics.nothingSelected"></em></md-option>
                 <md-option ng-repeat="item in vm.config.dimensions" ng-value="item" translate="filterNames.{{item | camelCase}}">
                     {{item}}
                 </md-option>

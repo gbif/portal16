@@ -29,7 +29,7 @@
                             <li class="fileList__item" ng-repeat="file in dataRepositoryUpload.files">
                                 <div class="fileList__item__field fileList__item__icon gb-icon-file"></div>
                                 <div class="fileList__item__field fileList__item__field--main">
-                                    {{ file.name }} <span class="discreet--very">{{ file.size | formatBytes}}</span> <span class="warning" ng-if="file.size > 100000000"><md-tooltip md-direction="top">{{ "phrases.largeFileUploadWarning" | translate }}</md-tooltip>Large file</span>
+                                    {{ file.name }} <span class="discreet--very">{{ file.size | formatBytes}}</span> <span class="warning" ng-if="file.size > 100000000"><md-tooltip md-direction="top">Be aware that large files can take a long time to upload</md-tooltip>Large file</span>
                                 </div>
                                 <a href="" class="fileList__item__field fileList__item__action gb-icon-trash noUnderline" ng-click="dataRepositoryUpload.removeFromArray(file, dataRepositoryUpload.files)"></a>
                             </li>

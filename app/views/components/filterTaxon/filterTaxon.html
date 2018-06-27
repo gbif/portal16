@@ -34,7 +34,7 @@
                    autocomplete="off"
                    class="fit-suggestions"
                    ng-model="vm.selected"
-                   placeholder="{{ 'stdTerms.search' | translate }}"
+                   placeholder="{{ 'filters.searchPlaceholder' | translate }}"
                    uib-typeahead="suggestion[vm.filterConfig.search.suggestTitle] for suggestion in vm.getSuggestions($viewValue)"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"
@@ -64,7 +64,7 @@
 
         <div class="site-drawer__bar" ng-if="vm.filterConfig.expanded && vm.query.length > 0">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
-                <span translate="stdTerms.clear">Clear</span>
+                <span translate="filters.clear">Clear</span>
             </a>
         </div>
 

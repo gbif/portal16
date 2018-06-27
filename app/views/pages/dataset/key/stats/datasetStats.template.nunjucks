@@ -17,7 +17,7 @@
                 <div layout-padding class="m-b-minus-10">
 
                     <div flex="100" >
-                        <h3 class="card-header" translate="phrases.checklistMetrics"></h3>
+                        <h3 class="card-header" translate="metrics.checklistMetrics"></h3>
                         <div class="card" layout-padding>
                             <div class="card__content container-fluid">
                                 {% include('../intro/checklistStats.nunjucks') %}
@@ -56,7 +56,7 @@
             <div layout-padding class="m-b-minus-10">
 
                 <div flex="100" >
-                    <h3 class="card-header" translate="phrases.occurrenceMetrics"></h3>
+                    <h3 class="card-header" translate="metrics.occurrenceMetrics"></h3>
                 <div class="card">
                     <div class="card__content container-fluid" layout-padding>
                         {% include('../intro/stats.nunjucks') %}
@@ -68,7 +68,7 @@
                     <div layout-gt-sm="row" layout-padding>
 
                         <div flex-gt-sm="50" flex="100" >
-                            <h4 class="card-header text-center inline-block" translate="phrases.taxonomicOccDistribution"></h4>
+                            <h4 class="card-header text-center inline-block" translate="metrics.taxonomicOccDistribution"></h4>
                             <div class="card " layout-fill layout-padding>
                                 <occurrence-taxonomy-tree filter="{dataset_key: datasetKey.key}"
                                                           options="{limit:10}"></occurrence-taxonomy-tree>
@@ -97,7 +97,7 @@
 
             <div class="row" ng-if="datasetKey.dataset.type == 'METADATA'">
                 <div class="emptyInfo">
-                    <h3 translate="phrases.noStatsForMetadata"></h3>
+                    <h3 translate="dataset.noStatsForMetadata"></h3>
                 </div>
             </div>
 

@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
+                        <span class="article-header__category__upper" translate="search.header.searchOccurrences"></span>
                         <span class="article-header__category__lower" ng-if="occCharts.hasData()">
-                            <span tx="stdTerms.nResults" tx-nr="occCharts.state.table.count"></span>
+                            <span tx="search.nResults" tx-nr="occCharts.state.table.count"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="!occCharts.hasData()">
-                            <span translate="stdTerms.loading"></span> ...
+                            <span translate="phrases.loading"></span> ...
                         </span>
 
                     </nav>
@@ -73,19 +73,15 @@
 
         <div class="text-center small seperator--b p-hidden">
             <div class="gb-btn-group">
-                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="true" translate="stdTerms.default"></label>
-                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="false" translate="stdTerms.custom"></label>
+                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="true" translate="occurrenceSearch.default"></label>
+                <label ng-model="occCharts.$sessionStorage.occurrenceChartsShowDefaults" uib-btn-radio="false" translate="occurrenceSearch.custom"></label>
             </div>
-        </div>
-
-        <div class="text-center" style="margin-bottom: -20px;">
-            <span class="error-block">We are still testing, but feel free to click around</span>
         </div>
 
         <div class="container-fluid">
             <div ng-if="occCharts.$sessionStorage.occurrenceChartsShowDefaults">
                 <div ng-if="occCharts.getSerializedQuery() !== ''" ng-show="occCharts.predicateLoaded" class="m-t-1">
-                    <h4 class="card-header inline-block">Current filter</h4>
+                    <h4 class="card-header inline-block" translate="occurrenceSearch.currentFilter"></h4>
                     <div class="card">
                         <div class="card__stripe">
                             <div class="card__content predicateContainer">

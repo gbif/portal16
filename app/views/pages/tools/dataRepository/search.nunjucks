@@ -6,18 +6,17 @@
                     <input type="text"
                            autocomplete="off"
                            ng-model="dataRepository.q"
-                           placeholder="{{ 'stdTerms.search' | translate }}"
-                           ng-keydown="dataRepository.closeOnEsc($event)">
+                           placeholder="Search">
                     <a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"
                        ng-click="dataRepository.search()">
-                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                        <span class="sr-only">Search</span>
                     </a>
                 </form>
             </div>
             <div class="m-b-1 filter-buttons">
-                <a href="" translate="stdTerms.all"
+                <a href=""
                     ng-click="dataRepository.myUploads = false; dataRepository.search()"
-                    ng-class="{'gb-button--brand': dataRepository.myUploads==false, 'gb-button--discreet': dataRepository.myUploads==true}"></a>
+                    ng-class="{'gb-button--brand': dataRepository.myUploads==false, 'gb-button--discreet': dataRepository.myUploads==true}">All</a>
                 <a href=""
                     ng-click="dataRepository.myUploads = true; dataRepository.search()"
                     ng-if="dataRepository.isRepoUser"

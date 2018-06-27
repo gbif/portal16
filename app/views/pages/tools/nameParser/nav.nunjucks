@@ -7,7 +7,7 @@
 
 
                     <li class="tab" ng-class="{isActive: nameParser.$location.path().indexOf('/about') === -1}">
-                        <a ng-href="/tools/name-parser" translate="stdTerms.parser">
+                        <a ng-href="/tools/name-parser" translate="nameParser.parser">
                             Parser
                         </a>
                     </li>
@@ -15,7 +15,7 @@
 
                     <li class="tab" ng-class="{isActive: nameParser.$location.path().indexOf('/about') !== -1}">
                         <a  ng-href="/tools/name-parser/about">
-                            <span translate="stdTerms.about">
+                            <span translate="nameParser.about">
                                 About
                             </span>
 

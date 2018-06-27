@@ -1,8 +1,6 @@
 <div class="horizontal-stripe article-header seperator--b">
     <header class="text-center">
-        <h1>FAQ</h1>
-        <div class="article-header__intro">
-            Answers to some of the most frequently asked questions about GBIF and GBIF.org
-        </div>
+        <h1>{{ faq.faqItem.title }}</h1>
+        <div class="article-header__intro" ng-bind-html="faq.faqItem.summary"></div>
     </header>
 </div>

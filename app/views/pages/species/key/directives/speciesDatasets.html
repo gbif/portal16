@@ -1,50 +1,42 @@
 <div class="m-t-1" ng-if="vm.data.results.length > 0" >
-
-<h4   class="text-muted small text-uppercase" id="{{(vm.type === 'CHECKLIST') ? 'checklistDatasets' : 'occurrenceDatasets'}}" translate="species.appearsIn" translate-values="{NUMBER_FORMATTED: (vm.data.count | localNumber), DATASET_TYPE_TRANSLATED: ('stdTerms.'+vm.type.toLowerCase() | translate), NUMBER: vm.data.count}"></h4>
-
-<div >
-    <!--<span class="discreet text-uppercase small">References</span>-->
-    <section  class="card--references card">
-        <div class="tableList discreet" ng-style="{height: vm.getHeight()}">
-            <ul>
-                <li ng-repeat="result in vm.data.results" class="card--references__item">
-                    <div ng-if="vm.type === 'CHECKLIST'" >
-                        <div class="text-muted"><a class="inherit max2Lines" ui-sref="datasetKey({key:result.key})" ng-href="/dataset/{{result.key}}" >
-                            {{result.title}}
-                        </a></div>
-                        <!--<div ng-bind-html="result.title" class="max2Lines">{{ result.citation }}</div>-->
-                        <div class="small">
-                            {{'stdTerms.as' | translate}}
-                            <a class="" ui-sref="speciesKey({speciesKey:result._relatedTaxon.key})" ng-href="/species/{{result._relatedTaxon.key}}">
-                                <span ng-bind-html="result._relatedTaxon._parsedName || result._relatedTaxon.scientificName"></span>
-                            </a>
+    <h4 class="card-header" id="{{(vm.type === 'CHECKLIST') ? 'checklistDatasets' : 'occurrenceDatasets'}}" translate="species.appearsIn" translate-values="{NUMBER_FORMATTED: (vm.data.count | localNumber), DATASET_TYPE_TRANSLATED: ('datasetType.' + vm.type | translate), NUMBER: vm.data.count}"></h4>
+    <div>
+        <section  class="card--references card">
+            <div class="tableList discreet" ng-style="{height: vm.getHeight()}">
+                <ul>
+                    <li ng-repeat="result in vm.data.results" class="card--references__item">
+                        <div ng-if="vm.type === 'CHECKLIST'" >
+                            <div class="text-muted"><a class="inherit max2Lines" ui-sref="datasetKey({key:result.key})" ng-href="/dataset/{{result.key}}" >
+                                {{result.title}}
+                            </a></div>
+                            <div class="small">
+                                {{'species.as' | translate}}
+                                <a class="" ui-sref="speciesKey({speciesKey:result._relatedTaxon.key})" ng-href="/species/{{result._relatedTaxon.key}}">
+                                    <span ng-bind-html="result._relatedTaxon._parsedName || result._relatedTaxon.scientificName"></span>
+                                </a>
+                            </div>
 
                         </div>
-
-                    </div>
-                    <div ng-if="vm.type === 'OCCURRENCE'">
-                        <div class="text-muted "><a class="inherit max2Lines" ui-sref="datasetKey({key:result.datasetKey})" ng-href="/dataset/{{result.datasetKey}}" >
-                            {{result._dataset.title}}
-                        </a></div>
-                        <!--<div ng-bind-html="result.title" class="max2Lines">{{ result.citation }}</div>-->
-                        <div class="small" >
-                            <a ui-sref="occurrenceSearchTable({dataset_key:result.datasetKey, taxon_key:vm.key})" ng-href="/occurrence/search?dataset_key={{result.datasetKey}}&taxon_key={{vm.key}}">
-                                {{'species.viewOccurrences' | translate}}
-                            </a>
+                        <div ng-if="vm.type === 'OCCURRENCE'">
+                            <div class="text-muted "><a class="inherit max2Lines" ui-sref="datasetKey({key:result.datasetKey})" ng-href="/dataset/{{result.datasetKey}}" >
+                                {{result._dataset.title}}
+                            </a></div>
+                            <div class="small" >
+                                <a ui-sref="occurrenceSearchTable({dataset_key:result.datasetKey, taxon_key:vm.key})" ng-href="/occurrence/search?dataset_key={{result.datasetKey}}&taxon_key={{vm.key}}">
+                                    {{'species.viewOccurrences' | translate}}
+                                </a>
+                            </div>
                         </div>
-
-                    </div>
-                </li>
-                <li ng-if="vm.data.offset > 0 && vm.data.results.length < 20" ng-repeat="ref in [1,2,3,4,5] | limitTo:(20-vm.data.results.length)"></li>
-            </ul>
-        </div>
-        <div ng-if="vm.hasPages">
-            <div class="clearfix m-05">
-                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.data.offset==0}" translate="stdTerms.previous"></a>
-                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.data.endOfRecords}" translate="stdTerms.next"></a>
+                    </li>
+                    <li ng-if="vm.data.offset > 0 && vm.data.results.length < 20" ng-repeat="ref in [1,2,3,4,5] | limitTo:(20 - vm.data.results.length)"></li>
+                </ul>
             </div>
-        </div>
-    </section>
-</div>
-
+            <div ng-if="vm.hasPages">
+                <div class="clearfix m-05">
+                    <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.data.offset == 0}" translate="pagination.previous"></a>
+                    <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.data.endOfRecords}" translate="pagination.next"></a>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>

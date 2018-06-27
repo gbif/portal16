@@ -1,25 +1,23 @@
 <div ng-if="!speciesKey2.isNub && speciesKey2.$state.is('speciesKey')">
-
-    <div >
-    {% include "../images/speciesImages.nunjucks" %}
+    <div>
+        {% include "../images/speciesImages.nunjucks" %}
     </div>
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--desktop">
 
-
             {% include "../warnings/warnings.nunjucks" %}
 
-
             <div class="m-t-1" ng-if="speciesKey2.descriptions.results.length > 0">
-                <h4 class="text-muted small text-uppercase" translate="stdTerms.description"></h4>
+                <h4 class="card-header" translate="species.description"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div ng-repeat="description in speciesKey2.descriptions.results" class="m-b-1">
                             <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
                             <div ng-bind-html="description.description"></div>
-                            <p class="small source" ng-if="description.source"><span translate="stdTerms.sourcePlural" translate-values="{NUMBER: 1}"></span>: <a class="inherit"
-                                                               ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a>
+                            <p class="small source" ng-if="description.source">
+                                <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>: 
+                                <a class="inherit" ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a>
                             </p>
                         </div>
                     </div>
@@ -27,87 +25,46 @@
             </div>
 
             <div class="m-t-1" ng-if="speciesKey2.species.remarks">
-                <h4 class="text-muted small text-uppercase" translate="stdTerms.remarks"></h4>
+                <h4 class="card-header" translate="species.remarks"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div >
                             <p ng-bind-html="speciesKey2.species.remarks"></p>
-
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="m-t-1" ng-if="speciesKey2.distributions.results.length > 0">
-                <h4 class="text-muted small text-uppercase" translate="species.distribution.distributionPlural"></h4>
+                <h4 class="card-header" translate="species.distribution.distributionPlural"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div ng-repeat="distribution in speciesKey2.distributions.results" class="m-b-1">
                             <h5 ng-if="distribution.country" class="text-muted small text-uppercase" >
-                                <span translate="species.distribution.presentIn" translate-values="{country: speciesKey2.$translate.instant('country.'+ distribution.country)}"></span><span ng-if="distribution.locationId" ng-bind="', '+ distribution.locationId"></span><span ng-if="distribution.locality && distribution.locality !== distribution.locationId" ng-bind="', '+ distribution.locality"></span>
-
+                                <span translate="species.distribution.presentIn" translate-values="{country: (('country.'+ distribution.country) | translate)}"></span><span ng-if="distribution.locationId" ng-bind="', '+ distribution.locationId"></span><span ng-if="distribution.locality && distribution.locality !== distribution.locationId" ng-bind="', '+ distribution.locality"></span>
                             </h5>
                             <h5 ng-if="distribution.locality && !distribution.country" class="text-muted small text-uppercase" translate="species.distribution.presentInNonCountry" translate-values="{location: distribution.locality}"></h5>
                             <h5 ng-if="!distribution.locality && !distribution.country && distribution.locationId" class="text-muted small text-uppercase" ng-bind="distribution.locationId"></h5>
-
-                            <p ng-if="distribution.threatStatus" translate="species.distribution.threatStatus" translate-values="{status: speciesKey2.$translate.instant('threatStatus.'+ distribution.threatStatus)}"></p>
-
+                            <p ng-if="distribution.threatStatus" translate="species.distribution.threatStatus" translate-values="{status: (('threatStatus.'+ distribution.threatStatus) | translate)}"></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-
             <vernacular-names key="{{ speciesKey2.key }}" is-nub="{{ speciesKey2.isNub }}"></vernacular-names>
 
-
-
             <div class="m-t-1" >
-                <h4 class="text-muted small text-uppercase" translate="stdTerms.citation"></h4>
+                <h4 class="card-header" translate="species.citation"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div class="m-b-1 m-t-1"   ng-if="speciesKey2.isNub || (speciesKey2.verbatim && speciesKey2.verbatim.$resolved && !speciesKey2.species.bibliographicCitation)">
                            <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> in <span ng-bind-html="speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'"></span>
-
-                            {#<p class="discreet text-uppercase small">Please cite as</p>#}
-                            {#<div>#}
-                            {#{{ speciesKey2.dataset.citation.text }}#}
-                            {#<p class="small discreet m-t-1">Last#}
-                            {#modified: {{ speciesKey2.species.lastInterpreted | momentFormat:'D MMMM YYYY' }}</p>#}
-                            {#</div>#}
                         </div>
                         <div class="m-b-1 m-t-1" ng-bind-html="speciesKey2.species.bibliographicCitation | parseUrlFilter:'_blank': 'source'"  ng-if="!speciesKey2.isNub && (speciesKey2.verbatim && speciesKey2.verbatim.$resolved && speciesKey2.species.bibliographicCitation)">
-
-                            {#<p class="discreet text-uppercase small">Please cite as</p>#}
-                            {#<div>#}
-                            {#{{ speciesKey2.dataset.citation.text }}#}
-                            {#<p class="small discreet m-t-1">Last#}
-                            {#modified: {{ speciesKey2.species.lastInterpreted | momentFormat:'D MMMM YYYY' }}</p>#}
-                            {#</div>#}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    {#<div class="horizontal-stripe light-background">#}
-        {#<div class="container--desktop">#}
-
-                {#<div class="col-xs-12">#}
-                    {#<div>#}
-                        {#<div class="discreet m-t-3">#}
-                            {#<p class="discreet text-uppercase small">Please cite as</p>#}
-                            {#<div>#}
-                                {#{{ speciesKey2.dataset.citation.text }}#}
-                                {#<p class="small discreet m-t-1">Last#}
-                                    {#modified: {{ speciesKey2.species.lastInterpreted | momentFormat:'D MMMM YYYY' }}</p>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-
-                {#</div>#}
-
-        {#</div>#}
-    {#</div>#}
 </div>

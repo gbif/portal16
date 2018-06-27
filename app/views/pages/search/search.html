@@ -17,7 +17,7 @@
                                                ng-keydown="rootSearch.closeOnEsc($event)">
                                         <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2 inherit"
                                            ng-click="rootSearch.updateSearch()">
-                                            <span class="sr-only" translate="stdTerms.search"></span>
+                                            <span class="sr-only" translate="search.search"></span>
                                         </a>
                                     </form>
                                 </div>
@@ -26,37 +26,37 @@
                                     <nav class="tabs">
                                         <ul>
                                             <li class="tab isActive">
-                                                <a href="" ui-sref="omniSearch({q: undefined})" translate="stdTerms.everything">
+                                                <a href="" ui-sref="omniSearch({q: undefined})" translate="search.everything">
                                                     Everything
                                                 </a>
                                             </li>
 
                                             <li class="tab">
-                                                <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" translate="stdTerms.occurrences">
+                                                <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" translate="search.occurrences">
                                                     Occurrences
                                                 </a>
                                             </li>
 
                                             <li class="tab">
-                                                <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" translate="stdTerms.species">
+                                                <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" translate="search.species">
                                                     Species
                                                 </a>
                                             </li>
 
                                             <li class="tab">
-                                                <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" translate="stdTerms.datasets">
+                                                <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" translate="search.datasets">
                                                     Datasets
                                                 </a>
                                             </li>
 
                                             <li class="tab">
-                                                <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" translate="stdTerms.publishers">
+                                                <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" translate="search.publishers">
                                                     Publishers
                                                 </a>
                                             </li>
 
                                             <li class="tab">
-                                                <a href="" ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" translate="stdTerms.resources">
+                                                <a href="" ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" translate="search.resources">
                                                     Resources
                                                 </a>
                                             </li>
@@ -113,8 +113,8 @@
 
                                         <div ng-if="rootSearch.results.datasets.count > 0">
                                             <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase" translate="stdTerms.datasets">Datasets</span>
-                                                <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.datasets.count | localNumber}} <span translate="stdTerms.result" translate-values="{NUMBER: rootSearch.results.datasets.count}"></span></a>
+                                                <span class="discreet--very text-uppercase" translate="search.datasets">Datasets</span>
+                                                <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right"><span tx="search.nResults" tx-nr="rootSearch.results.datasets.count"></span></a>
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.datasets.results">
                                                 <ng-include src="'/api/template/search/datasetResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
@@ -123,8 +123,8 @@
 
                                         <div ng-if="rootSearch.results.publishers.count > 0">
                                             <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase" translate="stdTerms.publishers">Publishers</span>
-                                                <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.publishers.count | localNumber}} <span translate="stdTerms.result" translate-values="{NUMBER: rootSearch.results.publishers.count}"></span></a>
+                                                <span class="discreet--very text-uppercase" translate="search.publishers">Publishers</span>
+                                                <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right"><span tx="search.nResults" tx-nr="rootSearch.results.publishers.count"></span></a>
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.publishers.results">
                                                 <ng-include src="'/api/template/search/publisherResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
@@ -132,8 +132,8 @@
                                         </div>
                                         <div ng-if="rootSearch.results.participants.count > 0">
                                             <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase" translate="stdTerms.participants">Participants</span>
-                                                <span class="discreet--very text-uppercase pull-right">{{ rootSearch.results.participants.count | localNumber}} <span translate="stdTerms.result" translate-values="{NUMBER: rootSearch.results.participants.count}"></span></span>
+                                                <span class="discreet--very text-uppercase" translate="search.participants">Participants</span>
+                                                <span class="discreet--very text-uppercase pull-right"><span tx="search.nResults" tx-nr="rootSearch.results.participants.count"></span></span>
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.participants.results">
                                                 <ng-include src="'/api/template/search/participantResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
@@ -141,8 +141,8 @@
                                         </div>
                                         <div ng-if="rootSearch.results.species.results.length > 0">
                                             <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase" translate="stdTerms.species">Species</span>
-                                                <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.species.count | localNumber }} <span translate="stdTerms.result" translate-values="{NUMBER: rootSearch.results.species.count}"></span></a>
+                                                <span class="discreet--very text-uppercase" translate="search.species">Species</span>
+                                                <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right"><span tx="search.nResults" tx-nr="rootSearch.results.species.count"></span></a>
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.species.results">
                                                 <ng-include src="'/api/template/search/speciesResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
@@ -151,8 +151,8 @@
 
                                         <div ng-if="rootSearch.results.resources.count > 0">
                                             <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase" translate="stdTerms.resources">Resources</span>
-                                                <a href="" ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.resources.count | localNumber}} <span translate="stdTerms.result" translate-values="{NUMBER: rootSearch.results.resources.count}"></span></a>
+                                                <span class="discreet--very text-uppercase" translate="search.resources">Resources</span>
+                                                <a href="" ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right"><span tx="search.nResults" tx-nr="rootSearch.results.resources.count"></span></a>
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.resources.results">
                                                 <ng-include src="'/api/template/search/articleResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'article'"></ng-include>
@@ -170,18 +170,18 @@
                                         <div class="emptyInfo">
                                             <h3 translate="search.cannotFindWhatYouAreLookingFor"></h3>
                                             <p translate="search.trySpecifyingAType">Try specifying a type</p>
-                                            <a ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="stdTerms.occurrences">Occurrences</a>
-                                            <a ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="stdTerms.species">Species</a>
-                                            <a ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="stdTerms.datasets">Datasets</a>
-                                            <a ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="stdTerms.publishers">Publishers</a>
-                                            <a ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="stdTerms.resources">Resources</a>
+                                            <a ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="search.occurrences">Occurrences</a>
+                                            <a ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="search.species">Species</a>
+                                            <a ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="search.datasets">Datasets</a>
+                                            <a ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="search.publishers">Publishers</a>
+                                            <a ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet" translate="search.resources">Resources</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div ng-if="!rootSearch.freeTextQuery">
                                     <div class="emptyInfo">
-                                        <h3 translate="search.noSearchTermsEntered">No search terms entered</h3>
-                                        <p><span translate="search.notSureWhatYouAreLookingFor"></span> <a href="" ui-sref="occurrenceSearchGallery()" translate="search.picsOfSpOccs">pictures of species occurrences</a> </p>
+                                        <h3 translate="search.noSearchTermsEntered"></h3>
+                                        <p><a href="" ui-sref="occurrenceSearchGallery()" translate="search.notSureWhatYouAreLookingFor"></a></p>
                                     </div>
                                 </div>
                             </div>

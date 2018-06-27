@@ -9,18 +9,18 @@
             <a href="" ng-click="vm.toggleFullscreen()" ng-class="{'gb-icon-fullscreen': !vm.fullscreen, 'gb-icon-fullscreen-exit': vm.fullscreen}"></a>
         </div>
         <div class="mapWidget__help" ng-if="vm.activeControl == vm.controls.OCCURRENCES">
-            <span translate="phrases.clickToSearchArea"></span>
+            <span translate="map.clickToSearchArea"></span>
         </div>
         <div class="mapWidget__info">
-            <span translate="phrases.generatedDateAgo" translate-values="{DATE_AGO: ((vm.capabilities.generated || '2017-05-01') | momentFromNow:gb.locales.current)}"></span>
+            <span translate="map.generatedDateAgo" translate-values="{DATE_AGO: ((vm.capabilities.generated || '2017-05-01') | momentFromNow:gb.locales.current)}"></span>
             <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a ng-href="{{vm.URL_PREFIX}}/citation-guidelines" class="inherit">GBIF</a>.</span>
         </div>
     </div>
     <div class="mapWidget__controlsArea">
         <div class="mapWidget__controlsArea__toggleArea">
             <span>
-                <a class="gb-button--discreet" ng-if="vm.getProjection() !== 'EPSG_4326' || vm.viewBboxWidth >= 180" ng-href="{{vm.URL_PREFIX}}/occurrence/search?{{vm.getExploreQuery()}}" translate="stdTerms.explore">Explore</a>
-                <a class="gb-button--discreet" ng-if="vm.getProjection() === 'EPSG_4326' && vm.viewBboxWidth < 180" ng-href="{{vm.URL_PREFIX}}/occurrence/search?{{vm.getExploreQuery()}}" translate="stdTerms.exploreArea">Explore area</a>
+                <a class="gb-button--discreet" ng-if="vm.getProjection() !== 'EPSG_4326' || vm.viewBboxWidth >= 180" ng-href="{{vm.URL_PREFIX}}/occurrence/search?{{vm.getExploreQuery()}}" translate="map.explore">Explore</a>
+                <a class="gb-button--discreet" ng-if="vm.getProjection() === 'EPSG_4326' && vm.viewBboxWidth < 180" ng-href="{{vm.URL_PREFIX}}/occurrence/search?{{vm.getExploreQuery()}}" translate="map.exploreArea">Explore area</a>
             </span>
             <a href="" class="button gb-icon-filters" ng-click="vm.toggleControl(vm.controls.FILTERS)"
                ng-class="{'is-active': vm.activeControl == vm.controls.YEAR}" ng-if="vm.styleBreaks.current == 0"></a>
@@ -45,14 +45,14 @@
 
                     <div class="mapWidget__controlsArea__section__header" ng-if="vm.styleBreaks.current == 0">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
-                        <h4 translate="stdTerms.filters">Filters</h4>
+                        <h4 translate="map.filters">Filters</h4>
                     </div>
                     <div ng-class="{'mapWidget__controlsArea__section__content': vm.styleBreaks.current == 0}">
                         <div class="time-slider time-slider__card">
                             <div class="gb-btn-group time-slider__buttons">
-                                <label ng-if="vm.singleYearSpan" uib-btn-radio="true" ng-model="vm.allYears"><span translate="stdTerms.year">Year</span> {{ vm.singleYearSpan }}</label>
+                                <label ng-if="vm.singleYearSpan" uib-btn-radio="true" ng-model="vm.allYears"><span translate="map.year">Year</span> {{ vm.singleYearSpan }}</label>
                                 <label ng-model="vm.allYears" uib-btn-radio="true"
-                                       ng-change="vm.updateFilters()" ng-if="!vm.singleYearSpan" translate="phrases.anyYear"></label>
+                                       ng-change="vm.updateFilters()" ng-if="!vm.singleYearSpan" translate="map.anyYear"></label>
                                 <label ng-model="vm.allYears" uib-btn-radio="false" ng-if="!vm.singleYearSpan"
                                        ng-change="vm.updateFilters()"><span class="time-slider__years"></span></label>
                             </div>
@@ -74,15 +74,15 @@
                 <div class="mapWidget__controlsArea__section" ng-if="vm.activeControl == vm.controls.STYLE">
                     <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
-                        <h4 translate="stdTerms.style">Style</h4>
+                        <h4 translate="map.style">Style</h4>
                         <div>
                             <nav class="discreetTabs">
                                 <ul>
                                     <li ng-class="{isActive: vm.styleTab != 'CREATE'}">
-                                        <a href="" class="inherit noUnderline" ng-click="vm.styleTab = 'SELECT'; vm.setStyle(vm.style)" translate="stdTerms.select">Select</a>
+                                        <a href="" class="inherit noUnderline" ng-click="vm.styleTab = 'SELECT'; vm.setStyle(vm.style)" translate="map.select">Select</a>
                                     </li>
                                     <li ng-class="{isActive: vm.styleTab == 'CREATE'}">
-                                        <a href="" class="inherit noUnderline" ng-click="vm.styleTab = 'CREATE'; vm.composeCustomStyle()" translate="stdTerms.custom">Custom</a>
+                                        <a href="" class="inherit noUnderline" ng-click="vm.styleTab = 'CREATE'; vm.composeCustomStyle()" translate="map.custom">Custom</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -92,7 +92,7 @@
                         <div ng-if="vm.styleTab == 'CREATE'">
                             <div>
                                 <md-input-container>
-                                    <label translate="stdTerms.baseMap">Base map</label>
+                                    <label translate="map.baseMap">Base map</label>
                                     <md-select ng-model="vm.selectedBaseMap" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="basemap in vm.basemaps" ng-value="basemap">
                                             {{'map.basemap.' + basemap.name | translate }}
@@ -102,7 +102,7 @@
                             </div>
                             <div>
                                 <md-input-container>
-                                    <label translate="stdTerms.binning">Binning</label>
+                                    <label translate="map.binning">Binning</label>
                                     <md-select ng-model="vm.selectedBinning" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="bin in vm.binningOptions" ng-value="bin">
                                             {{'map.bin.' + bin.name | translate }}
@@ -112,7 +112,7 @@
                             </div>
                             <div>
                                 <md-input-container>
-                                    <label translate="stdTerms.colors">Colors</label>
+                                    <label translate="map.chooseColors">Colors</label>
                                     <md-select ng-model="vm.selectedColor" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="colors in vm.colorOptions | filter:{ type: vm.selectedBinning.type }" ng-value="colors">
                                             {{'map.colors.' + colors.name | translate }}
@@ -150,7 +150,7 @@
                 <div class="mapWidget__controlsArea__section" ng-if="vm.activeControl == vm.controls.PROJECTION">
                     <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
-                        <h4 translate="stdTerms.projection">Projection</h4>
+                        <h4 translate="map.projection">Projection</h4>
                     </div>
                     <div class="mapWidget__controlsArea__section__content">
                         <div>

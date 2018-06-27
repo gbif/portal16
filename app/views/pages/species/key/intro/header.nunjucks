@@ -3,41 +3,29 @@
         <div class="row">
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category" ng-class="{'article-header__category--deep': speciesKey2.species.taxonomicStatus}">
-                                    <span class="article-header__category__upper"
-                                          translate="taxonRank.{{speciesKey2.species.rank || 'UNRANKED'}}"></span>
-                                    <span class="article-header__category__lower"
-                                          translate="taxonomicStatus.{{speciesKey2.species.taxonomicStatus}}" ng-if="speciesKey2.species.taxonomicStatus"></span>
+                    <span class="article-header__category__upper" translate="taxonRank.{{speciesKey2.species.rank || 'UNRANKED'}}"></span>
+                    <span class="article-header__category__lower" translate="taxonomicStatus.{{speciesKey2.species.taxonomicStatus}}" ng-if="speciesKey2.species.taxonomicStatus"></span>
                 </nav>
 
                 <h1 scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}" ng-class="{'text-error': speciesKey2.species.deleted}">{{speciesKey2.species.scientificName}}</h1>
+                <p class="text-error" ng-if="speciesKey2.species.deleted" translate="phrases.deletedOnDate" translate-values="{DATE: (speciesKey2.species.deleted | momentFormat:'D MMMM YYYY')}"></p>
 
-                <p class="text-error" ng-if="speciesKey2.species.deleted">
-                    This species was deleted on {{ speciesKey2.species.deleted | momentFormat:'D MMMM YYYY' }}
-                </p>
-                <div class="article-header__highlights header-sources" ng-if="speciesKey2.species.publishedIn || (speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey)" >
-                <div class="inline-block">
-                <span  ng-if="speciesKey2.species.publishedIn"><span class="discreet--very">{{'species.publishedIn' | translate}}:</span> <span class="source" ng-bind-html="speciesKey2.species.publishedIn | parseUrlFilter:'_blank':'inherit' "></span></span>
-                </div>
-                <div class="inline-block">
-                <span ng-if="speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey" ><span class="discreet--very"><span translate="stdTerms.sourcePlural" translate-values="{NUMBER: 1}"></span>:</span> <a class="source" ui-sref="datasetKey({key:speciesKey2.sourceTaxonDataset.key})">{{ speciesKey2.sourceTaxonDataset.title }}</a></span>
-                </div>
+                <div class="article-header__highlights header-sources" ng-if="speciesKey2.species.publishedIn || (speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey)">
+                    <div class="inline-block">
+                        <span ng-if="speciesKey2.species.publishedIn"><span class="discreet--very">{{'species.publishedIn' | translate}}:</span> <span class="source" ng-bind-html="speciesKey2.species.publishedIn | parseUrlFilter:'_blank':'inherit' "></span></span>
+                    </div>
+                    <div class="inline-block">
+                        <span ng-if="speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey" ><span class="discreet--very"><span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>:</span> <a class="source" ui-sref="datasetKey({key:speciesKey2.sourceTaxonDataset.key})">{{ speciesKey2.sourceTaxonDataset.title }}</a></span>
+                    </div>
                 </div>
 
-
-                <p ng-if="speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey" class="source">{{'stdTerms.in' | translate}} <a class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a></p>
-
-                {#<span class="article-header__meta">#}
-                    {#{{ speciesKey2.vernacularName.vernacularName }}#}
-                {#</span>#}
+                <p ng-if="speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey" class="source">{{'species.in' | translate}} <a class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a></p>
 
                 <div class="article-header__highlights">
-
-
-
                     <div ng-if="speciesKey2.vernacularName.vernacularName" >
                         <div>
                             <span class="vernacular">{{ speciesKey2.vernacularName.vernacularName }}</span>
-                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: speciesKey2.$translate.instant('language.'+ speciesKey2.vernacularName.language)}"></span>
+                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: (('language.'+ speciesKey2.vernacularName.language) | translate)}"></span>
                            </span>
                         </div>
                     </div>
@@ -53,6 +41,7 @@
                             </span>
                         </div>
                     </div>
+                    
                     <div ng-if="speciesKey2.isSpeciesOrBelow && speciesKey2.cites.$resolved && speciesKey2.cites.cites_listing">
                         <div>
                             <span class="article-header__meta">{{'species.tradeRestrictions' | translate}} {{ speciesKey2.cites.cites_listing }}</span>
@@ -66,7 +55,6 @@
                         </div>
                     </div>
 
-
                     <div ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym">
                         <div>
                             <span class="article-header__meta"> {{(speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey === speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey !== speciesKey2.species.key) ? 'Homotypic synonym' : 'Synonym' }} of</span>
@@ -79,11 +67,7 @@
                             <span class="discreet--very"><a scientific-name key="{{ speciesKey2.species.basionymKey }}" name="{{speciesKey2.species.basionym}}" class="inherit text-transform__none" ui-sref="speciesKey({speciesKey: speciesKey2.species.basionymKey})"></a></span>
                         </div>
                     </div>
-
-
-
                 </div>
-
             </header>
         </div>
     </div>

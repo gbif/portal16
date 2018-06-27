@@ -37,30 +37,5 @@ router.get('/api/template/contactUs/contactUs.html', function(req, res, next) {
 });
 
 router.get('/contact-us/directory', function(req, res, next) {
-    if (req.query.personId) {
-        // render person
-        directory.person(req.query.personId)
-            .then(function(person) {
-                let personMd = json2md([
-                    {h2: person.name},
-                    {ul: [
-                        person.institutionName,
-                        person.address
-                    ]}
-                ]);
-                let context = {
-                    person: personMd,
-                    _meta: {
-                        title: person.name
-                    }
-                };
-                helper.renderPage(req, res, next, context, 'pages/custom/contactUs/directory/seo');
-            })
-            .catch(function(err) {
-                next(err);
-            });
-    } else {
-        // render contact us page
-        helper.renderPage(req, res, next, {_meta: {noIndex: true, title: 'Directory'}}, 'pages/custom/contactUs/seo');
-    }
+    helper.renderPage(req, res, next, {_meta: {noIndex: true, title: 'Directory'}}, 'pages/custom/contactUs/seo');
 });

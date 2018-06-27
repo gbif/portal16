@@ -21,7 +21,7 @@ function menuSearchDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function menuSearch($scope, NAV_EVENTS, $timeout, IS_TOUCH) {
+    function menuSearch($scope, NAV_EVENTS, $timeout, IS_TOUCH, URL_PREFIX) {
         var vm = this;
         vm.isActive = false;
 
@@ -42,7 +42,7 @@ function menuSearchDirective(BUILD_VERSION) {
         };
 
         vm.searchRedirect = function() {
-            location.href = '/search?q=' + encodeURIComponent(vm.freeTextQuery || '');
+            location.href = URL_PREFIX + '/search?q=' + encodeURIComponent(vm.freeTextQuery || '');
         };
 
         vm.closeOnEsc = function(event) {

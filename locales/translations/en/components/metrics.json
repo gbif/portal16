@@ -8,12 +8,22 @@
     "countByIssue": "Count issues by issue type"
   },
   "metrics": {
+    "issues": "Issues",
+    "extensions": "Extensions",
+    "taxa": "Taxa",
+    "other": "Other",
+    "checklistMetrics": "Checklist metrics",
+    "occurrenceMetrics": "Occurrence metrics",
     "explore": "Explore",
     "majorGroups": "Major groups",
     "failedToLoad": "Failed to load tree",
     "noChildren": "No immediate children",
     "noOccurrences": "No occurrences",
+    "nothingSelected": "None",
+    "occurrences": "Occurrences",
+    "otherOrUknown": "Other or unknown",
     "occurrencesPerField": "Occurrences per {FIELD}",
+    "occurrencesBreakdownPerField": "Occurrences breakdown per field",
     "occurrencesPerFieldx2": "Occurrences per {FIELD} per {FIELD2}",
     "customFilters": "This chart has custom filters",
     "linear": "Linear",
@@ -28,6 +38,20 @@
     "clickToZoom": "Click and drag in the plot area to zoom in",
     "pinchToZoom": "Pinch the chart to zoom in",
     "numAcceptedSpByHigher": "Number of accepted species by higher taxon",
-    "noRankedAbove": "The checklist has no ranked taxa above Species."
+    "noRankedAbove": "The checklist has no ranked taxa above Species.",
+    "taxonomicOccDistribution": "Taxonomic distribution of occurrences",
+    "groupByX": "Group by {TYPE}",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 0{other or unknown} 1{other or unknown} other{other or unknown}}",
+    "unknownRank": "Unknown {RANK}",
+    "vernacularNames": "Vernacular names",
+    "majorRanksPlural": {
+      "KINGDOM": "Kingdoms",
+      "PHYLUM": "Phyla",
+      "CLASS": "Classes",
+      "ORDER": "Orders",
+      "FAMILY": "Families",
+      "GENUS": "Genera",
+      "SPECIES": "Species"
+    }
   }
 }

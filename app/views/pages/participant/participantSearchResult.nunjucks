@@ -11,15 +11,17 @@
         <div class="card__content clearfix">
 
             <p ng-if="result.participant">
-                <span translate="countryKey.memberSince"></span>: {{ result.participant.membershipStart }} ● <span>{{'stdTerms.country' | translate}}:</span> {{ "country."+ result.participant.countryCode  | translate }} <span ng-if="result.participant.participantUrl">●</span> </span><a ng-href="{{ result.participant.participantUrl }}" ng-if="result.participant.participantUrl"><span translate="countryKey.website"></span> <span class="gb-icon-link"></span> </a>
+                <span translate="countryKey.memberSince"></span>: {{ result.participant.membershipStart }} ● <span>{{'participant.countryOrArea' | translate}}:</span> {{ "country."+ result.participant.countryCode  | translate }} <span ng-if="result.participant.participantUrl">●</span> </span><a ng-href="{{ result.participant.participantUrl }}" ng-if="result.participant.participantUrl"><span translate="participant.website"></span> <span class="gb-icon-link"></span> </a>
             </p>
 
             <ul class="list-chips">
                 <li ng-if="result.registryNode">
-                    <a ng-href="/participant/{{result.participant.id}}#datasets"><span count="{{ portal.dataApi }}node/{{ result.registryNode.key }}/dataset/?limit=1">&nbsp;</span> <span translate="stdTerms.datasets"></span></a>
+                    <a ng-href="/participant/{{result.participant.id}}#datasets">
+                        <span count="{{ portal.dataApi }}node/{{ result.registryNode.key }}/dataset/?limit=1" count-translation="counts.nDatasets">&nbsp;</span>
+                    </a>
                 </li>
                 <li ng-if="result.registryNode">
-                    <a ng-href="/participant/{{result.participant.id}}#endorsedPublishers"><span count="{{ portal.dataApi }}node/{{ result.registryNode.key }}/organization/?limit=1">&nbsp;</span> <span translate="countryKey.endorsedPublishers"></span></a>
+                    <a ng-href="/participant/{{result.participant.id}}#endorsedPublishers"><span count="{{ portal.dataApi }}node/{{ result.registryNode.key }}/organization/?limit=1" count-translation="counts.nEndorsedPublishers">&nbsp;</span></a>
                 </li>
             </ul>
         </div>

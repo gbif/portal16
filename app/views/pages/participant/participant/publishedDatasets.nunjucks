@@ -1,9 +1,7 @@
 <div class="m-t-1" ng-if="participantKey.datasets.count > 0">
     <span class="relative-anchor-offset"><a id="datasets"></a></span>
     <div class="container--narrow">
-        <p class="small discreet text-uppercase" translate="countryKey.latestDatasetsPublished">
-            Latest datasets published
-        </p>
+        <h4 class="card-header" translate="participant.latestDatasetsPublished"></h4>
         <div>
             <div>
                 <div ng-show="participantKey.datasets.count > 0">
@@ -22,9 +20,9 @@
                             class="pagination-sm"
                             boundary-link-numbers="false"
                             rotate="false"
-                            first-text="{{'stdTerms.first' | translate}}"
-                            next-text="{{'stdTerms.next' | translate}}"
-                            previous-text="{{'stdTerms.previous' | translate}}"
+                            first-text="{{'pagination.first' | translate}}"
+                            next-text="{{'pagination.next' | translate}}"
+                            previous-text="{{'pagination.previous' | translate}}"
                             ng-change="participantKey.pageChanged_datasets()">
                     </uib-pagination>
                 </div>
@@ -33,5 +31,5 @@
     </div>
 </div>
 <div class="emptyInfo--small" ng-if="!participantKey.datasets.count">
-    <h3 translate="countryKey.noDatasets">No published datasets</h3>
+    <h3 translate="participant.noDatasets">No published datasets</h3>
 </div>

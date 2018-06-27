@@ -9,7 +9,7 @@
                        placeholder="{{'occurrenceSearch.searchAllFields' | translate}}">
                 <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="occurrence.search()">
-                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    <span class="sr-only" translate="search.search"></span>
                 </a>
             </form>
         </div>
@@ -29,10 +29,10 @@
             <div class="site-drawer__bar">
                 <a href="" class="site-drawer__bar__action"
                    ng-click="occurrence.addTaxon(occurrence.freeTextSpeciesSuggestion)">
-                    <span translate="stdTerms.yes">Yes</span>
+                    <span translate="occurrenceSearch.yesCorrectSuggestion"></span>
                 </a>
                 <a href="" class="site-drawer__bar__action" ng-click="occurrence.showFreeTextSpeciesSuggestion = false">
-                    <span translate="stdTerms.no">No</span>
+                    <span translate="occurrenceSearch.noWrongSuggestion"></span>
                 </a>
             </div>
         </div>
@@ -40,9 +40,9 @@
         <div class="filter-group text-center">
             <div class="gb-btn-group">
                 <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="false"
-                       ng-change="occurrence.toggleAdvanced()" translate="stdTerms.simple"></label>
+                       ng-change="occurrence.toggleAdvanced()" translate="search.simple"></label>
                 <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="true"
-                       ng-change="occurrence.toggleAdvanced()" translate="stdTerms.advanced"></label>
+                       ng-change="occurrence.toggleAdvanced()" translate="search.advanced"></label>
             </div>
         </div>
 
@@ -147,22 +147,17 @@
     <div class="site-content__page lighter-background">
         <div class="occurrence-search-results">
             <div ui-view ng-if="!occurrence.occurrenceState.failedRequest">
-
             </div>
             <div ng-if="occurrence.occurrenceState.failedRequest" class="emptyInfo">
-                <h3>
-                    Unable to process request
-                </h3>
-                <p>
-                    Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues
-                </p>
+                <h3 translate="phrases.failed"></h3>
+                <p translate="occurrenceSearch.failedSearch"></p>
             </div>
         </div>
     </div>
 
     <div class="fab hide-on-laptop">
         <a href="" class="gb-button--brand" ng-click="occurrence.showFilters = !occurrence.showFilters" ng-if="!occurrence.showFilters">
-            <span><span class="gb-icon-filters"></span> Filters</span>
+            <span><span class="gb-icon-filters"></span><span translate="search.filters"></span></span>
         </a>
     </div>
 

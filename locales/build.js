@@ -11,7 +11,7 @@ ensureDirectoryExistence(dir + 'translation.json');
 
 let enJson = translationBuilder('en');
 
-config.locales.forEach(function(locale) {
+function buildLocale(locale) {
     let localeJson = translationBuilder(locale);
     let mergedJson = _.merge({}, enJson, localeJson);
     fs.writeFile(dir + locale + '.json', JSON.stringify(mergedJson, null, 2), function(err) {
@@ -21,7 +21,11 @@ config.locales.forEach(function(locale) {
         }
         console.log('Translation files was succesfully build');
     });
-});
+}
+
+buildLocale('en');
+
+config.locales.forEach(buildLocale);
 
 function ensureDirectoryExistence(filePath) {
     let dirname = path.dirname(filePath);

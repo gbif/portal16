@@ -4,11 +4,11 @@
             <ng-include src="'/templates/components/loader/loader.html'" ng-if="!resourceList.hasData()"></ng-include>
             <div ng-if="resourceList.hasData()">
                 <p class="text-right">
-                    <a ng-href="{{portal.urlPrefix}}/literature-tracking " class="m-b-1 discreet small" ng-if="resource.state.query.gbifDatasetKey || resource.state.query.publishingOrganizationKey" translate="help.citationExplainer"></a>
+                    <a ng-href="{{portal.urlPrefix}}/literature-tracking " class="m-b-1 discreet small" ng-if="resource.state.query.gbifDatasetKey || resource.state.query.publishingOrganizationKey" translate="resourceSearch.citationExplainer"></a>
                 </p>
                 <p ng-if="resource.state.query.contentType == 'event'" class="text-right">
 
-                    <a ng-href="webcal:{{ resourceList.dataApi }}newsroom/events/calendar/upcoming.ics" class="gb-button--discreet text-uppercase small"><span class="gb-icon-calendar"></span> <span translate="resource.subscribeToCalendar"></span></a>
+                    <a ng-href="webcal:{{ resourceList.dataApi }}newsroom/events/calendar/upcoming.ics" class="gb-button--discreet text-uppercase small"><span class="gb-icon-calendar"></span> <span translate="resourceSearch.subscribeToCalendar"></span></a>
                     <a ng-href="{{ resourceList.dataApi }}newsroom/events/upcoming.xml" class="gb-button--discreet text-uppercase small"><span class="gb-icon-rss"></span> Rss</a>
 
                 </p>
@@ -21,7 +21,7 @@
 
                 </p>
                 <div ng-repeat="result in resourceList.state.data.results">
-                    <ng-include src="'/api/template/search/articleResult.html?v='+ resourceList.BUILD_VERSION +'&locale='+resourceList.locale" ng-if="result.contentType == 'article'"></ng-include>
+                    <ng-include src="'/api/template/search/articleResult.html?v='+      resourceList.BUILD_VERSION +'&locale='+resourceList.locale" ng-if="result.contentType == 'article'"></ng-include>
                     <ng-include src="'/api/template/search/eventResult.html?v=' +       resourceList.BUILD_VERSION+'&locale='+resourceList.locale" ng-if="result.contentType == 'event'"></ng-include>
                     <ng-include src="'/api/template/search/datauseResult.html?v=' +     resourceList.BUILD_VERSION+'&locale='+resourceList.locale" ng-if="result.contentType == 'dataUse'"></ng-include>
                     <ng-include src="'/api/template/search/newsResult.html?v=' +        resourceList.BUILD_VERSION+'&locale='+resourceList.locale" ng-if="result.contentType == 'news'"></ng-include>
@@ -40,9 +40,9 @@
                         class="pagination-sm"
                         boundary-link-numbers="false"
                         rotate="false"
-                        first-text="{{'stdTerms.first' | translate}}"
-                        next-text="{{'stdTerms.next' | translate}}"
-                        previous-text="{{'stdTerms.previous' | translate}}"
+                        first-text="{{'pagination.first' | translate}}"
+                        next-text="{{'pagination.next' | translate}}"
+                        previous-text="{{'pagination.previous' | translate}}"
                         ng-change="resourceList.pageChanged()"
                         ng-show="resourceList.state.data.count > resourceList.limit">
                 </uib-pagination>

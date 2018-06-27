@@ -1,9 +1,7 @@
 <div ng-if="participantKey.endorsed.count > 0">
     <span class="relative-anchor-offset"><a id="endorsedPublishers"></a></span>
     <div class="container--narrow">
-        <p class="small discreet text-uppercase" translate="countryKey.endorsedPublishers">
-            Endorsed publishers
-        </p>
+        <h4 class="card-header" translate="participant.endorsedPublishers"></h4>
         <div>
             <div>
                 <div ng-show="participantKey.endorsed.count > 0">
@@ -15,17 +13,17 @@
                 </div>
                 <div ng-if="participantKey.endorsed.count > participantKey.limit">
                     <uib-pagination
-                            total-items="participantKey.endorsed.count"
-                            ng-model="participantKey.currentPage_endorsed"
-                            max-size="participantKey.maxSize"
-                            items-per-page="participantKey.limit"
-                            first-text="{{'stdTerms.first' | translate}}"
-                            next-text="{{'stdTerms.next' | translate}}"
-                            previous-text="{{'stdTerms.previous' | translate}}"
-                            class="pagination-sm"
-                            boundary-link-numbers="false"
-                            rotate="false"
-                            ng-change="participantKey.pageChanged_endorsed()">
+                        total-items="participantKey.endorsed.count"
+                        ng-model="participantKey.currentPage_endorsed"
+                        max-size="participantKey.maxSize"
+                        items-per-page="participantKey.limit"
+                        first-text="{{'pagination.first' | translate}}"
+                        next-text="{{'pagination.next' | translate}}"
+                        previous-text="{{'pagination.previous' | translate}}"
+                        class="pagination-sm"
+                        boundary-link-numbers="false"
+                        rotate="false"
+                        ng-change="participantKey.pageChanged_endorsed()">
                     </uib-pagination>
                 </div>
             </div>
@@ -33,5 +31,5 @@
     </div>
 </div>
 <div class="emptyInfo--small" ng-if="!participantKey.endorsed.count">
-    <h3 translate="countryKey.noEndorsedPublishers">No endorsed publishers</h3>
+    <h3 translate="participant.noEndorsedPublishers">No endorsed publishers</h3>
 </div>

@@ -15,7 +15,7 @@
                 <img class="searchCard__img--noCrop" ng-src="{$ _meta.imageCache $}128x/{{ result.logoUrl | encodeURIComponent }}" ng-if="result.logoUrl">
             </a>
             <div class="searchCard__meta" ng-if="result.created">
-                <span translate="publisher.joined"></span> {{ result.created | momentFromNow}}
+                <span translate="publisher.joinedAgo" translate-values="{TIME_AGO: (result.created | momentFromNow)}"></span>
             </div>
             <div ng-if="result._contact.email[0]" class="small">
                 <span class="uppercase-first" translate="gbifNetwork.contact"></span>: <a href="mailto:{{ result._contact.email[0] }}">{{ result._contact.firstName }} {{ result._contact.lastName }}</a>
@@ -25,7 +25,7 @@
             </p>
             <ul class="list-chips">
                 <li ng-if="result.numPublishedDatasets">
-                    <a href="" ui-sref="datasetSearchTable({publishing_org:result.key})"><span class="uppercase-first" translate="stdTerms.datasets"></span>: {{ result.numPublishedDatasets }}</a>
+                    <a href="" ui-sref="datasetSearchTable({publishing_org:result.key})"><span tx="counts.nDatasets" tx-nr="result.numPublishedDatasets"></span></a>
                 </li>
                 <li ng-if="result.country">
                     <a href="" ui-sref=".({country:result.country})" translate="country.{{ result.country }}">{{ result.country }}</a>

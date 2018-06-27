@@ -22,7 +22,7 @@
                 <div>
 
                     <div ng-if="vm.hasError" class="emptyInfo--small">
-                        <h3 ng-if="vm.hasApiCriticalError" translate="stdTerms.criticalErrorMsg"></h3>
+                        <h3 ng-if="vm.hasApiCriticalError" translate="phrases.criticalErrorMsg"></h3>
                         <h3 ng-if="vm.hasApi413Error" translate="validation.errors.413"></h3>
                         <p ng-if="vm.hasApi413Error" translate="validation.fileSizeLimit"></p>
                         <h3 ng-if="vm.hasApi404Error" translate="validation.errors.404"></h3>

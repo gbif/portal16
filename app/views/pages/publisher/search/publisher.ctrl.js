@@ -22,14 +22,13 @@ function publisherCtrl($state, hotkeys, PublisherFilter, Page) {
     vm.filters = {};
 
     vm.filters.countryCode = {
-        titleTranslation: 'ocurrenceFieldNames.country',
+        titleTranslation: 'filterNames.countryOrArea',
         queryKey: 'country',
         filter: PublisherFilter,
         enumTranslationPath: 'country.',
         singleSelect: true,
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {

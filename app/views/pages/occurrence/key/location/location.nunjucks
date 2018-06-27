@@ -1,7 +1,5 @@
 {% if (occurrence.record.decimalLatitude | isDefined and occurrence.record.decimalLongitude | isDefined) or occurrence.record.footprintWKT | isDefined %}
     {% include('./map/map.nunjucks') %}
-{#{% else %}#}
-
 {% endif %}
 
 {% include('./description/description.nunjucks') %}

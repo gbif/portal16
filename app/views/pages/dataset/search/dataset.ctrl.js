@@ -23,16 +23,9 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     vm.filters = {};
 
     // facet filters
-    vm.filters.type = {
-        queryKey: 'type',
-        facetKey: 'TYPE',
-        title: 'type',
-        translationPrefix: 'dataset.search',
-        filter: DatasetFilter
-    };
 
     vm.filters.license = {
-        titleTranslation: 'stdTerms.license',
+        titleTranslation: 'filterNames.license',
         queryKey: 'license',
         filter: DatasetFilter,
         enumTranslationPath: 'license.',
@@ -44,40 +37,13 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         }
     };
 
-    vm.filters.taxonKey = {
-        titleTranslation: 'ocurrenceFieldNames.scientificName',
-        queryKey: 'taxon_key',
-        filter: DatasetFilter,
-        expand: {
-            resource: Species,
-            expandedTitle: 'scientificName'
-        },
-        facets: {
-            hasFacets: false,
-            facetKey: 'TAXON_KEY'
-        },
-        search: {
-            isSearchable: true,
-            placeholder: 'search TRANSLATE',
-            suggestEndpoint: suggestEndpoints.taxon,
-            defaultParams: {
-                datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
-            },
-            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
-            suggestTitle: 'scientificName',
-            suggestShortName: 'title',
-            suggestKey: 'key'
-        }
-    };
-
     vm.filters.publishingCountry = {
-        titleTranslation: 'dataset.search.publishingCountry',
+        titleTranslation: 'filterNames.publishingCountry',
         queryKey: 'publishing_country',
         filter: DatasetFilter,
         enumTranslationPath: 'country.',
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale + '&v=' + BUILD_VERSION
         },
         facets: {
@@ -87,7 +53,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.publisher = {
-        titleTranslation: 'stdTerms.publisher',
+        titleTranslation: 'filterNames.publishingOrg',
         queryKey: 'publishing_org',
         filter: DatasetFilter,
         expand: {
@@ -100,7 +66,6 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         },
         search: {
             isSearchable: true,
-            placeholder: 'dataset.search.publishingOrg',
             suggestEndpoint: suggestEndpoints.publisher,
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
@@ -110,7 +75,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.hostingOrg = {
-        titleTranslation: 'dataset.search.hostingOrg',
+        titleTranslation: 'filterNames.hostingOrg',
         queryKey: 'hosting_org',
         filter: DatasetFilter,
         expand: {
@@ -123,7 +88,6 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
         },
         search: {
             isSearchable: true,
-            placeholder: 'dataset.search.hostingOrg',
             suggestEndpoint: suggestEndpoints.publisher,
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
@@ -133,7 +97,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
     };
 
     vm.filters.projectId = {
-        titleTranslation: 'dataset.search.projectId',
+        titleTranslation: 'filterNames.projectId',
         queryKey: 'project_id',
         filter: DatasetFilter,
         facets: {
@@ -141,8 +105,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pu
             facetKey: 'PROJECT_ID'
         },
         search: {
-            isSearchable: true,
-            placeholder: 'dataset.search.projectId'
+            isSearchable: true
         }
     };
 

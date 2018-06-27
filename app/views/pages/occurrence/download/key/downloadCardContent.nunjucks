@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     {$ __('downloadKey.downloadKilled') $}
-                    <a href="" ng-click="userDownloads.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                    <a href="" ng-click="userDownloads.openHelpdesk()">{$ __('downloadKey.contactHelpdesk') $}</a>
                     {% if download.record.key %}
                         <div class="m-t-05">
                             <a href="{$ gb.locales.urlPrefix $}/occurrence/download/{$ download.record.key $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         {$ __('downloadKey.downloadDeleted') $}
-                        <a href="" ng-click="userDownloads.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                        <a href="" ng-click="userDownloads.openHelpdesk()">{$ __('downloadKey.contactHelpdesk') $}</a>
                     </div>
                 </div>
             </div>
@@ -67,8 +67,10 @@
     {% endif %}
 </div>
 <div class="card__stripe">
-    <div class="card__content predicateContainer">
-        {% if not download.noFilters %}
+    <div class="card__content {% if download._hugeQuery %} card__content--warning {% endif %}predicateContainer">
+        {% if download._hugeQuery %}
+            <div>{$ __('downloadKey.largeQueryMessage') $}</div>
+        {% elif not download.noFilters %}
             <div class="toggle small">
             </div>
             <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}">

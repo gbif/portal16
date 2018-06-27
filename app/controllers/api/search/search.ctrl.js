@@ -5,7 +5,7 @@ let express = require('express'),
     format = rootRequire('app/helpers/format'),
     backboneDatasetKey = rootRequire('config/config').publicConstantKeys.dataset.backbone,
     resourceSearch = require('../resource/search/resourceSearch'),
-    Dataset = require('./dataset'),
+    Dataset = require('./datasetSearch'),
     Species = require('./species'),
     SpeciesMatch = require('./speciesMatches'),
     Publisher = require('./publisher'),
@@ -17,8 +17,8 @@ module.exports = function(app) {
 };
 
 router.get('/omniSearch', function(req, res) {
-    let query = req.query.q,
-        preferedLocale = req.query.locale;
+    let query = req.query.q || '',
+        preferedLocale = req.query.locale || 'en';
 
     search(query, preferedLocale, res.__)
         .then(function(result) {

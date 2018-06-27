@@ -1,16 +1,88 @@
 {% extends "../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes errorPage 404">
-        <section>
+    <article class="wrapper-horizontal-stripes" ng-controller="searchCtrl as rootSearch">
+        
+        <section class="horizontal-stripe--paddingless light-background p-t-1">
+            <div class="container--narrow">
+                <div class="card card--spaced">
+                    <div style="height: 250px; position:relative; background-size: cover; background-position: top; background-image:url('/img/dodo.jpg')">
+                        <div class="img_caption">
+                            <a href="https://mczbase.mcz.harvard.edu/guid/MCZ:Orn:340825"><i>Raphus cucullatus</i></a> via <a href="/dataset/4bfac3ea-8763-4f4b-a71a-76a6f5f243d3">Museum of Comparative Zoology, Harvard University</a>. CC BY-NC-SA 3.0.
+                        </div>
+                    </div>
+                    <div class="card__stripe">
+                        <div class="card__content text-center">
+                            <h3>404</h3>
+                            <div>{$ __('phrases.404Text') | renderMarkdown | safe $}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-t-1" ng-init="rootSearch.searchUrlFragment('INPN - Données flore des CBN agrégées par la FCBN');">
+                    <h4 class="card-header">{$ __('search.search') $}</h4>
+                    <form class="search-box" ng-submit="rootSearch.updateSearch()">
+                        <input type="text"
+                                id="siteSearch"
+                                autocomplete="off"
+                                ng-init="rootSearch.freeTextQuery == ''"
+                                ng-model="rootSearch.freeTextQuery"
+                                placeholder="{$ __('search.placeholder') $}"
+                                ng-keydown="rootSearch.closeOnEsc($event)">
+                        <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2 inherit"
+                            ng-click="rootSearch.updateSearch()">
+                            <span class="sr-only" translate="search.search"></span>
+                        </a>
+                    </form>
+                </div>
+                <div class="ng-cloak m-t-1" ng-if="rootSearch.results.resourceHighlights.count > 0 || rootSearch.results.resources.count > 0 || rootSearch.results.datasets.count">
+                    <h4 class="card-header">{$ __('search.suggestions') $}</h4>
+
+                    <div ng-if="rootSearch.results.resourceHighlights.count > 0">
+                        <div ng-repeat="result in rootSearch.results.resourceHighlights.results">
+                            <ng-include src="'/api/template/search/articleResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'article'"></ng-include>
+                            <ng-include src="'/api/template/search/eventResult.html?v=' +       portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'event'"></ng-include>
+                            <ng-include src="'/api/template/search/datauseResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'dataUse'"></ng-include>
+                            <ng-include src="'/api/template/search/newsResult.html?v=' +        portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'news'"></ng-include>
+                            <ng-include src="'/api/template/search/projectResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'project'"></ng-include>
+                            <ng-include src="'/api/template/search/programmeResult.html?v=' +   portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'programme'"></ng-include>
+                            <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'literature'"></ng-include>
+                            <ng-include src="'/api/template/search/toolResult.html?v=' +        portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'tool'"></ng-include>
+                            <ng-include src="'/api/template/search/documentResult.html?v=' +    portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'document'"></ng-include>
+                        </div>
+                    </div>
+
+                    <div ng-if="rootSearch.results.resources.count > 0">
+                        <div ng-repeat="result in rootSearch.results.resources.results | limitTo:1">
+                            <ng-include src="'/api/template/search/articleResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'article'"></ng-include>
+                            <ng-include src="'/api/template/search/eventResult.html?v=' +       portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'event'"></ng-include>
+                            <ng-include src="'/api/template/search/datauseResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'dataUse'"></ng-include>
+                            <ng-include src="'/api/template/search/newsResult.html?v=' +        portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'news'"></ng-include>
+                            <ng-include src="'/api/template/search/projectResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'project'"></ng-include>
+                            <ng-include src="'/api/template/search/programmeResult.html?v=' +   portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'programme'"></ng-include>
+                            <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'literature'"></ng-include>
+                            <ng-include src="'/api/template/search/toolResult.html?v=' +        portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'tool'"></ng-include>
+                            <ng-include src="'/api/template/search/documentResult.html?v=' +    portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'document'"></ng-include>
+                        </div>
+                    </div>
+
+                    <div ng-if="rootSearch.results.datasets.count > 0">
+                        <div ng-repeat="result in rootSearch.results.datasets.results | limitTo:1">
+                            <ng-include src="'/api/template/search/datasetResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        {# <section>
             <div class="horizontal-stripe">
                 <h1 class="giant gb-icon-dodo">404</h1>
-                <p>This page might have existed once, but we can no longer find it.</p>
-                <p>
-                    We released an improved and updated GBIF.org in August 2017, so some URLs may have changed. Please try our much-improved <a href="/search">search</a> to find what you're looking for.
-                    <br/>
-                    If the problem persists, please contact us at <a href="mailto:helpdesk@gbif.org">helpdesk@gbif.org</a>.
-                </p>
+                <div>{$ __('phrases.pageMightHaveExisted') | renderMarkdown | safe $}</div>
+                <div>
+                    <div>{$ __('phrases.weReleasedAnewSite') | renderMarkdown | safe $}</div>
+                    <div>{$ __('phrases.ifTheProblemExists') | renderMarkdown | safe $}</div>
+                </div>
             </div>
             <div class="horizontal-stripe">
                 <div class="errorPage__img">
@@ -19,7 +91,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> #}
     </article>
 
 {% endblock %}

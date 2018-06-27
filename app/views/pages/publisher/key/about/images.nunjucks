@@ -1,11 +1,11 @@
 <div class="container--desktop m-t-1 ng-cloak" ng-if="publisherKey.images.count > 0">
-    <h4 class="card-header--bold" tx="stdTerms.nOccWithImages" tx-nr="publisherKey.images.count"></h4>
+    <h4 class="card-header--bold" tx="galleryBar.nOccWithImages" tx-nr="publisherKey.images.count"></h4>
     <div class="galleryBar">
         <div>
             <a ng-repeat="occurrence in publisherKey.images.results" ui-sref="occurrenceKey({key:occurrence.key})" href="" ng-if="occurrence._image" class="galleryBar__img showBroken inherit noUnderline hoverBox">
                 <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
             </a>
         </div>
-        <a ui-sref="occurrenceSearchGallery({publishing_org: publisherKey.key})" class="gb-button--brand" translate="phrases.seeGallery"></a>
+        <a ui-sref="occurrenceSearchGallery({publishing_org: publisherKey.key})" class="gb-button--brand" translate="galleryBar.seeAllImages"></a>
     </div>
 </div>

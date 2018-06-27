@@ -3,51 +3,39 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="tabs__wrapper ">
-
                     <nav class="tabs tabs--noBorder">
                         <ul>
-
                             <li class="tab tab-right ng-cloak" ng-if="vm.jobid && (vm.jobStatus ==='FINISHED' || vm.jobStatus ==='FAILED') ">
-                                        <span>
-                                            <a ui-sref="dataValidator()" class="gb-button--brand" translate="validation.newValidation">
-                                                New validation
-                                            </a>
-                                        </span>
+                                <span>
+                                    <a ui-sref="dataValidator()" class="gb-button--brand" translate="validation.tabs.newValidation">
+                                        New validation
+                                    </a>
+                                </span>
                             </li>
-
-
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidator')}" ng-if="!vm.jobid">
-                                <a ui-sref="dataValidator()" translate="validation.newDataValidation">
+                                <a ui-sref="dataValidator()" translate="validation.tabs.newDataValidation">
                                     New data validation
                                 </a>
                             </li>
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidatorKey')}" ng-if="vm.jobid">
-                                <a ui-sref="dataValidatorKey({jobid:vm.jobid})" class="uppercase-first" translate="stdTerms.summary">
+                                <a ui-sref="dataValidatorKey({jobid:vm.jobid})" class="uppercase-first" translate="validation.tabs.summary">
                                     Summary
                                 </a>
                             </li>
-
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidatorKeyDocument')}" ng-if="vm.jobStatus ==='FINISHED' && vm.validationResults.summary.fileFormat === 'DWCA'">
-                                <a ui-sref="dataValidatorKeyDocument({jobid:vm.jobid})" translate="validation.metaData">
+                                <a ui-sref="dataValidatorKeyDocument({jobid:vm.jobid})" translate="validation.tabs.metaData">
                                     Meta data
                                 </a>
                             </li>
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidatorExtensions') || vm.$state.is('dataValidatorExtensionsKey') }" ng-if="vm.jobid">
-                                {#<a ui-sref="dataValidatorExtensions()" ng-if="!vm.jobid">#}
-                                    {#Darwin core extensions#}
-                                {#</a>#}
-                                <a ui-sref="dataValidatorExtensionsKey({jobid:vm.jobid})" ng-if="vm.jobid" translate="validation.darwinCoreExtensions">
+                                <a ui-sref="dataValidatorExtensionsKey({jobid:vm.jobid})" ng-if="vm.jobid" translate="validation.tabs.darwinCoreExtensions">
                                     Darwin core extensions
                                 </a>
-
                             </li>
                             <li class="tab" ng-class="{isActive: vm.$state.is('dataValidatorAbout') || vm.$state.is('dataValidatorAboutKey') }" ng-if="!vm.jobid">
-                                <a ui-sref="dataValidatorAbout()" ng-if="!vm.jobid" class="uppercase-first" translate="stdTerms.about">About</a>
-                                <a ui-sref="dataValidatorAboutKey({jobid:vm.jobid})" class="uppercase-first" ng-if="vm.jobid" translate="stdTerms.about">About</a>
+                                <a ui-sref="dataValidatorAbout()" ng-if="!vm.jobid" class="uppercase-first" translate="validation.tabs.about">About</a>
+                                <a ui-sref="dataValidatorAboutKey({jobid:vm.jobid})" class="uppercase-first" ng-if="vm.jobid" translate="validation.tabs.about">About</a>
                             </li>
-
-
-
                         </ul>
                     </nav>
                 </div>

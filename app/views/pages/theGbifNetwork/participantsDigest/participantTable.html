@@ -1,7 +1,7 @@
 <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.tableLoaded === false && !vm.participantApiError"></ng-include>
 
 <div ng-if="vm.participantApiError" class="emptyInfo--small">
-    <h3  translate="stdTerms.nonCriticalErrorMsg"></h3>
+    <h3  translate="phrases.nonCriticalErrorMsg"></h3>
 
 
 </div>
@@ -11,15 +11,14 @@
 <div class="participants__table scrollable-y  ng-cloak" ng-show="vm.tableLoaded === true && !vm.participantApiError && vm.activeParticipantsDigest.length > 0">
     <div class="table-container--participant"
         ng-init="sort = {field: 'name', reverse: false };">
-        <h4 translate="gbifNetwork.participant"
-                  translate-values="{NUMBER: vm.activeParticipantsDigest.length}"></h4>
+        <h4 translate="gbifNetwork.nParticipants"
+                  translate-values="{NUMBER: vm.activeParticipantsDigest.length, NUMBER_FORMATTED: (vm.activeParticipantsDigest.length | localNumber)}"></h4>
 
         <table class="table card">
             <thead>
             <tr>
                 <th><a ng-click="sort.field = 'name'; sort.Reverse = !sort.Reverse"
-                       translate="gbifNetwork.participant"
-                       translate-values="{NUMBER: 'one'}"></a>
+                       translate="gbifNetwork.participant"></a>
                     <div ng-show="sort.field == 'name' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'name' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
@@ -33,28 +32,26 @@
                 </th>
                 <th>
                     <a ng-click="sort.field = 'memberSince'; sort.Reverse = !sort.Reverse">
-                        <span translate="stdTerms.memberSince"></span>
+                        <span translate="gbifNetwork.memberSince"></span>
                     </a>
                     <div ng-show="sort.field == 'memberSince' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'memberSince' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
                 <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'"><a ng-click="sort.field = 'datasetFromCountSort'; sort.Reverse = !sort.Reverse"
-                       translate="gbifNetwork.dataset"
-                       translate-values="{NUMBER: 'two'}">
+                       translate="gbifNetwork.datasets">
                     </a>
                     <div ng-show="sort.field == 'datasetFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'datasetFromCountSort' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
                 <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'"><a ng-click="sort.field = 'occurrenceFromCountSort'; sort.Reverse = !sort.Reverse"
-                       translate="gbifNetwork.record"
-                       translate-values="{NUMBER: 'two'}">
+                       translate="gbifNetwork.records">
                     </a>
                     <div ng-show="sort.field == 'occurrenceFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'occurrenceFromCountSort' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
 
                 <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'"><a ng-click="sort.field = 'endorsedPublishersSort'; sort.Reverse = !sort.Reverse"
-                       translate="stdTerms.publishers">
+                       translate="gbifNetwork.publishers">
 
                     </a>
                     <div ng-show="sort.field == 'endorsedPublishersSort' && !sort.Reverse" class="gb-icon-angle-down"></div>

@@ -5,37 +5,47 @@
                 <dl class="inline">
                     {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 or occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 %}
                         <div>
-                            <dt>GBIF Taxon interpretation</dt>
-                            {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 %}   <dd >none</dd>{% endif %}
+                            <dt translate="occurrence.gbifTaxonInterpretation"></dt>
+                            {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 %} <dd translate="occurrence.noTaxonMatch"></dd>{% endif %}
                             {% if occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 %}   <dd>
-                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
-                                    occurrence.record.scientificName $}</a>
-                            </dd>{% endif %}
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">
+                                    {$ occurrence.record.scientificName $}
+                                </a>
+                            </dd>
+                            {% endif %}
                         </div>
                     {% endif %}
                     {% if (occurrence.record.taxonRank | isNotEmpty) and occurrence.species.taxonomicStatus !== 'SYNONYM' and occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") === -1 %}
                         <div>
                             <dt>{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
-                            <dd><a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
-                                    occurrence.record.scientificName $}</a>
-                                    </dd>
+                            <dd>
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}" scientific-name key="{$ occurrence.record.taxonKey $}">
+                                    {$ occurrence.record.scientificName $}
+                                </a>
+                            </dd>
                         </div>
                     {% endif %}
                     {% if occurrence.species.taxonomicStatus === 'SYNONYM' %}
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.appliedName' ) $}</dt>
-                            <dd><a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
-                                    occurrence.record.scientificName $}</a></dd>
+                            <dd>
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">
+                                    {$ occurrence.record.scientificName $}
+                                </a>
+                            </dd>
                         </div>
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.acceptedName' ) $}</dt>
-                            <dd><a ui-sref="speciesKey({ speciesKey:{$ occurrence.species.key $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.species.key $}">{$
-                                    occurrence.species.accepted $}</a></dd>
+                            <dd>
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.species.key $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.species.key $}">
+                                    {$ occurrence.species.accepted $}
+                                </a>
+                            </dd>
                         </div>
                     {% endif %}
                     {% if occurrence.record.issues.indexOf("TAXON_MATCH_FUZZY") > -1 %}
                         <div>
-                            <dt>Verbatim name</dt>
+                            <dt translate="occurrence.highlights.verbatimName">Verbatim name</dt>
                             <dd>{$ occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] $}</dd>
                         </div>
                     {% endif %}
@@ -43,11 +53,12 @@
 
                     {% if occurrence.record.countryCode | isNotEmpty or occurrence.record.continent | isNotEmpty %}
                         <div>
-                            <dt>{$ __('stdTerms.location') $}</dt>
+                            <dt>{$ __('occurrence.highlights.location') $}</dt>
                             <dd class="classification-list">
                                 {% if occurrence.record.continent %}<span>{$ __('continent.' + occurrence.record.continent) $}</span>{% endif %}
                                 {% if occurrence.record.countryCode %}
-                                    <span translate="country.{$ occurrence.record.countryCode $}">{$ occurrence.record.country $}</span>{% endif %}
+                                    <span>{$ __('country.' + occurrence.record.countryCode) $}</span>
+                                {% endif %}
                             </dd>
                         </div>
                     {% endif %}
@@ -62,12 +73,12 @@
                     {% endif %}
 
                     <div>
-                        <dt>{$ __('stdTerms.basisOfRecord') $}</dt>
+                        <dt>{$ __('ocurrenceFieldNames.basisOfRecord') $}</dt>
                         <dd>{$ __('basisOfRecord.' + occurrence.record.basisOfRecord) $}</dd>
                     </div>
                     {% if occurrence.record.typeStatus | isNotEmpty %}
                         <div>
-                            <dt>{$ __('stdTerms.specimenType') $}</dt>
+                            <dt>{$ __('occurrence.highlights.specimenType') $}</dt>
                             <dd>{$ __('typeStatus.' + occurrence.record.typeStatus) $}</dd>
                         </div>
                     {% endif %}
@@ -76,7 +87,7 @@
             <div>
                 <dl class="inline">
                     <div>
-                        <dt>{$ __('stdTerms.dataset') $}</dt>
+                        <dt>{$ __('occurrence.dataset') $}</dt>
                         <dd>
                             <a ui-sref="datasetKey({ key: occurrenceKey.data.datasetKey })" href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">
                                 {$ occurrence.dataset.title | truncate(80) $}
@@ -84,7 +95,7 @@
                         </dd>
                     </div>
                     <div>
-                        <dt>{$ __('stdTerms.publisher') $}</dt>
+                        <dt>{$ __('occurrence.highlights.publisher') $}</dt>
                         <dd>
                             <a ui-sref="publisherKey({ key: occurrenceKey.data.publishingOrgKey })" href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">
                             {$ occurrence.publisher.title | truncate(80) $}</a>
@@ -93,7 +104,7 @@
 
                     {% if occurrence.record.references | isNotEmpty %}
                         <div>
-                            <dt>{$ __('stdTerms.reference') $}</dt>
+                            <dt>{$ __('occurrence.highlights.reference') $}</dt>
                             <dd>
                                 {% if occurrence.record.references | isLink %}
                                     <a href="{$ occurrence.record.references $}">{$ occurrence.record.references | truncate(50) $}</a>
@@ -106,7 +117,7 @@
 
                     {% if occurrence.issueSummary | isNotEmpty %}
                         <div class="issue-summary">
-                            <dt>{$ __('stdTerms.issues') $}</dt>
+                            <dt>{$ __('occurrence.issues') $}</dt>
                             <dd class="issue-summary__list">
                                 {% for type in ['ERROR', 'WARNING', 'INFO'] %}
                                     {% for issue in occurrence.issueSummary[type] %}

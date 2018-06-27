@@ -5,7 +5,6 @@
         var gb = gb || {};
     </script>
     <div class="emptyInfo--large">
-        <h3 translate="stdTerms.loading">Loading</h3>
-        <p>Hang on while we find your occurrence</p>
+        <h3 translate="phrases.loading">Loading</h3>
     </div>
 {% endblock %}

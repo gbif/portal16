@@ -25,7 +25,7 @@
                 var AUTH_TOKEN_NAME = 'token';
 
                 that.userFromToken = function() {
-                    var token = $cookies.get(AUTH_TOKEN_NAME);
+                    var token = that.getAuthToken();
                     if (!token) {
                         return;
                     }
@@ -52,13 +52,12 @@
                     var token = $cookies.get(AUTH_TOKEN_NAME);
                     if (!token) {
                         delete $sessionStorage.user;
-                        $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
                     }
                     return token;
                 };
 
                 that.loadActiveUser = function() {
-                    var token = $cookies.get(AUTH_TOKEN_NAME);
+                    var token = that.getAuthToken();
                     if (!token) {
                         var deferred = $q.defer();
                         deferred.reject();

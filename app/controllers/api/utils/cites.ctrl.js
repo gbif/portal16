@@ -22,13 +22,12 @@ router.get('/cites/:kingdom/:name', function(req, res) {
             });
             if (matchedTaxon) {
                 decorateTaxon(matchedTaxon);
-                res.json(matchedTaxon);
+                res.status(200).json(matchedTaxon);
                 return;
             }
         }
         // no entries found or it didn't match kingdom
-        res.status(204);
-        res.json('No entry found');
+        res.status(404).send('No entry found');
     }, function(err) {
         res.status(err.statusCode || 500);
         res.send('unable to process');

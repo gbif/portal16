@@ -2,7 +2,7 @@
 const _ = require('lodash'),
     format = require('../../../../helpers/format'),
     slug = require('slug'),
-    md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true}),
+    md = require('markdown-it')({html: true, linkify: false, typographer: true, breaks: true}),
     changeCase = require('change-case');
 
 md.use(require('markdown-it-video'), {

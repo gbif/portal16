@@ -29,6 +29,10 @@ Dataset.prototype.expand = function(fieldNames) {
     // TODO check whether the process endpoint shows the status in real-time.
     let resources = [],
         resourceLookup = {
+            network: {
+                resource: api.dataset.url + this.record.key + '/networks',
+                extendToField: 'network'
+            },
             publisher: {
                 resource: api.publisher.url + this.record.publishingOrganizationKey,
                 extendToField: 'publisher'

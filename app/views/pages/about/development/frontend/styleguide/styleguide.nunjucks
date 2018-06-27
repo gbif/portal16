@@ -1,6 +1,0 @@
-{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
-{% block page %}
-    <article>
-        {% include "../../../../../components/examples.nunjucks" %}
-    </article>
-{% endblock %}

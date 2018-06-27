@@ -6,8 +6,8 @@
         </div>
         {% if main.fields.numberOfResourceUsed | isNotEmpty %}
             <span class="article-header__meta">
-                    {$ main.fields.numberOfResourceUsed | striptags $}
-                    </span>
+                {$ main.fields.numberOfResourceUsed | striptags $}
+            </span>
         {% endif %}
     </header>
 </div>

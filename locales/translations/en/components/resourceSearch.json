@@ -1,0 +1,38 @@
+{
+    "resourceSearch": {
+        "upcoming": "Upcoming",
+        "past": "Past",
+        "searchForNewsEventsDocuments": "Search for news, events, documents and much more. If you are looking for species occurrences then try our occurrence search.",
+        "occurrenceSearch": "Occurrence search",
+        "subscribeToCalendar": "Subscribe to calendar",
+        "citationExplainer": "Read more about literature, how it’s discovered and linked to GBIF-mediated data.",
+        "types": {
+            "events": "Events",
+            "news": "News",
+            "resources": "Resources",
+            "projects": "Projects",
+            "programmes": "Programmes",
+            "documents": "Documents",
+            "tools": "Tools",
+            "dataUse": "Data use",
+            "literature": "Literature"
+        },
+        "filters": {
+            "countriesOfCoverage": "Country or area of coverage",
+            "countriesOfResearcher": "Country or area of researcher",
+            "literatureType": "Literature type",
+            "contractCountry": "Country or area",
+            "topics": "Topic",
+            "audiences": "Audiences",
+            "purposes": "Purpose",
+            "relevance": "Relevance",
+            "language": "Language",
+            "year": "Year",
+            "gbifDatasetKey": "Dataset",
+            "publishingOrganizationKey": "Publisher",
+            "peerReview": "Peer-Reviewed",
+            "openAccess": "Open access",
+            "gbifDownloadKey": "Download key"
+        }
+    }
+}

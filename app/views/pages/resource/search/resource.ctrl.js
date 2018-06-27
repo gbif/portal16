@@ -15,13 +15,12 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     vm.filters = {};
 
     vm.filters.countriesOfCoverage = {
-        titleTranslation: 'enums.cms.vocabularyTypes.countriesOfCoverage',
+        titleTranslation: 'resourceSearch.filters.countriesOfCoverage',
         queryKey: 'countriesOfCoverage',
         filter: ResourceFilter,
         enumTranslationPath: 'country.',
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {
@@ -31,13 +30,12 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     };
 
     vm.filters.countriesOfResearcher = {
-        titleTranslation: 'enums.cms.vocabularyTypes.countriesOfResearcher',
+        titleTranslation: 'resourceSearch.filters.countriesOfResearcher',
         queryKey: 'countriesOfResearcher',
         filter: ResourceFilter,
         enumTranslationPath: 'country.',
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {
@@ -47,13 +45,12 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     };
 
     vm.filters.contractCountry = {
-        titleTranslation: 'enums.cms.vocabularyTypes.contractCountry',
+        titleTranslation: 'resourceSearch.filters.contractCountry',
         queryKey: 'contractCountry',
         filter: ResourceFilter,
         enumTranslationPath: 'country.',
         search: {
             isSearchable: true,
-            placeholder: 'ocurrenceFieldNames.TRANSLATE',
             suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
         },
         facets: {
@@ -71,7 +68,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     };
 
     vm.filters.year = {
-        titleTranslation: 'ocurrenceFieldNames.year',
+        titleTranslation: 'resourceSearch.filters.year',
         intervalTranslation: 'intervals.year.',
         queryKey: 'year',
         filter: ResourceFilter,
@@ -86,7 +83,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     var facetedEnumFilters = ['purposes', 'topics', 'literatureType', 'relevance', 'audiences'];
     facetedEnumFilters.forEach(function(e) {
         vm.filters[e] = {
-            titleTranslation: 'enums.cms.vocabularyTypes.' + e,
+            titleTranslation: 'resourceSearch.filters.' + e,
             queryKey: e,
             filter: ResourceFilter,
             enumTranslationPath: 'enums.cms.vocabularyTerms.' + e + '.',
@@ -102,7 +99,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     });
 
     vm.filters.dataset = {
-        titleTranslation: 'stdTerms.dataset',
+        titleTranslation: 'resourceSearch.filters.gbifDatasetKey',
         queryKey: 'gbifDatasetKey',
         filter: ResourceFilter,
         expand: {
@@ -114,7 +111,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         },
         search: {
             isSearchable: true,
-            placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.dataset,
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
@@ -124,7 +120,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     };
 
     vm.filters.publisher = {
-        titleTranslation: 'stdTerms.publisher',
+        titleTranslation: 'resourceSearch.filters.publishingOrganizationKey',
         queryKey: 'publishingOrganizationKey',
         filter: ResourceFilter,
         expand: {
@@ -136,7 +132,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         },
         search: {
             isSearchable: true,
-            placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.publisher,
             suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
@@ -146,7 +141,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     };
 
     vm.filters.gbifDownloadKey = {
-        titleTranslation: 'filters.gbifDownloadKey',
+        titleTranslation: 'resourceSearch.filters.gbifDownloadKey',
         queryKey: 'gbifDownloadKey',
         filter: ResourceFilter,
         search: {
@@ -160,13 +155,13 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     };
 
     vm.filters.peerReview = {
-        titleTranslation: 'filters.peerReview.title',
+        titleTranslation: 'resourceSearch.filters.peerReview',
         queryKey: 'peerReview',
         filter: ResourceFilter
     };
 
     vm.filters.openAccess = {
-        titleTranslation: 'filters.openAccess.title',
+        titleTranslation: 'resourceSearch.filters.openAccess',
         queryKey: 'openAccess',
         filter: ResourceFilter
     };

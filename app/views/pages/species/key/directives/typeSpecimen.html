@@ -1,41 +1,32 @@
-<div class="m-t-1" ng-if="vm.specimen && vm.specimen.length >0" >
-
-    <h4   class="text-muted small text-uppercase">Type specimen</h4>
-
-    <div >
-        <!--<span class="discreet text-uppercase small">References</span>-->
-
-
-
-
-
-<section id="type-specimen" class="card--references card" >
-    <div class="tableList discreet" >
-    <ul>
-        <li ng-repeat="occ in vm.specimen " class="card--references__item">
-        <div>
-            <small>{{occ.typeStatus}}:</small>
-            <span ng-show="occ.recordedBy">
-            {{occ.recordedBy}}<span ng-show="occ.year"> ({{occ.year}})</span><span ng-show="occ.country"> {{occ.country}}</span>.
-            </span>
-            <a ng-href="/occurrence/{{occ.key}}">
-                <span ng-show="occ.catalogNumber">
-                {{occ.institutionCode}}
-                {{occ.collectionCode}}
-                {{occ.catalogNumber}}
-                </span>
-                <span ng-hide="occ.catalogNumber">
-                {{occ.occurrenceID}}
-                </span>
-            </a>
-            <div class="small">
-                Source: <a ng-href="/dataset/{{occ.datasetKey}}">{{occ._datasetKey.title}}</a>
+<div class="m-t-1" ng-if="vm.specimen && vm.specimen.length >0">
+    <h4 class="card-header">Type specimen</h4>
+    <div>
+        <section id="type-specimen" class="card--references card">
+            <div class="tableList discreet">
+                <ul>
+                    <li ng-repeat="occ in vm.specimen " class="card--references__item">
+                        <div>
+                            <small>{{occ.typeStatus}}:</small>
+                            <span ng-show="occ.recordedBy">
+                                {{occ.recordedBy}}<span ng-show="occ.year"> ({{occ.year}})</span><span ng-show="occ.country"> {{occ.country}}</span>.
+                            </span>
+                            <a ng-href="/occurrence/{{occ.key}}">
+                                <span ng-show="occ.catalogNumber">
+                                    {{occ.institutionCode}}
+                                    {{occ.collectionCode}}
+                                    {{occ.catalogNumber}}
+                                </span>
+                                <span ng-hide="occ.catalogNumber">
+                                    {{occ.occurrenceID}}
+                                </span>
+                            </a>
+                            <div class="small">
+                                Source: <a ng-href="/dataset/{{occ.datasetKey}}">{{occ._datasetKey.title}}</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-
-        </li>
-    </ul>
-    </div>
-</section>
+        </section>
     </div>
 </div>

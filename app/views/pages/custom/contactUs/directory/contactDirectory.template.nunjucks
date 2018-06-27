@@ -3,14 +3,14 @@
         <section>
             <div class="m-b-05">
                 <div class="search-box">
-                    <input type="text" ng-model="contactDirectory.q" placeholder="{{ 'stdTerms.search' | translate }}">
+                    <input type="text" ng-model="contactDirectory.q" placeholder="{{ 'search.search' | translate }}">
                 </div>
             </div>
             <div class="m-b-1 filter-buttons">
                 <a href=""
                    ng-class="{'gb-button--brand': !contactDirectory.selectedSection, 'gb-button--discreet': contactDirectory.selectedSection}"
                    ng-click="contactDirectory.changeGroup()"
-                   translate="stdTerms.all"></a>
+                   translate="directory.showAllContacts"></a>
                 <a href=""
                    ng-class="{'gb-button--brand': contactDirectory.selectedSection == group, 'gb-button--discreet': contactDirectory.selectedSection != group}"
                    ng-click="contactDirectory.changeGroup(group)"
@@ -31,9 +31,6 @@
                             <tr>
                                 <th
                                     ng-repeat="col in ['name', 'role', 'participant']">
-                                    {#<span class="inline-block text-nowrap">#}
-                                        {#<span translate="directory.columns.{{ col }}">{{ col }}</span>#}
-                                    {#</span>#}
                                     <a href=""
                                        ng-click="contactDirectory.changeSortOrder(col)">
                                         <span class="inline-block">
@@ -86,9 +83,6 @@
                             <tr>
                                 <th
                                     ng-repeat="col in ['name', 'role', 'participant', 'participationStatus']">
-                                    {#<span class="inline-block text-nowrap">#}
-                                        {#<span translate="directory.columns.{{ col }}">{{ col }}</span>#}
-                                    {#</span>#}
                                     <a href=""
                                        ng-click="contactDirectory.changeSortOrder(col)">
                                         <span class="inline-block">

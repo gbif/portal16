@@ -14,7 +14,7 @@
             </div>
             <div class="wrapper-horizontal-stripes" ng-if="!networkKey.network.$resolved">
                 <div class="emptyInfo">
-                    <h3 translate="stdTerms.loading"></h3>
+                    <h3 translate="phrases.loading"></h3>
                 </div>
             </div>
         </div>

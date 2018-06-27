@@ -5,12 +5,12 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">{{'stdTerms.search' | translate}} {{'stdTerms.occurrences' | translate}}</span>
+                        <span class="article-header__category__upper" translate="search.header.searchOccurrences"></span>
                         <span class="article-header__category__lower" ng-if="occDownload.hasData()">
-                            {{occDownload.state.table.count | localNumber:occDownload.state.query.locale }} <span translate="stdTerms.result" translate-values="{NUMBER: occDownload.state.table.count}"></span>
+                            <span tx="search.nResults" tx-nr="occDownload.state.table.count"></span>
                         </span>
                         <span class="article-header__category__lower" ng-if="!occDownload.hasData()">
-                            <span translate="stdTerms.loading"></span> ...
+                            <span translate="phrases.loading"></span> ...
                         </span>
                     </nav>
                 </div>
@@ -76,9 +76,6 @@
                     <div class="download-report m-t-2" ng-if="occDownload.hasUser">
                         <div ng-if="!occDownload.stateParams.params.q && !occDownload.hasData()" class="discreet text-center">
                             <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-                            <div class="discreet">
-                                <em translate="downloadReport.loaderText">Please hang on while we analyze your results</em>
-                            </div>
                         </div>
 
                         <div ng-show="occDownload.stateParams.params.q" class="download-report__empty">
@@ -108,42 +105,42 @@
                                 <div class="card__content">
                                     <dl class="inline">
                                         <div>
-                                            <dt translate="stdTerms.total">Total</dt>
+                                            <dt translate="downloadReport.total">Total</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
                                                 <span ng-if="occDownload.hasData()">{{occDownload.state.table.count | localNumber:occDownload.state.query.locale }}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt translate="stdTerms.license">License</dt>
+                                            <dt translate="downloadReport.license">License</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
                                                 <span ng-if="occDownload.hasData()">{{occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt translate="stdTerms.yearRange">Year range</dt>
+                                            <dt translate="downloadReport.yearRange">Year range</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showRange" class="loading"></span>
                                                 <span ng-if="occDownload.showRange">{{occDownload.minYear}}–{{occDownload.maxYear}}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt translate="phrases.withYear">With year</dt>
+                                            <dt translate="downloadReport.withYear">With year</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showYears" class="loading"></span>
                                                 <span ng-if="occDownload.showYears">{{ occDownload.withDate | formatAsPercentage }} %</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt translate="phrases.withCoordinates">With coordinates</dt>
+                                            <dt translate="downloadReport.withCoordinates">With coordinates</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showCoordinates" class="loading"></span>
                                                 <span ng-if="occDownload.showCoordinates">{{ occDownload.hasCoordinates | formatAsPercentage }} %</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt translate="phrases.withTaxonMatch"></dt>
+                                            <dt translate="downloadReport.withTaxonMatch"></dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showTaxonMatch" class="loading"></span>
                                                 <span ng-if="occDownload.showTaxonMatch">{{ occDownload.withTaxonMatch | formatAsPercentage }} %</span>
@@ -164,13 +161,13 @@
                                     </p>
                                     <p class="discreet small">
                                         <span translate="downloadReport.csvDescription"></span>
-                                        <a href="/data-processing#downloads" translate="stdTerms.learnMore"></a>
+                                        <a href="/data-processing#downloads" translate="downloadReport.learnMore"></a>
                                         <br/>
                                         <span translate="downloadReport.estimatedSize"></span>
                                         <strong>{{
                                             occDownload.estKbCsv*occDownload.state.table.count*occDownload.unzipFactor*1024 |
                                             formatBytes:0:occDownload.state.query.locale }}</strong>
-                                        (<span translate="downloadKey.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbCsv*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)
+                                        (<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbCsv*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)
                                     </p>
                                 </div>
                                 <div>
@@ -182,13 +179,13 @@
                                     </p>
                                     <p class="discreet small">
                                         <span translate="downloadReport.dwcaDescription"></span>
-                                        <a href="/data-processing#downloads" translate="stdTerms.learnMore"></a>
+                                        <a href="/data-processing#downloads" translate="downloadReport.learnMore"></a>
                                         <br/>
                                         <span translate="downloadReport.estimatedSize"></span>
                                         <strong>{{
                                             occDownload.estKbDwcA*occDownload.state.table.count*occDownload.unzipFactor*1024 |
                                             formatBytes:0:occDownload.state.query.locale }}</strong>
-                                            (<span translate="downloadKey.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbDwcA*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)
+                                            (<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbDwcA*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)
                                         
                                     </p>
                                 </div>
@@ -199,30 +196,19 @@
                             <div ng-if="!occDownload.showTaxonMatch" class="discreet text-center">
                                 <ng-include src="'/templates/components/loader/loader.html'"
                                             ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
-                                <div class="m-b-1 discreet">
-                                    <em translate="downloadReport.loaderText"></em>
-                                </div>
                             </div>
-                            <div class="m-t-2" ng-if="occDownload.showTaxonMatch">
+                            <div class="m-t-2" ng-if="occDownload.showTaxonMatch && occDownload.issues.length > 0">
                                 <div>
                                     <h4 translate="downloadReport.knownIssues"></h4>
                                     <p class="discreet" translate="downloadReport.knownIssuesDescription"></p>
                                     <div>
-                                        <div ng-if="occDownload.showIssueDetails">
+                                        <div>
                                             <span class="badge-composite--{{issue.severity | lowercase }}"
                                                   ng-repeat="issue in occDownload.issues | limitTo:occDownload.issueLimit">
                                                 <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
                                                 <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
                                             </span>
-                                            <!--<span class="badge-composite&#45;&#45;{{issue.severity | lowercase }}" ng-repeat="issue in occDownload.issues | limitTo:100:occDownload.issueLimit" ng-if="occDownload.showAllIssues">-->
-                                            <!--<span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>-->
-                                            <!--<span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>-->
-                                            <!--</span>-->
                                         </div>
-                                        <!--<div ng-if="occDownload.issues.length > occDownload.issueLimit">-->
-                                        <!--<a href="" ng-click="occDownload.showAllIssues = true" ng-if="!occDownload.showAllIssues">Show all</a>-->
-                                        <!--<a href="" ng-click="occDownload.showAllIssues = false" ng-if="occDownload.showAllIssues">Show fewer</a>-->
-                                        <!--</div>-->
                                     </div>
                                 </div>
                             </div>
@@ -254,74 +240,48 @@
     <script type="text/ng-template" id="myModalContent.html">
         <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
         <div class="gb-modal-header">
-            <span class="modal-title body-text" id="modal-title" translate="downloadKey.freeOfCost">Free of cost – not free of responsibilities</span>
+            <span class="modal-title body-text" id="modal-title" translate="downloadReport.freeOfCost"></span>
         </div>
         <div class="gb-modal-body" id="modal-body">
             <div class="gb-modal-body__content horizontal-stripe white-background">
-                <p ng-bind-html="'downloadKey.promoteTransperant' | translate | md2html">
-                </p>
-                <p translate="downloadKey.ifAnalysingData">
-                    If you are analysing the data you will download, please consider referencing this citation in your Materials and methods section.
-                </p>
+                <div ng-bind-html="'downloadReport.promoteTransperant' | translate | md2html"></div>
+                <p translate="downloadReport.ifAnalysingData"></p>
             </div>
         </div>
-        </div>
         <div class="gb-modal-footer">
-            <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()" translate="downloadKey.cancel">Cancel</a>
-            <!--<a href="" class="gb-button&#45;&#45;primary" type="button" ng-click="$ctrl.ok()"-->
-               <!--ng-class="{invisible: !$ctrl.username || !$ctrl.password || !$ctrl.email}">Understood</a>-->
-            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()" translate="downloadKey.understood">Understood</a>
+            <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()" translate="downloadReport.cancel"></a>
+            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()" translate="downloadReport.understood"></a>
         </div>
     </script>
 
     <script type="text/ng-template" id="largeDownloadWarning.html">
         <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
         <div class="gb-modal-header">
-            <span class="modal-title body-text" id="modal-title" translate="downloadKey.largeDownload">Large download</span>
+            <span class="modal-title body-text" id="modal-title" translate="downloadReport.largeDownload"></span>
         </div>
         <div class="gb-modal-body" id="modal-body">
             <div class="gb-modal-body__content horizontal-stripe white-background">
-                <p ng-if="$ctrl.options.filterCount === 0">
-                   <strong translate="downloadKey.requestingFullDownload"> You are requesting a full download of all occurrence data in GBIF.</strong>
-                   <span ng-bind-html="'downloadKey.occFiltersExplainedHere' | translate | md2html"></span>
-                
-                </p>
-                <p translate="downloadKey.estSizeIs" translate-values="{SIZE_FORMATTED: ($ctrl.options.downloadSize | formatBytes:0:occDownload.state.query.locale)}">
-                    The estimated size of the download is <strong>{{
-                    $ctrl.options.downloadSize |
-                    formatBytes:0:occDownload.state.query.locale }}</strong>
-                </p>
-                <p translate="downloadKey.estDLtimes">
-                    Estimated download times:
+                <div ng-if="$ctrl.options.filterCount === 0">
+                   <strong translate="downloadReport.requestingFullDownload"></strong>
+                   <div ng-bind-html="'downloadReport.occFiltersExplainedHere' | translate | md2html"></div>
+                </div>
+                <p translate="downloadReport.estSizeIs" translate-values="{SIZE_FORMATTED: ($ctrl.options.downloadSize | formatBytes:0:occDownload.state.query.locale)}"></p>
+                <p translate="downloadReport.estDLtimes">
                     <ul>
-                <li ng-repeat="(key, val) in $ctrl.options.downloadSpeed">
-                    <span translate="downloadKey.nMbitConn" translate-values="{NUMBER: key}"></span> : <strong>{{val}}</strong>
-                </li>
-            </ul>
+                        <li ng-repeat="(key, val) in $ctrl.options.downloadSpeed">
+                            <span translate="downloadReport.nMbitConn" translate-values="{NUMBER: key}"></span> : <strong>{{val}}</strong>
+                        </li>
+                    </ul>
                 </p>
-                <p translate="downloadKey.onceDownloaded" translate-values="{SIZE_FORMATTED: ($ctrl.options.spaceRequiredForUnzip | formatBytes:0:occDownload.state.query.locale) }">
-                    Once you have downloaded the file, you will need another <strong>{{$ctrl.options.spaceRequiredForUnzip |
-                    formatBytes:0:occDownload.state.query.locale }}</strong> of free disk space to unzip the data.
-                </p>
-                <p translate="downloadKey.datasetHasNumRows" translate-values="{NUMBER_FORMATTED: ($ctrl.options.rowCount | localNumber:occDownload.state.query.locale)}">
-                    The dataset has <strong>{{$ctrl.options.rowCount | localNumber:occDownload.state.query.locale }}</strong> data rows.
-                </p>
-                <p ng-if="$ctrl.options.fileSizeType ==='LARGE' || $ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadKey.youWillNotBeAble">
-                    You will not be able to view or analyse the data in Excel or similar applications. In order to work with these data, you will need knowledge of e.g. R, Python or Relational databases.
-                </p>
-
-                <p ng-if="$ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadKey.difficultToAnalyse">
-                    A dataset of this size is difficult to analyse on your normal desktop computer.
-                    You will probably need access to some sort of distributed computing service.
-                </p>
+                <p translate="downloadReport.onceDownloaded" translate-values="{SIZE_FORMATTED: ($ctrl.options.spaceRequiredForUnzip | formatBytes:0:occDownload.state.query.locale) }"></p>
+                <p translate="downloadReport.datasetHasNumRows" translate-values="{NUMBER_FORMATTED: ($ctrl.options.rowCount | localNumber:occDownload.state.query.locale)}"></p>
+                <p ng-if="$ctrl.options.fileSizeType ==='LARGE' || $ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadReport.youWillNotBeAble"></p>
+                <p ng-if="$ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadReport.difficultToAnalyse"></p>
             </div>
         </div>
-        </div>
         <div class="gb-modal-footer">
-            <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()" translate="downloadKey.cancel">Cancel</a>
-            <!--<a href="" class="gb-button&#45;&#45;primary" type="button" ng-click="$ctrl.ok()"-->
-            <!--ng-class="{invisible: !$ctrl.username || !$ctrl.password || !$ctrl.email}">Understood</a>-->
-            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()" translate="downloadKey.proceed">Proceed</a>
+            <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()" translate="downloadReport.cancel"></a>
+            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()" translate="downloadReport.proceed"></a>
         </div>
     </script>
 

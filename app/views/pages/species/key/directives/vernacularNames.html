@@ -1,25 +1,22 @@
 <div class="m-t-1" ng-if="vm.vernacularNames.$resolved && vm.vernacularNames.results.length > 0" id="vernacularnames">
-    <h4 class="text-muted small text-uppercase" translate="species.nVernacularNames" translate-values="{NUMBER: 100}"></h4>
-    <!--<span class="discreet text-uppercase small">References</span>-->
+    <h4 class="card-header" translate="species.nVernacularNames" translate-values="{NUMBER: 100}"></h4>
     <section  class="card--references card">
-
         <div class="tableList discreet" ng-style="{height: vm.getHeight()}">
             <ul>
                 <li ng-repeat="name in vm.vernacularNames.results | limitTo: vm.limit : vm.offset" class="card--references__item">
                     <div  >
                         <div>
                             <span class="vernacular">{{ name.datasets[0].vernacularName }}</span>
-                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: vm.$translate.instant('language.'+ name.language)}"></span>
+                            <span class="discreet--very" translate="species.inLanguage" translate-values="{language: (('language.'+ name.language) | translate)}"></span>
                         </div>
                         <div class="small" ng-if="vm.isNub ==='true'">
-                            <span translate="stdTerms.sourcePlural"
-            translate-values="{NUMBER: name.datasets.length}"></span>:
+                            <span translate="species.sourcePlural" translate-values="{NUMBER: name.datasets.length}"></span>:
                             <a class="" ui-sref=".({speciesKey:name.datasets[0].sourceTaxonKey})" >
                                 <span ng-bind-html="name.datasets[0].source"></span>
                             </a>
 
-                            <a class="inherit cursor-pointer"  ng-click="vm.showDatasets(name)" ng-if="name.datasets.length > 1">
-                              + <span translate="stdTerms.nMoreDatasets" translate-values="{NUMBER: name.datasets.length-1}" ></span></span>
+                            <a class="inherit cursor-pointer" ng-click="vm.showDatasets(name)" ng-if="name.datasets.length > 1">
+                              + <span translate="species.nMoreDatasets" translate-values="{NUMBER: name.datasets.length - 1}"></span>
                             </a>
 
                         </div>
@@ -30,8 +27,8 @@
         </div>
         <div ng-if="vm.hasPages">
             <div class="clearfix m-05">
-                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.offset==0}" translate="stdTerms.previous"></a>
-                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.endOfRecords}" translate="stdTerms.next"></a>
+                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.offset==0}" translate="pagination.previous"></a>
+                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.endOfRecords}" translate="pagination.next"></a>
             </div>
         </div>
     </section>
@@ -42,16 +39,14 @@
         <div class="content__overlay__card__header seperator--b">
             <div>
                 <span class="article-header__meta">{{ vm.currentName.vernacularName }}</span>
-                <span class="discreet--very" translate="species.inLanguage" translate-values="{language: vm.$translate.instant('language.'+ vm.currentName.language)}"></span>
+                <span class="discreet--very" translate="species.inLanguage" translate-values="{language: (('language.'+ vm.currentName.language) | translate}"></span>
                 </span>
             </div>
         <div class="content__overlay__card__list">
-
-            <ul >
+            <ul>
                 <li ng-repeat="option in vm.currentName.datasets">
                     <a ui-sref=".({speciesKey:option.sourceTaxonKey})" ui-sref-opts="{inherit: false}" class="inherit noUnderline">
                         <span>{{ option.source }}</span>
-
                     </a>
                 </li>
             </ul>

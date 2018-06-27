@@ -5,7 +5,7 @@
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
             </div>
             <div ng-repeat="download in userDownloads.downloads.results">
-                <a href="" class="gb-button--error m-b-05" ng-if="download.status == 'RUNNING' || download.status == 'PREPARING'" ng-click="userDownloads.cancelDownload(download.key)">Cancel download</a>
+                <a href="" class="gb-button--error m-b-05" ng-if="download.status == 'RUNNING' || download.status == 'PREPARING'" ng-click="userDownloads.cancelDownload(download.key)" translate="downloadKey.cancel"></a>
                 <div class="card m-b-2">
                     <ng-include src="'/occurrence/download/' + download.key + '/card?locale=' + portal.LOCALE"></ng-include>
                 </div>
@@ -20,6 +20,9 @@
                         class="pagination-sm"
                         boundary-link-numbers="false"
                         rotate="false"
+                        first-text="{{'pagination.first' | translate}}"
+                        next-text="{{'pagination.next' | translate}}"
+                        previous-text="{{'pagination.previous' | translate}}"
                         ng-change="userDownloads.pageChanged()">
                 </uib-pagination>
             </div>
@@ -31,7 +34,7 @@
 
             <div class="emptyInfo" ng-if="!userDownloads.loadingDownloads && userDownloads.failedToLoadDownloads">
                 <h3 translate="phrases.errorNotAuthorized"></h3>
-                <p translate="phrases.errorTryToRefresh"></p>
+                <p translate="phrases.criticalErrorMsg"></p>
             </div>
 
         </div>

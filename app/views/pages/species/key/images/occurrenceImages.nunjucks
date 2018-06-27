@@ -1,11 +1,11 @@
 <div class="container--desktop m-t-1" ng-if="speciesKey2.images.count > 0">
-    <h4 class="text-muted small text-uppercase" translate="stdTerms.nOccWithImages" translate-values="{NUMBER_FORMATTED: (speciesKey2.images.count | localNumber), NUMBER: speciesKey2.images.count}"></h4>
+    <h4 class="card-header" tx="galleryBar.nOccWithImages" tx-nr="speciesKey2.images.count"></h4>
     <div class="galleryBar">
         <div>
             <a ng-repeat="occurrence in speciesKey2.images.results" ng-href="{{urlPrefix}}/occurrence/{{occurrence.key}}" ng-if="occurrence._image" class="galleryBar__img showBroken inherit noUnderline hoverBox">
                 <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
             </a>
         </div>
-        <a ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand" ng-if="speciesKey2.images.count > speciesKey2.images.results.length" translate="phrases.seeGallery"></a>
+        <a ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand" ng-if="speciesKey2.images.count > speciesKey2.images.results.length" translate="galleryBar.seeAllImages"></a>
     </div>
 </div>

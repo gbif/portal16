@@ -164,7 +164,7 @@ function attachPredicatesAsParams(predicate) {
                 val = '*,' + val;
             }
             queryList.push(predicate.key.toLowerCase() + '=' + encodeURIComponent(val));
-        } if (!_.isUndefined(predicate.geometry)) {
+        } else if (!_.isUndefined(predicate.geometry)) {
             queryList.push('geometry=' + encodeURIComponent(predicate.geometry));
         }
     }
@@ -228,6 +228,9 @@ function addEndpointTask(predicate, config, tasks) {
             return getResource(config.url + value);
         })).then(function(values) {
             predicate.values = _.map(values, config.field);
+        })
+        .catch(function() {
+            predicate.values = [predicate.value];
         });
         tasks.push(listPromise);
     } else {

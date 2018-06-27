@@ -2,7 +2,7 @@
     <span class="relative-anchor-offset"><a id="contacts"></a></span>
     <div class="container--narrow">
         <div>
-            <h4 class="text-muted small text-uppercase" translate="stdTerms.contacts" translate-values="{ NUMBER: countryKey.country.activePeople.length + 1}">Contacts</h4>
+            <h4 class="card-header" tx="counts.contacts" tx-nr="countryKey.country.activePeople.length + 1">Contacts</h4>
             <div class="contactsCard card card--spaced">
                 <contact contact-info="countryKey.country.node"></contact>
                 <contact contact-info="contact" ng-repeat="contact in countryKey.country.activePeople"></contact>

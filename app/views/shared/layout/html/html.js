@@ -44,9 +44,10 @@ window.Lightbox = require('../../../components/lightbox/lightbox');
 // That would make it difficult to add new locales and makes it impossible to have different in environments
 // For now they are manually added in code as needed
 require('moment');
-require('moment/locale/es');
 require('moment/locale/da');
-require('moment/locale/zh-cn');
+require('moment/locale/de-ch');
+require('moment/locale/ko');
+require('moment/locale/ar-sa');
 
 (function() {
     'use strict';
@@ -83,9 +84,6 @@ angular
 
 /** @ngInject */
 function runBlock( $translate, $http, LOCALE, $rootScope) { // $log
-    // $log.debug('runBlock end');
-    $translate.use(LOCALE);
-
     $rootScope.$on('$stateChangeStart', function(e) {
         if (window.gb.state > 399) {
             e.preventDefault();
@@ -324,7 +322,6 @@ require('../../../pages/dataset/key/datasetKey.ctrl');
 require('../../../pages/resource/search/resource.ctrl');
 require('../../../pages/resource/search/list/resourceList.ctrl');
 
-require('../../../pages/about/directory/directory.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 
 require('../../../pages/participant/country/countryKey.ctrl');
@@ -367,7 +364,6 @@ require('../../../components/expand/expand.directive');
 require('../../../components/shorten/shorten.directive');
 require('../../../components/fab/fab.directive');
 require('../../../components/searchDrawer/searchDrawer.directive');
-require('../../../components/enumFilter/enumFilter.directive');
 require('../../../components/filterTaxon/filterTaxon.directive');
 require('../../../components/filterSuggest/filterSuggest.directive');
 require('../../../components/filterLocation/filterLocation.directive');
@@ -384,11 +380,9 @@ require('../../../components/elementQuery/elementQuery.directive');
 require('../../../components/taxonImg/taxonImg.directive');
 require('../../../components/taxonImg/taxonOccImg.directive');
 
-
 require('../../../components/filterEnum/filterEnum.directive');
 require('../../../components/filterTernary/filterTernary.directive');
 require('../../../components/filterDate/filterDate.directive');
-require('../../../components/filterCms/filterCms.directive');
 
 require('../../../components/focusMe/focusMe.directive');
 

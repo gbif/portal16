@@ -11,7 +11,7 @@
         {% elif not occurrence.record.scientificName %}
         <span class="error">{$ __('occurrence.title.unknownSpecies') $}</span>
     {% else %}
-        <span>{$ commonMacros.parsedTaxonName(occurrence.taxonName) $}</span>
+        <span scientific-name key="{$ occurrence.record.taxonKey $}">{$ commonMacros.parsedTaxonName(occurrence.taxonName) $}</span>
     {% endif %}
 
 
@@ -20,13 +20,13 @@
 <div class="h4 article-header__highlights">
     <div ng-if="occurrenceKey.vernacularName.$resolved && occurrenceKey.vernacularName.vernacularName">
                             <span class="vernacular">{{ occurrenceKey.vernacularName.vernacularName }}</span>
-                            <span class="discreet--very" translate="occurrence.inLanguage" translate-values="{LANGUAGE_TRANSLATED: ('language.'+occurrenceKey.vernacularName.language | translate)}"></span>
+                            <span class="discreet--very" translate="occurrence.inLanguage" translate-values="{LANGUAGE_TRANSLATED: ('language.' + occurrenceKey.vernacularName.language | translate)}"></span>
                         </div>
     {% if occurrence.record.individualCount > 1 %}
         <span class="badge">{$ occurrence.record.individualCount $}</span>
     {% endif %}
     {% if occurrence.record.individualCount == 0 and occurrence.record.occurrenceStatus == 'absent' %}
-        <span class="text-error" translate="stdTerms.absent"></span>
+        <span class="text-error" translate="occurrence.absent"></span>
     {% elif occurrence.record.countryCode | isNotEmpty %}
         <span translate="occurrence.title.inCountry.{$ occurrence.record.basisOfRecord $}" translate-values="{COUNTRY: '{$ __('country.' + occurrence.record.countryCode) $}' }"></span>
     {% else %}

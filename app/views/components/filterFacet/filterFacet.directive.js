@@ -30,7 +30,7 @@ function filterFacetDirective(BUILD_VERSION) {
         vm.filterAutoUpdate = true;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
-        vm.translationPrefix = vm.filterConfig.translationPrefix || 'stdTerms';
+        vm.translationPrefix = vm.filterConfig.translationPrefix || 'filterNames';
         vm.collapsed = vm.filterConfig.collapsed !== false;
         vm.facetKey = vm.filterConfig.facetKey;
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);

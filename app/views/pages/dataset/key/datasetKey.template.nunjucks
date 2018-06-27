@@ -23,7 +23,7 @@
             </div>
             <div class="wrapper-horizontal-stripes" ng-if="!datasetKey.dataset.$resolved">
                 <div class="emptyInfo">
-                    <h3>Hang on while we find the dataset</h3>
+                    <h3 translate="phrases.loading"></h3>
                 </div>
             </div>
         </div>

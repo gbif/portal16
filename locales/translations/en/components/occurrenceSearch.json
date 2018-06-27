@@ -7,6 +7,22 @@
     "charts": "Charts",
     "download": "Download",
     "searchAllFields": "Search all fields",
-    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
+    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
+    "nWithCoordinates": "{NUMBER_FORMATED} with coordinates",
+    "nWithImages": "{NUMBER_FORMATED} with {NUMBER, select, 0{images} 1{image} other{images}}",
+    "failedSearch": "Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues",
+    "noImages": "No occurrences with images",
+    "imageLicenseInfo": "Be aware that licenses applied to images may differ from those applied to occurrence records",
+    "showMoreImages": "More",
+    "default": "Default",
+    "custom": "Custom",
+    "noOccurrencesWithCoordinates": "No occurrences with coordinates",
+    "containsSuspicious": "This map contains occurrences flagged by GBIF as having suspicious coordinates.",
+    "hideSuspiciousCoordinates": "Hide them",
+    "currentFilter": "Current filter",
+    "selectColumns": "Select table columns",
+    "done": "Done",
+    "yesCorrectSuggestion": "Yes",
+    "noWrongSuggestion": "No"
   }
 }

@@ -9,7 +9,7 @@ function renderSearch(req, res) {
         res.render('pages/resource/search/resourceSearch', {
         _meta: {
             hasTools: true,
-            title: req.__('stdTerms.resources'),
+            title: req.__('resource.resources'),
             description: req.__('resource.resourceDescription')
 
         }

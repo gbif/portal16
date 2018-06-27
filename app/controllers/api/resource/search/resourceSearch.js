@@ -11,7 +11,7 @@ const _ = require('lodash'),
 let knownFilters =
     ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher',
      'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey',
-     'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId', 'programmeTag', 'contractCountry', 'networkKey'];
+     'gbifDownloadKey', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId', 'programmeTag', 'contractCountry', 'networkKey', 'urlAlias'];
 let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 let client = new elasticsearch.Client({

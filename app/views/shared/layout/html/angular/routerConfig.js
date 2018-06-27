@@ -42,7 +42,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                             return Occurrence.get({id: $stateParams.key}).$promise;
                         },
                         TRANSLATION_UNCERTAINTY: function($translate) {
-                            return $translate('stdTerms.coordinateUncertainty');
+                            return $translate('occurrence.coordinateUncertainty');
                         },
                         TRANSLATION_ELEVATION: function($translate) {
                             return $translate('ocurrenceFieldNames.elevation');

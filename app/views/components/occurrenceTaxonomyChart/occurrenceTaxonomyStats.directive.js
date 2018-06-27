@@ -28,7 +28,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function occurrenceTaxonomyStats(Highcharts, OccurrenceTaxonomyChart, $state, $scope, OccurrenceFilter, $timeout) {
+    function occurrenceTaxonomyStats(Highcharts, OccurrenceTaxonomyChart, $state, $scope, OccurrenceFilter, $timeout, $translate) {
         var vm = this;
         vm.loading = true;
         vm.chartType = vm.chartType || 'sunburst';
@@ -75,9 +75,11 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
                     .then(function(res) {
                         vm.taxonomy._loading = false;
                         var allowDrillToNode = ($state.current.parent !== 'occurrenceSearch');
-                        vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, res, allowDrillToNode, function() {
-                            var splittedKey = this.id.split('.');
-                            vm.search(splittedKey[1], this.rank);
+                         $translate('metrics.occurrences').then(function(result) {
+                            vm.chart = paintChart(Highcharts, vm.chartElement, vm.chartType, res, allowDrillToNode, function() {
+                                var splittedKey = this.id.split('.');
+                                vm.search(splittedKey[1], this.rank);
+                            }, result);
                         });
                     })
                     .catch(function(err) {
@@ -115,7 +117,7 @@ function occurrenceTaxonomyStats(BUILD_VERSION) {
     }
 }
 
-function paintChart(Highcharts, elm, type, res, allowDrillToNode, click) {
+function paintChart(Highcharts, elm, type, res, allowDrillToNode, click, translatedOccurrences) {
     if (!type) {
         type = 'sunburst';
     }
@@ -185,7 +187,7 @@ function paintChart(Highcharts, elm, type, res, allowDrillToNode, click) {
         }],
         tooltip: {
             headerFormat: '',
-            pointFormat: '<b>{point.name} : {point.value}</b> occurrences'
+            pointFormat: '<b>{point.name} : {point.value}</b> ' + translatedOccurrences
         }
     };
 

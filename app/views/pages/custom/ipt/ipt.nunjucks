@@ -19,11 +19,11 @@
                 <div class="heading-image">
                     <div class="container-fluid">
                         <div class="row ipt__map-stats">
-                            <div class="col-xs-12 col-sm-6 text-center" translate="stdTerms.nInstallations" translate-values="{NUMBER: ipt.installationCount, NUMBER_FORMATED: (ipt.installationCount | localNumber)}"></div>
-                            <div class="col-xs-12 col-sm-6 text-center" translate="stdTerms.nCountries" translate-values="{NUMBER: ipt.countryCount, NUMBER_FORMATED: (ipt.countryCount | localNumber)}"> </div>
+                            <div class="col-xs-12 col-sm-6 text-center" tx="counts.nInstallations" tx-nr="ipt.installationCount"></div>
+                            <div class="col-xs-12 col-sm-6 text-center" tx="counts.nCountries" tx-nr="ipt.countryCount"> </div>
                         </div>
                         <div class="small discreet">
-                            <div ng-bind-html="'phrases.dontSeeYourIpt' | translate | md2html"></div>
+                            <div ng-bind-html="'tools.ipt.dontSeeYourIpt' | translate | md2html"></div>
                         </div>
                     </div>
                 </div>
@@ -43,84 +43,6 @@
     </div>
 
 {% endblock %}
-
-{#{% extends "../about/html-prose.nunjucks" %}#}
-{#{% import "../about/cms.macros.nunjucks" as cmsMacros %}#}
-
-{#{% block page %}#}
-    {#<div ng-controller="iptCtrl as ipt" class="ipt">#}
-        {#<article class="wrapper-horizontal-stripes">#}
-            {#<div class="horizontal-stripe article-header white-background">#}
-                {#<div class="container">#}
-                    {#<div class="row">#}
-                        {#<header class="col-xs-12 text-center">#}
-                            {#<nav class="article-header__category article-header__category--deep">#}
-                                {#<span class="article-header__category__upper">Tools</span>#}
-                                {#<span class="article-header__category__lower">Publishers</span>#}
-                            {#</nav>#}
-                            {#<h1>{$ data.title $}</h1>#}
-                            {#<div class="article-header__intro">#}
-                                {# fulltext html already wrapped by <p> from Content API #}
-                                {#{$ data.summary | safe $}#}
-                            {#</div>#}
-                            {#<div>#}
-                                {#<span class="article-header__meta m-r-2 m-l-2">#}
-                                    {#2.219 occurrence datasets#}
-                                {#</span>#}
-                                {#<span class="article-header__meta m-r-2 m-l-2">#}
-                                    {#450 million occurrence records#}
-                                {#</span>#}
-                                {#<span class="article-header__meta m-r-2 m-l-2">#}
-                                    {#199 checklist datasets#}
-                                {#</span>#}
-                            {#</div>#}
-                        {#</header>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-            {#<div class="horizontal-stripe--paddingless white-background">#}
-                {#<div class="heading-image ipt__map">#}
-                    {#<leaflet#}
-                            {#leafletMap="leafletMap"#}
-                            {#id="iptInstallationsMap"#}
-                            {#class="iptInstallationsMap"#}
-                            {#defaults="ipt.mapDefaults"#}
-                            {#markers="ipt.installations"#}
-                            {#lf-center="ipt.center"#}
-                            {#height="100%"#}
-                            {#width="100%"#}
-                            {#layers="ipt.layers"#}
-                    {#></leaflet>#}
-                {#</div>#}
-            {#</div>#}
-            {#<div class="horizontal-stripe--paddingless white-background">#}
-                {#<div class="heading-image">#}
-                    {#<div class="container-fluid">#}
-                        {#<div class="row ipt__map-stats">#}
-                            {#<div class="col-xs-12 col-sm-4 text-center"><span#}
-                                        {#class="ng-cloak">{{ ipt.installations.length }} </span>publishers#}
-                            {#</div>#}
-                            {#<div class="col-xs-12 col-sm-4 text-center">171 installations</div>#}
-                            {#<div class="col-xs-12 col-sm-4 text-center">50 countries</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-
-            {#<div class="horizontal-stripe white-background">#}
-                {#<div class="container--narrow">#}
-                    {#<div class="body-text prose-columns">#}
-
-                        {#{$ data.body.safe_value | sanitize | safe $}#}
-
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-        {#</article>#}
-    {#</div>#}
-{#{% endblock %}#}
 
 {% block scripts %}
     <script src="/js/base/pages/ipt.js?v={$ BUILD_VERSION $}"></script>

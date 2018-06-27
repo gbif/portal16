@@ -5,18 +5,15 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">{{'stdTerms.searchOccurrences' | translate}}</span>
+                        <span class="article-header__category__upper" translate="search.header.searchOccurrences"></span>
                         <span class="article-header__category__lower" ng-if="occMap.count >= 0">
-                            <span tx="stdTerms.nWithCoordinates" tx-nr="occMap.count"></span>
+                            <span tx="occurrenceSearch.nWithCoordinates" tx-nr="occMap.count"></span>
                         </span>
 
                         <span class="article-header__category__lower" ng-if="occMap.count < 0">
-                            <span translate="stdTerms.loading"></span> ...
+                            <span translate="phrases.loading"></span> ...
                         </span>
                     </nav>
-                    <!--<div class="search-header__description">-->
-                    <!--<span ng-if="occMap.count >= 0">{{occMap.occurrenceState.data.count | number}} occurrences. {{occMap.count | number}} with coordinates</span>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -72,15 +69,12 @@
     </section>
 
     <section class="horizontal-stripe--paddingless light-background">
-        <div class="emptyInfo" ng-if="occMap.occurrenceState.query.has_coordinate === 'false'">
-            <h3>No occurrences to show</h3>
-            <p>Include occurrences with coordinates?</p>
-            <div>
-                <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" class="gb-button--flat text-uppercase">Yes</a>
-            </div>
-        </div>
-        <div ng-if="occMap.occurrenceState.query.has_coordinate !== 'false'">
+        <div>
             <div class="occurrence-search-map">
+                <div class="occurrence-search-map__notification">
+                    <div ng-if="occMap.suspiciousCount > 0"><span translate="occurrenceSearch.containsSuspicious"></span> <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" translate="occurrenceSearch.hideSuspiciousCoordinates">Hide them</a></div>
+                    <div ng-if="occMap.occurrenceState.query.has_coordinate === 'false' || occMap.count === 0" translate="occurrenceSearch.noOccurrencesWithCoordinates"></div>
+                </div>
                 <adhoc-map filter="occMap.occurrenceState.query" map-style="{suggested: 'SQUARE_DOTS'}" map-events="occMap.mapEvents" class="fitSize fitSize--noBar"></adhoc-map>
             </div>
         </div>

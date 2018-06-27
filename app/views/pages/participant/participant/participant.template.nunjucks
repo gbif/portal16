@@ -11,24 +11,17 @@
                         {% include "./participantSummary.nunjucks" ignore missing %}
                     </div>
                 </div>
-                <div ng-if="participantKey.participant && participantKey.partialResultError" class="emptyInfo--small">
-                    <h3 translate="stdTerms.nonCriticalErrorMsg"></h3>
-
+                <div class="horizontal-stripe light-background" ng-if="participantKey.participant && participantKey.partialResultError">
+                    <div class="container--narrow emptyInfo--small">
+                        <h3 translate="phrases.nonCriticalErrorMsg"></h3>
+                    </div>
                 </div>
                 <div class="horizontal-stripe light-background ng-cloak" ng-if="participantKey.participant.registryNode && participantKey.participant.registryNode.key">
                     {% include "./endorsed.nunjucks" ignore missing %}
                     {% include "./publishedDatasets.nunjucks" ignore missing %}
+                    {% include "./contacts.nunjucks" ignore missing %}
                 </div>
-
-                {% include "./contacts.nunjucks" ignore missing %}
-
             </article>
         </div>
-        {#<div ng-if="!nodeKey.node.$resolved">#}
-            {#<div class="emptyInfo">#}
-                {#<h3>Loading</h3>#}
-            {#</div>#}
-        {#</div>#}
-        {#<ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>#}
     </div>
 </div>

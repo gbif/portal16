@@ -1,0 +1,22 @@
+{
+  "phrases": {
+    "contactHelpdesk": "Contact helpdesk",
+    "defaultPageTitle": "GBIF",
+    "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
+    "deletedOnDate": "Deleted on {DATE}",
+    "replacedBy": "Replaced by",
+    "loading": "Loading",
+    "failed": "Failed",
+    "errorNotAuthorized": "Looks like you aren't authorized to view this page",
+    "partialPage": "Partial page",
+    "noInformationFound": "No information found",
+    "noConnection": "No internet connection found",
+    "criticalErrorMsg": "The system is currently not able to process your request. Try to refresh the page and please report the issue if it continues.",
+    "nonCriticalErrorMsg": "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
+    "noResultsMessage": "No results – try to loosen your filters",
+    "noJavascriptEnabled": "We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.",
+    "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.",
+    "404Text":"This page might have existed once, but we can no longer find it.\nPlease try our [search](/search) to find what you're looking for. You are always welcome to contact us at [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
+    "changeLanguage": "Change language"
+  }
+}

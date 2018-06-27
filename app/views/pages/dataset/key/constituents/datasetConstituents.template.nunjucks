@@ -8,7 +8,7 @@
             <div ng-if="!datasetConstituents.isBackbone && !datasetConstituents.loadingDownloads && !datasetConstituents.failedToLoadDownloads && datasetConstituents.constituents.count > 0">
                 <div>
                     <div>
-                        <h4 class="small discreet text-uppercase">{{ datasetConstituents.constituents.count | localNumber }} constituent datasets</h4>
+                        <h4 class="card-header" tx="dataset.nConstituentDatasets" tx-nr="datasetConstituents.constituents.count"></h4>
                     </div>
                 </div>
 
@@ -25,6 +25,9 @@
                             class="pagination-sm"
                             boundary-link-numbers="false"
                             rotate="false"
+                            first-text="{{'pagination.first' | translate}}"
+                            next-text="{{'pagination.next' | translate}}"
+                            previous-text="{{'pagination.previous' | translate}}"
                             ng-change="datasetConstituents.pageChanged()">
                     </uib-pagination>
                 </div>
@@ -34,7 +37,7 @@
             <div ng-if="datasetConstituents.isBackbone">
                 <div>
                     <div>
-                        <h4 class="small discreet text-uppercase">constituent datasets</h4>
+                        <h4 class="card-header" translate="dataset.consistuentDatasets"></h4>
                     </div>
                 </div>
 
@@ -50,6 +53,9 @@
                             class="pagination-sm"
                             boundary-link-numbers="false"
                             rotate="false"
+                            first-text="{{'pagination.first' | translate}}"
+                            next-text="{{'pagination.next' | translate}}"
+                            previous-text="{{'pagination.previous' | translate}}"
                             ng-change="datasetConstituents.pageChanged()"
                             ng-show="datasetConstituents.constituents.offset || datasetConstituents.constituents.results.length == datasetConstituents.limit">
                     </uib-pagination>
@@ -57,12 +63,12 @@
             </div>
 
             <div class="emptyInfo" ng-if="!datasetConstituents.loadingDownloads && datasetConstituents.constituents.count === 0">
-                <h3>No constituent datasets</h3>
+                <h3 translate="dataset.noConstituentDatasets"></h3>
             </div>
 
             <div class="emptyInfo" ng-if="datasetConstituents.failedToLoadDownloads">
-                <h3>There was a server failure while trying to get the constituent datasets</h3>
-                <p>Please try again or let us know if it continues</p>
+                <h3 translate="phrases.failed"></h3>
+                <p translate="phrases.criticalErrorMsg"></p>
             </div>
 
         </div>

@@ -11,8 +11,8 @@
 
                 {% include "./intro/nav.nunjucks" %}
                 <div ng-if="speciesKey2.hasNonCriticalError" class="emptyInfo--small">
-                    <h3 translate="stdTerms.partialPage"></h3>
-                    <p translate="stdTerms.nonCriticalErrorMsg"></p>
+                    <h3 translate="phrases.partialPage"></h3>
+                    <p translate="phrases.nonCriticalErrorMsg"></p>
                 </div>
                 <div ui-view>
                     {% include "./speciestypes/backboneSpecies.nunjucks" %}
@@ -34,7 +34,7 @@
 
     <div class="fab hide-on-laptop">
         <a href="" class="gb-button--brand" ng-click="speciesKey2.showFilters = !speciesKey2.showFilters" ng-if="!speciesKey2.showFilters">
-            <span><span class="gb-icon-taxonomy"></span> Classification</span>
+            <span><span class="gb-icon-taxonomy"></span><span translate="species.classification"></span></span>
         </a>
     </div>
 </div>
