@@ -1,0 +1,38 @@
+{
+    "resourceSearch": {
+        "upcoming": "",
+        "past": "",
+        "searchForNewsEventsDocuments": "",
+        "occurrenceSearch": "",
+        "subscribeToCalendar": "",
+        "citationExplainer": "Læs mere om litteratur, hvordan det er opdaget og knyttet til GBIF-medieret data.",
+        "types": {
+            "events": "",
+            "news": "",
+            "resources": "",
+            "projects": "Projekter",
+            "programmes": "Programmer",
+            "documents": "Dokumenter",
+            "tools": "Værktøjer",
+            "dataUse": "Databrug",
+            "literature": "Litteratur"
+        },
+        "filters": {
+            "countriesOfCoverage": "Land eller område der diskuteres",
+            "countriesOfResearcher": "Forskers land eller område",
+            "literatureType": "Litteraturtype",
+            "contractCountry": "Land eller område",
+            "topics": "Emne",
+            "audiences": "Publikum",
+            "purposes": "Formål",
+            "relevance": "Relevans",
+            "language": "Sprog",
+            "year": "",
+            "gbifDatasetKey": "",
+            "publishingOrganizationKey": "Udgiver",
+            "peerReview": "",
+            "openAccess": "",
+            "gbifDownloadKey": ""
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "resourceSearch": {
+        "upcoming": "",
+        "past": "",
+        "searchForNewsEventsDocuments": "",
+        "occurrenceSearch": "",
+        "subscribeToCalendar": "",
+        "citationExplainer": "",
+        "types": {
+            "events": "Мероприятия",
+            "news": "Новости",
+            "resources": "Ресурсы",
+            "projects": "",
+            "programmes": "",
+            "documents": "",
+            "tools": "",
+            "dataUse": "",
+            "literature": ""
+        },
+        "filters": {
+            "countriesOfCoverage": "",
+            "countriesOfResearcher": "",
+            "literatureType": "",
+            "contractCountry": "",
+            "topics": "",
+            "audiences": "",
+            "purposes": "",
+            "relevance": "",
+            "language": "",
+            "year": "",
+            "gbifDatasetKey": "Набор данных",
+            "publishingOrganizationKey": "",
+            "peerReview": "",
+            "openAccess": "Открытый доступ",
+            "gbifDownloadKey": ""
+        }
+    }
+}

@@ -1,16 +1,5 @@
 {
   "cms": {
-    "search": {
-      "events": "Events",
-      "news": "Nyheder",
-      "resources": "Ressourcer",
-      "projects": "Projekter",
-      "programmes": "Programmer",
-      "documents": "Dokumenter",
-      "tools": "Værktøjer",
-      "dataUse": "Databrug",
-      "literature": "Litteratur"
-    },
     "project": {
       "project": "Projekt",
       "projectId": "Projekt-ID",
@@ -42,6 +31,7 @@
     },
     "auxiliary": {
       "subject": "Emne",
+      "citation": "",
       "organisingParticipants": "Organiserende participanter"
     }
   }

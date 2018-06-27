@@ -1,0 +1,38 @@
+{
+    "resourceSearch": {
+        "upcoming": "",
+        "past": "",
+        "searchForNewsEventsDocuments": "",
+        "occurrenceSearch": "",
+        "subscribeToCalendar": "",
+        "citationExplainer": "",
+        "types": {
+            "events": "",
+            "news": "",
+            "resources": "",
+            "projects": "",
+            "programmes": "",
+            "documents": "",
+            "tools": "",
+            "dataUse": "",
+            "literature": ""
+        },
+        "filters": {
+            "countriesOfCoverage": "",
+            "countriesOfResearcher": "",
+            "literatureType": "",
+            "contractCountry": "Pays",
+            "topics": "",
+            "audiences": "",
+            "purposes": "",
+            "relevance": "",
+            "language": "",
+            "year": "Année",
+            "gbifDatasetKey": "Ensemble de données",
+            "publishingOrganizationKey": "",
+            "peerReview": "",
+            "openAccess": "le libre accès",
+            "gbifDownloadKey": ""
+        }
+    }
+}

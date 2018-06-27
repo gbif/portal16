@@ -1,50 +1,52 @@
 {
   "feedback": {
     "intro": {
-      "title": "Feedback and questions",
-      "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
+      "title": "",
+      "example": ""
     },
     "data content": {
-      "title": "Content",
-      "example": "Such as: That page contains a typo. That species doesn’t exist. That location seems suspect. The new URL for that organization is...",
-      "annotate": "This publisher has a website for handling feedback. We recommend using that",
-      "contactPerMail": "Get in touch with the dataset contact"
+      "title": "",
+      "example": "",
+      "annotate": "",
+      "contactPerMail": ""
     },
     "bug": {
-      "title": "Bug",
-      "example": "Such as: The search button doesn’t work. The page doesn’t load. I can’t read this because the columns overlap."
+      "title": "",
+      "example": ""
     },
     "idea": {
-      "title": "Idea",
-      "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
+      "title": "",
+      "example": ""
     },
     "question": {
-      "title": "Helpdesk",
-      "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
-      "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
-      "comment": "For private enquiries and non technical questions you can reach us at [info@gbif.org](mailto:info@gbif.org) or at [communication@gbif.org](mailto:communication@gbif.org) for press matters."
+      "title": "",
+      "example": "",
+      "description": "",
+      "comment": ""
     },
     "confirmation": {
-      "title": "Thank you",
+      "title": "",
       "example": "",
-      "seeIssue": "See issue"
+      "seeIssue": ""
     },
     "issues": {
-      "title": "Content issues",
-      "description": "Content issues reported by other users",
-      "create": "Leave feedback"
+      "title": "",
+      "description": "",
+      "create": ""
     },
     "placeholders": {
-      "summary": "Summary",
-      "description": "Detailed description",
-      "username": "Your email or Github username (public)"
+      "summary": "",
+      "description": "",
+      "username": ""
     },
-    "markdownSupport": "Markdown support",
-    "issueTracking": "All issues are visible to the public at [Github](https://github.com/gbif/portal-feedback/issues)",
-    "failure": "This isn’t good — the feedback system doesn’t work. Please send us a mail or go straight to [Github](https://github.com/gbif/portal-feedback/issues). We are sorry about the trouble.",
-    "weRecommendX": "We recommend using [{NAME}]({LINK})",
-    "tellGbif": "Tell GBIF",
-    "recommendMail": "We recommend sending a mail to",
-    "pleaseLogin": "Please login to leave feedback. Alternatively you can use [Github](https://github.com/gbif/portal-feedback/issues).\nWhy? Unfortunately we are seeing lots of spam advertisement in our feedback system if we do not require users to login."
+    "markdownSupport": "",
+    "issueTracking": "",
+    "failure": "",
+    "weRecommendX": "",
+    "tellGbif": "",
+    "submit": "",
+    "seeAllComments": "",
+    "recommendMail": "",
+    "pleaseLogin": ""
   }
 }

@@ -1,12 +1,28 @@
 {
   "occurrenceSearch": {
-    "table": "Table",
-    "gallery": "Gallery",
-    "map": "Map",
-    "taxonomy": "Taxonomy",
-    "charts": "Charts",
-    "download": "Download",
-    "searchAllFields": "Search all fields",
-    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
+    "table": "",
+    "gallery": "",
+    "map": "",
+    "taxonomy": "Taksonomi",
+    "charts": "",
+    "download": "",
+    "searchAllFields": "",
+    "description": "",
+    "nWithCoordinates": "{NUMBER_FORMATED} med koordinater",
+    "nWithImages": "{NUMBER_FORMATED} with {NUMBER, select, 0{billeder} 1{billede} other{billeder}}",
+    "failedSearch": "",
+    "noImages": "",
+    "imageLicenseInfo": "Være opmærksom på, at licenser anvendt på billeder kan afvige fra observationens licens",
+    "showMoreImages": "Flere",
+    "default": "Standard",
+    "custom": "",
+    "noOccurrencesWithCoordinates": "Ingen observationer med koordinater",
+    "containsSuspicious": "",
+    "hideSuspiciousCoordinates": "",
+    "currentFilter": "",
+    "selectColumns": "",
+    "done": "",
+    "yesCorrectSuggestion": "",
+    "noWrongSuggestion": ""
   }
 }

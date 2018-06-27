@@ -2,47 +2,47 @@
     "directory": {
         "group": {
             "executiveCommittee": {
-                "title": "Executive committee",
-                "description": "The Executive Committee operates on behalf of the Governing Board when the Board is not in session and within the areas of responsibility delegated to it by the Governing Board. Among its functions are monitoring of the performance of the Secretariat in carrying out the decisions taken by the Governing Board including implementation of the Strategic Plan and the Work Programme, and management of the budget."
+                "title": "",
+                "description": ""
             },
             "scienceCommittee": {
-                "title": "Science committee",
-                "description": "The GBIF Science Committee is an advisory committee that oversees the development and progress of the GBIF work programme and makes recommendations to the Governing Board, the Executive Committee and the Secretariat. You can read its terms of reference [here.](/document/80877/current-terms-of-reference-for-the-science-committee)"
+                "title": "",
+                "description": ""
             },
             "budgetCommittee": {
-                "title": "Budget committee",
-                "description": "The Budget Committee is an advisory committee dealing with various financial issues relating to the administration of GBIF funds. Among other functions, it oversees the audit of the annual accounts submitted to the Governing Board, and it provides guidance for the selection of GBIF’s auditing company. The committee makes recommendations to the Governing Board, the Executive Committee and the Secretariat. Its terms of reference can be found [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
+                "title": "",
+                "description": ""
             },
             "nsg": {
-                "title": "Nodes Steering Group",
-                "description": "Established in 2011, the Nodes Steering Group (NSG) consists of the chair and vice-chairs of the [Participant Node Managers Committee](/contact-us/directory?group=nodesCommittee) joined by a regional representative from each of GBIF’s six regions ([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America/Caribbean](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)). The NSG’s objectives are to formulate specific recommendations to relevant GBIF bodies based on feedback provided by Participant nodes, and to provide advice on GBIF’s annual work programmes as they relate to the efforts of GBIF nodes."
+                "title": "",
+                "description": ""
             },
             "nodesCommittee": {
-                "title": "Node Managers Committee",
-                "description": "The Participant Node Managers Committee (or Nodes Committee) is a dynamic group formed by the node managers appointed by all Participants (countries and international organizations). The committee includes three Chair positions established through voting by the Governing Board for a maximum of two two-year terms."
+                "title": "",
+                "description": ""
             },
             "secretariat": {
-                "title": "GBIF Secretariat",
-                "description": "The GBIF Secretariat, located at the Natural History Museum in Copenhagen, Denmark, is charged with developing, executing and reporting on the GBIF work programme. The tasks of the Secretariat include:\n - operating the GBIF portal and associated informatics\n - coordinating activities of the network related to data mobilization, publishing and management\n - monitoring data gaps and use of GBIF-mediated data for science, and\n - operating central communication and collaboration services"
+                "title": "Секретариат GBIF",
+                "description": ""
             },
             "voting": {
-                "title": "Voting participants",
-                "description": "Countries that have signed the GBIF Memorandum of Understanding and agree to make a basic financial contribution to GBIF core funds."
+                "title": "",
+                "description": ""
             },
             "associateCountries": {
-                "title": "Associate country participants",
-                "description": "Countries that have signed the GBIF Memorandum of Understanding but do not make a financial contribution to GBIF core funds, and do not have a vote on the GBIF Governing Board."
+                "title": "",
+                "description": ""
             },
             "associateParticipants": {
-                "title": "Other associate participants",
-                "description": "Intergovernmental organizations, international organizations and other organizations with an international scope, and economies, that have signed the GBIF Memorandum of Understanding."
+                "title": "",
+                "description": ""
             }
         },
         "columns": {
-            "role": "Role",
-            "name": "Name",
-            "participant": "Participant",
-            "participationStatus": "Participant status"
+            "role": "",
+            "name": "",
+            "participant": "",
+            "participationStatus": ""
         }
     }
 }

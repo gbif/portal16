@@ -1,35 +1,36 @@
 {
     "filters": {
-        "noPreference": "No preference",
+        "searchPlaceholder": "",
+        "noPreference": "",
+        "invert": "",
+        "clear": "",
+        "add": "",
         "repatriation": {
-            "repatriationFilter": "Repatriated data",
-            "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
+            "description": ""
         },
-        "peerReview": {
-            "title": "Peer-Reviewed"
+        "ternary": {
+            "yes": "",
+            "no": "",
+            "all": ""
         },
-        "openAccess": {
-            "title": "Open access"
-        },
-        "gbifDownloadKey": "Download key",
         "location": {
-            "north": "North",
-            "south": "South",
-            "west": "West",
-            "east": "East",
-            "withCoordinates": "Including coordinates",
-            "withoutCoordinates": "Without coordinates",
-            "includeFlaggedAsSuspicious": "Include records where coordinates are flagged as suspicious",
-            "onlyShowFlagged": "Only show records that are flagged as suspicious",
-            "past": "Recently used",
-            "geojson": "GeoJSON",
-            "range": "Range",
-            "noFiltersAdded": "No area filters added",
-            "wktPlaceholder": "WKT or GeoJSON — multipolygons are not supported",
-            "invalidTextInput": "Invalid WKT or GeoJSON",
-            "tooLarge": "Geometry too large",
-            "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
-            "invalidRange": "Invalid bounding box"
+            "north": "",
+            "south": "",
+            "west": "",
+            "east": "",
+            "withCoordinates": "",
+            "withoutCoordinates": "",
+            "includeFlaggedAsSuspicious": "",
+            "onlyShowFlagged": "",
+            "past": "",
+            "geojson": "",
+            "range": "",
+            "noFiltersAdded": "",
+            "wktPlaceholder": "",
+            "invalidTextInput": "",
+            "tooLarge": "",
+            "tooLargeSuggestion": "",
+            "invalidRange": ""
         }
     }
 }

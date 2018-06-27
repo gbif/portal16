@@ -1,13 +1,13 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "Occurrence records",
-            "datasets": "Datasets",
-            "publishers": "Publishing institutions",
-            "species": "Species",
-            "speciesSubtitle": "Learn more about the number of species covered by data in GBIF.org."
+            "occurrences": "",
+            "datasets": "データセット",
+            "publishers": "",
+            "species": "種情報",
+            "speciesSubtitle": ""
         },
-        "aboutGbifCountry": "About GBIF {COUNTRY}",
-        "summary": "Free and open access to biodiversity data"
+        "aboutGbifCountry": "",
+        "summary": ""
     }
 }

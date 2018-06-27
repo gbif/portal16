@@ -1,0 +1,22 @@
+{
+  "phrases": {
+    "contactHelpdesk": "Kontakt helpdesk",
+    "defaultPageTitle": "",
+    "defaultPageDescription": "",
+    "deletedOnDate": "",
+    "replacedBy": "Erstattet af",
+    "loading": "",
+    "failed": "",
+    "errorNotAuthorized": "Ser ud som om du ikke er autoriseret til at se denne side",
+    "partialPage": "",
+    "noInformationFound": "",
+    "noConnection": "",
+    "criticalErrorMsg": "",
+    "nonCriticalErrorMsg": "",
+    "noResultsMessage": "Ingen resultater – prøv at fjerne nogle filtre",
+    "noJavascriptEnabled": "Vi beklager, men GBIF ikke fungere uden JavaScript aktiveret.",
+    "isSplashScreen": "Vores hjemmeside har registreret, at du bruger en forældet usikker browser, der vil forhindre dig i at bruge webstedet. Vi foreslår, at du opgradere til en moderne browser.",
+    "404Text": "",
+    "changeLanguage": ""
+  }
+}

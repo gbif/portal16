@@ -1,53 +1,64 @@
 {
   "gbifNetwork": {
-    "title": "Directory",
-    "contact": "Contact",
-    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
+    "title": "",
+    "contact": "Contactez-nous",
+    "contactUsSubtitle": "",
     "voting_participant": {
-      "one": "Voting participant",
-      "other": "Voting participants"
+      "one": "",
+      "other": ""
     },
     "associate_country_participant": {
-      "one": "Associate country participant",
-      "other": "Associate country participants"
+      "one": "",
+      "other": ""
     },
     "other_associate_participant": {
-      "one": "Other associate participant",
-      "other": "Other associate participants"
+      "one": "",
+      "other": ""
     },
     "former_participant": {
-      "one": "Former participant",
-      "other": "Former participants"
+      "one": "",
+      "other": ""
     },
     "gbif_affiliate": {
-      "one": "GBIF affiliate",
-      "other": "GBIF affiliates"
+      "one": "",
+      "other": ""
     },
-    "role": "Role",
-    "institution": "Institution",
+    "role": "",
+    "institution": "",
     "group": {
 
     },
-    "gbif_secretariat": "GBIF Secretariat",
-    "membershipType": "Membership",
-    "governingBoard": "Governing Board",
-    "committees": "Committees",
-    "name": "Name",
-    "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, select, one{publisher} other{publishers}}",
-    "occurrenceDatasetWith": "Occurrence {NUMBER, select, one{dataset} other{datasets}} with",
-    "record": "{NUMBER, select, one{record} other{records}}",
-    "participant": "{NUMBER, select, one{participant} other{participants}}",
-    "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
-    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}",
+    "gbif_secretariat": "Le Secrétariat du GBIF",
+    "membershipType": "",
+    "governingBoard": "",
+    "committees": "",
+    "name": "",
+    "endorsedDataPublisher": "",
+    "occurrenceDatasetWith": "",
+    "record": "",
+    "records": "",
+    "nParticipants": "",
+    "dataset": "",
+    "datasets": "",
+    "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipant": {
-        "one": "Participant organisation",
-        "other": "Participant organisations"
+        "one": "",
+        "other": ""
       },
       "gbifAffiliate": {
-        "one": "GBIF affiliate",
-        "other": "GBIF affiliates"
+        "one": "",
+        "other": ""
       }
-    }
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "Chef de délegation",
+      "NODE_MANAGER": "Le responsable du point nodal"
+    },
+    "publishers": "",
+    "memberSince": "",
+    "participant": "",
+    "pPublishers": "",
+    "pOccurrence": ""
   }
 }
