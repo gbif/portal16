@@ -1,6 +1,6 @@
 {
     "intervals": {
-        "noFilter": "Intet filter"
+        "noFilter": "Intet filter",
         "elevation": {
             "equals": "",
             "between": "",
