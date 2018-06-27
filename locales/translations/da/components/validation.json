@@ -103,7 +103,7 @@
     "numberOfLines": "",
     "reportProducedByGbifDataValidator": "",
     "validationReport": "",
-    "dataValidator": "",
+    "dataValidator": "Data-validator",
     "dataValidatorDescription": "",
     "thisIsAnEarlyAccessVersion": "",
     "here": "",
@@ -116,7 +116,7 @@
     "tabs": {
       "newDataValidation": "",
       "newValidation": "",
-      "about": "",
+      "about": "Om",
       "darwinCoreExtensions": "",
       "metaData": "",
       "summary": ""
