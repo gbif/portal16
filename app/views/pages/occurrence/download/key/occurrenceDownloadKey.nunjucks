@@ -94,7 +94,7 @@
             <div class="container--normal">
                 <section>
                     <h3 class="card-header">
-                        {$ __('downloadKey.filterApplied', download.record.created | formatDate(gb.locales.current)) $}
+                        <span translate="downloadKey.filterApplied" translate-values="{DATE: '{$ download.record.created | formatDate(gb.locales.current) $}' }">&nbsp;</span>
                         {% if download.isSimple %}
                             <a href="/occurrence/search?{$ download.isSimple $}"
                                class="pull-right inherit discreet p-r-1">{$ __('downloadKey.rerunQuery') $}</a>

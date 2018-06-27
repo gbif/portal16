@@ -15,6 +15,7 @@ if (env === 'uat') {
     // locales.push('es');
 }
 if (env === 'staging' || env === 'local' || env === 'dev') {
+    locales.push('da');
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
     locales.push('ar-MOCK');
@@ -45,6 +46,7 @@ translationMap['ar'] = 'ara';
 translationMap['fr'] = 'fra';
 translationMap['ru'] = 'rus';
 translationMap['pt'] = 'por';
+translationMap['da'] = 'dan';
 translationMap['zh'] = 'zh-hant';
 // mock test languages
 translationMap['de-MOCK'] = 'gsw';
