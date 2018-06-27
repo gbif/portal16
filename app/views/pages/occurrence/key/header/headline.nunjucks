@@ -11,7 +11,7 @@
         {% elif not occurrence.record.scientificName %}
         <span class="error">{$ __('occurrence.title.unknownSpecies') $}</span>
     {% else %}
-        <span>{$ commonMacros.parsedTaxonName(occurrence.taxonName) $}</span>
+        <span scientific-name key="{$ occurrence.record.taxonKey $}">{$ commonMacros.parsedTaxonName(occurrence.taxonName) $}</span>
     {% endif %}
 
 
