@@ -23,7 +23,7 @@
                             <div class="col-xs-12 col-sm-6 text-center" tx="counts.nCountries" tx-nr="ipt.countryCount"> </div>
                         </div>
                         <div class="small discreet">
-                            <div ng-bind-html="'ipt.dontSeeYourIpt' | translate | md2html"></div>
+                            <div ng-bind-html="'tools.ipt.dontSeeYourIpt' | translate | md2html"></div>
                         </div>
                     </div>
                 </div>
