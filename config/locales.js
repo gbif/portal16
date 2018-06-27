@@ -52,6 +52,16 @@ if (env === 'staging' || env === 'local') {
     translationMap['ar-MOCK'] = 'ara';
 }
 
+// if the locale is something we translate to in contentful, then add the mapping here.
+let translations = {};
+locales.forEach(function(locale) {
+    translations[locale] = require(`../locales/_build/${locale}.json`);
+});
+let localNameMap = {};
+locales.forEach(function(e) {
+    localNameMap[e] = translations[e].language[translationMap[e]];
+});
+
 // Moment occasionally use other names for the languages. Provide them here
 let momentMap = _.keyBy(locales); // default to use the same language codes
 
@@ -86,6 +96,7 @@ module.exports = {
         moment: momentMap,
         jsLocale: jsLocaleMap,
         translation: translationMap,
-        numbers: numberMap
+        numbers: numberMap,
+        localNames: localNameMap
     }
 };

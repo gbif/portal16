@@ -3,8 +3,7 @@
 let express = require('express'),
     router = express.Router(),
     config = rootRequire('config/config'),
-    localeConfig = rootRequire('config/locales'),
-    translations = rootRequire('app/controllers/api/translations/translations');
+    localeConfig = rootRequire('config/locales');
 
 let environment = {
     managementToolsSite: config.managementToolsSite,
@@ -21,7 +20,8 @@ let environment = {
         moment: localeConfig.localeMappings.moment,
         jsLocale: localeConfig.localeMappings.jsLocale,
         translation: localeConfig.localeMappings.translation,
-        numbers: localeConfig.localeMappings.numbers
+        numbers: localeConfig.localeMappings.numbers,
+        localNames: localeConfig.localeMappings.localNames
     }
 };
 

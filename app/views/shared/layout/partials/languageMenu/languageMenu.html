@@ -26,7 +26,7 @@
 							ng-repeat="locale in vm.locales"
 							ng-class="{'m-b-0': $last}"
 							>
-							<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}"></span>
+							<span>{{vm.LOCALE_MAPPINGS.localNames[locale]}}</span>
 							<span class="discreet--very" ng-if="vm.chosenLocale !== 'en'">
 							(
 								<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}" translate-language="en"></span>
