@@ -17,8 +17,8 @@ module.exports = function(app) {
 };
 
 router.get('/omniSearch', function(req, res) {
-    let query = req.query.q,
-        preferedLocale = req.query.locale;
+    let query = req.query.q || '',
+        preferedLocale = req.query.locale || 'en';
 
     search(query, preferedLocale, res.__)
         .then(function(result) {

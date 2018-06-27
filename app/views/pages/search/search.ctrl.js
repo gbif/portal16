@@ -33,10 +33,16 @@ function searchCtrl($state, $stateParams, Page, $http, $cookies) {
         window.scrollTo(0, 0);
     };
 
-    vm.search = function() {
+    vm.searchUrlFragment = function() {
+        var pathName = window.location.pathname;
+        var fragment = pathName.substr(pathName.lastIndexOf('/') + 1);
+        vm.search(fragment);
+    };
+
+    vm.search = function(q) {
         vm.searchResults = $http.get('/api/omnisearch', {
             params: {
-                q: vm.freeTextQuery,
+                q: q || vm.freeTextQuery,
                 locale: $stateParams.locale
             }
         });
