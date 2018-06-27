@@ -13,9 +13,9 @@
             "projects": "Projekter",
             "programmes": "Programmer",
             "documents": "Dokumenter",
-            "tools": "",
+            "tools": "Værktøjer",
             "dataUse": "Databrug",
-            "literature": ""
+            "literature": "Litteratur"
         },
         "filters": {
             "countriesOfCoverage": "Land eller område der diskuteres",
