@@ -14,11 +14,11 @@ let locales = ['en'];
 if (env === 'uat') {
     // locales.push('es');
 }
-// if (env === 'staging' || env === 'local' || env === 'dev') {
-//     locales.push('de-MOCK');
-//     locales.push('ko-MOCK');
-//     locales.push('ar-MOCK');
-// }
+if (env === 'staging' || env === 'local' || env === 'dev') {
+    locales.push('de-MOCK');
+    locales.push('ko-MOCK');
+    locales.push('ar-MOCK');
+}
 
 // if the locale is something we translate to in contentful, then add the mapping here.
 let contentfulLocaleMap = {}; // the contentful map should not handle locales that are not included in our contentful space hence no : _.keyBy(locales);

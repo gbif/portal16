@@ -42,12 +42,14 @@ function languageMenuDirective(BUILD_VERSION) {
             $http.get('/api/translation/suggested')
                 .then(function(response) {
                     vm.suggestedLanguage = response.data;
-                    vm.isActive = vm.suggestedLanguage.matched !== vm.chosenLocale;
+                    if (vm.suggestedLanguage.matched !== vm.chosenLocale) {
+                        vm.isActive = true;
+                        $localStorage.hasSuggestedLanguage = true;
+                    }
                 })
                 .catch(function(err) {
                     // ignore errors
-                });
-            $localStorage.hasSuggestedLanguage = true;
+                });           
         }
 
         vm.close = function() {

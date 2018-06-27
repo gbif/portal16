@@ -11,10 +11,9 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function navCtrl(User, Notifications, $location, $http, $window, $rootScope, LOCALE_MAPPINGS, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout, URL_PREFIX, $translate) { // notice that the user is included as a dependency only to trigger the call to me endpoint
+function navCtrl(User, Notifications, $location, $http, $window, $rootScope, env, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout, URL_PREFIX, $translate) { // notice that the user is included as a dependency only to trigger the call to me endpoint
     var vm = this;
-    vm.multiLingual = Object.keys(LOCALE_MAPPINGS).length > 1;
-    console.log(LOCALE_MAPPINGS);
+    vm.multiLingual = Object.keys(env.locales).length > 1;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
         NAV_EVENTS.toggleFeedback,
