@@ -5,7 +5,7 @@ let express = require('express'),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
-    DataSetOmniSearch = require('../../search/dataset'),
+    DataSetOmniSearch = require('../../search/datasetSearch'),
     gbifData = require('../../../../models/gbifdata/gbifdata');
 
 const querystring = require('querystring');

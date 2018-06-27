@@ -44,9 +44,10 @@ window.Lightbox = require('../../../components/lightbox/lightbox');
 // That would make it difficult to add new locales and makes it impossible to have different in environments
 // For now they are manually added in code as needed
 require('moment');
-require('moment/locale/es');
 require('moment/locale/da');
-require('moment/locale/zh-cn');
+require('moment/locale/de-ch');
+require('moment/locale/ko');
+require('moment/locale/ar-sa');
 
 (function() {
     'use strict';
@@ -83,9 +84,6 @@ angular
 
 /** @ngInject */
 function runBlock( $translate, $http, LOCALE, $rootScope) { // $log
-    // $log.debug('runBlock end');
-    $translate.use(LOCALE);
-
     $rootScope.$on('$stateChangeStart', function(e) {
         if (window.gb.state > 399) {
             e.preventDefault();

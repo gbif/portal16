@@ -34,7 +34,7 @@ angular
                     var number = $filter('localNumber')(getCount(response.data, countType), LOCALE);
                     if (countTranslation) {
                         // Allow async counts to be used in translations
-                        $translate(countTranslation, {NUMBER: number, NUMBER_FORMATED: number.toLocaleString(LOCALE)}).then(function(translation) {
+                        $translate(countTranslation, {NUMBER: number, NUMBER_FORMATED: $filter('localNumber')(number)}).then(function(translation) {
                             element.html(translation);
                         });
                     } else {

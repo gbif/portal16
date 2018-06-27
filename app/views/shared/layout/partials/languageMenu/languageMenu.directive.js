@@ -23,9 +23,10 @@ function languageMenuDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function languageMenu($scope, NAV_EVENTS, AUTH_EVENTS, LOCALE, env) {
+    function languageMenu($scope, NAV_EVENTS, AUTH_EVENTS, LOCALE, LOCALE_MAPPINGS, env) {
         var vm = this;
         vm.locales = env.locales;
+        vm.LOCALE_MAPPINGS = LOCALE_MAPPINGS;
         vm.chosenLocale = LOCALE;
         vm.isActive = false;
 

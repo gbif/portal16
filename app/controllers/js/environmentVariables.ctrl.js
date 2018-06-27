@@ -18,7 +18,9 @@ let environment = {
     locales: localeConfig.locales,
     localeMappings: {
         moment: localeConfig.localeMappings.moment,
-        jsLocale: localeConfig.localeMappings.jsLocale
+        jsLocale: localeConfig.localeMappings.jsLocale,
+        translation: localeConfig.localeMappings.translation,
+        numbers: localeConfig.localeMappings.numbers
     }
 };
 
@@ -32,4 +34,3 @@ router.get('/environment.js', function(req, res) {
     res.set('Content-Type', 'application/javascript');
     res.send('window.gb.env = ' + JSON.stringify(environment) + '; window.gb.constantKeys = ' + JSON.stringify(constantKeys));
 });
-
