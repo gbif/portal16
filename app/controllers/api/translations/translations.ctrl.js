@@ -2,14 +2,9 @@
 /**
  * Looks at the query parameter lang and returns the corresponding translation file.json to be used in the client.
  */
-let express = require('express'),
-    router = express.Router(),
-    locales = require('../../../../config/config').locales;
-let translations = {};
-
-locales.forEach(function(locale) {
-    translations[locale] = require(`../../../../locales/_build/${locale}.json`);
-});
+let express = require('express');
+let router = express.Router();
+let translations = require('./translations');
 
 module.exports = function(app) {
     app.use('/api', router);

@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="m-t-1" ng-init="rootSearch.searchUrlFragment('INPN - Données flore des CBN agrégées par la FCBN');">
-                    <h4 class="card-header">Search</h4>
+                    <h4 class="card-header">{$ __('search.search') $}</h4>
                     <form class="search-box" ng-submit="rootSearch.updateSearch()">
                         <input type="text"
                                 id="siteSearch"
@@ -35,7 +35,7 @@
                     </form>
                 </div>
                 <div class="ng-cloak m-t-1" ng-if="rootSearch.results.resourceHighlights.count > 0 || rootSearch.results.resources.count > 0 || rootSearch.results.datasets.count">
-                    <h4 class="card-header">Suggestions</h4>
+                    <h4 class="card-header">{$ __('search.suggestions') $}</h4>
 
                     <div ng-if="rootSearch.results.resourceHighlights.count > 0">
                         <div ng-repeat="result in rootSearch.results.resourceHighlights.results">

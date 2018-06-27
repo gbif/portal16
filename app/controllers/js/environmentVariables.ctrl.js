@@ -3,7 +3,8 @@
 let express = require('express'),
     router = express.Router(),
     config = rootRequire('config/config'),
-    localeConfig = rootRequire('config/locales');
+    localeConfig = rootRequire('config/locales'),
+    translations = rootRequire('app/controllers/api/translations/translations');
 
 let environment = {
     managementToolsSite: config.managementToolsSite,
