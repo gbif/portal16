@@ -8,7 +8,7 @@
     },
     "metricHighlights": {
       "occurrences": "",
-      "withTaxonMatch": "",
+      "withTaxonMatch": "Med taxon match",
       "withCoordinates": "Med koordinater",
       "withYear": "Med år",
       "acceptedNames": "Accepterede navne",
