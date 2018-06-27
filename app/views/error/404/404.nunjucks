@@ -6,7 +6,10 @@
         <section class="horizontal-stripe--paddingless light-background p-t-1">
             <div class="container--narrow">
                 <div class="card card--spaced">
-                    <div style="height: 250px; background-size: cover; background-position: top; background-image:url('/img/dodo.jpg')">
+                    <div style="height: 250px; position:relative; background-size: cover; background-position: top; background-image:url('/img/dodo.jpg')">
+                        <div class="img_caption">
+                            <a href="https://mczbase.mcz.harvard.edu/guid/MCZ:Orn:340825"><i>Raphus cucullatus</i></a> via <a href="/dataset/4bfac3ea-8763-4f4b-a71a-76a6f5f243d3">Museum of Comparative Zoology, Harvard University</a>. CC BY-NC-SA 3.0.
+                        </div>
                     </div>
                     <div class="card__stripe">
                         <div class="card__content text-center">
