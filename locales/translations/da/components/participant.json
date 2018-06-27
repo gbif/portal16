@@ -1,0 +1,20 @@
+{
+    "participant": {
+        "participant": "Participant",
+        "participantSummary": "",
+        "endorsedPublishers": "Godkendte udgivere",
+        "noEndorsedPublishers": "",
+        "memberStatus": "",
+        "gbifParticipantSince": "",
+        "headOfDelegation": "",
+        "gbifRegion": "",
+        "countryOrArea": "Land eller område",
+        "nodeName": "",
+        "nodeEstablished": "",
+        "website": "Webside",
+        "participantNodeManager": "",
+        "pending": "",
+        "latestDatasetsPublished": "",
+        "noDatasets": ""
+    }
+}

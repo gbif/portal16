@@ -1,12 +1,28 @@
 {
   "occurrenceSearch": {
-    "table": "Table",
-    "gallery": "Gallery",
-    "map": "Map",
-    "taxonomy": "Taxonomy",
-    "charts": "Charts",
-    "download": "Download",
-    "searchAllFields": "Search all fields",
-    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
+    "table": "",
+    "gallery": "",
+    "map": "",
+    "taxonomy": "",
+    "charts": "",
+    "download": "",
+    "searchAllFields": "",
+    "description": "",
+    "nWithCoordinates": "",
+    "nWithImages": "",
+    "failedSearch": "",
+    "noImages": "",
+    "imageLicenseInfo": "",
+    "showMoreImages": "",
+    "default": "",
+    "custom": "",
+    "noOccurrencesWithCoordinates": "",
+    "containsSuspicious": "",
+    "hideSuspiciousCoordinates": "",
+    "currentFilter": "",
+    "selectColumns": "",
+    "done": "",
+    "yesCorrectSuggestion": "",
+    "noWrongSuggestion": ""
   }
 }

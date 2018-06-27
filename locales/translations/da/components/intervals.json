@@ -1,19 +1,20 @@
 {
     "intervals": {
-      "elevation": {
-        "equals": "Er {from}m",
-        "between": "Mellem {from} og {to}m",
-        "lessThanOrEquals": "Lavere end {to}m",
-        "greaterThanOrEquals": "Højere end {from}m",
-        "invalid": "Ugyldig",
-        "select": {
-          "equals": "Er",
-          "between": "Mellem",
-          "lessThanOrEquals": "Under",
-          "greaterThanOrEquals": "Over"
-        }
-      },
-      "depth": {
+        "noFilter": "Intet filter"
+        "elevation": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
+        },
+        "depth": {
         "equals": "Er {from}m",
         "between": "Mellem {from} og {to}m",
         "lessThanOrEquals": "Under {to}m dybde",
@@ -38,7 +39,7 @@
           "lessThanOrEquals": "Før slutningen af",
           "greaterThanOrEquals": "Efter starten på"
         }
-      },
-      "noFilter": "Intet filter"
+      }
+      }
     }
   }

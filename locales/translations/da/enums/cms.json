@@ -1,7 +1,7 @@
 {
   "enums": {
     "cms": {
-      "vocabularyTypes": {
+      "filters": {
         "countriesOfCoverage": "Land eller område der diskuteres",
         "countriesOfResearcher": "Forskers land eller område",
         "literatureType": "Litteraturtype",
@@ -10,7 +10,13 @@
         "audiences": "Publikum",
         "purposes": "Formål",
         "relevance": "Relevans",
-        "language": "Sprog"
+        "language": "Sprog",
+        "year": "",
+        "datasetKey": "",
+        "publishingOrg": "Udgiver",
+        "peerReview": "",
+        "openAccess": "",
+        "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "Event",
@@ -77,16 +83,15 @@
           "DATA_ANALYSIS": "Analyse af data",
           "DATA_CURATION_&_QUALITY": "Datakuration & kvalitet",
           "DATA_DIGITIZATION": "Data-digitalisering",
-          "DATA_PUBLISHING": "Data-udgivelse",
-          "DATA_CURATION_QUALITY": "Datakuration & kvalitet"
+          "DATA_PUBLISHING": "Data-udgivelse"
         },
         "literatureType": {
           "journal": "Tidsskriftsartikel",
           "book": "Bog",
           "generic": "Generisk",
           "book_section": "Bogafsnit",
-          "conference_proceedings": "Conference proceedings",
-          "working_paper": "Working paper",
+          "conference_proceedings": "",
+          "working_paper": "",
           "report": "Rapport",
           "web_page": "Webside",
           "thesis": "Afhandling",
@@ -100,7 +105,7 @@
           "encyclopedia_article": "Leksikon artikel",
           "case": "Case",
           "film": "Film",
-          "bill": "Bill"
+          "bill": ""
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Eksperter i biodiversitet",

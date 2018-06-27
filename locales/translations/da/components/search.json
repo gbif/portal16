@@ -1,12 +1,33 @@
 {
   "search": {
-    "placeholder": "Occurrences, species, news ...",
-    "noSearchTermsEntered": "No search terms entered",
-    "notSureWhatYouAreLookingFor": "Not sure what you are looking for? How about looking at some",
-    "picsOfSpOccs": "Pictures of species occurrences",
-    "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for?",
-    "trySpecifyingAType": "Try specifying a type",
-    "searchDescription": "Search GBIF.org",
-    "searchDescriptionDetail": "For ‘{{searchTerm}}’"
+    "placeholder": "",
+    "noSearchTermsEntered": "",
+    "notSureWhatYouAreLookingFor": "",
+    "cannotFindWhatYouAreLookingFor": "",
+    "trySpecifyingAType": "",
+    "searchDescription": "",
+    "searchDescriptionDetail": "",
+    "everything": "Alt",
+    "occurrences": "",
+    "species": "",
+    "datasets": "",
+    "resources": "",
+    "publishers": "",
+    "participants": "",
+    "search": "Søg",
+    "clearFilters": "Nulstil filtre",
+    "filters": "Filtre",
+    "simple": "Simple",
+    "advanced": "Avanceret",
+    "allResultTypes": "",
+    "suggestions": "",
+    "header": {
+      "searchDatasets": "Datasæt",
+      "searchPublishers": "Udgivere",
+      "searchSpecies": "Søg taxa",
+      "searchResources": "Resourcer",
+      "searchOccurrences": "Observationer"
+    },
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0{resultater} 1{resultat} other{resultater}}"
   }
 }

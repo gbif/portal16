@@ -1,0 +1,14 @@
+{
+    "speciesSearch": {
+        "youAreCurrentlySearchingInGBIFtaxonomy": "",
+        "SearchAcrossChecklists": "",
+        "freeTextSearchFor": "",
+        "limitSearchTo": "",
+        "limitResultsTo": {
+            "all": "",
+            "scientificNames": "",
+            "vernacularNames": "",
+            "descriptions": ""
+        }
+    }
+}

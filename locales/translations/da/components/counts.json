@@ -1,0 +1,23 @@
+{
+    "counts": {
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 0{citationer} 1{citation} other{citationer}}",
+        "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 0{optegnelser} 1{optegnelse} other{optegnelser}}",
+        "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0{resultater} 1{resultat} other{resultater}}",
+        "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 0{installationer} 1{installation} other{installationer}}",
+        "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 0{observationer} 1{observation} other{observationer}}",
+        "nOccurrencesAbout": "",
+        "nOccurrencesPublished": "",
+        "nEndorsedPublishers": "",
+        "nDatasets": "{NUMBER_FORMATED} {NUMBER, select, 0{datasæts} 1{datasæt} other{datasæts}}",
+        "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, 0{udgivere} 1{udgiver} other{udgivere}}",
+        "nCountries": "{NUMBER_FORMATED} {NUMBER, select, 0{lande} 1{land} other{lande}}",
+        "nContacts": "{NUMBER_FORMATED} {NUMBER, select, 0{kontakter} 1{kontakt} other{kontakter}}",
+        "pRecords": "{NUMBER, select, 0{optegnelser} 1{optegnelse} other{optegnelser}}",
+        "pOccurrence": "{NUMBER, select, 0{observationer} 1{observation} other{observationer}}",
+        "pSpecies": "",
+        "pInfraspecies": "",
+        "pPublishers": "",
+        "contacts": "{NUMBER, select, 0{kontakter} 1{kontakt} other{kontakter}}",
+        "result": "{NUMBER, select, one{resultat} other{resultater}}"
+    }
+}

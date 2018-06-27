@@ -1,9 +1,18 @@
 {
     "nameParser": {
-        "loadTestNames": "Load Test Names",
-        "parse": "Parse",
-        "nameParserTitle": "Name Parser",
-        "nameParserDescription": "This is a simple html form to make use of the GBIF name parser. The parser is written in java and based on regular expressions to disect name strings into its components. It does only keep name parts required to reconstruct a full 3-parted name with an optional subgenus, but ignores additional infraspecific parts such as the subspecies given for varieties. Please see our [API documentation](/developer/species#parser) for details.",
-        "nameParserRequirements": "You can copy paste a list of names, one per row, or upload a text file with a name per line. Uploaded files have to be encoded as utf8!"
+        "loadTestNames": "",
+        "parse": "",
+        "or": "",
+        "selectFile": "",
+        "pasteNamesToParse": "",
+        "about": "",
+        "parser": "",
+        "nameParserTitle": "",
+        "dropHere": "",
+        "excludeUnparsed": "",
+        "generateCsv": "",
+        "parsingNames": "",
+        "nameParserDescription": "",
+        "nameParserRequirements": ""
     }
 }

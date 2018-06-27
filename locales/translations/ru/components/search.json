@@ -1,12 +1,33 @@
 {
   "search": {
-    "placeholder": "Occurrences, species, news ...",
-    "noSearchTermsEntered": "No search terms entered",
-    "notSureWhatYouAreLookingFor": "Not sure what you are looking for? How about looking at some",
-    "picsOfSpOccs": "Pictures of species occurrences",
-    "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for?",
-    "trySpecifyingAType": "Try specifying a type",
-    "searchDescription": "Search GBIF.org",
-    "searchDescriptionDetail": "For ‘{{searchTerm}}’"
+    "placeholder": "",
+    "noSearchTermsEntered": "",
+    "notSureWhatYouAreLookingFor": "",
+    "cannotFindWhatYouAreLookingFor": "",
+    "trySpecifyingAType": "",
+    "searchDescription": "",
+    "searchDescriptionDetail": "",
+    "everything": "",
+    "occurrences": "Находки",
+    "species": "Виды",
+    "datasets": "Наборы данных",
+    "resources": "Ресурсы",
+    "publishers": "",
+    "participants": "",
+    "search": "",
+    "clearFilters": "",
+    "filters": "",
+    "simple": "",
+    "advanced": "",
+    "allResultTypes": "",
+    "suggestions": "",
+    "header": {
+      "searchDatasets": "",
+      "searchPublishers": "",
+      "searchSpecies": "",
+      "searchResources": "",
+      "searchOccurrences": ""
+    },
+    "nResults": ""
   }
 }

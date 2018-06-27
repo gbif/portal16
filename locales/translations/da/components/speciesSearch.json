@@ -1,0 +1,14 @@
+{
+    "speciesSearch": {
+        "youAreCurrentlySearchingInGBIFtaxonomy": "",
+        "SearchAcrossChecklists": "",
+        "freeTextSearchFor": "Du foretager en fritekst-søgning for '{QUERY}'",
+        "limitSearchTo": "Begræns søgning til",
+        "limitResultsTo": {
+            "all": "Alle",
+            "scientificNames": "Videnskablige navne",
+            "vernacularNames": "Almindelige navne",
+            "descriptions": "Beskrivelser"
+        }
+    }
+}
