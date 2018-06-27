@@ -29,12 +29,12 @@
     "estSizeIs": "Den estimerede download størrelse er {SIZE_FORMATTED}",
     "estDLtimes": "Estimerede downloadtider:",
     "nMbitConn": "{NUMBER} Mbit forbindelse",
-    "onceDownloaded": "",
-    "datasetHasNumRows": "",
-    "youWillNotBeAble": "",
-    "difficultToAnalyse": "",
-    "hours": "",
-    "minute": "",
-    "minutes": ""
+    "onceDownloaded": "Efter filen er downloadet har du brug for yderligere {SIZE_FORMATTED} disk plads for at unzippe dataen.",
+    "datasetHasNumRows": "Datasættet har {NUMBER_FORMATTED} rækker",
+    "youWillNotBeAble": "Der er for meget data til at analysere i Excel eller lignende. Du vil blive nød til at bruge Python, R eller relationelle databaser.",
+    "difficultToAnalyse": "Data af denne størrelse er svær at analysere på en almindelig computer. Du vil sandsynligvis have brug for flere computere i et netværk.",
+    "hours": "Timer",
+    "minute": "Minut",
+    "minutes": "Minutter"
   }
 }
