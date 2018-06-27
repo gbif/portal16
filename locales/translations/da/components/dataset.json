@@ -55,7 +55,7 @@
     "nFromDataset": "{NUMBER_FORMATED} {NUMBER, select, 0{observationer fra dette datasæt} 1{observation fra dette datasæt} other{observationer fra dette datasæt}}",
     "about": "Om",
     "funding": "Finansiering",
-    "contacts": "",
+    "contacts": "Kontakter",
     "registration": "GBIF registrering",
     "dataDescription": "Data beskrivelse",
     "bibliography": "Bibliografi",
