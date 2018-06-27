@@ -92,12 +92,16 @@ function generateMockString(letters, str, factor) {
 }
 
 function generateMockSection(letters, str, factor) {
-    let length = _.toSafeInteger(str.length * factor) + 1;
+    let length = str.length;// _.toSafeInteger(str.length * factor) + 1;
     let s = '';
     for (let i = 0; i < length; i++) {
-        let nr = chance.integer({min: 0, max: letters.length - 1});
-        let letter = letters[nr];
-        s += letter;
+        if ('(){}[]'.indexOf(str[i]) !== -1) {
+            s += str[i];
+        } else {
+            let nr = chance.integer({min: 0, max: letters.length - 1});
+            let letter = letters[nr];
+            s += letter;
+        }
     }
     return s;
 }

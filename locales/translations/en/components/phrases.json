@@ -18,7 +18,6 @@
     "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.",
     "pageMightHaveExisted":"This page might have existed once, but we can no longer find it.",
     "weReleasedAnewSite": "We released an improved and updated GBIF.org in August 2017, so some URLs may have changed. Please try our much-improved [search](/search) to find what you're looking for.",
-    "ifTheProblemExists": "If the problem persists, please contact us at [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
-    "internalserverError": "Internal server error"
+    "ifTheProblemExists": "If the problem persists, please contact us at [helpdesk@gbif.org](mailto:helpdesk@gbif.org)."
   }
 }
