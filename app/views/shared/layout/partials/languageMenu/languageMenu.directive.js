@@ -23,7 +23,7 @@ function languageMenuDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function languageMenu($http, $localStorage, $scope, NAV_EVENTS, AUTH_EVENTS, LOCALE, LOCALE_MAPPINGS, env) {
+    function languageMenu($http, $cookies, $localStorage, $scope, NAV_EVENTS, AUTH_EVENTS, LOCALE, LOCALE_MAPPINGS, env) {
         var vm = this;
         vm.locales = env.locales;
         vm.LOCALE_MAPPINGS = LOCALE_MAPPINGS;
@@ -38,7 +38,9 @@ function languageMenuDirective(BUILD_VERSION) {
             }
         });
 
-        if (!$localStorage.hasSuggestedLanguage) {
+        // has accepted cookies - to avoid 2 popups at the same time
+        var userAcceptedCookies = $cookies.get('userAcceptance') === 'true';
+        if (!$localStorage.hasSuggestedLanguage && userAcceptedCookies) {
             $http.get('/api/translation/suggested')
                 .then(function(response) {
                     vm.suggestedLanguage = response.data;
@@ -49,7 +51,7 @@ function languageMenuDirective(BUILD_VERSION) {
                 })
                 .catch(function(err) {
                     // ignore errors
-                });           
+                });
         }
 
         vm.close = function() {
