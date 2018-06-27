@@ -2,11 +2,11 @@
     <h4 class="card-header">{{ speciesKey2.speciesImages.results.length | localNumber }}{{(speciesKey2.speciesImages.endOfRecords == false) ? '+':'' }} images</h4>
     <div class="galleryBar">
         <div>
-            <a ng-repeat="image in speciesKey2.speciesImages.results"  class="galleryBar__img showBroken inherit noUnderline hoverBox">
+            <div ng-repeat="image in speciesKey2.speciesImages.results"  class="cursor-pointer galleryBar__img showBroken inherit noUnderline hoverBox">
                 <img ng-src="{{ image.identifier | imgCache:200:150 }}" gb-load data-jslghtbx="{{ image.identifier | imgCache }}" data-jslghtbx-caption="{{ (image.rightsHolder) ? '&copy; '+image.rightsHolder : '&copy; '+image.creator }} {{ (image.license) ? '<br> License: '+image.license : ''}}">
 
                 <div class="summary smaller"><span ng-if="image.rightsHolder || image.creator">&copy; {{ (image.rightsHolder) ? image.rightsHolder : image.creator }}</span></div>
-            </a>
+            </div>
         </div>
     </div>
 </div>
