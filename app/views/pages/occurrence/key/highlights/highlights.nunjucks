@@ -8,7 +8,7 @@
                             <dt translate="occurrence.gbifTaxonInterpretation"></dt>
                             {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 %} <dd translate="occurrence.noTaxonMatch"></dd>{% endif %}
                             {% if occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 %}   <dd>
-                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })">
                                     {$ occurrence.record.scientificName $}
                                 </a>
                             </dd>
@@ -19,7 +19,7 @@
                         <div>
                             <dt>{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
                             <dd>
-                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}" scientific-name key="{$ occurrence.record.taxonKey $}">
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })">
                                     {$ occurrence.record.scientificName $}
                                 </a>
                             </dd>
@@ -29,7 +29,7 @@
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.appliedName' ) $}</dt>
                             <dd>
-                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })">
                                     {$ occurrence.record.scientificName $}
                                 </a>
                             </dd>
@@ -37,7 +37,7 @@
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.acceptedName' ) $}</dt>
                             <dd>
-                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.species.key $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.species.key $}">
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.species.key $} })">
                                     {$ occurrence.species.accepted $}
                                 </a>
                             </dd>
@@ -89,7 +89,7 @@
                     <div>
                         <dt>{$ __('occurrence.dataset') $}</dt>
                         <dd>
-                            <a ui-sref="datasetKey({ key: occurrenceKey.data.datasetKey })" href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">
+                            <a ui-sref="datasetKey({ key: occurrenceKey.data.datasetKey })">
                                 {$ occurrence.dataset.title | truncate(80) $}
                             </a>
                         </dd>
@@ -97,7 +97,7 @@
                     <div>
                         <dt>{$ __('occurrence.highlights.publisher') $}</dt>
                         <dd>
-                            <a ui-sref="publisherKey({ key: occurrenceKey.data.publishingOrgKey })" href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">
+                            <a ui-sref="publisherKey({ key: occurrenceKey.data.publishingOrgKey })">
                             {$ occurrence.publisher.title | truncate(80) $}</a>
                         </dd>
                     </div>

@@ -43,10 +43,8 @@ function speciesKeyMetricsCtrl($stateParams, $httpParamSerializer) {
 
 
     vm.getSerializedQuery = function() {
-
         return $httpParamSerializer({taxon_key: vm.key});
     };
-
 }
 
 module.exports = speciesKeyMetricsCtrl;

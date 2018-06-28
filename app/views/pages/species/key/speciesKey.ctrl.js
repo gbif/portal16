@@ -78,9 +78,9 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                 });
             }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' &&
-                            vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 &&
-                            vm.species.accepted && vm.species.acceptedKey &&
-                            vm.species.acceptedKey !== vm.species.key;
+                vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 &&
+                vm.species.accepted && vm.species.acceptedKey &&
+                vm.species.acceptedKey !== vm.species.key;
 
 
             getCitesStatus(resp.kingdom, resp.canonicalName);
@@ -109,27 +109,37 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                 vm.sourceTaxon.$promise
                     .then(function(sourceTx) {
                         vm.sourceTaxonExists = true;
+                        vm.sourceTaxonDataset = Dataset.get({id: vm.sourceTaxon.datasetKey});
                         if (sourceTx.references) {
                             vm.sourceTaxonLink = sourceTx.references;
+                        } else if (vm.species.nameType === 'OTU') {
+                            SpeciesVerbatim.get({id: vm.species.sourceTaxonKey}).$promise
+                                .then(function(sourceTaxonVerbatim) {
+                                    var references = sourceTaxonVerbatim['http://purl.org/dc/terms/references'];
+                                    if (references.substring(0, 10) === 'dx.doi.org') {
+                                        vm.sourceTaxonLink = 'https://' + references;
+                                       // PlutoF resolves DOIs in a away that prevents the browser "back" button to take us back to gbif.org, therefore a target _blank here
+                                        vm.refLinkTarget = '_blank';
+                                    }
+                                });
                         }
-                        vm.sourceTaxonDataset = Dataset.get({id: vm.sourceTaxon.datasetKey});
-                    })
+                  })
                     .catch(function() {
                         vm.sourceTaxonExists = false;
                     });
             }
         });
     // Disable Open Tree Of Life
-   /* vm.species.$promise.then(function() {
-        $http.get('/api/otl/ottid', {
-            params: {
-                canonicalName: vm.species.canonicalName,
-                nubKey: (vm.species.datasetKey === vm.backboneKey) ? vm.species.key : vm.species.nubKey
-            }
-        }).then(function(response) {
-            vm.ott_id = response.data.ott_id;
-        });
-    }); */
+    /* vm.species.$promise.then(function() {
+         $http.get('/api/otl/ottid', {
+             params: {
+                 canonicalName: vm.species.canonicalName,
+                 nubKey: (vm.species.datasetKey === vm.backboneKey) ? vm.species.key : vm.species.nubKey
+             }
+         }).then(function(response) {
+             vm.ott_id = response.data.ott_id;
+         });
+     }); */
 
     function getCitesStatus(kingdom, name) {
         vm.cites = CitesApi.get({
