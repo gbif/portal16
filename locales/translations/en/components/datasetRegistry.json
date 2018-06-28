@@ -37,7 +37,7 @@
             "lastIngestionSuccess": "Last ingestion a success",
             "lastIngestionFailed": "Last ingestion failed",
             "outOfSync": "Out of sync",
-            "becauseTrustedContact": "Because you are trusted contact",
+            "becauseTrustedContact": "Because you are trusted contact"
         },
         "crawl": {
             "finishReason": {
