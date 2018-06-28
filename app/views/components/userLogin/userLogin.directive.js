@@ -134,7 +134,7 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                 vm.waiting = false;
             }, function() {
                 toastService.error({
-                    translate: 'login.criticalFailure',
+                    translate: 'phrases.criticalErrorMsg',
                     feedback: true
                 });
                 vm.waiting = false;
@@ -155,9 +155,9 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                 vm.waiting = false;
                 if (err.status < 500) { // 401 seems an odd error code for 'no such entry' but that is what the API returns
                     // TODO move error messages to translation file
-                    toastService.error({translate: 'login.unknownUser', feedback: true});
+                    toastService.error({translate: 'profile.unknownUser', feedback: true});
                 } else {
-                    toastService.error({translate: 'login.tryAgainLater', feedback: true});
+                    toastService.error({translate: 'profile.tryAgainLater', feedback: true});
                 }
             });
         };

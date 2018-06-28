@@ -17,7 +17,6 @@
         "pSpecies": "{NUMBER, select, 0{species} 1{species} other{species}}",
         "pInfraspecies": "{NUMBER, select, 0{infraspecies} 1{infraspecies} other{infraspecies}}",
         "pPublishers": "{NUMBER, select, 0{publishers} 1{publisher} other{publishers}}",
-        "contacts": "{NUMBER, select, 0{contacts} 1{contact} other{contacts}}",
-        "result": "{NUMBER, select, one{result} other{results}}"
+        "contacts": "{NUMBER, select, 0{contacts} 1{contact} other{contacts}}"
     }
 }

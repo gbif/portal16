@@ -35,27 +35,29 @@ function use(app, locales, defaultLocale) {
         let locale = getLocaleFromUrl(req.url, locales);
         let queryLocale = req.query.locale || req.query.lang;
 
+        res.locals.gb = res.locals.gb || {};
+
         if (locale) {
             req.url = removeLocaleFromUrl(req.url, locale);
             req.setLocale(locale);
-            res.locals.gb = res.locals.gb || {};
             res.locals.gb.locales = {
                 urlPrefix: '/' + locale,
-                current: locale
+                current: locale,
+                locales: locales
             };
         } else if (typeof queryLocale !== 'undefined' && queryLocale != defaultLocale && locales.indexOf(queryLocale) > -1) {
             req.setLocale(queryLocale);
-            res.locals.gb = {};
             res.locals.gb.locales = {
                 urlPrefix: '/' + queryLocale,
-                current: queryLocale
+                current: queryLocale,
+                locales: locales
             };
         } else {
             req.setLocale(defaultLocale); // remove to use browser preference
-            res.locals.gb = {};
             res.locals.gb.locales = {
                 urlPrefix: '',
-                current: defaultLocale
+                current: defaultLocale,
+                locales: locales
             };
         }
         // console.log();

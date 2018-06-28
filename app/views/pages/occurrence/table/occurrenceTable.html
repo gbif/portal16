@@ -182,8 +182,8 @@
             <fieldset class="md-padding">
                 <div layout="row" layout-wrap flex>
                     <div flex="100" ng-repeat="(col, val) in data.occurrenceSearchColumns">
-                        <md-checkbox ng-checked="val" ng-click="data.occurrenceSearchColumns[col] = !data.occurrenceSearchColumns[col]">
-                            {{ col }}
+                        <md-checkbox ng-checked="val" ng-click="data.occurrenceSearchColumns[col] = !data.occurrenceSearchColumns[col]" aria-label="{{col}}">
+                            <span translate="{{ data.translationKeyOverwrites[col] || 'ocurrenceFieldNames.' + col }}"></span>
                         </md-checkbox>
                     </div>
                 </div>

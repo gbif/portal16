@@ -43,7 +43,7 @@
       },
       "CONTENTFUL": {
         "name": "Content mangement system (external system)",
-        "tooltip": "Dataset, publishers, installations, countries, participants and networks. "
+        "tooltip": "E.g. news and articles"
       },
       "IMAGE_CACHE": {
         "name": "Image cache",
