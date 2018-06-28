@@ -73,7 +73,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessio
     };
 
     // ---- Popup to handle columns selection ----
-    vm.columns = ['country', 'coordinates', 'eventDate', 'basisOfRecord', 'dataset', 'issues', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy', 'publisher', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
+    vm.columns = ['country', 'coordinates', 'eventDate', 'basisOfRecord', 'dataset', 'issues', 'individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy', 'publisher', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
     vm.translationKeyOverwrites = {
         coordinates: 'occurrence.coordinates',
         eventDate: 'occurrence.monthAndyear',
