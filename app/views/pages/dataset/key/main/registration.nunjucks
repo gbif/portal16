@@ -96,7 +96,7 @@
                 <div ng-if="!datasetKey.isBackbone">
                     {% include('./crawlInfo.nunjucks') %}
                 </div>
-                <p ng-if="datasetKey.currentCrawlingStatus.crawlInProcess"><span translate="dataset.inIngestionQueue"></span> <span gb-help="time-to-index-dataset"></span></p>
+                <p ng-if="datasetKey.currentCrawlingStatus.crawlInProcess"><span translate="dataset.registry.inIngestionQueue"></span> <span gb-help="time-to-index-dataset"></span></p>
             </div>
         </div>
     </div>

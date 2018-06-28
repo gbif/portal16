@@ -1,5 +1,5 @@
 <div class="card-head">
-    <h4 class="card-header--bold" translate="dataset.becauseTrustedContact"></h4>
+    <h4 class="card-header--bold" translate="dataset.registry.becauseTrustedContact"></h4>
     <div class="card-menu">
         <a href="" class="card-menu__option inherit noUnderline" ng-click="datasetKey.showTrustedDatasetDetails = !datasetKey.showTrustedDatasetDetails" ng-class="{'gb-icon-unfold-more-horizontal': !datasetKey.showTrustedDatasetDetails, 'gb-icon-unfold-less-horizontal': datasetKey.showTrustedDatasetDetails}"></a>
     </div>
@@ -8,19 +8,19 @@
     <div class="card__stripe">
         <div class="card__content clearfix">
             <a href="" ng-click="datasetKey.showTrustedDatasetDetails = true">
-                <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0" translate="dataset.lastIngestionSuccess"></span>
-                <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0" translate="dataset.lastIngestionFailed"></span>
-                <span class="gb-badge--red inline-block" ng-if="datasetKey.isOutOfSync" translate="dataset.outOfSync"></span>
+                <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0" translate="dataset.registry.lastIngestionSuccess"></span>
+                <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0" translate="dataset.registry.lastIngestionFailed"></span>
+                <span class="gb-badge--red inline-block" ng-if="datasetKey.isOutOfSync" translate="dataset.registry.outOfSync"></span>
             </a>
             <div class="pull-right" ng-if="datasetKey.crawlingState != 'FAILED'">
                 <a ng-href="{{ portal.env.managementToolsSite }}crawl-history?uuid={{ datasetKey.key }}" class="gb-button--flat text-uppercase" translate="dataset.history"></a>
                 <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="datasetKey.crawlingState == 'FINISHED'" translate="dataset.ingestNow"></a>
                 <a ng-href="{$ publicKibana $}app/kibana#/discover?_g=(time:(from:now-7d,mode:quick,to:now))&_a=(filters:!((meta:(alias:!n,disabled:!f,index:{$ kibanaIndex $},key:datasetKey,negate:!f,type:phrase,value:'{{datasetKey.key}}'),query:(match:(datasetKey:(query:'{{datasetKey.key}}',type:phrase))))),index:{$ kibanaIndex $})" class="gb-button--flat text-uppercase" translate="dataset.logs">Logs</a>
-                <a class="gb-button--discreet" href="https://crawler.gbif.org/" ng-if="datasetKey.crawlingState == 'IN_QUEUE'" translate="dataset.inIngestionQueue"></a>
-                <span class="gb-button--discreet" ng-if="datasetKey.crawlingState == 'STARTED'" translate="dataset.addingToQueue"></span>
+                <a class="gb-button--discreet" href="https://crawler.gbif.org/" ng-if="datasetKey.crawlingState == 'IN_QUEUE'" translate="dataset.registry.inIngestionQueue"></a>
+                <span class="gb-button--discreet" ng-if="datasetKey.crawlingState == 'STARTED'" translate="dataset.registry.addingToQueue"></span>
             </div>
             <div class="pull-right" ng-if="datasetKey.crawlingState == 'FAILED'">
-                <span class="text-error text-uppercase" translate="dataset.unableToStart"></span>
+                <span class="text-error text-uppercase" translate="dataset.registry.unableToStart"></span>
             </div>
         </div>
     </div>
@@ -38,23 +38,23 @@
                         </span>
                         <span ng-repeat="recentItem in datasetKey.range(25 - datasetKey.processSummary.recent.length) track by $index" class="processSummary__EMPTY }}"></span>
                     </div>
-                    <div class="discreet--very text-center small m-t-05" translate="dataset.ingestionChartExplainer">
+                    <div class="discreet--very text-center small m-t-05" translate="dataset.registry.ingestionChartExplainer">
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-                <h4 class="card-header" translate="dataset.datasetIngestionStatus"></h4>
+                <h4 class="card-header" translate="dataset.registry.datasetIngestionStatus"></h4>
                 {% include('../main/crawlInfo.nunjucks') %}
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
-                <h4 class="card-header" translate="dataset.gbifIngestionStatus"></h4>
+                <h4 class="card-header" translate="dataset.registry.gbifIngestionStatus"></h4>
                 <dl class="inline m-b-05">
                     <div>
-                        <dt translate="dataset.ingestionStatus"></dt>
+                        <dt translate="dataset.registry.ingestionStatus"></dt>
                         <dd ng-class="{'c-error-badge': datasetKey.componentHealth.CRAWLER !== 'OPERATIONAL'}" translate="health.status.{{datasetKey.componentHealth.CRAWLER || 'CRITICAL'}}"></dd>
                     </div>
                     <div>
-                        <dt translate="dataset.itemInIngestionQueue"></dt>
+                        <dt translate="dataset.registry.itemInIngestionQueue"></dt>
                         <dd>{{ datasetKey.currentCrawlingStatus.queueLength }}</dd>
                     </div>
                 </dl>
