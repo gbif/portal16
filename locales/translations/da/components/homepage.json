@@ -1,9 +1,9 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
-            "datasets": "",
-            "publishers": "",
+            "occurrences": "Observationer",
+            "datasets": "Datasæt",
+            "publishers": "Udgivere",
             "species": "",
             "speciesSubtitle": ""
         },
