@@ -53,7 +53,6 @@
     "methodSteps": "Method steps",
     "nDownloadEvents": "{NUMBER_FORMATED} {NUMBER, select, 0{download events} 1{download event} other{download events}}",
     "nFromDataset": "{NUMBER_FORMATED} {NUMBER, select, 0{occurrences from this dataset} 1{occurrence from this dataset} other{occurrences from this dataset}}",
-    "about": "About",
     "funding": "Funding",
     "contacts": "Contacts",
     "registration": "GBIF registration",
