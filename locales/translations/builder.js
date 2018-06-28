@@ -82,6 +82,7 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/resource`),
         getFile(locale, `./${locale}/components/resourceSearch`),
         getFile(locale, `./${locale}/components/dataset`),
+        getFile(locale, `./${locale}/components/datasetRegistry`),
         getFile(locale, `./${locale}/components/tools`),
         getFile(locale, `./${locale}/components/search`),
         getFile(locale, `./${locale}/components/publisher`),

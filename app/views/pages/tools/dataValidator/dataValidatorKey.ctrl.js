@@ -15,7 +15,6 @@ angular
 
 /** @ngInject */
 function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env) {
-    var MAX_RUNNING_HOURS = 2;
     var vm = this;
     vm.dataApi = env.dataApi;
     vm.$state = $state;
