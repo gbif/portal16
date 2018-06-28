@@ -5,8 +5,6 @@
     "notSureWhatYouAreLookingFor": "Not sure what you are looking for? How about looking at some pictures of species occurrences",
     "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for?",
     "trySpecifyingAType": "Try specifying a type",
-    "searchDescription": "Search GBIF.org",
-    "searchDescriptionDetail": "For ‘{{searchTerm}}’",
     "everything": "Everything",
     "occurrences": "Occurrences",
     "species": "Species",
@@ -19,7 +17,7 @@
     "filters": "Filters",
     "simple": "Simple",
     "advanced": "Advanced",
-    "allResultTypes": "all",
+    "allResultTypes": "All",
     "suggestions": "Suggestions",
     "header": {
       "searchDatasets": "Search datasets",
