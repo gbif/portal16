@@ -4,10 +4,10 @@
             "occurrences": "Observationer",
             "datasets": "Datasæt",
             "publishers": "Udgivere",
-            "species": "",
-            "speciesSubtitle": ""
+            "species": "Arter",
+            "speciesSubtitle": "Læs mere om antallet af arter omfattet af data i GBIF.org."
         },
-        "aboutGbifCountry": "",
-        "summary": ""
+        "aboutGbifCountry": "Om GBIF {COUNTRY}",
+        "summary": "Gratis og åben adgang til biodiversitetsdata"
     }
 }
