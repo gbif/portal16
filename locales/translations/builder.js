@@ -91,6 +91,18 @@ function builder(locale) {
         getFile(locale, `./${locale}/components/intervals`),
         getFile(locale, `./${locale}/components/phrases`)
     );
-
+    removeEmptyStrings(translations);
     return translations;
+}
+
+
+function removeEmptyStrings(obj) {
+    _.each(obj, (val, key) => {
+        if (typeof val === 'string' && val === '') {
+            delete obj[key];
+        } else if (typeof (val) === 'object') {
+            removeEmptyStrings(obj[key]);
+        }
+    });
+    return obj;
 }
