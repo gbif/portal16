@@ -101,7 +101,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessio
 
     vm.showTableCustomization = function(ev) {
         $mdDialog.show({
-            locals: {data: {occurrenceSearchColumns: vm.sessionStorage.occurrenceSearchColumns}},
+            locals: {data: {occurrenceSearchColumns: vm.sessionStorage.occurrenceSearchColumns, translationKeyOverwrites: vm.translationKeyOverwrites}},
             controller: DialogController,
             templateUrl: 'customTableColumns.tmpl.html',
             parent: angular.element(document.body),
