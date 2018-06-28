@@ -1,13 +1,13 @@
 {
   "footer": {
-    "whatIsGbif": "",
-    "api": "",
-    "faq": "",
-    "newsletter": "",
-    "privacy": "",
-    "terms": "",
-    "citation": "",
-    "acknowledgements": "",
-    "contact": ""
+    "whatIsGbif": "Hvad er GBIF?",
+    "api": "API",
+    "faq": "FAQ",
+    "newsletter": "Nyhedsbrev",
+    "privacy": "Privatliv",
+    "terms": "Betingelser for brug",
+    "citation": "Citation",
+    "acknowledgements": "Tak til",
+    "contact": "Kontakt"
   }
 }
