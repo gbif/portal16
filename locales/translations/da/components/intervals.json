@@ -1,6 +1,6 @@
 {
     "intervals": {
-        "noFilter": "Intet filter"
+        "noFilter": "",
         "elevation": {
             "equals": "",
             "between": "",
@@ -15,31 +15,30 @@
             }
         },
         "depth": {
-        "equals": "Er {from}m",
-        "between": "Mellem {from} og {to}m",
-        "lessThanOrEquals": "Under {to}m dybde",
-        "greaterThanOrEquals": "Dybere end {from}m",
-        "invalid": "Ugyldig",
-        "select": {
-          "equals": "Er",
-          "between": "Mellem",
-          "lessThanOrEquals": "Mindre end",
-          "greaterThanOrEquals": "Dybere end"
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
+        },
+        "year": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
         }
-      },
-      "year": {
-        "equals": "Er {from}",
-        "between": "Fra starten af {from} til slutningen af {to}",
-        "lessThanOrEquals": "Før slutningen af {to}",
-        "greaterThanOrEquals": "Efter starten af {from}",
-        "invalid": "Ugyldig",
-        "select": {
-          "equals": "Er",
-          "between": "Mellem",
-          "lessThanOrEquals": "Før slutningen af",
-          "greaterThanOrEquals": "Efter starten på"
-        }
-      }
-      }
     }
-  }
+}
