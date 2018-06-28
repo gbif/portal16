@@ -3,7 +3,7 @@
     "systemHealth": "Systemstatus",
     "description": "Hvad er status for de forskellige GBIF tjenester",
     "automatedMonitoring": "Automatiseret overvågning",
-    "updatedTimeAgo": "Opdateret {TIME_AGO}",
+    "updatedTimeAgo": "Opdateret for {TIME_AGO}",
     "systemLoad": "Systemets belastning",
     "messages": "Beskeder",
     "version": "Version",
