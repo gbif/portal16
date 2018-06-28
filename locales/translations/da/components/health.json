@@ -1,45 +1,45 @@
 {
   "health": {
-    "systemHealth": "",
-    "description": "",
-    "automatedMonitoring": "",
-    "updatedTimeAgo": "",
-    "systemLoad": "",
-    "messages": "",
-    "version": "",
+    "systemHealth": "Systemstatus",
+    "description": "Hvad er status for de forskellige GBIF tjenester",
+    "automatedMonitoring": "Automatiseret overvågning",
+    "updatedTimeAgo": "Opdateret {TIME_AGO}",
+    "systemLoad": "Systemets belastning",
+    "messages": "Beskeder",
+    "version": "Version",
     "nInQueue": "{NUMBER} i kø",
     "statusSummary": {
-      "OPERATIONAL": "",
-      "INFO": "",
-      "WARNING": "",
-      "CRITICAL": ""
+      "OPERATIONAL": "Alle systemer er operationelle",
+      "INFO": "Alle systemer er operationelle",
+      "WARNING": "Vi oplever ustabile eller langsomme systemer",
+      "CRITICAL": "Vi har en delvis afbrydelse"
     },
     "status": {
-      "OPERATIONAL": "",
-      "WARNING": "",
-      "CRITICAL": "",
-      "INFO": ""
+      "OPERATIONAL": "Operationel",
+      "WARNING": "Ustabil",
+      "CRITICAL": "Ikke brugbar",
+      "INFO": "Information"
     },
     "components": {
       "OCCURRENCE": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "F.eks. søgning og visning af observationer."
       },
       "SPECIES": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "F.eks. søgning og visning af arter"
       },
       "REGISTRY": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "Fx datasæt, udgivere, installationer, lande, deltagere og netværk."
       },
       "IDENTITY": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "Fx log ind og ud, profil-visninger mm."
       },
       "MAPS": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "Kortvisninger mm."
       },
       "CONTENTFUL": {
         "name": "",
@@ -77,7 +77,7 @@
       },
       "CRITICAL": {
         "title": "",
-        "summary": ""
+        "summary": "Vi har en delvis afbrydelse"
       }
     }
   }
