@@ -47,36 +47,36 @@
       },
       "IMAGE_CACHE": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "Diverse billeder er afhængig af dette system"
       },
       "GITHUB": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "Feedback duer ikke uden dette system"
       },
       "CRAWLER": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "Nødvendigt for at redigere og oprette datasæt."
       },
       "RESOURCE_SEARCH": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "F.eks. søgning af litteratur og nyheder."
       },
       "CLUSTER": {
-        "name": "",
+        "name": "Systemets belastning",
         "tooltip": ""
       },
       "DOWNLOAD": {
         "name": "",
-        "tooltip": ""
+        "tooltip": "Er nødvendig for at downloade mm"
       }
     },
     "notifications": {
       "WARNING": {
-        "title": "",
-        "summary": ""
+        "title": "Ustabil service",
+        "summary": "Vi oplever ustabile eller langsomme systemer."
       },
       "CRITICAL": {
-        "title": "",
+        "title": "Afbrudt service",
         "summary": "Vi har en delvis afbrydelse"
       }
     }
