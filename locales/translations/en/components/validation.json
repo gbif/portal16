@@ -97,7 +97,6 @@
       "CONTACTING_SERVER": "Contacting server..."
     },
     "jobId": "Job id",
-    "unknown": "Unknown",
     "indexeable": "The file can be indexed by GBIF",
     "notIndexeable": "The file cannot be indexed by GBIF",
     "numberOfLines": "Number of lines",

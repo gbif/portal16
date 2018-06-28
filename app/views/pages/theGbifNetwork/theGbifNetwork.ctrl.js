@@ -3,7 +3,6 @@
 require('./theGbifNetworkMap.service');
 
 var angular = require('angular'),
-    moment = require('moment'),
     _ = require('lodash'),
     ol = require('openlayers');
 
@@ -133,8 +132,6 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
         if (props && props.id) {
             tasks.heads = ParticipantHeads.get({participantId: props.id}).$promise;
             tasks.endorsement = PublisherEndorsedBy.get({participantId: props.id}).$promise;
-            var mStart = vm.currentParticipantProps.membershipStart;
-            vm.currentParticipantProps.membershipStart = moment(mStart, 'MMMM YYYY').format('YYYY');
         }
         if (props && props.countryCode) {
             tasks.digest = CountryDataDigest.get({iso2: props.countryCode}).$promise;

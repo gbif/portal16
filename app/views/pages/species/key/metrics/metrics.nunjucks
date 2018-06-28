@@ -4,7 +4,9 @@
         <div class="container-desktop">
             <div ng-if="speciesKey2.occurrences.count > 0">
                 <section class="occChart-col m-t-1">
+                    <div class="species-tax-stats">
                     <occurrence-taxonomy-stats ng-if="speciesKey2.isFamilyOrAbove" filter="{taxon_key: speciesKeyMetrics.key}" chart-type="'treemap'"></occurrence-taxonomy-stats>
+                    </div>
                     <div ng-repeat="chart in speciesKeyMetrics.defaultCharts">
                         <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="speciesKeyMetrics.chartChange" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                     </div>

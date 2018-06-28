@@ -2,7 +2,6 @@
   "gbifNetwork": {
     "title": "Directory",
     "contact": "Contact",
-    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
     "voting_participant": {
       "one": "Voting participant",
       "other": "Voting participants"
@@ -24,30 +23,18 @@
       "other": "GBIF affiliates"
     },
     "role": "Role",
-    "institution": "Institution",
     "group": {},
     "gbif_secretariat": "GBIF Secretariat",
     "membershipType": "Membership",
-    "governingBoard": "Governing Board",
-    "committees": "Committees",
     "name": "Name",
     "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, select, one{publisher} other{publishers}}",
-    "occurrenceDatasetWith": "Occurrence {NUMBER, select, one{dataset} other{datasets}} with",
-    "record": "{NUMBER, select, one{record} other{records}}",
-    "records": "Records",
     "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participant} other{participants}}",
     "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
     "datasets": "Datasets",
     "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}",
     "participation": {
-      "nonCountryParticipant": {
-        "one": "Participant organisation",
-        "other": "Participant organisations"
-      },
-      "gbifAffiliate": {
-        "one": "GBIF affiliate",
-        "other": "GBIF affiliates"
-      }
+      "nonCountryParticipants": "Participant organisations",
+      "gbifAffiliates": "GBIF affiliates"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Head of delegation",
@@ -57,7 +44,9 @@
     "memberSince": "Member since",
     "participant": "Participant",
     "pPublishers": "{NUMBER, select, 0{publishers} 1{publisher} other{publishers}}",
-    "pOccurrence": "{NUMBER, select, 0{occurrences} 1{occurrence} other{occurrences}}"
+    "pOccurrence": "{NUMBER, select, 0{occurrences} 1{occurrence} other{occurrences}}",
+    "occurrenceDatasets": "Occurrence datasets",
+    "occurrences" : "Occurrences"
 
   }
 }

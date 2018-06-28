@@ -25,7 +25,7 @@
         </li>
         <li ng-if="vm.currentParticipantProps.membershipStart">
             <span translate="gbifNetwork.memberSince"></span>
-            <span ng-bind="vm.currentParticipantProps.membershipStart"></span>
+            <span ng-bind="vm.currentParticipantProps.membershipStart | momentFormat:'YYYY'"></span>
         </li>
         <li ng-if="vm.digestLoaded === false">
             <ng-include src="'/templates/components/loader/loader.html'" ></ng-include>
@@ -47,17 +47,25 @@
                   translate-values="{NUMBER_FORMATTED: (vm.endorsedPublisher | localNumber), NUMBER: vm.endorsedPublisher }"></span>
         </li>
         <li ng-if="vm.digest.counts.datasetFromCount">
+            <strong translate="gbifNetwork.occurrenceDatasets"></strong>:
             <a ui-sref="datasetSearchTable({type: 'OCCURRENCE', publishing_country: vm.digest.iso2})">
                 <strong ng-bind="vm.digest.counts.datasetFromCount | localNumber:gb.locale"></strong>
             </a>
-            <span translate="gbifNetwork.occurrenceDatasetWith"
-                  translate-values="{ NUMBER: vm.digest.counts.datasetFromCount}"></span>
+            
+        </li>
+
+        <li ng-if="vm.digest.counts.datasetFromCount">
+            
+            <strong translate="gbifNetwork.occurrences"></strong>:
             <a ui-sref="occurrenceSearchTable({advanced: true, publishing_country: vm.digest.iso2})">
                 <strong ng-bind="vm.digest.counts.occurrenceFromCount | localNumber:gb.locale"></strong>
             </a>
-            <span translate="gbifNetwork.record"
-                  translate-values="{ NUMBER: vm.digest.counts.occurrenceFromCount}"></span>
+            
+            
         </li>
+
+
+
     </ul>
     <footer>
 
