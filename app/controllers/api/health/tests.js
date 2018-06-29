@@ -30,7 +30,7 @@ let tests = [
         url: apiConfig.occurrenceSearch.url + '?basisOfRecord=NONSENSE&cachebust={NOW}',
         component: 'OCCURRENCE',
         type: 'STATUS',
-        val: 400,
+        val: 40099999,
         message: 'Should fail for nonsensical queries'
     },
     {

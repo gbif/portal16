@@ -46,8 +46,8 @@ function getNotifications(status, __) {
     let healthSeverity = _.get(status, 'health.severity');
     if (healthSeverity !== 'OPERATIONAL') {
         notifications.push({
-            title: __('health.notifications.' + healthSeverity + '.title'),
-            summary: __('health.notifications.' + healthSeverity + '.summary'),
+            title: __('healthSummary.notifications.' + healthSeverity + '.title'),
+            summary: __('healthSummary.notifications.' + healthSeverity + '.summary'),
             severity: _.get(status, 'health.severity'),
             url: '/health'
         });
