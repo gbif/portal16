@@ -7,7 +7,7 @@
       "metrics": "Metrisk",
       "datasets": ""
     },
-    "registeredDate": "",
+    "registeredDate": "Registreret {DATE}",
     "nParticipatingDatasets": ""
   }
 }
