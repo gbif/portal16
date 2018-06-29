@@ -21,8 +21,8 @@
     "hideSuspiciousCoordinates": "Skjul dem",
     "currentFilter": "Nuværende filter",
     "selectColumns": "Vælg tabelkolonner",
-    "done": "",
-    "yesCorrectSuggestion": "",
-    "noWrongSuggestion": ""
+    "done": "OK",
+    "yesCorrectSuggestion": "Ja",
+    "noWrongSuggestion": "Nej"
   }
 }
