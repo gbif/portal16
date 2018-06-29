@@ -16,7 +16,7 @@
     "contacts": "Contacts",
     "administrativeContact": "Administrative contact",
     "header": {
-      "publisher": "publisher",
+      "publisher": "Publisher",
       "sinceDate": "Since {DATE}"
     }
   }
