@@ -17,6 +17,7 @@
     "noJavascriptEnabled": "Vi beklager, men GBIF ikke fungere uden JavaScript aktiveret.",
     "isSplashScreen": "Vores hjemmeside har registreret, at du bruger en forældet usikker browser, der vil forhindre dig i at bruge webstedet. Vi foreslår, at du opgradere til en moderne browser.",
     "404Text": "",
-    "changeLanguage": ""
+    "changeLanguage": "",
+    "noData": ""
   }
 }
