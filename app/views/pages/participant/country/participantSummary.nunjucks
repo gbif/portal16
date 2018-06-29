@@ -28,7 +28,7 @@
                     <dt translate="participant.nodeName"></dt>
                     <dd><a ng-href="#nodeAddress">{{ countryKey.country.node.name }}</a></dd>
                 </div>
-                <div>
+                <div ng-if="countryKey.country.prose.main.fields.nodeEstablishmentDate">
                     <dt translate="participant.nodeEstablished"></dt>
                     <dd>{{ countryKey.country.prose.main.fields.nodeEstablishmentDate | momentFormat:'YYYY' }}</dd>
                 </div>

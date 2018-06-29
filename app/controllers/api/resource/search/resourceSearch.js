@@ -85,7 +85,7 @@ function buildQuery(query) {
     // ignore facet paing for now as we do not use it
     let from = getInteger(query.offset, 0),
         size = getInteger(query.limit, 20),
-        facetSize = getInteger(query.facetLimit, 10),
+        facetSize = getInteger(query.facetLimit, 20),
         showPastEvents = query._showPastEvents === '' || query._showPastEvents === 'true',
         facetMultiselect = query.facetMultiselect === 'true' || query.facetMultiselect === true,
         body = {

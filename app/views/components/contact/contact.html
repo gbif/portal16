@@ -16,7 +16,7 @@
         <ul class="inline-bullet-list" ng-if="vm.getAsArray(vm.contact.position).length > 0">
             <li ng-repeat="position in vm.contact.position">{{position}}</li>
         </ul>
-        <div ng-if="vm.contact.organization && (vm.contact.firstName || vm.contact.lastName || vm.contact.surname)">{{ vm.contact.organization }}</div>
+        <div ng-if="(vm.contact.organization || vm.contact.institutionName) && (vm.contact.firstName || vm.contact.lastName || vm.contact.surname)">{{ vm.contact.organization || vm.contact.institutionName}}</div>
         <div ng-repeat="addressLine in vm.getAsArray(vm.contact.address)" ng-bind="addressLine"></div>
         <div>{{ vm.contact.city }} {{ vm.contact.postalCode }}</div>
         <div>{{ vm.contact.province }}</div>

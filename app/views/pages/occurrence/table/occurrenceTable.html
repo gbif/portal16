@@ -113,7 +113,7 @@
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result.issues.length}}</a>
                                 </td>
 
-                                <td ng-repeat="col in ['recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy']"
+                                <td ng-repeat="col in ['individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy']"
                                     ng-if="occTable.showCol(col)">
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result[col]}}</a>
                                 </td>
