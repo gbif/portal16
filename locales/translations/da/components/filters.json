@@ -1,24 +1,24 @@
 {
     "filters": {
         "searchPlaceholder": "Søg",
-        "noPreference": "",
+        "noPreference": "Ingen præference",
         "invert": "Omvend",
-        "clear": "",
+        "clear": "Nulstil",
         "add": "Tilføj",
         "repatriation": {
-            "description": ""
+            "description": "Data siges at være repatrieret når det er publiseret af en institution i et land, men handler om biodiversitet i et andet land"
         },
         "ternary": {
-            "yes": "",
-            "no": "",
+            "yes": "Ja",
+            "no": "Nej",
             "all": "Alle"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
+            "north": "Nord",
+            "south": "Syd",
+            "west": "Vest",
+            "east": "Øst",
+            "withCoordinates": "Med koordinater",
             "withoutCoordinates": "",
             "includeFlaggedAsSuspicious": "",
             "onlyShowFlagged": "",
