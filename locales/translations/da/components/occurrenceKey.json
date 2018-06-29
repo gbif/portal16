@@ -30,22 +30,22 @@
       "Event": "Event",
       "Identification": "Identifikation",
       "Taxon": "Takson",
-      "Location": "",
-      "Organism": "",
-      "MaterialSample": "",
-      "GeologicalContext": "",
-      "other": ""
+      "Location": "Lokation",
+      "Organism": "Organisme",
+      "MaterialSample": "Materialleprøve",
+      "GeologicalContext": "Geologisk kontekst",
+      "other": "Andet"
     },
-    "term": "",
-    "interpreted": "",
+    "term": "Term",
+    "interpreted": "Fortolket",
     "original": "Original",
     "remarks": "Bemærkninger",
     "highlights": {
-      "location": "",
-      "specimenType": "",
+      "location": "Lokation",
+      "specimenType": "Eksemplar type",
       "publisher": "Udgiver",
       "reference": "Reference",
-      "verbatimName": ""
+      "verbatimName": "Oprindeligt navn"
     },
     "title": {
       "inCountry": {
