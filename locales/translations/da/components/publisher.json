@@ -16,7 +16,7 @@
     "contacts": "Kontakter",
     "administrativeContact": "Administrativ kontakt",
     "header": {
-      "publisher": "udgiver",
+      "publisher": "Udgiver",
       "sinceDate": "Siden {DATE}"
     }
   }
