@@ -7,7 +7,7 @@
                     <div class="container">
                         <div class="row">
                             <header class="col-xs-12">
-                                <h1 translate="health.systemHealth"></h1>
+                                <h1 translate="healthSummary.systemHealth"></h1>
                             </header>
                         </div>
                     </div>
@@ -19,8 +19,8 @@
                             <div class="card card--spaced">
                                 <div class="summaryStatus summaryStatus--{{ health.status.severity | lowercase }}">
                                     <div class="card__content">
-                                        <span class="summaryStatus__message" translate="health.statusSummary.{{health.status.severity}}"></span>
-                                        <span class="pull-right summaryStatus__updatedAt" translate="health.updatedTimeAgo" translate-values="{TIME_AGO: (health.status.updatedAt | momentFromNow)}"></span>
+                                        <span class="summaryStatus__message" translate="healthSummary.statusSummary.{{health.status.severity}}"></span>
+                                        <span class="pull-right summaryStatus__updatedAt" translate="healthSummary.updatedTimeAgo" translate-values="{TIME_AGO: (health.status.updatedAt | momentFromNow)}"></span>
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
                                         <h4 class="card-header statusLabel">{{ message.title }}</h4>
                                         <div>
                                             <div ng-bind-html="message.body | md2html" class="prose"></div>
-                                            <div class="small discreet--very m-t-05" translate="health.updatedTimeAgo" translate-values="{TIME_AGO: (message.updatedAt | momentFromNow)}">
+                                            <div class="small discreet--very m-t-05" translate="healthSummary.updatedTimeAgo" translate-values="{TIME_AGO: (message.updatedAt | momentFromNow)}">
                                             </div>
                                         </div>
                                     </div>

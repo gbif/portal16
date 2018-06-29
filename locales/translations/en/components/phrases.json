@@ -7,7 +7,7 @@
     "replacedBy": "Replaced by",
     "loading": "Loading",
     "failed": "Failed",
-    "errorNotAuthorized": "Looks like you aren't authorized to view this page",
+    "errorNotAuthorized": "Looks like you aren't authorized. Please try to refresh and login.",
     "partialPage": "Partial page",
     "noInformationFound": "No information found",
     "noConnection": "No internet connection found",

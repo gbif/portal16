@@ -85,7 +85,8 @@ function createMap(element, options) {
         map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {
             constrainResolution: false,
             maxZoom: 6,
-            minZoom: 0
+            minZoom: 0,
+            size: map.getSize()
         });
     };
 

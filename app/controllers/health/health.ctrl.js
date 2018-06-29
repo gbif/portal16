@@ -9,8 +9,8 @@ module.exports = function(app) {
 router.get('/health', function(req, res, next) {
     helper.renderPage(req, res, next, {
         _meta: {
-            title: res.__('health.systemHealth'),
-            description: res.__('health.description')
+            title: res.__('healthSummary.systemHealth'),
+            description: res.__('healthSummary.description')
         }
     }, 'pages/health/health');
 });

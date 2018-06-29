@@ -268,13 +268,9 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
             // TODO alert user of failure
             if (err.status == 401) {
                 // unauthorized
-                toastService.error({
-                    message: 'Login failed - if you created your account recently it might not work on this demo site yet.'
-                });
+                toastService.error({translate: 'phrases.errorNotAuthorized', feedback: true});
             } else {
-                toastService.error({
-                    message: 'We currently cannot process your download request. Please report the error if it continues.'
-                });
+                toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
             }
         });
     };

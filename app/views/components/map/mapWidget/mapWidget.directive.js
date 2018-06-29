@@ -147,6 +147,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 filters: getQuery(),
                 locale: LOCALE_2_LETTER
             });
+            window.map = map;
 
             // set up zoom control
             var zoomInteraction;
@@ -190,6 +191,8 @@ function mapWidgetDirective(BUILD_VERSION) {
                     map.setExtent([response.minLng, response.minLat, response.maxLng, response.maxLat]);
                     var v = map.map.getView();// zoom out a bit see https://github.com/gbif/maps/issues/17
                     v.setZoom(v.getZoom() - 0.5);
+                } else {
+                    map.setExtent([-180, -90, 180, 90]);
                 }
                 // only create the slider if there are any years in the data to filter on
                 if (response.maxYear) {

@@ -157,7 +157,7 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                     // TODO move error messages to translation file
                     toastService.error({translate: 'profile.unknownUser', feedback: true});
                 } else {
-                    toastService.error({translate: 'profile.tryAgainLater', feedback: true});
+                    toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
                 }
             });
         };

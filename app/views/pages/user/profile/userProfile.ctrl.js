@@ -66,9 +66,7 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
             vm.profileFormInvalid = false;
             User.update(vm.profile)
                 .then(function() {
-                    toastService.info({
-                        message: 'Your profile has been updated'
-                    });
+                    toastService.error({translate: 'profile.accountInfoUpdated', feedback: false});
                     vm.original = JSON.parse(JSON.stringify(vm.profile));
                     vm.inEditMode = false;
                     vm.editModeChanged();
@@ -77,10 +75,7 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
                     if (err.status === 401) {
                         User.logout();
                     } else {
-                        toastService.error({
-                            message: 'We couldn\'t update your profile at this time. Please tell us if this continues',
-                            feedback: true
-                        });
+                        toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
                     }
                 });
         } else {
@@ -94,24 +89,16 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
             vm.passwordFormInvalid = false;
             User.changePassword(vm.profile.userName, vm.oldPassword, vm.newPassword)
                 .then(function() {
-                    toastService.info({
-                        message: 'Your password have been updated'
-                    });
+                    toastService.error({translate: 'profile.accountInfoUpdated', feedback: false});
                     vm.original = JSON.parse(JSON.stringify(vm.profile));
                     vm.inEditMode = false;
                     vm.editModeChanged();
                 })
                 .catch(function(err) {
                     if (err.status === 401) {
-                        toastService.error({
-                            message: 'Invalid password - if you have forgotten your password, then log out and use the password reset',
-                            feedback: true
-                        });
+                        toastService.error({translate: 'profile.passwordChangeInvalid', feedback: true});
                     } else {
-                        toastService.error({
-                            message: 'We couldn\'t update your password at this time',
-                            feedback: true
-                        });
+                        toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
                     }
                 });
         } else {

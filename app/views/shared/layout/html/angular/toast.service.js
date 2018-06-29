@@ -6,6 +6,15 @@ var angular = require('angular');
     angular
         .module('portal')
         .service('toastService', function(NAV_EVENTS, toastr, $rootScope, $translate) {
+            var leaveFeedbackTranslation = 'Leave feedback';
+            $translate('feedback.leaveFeedback')
+                .then(function(translation) {
+                    leaveFeedbackTranslation = translation;
+                })
+                .catch(function(err) {
+                    // ignore error
+                });
+
             // TODO errors needs translating
             var defaultError = {
                 feedback: true,
@@ -36,13 +45,6 @@ var angular = require('angular');
                 status: false
             };
 
-            // $translate('notifications.defaultErrorMessage').then(function (translation) {
-            //    defaultMessages.defaultErrorMessage = translation;
-            // });
-            // $translate('notifications.defaultErrorMessage').then(function (translation) {
-            //    defaultSettings.defaultErrorMessage = translation;
-            // });
-
             function translatedToast(type, settings, defaultSettings) {
                 if (settings.translate) {
                     $translate(settings.translate)
@@ -64,7 +66,7 @@ var angular = require('angular');
 
                 // add feedback button ?
                 if (mergedSettings.feedback) {
-                    mergedSettings.message += '<div class="text-center"><a href="" class="gb-button--primary">Leave feedback</a></div>';
+                    mergedSettings.message += '<div class="text-center"><a href="" class="gb-button--primary">' + leaveFeedbackTranslation + '</a></div>';
                 }
 
                 toastr[type](mergedSettings.message, mergedSettings.title,
@@ -73,9 +75,6 @@ var angular = require('angular');
                         onShown: function(toast) {
                             angular.element( toast.el[0]).find('a')[0].onclick = showFeedback;
                         }
-                        // onTap:function(){
-                        //    //alert("You Clicked Toastr!!")
-                        // }
                     });
             }
 

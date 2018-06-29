@@ -5,7 +5,7 @@
             <div class="menubox__header">
                 <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
                 <div class="menubox__header__title text-center">
-                    <span>System health</span>
+                    <span translate="healthSummary.systemHealth"></span>
                 </div>
             </div>
         </div>

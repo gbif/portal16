@@ -76,8 +76,9 @@
     "currentPassword": "Current password",
     "invalidProfileUpdate": "Invalid profile update",
     "changePassword": "Change password",
-    "tryAgainLater": "We couldn't reset you password right now - please try again later. Sorry for the inconvenience",
     "accountCreated": "Account created",
+    "accountInfoUpdated": "Your account have been updated",
+    "passwordChangeInvalid": "Invalid password - if you have forgotten your password, then log out and use the password reset",
     "verficationLinkSent": "You have been sent an email with a verification link to ensure it is your mail. Welcome to GBIF",
     "resetPasswordRequest": "Password reset request",
     "resetPasswordMessage": "We have sent you a mail with a link to reset your password."
