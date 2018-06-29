@@ -23,7 +23,7 @@ function feedbackDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function feedback(User, $sessionStorage, $scope, $location, NAV_EVENTS, $http, IS_TOUCH) {
+    function feedback($rootScope, User, $sessionStorage, $scope, $location, NAV_EVENTS, $http, IS_TOUCH) {
         var vm = this;
         vm.location = $location.path();
         vm.isActive = false;
@@ -117,6 +117,12 @@ function feedbackDirective(BUILD_VERSION) {
                     // TODO failed to get page type
                 });
         };
+        // Since feedback is route dependent, then update based on that. Currently only occurrenceKey is special
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+            if (toState.name === 'occurrenceKey' || fromState.name === 'occurrenceKey') {
+                vm.updateContentFeedbackType();
+            }
+        });
         vm.updateContentFeedbackType();
 
         vm.getUrl = function() {
