@@ -1,0 +1,23 @@
+{
+    "healthSummary": {
+        "systemHealth": "Systemstatus",
+        "description": "Hvad er status for de forskellige GBIF tjenester",
+        "updatedTimeAgo": "Opdateret for {TIME_AGO}",
+        "statusSummary": {
+            "OPERATIONAL": "Alle systemer er operationelle",
+            "INFO": "Alle systemer er operationelle",
+            "WARNING": "Vi oplever ustabile eller langsomme systemer",
+            "CRITICAL": "Vi har en delvis afbrydelse"
+        },
+        "notifications": {
+            "WARNING": {
+                "title": "Ustabil service",
+                "summary": "Vi oplever ustabile eller langsomme systemer."
+            },
+            "CRITICAL": {
+                "title": "Afbrudt service",
+                "summary": "Vi har en delvis afbrydelse"
+            }
+        }
+    }
+}
