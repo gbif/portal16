@@ -3,7 +3,7 @@
         <div class="col-xs-12">
             <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"></ng-include>
             <div ng-if="speciesList.hasData()">
-                <div ng-repeat="result in speciesList.state.data.results">
+                <div ng-repeat="result in speciesList.state.data.results | orderBy:'taxonomicStatus === \'DOUBTFUL\''">
                     <ng-include src="'/api/template/search/speciesResult.html?v=' + speciesList.BUILD_VERSION"></ng-include>
                 </div>
 
