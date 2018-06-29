@@ -1,8 +1,8 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
-    "countByRank": "",
-    "countNamesByLanguage": "",
+    "countByKingdom": "Antal per rige",
+    "countByRank": "Antal per rank",
+    "countNamesByLanguage": "Antal navne per sprog",
     "countExtRecordsByExtension": "",
     "countByOrigin": "",
     "countByIssue": ""
