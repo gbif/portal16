@@ -1,6 +1,8 @@
 {#checklist stats#}
 <div class="row summaryStats" ng-if="datasetKey.taxa.count > 0">
-    <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: 'ACCEPTED'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+    <a  ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: 'ACCEPTED'})"
+        ng-if="datasetKey.dataset.subtype !== 'NOMENCLATOR_AUTHORITY'"
+        class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
         <div>
             <div class="summaryStats__circle">
                 <round-progress
@@ -17,7 +19,9 @@
             </div>
         </div>
     </a>
-    <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: ['HETEROTYPIC_SYNONYM', 'SYNONYM', 'PROPARTE_SYNONYM', 'HOMOTYPIC_SYNONYM']})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+    <a  ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: ['HETEROTYPIC_SYNONYM', 'SYNONYM', 'PROPARTE_SYNONYM', 'HOMOTYPIC_SYNONYM']})" 
+        ng-if="datasetKey.dataset.subtype !== 'NOMENCLATOR_AUTHORITY'"
+        class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
         <div>
             <div class="summaryStats__circle">
                 <round-progress
