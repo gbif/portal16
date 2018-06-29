@@ -76,8 +76,9 @@
     "currentPassword": "Nuværende adgangskode",
     "invalidProfileUpdate": "Ugyldig profilopdatering",
     "changePassword": "Skift adgangskode",
-    "tryAgainLater": "Vi kunne desværre ikke nulstille dit kodeord - prøv venligst senere. Beklager ulempen. Ellers kontakt os.",
     "accountCreated": "Konto oprettet",
+    "accountInfoUpdated": "",
+    "passwordChangeInvalid": "",
     "verficationLinkSent": "Du er blevet sendt en email med et link til kontobekræftelse. Velkommen til GBIF.",
     "resetPasswordRequest": "Anmodning om at nulstille adgangskode",
     "resetPasswordMessage": "Du vil få en e-mail med et link til at nulstille din adgangskode."
