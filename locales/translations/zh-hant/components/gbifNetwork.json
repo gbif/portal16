@@ -2,7 +2,6 @@
   "gbifNetwork": {
     "title": "",
     "contact": "",
-    "contactUsSubtitle": "",
     "voting_participant": {
       "one": "",
       "other": ""
@@ -24,32 +23,20 @@
       "other": ""
     },
     "role": "",
-    "institution": "",
     "group": {
 
     },
     "gbif_secretariat": "",
     "membershipType": "",
-    "governingBoard": "",
-    "committees": "",
     "name": "",
     "endorsedDataPublisher": "",
-    "occurrenceDatasetWith": "",
-    "record": "",
-    "records": "",
     "nParticipants": "",
     "dataset": "",
     "datasets": "",
     "regionalRepresentative": "",
     "participation": {
-      "nonCountryParticipant": {
-        "one": "",
-        "other": ""
-      },
-      "gbifAffiliate": {
-        "one": "",
-        "other": ""
-      }
+      "nonCountryParticipants": "",
+      "gbifAffiliates": ""
     },
     "roles": {
       "HEAD_OF_DELEGATION": "",
@@ -59,6 +46,8 @@
     "memberSince": "",
     "participant": "",
     "pPublishers": "",
-    "pOccurrence": ""
+    "pOccurrence": "",
+    "occurrenceDatasets": "",
+    "occurrences": ""
   }
 }

@@ -1,0 +1,50 @@
+{
+    "dataset": {
+        "registry": {
+            "failedSinceSuccess": "",
+            "lastFailed": "",
+            "registrationDate": "",
+            "lastSuccess": "",
+            "lastWithChange": "",
+            "noEntries": "",
+            "lastWithDataChange": "",
+            "occInLastIngestion": "",
+            "completionReasons": "",
+            "unfinished": "",
+            "total": "",
+            "endpoints": "",
+            "installationContacts": "",
+            "installation": "",
+            "dataLastChanged": "",
+            "pubDate": "",
+            "hostedBy": "",
+            "hostingStatus": "",
+            "metdataLastModified": "",
+            "preferredIdentifier": "",
+            "alternativeIdentifier": "",
+            "orphaned": "",
+            "rescued": "",
+            "adopted": "",
+            "lastIngestedBeforeDate": "",
+            "inIngestionQueue": "",
+            "addingToQueue": "",
+            "unableToStart": "",
+            "ingestionChartExplainer": "",
+            "ingestionStatus": "",
+            "itemInIngestionQueue": "",
+            "datasetIngestionStatus": "",
+            "gbifIngestionStatus": "",
+            "lastIngestionSuccess": "",
+            "lastIngestionFailed": "",
+            "outOfSync": "",
+            "becauseTrustedContact": ""
+        },
+        "crawl": {
+            "finishReason": {
+                "NORMAL": "",
+                "ABORT": "",
+                "NOT_MODIFIED": ""
+            }
+        }
+    }
+}

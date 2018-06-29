@@ -17,7 +17,6 @@
         "pSpecies": "",
         "pInfraspecies": "",
         "pPublishers": "",
-        "contacts": "{NUMBER, select, 0{kontakter} 1{kontakt} other{kontakter}}",
-        "result": "{NUMBER, select, one{resultat} other{resultater}}"
+        "contacts": "{NUMBER, select, 0{kontakter} 1{kontakt} other{kontakter}}"
     }
 }
