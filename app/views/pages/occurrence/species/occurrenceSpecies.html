@@ -99,7 +99,9 @@
                 </div>
                 <div class="occurrence-taxon-list">
                     <div class="occurrence-search__table__area card" layout-padding>
-                        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occSpecies.hasData() && !occSpecies.state.failedRequest"></ng-include>
+                        <div class="emptyInfo--small">
+                          <h3 ng-if="!occSpecies.hasData() && !occSpecies.state.failedRequest"><span translate="phrases.loading">Loading</span> ...</h3>
+                        </div>
                         <div class="scrollable-y" ng-if="occSpecies.hasData()">
                             <div class="table-container">
                                 <table class="table search-table smaller">
