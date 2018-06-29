@@ -46,7 +46,7 @@ It is of course best if everything is translated, but it is possible to only tra
 We suggest that you start with:
 
 in `components`
-1) menu, homepage, profile, feedback, terms, footer, health
+1) menu, homepage, profile, feedback, terms, footer, healthSummary
 2) search, speciesSearch, datasetSearch, occurrenceSearch, publisherSearch, pagination, counts, filters, filterNames, intervals, downloadReport, phrases
 3) species, [occurrenceKey, occurrenceFieldNames], dataset, [resource, cms]
 4) metrics, map, galleryBar, downloads
