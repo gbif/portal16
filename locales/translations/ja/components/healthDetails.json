@@ -1,0 +1,65 @@
+{
+    "health": {
+        "automatedMonitoring": "",
+        "systemLoad": "",
+        "messages": "",
+        "version": "",
+        "nInQueue": "",
+        "status": {
+            "OPERATIONAL": "",
+            "WARNING": "",
+            "CRITICAL": "",
+            "INFO": ""
+        },
+        "components": {
+            "OCCURRENCE": {
+                "name": "",
+                "tooltip": ""
+            },
+            "SPECIES": {
+                "name": "種情報",
+                "tooltip": ""
+            },
+            "REGISTRY": {
+                "name": "",
+                "tooltip": ""
+            },
+            "IDENTITY": {
+                "name": "",
+                "tooltip": ""
+            },
+            "MAPS": {
+                "name": "",
+                "tooltip": ""
+            },
+            "CONTENTFUL": {
+                "name": "",
+                "tooltip": ""
+            },
+            "IMAGE_CACHE": {
+                "name": "",
+                "tooltip": ""
+            },
+            "GITHUB": {
+                "name": "",
+                "tooltip": ""
+            },
+            "CRAWLER": {
+                "name": "",
+                "tooltip": ""
+            },
+            "RESOURCE_SEARCH": {
+                "name": "",
+                "tooltip": ""
+            },
+            "CLUSTER": {
+                "name": "",
+                "tooltip": ""
+            },
+            "DOWNLOAD": {
+                "name": "",
+                "tooltip": ""
+            }
+        }
+    }
+}
