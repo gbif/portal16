@@ -6,52 +6,52 @@
     "generatedDateAgo": "Genereret for {DATE_AGO}",
     "anyYear": "Alle år",
     "exploreArea": "Udforsk område",
-    "explore": "",
+    "explore": "Udforsk",
     "style": "Udseende",
     "filters": "Filtre",
     "projection": "Projektion",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "select": "Vælg",
+    "custom": "Brugerdefineret",
+    "baseMap": "Grundkort",
+    "binning": "Gruppering",
+    "year": "År",
+    "chooseColors": "Farver",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "Klassisk sekskant",
+      "CLASSIC": "Klassisk punkt",
+      "STREETS": "Gader",
+      "GLACIER": "Gletcher",
+      "CUSTOM": "Brugerdefineret"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "Magenta",
+      "LIGHT": "Lys (uden tekst)",
+      "LIGHT_DETAILS": "Lys",
+      "DARK": "Mørk (uden tekst)",
+      "DARK_DETAILS": "Mørk",
+      "OSM": "Veje"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Punkter",
+      "SMALL_HEX": "Små sekskanter",
+      "LARGE_HEX": "Sekskanter",
+      "SMALL_SQUARE": "Små firkanter",
+      "LARGE_SQUARE": "Firkanter"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "Klassisk",
+      "FIRE": "Ild",
+      "GLACIER": "Gletcher",
+      "PURPLE_YELLOW": "Lilla-gul",
+      "PURPLE_HEAT": "Lilla varme",
+      "BLUE_HEAT": "Blå varme",
+      "ORANGE_HEAT": "Orange varme",
+      "GREEN": "Grøn",
+      "BLUE_CLUSTER": "Blå klynge",
+      "ORANGE_CLUSTER": "Orange klynge"
     },
     "errors": {
-      "413": ""
+      "413": "Geometrien er for stor til at blive processeret af API'en."
     }
   }
 }
