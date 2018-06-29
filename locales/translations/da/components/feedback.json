@@ -1,53 +1,53 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Giv feedback",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Feedback og spørgsmål",
+      "example": "Hjælp os ved at vælge hvilken slags feedback du giver"
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "title": "Indhold",
+      "example": "Såsom: denne side indeholder en slåfejl. Denne art findes ikke. Denne placering synes mistænktlig. Den nye webadresse for denne organisation er...",
+      "annotate": "Denne udgiver har ders egen hjemmeside der håndterer feedback. Vi anbefaler at bruge den",
+      "contactPerMail": "Kom i kontakt med vedkommende bag datasættet"
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "Fejl",
+      "example": "Såsom: Søgeknappen ikke virker. Siden loader ikke. Jeg kan ikke læse dette, fordi kolonnerne overlapper hinanden."
     },
     "idea": {
-      "title": "",
-      "example": ""
+      "title": "Idé",
+      "example": "Såsom: Jeg vil se links til sekvens data. Vis mig artikler med open-access."
     },
     "question": {
-      "title": "",
-      "example": "",
-      "description": "",
-      "comment": ""
+      "title": "Helpdesk",
+      "example": "Som: Hvordan beskyttes data om sjældne arter? Kan du hjælpe mig med at finde alle observationer af denne art i internationalt farvand?",
+      "description": "Alle spørgsmål besvares af vores helpdesk på helpdesk@gbif.org",
+      "comment": "For private henvendelser og ikke-tekniske spørgsmål kan du kontakte os på [info@gbif.org] (mailto:info@gbif.org) eller på [communication@gbif.org] (mailto:communication@gbif.org) for presse-spørgsmål."
     },
     "confirmation": {
-      "title": "",
+      "title": "Tak!",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "Se feedback"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "Kommentarer på indhold",
+      "description": "Problemer med indhold rapporteret af andre brugere",
+      "create": "Giv feedback"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "Resumé",
+      "description": "Detaljeret beskrivelse",
+      "username": "Din e-mail eller Github brugernavn (er offentligt)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
+    "markdownSupport": "Markdown understøttes",
+    "issueTracking": "Al feedback er synlig for offentligheden på [Github](https://github.com/gbif/portal-feedback/issues)",
+    "failure": "Dette er ikke godt — feedback-system ikke virker. Send os en mail eller gå direkte til [Github](https://github.com/gbif/portal-feedback/issues). Vi beklager ulejligheden.",
+    "weRecommendX": "Vi anbefaler at bruge [{NAME}] ({LINK})",
+    "tellGbif": "Fortæl det til GBIF",
+    "submit": "Send",
     "seeAllComments": "Se alle",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "recommendMail": "Vi anbefaler at sende en mail til",
+    "pleaseLogin": "Log på for at give feedback. Alternativt kan du bruge [Github](https://github.com/gbif/portal-feedback/issues). Hvorfor? Desværre ser vi masser af spam i vores feedback-system og kræver derfor login."
   }
 }

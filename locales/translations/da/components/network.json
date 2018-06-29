@@ -2,12 +2,12 @@
   "network": {
     "network": "",
     "tabs": {
-      "summary": "",
+      "summary": "Resumé",
       "homepage": "",
       "metrics": "Metrisk",
       "datasets": ""
     },
-    "registeredDate": "",
+    "registeredDate": "Registreret {DATE}",
     "nParticipatingDatasets": ""
   }
 }

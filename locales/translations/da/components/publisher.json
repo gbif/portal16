@@ -2,21 +2,21 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "Om",
-      "publishersHomepage": ""
+      "publishersHomepage": "Hjemmeside"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
-    "technicalContact": "",
+    "joinedAgo": "Registreret for {TIME_AGO}",
+    "newPublisher": "Ny udgiver",
+    "technicalContact": "Teknisk kontakt",
     "country": "Land eller område",
-    "hosting": "",
+    "hosting": "Vært",
     "description": "Beskriveslse",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
+    "endorsedBy": "Godkendt af",
+    "pendingEndorsementBy": "Afventer godkendelse fra",
     "installations": "Installationer",
     "contacts": "Kontakter",
-    "administrativeContact": "",
+    "administrativeContact": "Administrativ kontakt",
     "header": {
-      "publisher": "",
+      "publisher": "Udgiver",
       "sinceDate": "Siden {DATE}"
     }
   }
