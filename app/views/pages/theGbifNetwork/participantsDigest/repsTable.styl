@@ -41,6 +41,46 @@
     }
 }
 
+.contacts__item {
+    position relative
+    address {
+        margin-bottom 5px
+    }
+    > address, > i {
+        position relative
+    }
+    > i {
+        font-size 60px
+        margin-right 20px
+        float none
+        position absolute
+        color #ededed
+        top 0
+        right 0
+    }
+    .contact__heading {
+        cursor pointer
+    }
+    .contact__body {
+        overflow-y hidden
+        max-height 0 /* approximate max height */
+        max-width 220px
+        transition-property all
+        transition-duration .5s
+        transition-timing-function cubic-bezier(0, 1, 0.5, 1)
+        margin-bottom 5px
+    }
+    .contact__body.contact--show {
+        max-height 200px
+    }
+    .contact__body:focus {
+        outline none
+    }
+    .stop-propagation:focus {
+        outline none
+    }
+}
+
 +isAbove($tablet) {
     .reps__table {
 

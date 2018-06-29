@@ -2,7 +2,7 @@
 
 <div class="reps__table ng-cloak" ng-if="vm.repTableLoaded === true && vm.reps.length > 0">
     <div class="table-container--participant" ng-init="sortField = 'role'; sortReverse= false ;">
-        <h4 translate="gbifNetwork.regionalRepresentative"
+        <h4 class="uppercase-first" translate="gbifNetwork.regionalRepresentative"
             translate-values="{NUMBER: vm.reps.length}"></h4>
 
         <table class="table card">
