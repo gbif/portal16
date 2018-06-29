@@ -76,8 +76,9 @@
     "currentPassword": "",
     "invalidProfileUpdate": "",
     "changePassword": "",
-    "tryAgainLater": "",
     "accountCreated": "",
+    "accountInfoUpdated": "",
+    "passwordChangeInvalid": "",
     "verficationLinkSent": "",
     "resetPasswordRequest": "",
     "resetPasswordMessage": ""
