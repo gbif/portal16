@@ -1,0 +1,65 @@
+{
+    "health": {
+        "automatedMonitoring": "Automatiseret overvågning",
+        "systemLoad": "Systemets belastning",
+        "messages": "Beskeder",
+        "version": "Version",
+        "nInQueue": "{NUMBER} i kø",
+        "status": {
+            "OPERATIONAL": "Operationel",
+            "WARNING": "Ustabil",
+            "CRITICAL": "Ikke brugbar",
+            "INFO": "Information"
+        },
+        "components": {
+            "OCCURRENCE": {
+                "name": "",
+                "tooltip": "F.eks. søgning og visning af observationer."
+            },
+            "SPECIES": {
+                "name": "",
+                "tooltip": "F.eks. søgning og visning af arter"
+            },
+            "REGISTRY": {
+                "name": "",
+                "tooltip": "Fx datasæt, udgivere, installationer, lande, deltagere og netværk."
+            },
+            "IDENTITY": {
+                "name": "",
+                "tooltip": "Fx log ind og ud, profil-visninger mm."
+            },
+            "MAPS": {
+                "name": "",
+                "tooltip": "Kortvisninger mm."
+            },
+            "CONTENTFUL": {
+                "name": "",
+                "tooltip": ""
+            },
+            "IMAGE_CACHE": {
+                "name": "",
+                "tooltip": "Diverse billeder er afhængig af dette system"
+            },
+            "GITHUB": {
+                "name": "",
+                "tooltip": "Feedback duer ikke uden dette system"
+            },
+            "CRAWLER": {
+                "name": "",
+                "tooltip": "Nødvendigt for at redigere og oprette datasæt."
+            },
+            "RESOURCE_SEARCH": {
+                "name": "",
+                "tooltip": "F.eks. søgning af litteratur og nyheder."
+            },
+            "CLUSTER": {
+                "name": "Systemets belastning",
+                "tooltip": ""
+            },
+            "DOWNLOAD": {
+                "name": "Downloads",
+                "tooltip": "Er nødvendig for at downloade mm"
+            }
+        }
+    }
+}
