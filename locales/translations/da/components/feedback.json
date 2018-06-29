@@ -1,14 +1,14 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Giv feedback",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Feedback og spørgsmål",
+      "example": "Hjælp os ved at vælge hvilken slags feedback du giver"
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
+      "title": "Indhold",
+      "example": "Såsom: denne side indeholder en slåfejl. Denne art findes ikke. Denne placering synes mistænktlig. Den nye webadresse for denne organisation er...",
+      "annotate": "Denne udgiver har ders egen hjemmeside der håndterer feedback. Vi anbefaler at bruge den",
       "contactPerMail": ""
     },
     "bug": {
