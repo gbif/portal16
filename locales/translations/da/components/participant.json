@@ -2,7 +2,7 @@
     "participant": {
         "participant": "Participant",
         "participantSummary": "",
-        "endorsedPublishers": "Godkendte udgivere",
+        "endorsedPublishers": "Godkendte forlæggere",
         "noEndorsedPublishers": "",
         "memberStatus": "",
         "gbifParticipantSince": "",
