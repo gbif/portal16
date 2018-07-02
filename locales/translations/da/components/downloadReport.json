@@ -1,7 +1,7 @@
 {
   "downloadReport": {
     "csvDescription": "Tabulatorsepareret CSV. Indeholder kun data efter GBIF fortolkning.",
-    "dwcaDescription": "Darwin Core Arkivet indeholder både de originale data som forlægger leverede det og GBIFs fortolkning.",
+    "dwcaDescription": "Darwin Core Arkivet indeholder både de originale data som udgiver leverede det og GBIFs fortolkning.",
     "estimatedSize": "Anslået filstørrelse",
     "knownIssues": "Kendte problemer",
     "knownIssuesDescription": "En del af GBIFs behandling er at markere observationer, der har mistænkelige felter",
@@ -18,7 +18,7 @@
     "learnMore": "Lær mere",
     "sizeZippedForDownload": "{SIZE_FORMATTED} i zip format",
     "freeOfCost": "Fri for omkostninger – ikke fri for ansvar",
-    "promoteTransperant": "For at fremme gennemsigtig videnskab og kreditere data-forlæggere er det vigtigt at citere data korrekt. Det kan du gøre det ved at inkludere den [anbefalede GBIF citation] (https://www.gbif.org/citation-guidelines) i dit arbejde. Den vil du modtage sammen med den forespurgte data.",
+    "promoteTransperant": "For at fremme gennemsigtig videnskab og kreditere data-udgivere er det vigtigt at citere data korrekt. Det kan du gøre det ved at inkludere den [anbefalede GBIF citation] (https://www.gbif.org/citation-guidelines) i dit arbejde. Den vil du modtage sammen med den forespurgte data.",
     "ifAnalysingData": "Hvis du analyserer de downloade data, bør du refererer til dette citat i sektionen materialer og metoder.",
     "cancel": "Annuller",
     "proceed": "Fortsæt",
