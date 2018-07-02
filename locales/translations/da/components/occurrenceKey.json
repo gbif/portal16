@@ -27,7 +27,7 @@
     "groups": {
       "Record": "",
       "Occurrence": "Observation",
-      "Event": "Event",
+      "Event": "Arrangement",
       "Identification": "Identifikation",
       "Taxon": "Takson",
       "Location": "Lokation",
