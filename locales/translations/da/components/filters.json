@@ -1,36 +1,36 @@
 {
     "filters": {
         "searchPlaceholder": "Søg",
-        "noPreference": "",
+        "noPreference": "Ingen præference",
         "invert": "Omvend",
-        "clear": "",
+        "clear": "Nulstil",
         "add": "Tilføj",
         "repatriation": {
-            "description": ""
+            "description": "Data siges at være repatrieret når det er publiseret af en institution i et land, men handler om biodiversitet i et andet land"
         },
         "ternary": {
-            "yes": "",
-            "no": "",
+            "yes": "Ja",
+            "no": "Nej",
             "all": "Alle"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
-            "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "north": "Nord",
+            "south": "Syd",
+            "west": "Vest",
+            "east": "Øst",
+            "withCoordinates": "Med koordinater",
+            "withoutCoordinates": "Uden koordinater",
+            "includeFlaggedAsSuspicious": "Inkluder observationer selvom koordinaterne virker mistænkelige",
+            "onlyShowFlagged": "Vis kun observationer der virker mistænkelige",
+            "past": "Senest anvendt",
+            "geojson": "GeoJSON",
+            "range": "Interval",
+            "noFiltersAdded": "Intet område filter brugt",
+            "wktPlaceholder": "WKT eller GeoJSON — multipolygoner understøttes ikke",
+            "invalidTextInput": "Ugyldig WKT eller GeoJSON",
+            "tooLarge": "Geometrien er for stor",
+            "tooLargeSuggestion": "Prøv at afgrænse din søgning med en grov geometri og lav en mere udførlig filtrering lokalt",
+            "invalidRange": "Ugyldig geometri"
         }
     }
 }

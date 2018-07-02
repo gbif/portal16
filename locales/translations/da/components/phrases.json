@@ -1,23 +1,23 @@
 {
   "phrases": {
     "contactHelpdesk": "Kontakt helpdesk",
-    "defaultPageTitle": "",
-    "defaultPageDescription": "",
-    "deletedOnDate": "",
+    "defaultPageTitle": "GBIF",
+    "defaultPageDescription": "Global Biodiversity Information Facility. Gratis og åben adgang til biodiversitetsdata.",
+    "deletedOnDate": "Slettet {DATE}",
     "replacedBy": "Erstattet af",
-    "loading": "",
-    "failed": "",
-    "errorNotAuthorized": "",
-    "partialPage": "",
-    "noInformationFound": "",
-    "noConnection": "",
-    "criticalErrorMsg": "",
-    "nonCriticalErrorMsg": "",
+    "loading": "Indlæser",
+    "failed": "Fejlede",
+    "errorNotAuthorized": "Det ser ud som om du ikke er autoriseret. Prøv at opdatere og logge ind på ny.",
+    "partialPage": "Delvis side",
+    "noInformationFound": "Ingen oplysninger fundet",
+    "noConnection": "Ingen Internetforbindelse fundet",
+    "criticalErrorMsg": "Hm - der opstod en fejl. Prøv at genfriske og informer os gerne hvis problemmet fortsætter.",
+    "nonCriticalErrorMsg": "Desværre kunne vi ikke vise al data på nuværende tidspunkt. Prøv at genfriske og rapporter problemmet hvis det fortsætter.",
     "noResultsMessage": "Ingen resultater – prøv at fjerne nogle filtre",
     "noJavascriptEnabled": "Vi beklager, men GBIF ikke fungere uden JavaScript aktiveret.",
     "isSplashScreen": "Vores hjemmeside har registreret, at du bruger en forældet usikker browser, der vil forhindre dig i at bruge webstedet. Vi foreslår, at du opgradere til en moderne browser.",
-    "404Text": "",
-    "changeLanguage": "",
-    "noData": ""
+    "404Text": "Denne side måske har eksisteret engang, men vi kan ikke længere finde den. Prøv eventuelt at [søge](/search). Du er altid velkommen til at kontakte vores [helpdesk@gbif.org] (mailto:helpdesk@gbif.org).",
+    "changeLanguage": "Skift sprog",
+    "noData": "Ingen data"
   }
 }
