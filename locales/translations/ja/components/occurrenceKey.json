@@ -9,7 +9,7 @@
     "modified": "",
     "monthAndyear": "",
     "coordinateUncertainty": "",
-    "citation": "",
+    "citation": "引用",
     "readFullDescription": "",
     "showMoreInfo": "",
     "noTaxonMatch": "",
@@ -25,8 +25,8 @@
       "raw": ""
     },
     "groups": {
-      "Record": "",
-      "Occurrence": "",
+      "Record": "記録",
+      "Occurrence": "オカレンス",
       "Event": "",
       "Identification": "",
       "Taxon": "",
@@ -44,7 +44,7 @@
       "location": "",
       "specimenType": "",
       "publisher": "",
-      "reference": "",
+      "reference": "参考資料",
       "verbatimName": ""
     },
     "title": {
@@ -74,7 +74,7 @@
       },
       "unknownSpecies": ""
     },
-    "occurrence": "",
+    "occurrence": "オカレンス",
     "inLanguage": ""
   },
   "interpretationRemarks": {
