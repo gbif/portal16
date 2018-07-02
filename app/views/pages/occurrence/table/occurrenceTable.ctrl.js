@@ -13,7 +13,7 @@ angular
     .controller('occurrenceTableCtrl', occurrenceTableCtrl);
 
 /** @ngInject */
-function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessionStorage, $mdDialog) {
+function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessionStorage, $mdDialog, SpeciesBulkParsedNames) {
     var vm = this, offset;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     // a pretty print for coordinates.
@@ -41,6 +41,9 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessio
     vm.pageChanged = function() {
         vm.occurrenceState.query.offset = (vm.currentPage - 1) * vm.limit;
         OccurrenceFilter.update(vm.occurrenceState.query);
+        vm.occurrenceState.table.$promise.then(function() {
+            attachParsedNames(vm.occurrenceState.table.results);
+        });
         updatePaginationCounts();
         window.scrollTo(0, 0);
     };
@@ -67,6 +70,28 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessio
             }
         }
     });
+
+    vm.occurrenceState.table.$promise.then(function() {
+        attachParsedNames(vm.occurrenceState.table.results);
+    });
+
+    // format scientificnames in table
+    function attachParsedNames(occurrences) {
+        if (occurrences && occurrences.length > 0) {
+            var taxonKeys = occurrences.map(function(r) {
+                return r.taxonKey;
+            });
+            SpeciesBulkParsedNames.get({q: taxonKeys.toString()}).$promise
+                .then(function(nameMap) {
+                    for (var i = 0; i < occurrences.length; i++) {
+                        if (nameMap[occurrences[i].taxonKey]) {
+                            occurrences[i]._parsedName = nameMap[occurrences[i].taxonKey];
+                        }
+                    }
+                });
+        }
+    }
+
 
     vm.hasData = function() {
         return typeof vm.occurrenceState.table.count !== 'undefined';
