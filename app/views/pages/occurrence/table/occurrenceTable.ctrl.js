@@ -13,7 +13,7 @@ angular
     .controller('occurrenceTableCtrl', occurrenceTableCtrl);
 
 /** @ngInject */
-function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessionStorage, $mdDialog, SpeciesBulkParsedNames) {
+function occurrenceTableCtrl($scope, $stateParams, $filter, hotkeys, OccurrenceFilter, $sessionStorage, $mdDialog, SpeciesBulkParsedNames) {
     var vm = this, offset;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     // a pretty print for coordinates.
@@ -71,9 +71,20 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter, $sessio
         }
     });
 
-    vm.occurrenceState.table.$promise.then(function() {
+   /* vm.occurrenceState.table.$promise.then(function() {
         attachParsedNames(vm.occurrenceState.table.results);
-    });
+    }); */
+
+    $scope.$watch(
+        angular.bind(this, function () {
+            return this.occurrenceState.table;
+          }), 
+        function(newval, oldval){
+            console.log(newval)
+            vm.occurrenceState.table.$promise.then(function() {
+                attachParsedNames(vm.occurrenceState.table.results);
+            });
+        })
 
     // format scientificnames in table
     function attachParsedNames(occurrences) {
