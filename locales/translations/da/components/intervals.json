@@ -2,42 +2,42 @@
     "intervals": {
         "noFilter": "Intet filter",
         "elevation": {
-            "equals": "Er {from}m",
-            "between": "Mellem {from} og {to}m",
-            "lessThanOrEquals": "Under {to}m",
-            "greaterThanOrEquals": "over {from}m",
-            "invalid": "ugyldig",
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
             "select": {
-                "equals": "er",
-                "between": "mellem",
-                "lessThanOrEquals": "under",
-                "greaterThanOrEquals": "over"
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
             }
         },
         "depth": {
-            "equals": "er {from}m",
-            "between": "mellem {from} og {to}m",
-            "lessThanOrEquals": "Under {to}m dybde",
-            "greaterThanOrEquals": "Dybere end {from}m",
-            "invalid": "ugyldig",
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
             "select": {
-                "equals": "er",
-                "between": "mellem",
-                "lessThanOrEquals": "mindre end",
-                "greaterThanOrEquals": "Dybere end"
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
             }
         },
         "year": {
-            "equals": "Er {from}m",
-            "between": "Fra starten af {from} til slutningen af {to}",
-            "lessThanOrEquals": "Før slutningen af {to}",
-            "greaterThanOrEquals": "Efter starten af {from}",
-            "invalid": "ugyldig",
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
             "select": {
-                "equals": "er",
-                "between": "mellem",
-                "lessThanOrEquals": "Før slutningen af",
-                "greaterThanOrEquals": "Efter starten på"
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
             }
         }
     }
