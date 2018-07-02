@@ -1,22 +1,22 @@
 {
   "resource": {
-    "resources": "",
+    "resources": "Ressourcer",
     "contactHelpdesk": "Kontakt helpdesk",
-    "addToCalendar": "",
-    "venue": "",
-    "location": "",
+    "addToCalendar": "Føj til kalender",
+    "venue": "Mødested",
+    "location": "Lokation",
     "country": "Land eller område",
-    "noDatasets": "",
-    "when": "",
+    "noDatasets": "Der er ingen datasæt at vise",
+    "when": "Hvornår",
     "language": "Sprog",
-    "viewOnGBIF": "",
-    "published": "",
-    "programme": "",
+    "viewOnGBIF": "Se på GBIF",
+    "published": "Udgivet",
+    "programme": "Program",
     "fundedBy": "Finansieret af",
     "about": "Om",
-    "datasets": "",
-    "gbifWillAttend": "",
-    "dataUsedInStudy": "",
-    "resourceDescription": ""
+    "datasets": "Datasæt",
+    "gbifWillAttend": "GBIF sekretariatet deltager",
+    "dataUsedInStudy": "Data, der anvendes i undersøgelsen",
+    "resourceDescription": "Søg efter ressourcer i Global Biodiversity Information Facility. Gratis og åben adgang til biodiversitetsdata."
   }
 }
