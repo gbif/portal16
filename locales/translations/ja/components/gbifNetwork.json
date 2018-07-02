@@ -39,8 +39,8 @@
       "gbifAffiliates": ""
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "HEAD_OF_DELEGATION": "国家代表",
+      "NODE_MANAGER": "ノード マネージャー"
     },
     "publishers": "出版者",
     "memberSince": "",
