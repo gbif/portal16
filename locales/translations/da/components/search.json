@@ -10,7 +10,7 @@
     "species": "Arter",
     "datasets": "Datasæt",
     "resources": "Ressourcer",
-    "publishers": "Forlæggere",
+    "publishers": "Udgivere",
     "participants": "Participanter",
     "search": "Søg",
     "clearFilters": "Nulstil filtre",
@@ -21,7 +21,7 @@
     "suggestions": "Forslag",
     "header": {
       "searchDatasets": "Datasæt",
-      "searchPublishers": "Forlæggere",
+      "searchPublishers": "Udgivere",
       "searchSpecies": "Søg taxa",
       "searchResources": "Resourcer",
       "searchOccurrences": "Observationer"
