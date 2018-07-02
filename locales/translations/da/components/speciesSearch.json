@@ -2,7 +2,7 @@
     "speciesSearch": {
         "youAreCurrentlySearchingInGBIFtaxonomy": "Du søger efter arter i GBIF taksonomien.",
         "SearchAcrossChecklists": "Søg på tværs af tjeklister",
-        "freeTextSearchFor": "Du foretager en fritekst-søgning for '{QUERY}'",
+        "freeTextSearchFor": "Du foretager en fritekst-søgning på '{QUERY}'",
         "limitSearchTo": "Begræns søgning til",
         "limitResultsTo": {
             "all": "Alle",
