@@ -20,7 +20,7 @@
       "status": "Status",
       "programme": "Program",
       "contractCountry": "Land eller område",
-      "newsAndEvents": "Nyheder & events",
+      "newsAndEvents": "Nyheder & arrangementer",
       "call": "Call",
       "projectLead": "Projektleder",
       "contactDetalils": "Kontaktinformation",
@@ -31,7 +31,7 @@
     },
     "auxiliary": {
       "subject": "Emne",
-      "citation": "",
+      "citation": "Citation",
       "organisingParticipants": "Organiserende participanter"
     }
   }

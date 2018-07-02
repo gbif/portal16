@@ -19,7 +19,7 @@
         "gbifDownloadKey": ""
       },
       "contentType": {
-        "event": "Event",
+        "event": "Arrangement",
         "news": "Nyheder",
         "resource": "Ressource",
         "dataUse": "Databrug",
