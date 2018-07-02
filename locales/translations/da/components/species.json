@@ -49,7 +49,7 @@
     "viewOccurrences": "Se observationer",
     "seeAlso": "Se også",
     "viewInGbifBackbone": "Se i GBIF backbone",
-    "verbatimListingMsg": "Denne side viser den originale, uprocesserede information som GBIF modtog den fra dataudgiveren.",
+    "verbatimListingMsg": "Denne side viser den originale, uprocesserede information som GBIF modtog den fra dataforlæggeren.",
     "interpretationMsg": "Dette er fortolknongen af dette taxon som publiceret i {DATASET}.",
     "viewGbifSpeciesMsg": "For at se GBIFs fortolkning af dette taxon, se [backboneversionen](/species/{NUBKEY})",
     "inferredRecordMsg": "Denne optegnelse er blevet til under indeksering og eksiterede ikke eksplicit i datakilden.",
