@@ -202,7 +202,7 @@
 
             <p class="m-t-1">
                 <a ng-if="vm.authProvider == 'FACEBOOK'" ng-click="vm.createFromProvider(vm.country, vm.username, 'facebook')" href="" class="gb-button--facebook center-block m-t-05" type="submit"><i></i><span class="gb-button--facebook__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Facebook'}"></span></a>
-                <a ng-if="vm.authProvider == 'GITHUB'" ng-click="vm.createFromProvider(vm.country, vm.username, 'github')" href="" class="gb-button--github center-block m-t-05" type="submit"><i></i><span class="gb-button--github__label" translate="profile.signUpGithub" translate-values="{PROVIDER: 'Github'}"></span></a>
+                <a ng-if="vm.authProvider == 'GITHUB'" ng-click="vm.createFromProvider(vm.country, vm.username, 'github')" href="" class="gb-button--github center-block m-t-05" type="submit"><i></i><span class="gb-button--github__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Github'}"></span></a>
             </p>
             <div class="small text-error" role="alert" ng-if="vm.errorMessage" translate="profile.error.{{vm.errorMessage}}"></div>
 
