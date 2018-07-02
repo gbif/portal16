@@ -2,42 +2,42 @@
     "intervals": {
         "noFilter": "No filter",
         "elevation": {
-            "equals": "is {from}m",
-            "between": "between {from} and {to}m",
-            "lessThanOrEquals": "below {to}m",
-            "greaterThanOrEquals": "above {from}m",
-            "invalid": "invalid",
+            "equals": "Is {from}m",
+            "between": "Between {from} and {to}m",
+            "lessThanOrEquals": "Below {to}m",
+            "greaterThanOrEquals": "Above {from}m",
+            "invalid": "Invalid",
             "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "below",
-                "greaterThanOrEquals": "above"
+                "equals": "Is",
+                "between": "Between",
+                "lessThanOrEquals": "Below",
+                "greaterThanOrEquals": "Above"
             }
         },
         "depth": {
-            "equals": "is {from}m",
-            "between": "between {from} and {to}m",
-            "lessThanOrEquals": "above {to}m depth",
-            "greaterThanOrEquals": "deeper than {from}m",
-            "invalid": "invalid",
+            "equals": "Is {from}m",
+            "between": "Between {from} and {to}m",
+            "lessThanOrEquals": "Above {to}m depth",
+            "greaterThanOrEquals": "Deeper than {from}m",
+            "invalid": "Invalid",
             "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "less than",
-                "greaterThanOrEquals": "deeper than"
+                "equals": "Is",
+                "between": "Between",
+                "lessThanOrEquals": "Less than",
+                "greaterThanOrEquals": "Deeper than"
             }
         },
         "year": {
-            "equals": "is {from}",
-            "between": "between start of {from} and end of {to}",
-            "lessThanOrEquals": "before end of {to}",
-            "greaterThanOrEquals": "after start of {from}",
-            "invalid": "invalid",
+            "equals": "Is {from}",
+            "between": "Between start of {from} and end of {to}",
+            "lessThanOrEquals": "Before end of {to}",
+            "greaterThanOrEquals": "After start of {from}",
+            "invalid": "Invalid",
             "select": {
-                "equals": "is",
-                "between": "between",
-                "lessThanOrEquals": "before end of",
-                "greaterThanOrEquals": "after start of"
+                "equals": "Is",
+                "between": "Between",
+                "lessThanOrEquals": "Before end of",
+                "greaterThanOrEquals": "After start of"
             }
         }
     }

@@ -7,6 +7,7 @@
     "replacedBy": "Erstattet af",
     "loading": "Indlæser",
     "failed": "Fejlede",
+    "loginRequiredDueToSpam": "Due to spam we require a login. We are sorry for the inconvenience.",
     "errorNotAuthorized": "Det ser ud som om du ikke er autoriseret. Prøv at opdatere og logge ind på ny.",
     "partialPage": "Delvis side",
     "noInformationFound": "Ingen oplysninger fundet",
