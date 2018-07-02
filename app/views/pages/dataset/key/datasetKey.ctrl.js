@@ -10,6 +10,7 @@ require('./stats/datasetStats.ctrl');
 require('./constituents/datasetConstituents.ctrl');
 // require('./taxonomy/datasetTaxonomy.ctrl');
 require('./activity/datasetActivity.ctrl');
+require('./event/event.ctrl');
 require('../../../components/contact/contact.directive');
 require('../../../components/doi/doi.directive');
 require('../../../components/license/license.directive');
@@ -61,7 +62,28 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.key, issue: 'TAXON_MATCH_NONE', limit: 0});
     vm.withYear = OccurrenceSearch.query({dataset_key: vm.key, year: '*,3000', limit: 0});
 
-    vm.events = DatasetEventList.query({datasetKey: vm.key});
+    // Get first page of paginated events - currently from the proxy API that use occurrence facets to estimate it.  This is not ideal, but a fragile workaround
+    vm.hasEvents = false;
+    vm.changeEventPage = function(offset) {
+        vm.events = DatasetEventList.query({datasetKey: vm.key, offset: offset, limit: 10});
+        vm.events.$promise
+            .then(function(response) {
+                vm.hasEvents = vm.hasEvents || response.results.length > 0;
+            })
+            .catch(function() {
+                // ignore and use promise for user feedback instead
+            });
+    };
+    vm.changeEventPage(0);
+
+    // get total event count if below proxy apis threshold (1000 at time of writing)
+    $http.get('/api/dataset/' + vm.key + '/eventCount')
+        .then(function(response) {
+            vm.eventCount = response.data.endOfRecords ? response.data.count : undefined;
+        })
+        .catch(function() {
+            // ignore
+        });
 
     vm.taxa = SpeciesSearch.query({dataset_key: vm.key, origin: 'SOURCE', facet: 'status', limit: 0});
     vm.stats = {};

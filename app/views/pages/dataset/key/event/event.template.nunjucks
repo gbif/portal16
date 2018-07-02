@@ -1,0 +1,70 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="datasetKey2 light-background">
+            <div class="wrapper-horizontal-stripes" xng-if="datasetEvent.event.$resolved">
+
+                {% include "./header.nunjucks" %}
+
+                {# <div id="tabsScrollable">
+                    {% include "./nav.nunjucks" %}
+                </div>
+
+                <div ng-if="datasetKey.$state.is('datasetKey')">
+                    {% include "./intro/intro.nunjucks" %}
+                    {% include "./main/prose.nunjucks" %}
+                </div> #}
+
+                <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetEvent.event.occurrenceCount > 0">
+                    <h4 class="card-header--bold">Event description</h4>
+                    <div class="card card--spaced container-fluid">
+                        <div class="card__stripe row">
+                            <div class="card__content col-xs-12 col-sm-6 col-md-8">
+                                <dl class="inline">
+                                    <div ng-repeat="field in ['eventRemarks', 'eventDate', 'samplingProtocol', 'samplingEffort']">
+                                        <dt>{{field}}</dt>
+                                        <dd>
+                                            {{ datasetEvent.event[field] }}
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </div>
+                            <div class="card__content col-xs-12 col-sm-6 col-md-4">
+                                <globe latitude="datasetEvent.event.decimalLatitude" longitude="datasetEvent.event.decimalLongitude"></globe>
+                                <dl class="inline">
+                                    <div>
+                                        <dt>Dataset</dt>
+                                        <dd><a ui-sref="datasetKey({key: datasetEvent.datasetKey})">{{ datasetEvent.event.dataset }}</a></dd>
+                                    </div>
+                                    <div>
+                                        <a ui-sref="datasetKey({key: datasetEvent.datasetKey, '#': 'citation'})" class="doi"><span class="gb-icon-quote"></span><span translate="dataset.howToCite"></span></a>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% include "./map.nunjucks" %}
+
+                <div class="container--desktop ng-cloak">
+                    <section class="occChart-col m-t-1">
+                        <div ng-repeat="chart in datasetEvent.charts">
+                            <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
+                        </div>
+                        <div>
+                            <h4 class="card-header">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
+                            <div class="card">
+                                <occurrence-taxonomy-tree filter="{dataset_key: datasetEvent.datasetKey, event_id: datasetEvent.eventKey}" options="{limit:10}"></occurrence-taxonomy-tree>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            {# <div class="wrapper-horizontal-stripes" ng-if="!datasetKey.dataset.$resolved">
+                <div class="emptyInfo">
+                    <h3 translate="phrases.loading"></h3>
+                </div>
+            </div> #}
+        </div>
+    </div>
+</div>

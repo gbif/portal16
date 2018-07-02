@@ -153,13 +153,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
-        // .state('datasetKeyTaxonomy', {
-        //    parent: 'datasetKey',
-        //    url: '/taxonomy',
-        //    templateUrl: '/api/template/dataset/taxonomy.html?v=' + BUILD_VERSION,
-        //    controller: 'datasetTaxonomyCtrl',
-        //    controllerAs: 'datasetTaxonomy'
-        // })
         .state('datasetKeyActivity', {
             parent: 'datasetKey',
             url: '/activity?offset&limit',
@@ -187,6 +180,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             templateUrl: '/api/template/dataset/constituents.html?v=' + BUILD_VERSION,
             controller: 'datasetConstituentsCtrl',
             controllerAs: 'datasetConstituents'
+        })
+        .state('datasetEvent', {
+            parent: 'localization',
+            url: 'dataset/:datasetKey/event/:eventKey',
+            views: {
+                main: {
+                    templateUrl: '/api/template/dataset/event.html?v=' + BUILD_VERSION,
+                    controller: 'datasetEventCtrl',
+                    controllerAs: 'datasetEvent'
+                }
+            }
         })
         .state('speciesSearch', {
             parent: 'localization',

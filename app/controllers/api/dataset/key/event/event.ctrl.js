@@ -14,7 +14,21 @@ module.exports = function(app) {
 router.get('/api/dataset/:datasetKey/event/:eventKey', function render(req, res, next) {
     getEvent(req.params.datasetKey, req.params.eventKey)
         .then(function(data) {
-            res.send(data);
+            res.json(data);
+        })
+        .catch(function(err) {
+            res.sendStatus(err.statusCode || 500);
+        });
+});
+
+router.get('/api/dataset/:datasetKey/eventCount', function render(req, res) {
+    let limit = 1001;
+    occurrenceEventSearch({datasetKey: req.params.datasetKey, limit: 0, facet: 'eventId', facetLimit: limit})
+        .then(function(data) {
+            res.json({
+                count: Math.min(limit - 1, data.facets[0].counts.length),
+                endOfRecords: data.facets[0].counts.length < limit
+            });
         })
         .catch(function(err) {
             res.sendStatus(err.statusCode || 500);
@@ -24,18 +38,17 @@ router.get('/api/dataset/:datasetKey/event/:eventKey', function render(req, res,
 router.get('/api/dataset/:datasetKey/event', function render(req, res, next) {
     getDatasetEvents(req.params.datasetKey, req.query.limit, req.query.offset)
         .then(function(data) {
-            res.send(data);
+            res.json(data);
         })
         .catch(function(err) {
-            console.log(err);
             res.sendStatus(err.statusCode || 500);
         });
 });
 
 async function getDatasetEvents(datasetKey, limit, offset) {
     // set defaults
-    offset = offset || 0;
-    limit = limit || 10;
+    offset = _.toInteger(offset);
+    limit = _.toInteger(limit) || 10;
     limit++;
     // get facets
     let occurrences = await occurrenceEventSearch({datasetKey: datasetKey, limit: 0, facet: 'eventId', facetLimit: limit, facetOffset: offset});
@@ -59,9 +72,12 @@ async function getDatasetEvents(datasetKey, limit, offset) {
 
 async function getEvent(datasetKey, eventKey) {
     let event = await getInfoAboutEvent(datasetKey, eventKey);
+    let dataset = await getDataset(datasetKey);
     if (_.isEmpty(event)) {
         throw new FakeEndpointException(404, 'Not found ' + eventKey);
     } else {
+        event.dataset = dataset.title;
+        event.datasetKey = datasetKey;
         return event;
     }
 }
@@ -96,6 +112,20 @@ async function getInfoAboutEvent(datasetKey, eventKey) {
 async function occurrenceEventSearch(query) {
     let baseRequest = {
         url: apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query),
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    let response = await request(baseRequest);
+    if (response.statusCode != 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function getDataset(key) {
+    let baseRequest = {
+        url: apiConfig.dataset.url + key,
         method: 'GET',
         json: true,
         fullResponse: true
