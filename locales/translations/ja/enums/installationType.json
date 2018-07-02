@@ -1,10 +1,10 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "",
-    "DIGIR_INSTALLATION": "",
-    "TAPIR_INSTALLATION": "",
-    "BIOCASE_INSTALLATION": "",
-    "HTTP_INSTALLATION": "",
-    "SYMBIOTA_INSTALLATION": ""
+    "IPT_INSTALLATION": "IPTのインストール",
+    "DIGIR_INSTALLATION": "DiGIRのインストール",
+    "TAPIR_INSTALLATION": "Tapirのインストール",
+    "BIOCASE_INSTALLATION": "Biocaseのインストール",
+    "HTTP_INSTALLATION": "Httpのインストール",
+    "SYMBIOTA_INSTALLATION": "Symbiotaのインストール"
   }
 }
