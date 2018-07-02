@@ -5,7 +5,7 @@
       "publishersHomepage": "Hjemmeside"
     },
     "joinedAgo": "Registreret for {TIME_AGO}",
-    "newPublisher": "Ny udgiver",
+    "newPublisher": "Ny forlægger",
     "technicalContact": "Teknisk kontakt",
     "country": "Land eller område",
     "hosting": "Vært",
@@ -16,7 +16,7 @@
     "contacts": "Kontakter",
     "administrativeContact": "Administrativ kontakt",
     "header": {
-      "publisher": "Udgiver",
+      "publisher": "Forlægger",
       "sinceDate": "Siden {DATE}"
     }
   }
