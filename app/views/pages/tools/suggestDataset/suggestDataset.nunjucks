@@ -28,9 +28,7 @@
 
         <div class="horizontal-stripe light-background ng-cloak">
             <div class="container--narrow">
-                <div ng-show="!portal.tokenUser">
-                    Due to spam we require a login to suggest a dataset. We are sorry for the inconvenience.
-                </div>
+                <div ng-show="!portal.tokenUser">{$ __('phrases.loginRequiredDueToSpam') $}</div>
                 <div class="row" ng-show="portal.tokenUser">
                     <div class="col-xs-12" ng-if="suggestDataset.state != 'SUCCESS'">
                         <h4 class="uppercase-first">{$ __('tools.suggestDataset.pleaseDescribeTheDataset') $}</h4>

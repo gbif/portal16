@@ -1,14 +1,14 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
-    "LIVING_SPECIMEN": "",
-    "OBSERVATION": "",
-    "HUMAN_OBSERVATION": "",
-    "MACHINE_OBSERVATION": "",
-    "MATERIAL_SAMPLE": "",
-    "LITERATURE": "",
-    "UNKNOWN": "",
-    "undefined": ""
+    "PRESERVED_SPECIMEN": "標本",
+    "FOSSIL_SPECIMEN": "化石標本",
+    "LIVING_SPECIMEN": "生きた試料",
+    "OBSERVATION": "観察記録",
+    "HUMAN_OBSERVATION": "人間による観察",
+    "MACHINE_OBSERVATION": "機械による観察",
+    "MATERIAL_SAMPLE": "素材サンプル",
+    "LITERATURE": "文献",
+    "UNKNOWN": "不明",
+    "undefined": "不明"
   }
 }

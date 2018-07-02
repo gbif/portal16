@@ -1,12 +1,12 @@
 {
   "extensionEnum": {
-    "DESCRIPTION": "",
-    "DISTRIBUTION": "",
-    "IDENTIFIER": "",
-    "MULTIMEDIA": "",
-    "REFERENCE": "",
-    "SPECIES_PROFILE": "",
-    "TYPES_AND_SPECIMEN": "",
-    "VERNACULAR_NAME": ""
+    "DESCRIPTION": "説明",
+    "DISTRIBUTION": "分布",
+    "IDENTIFIER": "識別子",
+    "MULTIMEDIA": "マルチメディア",
+    "REFERENCE": "参考資料",
+    "SPECIES_PROFILE": "種のプロフィール",
+    "TYPES_AND_SPECIMEN": "タイプと試料",
+    "VERNACULAR_NAME": "現地名（和名）"
   }
 }

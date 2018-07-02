@@ -86,7 +86,7 @@
                         <div class="card__stripe">
                             <div class="card__content predicateContainer">
                                 <div class="predicates isSimplePredicate">
-                                    <ng-include src="'/api/occurrence/search/predicate.html?' + occCharts.getSerializedQuery()" onload="occCharts.predicateLoaded = true"></ng-include>
+                                    <ng-include src="'/api/occurrence/search/predicate.html?locale=' + portal.LOCALE + '&' + occCharts.getSerializedQuery()" onload="occCharts.predicateLoaded = true"></ng-include>
                                 </div>
                             </div>
                         </div>
