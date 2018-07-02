@@ -38,6 +38,26 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetEventList', function($resource) {
+            return $resource('/api/dataset/:datasetKey/event', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
+        .factory('DatasetEvent', function($resource) {
+            return $resource('/api/dataset/:datasetKey/event/:eventKey', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
         .factory('DatasetDownloadStats', function($resource) {
             return $resource('/api/dataset/stats/download/:id', null, {
                     'query': {

@@ -1,0 +1,42 @@
+<div class="container--desktop m-t-1 ng-cloak" ng-if="datasetKey.events.results.length > 0 && portal.isSecretariatUser()">
+    <h4 class="card-header--bold text--error">Events for registry admin eyes only</h4>
+    <div class="card card--spaced m-b-1">
+        <div class="card__stripe card__stripe--light">
+            <div class="scrollable-y">
+                <div>
+                    <table class="table search-table smaller m-b-0">
+                        <thead>
+                            <tr>
+                                <th ng-repeat="col in ['eventID', 'eventDate', 'occurrenceCount']">
+                                    {{ col }}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="event in datasetKey.events.results">
+                                <td>
+                                    <span>{{ event.eventID }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ event.eventDate | momentFormat}}</span>
+                                </td>
+                                <td>
+                                    <a ui-sref="occurrenceSearchTable({dataset_key: datasetKey.key, event_id: event.eventID})">{{ event.occurrenceCount }}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card__stripe text-right p-hidden" ng-if="datasetKey.events.endOfRecords === false || datasetKey.events.offset > 0">
+            <div class="card__content p-t-05 p-b-05">
+                <div>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.options.offset = 0;" ng-if="vm.options.offset > vm.options.limit" translate="pagination.first"></a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.prevPage()" ng-if="vm.options.offset > 0" translate="pagination.previous"></a>
+                    <a href="" class="gb-button--discreet small" ng-click="vm.nextPage()" xng-if="vm.chartApi.data().endOfRecords === false" translate="pagination.next"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

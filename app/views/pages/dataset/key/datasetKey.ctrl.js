@@ -21,7 +21,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
+function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, DatasetEventList, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -60,6 +60,8 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     });
     vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.key, issue: 'TAXON_MATCH_NONE', limit: 0});
     vm.withYear = OccurrenceSearch.query({dataset_key: vm.key, year: '*,3000', limit: 0});
+
+    vm.events = DatasetEventList.query({datasetKey: vm.key});
 
     vm.taxa = SpeciesSearch.query({dataset_key: vm.key, origin: 'SOURCE', facet: 'status', limit: 0});
     vm.stats = {};

@@ -23,6 +23,7 @@
 
         {% include('./map.nunjucks') %}
         {% include('./images.nunjucks') %}
+        {% include('./events.nunjucks') %}
 
     </section>
 </div>
