@@ -3,7 +3,7 @@
         "counts": {
             "occurrences": "Observationer",
             "datasets": "Datasæt",
-            "publishers": "Forlæggere",
+            "publishers": "Udgivere",
             "species": "Arter",
             "speciesSubtitle": "Læs mere om antallet af arter omfattet af data i GBIF.org."
         },
