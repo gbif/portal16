@@ -13,6 +13,7 @@
     "mediaType": "Medietype",
     "recordedBy": "Optegnet af",
     "eventDate": "Begivenhedsdato",
+    "eventId": "",
     "location": "Lokation",
     "hasGeospatialIssue": "Har geospatiale problemer",
     "basisOfRecord": "Observationstype",
