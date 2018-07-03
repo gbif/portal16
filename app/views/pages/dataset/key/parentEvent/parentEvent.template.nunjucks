@@ -1,0 +1,61 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="datasetKey2 light-background">
+            <div class="wrapper-horizontal-stripes" >
+
+                {% include "./header.nunjucks" %}
+
+                {# <div id="tabsScrollable">
+                    {% include "./nav.nunjucks" %}
+                </div>
+
+                <div ng-if="datasetKey.$state.is('datasetKey')">
+                    {% include "./intro/intro.nunjucks" %}
+                    {% include "./main/prose.nunjucks" %}
+                </div> #}
+
+                <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetParentEvent.occurrenceCount > 0">
+                    <h4 class="card-header--bold">Event description</h4>
+                    <div class="card card--spaced container-fluid">
+                        <div class="card__stripe row">
+                            
+                            <div class="card__content col-xs-12 col-sm-6 col-md-4">
+                                <globe latitude="datasetParentEvent.event.decimalLatitude" longitude="datasetParentEvent.event.decimalLongitude"></globe>
+                                <dl class="inline">
+                                    <div>
+                                        <dt>Dataset</dt>
+                                        <dd><a ui-sref="datasetKey({key: datasetParentEvent.datasetKey})">{{ datasetParentEvent.dataset.title }}</a></dd>
+                                    </div>
+                                    <div>
+                                        <a ui-sref="datasetKey({key: datasetParentEvent.datasetKey, '#': 'citation'})" class="doi"><span class="gb-icon-quote"></span><span translate="dataset.howToCite"></span></a>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% include "./map.nunjucks" %}
+
+                <div class="container--desktop ng-cloak">
+                    <section class="occChart-col m-t-1">
+                        <div ng-repeat="chart in datasetParentEvent.charts">
+                            <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
+                        </div>
+                        <div>
+                            <h4 class="card-header">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
+                            <div class="card">
+                                <occurrence-taxonomy-tree filter="{dataset_key: datasetParentEvent.datasetKey, parent_event_id: datasetParentEvent.parentEventKey}" options="{limit:10}"></occurrence-taxonomy-tree>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            {# <div class="wrapper-horizontal-stripes" ng-if="!datasetKey.dataset.$resolved">
+                <div class="emptyInfo">
+                    <h3 translate="phrases.loading"></h3>
+                </div>
+            </div> #}
+        </div>
+    </div>
+</div>

@@ -280,6 +280,20 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         }
     };
 
+    vm.filters.parentEventId = {
+        titleTranslation: 'filterNames.parentEventID',
+        queryKey: 'parent_event_id',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.parentEventId
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'PARENT_EVENT_ID'
+        }
+    };
+
     vm.filters.samplingProtocol = {
         titleTranslation: 'filterNames.samplingProtocol',
         queryKey: 'sampling_protocol',

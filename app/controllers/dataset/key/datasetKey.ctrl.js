@@ -18,6 +18,8 @@ router.get('/dataset/:key/project', render);
 router.get('/dataset/:key/metrics', render);
 router.get('/dataset/:key/constituents', render);
 router.get('/dataset/:key/event/:eventKey', render);
+router.get('/dataset/:key/parentevent/:parentEventKey', render);
+
 
 function render(req, res, next) {
     let datasetKey = req.params.key;

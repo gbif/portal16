@@ -54,7 +54,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         .state('occurrenceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
-            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&type_status&organism_id&locality&water_body&state_province&protocol&license&repatriated&{advanced:bool}&geometry&event_id&gbif_network&sampling_protocol&installation_key',
+            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&type_status&organism_id&locality&water_body&state_province&protocol&license&repatriated&{advanced:bool}&geometry&event_id&parent_event_id&gbif_network&sampling_protocol&installation_key',
             params: {
                 advanced: {
                     value: false,
@@ -189,6 +189,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                     templateUrl: '/api/template/dataset/event.html?v=' + BUILD_VERSION,
                     controller: 'datasetEventCtrl',
                     controllerAs: 'datasetEvent'
+                }
+            }
+        })
+        .state('datasetParentEvent', {
+            parent: 'localization',
+            url: 'dataset/:datasetKey/parentevent/:parentEventKey',
+            views: {
+                main: {
+                    templateUrl: '/api/template/dataset/parentevent.html?v=' + BUILD_VERSION,
+                    controller: 'datasetParentEventCtrl',
+                    controllerAs: 'datasetParentEvent'
                 }
             }
         })

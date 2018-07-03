@@ -107,6 +107,9 @@ let fields = {
         type: type.KEY,
         url: apiConfig.publisher.url + '{VALUE}',
         field: 'title'
+    },
+    EVENT_ID: {
+        type: type.RAW
     }
 };
 // All other rank keys are the same as taxonKey

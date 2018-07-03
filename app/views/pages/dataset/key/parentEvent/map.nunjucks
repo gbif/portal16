@@ -1,0 +1,8 @@
+<div class="container--desktop m-t-1 ng-cloak" ng-if="datasetParentEvent.occurrenceCount > 0">
+    <h4 class="card-header--bold" tx="map.nGeoreferencedRecords" tx-nr="datasetParentEvent.occurrenceCount"></h4>
+    <div class="card">
+        <div>
+            <adhoc-map filter="{dataset_key: datasetParentEvent.datasetKey, parent_event_id: datasetEvent.parentEventKey}" map-style="{suggested: 'SQUARE_DOTS'}" class="fitSize fitSize--noBar"></adhoc-map>
+        </div>
+    </div>
+</div>

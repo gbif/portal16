@@ -71,20 +71,16 @@ function occurrenceTableCtrl($scope, $stateParams, $filter, hotkeys, OccurrenceF
         }
     });
 
-   /* vm.occurrenceState.table.$promise.then(function() {
-        attachParsedNames(vm.occurrenceState.table.results);
-    }); */
 
     $scope.$watch(
-        angular.bind(this, function () {
+        angular.bind(this, function() {
             return this.occurrenceState.table;
-          }), 
-        function(newval, oldval){
-            console.log(newval)
+          }),
+        function(newval, oldval) {
             vm.occurrenceState.table.$promise.then(function() {
                 attachParsedNames(vm.occurrenceState.table.results);
             });
-        })
+        });
 
     // format scientificnames in table
     function attachParsedNames(occurrences) {

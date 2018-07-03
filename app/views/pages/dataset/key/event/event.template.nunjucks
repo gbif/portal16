@@ -26,6 +26,12 @@
                                             {{ datasetEvent.event[field] }}
                                         </dd>
                                     </div>
+                                    <div ng-if="datasetEvent.event.parentEventID">
+                                        <dt>parentEventID</dt>
+                                        <dd>
+                                            <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
+                                        </dd>
+                                    </div>
                                 </dl>
                             </div>
                             <div class="card__content col-xs-12 col-sm-6 col-md-4">
@@ -49,6 +55,51 @@
                     <section class="occChart-col m-t-1">
                         <div ng-repeat="chart in datasetEvent.charts">
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
+                        </div>
+                        <div ng-if="datasetEvent.hasSiblings ">
+                            <h4 class="card-header--bold text--error">Sibling events: {{datasetEvent.siblingCount}}</h4>
+                            <div class="card card--spaced m-b-1">
+                                <div class="card__stripe card__stripe--light">
+                                    <div class="scrollable-y">
+                                        <div>
+                                            <table class="table search-table smaller m-b-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol', 'occurrenceCount']">
+                                                            {{ col }}
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="event in datasetEvent.siblingEvents.results | filter:{ eventID: '!' + datasetEvent.eventKey}"">
+                                                        <td>
+                                                            <span><a ui-sref="datasetEvent({datasetKey: datasetEvent.datasetKey, eventKey: event.eventID})">{{ event.eventID }}</a></span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{ event.eventDate | momentFormat}}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{ event.samplingProtocol }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span><a ui-sref="occurrenceSearchTable({dataset_key: datasetEvent.datasetKey, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card__stripe text-right p-hidden" ng-if="datasetEvent.siblingEvents.endOfRecords === false || datasetEvent.siblingEvents.offset > 0">
+                                    <div class="card__content p-t-05 p-b-05">
+                                        <div>
+                                            <a href="" class="gb-button--discreet small" ng-click="datasetEvent.changeEventPage(0)" ng-if="datasetEvent.siblingEvents.offset > datasetEvent.siblingEvents.limit" translate="pagination.first"></a>
+                                            <a href="" class="gb-button--discreet small" ng-click="datasetEvent.changeEventPage(datasetEvent.siblingEvents.offset - datasetEvent.siblingEvents.limit)" ng-if="datasetEvent.siblingEvents.offset > 0" translate="pagination.previous"></a>
+                                            <a href="" class="gb-button--discreet small" ng-click="datasetEvent.changeEventPage(datasetEvent.siblingEvents.offset + datasetEvent.siblingEvents.limit)" ng-if="datasetEvent.siblingEvents.endOfRecords === false" translate="pagination.next"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <h4 class="card-header">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>

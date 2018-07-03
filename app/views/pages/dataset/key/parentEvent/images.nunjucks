@@ -1,0 +1,11 @@
+<div class="container--desktop m-t-1 ng-cloak" ng-if="datasetParentEvent.images.count > 0">
+    <h4 class="card-header--bold" tx="galleryBar.nOccWithImages" tx-nr="datasetParentEvent.images.count"></h4>
+    <div class="galleryBar">
+        <div>
+            <a ng-repeat="occurrence in datasetParentEvent.images.results" ng-href="{$ gb.locales.urlPrefix $}/occurrence/{{occurrence.key}}" ng-if="occurrence._image" class="galleryBar__img hideInvalid inherit noUnderline hoverBox">
+                <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
+            </a>
+        </div>
+        <a ui-sref="occurrenceSearchGallery({dataset_key: datasetParentEvent.datasetKey, parent_event_id: datasetParentEvent.parentEventKey})" class="gb-button--brand" translate="galleryBar.seeAllImages"></a>
+    </div>
+</div>

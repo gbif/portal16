@@ -1,0 +1,21 @@
+<div class="horizontal-stripe article-header white-background">
+    <div class="container--desktop">
+        <div class="row">
+            <header class="col-xs-12 text-center">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper" translate="search.dataset"></span>
+                    <span class="article-header__category__lower" translate="datasetEvent.parentEvent"></span>
+                </nav>
+
+                <h1 class="text-center">
+                    <span>{{ datasetParentEvent.parentEventID }}</span>
+                </h1>
+                <p>
+                    <span>A parent samplig event from</span> <a class="inherit underline" ui-sref="datasetKey({key:datasetParentEvent.datasetKey})">
+                        {{ datasetParentEvent.dataset.title }}
+                    </a>
+                </p>
+            </header>
+        </div>
+    </div>
+</div>

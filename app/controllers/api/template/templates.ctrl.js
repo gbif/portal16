@@ -158,6 +158,10 @@ router.get('/dataset/event.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/dataset/key/event/event.template.nunjucks');
 });
 
+router.get('/dataset/parentevent.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key/parentEvent/parentEvent.template.nunjucks');
+});
+
 router.get('/site/footer.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'shared/layout/partials/footer/footer.nunjucks');
 });

@@ -23,7 +23,11 @@ router.get('/api/dataset/:datasetKey/event/:eventKey', function render(req, res,
 
 router.get('/api/dataset/:datasetKey/eventCount', function render(req, res) {
     let limit = 1001;
-    occurrenceEventSearch({datasetKey: req.params.datasetKey, limit: 0, facet: 'eventId', facetLimit: limit})
+    let q = {datasetKey: req.params.datasetKey, limit: 0, facet: 'eventId', facetLimit: limit};
+    if (req.query.parentEventID) {
+        q.parentEventID = req.query.parentEventID;
+    }
+    occurrenceEventSearch(q)
         .then(function(data) {
             res.json({
                 count: Math.min(limit - 1, data.facets[0].counts.length),
@@ -36,7 +40,7 @@ router.get('/api/dataset/:datasetKey/eventCount', function render(req, res) {
 });
 
 router.get('/api/dataset/:datasetKey/event', function render(req, res, next) {
-    getDatasetEvents(req.params.datasetKey, req.query.limit, req.query.offset)
+    getDatasetEvents(req.params.datasetKey, req.query.limit, req.query.offset, req.query.parentEventID)
         .then(function(data) {
             res.json(data);
         })
@@ -45,13 +49,17 @@ router.get('/api/dataset/:datasetKey/event', function render(req, res, next) {
         });
 });
 
-async function getDatasetEvents(datasetKey, limit, offset) {
+async function getDatasetEvents(datasetKey, limit, offset, optParentEventID) {
     // set defaults
     offset = _.toInteger(offset);
     limit = _.toInteger(limit) || 10;
     limit++;
     // get facets
-    let occurrences = await occurrenceEventSearch({datasetKey: datasetKey, limit: 0, facet: 'eventId', facetLimit: limit, facetOffset: offset});
+    let q = {datasetKey: datasetKey, limit: 0, facet: 'eventId', facetLimit: limit, facetOffset: offset};
+    if (optParentEventID) {
+        q.parentEventID = optParentEventID;
+    }
+    let occurrences = await occurrenceEventSearch(q);
 
     // expand facets with the first occurrence result to use as substitute for event information
     let results = await Promise.all(occurrences.facets[0].counts.map(function(e) {
@@ -90,6 +98,7 @@ async function getInfoAboutEvent(datasetKey, eventKey) {
         let occurrence = occurrences.results[0];
         return {
             eventID: occurrence.eventID,
+            parentEventID: occurrence.parentEventID,
             decimalLongitude: occurrence.decimalLongitude,
             decimalLatitude: occurrence.decimalLatitude,
             footprintWKT: occurrence.footprintWKT,

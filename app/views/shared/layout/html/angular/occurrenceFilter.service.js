@@ -47,6 +47,7 @@ angular
             'license',
             'protocol',
             'event_id',
+            'parent_event_id',
             'publishing_org'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function(facet) {
