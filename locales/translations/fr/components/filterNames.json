@@ -13,6 +13,7 @@
     "mediaType": "",
     "recordedBy": "Enregistré par",
     "eventDate": "Date de l'événement",
+    "eventId": "ID de l'événement",
     "location": "",
     "hasGeospatialIssue": "",
     "basisOfRecord": "Base de registre",
