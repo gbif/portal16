@@ -69,6 +69,7 @@ function datasetEventCtrl($stateParams, DatasetEvent, DatasetEventList, Occurren
     };
 
     vm.pushChart('speciesKey', 'TABLE');
+    vm.filter = {dataset_key: vm.datasetKey, event_id: vm.eventKey, locale: LOCALE};
 }
 
 module.exports = datasetEventCtrl;

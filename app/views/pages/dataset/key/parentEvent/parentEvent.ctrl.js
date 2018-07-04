@@ -10,19 +10,45 @@ angular
     .controller('datasetParentEventCtrl', datasetParentEventCtrl);
 
 /** @ngInject */
-function datasetParentEventCtrl($stateParams, Dataset, OccurrenceSearch, LOCALE) {
+function datasetParentEventCtrl($stateParams, DatasetEventList, Dataset, Publisher, OccurrenceSearch, $http, LOCALE) {
     var vm = this;
     vm.datasetKey = $stateParams.datasetKey;
     vm.parentEventKey = $stateParams.parentEventKey;
 
     // Get the core event
     vm.dataset = Dataset.get({id: vm.datasetKey});
-
+    vm.dataset.$promise.then(function() {
+        return Publisher.get({id: vm.dataset.publishingOrganizationKey});
+    }).then(function(publisher) {
+        vm.publisher = publisher;
+    }).catch(function() {
+        // No publisher, that was odd
+    });
     // get images for a gallery bar
     vm.images = OccurrenceSearch.query({dataset_key: vm.datasetKey, parent_event_id: vm.parentEventKey, media_type: 'StillImage'});
     vm.images.$promise.then(function(resp) {
         utils.attachImages(resp.results);
     });
+
+        // Get first page of paginated events - currently from the proxy API that use occurrence facets to estimate it.  This is not ideal, but a fragile workaround
+        vm.changeEventPage = function(offset) {
+            var q = {datasetKey: vm.datasetKey, parentEventID: vm.parentEventKey, offset: offset, limit: 10};
+             DatasetEventList.query(q).$promise.then(function(response) {
+                vm.hasChildren = vm.hasChildren || response.results.length > 0;
+                vm.childEvents = response;
+            }).catch(function() {
+                // ignore and use promise for user feedback instead
+            });
+        };
+        vm.changeEventPage(0);
+
+    // get total event count if below proxy apis threshold (1000 at time of writing)
+    $http.get('/api/dataset/' + vm.datasetKey + '/eventCount?parentEventID=' + vm.parentEventKey).then(function(response) {
+        vm.childCount = response.data.endOfRecords ? response.data.count : undefined;
+    })
+        .catch(function() {
+            // ignore
+        });
 
     OccurrenceSearch.query({dataset_key: vm.datasetKey, parent_event_id: vm.parentEventKey, limit: 0})
         .$promise.then(function(res) {
@@ -41,7 +67,8 @@ function datasetParentEventCtrl($stateParams, Dataset, OccurrenceSearch, LOCALE)
     };
 
     vm.pushChart('speciesKey', 'TABLE');
-    vm.pushChart('eventId', 'TABLE');
+    vm.filter = {dataset_key: vm.datasetKey, parent_event_id: vm.parentEventKey};
+  //  vm.pushChart('eventId', 'TABLE');
 }
 
 module.exports = datasetParentEventCtrl;

@@ -18,9 +18,12 @@
                     <h4 class="card-header--bold">Event description</h4>
                     <div class="card card--spaced container-fluid">
                         <div class="card__stripe row">
-                            
+                            <div class="card__content col-xs-12 col-sm-6 col-md-8">
+                                <h4 class="m-t-0" ng-if="datasetParentEvent.dataset.samplingDescription && datasetParentEvent.dataset.samplingDescription.sampling">Sampling</h4>
+                                <div ng-if="datasetParentEvent.dataset.samplingDescription && datasetParentEvent.dataset.samplingDescription.sampling" ng-bind="datasetParentEvent.dataset.samplingDescription.sampling">
+                                </div>
+                            </div>
                             <div class="card__content col-xs-12 col-sm-6 col-md-4">
-                                <globe latitude="datasetParentEvent.event.decimalLatitude" longitude="datasetParentEvent.event.decimalLongitude"></globe>
                                 <dl class="inline">
                                     <div>
                                         <dt>Dataset</dt>
@@ -30,6 +33,7 @@
                                         <a ui-sref="datasetKey({key: datasetParentEvent.datasetKey, '#': 'citation'})" class="doi"><span class="gb-icon-quote"></span><span translate="dataset.howToCite"></span></a>
                                     </div>
                                 </dl>
+                                <globe class="pull-right" latitude="datasetParentEvent.event.decimalLatitude" longitude="datasetParentEvent.event.decimalLongitude"></globe>
                             </div>
                         </div>
                     </div>
@@ -41,6 +45,51 @@
                         <div ng-repeat="chart in datasetParentEvent.charts">
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                         </div>
+                        <div ng-if="datasetParentEvent.hasChildren">
+                            <h4 class="card-header text-center inline-block">Child events: {{datasetParentEvent.childCount}}</h4>
+                            <div class="card card--spaced m-b-1">
+                                <div class="card__stripe card__stripe--light">
+                                    <div class="scrollable-y">
+                                        <div>
+                                            <table class="table search-table chart-table smaller table-fixed m-b-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol', 'occurrenceCount']">
+                                                            {{ col }}
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="event in datasetParentEvent.childEvents.results">
+                                                        <td>
+                                                            <span><a ui-sref="datasetEvent({datasetKey: datasetParentEvent.datasetKey, eventKey: event.eventID})">{{ event.eventID }}</a></span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{ event.eventDate | momentFormat:"LL"}}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>{{ event.samplingProtocol }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span><a ui-sref="occurrenceSearchTable({dataset_key: datasetParentEvent.datasetKey, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card__stripe text-right p-hidden" ng-if="datasetParentEvent.childEvents.endOfRecords === false || datasetParentEvent.childEvents.offset > 0">
+                                    <div class="card__content p-t-05 p-b-05">
+                                        <div>
+                                            <a href="" class="gb-button--discreet small" ng-click="datasetParentEvent.changeEventPage(0)" ng-if="datasetParentEvent.childEvents.offset > datasetParentEvent.childEvents.limit" translate="pagination.first"></a>
+                                            <a href="" class="gb-button--discreet small" ng-click="datasetParentEvent.changeEventPage(datasetParentEvent.childEvents.offset - datasetParentEvent.childEvents.limit)" ng-if="datasetParentEvent.childEvents.offset > 0" translate="pagination.previous"></a>
+                                            <a href="" class="gb-button--discreet small" ng-click="datasetParentEvent.changeEventPage(datasetParentEvent.childEvents.offset + datasetParentEvent.childEvents.limit)" ng-if="datasetParentEvent.childEvents.endOfRecords === false" translate="pagination.next"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </section>
                     <section class="occChart-col m-b-1">
@@ -51,7 +100,7 @@
                             </div>
                         </div>
                         <div>
-                            <occurrence-taxonomy-stats filter="{dataset_key: datasetParentEvent.datasetKey, parent_event_id: datasetParentEvent.parentEventKey}" chart-type="'sunburst'"></occurrence-taxonomy-stats>       
+                            <occurrence-taxonomy-stats filter="datasetParentEvent.filter"  chart-type="'sunburst'"></occurrence-taxonomy-stats>       
                         </div>
                     </section>
                 </div>

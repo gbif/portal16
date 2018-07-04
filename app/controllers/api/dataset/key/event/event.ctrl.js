@@ -81,11 +81,15 @@ async function getDatasetEvents(datasetKey, limit, offset, optParentEventID) {
 async function getEvent(datasetKey, eventKey) {
     let event = await getInfoAboutEvent(datasetKey, eventKey);
     let dataset = await getDataset(datasetKey);
+    let publisher = await getPublisher(dataset.publishingOrganizationKey);
     if (_.isEmpty(event)) {
         throw new FakeEndpointException(404, 'Not found ' + eventKey);
     } else {
         event.dataset = dataset.title;
         event.datasetKey = datasetKey;
+        event.publisher = publisher.title;
+        event.publishingOrganizationKey = dataset.publishingOrganizationKey;
+        event.samplingDescription = dataset.samplingDescription;
         return event;
     }
 }
@@ -135,6 +139,20 @@ async function occurrenceEventSearch(query) {
 async function getDataset(key) {
     let baseRequest = {
         url: apiConfig.dataset.url + key,
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    let response = await request(baseRequest);
+    if (response.statusCode != 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function getPublisher(key) {
+    let baseRequest = {
+        url: apiConfig.publisher.url + key,
         method: 'GET',
         json: true,
         fullResponse: true

@@ -8,11 +8,11 @@
                 </nav>
 
                 <h1 class="text-center">
-                    <span>{{ datasetParentEvent.parentEventID }}</span>
+                    <span>{{ datasetParentEvent.parentEventKey }}</span>
                 </h1>
                 <p>
-                    <span>A parent samplig event from</span> <a class="inherit underline" ui-sref="datasetKey({key:datasetParentEvent.datasetKey})">
-                        {{ datasetParentEvent.dataset.title }}
+                    <span>Published by</span> <a class="inherit underline" ui-sref="publisherKey({key:datasetParentEvent.publisher.key })">
+                        {{ datasetParentEvent.publisher.title }}
                     </a>
                 </p>
             </header>

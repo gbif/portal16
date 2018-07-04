@@ -3,16 +3,16 @@
         <div class="row">
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper" translate="search.dataset"></span>
-                    <span class="article-header__category__lower" translate="datasetEvent.event"></span>
+                    <span class="article-header__category__upper" translate="dataset.longType.SAMPLING_EVENT"></span>
+                    <span class="article-header__category__lower" >{{ datasetEvent.event.eventDate | momentFormat:"LL"}}</span>
                 </nav>
 
                 <h1 class="text-center">
                     <span>{{ datasetEvent.event.eventID }}</span>
                 </h1>
                 <p>
-                    <span>A sampling event from</span> <a class="inherit underline" ui-sref="datasetKey({key:datasetEvent.datasetKey})">
-                        {{ datasetEvent.event.dataset }}
+                    <span>Published by</span> <a class="inherit underline" ui-sref="publisherKey({key:datasetEvent.event.publishingOrganizationKey})">
+                        {{ datasetEvent.event.publisher }}
                     </a>
                 </p>
             </header>
