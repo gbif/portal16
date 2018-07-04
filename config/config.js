@@ -55,7 +55,7 @@ let config = {
         apidocs: apidocs,
         managementToolsSite: '//management-tools.gbif.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
-        dataApi: dataApi || '//api.gbif-uat.org/v1/',
+        dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
         basemapTileApi: basemapTileApi || '//tile.gbif.org',
         identityApi: identityApi || '//api.gbif.org/v1/',

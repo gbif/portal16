@@ -77,7 +77,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr ng-repeat="event in datasetEvent.siblingEvents.results | filter:{ eventID: '!' + datasetEvent.eventKey}"">
+                                                    <tr ng-repeat="event in datasetEvent.siblingEvents.results | filter:{ eventID: '!' + datasetEvent.eventKey}">
                                                         <td>
                                                             <span><a ui-sref="datasetEvent({datasetKey: datasetEvent.datasetKey, eventKey: event.eventID})">{{ event.eventID }}</a></span>
                                                         </td>
