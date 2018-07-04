@@ -20,7 +20,13 @@
                         <div class="card__stripe row">
                             <div class="card__content col-xs-12 col-sm-6 col-md-8">
                                 <dl class="inline">
-                                    <div ng-repeat="field in ['eventRemarks', 'eventDate', 'samplingProtocol', 'samplingEffort']">
+                                    <div >
+                                        <dt>eventDate</dt>
+                                        <dd>
+                                            {{ datasetEvent.event.eventDate | momentFormat:"LL"}}
+                                        </dd>
+                                    </div>
+                                    <div ng-repeat="field in ['eventRemarks', 'samplingProtocol', 'samplingEffort']">
                                         <dt>{{field}}</dt>
                                         <dd>
                                             {{ datasetEvent.event[field] }}
@@ -76,7 +82,7 @@
                                                             <span><a ui-sref="datasetEvent({datasetKey: datasetEvent.datasetKey, eventKey: event.eventID})">{{ event.eventID }}</a></span>
                                                         </td>
                                                         <td>
-                                                            <span>{{ event.eventDate | momentFormat}}</span>
+                                                            <span>{{ event.eventDate | momentFormat:"LL"}}</span>
                                                         </td>
                                                         <td>
                                                             <span>{{ event.samplingProtocol }}</span>
