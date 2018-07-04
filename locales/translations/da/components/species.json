@@ -12,6 +12,13 @@
       "referenceTaxon": "Reference takson",
       "verbatim": "Original"
     },
+    "invasives": {
+      "nInvadedCountries": "",
+      "invasiveIn": "",
+      "accordingTo": "",
+      "occurrenceCount": "",
+      "seeAllCountries": ""
+    },
     "as": "Som",
     "in": "I",
     "origin": "Oprindelse",
