@@ -38,6 +38,7 @@
                         </div>
                     </div>
                 </div>
+                {% include "./images.nunjucks" %}
                 {% include "./map.nunjucks" %}
 
                 <div class="container--desktop ng-cloak">
