@@ -76,6 +76,17 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                     vm.lightbox = new Lightbox();
                     vm.lightbox.load();
                 });
+            } else {
+                // is nub
+                // get list of countries where listed as invasive according to GRIIS
+                vm.invadedListLength = 3;
+                $http.get('/api/species/' + vm.key + '/invadedCountries')
+                    .then(function(response) {
+                        vm.invadedCountries = response.data;
+                    })
+                    .catch(function(response) {
+                        // ignore error
+                    });
             }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' &&
                 vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 &&

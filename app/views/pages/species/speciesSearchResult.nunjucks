@@ -51,7 +51,8 @@
                 </li>
                 <li ng-if="!result.datasetKey || result.datasetKey == portal.constantKeys.dataset.backbone">
                     <a ui-sref="occurrenceSearchTable({taxon_key:result.key})">
-                    <span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.key }}" count-translation="counts.nOccurrences">&nbsp;</span>
+                        <span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.key }}" count-translation="counts.nOccurrences">&nbsp;</span>
+                    </a>
                 </li>
             </ul>
         </div>

@@ -3,6 +3,7 @@ let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
+    griisPublisherKey = rootRequire('config/config').publicConstantKeys.publisher.GRIIS,
     request = require('requestretry'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../../config/log');
@@ -173,14 +174,12 @@ router.get('/species/:key/checklistdatasets', function(req, res) {
         });
 });
 
-router.get('/species/:key/invasiveSpecies', function(req, res) {
+router.get('/species/:key/invadedCountries', function(req, res) {
     let limit = 500; // get all countries in the world and hope that this publisher only publish one per country and not not invasives
     let offset = 0;
-    let griisPublisher = 'cdef28b1-db4e-4c58-aa71-3c5238c2d0b5';
-    let result;
 
     let baseRequest = {
-        url: apiConfig.dataset.url + 'search?taxonKey=' + req.params.key + '&type=CHECKLIST' + '&limit=' + limit + '&offset=' + offset + '&publishingOrg=' + griisPublisher,
+        url: apiConfig.dataset.url + 'search?taxonKey=' + req.params.key + '&type=CHECKLIST' + '&limit=' + limit + '&offset=' + offset + '&publishingOrg=' + griisPublisherKey,
         timeout: 30000,
         method: 'GET',
         json: true,
@@ -189,7 +188,6 @@ router.get('/species/:key/invasiveSpecies', function(req, res) {
 
     return request(baseRequest)
         .then(function(response) {
-            result = response;
             if (parseInt(response.statusCode !== 200)) {
                 throw response;
             }
@@ -197,13 +195,17 @@ router.get('/species/:key/invasiveSpecies', function(req, res) {
             // iterate through datasets to look up species related species
             let promises = [];
             response.body.results.forEach(function(e) {
-                promises.push(getInvasiveSpeciesInfo(req.params.key, e.key));
+                promises.push(getInvasiveSpeciesInfo(req.params.key, e));
             });
 
             return Q.all(promises);
         })
-        .then(function() {
-            return res.status(200).json(result.body);
+        .then(function(results) {
+            return res.json({
+                results: results,
+                count: results.length,
+                endOfRecords: results.length < limit
+            });
         })
         .catch(function(err) {
             log.error(err);
@@ -230,20 +232,21 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
     if (species.length > 0) {
         // extract country from keyword
         dataset.keywords = dataset.keywords || [];
-        let invasiveInCountry = dataset.keywords.find(function(keyword) {
+        let invadedCountry = dataset.keywords.find(function(keyword) {
             return keyword.startsWith('country_');
         });
-        if (invasiveInCountry) {
-            invasiveInCountry = invasiveInCountry.replace('country_', '');
+        if (invadedCountry) {
+            invadedCountry = invadedCountry.replace('country_', '');
         }
 
         // compose result obj with the properties we need for displaying the list - no need to send full species and dataaset obj.
         return {
-            invasiveInCountry: invasiveInCountry,
+            invadedCountry: invadedCountry,
             datasetKey: dataset.key,
             dataset: dataset.title,
             scientificName: species[0].scientificName,
-            nubKey: species[0].nubKey
+            nubKey: species[0].nubKey,
+            taxonKey: species[0].key
         };
     } else {
         return undefined; // TODO ask thomas why he returns this above - i don't see how this would ever be the case
