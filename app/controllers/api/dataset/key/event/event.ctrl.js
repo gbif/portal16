@@ -29,6 +29,7 @@ router.get('/api/dataset/:datasetKey/eventCount', function render(req, res) {
     }
     occurrenceEventSearch(q)
         .then(function(data) {
+            data.facets[0] = data.facets[0] || {counts: []}; // only neccessary because api isn't in prod
             res.json({
                 count: Math.min(limit - 1, data.facets[0].counts.length),
                 endOfRecords: data.facets[0].counts.length < limit
@@ -62,6 +63,7 @@ async function getDatasetEvents(datasetKey, limit, offset, optParentEventID) {
     let occurrences = await occurrenceEventSearch(q);
 
     // expand facets with the first occurrence result to use as substitute for event information
+    occurrences.facets[0] = occurrences.facets[0] || {counts: []}; // only neccessary because api isn't in prod
     let results = await Promise.all(occurrences.facets[0].counts.map(function(e) {
         return getInfoAboutEvent(datasetKey, e.name);
     }));
