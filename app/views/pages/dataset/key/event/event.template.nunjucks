@@ -57,12 +57,12 @@
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                         </div>
                         <div ng-if="datasetEvent.hasSiblings ">
-                            <h4 class="card-header--bold text--error">Sibling events: {{datasetEvent.siblingCount}}</h4>
+                            <h4 class="card-header text-center inline-block">Sibling events: {{datasetEvent.siblingCount}}</h4>
                             <div class="card card--spaced m-b-1">
                                 <div class="card__stripe card__stripe--light">
                                     <div class="scrollable-y">
                                         <div>
-                                            <table class="table search-table smaller m-b-0">
+                                            <table class="table search-table chart-table smaller table-fixed m-b-0">
                                                 <thead>
                                                     <tr>
                                                         <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol', 'occurrenceCount']">
@@ -101,11 +101,16 @@
                                 </div>
                             </div>
                         </div>
+                        </section>
+                        <section class="occChart-col m-b-1">
                         <div>
                             <h4 class="card-header">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
                             <div class="card">
                                 <occurrence-taxonomy-tree filter="{dataset_key: datasetEvent.datasetKey, event_id: datasetEvent.eventKey}" options="{limit:10}"></occurrence-taxonomy-tree>
                             </div>
+                        </div>
+                        <div>
+                            <occurrence-taxonomy-stats filter="{dataset_key: datasetEvent.datasetKey, event_id: datasetEvent.eventKey}" chart-type="'sunburst'"></occurrence-taxonomy-stats>       
                         </div>
                     </section>
                 </div>

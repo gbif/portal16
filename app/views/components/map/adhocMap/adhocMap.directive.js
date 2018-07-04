@@ -19,7 +19,8 @@ function adhocMapDirective(BUILD_VERSION) {
         scope: {
             filter: '=',
             mapStyle: '=',
-            mapEvents: '='
+            mapEvents: '=',
+            noDrawing: '='
         },
         link: mapLink,
         controller: adhocMap,

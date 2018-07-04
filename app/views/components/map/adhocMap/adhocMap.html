@@ -8,7 +8,7 @@
             <a href="" class="gb-icon-select smallIcon" ng-click="vm.enableClickGeometry()"
                ng-class="{'is-active': vm.clickQueryActive }"></a>
         </div>
-        <div class="mapWidget__drawButtons">
+        <div class="mapWidget__drawButtons" ng-if="!vm.noDrawing">
             <a href="" class="gb-icon-rectangle smallIcon" ng-click="vm.enableRectangleDraw()"
                ng-class="{'is-active': vm.rectangleDrawActive }"></a>
             <a href="" class="gb-icon-polygon smallIcon" ng-click="vm.enablePolygonDraw()"

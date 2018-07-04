@@ -41,11 +41,17 @@
                         <div ng-repeat="chart in datasetParentEvent.charts">
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                         </div>
+
+                    </section>
+                    <section class="occChart-col m-b-1">
                         <div>
                             <h4 class="card-header">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
                             <div class="card">
                                 <occurrence-taxonomy-tree filter="{dataset_key: datasetParentEvent.datasetKey, parent_event_id: datasetParentEvent.parentEventKey}" options="{limit:10}"></occurrence-taxonomy-tree>
                             </div>
+                        </div>
+                        <div>
+                            <occurrence-taxonomy-stats filter="{dataset_key: datasetParentEvent.datasetKey, parent_event_id: datasetParentEvent.parentEventKey}" chart-type="'sunburst'"></occurrence-taxonomy-stats>       
                         </div>
                     </section>
                 </div>
