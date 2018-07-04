@@ -72,6 +72,7 @@
     "recommended": "Recommended",
     "processedOccurrences": "GBIF annotated archive",
     "noDescriptionProvided": "No description available",
-    "pNetwork": "{NUMBER, select, 0{Networks} 1{Network} other{Networks}}"
+    "pNetwork": "{NUMBER, select, 0{Networks} 1{Network} other{Networks}}",
+    "parentEvent" : "Parent event"
   }
 }
