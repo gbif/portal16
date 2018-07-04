@@ -4,6 +4,9 @@
     <div ng-if="speciesKey2.images.$resolved">
         {% include "../map/map.nunjucks" %}
     </div>
+
+    {% include "../invasives.nunjucks" %}
+
     <div ng-if="!speciesKey2.images.$resolved || !speciesKey2.capabilities.$resolved" class="emptyInfo">
         <h3 translate="species.searchMsg"></h3>
     </div>

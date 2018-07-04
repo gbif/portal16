@@ -37,7 +37,7 @@
     },
     "placeholders": {
       "summary": "Summary",
-      "description": "Detailed description",
+      "description": "Detailed description. For taxonomic claims, please provide a reference",
       "username": "Your email or Github username (public)"
     },
     "markdownSupport": "Markdown support",

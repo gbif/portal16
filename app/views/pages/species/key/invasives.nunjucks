@@ -1,0 +1,40 @@
+<div class="container--desktop m-t-1 ng-cloak" ng-if="speciesKey2.invadedCountries.count > 0">
+    <h4 class="card-header text--error" tx="species.invasives.nInvadedCountries" tx-nr="speciesKey2.invadedCountries.count"></h4>
+    <div class="card card--spaced m-b-1">
+        <div class="card__stripe card__stripe--light">
+            <div class="scrollable-y">
+                <div>
+                    <table class="table search-table smaller m-b-0">
+                        <thead>
+                            <tr>
+                                <th ng-repeat="col in ['invasiveIn', 'accordingTo', 'occurrenceCount']" translate="species.invasives.{{col}}"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="country in speciesKey2.invadedCountries.results | limitTo:speciesKey2.invadedListLength">
+                                <td>
+                                    <span translate="country.{{country.invadedCountry}}">{{ country.invadedCountry }}</span>
+                                </td>
+                                <td>
+                                    <span><a ui-sref="datasetKey({dataset_key: country.datasetKey})">{{ country.dataset }}</a></span>
+                                </td>
+                                <td>
+                                    <span>
+                                        <a ui-sref="occurrenceSearchTable({taxon_key:country.nubKey, country: country.invadedCountry})" count="{{ portal.dataApi }}occurrence/search?taxon_key={{ country.nubKey }}&country={{ country.invadedCountry }}" count-translation="counts.nOccurrences"></a>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card__stripe text-right p-hidden" ng-if="speciesKey2.invadedCountries.count > speciesKey2.invadedListLength">
+            <div class="card__content p-t-05 p-b-05">
+                <div>
+                    <a href="" class="gb-button--discreet small" ng-click="speciesKey2.invadedListLength = 1000" translate="species.invasives.seeAllCountries"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

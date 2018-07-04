@@ -12,6 +12,13 @@
       "referenceTaxon": "Reference taxon",
       "verbatim": "Verbatim"
     },
+    "invasives": {
+      "nInvadedCountries": "Invasive in {NUMBER_FORMATED} {NUMBER, select, 0{countries} 1{country} other{countries}}",
+      "invasiveIn": "Invasive in",
+      "accordingTo": "According to",
+      "occurrenceCount": "Occurrences in GBIF",
+      "seeAllCountries": "Show all"
+    },
     "as": "As",
     "in": "In",
     "origin": "Origin",

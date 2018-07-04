@@ -12,13 +12,13 @@
                             ng-repeat="col in ['verbatimScientificName', 'preferedKingdom', 'matchType', 'confidence', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'occurrenceId']">
                             <a href=""
                                ng-click="speciesLookup.state.sortType = col; speciesLookup.state.sortReverse = !speciesLookup.state.sortReverse">
-                                	<span class="inline-block">
-                                		{{ col }} <span ng-if="col == 'scientificName'" class="discreet">(editable)</span>
-                                        <span ng-show="speciesLookup.state.sortType == col && !speciesLookup.state.sortReverse"
-                                              class="sortReverse">&#x25B2;</span>
-                						<span ng-show="speciesLookup.state.sortType == col && speciesLookup.state.sortReverse"
-                                              class="sortReverse">&#x25BC;</span>
-                                	</span>
+                                <span class="inline-block">
+                                    {{ col }} <span ng-if="col == 'scientificName'" class="discreet">(editable)</span>
+                                    <span ng-show="speciesLookup.state.sortType == col && !speciesLookup.state.sortReverse"
+                                            class="sortReverse">&#x25B2;</span>
+                                    <span ng-show="speciesLookup.state.sortType == col && speciesLookup.state.sortReverse"
+                                            class="sortReverse">&#x25BC;</span>
+                                </span>
                             </a>
                         </th>
                     </tr>
