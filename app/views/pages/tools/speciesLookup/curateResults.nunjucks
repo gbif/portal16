@@ -9,7 +9,7 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['originalName', 'preferedKingdom', 'matchType', 'confidence', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'originalId']">
+                            ng-repeat="col in ['verbatimScientificName', 'preferedKingdom', 'matchType', 'confidence', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'occurrenceId']">
                             <a href=""
                                ng-click="speciesLookup.state.sortType = col; speciesLookup.state.sortReverse = !speciesLookup.state.sortReverse">
                                 	<span class="inline-block">
@@ -26,7 +26,7 @@
                     <tbody>
                     <tr ng-repeat="species in speciesLookup.species | orderBy:speciesLookup.state.sortType:speciesLookup.state.sortReverse | startFrom:speciesLookup.pagination.currentPage*speciesLookup.pagination.pageSize-speciesLookup.pagination.pageSize | limitTo:speciesLookup.pagination.pageSize">
                         <td class="table-cell--wide">
-                            <span>{{ species.originalName }}</span>
+                            <span>{{ species.verbatimScientificName }}</span>
                         </td>
                         <td class="table-cell--normal">
                             <span ng-if="species.preferedKingdom">{{ species.preferedKingdom }}</span>
@@ -78,7 +78,7 @@
                         </td>
 
                         <td class="table-cell--widder">
-                            <span>{{ species.originalId }}</span>
+                            <span>{{ species.occurrenceId }}</span>
                         </td>
 
                         <!-- <td class="table-cell--wide">

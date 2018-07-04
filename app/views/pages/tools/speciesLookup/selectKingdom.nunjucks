@@ -45,7 +45,7 @@
                         <tbody>
                         <tr ng-repeat="species in speciesLookup.species | startFrom:speciesLookup.pagination.currentPage*speciesLookup.pagination.pageSize-speciesLookup.pagination.pageSize | limitTo:speciesLookup.pagination.pageSize">
                             <td class="table-cell--widder">
-                                <span>{{ species.originalName }}</span>
+                                <span>{{ species.verbatimScientificName }}</span>
                             </td>
                             <td class="table-cell--normal">
                                 <span>{{ species.preferedKingdom }}</span>
