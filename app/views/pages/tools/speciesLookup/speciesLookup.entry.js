@@ -78,11 +78,11 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
                         return getLowerKeysObj(e);
                     });
                     if (result.every(function(e) {
-return e.scientificname;
-})) {
+                            return e.scientificname;
+                        })) {
                         result.forEach(function(e) {
-                            e.originalId = e.id;
-                            e.originalName = e.scientificname;
+                            e.occurrenceId = e.occurrenceId || e.occurrenceid || e.occurrenceID || e.id;
+                            e.verbatimScientificName = e.scientificname;
                             e.preferedKingdom = e.kingdom;
                             e.scientificName = undefined;
                             e.kingdom = undefined;
@@ -116,7 +116,7 @@ return e.scientificname;
     function lookupName(item, callback) {
         var query = {
             verbose: true,
-            name: item.originalName,
+            name: item.verbatimScientificName,
             kingdom: item.preferedKingdom || vm.defaultKingdom
         };
         SpeciesMatch.query(query, function(data) {
@@ -192,7 +192,7 @@ return e.scientificname;
     };
 
     vm.generateCsv = function() {
-        var fields = ['originalId', 'originalName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
+        var fields = ['occurrenceId', 'verbatimScientificName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
         var csvContent = '';
 
         // write column names

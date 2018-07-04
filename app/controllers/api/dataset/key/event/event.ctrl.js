@@ -93,7 +93,7 @@ async function getEvent(datasetKey, eventKey) {
 async function getInfoAboutEvent(datasetKey, eventKey) {
     let occurrences = await occurrenceEventSearch({datasetKey: datasetKey, eventId: eventKey, limit: 1});
     if (occurrences.count == 0) {
-        return {};
+        return {}; // it should be possible simply to return a 404 error here, but the API is bugged at this point and will return zero results despite the same eventID having a facet count.
     } else {
         let occurrence = occurrences.results[0];
         return {
