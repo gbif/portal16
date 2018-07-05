@@ -73,6 +73,10 @@
     "processedOccurrences": "",
     "noDescriptionProvided": "",
     "pNetwork": "",
-    "parentEvent": ""
+    "parentEvent": "",
+    "eventDescription": "",
+    "siblingEvents": "",
+    "childEvents": "",
+    "occurrenceCount": ""
   }
 }
