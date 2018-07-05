@@ -21,7 +21,7 @@
                                     <span><a ui-sref="datasetEvent({datasetKey: datasetKey.key, eventKey: event.eventID})">{{ event.eventID }}</a></span>
                                 </td>
                                 <td>
-                                    <span>{{ event.eventDate | momentFormat}}</span>
+                                    <span>{{ event.eventDate | momentFormat:"LL"}}</span>
                                 </td>
                                 <td>
                                     <span>{{ event.samplingProtocol }}</span>
