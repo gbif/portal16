@@ -201,6 +201,7 @@ router.get('/species/:key/invadedCountries', function(req, res) {
             return Q.all(promises);
         })
         .then(function(results) {
+            results = _.filter(results, _.identity);
             return res.json({
                 results: results,
                 count: results.length,
@@ -227,18 +228,15 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
         throw related;
     }
 
-    let species = related.body.results;
     // if there is any related species, then there is invasive species listed in that dataset (assuming the provided dataset is listing invasive species)
-    if (species.length > 0) {
-        // extract country from keyword
-        dataset.keywords = dataset.keywords || [];
-        let invadedCountry = dataset.keywords.find(function(keyword) {
-            return keyword.startsWith('country_');
-        });
-        if (invadedCountry) {
-            invadedCountry = invadedCountry.replace('country_', '');
-        }
-
+    let species = related.body.results;
+    // extract country from keyword
+    dataset.keywords = dataset.keywords || [];
+    let invadedCountry = dataset.keywords.find(function(keyword) {
+        return keyword.startsWith('country_');
+    });
+    if (species.length > 0 && invadedCountry) {
+        invadedCountry = invadedCountry.replace('country_', '');
         // compose result obj with the properties we need for displaying the list - no need to send full species and dataaset obj.
         return {
             invadedCountry: invadedCountry,
