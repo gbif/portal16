@@ -7,8 +7,11 @@
                     <table class="table search-table smaller m-b-0">
                         <thead>
                             <tr>
-                                <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol', 'occurrenceCount']">
+                                <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol']" translate="ocurrenceFieldNames.{{col}}">
                                     {{ col }}
+                                </th>
+                                <th translate="dataset.occurrenceCount">
+                                    Occurrence count
                                 </th>
                             </tr>
                         </thead>

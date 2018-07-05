@@ -20,7 +20,7 @@
                         <div class="card__stripe row">
                             <div class="card__content col-xs-12 col-sm-6 col-md-8">
                                 <h4 class="m-t-0" ng-if="datasetParentEvent.dataset.samplingDescription && datasetParentEvent.dataset.samplingDescription.sampling" translate="dataset.sampling">Sampling</h4>
-                                <div ng-if="datasetParentEvent.dataset.samplingDescription && datasetParentEvent.dataset.samplingDescription.sampling" ng-bind="datasetParentEvent.dataset.samplingDescription.sampling">
+                                <div ng-if="datasetParentEvent.dataset.samplingDescription && datasetParentEvent.dataset.samplingDescription.sampling" ng-bind-html="datasetParentEvent.dataset.samplingDescription.sampling | linky">
                                 </div>
                             </div>
                             <div class="card__content col-xs-12 col-sm-6 col-md-4">
