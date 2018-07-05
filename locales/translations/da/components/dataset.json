@@ -73,6 +73,10 @@
     "processedOccurrences": "GBIF annoteret Arkiv",
     "noDescriptionProvided": "Ingen beskrivelse tilgængelig",
     "pNetwork": "",
-    "parentEvent": ""
+    "parentEvent": "",
+    "eventDescription": "",
+    "siblingEvents": "",
+    "childEvents": "",
+    "occurrenceCount": ""
   }
 }
