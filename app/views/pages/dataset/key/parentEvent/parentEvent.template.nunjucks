@@ -15,18 +15,18 @@
                 </div> #}
 
                 <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetParentEvent.occurrenceCount > 0">
-                    <h4 class="card-header--bold">Event description</h4>
+                    <h4 class="card-header--bold" translate="dataset.eventDescription">Event description</h4>
                     <div class="card card--spaced container-fluid">
                         <div class="card__stripe row">
                             <div class="card__content col-xs-12 col-sm-6 col-md-8">
-                                <h4 class="m-t-0" ng-if="datasetParentEvent.dataset.samplingDescription && datasetParentEvent.dataset.samplingDescription.sampling">Sampling</h4>
+                                <h4 class="m-t-0" ng-if="datasetParentEvent.dataset.samplingDescription && datasetParentEvent.dataset.samplingDescription.sampling" translate="dataset.sampling">Sampling</h4>
                                 <div ng-if="datasetParentEvent.dataset.samplingDescription && datasetParentEvent.dataset.samplingDescription.sampling" ng-bind="datasetParentEvent.dataset.samplingDescription.sampling">
                                 </div>
                             </div>
                             <div class="card__content col-xs-12 col-sm-6 col-md-4">
                                 <dl class="inline">
                                     <div>
-                                        <dt>Dataset</dt>
+                                        <dt translate="dataset.dataset">Dataset</dt>
                                         <dd><a ui-sref="datasetKey({key: datasetParentEvent.datasetKey})">{{ datasetParentEvent.dataset.title }}</a></dd>
                                     </div>
                                     <div>
@@ -47,7 +47,7 @@
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                         </div>
                         <div ng-if="datasetParentEvent.hasChildren">
-                            <h4 class="card-header text-center inline-block">Child events: {{datasetParentEvent.childCount}}</h4>
+                            <h4 class="card-header text-center inline-block"><span translate="dataset.childEvents">Child events</span>: {{datasetParentEvent.childCount}}</h4>
                             <div class="card card--spaced m-b-1">
                                 <div class="card__stripe card__stripe--light">
                                     <div class="scrollable-y">
@@ -55,8 +55,11 @@
                                             <table class="table search-table chart-table smaller table-fixed m-b-0">
                                                 <thead>
                                                     <tr>
-                                                        <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol', 'occurrenceCount']">
+                                                        <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol']" translate="ocurrenceFieldNames.{{col}}">
                                                             {{ col }}
+                                                        </th>
+                                                        <th translate="dataset.occurrenceCount">
+                                                            Occurrence count
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -95,7 +98,7 @@
                     </section>
                     <section class="occChart-col m-b-1">
                         <div>
-                            <h4 class="card-header">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
+                            <h4 class="card-header" translate="metrics.taxonomicOccDistribution">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
                             <div class="card">
                                 <occurrence-taxonomy-tree filter="{dataset_key: datasetParentEvent.datasetKey, parent_event_id: datasetParentEvent.parentEventKey}" options="{limit:10}"></occurrence-taxonomy-tree>
                             </div>

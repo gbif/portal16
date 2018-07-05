@@ -183,7 +183,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('datasetEvent', {
             parent: 'localization',
-            url: 'dataset/:datasetKey/event/:eventKey',
+            url: '/dataset/:datasetKey/event/:eventKey',
             views: {
                 main: {
                     templateUrl: '/api/template/dataset/event.html?v=' + BUILD_VERSION,
@@ -194,7 +194,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('datasetParentEvent', {
             parent: 'localization',
-            url: 'dataset/:datasetKey/parentevent/:parentEventKey',
+            url: '/dataset/:datasetKey/parentevent/:parentEventKey',
             views: {
                 main: {
                     templateUrl: '/api/template/dataset/parentevent.html?v=' + BUILD_VERSION,

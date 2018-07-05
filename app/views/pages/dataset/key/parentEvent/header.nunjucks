@@ -11,7 +11,7 @@
                     <span>{{ datasetParentEvent.parentEventKey }}</span>
                 </h1>
                 <p>
-                    <span>Published by</span> <a class="inherit underline" ui-sref="publisherKey({key:datasetParentEvent.publisher.key })">
+                    <span translate="dataset.publishedBy">Published by</span> <a class="inherit underline" ui-sref="publisherKey({key:datasetParentEvent.publisher.key })">
                         {{ datasetParentEvent.publisher.title }}
                     </a>
                 </p>

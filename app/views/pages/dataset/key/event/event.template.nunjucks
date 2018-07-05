@@ -15,22 +15,22 @@
                 </div> #}
 
                 <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetEvent.event.occurrenceCount > 0">
-                    <h4 class="card-header--bold">Event description</h4>
+                    <h4 class="card-header--bold" translate="dataset.eventDescription">Event description</h4>
                     <div class="card card--spaced container-fluid">
                         <div class="card__stripe row">
                             <div class="card__content col-xs-12 col-sm-6 col-md-8">
-                                <h4 class="m-t-0" ng-if="datasetEvent.event.samplingDescription && datasetEvent.event.samplingDescription.sampling">Sampling</h4>
+                                <h4 class="m-t-0" ng-if="datasetEvent.event.samplingDescription && datasetEvent.event.samplingDescription.sampling" translate="dataset.sampling">Sampling</h4>
                                 <div ng-if="datasetEvent.event.samplingDescription && datasetEvent.event.samplingDescription.sampling" ng-bind="datasetEvent.event.samplingDescription.sampling">
                                 </div>
                                 <dl class="inline" ng-if="!datasetEvent.event.samplingDescription || !datasetEvent.event.samplingDescription.sampling">
                                     <div ng-repeat="field in ['eventRemarks', 'samplingProtocol', 'samplingEffort']" ng-if="datasetEvent.event[field]">
-                                        <dt>{{field}}</dt>
+                                        <dt translate="ocurrenceFieldNames.{{field}}">{{field}}</dt>
                                         <dd>
                                             {{ datasetEvent.event[field] }}
                                         </dd>
                                     </div>
                                     <div ng-if="datasetEvent.event.parentEventID">
-                                        <dt>parentEventID</dt>
+                                        <dt translate="ocurrenceFieldNames.parentEventID">parentEventID</dt>
                                         <dd>
                                             <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
                                         </dd>
@@ -41,13 +41,13 @@
                                 <globe class="pull-right" latitude="datasetEvent.event.decimalLatitude" longitude="datasetEvent.event.decimalLongitude"></globe>
                                 <dl class="inline" ng-if="datasetEvent.event.samplingDescription && datasetEvent.event.samplingDescription.sampling">
                                     <div ng-repeat="field in ['eventRemarks', 'samplingProtocol', 'samplingEffort']" ng-if="datasetEvent.event[field]">
-                                        <dt>{{field}}</dt>
+                                        <dt translate="ocurrenceFieldNames.{{field}}">{{field}}</dt>
                                         <dd>
                                             {{ datasetEvent.event[field] }}
                                         </dd>
                                     </div>
                                     <div ng-if="datasetEvent.event.parentEventID">
-                                        <dt>parentEventID</dt>
+                                        <dt translate="ocurrenceFieldNames.parentEventID">parentEventID</dt>
                                         <dd>
                                             <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
                                         </dd>
@@ -55,7 +55,7 @@
                                 </dl>
                                 <dl class="inline">
                                     <div>
-                                        <dt>Dataset</dt>
+                                        <dt translate="dataset.dataset">Dataset</dt>
                                         <dd><a ui-sref="datasetKey({key: datasetEvent.datasetKey})">{{ datasetEvent.event.dataset }}</a></dd>
                                     </div>
                                     <div>
@@ -75,7 +75,7 @@
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                         </div>
                         <div ng-if="datasetEvent.hasSiblings ">
-                            <h4 class="card-header text-center inline-block">Sibling events: {{datasetEvent.siblingCount}}</h4>
+                            <h4 class="card-header text-center inline-block" ><span translate="dataset.siblingEvents">Sibling events</span>: {{datasetEvent.siblingCount}}</h4>
                             <div class="card card--spaced m-b-1">
                                 <div class="card__stripe card__stripe--light">
                                     <div class="scrollable-y">
@@ -83,8 +83,11 @@
                                             <table class="table search-table chart-table smaller table-fixed m-b-0">
                                                 <thead>
                                                     <tr>
-                                                        <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol', 'occurrenceCount']">
+                                                        <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol']" translate="ocurrenceFieldNames.{{col}}">
                                                             {{ col }}
+                                                        </th>
+                                                        <th translate="dataset.occurrenceCount">
+                                                            Occurrence count
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -122,7 +125,7 @@
                         </section>
                         <section class="occChart-col m-b-1">
                         <div>
-                            <h4 class="card-header">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
+                            <h4 class="card-header" translate="metrics.taxonomicOccDistribution">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
                             <div class="card">
                                 <occurrence-taxonomy-tree filter="{dataset_key: datasetEvent.datasetKey, event_id: datasetEvent.eventKey}" options="{limit:10}"></occurrence-taxonomy-tree>
                             </div>
