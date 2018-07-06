@@ -1,6 +1,6 @@
 {
     "galleryBar": {
         "seeAllImages": "Se galleri",
-        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, select, 0{observationer} 1{observation} other{observationer}} med billeder"
+        "nOccWithImages": ""
     }
 }
