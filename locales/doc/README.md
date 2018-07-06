@@ -1,7 +1,7 @@
 
 # About translations
 
-### Getting started
+## Getting started
 
 Translations are done using the website [Crowdin](https://crowdin.com/) - so you need an account for that.
 
@@ -10,7 +10,7 @@ Translations are done using the website [Crowdin](https://crowdin.com/) - so you
     * No: go to the [GBIF.org project](https://crowdin.com/project/gbif-portal). Select the language you would like to translate. Press `Join`. We will then add you to the translator team.
 2. Start translating. It is fairly intuitive to get started (see [screenshots](#screenshots-of-the-absolute-basics)), but there is also a [detailed video](https://www.youtube.com/watch?v=bxdC7MfrO7A) that goes into many of the features of the product that you can see if you are curious to optimize your process.
 
-### What to translate
+## What to translate
 It is of course best if everything is translated, but it is possible to only translate parts of the site, but in some cases it will mean that two adjacent words will be in different languages.
 
 We suggest that you start with:
@@ -25,7 +25,7 @@ in `components`
 
 `enums`
 
-### Variables, pluralizations and Markdown
+## Variables, pluralizations and Markdown
 Most translations strings is simply english text, but some of them is more complex and have characters with special meaning. Some of them should not be translated and others should be changed and added to.
 
 **Markdown**
@@ -47,7 +47,7 @@ In english you would say `0 occurrenceS, 1 occurrence, 2 occurrenceS`. Other lan
 * many: This category is used for languages that have grammar specialized specifically for a larger number of items. (Examples are Arabic, Polish, and Russian.)
 * other: This category is used if the value doesn't match one of the other plural categories. Note that this is used for "plural" for languages (such as English) that have a simple "singular" versus "plural" dichotomy.
 
-### Screenshots of the absolute basics
+## Screenshots of the absolute basics
 
 ![Select a language](./img/select_language.png?raw=true)
 ![Select a file](./img/select_file.png?raw=true)
