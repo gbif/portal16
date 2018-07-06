@@ -41,7 +41,7 @@
     "noRankedAbove": "The checklist has no ranked taxa above Species.",
     "taxonomicOccDistribution": "Taxonomic distribution of occurrences",
     "groupByX": "Group by {TYPE}",
-    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 0{other or unknown} 1{other or unknown} other{other or unknown}}",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{other or unknown} other{other or unknown}}",
     "unknownRank": "Unknown {RANK}",
     "vernacularNames": "Vernacular names",
     "majorRanksPlural": {

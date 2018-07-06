@@ -1,46 +1,16 @@
-# Translations
 
-## For developers
+# About translations
 
-### Adding a new language
+### Getting started
 
-Adding a new language requires some configuration. Primarily in `config/locales`.
+Translations are done using the website [Crowdin](https://crowdin.com/) - so you need an account for that.
 
-You need to add the new language as it appears in the url.
-For that name, say 'ru' you also need to add mappings to what language code it corresponds to in other systems, libraries etc. E.g. what map language should be used (we might not support all). What is this locale called in Moment.js. etc.
+1. Have you recieved an invitation email with a link?
+    * Yes: Then simply follow the link and login/create account.
+    * No: go to the [GBIF.org project](https://crowdin.com/project/gbif-portal). Select the language you would like to translate. Press `Join`. We will then add you to the translator team.
+2. Start translating. It is fairly intuitive to get started, but there is also a [detailed video](https://www.youtube.com/watch?v=bxdC7MfrO7A) that goes into many of the features of the product that you can see if you are curious to optimize your process.
 
-**Add the locale as an option**
-in `config/locales/` you should add it to the `locales` array. This is the name by which it will appear in the url.
-
-**Do you need articles to be translatable in contentful?**
-1) If so you need to configure contentful to support your new language
-2) add a mapping between the contentful language code and the one you specified as the site code (`locales`). You can do so in `config/locales/`.
-If there is no corresponding language in contentful then ignore this step.
-
-**Time in moment.js**
-Check that the moment library that we use for timestamps etc is recognizing this format. if not you should map it to the corresponding momentJs one in `config/locales/`
-You need to include the moment configuration for your new language. This is done with a `require('moment/locales/da')` in `views/shared/layout/html/html.js` . By default it will use the url locale.
-
-**Add language code**
-What is the language code as listed in your translation file. Typically a 3 letter iso
-
-**What language code should be used for numbers**
-By default it will use the url locale. This is the locale used when calling '123456789'.toLocaleString(LOCALE) in the browser.
-
-**Adding the translation to crowdin**
-Tell crowdin that this language should be supported.
-
-
-### Easing the work of the translators
-Lists of language names and country names can be found online. Generating a JSON-file with these and uploading them to Crowdin will ease translators work quite a lot.
-
-### Be careful when changing the english text
-Any change to the english text will delete translations. Even a comma. It is no longer the same text and Crowdin will delete it all. If you do not believe it to be essential, then you need to restore the translations afterwards.
-
-### Don't move translation files around
-When doing so crowdin gets confused - it keeps the oirginal file structure - kind of. The interface might then have duplicates, files that the translators can translate, but isn't synced. It sucks. If you do need to move files, then the same files needs to be manually moced in the Crowdin interface.
-
-## For translators
+### What to translate
 It is of course best if everything is translated, but it is possible to only translate parts of the site, but in some cases it will mean that two adjacent words will be in different languages.
 
 We suggest that you start with:
@@ -54,5 +24,28 @@ in `components`
 6) the remaining ...
 
 `enums`
+
+### Variables, pluralizations and Markdown
+Most translations strings is simply english text, but some of them is more complex and have characters with special meaning. Some of them should not be translated and others should be changed and added to.
+
+**Markdown**
+
+Markdown is a simple way to write HTML (the format used to define links headlines, and regular text). Instead of writing `<h1>Headline</h1>`, one can write `#Headline`. In cases where the translation includes e.g. a link Markdown is used. To properly translate Markdown, you need to know what to translate and what to leave as it is. Read more [about markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [try writing something](https://dillinger.io/) to get a feed for it.
+
+**Variables**
+
+Sometimes we need to replace a single word in a sentence. For example: `Welcome back {USER_FIRST_NAME}` could become `Welcome back Charles`. Variables are demarked by curly brackets `{}` and should not be translated. So the danish translation would be `Velkommen tilbage {USER_FIRST_NAME}`. It is fine to move the variable somewhere else if your translation require it. E.g. `{USER_FIRST_NAME}, back you are.`
+
+**Plurals**
+
+In english you would say `0 occurrenceS, 1 occurrence, 2 occurrenceS`. Other languages pluralize differently and might have more forms. [Message format](https://messageformat.github.io/messageformat/page-guide) is used for pluralization.  And looks like this `{NUMBER_FORMATED} {NUMBER, select, 0{occurrences} 1{occurrence} other{occurrences}}`. In this translation string we see 2 variables: `{NUMBER_FORMATED}` and `NUMBER`. But there is also some markup that defines what to write depending on the value of `NUMBER`. The numeric input is mapped to a plural category, some subset of zero, one, two, few, many, and other depending on the locale and the type of plural. 
+
+* zero: This category is used for languages that have grammar specialized specifically for zero number of items. (Examples are Arabic and Latvian.)
+* one: This category is used for languages that have grammar specialized specifically for one item. Many languages, but not all, use this plural category. (Many popular Asian languages, such as Chinese and Japanese, do not use this category.)
+* two: This category is used for languages that have grammar specialized specifically for two items. (Examples are Arabic and Welsh.)
+* few: This category is used for languages that have grammar specialized specifically for a small number of items. For some languages this is used for 2-4 items, for some 3-10 items, and other languages have even more complex rules.
+* many: This category is used for languages that have grammar specialized specifically for a larger number of items. (Examples are Arabic, Polish, and Russian.)
+* other: This category is used if the value doesn't match one of the other plural categories. Note that this is used for "plural" for languages (such as English) that have a simple "singular" versus "plural" dichotomy.
+
 
 
