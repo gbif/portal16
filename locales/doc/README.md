@@ -47,7 +47,7 @@ In english you would say `0 occurrenceS, 1 occurrence, 2 occurrenceS`. Other lan
 * many: This category is used for languages that have grammar specialized specifically for a larger number of items. (Examples are Arabic, Polish, and Russian.)
 * other: This category is used if the value doesn't match one of the other plural categories. Note that this is used for "plural" for languages (such as English) that have a simple "singular" versus "plural" dichotomy.
 
-### screenshots of the absolute basics
+### Screenshots of the absolute basics
 
 ![Select a language](./img/select_language.png?raw=true)
 ![Select a file](./img/select_file.png?raw=true)
