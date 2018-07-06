@@ -26,8 +26,10 @@
                             <div class="card__content col-xs-12 col-sm-6 col-md-4">
                                 <dl class="inline">
                                     <div>
-                                        <dt translate="dataset.dataset">Dataset</dt>
-                                        <dd><a ui-sref="datasetKey({key: datasetParentEvent.datasetKey})">{{ datasetParentEvent.dataset.title }}</a></dd>
+                                        <dt translate="dataset.publishedBy">Published by</dt>
+                                        <dd>
+                                            <a ui-sref="publisherKey({key:datasetParentEvent.publisher.key})"> {{ datasetParentEvent.publisher.title }}</a>
+                                        </dd>
                                     </div>
                                     <div>
                                         <a ui-sref="datasetKey({key: datasetParentEvent.datasetKey, '#': 'citation'})" class="doi"><span class="gb-icon-quote"></span><span translate="dataset.howToCite"></span></a>

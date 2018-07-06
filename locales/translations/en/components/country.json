@@ -31,6 +31,7 @@
       "publishedDatasets": "Published datasets",
       "countriesAndAreasCoveredByDataFrom": "Countries and areas covered by data from {TRANSLATED_COUNTRY}",
       "publishersFrom": "Publishers from {TRANSLATED_COUNTRY}"
-    }
+    },
+    "activityReport": "Activity report"
   }
 }
