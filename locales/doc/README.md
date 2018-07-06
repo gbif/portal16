@@ -10,7 +10,7 @@ Translations are done using the website [Crowdin](https://crowdin.com/) - so you
     * No: go to the [GBIF.org project](https://crowdin.com/project/gbif-portal). Select the language you would like to translate. Press `Join`. We will then add you to the translator team.
 2. Start translating. It is fairly intuitive to get started, but there is also a [detailed video](https://www.youtube.com/watch?v=bxdC7MfrO7A) that goes into many of the features of the product that you can see if you are curious to optimize your process.
 
-![Select a language](/img/select_language.png?raw=true)
+![Select a language](./img/select_language.png?raw=true)
 ![Select a file](/img/select_file.png?raw=true)
 ![Select when translating](/img/translation_interface.jpg?raw=true)
 ![variables](/img/variables.png?raw=true)
