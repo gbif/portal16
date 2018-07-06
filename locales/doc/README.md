@@ -47,6 +47,15 @@ In english you would say `0 occurrenceS, 1 occurrence, 2 occurrenceS`. Other lan
 * many: This category is used for languages that have grammar specialized specifically for a larger number of items. (Examples are Arabic, Polish, and Russian.)
 * other: This category is used if the value doesn't match one of the other plural categories. Note that this is used for "plural" for languages (such as English) that have a simple "singular" versus "plural" dichotomy.
 
+## Issues
+Are you hitting issues then let us know. We are still figuring out how to do this best. Examples of issues we expect to see in the first translations are:
+
+* Things in the interface that are not included in the translation files.
+* Places where the context is missing, so it is difficult to provide a good translation.
+* The same translated term being used multiple places, but where it would make better sense to split it into 2 translations for your language.
+* ...
+
+You can contact us by mail, through [Github issues](https://github.com/gbif/portal16) or by commenting on the translation keys directly in Crowdin.
 ## Screenshots of the absolute basics
 
 ![Select a language](./img/select_language.png?raw=true)
