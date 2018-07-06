@@ -23,16 +23,16 @@
                                 <div ng-if="datasetEvent.event.samplingDescription && datasetEvent.event.samplingDescription.sampling" ng-bind-html="datasetEvent.event.samplingDescription.sampling | linky">
                                 </div>
                                 <dl class="inline" ng-if="!datasetEvent.event.samplingDescription || !datasetEvent.event.samplingDescription.sampling">
-                                    <div ng-repeat="field in ['eventRemarks', 'samplingProtocol', 'samplingEffort']" ng-if="datasetEvent.event[field]">
-                                        <dt translate="ocurrenceFieldNames.{{field}}">{{field}}</dt>
-                                        <dd>
-                                            {{ datasetEvent.event[field] }}
-                                        </dd>
-                                    </div>
                                     <div ng-if="datasetEvent.event.parentEventID">
                                         <dt translate="ocurrenceFieldNames.parentEventID">parentEventID</dt>
                                         <dd>
                                             <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
+                                        </dd>
+                                    </div>
+                                    <div ng-repeat="field in ['eventRemarks', 'samplingProtocol', 'samplingEffort']" ng-if="datasetEvent.event[field]">
+                                        <dt translate="ocurrenceFieldNames.{{field}}">{{field}}</dt>
+                                        <dd>
+                                            {{ datasetEvent.event[field] }}
                                         </dd>
                                     </div>
                                 </dl>
@@ -40,23 +40,25 @@
                             <div class="card__content col-xs-12 col-sm-6 col-md-4">
                                 <globe class="pull-right" latitude="datasetEvent.event.decimalLatitude" longitude="datasetEvent.event.decimalLongitude"></globe>
                                 <dl class="inline" ng-if="datasetEvent.event.samplingDescription && datasetEvent.event.samplingDescription.sampling">
-                                    <div ng-repeat="field in ['eventRemarks', 'samplingProtocol', 'samplingEffort']" ng-if="datasetEvent.event[field]">
-                                        <dt translate="ocurrenceFieldNames.{{field}}">{{field}}</dt>
-                                        <dd>
-                                            {{ datasetEvent.event[field] }}
-                                        </dd>
-                                    </div>
                                     <div ng-if="datasetEvent.event.parentEventID">
                                         <dt translate="ocurrenceFieldNames.parentEventID">parentEventID</dt>
                                         <dd>
                                             <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
                                         </dd>
                                     </div>
+                                    <div ng-repeat="field in ['eventRemarks', 'samplingProtocol', 'samplingEffort']" ng-if="datasetEvent.event[field]">
+                                        <dt translate="ocurrenceFieldNames.{{field}}">{{field}}</dt>
+                                        <dd>
+                                            {{ datasetEvent.event[field] }}
+                                        </dd>
+                                    </div>
                                 </dl>
                                 <dl class="inline">
                                     <div>
-                                        <dt translate="dataset.dataset">Dataset</dt>
-                                        <dd><a ui-sref="datasetKey({key: datasetEvent.datasetKey})">{{ datasetEvent.event.dataset }}</a></dd>
+                                        <dt translate="dataset.publishedBy">Published by</dt>
+                                        <dd>
+                                            <a ui-sref="publisherKey({key:datasetEvent.event.publishingOrganizationKey})"> {{ datasetEvent.event.publisher }}</a>
+                                        </dd>
                                     </div>
                                     <div>
                                         <a ui-sref="datasetKey({key: datasetEvent.datasetKey, '#': 'citation'})" class="doi"><span class="gb-icon-quote"></span><span translate="dataset.howToCite"></span></a>
@@ -75,7 +77,12 @@
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                         </div>
                         <div ng-if="datasetEvent.hasSiblings ">
-                            <h4 class="card-header text-center inline-block" ><span translate="dataset.siblingEvents">Sibling events</span>: {{datasetEvent.siblingCount}}</h4>
+                            <h4 class="card-header text-center inline-block" ><span translate="dataset.siblingEvents">Sibling events</span>: {{datasetEvent.siblingCount}} 
+                            </h4>
+                            <h4 class="pull-right card-header text-center inline-block" ng-if="datasetEvent.event.parentEventID">
+                                    <span translate="ocurrenceFieldNames.parentEventID">parentEventID</span>: 
+                                        <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
+                                </h4>
                             <div class="card card--spaced m-b-1">
                                 <div class="card__stripe card__stripe--light">
                                     <div class="scrollable-y">
