@@ -56,6 +56,20 @@ Are you hitting issues then let us know. We are still figuring out how to do thi
 * ...
 
 You can contact us by mail, through [Github issues](https://github.com/gbif/portal16) or by commenting on the translation keys directly in Crowdin.
+
+## When does it show on GBIF.org
+Translations are not immediately available on the website. The flow is: 
+1. Translations are done in Crowdin. 
+2. Crowdin send the changes. 
+3. We at the secretariat accept them.
+4. A new version of the website is deployed.
+
+During translations of a new language the language will only be available in our UAT (User agreement testing) environment at [gbif-uat.org](https://www.gbif-uat.org) - once we agree that a translation has progressed enough to go live it will be available at the production website gbif.org.
+
+**About UAT**
+
+Your user accounts and passwords on [gbif-uat.org](https://www.gbif-uat.org) are not the same as on gbif.org. You will have to create a seperate account for the testing environment (you can reuse your email and username).
+
 ## Screenshots of the absolute basics
 
 ![Select a language](./img/select_language.png?raw=true)
