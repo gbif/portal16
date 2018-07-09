@@ -41,7 +41,7 @@
     "noRankedAbove": "Checklisten har ingen taksa med rank over artsniveau.",
     "taxonomicOccDistribution": "Taksonomisk distribution af observationer",
     "groupByX": "Gruppér per {TYPE}",
-    "pOtherOrUknown": "",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{anden eller ukendt} other{andre eller ukendte}}",
     "unknownRank": "Ukendt {RANK}",
     "vernacularNames": "Almindelige navne",
     "majorRanksPlural": {
