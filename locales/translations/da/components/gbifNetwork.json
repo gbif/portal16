@@ -45,8 +45,8 @@
     "publishers": "",
     "memberSince": "Medlem siden",
     "participant": "Participant",
-    "pPublishers": "",
-    "pOccurrence": "",
+    "pPublishers": "{NUMBER, select, 1{forlægger} other{forlæggere}}",
+    "pOccurrence": "{NUMBER, select, 1{observation} other{observationer}}",
     "occurrenceDatasets": "",
     "occurrences": ""
   }
