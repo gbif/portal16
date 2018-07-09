@@ -56,6 +56,7 @@ To agree on how to translate a e.g. `publisher` it might be a good idea to start
 6) the remaining ...
 
 **Enums**
+Some enums are used a lot, and others rarely. Translating the ones realted to the components you translate makes best sense. So if you are translating the dataset component, you probably want to translate the datasetType enumerations as well.
 
 ## Context of the translations
 In some cases you need to know how it is used to translate a term or a sentence pproperly into your target language. E.g. does `more` mean `more (images)` or `more (information)`. In cases where you do not know how to translate it because you are missing context, you need to do some investigaion. Here are suggestions
