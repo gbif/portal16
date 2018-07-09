@@ -1,9 +1,9 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
+      "project": "プロジェクト",
+      "projectId": "プロジェクトID",
+      "projectIdentifier": "プロジェクト識別子",
       "grantType": "",
       "duration": "",
       "title": "",

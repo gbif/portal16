@@ -37,7 +37,7 @@
     },
     "placeholders": {
       "summary": "Resumé",
-      "description": "Detaljeret beskrivelse",
+      "description": "",
       "username": "Din e-mail eller Github brugernavn (er offentligt)"
     },
     "markdownSupport": "Markdown understøttes",

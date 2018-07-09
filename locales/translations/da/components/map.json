@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 0{georefererede observationer} 1{georefererede observation} other{georefererede observationer}}",
+    "nGeoreferencedRecords": "",
     "noOccurrencesWithCoordinates": "Ingen observationer med koordinater",
     "clickToSearchArea": "Klik for at afsøge et område",
     "generatedDateAgo": "Genereret for {DATE_AGO}",

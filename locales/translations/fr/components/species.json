@@ -12,6 +12,13 @@
       "referenceTaxon": "",
       "verbatim": ""
     },
+    "invasives": {
+      "nInvadedCountries": "",
+      "invasiveIn": "",
+      "accordingTo": "",
+      "occurrenceCount": "",
+      "seeAllCountries": ""
+    },
     "as": "",
     "in": "",
     "origin": "",

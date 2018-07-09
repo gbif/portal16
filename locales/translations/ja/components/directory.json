@@ -2,15 +2,15 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "",
+        "title": "執行委員会",
         "description": ""
       },
       "scienceCommittee": {
-        "title": "",
+        "title": "科学委員会",
         "description": ""
       },
       "budgetCommittee": {
-        "title": "",
+        "title": "予算委員会",
         "description": ""
       },
       "nsg": {
