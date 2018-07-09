@@ -44,15 +44,18 @@ It is of course best if everything is translated, but it is possible to only tra
 
 We suggest that you start with:
 
-in `components`
+**Glossary**
+To agree on how to translate a e.g. `publisher` it might be a good idea to start out translating the glossary. It won't show anywhere on the website, but estabilsh a base for how to translate going forward. It will also make it trivial to translate these terms in the actual files, as Crowdin will suggest the term from the glossary. During the actual translations you can add terms to the glossary using the `Terms`panel on the right.
+
+**Components**
 1) menu, homepage, profile, feedback, terms, footer, healthSummary
-2) search, speciesSearch, datasetSearch, occurrenceSearch, publisherSearch, pagination, counts, filters, filterNames, intervals, downloadReport, phrases
-3) species, [occurrenceKey, occurrenceFieldNames], dataset, [resource, cms]
+2) search, speciesSearch, datasetSearch, occurrenceSearch, publisherSearch, pagination, counts, filters, filterNames, intervals, downloadReport, phrases (+ related enums)
+3) species, [occurrenceKey, occurrenceFieldNames], dataset, [resource, cms] (+ related enums)
 4) metrics, map, galleryBar, downloads
-5) publisher, [participant, country],
+5) publisher, [participant, country] (+ related enums),
 6) the remaining ...
 
-`enums`
+**Enums**
 
 ## Context of the translations
 In some cases you need to know how it is used to translate a term or a sentence pproperly into your target language. E.g. does `more` mean `more (images)` or `more (information)`. In cases where you do not know how to translate it because you are missing context, you need to do some investigaion. Here are suggestions
