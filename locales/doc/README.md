@@ -70,13 +70,19 @@ Most translations strings is simply english text, but some of them is more compl
 
 **Markdown**
 
+Example: `By signing in you accept GBIFs [terms](/terms) and [privacy policy](/terms/privacy-policy).`
+
 Markdown is a simple way to write HTML (the format used to define links, headlines, and regular text). Instead of writing `<h1>Headline</h1>`, one can write `#Headline`. In cases where the translation includes e.g. a link Markdown is used. To properly translate Markdown, you need to know what to translate and what to leave as it is. Read more [about markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [try writing something](https://dillinger.io/) to get a feel for it.
 
 **Variables**
 
+Example: `Sign up with {PROVIDER}`
+
 Sometimes we need to replace a single word in a sentence. For example: `Welcome back {USER_FIRST_NAME}` could become `Welcome back Charles`. Variables are demarked by curly brackets `{}` and should not be translated. So the danish translation would be `Velkommen tilbage {USER_FIRST_NAME}`. It is fine to move the variable somewhere else if your translation require it. E.g. `{USER_FIRST_NAME}, back you are.`
 
 **Plurals**
+
+Example: `{NUMBER_FORMATED} {NUMBER, select, 1{occurrence} other{occurrences}}`
 
 In english you would say `0 occurrenceS, 1 occurrence, 2 occurrenceS`. Other languages pluralize differently and might have more forms. [Message format](https://messageformat.github.io/messageformat/page-guide) is used for pluralization.  And looks like this `{NUMBER_FORMATED} {NUMBER, select, 0{occurrences} 1{occurrence} other{occurrences}}`. In this translation string we see 2 variables: `{NUMBER_FORMATED}` and `NUMBER`. But there is also some markup that defines what to write depending on the value of `NUMBER`. The numeric input is mapped to a plural category, some subset of zero, one, two, few, many, and other depending on the locale and the type of plural. 
 
