@@ -44,6 +44,9 @@ window.Lightbox = require('../../../components/lightbox/lightbox');
 // That would make it difficult to add new locales and makes it impossible to have different in environments
 // For now they are manually added in code as needed
 require('moment');
+require('moment/locale/es');
+require('moment/locale/jp');
+
 require('moment/locale/da');
 require('moment/locale/de-ch');
 require('moment/locale/ko');
