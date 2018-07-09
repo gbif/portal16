@@ -92,7 +92,7 @@ Are you hitting issues then let us know. We are still figuring out how to do thi
 
 * Things in the interface that are not included in the translation files.
 * Places where the context is missing, so it is difficult to provide a good translation.
-* The same translated term being used multiple places, but where it would make better sense to split it into 2 translations for your language.
+* The same translated term being used multiple places, but where it would make better sense to split it into 2 translations for your language. For example the english term `more` would in danish be translated to `mere`or `flere` dependent on what it is more.
 * ...
 
 You can contact us by mail, through [Github issues](https://github.com/gbif/portal16) or by commenting on the translation keys directly in Crowdin.
