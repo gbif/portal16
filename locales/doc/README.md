@@ -61,7 +61,9 @@ In some cases you need to know how it is used to translate a term or a sentence 
 * Key name: e.g. the string to translate might be `See gallery` but you can see from the context that it is named `galleryBar -> seeAllImages`. This tells you that it referes to images and you might decide that gallery sounds unnatural and instead choose to translate it `see all` or `more images`.
 
 **Example screenshot of context**
+
 ![context example](./img/context_string.jpg?raw=true)
+
 countryKey.tabs.dataAbout tells ut that it is the country page, the tabs area and the what tab
 
 ## Variables, pluralizations and Markdown
