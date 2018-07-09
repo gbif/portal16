@@ -79,6 +79,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
             } else {
                 // is nub
                 // get list of countries where listed as invasive according to GRIIS
+                if (vm.isSpeciesOrBelow) {
                 vm.invadedListLength = 3;
                 $http.get('/api/species/' + vm.key + '/invadedCountries')
                     .then(function(response) {
@@ -87,6 +88,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                     .catch(function(response) {
                         // ignore error
                     });
+                }
             }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' &&
                 vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 &&

@@ -16,7 +16,7 @@
                                     <span translate="country.{{country.invadedCountry}}">{{ country.invadedCountry }}</span>
                                 </td>
                                 <td>
-                                    <span><a ui-sref="datasetKey({dataset_key: country.datasetKey})">{{ country.dataset }}</a></span>
+                                    <span><a ui-sref="datasetKey({key: country.datasetKey})">{{ country.dataset }}</a></span>
                                 </td>
                                 <td>
                                     <span>
