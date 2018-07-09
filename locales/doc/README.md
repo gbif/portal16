@@ -44,10 +44,10 @@ It is of course best if everything is translated, but it is possible to only tra
 
 We suggest that you start with:
 
-**Glossary**
+### Glossary
 To agree on how to translate a e.g. `publisher` it might be a good idea to start out translating the glossary. It won't show anywhere on the website, but estabilsh a base for how to translate going forward. It will also make it trivial to translate these terms in the actual files, as Crowdin will suggest the term from the glossary. During the actual translations you can add terms to the glossary using the `Terms`panel on the right.
 
-**Components**
+### Components
 1) menu, homepage, profile, feedback, terms, footer, healthSummary
 2) search, speciesSearch, datasetSearch, occurrenceSearch, publisherSearch, pagination, counts, filters, filterNames, intervals, downloadReport, phrases (+ related enums)
 3) species, [occurrenceKey, occurrenceFieldNames], dataset, [resource, cms] (+ related enums)
@@ -55,7 +55,7 @@ To agree on how to translate a e.g. `publisher` it might be a good idea to start
 5) publisher, [participant, country] (+ related enums),
 6) the remaining ...
 
-**Enums**
+###E nums
 Some enums are used a lot, and others rarely. Translating the ones realted to the components you translate makes best sense. So if you are translating the dataset component, you probably want to translate the datasetType enumerations as well.
 
 ## Context of the translations
