@@ -45,7 +45,7 @@ window.Lightbox = require('../../../components/lightbox/lightbox');
 // For now they are manually added in code as needed
 require('moment');
 require('moment/locale/es');
-require('moment/locale/jp');
+require('moment/locale/ja');
 
 require('moment/locale/da');
 require('moment/locale/de-ch');

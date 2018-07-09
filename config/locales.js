@@ -13,11 +13,13 @@ let defaultLocale = 'en';
 let locales = ['en'];
 if (env === 'uat') {
     locales.push('es');
-    locales.push('jp');
+    locales.push('ja');
     // locales.push('da');
 }
 if (env === 'staging' || env === 'local' || env === 'dev') {
     locales.push('da');
+    locales.push('es');
+    locales.push('ja');
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
     locales.push('ar-MOCK');
@@ -27,7 +29,7 @@ if (env === 'staging' || env === 'local' || env === 'dev') {
 let contentfulLocaleMap = {}; // the contentful map should not handle locales that are not included in our contentful space hence no : _.keyBy(locales);
 // overwrites
 contentfulLocaleMap['en'] = 'en-GB';
-contentfulLocaleMap['jp'] = 'en-GB';
+contentfulLocaleMap['ja'] = 'en-GB';
 contentfulLocaleMap['es'] = 'es';
 contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';
@@ -47,7 +49,7 @@ translationMap['en'] = 'eng';
 translationMap['es'] = 'spa';
 translationMap['ar'] = 'ara';
 translationMap['fr'] = 'fra';
-translationMap['jp'] = 'jpn';
+translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
 translationMap['pt'] = 'por';
 translationMap['da'] = 'dan';
