@@ -72,7 +72,7 @@ Most translations strings is simply english text, but some of them is more compl
 
 Example: `By signing in you accept GBIFs [terms](/terms) and [privacy policy](/terms/privacy-policy).`
 
-Markdown is a simple way to write HTML (the format used to define links, headlines, and regular text). Instead of writing `<h1>Headline</h1>`, one can write `#Headline`. In cases where the translation includes e.g. a link Markdown is used. To properly translate Markdown, you need to know what to translate and what to leave as it is. Read more [about markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [try writing something](https://dillinger.io/) to get a feel for it.
+Markdown is a simple way to write HTML (the format used to define links, headlines, and regular text). Instead of writing `<h1>Headline</h1>`, one can write `#Headline`. In cases where the translation includes e.g. a link Markdown is used. To properly translate Markdown, you need to know what to translate and what to leave as it is. Read more [about markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [try writing something](https://dillinger.io/) to get a feel for it. In above example `[terms](/terms)` would become a link with the text `terms` and would link to the page `gbif.org/terms` 
 
 **Variables**
 
