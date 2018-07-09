@@ -55,7 +55,7 @@ To agree on how to translate a e.g. `publisher` it might be a good idea to start
 5) publisher, [participant, country] (+ related enums),
 6) the remaining ...
 
-###E nums
+### Enums
 Some enums are used a lot, and others rarely. Translating the ones realted to the components you translate makes best sense. So if you are translating the dataset component, you probably want to translate the datasetType enumerations as well.
 
 ## Context of the translations
