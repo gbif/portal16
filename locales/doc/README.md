@@ -54,6 +54,13 @@ in `components`
 
 `enums`
 
+## Context of the translations
+In some cases you need to know how it is used to translate a term or a sentence pproperly into your target language. E.g. does `more` mean `more (images)` or `more (information)`. In cases where you do not know how to translate it because you are missing context, you need to do some investigaion. Here are suggestions
+
+* file name: the translations are split into multiple files names after the components on the website they refer to. `dataset.json` will of course have translations related to the dataset page. So if you are translating something and are unsure what it refers to, then go to a dataset page, you will likely be able to guess it from there.
+* Key name: e.g. the string to translate might be `See gallery` but you can see from the context that it is named `galleryBar -> seeAllImages`. This tells you that it referes to images and you might decide that gallery sounds unnatural and instead choose to translate it `see all` or `more images`.
+![Select a language](./img/context string.jpg?raw=true)
+
 ## Variables, pluralizations and Markdown
 Most translations strings is simply english text, but some of them is more complex and have characters with special meaning. Some of them should not be translated and others should be changed and added to.
 
