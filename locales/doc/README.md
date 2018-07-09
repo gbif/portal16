@@ -10,6 +10,35 @@ Translations are done using the website [Crowdin](https://crowdin.com/) - so you
     * No: go to the [GBIF.org project](https://crowdin.com/project/gbif-portal). Select the language you would like to translate. Press `Join`. We will then add you to the translator team.
 2. Start translating. It is fairly intuitive to get started (see [screenshots](#screenshots-of-the-absolute-basics)), but there is also a [detailed video](https://www.youtube.com/watch?v=bxdC7MfrO7A) that goes into many of the features of the product that you can see if you are curious to optimize your process.
 
+## How does it work and why Crowdin
+All translations are located in files that could look like this:
+```
+{
+  "filterNames": {
+    "month": "Month",
+    "catalogNumber": "Catalog number",
+    "year": "Year",
+    "country": "Country or area",
+    "taxonKey": "Scientific name"
+  }
+}
+```
+
+In theory you could just upload a file with translated strings. In danish that would look like:
+```
+{
+  "filterNames": {
+    "month": "Måned",
+    "catalogNumber": "Katalognummer",
+    "year": "År",
+    "country": "Land eller område",
+    "taxonKey": "Videnskabeligt navn"
+  }
+}
+```
+
+But because it is easy to make mistakes we use a translation tool called Crowdin. That also helps with proof reading and gives automates suggestions as well as having other benefits.
+
 ## What to translate
 It is of course best if everything is translated, but it is possible to only translate parts of the site, but in some cases it will mean that two adjacent words will be in different languages.
 
