@@ -1,0 +1,31 @@
+{
+  "search": {
+    "placeholder": "crwdns6927:0crwdne6927:0",
+    "noSearchTermsEntered": "crwdns6928:0crwdne6928:0",
+    "notSureWhatYouAreLookingFor": "crwdns9064:0crwdne9064:0",
+    "cannotFindWhatYouAreLookingFor": "crwdns6931:0crwdne6931:0",
+    "trySpecifyingAType": "crwdns6932:0crwdne6932:0",
+    "everything": "crwdns9065:0crwdne9065:0",
+    "occurrences": "crwdns9066:0crwdne9066:0",
+    "species": "crwdns9067:0crwdne9067:0",
+    "datasets": "crwdns9068:0crwdne9068:0",
+    "resources": "crwdns9069:0crwdne9069:0",
+    "publishers": "crwdns9070:0crwdne9070:0",
+    "participants": "crwdns9509:0crwdne9509:0",
+    "search": "crwdns9071:0crwdne9071:0",
+    "clearFilters": "crwdns9072:0crwdne9072:0",
+    "filters": "crwdns9073:0crwdne9073:0",
+    "simple": "crwdns9086:0crwdne9086:0",
+    "advanced": "crwdns9087:0crwdne9087:0",
+    "allResultTypes": "crwdns9515:0crwdne9515:0",
+    "suggestions": "crwdns9511:0crwdne9511:0",
+    "header": {
+      "searchDatasets": "crwdns9089:0crwdne9089:0",
+      "searchPublishers": "crwdns9090:0crwdne9090:0",
+      "searchSpecies": "crwdns9091:0crwdne9091:0",
+      "searchResources": "crwdns9092:0crwdne9092:0",
+      "searchOccurrences": "crwdns9187:0crwdne9187:0"
+    },
+    "nResults": "crwdns9684:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9684:0NUMBER={NUMBER}crwdne9684:0"
+  }
+}
