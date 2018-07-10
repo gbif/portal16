@@ -1,0 +1,11 @@
+{
+  "continent": {
+    "NORTH_AMERICA": "crwdns4950:0crwdne4950:0",
+    "OCEANIA": "crwdns4951:0crwdne4951:0",
+    "EUROPE": "crwdns4952:0crwdne4952:0",
+    "ANTARCTICA": "crwdns4953:0crwdne4953:0",
+    "SOUTH_AMERICA": "crwdns4954:0crwdne4954:0",
+    "AFRICA": "crwdns4955:0crwdne4955:0",
+    "ASIA": "crwdns4956:0crwdne4956:0"
+  }
+}
