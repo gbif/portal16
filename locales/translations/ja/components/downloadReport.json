@@ -1,9 +1,9 @@
 {
   "downloadReport": {
-    "csvDescription": "",
+    "csvDescription": "タブ区切り CSV です。GBIF 解釈の後データのみを格納します。",
     "dwcaDescription": "",
-    "estimatedSize": "",
-    "knownIssues": "",
+    "estimatedSize": "データの推定サイズ",
+    "knownIssues": "既知の課題",
     "knownIssuesDescription": "",
     "FossilsIncluded": "",
     "FossilsIncludedDescription": "",
