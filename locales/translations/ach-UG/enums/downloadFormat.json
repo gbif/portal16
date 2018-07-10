@@ -1,0 +1,7 @@
+{
+  "downloadFormat": {
+    "SIMPLE_AVRO": "crwdns6854:0crwdne6854:0",
+    "SIMPLE_CSV": "crwdns6483:0crwdne6483:0",
+    "DWCA": "crwdns6484:0crwdne6484:0"
+  }
+}
