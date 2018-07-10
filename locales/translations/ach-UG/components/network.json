@@ -1,0 +1,13 @@
+{
+  "network": {
+    "network": "crwdns9338:0crwdne9338:0",
+    "tabs": {
+      "summary": "crwdns9339:0crwdne9339:0",
+      "homepage": "crwdns9476:0crwdne9476:0",
+      "metrics": "crwdns9341:0crwdne9341:0",
+      "datasets": "crwdns9342:0crwdne9342:0"
+    },
+    "registeredDate": "crwdns9343:0{DATE}crwdne9343:0",
+    "nParticipatingDatasets": "crwdns9682:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9682:0NUMBER={NUMBER}crwdne9682:0"
+  }
+}
