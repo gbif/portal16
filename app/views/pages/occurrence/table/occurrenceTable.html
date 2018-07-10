@@ -84,7 +84,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="result in occTable.occurrenceState.table.results">
+                            <tr ng-repeat="result in occTable.occurrenceState.table.results" class="lastCellFlexible">
                                 <td class="table-cell table-cell--action"></td>
                                 <td class="table-cell--wide">
                                     <a ui-sref="occurrenceKey({key:result.key})" class="issue-bullet__no-indent" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</a>

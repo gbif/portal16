@@ -51,6 +51,12 @@
         tr:hover {
             background darken($lightBackground, 5)
         }
+        >tr.lastCellFlexible>td:last-of-type{
+            width auto !important
+            > a, > span {
+                width auto !important
+            }
+        }
     }
 }
 
