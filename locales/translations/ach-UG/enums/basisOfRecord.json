@@ -1,0 +1,14 @@
+{
+  "basisOfRecord": {
+    "PRESERVED_SPECIMEN": "crwdns8108:0crwdne8108:0",
+    "FOSSIL_SPECIMEN": "crwdns8109:0crwdne8109:0",
+    "LIVING_SPECIMEN": "crwdns8110:0crwdne8110:0",
+    "OBSERVATION": "crwdns8111:0crwdne8111:0",
+    "HUMAN_OBSERVATION": "crwdns8112:0crwdne8112:0",
+    "MACHINE_OBSERVATION": "crwdns8113:0crwdne8113:0",
+    "MATERIAL_SAMPLE": "crwdns8114:0crwdne8114:0",
+    "LITERATURE": "crwdns8115:0crwdne8115:0",
+    "UNKNOWN": "crwdns8116:0crwdne8116:0",
+    "undefined": "crwdns8117:0crwdne8117:0"
+  }
+}
