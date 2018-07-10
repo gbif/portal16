@@ -1,0 +1,16 @@
+{
+  "originEnum": {
+    "SOURCE": "crwdns8235:0crwdne8235:0",
+    "DENORMED_CLASSIFICATION": "crwdns8236:0crwdne8236:0",
+    "VERBATIM_PARENT": "crwdns8237:0crwdne8237:0",
+    "VERBATIM_ACCEPTED": "crwdns8238:0crwdne8238:0",
+    "VERBATIM_BASIONYM": "crwdns8239:0crwdne8239:0",
+    "PROPARTE": "crwdns8240:0crwdne8240:0",
+    "AUTONYM": "crwdns8241:0crwdne8241:0",
+    "IMPLICIT_NAME": "crwdns8242:0crwdne8242:0",
+    "MISSING_ACCEPTED": "crwdns8243:0crwdne8243:0",
+    "BASIONYM_PLACEHOLDER": "crwdns8244:0crwdne8244:0",
+    "EX_AUTHOR_SYNONYM": "crwdns9435:0crwdne9435:0",
+    "OTHER": "crwdns8246:0crwdne8246:0"
+  }
+}
