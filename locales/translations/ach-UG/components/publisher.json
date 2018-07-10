@@ -1,0 +1,23 @@
+{
+  "publisher": {
+    "tabs": {
+      "aboutPublisher": "crwdns9284:0crwdne9284:0",
+      "publishersHomepage": "crwdns9477:0crwdne9477:0"
+    },
+    "joinedAgo": "crwdns9286:0{TIME_AGO}crwdne9286:0",
+    "newPublisher": "crwdns6982:0crwdne6982:0",
+    "technicalContact": "crwdns9287:0crwdne9287:0",
+    "country": "crwdns9288:0crwdne9288:0",
+    "hosting": "crwdns9289:0crwdne9289:0",
+    "description": "crwdns9290:0crwdne9290:0",
+    "endorsedBy": "crwdns9291:0crwdne9291:0",
+    "pendingEndorsementBy": "crwdns9292:0crwdne9292:0",
+    "installations": "crwdns9293:0crwdne9293:0",
+    "contacts": "crwdns9294:0crwdne9294:0",
+    "administrativeContact": "crwdns9295:0crwdne9295:0",
+    "header": {
+      "publisher": "crwdns9609:0crwdne9609:0",
+      "sinceDate": "crwdns9297:0{DATE}crwdne9297:0"
+    }
+  }
+}
