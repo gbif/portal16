@@ -1,0 +1,11 @@
+{
+  "region": {
+    "GLOBAL": "crwdns6047:0crwdne6047:0",
+    "AFRICA": "crwdns6048:0crwdne6048:0",
+    "ASIA": "crwdns6049:0crwdne6049:0",
+    "EUROPE": "crwdns6050:0crwdne6050:0",
+    "LATIN_AMERICA": "crwdns6051:0crwdne6051:0",
+    "NORTH_AMERICA": "crwdns6052:0crwdne6052:0",
+    "OCEANIA": "crwdns6053:0crwdne6053:0"
+  }
+}
