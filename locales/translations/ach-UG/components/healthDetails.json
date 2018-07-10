@@ -1,0 +1,65 @@
+{
+    "health": {
+        "automatedMonitoring": "crwdns9561:0crwdne9561:0",
+        "systemLoad": "crwdns9562:0crwdne9562:0",
+        "messages": "crwdns9563:0crwdne9563:0",
+        "version": "crwdns9564:0crwdne9564:0",
+        "nInQueue": "crwdns9565:0{NUMBER}crwdne9565:0",
+        "status": {
+            "OPERATIONAL": "crwdns9566:0crwdne9566:0",
+            "WARNING": "crwdns9567:0crwdne9567:0",
+            "CRITICAL": "crwdns9568:0crwdne9568:0",
+            "INFO": "crwdns9569:0crwdne9569:0"
+        },
+        "components": {
+            "OCCURRENCE": {
+                "name": "crwdns9570:0crwdne9570:0",
+                "tooltip": "crwdns9571:0crwdne9571:0"
+            },
+            "SPECIES": {
+                "name": "crwdns9572:0crwdne9572:0",
+                "tooltip": "crwdns9573:0crwdne9573:0"
+            },
+            "REGISTRY": {
+                "name": "crwdns9574:0crwdne9574:0",
+                "tooltip": "crwdns9575:0crwdne9575:0"
+            },
+            "IDENTITY": {
+                "name": "crwdns9576:0crwdne9576:0",
+                "tooltip": "crwdns9577:0crwdne9577:0"
+            },
+            "MAPS": {
+                "name": "crwdns9578:0crwdne9578:0",
+                "tooltip": "crwdns9579:0crwdne9579:0"
+            },
+            "CONTENTFUL": {
+                "name": "crwdns9580:0crwdne9580:0",
+                "tooltip": "crwdns9581:0crwdne9581:0"
+            },
+            "IMAGE_CACHE": {
+                "name": "crwdns9582:0crwdne9582:0",
+                "tooltip": "crwdns9583:0crwdne9583:0"
+            },
+            "GITHUB": {
+                "name": "crwdns9584:0crwdne9584:0",
+                "tooltip": "crwdns9585:0crwdne9585:0"
+            },
+            "CRAWLER": {
+                "name": "crwdns9586:0crwdne9586:0",
+                "tooltip": "crwdns9587:0crwdne9587:0"
+            },
+            "RESOURCE_SEARCH": {
+                "name": "crwdns9588:0crwdne9588:0",
+                "tooltip": "crwdns9589:0crwdne9589:0"
+            },
+            "CLUSTER": {
+                "name": "crwdns9590:0crwdne9590:0",
+                "tooltip": "crwdns9591:0crwdne9591:0"
+            },
+            "DOWNLOAD": {
+                "name": "crwdns9592:0crwdne9592:0",
+                "tooltip": "crwdns9593:0crwdne9593:0"
+            }
+        }
+    }
+}
