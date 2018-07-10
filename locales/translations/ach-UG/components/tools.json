@@ -1,0 +1,56 @@
+{
+    "tools": {
+        "categoryFeatured": "crwdns8640:0crwdne8640:0",
+        "suggestDataset": {
+            "NOT_OPEN": "crwdns8641:0crwdne8641:0",
+            "title": "crwdns8642:0crwdne8642:0",
+            "pleaseDescribeTheDataset": "crwdns8643:0crwdne8643:0",
+            "thankYou": "crwdns9428:0crwdne9428:0",
+            "form": {
+                "title": "crwdns8644:0crwdne8644:0",
+                "link": "crwdns8645:0crwdne8645:0",
+                "region": "crwdns8646:0crwdne8646:0",
+                "taxon": "crwdns8647:0crwdne8647:0",
+                "whyImportant": "crwdns8648:0crwdne8648:0",
+                "howWouldYouRateIt": "crwdns8649:0crwdne8649:0",
+                "high": "crwdns8650:0crwdne8650:0",
+                "medium": "crwdns8651:0crwdne8651:0",
+                "low": "crwdns8652:0crwdne8652:0",
+                "bibliographicRef": "crwdns8653:0crwdne8653:0",
+                "type": "crwdns8654:0crwdne8654:0",
+                "license": "crwdns8655:0crwdne8655:0",
+                "dataHolderContact": "crwdns8656:0crwdne8656:0",
+                "publicAlert": "crwdns8657:0crwdne8657:0",
+                "yourContact": "crwdns8658:0crwdne8658:0",
+                "comments": "crwdns8659:0crwdne8659:0",
+                "submit": "crwdns8660:0crwdne8660:0",
+                "followDiscussionBelow": "crwdns8661:0crwdne8661:0",
+                "followIssue": "crwdns8662:0crwdne8662:0",
+                "suggestAnother": "crwdns8663:0crwdne8663:0",
+                "saveFailure": "crwdns8664:0[Github]crwdne8664:0"
+            }
+        },
+        "observationTrends": {
+            "drawerTitle": "crwdns8665:0crwdne8665:0",
+            "intro": "crwdns8666:0crwdne8666:0",
+            "aboutLink": "crwdns8667:0crwdne8667:0",
+            "selectSpecies": "crwdns8668:0crwdne8668:0",
+            "noData": "crwdns8669:0crwdne8669:0",
+            "selectHigherTaxa": "crwdns8670:0crwdne8670:0",
+            "selectArea": "crwdns8671:0crwdne8671:0",
+            "hexagon": "crwdns8672:0crwdne8672:0",
+            "draw": "crwdns8673:0crwdne8673:0",
+            "clear": "crwdns8674:0crwdne8674:0",
+            "resultIntro": "crwdns8675:0crwdne8675:0",
+            "embedIntro": "crwdns8676:0{GBIF network}crwdne8676:0"
+        },
+        "speciesLookup": {
+            "description": "crwdns8836:0crwdne8836:0",
+            "title": "crwdns8837:0crwdne8837:0"
+        },
+        "ipt": {
+            "description": "crwdns8858:0crwdne8858:0",
+            "dontSeeYourIpt": "crwdns9471:0[GBIF]crwdne9471:0"
+        }
+    }
+}
