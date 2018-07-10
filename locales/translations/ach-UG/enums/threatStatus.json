@@ -1,0 +1,13 @@
+{
+    "threatStatus": {
+        "EXTINCT": "crwdns6723:0crwdne6723:0",
+        "EXTINCT_IN_THE_WILD": "crwdns6724:0crwdne6724:0",
+        "CRITICALLY_ENDANGERED": "crwdns6725:0crwdne6725:0",
+        "ENDANGERED": "crwdns6726:0crwdne6726:0",
+        "VULNERABLE": "crwdns6727:0crwdne6727:0",
+        "NEAR_THREATENED": "crwdns6728:0crwdne6728:0",
+        "LEAST_CONCERN": "crwdns6729:0crwdne6729:0",
+        "DATA_DEFICIENT": "crwdns6730:0crwdne6730:0",
+        "NOT_EVALUATED": "crwdns6731:0crwdne6731:0"
+    }
+}
