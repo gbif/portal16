@@ -1,0 +1,36 @@
+{
+    "filters": {
+        "searchPlaceholder": "crwdns9057:0crwdne9057:0",
+        "noPreference": "crwdns8613:0crwdne8613:0",
+        "invert": "crwdns9149:0crwdne9149:0",
+        "clear": "crwdns9150:0crwdne9150:0",
+        "add": "crwdns9176:0crwdne9176:0",
+        "repatriation": {
+            "description": "crwdns8615:0crwdne8615:0"
+        },
+        "ternary": {
+            "yes": "crwdns9177:0crwdne9177:0",
+            "no": "crwdns9178:0crwdne9178:0",
+            "all": "crwdns9179:0crwdne9179:0"
+        },
+        "location": {
+            "north": "crwdns8619:0crwdne8619:0",
+            "south": "crwdns8620:0crwdne8620:0",
+            "west": "crwdns8621:0crwdne8621:0",
+            "east": "crwdns8622:0crwdne8622:0",
+            "withCoordinates": "crwdns8623:0crwdne8623:0",
+            "withoutCoordinates": "crwdns8624:0crwdne8624:0",
+            "includeFlaggedAsSuspicious": "crwdns8625:0crwdne8625:0",
+            "onlyShowFlagged": "crwdns8626:0crwdne8626:0",
+            "past": "crwdns8627:0crwdne8627:0",
+            "geojson": "crwdns8628:0crwdne8628:0",
+            "range": "crwdns8629:0crwdne8629:0",
+            "noFiltersAdded": "crwdns8630:0crwdne8630:0",
+            "wktPlaceholder": "crwdns8631:0crwdne8631:0",
+            "invalidTextInput": "crwdns8632:0crwdne8632:0",
+            "tooLarge": "crwdns8633:0crwdne8633:0",
+            "tooLargeSuggestion": "crwdns8634:0crwdne8634:0",
+            "invalidRange": "crwdns8635:0crwdne8635:0"
+        }
+    }
+}
