@@ -1,0 +1,52 @@
+{
+  "directory": {
+    "group": {
+      "executiveCommittee": {
+        "title": "crwdns6805:0crwdne6805:0",
+        "description": "crwdns6806:0crwdne6806:0"
+      },
+      "scienceCommittee": {
+        "title": "crwdns6807:0crwdne6807:0",
+        "description": "crwdns6808:0[here.]crwdne6808:0"
+      },
+      "budgetCommittee": {
+        "title": "crwdns6809:0crwdne6809:0",
+        "description": "crwdns6810:0[here.]crwdne6810:0"
+      },
+      "nsg": {
+        "title": "crwdns6811:0crwdne6811:0",
+        "description": "crwdns6812:0[Africa]crwdnd6812:0[Asia]crwdnd6812:0[Europe]crwdnd6812:0[Oceania]crwdne6812:0"
+      },
+      "nodesCommittee": {
+        "title": "crwdns6813:0crwdne6813:0",
+        "description": "crwdns6814:0crwdne6814:0"
+      },
+      "secretariat": {
+        "title": "crwdns6815:0crwdne6815:0",
+        "description": "crwdns6816:0crwdne6816:0"
+      },
+      "voting": {
+        "title": "crwdns6817:0crwdne6817:0",
+        "description": "crwdns6818:0crwdne6818:0"
+      },
+      "associateCountries": {
+        "title": "crwdns6819:0crwdne6819:0",
+        "description": "crwdns6820:0crwdne6820:0"
+      },
+      "associateParticipants": {
+        "title": "crwdns6821:0crwdne6821:0",
+        "description": "crwdns6822:0crwdne6822:0"
+      }
+    },
+    "columns": {
+      "role": "crwdns6823:0crwdne6823:0",
+      "name": "crwdns6824:0crwdne6824:0",
+      "participant": "crwdns6825:0crwdne6825:0",
+      "participationStatus": "crwdns6826:0crwdne6826:0"
+    },
+    "details": "crwdns9414:0crwdne9414:0",
+    "roles": "crwdns9415:0crwdne9415:0",
+    "sinceDate": "crwdns9416:0{DATE}crwdne9416:0",
+    "showAllContacts": "crwdns9417:0crwdne9417:0"
+  }
+}
