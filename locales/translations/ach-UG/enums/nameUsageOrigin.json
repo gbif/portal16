@@ -1,0 +1,16 @@
+{
+  "nameUsageOrigin": {
+    "SOURCE": "crwdns5962:0crwdne5962:0",
+    "DENORMED_CLASSIFICATION": "crwdns5963:0crwdne5963:0",
+    "VERBATIM_PARENT": "crwdns5964:0crwdne5964:0",
+    "VERBATIM_ACCEPTED": "crwdns5965:0crwdne5965:0",
+    "VERBATIM_BASIONYM": "crwdns5966:0crwdne5966:0",
+    "PROPARTE": "crwdns5967:0crwdne5967:0",
+    "AUTONYM": "crwdns5968:0crwdne5968:0",
+    "IMPLICIT_NAME": "crwdns5969:0crwdne5969:0",
+    "MISSING_ACCEPTED": "crwdns5970:0crwdne5970:0",
+    "BASIONYM_PLACEHOLDER": "crwdns5971:0crwdne5971:0",
+    "EX_AUTHOR_SYNONYM": "crwdns5972:0crwdne5972:0",
+    "OTHER": "crwdns5973:0crwdne5973:0"
+  }
+}
