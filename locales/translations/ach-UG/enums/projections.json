@@ -1,0 +1,8 @@
+{
+  "projections": {
+    "ARCTIC": "crwdns6992:0crwdne6992:0",
+    "MERCATOR": "crwdns6993:0crwdne6993:0",
+    "ANTARCTIC": "crwdns6994:0crwdne6994:0",
+    "PLATE_CAREE": "crwdns6995:0crwdne6995:0"
+  }
+}
