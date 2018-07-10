@@ -1,0 +1,13 @@
+{
+    "homepage": {
+        "counts": {
+            "occurrences": "crwdns8603:0crwdne8603:0",
+            "datasets": "crwdns8604:0crwdne8604:0",
+            "publishers": "crwdns8605:0crwdne8605:0",
+            "species": "crwdns8606:0crwdne8606:0",
+            "speciesSubtitle": "crwdns8607:0crwdne8607:0"
+        },
+        "aboutGbifCountry": "crwdns8608:0{COUNTRY}crwdne8608:0",
+        "summary": "crwdns8609:0crwdne8609:0"
+    }
+}
