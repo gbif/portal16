@@ -1,0 +1,14 @@
+{
+    "speciesSearch": {
+        "youAreCurrentlySearchingInGBIFtaxonomy": "crwdns9123:0crwdne9123:0",
+        "SearchAcrossChecklists": "crwdns9124:0crwdne9124:0",
+        "freeTextSearchFor": "crwdns9125:0{QUERY}crwdne9125:0",
+        "limitSearchTo": "crwdns9126:0crwdne9126:0",
+        "limitResultsTo": {
+            "all": "crwdns9127:0crwdne9127:0",
+            "scientificNames": "crwdns9128:0crwdne9128:0",
+            "vernacularNames": "crwdns9129:0crwdne9129:0",
+            "descriptions": "crwdns9130:0crwdne9130:0"
+        }
+    }
+}
