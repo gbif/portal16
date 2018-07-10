@@ -26,12 +26,12 @@
       "occurrences": "オカレンス",
       "datasets": "データセット",
       "publishers": "出版者",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "countriesAndAreasContributeData": "データに貢献した国や地域",
+      "publishedOccurrences": "公開されたオカレンス",
+      "publishedDatasets": "公開されているデータセット",
+      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} からデータでカバーされる国や地域",
+      "publishersFrom": "{TRANSLATED_COUNTRY} のデータ出版者"
     },
-    "activityReport": ""
+    "activityReport": "活動報告"
   }
 }
