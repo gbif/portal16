@@ -1,0 +1,23 @@
+{
+  "phrases": {
+    "contactHelpdesk": "crwdns9489:0crwdne9489:0",
+    "defaultPageTitle": "crwdns9490:0crwdne9490:0",
+    "defaultPageDescription": "crwdns9491:0crwdne9491:0",
+    "deletedOnDate": "crwdns9492:0{DATE}crwdne9492:0",
+    "replacedBy": "crwdns9493:0crwdne9493:0",
+    "loading": "crwdns9494:0crwdne9494:0",
+    "failed": "crwdns9495:0crwdne9495:0",
+    "errorNotAuthorized": "crwdns9606:0crwdne9606:0",
+    "partialPage": "crwdns9497:0crwdne9497:0",
+    "noInformationFound": "crwdns9498:0crwdne9498:0",
+    "noConnection": "crwdns9499:0crwdne9499:0",
+    "criticalErrorMsg": "crwdns9500:0crwdne9500:0",
+    "nonCriticalErrorMsg": "crwdns9501:0crwdne9501:0",
+    "noResultsMessage": "crwdns9502:0crwdne9502:0",
+    "noJavascriptEnabled": "crwdns9503:0crwdne9503:0",
+    "isSplashScreen": "crwdns9504:0crwdne9504:0",
+    "404Text": "crwdns9510:0[search]crwdne9510:0",
+    "changeLanguage": "crwdns9512:0crwdne9512:0",
+    "noData": "crwdns9560:0crwdne9560:0"
+  }
+}
