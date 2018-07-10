@@ -12,26 +12,26 @@
     "dataFrom": "{TRANSLATED_COUNTRY} からのデータ",
     "dataAboutCountry": "{TRANSLATED_COUNTRY} に関するデータ",
     "publishingTrends": "出版の傾向",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
-    "nFrom": "",
-    "nAbout": "",
-    "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "noDataPublishingActivity": "データ公開アクティビティなし",
+    "noInstitutionsHavePublished": "GBIFを通じてのデータ公開をしている機関なし",
+    "trendsAboutCountry": "{TRANSLATED_COUNTRY} に関するデータの傾向",
+    "nFrom": "{NUMBER_FORMATTED} から",
+    "nAbout": "{NUMBER_FORMATTED} について",
+    "viewAllN": "すべての{NUMBER_FORMATTED} を表示します。",
+    "noPublications": "公開成果なし",
+    "notParticipant": "参加者ではない。",
+    "notParticipantDescription": "この国は、GBIF の参加者ではないです。",
+    "countryNamingDisclaimer": "国や地域の名前は [ISO 3166-1 規格] に基づきます (https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "オカレンス",
       "datasets": "データセット",
       "publishers": "出版者",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "countriesAndAreasContributeData": "データに貢献した国や地域",
+      "publishedOccurrences": "公開されたオカレンス",
+      "publishedDatasets": "公開されているデータセット",
+      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} からデータでカバーされる国や地域",
+      "publishersFrom": "{TRANSLATED_COUNTRY} のデータ出版者"
     },
-    "activityReport": ""
+    "activityReport": "活動報告"
   }
 }
