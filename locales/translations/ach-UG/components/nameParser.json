@@ -1,0 +1,18 @@
+{
+    "nameParser": {
+        "loadTestNames": "crwdns8636:0crwdne8636:0",
+        "parse": "crwdns8637:0crwdne8637:0",
+        "or": "crwdns9437:0crwdne9437:0",
+        "selectFile": "crwdns9438:0crwdne9438:0",
+        "pasteNamesToParse": "crwdns9439:0crwdne9439:0",
+        "about": "crwdns9440:0crwdne9440:0",
+        "parser": "crwdns9441:0crwdne9441:0",
+        "nameParserTitle": "crwdns8852:0crwdne8852:0",
+        "dropHere": "crwdns9442:0crwdne9442:0",
+        "excludeUnparsed": "crwdns9461:0crwdne9461:0",
+        "generateCsv": "crwdns9462:0crwdne9462:0",
+        "parsingNames": "crwdns9463:0crwdne9463:0",
+        "nameParserDescription": "crwdns8853:0crwdne8853:0",
+        "nameParserRequirements": "crwdns8854:0crwdne8854:0"
+    }
+}
