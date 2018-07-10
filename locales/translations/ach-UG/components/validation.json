@@ -1,0 +1,124 @@
+{
+  "validation": {
+    "category": {
+      "RESOURCE_STRUCTURE": "crwdns4863:0crwdne4863:0",
+      "RESOURCE_INTEGRITY": "crwdns4864:0crwdne4864:0",
+      "RECORD_STRUCTURE": "crwdns4865:0crwdne4865:0",
+      "OCC_INTERPRETATION_BASED": "crwdns4866:0crwdne4866:0",
+      "METADATA_CONTENT": "crwdns4867:0crwdne4867:0",
+      "CLB_INTERPRETATION_BASED": "crwdns4868:0crwdne4868:0"
+    },
+    "issueType": {
+      "DWCA_UNREADABLE": "crwdns4869:0crwdne4869:0",
+      "DWCA_META_XML_NOT_FOUND": "crwdns8103:0crwdne8103:0",
+      "DWCA_META_XML_SCHEMA": "crwdns8104:0crwdne8104:0",
+      "RECORD_IDENTIFIER_NOT_FOUND": "crwdns4872:0crwdne4872:0",
+      "CORE_ROWTYPE_UNDETERMINED": "crwdns4873:0crwdne4873:0",
+      "EML_NOT_FOUND": "crwdns4874:0crwdne4874:0",
+      "EML_GBIF_SCHEMA": "crwdns4875:0crwdne4875:0",
+      "UNKNOWN_ROWTYPE": "crwdns4876:0crwdne4876:0",
+      "REQUIRED_TERM_MISSING": "crwdns4877:0crwdne4877:0",
+      "COLUMN_MISMATCH": "crwdns4878:0crwdne4878:0",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "crwdns4879:0crwdne4879:0",
+      "UNKNOWN_TERM": "crwdns4880:0crwdne4880:0",
+      "DUPLICATED_TERM": "crwdns4881:0crwdne4881:0",
+      "TITLE_MISSING_OR_TOO_SHORT": "crwdns4882:0crwdne4882:0",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "crwdns4883:0crwdne4883:0",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "crwdns4884:0crwdne4884:0",
+      "LICENSE_MISSING_OR_UNKNOWN": "crwdns4885:0crwdne4885:0",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "crwdns4886:0crwdne4886:0",
+      "UNREADABLE_SECTION_ERROR": "crwdns4887:0crwdne4887:0",
+      "NoIssuesFound": "crwdns4888:0crwdne4888:0"
+    },
+    "fileFormat": {
+      "title": "crwdns4889:0crwdne4889:0",
+      "DWCA": "crwdns4890:0crwdne4890:0",
+      "TABULAR": "crwdns4891:0crwdne4891:0",
+      "SPREADSHEET": "crwdns4892:0crwdne4892:0"
+    },
+    "fileType": {
+      "title": "crwdns4893:0crwdne4893:0",
+      "CORE": {
+        "title": "crwdns4894:0crwdne4894:0"
+      },
+      "EXTENSION": {
+        "title": "crwdns4895:0crwdne4895:0"
+      },
+      "METADATA": {
+        "description": "crwdns4896:0crwdne4896:0",
+        "title": "crwdns4897:0crwdne4897:0"
+      },
+      "META_DESCRIPTOR": {
+        "description": "crwdns4898:0crwdne4898:0",
+        "title": "crwdns4899:0crwdne4899:0"
+      }
+    },
+    "fileSizeLimit": "crwdns4900:0crwdne4900:0",
+    "receivedMediaType": "crwdns4901:0crwdne4901:0",
+    "uniqueIdentifier": "crwdns4904:0crwdne4904:0",
+    "reportLocation": "crwdns4905:0crwdne4905:0",
+    "reportDeletion": "crwdns8105:0crwdne8105:0",
+    "reportGenerated": "crwdns4907:0crwdne4907:0",
+    "summary": "crwdns4908:0crwdne4908:0",
+    "issues": "crwdns4909:0crwdne4909:0",
+    "fileHasIssues": "crwdns4910:0crwdne4910:0",
+    "fileHasNoIssues": "crwdns4911:0crwdne4911:0",
+    "error": "crwdns4912:0crwdne4912:0",
+    "errors": {
+      "400": "crwdns4914:0crwdne4914:0",
+      "404": "crwdns4913:0crwdne4913:0",
+      "413": "crwdns4915:0crwdne4915:0",
+      "415": "crwdns4916:0crwdne4916:0"
+    },
+    "backToValidator": "crwdns4917:0crwdne4917:0",
+    "termsFrequency": {
+      "title": "crwdns4918:0crwdne4918:0",
+      "term": "crwdns4919:0crwdne4919:0",
+      "count": "crwdns4920:0crwdne4920:0",
+      "percentage": "crwdns4921:0crwdne4921:0",
+      "interpreted": "crwdns4922:0crwdne4922:0"
+    },
+    "interpretedCounts": {
+      "date": "crwdns4923:0crwdne4923:0",
+      "taxon": "crwdns4924:0crwdne4924:0",
+      "location": "crwdns4925:0crwdne4925:0"
+    },
+    "interpretedValueCounts": {
+      "title": "crwdns4926:0crwdne4926:0"
+    },
+    "status": {
+      "title": "crwdns4927:0crwdne4927:0",
+      "SUBMITTED": "crwdns4928:0crwdne4928:0",
+      "FETCHING": "crwdns4929:0crwdne4929:0",
+      "ACCEPTED": "crwdns4930:0crwdne4930:0",
+      "RUNNING": "crwdns4931:0crwdne4931:0",
+      "FINISHED": "crwdns4932:0crwdne4932:0",
+      "FAILED": "crwdns4933:0crwdne4933:0",
+      "CONTACTING_SERVER": "crwdns4934:0crwdne4934:0"
+    },
+    "jobId": "crwdns4935:0crwdne4935:0",
+    "indexeable": "crwdns4937:0crwdne4937:0",
+    "notIndexeable": "crwdns4938:0crwdne4938:0",
+    "numberOfLines": "crwdns4939:0crwdne4939:0",
+    "reportProducedByGbifDataValidator": "crwdns7227:0crwdne7227:0",
+    "validationReport": "crwdns7228:0crwdne7228:0",
+    "dataValidator": "crwdns7229:0crwdne7229:0",
+    "dataValidatorDescription": "crwdns8944:0crwdne8944:0",
+    "thisIsAnEarlyAccessVersion": "crwdns7230:0crwdne7230:0",
+    "here": "crwdns8107:0crwdne8107:0",
+    "coreRowType": "crwdns7236:0crwdne7236:0",
+    "submit": "crwdns9443:0crwdne9443:0",
+    "dropHere": "crwdns9444:0crwdne9444:0",
+    "or": "crwdns9445:0crwdne9445:0",
+    "selectFile": "crwdns9446:0crwdne9446:0",
+    "fetchFileFromLocation": "crwdns9447:0crwdne9447:0",
+    "tabs": {
+      "newDataValidation": "crwdns9448:0crwdne9448:0",
+      "newValidation": "crwdns9449:0crwdne9449:0",
+      "about": "crwdns9450:0crwdne9450:0",
+      "darwinCoreExtensions": "crwdns9451:0crwdne9451:0",
+      "metaData": "crwdns9452:0crwdne9452:0",
+      "summary": "crwdns9453:0crwdne9453:0"
+    }
+  }
+}

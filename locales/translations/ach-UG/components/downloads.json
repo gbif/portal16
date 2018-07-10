@@ -1,0 +1,61 @@
+{
+  "downloadKey": {
+    "nOccurrencesDownloaded": "crwdns6736:0NUMBER_FORMATTED={NUMBER_FORMATTED}crwdnd6736:0NUMBER={NUMBER}crwdne6736:0",
+    "nConstituentDatasets": "crwdns6737:0NUMBER_FORMATTED={NUMBER_FORMATTED}crwdnd6737:0NUMBER={NUMBER}crwdne6737:0",
+    "fileNotAvailable": "crwdns6633:0crwdne6633:0",
+    "downloadDeletionWarning": "crwdns7249:0{DATE}crwdne7249:0",
+    "brokenDownload": "crwdns7283:0crwdne7283:0",
+    "contactHelpdesk": "crwdns9238:0crwdne9238:0",
+    "cancelled": "crwdns7284:0crwdne7284:0",
+    "cancel": "crwdns7285:0crwdne7285:0",
+    "download": "crwdns7287:0crwdne7287:0",
+    "occurrences": "crwdns7411:0crwdne7411:0",
+    "largeQueryMessage": "crwdns9436:0crwdne9436:0",
+    "date": "crwdns7412:0crwdne7412:0",
+    "show": "crwdns7413:0crwdne7413:0",
+    "license": "crwdns7288:0crwdne7288:0",
+    "readMore": "crwdns9239:0crwdne9239:0",
+    "titleMissing": "crwdns7289:0crwdne7289:0",
+    "underProcessing": "crwdns6637:0crwdne6637:0",
+    "citation": "crwdns7290:0crwdne7290:0",
+    "nRecordsAtTime": "crwdns7291:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd7291:0NUMBER={NUMBER}crwdne7291:0",
+    "aboutDeletionPolicy": "crwdns7292:0crwdne7292:0",
+    "readDatauseAndTerms": "crwdns7293:0crwdne7293:0",
+    "filterApplied": "crwdns9513:0{DATE}crwdne9513:0",
+    "rerunQuery": "crwdns7294:0crwdne7294:0",
+    "postpone": "crwdns7295:0crwdne7295:0",
+    "deleteDownload": "crwdns7296:0crwdne7296:0",
+    "tellUs": "crwdns7297:0crwdne7297:0",
+    "downloadKilled": "crwdns6641:0crwdne6641:0",
+    "downloadDeleted": "crwdns6642:0crwdne6642:0",
+    "storageDurationTeaser": "crwdns6643:0crwdne6643:0",
+    "predatesDoi": "crwdns7298:0crwdne7298:0",
+    "file": "crwdns7299:0crwdne7299:0",
+    "constituentDatasets": "crwdns6645:0crwdne6645:0",
+    "noFiltersApplied": "crwdns6646:0crwdne6646:0",
+    "apiUsageDescription": "crwdns6647:0crwdne6647:0",
+    "apiFilterView": "crwdns6648:0crwdne6648:0",
+    "humanFilterView": "crwdns6649:0crwdne6649:0",
+    "downloadStarted": "crwdns7251:0crwdne7251:0",
+    "downloadExpectTime": "crwdns8949:0crwdne8949:0",
+    "notificationEmailAddresses": "crwdns7253:0crwdne7253:0",
+    "status": {
+      "PREPARING": "crwdns7300:0crwdne7300:0",
+      "SUSPENDED": "crwdns7301:0crwdne7301:0",
+      "RUNNING": "crwdns7302:0crwdne7302:0",
+      "CANCELLED": "crwdns7303:0crwdne7303:0",
+      "KILLED": "crwdns7304:0crwdne7304:0"
+    },
+    "predicate": {
+      "joinDescriptions": {
+        "and": "crwdns6658:0crwdne6658:0",
+        "or": "crwdns6659:0crwdne6659:0",
+        "not": "crwdns6660:0crwdne6660:0"
+      },
+      "and": "crwdns7809:0crwdne7809:0",
+      "or": "crwdns7810:0crwdne7810:0",
+      "not": "crwdns7811:0crwdne7811:0",
+      "isNotNull": "crwdns6664:0crwdne6664:0"
+    }
+  }
+}

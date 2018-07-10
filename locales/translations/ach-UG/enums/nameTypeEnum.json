@@ -1,0 +1,15 @@
+{
+  "nameTypeEnum": {
+    "SCIENTIFIC": "crwdns8225:0crwdne8225:0",
+    "DOUBTFUL": "crwdns8226:0crwdne8226:0",
+    "BLACKLISTED": "crwdns8227:0crwdne8227:0",
+    "VIRUS": "crwdns8228:0crwdne8228:0",
+    "HYBRID": "crwdns8229:0crwdne8229:0",
+    "INFORMAL": "crwdns8230:0crwdne8230:0",
+    "OTU": "crwdns5957:0crwdne5957:0",
+    "CULTIVAR": "crwdns8231:0crwdne8231:0",
+    "CANDIDATUS": "crwdns8232:0crwdne8232:0",
+    "PLACEHOLDER": "crwdns8233:0crwdne8233:0",
+    "NO_NAME": "crwdns8234:0crwdne8234:0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "participationStatus": {
+        "VOTING": "crwdns8679:0crwdne8679:0",
+        "ASSOCIATE": "crwdns8680:0crwdne8680:0",
+        "OBSERVER": "crwdns8681:0crwdne8681:0",
+        "AFFILIATE": "crwdns8682:0crwdne8682:0",
+        "FORMER": "crwdns8683:0crwdne8683:0",
+        "undefined": "crwdns8684:0crwdne8684:0"
+    }
+}

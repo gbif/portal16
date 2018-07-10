@@ -1,0 +1,44 @@
+{
+    "intervals": {
+        "noFilter": "crwdns9478:0crwdne9478:0",
+        "elevation": {
+            "equals": "crwdns9610:0{from}crwdne9610:0",
+            "between": "crwdns9611:0{from}crwdnd9611:0{to}crwdne9611:0",
+            "lessThanOrEquals": "crwdns9612:0{to}crwdne9612:0",
+            "greaterThanOrEquals": "crwdns9613:0{from}crwdne9613:0",
+            "invalid": "crwdns9614:0crwdne9614:0",
+            "select": {
+                "equals": "crwdns9615:0crwdne9615:0",
+                "between": "crwdns9616:0crwdne9616:0",
+                "lessThanOrEquals": "crwdns9617:0crwdne9617:0",
+                "greaterThanOrEquals": "crwdns9618:0crwdne9618:0"
+            }
+        },
+        "depth": {
+            "equals": "crwdns9619:0{from}crwdne9619:0",
+            "between": "crwdns9620:0{from}crwdnd9620:0{to}crwdne9620:0",
+            "lessThanOrEquals": "crwdns9621:0{to}crwdne9621:0",
+            "greaterThanOrEquals": "crwdns9622:0{from}crwdne9622:0",
+            "invalid": "crwdns9623:0crwdne9623:0",
+            "select": {
+                "equals": "crwdns9624:0crwdne9624:0",
+                "between": "crwdns9625:0crwdne9625:0",
+                "lessThanOrEquals": "crwdns9626:0crwdne9626:0",
+                "greaterThanOrEquals": "crwdns9627:0crwdne9627:0"
+            }
+        },
+        "year": {
+            "equals": "crwdns9628:0{from}crwdne9628:0",
+            "between": "crwdns9629:0{from}crwdnd9629:0{to}crwdne9629:0",
+            "lessThanOrEquals": "crwdns9630:0{to}crwdne9630:0",
+            "greaterThanOrEquals": "crwdns9631:0{from}crwdne9631:0",
+            "invalid": "crwdns9632:0crwdne9632:0",
+            "select": {
+                "equals": "crwdns9633:0crwdne9633:0",
+                "between": "crwdns9634:0crwdne9634:0",
+                "lessThanOrEquals": "crwdns9635:0crwdne9635:0",
+                "greaterThanOrEquals": "crwdns9636:0crwdne9636:0"
+            }
+        }
+    }
+}

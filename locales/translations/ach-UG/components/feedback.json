@@ -1,0 +1,53 @@
+{
+  "feedback": {
+    "leaveFeedback": "crwdns9605:0crwdne9605:0",
+    "intro": {
+      "title": "crwdns4447:0crwdne4447:0",
+      "example": "crwdns4448:0crwdne4448:0"
+    },
+    "data content": {
+      "title": "crwdns4449:0crwdne4449:0",
+      "example": "crwdns4450:0crwdne4450:0",
+      "annotate": "crwdns4451:0crwdne4451:0",
+      "contactPerMail": "crwdns4452:0crwdne4452:0"
+    },
+    "bug": {
+      "title": "crwdns4453:0crwdne4453:0",
+      "example": "crwdns4454:0crwdne4454:0"
+    },
+    "idea": {
+      "title": "crwdns4455:0crwdne4455:0",
+      "example": "crwdns4456:0crwdne4456:0"
+    },
+    "question": {
+      "title": "crwdns4457:0crwdne4457:0",
+      "example": "crwdns4458:0crwdne4458:0",
+      "description": "crwdns4459:0crwdne4459:0",
+      "comment": "crwdns8871:0crwdne8871:0"
+    },
+    "confirmation": {
+      "title": "crwdns4461:0crwdne4461:0",
+      "example": "crwdns4462:0crwdne4462:0",
+      "seeIssue": "crwdns4463:0crwdne4463:0"
+    },
+    "issues": {
+      "title": "crwdns4464:0crwdne4464:0",
+      "description": "crwdns4465:0crwdne4465:0",
+      "create": "crwdns4466:0crwdne4466:0"
+    },
+    "placeholders": {
+      "summary": "crwdns4467:0crwdne4467:0",
+      "description": "crwdns9647:0crwdne9647:0",
+      "username": "crwdns4469:0crwdne4469:0"
+    },
+    "markdownSupport": "crwdns8872:0crwdne8872:0",
+    "issueTracking": "crwdns8873:0[Github]crwdne8873:0",
+    "failure": "crwdns8874:0[Github]crwdne8874:0",
+    "weRecommendX": "crwdns8842:0{NAME}crwdnd8842:0{LINK}crwdne8842:0",
+    "tellGbif": "crwdns8843:0crwdne8843:0",
+    "submit": "crwdns9159:0crwdne9159:0",
+    "seeAllComments": "crwdns9426:0crwdne9426:0",
+    "recommendMail": "crwdns8844:0crwdne8844:0",
+    "pleaseLogin": "crwdns8845:0[Github]crwdne8845:0"
+  }
+}

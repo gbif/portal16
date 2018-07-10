@@ -1,0 +1,40 @@
+{
+    "participationStatus": {
+        "longForm": {
+            "VOTING": "crwdns8986:0crwdne8986:0",
+            "ASSOCIATE": "crwdns8987:0crwdne8987:0",
+            "OBSERVER": "crwdns8988:0crwdne8988:0",
+            "AFFILIATE": "crwdns8989:0crwdne8989:0",
+            "FORMER": "crwdns8990:0crwdne8990:0",
+            "undefined": "crwdns8991:0crwdne8991:0"
+        },
+        "description": {
+            "VOTING": "crwdns8992:0{REGION}crwdne8992:0",
+            "ASSOCIATE": "crwdns8993:0{REGION}crwdne8993:0",
+            "OBSERVER": "crwdns8994:0{REGION}crwdne8994:0",
+            "AFFILIATE": "crwdns8995:0{REGION}crwdne8995:0",
+            "FORMER": "crwdns8996:0{REGION}crwdne8996:0",
+            "undefined": "crwdns8997:0crwdne8997:0"
+        },
+        "type": {
+            "OTHER": {
+                "description": {
+                    "VOTING": "crwdns8998:0{REGION}crwdne8998:0",
+                    "ASSOCIATE": "crwdns8999:0{REGION}crwdne8999:0",
+                    "OBSERVER": "crwdns9000:0{REGION}crwdne9000:0",
+                    "AFFILIATE": "crwdns9001:0{REGION}crwdne9001:0",
+                    "FORMER": "crwdns9002:0{REGION}crwdne9002:0",
+                    "undefined": "crwdns9003:0crwdne9003:0"
+                },
+                "longForm": {
+                    "VOTING": "crwdns9004:0crwdne9004:0",
+                    "ASSOCIATE": "crwdns9005:0crwdne9005:0",
+                    "OBSERVER": "crwdns9006:0crwdne9006:0",
+                    "AFFILIATE": "crwdns9007:0crwdne9007:0",
+                    "FORMER": "crwdns9008:0crwdne9008:0",
+                    "undefined": "crwdns9009:0crwdne9009:0"
+                }
+            }
+        }
+    }
+}

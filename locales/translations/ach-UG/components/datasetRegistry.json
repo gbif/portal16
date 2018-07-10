@@ -1,0 +1,50 @@
+{
+    "dataset": {
+        "registry": {
+            "failedSinceSuccess": "crwdns9516:0crwdne9516:0",
+            "lastFailed": "crwdns9517:0crwdne9517:0",
+            "registrationDate": "crwdns9518:0crwdne9518:0",
+            "lastSuccess": "crwdns9519:0crwdne9519:0",
+            "lastWithChange": "crwdns9520:0crwdne9520:0",
+            "noEntries": "crwdns9521:0crwdne9521:0",
+            "lastWithDataChange": "crwdns9522:0crwdne9522:0",
+            "occInLastIngestion": "crwdns9523:0crwdne9523:0",
+            "completionReasons": "crwdns9524:0crwdne9524:0",
+            "unfinished": "crwdns9525:0crwdne9525:0",
+            "total": "crwdns9526:0crwdne9526:0",
+            "endpoints": "crwdns9527:0crwdne9527:0",
+            "installationContacts": "crwdns9528:0crwdne9528:0",
+            "installation": "crwdns9529:0crwdne9529:0",
+            "dataLastChanged": "crwdns9530:0crwdne9530:0",
+            "pubDate": "crwdns9531:0crwdne9531:0",
+            "hostedBy": "crwdns9532:0crwdne9532:0",
+            "hostingStatus": "crwdns9533:0crwdne9533:0",
+            "metdataLastModified": "crwdns9534:0crwdne9534:0",
+            "preferredIdentifier": "crwdns9535:0crwdne9535:0",
+            "alternativeIdentifier": "crwdns9536:0crwdne9536:0",
+            "orphaned": "crwdns9537:0crwdne9537:0",
+            "rescued": "crwdns9538:0crwdne9538:0",
+            "adopted": "crwdns9539:0crwdne9539:0",
+            "lastIngestedBeforeDate": "crwdns9540:0{DATE}crwdne9540:0",
+            "inIngestionQueue": "crwdns9541:0crwdne9541:0",
+            "addingToQueue": "crwdns9542:0crwdne9542:0",
+            "unableToStart": "crwdns9543:0crwdne9543:0",
+            "ingestionChartExplainer": "crwdns9544:0crwdne9544:0",
+            "ingestionStatus": "crwdns9545:0crwdne9545:0",
+            "itemInIngestionQueue": "crwdns9546:0crwdne9546:0",
+            "datasetIngestionStatus": "crwdns9547:0crwdne9547:0",
+            "gbifIngestionStatus": "crwdns9548:0crwdne9548:0",
+            "lastIngestionSuccess": "crwdns9549:0crwdne9549:0",
+            "lastIngestionFailed": "crwdns9550:0crwdne9550:0",
+            "outOfSync": "crwdns9551:0crwdne9551:0",
+            "becauseTrustedContact": "crwdns9552:0crwdne9552:0"
+        },
+        "crawl": {
+            "finishReason": {
+                "NORMAL": "crwdns9553:0crwdne9553:0",
+                "ABORT": "crwdns9554:0crwdne9554:0",
+                "NOT_MODIFIED": "crwdns9555:0crwdne9555:0"
+            }
+        }
+    }
+}

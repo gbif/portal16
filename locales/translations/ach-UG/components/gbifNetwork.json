@@ -1,0 +1,53 @@
+{
+  "gbifNetwork": {
+    "title": "crwdns6410:0crwdne6410:0",
+    "contact": "crwdns7814:0crwdne7814:0",
+    "voting_participant": {
+      "one": "crwdns6413:0crwdne6413:0",
+      "other": "crwdns6414:0crwdne6414:0"
+    },
+    "associate_country_participant": {
+      "one": "crwdns6415:0crwdne6415:0",
+      "other": "crwdns6416:0crwdne6416:0"
+    },
+    "other_associate_participant": {
+      "one": "crwdns6417:0crwdne6417:0",
+      "other": "crwdns6418:0crwdne6418:0"
+    },
+    "former_participant": {
+      "one": "crwdns6419:0crwdne6419:0",
+      "other": "crwdns6420:0crwdne6420:0"
+    },
+    "gbif_affiliate": {
+      "one": "crwdns6421:0crwdne6421:0",
+      "other": "crwdns6422:0crwdne6422:0"
+    },
+    "role": "crwdns7816:0crwdne7816:0",
+    "group": {
+
+    },
+    "gbif_secretariat": "crwdns6434:0crwdne6434:0",
+    "membershipType": "crwdns6436:0crwdne6436:0",
+    "name": "crwdns7818:0crwdne7818:0",
+    "endorsedDataPublisher": "crwdns7819:0NUMBER_FORMATTED={NUMBER_FORMATTED}crwdnd7819:0NUMBER={NUMBER}crwdne7819:0",
+    "nParticipants": "crwdns9480:0NUMBER_FORMATTED={NUMBER_FORMATTED}crwdnd9480:0NUMBER={NUMBER}crwdne9480:0",
+    "dataset": "crwdns6678:0NUMBER={NUMBER}crwdne6678:0",
+    "datasets": "crwdns9481:0crwdne9481:0",
+    "regionalRepresentative": "crwdns6679:0NUMBER={NUMBER}crwdne6679:0",
+    "participation": {
+      "nonCountryParticipants": "crwdns9556:0crwdne9556:0",
+      "gbifAffiliates": "crwdns9557:0crwdne9557:0"
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "crwdns9482:0crwdne9482:0",
+      "NODE_MANAGER": "crwdns9483:0crwdne9483:0"
+    },
+    "publishers": "crwdns9484:0crwdne9484:0",
+    "memberSince": "crwdns9485:0crwdne9485:0",
+    "participant": "crwdns9486:0crwdne9486:0",
+    "pPublishers": "crwdns9678:0NUMBER={NUMBER}crwdne9678:0",
+    "pOccurrence": "crwdns9679:0NUMBER={NUMBER}crwdne9679:0",
+    "occurrenceDatasets": "crwdns9558:0crwdne9558:0",
+    "occurrences": "crwdns9559:0crwdne9559:0"
+  }
+}

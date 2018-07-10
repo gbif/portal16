@@ -1,0 +1,9 @@
+{
+  "datasetType": {
+    "OCCURRENCE": "crwdns8875:0crwdne8875:0",
+    "CHECKLIST": "crwdns8876:0crwdne8876:0",
+    "SAMPLING_EVENT": "crwdns8877:0crwdne8877:0",
+    "METADATA": "crwdns8878:0crwdne8878:0",
+    "undefined": "crwdns8879:0crwdne8879:0"
+  }
+}

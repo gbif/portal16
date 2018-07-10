@@ -1,0 +1,28 @@
+{
+  "occurrenceSearch": {
+    "table": "crwdns6857:0crwdne6857:0",
+    "gallery": "crwdns6858:0crwdne6858:0",
+    "map": "crwdns6859:0crwdne6859:0",
+    "taxonomy": "crwdns6860:0crwdne6860:0",
+    "charts": "crwdns9692:0crwdne9692:0",
+    "download": "crwdns6862:0crwdne6862:0",
+    "searchAllFields": "crwdns6933:0crwdne6933:0",
+    "description": "crwdns8942:0crwdne8942:0",
+    "nWithCoordinates": "crwdns9184:0{NUMBER_FORMATED}crwdne9184:0",
+    "nWithImages": "crwdns9683:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9683:0NUMBER={NUMBER}crwdne9683:0",
+    "failedSearch": "crwdns9186:0crwdne9186:0",
+    "noImages": "crwdns9198:0crwdne9198:0",
+    "imageLicenseInfo": "crwdns9199:0crwdne9199:0",
+    "showMoreImages": "crwdns9200:0crwdne9200:0",
+    "default": "crwdns9203:0crwdne9203:0",
+    "custom": "crwdns9204:0crwdne9204:0",
+    "noOccurrencesWithCoordinates": "crwdns9205:0crwdne9205:0",
+    "containsSuspicious": "crwdns9206:0crwdne9206:0",
+    "hideSuspiciousCoordinates": "crwdns9207:0crwdne9207:0",
+    "currentFilter": "crwdns9208:0crwdne9208:0",
+    "selectColumns": "crwdns9399:0crwdne9399:0",
+    "done": "crwdns9400:0crwdne9400:0",
+    "yesCorrectSuggestion": "crwdns9424:0crwdne9424:0",
+    "noWrongSuggestion": "crwdns9425:0crwdne9425:0"
+  }
+}

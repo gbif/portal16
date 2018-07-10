@@ -1,0 +1,23 @@
+{
+    "healthSummary": {
+        "systemHealth": "crwdns9594:0crwdne9594:0",
+        "description": "crwdns9595:0crwdne9595:0",
+        "updatedTimeAgo": "crwdns9596:0{TIME_AGO}crwdne9596:0",
+        "statusSummary": {
+            "OPERATIONAL": "crwdns9597:0crwdne9597:0",
+            "INFO": "crwdns9598:0crwdne9598:0",
+            "WARNING": "crwdns9599:0crwdne9599:0",
+            "CRITICAL": "crwdns9600:0crwdne9600:0"
+        },
+        "notifications": {
+            "WARNING": {
+                "title": "crwdns9601:0crwdne9601:0",
+                "summary": "crwdns9602:0crwdne9602:0"
+            },
+            "CRITICAL": {
+                "title": "crwdns9603:0crwdne9603:0",
+                "summary": "crwdns9604:0crwdne9604:0"
+            }
+        }
+    }
+}

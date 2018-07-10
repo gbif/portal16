@@ -1,0 +1,22 @@
+{
+    "counts": {
+        "nCitations": "crwdns9655:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9655:0NUMBER={NUMBER}crwdne9655:0",
+        "nRecords": "crwdns9656:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9656:0NUMBER={NUMBER}crwdne9656:0",
+        "nResults": "crwdns9657:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9657:0NUMBER={NUMBER}crwdne9657:0",
+        "nInstallations": "crwdns9658:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9658:0NUMBER={NUMBER}crwdne9658:0",
+        "nOccurrences": "crwdns9659:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9659:0NUMBER={NUMBER}crwdne9659:0",
+        "nOccurrencesAbout": "crwdns9660:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9660:0NUMBER={NUMBER}crwdne9660:0",
+        "nOccurrencesPublished": "crwdns9661:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9661:0NUMBER={NUMBER}crwdne9661:0",
+        "nEndorsedPublishers": "crwdns9662:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9662:0NUMBER={NUMBER}crwdne9662:0",
+        "nDatasets": "crwdns9663:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9663:0NUMBER={NUMBER}crwdne9663:0",
+        "nPublishers": "crwdns9664:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9664:0NUMBER={NUMBER}crwdne9664:0",
+        "nCountries": "crwdns9665:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9665:0NUMBER={NUMBER}crwdne9665:0",
+        "nContacts": "crwdns9666:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9666:0NUMBER={NUMBER}crwdne9666:0",
+        "pRecords": "crwdns9667:0NUMBER={NUMBER}crwdne9667:0",
+        "pOccurrence": "crwdns9668:0NUMBER={NUMBER}crwdne9668:0",
+        "pSpecies": "crwdns9669:0NUMBER={NUMBER}crwdne9669:0",
+        "pInfraspecies": "crwdns9670:0NUMBER={NUMBER}crwdne9670:0",
+        "pPublishers": "crwdns9671:0NUMBER={NUMBER}crwdne9671:0",
+        "contacts": "crwdns9672:0NUMBER={NUMBER}crwdne9672:0"
+    }
+}

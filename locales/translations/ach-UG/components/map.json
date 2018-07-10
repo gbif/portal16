@@ -1,0 +1,57 @@
+{
+  "map": {
+    "nGeoreferencedRecords": "crwdns9680:0NUMBER_FORMATED={NUMBER_FORMATED}crwdnd9680:0NUMBER={NUMBER}crwdne9680:0",
+    "noOccurrencesWithCoordinates": "crwdns9380:0crwdne9380:0",
+    "clickToSearchArea": "crwdns9160:0crwdne9160:0",
+    "generatedDateAgo": "crwdns9161:0{DATE_AGO}crwdne9161:0",
+    "anyYear": "crwdns9162:0crwdne9162:0",
+    "exploreArea": "crwdns9163:0crwdne9163:0",
+    "explore": "crwdns9164:0crwdne9164:0",
+    "style": "crwdns9165:0crwdne9165:0",
+    "filters": "crwdns9166:0crwdne9166:0",
+    "projection": "crwdns9167:0crwdne9167:0",
+    "select": "crwdns9168:0crwdne9168:0",
+    "custom": "crwdns9169:0crwdne9169:0",
+    "baseMap": "crwdns9170:0crwdne9170:0",
+    "binning": "crwdns9171:0crwdne9171:0",
+    "year": "crwdns9172:0crwdne9172:0",
+    "chooseColors": "crwdns9173:0crwdne9173:0",
+    "predefined": {
+      "CLASSIC_HEX": "crwdns4513:0crwdne4513:0",
+      "CLASSIC": "crwdns4514:0crwdne4514:0",
+      "STREETS": "crwdns4515:0crwdne4515:0",
+      "GLACIER": "crwdns4516:0crwdne4516:0",
+      "CUSTOM": "crwdns4517:0crwdne4517:0"
+    },
+    "basemap": {
+      "CLASSIC": "crwdns4518:0crwdne4518:0",
+      "LIGHT": "crwdns4519:0crwdne4519:0",
+      "LIGHT_DETAILS": "crwdns4520:0crwdne4520:0",
+      "DARK": "crwdns4521:0crwdne4521:0",
+      "DARK_DETAILS": "crwdns4522:0crwdne4522:0",
+      "OSM": "crwdns4523:0crwdne4523:0"
+    },
+    "bin": {
+      "PIXEL": "crwdns4524:0crwdne4524:0",
+      "SMALL_HEX": "crwdns4525:0crwdne4525:0",
+      "LARGE_HEX": "crwdns4526:0crwdne4526:0",
+      "SMALL_SQUARE": "crwdns4527:0crwdne4527:0",
+      "LARGE_SQUARE": "crwdns4528:0crwdne4528:0"
+    },
+    "colors": {
+      "CLASSIC": "crwdns4529:0crwdne4529:0",
+      "FIRE": "crwdns4530:0crwdne4530:0",
+      "GLACIER": "crwdns4531:0crwdne4531:0",
+      "PURPLE_YELLOW": "crwdns4532:0crwdne4532:0",
+      "PURPLE_HEAT": "crwdns4533:0crwdne4533:0",
+      "BLUE_HEAT": "crwdns4534:0crwdne4534:0",
+      "ORANGE_HEAT": "crwdns4535:0crwdne4535:0",
+      "GREEN": "crwdns4536:0crwdne4536:0",
+      "BLUE_CLUSTER": "crwdns4537:0crwdne4537:0",
+      "ORANGE_CLUSTER": "crwdns4538:0crwdne4538:0"
+    },
+    "errors": {
+      "413": "crwdns4539:0crwdne4539:0"
+    }
+  }
+}

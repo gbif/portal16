@@ -1,0 +1,18 @@
+{
+  "endpointType": {
+    "EML": "crwdns5211:0crwdne5211:0",
+    "FEED": "crwdns7272:0crwdne7272:0",
+    "WFS": "crwdns5213:0crwdne5213:0",
+    "WMS": "crwdns5214:0crwdne5214:0",
+    "TCS_RDF": "crwdns5215:0crwdne5215:0",
+    "TCS_XML": "crwdns5216:0crwdne5216:0",
+    "DWC_ARCHIVE": "crwdns7273:0crwdne7273:0",
+    "DIGIR": "crwdns7274:0crwdne7274:0",
+    "DIGIR_MANIS": "crwdns7275:0crwdne7275:0",
+    "TAPIR": "crwdns5220:0crwdne5220:0",
+    "BIOCASE": "crwdns7276:0crwdne7276:0",
+    "BIOCASE_XML_ARCHIVE": "crwdns7277:0crwdne7277:0",
+    "OAI_PMH": "crwdns5222:0crwdne5222:0",
+    "OTHER": "crwdns7278:0crwdne7278:0"
+  }
+}

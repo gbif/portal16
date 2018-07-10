@@ -1,0 +1,22 @@
+{
+  "resource": {
+    "resources": "crwdns9465:0crwdne9465:0",
+    "contactHelpdesk": "crwdns8090:0crwdne8090:0",
+    "addToCalendar": "crwdns6983:0crwdne6983:0",
+    "venue": "crwdns8598:0crwdne8598:0",
+    "location": "crwdns8599:0crwdne8599:0",
+    "country": "crwdns9466:0crwdne9466:0",
+    "noDatasets": "crwdns8602:0crwdne8602:0",
+    "when": "crwdns8600:0crwdne8600:0",
+    "language": "crwdns8601:0crwdne8601:0",
+    "viewOnGBIF": "crwdns6984:0crwdne6984:0",
+    "published": "crwdns6985:0crwdne6985:0",
+    "programme": "crwdns6986:0crwdne6986:0",
+    "fundedBy": "crwdns9467:0crwdne9467:0",
+    "about": "crwdns9468:0crwdne9468:0",
+    "datasets": "crwdns9469:0crwdne9469:0",
+    "gbifWillAttend": "crwdns9470:0crwdne9470:0",
+    "dataUsedInStudy": "crwdns6987:0crwdne6987:0",
+    "resourceDescription": "crwdns8855:0crwdne8855:0"
+  }
+}

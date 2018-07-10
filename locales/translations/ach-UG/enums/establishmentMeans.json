@@ -1,0 +1,10 @@
+{
+  "establishmentMeans": {
+    "NATIVE": "crwdns8128:0crwdne8128:0",
+    "INTRODUCED": "crwdns8129:0crwdne8129:0",
+    "NATURALISED": "crwdns8130:0crwdne8130:0",
+    "INVASIVE": "crwdns8131:0crwdne8131:0",
+    "MANAGED": "crwdns8132:0crwdne8132:0",
+    "UNCERTAIN": "crwdns8133:0crwdne8133:0"
+  }
+}

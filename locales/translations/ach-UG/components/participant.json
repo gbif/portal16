@@ -1,0 +1,20 @@
+{
+    "participant": {
+        "participant": "crwdns9306:0crwdne9306:0",
+        "participantSummary": "crwdns9307:0crwdne9307:0",
+        "endorsedPublishers": "crwdns9308:0crwdne9308:0",
+        "noEndorsedPublishers": "crwdns9309:0crwdne9309:0",
+        "memberStatus": "crwdns9310:0crwdne9310:0",
+        "gbifParticipantSince": "crwdns9311:0crwdne9311:0",
+        "headOfDelegation": "crwdns9312:0crwdne9312:0",
+        "gbifRegion": "crwdns9313:0crwdne9313:0",
+        "countryOrArea": "crwdns9464:0crwdne9464:0",
+        "nodeName": "crwdns9314:0crwdne9314:0",
+        "nodeEstablished": "crwdns9315:0crwdne9315:0",
+        "website": "crwdns9316:0crwdne9316:0",
+        "participantNodeManager": "crwdns9317:0crwdne9317:0",
+        "pending": "crwdns9318:0crwdne9318:0",
+        "latestDatasetsPublished": "crwdns9319:0crwdne9319:0",
+        "noDatasets": "crwdns9320:0crwdne9320:0"
+    }
+}

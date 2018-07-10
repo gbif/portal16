@@ -1,0 +1,13 @@
+{
+  "taxonomicStatus": {
+    "ACCEPTED": "crwdns8379:0crwdne8379:0",
+    "DOUBTFUL": "crwdns8380:0crwdne8380:0",
+    "SYNONYM": "crwdns8381:0crwdne8381:0",
+    "HETEROTYPIC_SYNONYM": "crwdns8382:0crwdne8382:0",
+    "HOMOTYPIC_SYNONYM": "crwdns8383:0crwdne8383:0",
+    "PROPARTE_SYNONYM": "crwdns8384:0crwdne8384:0",
+    "MISAPPLIED": "crwdns8385:0crwdne8385:0",
+    "INTERMEDIATE_RANK_SYNONYM": "crwdns8386:0crwdne8386:0",
+    "DETERMINATION_SYNONYM": "crwdns8387:0crwdne8387:0"
+  }
+}

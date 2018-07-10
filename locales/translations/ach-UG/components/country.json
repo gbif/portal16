@@ -1,0 +1,37 @@
+{
+  "countryKey": {
+    "tabs": {
+      "summary": "crwdns9321:0crwdne9321:0",
+      "dataPublishing": "crwdns9322:0crwdne9322:0",
+      "dataAbout": "crwdns9323:0crwdne9323:0",
+      "participartion": "crwdns9324:0crwdne9324:0",
+      "publications": "crwdns9325:0crwdne9325:0",
+      "news": "crwdns9326:0crwdne9326:0"
+    },
+    "memberSince": "crwdns8950:0crwdne8950:0",
+    "dataFrom": "crwdns8968:0{TRANSLATED_COUNTRY}crwdne8968:0",
+    "dataAboutCountry": "crwdns8959:0{TRANSLATED_COUNTRY}crwdne8959:0",
+    "publishingTrends": "crwdns8972:0crwdne8972:0",
+    "noDataPublishingActivity": "crwdns8973:0crwdne8973:0",
+    "noInstitutionsHavePublished": "crwdns8974:0crwdne8974:0",
+    "trendsAboutCountry": "crwdns8976:0{TRANSLATED_COUNTRY}crwdne8976:0",
+    "nFrom": "crwdns8977:0{NUMBER_FORMATTED}crwdne8977:0",
+    "nAbout": "crwdns8978:0{NUMBER_FORMATTED}crwdne8978:0",
+    "viewAllN": "crwdns8979:0{NUMBER_FORMATTED}crwdne8979:0",
+    "noPublications": "crwdns8980:0crwdne8980:0",
+    "notParticipant": "crwdns9327:0crwdne9327:0",
+    "notParticipantDescription": "crwdns9328:0crwdne9328:0",
+    "countryNamingDisclaimer": "crwdns9329:0crwdne9329:0",
+    "counts": {
+      "occurrences": "crwdns9330:0crwdne9330:0",
+      "datasets": "crwdns9331:0crwdne9331:0",
+      "publishers": "crwdns9332:0crwdne9332:0",
+      "countriesAndAreasContributeData": "crwdns9333:0crwdne9333:0",
+      "publishedOccurrences": "crwdns9334:0crwdne9334:0",
+      "publishedDatasets": "crwdns9335:0crwdne9335:0",
+      "countriesAndAreasCoveredByDataFrom": "crwdns9336:0{TRANSLATED_COUNTRY}crwdne9336:0",
+      "publishersFrom": "crwdns9337:0{TRANSLATED_COUNTRY}crwdne9337:0"
+    },
+    "activityReport": "crwdns9653:0crwdne9653:0"
+  }
+}
