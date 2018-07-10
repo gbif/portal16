@@ -2,16 +2,16 @@
   "countryKey": {
     "tabs": {
       "summary": "Resumé",
-      "dataPublishing": "",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
-      "news": ""
+      "dataPublishing": "Udgivet data",
+      "dataAbout": "Data om",
+      "participartion": "Participant",
+      "publications": "Publikationer",
+      "news": "Nyheder"
     },
     "memberSince": "Medlem siden",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
+    "dataFrom": "Data fra {TRANSLATED_COUNTRY}",
+    "dataAboutCountry": "Data om {TRANSLATED_COUNTRY}",
+    "publishingTrends": "Publikationstendenser",
     "noDataPublishingActivity": "",
     "noInstitutionsHavePublished": "",
     "trendsAboutCountry": "",
