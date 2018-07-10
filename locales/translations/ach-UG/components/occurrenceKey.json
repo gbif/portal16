@@ -1,0 +1,87 @@
+{
+  "occurrence": {
+    "coordinates": "crwdns9180:0crwdne9180:0",
+    "unknownDate": "crwdns9346:0crwdne9346:0",
+    "absent": "crwdns9347:0crwdne9347:0",
+    "issues": "crwdns9181:0crwdne9181:0",
+    "dataset": "crwdns9182:0crwdne9182:0",
+    "synced": "crwdns9422:0crwdne9422:0",
+    "modified": "crwdns9423:0crwdne9423:0",
+    "monthAndyear": "crwdns9183:0crwdne9183:0",
+    "coordinateUncertainty": "crwdns9427:0crwdne9427:0",
+    "citation": "crwdns9348:0crwdne9348:0",
+    "readFullDescription": "crwdns9349:0crwdne9349:0",
+    "showMoreInfo": "crwdns9350:0crwdne9350:0",
+    "noTaxonMatch": "crwdns9351:0crwdne9351:0",
+    "gbifTaxonInterpretation": "crwdns9352:0crwdne9352:0",
+    "aboutTheDataset": "crwdns9353:0crwdne9353:0",
+    "noLocationInformation": "crwdns9354:0crwdne9354:0",
+    "subMenu": {
+      "diagnostics": "crwdns9355:0crwdne9355:0",
+      "menu": "crwdns9356:0crwdne9356:0",
+      "showDiagnostics": "crwdns9357:0crwdne9357:0",
+      "hideDiagnostics": "crwdns9358:0crwdne9358:0",
+      "aboutDarwinCore": "crwdns9359:0crwdne9359:0",
+      "raw": "crwdns9360:0crwdne9360:0"
+    },
+    "groups": {
+      "Record": "crwdns9361:0crwdne9361:0",
+      "Occurrence": "crwdns9362:0crwdne9362:0",
+      "Event": "crwdns9363:0crwdne9363:0",
+      "Identification": "crwdns9364:0crwdne9364:0",
+      "Taxon": "crwdns9365:0crwdne9365:0",
+      "Location": "crwdns9366:0crwdne9366:0",
+      "Organism": "crwdns9367:0crwdne9367:0",
+      "MaterialSample": "crwdns9368:0crwdne9368:0",
+      "GeologicalContext": "crwdns9369:0crwdne9369:0",
+      "other": "crwdns9370:0crwdne9370:0"
+    },
+    "term": "crwdns9371:0crwdne9371:0",
+    "interpreted": "crwdns9372:0crwdne9372:0",
+    "original": "crwdns9373:0crwdne9373:0",
+    "remarks": "crwdns9374:0crwdne9374:0",
+    "highlights": {
+      "location": "crwdns9375:0crwdne9375:0",
+      "specimenType": "crwdns9376:0crwdne9376:0",
+      "publisher": "crwdns9377:0crwdne9377:0",
+      "reference": "crwdns9378:0crwdne9378:0",
+      "verbatimName": "crwdns9379:0crwdne9379:0"
+    },
+    "title": {
+      "inCountry": {
+        "PRESERVED_SPECIMEN": "crwdns8922:0{COUNTRY}crwdne8922:0",
+        "FOSSIL_SPECIMEN": "crwdns8923:0{COUNTRY}crwdne8923:0",
+        "LIVING_SPECIMEN": "crwdns8924:0{COUNTRY}crwdne8924:0",
+        "HUMAN_OBSERVATION": "crwdns8925:0{COUNTRY}crwdne8925:0",
+        "MACHINE_OBSERVATION": "crwdns8926:0{COUNTRY}crwdne8926:0",
+        "MATERIAL_SAMPLE": "crwdns8927:0{COUNTRY}crwdne8927:0",
+        "OCCURRENCE": "crwdns8928:0{COUNTRY}crwdne8928:0",
+        "OBSERVATION": "crwdns8929:0{COUNTRY}crwdne8929:0",
+        "LITERATURE": "crwdns8930:0{COUNTRY}crwdne8930:0",
+        "UNKNOWN": "crwdns8931:0{COUNTRY}crwdne8931:0"
+      },
+      "unknownLocation": {
+        "PRESERVED_SPECIMEN": "crwdns8932:0crwdne8932:0",
+        "FOSSIL_SPECIMEN": "crwdns8933:0crwdne8933:0",
+        "LIVING_SPECIMEN": "crwdns8934:0crwdne8934:0",
+        "HUMAN_OBSERVATION": "crwdns8935:0crwdne8935:0",
+        "MACHINE_OBSERVATION": "crwdns8936:0crwdne8936:0",
+        "MATERIAL_SAMPLE": "crwdns8937:0crwdne8937:0",
+        "OCCURRENCE": "crwdns8938:0crwdne8938:0",
+        "OBSERVATION": "crwdns8939:0crwdne8939:0",
+        "LITERATURE": "crwdns8940:0crwdne8940:0",
+        "UNKNOWN": "crwdns8941:0crwdne8941:0"
+      },
+      "unknownSpecies": "crwdns6477:0crwdne6477:0"
+    },
+    "occurrence": "crwdns6478:0crwdne6478:0",
+    "inLanguage": "crwdns7839:0{LANGUAGE_TRANSLATED}crwdne7839:0"
+  },
+  "interpretationRemarks": {
+    "comments": {
+      "EXCLUDED": "crwdns8831:0crwdne8831:0",
+      "AUTHORED": "crwdns8832:0crwdne8832:0",
+      "INFERED": "crwdns8833:0crwdne8833:0"
+    }
+  }
+}
