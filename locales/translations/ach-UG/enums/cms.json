@@ -1,0 +1,121 @@
+{
+  "enums": {
+    "cms": {
+      "filters": {
+        "countriesOfCoverage": "crwdns9131:0crwdne9131:0",
+        "countriesOfResearcher": "crwdns9132:0crwdne9132:0",
+        "literatureType": "crwdns9133:0crwdne9133:0",
+        "contractCountry": "crwdns9134:0crwdne9134:0",
+        "topics": "crwdns9135:0crwdne9135:0",
+        "audiences": "crwdns9136:0crwdne9136:0",
+        "purposes": "crwdns9137:0crwdne9137:0",
+        "relevance": "crwdns9138:0crwdne9138:0",
+        "language": "crwdns9139:0crwdne9139:0",
+        "year": "crwdns9140:0crwdne9140:0",
+        "datasetKey": "crwdns9141:0crwdne9141:0",
+        "publishingOrg": "crwdns9142:0crwdne9142:0",
+        "peerReview": "crwdns9143:0crwdne9143:0",
+        "openAccess": "crwdns9144:0crwdne9144:0",
+        "gbifDownloadKey": "crwdns9145:0crwdne9145:0"
+      },
+      "contentType": {
+        "event": "crwdns8908:0crwdne8908:0",
+        "news": "crwdns8909:0crwdne8909:0",
+        "resource": "crwdns8910:0crwdne8910:0",
+        "dataUse": "crwdns9012:0crwdne9012:0",
+        "project": "crwdns8912:0crwdne8912:0",
+        "participant": "crwdns8913:0crwdne8913:0",
+        "programme": "crwdns8914:0crwdne8914:0",
+        "document": "crwdns8915:0crwdne8915:0",
+        "tool": "crwdns8916:0crwdne8916:0",
+        "literature": "crwdns8917:0crwdne8917:0"
+      },
+      "vocabularyTerms": {
+        "articleType": {
+          "Nodes guidance": "crwdns9032:0crwdne9032:0"
+        },
+        "projectGrantType": {
+          "REGIONAL": "crwdns8880:0crwdne8880:0",
+          "SMALL": "crwdns8881:0crwdne8881:0",
+          "NATIONAL": "crwdns8882:0crwdne8882:0",
+          "undefined": "crwdns8883:0crwdne8883:0"
+        },
+        "projectStatus": {
+          "APPROVED": "crwdns8884:0crwdne8884:0",
+          "CLOSED": "crwdns8885:0crwdne8885:0",
+          "IN_PROGRESS": "crwdns8886:0crwdne8886:0",
+          "undefined": "crwdns8887:0crwdne8887:0"
+        },
+        "relevance": {
+          "GBIF_USED": "crwdns6256:0crwdne6256:0",
+          "GBIF_CITED": "crwdns6257:0crwdne6257:0",
+          "GBIF_DISCUSSED": "crwdns6258:0crwdne6258:0",
+          "GBIF_PRIMARY": "crwdns6259:0crwdne6259:0",
+          "GBIF_ACKNOWLEDGED": "crwdns6260:0crwdne6260:0",
+          "GBIF_PUBLISHED": "crwdns6261:0crwdne6261:0",
+          "GBIF_AUTHOR": "crwdns6262:0crwdne6262:0",
+          "GBIF_MENTIONED": "crwdns6263:0crwdne6263:0",
+          "GBIF_FUNDED": "crwdns6264:0crwdne6264:0"
+        },
+        "topics": {
+          "AGRICULTURE": "crwdns6265:0crwdne6265:0",
+          "BIODIVERSITY_SCIENCE": "crwdns6266:0crwdne6266:0",
+          "BIOGEOGRAPHY": "crwdns6267:0crwdne6267:0",
+          "CITIZEN_SCIENCE": "crwdns6268:0crwdne6268:0",
+          "CLIMATE_CHANGE": "crwdns6269:0crwdne6269:0",
+          "CONSERVATION": "crwdns6270:0crwdne6270:0",
+          "DATA_MANAGEMENT": "crwdns6271:0crwdne6271:0",
+          "DATA_PAPER": "crwdns6272:0crwdne6272:0",
+          "ECOLOGY": "crwdns6273:0crwdne6273:0",
+          "ECOSYSTEM_SERVICES": "crwdns6274:0crwdne6274:0",
+          "EVOLUTION": "crwdns6275:0crwdne6275:0",
+          "FRESHWATER": "crwdns6276:0crwdne6276:0",
+          "HUMAN_HEALTH": "crwdns6277:0crwdne6277:0",
+          "INVASIVES": "crwdns6278:0crwdne6278:0",
+          "MARINE": "crwdns6279:0crwdne6279:0",
+          "PHYLOGENETICS": "crwdns6280:0crwdne6280:0",
+          "SPECIES_DISTRIBUTIONS": "crwdns6281:0crwdne6281:0",
+          "TAXONOMY": "crwdns6282:0crwdne6282:0"
+        },
+        "purposes": {
+          "CAPACITY_ENHANCEMENT": "crwdns6283:0crwdne6283:0",
+          "DATA_ACCESS": "crwdns6284:0crwdne6284:0",
+          "DATA_ANALYSIS": "crwdns6285:0crwdne6285:0",
+          "DATA_CURATION_&_QUALITY": "crwdns6286:0crwdne6286:0",
+          "DATA_DIGITIZATION": "crwdns6287:0crwdne6287:0",
+          "DATA_PUBLISHING": "crwdns6288:0crwdne6288:0"
+        },
+        "literatureType": {
+          "journal": "crwdns8888:0crwdne8888:0",
+          "book": "crwdns8118:0crwdne8118:0",
+          "generic": "crwdns8121:0crwdne8121:0",
+          "book_section": "crwdns8119:0crwdne8119:0",
+          "conference_proceedings": "crwdns8120:0crwdne8120:0",
+          "working_paper": "crwdns8127:0crwdne8127:0",
+          "report": "crwdns8124:0crwdne8124:0",
+          "web_page": "crwdns8126:0crwdne8126:0",
+          "thesis": "crwdns8125:0crwdne8125:0",
+          "magazine_article": "crwdns8123:0crwdne8123:0",
+          "statute": "crwdns8889:0crwdne8889:0",
+          "patent": "crwdns8890:0crwdne8890:0",
+          "newspaper_article": "crwdns8891:0crwdne8891:0",
+          "computer_program": "crwdns8892:0crwdne8892:0",
+          "hearing": "crwdns8893:0crwdne8893:0",
+          "television_broadcast": "crwdns8894:0crwdne8894:0",
+          "encyclopedia_article": "crwdns8895:0crwdne8895:0",
+          "case": "crwdns8896:0crwdne8896:0",
+          "film": "crwdns8897:0crwdne8897:0",
+          "bill": "crwdns8898:0crwdne8898:0"
+        },
+        "audiences": {
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "crwdns7451:0crwdne7451:0",
+          "DATA_HOLDERS": "crwdns7452:0crwdne7452:0",
+          "DATA_USERS": "crwdns7453:0crwdne7453:0",
+          "DECISION_MAKERS": "crwdns7454:0crwdne7454:0",
+          "GBIF_NETWORK": "crwdns7455:0crwdne7455:0",
+          "PUBLIC_STAKEHOLDERS": "crwdns7456:0crwdne7456:0"
+        }
+      }
+    }
+  }
+}
