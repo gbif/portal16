@@ -1,0 +1,10 @@
+{
+  "installationType": {
+    "IPT_INSTALLATION": "crwdns5270:0crwdne5270:0",
+    "DIGIR_INSTALLATION": "crwdns5271:0crwdne5271:0",
+    "TAPIR_INSTALLATION": "crwdns8174:0crwdne8174:0",
+    "BIOCASE_INSTALLATION": "crwdns8175:0crwdne8175:0",
+    "HTTP_INSTALLATION": "crwdns8176:0crwdne8176:0",
+    "SYMBIOTA_INSTALLATION": "crwdns8177:0crwdne8177:0"
+  }
+}
