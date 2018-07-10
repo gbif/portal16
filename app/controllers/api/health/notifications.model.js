@@ -32,7 +32,7 @@ update();
 // after that update every 10 seconds
 setInterval(function() {
     update();
-}, 10000);
+}, 30000);
 
 function update() {
     updateHealth();
