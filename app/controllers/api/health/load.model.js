@@ -55,7 +55,7 @@ async function clusterLoad() {
 
 async function crawlerLoad() {
     let options = {
-        url: apiConfig.crawlingDatasetProcessRunning.url + '?v=' + Date.now(),
+        url: apiConfig.crawlingDatasetProcessRunning.url + '?vLoad=' + Date.now(),
         json: true,
         userAgent: userAgent
     };

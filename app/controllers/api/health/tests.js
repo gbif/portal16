@@ -152,9 +152,8 @@ let tests = [
         message: 'There should be a log entry from the crawler within the last 150 seconds'
     },
     {
-        url: apiConfig.crawlingDatasetProcessRunning.url + '?v={SECONDS_AGO}',
+        url: apiConfig.crawlingDatasetProcessRunning.url + '?cachebust={NOW}',
         component: 'CRAWLER',
-        secondsAgo: 0,
         message: 'The crawl queue should be available'
     },
     {
