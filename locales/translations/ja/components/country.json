@@ -1,17 +1,17 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
-      "dataPublishing": "データ出版",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
+      "summary": "サマリー",
+      "dataPublishing": "データの出版",
+      "dataAbout": "に関するデータ",
+      "participartion": "参加",
+      "publications": "公開成果",
       "news": "ニュース"
     },
-    "memberSince": "",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
+    "memberSince": "メンバー登録日",
+    "dataFrom": "{TRANSLATED_COUNTRY} からのデータ",
+    "dataAboutCountry": "{TRANSLATED_COUNTRY} に関するデータ",
+    "publishingTrends": "出版の傾向",
     "noDataPublishingActivity": "",
     "noInstitutionsHavePublished": "",
     "trendsAboutCountry": "",
