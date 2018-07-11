@@ -16,7 +16,7 @@
       "overlapWithNub": "GBIF バックボーンと重複します。",
       "overlapWithCol": "COLカタログオブライフと重複します。"
     },
-    "noStatsForMetadata": "",
+    "noStatsForMetadata": "メタデータのみのデータセットにつき、統計情報なし",
     "viewArticle": "記事を見る",
     "registeredDate": "登録日 {DATE}",
     "constituentOf": "構成要素",
@@ -65,19 +65,19 @@
     "geographicCoverages": "地理的範囲",
     "taxonomicCoverages": "分類学的範囲",
     "additionalInfo": "追加情報",
-    "publishingCountriesAreas": "",
+    "publishingCountriesAreas": "データ出版国と地域",
     "originalArchive": "ソース・アーカイブ",
-    "annotatedEml": "",
+    "annotatedEml": "GBIFがアノーテーションしたメタデータ",
     "license": "ライセンス",
     "recommended": "推奨",
-    "processedOccurrences": "",
+    "processedOccurrences": "GBIFがアノーテーションしたアーカイブ",
     "noDescriptionProvided": "説明はありません。",
     "pNetwork": "",
-    "parentEvent": "",
+    "parentEvent": "親イベント",
     "eventDescription": "イベントの説明",
-    "siblingEvents": "",
-    "childEvents": "",
+    "siblingEvents": "同胞イベント",
+    "childEvents": "子イベント",
     "occurrenceCount": "オカレンスのカウント",
-    "in": ""
+    "in": "In"
   }
 }
