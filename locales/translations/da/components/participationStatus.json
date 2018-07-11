@@ -1,11 +1,11 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
+            "VOTING": "Stemmende participant",
+            "ASSOCIATE": "Associeret participant",
+            "OBSERVER": "Observerende participant",
+            "AFFILIATE": "Affilieret participant",
+            "FORMER": "Tidligere participant",
             "undefined": "Ukendt"
         },
         "description": {
