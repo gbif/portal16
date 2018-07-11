@@ -75,9 +75,9 @@
     "pNetwork": "",
     "parentEvent": "親イベント",
     "eventDescription": "イベントの説明",
-    "siblingEvents": "",
+    "siblingEvents": "同胞イベント",
     "childEvents": "子イベント",
     "occurrenceCount": "オカレンスのカウント",
-    "in": ""
+    "in": "In"
   }
 }
