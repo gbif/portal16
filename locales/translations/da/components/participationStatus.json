@@ -1,37 +1,37 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
+            "VOTING": "Stemmende participant",
+            "ASSOCIATE": "Associeret participant",
+            "OBSERVER": "Observerende participant",
+            "AFFILIATE": "Affilieret participant",
+            "FORMER": "Tidligere participant",
             "undefined": "Ukendt"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
+            "VOTING": "En stemmende GBIF participant fra {REGION}",
+            "ASSOCIATE": "En associeret GBIF participant fra {REGION}",
+            "OBSERVER": "Et GBIF observerende land fra {REGION}",
+            "AFFILIATE": "En affilieret participant fra {REGION}",
+            "FORMER": "GBIF tidligere participant fra {REGION}",
             "undefined": "Ukendt"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
+                    "VOTING": "En GBIF stemmende organisation fra {REGION}",
+                    "ASSOCIATE": "En associeret participerende organisation fra {REGION}",
+                    "OBSERVER": "En observerende participant organisation fra {REGION}",
+                    "AFFILIATE": "En affilieret participant organisation fra {REGION}",
+                    "FORMER": "En tidligere participant organisation fra {REGION}",
                     "undefined": "Ukendt"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
+                    "VOTING": "Stemmende participant organisation",
+                    "ASSOCIATE": "Associeret participant organisation",
+                    "OBSERVER": "Observerende participant organisation",
+                    "AFFILIATE": "Affilieret participant organisation",
+                    "FORMER": "Tidligere participant organisation",
                     "undefined": "Ukendt"
                 }
             }
