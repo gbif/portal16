@@ -11,7 +11,7 @@
       "end": "終了",
       "fundsAllocated": "資金の割り当て",
       "matchingFunds": "共同出資推計",
-      "funding": "資金",
+      "funding": "",
       "coFunding": "共同資金",
       "fundedBy": "資金提供者",
       "coFundedBy": "共同出資",
@@ -31,7 +31,7 @@
     },
     "auxiliary": {
       "subject": "",
-      "citation": "引用",
+      "citation": "",
       "organisingParticipants": ""
     }
   }
