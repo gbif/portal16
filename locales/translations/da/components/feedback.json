@@ -37,7 +37,7 @@
     },
     "placeholders": {
       "summary": "Resumé",
-      "description": "",
+      "description": "Detaljeret beskrivelse. For taksonomiske påstande, bedes du give en reference",
       "username": "Din e-mail eller Github brugernavn (er offentligt)"
     },
     "markdownSupport": "Markdown understøttes",
