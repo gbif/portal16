@@ -12,7 +12,7 @@
     "citation": "Citation",
     "readFullDescription": "mere",
     "showMoreInfo": "mere",
-    "noTaxonMatch": "",
+    "noTaxonMatch": "intet match",
     "gbifTaxonInterpretation": "GBIF Takson fortolkning",
     "aboutTheDataset": "Om datasættet",
     "noLocationInformation": "Der er ingen lokation for denne observation",
@@ -25,9 +25,9 @@
       "raw": "Rå"
     },
     "groups": {
-      "Record": "",
+      "Record": "Optegnelse",
       "Occurrence": "Observation",
-      "Event": "",
+      "Event": "Event",
       "Identification": "Identifikation",
       "Taxon": "Takson",
       "Location": "Lokation",
@@ -44,7 +44,7 @@
       "location": "Lokation",
       "specimenType": "Eksemplar type",
       "publisher": "Forlægger",
-      "reference": "",
+      "reference": "Reference",
       "verbatimName": "Oprindeligt navn"
     },
     "title": {
