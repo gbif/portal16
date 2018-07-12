@@ -2,7 +2,7 @@
   "datasetType": {
     "OCCURRENCE": "Observation",
     "CHECKLIST": "Tjekliste",
-    "SAMPLING_EVENT": "Sampling event",
+    "SAMPLING_EVENT": "",
     "METADATA": "",
     "undefined": "Ukendt"
   }
