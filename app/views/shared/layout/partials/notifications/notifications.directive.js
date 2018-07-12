@@ -25,8 +25,9 @@ function notificationsDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function notifications($scope, NAV_EVENTS, NOTIFICATIONS, $sessionStorage, Notifications) { // include service to trigger the service
+    function notifications($scope, URL_PREFIX, NAV_EVENTS, NOTIFICATIONS, $sessionStorage, Notifications) { // include service to trigger the service
         var vm = this;
+        vm.URL_PREFIX = URL_PREFIX;
         vm.isActive = false;
 
         $scope.$on(NAV_EVENTS.toggleNotifications, function(event, data) {

@@ -14,7 +14,7 @@
                 <div class="menubox__section menubox__section--select">
                     <ul>
                         <li ng-repeat="notification in vm.notifications.results" class="status--{{ notification.severity | lowercase }}">
-                            <a ng-href="{{ portal.urlPrefix }}/health" class="inherit noUnderline">
+                            <a ng-href="{{ vm.URL_PREFIX }}/health" class="inherit noUnderline">
                                 <h4 class="statusLabel">{{ notification.title }}</h4>
                                 <div class="small" ng-bind-html="notification.summary | md2html"></div>
                             </a>
