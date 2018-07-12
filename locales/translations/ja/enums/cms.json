@@ -8,7 +8,7 @@
         "contractCountry": "",
         "topics": "",
         "audiences": "",
-        "purposes": "目的",
+        "purposes": "",
         "relevance": "",
         "language": "",
         "year": "",
@@ -23,7 +23,7 @@
         "news": "ニュース",
         "resource": "",
         "dataUse": "",
-        "project": "プロジェクト",
+        "project": "",
         "participant": "",
         "programme": "",
         "document": "",
@@ -113,7 +113,7 @@
           "DATA_USERS": "データ ユーザー",
           "DECISION_MAKERS": "",
           "GBIF_NETWORK": "GBIF ネットワーク",
-          "PUBLIC_STAKEHOLDERS": "公共の利害関係者"
+          "PUBLIC_STAKEHOLDERS": ""
         }
       }
     }
