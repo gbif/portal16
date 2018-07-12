@@ -6,7 +6,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": "不明"
+            "undefined": ""
         },
         "description": {
             "VOTING": "",
@@ -14,7 +14,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": "不明"
+            "undefined": ""
         },
         "type": {
             "OTHER": {
@@ -24,7 +24,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": "不明"
+                    "undefined": ""
                 },
                 "longForm": {
                     "VOTING": "",
@@ -32,7 +32,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": "不明"
+                    "undefined": ""
                 }
             }
         }

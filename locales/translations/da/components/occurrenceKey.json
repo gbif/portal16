@@ -27,7 +27,7 @@
     "groups": {
       "Record": "",
       "Occurrence": "Observation",
-      "Event": "Arrangement",
+      "Event": "",
       "Identification": "Identifikation",
       "Taxon": "Takson",
       "Location": "Lokation",
@@ -44,7 +44,7 @@
       "location": "Lokation",
       "specimenType": "Eksemplar type",
       "publisher": "Forlægger",
-      "reference": "Reference",
+      "reference": "",
       "verbatimName": "Oprindeligt navn"
     },
     "title": {

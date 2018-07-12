@@ -1,9 +1,9 @@
 {
   "datasetType": {
-    "OCCURRENCE": "オカレンス",
+    "OCCURRENCE": "",
     "CHECKLIST": "",
-    "SAMPLING_EVENT": "サンプリング イベント",
-    "METADATA": "メタデータ",
-    "undefined": "不明"
+    "SAMPLING_EVENT": "",
+    "METADATA": "",
+    "undefined": ""
   }
 }
