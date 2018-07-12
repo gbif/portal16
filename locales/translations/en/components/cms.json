@@ -26,6 +26,9 @@
       "contactDetalils": "Contact details",
       "partners": "Partners"
     },
+    "datause": {
+      "dataViaGbif": "Data resources used via GBIF"
+    },
     "literature": {
       "keywords": "Keywords"
     },
