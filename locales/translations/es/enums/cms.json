@@ -110,7 +110,7 @@
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Expertos en biodiversidad",
           "DATA_HOLDERS": "",
-          "DATA_USERS": "Usuarios de datos",
+          "DATA_USERS": "",
           "DECISION_MAKERS": "",
           "GBIF_NETWORK": "Red GBIF",
           "PUBLIC_STAKEHOLDERS": "Les parties prenantes publiques"
