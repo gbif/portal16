@@ -77,7 +77,7 @@
     "invalidProfileUpdate": "Ugyldig profilopdatering",
     "changePassword": "Skift adgangskode",
     "accountCreated": "Konto oprettet",
-    "accountInfoUpdated": "",
+    "accountInfoUpdated": "Din konto er blevet opdateret",
     "passwordChangeInvalid": "",
     "verficationLinkSent": "Du er blevet sendt en email med et link til kontobekræftelse. Velkommen til GBIF.",
     "resetPasswordRequest": "Anmodning om at nulstille adgangskode",
