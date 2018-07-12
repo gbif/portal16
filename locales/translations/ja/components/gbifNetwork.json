@@ -39,11 +39,11 @@
       "gbifAffiliates": ""
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "国家代表",
-      "NODE_MANAGER": "ノード マネージャー"
+      "HEAD_OF_DELEGATION": "",
+      "NODE_MANAGER": ""
     },
     "publishers": "出版者",
-    "memberSince": "メンバー登録日",
+    "memberSince": "",
     "participant": "",
     "pPublishers": "",
     "pOccurrence": "",
