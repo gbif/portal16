@@ -26,12 +26,15 @@
       "contactDetalils": "",
       "partners": ""
     },
+    "datause": {
+      "dataViaGbif": ""
+    },
     "literature": {
       "keywords": ""
     },
     "auxiliary": {
       "subject": "",
-      "citation": "Cita",
+      "citation": "",
       "organisingParticipants": ""
     }
   }
