@@ -7,7 +7,7 @@
         "pasteNamesToParse": "Indsætte navne til fortolkning her",
         "about": "Om",
         "parser": "",
-        "nameParserTitle": "Name Parser",
+        "nameParserTitle": "",
         "dropHere": "",
         "excludeUnparsed": "Udeluk ufortolkede",
         "generateCsv": "Generer csv",
