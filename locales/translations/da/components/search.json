@@ -26,6 +26,6 @@
       "searchResources": "Resourcer",
       "searchOccurrences": "Observationer"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultat} other{resultater}}"
   }
 }
