@@ -25,7 +25,7 @@
     "project": "Projekt",
     "metrics": "Grafer",
     "constituents": "Konstituenter",
-    "download": "",
+    "download": "Download",
     "datasetHomepage": "Website",
     "nConstituentDatasets": "{NUMBER_FORMATED} {NUMBER, select, 1{under-datasæt} other{under-datasæt}}",
     "consistuentDatasets": "Under-datasæt",
@@ -45,7 +45,7 @@
     "purpose": "Formål",
     "methodology": "Metode",
     "studyExtent": "Undersøgelsens omfang",
-    "keywords": "",
+    "keywords": "Nøgleord",
     "qualityControl": "Kvalitetskontrol",
     "sampling": "Sampling",
     "methodSteps": "Metode trin",
@@ -78,6 +78,6 @@
     "siblingEvents": "Søskende events",
     "childEvents": "Underordnede events",
     "occurrenceCount": "Antal observationer",
-    "in": ""
+    "in": "I"
   }
 }
