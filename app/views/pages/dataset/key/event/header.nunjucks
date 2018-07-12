@@ -8,10 +8,10 @@
                 </nav>
 
                 <h1 class="text-center">
-                    <span>{{ datasetEvent.event.eventID }}</span>
+                    <span class="discreet--very" translate="ocurrenceFieldNames.eventID"></span>: <span>{{ datasetEvent.event.eventID }}</span>
                 </h1>
                 <p>
-                    <span translate="dataset.in"> </span> <a ui-sref="datasetKey({key: datasetEvent.datasetKey})">{{ datasetEvent.event.dataset }}</a>
+                    <span translate="dataset.inDataset"> </span> <a ui-sref="datasetKey({key: datasetEvent.datasetKey})">{{ datasetEvent.event.dataset }}</a>
                 </p>
             </header>
         </div>

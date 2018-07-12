@@ -1,0 +1,66 @@
+<div class="row summaryStats" ng-if="datasetEvent.occurrences.count">
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <div>
+            <div class="summaryStats__circle summaryStats__circle--occurrences"></div>
+            <div class="summaryStats__percentage">
+                <span>{{ datasetEvent.occurrences.count | localNumber }}</span>
+                <div translate="dataset.metricHighlights.occurrences" translate-values="{NUMBER: datasetEvent.occurrences.count}"></div>
+            </div>
+        </div>
+    </a>
+
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, issue:'TAXON_MATCH_NONE'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="datasetEvent.withoutTaxon.$resolved">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*(datasetEvent.occurrences.count - datasetEvent.withoutTaxon.count) / datasetEvent.occurrences.count)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( (datasetEvent.occurrences.count - datasetEvent.withoutTaxon.count) / datasetEvent.occurrences.count) | formatAsPercentage:100 }}%</span>
+                <div translate="dataset.metricHighlights.withTaxonMatch"></div>
+            </div>
+        </div>
+    </a>
+
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, has_geospatial_issue:false, has_coordinate:true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetEvent.withCoordinates.$resolved">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*datasetEvent.withCoordinates.count / datasetEvent.occurrences.count)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ (datasetEvent.withCoordinates.count / datasetEvent.occurrences.count) | formatAsPercentage:100 }}%</span>
+                <div translate="dataset.metricHighlights.withCoordinates"></div>
+            </div>
+        </div>
+    </a>
+
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, year: '*,3000'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetEvent.withYear.$resolved">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*datasetEvent.withYear.count / datasetEvent.occurrences.count)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( datasetEvent.withYear.count / datasetEvent.occurrences.count) | formatAsPercentage:100 }}%</span>
+                <div translate="dataset.metricHighlights.withYear"></div>
+            </div>
+        </div>
+    </a>
+
+</div>

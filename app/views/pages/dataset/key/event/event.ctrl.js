@@ -55,6 +55,19 @@ function datasetEventCtrl($stateParams, DatasetEvent, DatasetEventList, Occurren
     vm.images.$promise.then(function(resp) {
         utils.attachImages(resp.results);
     });
+    vm.occurrences = OccurrenceSearch.query({dataset_key: vm.datasetKey, event_id: vm.eventKey, limit: 0});
+    vm.images.$promise.then(function(resp) {
+        utils.attachImages(resp.results);
+    });
+    vm.withCoordinates = OccurrenceSearch.query({
+        dataset_key: vm.key,
+        event_id: vm.eventKey,
+        has_coordinate: true,
+        has_geospatial_issue: false,
+        limit: 0
+    });
+    vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.datasetKey, event_id: vm.eventKey, issue: 'TAXON_MATCH_NONE', limit: 0});
+    vm.withYear = OccurrenceSearch.query({dataset_key: vm.datasetKey, event_id: vm.eventKey, year: '*,3000', limit: 0});
 
     // create some charts about the event
     vm.charts = [];

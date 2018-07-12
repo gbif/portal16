@@ -38,6 +38,11 @@
                                 <globe class="pull-right" latitude="datasetParentEvent.event.decimalLatitude" longitude="datasetParentEvent.event.decimalLongitude"></globe>
                             </div>
                         </div>
+                    <div class="row">
+                         <div class="col-xs-12">
+                             {% include "./stats.nunjucks" %}
+                         </div>
+                    </div>
                     </div>
                 </div>
                 {% include "./images.nunjucks" %}

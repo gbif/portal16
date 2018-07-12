@@ -66,8 +66,14 @@
                                 </dl>
                             </div>
                         </div>
+                        <div class="row">
+                        <div class="col-xs-12">
+                        {% include "./stats.nunjucks" %}
+                        </div>
+                        </div>
                     </div>
                 </div>
+
                 {% include "./images.nunjucks" %}
                 {% include "./map.nunjucks" %}
 
@@ -79,7 +85,7 @@
                         <div ng-if="datasetEvent.hasSiblings ">
                             <h4 class="card-header text-center inline-block" ><span translate="dataset.siblingEvents">Sibling events</span>: {{datasetEvent.siblingCount}} 
                             </h4>
-                            <h4 class="pull-right card-header text-center inline-block" ng-if="datasetEvent.event.parentEventID">
+                            <h4 class="pull-right card-header text-center parent-evt inline-block" ng-if="datasetEvent.event.parentEventID">
                                     <span translate="ocurrenceFieldNames.parentEventID">parentEventID</span>: 
                                         <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
                                 </h4>

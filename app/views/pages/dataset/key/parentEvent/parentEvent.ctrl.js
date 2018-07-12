@@ -30,6 +30,20 @@ function datasetParentEventCtrl($stateParams, DatasetEventList, Dataset, Publish
         utils.attachImages(resp.results);
     });
 
+    vm.occurrences = OccurrenceSearch.query({dataset_key: vm.datasetKey, parent_event_id: vm.parentEventKey, limit: 0});
+    vm.images.$promise.then(function(resp) {
+        utils.attachImages(resp.results);
+    });
+    vm.withCoordinates = OccurrenceSearch.query({
+        dataset_key: vm.key,
+        parent_event_id: vm.parentEventKey,
+        has_coordinate: true,
+        has_geospatial_issue: false,
+        limit: 0
+    });
+    vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.datasetKey, parent_event_id: vm.parentEventKey, issue: 'TAXON_MATCH_NONE', limit: 0});
+    vm.withYear = OccurrenceSearch.query({dataset_key: vm.datasetKey, parent_event_id: vm.parentEventKey, year: '*,3000', limit: 0});
+
         // Get first page of paginated events - currently from the proxy API that use occurrence facets to estimate it.  This is not ideal, but a fragile workaround
         vm.changeEventPage = function(offset) {
             var q = {datasetKey: vm.datasetKey, parentEventID: vm.parentEventKey, offset: offset, limit: 10};
