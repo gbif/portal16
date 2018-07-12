@@ -26,6 +26,9 @@
       "contactDetalils": "Kontaktinformation",
       "partners": "Partnere"
     },
+    "datause": {
+      "dataViaGbif": ""
+    },
     "literature": {
       "keywords": "Keywords"
     },
