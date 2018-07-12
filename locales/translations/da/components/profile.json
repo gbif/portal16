@@ -78,7 +78,7 @@
     "changePassword": "Skift adgangskode",
     "accountCreated": "Konto oprettet",
     "accountInfoUpdated": "Din konto er blevet opdateret",
-    "passwordChangeInvalid": "",
+    "passwordChangeInvalid": "Ugyldig adgangskode. Hvis du har glemt din adgangskode, så log ud og nulstil den",
     "verficationLinkSent": "Du er blevet sendt en email med et link til kontobekræftelse. Velkommen til GBIF.",
     "resetPasswordRequest": "Anmodning om at nulstille adgangskode",
     "resetPasswordMessage": "Du vil få en e-mail med et link til at nulstille din adgangskode."
