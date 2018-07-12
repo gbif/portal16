@@ -145,7 +145,7 @@ function prose(req, res, next, type, template, redirectToSlug) {
 
             // if not a preview, then make sure the title is a part of the url by redirecting if necessary
             if (!preview && redirectToSlug) {
-                if (slugTitle != entryTitle) {
+                if (slugTitle !== '' && slugTitle != entryTitle) {
                     res.redirect(302, res.locals.gb.locales.urlPrefix + '/' + type + '/' + entry + '/' + slugTitle);
                     return;
                 }

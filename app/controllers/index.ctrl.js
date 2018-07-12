@@ -26,9 +26,9 @@ router.get('/', function(req, res, next) {
         // if no language defined in url, then select language for home page content based on accept language in header
         let matchedLanguage = acceptLanguageParser.pick(availableLanguagesForHomePage, req.headers['accept-language']);
         let homePageLanguage = !res.locals.gb.locales.urlPrefix ? matchedLanguage : res.locals.gb.locales.current;
-        let news = resourceSearch.search({contentType: 'news', limit: 1, homepage: true}, req.__, 5000);
-        let dataUse = resourceSearch.search({contentType: 'dataUse', limit: 1, homepage: true}, req.__, 5000);
-        let event = resourceSearch.search({contentType: 'event', limit: 1, homepage: true}, req.__, 5000);
+        let news = resourceSearch.search({contentType: 'news', limit: 1, homepage: true, locale: homePageLanguage}, req.__, 5000);
+        let dataUse = resourceSearch.search({contentType: 'dataUse', limit: 1, homepage: true, locale: homePageLanguage}, req.__, 5000);
+        let event = resourceSearch.search({contentType: 'event', limit: 1, homepage: true, locale: homePageLanguage}, req.__, 5000);
 
         // TODO shouldn't events be visible on the home page ? they are all hidden per default
         let homepage = resource.getHomePage(isPreview, homePageLanguage);

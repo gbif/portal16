@@ -10,7 +10,7 @@
   "metrics": {
     "issues": "Bemærkninger",
     "extensions": "Udvidelser",
-    "taxa": "Taxa",
+    "taxa": "",
     "other": "Andre",
     "checklistMetrics": "Tjekliste-grafer",
     "occurrenceMetrics": "Observations-grafer",
