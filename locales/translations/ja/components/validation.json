@@ -105,20 +105,20 @@
     "dataValidator": "",
     "dataValidatorDescription": "",
     "thisIsAnEarlyAccessVersion": "",
-    "here": "",
+    "here": "こちら",
     "coreRowType": "",
     "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
-    "fetchFileFromLocation": "",
+    "dropHere": "ここにドロップします",
+    "or": "または",
+    "selectFile": "ファイルを選択",
+    "fetchFileFromLocation": "場所からファイルを取得します。",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
+      "newDataValidation": "新規のデータ検証",
+      "newValidation": "新規の検証",
       "about": "・・・について",
       "darwinCoreExtensions": "",
-      "metaData": "",
-      "summary": ""
+      "metaData": "メタデータ",
+      "summary": "概要"
     }
   }
 }
