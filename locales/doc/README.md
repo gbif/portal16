@@ -1,13 +1,14 @@
 
 # About translations
 
-[Getting started](#getting-started))
-[How does it work and why Crowdin](#screenshots-of-the-absolute-basics))
-[What to translate](#screenshots-of-the-absolute-basics))
-[Context of the translations](#screenshots-of-the-absolute-basics))
-[Variables, pluralizations and Markdown](#screenshots-of-the-absolute-basics))
-[When does it show on GBIF.org](#screenshots-of-the-absolute-basics))
-[Screenshots of the absolute basics](#screenshots-of-the-absolute-basics))
+* [Getting started](#getting-started)
+* [How does it work and why Crowdin](#how-does-it-work-and-why-crowdin)
+* [What to translate](#what-to-translate)
+* [Context of the translations](#scontext-of-the-translations)
+* [Variables, pluralizations and Markdown](#variables-pluralizations-and-markdown)
+* [Issues](#issues)
+* [When does it show on GBIF.org](#when-does-it-show-on-gbiforg)
+* [Screenshots of the absolute basics](#screenshots-of-the-absolute-basics)
 
 
 ## Getting started
