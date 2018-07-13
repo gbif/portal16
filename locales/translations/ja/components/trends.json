@@ -1,7 +1,7 @@
 {
   "trends": {
-    "theseChartsIllustrate1": "",
-    "noOccRecords": "",
+    "theseChartsIllustrate1": "これらのグラフは利用可能な種のオカレンスレコードの経年変化を示しています。",
+    "noOccRecords": "オカレンスレコードの件数",
     "occByKingdomChartText": "",
     "recordsByKingdom": "",
     "animaliaByBasisOfRecordText": "",
