@@ -22,19 +22,19 @@
       "contractCountry": "国または地域",
       "newsAndEvents": "ニュース＆イベント",
       "call": "招集",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "projectLead": "プロジェクト リーダー",
+      "contactDetalils": "連絡先の詳細",
+      "partners": "パートナー"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "GBIF 経由で使用されたデータリソース"
     },
     "literature": {
-      "keywords": ""
+      "keywords": "キーワード"
     },
     "auxiliary": {
-      "subject": "",
-      "citation": "",
+      "subject": "タイトル",
+      "citation": "引用",
       "organisingParticipants": ""
     }
   }
