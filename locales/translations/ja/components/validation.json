@@ -91,9 +91,9 @@
       "SUBMITTED": "ファイルを送信中",
       "FETCHING": "ファイルを取得中",
       "ACCEPTED": "検証開始",
-      "RUNNING": "",
-      "FINISHED": "",
-      "FAILED": "",
+      "RUNNING": "検証進行中",
+      "FINISHED": "検証完了",
+      "FAILED": "検証に失敗しました。ファイルの種類を確認するか、URLを選択した場合は該当のファイルが指定した場所に存在するか確認してください。",
       "CONTACTING_SERVER": ""
     },
     "jobId": "",
