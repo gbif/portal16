@@ -9,8 +9,8 @@
       "CLB_INTERPRETATION_BASED": "GBIF分類群の解釈"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
+      "DWCA_UNREADABLE": "ダーウィンコアアーカイブを読み込みできません",
+      "DWCA_META_XML_NOT_FOUND": "Meta.xml ファイルが見つかりません",
       "DWCA_META_XML_SCHEMA": "",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
