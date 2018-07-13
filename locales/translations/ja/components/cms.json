@@ -11,30 +11,30 @@
       "end": "終了",
       "fundsAllocated": "資金の割り当て",
       "matchingFunds": "共同出資推計",
-      "funding": "",
+      "funding": "資金調達",
       "coFunding": "共同資金",
       "fundedBy": "資金提供者",
       "coFundedBy": "共同出資",
       "typeOfGrant": "資金のタイプ",
       "projectStart": "プロジェクトの開始時期",
-      "status": "",
+      "status": "状況",
       "programme": "プログラム",
       "contractCountry": "国または地域",
       "newsAndEvents": "ニュース＆イベント",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "call": "招集",
+      "projectLead": "プロジェクト リーダー",
+      "contactDetalils": "連絡先の詳細",
+      "partners": "パートナー"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "GBIF 経由で使用されたデータリソース"
     },
     "literature": {
-      "keywords": ""
+      "keywords": "キーワード"
     },
     "auxiliary": {
-      "subject": "",
-      "citation": "",
+      "subject": "タイトル",
+      "citation": "引用",
       "organisingParticipants": ""
     }
   }

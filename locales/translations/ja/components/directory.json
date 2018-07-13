@@ -3,50 +3,50 @@
     "group": {
       "executiveCommittee": {
         "title": "執行委員会",
-        "description": ""
+        "description": "執行委員会は、理事会に代わって委任された責任の範囲内での運営を、理事会の会期以外に行ないます。その中には、理事会によって決定された事項の実行状況に関する事務局の活動状況のモニタリング（戦略計画と作業計画の実施と予算の管理などを含む）があります。"
       },
       "scienceCommittee": {
         "title": "科学委員会",
-        "description": ""
+        "description": "GBIF 科学委員会は、GBIF 作業プログラムの進行状況を監督し、理事会、実行委員会および事務局に対して提言を行う諮問委員会です。権限範囲については こちら[here](/document/80877/current-terms-of-reference-for-the-science-committee) をご参照ください。"
       },
       "budgetCommittee": {
         "title": "予算委員会",
-        "description": ""
+        "description": "予算委員会は、GBIF の資金の管理に関連するさまざまな問題を扱う諮問委員会です。また、理事会に提出された年次決算を監査し、GBIF の監査会社の選択を指導します。予算委員会は、理事会、執行委員会、事務局に対して提言を行います。権限範囲についてはこちら [here.]をご参照ください (/document/80669/terms-of-reference-for-the-gbif-budget-committee)。"
       },
       "nsg": {
-        "title": "",
-        "description": ""
+        "title": "ノード運営グループ",
+        "description": "ノード運営グループ（Nodes Steering Group (NSG) ）は、2011 年に設置され、議長、副議長、次のGBIF の6つの地域を代表する[参加者ノード マネージャー Committee](/contact-us/directory?group=nodesCommittee) からなります。アフリカ[Africa](/、gbif ネットワーク/アフリカ)、 アジア[Asia](/、gbif ネットワーク/アジア)、 ヨーロッパ[Europe](/、gbif ネットワーク/ヨーロッパ)、 ラテンアメリカ・カリブ海[ラテン アメリカ/カリブ海] (/gbif ネットワーク/中南米) 、北アメリカ[北 America](/the-gbif-network/north-america) 、オセアニア [Oceania](/、gbif ネットワーク ・ オセアニア)。NSGの目的は、参加者ノードからのフィードバックに基づいて、関連する GBIF 内の部署・委員会に提言すること。 GBIF ノードの努力に関係してGBIF の年間作業計画に関する助言を行うことです。"
       },
       "nodesCommittee": {
-        "title": "",
-        "description": ""
+        "title": "ノード マネージャー委員会",
+        "description": "参加者ノード マネージャー委員会 （またはノード委員会）は、すべて参加者（国や国際機関）によって任命されたノード マネージャーによって構成される、活動的なグループです。委員会には、最大2 年の任期を2回全うすることができる3つの委員長ポジションがあり、理事会における投票によって選出されます。"
       },
       "secretariat": {
         "title": "GBIF 事務局",
-        "description": ""
+        "description": "デンマーク、コペンハーゲンの自然史博物館にあるGBIF 事務局は、GBIF 作業計画の設定・実行・報告を行ないます。事務局のタスクには次のようなことが含まれます：\n- GBIF ポータルと関連のインフォマティックスに関する運営\n- GBIFのネットワークに関連したデータ収集、公開および管理に関する調整 \n- データのギャップと、GBIF を介したデータの科学的利用に関するモニタリング\n- 中核的コミュニケーションとコラボレーションサービスの運営"
       },
       "voting": {
-        "title": "",
-        "description": ""
+        "title": "正規参加者",
+        "description": "GBIF の覚書に署名し、GBIFコアファンドの拠出への基本的支出に同意した国。"
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "準参加国",
+        "description": "GBIF の覚書に署名しているが、GBIFコアファンド拠出は行わない国。GBIF 理事会での投票はありません。"
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "その他の準正規参加者",
+        "description": "政府間機関、国際機関、国際的なスコープをもつ機関、経済的地域で、GBIF との覚書を締結している組織。"
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "役割",
+      "name": "名前",
+      "participant": "参加者",
+      "participationStatus": "参加者のステータス"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "details": "詳細",
+    "roles": "役割",
+    "sinceDate": "{DATE} から",
+    "showAllContacts": "すべて"
   }
 }

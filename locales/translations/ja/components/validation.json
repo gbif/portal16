@@ -1,16 +1,16 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
-      "CLB_INTERPRETATION_BASED": ""
+      "RESOURCE_STRUCTURE": "リソース構造",
+      "RESOURCE_INTEGRITY": "リソースの整合性",
+      "RECORD_STRUCTURE": "レコード構造",
+      "OCC_INTERPRETATION_BASED": "GBIFオカレンスの解釈",
+      "METADATA_CONTENT": "メタデータコンテンツ",
+      "CLB_INTERPRETATION_BASED": "GBIF分類群の解釈"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
+      "DWCA_UNREADABLE": "ダーウィンコアアーカイブを読み込みできません",
+      "DWCA_META_XML_NOT_FOUND": "Meta.xml ファイルが見つかりません",
       "DWCA_META_XML_SCHEMA": "",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
