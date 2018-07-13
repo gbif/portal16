@@ -1,12 +1,12 @@
 {
     "dataset": {
         "registry": {
-            "failedSinceSuccess": "",
-            "lastFailed": "",
-            "registrationDate": "",
-            "lastSuccess": "",
-            "lastWithChange": "",
-            "noEntries": "",
+            "failedSinceSuccess": "最も最近のデータ取り込み以来試行失敗",
+            "lastFailed": "前回の失敗した試行",
+            "registrationDate": "登録日",
+            "lastSuccess": "前回成功したデータ取り込み",
+            "lastWithChange": "前回変更あった取り込み",
+            "noEntries": "このデータセットには取り込めるデータがありません。",
             "lastWithDataChange": "",
             "occInLastIngestion": "",
             "completionReasons": "",
