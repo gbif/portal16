@@ -81,16 +81,16 @@
     "interpretedCounts": {
       "date": "",
       "taxon": "分類群が解釈できたデータの行数",
-      "location": ""
+      "location": "座標が解釈できたデータの行数"
     },
     "interpretedValueCounts": {
       "title": ""
     },
     "status": {
       "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
+      "SUBMITTED": "ファイルを送信中",
+      "FETCHING": "ファイルを取得中",
+      "ACCEPTED": "検証開始",
       "RUNNING": "",
       "FINISHED": "",
       "FAILED": "",
