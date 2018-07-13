@@ -11,8 +11,8 @@
     "issueType": {
       "DWCA_UNREADABLE": "ダーウィンコアアーカイブを読み込みできません",
       "DWCA_META_XML_NOT_FOUND": "Meta.xml ファイルが見つかりません",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
+      "DWCA_META_XML_SCHEMA": "Meta.xml スキーマ検証に失敗しました",
+      "RECORD_IDENTIFIER_NOT_FOUND": "ファイル内でレコードIDが見つかりませんでした。",
       "CORE_ROWTYPE_UNDETERMINED": "",
       "EML_NOT_FOUND": "",
       "EML_GBIF_SCHEMA": "",
