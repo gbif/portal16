@@ -13,14 +13,17 @@
                         <tbody>
                             <tr ng-repeat="country in speciesKey2.invadedCountries.results | limitTo:speciesKey2.invadedListLength">
                                 <td>
-                                    <span translate="country.{{country.invadedCountry}}">{{ country.invadedCountry }}</span>
+                                    <span translate="country.{{country.invadedCountry}}" translate-keep-content>{{ country.invadedCountry }}</span>
                                 </td>
                                 <td>
                                     <span><a ui-sref="datasetKey({key: country.datasetKey})">{{ country.dataset }}</a></span>
                                 </td>
                                 <td>
-                                    <span>
+                                    <span ng-if="!country.isSubCountry">
                                         <a ui-sref="occurrenceSearchTable({taxon_key:country.nubKey, country: country.invadedCountry})" count="{{ portal.dataApi }}occurrence/search?taxon_key={{ country.nubKey }}&country={{ country.invadedCountry }}" count-translation="counts.nOccurrences"></a>
+                                    </span>
+                                    <span ng-if="country.isSubCountry" class="discreet--very">
+                                        Unknown
                                     </span>
                                 </td>
                             </tr>

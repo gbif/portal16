@@ -236,10 +236,12 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
         return keyword.startsWith('country_');
     });
     if (species.length > 0 && invadedCountry) {
-        invadedCountry = invadedCountry.replace('country_', '');
+        let isSubCountry = invadedCountry.length > 10;
+        invadedCountry = invadedCountry.substring(8, 10).toUpperCase();
         // compose result obj with the properties we need for displaying the list - no need to send full species and dataaset obj.
         return {
             invadedCountry: invadedCountry,
+            isSubCountry: isSubCountry,
             datasetKey: dataset.key,
             dataset: dataset.title,
             scientificName: species[0].scientificName,
