@@ -19,7 +19,7 @@
     "tools": "Herramientas",
     "ipt": "IPT",
     "dataValidator": "Validador de datos",
-    "suggestDataset": "",
+    "suggestDataset": "Sugerir un conjunto de datos",
     "dataRepository": "Repositorio de datos",
     "developers": "Usuarios",
     "api": "GBIF API",
