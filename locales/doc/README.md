@@ -1,6 +1,15 @@
 
 # About translations
 
+[Getting started](#getting-started))
+[How does it work and why Crowdin](#screenshots-of-the-absolute-basics))
+[What to translate](#screenshots-of-the-absolute-basics))
+[Context of the translations](#screenshots-of-the-absolute-basics))
+[Variables, pluralizations and Markdown](#screenshots-of-the-absolute-basics))
+[When does it show on GBIF.org](#screenshots-of-the-absolute-basics))
+[Screenshots of the absolute basics](#screenshots-of-the-absolute-basics))
+
+
 ## Getting started
 
 Translations are done using the website [Crowdin](https://crowdin.com/) - so you need an account for that.
