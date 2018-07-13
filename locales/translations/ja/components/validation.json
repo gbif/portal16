@@ -80,7 +80,7 @@
     },
     "interpretedCounts": {
       "date": "",
-      "taxon": "",
+      "taxon": "分類群が解釈できたデータの行数",
       "location": ""
     },
     "interpretedValueCounts": {
@@ -110,7 +110,7 @@
     "submit": "",
     "dropHere": "ここにドロップします",
     "or": "または",
-    "selectFile": "ファイルを選択",
+    "selectFile": "ファイルを選択します",
     "fetchFileFromLocation": "場所からファイルを取得します。",
     "tabs": {
       "newDataValidation": "新規のデータ検証",
