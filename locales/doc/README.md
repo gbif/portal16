@@ -3,7 +3,7 @@
 
 * [Getting started](#getting-started)
 * [How does it work and why Crowdin](#how-does-it-work-and-why-crowdin)
-* [What to translate](#what-to-translate)
+* [What to translate (priorities)](#what-to-translate)
 * [Context of the translations](#scontext-of-the-translations)
 * [Variables, pluralizations and Markdown](#variables-pluralizations-and-markdown)
 * [Issues](#issues)
@@ -50,6 +50,9 @@ In theory you could just upload a file with translated strings. In danish that w
 But because it is easy to make mistakes we use a translation tool called Crowdin. That also helps with proof reading and gives automates suggestions as well as having other benefits.
 
 ## What to translate
+
+> A 45% translated site might still appear like being 95% done. Choose the parts that matter most to your audience.
+
 It is of course best if everything is translated, but it is possible to only translate parts of the site, but in some cases it will mean that two adjacent words will be in different languages.
 
 We suggest that you start with:
