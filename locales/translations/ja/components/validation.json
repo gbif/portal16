@@ -1,12 +1,12 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
-      "CLB_INTERPRETATION_BASED": ""
+      "RESOURCE_STRUCTURE": "リソース構造",
+      "RESOURCE_INTEGRITY": "リソースの整合性",
+      "RECORD_STRUCTURE": "レコード構造",
+      "OCC_INTERPRETATION_BASED": "GBIFオカレンスの解釈",
+      "METADATA_CONTENT": "メタデータコンテンツ",
+      "CLB_INTERPRETATION_BASED": "GBIF分類群の解釈"
     },
     "issueType": {
       "DWCA_UNREADABLE": "",
