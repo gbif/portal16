@@ -7,14 +7,14 @@
       },
       "scienceCommittee": {
         "title": "科学委員会",
-        "description": ""
+        "description": "GBIF 科学委員会は、GBIF 作業プログラムの進行状況を監督し、理事会、実行委員会および事務局に対して提言を行う諮問委員会です。権限範囲については こちら[here](/document/80877/current-terms-of-reference-for-the-science-committee) をご参照ください。"
       },
       "budgetCommittee": {
         "title": "予算委員会",
-        "description": ""
+        "description": "予算委員会は、GBIF の資金の管理に関連するさまざまな問題を扱う諮問委員会です。また、理事会に提出された年次決算を監査し、GBIF の監査会社の選択を指導します。予算委員会は、理事会、執行委員会、事務局に対して提言を行います。権限範囲についてはこちら [here.]をご参照ください (/document/80669/terms-of-reference-for-the-gbif-budget-committee)。"
       },
       "nsg": {
-        "title": "",
+        "title": "ノード運営グループ",
         "description": ""
       },
       "nodesCommittee": {
