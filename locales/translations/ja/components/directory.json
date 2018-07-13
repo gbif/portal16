@@ -23,19 +23,19 @@
       },
       "secretariat": {
         "title": "GBIF 事務局",
-        "description": ""
+        "description": "デンマーク、コペンハーゲンの自然史博物館にあるGBIF 事務局は、GBIF 作業計画の設定・実行・報告を行ないます。事務局のタスクには次のようなことが含まれます：\n- GBIF ポータルと関連のインフォマティックスに関する運営\n- GBIFのネットワークに関連したデータ収集、公開および管理に関する調整 \n- データのギャップと、GBIF を介したデータの科学的利用に関するモニタリング\n- 中核的コミュニケーションとコラボレーションサービスの運営"
       },
       "voting": {
         "title": "正規参加者",
-        "description": ""
+        "description": "GBIF の覚書に署名し、GBIFコアファンドの拠出への基本的支出に同意した国。"
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "準参加国",
+        "description": "GBIF の覚書に署名しているが、GBIFコアファンド拠出は行わない国。GBIF 理事会での投票はありません。"
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "その他の準正規参加者",
+        "description": "政府間機関、国際機関、国際的なスコープをもつ機関、経済的地域で、GBIF との覚書を締結している組織。"
       }
     },
     "columns": {
