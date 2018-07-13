@@ -11,8 +11,8 @@
     "issueType": {
       "DWCA_UNREADABLE": "ダーウィンコアアーカイブを読み込みできません",
       "DWCA_META_XML_NOT_FOUND": "Meta.xml ファイルが見つかりません",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
+      "DWCA_META_XML_SCHEMA": "Meta.xml スキーマ検証に失敗しました",
+      "RECORD_IDENTIFIER_NOT_FOUND": "ファイル内でレコードIDが見つかりませんでした。",
       "CORE_ROWTYPE_UNDETERMINED": "",
       "EML_NOT_FOUND": "",
       "EML_GBIF_SCHEMA": "",
@@ -80,20 +80,20 @@
     },
     "interpretedCounts": {
       "date": "",
-      "taxon": "",
-      "location": ""
+      "taxon": "分類群が解釈できたデータの行数",
+      "location": "座標が解釈できたデータの行数"
     },
     "interpretedValueCounts": {
       "title": ""
     },
     "status": {
       "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
-      "FAILED": "",
+      "SUBMITTED": "ファイルを送信中",
+      "FETCHING": "ファイルを取得中",
+      "ACCEPTED": "検証開始",
+      "RUNNING": "検証進行中",
+      "FINISHED": "検証完了",
+      "FAILED": "検証に失敗しました。ファイルの種類を確認するか、URLを選択した場合は該当のファイルが指定した場所に存在するか確認してください。",
       "CONTACTING_SERVER": ""
     },
     "jobId": "",
@@ -102,15 +102,15 @@
     "numberOfLines": "",
     "reportProducedByGbifDataValidator": "",
     "validationReport": "",
-    "dataValidator": "",
-    "dataValidatorDescription": "",
+    "dataValidator": "データ検証",
+    "dataValidatorDescription": "GBIFデータ検証は、GBIFに適合したデータセットがあれば誰でも利用可能なサービスです。データセットの中身について構文の正確さや妥当性を検証しレポートとして受け取ることができます。",
     "thisIsAnEarlyAccessVersion": "こちらは早期アクセス版です。ご意見・ご要望・不具合等をご報告ください。",
     "here": "こちら",
     "coreRowType": "",
     "submit": "",
     "dropHere": "ここにドロップします",
     "or": "または",
-    "selectFile": "ファイルを選択",
+    "selectFile": "ファイルを選択します",
     "fetchFileFromLocation": "場所からファイルを取得します。",
     "tabs": {
       "newDataValidation": "新規のデータ検証",

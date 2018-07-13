@@ -1,9 +1,9 @@
 {
   "trends": {
-    "theseChartsIllustrate1": "",
-    "noOccRecords": "",
-    "occByKingdomChartText": "",
-    "recordsByKingdom": "",
+    "theseChartsIllustrate1": "これらのグラフは利用可能な種のオカレンスレコードの経年変化を示しています。",
+    "noOccRecords": "オカレンスレコードの件数",
+    "occByKingdomChartText": "界で分類されたデータのレコード件数です。「不明」は利用可能な分類群チェックリストに紐付けができない分類学的情報を持ったレコードを含みます。",
+    "recordsByKingdom": "界のレコード件数",
     "animaliaByBasisOfRecordText": "",
     "recordsForAnimalia": "",
     "plantaeByBasisOfRecordText": "",
