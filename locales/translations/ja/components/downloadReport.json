@@ -27,14 +27,14 @@
     "requestingFullDownload": "あなたはGBIF のすべてのオカレンスデータの完全なダウンロードを要求しています。",
     "occFiltersExplainedHere": "これは可能ですが、ダウンロードする前にデータをフィルタにかけることもできます。そのためにはオカレンスフィルタを使います。こちらに説明 [here](/news/3K5oLzZXi0yG0SEO8E6c88/top-tip-using-filters-and-facets-on-gbiforg)があります。",
     "estSizeIs": "ダウンロードの予想サイズは {SIZE_FORMATTED}",
-    "estDLtimes": "",
-    "nMbitConn": "",
-    "onceDownloaded": "",
-    "datasetHasNumRows": "",
-    "youWillNotBeAble": "",
-    "difficultToAnalyse": "",
-    "hours": "",
-    "minute": "",
-    "minutes": ""
+    "estDLtimes": "推定ダウンロード所要時間:",
+    "nMbitConn": "{NUMBER} Mbit の接続",
+    "onceDownloaded": "ファイルをダウンロードした後、さらに {SIZE_FORMATTED} データ解凍のための空領域が必要です。",
+    "datasetHasNumRows": "データセットのデータ行数が {NUMBER_FORMATTED} です。",
+    "youWillNotBeAble": "Excel や同様のアプリケーションでデータを表示したり分析することはできません。これらのデータを扱うためには、R、Python やリレーショナル データベースなどの知識が必要です。",
+    "difficultToAnalyse": "このサイズのデータセットは、通常のデスクトップ コンピューターで分析することは困難です。分散コンピューティング サービスへのアクセスが必要でしょう。",
+    "hours": "時間",
+    "minute": "分",
+    "minutes": "分"
   }
 }
