@@ -18,7 +18,7 @@
     "learnMore": "もっと詳しく",
     "sizeZippedForDownload": "{SIZE_FORMATTED} zip 形式でダウンロード",
     "freeOfCost": "無料ですが、責任は生じます。",
-    "promoteTransperant": "",
+    "promoteTransperant": "データの正しい引用は、透明性の高い科学と、データ出版者に謝意を表するために重要です。このためには要求したデータとともに提供される［GBIFが推奨する引用］(https://www.gbif.org/citation-guidelines) に従ってください。",
     "ifAnalysingData": "もし、ダウンロードしたデータを解析するのであれば、これを材料と方法のセクションで引用することを検討してください。",
     "cancel": "中止",
     "proceed": "進む",
