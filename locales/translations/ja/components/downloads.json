@@ -38,23 +38,23 @@
     "humanFilterView": "人",
     "downloadStarted": "ダウンロードが開始され、現在処理中です。",
     "downloadExpectTime": "ダウンロードが完了するまでに 最大3 時間お待ち下さい。ほとんどのダウンロードは 15 分以内に完了します。",
-    "notificationEmailAddresses": "",
+    "notificationEmailAddresses": "準備でき次第、ダウンロードへのリンクが次のアドレスにメールで通知されます。 ",
     "status": {
-      "PREPARING": "",
-      "SUSPENDED": "",
-      "RUNNING": "",
-      "CANCELLED": "",
-      "KILLED": ""
+      "PREPARING": "準備中",
+      "SUSPENDED": "保留中",
+      "RUNNING": "処理中",
+      "CANCELLED": "中止しました。",
+      "KILLED": "抹消されました。"
     },
     "predicate": {
       "joinDescriptions": {
-        "and": "",
-        "or": "",
-        "not": ""
+        "and": "すべてを適用する",
+        "or": "少なくとも 1 つを適用する",
+        "not": "どれも含めない"
       },
-      "and": "",
-      "or": "",
-      "not": "",
+      "and": "および",
+      "or": "または",
+      "not": "ない",
       "isNotNull": ""
     }
   }
