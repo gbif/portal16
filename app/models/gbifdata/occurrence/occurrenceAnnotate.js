@@ -8,8 +8,8 @@ let AnnosysBaseUrl = env == 'prod' ? 'https://annosys.bgbm.fu-berlin.de/AnnoSys/
 let config = {
     publisher: {
         '28eb1a3f-1c15-4a95-931a-4af90ecb574d': {
-            url: '{{occurrenceID}}',
-            keys: ['occurrenceID'],
+            url: '{{references}}',
+            keys: ['references'],
             name: 'iNaturalist',
             abbrivation: 'iN'
         },
