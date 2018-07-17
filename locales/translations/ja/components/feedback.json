@@ -23,25 +23,25 @@
       "title": "ヘルプデスク",
       "example": "例：どのように希少種のデータを保護していますか。この種について公海でのオカレンスレコードを全て探すにはどうすればよいですか。",
       "description": "問い合わせは全てヘルプデスク（helpdesk@gbif.org）が回答します。",
-      "comment": "個人的な質問や技術的な質問は[info@gbif.org](mailto:info@gbif.org)、報道関係は[communication@gbif.org](mailto:communication@gbif.org)までご連絡ください。"
+      "comment": "個人的な質問や技術的な質問は[info@gbif.org](mailto:info@gbif.org)まで、報道関係は[communication@gbif.org](mailto:communication@gbif.org)までご連絡ください。"
     },
     "confirmation": {
-      "title": "",
+      "title": "ありがとうございます。",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "問題を確認する"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "コンテンツの問題",
+      "description": "他のユーザーによって報告されたコンテンツの問題",
+      "create": "フィードバックを書く"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "概要",
+      "description": "詳細な説明。分類学的情報の場合は引用文献を提供してください。",
+      "username": "あなたの電子メールまたは Github ユーザー名 (パブリック)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
+    "markdownSupport": "マークダウンサポート",
+    "issueTracking": "全ての問題が [Github](https://github.com/gbif/portal-feedback/issues)で公開され、閲覧できます。",
     "failure": "",
     "weRecommendX": "",
     "tellGbif": "",
