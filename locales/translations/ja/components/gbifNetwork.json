@@ -15,20 +15,20 @@
       "other": "その他の準参加団体"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "元参加団体",
+      "other": "元参加団体"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "GBIF提携団体",
+      "other": "GBIF提携団体"
     },
-    "role": "",
+    "role": "役割",
     "group": {
 
     },
     "gbif_secretariat": "GBIF 事務局",
-    "membershipType": "",
-    "name": "",
+    "membershipType": "メンバーシップ",
+    "name": "名称",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
