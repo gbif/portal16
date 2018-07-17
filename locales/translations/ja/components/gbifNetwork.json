@@ -1,7 +1,7 @@
 {
   "gbifNetwork": {
     "title": "ディレクトリ",
-    "contact": "コンタクト",
+    "contact": "問い合わせ",
     "voting_participant": {
       "one": "正規参加団体",
       "other": "正規参加団体"
@@ -36,18 +36,18 @@
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "gbifAffiliates": "GBIF提携団体"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "NODE_MANAGER": "ノード マネージャー"
     },
     "publishers": "出版者",
-    "memberSince": "",
-    "participant": "",
+    "memberSince": "～以来のメンバー",
+    "participant": "参加団体",
     "pPublishers": "",
     "pOccurrence": "",
-    "occurrenceDatasets": "",
+    "occurrenceDatasets": "オカレンスデータセット",
     "occurrences": "オカレンス"
   }
 }
