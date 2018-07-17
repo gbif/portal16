@@ -13,101 +13,101 @@
       "DWCA_META_XML_NOT_FOUND": "Meta.xml ファイルが見つかりません",
       "DWCA_META_XML_SCHEMA": "Meta.xml スキーマ検証に失敗しました",
       "RECORD_IDENTIFIER_NOT_FOUND": "ファイル内でレコードIDが見つかりませんでした。",
-      "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
-      "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
-      "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "CORE_ROWTYPE_UNDETERMINED": "rowTypeが見つかりませんでした。またはrowTypeを決定することができませんでした。",
+      "EML_NOT_FOUND": "EML ドキュメントが見つかりませんでした。",
+      "EML_GBIF_SCHEMA": "このEMLドキュメントではスキーマ検証を実行できません。",
+      "UNKNOWN_ROWTYPE": "コア／拡張に使われているrowTypeが不明です。",
+      "REQUIRED_TERM_MISSING": "コア／拡張に必要な用語が見つかりません。",
+      "COLUMN_MISMATCH": "列の不一致",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "レコードの参照整合性違反",
+      "UNKNOWN_TERM": "不明な用語",
+      "DUPLICATED_TERM": "重複している用語",
+      "TITLE_MISSING_OR_TOO_SHORT": "データセットのタイトルが見つからないか、短すぎます。",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "リソース作成者が見つからないか、不完全な情報となっています。",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "データセットのタイトルが見つからないか、短すぎます。",
+      "LICENSE_MISSING_OR_UNKNOWN": "ライセンスを解析できません。GBIFでサポートされていないライセンスであるか、ライセンス情報そのものが見つかりません。",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "レコードが一意ではありません。",
+      "UNREADABLE_SECTION_ERROR": "読み取りができないセクションのエラー",
+      "NoIssuesFound": "問題は見つかりませんでした。"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "ファイル形式",
+      "DWCA": "ダーウィンコアアーカイブ",
+      "TABULAR": "表形式のファイル (.csv、.tsv)",
+      "SPREADSHEET": "スプレッドシート (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "行の種類（rowType）",
       "CORE": {
         "title": "コア"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "拡張モジュール"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "EML（Ecological Metadata Language）形式でデータを記述したメタデータ",
+        "title": "メタデータドキュメント"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "セマンティック注釈によるデータ構造（ファイル、列など）の説明",
+        "title": "メタ記述子"
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
-    "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "fileSizeLimit": "ファイル サイズの制限: 100MB",
+    "receivedMediaType": "メディアの種類",
+    "uniqueIdentifier": "一意識別子",
+    "reportLocation": "このレポートに書き込まれています。",
+    "reportDeletion": "1 ヶ月後に削除されます。それまではいつでもレポートを閲覧することが可能です。",
+    "reportGenerated": "作成されました。",
+    "summary": "検証の概要",
+    "issues": "検証の問題",
+    "fileHasIssues": "検証によっていくつかの問題が検出されました。",
+    "fileHasNoIssues": "このファイルに問題は見つかりませんでした。",
+    "error": "エラー",
     "errors": {
-      "400": "",
-      "404": "",
-      "413": "",
-      "415": ""
+      "400": "ファイルを処理できませんでした。URL を指定した場合はファイルが見つからなかった可能性があります。",
+      "404": "検証ジョブIDが見つかりませんでした。これがエラーである場合はご報告ください。",
+      "413": "ファイルが大きすぎるため、データ検証の処理ができません。",
+      "415": "ファイルの種類がサポートされていません。ファイルを処理できませんでした。"
     },
-    "backToValidator": "",
+    "backToValidator": "新しい検証を開始します。",
     "termsFrequency": {
-      "title": "",
-      "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "title": "用語の頻度",
+      "term": "用語",
+      "count": "件数",
+      "percentage": "割合（％）",
+      "interpreted": "解釈された"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "分類群が解釈できたデータの行数",
-      "location": "座標が解釈できたデータの行数"
+      "date": "日付が解釈できたデータの件数",
+      "taxon": "分類群が解釈できたデータの件数",
+      "location": "座標が解釈できたデータの件数"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "値が解釈できたデータの件数"
     },
     "status": {
-      "title": "",
+      "title": "ステータス",
       "SUBMITTED": "ファイルを送信中",
       "FETCHING": "ファイルを取得中",
       "ACCEPTED": "検証開始",
       "RUNNING": "検証進行中",
       "FINISHED": "検証完了",
       "FAILED": "検証に失敗しました。ファイルの種類を確認するか、URLを選択した場合は該当のファイルが指定した場所に存在するか確認してください。",
-      "CONTACTING_SERVER": ""
+      "CONTACTING_SERVER": "サーバに接続中"
     },
-    "jobId": "",
-    "indexeable": "",
-    "notIndexeable": "",
-    "numberOfLines": "",
-    "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
+    "jobId": "ジョブID",
+    "indexeable": "このファイルではGBIFのインデックスを作成できます。",
+    "notIndexeable": "このファイルではGBIFのインデックスを作成できません。",
+    "numberOfLines": "行数",
+    "reportProducedByGbifDataValidator": "GBIFデータ検証によるレポート",
+    "validationReport": "検証レポート",
     "dataValidator": "データ検証",
     "dataValidatorDescription": "GBIFデータ検証は、GBIFに適合したデータセットがあれば誰でも利用可能なサービスです。データセットの中身について構文の正確さや妥当性を検証しレポートとして受け取ることができます。",
     "thisIsAnEarlyAccessVersion": "こちらは早期アクセス版です。ご意見・ご要望・不具合等をご報告ください。",
     "here": "こちら",
-    "coreRowType": "",
-    "submit": "",
+    "coreRowType": "コアのrowType",
+    "submit": "実行する",
     "dropHere": "ここにドロップします",
     "or": "または",
     "selectFile": "ファイルを選択します",
@@ -116,7 +116,7 @@
       "newDataValidation": "新規のデータ検証",
       "newValidation": "新規の検証",
       "about": "・・・について",
-      "darwinCoreExtensions": "",
+      "darwinCoreExtensions": "ダーウィン コア拡張モジュール",
       "metaData": "メタデータ",
       "summary": "概要"
     }

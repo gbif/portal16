@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "システム正常性",
+        "description": "各種GBIFサービスの状態はどうなっていますか。",
+        "updatedTimeAgo": "更新 {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "全てのシステムが動作しています。",
+            "INFO": "全てのシステムが動作しています。",
+            "WARNING": "システムが不安定もしくは動作が遅くなっています。",
+            "CRITICAL": "部分的な停電が発生しています。"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "サービスが不安定",
+                "summary": "現在サービスが不安定もしくは動作が遅くなっています。"
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "サービスを利用できません",
+                "summary": "部分的な停電が発生しています。"
             }
         }
     }
