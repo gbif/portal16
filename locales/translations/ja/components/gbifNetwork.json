@@ -1,13 +1,13 @@
 {
   "gbifNetwork": {
-    "title": "",
+    "title": "ディレクトリ",
     "contact": "コンタクト",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "正規参加団体",
+      "other": "正規参加団体"
     },
     "associate_country_participant": {
-      "one": "",
+      "one": "準参加国または団体",
       "other": ""
     },
     "other_associate_participant": {
