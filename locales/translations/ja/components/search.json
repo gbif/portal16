@@ -1,31 +1,31 @@
 {
   "search": {
-    "placeholder": "",
-    "noSearchTermsEntered": "",
-    "notSureWhatYouAreLookingFor": "",
-    "cannotFindWhatYouAreLookingFor": "",
-    "trySpecifyingAType": "",
-    "everything": "",
+    "placeholder": "オカレンス、種、ニュース・・・",
+    "noSearchTermsEntered": "検索文字列が入力されていません。",
+    "notSureWhatYouAreLookingFor": "何を検索すればよいかわからないですか？オカレンスデータの種の画像を閲覧してみましょう。",
+    "cannotFindWhatYouAreLookingFor": "お探しのものが見つかりませんか？",
+    "trySpecifyingAType": "タイプを指定してください。",
+    "everything": "全て",
     "occurrences": "オカレンス",
     "species": "種情報",
     "datasets": "データセット",
     "resources": "ナレッジベース",
     "publishers": "出版者",
-    "participants": "",
-    "search": "",
-    "clearFilters": "",
-    "filters": "",
-    "simple": "",
-    "advanced": "",
-    "allResultTypes": "",
-    "suggestions": "",
+    "participants": "参加国および参加組織",
+    "search": "検索",
+    "clearFilters": "フィルターをクリア",
+    "filters": "フィルター",
+    "simple": "基本",
+    "advanced": "詳細",
+    "allResultTypes": "全て",
+    "suggestions": "候補",
     "header": {
-      "searchDatasets": "",
-      "searchPublishers": "",
-      "searchSpecies": "",
-      "searchResources": "",
-      "searchOccurrences": ""
+      "searchDatasets": "データセットの検索",
+      "searchPublishers": "出版者の検索",
+      "searchSpecies": "種を検索する",
+      "searchResources": "リソースを検索する",
+      "searchOccurrences": "オカレンスレコードを検索する"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{結果} other{結果}}"
   }
 }
