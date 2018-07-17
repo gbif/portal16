@@ -57,7 +57,7 @@
     "invalidEmail": "有効なメールアドレスを入力してください。",
     "username": "ユーザ名",
     "usernameRequired": "ユーザ名は必須です。",
-    "invalidUsername": "",
+    "invalidUsername": "有効なユーザ名は３－６４文字の範囲で、使用可能な文字はa-z（小文字）と._-のみです。",
     "passwordRequired": "",
     "passwordLength": "",
     "passwordMaxLength": "",
