@@ -1,6 +1,6 @@
 {
     "galleryBar": {
-        "seeAllImages": "",
-        "nOccWithImages": ""
+        "seeAllImages": "ギャラリーを閲覧する",
+        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, select, 1{オカレンス} other{オカレンス}} 画像あり"
     }
 }
