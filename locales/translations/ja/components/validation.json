@@ -56,38 +56,38 @@
     "fileSizeLimit": "ファイル サイズの制限: 100MB",
     "receivedMediaType": "メディアの種類",
     "uniqueIdentifier": "一意識別子",
-    "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "reportLocation": "このレポートに書き込まれています。",
+    "reportDeletion": "1 ヶ月後に削除されます。それまではいつでもレポートを閲覧することが可能です。",
+    "reportGenerated": "作成されました。",
+    "summary": "検証の概要",
+    "issues": "検証の問題",
+    "fileHasIssues": "検証によっていくつかの問題が検出されました。",
+    "fileHasNoIssues": "このファイルに問題は見つかりませんでした。",
+    "error": "エラー",
     "errors": {
-      "400": "",
-      "404": "",
-      "413": "",
-      "415": ""
+      "400": "ファイルを処理できませんでした。URL を指定した場合はファイルが見つからなかった可能性があります。",
+      "404": "検証ジョブIDが見つかりませんでした。これがエラーである場合はご報告ください。",
+      "413": "ファイルが大きすぎるため、データ検証の処理ができません。",
+      "415": "ファイルの種類がサポートされていません。ファイルを処理できませんでした。"
     },
-    "backToValidator": "",
+    "backToValidator": "新しい検証を開始します。",
     "termsFrequency": {
-      "title": "",
-      "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "title": "用語の頻度",
+      "term": "用語",
+      "count": "件数",
+      "percentage": "割合（％）",
+      "interpreted": "解釈された"
     },
     "interpretedCounts": {
-      "date": "",
+      "date": "日付が解釈できたデータの行数",
       "taxon": "分類群が解釈できたデータの行数",
       "location": "座標が解釈できたデータの行数"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "値が解釈できたデータの件数"
     },
     "status": {
-      "title": "",
+      "title": "ステータス",
       "SUBMITTED": "ファイルを送信中",
       "FETCHING": "ファイルを取得中",
       "ACCEPTED": "検証開始",
