@@ -13,10 +13,10 @@
       "DWCA_META_XML_NOT_FOUND": "Meta.xml ファイルが見つかりません",
       "DWCA_META_XML_SCHEMA": "Meta.xml スキーマ検証に失敗しました",
       "RECORD_IDENTIFIER_NOT_FOUND": "ファイル内でレコードIDが見つかりませんでした。",
-      "CORE_ROWTYPE_UNDETERMINED": "行タイプが見つかりませんでした。または行タイプを決定することができませんでした。",
+      "CORE_ROWTYPE_UNDETERMINED": "rowTypeが見つかりませんでした。またはrowTypeを決定することができませんでした。",
       "EML_NOT_FOUND": "EML ドキュメントが見つかりませんでした。",
       "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "コア／拡張に使われている行タイプが不明です。",
+      "UNKNOWN_ROWTYPE": "コア／拡張に使われているrowTypeが不明です。",
       "REQUIRED_TERM_MISSING": "コア／拡張に必要な用語が見つかりません。",
       "COLUMN_MISMATCH": "列の不一致",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "レコードの参照整合性違反",
@@ -33,20 +33,20 @@
     "fileFormat": {
       "title": "ファイル形式",
       "DWCA": "ダーウィンコアアーカイブ",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "TABULAR": "表形式のファイル (.csv、.tsv)",
+      "SPREADSHEET": "スプレッドシート (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "行の種類（rowType）",
       "CORE": {
         "title": "コア"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "拡張モジュール"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "EML（Ecological Metadata Language）形式でデータを記述したメタデータ",
+        "title": "メタデータドキュメント"
       },
       "META_DESCRIPTOR": {
         "description": "",
