@@ -22,7 +22,7 @@
     "aboutDeletionPolicy": "[削除 policy](/faq?question=for-how-long-will-does-gbif-store-downloads)について続きを読む。",
     "readDatauseAndTerms": "[データ ユーザー agreement](/terms/data-user) と [引用 guidelines](/citation-guidelines) を必ずお読みください。",
     "filterApplied": "{DATE} フィルターを適用しました。",
-    "rerunQuery": "",
+    "rerunQuery": "クエリの再実行",
     "postpone": "削除を延期します。",
     "deleteDownload": "ダウンロードを削除",
     "tellUs": "使用方法について教えてください。",
