@@ -6,17 +6,17 @@
         "statusSummary": {
             "OPERATIONAL": "全てのシステムが動作しています。",
             "INFO": "全てのシステムが動作しています。",
-            "WARNING": "現在システムが不安定もしくは動作が遅くなっています。",
+            "WARNING": "システムが不安定もしくは動作が遅くなっています。",
             "CRITICAL": "部分的な停電が発生しています。"
         },
         "notifications": {
             "WARNING": {
                 "title": "サービスが不安定",
-                "summary": ""
+                "summary": "現在サービスが不安定もしくは動作が遅くなっています。"
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "サービスを利用できません",
+                "summary": "部分的な停電が発生しています。"
             }
         }
     }
