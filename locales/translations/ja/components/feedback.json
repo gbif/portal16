@@ -47,7 +47,7 @@
     "tellGbif": "GBIFに報告する",
     "submit": "送信",
     "seeAllComments": "すべて表示",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "recommendMail": "メールを送信することをお勧めします。",
+    "pleaseLogin": "フィードバックを書くにはログインしてください。または代わりに [Github](https://github.com/gbif/portal-feedback/issues)を使用してください。なぜかと申しますと、残念ながらログインなしだとフィードバックシステムに大量のスパムメールが届くためです。"
   }
 }
