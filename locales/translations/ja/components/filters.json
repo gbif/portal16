@@ -1,10 +1,10 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
-        "clear": "",
-        "add": "",
+        "searchPlaceholder": "検索",
+        "noPreference": "指定なし",
+        "invert": "降順",
+        "clear": "クリア",
+        "add": "追加",
         "repatriation": {
             "description": ""
         },
