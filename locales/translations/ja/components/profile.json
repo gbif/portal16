@@ -2,18 +2,18 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Facebook に接続できません",
+        "GITHUB": "Githubに接続できません"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Facebook にログインできません。",
+        "GITHUB": "Githubにログインできません。"
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
+      "USERNAME_NOT_UNIQUE": "このユーザ名は既に使われています。",
       "LOGIN_UNKNOWN": "",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
       "USER_ALREADY_LOGGED_IN": "",
