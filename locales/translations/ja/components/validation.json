@@ -79,9 +79,9 @@
       "interpreted": "解釈された"
     },
     "interpretedCounts": {
-      "date": "日付が解釈できたデータの行数",
-      "taxon": "分類群が解釈できたデータの行数",
-      "location": "座標が解釈できたデータの行数"
+      "date": "日付が解釈できたデータの件数",
+      "taxon": "分類群が解釈できたデータの件数",
+      "location": "座標が解釈できたデータの件数"
     },
     "interpretedValueCounts": {
       "title": "値が解釈できたデータの件数"
