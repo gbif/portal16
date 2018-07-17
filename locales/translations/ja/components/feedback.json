@@ -7,23 +7,23 @@
     },
     "data content": {
       "title": "コンテンツについて",
-      "example": "例えば：このページは誤植があります。この種は存在しません。この場所はおかしいと思われます。その組織の新しいURLは次の通りです。",
+      "example": "例：このページは誤植があります。この種は存在しません。この場所はおかしいと思われます。その組織の新しいURLは次の通りです。",
       "annotate": "このデータ発行者にはフィードバック対応のウェブサイトがあります。そちらをご利用ください。",
       "contactPerMail": "データセット問い合わせ先に連絡する"
     },
     "bug": {
       "title": "不具合",
-      "example": ""
+      "example": "例：検索ボタンが動作しません。ページを読み込みできません。列が重なって表示されるためこのページを読むことができません。"
     },
     "idea": {
       "title": "アイディア・提案",
-      "example": ""
+      "example": "例：塩基配列データへのリンクを張りたいです。オープンアクセスの記事を全て表示してください。"
     },
     "question": {
-      "title": "",
-      "example": "",
-      "description": "",
-      "comment": ""
+      "title": "ヘルプデスク",
+      "example": "例：どのように希少種のデータを保護していますか。この種について公海でのオカレンスレコードを全て探すにはどうすればよいですか。",
+      "description": "問い合わせは全てヘルプデスク（helpdesk@gbif.org）が回答します。",
+      "comment": "個人的な質問や技術的な質問は[info@gbif.org](mailto:info@gbif.org)、報道関係は[communication@gbif.org](mailto:communication@gbif.org)までご連絡ください。"
     },
     "confirmation": {
       "title": "",
