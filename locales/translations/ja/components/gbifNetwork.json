@@ -7,12 +7,12 @@
       "other": "正規参加団体"
     },
     "associate_country_participant": {
-      "one": "準参加国または団体",
-      "other": ""
+      "one": "準参加国",
+      "other": "準参加国"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "その他の準参加団体",
+      "other": "その他の準参加団体"
     },
     "former_participant": {
       "one": "",
