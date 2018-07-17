@@ -41,8 +41,8 @@
       "username": "あなたの電子メールまたは Github ユーザー名 (パブリック)"
     },
     "markdownSupport": "マークダウンサポート",
-    "issueTracking": "全ての問題が [Github](https://github.com/gbif/portal-feedback/issues)で公開され、閲覧できます。",
-    "failure": "現在フィードバックシステムが動作していません。お手数ですが、電子メールまたは直接[Github](https://github.com/gbif/portal-feedback/issues)にてご報告ください。ご不便をおかけして申し訳ございません。",
+    "issueTracking": "全ての問題が [Github](https://github.com/gbif/portal-feedback/issues) で公開され、閲覧できます。",
+    "failure": "現在フィードバックシステムが動作していません。お手数ですが、電子メールまたは直接[Github](https://github.com/gbif/portal-feedback/issues) にてご報告ください。ご不便をおかけして申し訳ございません。",
     "weRecommendX": "[{NAME}] ({LINK}) の使用を推奨します。",
     "tellGbif": "GBIFに報告する",
     "submit": "送信",
