@@ -9,28 +9,28 @@
             "description": ""
         },
         "ternary": {
-            "yes": "",
-            "no": "",
-            "all": ""
+            "yes": "はい",
+            "no": "いいえ",
+            "all": "全て"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
-            "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "north": "北",
+            "south": "南",
+            "west": "西",
+            "east": "東",
+            "withCoordinates": "座標あり",
+            "withoutCoordinates": "座標なし",
+            "includeFlaggedAsSuspicious": "座標が疑わしいとフラグ付けされたレコードを含む",
+            "onlyShowFlagged": "疑わしいとフラグ付けされたレコードのみを表示する",
+            "past": "最近使用された",
+            "geojson": "GeoJSON",
+            "range": "範囲",
+            "noFiltersAdded": "地域フィルターは追加されていない",
+            "wktPlaceholder": "WKT または GeoJSON-マルチポリゴンはサポートされていません",
+            "invalidTextInput": "無効な WKT または GeoJSON",
+            "tooLarge": "ジオメトリが大きすぎます。",
+            "tooLargeSuggestion": "代わりに範囲ボックスを使用して場所を指定してください。",
+            "invalidRange": "無効な範囲ボックス"
         }
     }
 }

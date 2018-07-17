@@ -1,34 +1,34 @@
 {
   "gbifNetwork": {
-    "title": "",
-    "contact": "コンタクト",
+    "title": "ディレクトリ",
+    "contact": "問い合わせ",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "正規参加団体",
+      "other": "正規参加団体"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "準参加国",
+      "other": "準参加国"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "その他の準参加団体",
+      "other": "その他の準参加団体"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "元参加団体",
+      "other": "元参加団体"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "GBIF提携団体",
+      "other": "GBIF提携団体"
     },
-    "role": "",
+    "role": "役割",
     "group": {
 
     },
     "gbif_secretariat": "GBIF 事務局",
-    "membershipType": "",
-    "name": "",
+    "membershipType": "メンバーシップ",
+    "name": "名称",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
@@ -36,18 +36,18 @@
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "gbifAffiliates": "GBIF提携団体"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "NODE_MANAGER": "ノード マネージャー"
     },
     "publishers": "出版者",
-    "memberSince": "",
-    "participant": "",
+    "memberSince": "～以来のメンバー",
+    "participant": "参加団体",
     "pPublishers": "",
     "pOccurrence": "",
-    "occurrenceDatasets": "",
+    "occurrenceDatasets": "オカレンスデータセット",
     "occurrences": "オカレンス"
   }
 }
