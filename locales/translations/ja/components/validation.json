@@ -15,7 +15,7 @@
       "RECORD_IDENTIFIER_NOT_FOUND": "ファイル内でレコードIDが見つかりませんでした。",
       "CORE_ROWTYPE_UNDETERMINED": "rowTypeが見つかりませんでした。またはrowTypeを決定することができませんでした。",
       "EML_NOT_FOUND": "EML ドキュメントが見つかりませんでした。",
-      "EML_GBIF_SCHEMA": "",
+      "EML_GBIF_SCHEMA": "このEMLドキュメントではスキーマ検証を実行できません。",
       "UNKNOWN_ROWTYPE": "コア／拡張に使われているrowTypeが不明です。",
       "REQUIRED_TERM_MISSING": "コア／拡張に必要な用語が見つかりません。",
       "COLUMN_MISMATCH": "列の不一致",
