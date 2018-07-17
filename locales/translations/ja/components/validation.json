@@ -49,13 +49,13 @@
         "title": "メタデータドキュメント"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "セマンティック注釈によるデータ構造（ファイル、列など）の説明",
+        "title": "メタ記述子"
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
+    "fileSizeLimit": "ファイル サイズの制限: 100MB",
+    "receivedMediaType": "メディアの種類",
+    "uniqueIdentifier": "一意識別子",
     "reportLocation": "",
     "reportDeletion": "",
     "reportGenerated": "",
