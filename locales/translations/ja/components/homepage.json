@@ -1,13 +1,13 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
+            "occurrences": "オカレンスレコード",
             "datasets": "データセット",
-            "publishers": "",
+            "publishers": "提供機関",
             "species": "種情報",
-            "speciesSubtitle": ""
+            "speciesSubtitle": "GBIF.orgのデータで網羅されている種数についての詳細"
         },
-        "aboutGbifCountry": "",
-        "summary": ""
+        "aboutGbifCountry": "GBIF {COUNTRY} について",
+        "summary": "誰でも自由に利用できる生物多様性情報"
     }
 }
