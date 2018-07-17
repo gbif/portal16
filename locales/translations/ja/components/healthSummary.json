@@ -2,7 +2,7 @@
     "healthSummary": {
         "systemHealth": "システム正常性",
         "description": "各種GBIFサービスの状態はどうなっていますか。",
-        "updatedTimeAgo": "更新 {TIME_AGO}",
+        "updatedTimeAgo": "{TIME_AGO} 更新",
         "statusSummary": {
             "OPERATIONAL": "全てのシステムが動作しています。",
             "INFO": "全てのシステムが動作しています。",
