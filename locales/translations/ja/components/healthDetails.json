@@ -1,7 +1,7 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
+        "automatedMonitoring": "自動モニタリング",
+        "systemLoad": "システム・ロード",
         "messages": "",
         "version": "",
         "nInQueue": "",
