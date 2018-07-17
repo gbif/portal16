@@ -7,12 +7,12 @@
     },
     "data content": {
       "title": "コンテンツについて",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "example": "例えば：このページは誤植があります。この種は存在しません。この場所はおかしいと思われます。その組織の新しいURLは次の通りです。",
+      "annotate": "このデータ発行者にはフィードバック対応のウェブサイトがあります。そちらをご利用ください。",
+      "contactPerMail": "データセット問い合わせ先に連絡する"
     },
     "bug": {
-      "title": "",
+      "title": "不具合",
       "example": ""
     },
     "idea": {
