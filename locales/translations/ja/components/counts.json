@@ -12,11 +12,11 @@
         "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, 1{出版者} other{出版者}}",
         "nCountries": "{NUMBER_FORMATED} {NUMBER, select, 1{国} other{国}}",
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select, 1{問い合わせ} other{問い合わせ}}",
-        "pRecords": "",
-        "pOccurrence": "",
-        "pSpecies": "",
+        "pRecords": "{NUMBER, select, 1{レコード} other{レコード}}",
+        "pOccurrence": "{NUMBER, select, 1{オカレンス} other{オカレンス}}",
+        "pSpecies": "{NUMBER, select, 1{種} other{種}}",
         "pInfraspecies": "",
-        "pPublishers": "",
-        "contacts": ""
+        "pPublishers": "{NUMBER, select, 1{出版者} other{出版者}}",
+        "contacts": "{NUMBER, select, 1{問い合わせ} other{問い合わせ}}"
     }
 }
