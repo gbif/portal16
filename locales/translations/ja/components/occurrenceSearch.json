@@ -1,6 +1,6 @@
 {
   "occurrenceSearch": {
-    "table": "テーブル",
+    "table": "表",
     "gallery": "ギャラリー",
     "map": "マップ",
     "taxonomy": "分類",
@@ -12,17 +12,17 @@
     "nWithImages": "{NUMBER_FORMATED} with {NUMBER, select, 1{画像} other{画像}}",
     "failedSearch": "フィルターが不正か、サーバに問題がある可能性があります。もう一度試してみて問題が続くようであればご報告ください。",
     "noImages": "画像付きのオカレンスデータはありません。",
-    "imageLicenseInfo": "",
-    "showMoreImages": "",
-    "default": "",
-    "custom": "",
-    "noOccurrencesWithCoordinates": "",
-    "containsSuspicious": "",
-    "hideSuspiciousCoordinates": "",
-    "currentFilter": "",
-    "selectColumns": "",
-    "done": "",
-    "yesCorrectSuggestion": "",
-    "noWrongSuggestion": ""
+    "imageLicenseInfo": "画像に適用されているライセンスはオカレンスデータに適用されているライセンスと異なる可能性がありますので、ご注意ください。",
+    "showMoreImages": "もっと表示する",
+    "default": "デフォルト",
+    "custom": "カスタム",
+    "noOccurrencesWithCoordinates": "座標ありのオカレンスデータはありません。",
+    "containsSuspicious": "このマップにはGBIFによって座標が疑わしいとフラグ付けされたオカレンスデータが含まれます。",
+    "hideSuspiciousCoordinates": "該当データを隠す",
+    "currentFilter": "現在のフィルター",
+    "selectColumns": "表の列を選択する",
+    "done": "完了",
+    "yesCorrectSuggestion": "はい",
+    "noWrongSuggestion": "いいえ"
   }
 }
