@@ -1,87 +1,87 @@
 {
   "occurrence": {
-    "coordinates": "",
-    "unknownDate": "",
-    "absent": "",
-    "issues": "",
+    "coordinates": "座標",
+    "unknownDate": "不明な日付",
+    "absent": "不在",
+    "issues": "問題",
     "dataset": "データセット",
-    "synced": "",
-    "modified": "",
-    "monthAndyear": "",
-    "coordinateUncertainty": "",
-    "citation": "",
-    "readFullDescription": "",
-    "showMoreInfo": "",
-    "noTaxonMatch": "",
-    "gbifTaxonInterpretation": "",
-    "aboutTheDataset": "",
-    "noLocationInformation": "",
+    "synced": "同期済み",
+    "modified": "更新日",
+    "monthAndyear": "年月",
+    "coordinateUncertainty": "座標の不確実性",
+    "citation": "引用",
+    "readFullDescription": "詳細",
+    "showMoreInfo": "詳細",
+    "noTaxonMatch": "該当なし",
+    "gbifTaxonInterpretation": "GBIF分類群の解釈",
+    "aboutTheDataset": "データセットについて",
+    "noLocationInformation": "このレコードは位置情報を公開していません。",
     "subMenu": {
-      "diagnostics": "",
-      "menu": "",
-      "showDiagnostics": "",
-      "hideDiagnostics": "",
-      "aboutDarwinCore": "",
-      "raw": ""
+      "diagnostics": "データ解釈の結果",
+      "menu": "メニュー",
+      "showDiagnostics": "データ解釈の結果を表示する",
+      "hideDiagnostics": "データ解釈の結果を非表示にする",
+      "aboutDarwinCore": "ダーウィンコアについて",
+      "raw": "生データ"
     },
     "groups": {
-      "Record": "",
-      "Occurrence": "",
-      "Event": "",
-      "Identification": "",
-      "Taxon": "",
-      "Location": "",
-      "Organism": "",
-      "MaterialSample": "",
-      "GeologicalContext": "",
-      "other": ""
+      "Record": "レコード",
+      "Occurrence": "オカレンス",
+      "Event": "イベント",
+      "Identification": "ID",
+      "Taxon": "分類群",
+      "Location": "位置情報",
+      "Organism": "生物",
+      "MaterialSample": "試料",
+      "GeologicalContext": "地質学的背景",
+      "other": "その他"
     },
-    "term": "",
-    "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "term": "用語",
+    "interpreted": "データ解釈",
+    "original": "オリジナル",
+    "remarks": "備考",
     "highlights": {
-      "location": "",
-      "specimenType": "",
-      "publisher": "",
-      "reference": "",
-      "verbatimName": ""
+      "location": "場所",
+      "specimenType": "標本タイプ",
+      "publisher": "出版者",
+      "reference": "引用文献",
+      "verbatimName": "オリジナルデータの名前"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "{COUNTRY} で採集",
+        "FOSSIL_SPECIMEN": "{COUNTRY} で採集",
+        "LIVING_SPECIMEN": "{COUNTRY} で採集",
+        "HUMAN_OBSERVATION": "{COUNTRY} で観察",
+        "MACHINE_OBSERVATION": "{COUNTRY} で観察",
+        "MATERIAL_SAMPLE": "{COUNTRY} で採集",
+        "OCCURRENCE": "{COUNTRY} で記録",
+        "OBSERVATION": "{COUNTRY} で観察",
+        "LITERATURE": "{COUNTRY} で記録",
+        "UNKNOWN": "{COUNTRY} で記録"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "不明な場所で採集",
+        "FOSSIL_SPECIMEN": "不明な場所で採集",
+        "LIVING_SPECIMEN": "不明な場所で採集",
+        "HUMAN_OBSERVATION": "不明な場所で観察",
+        "MACHINE_OBSERVATION": "不明な場所で観察",
+        "MATERIAL_SAMPLE": "不明な場所で採集",
+        "OCCURRENCE": "不明な場所で記録",
+        "OBSERVATION": "不明な場所で観察",
+        "LITERATURE": "不明な場所で記録",
+        "UNKNOWN": "不明な場所で記録"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "不明な種"
     },
-    "occurrence": "",
-    "inLanguage": ""
+    "occurrence": "オカレンス",
+    "inLanguage": "{LANGUAGE_TRANSLATED} で"
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "除外",
+      "AUTHORED": "変更された",
+      "INFERED": "推測された"
     }
   }
 }

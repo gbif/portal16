@@ -1,64 +1,64 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "automatedMonitoring": "自動モニタリング",
+        "systemLoad": "システム・ロード",
+        "messages": "メッセージ",
+        "version": "バージョン",
+        "nInQueue": "キューに {NUMBER}",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "稼働中",
+            "WARNING": "不安定です",
+            "CRITICAL": "使用できません",
+            "INFO": "システムアップデート"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
-                "tooltip": ""
+                "name": "オカレンス",
+                "tooltip": "例えば、検索やオカレンスを見る"
             },
             "SPECIES": {
                 "name": "種情報",
-                "tooltip": ""
+                "tooltip": "例えば、検索やオカレンスを見る、種のサジェスチョンを得る"
             },
             "REGISTRY": {
-                "name": "",
-                "tooltip": ""
+                "name": "レジストリ",
+                "tooltip": "例えば、データセット、出版者、インストール、国、参加者およびネットワーク。"
             },
             "IDENTITY": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "ログインとログアウト、接続アカウントなど"
             },
             "MAPS": {
-                "name": "",
-                "tooltip": ""
+                "name": "地図",
+                "tooltip": "地図の画像表示と地図に関する情報の表示"
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "コンテンツ管理システム (外部システム)",
+                "tooltip": "例えば、ニュースや記事など"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "画像のキャッシュ",
+                "tooltip": "ウェブサイト上のほとんどの画像を担当"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "Github (外部システム)",
+                "tooltip": "フィードバック、データセットのサジェスチョン"
             },
             "CRAWLER": {
-                "name": "",
-                "tooltip": ""
+                "name": "取り込み",
+                "tooltip": "データセットの更新－新と旧"
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "リソース検索",
+                "tooltip": "例えば、文献、ニュースの検索"
             },
             "CLUSTER": {
-                "name": "",
-                "tooltip": ""
+                "name": "システム・ロード",
+                "tooltip": "ダウンロード、取り込み処理およびその他に関するバックエンド"
             },
             "DOWNLOAD": {
-                "name": "",
-                "tooltip": ""
+                "name": "ダウンロード数",
+                "tooltip": "ダウンロード処理とユーザー通知の送信に関する処理"
             }
         }
     }

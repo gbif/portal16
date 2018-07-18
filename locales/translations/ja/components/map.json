@@ -1,57 +1,57 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{座標ありのレコード} other{座標ありのレコード}}",
+    "noOccurrencesWithCoordinates": "座標ありのレコードはありません",
+    "clickToSearchArea": "クリックして地域を検索",
+    "generatedDateAgo": "{DATE_AGO} に作成",
+    "anyYear": "任意の年",
+    "exploreArea": "地域を調べる",
+    "explore": "調べる",
+    "style": "スタイル",
+    "filters": "フィルター",
+    "projection": "投影法",
+    "select": "選択",
+    "custom": "カスタム",
+    "baseMap": "基本マップ",
+    "binning": "ビニング",
+    "year": "年",
+    "chooseColors": "色",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "標準的な六角形",
+      "CLASSIC": "標準的なポイント",
+      "STREETS": "道路",
+      "GLACIER": "氷河",
+      "CUSTOM": "カスタム"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "赤紫",
+      "LIGHT": "明るい（ラベルなし）",
+      "LIGHT_DETAILS": "白系",
+      "DARK": "黒系（ラベルなし）",
+      "DARK_DETAILS": "黒系",
+      "OSM": "道路"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "ポイント",
+      "SMALL_HEX": "小さい六角形",
+      "LARGE_HEX": "六角形",
+      "SMALL_SQUARE": "小さい正方形",
+      "LARGE_SQUARE": "正方形"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "標準",
+      "FIRE": "炎",
+      "GLACIER": "氷河",
+      "PURPLE_YELLOW": "紫黄色",
+      "PURPLE_HEAT": "紫ヒート",
+      "BLUE_HEAT": "青ヒート",
+      "ORANGE_HEAT": "オレンジヒート",
+      "GREEN": "緑",
+      "BLUE_CLUSTER": "青クラスター",
+      "ORANGE_CLUSTER": "オレンジクラスター"
     },
     "errors": {
-      "413": ""
+      "413": "ジオメトリファイルが大きすぎるためデータ API で処理ができません。"
     }
   }
 }

@@ -1,43 +1,43 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "フィルターなし",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "{from}m",
+            "between": "{from} から{to}m",
+            "lessThanOrEquals": "{to}m以下",
+            "greaterThanOrEquals": "{from}m以上",
+            "invalid": "不正な値です",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "等しい",
+                "between": "間隔",
+                "lessThanOrEquals": "以下",
+                "greaterThanOrEquals": "以上"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "{from}m",
+            "between": "{from} から{to}m",
+            "lessThanOrEquals": "{to}m以下の深度",
+            "greaterThanOrEquals": "{from}m以上の深度",
+            "invalid": "不正な値です",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "等しい",
+                "between": "間隔",
+                "lessThanOrEquals": "以下",
+                "greaterThanOrEquals": "以上"
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "{from}",
+            "between": "{from} から {to} の間",
+            "lessThanOrEquals": "{to} 以前",
+            "greaterThanOrEquals": "{from} 以降",
+            "invalid": "不正な値です",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "等しい",
+                "between": "期間",
+                "lessThanOrEquals": "以前",
+                "greaterThanOrEquals": "以降"
             }
         }
     }
