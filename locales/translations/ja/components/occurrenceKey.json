@@ -49,16 +49,16 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "{COUNTRY} で採集",
+        "FOSSIL_SPECIMEN": "{COUNTRY} で採集",
+        "LIVING_SPECIMEN": "{COUNTRY} で採集",
+        "HUMAN_OBSERVATION": "{COUNTRY} で観察",
+        "MACHINE_OBSERVATION": "{COUNTRY} で観察",
+        "MATERIAL_SAMPLE": "{COUNTRY} で採集",
+        "OCCURRENCE": "{COUNTRY} で記録",
+        "OBSERVATION": "{COUNTRY} で観察",
+        "LITERATURE": "{COUNTRY} で記録",
+        "UNKNOWN": "{COUNTRY} で記録"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "",
