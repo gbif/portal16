@@ -33,18 +33,18 @@
       "Location": "位置情報",
       "Organism": "生物",
       "MaterialSample": "試料",
-      "GeologicalContext": "",
-      "other": ""
+      "GeologicalContext": "地質学的背景",
+      "other": "その他"
     },
-    "term": "",
-    "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "term": "用語",
+    "interpreted": "データ解釈",
+    "original": "オリジナル",
+    "remarks": "備考",
     "highlights": {
-      "location": "",
-      "specimenType": "",
-      "publisher": "",
-      "reference": "",
+      "location": "場所",
+      "specimenType": "標本タイプ",
+      "publisher": "出版者",
+      "reference": "引用文献",
       "verbatimName": ""
     },
     "title": {
