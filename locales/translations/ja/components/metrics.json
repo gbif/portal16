@@ -1,16 +1,16 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
-    "countByRank": "",
+    "countByKingdom": "界ごとの件数",
+    "countByRank": "ランクごとの件数",
     "countNamesByLanguage": "",
     "countExtRecordsByExtension": "",
     "countByOrigin": "",
     "countByIssue": ""
   },
   "metrics": {
-    "issues": "",
-    "extensions": "",
-    "taxa": "",
+    "issues": "問題",
+    "extensions": "拡張モジュール",
+    "taxa": "分類群",
     "other": "",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
