@@ -112,7 +112,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('occurrenceSearchCharts', {
             parent: 'occurrenceSearch',
-            url: '/charts',
+            url: '/charts?t&d&d2',
             templateUrl: '/templates/pages/occurrence/charts/occurrenceCharts.html?v=' + BUILD_VERSION,
             controller: 'occurrenceChartsCtrl',
             controllerAs: 'occCharts'

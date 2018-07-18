@@ -17,6 +17,9 @@
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryParticipation')}" ng-if="countryKey.country.isActiveParticipant">
                     <a ui-sref="countryParticipation()" translate="countryKey.tabs.participartion">Participation</a>
                 </li>
+                <li class="tab">
+                    <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })">{{ 'countryKey.tabs.news' | translate }}<span class="gb-icon-link"></span></a>
+                </li>
 
                 {% if main.fields.primaryLink.sys.id %}
                     <li class="tab">
@@ -30,14 +33,9 @@
 
                 <li class="tab tab-right" ng-if="portal.isSecretariatUser()">
                     <span>
-                        <a ng-href="http://www.gbif-uat.org/sites/default/files/gbif_analytics/country/{{ countryKey.countryCode }}/GBIF_CountryReport_{{ countryKey.countryCode }}.pdf" class="gb-button--brand">{{'countryKey.activityReport' | translate}}<span class="gb-icon-file-download"></span></a>
+                        <a ng-href="/sites/default/files/gbif_analytics/country/{{ countryKey.countryCode }}/GBIF_CountryReport_{{ countryKey.countryCode }}.pdf" class="gb-button--brand">{{'countryKey.activityReport' | translate}}<span class="gb-icon-file-download"></span></a>
                     </span>
                 </li> 
-                <li class="tab tab-right">
-                    <span>
-                        <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })" class="gb-button--discreet" translate="countryKey.tabs.news"></a>
-                    </span>
-                </li>
             </ul>
         </div>
     </div>

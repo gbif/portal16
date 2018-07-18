@@ -19,6 +19,18 @@ function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionSt
     vm.$sessionStorage = $sessionStorage;
     vm.$sessionStorage.occurrenceChartsShowDefaults = _.get(vm.$sessionStorage, 'occurrenceChartsShowDefaults', true);
 
+    function setChartFromUrl() {
+        if ($state.params.t === 'custom') {
+            $sessionStorage.customChart = {dimension: $state.params.d, secondDimension: $state.params.d2};
+            $state.params.d = undefined;
+            $state.params.d2 = undefined;
+            $state.params.t = undefined;
+            $sessionStorage.occurrenceChartsShowDefaults = false;
+            $state.go('.', $state.params, {inherit: false});
+        }
+    }
+    setChartFromUrl();
+
     vm.hasData = function() {
         return typeof vm.state.table.count !== 'undefined';
     };
@@ -74,6 +86,9 @@ function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionSt
         var query = angular.copy(vm.state.query);
         delete query.locale;
         delete query.advanced;
+        delete query.t;
+        delete query.d;
+        delete query.d2;
         query = _.omitBy(query, angular.isUndefined);
         return $httpParamSerializer(query);
     };
