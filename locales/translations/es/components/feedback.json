@@ -1,32 +1,32 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Deja tus comentarios",
     "intro": {
-      "title": "",
+      "title": "Comentarios y preguntas",
       "example": ""
     },
     "data content": {
-      "title": "",
+      "title": "Contenido",
       "example": "",
       "annotate": "",
       "contactPerMail": ""
     },
     "bug": {
-      "title": "",
+      "title": "Error",
       "example": ""
     },
     "idea": {
-      "title": "",
+      "title": "Idea",
       "example": ""
     },
     "question": {
-      "title": "",
+      "title": "Mesa de ayuda",
       "example": "",
       "description": "",
       "comment": ""
     },
     "confirmation": {
-      "title": "",
+      "title": "Gracias",
       "example": "",
       "seeIssue": ""
     },
