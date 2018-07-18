@@ -2,9 +2,9 @@
   "datasetMetrics": {
     "countByKingdom": "界ごとの件数",
     "countByRank": "ランクごとの件数",
-    "countNamesByLanguage": "",
-    "countExtRecordsByExtension": "",
-    "countByOrigin": "",
+    "countNamesByLanguage": "言語ごとの名前の件数",
+    "countExtRecordsByExtension": "拡張モジュールの種類ごとの拡張モジュールの件数",
+    "countByOrigin": "起源ごとの件数",
     "countByIssue": "問題の種類ごとの問題の件数"
   },
   "metrics": {
