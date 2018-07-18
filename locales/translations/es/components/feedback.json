@@ -22,8 +22,8 @@
     "question": {
       "title": "Mesa de ayuda",
       "example": "Tales como: ¿Cómo puedes proteger los datos sobre especies raras? ¿Me pueden ayudar a encontrar todos los registros de esta especie en aguas internacionales?",
-      "description": "",
-      "comment": ""
+      "description": "Todas las preguntas serán contestadas por nuestro servicio de asistencia en helpdesk@gbif.org",
+      "comment": "Por consultas privadas y preguntas no técnicas, pueden encontrarnos en [info@gbif.org](mailto:info@gbif.org) o en [communication@gbif.org](mailto:communication@gbif.org) para asuntos de prensa."
     },
     "confirmation": {
       "title": "Gracias",
@@ -33,10 +33,10 @@
     "issues": {
       "title": "",
       "description": "",
-      "create": ""
+      "create": "Deja tus comentarios"
     },
     "placeholders": {
-      "summary": "",
+      "summary": "Resumen",
       "description": "",
       "username": ""
     },
