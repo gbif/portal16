@@ -2,22 +2,22 @@
     "intervals": {
         "noFilter": "フィルターなし",
         "elevation": {
-            "equals": "{from}mです",
+            "equals": "{from}m",
             "between": "{from} から{to}m",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "lessThanOrEquals": "{to}m以下",
+            "greaterThanOrEquals": "{from}m以上",
+            "invalid": "不正な値です",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "等しい",
+                "between": "間隔",
+                "lessThanOrEquals": "以下",
+                "greaterThanOrEquals": "以上"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
+            "equals": "{from}m",
+            "between": "{from} から{to}m",
+            "lessThanOrEquals": "{to}m以下の深度",
             "greaterThanOrEquals": "",
             "invalid": "",
             "select": {
