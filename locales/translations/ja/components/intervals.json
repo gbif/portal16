@@ -1,9 +1,9 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "フィルターなし",
         "elevation": {
-            "equals": "",
-            "between": "",
+            "equals": "{from}mです",
+            "between": "{from} から{to}m",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "",
