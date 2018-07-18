@@ -3,27 +3,27 @@
     "leaveFeedback": "Deja tus comentarios",
     "intro": {
       "title": "Comentarios y preguntas",
-      "example": ""
+      "example": "Ayúdanos a resolver cualquier cuestión eligiendo el tipo de retroalimentación que estás proveyendo"
     },
     "data content": {
       "title": "Contenido",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "example": "Tales como: la página contiene un error tipográfico. Esa especie no existe. Esa localidad parece sospechosa. La nueva URL para esa organización es...",
+      "annotate": "Este publicador tiene un sitio web para el manejo de comentarios. Le recomendamos usarlo",
+      "contactPerMail": "Comuníquese con el contacto del conjunto de datos"
     },
     "bug": {
       "title": "Error",
-      "example": ""
+      "example": "Tales como: no funciona el botón de búsqueda. La página no carga. No puede leer esto porque las columnas se superponen."
     },
     "idea": {
       "title": "Idea",
-      "example": ""
+      "example": "Tales como: Yo quiero los enlaces a la secuencia genética relacionada. Muéstrame todos los artículos de acceso abierto."
     },
     "question": {
       "title": "Mesa de ayuda",
-      "example": "",
-      "description": "",
-      "comment": ""
+      "example": "Tales como: ¿Cómo puedes proteger los datos sobre especies raras? ¿Me pueden ayudar a encontrar todos los registros de esta especie en aguas internacionales?",
+      "description": "Todas las preguntas serán contestadas por nuestro servicio de asistencia en helpdesk@gbif.org",
+      "comment": "Por consultas privadas y preguntas no técnicas, pueden encontrarnos en [info@gbif.org](mailto:info@gbif.org) o en [communication@gbif.org](mailto:communication@gbif.org) para asuntos de prensa."
     },
     "confirmation": {
       "title": "Gracias",
@@ -33,10 +33,10 @@
     "issues": {
       "title": "",
       "description": "",
-      "create": ""
+      "create": "Deja tus comentarios"
     },
     "placeholders": {
-      "summary": "",
+      "summary": "Resumen",
       "description": "",
       "username": ""
     },
