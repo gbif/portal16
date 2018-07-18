@@ -6,7 +6,7 @@
         "clear": "クリア",
         "add": "追加",
         "repatriation": {
-            "description": ""
+            "description": "このデータはある国の組織によって出版されましたが、他国で観察された生物多様性情報であるためデータが返還されたようです。"
         },
         "ternary": {
             "yes": "はい",
