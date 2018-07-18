@@ -143,7 +143,7 @@
     "verbatimSRS": "",
     "footprintWKT": "",
     "footprintSRS": "",
-    "footprintSpatialFit": "",
+    "footprintSpatialFit": "フット プリント空間フィット",
     "georeferencedBy": "",
     "georeferencedDate": "",
     "georeferenceProtocol": "",
