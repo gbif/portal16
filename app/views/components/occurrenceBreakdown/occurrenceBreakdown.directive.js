@@ -170,6 +170,7 @@ function occurrenceBreakdownDirective(BUILD_VERSION) {
                 $state.go('occurrenceSearchTable', q);
             }
         }
+        vm.occurrenceSearch = occurrenceSearch;
 
         vm.level = function(val) {
             if (val < 2) {

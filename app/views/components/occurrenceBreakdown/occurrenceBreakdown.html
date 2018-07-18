@@ -46,7 +46,7 @@
                                 <th translate="filterNames.{{vm.chartdata.field | camelCase}}">{{vm.chartdata.field}}</th>
                                 <th ng-repeat="category in vm.chartdata.categories">
                                     <span>
-                                        <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(category.filter))" class="inherit">{{category.displayName}}</a>
+                                        <a href="" ng-click="vm.occurrenceSearch(category.filter)" class="inherit">{{category.displayName}}</a>
                                         <span ng-if="$last && vm.chartdata.secondDimension.bucketSizeVaries" class="badge badge--warning">!
                                             <md-tooltip md-direction="right"><span translate="metrics.intervalDiffers"></span></md-tooltip>
                                         </span>
@@ -72,7 +72,7 @@
                                 <td>
                                 <span>
                                     <span>
-                                        <a href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))" class="inherit">
+                                        <a href="" ng-click="vm.occurrenceSearch(result.filter)" class="inherit">
                                             {{result.displayName | truncate:50 }}
                                             <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} <span translate="metrics.occurrences"></span></md-tooltip>
                                         </a>
@@ -84,7 +84,7 @@
                                 </td>
                                 <td ng-if="!vm.chartdata.categories" class="table-cell--narrow">
                                 <span>
-                                    <a class="inherit" href="" ui-sref="occurrenceSearchCharts(vm.getFacetFilter(result.filter))">{{ result.count | localNumber }}</a>
+                                    <a class="inherit" href="" ng-click="vm.occurrenceSearch(result.filter)">{{ result.count | localNumber }}</a>
                                 </span>
                                 </td>
                                 <td ng-if="!vm.chartdata.categories">
@@ -93,7 +93,7 @@
                                     </div>
                                 </td>
                                 <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">
-                                    <a class="inherit" href="" ui-sref="occurrenceSearchCharts(vm.getTableFilter(vm.chartdata.categories[$index].filter, result.filter))">{{ value | localNumber }}</a>
+                                    <a class="inherit" href="" ng-click="vm.occurrenceSearch(vm.getTableFilter(vm.chartdata.categories[$index].filter, result.filter))">{{ value | localNumber }}</a>
                                 </td>
                             </tr>
                             </tbody>
