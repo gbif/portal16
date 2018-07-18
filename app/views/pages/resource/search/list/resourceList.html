@@ -32,6 +32,16 @@
                     <ng-include src="'/api/template/search/documentResult.html?v=' +    resourceList.BUILD_VERSION+'&locale='+resourceList.locale" ng-if="result.contentType == 'document'"></ng-include>
                 </div>
 
+                <div ng-if="resourceList.faqData.count > 0 && !resourceList.state.data.offset && !resourceList.state.query.contentType">
+                    <p class="clearfix small m-t-1">
+                        <span class="discreet--very text-uppercase" translate="footer.faq">FAQ</span>
+                        <a href="" ui-sref="faq({q: resourceList.state.query.q})" class="discreet--very text-uppercase pull-right"><span tx="search.nResults" tx-nr="resourceList.faqData.count"></span></a>
+                    </p>
+                    <div ng-repeat="result in resourceList.faqData.results">
+                        <ng-include src="'/api/template/search/faqResult.html?v=' +         portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
+                    </div>
+                </div>
+
                 <uib-pagination
                         total-items="resourceList.state.data.count"
                         ng-model="resourceList.currentPage"

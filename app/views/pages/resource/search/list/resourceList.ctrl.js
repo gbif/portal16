@@ -1,12 +1,13 @@
 'use strict';
 var angular = require('angular');
+var _ = require('lodash');
 
 angular
     .module('portal')
     .controller('resourceListCtrl', resourceListCtrl);
 
 /** @ngInject */
-function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
+function resourceListCtrl(hotkeys, ResourceFilter, ResourceSearch, env, BUILD_VERSION) {
     var vm = this, offset;
     vm.state = ResourceFilter.getState();
     vm.tileApi = env.tileApi;
@@ -53,6 +54,13 @@ function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
         }
     });
 
+    vm.faqData = {};
+    var searchFaq = function() {
+        if (vm.faqData.$cancelRequest) vm.faqData.$cancelRequest();
+        var q = _.assign({}, vm.state.query, {contentType: 'help', limit: 5});
+        vm.faqData = ResourceSearch.query(q);
+    };
+    searchFaq();
 
     vm.hasData = function() {
         return typeof vm.state.data.count !== 'undefined';

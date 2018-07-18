@@ -167,6 +167,16 @@
                                             </div>
                                         </div>
 
+                                        <div ng-if="rootSearch.results.faq.count > 0">
+                                            <p class="clearfix small m-t-1">
+                                                <span class="discreet--very text-uppercase" translate="footer.faq">FAQ</span>
+                                                <a href="" ui-sref="faq({q: rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right"><span tx="search.nResults" tx-nr="rootSearch.results.faq.count"></span></a>
+                                            </p>
+                                            <div ng-repeat="result in rootSearch.results.faq.results">
+                                                <ng-include src="'/api/template/search/faqResult.html?v=' +         portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
+                                            </div>
+                                        </div>
+
                                         <div class="emptyInfo">
                                             <h3 translate="search.cannotFindWhatYouAreLookingFor"></h3>
                                             <p translate="search.trySpecifyingAType">Try specifying a type</p>

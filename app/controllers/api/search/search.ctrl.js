@@ -39,6 +39,7 @@ async function search(query, preferedLocale, __) {
     let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3, hl: true});
     let speciesMatches = SpeciesMatch.query({name: query, verbose: true, hl: true});
     let resources = resourceSearch.search({q: query, searchable: true, local: preferedLocale, limit: 10}, __);
+    let faq = resourceSearch.search({q: query, searchable: true, contentType: ['help'], local: preferedLocale, limit: 5}, __);
     let resourceHighlights = resourceSearch.search(
         {
             keywords: query,
@@ -47,7 +48,7 @@ async function search(query, preferedLocale, __) {
             }, __);
     let country = Country.query(query, preferedLocale);
 
-    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights, participants]);
+    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights, participants, faq]);
     let response = {
         speciesMatches: values[0],
         species: values[1],
@@ -56,8 +57,8 @@ async function search(query, preferedLocale, __) {
         resources: values[4],
         country: values[5],
         resourceHighlights: values[6],
-        participants: values[7]
-
+        participants: values[7],
+        faq: values[8]
     };
 
     response.species.results = pruneDuplicateSpecies(response.speciesMatches, response.species.results);

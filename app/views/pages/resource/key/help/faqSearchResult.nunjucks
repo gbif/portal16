@@ -1,0 +1,16 @@
+<div class="card m-b-05 searchCard">
+    <div class="card__stripe">
+        <div class="card__content">
+            <h3 class="searchCard__headline">
+                <a ui-sref="faq({question:result.identifier, q: undefined})" >{{result.title}}</a>
+            </h3>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content clearfix">
+            <p>
+                {{result._summary}}
+            </p>
+        </div>
+    </div>
+</div>

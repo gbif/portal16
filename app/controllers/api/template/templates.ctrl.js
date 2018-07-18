@@ -31,6 +31,10 @@ router.get('/search/eventResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/event/eventSearchResult');
 });
 
+router.get('/search/faqResult.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/resource/key/help/faqSearchResult');
+});
+
 router.get('/search/documentResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/document/documentSearchResult');
 });
