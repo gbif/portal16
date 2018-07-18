@@ -61,27 +61,27 @@
         "UNKNOWN": "{COUNTRY} で記録"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "不明な場所で採集",
+        "FOSSIL_SPECIMEN": "不明な場所で採集",
+        "LIVING_SPECIMEN": "不明な場所で採集",
+        "HUMAN_OBSERVATION": "不明な場所で観察",
+        "MACHINE_OBSERVATION": "不明な場所で観察",
+        "MATERIAL_SAMPLE": "不明な場所で採集",
+        "OCCURRENCE": "不明な場所で記録",
+        "OBSERVATION": "不明な場所で観察",
+        "LITERATURE": "不明な場所で記録",
+        "UNKNOWN": "不明な場所で記録"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "不明な種"
     },
-    "occurrence": "",
-    "inLanguage": ""
+    "occurrence": "オカレンス",
+    "inLanguage": "{LANGUAGE_TRANSLATED} で"
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "除外",
+      "AUTHORED": "変更された",
+      "INFERED": "推測された"
     }
   }
 }
