@@ -35,6 +35,13 @@
                                     </a>
                                 </span>
                                 {% endif %}
+                                {% if term.simpleName == "eventID" %}
+                                <span class="chip">
+                                    <a ui-sref="occurrenceSearchTable({event_id: '{$ occurrence.record[term.simpleName] $}', advanced: true })">
+                                        <span count="{{ portal.dataApi }}occurrence/search?event_id={$ occurrence.record[term.simpleName] $}" count-translation="counts.nOccurrences">&nbsp;</span>
+                                    </a>
+                                </span>
+                                {% endif %}
                                 {#{% else %}#}
                                 {#<span class="small">{$ __('interpretationRemarks.comments.EXCLUDED') $}</span>#}
                             {% endif %}

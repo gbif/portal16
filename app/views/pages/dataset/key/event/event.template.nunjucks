@@ -1,20 +1,19 @@
 <div class="site-content">
     <div class="site-content__page">
         <div class="datasetKey2 light-background">
-            <div class="wrapper-horizontal-stripes" xng-if="datasetEvent.event.$resolved">
-
+            <div class="wrapper-horizontal-stripes" ng-if="datasetEvent.event.$resolved">
+                
                 {% include "./header.nunjucks" %}
 
-                {# <div id="tabsScrollable">
-                    {% include "./nav.nunjucks" %}
-                </div>
-
-                <div ng-if="datasetKey.$state.is('datasetKey')">
-                    {% include "./intro/intro.nunjucks" %}
-                    {% include "./main/prose.nunjucks" %}
-                </div> #}
-
                 <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetEvent.event.occurrenceCount > 0">
+
+                    <div class="card card--spaced">
+                        <div class="card__stripe">
+                            <div class="card__content card__content--error--large">
+                                Event pages are in beta and comes with caveats. For now you can read about them <a href="https://github.com/gbif/portal16/issues/896">here</a>.
+                            </div>
+                        </div>
+                    </div>
                     <h4 class="card-header--bold" translate="dataset.eventDescription">Event description</h4>
                     <div class="card card--spaced container-fluid">
                         <div class="card__stripe row">
@@ -150,11 +149,11 @@
                 </div>
 
             </div>
-            {# <div class="wrapper-horizontal-stripes" ng-if="!datasetKey.dataset.$resolved">
+            <div class="wrapper-horizontal-stripes" ng-if="!datasetEvent.event.$resolved">
                 <div class="emptyInfo">
                     <h3 translate="phrases.loading"></h3>
                 </div>
-            </div> #}
+            </div>
         </div>
     </div>
 </div>

@@ -82,10 +82,31 @@
                             <dd>{$ __('typeStatus.' + occurrence.record.typeStatus) $}</dd>
                         </div>
                     {% endif %}
+                    {% if occurrence.record.organismID | isNotEmpty %}
+                        <div>
+                            <dt>{$ __('ocurrenceFieldNames.organismID') $}</dt>
+                            <dd>
+                                <span>{$ occurrence.record.organismID $}</span>
+                                <span class="chip">
+                                    <a ui-sref="occurrenceSearchTable({organism_id: '{$ occurrence.record.organismID $}' })">
+                                        <span count="{{ portal.dataApi }}occurrence/search?organism_id={$ occurrence.record.organismID $}" count-translation="counts.nOccurrences">&nbsp;</span>
+                                    </a>
+                                </span>
+                            </dd>
+                        </div>
+                    {% endif %}
                 </dl>
             </div>
             <div>
                 <dl class="inline">
+                    {% if occurrence.record.eventID | isNotEmpty %}
+                    <div>
+                        <dt>{$ __('ocurrenceFieldNames.eventID') $}</dt>
+                        <dd>
+                            <a ui-sref="datasetEvent({datasetKey: '{$ occurrence.record.datasetKey $}', eventKey: '{$ occurrence.record.eventID $}' })">{$ occurrence.record.eventID $}</a>
+                        </dd>
+                    </div>
+                    {% endif %}
                     <div>
                         <dt>{$ __('occurrence.dataset') $}</dt>
                         <dd>
