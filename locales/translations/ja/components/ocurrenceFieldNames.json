@@ -1,8 +1,8 @@
 {
   "ocurrenceFieldNames": {
-    "gbifID": "",
-    "abstract": "",
-    "accessRights": "",
+    "gbifID": "GBIF ID",
+    "abstract": "概要",
+    "accessRights": "アクセス権",
     "accrualMethod": "",
     "accrualPeriodicity": "",
     "accrualPolicy": "",
