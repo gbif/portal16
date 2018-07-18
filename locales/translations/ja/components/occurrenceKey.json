@@ -32,7 +32,7 @@
       "Taxon": "分類群",
       "Location": "位置情報",
       "Organism": "生物",
-      "MaterialSample": "",
+      "MaterialSample": "試料",
       "GeologicalContext": "",
       "other": ""
     },
