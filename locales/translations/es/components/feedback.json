@@ -1,12 +1,12 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Deja tus comentarios",
     "intro": {
-      "title": "",
+      "title": "Comentarios y preguntas",
       "example": ""
     },
     "data content": {
-      "title": "",
+      "title": "Contenido",
       "example": "",
       "annotate": "",
       "contactPerMail": ""
