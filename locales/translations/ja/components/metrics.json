@@ -5,7 +5,7 @@
     "countNamesByLanguage": "",
     "countExtRecordsByExtension": "",
     "countByOrigin": "",
-    "countByIssue": ""
+    "countByIssue": "問題の種類ごとの問題の件数"
   },
   "metrics": {
     "issues": "問題",
@@ -38,19 +38,19 @@
     "clickToZoom": "プロットエリアでクリック＆ドラッグして拡大します",
     "pinchToZoom": "図表をピンチして拡大します",
     "numAcceptedSpByHigher": "高次分類群で正しいと認められた種の件数",
-    "noRankedAbove": "",
-    "taxonomicOccDistribution": "",
-    "groupByX": "",
-    "pOtherOrUknown": "",
-    "unknownRank": "",
-    "vernacularNames": "",
+    "noRankedAbove": "このチェックリストには種より上位の分類群ランクがありません。",
+    "taxonomicOccDistribution": "オカレンスの分類学的分布",
+    "groupByX": "{TYPE} 別のグループ",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{その他または不明} other{その他または不明}}",
+    "unknownRank": "{RANK} 不明",
+    "vernacularNames": "和名",
     "majorRanksPlural": {
-      "KINGDOM": "",
-      "PHYLUM": "",
-      "CLASS": "",
-      "ORDER": "",
-      "FAMILY": "",
-      "GENUS": "",
+      "KINGDOM": "界",
+      "PHYLUM": "門",
+      "CLASS": "綱",
+      "ORDER": "目",
+      "FAMILY": "科",
+      "GENUS": "属",
       "SPECIES": "種情報"
     }
   }
