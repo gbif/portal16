@@ -1,8 +1,8 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
+            "VOTING": "正規参加国",
+            "ASSOCIATE": "準参加国",
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
