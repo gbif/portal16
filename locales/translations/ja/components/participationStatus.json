@@ -5,34 +5,34 @@
             "ASSOCIATE": "準参加国",
             "OBSERVER": "オブザーバー参加団体",
             "AFFILIATE": "提携団体",
-            "FORMER": "元参加団体",
+            "FORMER": "元参加国",
             "undefined": "不明"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "{REGION} からのGBIF正規参加国",
+            "ASSOCIATE": "{REGION} からの準参加国",
+            "OBSERVER": "{REGION} からのGBIFオブザーバー参加国",
+            "AFFILIATE": "{REGION} からの提携団体",
+            "FORMER": "{REGION} からの元GBIF参加国",
+            "undefined": "不明"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "{REGION} からのGBIF正規参加団体",
+                    "ASSOCIATE": "{REGION} からの提携団体",
+                    "OBSERVER": "{REGION} からのオブザーバー参加団体",
+                    "AFFILIATE": "{REGION} からの提携団体",
+                    "FORMER": "{REGION} からの元参加団体",
+                    "undefined": "不明"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "正規参加団体",
+                    "ASSOCIATE": "準参加団体",
+                    "OBSERVER": "オブザーバー参加団体",
+                    "AFFILIATE": "提携参加団体",
+                    "FORMER": "元参加団体",
+                    "undefined": "不明"
                 }
             }
         }
