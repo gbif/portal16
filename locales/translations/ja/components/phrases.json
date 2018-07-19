@@ -16,8 +16,8 @@
     "noResultsMessage": "該当データがありません – フィルターの条件を減らしてからお試しください。",
     "noJavascriptEnabled": "申し訳ございませんが、GBIFはJavaScriptを有効にしないと正常に動作しません。",
     "isSplashScreen": "ご使用しているブラウザは古く安全でないことが検出されたためこのウェブサイトを利用できません。最新のブラウザにアップグレードすることをお勧めします。",
-    "404Text": "",
-    "changeLanguage": "",
-    "noData": ""
+    "404Text": "このページは以前に存在したかもしれませんが、探すことができません。[search](/search) メニューで探してみてください。お気軽に [helpdesk@gbif.org](mailto:helpdesk@gbif.org) までお問い合わせください。",
+    "changeLanguage": "言語を変更",
+    "noData": "データなし"
   }
 }
