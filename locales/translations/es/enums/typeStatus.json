@@ -1,7 +1,7 @@
 {
   "typeStatus": {
-    "TYPE": "",
-    "TYPE_SPECIES": "",
+    "TYPE": "Tipo",
+    "TYPE_SPECIES": "Especies tipo",
     "TYPE_GENUS": "",
     "ALLOLECTOTYPE": "",
     "ALLONEOTYPE": "",
