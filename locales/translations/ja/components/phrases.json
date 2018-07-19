@@ -14,8 +14,8 @@
     "criticalErrorMsg": "現在システムで要求を処理することができません。ページを再読み込みした後も問題が解決しない場合はご報告ください。",
     "nonCriticalErrorMsg": "現在利用できないデータがあります。データの一部のみ表示されています。ページを再読み込みした後も問題が解決しない場合はご報告ください。\n",
     "noResultsMessage": "該当データがありません – フィルターの条件を減らしてからお試しください。",
-    "noJavascriptEnabled": "",
-    "isSplashScreen": "",
+    "noJavascriptEnabled": "申し訳ございませんが、GBIFはJavaScriptを有効にしないと正常に動作しません。",
+    "isSplashScreen": "ご使用しているブラウザは古く安全でないことが検出されたためこのウェブサイトを利用できません。最新のブラウザにアップグレードすることをお勧めします。",
     "404Text": "",
     "changeLanguage": "",
     "noData": ""
