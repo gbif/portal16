@@ -2,10 +2,10 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "・・・について",
-      "publishersHomepage": ""
+      "publishersHomepage": "ホームページ"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
+    "joinedAgo": "{TIME_AGO} 前に参加",
+    "newPublisher": "データ出版者",
     "technicalContact": "",
     "country": "",
     "hosting": "",
