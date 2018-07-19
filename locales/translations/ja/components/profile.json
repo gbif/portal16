@@ -49,7 +49,7 @@
     "signUpWithProvider": "{PROVIDER} として登録します。",
     "connectWithProvider": "{PROVIDER} として接続します。",
     "disconnectWithProvider": "{PROVIDER} の接続を解除します。",
-    "signInAgreement": "ログインすることでGBIFs [規約](/terms) および [プライバシーポリシー](/terms/privacy-policy) に同意したものとみなされます。",
+    "signInAgreement": "ログインすることでGBIFs [terms](/terms) および [プライバシーポリシー](/terms/privacy-policy) に同意したものとみなされます。",
     "country": "国",
     "countryRequired": "国は必須です。",
     "email": "メールアドレス",

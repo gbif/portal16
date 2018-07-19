@@ -1,20 +1,20 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
-        "endorsedPublishers": "",
-        "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
-        "headOfDelegation": "",
-        "gbifRegion": "",
-        "countryOrArea": "",
-        "nodeName": "",
-        "nodeEstablished": "",
-        "website": "",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "participant": "参加者",
+        "participantSummary": "参加者の概要",
+        "endorsedPublishers": "承認された出版者",
+        "noEndorsedPublishers": "未承認の出版者",
+        "memberStatus": "メンバーのステータス",
+        "gbifParticipantSince": "GBIFへの参加年",
+        "headOfDelegation": "国家代表",
+        "gbifRegion": "GBIF 地域",
+        "countryOrArea": "国または地域",
+        "nodeName": "ノード名",
+        "nodeEstablished": "ノードの設置年",
+        "website": "ウェブサイト",
+        "participantNodeManager": "参加者のノード マネージャー",
+        "pending": "保留中",
+        "latestDatasetsPublished": "最も最近出版されたデータセット",
+        "noDatasets": "公開されているデータセットはありません"
     }
 }

@@ -1,7 +1,7 @@
 {
     "pagination": {
-        "previous": "",
-        "next": "",
-        "first": ""
+        "previous": "前へ",
+        "next": "次へ",
+        "first": "最初へ"
     }
 }
