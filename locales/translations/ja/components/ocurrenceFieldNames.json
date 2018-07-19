@@ -248,9 +248,9 @@
     "verbatimCoordinates": "オリジナルの座標",
     "verbatimLatitude": "オリジナルの緯度",
     "verbatimLongitude": "オリジナルの経度",
-    "scientificNameAuthorship": "",
-    "undefined": "",
-    "coordinatesTextual": "",
-    "coordinatesMissing": ""
+    "scientificNameAuthorship": "学名の著者情報",
+    "undefined": "不明なフィールド",
+    "coordinatesTextual": "このレコードは座標なしで公開されていますが、場所に関する説明が含まれています。",
+    "coordinatesMissing": "座標が見つかりません"
   }
 }
