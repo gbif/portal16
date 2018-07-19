@@ -3,10 +3,10 @@
         "longForm": {
             "VOTING": "正規参加国",
             "ASSOCIATE": "準参加国",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "OBSERVER": "オブザーバー参加団体",
+            "AFFILIATE": "提携団体",
+            "FORMER": "元参加団体",
+            "undefined": "不明"
         },
         "description": {
             "VOTING": "",
