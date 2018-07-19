@@ -15,7 +15,7 @@
         "pRecords": "{NUMBER, select, 1{レコード} other{レコード}}",
         "pOccurrence": "{NUMBER, select, 1{オカレンス} other{オカレンス}}",
         "pSpecies": "{NUMBER, select, 1{種} other{種}}",
-        "pInfraspecies": "",
+        "pInfraspecies": "{NUMBER, select, 1{亜種以下} other{亜種以下}}",
         "pPublishers": "{NUMBER, select, 1{出版者} other{出版者}}",
         "contacts": "{NUMBER, select, 1{問い合わせ} other{問い合わせ}}"
     }
