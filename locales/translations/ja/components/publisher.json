@@ -12,12 +12,12 @@
     "description": "説明",
     "endorsedBy": "～により承認された",
     "pendingEndorsementBy": "～による承認が保留中",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "installations": "インストール",
+    "contacts": "問い合わせ先",
+    "administrativeContact": "管理者の連絡先",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "出版者",
+      "sinceDate": "{DATE} 以来"
     }
   }
 }
