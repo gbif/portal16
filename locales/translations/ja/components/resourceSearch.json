@@ -1,10 +1,10 @@
 {
     "resourceSearch": {
-        "upcoming": "",
-        "past": "",
-        "searchForNewsEventsDocuments": "",
-        "occurrenceSearch": "",
-        "subscribeToCalendar": "",
+        "upcoming": "近日中",
+        "past": "過去",
+        "searchForNewsEventsDocuments": "ニュース、イベント、ドキュメントなどを検索します。種のオカレンスを探している場合は、オカレンス検索をお試しください。",
+        "occurrenceSearch": "オカレンス検索",
+        "subscribeToCalendar": "カレンダーに登録する",
         "citationExplainer": "",
         "types": {
             "events": "イベント",
