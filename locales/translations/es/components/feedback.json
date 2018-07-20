@@ -44,10 +44,10 @@
     "issueTracking": "",
     "failure": "",
     "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
-    "recommendMail": "",
+    "tellGbif": "Dile a GBIF",
+    "submit": "Enviar",
+    "seeAllComments": "Ver todo",
+    "recommendMail": "Recomendamos enviar un correo a",
     "pleaseLogin": ""
   }
 }

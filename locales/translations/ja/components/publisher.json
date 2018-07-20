@@ -2,22 +2,22 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "・・・について",
-      "publishersHomepage": ""
+      "publishersHomepage": "ホームページ"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
-    "technicalContact": "",
-    "country": "",
-    "hosting": "",
-    "description": "",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "joinedAgo": "{TIME_AGO} 前に参加",
+    "newPublisher": "データ出版者",
+    "technicalContact": "技術的なお問い合わせ",
+    "country": "国または地域",
+    "hosting": "ホスティング",
+    "description": "説明",
+    "endorsedBy": "～により承認された",
+    "pendingEndorsementBy": "～による承認が保留中",
+    "installations": "インストール",
+    "contacts": "問い合わせ先",
+    "administrativeContact": "管理者の連絡先",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "出版者",
+      "sinceDate": "{DATE} 以来"
     }
   }
 }

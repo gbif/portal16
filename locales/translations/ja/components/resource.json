@@ -1,22 +1,22 @@
 {
   "resource": {
     "resources": "ナレッジベース",
-    "contactHelpdesk": "",
-    "addToCalendar": "",
-    "venue": "",
-    "location": "",
-    "country": "",
-    "noDatasets": "",
-    "when": "",
-    "language": "",
-    "viewOnGBIF": "",
-    "published": "",
-    "programme": "",
-    "fundedBy": "",
+    "contactHelpdesk": "ヘルプデスクにお問い合わせください。",
+    "addToCalendar": "カレンダーに追加",
+    "venue": "会場",
+    "location": "場所",
+    "country": "国または地域",
+    "noDatasets": "表示するデータセットがありません。",
+    "when": "いつ",
+    "language": "言語",
+    "viewOnGBIF": "GBIFで閲覧する",
+    "published": "出版された",
+    "programme": "プログラム",
+    "fundedBy": "資金提供者",
     "about": "・・・について",
-    "datasets": "",
-    "gbifWillAttend": "",
-    "dataUsedInStudy": "",
-    "resourceDescription": ""
+    "datasets": "データセット",
+    "gbifWillAttend": "GBIF 事務局が出席",
+    "dataUsedInStudy": "研究で使用されたデータ",
+    "resourceDescription": "GBIF（地球規模生物多様性情報機構）のリソースを検索します。生物多様性情報は誰でも自由に利用できます。"
   }
 }
