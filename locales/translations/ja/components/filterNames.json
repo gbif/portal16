@@ -30,7 +30,7 @@
     "depth": "深度",
     "occurrenceId": "オカレンスID",
     "hasCoordinate": "座標あり",
-    "repatriated": "",
+    "repatriated": "返還された",
     "typeStatus": "タイプ標本の種類",
     "geometry": "ジオメトリ",
     "decimalLatitude": "１０進法の緯度",
