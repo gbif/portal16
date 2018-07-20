@@ -3,7 +3,7 @@
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{引用} other{引用}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{レコード} other{レコード}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{結果} other{結果}}",
-        "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 1{設置} other{設置}}",
+        "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 1{インストール} other{インストール}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 1{オカレンス} other{オカレンス}} ",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, select, 1{オカレンス} other{オカレンス}} について",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, select, 1{オカレンス} other{オカレンス}} 出版済み",
