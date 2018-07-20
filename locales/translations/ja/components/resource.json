@@ -1,8 +1,8 @@
 {
   "resource": {
     "resources": "ナレッジベース",
-    "contactHelpdesk": "",
-    "addToCalendar": "",
+    "contactHelpdesk": "ヘルプデスクにお問い合わせください。",
+    "addToCalendar": "カレンダーに追加",
     "venue": "",
     "location": "",
     "country": "",
