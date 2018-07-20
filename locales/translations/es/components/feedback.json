@@ -3,7 +3,7 @@
     "leaveFeedback": "Deja tus comentarios",
     "intro": {
       "title": "Comentarios y preguntas",
-      "example": "Ayúdanos a resolver cualquier cuestión eligiendo el tipo de retroalimentación que estás proveyendo"
+      "example": "Ayúdanos a resolver cualquier cuestión eligiendo el tipo de comentario que nos envías"
     },
     "data content": {
       "title": "Contenido",
@@ -48,6 +48,6 @@
     "submit": "Enviar",
     "seeAllComments": "Ver todo",
     "recommendMail": "Recomendamos enviar un correo a",
-    "pleaseLogin": ""
+    "pleaseLogin": "Por favor, conéctate para poder dejar un comentario. También puedes usar [GitHub] (https://github.com/gbif/portal-feedback/issues).\n¿Por qué? Desafortunadamente, si no requerimos que los usuarios estén conectado, recibimos numerosos anuncios de spam en nuestro sistema de comentarios."
   }
 }
