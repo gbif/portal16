@@ -14,9 +14,9 @@
     "programme": "プログラム",
     "fundedBy": "資金提供者",
     "about": "・・・について",
-    "datasets": "",
-    "gbifWillAttend": "",
-    "dataUsedInStudy": "",
-    "resourceDescription": ""
+    "datasets": "データセット",
+    "gbifWillAttend": "GBIF 事務局が出席",
+    "dataUsedInStudy": "研究で使用されたデータ",
+    "resourceDescription": "GBIF（地球規模生物多様性情報機構）のリソースを検索します。生物多様性情報は誰でも自由に利用できます。"
   }
 }
