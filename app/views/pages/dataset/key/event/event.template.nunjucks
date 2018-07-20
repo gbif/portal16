@@ -6,12 +6,9 @@
                 {% include "./header.nunjucks" %}
 
                 <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetEvent.event.occurrenceCount > 0">
-
-                    <div class="card card--spaced">
-                        <div class="card__stripe">
-                            <div class="card__content card__content--error--large">
-                                Event pages are in beta and comes with caveats. For now you can read about them <a href="https://github.com/gbif/portal16/issues/896">here</a>.
-                            </div>
+                    <div style="text-align: center;">
+                        <div style="background: tomato; color: white; padding: 10px; border-radius: 5px; display: inline-block;">
+                            Under development, but feel free to click around
                         </div>
                     </div>
                     <h4 class="card-header--bold" translate="dataset.eventDescription">Event description</h4>
@@ -77,7 +74,7 @@
                 {% include "./map.nunjucks" %}
 
                 <div class="container--desktop ng-cloak">
-                    <section class="occChart-col m-t-1">
+                    <section class="chart-col m-t-1">
                         <div ng-repeat="chart in datasetEvent.charts">
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                         </div>
@@ -135,7 +132,7 @@
                             </div>
                         </div>
                         </section>
-                        <section class="occChart-col m-b-1">
+                        <section class="chart-col m-b-1">
                         <div>
                             <h4 class="card-header" translate="metrics.taxonomicOccDistribution">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
                             <div class="card">

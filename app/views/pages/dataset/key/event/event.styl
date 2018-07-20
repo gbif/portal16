@@ -1,7 +1,35 @@
-  .parent-evt {
+.parent-evt {
     text-overflow: ellipsis;
     max-width: 250px;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;  
-      }
+}
+
+.chart-col {
+    occurrence-breakdown-card {
+        display block
+        padding-bottom 20px
+    }
+}
+
++isAbove($laptop) {
+    .chart-col {
+        column-count 2
+        >div {
+            break-inside avoid-column
+        }
+        .table-container {
+            position initial
+        }
+    }
+}
+
+@media print {
+    .chart-col {
+        column-count auto !important
+        >div {
+            break-inside initial
+        }
+    }
+}
