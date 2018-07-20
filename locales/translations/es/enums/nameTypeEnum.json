@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
     "SCIENTIFIC": "Nombre científico",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
-    "HYBRID": "",
-    "INFORMAL": "",
-    "OTU": "",
+    "DOUBTFUL": "Dudoso",
+    "BLACKLISTED": "En la lista negra",
+    "VIRUS": "Virus",
+    "HYBRID": "Fórmula híbrida",
+    "INFORMAL": "Informal",
+    "OTU": "Unidad taxonómica operacional",
     "CULTIVAR": "",
-    "CANDIDATUS": "",
+    "CANDIDATUS": "Candidato",
     "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "NO_NAME": "Sin nombre"
   }
 }
