@@ -59,11 +59,11 @@
     "verbatimListingMsg": "この一覧では、GBIFがデータ出版者から受け取った情報に対して解釈処理を行わずオリジナルのまま表示しています。",
     "interpretationMsg": "こちらは {DATASET} で公開された種の解釈です。",
     "viewGbifSpeciesMsg": "この種についてのGBIFの見解を表示するには[バックボーンのバージョン](/species/{NUBKEY}) をご参照ください。",
-    "inferredRecordMsg": "",
-    "noChildren": "",
-    "youAreBrowsing": "",
-    "lastCrawled": "",
-    "extensions": "",
-    "taxa": ""
+    "inferredRecordMsg": "このレコードはインデックス作成期間中に作成されたため、参照元データに必ずしも同じ状態で存在していません。",
+    "noChildren": "表示する子階層がありません。",
+    "youAreBrowsing": "現在表示しているページ",
+    "lastCrawled": "最終クロール日 {DATE_FORMATTED}",
+    "extensions": "拡張モジュール",
+    "taxa": "分類群"
   }
 }
