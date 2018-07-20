@@ -3,12 +3,12 @@
     "distribution": {
       "presentIn": "{country} に存在",
       "presentInNonCountry": "{location} に存在",
-      "threatStatus": "",
-      "distributionPlural": ""
+      "threatStatus": "脅威の状況: {status}",
+      "distributionPlural": "分布"
     },
     "tabs": {
       "overview": "",
-      "metrics": "",
+      "metrics": "メトリクス",
       "referenceTaxon": "",
       "verbatim": ""
     },
