@@ -1,14 +1,14 @@
 {
     "speciesSearch": {
-        "youAreCurrentlySearchingInGBIFtaxonomy": "",
-        "SearchAcrossChecklists": "",
-        "freeTextSearchFor": "",
-        "limitSearchTo": "",
+        "youAreCurrentlySearchingInGBIFtaxonomy": "GBIFタクソノミーに存在する種を検索します。",
+        "SearchAcrossChecklists": "チェックリストを横断検索します。",
+        "freeTextSearchFor": "'{QUERY}' のフリーテキスト検索を行います。",
+        "limitSearchTo": "～に限定した検索",
         "limitResultsTo": {
-            "all": "",
-            "scientificNames": "",
-            "vernacularNames": "",
-            "descriptions": ""
+            "all": "全て",
+            "scientificNames": "学名",
+            "vernacularNames": "コモンネームまたは和名",
+            "descriptions": "説明"
         }
     }
 }
