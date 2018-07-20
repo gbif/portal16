@@ -20,19 +20,19 @@
         "filters": {
             "countriesOfCoverage": "",
             "countriesOfResearcher": "",
-            "literatureType": "",
-            "contractCountry": "",
-            "topics": "",
+            "literatureType": "文献の種類",
+            "contractCountry": "国または地域",
+            "topics": "トピック",
             "audiences": "",
-            "purposes": "",
-            "relevance": "",
-            "language": "",
-            "year": "",
+            "purposes": "目的",
+            "relevance": "関連性",
+            "language": "言語",
+            "year": "年",
             "gbifDatasetKey": "データセット",
-            "publishingOrganizationKey": "",
-            "peerReview": "",
+            "publishingOrganizationKey": "出版者",
+            "peerReview": "査読あり",
             "openAccess": "オープンアクセス",
-            "gbifDownloadKey": ""
+            "gbifDownloadKey": "ダウンロードキー"
         }
     }
 }
