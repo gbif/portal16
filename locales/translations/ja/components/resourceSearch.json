@@ -18,12 +18,12 @@
             "literature": "文献"
         },
         "filters": {
-            "countriesOfCoverage": "",
-            "countriesOfResearcher": "",
+            "countriesOfCoverage": "範囲の国または地域",
+            "countriesOfResearcher": "研究者の出身国または地域",
             "literatureType": "文献の種類",
             "contractCountry": "国または地域",
             "topics": "トピック",
-            "audiences": "",
+            "audiences": "利用者",
             "purposes": "目的",
             "relevance": "関連性",
             "language": "言語",
