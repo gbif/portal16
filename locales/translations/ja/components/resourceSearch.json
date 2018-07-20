@@ -5,17 +5,17 @@
         "searchForNewsEventsDocuments": "ニュース、イベント、ドキュメントなどを検索します。種のオカレンスを探している場合は、オカレンス検索をお試しください。",
         "occurrenceSearch": "オカレンス検索",
         "subscribeToCalendar": "カレンダーに登録する",
-        "citationExplainer": "",
+        "citationExplainer": "文献がどのようにして発見され、GBIF媒介データとしてリンクされたかについてもっと読む",
         "types": {
             "events": "イベント",
             "news": "ニュース",
             "resources": "ナレッジベース",
-            "projects": "",
-            "programmes": "",
-            "documents": "",
+            "projects": "プロジェクト",
+            "programmes": "プログラム",
+            "documents": "ドキュメント",
             "tools": "ツール",
-            "dataUse": "",
-            "literature": ""
+            "dataUse": "データ利用",
+            "literature": "文献"
         },
         "filters": {
             "countriesOfCoverage": "",
