@@ -1,5 +1,5 @@
-<div class="container--desktop m-t-1 ng-cloak" ng-if="datasetKey.hasEvents && portal.isSecretariatUser()">
-    <h4 class="card-header--bold text--error">This is in beta and only visible to logged in secretariat users: {{datasetKey.eventCount}}</h4>
+<div class="container--desktop m-t-1 ng-cloak" ng-if="datasetKey.hasEvents">
+    <h4 class="card-header--bold" tx="counts.nEvent" tx-nr="datasetKey.eventCount"></h4>
     <div class="card card--spaced m-b-1">
         <div class="card__stripe card__stripe--light">
             <div class="scrollable-y">

@@ -79,10 +79,10 @@
                             <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
                         </div>
                         <div ng-if="datasetEvent.hasSiblings ">
-                            <h4 class="card-header text-center inline-block" ><span translate="dataset.siblingEvents">Sibling events</span>: {{datasetEvent.siblingCount}} 
+                            <h4 class="card-header text-center inline-block" ><span translate="dataset.siblingEvents"></span>: {{datasetEvent.siblingCount}} 
                             </h4>
                             <h4 class="pull-right card-header text-center parent-evt inline-block" ng-if="datasetEvent.event.parentEventID">
-                                    <span translate="ocurrenceFieldNames.parentEventID">parentEventID</span>: 
+                                    <span translate="ocurrenceFieldNames.parentEventID"></span>: 
                                         <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
                                 </h4>
                             <div class="card card--spaced m-b-1">
@@ -95,9 +95,7 @@
                                                         <th ng-repeat="col in ['eventID', 'eventDate', 'samplingProtocol']" translate="ocurrenceFieldNames.{{col}}">
                                                             {{ col }}
                                                         </th>
-                                                        <th translate="dataset.occurrenceCount">
-                                                            Occurrence count
-                                                        </th>
+                                                        <th translate="dataset.occurrenceCount"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -134,7 +132,7 @@
                         </section>
                         <section class="chart-col m-b-1">
                         <div>
-                            <h4 class="card-header" translate="metrics.taxonomicOccDistribution">TAXONOMIC DISTRIBUTION OF OCCURRENCES</h4>
+                            <h4 class="card-header" translate="metrics.taxonomicOccDistribution"></h4>
                             <div class="card">
                                 <occurrence-taxonomy-tree filter="{dataset_key: datasetEvent.datasetKey, event_id: datasetEvent.eventKey}" options="{limit:10}"></occurrence-taxonomy-tree>
                             </div>
