@@ -7,17 +7,17 @@
       "distributionPlural": "分布"
     },
     "tabs": {
-      "overview": "",
+      "overview": "概要",
       "metrics": "メトリクス",
       "referenceTaxon": "文献の分類群",
-      "verbatim": ""
+      "verbatim": "オリジナルのまま"
     },
     "invasives": {
-      "nInvadedCountries": "",
-      "invasiveIn": "",
-      "accordingTo": "",
-      "occurrenceCount": "",
-      "seeAllCountries": ""
+      "nInvadedCountries": "{NUMBER_FORMATED} {NUMBER, select, 1{国または島} other{国または島}} の侵入生物",
+      "invasiveIn": "～では侵入生物",
+      "accordingTo": "～によると",
+      "occurrenceCount": "GBIFにおけるオカレンス",
+      "seeAllCountries": "全てを表示"
     },
     "as": "",
     "in": "",
