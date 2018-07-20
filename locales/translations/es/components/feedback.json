@@ -28,22 +28,22 @@
     "confirmation": {
       "title": "Gracias",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "Ver problema"
     },
     "issues": {
-      "title": "",
-      "description": "",
+      "title": "Problemas de contenido",
+      "description": "Problemas de contenido reportados por otros usuarios",
       "create": "Deja tus comentarios"
     },
     "placeholders": {
       "summary": "Resumen",
-      "description": "",
-      "username": ""
+      "description": "Descripción detallada. Para peticiones taxonómicas, por favor proporciona una referencia",
+      "username": "Email o nombre de usuario de GitHub"
     },
     "markdownSupport": "",
     "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
+    "failure": "Algo no va bien - el sistema de comentarios no funciona. Por favor, escríbenos vía email o accede a [GitHub] (https://github.com/gbif/portal-feedback/issues). Disculpad las molestias.",
+    "weRecommendX": "Recomendamos el uso de [{NOMBRE}]({ENLACE})",
     "tellGbif": "Dile a GBIF",
     "submit": "Enviar",
     "seeAllComments": "Ver todo",
