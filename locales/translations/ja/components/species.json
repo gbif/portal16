@@ -1,8 +1,8 @@
 {
   "species": {
     "distribution": {
-      "presentIn": "",
-      "presentInNonCountry": "",
+      "presentIn": "{country} に存在",
+      "presentInNonCountry": "{location} に存在",
       "threatStatus": "",
       "distributionPlural": ""
     },
