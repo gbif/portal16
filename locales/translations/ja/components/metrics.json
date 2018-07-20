@@ -43,7 +43,7 @@
     "groupByX": "{TYPE} 別のグループ",
     "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{その他または不明} other{その他または不明}}",
     "unknownRank": "{RANK} 不明",
-    "vernacularNames": "和名",
+    "vernacularNames": "コモンネームまたは和名",
     "majorRanksPlural": {
       "KINGDOM": "界",
       "PHYLUM": "門",
