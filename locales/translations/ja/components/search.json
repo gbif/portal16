@@ -9,7 +9,7 @@
     "occurrences": "オカレンス",
     "species": "種情報",
     "datasets": "データセット",
-    "resources": "ナレッジベース",
+    "resources": "資料",
     "publishers": "出版者",
     "participants": "参加国および参加組織",
     "search": "検索",
@@ -23,7 +23,7 @@
       "searchDatasets": "データセットの検索",
       "searchPublishers": "出版者の検索",
       "searchSpecies": "種を検索する",
-      "searchResources": "リソースを検索する",
+      "searchResources": "資料を検索する",
       "searchOccurrences": "オカレンスレコードを検索する"
     },
     "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{結果} other{結果}}"
