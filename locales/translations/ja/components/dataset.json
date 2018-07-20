@@ -78,6 +78,7 @@
     "siblingEvents": "同胞イベント",
     "childEvents": "子イベント",
     "occurrenceCount": "オカレンスのカウント",
-    "inDataset": "内"
+    "inDataset": "内",
+    "samplingArticleLink": ""
   }
 }

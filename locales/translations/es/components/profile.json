@@ -2,40 +2,40 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Imposible conectar a Facebook",
+        "GITHUB": "Imposible conectar a GitHub"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Imposible iniciar sesión con Facebook",
+        "GITHUB": "Imposible iniciar sesión con GitHub"
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
-      "LOGIN_UNKNOWN": "",
-      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
-      "USER_ALREADY_LOGGED_IN": "",
-      "EMAIL_IN_USE": "",
-      "NO_EMAIL_PROVIDED": "",
-      "FAILED": ""
+      "USERNAME_NOT_UNIQUE": "Este nombre de usuario ya está en uso",
+      "LOGIN_UNKNOWN": "Este inicio de sesión no está asociado a ninguna cuenta - si ya dispones de una cuenta, inicia sesión con el nombre de usuario/email y la contraseña. O puedes registrar una nueva cuenta.",
+      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "Este perfil ya está conectado a otra cuenta.",
+      "USER_ALREADY_LOGGED_IN": "Ya has iniciado sesión",
+      "EMAIL_IN_USE": "Este email ya está en uso",
+      "NO_EMAIL_PROVIDED": "No se ha proporcionado ningún email",
+      "FAILED": "El proceso de consulta del servidor ha fallado"
     },
-    "loginText": "",
-    "register": "",
-    "downloads": "",
-    "repeatPassword": "",
-    "repeatNewPassword": "",
-    "passwordsNotIdentical": "",
-    "setPassword": "",
-    "newPassword": "",
-    "invalidLinkMessage": "",
-    "logout": "",
-    "profile": "",
-    "invalidLink": "",
-    "noDownloads": "",
-    "suggestToSearchOccurrences": "",
-    "welcome": "",
+    "loginText": "Iniciar sesión",
+    "register": "Registrase",
+    "downloads": "Descargas",
+    "repeatPassword": "Repita la contraseña",
+    "repeatNewPassword": "Repite de nuevo la contraseña",
+    "passwordsNotIdentical": "Las dos contraseñas no coinciden",
+    "setPassword": "Establecer contraseña",
+    "newPassword": "Nueva contraseña",
+    "invalidLinkMessage": "Los enlaces en los mails deben ser usados en un máximo de 30 minutos y sólo funcionarán una vez.",
+    "logout": "Cerrar sesión",
+    "profile": "Perfil",
+    "invalidLink": "Enlace no válido",
+    "noDownloads": "Aún no has descargado nada",
+    "suggestToSearchOccurrences": "Podrías querer [buscar registros de presencia] (/registros de presencia/búscar)",
+    "welcome": "Bienvenido a GBIF",
     "accountConfirmed": "",
     "userProfile": "",
     "usernameEmail": "",

@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "Salud del sistema",
+        "description": "Cuál es el estado de los diversos servicios de GBIF",
+        "updatedTimeAgo": "Actualizado {HACE_TIEMPO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "Todos los sistemas operativos",
+            "INFO": "Todos los sistemas operativos",
+            "WARNING": "Estamos experimentando inestabilidad o lentitud en los sistemas",
+            "CRITICAL": "Estamos experimentando un caída parcial de los sistemas"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "Inestabilidad de los servicios",
+                "summary": "Actualmente estamos experimentando lentitud o inestabilidad de los servicios"
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "Servicios no disponibles",
+                "summary": "Estamos experimentando una caída parcial de sistemas"
             }
         }
     }
