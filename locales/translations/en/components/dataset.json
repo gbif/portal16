@@ -78,6 +78,7 @@
     "siblingEvents": "Sibling events",
     "childEvents": "Child events",
     "occurrenceCount": "Occurrence count",
-    "inDataset": "In"
+    "inDataset": "In",
+    "samplingArticleLink": "More about sampling events on GBIF.org"
   }
 }

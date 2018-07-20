@@ -6,11 +6,6 @@
                 {% include "./header.nunjucks" %}
 
                 <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetEvent.event.occurrenceCount > 0">
-                    <div style="text-align: center;">
-                        <div style="background: tomato; color: white; padding: 10px; border-radius: 5px; display: inline-block;">
-                            Under development, but feel free to click around
-                        </div>
-                    </div>
                     <h4 class="card-header--bold" translate="dataset.eventDescription">Event description</h4>
                     <div class="card card--spaced container-fluid">
                         <div class="card__stripe row">

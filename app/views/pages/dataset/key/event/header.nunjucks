@@ -13,6 +13,10 @@
                 <p>
                     <span translate="dataset.inDataset"> </span> <a ui-sref="datasetKey({key: datasetEvent.datasetKey})">{{ datasetEvent.event.dataset }}</a>
                 </p>
+
+                <div class="m-t-1">
+                    <a href="{{portal.urlPrefix}}/news/59wRZpOm0owweKggOqCkw4" class="gb-button--discreet small" translate="dataset.samplingArticleLink"></a>
+                </div>
             </header>
         </div>
     </div>
