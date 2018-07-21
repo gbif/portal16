@@ -39,7 +39,7 @@
       "gbifAffiliates": "GBIF提携団体"
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
+      "HEAD_OF_DELEGATION": "国家代表",
       "NODE_MANAGER": "ノード マネージャー"
     },
     "publishers": "出版者",
