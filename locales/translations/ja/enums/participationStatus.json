@@ -1,10 +1,10 @@
 {
     "participationStatus": {
-        "VOTING": "",
-        "ASSOCIATE": "",
-        "OBSERVER": "",
-        "AFFILIATE": "",
-        "FORMER": "",
-        "undefined": ""
+        "VOTING": "正規参加",
+        "ASSOCIATE": "準正規参加",
+        "OBSERVER": "オブザーバー",
+        "AFFILIATE": "関係団体",
+        "FORMER": "以前の参加者",
+        "undefined": "不明"
     }
 }
