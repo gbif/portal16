@@ -12,7 +12,7 @@
         "excludeUnparsed": "解析できなかった学名を除外",
         "generateCsv": "CSVを生成",
         "parsingNames": "学名を解析中・・・お待ちください",
-        "nameParserDescription": "",
-        "nameParserRequirements": ""
+        "nameParserDescription": "GBIF で使用している学名パーサー（解析プログラム）を使用するための簡易なhtml フォームです。このプログラムは、java で書かれており、正規表現に基づき学名文字列をその要素に分解します。亜属をオプションとして、学名部分だけに必要な3つに再構築しますが、品種（variety）に与えられた種内のランクは無視されます。詳細については [ API documentation](/developer/species#parser)をご覧ください。",
+        "nameParserRequirements": "各行に1つの学名として、学名のリストをコピー＆ペーストします。あるいは 1 行につき1学名としたテキスト ファイルをアップロードします。アップロードされたファイルは UTF8 でエンコードされている必要があります。"
     }
 }
