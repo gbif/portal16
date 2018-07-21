@@ -1,17 +1,17 @@
 {
     "nameParser": {
-        "loadTestNames": "",
-        "parse": "",
-        "or": "",
-        "selectFile": "",
-        "pasteNamesToParse": "",
-        "about": "・・・について",
+        "loadTestNames": "テストする学名をロード",
+        "parse": "解析",
+        "or": "するか",
+        "selectFile": "ファイルの選択",
+        "pasteNamesToParse": "ここに解析する名前をペースト",
+        "about": "について",
         "parser": "パーサー",
-        "nameParserTitle": "",
-        "dropHere": "",
-        "excludeUnparsed": "",
-        "generateCsv": "",
-        "parsingNames": "",
+        "nameParserTitle": "学名パーサー",
+        "dropHere": "ここにドロップ",
+        "excludeUnparsed": "解析できなかった学名を除外",
+        "generateCsv": "CSVを生成",
+        "parsingNames": "学名を解析中・・・お待ちください",
         "nameParserDescription": "",
         "nameParserRequirements": ""
     }
