@@ -32,7 +32,7 @@
         },
         "observationTrends": {
             "drawerTitle": "相対的な観察傾向",
-            "intro": "",
+            "intro": "GBIFの観察データの傾向が研究者に有用な情報を提供しているかどうかを調べる実験",
             "aboutLink": "このツールについて読む",
             "selectSpecies": "種を選択する",
             "noData": "選択された種については1900年以降、地理情報を持っているデータがありません。",
