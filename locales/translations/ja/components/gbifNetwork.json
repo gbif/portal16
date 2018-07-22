@@ -29,13 +29,13 @@
     "gbif_secretariat": "GBIF 事務局",
     "membershipType": "メンバーシップ",
     "name": "名称",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
+    "endorsedDataPublisher": "承認された {NUMBER_FORMATTED} データ {NUMBER, select, one{出版者} other{出版者}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{参加国} other{参加国}}",
+    "dataset": "{NUMBER, select, one{データセット} other{データセット}}",
     "datasets": "データセット",
-    "regionalRepresentative": "",
+    "regionalRepresentative": "{NUMBER, select, one{代表} other{代表}}",
     "participation": {
-      "nonCountryParticipants": "",
+      "nonCountryParticipants": "参加団体",
       "gbifAffiliates": "GBIF提携団体"
     },
     "roles": {
@@ -45,8 +45,8 @@
     "publishers": "出版者",
     "memberSince": "～以来のメンバー",
     "participant": "参加団体",
-    "pPublishers": "",
-    "pOccurrence": "",
+    "pPublishers": "{NUMBER, select, 1{出版者} other{出版者}}",
+    "pOccurrence": "{NUMBER, select, 1{オカレンス} other{オカレンス}}",
     "occurrenceDatasets": "オカレンスデータセット",
     "occurrences": "オカレンス"
   }
