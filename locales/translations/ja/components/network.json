@@ -8,6 +8,6 @@
       "datasets": "ネットワーク"
     },
     "registeredDate": "登録日 {DATE}",
-    "nParticipatingDatasets": ""
+    "nParticipatingDatasets": "{NUMBER_FORMATED} 参加している {NUMBER, select, 1{データセット} other{データセット}}"
   }
 }
