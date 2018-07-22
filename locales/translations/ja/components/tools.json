@@ -1,6 +1,6 @@
 {
     "tools": {
-        "categoryFeatured": "",
+        "categoryFeatured": "特集",
         "suggestDataset": {
             "NOT_OPEN": "オープン ライセンスではないです。",
             "title": "データセットを探す",
