@@ -54,7 +54,7 @@
     "dataSharingWithCountryOfOrigin": "",
     "thisChartShowsTheNumberOfRecordsAboutBiodiversityOccurringInCountry": "",
     "thisChartShowsTheNumberOfRecordsSharedByPublishersWithin": "",
-    "thisChartShowsGlobalTrends": "",
+    "thisChartShowsGlobalTrends": "この図表ではGBIF上で出版したレコード数の総数を表示しています。種が存在した国からのオカレンスレコードと、他国の出版者によって公開されたオカレンスレコードについて色分けして表示しています。",
     "analytics": "解析",
     "global": "世界の",
     "changeOverTimeInDataAboutSpeciesFromCountry": "GBIF.orgで利用可能な{{TRANSLATED_COUNTRY}}の種データの経年変化",
