@@ -55,19 +55,19 @@
     "thisChartShowsTheNumberOfRecordsAboutBiodiversityOccurringInCountry": "",
     "thisChartShowsTheNumberOfRecordsSharedByPublishersWithin": "",
     "thisChartShowsGlobalTrends": "",
-    "analytics": "",
-    "global": "",
+    "analytics": "解析",
+    "global": "世界の",
     "changeOverTimeInDataAboutSpeciesFromCountry": "",
     "changeOverTimeInTheDataPublishedByInstitutionsWithin": "",
     "trendsInDataAvailabilityOnTheGbifNetwork": "",
-    "globalDataTrends": "",
-    "countryDataTrends": "",
-    "countryPublishingTrends": "",
+    "globalDataTrends": "世界のデータ傾向",
+    "countryDataTrends": "{{TRANSLATED_COUNTRY}} データ傾向",
+    "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} 出版傾向",
     "analyticsCountry": {
-      "fromDescription": "",
-      "publishedByDescription": ""
+      "fromDescription": "GBIF.orgで利用可能な {{country}} の種に関するデータの経年変化",
+      "publishedByDescription": "GBIF.orgで利用可能な{{country}}内の組織によって出版されたデータの経年変化"
     },
-    "analyticsGlobalDescription": "",
-    "analyticsTitle": ""
+    "analyticsGlobalDescription": "2008年から2016年までのGBIFネットワーク上でのデータ利用性に関する傾向",
+    "analyticsTitle": "データ傾向"
   }
 }
