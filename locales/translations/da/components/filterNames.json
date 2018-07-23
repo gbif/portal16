@@ -52,6 +52,7 @@
     "higherTaxonKey": "Højere takson",
     "status": "Status",
     "nameType": "Navne type",
-    "origin": "Oprindelse"
+    "origin": "Oprindelse",
+    "networkKey": ""
   }
 }
