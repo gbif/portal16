@@ -47,7 +47,7 @@
     "temporalPrecision": "Temporal precision",
     "theseChartsIllustrate8": "These charts illustrate changes in the number of available records which include a complete date including year, month and day. The numbers of records including only the month and year or only the year are also shown.",
     "geographicCoverageForRecordedSpecies": "Geographic coverage for recorded species",
-    "theseChartsIllustrate9": "These charts illustrate the change in the number of species for which occurrence records are available.",
+    "theseChartsIllustrate9": "These charts illustrate change in the number of species for which occurrence records are available and the geographic coverage of records for each species at different scales. In each chart, species are classified by the number of cells at a given scale for which occurrence records for the species are available. More cells indicates greater data coverage for the species. Naturally, some species are only known from a small area, so low cell counts do not necessarily indicate lack of relevant data.",
     "oneDegree": "1.0 degree",
     "halfDegree": "0.5 degree",
     "pointOneDegree": "0.1 degree",
