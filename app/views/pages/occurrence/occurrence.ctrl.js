@@ -14,7 +14,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
+function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
     var vm = this;
     $translate('resource.occurrenceSearch').then(function(title) {
         Page.setTitle(title);
@@ -309,16 +309,24 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     };
 
     vm.filters.networkKey = {
-        titleTranslation: 'filterNames.gbifNetwork',
-        queryKey: 'gbif_network',
+        titleTranslation: 'filterNames.networkKey',
+        queryKey: 'network_key',
         filter: OccurrenceFilter,
+        expand: {
+            resource: Network,
+            expandedTitle: 'title'
+        },
         search: {
             isSearchable: true,
-            suggestEndpoint: suggestEndpoints.networkKey
+            suggestEndpoint: suggestEndpoints.networkKey,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'title',
+            suggestShortName: 'title',
+            suggestKey: 'key'
         },
         facets: {
             hasFacets: false,
-            facetKey: 'GBIF_NETWORK'
+            facetKey: 'NETWORK_KEY'
         }
     };
 

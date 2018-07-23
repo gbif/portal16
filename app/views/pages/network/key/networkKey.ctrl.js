@@ -9,9 +9,10 @@ angular
     .controller('networkKeyCtrl', networkKeyCtrl);
 
 /** @ngInject */
-function networkKeyCtrl($state, $stateParams, ResourceItem, OccurrenceSearch, NetworkDatasets, $anchorScroll) {
+function networkKeyCtrl(Page, $state, $stateParams, ResourceItem, OccurrenceSearch, NetworkDatasets, $anchorScroll) {
     var vm = this;
     vm.$state = $state;
+    Page.drawer(false);
     vm.key = $stateParams.key;
     // vm.network = Network.get({id: vm.key});
     vm.network = ResourceItem.get({contentType: 'network', networkKey: vm.key});

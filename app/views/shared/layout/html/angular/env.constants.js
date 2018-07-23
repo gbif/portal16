@@ -21,7 +21,7 @@ angular
         taxon: env.dataApi + 'species/suggest',
         dataset: env.dataApi + 'dataset/suggest',
         eventId: env.dataApi + 'occurrence/search/eventId',
-        networkKey: env.dataApi + 'occurrence/search/networkKey',
+        networkKey: '/api/networkKey/suggest',
         installationKey: env.dataApi + 'occurrence/search/installationKey',
         samplingProtocol: env.dataApi + 'occurrence/search/samplingProtocol',
         publisher: env.dataApi + 'organization/suggest'

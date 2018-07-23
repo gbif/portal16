@@ -52,6 +52,7 @@
     "higherTaxonKey": "Higher taxon",
     "status": "Status",
     "nameType": "Name type",
-    "origin": "Origin"
+    "origin": "Origin",
+    "networkKey": "GBIF network"
   }
 }

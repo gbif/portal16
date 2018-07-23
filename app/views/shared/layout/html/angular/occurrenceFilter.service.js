@@ -30,7 +30,11 @@ angular
             depth: undefined,
             last_interpreted: undefined,
             event_date: undefined,
-            repatriated: undefined
+            repatriated: undefined,
+            network_key: undefined,
+            event_id: undefined,
+            parent_event_id: undefined,
+            sampling_protocol: undefined
         };
 
         // for fields where we want faceting and will always ask for all possible. This is the case for most enums
