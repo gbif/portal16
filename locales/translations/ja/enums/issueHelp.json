@@ -1,7 +1,7 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "",
-    "COORDINATE_REPROJECTION_FAILED": "",
+    "BASIS_OF_RECORD_INVALID": "basisOfRecordの値が見つからないか、または不正です。値はダーウィンコアタイプの語彙に一致しなければなりません。",
+    "COORDINATE_REPROJECTION_FAILED": "この10進法の緯度経度は指定の測地系からWGS84に変換することができません。",
     "NO_SPECIES": "",
     "RECORDED_DATE_INVALID": "",
     "PRESUMED_NEGATED_LATITUDE": "",
