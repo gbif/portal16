@@ -178,9 +178,13 @@ these should be self explanatory, but a few words on some of them
 All groups include tabs. More can come if there arise a need for other sensible groups
 dataset, occurrence, species, publisher, country, articles, homepage, search, tools, download, user mangement
 
-## Attribution
+### Big Thanks
+
 This project is possible due to the many people that share their work under CC.
 Attributing everyone in the interface where e.g. icons and libraries are used, isn't feasible. 
+
+### Testing
+Cross-browser Testing Platform and Open Source <3 Provided by [Sauce Labs](https://saucelabs.com)
 
 ### Libraries
 
