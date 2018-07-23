@@ -1,11 +1,11 @@
 {
   "issueEnum": {
-    "PARENT_NAME_USAGE_ID_INVALID": "",
-    "ACCEPTED_NAME_USAGE_ID_INVALID": "",
-    "ORIGINAL_NAME_USAGE_ID_INVALID": "",
-    "RANK_INVALID": "",
-    "NOMENCLATURAL_STATUS_INVALID": "",
-    "TAXONOMIC_STATUS_INVALID": "",
+    "PARENT_NAME_USAGE_ID_INVALID": "ParentNameUsageID が無効です。",
+    "ACCEPTED_NAME_USAGE_ID_INVALID": "AcceptedNameUsageID が無効です。",
+    "ORIGINAL_NAME_USAGE_ID_INVALID": "OriginalNameUsageID が無効です。",
+    "RANK_INVALID": "ランク不明",
+    "NOMENCLATURAL_STATUS_INVALID": "学名命名の状況が不明",
+    "TAXONOMIC_STATUS_INVALID": "分類学的地位が不明",
     "SCIENTIFIC_NAME_ASSEMBLED": "",
     "CHAINED_SYNOYM": "",
     "BASIONYM_AUTHOR_MISMATCH": "",
