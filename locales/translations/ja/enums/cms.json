@@ -16,43 +16,43 @@
         "publishingOrg": "出版者",
         "peerReview": "査読",
         "openAccess": "オープンアクセス",
-        "gbifDownloadKey": ""
+        "gbifDownloadKey": "ダウンロードキー"
       },
       "contentType": {
-        "event": "",
+        "event": "イベント",
         "news": "ニュース",
-        "resource": "",
-        "dataUse": "",
-        "project": "",
-        "participant": "",
-        "programme": "",
-        "document": "",
-        "tool": "",
-        "literature": ""
+        "resource": "資料",
+        "dataUse": "データ利用",
+        "project": "プロジェクト",
+        "participant": "参加者",
+        "programme": "プログラム",
+        "document": "ドキュメント",
+        "tool": "ツール",
+        "literature": "文献"
       },
       "vocabularyTerms": {
         "articleType": {
-          "Nodes guidance": ""
+          "Nodes guidance": "ノードガイダンス"
         },
         "projectGrantType": {
-          "REGIONAL": "",
-          "SMALL": "",
-          "NATIONAL": "",
-          "undefined": ""
+          "REGIONAL": "地域の助成金",
+          "SMALL": "小規模の助成金",
+          "NATIONAL": "国の助成金",
+          "undefined": "情報なし"
         },
         "projectStatus": {
-          "APPROVED": "",
-          "CLOSED": "",
-          "IN_PROGRESS": "",
-          "undefined": ""
+          "APPROVED": "承認済",
+          "CLOSED": "終了",
+          "IN_PROGRESS": "進行中",
+          "undefined": "情報なし"
         },
         "relevance": {
-          "GBIF_USED": "",
-          "GBIF_CITED": "",
-          "GBIF_DISCUSSED": "",
-          "GBIF_PRIMARY": "",
-          "GBIF_ACKNOWLEDGED": "",
-          "GBIF_PUBLISHED": "",
+          "GBIF_USED": "GBIF を使用",
+          "GBIF_CITED": "GBIF を引用",
+          "GBIF_DISCUSSED": "GBIFについて議論",
+          "GBIF_PRIMARY": "GBIFが主要なトピック",
+          "GBIF_ACKNOWLEDGED": "GBIFへの謝辞",
+          "GBIF_PUBLISHED": "GBIFが出版",
           "GBIF_AUTHOR": "",
           "GBIF_MENTIONED": "",
           "GBIF_FUNDED": ""
