@@ -109,11 +109,11 @@
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "生物多様性に関する知識の専門家",
-          "DATA_HOLDERS": "",
+          "DATA_HOLDERS": "データ所持者",
           "DATA_USERS": "データ ユーザー",
-          "DECISION_MAKERS": "",
+          "DECISION_MAKERS": "意思決定者",
           "GBIF_NETWORK": "GBIF ネットワーク",
-          "PUBLIC_STAKEHOLDERS": ""
+          "PUBLIC_STAKEHOLDERS": "公共のステークホルダー"
         }
       }
     }
