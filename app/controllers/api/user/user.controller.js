@@ -1,6 +1,10 @@
 'use strict';
 let userModel = require('./user.model'),
     auth = require('../../auth/auth.service'),
+    _ = require('lodash'),
+    querystring = require('querystring'),
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    request = require('requestretry'),
     log = require('../../../../config/log');
 
 module.exports = {
@@ -12,7 +16,7 @@ module.exports = {
     updateForgottenPassword: updateForgottenPassword,
     logout: logout,
     getDownloads: getDownloads,
-    createSimpleDownload: createSimpleDownload,
+    createSimpleDownload: testForDuplicateThenCreateSimpleDownload,
     changePassword: changePassword,
     cancelDownload: cancelDownload
 };
@@ -144,7 +148,7 @@ function getDownloads(req, res) {
 }
 
 /**
- * Initiate a simple download based on query parameters
+ * Initiate a simple download based on query parameters.
  */
 function createSimpleDownload(req, res) {
     userModel.createSimpleDownload(req.user, req.query)
@@ -174,6 +178,54 @@ function logout(req, res) {
     res.send('Logged out');
 }
 
+/**
+ * Initiate a simple download based on query parameters.
+ * UPDATE: Hack on behalf of the API where it probably ought to be done.
+ * Due to many downloads without any filters it has been decided to redirect such queries to an older pregenerated version.
+ * So first check if there exists any such, if so redirect to that. Else create new download.
+ */
+function testForDuplicateThenCreateSimpleDownload(req, res) {
+    delete req.query.locale;
+    delete req.query.advanced;
+    getPregeneratedVersion(req.query)
+        .then(function(match) {
+            if (match) {
+                res.send(match.key);
+            } else {
+                createSimpleDownload(req, res);
+            }
+        })
+        .catch(handleError(res, 422));
+}
+
+async function getPregeneratedVersion(query) {
+    let predicate = await getPredicate(query);
+    let pregeneratedDownloads = await userModel.getDownloads('download.gbif.org', {limit: 100, offset: 0});
+
+    let match = _.find(pregeneratedDownloads.results, function(e) {
+        return e.status === 'SUCCEEDED' && _.get(e, 'request.predicate') === predicate.predicate && _.get(e, 'request.format') === predicate.format;
+    });
+    return match;
+}
+
+/*
+A hack to compensate for a missing API option to return a pregerenated version if available.
+*/
+async function getPredicate(query) {
+    let options = {
+        url: apiConfig.occurrenceSearch.url + 'predicate?' + querystring.stringify(query),
+        method: 'GET',
+        maxAttempts: 1,
+        fullResponse: true,
+        json: true
+    };
+    let response = await request(options);
+    if (response.statusCode !== 200) {
+        throw new Error('Failed API query');
+    }
+    return response.body;
+}
+
 function handleError(res, statusCode) {
    statusCode = statusCode || 500;
    return function(err) {
@@ -185,3 +237,4 @@ function handleError(res, statusCode) {
         res.sendStatus(err.statusCode || statusCode);
    };
 }
+

@@ -160,7 +160,6 @@
                                         <div>
                                             <div ng-bind-html="'downloadKey.readDatauseAndTerms' | translate | md2html"></div>
                                             <div>
-                                            {#<span gb-help="for-how-long-will-does-gbif-store-downloads">{$ __('downloadKey.storageDurationTeaser') $}</span>#}
                                             {% if not download.record.doi %}
                                                 <span gb-help="how-and-when-does-gbif-assign-digital-object-identifiers-dois">{$ __('downloadKey.predatesDoi') $}</span>
                                             {% endif %}
@@ -169,7 +168,7 @@
                                     </div>
                                 </div>
                                 {% if download.record.status === 'SUCCEEDED' and download.record.eraseAfter %}
-                                <div class="card__stripe card__stripe--light ng-cloak">
+                                <div class="card__stripe card__stripe--light ng-cloak" ng-if="downloadKey.isUsersDownload">
                                     <div class="card__content discreet">
                                         <div class="card">
                                             <div class="card__stripe">
@@ -181,8 +180,8 @@
                                             <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">
                                                 <a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ portal.env.domain }}/occurrence/download/{{ downloadKey.key }} has been used and cited in: " translate="downloadKey.tellUs"></a>
                                                 {% if download.record.status !== 'FILE_ERASED' %}
-                                                    <a href="" ng-click="downloadKey.postponeDeletion()" ng-if="downloadKey.willBeDeletedSoon && downloadKey.isUsersDownload" class="gb-button--flat text-uppercase" translate="downloadKey.postpone"></a>
-                                                    <a href="" ng-click="downloadKey.deleteDownload()" ng-if="!downloadKey.readyForDeletion && downloadKey.isUsersDownload" class="gb-button--flat text-error text-uppercase" translate="downloadKey.deleteDownload"></a>
+                                                    <a href="" ng-click="downloadKey.postponeDeletion()" ng-if="downloadKey.willBeDeletedSoon" class="gb-button--flat text-uppercase" translate="downloadKey.postpone"></a>
+                                                    <a href="" ng-click="downloadKey.deleteDownload()" ng-if="!downloadKey.readyForDeletion" class="gb-button--flat text-error text-uppercase" translate="downloadKey.deleteDownload"></a>
                                                 {% endif %}
                                             </div>
                                         </div>
