@@ -200,10 +200,12 @@ function testForDuplicateThenCreateSimpleDownload(req, res) {
 
 async function getPregeneratedVersion(query) {
     let predicate = await getPredicate(query);
+    let pQuery = _.get(predicate, 'predicate');
     let pregeneratedDownloads = await userModel.getDownloads('download.gbif.org', {limit: 100, offset: 0});
 
     let match = _.find(pregeneratedDownloads.results, function(e) {
-        return e.status === 'SUCCEEDED' && _.get(e, 'request.predicate') === predicate.predicate && _.get(e, 'request.format') === predicate.format;
+        let pOther = _.get(e, 'request.predicate');
+        return e.status === 'SUCCEEDED' && _.isEqual(pQuery, pOther) && _.get(e, 'request.format') === predicate.format;
     });
     return match;
 }
