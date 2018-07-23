@@ -1,13 +1,13 @@
 {
   "network": {
-    "network": "",
+    "network": "ネットワーク",
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": "",
-      "datasets": ""
+      "summary": "概要",
+      "homepage": "ホームページ",
+      "metrics": "メトリクス",
+      "datasets": "ネットワーク"
     },
-    "registeredDate": "",
-    "nParticipatingDatasets": ""
+    "registeredDate": "登録日 {DATE}",
+    "nParticipatingDatasets": "{NUMBER_FORMATED} 参加している {NUMBER, select, 1{データセット} other{データセット}}"
   }
 }

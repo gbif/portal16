@@ -51,7 +51,7 @@
     "constituentKey": "構成データセット",
     "higherTaxonKey": "上位の分類群",
     "status": "",
-    "nameType": "",
+    "nameType": "名前の種類",
     "origin": ""
   }
 }

@@ -1,13 +1,13 @@
 {
     "threatStatus": {
-        "EXTINCT": "",
-        "EXTINCT_IN_THE_WILD": "",
-        "CRITICALLY_ENDANGERED": "",
-        "ENDANGERED": "",
-        "VULNERABLE": "",
-        "NEAR_THREATENED": "",
-        "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "",
-        "NOT_EVALUATED": ""
+        "EXTINCT": "絶滅",
+        "EXTINCT_IN_THE_WILD": "野生絶滅",
+        "CRITICALLY_ENDANGERED": "絶滅危機",
+        "ENDANGERED": "絶滅危惧",
+        "VULNERABLE": "絶滅危険性増大",
+        "NEAR_THREATENED": "存続基盤が脆弱",
+        "LEAST_CONCERN": "軽度懸念",
+        "DATA_DEFICIENT": "情報不足",
+        "NOT_EVALUATED": "未評価"
     }
 }

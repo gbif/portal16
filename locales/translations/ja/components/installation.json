@@ -1,11 +1,11 @@
 {
     "installation": {
-        "installation": "",
+        "installation": "インストール",
         "about": "・・・について",
-        "homepage": "",
-        "installationType": "",
-        "hostedBy": "",
-        "registered": "",
-        "endpoints": ""
+        "homepage": "ホームページ",
+        "installationType": "インストールのタイプ",
+        "hostedBy": "ホスト",
+        "registered": "登録済み",
+        "endpoints": "エンドポイント"
     }
 }

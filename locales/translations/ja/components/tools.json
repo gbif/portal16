@@ -1,6 +1,6 @@
 {
     "tools": {
-        "categoryFeatured": "",
+        "categoryFeatured": "特集",
         "suggestDataset": {
             "NOT_OPEN": "オープン ライセンスではないです。",
             "title": "データセットを探す",
@@ -12,45 +12,45 @@
                 "region": "地理的範囲",
                 "taxon": "分類学的範囲",
                 "whyImportant": "このデータセットが重要な理由",
-                "howWouldYouRateIt": "",
-                "high": "",
-                "medium": "",
-                "low": "",
-                "bibliographicRef": "",
-                "type": "",
-                "license": "",
-                "dataHolderContact": "",
-                "publicAlert": "",
-                "yourContact": "",
-                "comments": "",
-                "submit": "",
-                "followDiscussionBelow": "",
-                "followIssue": "",
-                "suggestAnother": "",
-                "saveFailure": ""
+                "howWouldYouRateIt": "重要性をどう評価するか",
+                "high": "必須－この地域のデータはGBIFにありません。",
+                "medium": "重要－この地域のデータはGBIFに少ししかありません",
+                "low": "すでにあるデータを補完するのによいデータとなるでしょう",
+                "bibliographicRef": "参考文献",
+                "type": "データセットタイプ",
+                "license": "ライセンス情報",
+                "dataHolderContact": "データ所有者の連絡先",
+                "publicAlert": "これらの詳細は公開されます",
+                "yourContact": "あなたの連絡先情報",
+                "comments": "コメント",
+                "submit": "送信",
+                "followDiscussionBelow": "以下のリンクから、今後の議論に参加するか、議論をフォローする",
+                "followIssue": "githubでのサジェスチョンを見る",
+                "suggestAnother": "他のデータセットをサジェストする",
+                "saveFailure": "おっと、あなたのサジェスチョンを保存できませんでした。後で再度トライするか、サジェスチョンを管理している [Github](https://github.com/gbif/data-mobilization/issues)を直接訪れててください。"
             }
         },
         "observationTrends": {
-            "drawerTitle": "",
-            "intro": "",
-            "aboutLink": "",
-            "selectSpecies": "",
-            "noData": "",
-            "selectHigherTaxa": "",
-            "selectArea": "",
-            "hexagon": "",
-            "draw": "",
-            "clear": "",
-            "resultIntro": "",
-            "embedIntro": ""
+            "drawerTitle": "相対的な観察傾向",
+            "intro": "GBIFの観察データの傾向が研究者に有用な情報を提供しているかどうかを調べる実験",
+            "aboutLink": "このツールについて読む",
+            "selectSpecies": "種を選択する",
+            "noData": "選択された種については1900年以降、地理情報を持っているデータがありません。",
+            "selectHigherTaxa": "高次の分類を選ぶ",
+            "selectArea": "地域を選択",
+            "hexagon": "ヘキサゴン表示",
+            "draw": "描画",
+            "clear": "消去",
+            "resultIntro": "選択した地域での相対観察頻度の変化",
+            "embedIntro": " {GBIF network}を通じて得られた全データ"
         },
         "speciesLookup": {
-            "description": "",
-            "title": ""
+            "description": "CSVファイルに対してGBIFバックボーンを参照し、種名を正規化します。ファイルには'scientificName’ が必ず含まれ、オプションとして ‘kingdom’ と ‘id’が含まれる必要があります。",
+            "title": "種名マッチング"
         },
         "ipt": {
-            "description": "",
-            "dontSeeYourIpt": ""
+            "description": "統合出版ツールキット Integrated Publishing Toolkit (IPT) はJavaで書かれた無料のオープンソースツールで、データセットを出版して、GBIFネットワークを通じて共有するために用いられます。IPTは データリポジトリにデータセットを転送してDOIを得るため、DataCite あるいは EZID アカウントで設定することができます。",
+            "dontSeeYourIpt": "IPTが見えない？ [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") にあなたの所在地の緯度・経度をお送りください。"
         }
     }
 }

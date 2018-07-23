@@ -1,18 +1,18 @@
 {
   "endpointType": {
-    "EML": "",
-    "FEED": "",
-    "WFS": "",
-    "WMS": "",
-    "TCS_RDF": "",
-    "TCS_XML": "",
-    "DWC_ARCHIVE": "",
-    "DIGIR": "",
-    "DIGIR_MANIS": "",
-    "TAPIR": "",
-    "BIOCASE": "",
-    "BIOCASE_XML_ARCHIVE": "",
-    "OAI_PMH": "",
-    "OTHER": ""
+    "EML": "EML",
+    "FEED": "RSSフィード",
+    "WFS": "WFS",
+    "WMS": "WMS",
+    "TCS_RDF": "TCS RDF",
+    "TCS_XML": "TCS XML",
+    "DWC_ARCHIVE": "ダーウィンコアアーカイブ",
+    "DIGIR": "DiGIR",
+    "DIGIR_MANIS": "DiGIR MANIS",
+    "TAPIR": "TAPIR",
+    "BIOCASE": "BioCASe",
+    "BIOCASE_XML_ARCHIVE": "BioCASe XML アーカイブ",
+    "OAI_PMH": "OAI PMH",
+    "OTHER": "その他"
   }
 }
