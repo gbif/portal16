@@ -52,6 +52,7 @@
     "higherTaxonKey": "上位の分類群",
     "status": "",
     "nameType": "名前の種類",
-    "origin": ""
+    "origin": "",
+    "networkKey": ""
   }
 }
