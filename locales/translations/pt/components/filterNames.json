@@ -52,6 +52,7 @@
     "higherTaxonKey": "",
     "status": "",
     "nameType": "",
-    "origin": ""
+    "origin": "",
+    "networkKey": ""
   }
 }
