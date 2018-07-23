@@ -1,6 +1,6 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "",
+    "BASIS_OF_RECORD_INVALID": "basisOfRecordの値が見つからないか、または不正です。値はダーウィンコアタイプの語彙に一致しなければなりません。",
     "COORDINATE_REPROJECTION_FAILED": "",
     "NO_SPECIES": "",
     "RECORDED_DATE_INVALID": "",
