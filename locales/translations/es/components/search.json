@@ -1,7 +1,7 @@
 {
   "search": {
     "placeholder": "Registros de presencia, especies, noticias ...",
-    "noSearchTermsEntered": "No se han introducido términos de búsqueda",
+    "noSearchTermsEntered": "",
     "notSureWhatYouAreLookingFor": "¿No estoy seguro lo que buscas? Qué tal si mira algunas fotos de registros de presencia de especies",
     "cannotFindWhatYouAreLookingFor": "¿No encuentras lo que buscas?",
     "trySpecifyingAType": "Intente especificar un tipo",
@@ -11,9 +11,9 @@
     "datasets": "Juegos de datos",
     "resources": "Recursos",
     "publishers": "Publicadores",
-    "participants": "",
+    "participants": "Participantes",
     "search": "Buscar",
-    "clearFilters": "",
+    "clearFilters": "Quitar filtros",
     "filters": "Filtros",
     "simple": "Sencilla",
     "advanced": "Avanzada",
@@ -21,10 +21,10 @@
     "suggestions": "Sugerencias",
     "header": {
       "searchDatasets": "Búsqueda de juego de datos",
-      "searchPublishers": "",
+      "searchPublishers": "Búsqueda de proveedores",
       "searchSpecies": "Buscar especie",
       "searchResources": "Buscar recursos",
-      "searchOccurrences": ""
+      "searchOccurrences": "Buscar registros de presencia"
     },
     "nResults": ""
   }
