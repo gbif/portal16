@@ -1,6 +1,6 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "basisOfRecordの値が見つからないか、または不正です。値はダーウィンコアタイプの語彙に一致しなければなりません。",
+    "BASIS_OF_RECORD_INVALID": "basisOfRecordの値が見つからないか、または無効です。値はダーウィンコアタイプの語彙に一致しなければなりません。",
     "COORDINATE_REPROJECTION_FAILED": "この10進法の緯度経度は指定の測地系からWGS84に変換することができません。",
     "NO_SPECIES": "このグループ（現在属についてのみ確認済み）は受け入れられた種の情報が欠けています。GBIFバックボーン特定の問題。",
     "RECORDED_DATE_INVALID": "（部分的に）無効な日付です。例えば、存在しない日付、無効のゼロの月など。",
@@ -50,17 +50,17 @@
     "RANK_INVALID": "Dwc:taxonRankが解釈できません。",
     "ACCEPTED_NAME_USAGE_ID_INVALID": "dwc:acceptedNameUsageIDの値が解決できません。",
     "CONFLICTING_BASIONYM_COMBINATION": "",
-    "INDIVIDUAL_COUNT_INVALID": "",
+    "INDIVIDUAL_COUNT_INVALID": "individualCountの値が数値として解釈できません。",
     "CLASSIFICATION_RANK_ORDER_INVALID": "（説明が不足しています）",
-    "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-    "COLUMN_MISMATCH": "",
-    "MULTIMEDIA_URI_INVALID": "",
-    "LICENSE_MISSING_OR_UNKNOWN": "",
+    "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "拡張モジュールのレコードがコアレコードと紐付けされていません。",
+    "COLUMN_MISMATCH": "一行に使われている列数が予期した数と一致しません。",
+    "MULTIMEDIA_URI_INVALID": "マルチメディアオブジェクトに無効なURLが入力されています。",
+    "LICENSE_MISSING_OR_UNKNOWN": "ライセンスを解析できません。GBIFでサポートされていないライセンスであるか、ライセンス情報そのものが見つかりません。",
     "PARENT_CYCLE": "",
-    "TAXONOMIC_STATUS_INVALID": "",
-    "ML_NOT_FOUND": "",
-    "MODIFIED_DATE_INVALID": "",
-    "REQUIRED_TERM_MISSING": "",
+    "TAXONOMIC_STATUS_INVALID": "Dwc:taxonomicStatusが解釈できません。",
+    "ML_NOT_FOUND": "EML ドキュメントが見つかりませんでした。",
+    "MODIFIED_DATE_INVALID": " dc:modifiedに（部分的に）無効な日付が入力されています。例えば、存在しない日付、無効のゼロの月など。",
+    "REQUIRED_TERM_MISSING": "コア／拡張に必要な用語が見つかりません。",
     "GEODETIC_DATUM_ASSUMED_WGS84": "",
     "COUNTRY_MISMATCH": "",
     "UNKNOWN_ROWTYPE": "",
@@ -68,7 +68,7 @@
     "CHAINED_SYNOYM": "",
     "ELEVATION_MIN_MAX_SWAPPED": "",
     "MULTIMEDIA_DATE_INVALID": "",
-    "PARENT_NAME_USAGE_ID_INVALID": "",
+    "PARENT_NAME_USAGE_ID_INVALID": "（説明が不足しています）",
     "COORDINATE_REPROJECTION_SUSPICIOUS": "",
     "BASIONYM_AUTHOR_MISMATCH": "",
     "COUNTRY_DERIVED_FROM_COORDINATES": "",
@@ -95,6 +95,6 @@
     "CONTINENT_INVALID": "",
     "VERNACULAR_NAME_INVALID": "この名前の使用法に紐付けされているコモンネームまたは和名の拡張レコードのうち少なくとも１つは無効です。",
     "DESCRIPTION_INVALID": "この名前の使用法に紐付けされている説明拡張レコードのうち少なくとも１つは無効です。",
-    "REFERENCES_URI_INVALID": ""
+    "REFERENCES_URI_INVALID": "dc:referencesに無効なURLが入力されています。"
   }
 }
