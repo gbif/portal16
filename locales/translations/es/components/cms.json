@@ -1,28 +1,28 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
+      "project": "Proyecto",
+      "projectId": "ID del Proyecto",
       "projectIdentifier": "",
       "grantType": "",
-      "duration": "",
+      "duration": "Duración",
       "title": "Título",
       "start": "Comienzo",
       "end": "Final",
       "fundsAllocated": "",
       "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
+      "funding": "Financiación",
+      "coFunding": "Cofinanciación",
       "fundedBy": "",
       "coFundedBy": "",
       "typeOfGrant": "",
-      "projectStart": "",
+      "projectStart": "Fecha de inicio del proyecto",
       "status": "",
       "programme": "",
       "contractCountry": "",
       "newsAndEvents": "Noticias y Eventos",
       "call": "",
-      "projectLead": "",
+      "projectLead": "Líder de proyecto",
       "contactDetalils": "Detalles del contacto",
       "partners": "Socios"
     },
@@ -30,7 +30,7 @@
       "dataViaGbif": ""
     },
     "literature": {
-      "keywords": ""
+      "keywords": "Palabras Clave"
     },
     "auxiliary": {
       "subject": "",
