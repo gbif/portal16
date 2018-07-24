@@ -7,7 +7,7 @@
     "PRESUMED_NEGATED_LATITUDE": "緯度が無効です。例えば-32.3ではなく32.3になっている。",
     "UNKNOWN_TERM": "コアおよび拡張モジュールの定義で使用されている用語が不明です。",
     "DEPTH_MIN_MAX_SWAPPED": "入力値が最小＞最大の場合にセット",
-    "ORIGINAL_NAME_DERIVED": "",
+    "ORIGINAL_NAME_DERIVED": "著者名の比較によると、オリジナルの名前（バソニム）に関係性がありますが、データには明確な記載がありません。これはプログラムによって生成されるGBIFバックボーンの使用法においてフラグ付けされるべきです。GBIFバックボーン特定の問題。",
     "ELEVATION_UNLIKELY": "",
     "PARENT_NAME_NOT_UNIQUE": "",
     "TAXONOMIC_STATUS_MISMATCH": "",
