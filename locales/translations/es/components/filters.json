@@ -1,23 +1,23 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
-        "clear": "",
-        "add": "",
+        "searchPlaceholder": "Buscar",
+        "noPreference": "Sin preferencia",
+        "invert": "Invertir",
+        "clear": "Borrar filtros",
+        "add": "Añadir filtro",
         "repatriation": {
-            "description": ""
+            "description": "Se dice que los datos son repatriados cuando son publicados por una institución en un país pero están relacionados con la biodiversidad que se da en otro país"
         },
         "ternary": {
-            "yes": "",
-            "no": "",
-            "all": ""
+            "yes": "Sí",
+            "no": "No",
+            "all": "Todos"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
+            "north": "Norte",
+            "south": "Sur",
+            "west": "Oeste",
+            "east": "Este",
             "withCoordinates": "",
             "withoutCoordinates": "",
             "includeFlaggedAsSuspicious": "",
