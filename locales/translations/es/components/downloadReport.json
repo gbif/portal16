@@ -1,9 +1,9 @@
 {
   "downloadReport": {
-    "csvDescription": "",
-    "dwcaDescription": "",
-    "estimatedSize": "",
-    "knownIssues": "",
+    "csvDescription": "CSV delimitado por tabulaciones. Sólo contiene datos tras el mapeo de GBIF.",
+    "dwcaDescription": "El Archivo Darwin Core contiene los datos originales como los había suministrado el proveedor y el mapeo de GBIF",
+    "estimatedSize": "Tamaño de datos estimados",
+    "knownIssues": "Problemas conocidos",
     "knownIssuesDescription": "",
     "FossilsIncluded": "",
     "FossilsIncludedDescription": "",

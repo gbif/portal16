@@ -36,8 +36,8 @@
             "select": {
                 "equals": "Es",
                 "between": "Entre",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Antes del final de",
+                "greaterThanOrEquals": "Después del comienzo de"
             }
         }
     }

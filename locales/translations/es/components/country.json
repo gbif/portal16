@@ -6,9 +6,9 @@
       "dataAbout": "",
       "participartion": "",
       "publications": "",
-      "news": ""
+      "news": "Noticias"
     },
-    "memberSince": "",
+    "memberSince": "Miembro desde",
     "dataFrom": "",
     "dataAboutCountry": "",
     "publishingTrends": "",
@@ -23,9 +23,9 @@
     "notParticipantDescription": "",
     "countryNamingDisclaimer": "",
     "counts": {
-      "occurrences": "",
-      "datasets": "",
-      "publishers": "",
+      "occurrences": "Registros de presencia",
+      "datasets": "Juegos de datos",
+      "publishers": "Proveedores",
       "countriesAndAreasContributeData": "",
       "publishedOccurrences": "",
       "publishedDatasets": "",
