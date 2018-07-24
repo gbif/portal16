@@ -46,7 +46,7 @@
     "NAME_PARENT_MISMATCH": "（受け入れられた）二名法／三名法による名前が親階層の名前と一致しません。再結合した名前は親階層の属／種名に一致すべきです。例えば 親階層の属がAbiesである種Picea albaは学名不一致となるため、Abies albaに変換すべきです。GBIFバックボーン特定の問題。",
     "DWCA_UNREADABLE": "ダーウィンコアアーカイブが読めないか抽出できません。",
     "RESOURCE_CREATOR_MISSING_OR_INCOMPLETE": "リソース作成者が見つからないか、不完全な情報となっています。",
-    "PUBLISHED_BEFORE_GENUS": "",
+    "PUBLISHED_BEFORE_GENUS": "二名法／三名法による名前が親階層の属よりも前に出版されています。名前を再結合により作成した方がよいかもしれません。",
     "RANK_INVALID": "Dwc:taxonRankが解釈できません。",
     "ACCEPTED_NAME_USAGE_ID_INVALID": "dwc:acceptedNameUsageIDの値が解決できません。",
     "CONFLICTING_BASIONYM_COMBINATION": "",
