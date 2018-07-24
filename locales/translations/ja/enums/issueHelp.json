@@ -90,7 +90,7 @@
     "RELATIONSHIP_MISSING": "全ての名前使用法の関係性、すなわち、親階層、受け入れられた名前および（または）オリジナルの名前へのリンク、を表示する際に問題が発生しました。チェックリストバンクで解釈されたレコードにおいてオリジナル提供元の関係性が一部欠けています。",
     "NOMENCLATURAL_STATUS_INVALID": "Dwc:nomenclaturalStatusが解釈できません。",
     "COORDINATE_PRECISION_INVALID": "無効またはあり得ないと思われるcoordinatePrecisionであることを示す",
-    "HOMONYM": "",
+    "HOMONYM": "この名前は、実装時には無視されていた他のバックボーン情報源においてシノニムに言い換えられていないホモニムが存在します。",
     "ORTHOGRAPHIC_VARIANT": "",
     "CONTINENT_INVALID": "",
     "VERNACULAR_NAME_INVALID": "この名前の使用法に紐付けされているコモンネームまたは和名の拡張レコードのうち少なくとも１つは無効です。",
