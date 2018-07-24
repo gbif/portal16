@@ -22,8 +22,8 @@
     "header": {
       "searchDatasets": "Búsqueda de juego de datos",
       "searchPublishers": "",
-      "searchSpecies": "",
-      "searchResources": "",
+      "searchSpecies": "Buscar especie",
+      "searchResources": "Buscar recursos",
       "searchOccurrences": ""
     },
     "nResults": ""
