@@ -1,8 +1,8 @@
 {
   "dataset": {
     "longType": {
-      "OCCURRENCE": "",
-      "CHECKLIST": "",
+      "OCCURRENCE": "Juego de datos de registros de presencias",
+      "CHECKLIST": "Juego de datos de listas taxonómicas",
       "SAMPLING_EVENT": "",
       "METADATA": ""
     },
