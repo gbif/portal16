@@ -1,7 +1,7 @@
 {
   "search": {
     "placeholder": "Registros de presencia, especies, noticias ...",
-    "noSearchTermsEntered": "",
+    "noSearchTermsEntered": "No se ha introducido el término a buscar",
     "notSureWhatYouAreLookingFor": "¿No estoy seguro lo que buscas? Qué tal si mira algunas fotos de registros de presencia de especies",
     "cannotFindWhatYouAreLookingFor": "¿No encuentras lo que buscas?",
     "trySpecifyingAType": "Intente especificar un tipo",

@@ -6,9 +6,9 @@
       "projectIdentifier": "",
       "grantType": "",
       "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
+      "title": "Título",
+      "start": "Comienzo",
+      "end": "Final",
       "fundsAllocated": "",
       "matchingFunds": "",
       "funding": "",
@@ -20,11 +20,11 @@
       "status": "",
       "programme": "",
       "contractCountry": "",
-      "newsAndEvents": "",
+      "newsAndEvents": "Noticias y Eventos",
       "call": "",
       "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "contactDetalils": "Detalles del contacto",
+      "partners": "Socios"
     },
     "datause": {
       "dataViaGbif": ""
@@ -35,7 +35,7 @@
     "auxiliary": {
       "subject": "",
       "citation": "",
-      "organisingParticipants": ""
+      "organisingParticipants": "Participantes organizadores"
     }
   }
 }
