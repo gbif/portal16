@@ -35,7 +35,7 @@
     "ACCEPTED_NAME_MISSING": "シノニムに対して受け入れられた名前の情報がありません。",
     "ORIGINAL_NAME_USAGE_ID_INVALID": "dwc:originalNameUsageIDの値が解決できません。",
     "MULTIMEDIA_INVALID": "この名前の使用法に紐付けされているマルチメディア拡張レコードのうち少なくとも１つは無効です。これはオーデュボンコア、画像、マルチメディア、EOLメディアなど様々な拡張モジュールを通して集まったマルチメディアを含みます。",
-    "ORIGINAL_NAME_NOT_UNIQUE": "",
+    "ORIGINAL_NAME_NOT_UNIQUE": "レコードはオリジナルの名前（バソニム）を持ちます。その名前は一意ではなく複数レコードに関係します。",
     "TYPE_STATUS_INVALID": "",
     "CORE_ROWTYPE_UNDETERMINED": "",
     "TAXON_MATCH_HIGHERRANK": "",
