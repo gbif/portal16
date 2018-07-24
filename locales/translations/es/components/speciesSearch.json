@@ -1,14 +1,14 @@
 {
     "speciesSearch": {
-        "youAreCurrentlySearchingInGBIFtaxonomy": "",
-        "SearchAcrossChecklists": "",
-        "freeTextSearchFor": "",
-        "limitSearchTo": "",
+        "youAreCurrentlySearchingInGBIFtaxonomy": "Estás buscando especies en la taxonomía de GBIF",
+        "SearchAcrossChecklists": "Búsqueda a través de listas taxonómicas",
+        "freeTextSearchFor": "Estás realizando una búsqueda de texto libre por '{CONSULTA}'",
+        "limitSearchTo": "Limitar la búsqueda a",
         "limitResultsTo": {
-            "all": "",
-            "scientificNames": "",
-            "vernacularNames": "",
-            "descriptions": ""
+            "all": "Todos",
+            "scientificNames": "Nombres científicos",
+            "vernacularNames": "Nombres comunes",
+            "descriptions": "Descripciones"
         }
     }
 }
