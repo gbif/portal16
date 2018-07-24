@@ -9,33 +9,33 @@
             "invalid": "Incorrecto",
             "select": {
                 "equals": "Es",
-                "between": "",
+                "between": "Entre",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
+            "equals": "Es {desde}m",
+            "between": "Entre {desde} y {a}m",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Incorrecto",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Es",
+                "between": "Entre",
+                "lessThanOrEquals": "Menos que",
+                "greaterThanOrEquals": "Más profundo que"
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Es {desde}",
+            "between": "Entre el comienzo de {desde} y el final de {a}",
+            "lessThanOrEquals": "Antes del final de {a}",
+            "greaterThanOrEquals": "Tras el comienzo de {desde}",
+            "invalid": "Incorrecto",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Es",
+                "between": "Entre",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
