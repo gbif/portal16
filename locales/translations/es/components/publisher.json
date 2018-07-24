@@ -4,20 +4,20 @@
       "aboutPublisher": "Acerca de",
       "publishersHomepage": "Página de inicio"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
-    "technicalContact": "",
-    "country": "",
-    "hosting": "",
-    "description": "",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "joinedAgo": "Conectado {TIEMPO_HACE}",
+    "newPublisher": "Nuevo proveedor",
+    "technicalContact": "Contacto técnico",
+    "country": "País o área",
+    "hosting": "Alojamiento",
+    "description": "Descripción",
+    "endorsedBy": "Respaldado por",
+    "pendingEndorsementBy": "Pendiente de respaldo por",
+    "installations": "Instalaciones",
+    "contacts": "Contactos",
+    "administrativeContact": "Contacto administrativo",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "Proveedor",
+      "sinceDate": "Desde {FECHA}"
     }
   }
 }
