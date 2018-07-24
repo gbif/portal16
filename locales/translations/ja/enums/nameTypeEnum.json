@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
+    "SCIENTIFIC": "学名",
+    "DOUBTFUL": "疑わしい",
+    "BLACKLISTED": "ブラックリストに載せる",
+    "VIRUS": "ウイルス",
     "HYBRID": "",
-    "INFORMAL": "",
-    "OTU": "",
-    "CULTIVAR": "",
+    "INFORMAL": "非公式",
+    "OTU": "操作的分類単位",
+    "CULTIVAR": "品種",
     "CANDIDATUS": "",
     "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "NO_NAME": "名前なし"
   }
 }
