@@ -6,8 +6,8 @@
     "HETEROTYPIC_SYNONYM": "",
     "HOMOTYPIC_SYNONYM": "",
     "PROPARTE_SYNONYM": "",
-    "MISAPPLIED": "",
-    "INTERMEDIATE_RANK_SYNONYM": "",
+    "MISAPPLIED": "誤適用",
+    "INTERMEDIATE_RANK_SYNONYM": "中間ランク シノニム",
     "DETERMINATION_SYNONYM": ""
   }
 }
