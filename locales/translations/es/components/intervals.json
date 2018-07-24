@@ -1,14 +1,14 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "Sin filtros",
         "elevation": {
-            "equals": "",
-            "between": "",
+            "equals": "Is {de}m",
+            "between": "Entre {desde} y {a}m",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Incorrecto",
             "select": {
-                "equals": "",
+                "equals": "Es",
                 "between": "",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
