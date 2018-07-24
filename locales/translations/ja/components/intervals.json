@@ -6,7 +6,7 @@
             "between": "{from} から{to}m",
             "lessThanOrEquals": "{to}m以下",
             "greaterThanOrEquals": "{from}m以上",
-            "invalid": "不正な値です",
+            "invalid": "無効な値です",
             "select": {
                 "equals": "等しい",
                 "between": "間隔",
@@ -19,7 +19,7 @@
             "between": "{from} から{to}m",
             "lessThanOrEquals": "{to}m以下の深度",
             "greaterThanOrEquals": "{from}m以上の深度",
-            "invalid": "不正な値です",
+            "invalid": "無効な値です",
             "select": {
                 "equals": "等しい",
                 "between": "間隔",
@@ -32,7 +32,7 @@
             "between": "{from} から {to} の間",
             "lessThanOrEquals": "{to} 以前",
             "greaterThanOrEquals": "{from} 以降",
-            "invalid": "不正な値です",
+            "invalid": "無効な値です",
             "select": {
                 "equals": "等しい",
                 "between": "期間",
