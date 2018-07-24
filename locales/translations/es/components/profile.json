@@ -66,7 +66,7 @@
     "selectAllImages": "Selecciona todas las imagenes siguientes como ésta",
     "signUp": "Registrarse",
     "cancel": "Cancelar",
-    "resetPassword": "Reiniciar contraseña",
+    "resetPassword": "Reestablecer contraseña",
     "back": "Volver",
     "startEditing": "Comenzar a editar",
     "stopEditing": "Dejar de editar",
@@ -74,13 +74,13 @@
     "lastName": "Apellido(s)",
     "save": "Guardar",
     "currentPassword": "Contraseña actual",
-    "invalidProfileUpdate": "",
-    "changePassword": "",
-    "accountCreated": "",
-    "accountInfoUpdated": "",
-    "passwordChangeInvalid": "",
-    "verficationLinkSent": "",
-    "resetPasswordRequest": "",
-    "resetPasswordMessage": ""
+    "invalidProfileUpdate": "Actualización de perfil no válida",
+    "changePassword": "Cambiar contraseña",
+    "accountCreated": "Cuenta creada",
+    "accountInfoUpdated": "Tu cuenta ha sido actualizada",
+    "passwordChangeInvalid": "Contraseña incorrecta - si has olvidado tu contraseña, cierra sesión y utiliza reestablecer contraseña",
+    "verficationLinkSent": "Te hemos enviado un correo electrónico con un enlace de verificación para asegurarnos que es tu cuenta de correo electrónico. Bienvenido a GBIF",
+    "resetPasswordRequest": "Reestablecimiento de contraseña solicitado",
+    "resetPasswordMessage": "Te hemos enviado un correo electrónico con un link para reestablecer tu contraseña"
   }
 }
