@@ -29,7 +29,7 @@
     "estSizeIs": "El tamaño estimado de la descarga es {TAMAÑO_FORMATEADO}",
     "estDLtimes": "Número de descargas estimadas:",
     "nMbitConn": "{NÚMERO} Mbit de conexión",
-    "onceDownloaded": "",
+    "onceDownloaded": "Una vez hayas descargado el archivo, necesitarás otros {TAMAÑO_FORMATEADA} de espacio libre en el disco para descomprimir los datos.",
     "datasetHasNumRows": "",
     "youWillNotBeAble": "",
     "difficultToAnalyse": "",
