@@ -1,7 +1,7 @@
 {
   "downloadFormat": {
-    "SIMPLE_AVRO": "",
-    "SIMPLE_CSV": "",
-    "DWCA": ""
+    "SIMPLE_AVRO": "Apache Avro",
+    "SIMPLE_CSV": "CSV",
+    "DWCA": "Archivo Darwin Core"
   }
 }
