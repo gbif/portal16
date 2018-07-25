@@ -4,11 +4,11 @@
     "DOUBTFUL": "疑わしい",
     "BLACKLISTED": "ブラックリストに載せる",
     "VIRUS": "ウイルス",
-    "HYBRID": "",
+    "HYBRID": "雑種式",
     "INFORMAL": "非公式",
     "OTU": "操作的分類単位",
     "CULTIVAR": "品種",
-    "CANDIDATUS": "",
+    "CANDIDATUS": "Candidatus",
     "PLACEHOLDER": "",
     "NO_NAME": "名前なし"
   }

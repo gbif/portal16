@@ -2,7 +2,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "",
     "nConstituentDatasets": "",
-    "fileNotAvailable": "",
+    "fileNotAvailable": "El archivo ya no está disponible para descarga",
     "downloadDeletionWarning": "",
     "brokenDownload": "",
     "contactHelpdesk": "",
