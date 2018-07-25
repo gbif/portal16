@@ -1,8 +1,8 @@
 {
   "occurrenceIssue": {
-    "ZERO_COORDINATE": "",
-    "COORDINATE_OUT_OF_RANGE": "",
-    "COORDINATE_INVALID": "",
+    "ZERO_COORDINATE": "Coordenada cero",
+    "COORDINATE_OUT_OF_RANGE": "Coordenada fuera de rango",
+    "COORDINATE_INVALID": "Coordenada errónea",
     "COORDINATE_ROUNDED": "",
     "GEODETIC_DATUM_INVALID": "",
     "GEODETIC_DATUM_ASSUMED_WGS84": "",
