@@ -32,9 +32,9 @@
     "onceDownloaded": "Una vez hayas descargado el archivo, necesitarás otros {TAMAÑO_FORMATEADA} de espacio libre en el disco para descomprimir los datos.",
     "datasetHasNumRows": "El juego de datos tiene {NÚMERO_FORMATEADO} filas de datos.",
     "youWillNotBeAble": "Los datos no podrán visualizarse o analizarse en Excel o aplicaciones similares. Para trabajar con estos datos necesitarás tener conocimientos previos en R, Python o bases de datos Relacionales.",
-    "difficultToAnalyse": "",
-    "hours": "",
-    "minute": "",
-    "minutes": ""
+    "difficultToAnalyse": "Un juego de datos de este tamaño es difícil de analizar en tu ordenador convencional. Probablemente necesites acceso a algún tipo de servicio de computación distribuido.",
+    "hours": "Horas",
+    "minute": "Minuto",
+    "minutes": "Minutos"
   }
 }
