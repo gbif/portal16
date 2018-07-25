@@ -29,7 +29,7 @@ if (env === 'staging' || env === 'local' || env === 'dev') {
 let contentfulLocaleMap = {}; // the contentful map should not handle locales that are not included in our contentful space hence no : _.keyBy(locales);
 // overwrites
 contentfulLocaleMap['en'] = 'en-GB';
-contentfulLocaleMap['ja'] = 'en-GB';
+contentfulLocaleMap['ja'] = 'ja';
 contentfulLocaleMap['es'] = 'es';
 contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';

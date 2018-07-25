@@ -22,7 +22,6 @@ async function getSitemap(url, replaceText, replaceWith) {
 }
 
 function getSpeciesSiteMapIndex() {
-    console.log(apiConfig.base.url);
     return getSitemap(apiConfig.base.url + 'sitemap/species', 'https:' + config.dataApi, config.domain + '/');
 }
 
