@@ -26,7 +26,7 @@
     "postpone": "Posponer eliminación",
     "deleteDownload": "Eliminar descarga",
     "tellUs": "Cuéntanos más acerca del uso",
-    "downloadKilled": "",
+    "downloadKilled": "La solicitud de descarga no tuvo éxito. Por favor, inténtalo de nuevo o contáctanos.",
     "downloadDeleted": "",
     "storageDurationTeaser": "",
     "predatesDoi": "",
