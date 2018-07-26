@@ -1,38 +1,38 @@
 {
     "resourceSearch": {
-        "upcoming": "",
-        "past": "",
-        "searchForNewsEventsDocuments": "",
-        "occurrenceSearch": "",
-        "subscribeToCalendar": "",
+        "upcoming": "Próximamente",
+        "past": "Pasado",
+        "searchForNewsEventsDocuments": "Buscar noticias, eventos, documentos y mucho más. Si buscas registros de presencia de especies, prueba nuestro buscador de registros de presencia.",
+        "occurrenceSearch": "Buscador de registro de presencia",
+        "subscribeToCalendar": "Suscribirse al calendario",
         "citationExplainer": "",
         "types": {
-            "events": "",
-            "news": "",
-            "resources": "",
-            "projects": "",
-            "programmes": "",
-            "documents": "",
-            "tools": "",
-            "dataUse": "",
-            "literature": ""
+            "events": "Eventos",
+            "news": "Noticias",
+            "resources": "Recursos",
+            "projects": "Proyectos",
+            "programmes": "Programas",
+            "documents": "Documentos",
+            "tools": "Herramientas",
+            "dataUse": "Uso de datos",
+            "literature": "Literatura"
         },
         "filters": {
             "countriesOfCoverage": "",
             "countriesOfResearcher": "",
             "literatureType": "",
-            "contractCountry": "",
-            "topics": "",
-            "audiences": "",
-            "purposes": "",
-            "relevance": "",
-            "language": "",
+            "contractCountry": "País o área",
+            "topics": "Tema",
+            "audiences": "Audiencias",
+            "purposes": "Finalidad",
+            "relevance": "Relevancia",
+            "language": "Idioma",
             "year": "Año",
             "gbifDatasetKey": "Juego de datos",
-            "publishingOrganizationKey": "",
-            "peerReview": "",
+            "publishingOrganizationKey": "Proveedor",
+            "peerReview": "Revisado por pares",
             "openAccess": "Acceso abierto",
-            "gbifDownloadKey": ""
+            "gbifDownloadKey": "Descargar clave"
         }
     }
 }
