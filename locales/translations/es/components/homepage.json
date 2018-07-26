@@ -7,7 +7,7 @@
             "species": "Especies",
             "speciesSubtitle": "Conoce más sobre el número de especies incluidas en los datos de GBIF.org"
         },
-        "aboutGbifCountry": "Sobre GBIF {PAÍS}",
+        "aboutGbifCountry": "Sobre GBIF",
         "summary": "Acceso libre y gratuito a los datos de biodiversidad"
     }
 }
