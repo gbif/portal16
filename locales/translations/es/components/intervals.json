@@ -2,8 +2,8 @@
     "intervals": {
         "noFilter": "Sin filtros",
         "elevation": {
-            "equals": "Is {de}m",
-            "between": "Entre {desde} y {a}m",
+            "equals": "Is m",
+            "between": "Entre y m",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "Incorrecto",
@@ -15,8 +15,8 @@
             }
         },
         "depth": {
-            "equals": "Es {desde}m",
-            "between": "Entre {desde} y {a}m",
+            "equals": "Es m",
+            "between": "Entre y m",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "Incorrecto",
@@ -28,10 +28,10 @@
             }
         },
         "year": {
-            "equals": "Es {desde}",
-            "between": "Entre el comienzo de {desde} y el final de {a}",
-            "lessThanOrEquals": "Antes del final de {a}",
-            "greaterThanOrEquals": "Tras el comienzo de {desde}",
+            "equals": "Es ",
+            "between": "Entre el comienzo de y el final de",
+            "lessThanOrEquals": "Antes del final de",
+            "greaterThanOrEquals": "Tras el comienzo de",
             "invalid": "Incorrecto",
             "select": {
                 "equals": "Es",
