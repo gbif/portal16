@@ -3,7 +3,7 @@
     "contactHelpdesk": "Contacta con el servicio de asistencia",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Infraestructura Mundial de Informacion en Biodiversidad. Acceso Libre y Abierto a Datos de Biodiversidad.",
-    "deletedOnDate": "Eliminado el {FECHA}",
+    "deletedOnDate": "Eliminado el",
     "replacedBy": "Sustituido por",
     "loading": "Cargando",
     "failed": "Ha fallado",
@@ -16,7 +16,7 @@
     "noResultsMessage": "Sin resultados - intenta reducir tus filtros",
     "noJavascriptEnabled": "Lo sentimos pero GBIF no funciona adecuadamente sin JavaScript activado.",
     "isSplashScreen": "Nuestra página web ha detectado que estás utilizando un buscador inseguro y desactualizado que te previene de utilizar nuestro sitio web. Te sugerimos que actualices a un buscador más moderno.",
-    "404Text": "Esta página ha podido existir pero ya no podemos encontrarla.\nPor favor, intenta nuestra [búsqueda](/búsqueda) para encontrar los que estás buscando. Además, estaremos encantados de atenderte en [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
+    "404Text": "Esta página ha podido existir pero ya no podemos encontrarla.\nPor favor, intenta nuestra (/búsqueda) para encontrar los que estás buscando. Además, estaremos encantados de atenderte en [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
     "changeLanguage": "Cambiar idioma",
     "noData": "Sin datos"
   }

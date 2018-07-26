@@ -2,56 +2,56 @@
   "map": {
     "nGeoreferencedRecords": "",
     "noOccurrencesWithCoordinates": "No existen registros de presencia con coordenadas",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
+    "clickToSearchArea": "Haz clic para buscar un área",
+    "generatedDateAgo": "Generado",
+    "anyYear": "Cualquier año",
+    "exploreArea": "Explora un área",
+    "explore": "Explorar",
+    "style": "Estilo",
+    "filters": "Filtros",
+    "projection": "Proyección",
+    "select": "Seleccionar",
+    "custom": "Personalizar",
+    "baseMap": "Mapa base",
     "binning": "",
     "year": "Año",
-    "chooseColors": "",
+    "chooseColors": "Colores",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "Hexágonos clásicos",
+      "CLASSIC": "Puntos clásicos",
+      "STREETS": "Calles",
+      "GLACIER": "Glaciar",
+      "CUSTOM": "Personalizar"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "Magenta",
+      "LIGHT": "Claro (sin etiquetas)",
+      "LIGHT_DETAILS": "Claro",
+      "DARK": "Oscuro (sin etiquetas)",
+      "DARK_DETAILS": "Oscuro",
+      "OSM": "Carreteras"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Puntos",
+      "SMALL_HEX": "Hexágonos pequeños",
+      "LARGE_HEX": "Hexágonos",
+      "SMALL_SQUARE": "Cuadrados pequeños",
+      "LARGE_SQUARE": "Cuadrados"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
+      "CLASSIC": "Clásico",
+      "FIRE": "Fuego",
+      "GLACIER": "Glaciar",
       "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
+      "PURPLE_HEAT": "Púrpura cálido",
+      "BLUE_HEAT": "Azul cálido",
+      "ORANGE_HEAT": "Naranja cálido",
+      "GREEN": "Verde",
       "BLUE_CLUSTER": "",
       "ORANGE_CLUSTER": ""
     },
     "errors": {
-      "413": ""
+      "413": "El archivo geométrico es demasiado grande para ser procesado por la API de datos"
     }
   }
 }

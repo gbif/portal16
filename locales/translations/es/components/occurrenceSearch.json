@@ -8,7 +8,7 @@
     "download": "Descargar",
     "searchAllFields": "Buscar todos los campos",
     "description": "Buscar por registros de presencia en la Infraestructura Mundial de Información en Biodiversidad. Acceso Libre y Gratuito a los Datos de Biodiversidad.",
-    "nWithCoordinates": "{NÚMERO_FORMATEADO} con coordenadas",
+    "nWithCoordinates": "con coordenadas",
     "nWithImages": "",
     "failedSearch": "Tus filtros pueden ser incorrectos o el servidor puede tener problemas. Por favor, inténtalo de nuevo y reporta el problema si continúa",
     "noImages": "No existen registros de presencia con imágenes",

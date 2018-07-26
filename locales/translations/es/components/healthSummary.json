@@ -2,7 +2,7 @@
     "healthSummary": {
         "systemHealth": "Salud del sistema",
         "description": "Cuál es el estado de los diversos servicios de GBIF",
-        "updatedTimeAgo": "Actualizado {HACE_TIEMPO}",
+        "updatedTimeAgo": "Actualizado",
         "statusSummary": {
             "OPERATIONAL": "Todos los sistemas operativos",
             "INFO": "Todos los sistemas operativos",
