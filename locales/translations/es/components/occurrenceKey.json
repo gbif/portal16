@@ -1,87 +1,87 @@
 {
   "occurrence": {
-    "coordinates": "",
-    "unknownDate": "",
-    "absent": "",
-    "issues": "",
+    "coordinates": "Coordenadas",
+    "unknownDate": "Fecha desconocida",
+    "absent": "Ausente",
+    "issues": "Problemas",
     "dataset": "Juego de datos",
-    "synced": "",
-    "modified": "",
-    "monthAndyear": "",
-    "coordinateUncertainty": "",
-    "citation": "",
-    "readFullDescription": "",
-    "showMoreInfo": "",
-    "noTaxonMatch": "",
-    "gbifTaxonInterpretation": "",
-    "aboutTheDataset": "",
-    "noLocationInformation": "",
+    "synced": "Sincronizado",
+    "modified": "Modificado",
+    "monthAndyear": "Mes & año",
+    "coordinateUncertainty": "Incetidumbre de las coordenadas",
+    "citation": "Cita",
+    "readFullDescription": "más",
+    "showMoreInfo": "más",
+    "noTaxonMatch": "ninguno",
+    "gbifTaxonInterpretation": "Interpretacion de los taxones de GBIF",
+    "aboutTheDataset": "Sobre el juego de datos",
+    "noLocationInformation": "No hay información de la ubicación publicada en este registro",
     "subMenu": {
-      "diagnostics": "",
-      "menu": "",
-      "showDiagnostics": "",
-      "hideDiagnostics": "",
-      "aboutDarwinCore": "",
-      "raw": ""
+      "diagnostics": "Diagnósticos",
+      "menu": "Menú",
+      "showDiagnostics": "Mostrar diagnósticos",
+      "hideDiagnostics": "Ocultar diagnósticos",
+      "aboutDarwinCore": "Sobre Darwin Core",
+      "raw": "En bruto"
     },
     "groups": {
       "Record": "Registro",
       "Occurrence": "Registro",
-      "Event": "",
-      "Identification": "",
-      "Taxon": "",
-      "Location": "",
-      "Organism": "",
+      "Event": "Evento",
+      "Identification": "Identificación",
+      "Taxon": "Taxón",
+      "Location": "Ubicación",
+      "Organism": "Organismo",
       "MaterialSample": "",
-      "GeologicalContext": "",
-      "other": ""
+      "GeologicalContext": "Contexto geológico",
+      "other": "Otro"
     },
-    "term": "",
-    "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "term": "Término",
+    "interpreted": "Interpretado",
+    "original": "Original",
+    "remarks": "Observaciones",
     "highlights": {
-      "location": "",
-      "specimenType": "",
-      "publisher": "",
-      "reference": "",
-      "verbatimName": ""
+      "location": "Unicación",
+      "specimenType": "Especimen tipo",
+      "publisher": "Proveedor",
+      "reference": "Referencia",
+      "verbatimName": "Nombre textual"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Recogido en ",
+        "FOSSIL_SPECIMEN": "Recogido en ",
+        "LIVING_SPECIMEN": "Recogido en ",
+        "HUMAN_OBSERVATION": "Observado en ",
+        "MACHINE_OBSERVATION": "Observado en ",
+        "MATERIAL_SAMPLE": "Recogido en ",
+        "OCCURRENCE": "Registrado en ",
+        "OBSERVATION": "Observado en ",
+        "LITERATURE": "Registrado en ",
+        "UNKNOWN": "Registrado en "
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Recogido en una ubicación desconocida",
+        "FOSSIL_SPECIMEN": "Recogido en una ubicación desconocida",
+        "LIVING_SPECIMEN": "Recogido en una ubicación desconocida",
+        "HUMAN_OBSERVATION": "Observado en una ubicación desconocida",
+        "MACHINE_OBSERVATION": "Observado en una ubicación desconocida",
+        "MATERIAL_SAMPLE": "Recogido en una ubicación desconocida",
+        "OCCURRENCE": "Registrado en una ubicación desconocida",
+        "OBSERVATION": "Observado en una ubicación desconocida",
+        "LITERATURE": "Registrado en una ubicación desconocida",
+        "UNKNOWN": "Registrado en una ubicación desconocida"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "Especie deconocida"
     },
     "occurrence": "Registro",
-    "inLanguage": ""
+    "inLanguage": "En "
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "Excluido",
+      "AUTHORED": "Alterado",
+      "INFERED": "Inferido"
     }
   }
 }
