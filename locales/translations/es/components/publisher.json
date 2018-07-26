@@ -4,7 +4,7 @@
       "aboutPublisher": "Acerca de",
       "publishersHomepage": "Página de inicio"
     },
-    "joinedAgo": "Conectado {TIEMPO_HACE}",
+    "joinedAgo": "Conectado",
     "newPublisher": "Nuevo proveedor",
     "technicalContact": "Contacto técnico",
     "country": "País o área",
@@ -17,7 +17,7 @@
     "administrativeContact": "Contacto administrativo",
     "header": {
       "publisher": "Proveedor",
-      "sinceDate": "Desde {FECHA}"
+      "sinceDate": "Desde"
     }
   }
 }
