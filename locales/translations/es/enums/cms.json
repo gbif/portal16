@@ -24,27 +24,27 @@
         "resource": "Recurso",
         "dataUse": "Uso de datos",
         "project": "Proyecto",
-        "participant": "",
-        "programme": "",
-        "document": "",
-        "tool": "",
-        "literature": ""
+        "participant": "Participante",
+        "programme": "Programa",
+        "document": "Documento",
+        "tool": "Herramienta",
+        "literature": "Literatura"
       },
       "vocabularyTerms": {
         "articleType": {
-          "Nodes guidance": ""
+          "Nodes guidance": "Guía para nodos"
         },
         "projectGrantType": {
-          "REGIONAL": "",
-          "SMALL": "",
-          "NATIONAL": "",
-          "undefined": ""
+          "REGIONAL": "Subvención regional",
+          "SMALL": "Subvención pequeña",
+          "NATIONAL": "Subvención nacional",
+          "undefined": "Sin especificar"
         },
         "projectStatus": {
-          "APPROVED": "",
-          "CLOSED": "",
-          "IN_PROGRESS": "",
-          "undefined": ""
+          "APPROVED": "Aprobado",
+          "CLOSED": "Cerrada",
+          "IN_PROGRESS": "En progreso",
+          "undefined": "Sin especificar"
         },
         "relevance": {
           "GBIF_USED": "",
@@ -58,31 +58,31 @@
           "GBIF_FUNDED": ""
         },
         "topics": {
-          "AGRICULTURE": "",
-          "BIODIVERSITY_SCIENCE": "",
-          "BIOGEOGRAPHY": "",
+          "AGRICULTURE": "Agricultura",
+          "BIODIVERSITY_SCIENCE": "Ciencias de la biodiversidad",
+          "BIOGEOGRAPHY": "Biogeografía",
           "CITIZEN_SCIENCE": "Ciencia ciudadana",
-          "CLIMATE_CHANGE": "",
-          "CONSERVATION": "",
+          "CLIMATE_CHANGE": "Cambio climático",
+          "CONSERVATION": "Conservación",
           "DATA_MANAGEMENT": "Gestión de datos",
-          "DATA_PAPER": "",
-          "ECOLOGY": "",
-          "ECOSYSTEM_SERVICES": "",
-          "EVOLUTION": "",
-          "FRESHWATER": "",
-          "HUMAN_HEALTH": "",
-          "INVASIVES": "",
-          "MARINE": "",
-          "PHYLOGENETICS": "",
-          "SPECIES_DISTRIBUTIONS": "",
-          "TAXONOMY": ""
+          "DATA_PAPER": "Artículo de datos",
+          "ECOLOGY": "Ecología",
+          "ECOSYSTEM_SERVICES": "Servicios ecosistémicos",
+          "EVOLUTION": "Evolución",
+          "FRESHWATER": "Agua dulce",
+          "HUMAN_HEALTH": "Salud humana",
+          "INVASIVES": "Invasoras",
+          "MARINE": "Marino",
+          "PHYLOGENETICS": "Filogenética",
+          "SPECIES_DISTRIBUTIONS": "Distribución de especies",
+          "TAXONOMY": "Taxonomía"
         },
         "purposes": {
           "CAPACITY_ENHANCEMENT": "Fortalecimiento de capacidad(es)",
-          "DATA_ACCESS": "",
-          "DATA_ANALYSIS": "",
-          "DATA_CURATION_QUALITY": "",
-          "DATA_DIGITIZATION": "",
+          "DATA_ACCESS": "Acceso a datos",
+          "DATA_ANALYSIS": "Análisis de datos",
+          "DATA_CURATION_QUALITY": "Curación y calidad de datos",
+          "DATA_DIGITIZATION": "Digitalización de datos",
           "DATA_PUBLISHING": ""
         },
         "literatureType": {
