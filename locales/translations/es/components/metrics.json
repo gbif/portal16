@@ -8,13 +8,13 @@
     "countByIssue": ""
   },
   "metrics": {
-    "issues": "",
-    "extensions": "",
-    "taxa": "",
-    "other": "",
+    "issues": "Problemas",
+    "extensions": "Extensiones",
+    "taxa": "Taxones",
+    "other": "Otro",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
-    "explore": "",
+    "explore": "Explorar",
     "majorGroups": "",
     "failedToLoad": "",
     "noChildren": "",
