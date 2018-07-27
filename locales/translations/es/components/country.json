@@ -1,37 +1,37 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
-      "dataPublishing": "",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
+      "summary": "Resumen",
+      "dataPublishing": "Publicación de datos",
+      "dataAbout": "Datos sobre",
+      "participartion": "Participación",
+      "publications": "Publicaciones",
       "news": "Noticias"
     },
     "memberSince": "Miembro desde",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
+    "dataFrom": "Datos de",
+    "dataAboutCountry": "Datos sobre",
+    "publishingTrends": "Tendencias de publicación",
+    "noDataPublishingActivity": "Sin actividad publicadora de datos",
+    "noInstitutionsHavePublished": "No existen instituciones de éste país que hayan publicado datos en GBIF",
+    "trendsAboutCountry": "Tendencias sobre",
     "nFrom": "",
     "nAbout": "",
-    "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "viewAllN": "Ver todos",
+    "noPublications": "Sin publicaciones",
+    "notParticipant": "No es participante",
+    "notParticipantDescription": "Este país no es un participante de GBIF",
+    "countryNamingDisclaimer": "Los nombres de los países y áreas están basados en el [estándar ISO 3166-1](https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "Registros de presencia",
       "datasets": "Juegos de datos",
       "publishers": "Proveedores",
       "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "publishedOccurrences": "Registros de presencia publicados",
+      "publishedDatasets": "Juegos de datos publicados",
+      "countriesAndAreasCoveredByDataFrom": "Países y áreas cubiertas por datos de",
+      "publishersFrom": "Proveedores de"
     },
-    "activityReport": ""
+    "activityReport": "Informe de actividad"
   }
 }

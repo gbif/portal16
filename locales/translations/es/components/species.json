@@ -13,8 +13,8 @@
       "verbatim": ""
     },
     "invasives": {
-      "nInvadedCountries": "Invasora en",
-      "invasiveIn": "Invasora en",
+      "nInvadedCountries": "",
+      "invasiveIn": "",
       "accordingTo": "Según",
       "occurrenceCount": "Registros de presencia en GBIF",
       "seeAllCountries": "Mostrar todo"

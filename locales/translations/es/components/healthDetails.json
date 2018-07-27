@@ -1,64 +1,64 @@
 {
     "health": {
         "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "systemLoad": "Carga del sistema",
+        "messages": "Mensajes",
+        "version": "Versión",
+        "nInQueue": "en cola",
         "status": {
             "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "WARNING": "Inestable",
+            "CRITICAL": "No utilizable",
+            "INFO": "Actualización del sistema"
         },
         "components": {
             "OCCURRENCE": {
                 "name": "Registro",
-                "tooltip": ""
+                "tooltip": "Ej.: buscar y visualizar los registros de presencia."
             },
             "SPECIES": {
-                "name": "",
-                "tooltip": ""
+                "name": "Especies",
+                "tooltip": "Ej.: Buscar y visualizar las especies y las sugerencias de especies"
             },
             "REGISTRY": {
                 "name": "Registre",
-                "tooltip": ""
+                "tooltip": "Ej.: Juego de datos, proveedores, intalaciones, países, participantes y redes de trabajo."
             },
             "IDENTITY": {
-                "name": "",
-                "tooltip": ""
+                "name": "Identidad",
+                "tooltip": "Para iniciar y cerrar sesión, conectarse a las cuentas, etc."
             },
             "MAPS": {
-                "name": "",
-                "tooltip": ""
+                "name": "Mapas",
+                "tooltip": "Para mostrar imágenes de mapas y obtener información sobre un mapa."
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "Sistema de gestión de contenidos (sistema externo)",
+                "tooltip": "Ej.: noticias y artículos"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Caché de la imagen",
+                "tooltip": "Responsable de la mayoría de imágenes en la página web"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "GitHub (sistema externo)",
+                "tooltip": "Comentarios y sugerencias a los juegos de datos"
             },
             "CRAWLER": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Para actualizar los juegos de datos - nuevos y antiguos."
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "Búsqueda de recursos",
+                "tooltip": "Ej.: para buscar literatura, noticias."
             },
             "CLUSTER": {
-                "name": "",
+                "name": "Carga del sistema",
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
-                "tooltip": ""
+                "name": "Descargas",
+                "tooltip": "Para manejar trabajos de descarga y enviar notificaciones a los usuarios"
             }
         }
     }

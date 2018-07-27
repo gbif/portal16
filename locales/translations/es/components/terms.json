@@ -1,8 +1,8 @@
 {
   "terms": {
-    "headline": "",
-    "description": "",
-    "readTerms": "",
-    "accept": ""
+    "headline": "Uso de cookies en GBIF",
+    "description": "GBIF utiliza cookies y similares con la finalidad de realizar análisis estadísticos, mejorando la amabilidad y usabilidad de nuestro sitio web, adaptando el contenido a tus intereses y relacionándolos con los medios de comunicación sociales. Al visitar nuestro sitio web, estás aceptando que utilicemos las cookies nosotros o terceras partes tal como se describe en nuestra política de privacidad y de cookies.",
+    "readTerms": "Leer los términos",
+    "accept": "Aceptar"
   }
 }
