@@ -1,34 +1,34 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Participante con derecho a voto",
+            "ASSOCIATE": "Participante asociado",
+            "OBSERVER": "Participante observador",
+            "AFFILIATE": "Participante afiliado",
+            "FORMER": "Antiguo participante",
+            "undefined": "Desconocido"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Un participante en GBIF con derecho a voto de",
+            "ASSOCIATE": "Un participante asociado de",
+            "OBSERVER": "Un País Observador de GBIF de",
+            "AFFILIATE": "Un participante afiliado de",
+            "FORMER": "Un Antiguo Participante en GBIF de",
+            "undefined": "Desconocido"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Una organización participante en GBIF con derecho a voto de",
+                    "ASSOCIATE": "Una organización participante asociada de",
+                    "OBSERVER": "Una organización participante observadora de",
+                    "AFFILIATE": "Una organización participante afiliada de ",
+                    "FORMER": "Una organización antigua participante de",
+                    "undefined": "Desconocida"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
+                    "VOTING": "Organización participante con derecho a voto",
+                    "ASSOCIATE": "Organización participante asociada",
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",

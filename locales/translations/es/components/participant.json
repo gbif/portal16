@@ -1,20 +1,20 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
-        "endorsedPublishers": "",
-        "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
+        "participant": "Participante",
+        "participantSummary": "Resumen del participante",
+        "endorsedPublishers": "Proveedores avalados",
+        "noEndorsedPublishers": "Proveedores no avalados",
+        "memberStatus": "Estado de miembro",
+        "gbifParticipantSince": "Participante en GBIF desde",
         "headOfDelegation": "Jefe de delegación",
-        "gbifRegion": "",
-        "countryOrArea": "",
-        "nodeName": "",
-        "nodeEstablished": "",
-        "website": "",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "gbifRegion": "Región GBIF",
+        "countryOrArea": "País o área",
+        "nodeName": "Nombre del nodo",
+        "nodeEstablished": "Nodo establecido",
+        "website": "Página web",
+        "participantNodeManager": "Administrador del nodo participante",
+        "pending": "Pendiente",
+        "latestDatasetsPublished": "Últimos juegos de datos publicados",
+        "noDatasets": "Juegos de datos no publicados"
     }
 }
