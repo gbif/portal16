@@ -1,16 +1,16 @@
 {
   "originEnum": {
-    "SOURCE": "",
+    "SOURCE": "参照元",
     "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
+    "VERBATIM_PARENT": "オリジナルの上位階層",
+    "VERBATIM_ACCEPTED": "オリジナルの受け入れられた名前",
+    "VERBATIM_BASIONYM": "オリジナルのバソニム",
     "PROPARTE": "",
-    "AUTONYM": "",
+    "AUTONYM": "オートニム",
     "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
+    "MISSING_ACCEPTED": "受け入れられた名前が見つかりません",
     "BASIONYM_PLACEHOLDER": "",
     "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "OTHER": "その他"
   }
 }
