@@ -13,8 +13,8 @@
       "verbatim": "オリジナルのまま"
     },
     "invasives": {
-      "nInvadedCountries": "{NUMBER_FORMATED} {NUMBER, select, 1{国または島} other{国または島}} の侵入生物",
-      "invasiveIn": "～では侵入生物",
+      "nInvadedCountries": "",
+      "invasiveIn": "",
       "accordingTo": "～によると",
       "occurrenceCount": "GBIFにおけるオカレンス",
       "seeAllCountries": "全てを表示"
