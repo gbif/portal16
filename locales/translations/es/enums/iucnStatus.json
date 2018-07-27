@@ -1,13 +1,13 @@
 {
   "iucnStatus": {
-    "EX": "",
-    "EW": "",
-    "CR": "",
-    "EN": "",
-    "VU": "",
-    "NT": "",
-    "LC": "",
-    "DD": "",
-    "NE": ""
+    "EX": "Extinto",
+    "EW": "Extinto en la naturaleza",
+    "CR": "En peligro crítico",
+    "EN": "En peligro",
+    "VU": "Vulnerable",
+    "NT": "Casi amenazado",
+    "LC": "Preocupación menor",
+    "DD": "Datos insuficientes",
+    "NE": "No evaluado"
   }
 }
