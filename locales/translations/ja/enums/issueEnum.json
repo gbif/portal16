@@ -7,7 +7,7 @@
     "NOMENCLATURAL_STATUS_INVALID": "学名命名の状況が不明",
     "TAXONOMIC_STATUS_INVALID": "分類学的地位が不明",
     "SCIENTIFIC_NAME_ASSEMBLED": "",
-    "CHAINED_SYNOYM": "",
+    "CHAINED_SYNOYM": "シノニムの連鎖",
     "BASIONYM_AUTHOR_MISMATCH": "バソニムの著者の不一致",
     "TAXONOMIC_STATUS_MISMATCH": "分類学的地位の不一致",
     "PARENT_CYCLE": "",
