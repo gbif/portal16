@@ -2,9 +2,9 @@
   "eoi": {
     "firstPleaseSeeIfYourOrg": "En primer lugar, por favor mire si su organización ya está registrada como proveedor de datos de GBIF.",
     "ifYouAreAffiliatedWithTheSelectedOrganization": "",
-    "myOrgIsNotRegistered": "",
-    "searchOrganisations": "",
-    "termsAndConditions": "",
+    "myOrgIsNotRegistered": "Mi organización aún no está registrada.",
+    "searchOrganisations": "Buscar organizaciones",
+    "termsAndConditions": "Términos y condiciones",
     "iHaveReadAndUnderstood": "",
     "iUnderstandThatIAmSeekingRegistrationOnBehalf": "",
     "iUnderstandThatMyOrganizationalInformation": "",
