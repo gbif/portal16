@@ -29,10 +29,10 @@
                 "longForm": {
                     "VOTING": "Organización participante con derecho a voto",
                     "ASSOCIATE": "Organización participante asociada",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "OBSERVER": "Organización participante observadora",
+                    "AFFILIATE": "Organización participante afiliada",
+                    "FORMER": "Organización antigua participante",
+                    "undefined": "Desconocida"
                 }
             }
         }
