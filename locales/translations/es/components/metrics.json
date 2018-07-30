@@ -1,10 +1,10 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
+    "countByKingdom": "Conteo por Reino",
     "countByRank": "",
-    "countNamesByLanguage": "",
-    "countExtRecordsByExtension": "",
-    "countByOrigin": "",
+    "countNamesByLanguage": "Conteo de nombres por idioma",
+    "countExtRecordsByExtension": "Conteo de extensiones por tipo de extensión",
+    "countByOrigin": "Conteo por origen",
     "countByIssue": ""
   },
   "metrics": {
