@@ -27,7 +27,7 @@
             "adopted": "Conjunto de datos adoptado",
             "lastIngestedBeforeDate": "",
             "inIngestionQueue": "",
-            "addingToQueue": "",
+            "addingToQueue": "Añadir a la cola",
             "unableToStart": "",
             "ingestionChartExplainer": "",
             "ingestionStatus": "",
@@ -36,14 +36,14 @@
             "gbifIngestionStatus": "",
             "lastIngestionSuccess": "",
             "lastIngestionFailed": "",
-            "outOfSync": "",
-            "becauseTrustedContact": ""
+            "outOfSync": "Sin sincronización",
+            "becauseTrustedContact": "Porque eres un contacto confiable"
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "Normal",
+                "ABORT": "Interrumpir",
+                "NOT_MODIFIED": "No modificado"
             }
         }
     }
