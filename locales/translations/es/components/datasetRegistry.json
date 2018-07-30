@@ -2,8 +2,8 @@
     "dataset": {
         "registry": {
             "failedSinceSuccess": "",
-            "lastFailed": "",
-            "registrationDate": "",
+            "lastFailed": "Último intento fallido",
+            "registrationDate": "Fecha de registro",
             "lastSuccess": "",
             "lastWithChange": "",
             "noEntries": "",
