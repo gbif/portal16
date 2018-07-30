@@ -4,8 +4,8 @@
       "aboutPublisher": "・・・について",
       "publishersHomepage": "ホームページ"
     },
-    "joinedAgo": "{TIME_AGO} 前に参加",
-    "newPublisher": "データ出版者",
+    "joinedAgo": "{TIME_AGO} に参加",
+    "newPublisher": "新しい出版者",
     "technicalContact": "技術的なお問い合わせ",
     "country": "国または地域",
     "hosting": "ホスティング",
