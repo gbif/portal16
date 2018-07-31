@@ -1,11 +1,11 @@
 {
     "nameParser": {
-        "loadTestNames": "",
-        "parse": "",
-        "or": "",
-        "selectFile": "",
-        "pasteNamesToParse": "",
-        "about": "",
+        "loadTestNames": "Cargar nombres de prueba",
+        "parse": "Analizar",
+        "or": "o",
+        "selectFile": "Seleccionar archivo",
+        "pasteNamesToParse": "Pegar los nombres para analizar aquí",
+        "about": "Acerca de",
         "parser": "",
         "nameParserTitle": "",
         "dropHere": "",
