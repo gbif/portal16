@@ -1,10 +1,10 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
+    "countByKingdom": "Conteo por Reino",
     "countByRank": "",
-    "countNamesByLanguage": "",
-    "countExtRecordsByExtension": "",
-    "countByOrigin": "",
+    "countNamesByLanguage": "Conteo de nombres por idioma",
+    "countExtRecordsByExtension": "Conteo de extensiones por tipo de extensión",
+    "countByOrigin": "Conteo por origen",
     "countByIssue": ""
   },
   "metrics": {
@@ -27,7 +27,7 @@
     "occurrencesPerFieldx2": "",
     "customFilters": "Esta tabla contiene filtros personalizados",
     "linear": "Lineal",
-    "count": "",
+    "count": "Conteo",
     "intervalSize": "Tamaño del intervalo",
     "intervalDiffers": "Intervalo de diferentes tamaños",
     "showOccPer": "Mostrar número de registros de presencia por",
@@ -37,13 +37,13 @@
     "chooseDimension": "Elegir dimensión",
     "clickToZoom": "Haz clic en el gráfico y desplázate para hacer zoom",
     "pinchToZoom": "Pincha en el gráfico para hacer zoom",
-    "numAcceptedSpByHigher": "",
+    "numAcceptedSpByHigher": "Número de especies aceptadas por categoría taxonómica",
     "noRankedAbove": "",
     "taxonomicOccDistribution": "Distribución taxonómica de los registros de presencia",
     "groupByX": "Agrupar por",
     "pOtherOrUknown": "",
     "unknownRank": "Desconocido",
-    "vernacularNames": "",
+    "vernacularNames": "Nombres comunes",
     "majorRanksPlural": {
       "KINGDOM": "Reinos",
       "PHYLUM": "Filos",

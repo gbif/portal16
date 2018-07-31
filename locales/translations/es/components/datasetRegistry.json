@@ -2,8 +2,8 @@
     "dataset": {
         "registry": {
             "failedSinceSuccess": "",
-            "lastFailed": "",
-            "registrationDate": "",
+            "lastFailed": "Último intento fallido",
+            "registrationDate": "Fecha de registro",
             "lastSuccess": "",
             "lastWithChange": "",
             "noEntries": "",
@@ -14,20 +14,20 @@
             "total": "",
             "endpoints": "",
             "installationContacts": "",
-            "installation": "",
-            "dataLastChanged": "",
-            "pubDate": "",
-            "hostedBy": "",
-            "hostingStatus": "",
-            "metdataLastModified": "",
+            "installation": "Instalación",
+            "dataLastChanged": "Última actualización de datos",
+            "pubDate": "Fecha de publicación",
+            "hostedBy": "Alojado por",
+            "hostingStatus": "Estado del alojamiento",
+            "metdataLastModified": "Última modificación de metadatos",
             "preferredIdentifier": "",
-            "alternativeIdentifier": "",
-            "orphaned": "",
-            "rescued": "",
-            "adopted": "",
+            "alternativeIdentifier": "Identificadores alternativos",
+            "orphaned": "Conjunto de datos huérfano",
+            "rescued": "Conjunto de datos huérfano rescatado",
+            "adopted": "Conjunto de datos adoptado",
             "lastIngestedBeforeDate": "",
             "inIngestionQueue": "",
-            "addingToQueue": "",
+            "addingToQueue": "Añadir a la cola",
             "unableToStart": "",
             "ingestionChartExplainer": "",
             "ingestionStatus": "",
@@ -36,14 +36,14 @@
             "gbifIngestionStatus": "",
             "lastIngestionSuccess": "",
             "lastIngestionFailed": "",
-            "outOfSync": "",
-            "becauseTrustedContact": ""
+            "outOfSync": "Sin sincronización",
+            "becauseTrustedContact": "Porque eres un contacto confiable"
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "Normal",
+                "ABORT": "Interrumpir",
+                "NOT_MODIFIED": "No modificado"
             }
         }
     }

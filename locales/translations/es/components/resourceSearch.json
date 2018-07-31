@@ -18,7 +18,7 @@
             "literature": "Literatura"
         },
         "filters": {
-            "countriesOfCoverage": "",
+            "countriesOfCoverage": "País o área de cobertura",
             "countriesOfResearcher": "",
             "literatureType": "",
             "contractCountry": "País o área",

@@ -2,11 +2,11 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "",
+        "title": "Comité Ejecutivo",
         "description": ""
       },
       "scienceCommittee": {
-        "title": "",
+        "title": "Comité Científico",
         "description": ""
       },
       "budgetCommittee": {
@@ -39,14 +39,14 @@
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "Rol",
+      "name": "Nombre",
+      "participant": "Participante",
+      "participationStatus": "Estado del participante"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
+    "details": "Detalles",
+    "roles": "Roles",
+    "sinceDate": "Desde {DATE}",
     "showAllContacts": ""
   }
 }

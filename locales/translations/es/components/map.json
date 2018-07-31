@@ -47,8 +47,8 @@
       "BLUE_HEAT": "Azul cálido",
       "ORANGE_HEAT": "Naranja cálido",
       "GREEN": "Verde",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "BLUE_CLUSTER": "Agrupación azul",
+      "ORANGE_CLUSTER": "Agrupación naranja"
     },
     "errors": {
       "413": "El archivo geométrico es demasiado grande para ser procesado por la API de datos"
