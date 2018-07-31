@@ -13,6 +13,6 @@
         "generateCsv": "Generar csv",
         "parsingNames": "Procesando nombres - aguarde",
         "nameParserDescription": "Este es un formulario html simple para hacer uso del procesador de nombres de GBIF. El procesador está escrito en java y se basa en expresiones regulares para separar cadenas de nombres en sus diferentes componentes. Solo conserva las partes del nombre requeridas para reconstruir un nombre completo de tres partes con un subgénero opcional, pero ignora las partes infraespecíficas adicionales como la subespecies o variedades. Por favor, consulte nuestra [documentación del API] (/developer/species#parser) para más detalles.",
-        "nameParserRequirements": ""
+        "nameParserRequirements": "Puede copiar y pegar una lista de nombres, uno por fila, o cargar un archivo de texto con un nombre por línea. ¡Los archivos deben estar codificados como utf8!"
     }
 }
