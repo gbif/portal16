@@ -31,7 +31,7 @@
                     </li>
                 {% endif %}
 
-                <li class="tab tab-right" ng-if="portal.isSecretariatUser()">
+                <li class="tab tab-right">
                     <span>
                         <a ng-href="/sites/default/files/gbif_analytics/country/{{ countryKey.countryCode }}/GBIF_CountryReport_{{ countryKey.countryCode }}.pdf" class="gb-button--brand">{{'countryKey.activityReport' | translate}}<span class="gb-icon-file-download"></span></a>
                     </span>
