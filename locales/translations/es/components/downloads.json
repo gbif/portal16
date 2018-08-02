@@ -1,11 +1,11 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "",
-    "nConstituentDatasets": "",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registro} other{registros}} descargados",
+    "nConstituentDatasets": "Incluye registros de {NUMBER_FORMATTED} {NUMBER, select, one{conjunto de datos} other{conjuntos de datos}}",
     "fileNotAvailable": "El archivo ya no está disponible para descarga",
-    "downloadDeletionWarning": "Esta descarga no se ha referenciado y es posible eliminarla despues del",
+    "downloadDeletionWarning": "Esta descarga no se ha citado y es posible eliminarla despues de {DATE}.",
     "brokenDownload": "Descarga interrumpida",
-    "contactHelpdesk": "Contacta con el servicio de asistencia",
+    "contactHelpdesk": "Contacta con el servicio de asistencia técnica",
     "cancelled": "Cancelada",
     "cancel": "Cancelar",
     "download": "Descargar",
@@ -15,11 +15,11 @@
     "show": "Mostrar",
     "license": "Licencia",
     "readMore": "Leer más",
-    "titleMissing": "Falta el título del juego de datos",
+    "titleMissing": "Falta el título del conjunto de datos",
     "underProcessing": "En proceso",
     "citation": "Cita",
-    "nRecordsAtTime": "",
-    "aboutDeletionPolicy": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, select, one{registro} other{registros}} en el momento de la descarga",
+    "aboutDeletionPolicy": "Leer más sobre nuestra [deletion policy](/faq?question=for-how-long-will-does-gbif-store-downloads).",
     "readDatauseAndTerms": "Asegúrese de leer el [acuerdo para usuarios de datos](/términos/usuario de datos) y la [guía para citar](/guía para citar).",
     "filterApplied": "Filtro aplicado el",
     "rerunQuery": "Volver a ejecutar la consulta",
@@ -44,7 +44,7 @@
       "SUSPENDED": "Suspendida",
       "RUNNING": "En curso",
       "CANCELLED": "Cancelada",
-      "KILLED": ""
+      "KILLED": "Muertos"
     },
     "predicate": {
       "joinDescriptions": {
