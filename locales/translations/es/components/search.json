@@ -26,6 +26,6 @@
       "searchResources": "Buscar recursos",
       "searchOccurrences": "Buscar registros de presencia"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultado} other{resultados}}"
   }
 }
