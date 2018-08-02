@@ -1,7 +1,7 @@
 {
   "eoi": {
     "firstPleaseSeeIfYourOrg": "En primer lugar, por favor mire si su organización ya está registrada como proveedor de datos de GBIF.",
-    "ifYouAreAffiliatedWithTheSelectedOrganization": "",
+    "ifYouAreAffiliatedWithTheSelectedOrganization": "Si ya está afiliado con la organización seleccionada, debe acercarse al contacto para obtener los conocimientos prácticos sobre la publicación de datos.",
     "myOrgIsNotRegistered": "Mi organización aún no está registrada.",
     "searchOrganisations": "Buscar organizaciones",
     "termsAndConditions": "Términos y condiciones",
@@ -19,10 +19,10 @@
     "rememberToPrefixWithCountryCode": "Recuerda introducir el prefijo con el código del país",
     "contacts": "Contactos",
     "weNeedToKnowHowToKeepInTouchWithYou": "Necesitamos saber cómo podemos ponernos en contacto con usted.",
-    "peopleMoveOn": "",
+    "peopleMoveOn": "¡La gente sigue adelante! Agregue al menos un contacto alternativo y considere usar un correo electrónico genérico, e.j. helpdesk@a.com que siempre llegará a la persona adecuada.",
     "addAdministrativeContact": "Añadir un contacto administrativo",
     "addTecnicalContact": "Añadir contacto técnico",
-    "endorsingNode": "",
+    "endorsingNode": "Aprobado por el nodo",
     "pleaseCheckSuggestionBelow": "Para apoyar a los proveedores y revisar la calidad de los datos, todos los proveedores están asociados con un nodo de GBIF. Por favor, comprueba la sugerencia de más abajo y corrígelo si es necesario:",
     "helpMeWithEndorsement": "",
     "marineDataPublishers": "",
