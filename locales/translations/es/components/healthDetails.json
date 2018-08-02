@@ -1,12 +1,12 @@
 {
     "health": {
-        "automatedMonitoring": "",
+        "automatedMonitoring": "Monitoreo automatizado",
         "systemLoad": "Carga del sistema",
         "messages": "Mensajes",
         "version": "Versión",
         "nInQueue": "en cola",
         "status": {
-            "OPERATIONAL": "",
+            "OPERATIONAL": "Operacional",
             "WARNING": "Inestable",
             "CRITICAL": "No utilizable",
             "INFO": "Actualización del sistema"
@@ -21,8 +21,8 @@
                 "tooltip": "Ej.: Buscar y visualizar las especies y las sugerencias de especies"
             },
             "REGISTRY": {
-                "name": "Registre",
-                "tooltip": "Ej.: Juego de datos, proveedores, intalaciones, países, participantes y redes de trabajo."
+                "name": "Registro",
+                "tooltip": "Ej. conjuntos de datos, proveedores, instalaciones, países, participantes y redes de trabajo."
             },
             "IDENTITY": {
                 "name": "Identidad",
@@ -42,11 +42,11 @@
             },
             "GITHUB": {
                 "name": "GitHub (sistema externo)",
-                "tooltip": "Comentarios y sugerencias a los juegos de datos"
+                "tooltip": "Comentarios y sugerencias a los conjuntos de datos"
             },
             "CRAWLER": {
-                "name": "",
-                "tooltip": "Para actualizar los juegos de datos - nuevos y antiguos."
+                "name": "Importando",
+                "tooltip": "Para actualizar los conjuntos de datos - nuevos y antiguos."
             },
             "RESOURCE_SEARCH": {
                 "name": "Búsqueda de recursos",
