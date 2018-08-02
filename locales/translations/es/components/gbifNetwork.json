@@ -1,22 +1,22 @@
 {
   "gbifNetwork": {
-    "title": "",
-    "contact": "",
+    "title": "Directorio",
+    "contact": "Contacto",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Participante votante",
+      "other": "Participantes votantes"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "País participante asociado",
+      "other": "Países asociados participantes"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "Otro participante asociado",
+      "other": "Otros participantes asociados"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Antiguo participante",
+      "other": "Antiguos participantes"
     },
     "gbif_affiliate": {
       "one": "",
