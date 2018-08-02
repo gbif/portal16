@@ -2,7 +2,7 @@
     "homepage": {
         "counts": {
             "occurrences": "Registros de presencia",
-            "datasets": "Juegos de datos",
+            "datasets": "Conjuntos de datos",
             "publishers": "Instituciones que publican",
             "species": "Especies",
             "speciesSubtitle": "Conoce más sobre el número de especies incluidas en los datos de GBIF.org"
