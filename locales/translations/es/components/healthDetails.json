@@ -54,7 +54,7 @@
             },
             "CLUSTER": {
                 "name": "Carga del sistema",
-                "tooltip": ""
+                "tooltip": "El back-end para el manejo de descargas, importación y mucho más."
             },
             "DOWNLOAD": {
                 "name": "Descargas",
