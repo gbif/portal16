@@ -27,7 +27,7 @@
             "range": "Rango",
             "noFiltersAdded": "Filtros de área no añadidos",
             "wktPlaceholder": "WKT o GeoJSON - los multipolígonos no son compatibles",
-            "invalidTextInput": "WKT o GeoJSON incorrectos",
+            "invalidTextInput": "WKT o GeoJSON inválidos",
             "tooLarge": "Geometría demasiado grande",
             "tooLargeSuggestion": "Intenta usar un cuadro delimitador y filtrar localmente",
             "invalidRange": "Cuadro delimitador inválido"
