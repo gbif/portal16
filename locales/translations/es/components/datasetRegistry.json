@@ -1,13 +1,13 @@
 {
     "dataset": {
         "registry": {
-            "failedSinceSuccess": "",
+            "failedSinceSuccess": "Intentos fallidos desde la última carga exitosa",
             "lastFailed": "Último intento fallido",
             "registrationDate": "Fecha de registro",
-            "lastSuccess": "",
-            "lastWithChange": "",
-            "noEntries": "",
-            "lastWithDataChange": "",
+            "lastSuccess": "Última carga exitosa",
+            "lastWithChange": "Última carga con cambios",
+            "noEntries": "Este conjunto de datos no tiene carga de entradas",
+            "lastWithDataChange": "Última carga con cambios",
             "occInLastIngestion": "",
             "completionReasons": "",
             "unfinished": "",
