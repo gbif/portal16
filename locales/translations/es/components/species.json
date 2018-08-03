@@ -2,7 +2,7 @@
   "species": {
     "distribution": {
       "presentIn": "Presente en {país}",
-      "presentInNonCountry": "Presente en",
+      "presentInNonCountry": "Presente en {ubicación}",
       "threatStatus": "Grado de amenaza:",
       "distributionPlural": "Distribuciones"
     },
@@ -10,10 +10,10 @@
       "overview": "Información general",
       "metrics": "Estadísticas",
       "referenceTaxon": "Taxón de referencia",
-      "verbatim": ""
+      "verbatim": "Original"
     },
     "invasives": {
-      "nInvadedCountries": "",
+      "nInvadedCountries": "Registrado como invasora en {NUMBER_FORMATED} {NUMBER, select, 1{país o isla} other{países o islas}}",
       "invasiveIn": "",
       "accordingTo": "Según",
       "occurrenceCount": "Registros de presencia en GBIF",
