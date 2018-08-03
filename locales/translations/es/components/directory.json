@@ -19,22 +19,22 @@
       },
       "nodesCommittee": {
         "title": "Comité de Administradores de Nodo",
-        "description": ""
+        "description": "El Comité de Administradores de Nodos Participantes (o Comité de Nodos) es un grupo dinámico formado por los administradores de nodo designados por todos los Participantes (países y organizaciones internacionales). El comité incluye tres puestos de presidente establecidos a través de votación por la Junta de Gobierno por un máximo de dos mandatos de dos años."
       },
       "secretariat": {
         "title": "Secretariado de GBIF",
-        "description": ""
+        "description": "El Secretariado de GBIF, localizado en el Museo de Historia Natural en Copenhague, Dinamarca, está encargado del desarrollo, ejecución y reporte del Programa de Trabajo de GBIF. Las tareas del Secretariado incluyen:\n- operar el portal de GBIF e informática asociada \n- coordinar las actividades de la red relacionadas con la movilización de datos, publicación y administración\n- monitorear las brechas (lagunas/vacíos) de datos y el uso de datos mediados por GBIF para la ciencia, y \n- operar los servicios centrales de comunicación y colaboración"
       },
       "voting": {
-        "title": "",
-        "description": ""
+        "title": "Participantes votantes",
+        "description": "Países que han firmado el Memorando de Entendimiento (MoU) de GBIF y están de acuerdo en hacer una contribución financiera básica a los fondos de GBIF."
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "Países asociados participantes",
+        "description": "Países que han firmado el Memorando de Entendimiento (MoU) de GBIF pero que no realizan una colaboración financiera a los fondos de GBIF y carecen de voto en la Junta de Gobierno de GBIF."
       },
       "associateParticipants": {
-        "title": "",
+        "title": "Otros participantes asociados",
         "description": ""
       }
     },
