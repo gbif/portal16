@@ -2,18 +2,18 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
-        "countriesOfResearcher": "",
-        "literatureType": "",
-        "contractCountry": "",
+        "countriesOfCoverage": "País o área de cobertura",
+        "countriesOfResearcher": "País o área del investigador",
+        "literatureType": "Tipo de literatura",
+        "contractCountry": "País o área",
         "topics": "Tema",
         "audiences": "Audiencias",
         "purposes": "Finalidad",
         "relevance": "Relevancia",
         "language": "Idioma",
         "year": "Año",
-        "datasetKey": "Juego de datos",
-        "publishingOrg": "Proveedor",
+        "datasetKey": "Conjunto de datos",
+        "publishingOrg": "Publicador",
         "peerReview": "Revisado por pares",
         "openAccess": "Acceso abierto",
         "gbifDownloadKey": "Descargar clave"
@@ -47,14 +47,14 @@
           "undefined": "Sin especificar"
         },
         "relevance": {
-          "GBIF_USED": "",
-          "GBIF_CITED": "",
-          "GBIF_DISCUSSED": "",
-          "GBIF_PRIMARY": "",
-          "GBIF_ACKNOWLEDGED": "",
-          "GBIF_PUBLISHED": "",
-          "GBIF_AUTHOR": "",
-          "GBIF_MENTIONED": "",
+          "GBIF_USED": "Utilizado por GBIF",
+          "GBIF_CITED": "Citado por GBIF",
+          "GBIF_DISCUSSED": "Discutido por GBIF",
+          "GBIF_PRIMARY": "GBIF primario (a)",
+          "GBIF_ACKNOWLEDGED": "Reconocido por GBIF",
+          "GBIF_PUBLISHED": "Publicado por GBIF",
+          "GBIF_AUTHOR": "Autor GBIF",
+          "GBIF_MENTIONED": "Mencionado por GBIF",
           "GBIF_FUNDED": ""
         },
         "topics": {
