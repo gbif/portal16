@@ -55,7 +55,7 @@
           "GBIF_PUBLISHED": "Publicado por GBIF",
           "GBIF_AUTHOR": "Autor GBIF",
           "GBIF_MENTIONED": "Mencionado por GBIF",
-          "GBIF_FUNDED": ""
+          "GBIF_FUNDED": "Financiado por GBIF"
         },
         "topics": {
           "AGRICULTURE": "Agricultura",
@@ -94,26 +94,26 @@
           "working_paper": "Documento de trabajo",
           "report": "Informe",
           "web_page": "Página web",
-          "thesis": "Tésis",
+          "thesis": "Tesis",
           "magazine_article": "Artículo de revista",
           "statute": "Estatuto",
           "patent": "Patente",
           "newspaper_article": "Artículo de periódico",
-          "computer_program": "Programa de ordenador",
-          "hearing": "",
-          "television_broadcast": "",
+          "computer_program": "Programa de computadora",
+          "hearing": "Audiencia",
+          "television_broadcast": "Transmisión de televisión",
           "encyclopedia_article": "Artículo de enciclopedia",
           "case": "Caso",
           "film": "Película",
-          "bill": "Proyecto de ley"
+          "bill": "Recibo"
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Expertos en biodiversidad",
-          "DATA_HOLDERS": "Propietarios de datos",
+          "DATA_HOLDERS": "Custodio de los datos",
           "DATA_USERS": "Usuarios de datos",
           "DECISION_MAKERS": "Tomadores de decisiones",
           "GBIF_NETWORK": "Red GBIF",
-          "PUBLIC_STAKEHOLDERS": "Les parties prenantes publiques"
+          "PUBLIC_STAKEHOLDERS": "Partes públicas interesadas"
         }
       }
     }
