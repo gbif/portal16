@@ -35,18 +35,18 @@
       },
       "associateParticipants": {
         "title": "Otros participantes asociados",
-        "description": ""
+        "description": "Organizaciones intergubernamentales, organizaciones internacionales y otras organizaciones con alcance internacional y economías que han firmado el Memorando de Entendimiento (MoU) de GBIF."
       }
     },
     "columns": {
       "role": "Rol",
       "name": "Nombre",
       "participant": "Participante",
-      "participationStatus": "Estado del participante"
+      "participationStatus": "Status del participante"
     },
     "details": "Detalles",
     "roles": "Roles",
     "sinceDate": "Desde {DATE}",
-    "showAllContacts": ""
+    "showAllContacts": "Todos"
   }
 }
