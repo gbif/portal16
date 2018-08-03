@@ -3,22 +3,22 @@
     "group": {
       "executiveCommittee": {
         "title": "Comité Ejecutivo",
-        "description": ""
+        "description": "El Comité Ejecutivo opera en favor de la Junta de Gobierno cuando la Junta no se encuentra en sesión y dentro de las áreas de responsabilidad delegadas por la Junta de Gobierno. Entre sus funciones se encuentran el monitoreo del desempeño de la Secretaría en la ejecución de las decisiones tomadas por la Junta de Gobierno, incluida la implementación del Plan Estratégico y el Programa de Trabajo, y la gestión del presupuesto."
       },
       "scienceCommittee": {
         "title": "Comité Científico",
-        "description": ""
+        "description": "El Comité Científico de GBIF es un comité asesor que supervisa el desarrollo y progreso del programa de trabajo de GBIF y hace recomendaciones a la Junta Directiva, el Comité Ejecutivo y la Secretaría. Puede leer sus términos de referencia [here.] (/ Document / 80877 / current-terms-of-reference-for-the-science-committee)"
       },
       "budgetCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité de Presupuesto",
+        "description": "El Comité de Presupuesto es un comité asesor que se ocupa de varios asuntos financieros relacionados con la administración de los fondos de GBIF. Entre otras funciones, supervisa la auditoría de las cuentas anuales presentadas a la Junta de Gobierno, y proporciona una guía para la selección de la compañía auditora de GBIF. El comité hace recomendaciones a la Junta Directiva, el Comité Ejecutivo y la Secretaría. Sus términos de referencia se pueden encontrar [here.] (/ Document / 80669 / terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
-        "title": "Comité de pilotage des points nodaux",
-        "description": ""
+        "title": "Grupo de Dirección de Nodos",
+        "description": "Establecido en 2011, el Grupo de Dirección de Nodos (NSG) está conformado por el presidente y los vicepresidentes del [Comité de Administradores de Nodos Participantes] (/ contact-us / directory? Group = nodesCommittee) acompañado por un representante regional de cada una de las seis regiones de GBIF. ([Africa] (/ the-gbif-network / africa), [Asia] (/ the-gbif-network / asia), [Europe] (/ the-gbif-network / europe), [America Latina / Caribe] ( / the-gbif-network / latin-america), [America del Norte] (/ the-gbif-network / north-america) y [Oceania] (/ the-gbif-network / oceania)). Los objetivos del NSG son formular recomendaciones específicas para los organismos GBIF pertinentes en función de los comentarios proporcionados por los nodos Participantes, y proporcionar asesoramiento sobre los programas de trabajo anuales de GBIF en lo que se refiere a los esfuerzos de los nodos GBIF."
       },
       "nodesCommittee": {
-        "title": "",
+        "title": "Comité de Administradores de Nodo",
         "description": ""
       },
       "secretariat": {
