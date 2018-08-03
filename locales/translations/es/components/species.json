@@ -60,9 +60,9 @@
     "interpretationMsg": "Esta es la interpretación de las especies como fueron publicadas en",
     "viewGbifSpeciesMsg": "Para visualizar cómo se ve esta especie en GBIF accede a [la versión del backbone]",
     "inferredRecordMsg": "Este registro ha sido creado durante el indexado y no existe de manera explícita como tal en los datos originales.",
-    "noChildren": "",
-    "youAreBrowsing": "",
-    "lastCrawled": "",
+    "noChildren": "Sin descendientes",
+    "youAreBrowsing": "Estás navegando",
+    "lastCrawled": "Último rastreo {DATE_FORMATTED}",
     "extensions": "Extensiones",
     "taxa": "Taxones"
   }
