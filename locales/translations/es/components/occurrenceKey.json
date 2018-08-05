@@ -32,7 +32,7 @@
       "Taxon": "Taxón",
       "Location": "Ubicación",
       "Organism": "Organismo",
-      "MaterialSample": "",
+      "MaterialSample": "Muestra de material",
       "GeologicalContext": "Contexto geológico",
       "other": "Otro"
     },
@@ -41,32 +41,32 @@
     "original": "Original",
     "remarks": "Observaciones",
     "highlights": {
-      "location": "Unicación",
-      "specimenType": "Especimen tipo",
+      "location": "Ubicación",
+      "specimenType": "Espécimen tipo",
       "publisher": "Proveedor",
       "reference": "Referencia",
       "verbatimName": "Nombre textual"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "Recogido en ",
-        "FOSSIL_SPECIMEN": "Recogido en ",
+        "PRESERVED_SPECIMEN": "Colectado en",
+        "FOSSIL_SPECIMEN": "Colectado en {COUNTRY}",
         "LIVING_SPECIMEN": "Recogido en ",
         "HUMAN_OBSERVATION": "Observado en ",
         "MACHINE_OBSERVATION": "Observado en ",
-        "MATERIAL_SAMPLE": "Recogido en ",
+        "MATERIAL_SAMPLE": "Colectado en",
         "OCCURRENCE": "Registrado en ",
         "OBSERVATION": "Observado en ",
         "LITERATURE": "Registrado en ",
         "UNKNOWN": "Registrado en "
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "Recogido en una ubicación desconocida",
-        "FOSSIL_SPECIMEN": "Recogido en una ubicación desconocida",
-        "LIVING_SPECIMEN": "Recogido en una ubicación desconocida",
+        "PRESERVED_SPECIMEN": "Colectado en una ubicación desconocida",
+        "FOSSIL_SPECIMEN": "Colectado en una ubicación desconcida",
+        "LIVING_SPECIMEN": "Colectado en una ubicación desconocida",
         "HUMAN_OBSERVATION": "Observado en una ubicación desconocida",
         "MACHINE_OBSERVATION": "Observado en una ubicación desconocida",
-        "MATERIAL_SAMPLE": "Recogido en una ubicación desconocida",
+        "MATERIAL_SAMPLE": "Colectado en una ubicación desconocida",
         "OCCURRENCE": "Registrado en una ubicación desconocida",
         "OBSERVATION": "Observado en una ubicación desconocida",
         "LITERATURE": "Registrado en una ubicación desconocida",
@@ -79,7 +79,7 @@
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "Excluido",
+      "EXCLUDED": "Excluído",
       "AUTHORED": "Alterado",
       "INFERED": "Inferido"
     }
