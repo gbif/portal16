@@ -4,7 +4,7 @@
     "unknownDate": "Fecha desconocida",
     "absent": "Ausente",
     "issues": "Problemas",
-    "dataset": "Juego de datos",
+    "dataset": "Conjunto de datos",
     "synced": "Sincronizado",
     "modified": "Modificado",
     "monthAndyear": "Mes & año",
@@ -14,7 +14,7 @@
     "showMoreInfo": "más",
     "noTaxonMatch": "ninguno",
     "gbifTaxonInterpretation": "Interpretacion de los taxones de GBIF",
-    "aboutTheDataset": "Sobre el juego de datos",
+    "aboutTheDataset": "Sobre el conjunto de datos",
     "noLocationInformation": "No hay información de la ubicación publicada en este registro",
     "subMenu": {
       "diagnostics": "Diagnósticos",
