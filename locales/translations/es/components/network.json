@@ -1,13 +1,13 @@
 {
   "network": {
-    "network": "",
+    "network": "Red",
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": "",
-      "datasets": ""
+      "summary": "Resumen",
+      "homepage": "Página de inicio",
+      "metrics": "Estadísticas",
+      "datasets": "Red"
     },
-    "registeredDate": "",
-    "nParticipatingDatasets": ""
+    "registeredDate": "Registrado {DATE}",
+    "nParticipatingDatasets": "{NUMBER_FORMATED} participando {NUMBER, select, 1{conjunto de datos} other{conjuntos de datos}}"
   }
 }
