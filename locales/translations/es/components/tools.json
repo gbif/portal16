@@ -41,16 +41,16 @@
             "hexagon": "Hexágono",
             "draw": "Dibujar",
             "clear": "Limpiar",
-            "resultIntro": "",
-            "embedIntro": ""
+            "resultIntro": "Cambio en la frecuencia relativa de la observación para el área seleccionada",
+            "embedIntro": "Todos los datos mediados a través de (la) {GBIF network}"
         },
         "speciesLookup": {
-            "description": "",
-            "title": ""
+            "description": "Normalizar los nombres de las especies desde un archivo CVS contra la [backbone] de GBIF. Se espera que el archivo tenga una columna denominada 'scientificName' y una columna opcional de 'kingdom' e 'id'.",
+            "title": "Coincidencia de nombres de especies"
         },
         "ipt": {
-            "description": "",
-            "dontSeeYourIpt": ""
+            "description": "El IPT es una herramienta de software gratuito de código abierto, escrita en Java, que se utiliza para publicar y compartir conjuntos de datos a través de la red de GBIF. El IPT puede ser configurado tanto con una cuenta de DataCite como EZID, para asignar DOI's a los conjuntos de datos, transformándolo en un repositorio de datos.",
+            "dontSeeYourIpt": "¿No encuentras tu IPT? Enviar [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") sus coordenadas."
         }
     }
 }
