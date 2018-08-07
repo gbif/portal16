@@ -1,7 +1,7 @@
 {
   "trends": {
-    "theseChartsIllustrate1": "",
-    "noOccRecords": "",
+    "theseChartsIllustrate1": "Estos gráficos muestran el cambio en la disponibilidad de los registros (de presencia) de especies a lo largo del tiempo.",
+    "noOccRecords": "Número de registros (de presencia)",
     "occByKingdomChartText": "",
     "recordsByKingdom": "",
     "animaliaByBasisOfRecordText": "",
