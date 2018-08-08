@@ -6,13 +6,9 @@
         </div>
         <div class="speciesLookup__overlay__card__download seperator--b seperator">
             <div>
-                <a id="nameParser_generatedCsv" href="" download='normalized.csv'
+                <a id="sequenceMatcher_generatedCsv" href="" download='blastresult.csv'
                    ng-click="vm.download = false" class="gb-icon-cloud-download"></a>
             </div>
-        </div>
-        <div ng-if="vm.referenceId">
-            See final result at <a
-                    ng-href="https://github.com/MortenHofft/slettes/blob/master/{{ speciesLookup.referenceId }}/counts.csv">Github</a>
         </div>
         <div class="site-drawer__bar">
             <a href="" class="site-drawer__bar__action" ng-click="vm.download = false">

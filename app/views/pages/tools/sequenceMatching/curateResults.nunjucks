@@ -47,7 +47,7 @@
                         </td>
                         <td class="table-cell--widder">
                             <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
-                            <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} <a class="gb-icon-link" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
+                            <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} <a class="gb-icon-link" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
                             <span class="badge badge--error sequenceMatcher__badge" ng-if="species.matchType === 'BLAST_NO_MATCH'">NO MATCH</span>
                         </td>
                         <td class="table-cell--widder">

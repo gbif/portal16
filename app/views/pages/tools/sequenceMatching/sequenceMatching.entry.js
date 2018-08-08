@@ -56,7 +56,6 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             vm.inBackboneCount = 0;
             vm.blastMatchCount = 0;
             vm.normalizeAll();
-
         });
 
         parser.write(fastaData);
@@ -199,7 +198,12 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             var classification = '';
             var formattedClassification = '';
             for (var i = 0; i < selected.nubMatch.classification.length; i++) {
-                formattedClassification += '<a href="/species/' + selected.nubMatch.classification[i].key + '" target="_BLANK">' + selected.nubMatch.classification[i].name + '</a>; ';
+                formattedClassification += '<a href="/species/' + selected.nubMatch.classification[i].key + '" target="_BLANK">' + selected.nubMatch.classification[i].name + '</a>';
+                classification += selected.nubMatch.classification[i].name;
+                if (i < (selected.nubMatch.classification.length - 1)) {
+                    classification += '_';
+                    formattedClassification += '; ';
+                }
             }
             item.classification = classification;
             item.formattedClassification = formattedClassification;
@@ -218,7 +222,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
     };
 
     vm.generateCsv = function() {
-        var fields = ['occurrenceId', 'verbatimScientificName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
+        var fields = ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue', 'scientificName', 'classification', 'sequence'];
         var csvContent = '';
 
         // write column names
@@ -237,7 +241,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
                 return;
             }
             fields.forEach(function(field, index) {
-                csvContent += e[field] ? '"' + e[field] + '"' : '';
+                csvContent += (e[field] || e[field] === 0) ? '"' + e[field] + '"' : '';
                 if (index < fields.length - 1) {
                     csvContent += ',';
                 }
@@ -245,26 +249,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             csvContent += '\n';
         });
         // add string to href as data uri making it downloadable
-        document.getElementById('speciesLookup_generatedCsv').href = 'data:application/octet-stream,' + encodeURI(csvContent);
+        document.getElementById('sequenceMatcher_generatedCsv').href = 'data:application/octet-stream,' + encodeURI(csvContent);
         vm.download = true;
-    };
-
-    vm.getMatchTypeClass = function(matchType) {
-        if (matchType == 'FUZZY') {
-            return 'badge badge--warning';
-        }
-        if (matchType == 'NONE') {
-            return 'badge badge--error';
-        }
-        if (matchType == 'HIGHERRANK') {
-            return 'badge badge--warning';
-        }
-        if (matchType == 'EXACT') {
-            return 'badge badge--approved';
-        }
-        if (matchType == 'EDITED') {
-            return 'badge badge--info';
-        }
     };
 
     vm.getStatusClass = function(status) {
