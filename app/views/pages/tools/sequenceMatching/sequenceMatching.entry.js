@@ -2,6 +2,7 @@
 
 var async = require('async');
 var Converter = require('csvtojson').Converter;
+var fasta = require('fasta-parser');
 
 angular
     .module('portal')
@@ -19,7 +20,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
     vm.itemToEdit = undefined;
     vm.error;
     vm.$location = $location;
-
+    vm.matchThreshold = 98.5;
     window.onbeforeunload = function(e) {
         if (vm.species && vm.species.length > 0) {
             var dialogText = 'By leaving the page you loose your data.';
@@ -37,8 +38,72 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
         parseFile(files[0]);
     };
 
+    vm.handleFasta = function(input) {
+        parseFasta(input);
+    };
+    function parseFasta(inputString) {
+        var result = [];
+        var fastaData = new Buffer(inputString);
+        var parser = fasta();
+        parser.on('data', function(data) {
+            var e = JSON.parse(data.toString());
+            result.push({occurrenceId: e.id, sequence: e.seq});
+        });
+        parser.on('end', function() {
+            vm.species = result;
+            vm.matchedSequenceCount = 0;
+            vm.aboveThresholdCount = 0;
+            vm.inBackboneCount = 0;
+            vm.blastMatchCount = 0;
+            vm.normalizeAll();
+
+        });
+
+        parser.write(fastaData);
+        parser.end();
+    }
+
+    function parseCSV(csvString) {
+        var converter = new Converter({
+            delimiter: [',', ';', '$', '|', '\t']
+        });
+
+        vm.error = undefined;
+        converter.fromString(csvString, function(err, result) {
+            if (err) {
+                vm.error = err;
+            } else if (result.length == 0) {
+                vm.error = 'There are no rows in the data.';
+            } else if (result.length > 6000) {
+                vm.error = 'Too many rows (maximum 6.000)';
+            } else {
+                // make all keys lower to avoid casing issues
+                result = result.map(function(e) {
+                    return getLowerKeysObj(e);
+                });
+                if (result.every(function(e) {
+                    return e.sequence || e.consensussequence;
+                })) {
+                    result.forEach(function(e) {
+                        e.occurrenceId = e.occurrenceId || e.occurrenceid || e.occurrenceID || e.id;
+                        e.sequence = e.sequence || e.consensussequence;
+                        e.marker = e.marker || 'its';
+                    });
+                    vm.species = result;
+                    vm.matchedSequenceCount = 0;
+                    vm.aboveThresholdCount = 0;
+                    vm.inBackboneCount = 0;
+                    vm.blastMatchCount = 0;
+                    vm.normalizeAll();
+                } else {
+                    vm.error = 'all rows must have a sequence or consensusSequence field - see example file for the required format';
+                }
+            }
+            $scope.$apply();
+        });
+    }
     var isValidFile = function(file) {
-        return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1);
+        return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1 || file.name.indexOf('.fasta') > 1);
     };
 
     function getLowerKeysObj(obj) {
@@ -61,41 +126,16 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
         }
         var reader = new FileReader();
         reader.onload = function() {
-            var converter = new Converter({
-                delimiter: [',', ';', '$', '|', '\t']
-            });
             var csvString = reader.result;
-            vm.error = undefined;
-            converter.fromString(csvString, function(err, result) {
-                if (err) {
-                    vm.error = err;
-                } else if (result.length == 0) {
-                    vm.error = 'There are no rows in the data.';
-                } else if (result.length > 6000) {
-                    vm.error = 'Too many rows (maximum 6.000) - try using our APIs instead';
-                } else {
-                // make all keys lower to avoid casing issues
-                    result = result.map(function(e) {
-                        return getLowerKeysObj(e);
-                    });
-                    if (result.every(function(e) {
-                            return e.sequence || e.consensussequence;
-                        })) {
-                        result.forEach(function(e) {
-                            e.occurrenceId = e.occurrenceId || e.occurrenceid || e.occurrenceID || e.id;
-                            e.sequence = e.sequence || e.consensussequence;
-                            e.marker = e.marker || 'its';
-                        });
-                        vm.species = result;
-                    } else {
-                        vm.error = 'all rows must have a sequence or consensusSequence field - see example file for the required format';
-                    }
-                }
-                $scope.$apply();
-            });
+            if (file.name.indexOf('.csv') > 1) {
+                parseCSV(csvString);
+            } else if (file.name.indexOf('.fasta') > 1) {
+                parseFasta(csvString);
+            }
         };
         reader.readAsText(file);
     };
+
 
     vm.defaultKingdom = undefined;
     vm.setDefaultKingdom = function(kingdom) {
@@ -121,21 +161,14 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             method: 'post',
             data: query,
             url: '/api/blast'
-          }).then(function successCallback(response) {
+        }).then(function successCallback(response) {
             item.match = response.data;
             vm.setItem(item, response.data);
             callback();
-            }, function errorCallback(response) {
-                console.log(response);
-                callback('match went wrong');
-            });
-       /* SpeciesMatch.query(query, function(data) {
-            item.match = data;
-            vm.setItem(item, data);
-            callback();
-        }, function() {
+        }, function errorCallback(response) {
+            console.log(response);
             callback('match went wrong');
-        }); */
+        });
     }
 
     function lookupNames() {
@@ -150,61 +183,38 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
 
     vm.setItem = function(item, selected) {
         // eslint-disable-next-line max-len
-        var fields = ['name', 'identity', 'bitScore', 'matchType', 'appliedScientificName'];
+        var fields = ['name', 'identity', 'bitScore', 'expectValue', 'matchType', 'appliedScientificName'];
         fields.forEach(function(field) {
             item[field] = selected[field];
         });
 
         if (selected.nubMatch && selected.nubMatch.usage && selected.nubMatch.usage.formattedName) {
             item.formattedName = selected.nubMatch.usage.formattedName;
-        } 
+        }
         item.scientificName = selected.name;
         item.nubMatch = selected.nubMatch;
-        
+
 
         if (selected.nubMatch && selected.nubMatch.classification) {
             var classification = '';
-            for (var i = 0; i < selected.nubMatch.classification.length; i++ ) {
-                classification += '<a href="/species/' + selected.nubMatch.classification[i].key + '" target="_BLANK">' + selected.nubMatch.classification[i].name + '</a>; ';
+            var formattedClassification = '';
+            for (var i = 0; i < selected.nubMatch.classification.length; i++) {
+                formattedClassification += '<a href="/species/' + selected.nubMatch.classification[i].key + '" target="_BLANK">' + selected.nubMatch.classification[i].name + '</a>; ';
             }
             item.classification = classification;
+            item.formattedClassification = formattedClassification;
         }
-    };
 
-    // vm.itemToEdit = undefined;
-
-    vm.selectAlternative = function(item, selected) {
-        item.userEdited = true;
-        vm.setItem(item, selected);
-        vm.itemToEdit = undefined;
-    };
-
-    vm.discard = function(item) {
-        item.userEdited = true;
-        vm.setItem(item, {});
-        vm.itemToEdit = undefined;
-    };
-
-    vm.getSuggestions = function(val) {
-        return $http.get(suggestEndpoints.taxon, {
-            params: {
-                q: val,
-                datasetKey: constantKeys.dataset.backbone,
-                limit: 10
-            }
-        }).then(function(response) {
-            return response.data;
-        });
-    };
-
-
-    vm.typeaheadSelect = function(item) { //  model, label, event
-        vm.itemToEdit.userEdited = true;
-        Species.get({id: item.key}, function(data) {
-            vm.setItem(vm.itemToEdit, data);
-            vm.itemToEdit = undefined;
-            vm.selectedSuggestion = undefined;
-        });
+        vm.matchedSequenceCount++;
+        if (item.identity > vm.matchThreshold) {
+            vm.aboveThresholdCount++;
+        }
+        if (item.nubMatch && item.nubMatch.usage) {
+            vm.inBackboneCount++;
+        }
+        if (selected.matchType && selected.matchType !== 'BLAST_NO_MATCH') {
+            vm.blastMatchCount++;
+        }
     };
 
     vm.generateCsv = function() {
@@ -291,29 +301,6 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             vm.itemToEdit = undefined;
         }
     });
-
-    vm.countSpecies = function() {
-        var keysOnly = vm.species.filter(function(e) {
-            return !!e.key;
-        }).map(function(e) {
-            return e.key;
-        });
-        var namesOnly = vm.species.filter(function(e) {
-            return !!e.key;
-        }).map(function(e) {
-            return e.scientificName;
-        });
-        $http.post('/api/tools/species-count/count', {
-            taxonKeys: keysOnly,
-            names: namesOnly,
-            countryCode: 'DK'
-        }, {}).then(function(response) {
-            vm.referenceId = response.data.referenceId;
-        }, function() {
-        });
-    };
-
-    // vm.normalizeAll();
 }
 
 module.exports = sequenceMatchingCtrl;

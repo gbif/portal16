@@ -5679,6 +5679,44 @@
       "resolved": "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.5.tgz",
       "integrity": "sha1-vTMUV0RRmrHDbD7p8x8I6QebZ/I="
     },
+    "fasta-parser": {
+      "version": "0.1.0",
+      "resolved": "https://registry.npmjs.org/fasta-parser/-/fasta-parser-0.1.0.tgz",
+      "integrity": "sha1-rsgLPvL1DOz5wjradPZI07saRgs=",
+      "requires": {
+        "bl": "0.9.5",
+        "pumpify": "1.5.1",
+        "split": "0.3.3",
+        "through2": "0.6.5"
+      },
+      "dependencies": {
+        "isarray": {
+          "version": "0.0.1",
+          "resolved": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz",
+          "integrity": "sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8="
+        },
+        "readable-stream": {
+          "version": "1.0.34",
+          "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.34.tgz",
+          "integrity": "sha1-Elgg40vIQtLyqq+v5MKRbuMsFXw=",
+          "requires": {
+            "core-util-is": "1.0.2",
+            "inherits": "2.0.3",
+            "isarray": "0.0.1",
+            "string_decoder": "0.10.31"
+          }
+        },
+        "through2": {
+          "version": "0.6.5",
+          "resolved": "https://registry.npmjs.org/through2/-/through2-0.6.5.tgz",
+          "integrity": "sha1-QaucZ7KdVyCQcUEOHXp6lozTrUg=",
+          "requires": {
+            "readable-stream": "1.0.34",
+            "xtend": "4.0.1"
+          }
+        }
+      }
+    },
     "fd-slicer": {
       "version": "1.0.1",
       "resolved": "https://registry.npmjs.org/fd-slicer/-/fd-slicer-1.0.1.tgz",
@@ -12811,6 +12849,56 @@
             "inherits": "2.0.3",
             "isarray": "0.0.1",
             "string_decoder": "0.10.31"
+          }
+        }
+      }
+    },
+    "pump": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/pump/-/pump-2.0.1.tgz",
+      "integrity": "sha512-ruPMNRkN3MHP1cWJc9OWr+T/xDP0jhXYCLfJcBuX54hhfIBnaQmAUMfDcG4DM5UMWByBbJY69QSphm3jtDKIkA==",
+      "requires": {
+        "end-of-stream": "1.4.1",
+        "once": "1.4.0"
+      },
+      "dependencies": {
+        "end-of-stream": {
+          "version": "1.4.1",
+          "resolved": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.1.tgz",
+          "integrity": "sha512-1MkrZNvWTKCaigbn+W15elq2BB/L22nqrSY5DKlo3X6+vclJm8Bb5djXJBmEX6fS3+zCh/F4VBK5Z2KxJt4s2Q==",
+          "requires": {
+            "once": "1.4.0"
+          }
+        }
+      }
+    },
+    "pumpify": {
+      "version": "1.5.1",
+      "resolved": "https://registry.npmjs.org/pumpify/-/pumpify-1.5.1.tgz",
+      "integrity": "sha512-oClZI37HvuUJJxSKKrC17bZ9Cu0ZYhEAGPsPUy9KlMUmv9dKX2o77RUmq7f3XjIxbwyGwYzbzQ1L2Ks8sIradQ==",
+      "requires": {
+        "duplexify": "3.6.0",
+        "inherits": "2.0.3",
+        "pump": "2.0.1"
+      },
+      "dependencies": {
+        "duplexify": {
+          "version": "3.6.0",
+          "resolved": "https://registry.npmjs.org/duplexify/-/duplexify-3.6.0.tgz",
+          "integrity": "sha512-fO3Di4tBKJpYTFHAxTU00BcfWMY9w24r/x21a6rZRbsD/ToUgGxsMbiGRmB7uVAXeGKXD9MwiLZa5E97EVgIRQ==",
+          "requires": {
+            "end-of-stream": "1.4.1",
+            "inherits": "2.0.3",
+            "readable-stream": "2.2.2",
+            "stream-shift": "1.0.0"
+          }
+        },
+        "end-of-stream": {
+          "version": "1.4.1",
+          "resolved": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.1.tgz",
+          "integrity": "sha512-1MkrZNvWTKCaigbn+W15elq2BB/L22nqrSY5DKlo3X6+vclJm8Bb5djXJBmEX6fS3+zCh/F4VBK5Z2KxJt4s2Q==",
+          "requires": {
+            "once": "1.4.0"
           }
         }
       }

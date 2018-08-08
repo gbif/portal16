@@ -1,6 +1,11 @@
 <!-- Lookup keys -->
-<div class="horizontal-stripe--paddingless white-background ng-cloak"
+<div class="horizontal-stripe--paddingless white-background nameParser__result-table ng-cloak"
      ng-if="vm.species && vm.processing">
+    <!--  <div class="p text-center">
+     
+                    {{vm.matchedSequenceCount}} of {{vm.species.length}} matched, {{vm.aboveThresholdCount}} with identity > {{vm.matchThreshold}}, {{vm.inBackboneCount}} included in the GBIF backbone taxonomy
+                </div> -->
+ 
     <div class="occurrence-search__table__area">
         <div class="scrollable-y">
             <div class="table-container">
@@ -9,11 +14,11 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitscore', 'scientificName','classification', 'sequence']">
+                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bit score', 'expect value', 'scientificName','classification', 'sequence']">
                             <a href=""
                                ng-click="vm.state.sortType = col; vm.state.sortReverse = !vm.state.sortReverse">
                                 <span class="inline-block">
-                                    {{ col }} <span ng-if="col == 'scientificName'" class="discreet">(editable)</span>
+                                    {{ col }} 
                                     <span ng-show="vm.state.sortType == col && !vm.state.sortReverse"
                                             class="sortReverse">&#x25B2;</span>
                                     <span ng-show="vm.state.sortType == col && vm.state.sortReverse"
@@ -32,69 +37,27 @@
                             <span>{{ species.marker }}</span>
                         </td>
                         <td class="table-cell--narrow">
-                            <span>{{ species.identity }}</span>
+                            <span ng-if="species.identity">{{ species.identity }}%</span>
                         </td>
                         <td class="table-cell--narrow">
                             <span>{{ species.bitScore }}</span>
                         </td>
-                        <td class="table-cell--widder">
-                            <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
-                            <span ng-if="!(species.nubMatch && species.nubMatch.usage)" ng-bind-html="species.scientificName"></span>
+                        <td class="table-cell--narrow">
+                            <span>{{ species.expectValue }}</span>
                         </td>
                         <td class="table-cell--widder">
-                            <span ng-bind-html="species.classification"></span>
+                            <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
+                            <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} <a class="gb-icon-link" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
+                            <span class="badge badge--error sequenceMatcher__badge" ng-if="species.matchType === 'BLAST_NO_MATCH'">NO MATCH</span>
+                        </td>
+                        <td class="table-cell--widder">
+                            <span ng-bind-html="species.formattedClassification"></span>
                         </td>
                         <td class="table-cell">
                             <span>{{ species.sequence }}</span>
                         </td>
-                       <!-- <td class="table-cell--narrow">
-                            <span ng-class="vm.getMatchTypeClass(species.matchType)">{{ species.matchType }}</span>
-                        </td>
+                      
 
-                        <td class="table-cell--narrow">
-                            <span>{{ species.confidence }}</span>
-                        </td> -->
-
-                      <!--  <td class="table-cell--widder" ng-click="vm.itemToEdit = species">
-                                <span ng-if="species.key">
-                                    <span class="gb-icon-pen"></span>
-                                    {{ species.scientificName }}
-                                </span>
-                                <span ng-if="!species.key && species.match.alternatives && !species.userEdited">
-                                    <span class="gb-icon-pen"></span>
-                                    <span class="discreet">Options</span>
-                                </span>
-                                <span class="discreet" ng-if="!species.key && species.userEdited">
-                                    <span class="gb-icon-pen"></span>
-                                    <span class="discreet">Discarded</span>
-                                </span>
-                        </td> -->
-
-                        <td class="table-cell--narrow">
-                            <span>{{ species.status }}</span>
-                        </td>
-
-                        <td class="table-cell--narrow">
-                                <span>
-                                	<span ng-if="species.rank"
-                                          translate="taxonRank.{{ species.rank }}">{{ species.rank }}</span>
-                            	</span>
-                        </td>
-
-                        <td class="table-cell--narrow"
-                            ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                            <a ng-href="../species/{{ species[t + 'Key'] }}" target="_blank">{{ species[t] }}</a>
-                        </td>
-
-                        <td class="table-cell--widder">
-                            <a ng-href="../species/{{ species.speciesKey }}" target="_blank">{{ species.species }}</a>
-                        </td>
-
-                       
-
-                        <!-- <td class="table-cell--wide">
-                                <a ng-href="{{ species.acceptedKey }}">{{ species.accepted }}</a>
-                            </td> -->
                     </tr>
                     </tbody>
                 </table>

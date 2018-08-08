@@ -3,7 +3,6 @@ let express = require('express'),
     router = express.Router(),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     scientificName = require('../../species/scientificName.ctrl'),
-    request = require('request'),
     rt = require('requestretry');
 
 
@@ -12,11 +11,9 @@ module.exports = function(app) {
 };
 
 router.post('/blast', function(req, res) {
-    request({method: 'POST', url: 'http://localhost:9000/blast', body: req.body, json: true}, function(err, response) {
-        if (err) {
-            console.log(err);
-            res.sendStatus(503);
-        } else {
+    let url = 'http://localhost:9000/blast';
+    rt({method: 'POST', url: url, body: req.body, json: true})
+        .then(function(response) {
             if (response.body.matchType) {
                 decorateWithGBIFspecies(response.body).then(function(e) {
                     res.status(200).json(e);
@@ -26,8 +23,11 @@ router.post('/blast', function(req, res) {
             } else {
                 res.status(200).json(response.body);
             }
-        }
-    });
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.sendStatus(503);
+        });
 });
 
 async function decorateWithGBIFspecies(e) {

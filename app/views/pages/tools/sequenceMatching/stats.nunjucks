@@ -1,0 +1,86 @@
+
+<div class="row summaryStats" ng-if="vm.species.length">
+<a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="!vm.lookupComplete">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*vm.matchedSequenceCount / vm.species.length)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( vm.matchedSequenceCount / vm.species.length) | formatAsPercentage:100 }}%</span>
+                <div >{{vm.matchedSequenceCount}} of {{vm.species.length}} sequences processed</div>
+            </div>
+        </div>
+    </a>
+    <a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="vm.lookupComplete">
+        <div>
+            <div class="summaryStats__circle summaryStats__circle--occurrences"></div>
+            <div class="summaryStats__percentage">
+                <span>{{ vm.species.length | localNumber }}</span>
+                <div> sequences</div>
+            </div>
+        </div>
+    </a>
+
+     <a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="vm.lookupComplete">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*vm.blastMatchCount / vm.species.length)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( vm.blastMatchCount / vm.species.length) | formatAsPercentage:100 }}%</span>
+                <div >with blast match</div>
+            </div>
+        </div>
+    </a>
+
+    <a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="vm.lookupComplete">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*vm.aboveThresholdCount / vm.species.length)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( vm.aboveThresholdCount / vm.species.length) | formatAsPercentage:100 }}%</span>
+                <div >with identity > {{vm.matchThreshold}}%</div>
+            </div>
+        </div>
+    </a>
+
+     <a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="vm.lookupComplete">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*vm.inBackboneCount / vm.species.length)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( vm.inBackboneCount / vm.species.length) | formatAsPercentage:100 }}%</span>
+                <div >with GBIF backbone match</div>
+            </div>
+        </div>
+    </a>
+
+ 
+
+</div>

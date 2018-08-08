@@ -3,8 +3,8 @@
 
     <div layout="row" layout-align="center start" ng-cloak>
         <div class="nameParser__prose" >
-        <p ng-bind-html="'nameParser.nameParserDescription' | translate | md2html"></p>
-            <p ng-bind-html="'nameParser.nameParserRequirements' | translate | md2html"></p>
+        <p>A desciption of the tool here</p>
+            <p >And some input requirements</p>
 
         </div>
     </div>
@@ -12,15 +12,15 @@
     <div class="nameParser__name-paste-form" layout-align="start center">
     <form >
         <md-input-container class="md-block ">
-            <label translate="nameParser.pasteNamesToParse"></label>
-            <textarea class="nameParser__name-paste-area" ng-model="nameParser.inputList" rows="10" md-select-on-focus></textarea>
+            <label >Paste sequences here (fasta format)</label>
+            <textarea class="nameParser__name-paste-area" ng-model="vm.inputList" rows="10" md-select-on-focus></textarea>
         </md-input-container>
         <div class="text-center">
-            <button class="gb-button--primary nameParser__parse-button"
+         <!--   <button class="gb-button--primary nameParser__parse-button"
                     ng-click="nameParser.loadNames()" translate="nameParser.loadTestNames">
-                        </button>
+                        </button> -->
         <button class="gb-button--primary nameParser__parse-button"
-                     ng-click="vm.parse(nameParser.inputList)" translate="nameParser.parse">
+                     ng-click="vm.handleFasta(vm.inputList)" >Blast
                         </button></div>
 
         </form>

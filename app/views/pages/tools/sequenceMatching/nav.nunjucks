@@ -1,5 +1,5 @@
 <div class="horizontal-stripe--paddingless white-background seperator--b">
-    <div class="container--desktop nameParser__tabs-container">
+    <div class="container--desktop" ng-class="{'nameParser__tabs-container' : !vm.species}">
         <div class="tabs__wrapper">
 
             <div class="tabs tabs--noBorder">
@@ -7,8 +7,8 @@
 
 
                     <li class="tab" ng-class="{isActive: vm.$location.path().indexOf('/about') === -1}">
-                        <a ng-href="/tools/sequence-matching" translate="nameParser.parser">
-                            Parser
+                        <a ng-href="/tools/sequence-matching" >
+                            Sequence matcher
                         </a>
                     </li>
 
