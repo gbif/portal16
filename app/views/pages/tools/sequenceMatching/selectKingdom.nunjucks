@@ -1,0 +1,74 @@
+<div class="ng-cloak" ng-if="vm.species && !vm.processing">
+
+    <!-- Lookup keys -->
+    <div class="horizontal-stripe--paddingless white-background speciesLookup__raw-table">
+
+        <!-- <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"> </ng-include> -->
+
+        <div class="speciesLookup__default-kingdom">
+            <p>
+                If no kingdom specified then prefer
+            </p>
+            <div>
+                <ul class="list-inline">
+                    <li ng-repeat="kingdom in ['animalia', 'plantae', 'fungi', 'chromista', 'bacteria', 'protozoa', 'viruses', 'archaea']">
+                        <a href="" class="inherit" ng-click="vm.setDefaultKingdom(kingdom)"
+                           ng-class="{'is-active': kingdom == vm.defaultKingdom}">
+                            <span class="h1 gb-icon-{{ kingdom }}"></span>
+                            {{ kingdom }}
+                        </a>
+                    </li>
+                </ul>
+                <div class="p text-center">
+                    <a href="" ng-click="vm.normalizeAll()" class="gb-button--primary">Match to GBIF
+                        backbone</a>
+                </div>
+                <div ng-if="vm.species.length > 2000">
+                    <p class="badge badge--warning">Large file</p>
+                    <p>
+                        Expect to download around {{ vm.species.length*2/1000 | number: 0 }}mb - on slow
+                        connections this will take a while
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="occurrence-search__table__area">
+            <div class="scrollable-y">
+                <div class="table-container">
+                    <table class="table search-table">
+                        <thead>
+                        <tr>
+                            <th
+                                ng-repeat="field in ['occurrenceId', 'sequence']">{{ field }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="species in vm.species | startFrom:vm.pagination.currentPage*vm.pagination.pageSize-vm.pagination.pageSize | limitTo:vm.pagination.pageSize">
+                            <td class="table-cell--narrow">
+                                <span>{{ species.occurrenceId }}</span>
+                            </td>
+                            <td class="table-cell">
+                                <span>{{ species.sequence }}</span>
+                                <!-- <span ng-if="!species.preferedKingdom && vm.defaultKingdom">{{ vm.defaultKingdom }}</span>
+									<span ng-if="!species.preferedKingdom && !vm.defaultKingdom">any</span> -->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <uib-pagination
+                            total-items="vm.species.length"
+                            ng-model="vm.pagination.currentPage"
+                            max-size="5"
+                            items-per-page="vm.pagination.pageSize"
+                            class="pagination-sm"
+                            boundary-link-numbers="true"
+                            rotate="true"
+                            ng-change="vm.pageChanged()"
+                            ng-show="vm.species.length > vm.pagination.pageSize">
+                    </uib-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

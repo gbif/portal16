@@ -1,0 +1,51 @@
+<!-- Select file -->
+<div ng-if="!vm.species" class="light-background">
+
+    <div layout="row" layout-align="center start" ng-cloak>
+        <div class="nameParser__prose" >
+        <p ng-bind-html="'nameParser.nameParserDescription' | translate | md2html"></p>
+            <p ng-bind-html="'nameParser.nameParserRequirements' | translate | md2html"></p>
+
+        </div>
+    </div>
+    <div layout="row" layout-align="center start" layout-padding ng-cloak>
+    <div class="nameParser__name-paste-form" layout-align="start center">
+    <form >
+        <md-input-container class="md-block ">
+            <label translate="nameParser.pasteNamesToParse"></label>
+            <textarea class="nameParser__name-paste-area" ng-model="nameParser.inputList" rows="10" md-select-on-focus></textarea>
+        </md-input-container>
+        <div class="text-center">
+            <button class="gb-button--primary nameParser__parse-button"
+                    ng-click="nameParser.loadNames()" translate="nameParser.loadTestNames">
+                        </button>
+        <button class="gb-button--primary nameParser__parse-button"
+                     ng-click="vm.parse(nameParser.inputList)" translate="nameParser.parse">
+                        </button></div>
+
+        </form>
+    </div>
+        <div>
+            <div layout="column" layout-align="center center">
+                <div class="nameParser__input-file">
+                    <input type="file" onchange="angular.element(this).scope().handleFiles(this.files)"/>
+                    <a href="" translate="nameParser.selectFile">Select file</a>
+                </div>
+                <p class="ng-cloak" translate="nameParser.or">or</p>
+            </div>
+            <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="vm.handleDrop">{{'nameParser.dropHere' | translate}}</p>
+            <!-- <input type="file" id="input" onchange="angular.element(this).scope().handleFiles(this.files)"/> -->
+            <!-- <p ng-if="speciesLookup.invalidFileFormat">
+                Invalid file format
+            </p> -->
+            <div class="text-center m-t-2 ng-cloak" ng-if="vm.error">
+                <p>Cannot read file</p>
+                <span class="badge badge--error ng-cloak">{{ vm.error }}</span>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

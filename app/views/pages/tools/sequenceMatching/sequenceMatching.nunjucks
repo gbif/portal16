@@ -1,0 +1,42 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+
+    <article class="wrapper-horizontal-stripes speciesLookup page--data"
+             ng-controller="sequenceMatchingCtrl as vm">
+
+
+
+        {% include "./downloadOverlay.nunjucks" %}
+        <a href="" class="speciesLookup__back" onclick="location.reload();return false;"><span class="h1 gb-icon-left-arrow"></span></a>
+        <div class="horizontal-stripe article-header white-background">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper" translate="menu.tools">Tools</span>
+                        <span class="article-header__category__lower" translate="menu.nameParser">Name Parser</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="tabsScrollable">
+            {% include "./nav.nunjucks" %}
+        </div>
+
+        <ng-include src="'/templates/sequence-matching/about.html?locale='+vm.locale" ng-if="vm.$location.path().indexOf('/about') > -1"></ng-include>
+
+        <div ng-if="vm.$location.path().indexOf('/about') === -1">
+        {% include "./upload.nunjucks" %}
+
+        {% include "./selectKingdom.nunjucks" %}
+
+        {% include "./curateResults.nunjucks" %}
+        </div>
+
+    </article>
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="/js/base/pages/sequenceMatching.js?v={$ BUILD_VERSION $}"></script>
+{% endblock %}

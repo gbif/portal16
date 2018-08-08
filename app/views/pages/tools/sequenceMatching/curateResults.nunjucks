@@ -1,0 +1,142 @@
+<!-- Lookup keys -->
+<div class="horizontal-stripe--paddingless white-background ng-cloak"
+     ng-if="vm.species && vm.processing">
+    <div class="occurrence-search__table__area">
+        <div class="scrollable-y">
+            <div class="table-container">
+                {{ species }}
+                <table class="table search-table">
+                    <thead>
+                    <tr>
+                        <th
+                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitscore', 'scientificName','classification', 'sequence']">
+                            <a href=""
+                               ng-click="vm.state.sortType = col; vm.state.sortReverse = !vm.state.sortReverse">
+                                <span class="inline-block">
+                                    {{ col }} <span ng-if="col == 'scientificName'" class="discreet">(editable)</span>
+                                    <span ng-show="vm.state.sortType == col && !vm.state.sortReverse"
+                                            class="sortReverse">&#x25B2;</span>
+                                    <span ng-show="vm.state.sortType == col && vm.state.sortReverse"
+                                            class="sortReverse">&#x25BC;</span>
+                                </span>
+                            </a>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="species in vm.species | orderBy:vm.state.sortType:vm.state.sortReverse | startFrom:vm.pagination.currentPage*vm.pagination.pageSize-vm.pagination.pageSize | limitTo:vm.pagination.pageSize">
+                         <td class="table-cell--narrow">
+                            <span>{{ species.occurrenceId }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span>{{ species.marker }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span>{{ species.identity }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span>{{ species.bitScore }}</span>
+                        </td>
+                        <td class="table-cell--widder">
+                            <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
+                            <span ng-if="!(species.nubMatch && species.nubMatch.usage)" ng-bind-html="species.scientificName"></span>
+                        </td>
+                        <td class="table-cell--widder">
+                            <span ng-bind-html="species.classification"></span>
+                        </td>
+                        <td class="table-cell">
+                            <span>{{ species.sequence }}</span>
+                        </td>
+                       <!-- <td class="table-cell--narrow">
+                            <span ng-class="vm.getMatchTypeClass(species.matchType)">{{ species.matchType }}</span>
+                        </td>
+
+                        <td class="table-cell--narrow">
+                            <span>{{ species.confidence }}</span>
+                        </td> -->
+
+                      <!--  <td class="table-cell--widder" ng-click="vm.itemToEdit = species">
+                                <span ng-if="species.key">
+                                    <span class="gb-icon-pen"></span>
+                                    {{ species.scientificName }}
+                                </span>
+                                <span ng-if="!species.key && species.match.alternatives && !species.userEdited">
+                                    <span class="gb-icon-pen"></span>
+                                    <span class="discreet">Options</span>
+                                </span>
+                                <span class="discreet" ng-if="!species.key && species.userEdited">
+                                    <span class="gb-icon-pen"></span>
+                                    <span class="discreet">Discarded</span>
+                                </span>
+                        </td> -->
+
+                        <td class="table-cell--narrow">
+                            <span>{{ species.status }}</span>
+                        </td>
+
+                        <td class="table-cell--narrow">
+                                <span>
+                                	<span ng-if="species.rank"
+                                          translate="taxonRank.{{ species.rank }}">{{ species.rank }}</span>
+                            	</span>
+                        </td>
+
+                        <td class="table-cell--narrow"
+                            ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
+                            <a ng-href="../species/{{ species[t + 'Key'] }}" target="_blank">{{ species[t] }}</a>
+                        </td>
+
+                        <td class="table-cell--widder">
+                            <a ng-href="../species/{{ species.speciesKey }}" target="_blank">{{ species.species }}</a>
+                        </td>
+
+                       
+
+                        <!-- <td class="table-cell--wide">
+                                <a ng-href="{{ species.acceptedKey }}">{{ species.accepted }}</a>
+                            </td> -->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div>
+                    <uib-pagination
+                            total-items="vm.species.length"
+                            ng-model="vm.pagination.currentPage"
+                            max-size="5"
+                            items-per-page="vm.pagination.pageSize"
+                            class="pagination-sm"
+                            boundary-link-numbers="true"
+                            rotate="true"
+                            ng-change="vm.pageChanged()"
+                            ng-show="vm.species.length > vm.pagination.pageSize">
+                    </uib-pagination>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="clearfix">
+                    <div class="switch-group pull-right">
+                        <p>Exclude unmatched</p>
+                        <input id="speciesLookupDiscardInCsv" type="checkbox" ng-model="vm.exclude"
+                               aria-label="Discard"/>
+                        <label for="speciesLookupDiscardInCsv" class="switch"></label>
+                    </div>
+                </div>
+
+                <div class="speciesLookup__generate" ng-if="vm.lookupComplete">
+                    <a href="" ng-click="vm.generateCsv()" class="text-uppercase pull-right">generate CSV</a>
+                </div>
+                <div ng-if="!vm.lookupComplete" class="pull-right discreet">
+                    Looking up names - hang on
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

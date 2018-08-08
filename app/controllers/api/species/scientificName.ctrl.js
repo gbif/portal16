@@ -269,3 +269,4 @@ function addNoSpace(value) {
 }
 
 module.exports.formatName = formatName;
+module.exports.getParsedName = getParsedName;
