@@ -40,13 +40,18 @@ function speciesDatasetsDirective() {
 
         function attachParsedNames(data) {
             if (data && data.length > 0) {
-                var taxonKeys = data.map(function(r) {
+                var taxonKeys = _.chain(data)
+                .filter(function(e) {
+                    return e._relatedTaxon !== undefined;
+                }).map(function(r) {
                     return r._relatedTaxon.key;
-                });
+                })
+                .value();
+
                 SpeciesBulkParsedNames.get({q: taxonKeys.toString()}).$promise
                     .then(function(nameMap) {
                         for (var i = 0; i < data.length; i++) {
-                            if (nameMap[data[i]._relatedTaxon.key]) {
+                            if (data[i]._relatedTaxon && nameMap[data[i]._relatedTaxon.key]) {
                                 data[i]._relatedTaxon._parsedName = nameMap[data[i]._relatedTaxon.key];
                             }
                         }
