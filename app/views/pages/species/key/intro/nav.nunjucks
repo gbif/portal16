@@ -16,11 +16,15 @@
 
                     <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
                         <span>
-                            <a ng-if="speciesKey2.subsumedSpecies.count > 0" href=""
+                            <a ng-if="speciesKey2.subsumedSpecies.count > 0 && !speciesKey2.isSpeciesOrBelow" href=""
                             class="gb-button--primary"
                             ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, rank: 'SPECIES', status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count | localNumber }}
-                                <span ng-if="speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="counts.pInfraspecies" translate-values="{NUMBER: speciesKey2.subsumedSpecies.count}"></span>
                                 <span ng-if="!speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="counts.pSpecies" translate-values="{NUMBER: speciesKey2.subsumedSpecies.count}"></span>
+                            </a>
+                            <a ng-if="speciesKey2.subsumedSpecies.count > 0 && speciesKey2.isSpeciesOrBelow" href=""
+                            class="gb-button--primary"
+                            ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count | localNumber }}
+                                <span ng-if="speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="counts.pInfraspecies" translate-values="{NUMBER: speciesKey2.subsumedSpecies.count}"></span>
                             </a>
                         </span>
                     </li>
