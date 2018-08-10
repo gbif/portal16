@@ -46,8 +46,13 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
         var fastaData = new Buffer(inputString);
         var parser = fasta();
         parser.on('data', function(data) {
-            var e = JSON.parse(data.toString());
-            result.push({occurrenceId: e.id, sequence: e.seq});
+            var e;
+            try {
+                e = JSON.parse(data.toString());
+                result.push({occurrenceId: e.id, marker: 'its', sequence: e.seq});
+            } catch (err) {
+                // illegal chars in fasta
+            }
         });
         parser.on('end', function() {
             vm.species = result;
@@ -102,7 +107,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
         });
     }
     var isValidFile = function(file) {
-        return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1 || file.name.indexOf('.fasta') > 1);
+        return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1 || file.name.indexOf('.fasta') > 1 || file.name.indexOf('.fas') > 1);
     };
 
     function getLowerKeysObj(obj) {
@@ -128,7 +133,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             var csvString = reader.result;
             if (file.name.indexOf('.csv') > 1) {
                 parseCSV(csvString);
-            } else if (file.name.indexOf('.fasta') > 1) {
+            } else if (file.name.indexOf('.fasta') > 1 || file.name.indexOf('.fas') > 1) {
                 parseFasta(csvString);
             }
         };
@@ -222,7 +227,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
     };
 
     vm.generateCsv = function() {
-        var fields = ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue', 'scientificName', 'classification', 'sequence'];
+        var fields = ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue','matchType', 'scientificName', 'classification', 'sequence'];
         var csvContent = '';
 
         // write column names
@@ -253,11 +258,19 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
         vm.download = true;
     };
 
-    vm.getStatusClass = function(status) {
-        if (status == ['ACCEPTED']) {
-            return '';
+    vm.getMatchTypeClass = function(matchType) {
+        if (matchType == 'BLAST_NO_MATCH') {
+            return 'badge badge--error';
         }
-        return 'badge badge--warning';
+        if (matchType == 'BLAST_WEAK_MATCH') {
+            return 'badge badge--error';
+        }
+        if (matchType == 'BLAST_CLOSE_MATCH') {
+            return 'badge badge--warning';
+        }
+        if (matchType == 'BLAST_EXACT_MATCH') {
+            return 'badge badge--approved';
+        }
     };
 
     hotkeys.add({

@@ -14,7 +14,7 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bit score', 'expect value', 'scientificName','classification', 'sequence']">
+                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bit score', 'expect value','match type', 'scientificName','classification', 'sequence']">
                             <a href=""
                                ng-click="vm.state.sortType = col; vm.state.sortReverse = !vm.state.sortReverse">
                                 <span class="inline-block">
@@ -30,7 +30,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="species in vm.species | orderBy:vm.state.sortType:vm.state.sortReverse | startFrom:vm.pagination.currentPage*vm.pagination.pageSize-vm.pagination.pageSize | limitTo:vm.pagination.pageSize">
-                         <td class="table-cell--narrow">
+                         <td class="table-cell">
                             <span>{{ species.occurrenceId }}</span>
                         </td>
                         <td class="table-cell--narrow">
@@ -45,10 +45,13 @@
                         <td class="table-cell--narrow">
                             <span>{{ species.expectValue }}</span>
                         </td>
+                        <td class="table-cell">
+                            <span ng-class="vm.getMatchTypeClass(species.matchType)">{{ species.matchType | prettifyEnum }}</span>
+                        </td>
                         <td class="table-cell--widder">
                             <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
                             <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} <a class="gb-icon-link" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
-                            <span class="badge badge--error sequenceMatcher__badge" ng-if="species.matchType === 'BLAST_NO_MATCH'">NO MATCH</span>
+                            
                         </td>
                         <td class="table-cell--widder">
                             <span ng-bind-html="species.formattedClassification"></span>

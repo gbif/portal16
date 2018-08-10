@@ -3,8 +3,10 @@
 
     <div layout="row" layout-align="center start" ng-cloak>
         <div class="nameParser__prose" >
-        <p>A desciption of the tool here</p>
-            <p >And some input requirements</p>
+          <p>This tool will query a blast database of the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a>. 
+        All returned matches will then be matched towards the GBIF backbone taxonomy by their identifier (e.g. SH191277.07FU). These OTU identifiers can be used for publishing sequence based data to GBIF. When the matching is complete, the result can be downloaded as a csv with identifiers included.</p>
+        <p>Only ITS sequences are currently supported.</p>
+            <p >Files can be uploaded in CSV or FASTA format. CSVs are expected to have a column named 'sequence' and an 'id' or occurrenceId column. It is also possible to paste sequneces into the text field below (only FASTA format)</p>
 
         </div>
     </div>
@@ -45,6 +47,40 @@
         </div>
 
 
+    </div>
+    <div layout="row" layout-align="center start" ng-cloak>
+    <div class="nameParser__prose">
+    <h4>References</h4>
+        <div layout="row" >
+            <div class="small p-r-1">
+                
+                        <div>
+                            UNITE Community (2017): UNITE general FASTA release. Version 01.12.2017. UNITE Community. 
+                        </div>
+                        <doi link="https://doi.org/10.15156/BIO/587475"></doi>
+                            
+
+            </div>
+            <div class="small p-r-1">
+                
+                        <div>
+                            Kõljalg, U. et.al. (2013). Towards a unified paradigm for sequence‐based identification of fungi. Molecular Ecology. 22 (21): 5271-5277.
+                        </div>
+                        <doi link="https://doi.org/10.1111/mec.12481"></doi>
+                     
+
+
+            </div>
+            <div class="small">
+                
+                        <div>
+                            Altschul, S., Gish, W., Miller, W., Myers, E., Lipman, D. (1990). Basic local alignment search tool. Journal of Molecular Biology. 215 (3): 403–410.
+                        </div>
+                        <doi link="https://doi.org/10.1016/S0022-2836(05)80360-2"></doi>
+
+            </div>
+        </div>
+    </div>
     </div>
 
 

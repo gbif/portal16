@@ -31,8 +31,11 @@
             <section class="horizontal-stripe light-background seperator--b" ng-if="vm.species.length">
             <div class="container--desktop">
                 <div class="row">
+                
                     <div class="col-xs-12">
+                    {% include "./summary.nunjucks" %}
                         <div class="card container-fluid">
+                        
                   {% include "./stats.nunjucks" %}
                     </div>
                   </div>

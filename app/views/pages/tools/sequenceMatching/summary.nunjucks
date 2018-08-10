@@ -1,0 +1,10 @@
+<div class="container-fluid card" ng-cloak>
+    <div class="row card__content">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <div >
+            Info about match thresholds, bit score and e value</div>
+            
+            <!-- <div class="discreet-comment" ng-if="!datasetKey.dataset.description" translate="dataset.noDescriptionProvided"></div> -->
+        </div>
+    </div>
+</div>

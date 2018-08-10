@@ -1,6 +1,6 @@
 
-<div class="row summaryStats" ng-if="vm.species.length">
-<a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="!vm.lookupComplete">
+<div class="row summaryStats" ng-if="vm.species.length" ng-cloak>
+<a  class="col-xs-12 summaryStats__item"  ng-if="!vm.lookupComplete">
         <div>
             <div class="summaryStats__circle">
                 <round-progress
