@@ -8,9 +8,9 @@
     "PROPARTE": "単一のレコードの部分を使用した重複使用",
     "AUTONYM": "オートニムなしにつき、生成",
     "IMPLICIT_NAME": "下位学名がオーファンのため、属あるいは種を生成",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
+    "MISSING_ACCEPTED": "Artificial accepted usage for a synonym if its missing to preserve the taxonomic hierarchy.",
+    "BASIONYM_PLACEHOLDER": "Placeholder usage for a missing or implicit basionym.",
+    "EX_AUTHOR_SYNONYM": "Implicit synonym based on the illegitimate ex author. See ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
     "OTHER": "その他の起源"
   }
 }
