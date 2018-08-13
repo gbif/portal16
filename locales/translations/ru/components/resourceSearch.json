@@ -1,38 +1,38 @@
 {
     "resourceSearch": {
-        "upcoming": "Upcoming",
-        "past": "Past",
-        "searchForNewsEventsDocuments": "Search for news, events, documents and much more. If you are looking for species occurrences then try our occurrence search.",
-        "occurrenceSearch": "Occurrence search",
-        "subscribeToCalendar": "Subscribe to calendar",
-        "citationExplainer": "Read more about literature, how it’s discovered and linked to GBIF-mediated data.",
+        "upcoming": "",
+        "past": "",
+        "searchForNewsEventsDocuments": "",
+        "occurrenceSearch": "",
+        "subscribeToCalendar": "",
+        "citationExplainer": "",
         "types": {
             "events": "Мероприятия",
             "news": "Новости",
             "resources": "Ресурсы",
-            "projects": "Projects",
-            "programmes": "Programmes",
-            "documents": "Documents",
-            "tools": "Tools",
-            "dataUse": "Data use",
-            "literature": "Literature"
+            "projects": "",
+            "programmes": "",
+            "documents": "",
+            "tools": "",
+            "dataUse": "",
+            "literature": ""
         },
         "filters": {
-            "countriesOfCoverage": "Country or area of coverage",
-            "countriesOfResearcher": "Country or area of researcher",
-            "literatureType": "Literature type",
-            "contractCountry": "Country or area",
-            "topics": "Topic",
-            "audiences": "Audiences",
-            "purposes": "Purpose",
-            "relevance": "Relevance",
-            "language": "Language",
-            "year": "Year",
+            "countriesOfCoverage": "",
+            "countriesOfResearcher": "",
+            "literatureType": "",
+            "contractCountry": "",
+            "topics": "",
+            "audiences": "",
+            "purposes": "",
+            "relevance": "",
+            "language": "",
+            "year": "",
             "gbifDatasetKey": "Набор данных",
-            "publishingOrganizationKey": "Publisher",
-            "peerReview": "Peer-Reviewed",
+            "publishingOrganizationKey": "",
+            "peerReview": "",
             "openAccess": "Открытый доступ",
-            "gbifDownloadKey": "Download key"
+            "gbifDownloadKey": ""
         }
     }
 }
