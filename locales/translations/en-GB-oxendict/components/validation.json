@@ -1,0 +1,124 @@
+{
+  "validation": {
+    "category": {
+      "RESOURCE_STRUCTURE": "",
+      "RESOURCE_INTEGRITY": "",
+      "RECORD_STRUCTURE": "",
+      "OCC_INTERPRETATION_BASED": "",
+      "METADATA_CONTENT": "",
+      "CLB_INTERPRETATION_BASED": ""
+    },
+    "issueType": {
+      "DWCA_UNREADABLE": "",
+      "DWCA_META_XML_NOT_FOUND": "",
+      "DWCA_META_XML_SCHEMA": "",
+      "RECORD_IDENTIFIER_NOT_FOUND": "",
+      "CORE_ROWTYPE_UNDETERMINED": "",
+      "EML_NOT_FOUND": "",
+      "EML_GBIF_SCHEMA": "",
+      "UNKNOWN_ROWTYPE": "",
+      "REQUIRED_TERM_MISSING": "",
+      "COLUMN_MISMATCH": "",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
+      "UNKNOWN_TERM": "",
+      "DUPLICATED_TERM": "",
+      "TITLE_MISSING_OR_TOO_SHORT": "",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
+      "LICENSE_MISSING_OR_UNKNOWN": "",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
+      "UNREADABLE_SECTION_ERROR": "",
+      "NoIssuesFound": ""
+    },
+    "fileFormat": {
+      "title": "",
+      "DWCA": "",
+      "TABULAR": "",
+      "SPREADSHEET": ""
+    },
+    "fileType": {
+      "title": "",
+      "CORE": {
+        "title": ""
+      },
+      "EXTENSION": {
+        "title": ""
+      },
+      "METADATA": {
+        "description": "",
+        "title": ""
+      },
+      "META_DESCRIPTOR": {
+        "description": "",
+        "title": ""
+      }
+    },
+    "fileSizeLimit": "",
+    "receivedMediaType": "",
+    "uniqueIdentifier": "",
+    "reportLocation": "",
+    "reportDeletion": "",
+    "reportGenerated": "",
+    "summary": "",
+    "issues": "",
+    "fileHasIssues": "",
+    "fileHasNoIssues": "",
+    "error": "",
+    "errors": {
+      "400": "",
+      "404": "",
+      "413": "",
+      "415": ""
+    },
+    "backToValidator": "",
+    "termsFrequency": {
+      "title": "",
+      "term": "",
+      "count": "",
+      "percentage": "",
+      "interpreted": ""
+    },
+    "interpretedCounts": {
+      "date": "",
+      "taxon": "",
+      "location": ""
+    },
+    "interpretedValueCounts": {
+      "title": ""
+    },
+    "status": {
+      "title": "",
+      "SUBMITTED": "",
+      "FETCHING": "",
+      "ACCEPTED": "",
+      "RUNNING": "",
+      "FINISHED": "",
+      "FAILED": "",
+      "CONTACTING_SERVER": ""
+    },
+    "jobId": "",
+    "indexeable": "",
+    "notIndexeable": "",
+    "numberOfLines": "",
+    "reportProducedByGbifDataValidator": "",
+    "validationReport": "",
+    "dataValidator": "",
+    "dataValidatorDescription": "",
+    "thisIsAnEarlyAccessVersion": "",
+    "here": "",
+    "coreRowType": "",
+    "submit": "",
+    "dropHere": "",
+    "or": "",
+    "selectFile": "",
+    "fetchFileFromLocation": "",
+    "tabs": {
+      "newDataValidation": "",
+      "newValidation": "",
+      "about": "",
+      "darwinCoreExtensions": "",
+      "metaData": "",
+      "summary": ""
+    }
+  }
+}
