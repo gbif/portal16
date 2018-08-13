@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "System health",
+        "description": "What is the status of the various GBIF services",
+        "updatedTimeAgo": "Updated {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "All systems operational",
+            "INFO": "All systems operational",
+            "WARNING": "We are experiencing unstable or slow systems",
+            "CRITICAL": "We are experiencing a partial outage"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "Services unstable",
+                "summary": "We are currently experiencing slow or unstable services."
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "Services unavailable",
+                "summary": "We are experiencing a partial outage"
             }
         }
     }
