@@ -6,7 +6,7 @@
         "clear": "Borrar filtros",
         "add": "Añadir filtro",
         "repatriation": {
-            "description": "Se dice que los datos son repatriados cuando son publicados por una institución en un país pero están relacionados con la biodiversidad que se da en otro país"
+            "description": "Se dice que los datos son repatriados cuando son publicados por una institución en un país pero están relacionados con la biodiversidad en otro país"
         },
         "ternary": {
             "yes": "Sí",
@@ -18,19 +18,19 @@
             "south": "Sur",
             "west": "Oeste",
             "east": "Este",
-            "withCoordinates": "Incluir coordenadas",
+            "withCoordinates": "Incluye coordenadas",
             "withoutCoordinates": "Sin coordenadas",
-            "includeFlaggedAsSuspicious": "Incluir registros donde las coordenadas aparecen como sospechosas",
+            "includeFlaggedAsSuspicious": "Incluye registros donde las coordenadas aparecen como sospechosas",
             "onlyShowFlagged": "Mostrar sólo registros que aparecen como sospechosos",
-            "past": "Usudo recientemente",
+            "past": "Usado recientemente",
             "geojson": "GeoJSON",
             "range": "Rango",
             "noFiltersAdded": "Filtros de área no añadidos",
             "wktPlaceholder": "WKT o GeoJSON - los multipolígonos no son compatibles",
-            "invalidTextInput": "WKT o GeoJSON incorrectos",
+            "invalidTextInput": "WKT o GeoJSON inválidos",
             "tooLarge": "Geometría demasiado grande",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "tooLargeSuggestion": "Intenta usar un cuadro delimitador y filtrar localmente",
+            "invalidRange": "Cuadro delimitador inválido"
         }
     }
 }

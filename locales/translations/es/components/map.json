@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{registro georeferenciado} other{registros georeferenciados}}",
     "noOccurrencesWithCoordinates": "No existen registros de presencia con coordenadas",
     "clickToSearchArea": "Haz clic para buscar un área",
     "generatedDateAgo": "Generado",
@@ -42,7 +42,7 @@
       "CLASSIC": "Clásico",
       "FIRE": "Fuego",
       "GLACIER": "Glaciar",
-      "PURPLE_YELLOW": "",
+      "PURPLE_YELLOW": "Púrpura amarillo",
       "PURPLE_HEAT": "Púrpura cálido",
       "BLUE_HEAT": "Azul cálido",
       "ORANGE_HEAT": "Naranja cálido",
