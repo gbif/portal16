@@ -1,87 +1,87 @@
 {
   "occurrence": {
-    "coordinates": "Coordinates",
-    "unknownDate": "Unknown date",
-    "absent": "Absent",
-    "issues": "Issues",
+    "coordinates": "",
+    "unknownDate": "",
+    "absent": "",
+    "issues": "",
     "dataset": "Набор данных",
-    "synced": "Synced",
-    "modified": "Modified",
-    "monthAndyear": "Month & year",
-    "coordinateUncertainty": "Coordinate uncertainty",
+    "synced": "",
+    "modified": "",
+    "monthAndyear": "",
+    "coordinateUncertainty": "",
     "citation": "Цитата",
-    "readFullDescription": "more",
-    "showMoreInfo": "more",
-    "noTaxonMatch": "none",
-    "gbifTaxonInterpretation": "GBIF Taxon interpretation",
-    "aboutTheDataset": "About the dataset",
-    "noLocationInformation": "There is no location information published for this record",
+    "readFullDescription": "",
+    "showMoreInfo": "",
+    "noTaxonMatch": "",
+    "gbifTaxonInterpretation": "",
+    "aboutTheDataset": "",
+    "noLocationInformation": "",
     "subMenu": {
-      "diagnostics": "Diagnostics",
-      "menu": "Menu",
-      "showDiagnostics": "Show diagnostics",
-      "hideDiagnostics": "Hide diagnostics",
-      "aboutDarwinCore": "About Darwin Core",
-      "raw": "Raw"
+      "diagnostics": "",
+      "menu": "",
+      "showDiagnostics": "",
+      "hideDiagnostics": "",
+      "aboutDarwinCore": "",
+      "raw": ""
     },
     "groups": {
       "Record": "Запись",
       "Occurrence": "Находка",
-      "Event": "Event",
-      "Identification": "Identification",
-      "Taxon": "Taxon",
-      "Location": "Location",
-      "Organism": "Organism",
-      "MaterialSample": "MaterialSample",
-      "GeologicalContext": "Geological context",
-      "other": "Other"
+      "Event": "",
+      "Identification": "",
+      "Taxon": "",
+      "Location": "",
+      "Organism": "",
+      "MaterialSample": "",
+      "GeologicalContext": "",
+      "other": ""
     },
-    "term": "Term",
-    "interpreted": "Interpreted",
-    "original": "Original",
-    "remarks": "Remarks",
+    "term": "",
+    "interpreted": "",
+    "original": "",
+    "remarks": "",
     "highlights": {
-      "location": "Location",
-      "specimenType": "Specimen type",
-      "publisher": "Publisher",
-      "reference": "Reference",
-      "verbatimName": "Verbatim name"
+      "location": "",
+      "specimenType": "",
+      "publisher": "",
+      "reference": "",
+      "verbatimName": ""
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "Collected in {COUNTRY}",
-        "FOSSIL_SPECIMEN": "Collected in {COUNTRY}",
-        "LIVING_SPECIMEN": "Collected in {COUNTRY}",
-        "HUMAN_OBSERVATION": "Observed in {COUNTRY}",
-        "MACHINE_OBSERVATION": "Observed in {COUNTRY}",
-        "MATERIAL_SAMPLE": "Collected in {COUNTRY}",
-        "OCCURRENCE": "Recorded in {COUNTRY}",
-        "OBSERVATION": "Observed in {COUNTRY}",
-        "LITERATURE": "Recorded in {COUNTRY}",
-        "UNKNOWN": "Recorded in {COUNTRY}"
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "Collected at unknown location",
-        "FOSSIL_SPECIMEN": "Collected at unknown location",
-        "LIVING_SPECIMEN": "Collected at unknown location",
-        "HUMAN_OBSERVATION": "Observed at unknown location",
-        "MACHINE_OBSERVATION": "Observed at unknown location",
-        "MATERIAL_SAMPLE": "Collected at unknown location",
-        "OCCURRENCE": "Recorded at unknown location",
-        "OBSERVATION": "Observed at unknown location",
-        "LITERATURE": "Recorded at unknown location",
-        "UNKNOWN": "Recorded at unknown location"
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
       },
-      "unknownSpecies": "Unknown Species"
+      "unknownSpecies": ""
     },
     "occurrence": "Находка",
-    "inLanguage": "In {LANGUAGE_TRANSLATED}"
+    "inLanguage": ""
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "Excluded",
-      "AUTHORED": "Altered",
-      "INFERED": "Inferred"
+      "EXCLUDED": "",
+      "AUTHORED": "",
+      "INFERED": ""
     }
   }
 }
