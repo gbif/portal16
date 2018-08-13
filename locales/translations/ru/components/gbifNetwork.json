@@ -1,53 +1,53 @@
 {
   "gbifNetwork": {
-    "title": "Directory",
+    "title": "",
     "contact": "Информация для связи",
     "voting_participant": {
-      "one": "Voting participant",
-      "other": "Voting participants"
+      "one": "",
+      "other": ""
     },
     "associate_country_participant": {
-      "one": "Associate country participant",
-      "other": "Associate country participants"
+      "one": "",
+      "other": ""
     },
     "other_associate_participant": {
-      "one": "Other associate participant",
-      "other": "Other associate participants"
+      "one": "",
+      "other": ""
     },
     "former_participant": {
-      "one": "Former participant",
-      "other": "Former participants"
+      "one": "",
+      "other": ""
     },
     "gbif_affiliate": {
-      "one": "GBIF affiliate",
-      "other": "GBIF affiliates"
+      "one": "",
+      "other": ""
     },
-    "role": "Role",
+    "role": "",
     "group": {
 
     },
     "gbif_secretariat": "Секретариат GBIF",
-    "membershipType": "Membership",
-    "name": "Name",
-    "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, select, one{publisher} other{publishers}}",
-    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participant} other{participants}}",
-    "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
+    "membershipType": "",
+    "name": "",
+    "endorsedDataPublisher": "",
+    "nParticipants": "",
+    "dataset": "",
     "datasets": "Наборы данных",
-    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}",
+    "regionalRepresentative": "",
     "participation": {
-      "nonCountryParticipants": "Participant organisations",
-      "gbifAffiliates": "GBIF affiliates"
+      "nonCountryParticipants": "",
+      "gbifAffiliates": ""
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Глава делегации",
       "NODE_MANAGER": "Менеджер узла"
     },
-    "publishers": "Publishers",
-    "memberSince": "Member since",
-    "participant": "Participant",
-    "pPublishers": "{NUMBER, select, 1{publisher} other{publishers}}",
-    "pOccurrence": "{NUMBER, select, 1{occurrence} other{occurrences}}",
-    "occurrenceDatasets": "Occurrence datasets",
+    "publishers": "",
+    "memberSince": "",
+    "participant": "",
+    "pPublishers": "",
+    "pOccurrence": "",
+    "occurrenceDatasets": "",
     "occurrences": "Находки"
   }
 }
