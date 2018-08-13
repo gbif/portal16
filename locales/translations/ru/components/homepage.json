@@ -1,13 +1,13 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
+            "occurrences": "Occurrence records",
             "datasets": "Наборы данных",
-            "publishers": "",
+            "publishers": "Publishing institutions",
             "species": "Виды",
-            "speciesSubtitle": ""
+            "speciesSubtitle": "Learn more about the number of species covered by data in GBIF.org."
         },
-        "aboutGbifCountry": "",
-        "summary": ""
+        "aboutGbifCountry": "About GBIF {COUNTRY}",
+        "summary": "Free and open access to biodiversity data"
     }
 }
