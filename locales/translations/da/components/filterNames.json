@@ -18,7 +18,7 @@
     "location": "Lokation",
     "hasGeospatialIssue": "Har geospatiale problemer",
     "basisOfRecord": "Observationstype",
-    "issue": "Bemærkninger",
+    "issue": "",
     "locality": "Lokalitet",
     "lastInterpreted": "Sidst fortolket",
     "waterBody": "Vandområde",
