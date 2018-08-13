@@ -1,0 +1,37 @@
+{
+  "countryKey": {
+    "tabs": {
+      "summary": "",
+      "dataPublishing": "",
+      "dataAbout": "",
+      "participartion": "",
+      "publications": "",
+      "news": ""
+    },
+    "memberSince": "",
+    "dataFrom": "",
+    "dataAboutCountry": "",
+    "publishingTrends": "",
+    "noDataPublishingActivity": "",
+    "noInstitutionsHavePublished": "",
+    "trendsAboutCountry": "",
+    "nFrom": "",
+    "nAbout": "",
+    "viewAllN": "",
+    "noPublications": "",
+    "notParticipant": "",
+    "notParticipantDescription": "",
+    "countryNamingDisclaimer": "",
+    "counts": {
+      "occurrences": "",
+      "datasets": "",
+      "publishers": "",
+      "countriesAndAreasContributeData": "",
+      "publishedOccurrences": "",
+      "publishedDatasets": "",
+      "countriesAndAreasCoveredByDataFrom": "",
+      "publishersFrom": ""
+    },
+    "activityReport": ""
+  }
+}
