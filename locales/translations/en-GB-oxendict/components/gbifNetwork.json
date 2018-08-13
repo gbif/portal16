@@ -1,0 +1,53 @@
+{
+  "gbifNetwork": {
+    "title": "",
+    "contact": "",
+    "voting_participant": {
+      "one": "",
+      "other": ""
+    },
+    "associate_country_participant": {
+      "one": "",
+      "other": ""
+    },
+    "other_associate_participant": {
+      "one": "",
+      "other": ""
+    },
+    "former_participant": {
+      "one": "",
+      "other": ""
+    },
+    "gbif_affiliate": {
+      "one": "",
+      "other": ""
+    },
+    "role": "",
+    "group": {
+
+    },
+    "gbif_secretariat": "",
+    "membershipType": "",
+    "name": "",
+    "endorsedDataPublisher": "",
+    "nParticipants": "",
+    "dataset": "",
+    "datasets": "",
+    "regionalRepresentative": "",
+    "participation": {
+      "nonCountryParticipants": "",
+      "gbifAffiliates": ""
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "",
+      "NODE_MANAGER": ""
+    },
+    "publishers": "",
+    "memberSince": "",
+    "participant": "",
+    "pPublishers": "",
+    "pOccurrence": "",
+    "occurrenceDatasets": "",
+    "occurrences": ""
+  }
+}
