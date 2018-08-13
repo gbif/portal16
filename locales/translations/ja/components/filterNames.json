@@ -50,9 +50,9 @@
     "rank": "ランク",
     "constituentKey": "構成データセット",
     "higherTaxonKey": "上位の分類群",
-    "status": "",
+    "status": "Status",
     "nameType": "名前の種類",
-    "origin": "",
+    "origin": "Origin",
     "networkKey": "GBIF ネットワーク"
   }
 }
