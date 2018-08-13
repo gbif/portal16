@@ -5,9 +5,9 @@
     "SYNONYM": "Sinónimo",
     "HETEROTYPIC_SYNONYM": "Sinónimo heterotípico",
     "HOMOTYPIC_SYNONYM": "Sinónimo homotípico",
-    "PROPARTE_SYNONYM": "",
+    "PROPARTE_SYNONYM": "Proparte synonym",
     "MISAPPLIED": "Mal aplicado",
-    "INTERMEDIATE_RANK_SYNONYM": "",
-    "DETERMINATION_SYNONYM": ""
+    "INTERMEDIATE_RANK_SYNONYM": "Intermediate rank synonym",
+    "DETERMINATION_SYNONYM": "Determination synonym"
   }
 }
