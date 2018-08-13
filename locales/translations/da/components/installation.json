@@ -2,9 +2,9 @@
     "installation": {
         "installation": "Installation",
         "about": "Om",
-        "homepage": "",
+        "homepage": "Home page",
         "installationType": "Installationstype",
-        "hostedBy": "",
+        "hostedBy": "Hosted by",
         "registered": "Registreret",
         "endpoints": "Endpoints"
     }
