@@ -27,7 +27,7 @@
     "hasPart": "一部あり",
     "hasVersion": "バージョンあり",
     "identifier": "識別子",
-    "instructionalMethod": "Instructional method",
+    "instructionalMethod": "",
     "isFormatOf": "以下のフォーマットです：",
     "isPartOf": "以下の一部です：",
     "isReferencedBy": "以下によって引用されます：",
