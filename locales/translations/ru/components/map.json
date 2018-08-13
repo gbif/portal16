@@ -1,57 +1,57 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{georeferenced record} other{georeferenced records}}",
+    "noOccurrencesWithCoordinates": "No occurrences with coordinates",
+    "clickToSearchArea": "Click to search an area",
+    "generatedDateAgo": "Generarated {DATE_AGO}",
+    "anyYear": "Any year",
+    "exploreArea": "Explore area",
+    "explore": "Explore",
+    "style": "Style",
+    "filters": "Filters",
+    "projection": "Projection",
+    "select": "Select",
+    "custom": "Custom",
+    "baseMap": "Base map",
+    "binning": "Binning",
+    "year": "Year",
+    "chooseColors": "Colors",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "Classic hexagons",
+      "CLASSIC": "Classic points",
+      "STREETS": "Streets",
+      "GLACIER": "Glacier",
+      "CUSTOM": "Custom"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "Magenta",
+      "LIGHT": "Light (no labels)",
+      "LIGHT_DETAILS": "Light",
+      "DARK": "Dark (no labels)",
+      "DARK_DETAILS": "Dark",
+      "OSM": "Roads"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Points",
+      "SMALL_HEX": "Small hexagons",
+      "LARGE_HEX": "Hexagons",
+      "SMALL_SQUARE": "Small squares",
+      "LARGE_SQUARE": "Squares"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "Classic",
+      "FIRE": "Fire",
+      "GLACIER": "Glacier",
+      "PURPLE_YELLOW": "Purple yellow",
+      "PURPLE_HEAT": "Purple heat",
+      "BLUE_HEAT": "Blue heat",
+      "ORANGE_HEAT": "Orange heat",
+      "GREEN": "Green",
+      "BLUE_CLUSTER": "Blue cluster",
+      "ORANGE_CLUSTER": "Orange cluster"
     },
     "errors": {
-      "413": ""
+      "413": "The geometry file is too large to be processed by the data API."
     }
   }
 }
