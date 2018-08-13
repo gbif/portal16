@@ -1,13 +1,13 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "",
-    "DOUBTFUL": "",
-    "SYNONYM": "",
-    "HETEROTYPIC_SYNONYM": "",
-    "HOMOTYPIC_SYNONYM": "",
-    "PROPARTE_SYNONYM": "",
-    "MISAPPLIED": "",
-    "INTERMEDIATE_RANK_SYNONYM": "",
-    "DETERMINATION_SYNONYM": ""
+    "ACCEPTED": "Accepted",
+    "DOUBTFUL": "Doubtful",
+    "SYNONYM": "Synonym",
+    "HETEROTYPIC_SYNONYM": "Heterotypic synonym",
+    "HOMOTYPIC_SYNONYM": "Homotypic synonym",
+    "PROPARTE_SYNONYM": "Proparte synonym",
+    "MISAPPLIED": "Misapplied",
+    "INTERMEDIATE_RANK_SYNONYM": "Intermediate rank synonym",
+    "DETERMINATION_SYNONYM": "Determination synonym"
   }
 }
