@@ -13,8 +13,8 @@
       "verbatim": "Original"
     },
     "invasives": {
-      "nInvadedCountries": "",
-      "invasiveIn": "",
+      "nInvadedCountries": "Recorded as invasive in {NUMBER_FORMATED} {NUMBER, select, 1{country or island} other{countries and islands}}",
+      "invasiveIn": "Recorded as invasive in",
       "accordingTo": "Ifølge",
       "occurrenceCount": "Obervationer i GBIF",
       "seeAllCountries": "Vis alle"
