@@ -1,20 +1,20 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
+        "participant": "Participant",
+        "participantSummary": "Participant summary",
         "endorsedPublishers": "Godkendte forlæggere",
-        "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
-        "headOfDelegation": "",
-        "gbifRegion": "",
+        "noEndorsedPublishers": "No endorsed publishers",
+        "memberStatus": "Member status",
+        "gbifParticipantSince": "GBIF participant since",
+        "headOfDelegation": "Head of delegation",
+        "gbifRegion": "GBIF region",
         "countryOrArea": "Land eller område",
-        "nodeName": "",
-        "nodeEstablished": "",
+        "nodeName": "Node name",
+        "nodeEstablished": "Node established",
         "website": "Webside",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "participantNodeManager": "Participant node manager",
+        "pending": "Pending",
+        "latestDatasetsPublished": "Latest datasets published",
+        "noDatasets": "No published datasets"
     }
 }
