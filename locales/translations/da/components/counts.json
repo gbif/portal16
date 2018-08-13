@@ -3,7 +3,7 @@
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{citation} other{citationer}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{optegnelse} other{optegnelser}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultat} other{resultater}}",
-        "nEvents": "",
+        "nEvents": "{NUMBER_FORMATED} {NUMBER, select, 1{event} other{events}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 1{installation} other{installationer}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 1{observation} other{observationer}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, select, 1{observation} other{observationer}} om",
