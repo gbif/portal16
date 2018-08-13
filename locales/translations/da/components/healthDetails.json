@@ -13,51 +13,51 @@
         },
         "components": {
             "OCCURRENCE": {
-                "name": "Occurrence",
+                "name": "",
                 "tooltip": "F.eks. søgning og visning af observationer."
             },
             "SPECIES": {
-                "name": "Species",
+                "name": "",
                 "tooltip": "F.eks. søgning og visning af arter"
             },
             "REGISTRY": {
-                "name": "Registry",
+                "name": "",
                 "tooltip": "Fx datasæt, forlæggere, installationer, lande, deltagere og netværk."
             },
             "IDENTITY": {
-                "name": "Identity",
+                "name": "",
                 "tooltip": "Fx log ind og ud, profil-visninger mm."
             },
             "MAPS": {
-                "name": "Maps",
+                "name": "",
                 "tooltip": "Kortvisninger mm."
             },
             "CONTENTFUL": {
-                "name": "Content mangement system (external system)",
-                "tooltip": "E.g. news and articles"
+                "name": "",
+                "tooltip": ""
             },
             "IMAGE_CACHE": {
-                "name": "Image cache",
+                "name": "",
                 "tooltip": "Diverse billeder er afhængig af dette system"
             },
             "GITHUB": {
-                "name": "Github (external system)",
+                "name": "",
                 "tooltip": "Feedback duer ikke uden dette system"
             },
             "CRAWLER": {
-                "name": "Ingestion",
+                "name": "",
                 "tooltip": "Nødvendigt for at redigere og oprette datasæt."
             },
             "RESOURCE_SEARCH": {
-                "name": "Resource search",
+                "name": "",
                 "tooltip": "F.eks. søgning af litteratur og nyheder."
             },
             "CLUSTER": {
                 "name": "Systemets belastning",
-                "tooltip": "The backend for handling downloads, ingestion and much more."
+                "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "Downloads",
+                "name": "",
                 "tooltip": "Er nødvendig for at downloade mm"
             }
         }
