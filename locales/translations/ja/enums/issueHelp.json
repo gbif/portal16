@@ -49,7 +49,7 @@
     "PUBLISHED_BEFORE_GENUS": "二名法／三名法による名前が親階層の属よりも前に出版されています。名前を再結合により作成した方がよいかもしれません。",
     "RANK_INVALID": "Dwc:taxonRankが解釈できません。",
     "ACCEPTED_NAME_USAGE_ID_INVALID": "dwc:acceptedNameUsageIDの値が解決できません。",
-    "CONFLICTING_BASIONYM_COMBINATION": "There have been more than one accepted name in a homotypical basionym group of names. GBIF backbone specific issue. ",
+    "CONFLICTING_BASIONYM_COMBINATION": "",
     "INDIVIDUAL_COUNT_INVALID": "individualCountの値が数値として解釈できません。",
     "CLASSIFICATION_RANK_ORDER_INVALID": "（説明が不足しています）",
     "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "拡張モジュールのレコードがコアレコードと紐付けされていません。",
