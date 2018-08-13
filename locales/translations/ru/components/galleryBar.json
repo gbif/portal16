@@ -1,6 +1,6 @@
 {
     "galleryBar": {
-        "seeAllImages": "",
-        "nOccWithImages": ""
+        "seeAllImages": "See gallery",
+        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, select, 1{occurrence} other{occurrences}} with images"
     }
 }
