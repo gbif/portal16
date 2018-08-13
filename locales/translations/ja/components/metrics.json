@@ -34,7 +34,7 @@
     "andBreakdownPer": "さらにオプションとして～ごとに分ける",
     "logarithmic": "対数",
     "singleTypeResults": "'{FIELD}' が次に等しいときの {NUMBER} オカレンス：",
-    "chooseDimension": "",
+    "chooseDimension": "Choose dimension",
     "clickToZoom": "プロットエリアでクリック＆ドラッグして拡大します",
     "pinchToZoom": "図表をピンチして拡大します",
     "numAcceptedSpByHigher": "高次分類群で正しいと認められた種の件数",
