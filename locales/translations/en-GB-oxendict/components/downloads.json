@@ -1,0 +1,61 @@
+{
+  "downloadKey": {
+    "nOccurrencesDownloaded": "",
+    "nConstituentDatasets": "",
+    "fileNotAvailable": "",
+    "downloadDeletionWarning": "",
+    "brokenDownload": "",
+    "contactHelpdesk": "",
+    "cancelled": "",
+    "cancel": "",
+    "download": "",
+    "occurrences": "",
+    "largeQueryMessage": "",
+    "date": "",
+    "show": "",
+    "license": "",
+    "readMore": "",
+    "titleMissing": "",
+    "underProcessing": "",
+    "citation": "",
+    "nRecordsAtTime": "",
+    "aboutDeletionPolicy": "",
+    "readDatauseAndTerms": "",
+    "filterApplied": "",
+    "rerunQuery": "",
+    "postpone": "",
+    "deleteDownload": "",
+    "tellUs": "",
+    "downloadKilled": "",
+    "downloadDeleted": "",
+    "storageDurationTeaser": "",
+    "predatesDoi": "",
+    "file": "",
+    "constituentDatasets": "",
+    "noFiltersApplied": "",
+    "apiUsageDescription": "",
+    "apiFilterView": "",
+    "humanFilterView": "",
+    "downloadStarted": "",
+    "downloadExpectTime": "",
+    "notificationEmailAddresses": "",
+    "status": {
+      "PREPARING": "",
+      "SUSPENDED": "",
+      "RUNNING": "",
+      "CANCELLED": "",
+      "KILLED": ""
+    },
+    "predicate": {
+      "joinDescriptions": {
+        "and": "",
+        "or": "",
+        "not": ""
+      },
+      "and": "",
+      "or": "",
+      "not": "",
+      "isNotNull": ""
+    }
+  }
+}
