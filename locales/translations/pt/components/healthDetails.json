@@ -1,64 +1,64 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "automatedMonitoring": "Automated monitoring",
+        "systemLoad": "System load",
+        "messages": "Messages",
+        "version": "Version",
+        "nInQueue": "{NUMBER} in queue",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "Operational",
+            "WARNING": "Unstable",
+            "CRITICAL": "Not usable",
+            "INFO": "System update"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Occurrence",
+                "tooltip": "E.g. searching and viewing occurrences."
             },
             "SPECIES": {
-                "name": "",
-                "tooltip": ""
+                "name": "Species",
+                "tooltip": "E.g. Searching and viewing species, species suggestions"
             },
             "REGISTRY": {
                 "name": "Inscrição",
-                "tooltip": ""
+                "tooltip": "E.g. Dataset, publishers, installations, countries, participants and networks."
             },
             "IDENTITY": {
-                "name": "",
-                "tooltip": ""
+                "name": "Identity",
+                "tooltip": "For logging in and out, connecting accounts etc."
             },
             "MAPS": {
-                "name": "",
-                "tooltip": ""
+                "name": "Maps",
+                "tooltip": "For displaying map images and getting info about a map."
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "Content mangement system (external system)",
+                "tooltip": "E.g. news and articles"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Image cache",
+                "tooltip": "Responsible for most images on the website"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "Github (external system)",
+                "tooltip": "Feedback, datasets suggestions"
             },
             "CRAWLER": {
-                "name": "",
-                "tooltip": ""
+                "name": "Ingestion",
+                "tooltip": "For updating datasets ﹣ new and old."
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "Resource search",
+                "tooltip": "E.g. for searching literature, news."
             },
             "CLUSTER": {
-                "name": "",
-                "tooltip": ""
+                "name": "System load",
+                "tooltip": "The backend for handling downloads, ingestion and much more."
             },
             "DOWNLOAD": {
-                "name": "",
-                "tooltip": ""
+                "name": "Downloads",
+                "tooltip": "For handling download jobs and sending users notifications"
             }
         }
     }
