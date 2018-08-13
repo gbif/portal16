@@ -11,12 +11,12 @@
         "purposes": "Formål",
         "relevance": "Relevans",
         "language": "Sprog",
-        "year": "Year",
-        "datasetKey": "Dataset",
+        "year": "",
+        "datasetKey": "",
         "publishingOrg": "Udgiver",
-        "peerReview": "Peer-Reviewed",
-        "openAccess": "Open access",
-        "gbifDownloadKey": "Download key"
+        "peerReview": "",
+        "openAccess": "",
+        "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "Arrangement",
@@ -81,7 +81,7 @@
           "CAPACITY_ENHANCEMENT": "Kapacitetsforøgelse",
           "DATA_ACCESS": "Adgang til data",
           "DATA_ANALYSIS": "Analyse af data",
-          "DATA_CURATION_QUALITY": "Data curation & quality",
+          "DATA_CURATION_QUALITY": "",
           "DATA_DIGITIZATION": "Data-digitalisering",
           "DATA_PUBLISHING": "Data-udgivelse"
         },
@@ -90,8 +90,8 @@
           "book": "Bog",
           "generic": "Generisk",
           "book_section": "Bogafsnit",
-          "conference_proceedings": "Conference proceedings",
-          "working_paper": "Working paper",
+          "conference_proceedings": "",
+          "working_paper": "",
           "report": "Rapport",
           "web_page": "Webside",
           "thesis": "Afhandling",
@@ -105,7 +105,7 @@
           "encyclopedia_article": "Leksikon artikel",
           "case": "Case",
           "film": "Film",
-          "bill": "Bill"
+          "bill": ""
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Eksperter i biodiversitet",
