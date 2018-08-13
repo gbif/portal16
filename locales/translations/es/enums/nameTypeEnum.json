@@ -7,9 +7,9 @@
     "HYBRID": "Fórmula híbrida",
     "INFORMAL": "Informal",
     "OTU": "Unidad taxonómica operacional",
-    "CULTIVAR": "Cultivar",
+    "CULTIVAR": "",
     "CANDIDATUS": "Candidato",
-    "PLACEHOLDER": "Placeholder",
+    "PLACEHOLDER": "",
     "NO_NAME": "Sin nombre"
   }
 }
