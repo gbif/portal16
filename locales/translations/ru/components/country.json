@@ -1,37 +1,37 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
+      "summary": "Summary",
       "dataPublishing": "Публикация данных",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
+      "dataAbout": "Data about",
+      "participartion": "Participation",
+      "publications": "Publications",
       "news": "Новости"
     },
-    "memberSince": "",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
-    "nFrom": "",
-    "nAbout": "",
-    "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "memberSince": "Member since",
+    "dataFrom": "Data from {TRANSLATED_COUNTRY}",
+    "dataAboutCountry": "Data about {TRANSLATED_COUNTRY}",
+    "publishingTrends": "Publishing trends",
+    "noDataPublishingActivity": "No data publishing activity",
+    "noInstitutionsHavePublished": "No institutions from this country have published data through GBIF",
+    "trendsAboutCountry": "Trends about {TRANSLATED_COUNTRY}",
+    "nFrom": "{NUMBER_FORMATTED} from",
+    "nAbout": "{NUMBER_FORMATTED} about",
+    "viewAllN": "View all {NUMBER_FORMATTED}",
+    "noPublications": "No publications",
+    "notParticipant": "Not a participant",
+    "notParticipantDescription": "This country is not a participant of GBIF",
+    "countryNamingDisclaimer": "Names of countries and areas are based on the [ISO 3166-1 standard](https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "Находки",
       "datasets": "Наборы данных",
-      "publishers": "",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "publishers": "Publishers",
+      "countriesAndAreasContributeData": "Countries and areas contribute data",
+      "publishedOccurrences": "Published occurrences",
+      "publishedDatasets": "Published datasets",
+      "countriesAndAreasCoveredByDataFrom": "Countries and areas covered by data from {TRANSLATED_COUNTRY}",
+      "publishersFrom": "Publishers from {TRANSLATED_COUNTRY}"
     },
-    "activityReport": ""
+    "activityReport": "Activity report"
   }
 }
