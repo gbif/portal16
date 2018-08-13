@@ -1,41 +1,41 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
-      "grantType": "",
-      "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
-      "fundsAllocated": "",
-      "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
-      "typeOfGrant": "",
-      "projectStart": "",
-      "status": "",
-      "programme": "",
-      "contractCountry": "",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "project": "Project",
+      "projectId": "Project ID",
+      "projectIdentifier": "Project identifier",
+      "grantType": "Grant type",
+      "duration": "Duration",
+      "title": "Title",
+      "start": "Start",
+      "end": "End",
+      "fundsAllocated": "Funding allocated",
+      "matchingFunds": "Est. co-funding",
+      "funding": "Funding",
+      "coFunding": "Co funding",
+      "fundedBy": "Funded by",
+      "coFundedBy": "Co funded by",
+      "typeOfGrant": "Type of grant",
+      "projectStart": "Project start",
+      "status": "Status",
+      "programme": "Programme",
+      "contractCountry": "Country or area",
+      "newsAndEvents": "News & events",
+      "call": "Call",
+      "projectLead": "Project lead",
+      "contactDetalils": "Contact details",
+      "partners": "Partners"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "Data resources used via GBIF"
     },
     "literature": {
-      "keywords": ""
+      "keywords": "Keywords"
     },
     "auxiliary": {
-      "subject": "",
+      "subject": "Subject",
       "citation": "Citações",
-      "organisingParticipants": ""
+      "organisingParticipants": "Organising Participants"
     }
   }
 }
