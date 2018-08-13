@@ -13,14 +13,14 @@
       "verbatim": "オリジナルのまま"
     },
     "invasives": {
-      "nInvadedCountries": "",
-      "invasiveIn": "",
+      "nInvadedCountries": "Recorded as invasive in {NUMBER_FORMATED} {NUMBER, select, 1{country or island} other{countries and islands}}",
+      "invasiveIn": "Recorded as invasive in",
       "accordingTo": "～によると",
       "occurrenceCount": "GBIFにおけるオカレンス",
       "seeAllCountries": "全てを表示"
     },
-    "as": "",
-    "in": "",
+    "as": "As",
+    "in": "In",
     "origin": "原産",
     "issues": "問題",
     "citation": "引用",
@@ -37,7 +37,7 @@
     "synonymOf": "～のシノニム",
     "basionymOf": "～のバソニム",
     "immediateChildren": "ツリー直下の子階層",
-    "descendants": "",
+    "descendants": "Descendants",
     "loadMore": "もっと読み込む",
     "selectRoot": "ルートを選択する",
     "selectSpecies": "種を選択する",
