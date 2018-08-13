@@ -13,8 +13,8 @@
     "mediaType": "Medietype",
     "recordedBy": "Optegnet af",
     "eventDate": "Begivenhedsdato",
-    "eventID": "Event ID",
-    "samplingProtocol": "Sampling protocol",
+    "eventID": "",
+    "samplingProtocol": "",
     "location": "Lokation",
     "hasGeospatialIssue": "Har geospatiale problemer",
     "basisOfRecord": "Observationstype",
@@ -53,6 +53,6 @@
     "status": "Status",
     "nameType": "Navne type",
     "origin": "Oprindelse",
-    "networkKey": "GBIF network"
+    "networkKey": ""
   }
 }
