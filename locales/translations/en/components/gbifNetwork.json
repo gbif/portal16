@@ -23,7 +23,9 @@
       "other": "GBIF affiliates"
     },
     "role": "Role",
-    "group": {},
+    "group": {
+
+    },
     "gbif_secretariat": "GBIF Secretariat",
     "membershipType": "Membership",
     "name": "Name",
@@ -46,7 +48,6 @@
     "pPublishers": "{NUMBER, select, 1{publisher} other{publishers}}",
     "pOccurrence": "{NUMBER, select, 1{occurrence} other{occurrences}}",
     "occurrenceDatasets": "Occurrence datasets",
-    "occurrences" : "Occurrences"
-
+    "occurrences": "Occurrences"
   }
 }

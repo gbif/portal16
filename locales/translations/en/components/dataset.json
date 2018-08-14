@@ -73,7 +73,7 @@
     "processedOccurrences": "GBIF annotated archive",
     "noDescriptionProvided": "No description available",
     "pNetwork": "{NUMBER, select, 1{Network} other{Networks}}",
-    "parentEvent" : "Parent event",
+    "parentEvent": "Parent event",
     "eventDescription": "Event description",
     "siblingEvents": "Sibling events",
     "childEvents": "Child events",
