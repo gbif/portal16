@@ -1,0 +1,87 @@
+{
+  "occurrence": {
+    "coordinates": "",
+    "unknownDate": "",
+    "absent": "",
+    "issues": "",
+    "dataset": "",
+    "synced": "",
+    "modified": "",
+    "monthAndyear": "",
+    "coordinateUncertainty": "",
+    "citation": "",
+    "readFullDescription": "",
+    "showMoreInfo": "",
+    "noTaxonMatch": "",
+    "gbifTaxonInterpretation": "",
+    "aboutTheDataset": "",
+    "noLocationInformation": "",
+    "subMenu": {
+      "diagnostics": "",
+      "menu": "",
+      "showDiagnostics": "",
+      "hideDiagnostics": "",
+      "aboutDarwinCore": "",
+      "raw": ""
+    },
+    "groups": {
+      "Record": "",
+      "Occurrence": "",
+      "Event": "",
+      "Identification": "",
+      "Taxon": "",
+      "Location": "",
+      "Organism": "",
+      "MaterialSample": "",
+      "GeologicalContext": "",
+      "other": ""
+    },
+    "term": "",
+    "interpreted": "",
+    "original": "",
+    "remarks": "",
+    "highlights": {
+      "location": "",
+      "specimenType": "",
+      "publisher": "",
+      "reference": "",
+      "verbatimName": ""
+    },
+    "title": {
+      "inCountry": {
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
+      },
+      "unknownLocation": {
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
+      },
+      "unknownSpecies": ""
+    },
+    "occurrence": "",
+    "inLanguage": ""
+  },
+  "interpretationRemarks": {
+    "comments": {
+      "EXCLUDED": "",
+      "AUTHORED": "",
+      "INFERED": ""
+    }
+  }
+}

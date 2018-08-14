@@ -1,0 +1,121 @@
+{
+  "enums": {
+    "cms": {
+      "filters": {
+        "countriesOfCoverage": "",
+        "countriesOfResearcher": "",
+        "literatureType": "",
+        "contractCountry": "",
+        "topics": "",
+        "audiences": "",
+        "purposes": "",
+        "relevance": "",
+        "language": "",
+        "year": "",
+        "datasetKey": "",
+        "publishingOrg": "",
+        "peerReview": "",
+        "openAccess": "",
+        "gbifDownloadKey": ""
+      },
+      "contentType": {
+        "event": "",
+        "news": "",
+        "resource": "",
+        "dataUse": "",
+        "project": "",
+        "participant": "",
+        "programme": "",
+        "document": "",
+        "tool": "",
+        "literature": ""
+      },
+      "vocabularyTerms": {
+        "articleType": {
+          "Nodes guidance": ""
+        },
+        "projectGrantType": {
+          "REGIONAL": "",
+          "SMALL": "",
+          "NATIONAL": "",
+          "undefined": ""
+        },
+        "projectStatus": {
+          "APPROVED": "",
+          "CLOSED": "",
+          "IN_PROGRESS": "",
+          "undefined": ""
+        },
+        "relevance": {
+          "GBIF_USED": "",
+          "GBIF_CITED": "",
+          "GBIF_DISCUSSED": "",
+          "GBIF_PRIMARY": "",
+          "GBIF_ACKNOWLEDGED": "",
+          "GBIF_PUBLISHED": "",
+          "GBIF_AUTHOR": "",
+          "GBIF_MENTIONED": "",
+          "GBIF_FUNDED": ""
+        },
+        "topics": {
+          "AGRICULTURE": "",
+          "BIODIVERSITY_SCIENCE": "",
+          "BIOGEOGRAPHY": "",
+          "CITIZEN_SCIENCE": "",
+          "CLIMATE_CHANGE": "",
+          "CONSERVATION": "",
+          "DATA_MANAGEMENT": "",
+          "DATA_PAPER": "",
+          "ECOLOGY": "",
+          "ECOSYSTEM_SERVICES": "",
+          "EVOLUTION": "",
+          "FRESHWATER": "",
+          "HUMAN_HEALTH": "",
+          "INVASIVES": "",
+          "MARINE": "",
+          "PHYLOGENETICS": "",
+          "SPECIES_DISTRIBUTIONS": "",
+          "TAXONOMY": ""
+        },
+        "purposes": {
+          "CAPACITY_ENHANCEMENT": "",
+          "DATA_ACCESS": "",
+          "DATA_ANALYSIS": "",
+          "DATA_CURATION_QUALITY": "",
+          "DATA_DIGITIZATION": "",
+          "DATA_PUBLISHING": ""
+        },
+        "literatureType": {
+          "journal": "",
+          "book": "",
+          "generic": "",
+          "book_section": "",
+          "conference_proceedings": "",
+          "working_paper": "",
+          "report": "",
+          "web_page": "",
+          "thesis": "",
+          "magazine_article": "",
+          "statute": "",
+          "patent": "",
+          "newspaper_article": "",
+          "computer_program": "",
+          "hearing": "",
+          "television_broadcast": "",
+          "encyclopedia_article": "",
+          "case": "",
+          "film": "",
+          "bill": ""
+        },
+        "audiences": {
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
+          "DATA_HOLDERS": "",
+          "DATA_USERS": "",
+          "DECISION_MAKERS": "",
+          "GBIF_NETWORK": "",
+          "PUBLIC_STAKEHOLDERS": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "search": {
+    "placeholder": "",
+    "noSearchTermsEntered": "",
+    "notSureWhatYouAreLookingFor": "",
+    "cannotFindWhatYouAreLookingFor": "",
+    "trySpecifyingAType": "",
+    "everything": "",
+    "occurrences": "",
+    "species": "",
+    "datasets": "",
+    "resources": "",
+    "publishers": "",
+    "participants": "",
+    "search": "",
+    "clearFilters": "",
+    "filters": "",
+    "simple": "",
+    "advanced": "",
+    "allResultTypes": "",
+    "suggestions": "",
+    "header": {
+      "searchDatasets": "",
+      "searchPublishers": "",
+      "searchSpecies": "",
+      "searchResources": "",
+      "searchOccurrences": ""
+    },
+    "nResults": ""
+  }
+}

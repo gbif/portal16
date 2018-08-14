@@ -18,7 +18,7 @@
     "location": "Ubicación",
     "hasGeospatialIssue": "Presenta un problema geoespacial",
     "basisOfRecord": "Base del registro",
-    "issue": "Observaciones",
+    "issue": "",
     "locality": "Localidad",
     "lastInterpreted": "Última interpretación",
     "waterBody": "Cuerpo de agua",
