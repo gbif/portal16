@@ -8,7 +8,7 @@
     "data content": {
       "title": "Contenido",
       "example": "Tales como: la página contiene un error tipográfico. Esa especie no existe. Esa localidad parece sospechosa. La nueva URL para esa organización es...",
-      "annotate": "Este publicador tiene un sitio web para el manejo de comentarios. Le recomendamos usarlo.",
+      "annotate": "",
       "contactPerMail": "Comuníquese con el contacto del conjunto de datos"
     },
     "bug": {
