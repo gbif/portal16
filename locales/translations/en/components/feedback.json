@@ -27,7 +27,7 @@
     },
     "confirmation": {
       "title": "Thank you",
-      "example": "You can follow the issue on Github",
+      "example": "",
       "seeIssue": "See issue"
     },
     "issues": {
