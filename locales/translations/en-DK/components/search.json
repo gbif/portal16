@@ -1,0 +1,31 @@
+{
+  "search": {
+    "placeholder": "Occurrences, species, news ...",
+    "noSearchTermsEntered": "No search terms entered",
+    "notSureWhatYouAreLookingFor": "Not sure what you are looking for? How about looking at some pictures of species occurrences",
+    "cannotFindWhatYouAreLookingFor": "Cannot find what you are looking for?",
+    "trySpecifyingAType": "Try specifying a type",
+    "everything": "Everything",
+    "occurrences": "Occurrences",
+    "species": "Species",
+    "datasets": "Datasets",
+    "resources": "Resources",
+    "publishers": "Publishers",
+    "participants": "Participants",
+    "search": "Search",
+    "clearFilters": "Clear filters",
+    "filters": "Filters",
+    "simple": "Simple",
+    "advanced": "Advanced",
+    "allResultTypes": "All",
+    "suggestions": "Suggestions",
+    "header": {
+      "searchDatasets": "Search datasets",
+      "searchPublishers": "Search publishers",
+      "searchSpecies": "Search species",
+      "searchResources": "Search resources",
+      "searchOccurrences": "Search occurrences"
+    },
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{result} other{results}}"
+  }
+}
