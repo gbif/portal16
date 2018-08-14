@@ -28,7 +28,7 @@
         <div ng-if="vm.$location.path().indexOf('/about') === -1">
         {% include "./upload.nunjucks" %}
 
-            <section class="horizontal-stripe light-background seperator--b" ng-if="vm.species.length">
+            <section class="horizontal-stripe light-background seperator--b" ng-if="vm.species.length && !vm.error">
             <div class="container--desktop">
                 <div class="row">
                 
@@ -44,6 +44,11 @@
             </section>
 
         {% include "./curateResults.nunjucks" %}
+
+        <div class="emptyInfo" ng-if="vm.error">
+            <h3 ng-bind="vm.error"></h3>
+            
+        </div>
         </div>
 
     </article>

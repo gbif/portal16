@@ -1,10 +1,6 @@
 <!-- Lookup keys -->
 <div class="horizontal-stripe--paddingless white-background nameParser__result-table ng-cloak"
-     ng-if="vm.species && vm.processing">
-    <!--  <div class="p text-center">
-     
-                    {{vm.matchedSequenceCount}} of {{vm.species.length}} matched, {{vm.aboveThresholdCount}} with identity > {{vm.matchThreshold}}, {{vm.inBackboneCount}} included in the GBIF backbone taxonomy
-                </div> -->
+     ng-if="vm.species && vm.processing && !vm.error">
  
     <div class="occurrence-search__table__area">
         <div class="scrollable-y">
@@ -14,17 +10,22 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bit score', 'expect value','match type', 'scientificName','classification', 'sequence']">
-                            <a href=""
+                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue','matchType', 'scientificName','classification', 'sequence']">
+                            <a href="" 
                                ng-click="vm.state.sortType = col; vm.state.sortReverse = !vm.state.sortReverse">
+                               
                                 <span class="inline-block">
                                     {{ col }} 
                                     <span ng-show="vm.state.sortType == col && !vm.state.sortReverse"
                                             class="sortReverse">&#x25B2;</span>
                                     <span ng-show="vm.state.sortType == col && vm.state.sortReverse"
                                             class="sortReverse">&#x25BC;</span>
+                                           
                                 </span>
-                            </a>
+                                    <span ng-if="vm.help[col]" gb-help="{{vm.help[col]}}" gb-help-options="{isCms: false}" ng-click="$event.stopPropagation();"></span>
+                                </a>
+                            
+                             
                         </th>
                     </tr>
                     </thead>
@@ -38,6 +39,7 @@
                         </td>
                         <td class="table-cell--narrow">
                             <span ng-if="species.identity">{{ species.identity }}%</span>
+
                         </td>
                         <td class="table-cell--narrow">
                             <span>{{ species.bitScore }}</span>
@@ -99,7 +101,7 @@
                     <a href="" ng-click="vm.generateCsv()" class="text-uppercase pull-right">generate CSV</a>
                 </div>
                 <div ng-if="!vm.lookupComplete" class="pull-right discreet">
-                    Looking up names - hang on
+                    Blasting sequences - hang on
                 </div>
             </div>
         </div>

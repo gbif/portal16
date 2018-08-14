@@ -2,16 +2,17 @@
 
 var async = require('async');
 var Converter = require('csvtojson').Converter;
-var fasta = require('fasta-parser');
+var _ = require('lodash');
 
 angular
     .module('portal')
     .controller('sequenceMatchingCtrl', sequenceMatchingCtrl);
 
 /** @ngInject */
-function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantKeys, suggestEndpoints, $location) {
+function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     var vm = this;
     vm.species = undefined;
+    var MAX_ERRORS = 5;
     vm.state = {};
     vm.pagination = {
         currentPage: 1,
@@ -22,7 +23,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
     vm.$location = $location;
     vm.matchThreshold = 98.5;
     window.onbeforeunload = function(e) {
-        if (vm.species && vm.species.length > 0) {
+        if (!vm.error && vm.species && vm.species.length > 0) {
             var dialogText = 'By leaving the page you loose your data.';
             e.returnValue = dialogText;
             return dialogText;
@@ -43,15 +44,31 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
     };
     function parseFasta(inputString) {
         var result = [];
+
+        var splitted = inputString.split('>');
+        _.each(splitted, function(e) {
+            var s = e.split('\n');
+            if (s.length > 1 && s[0] && s[1]) {
+                result.push({occurrenceId: s[0], marker: 'its', sequence: s[1]});
+            }
+        });
+        vm.species = result;
+            vm.matchedSequenceCount = 0;
+            vm.aboveThresholdCount = 0;
+            vm.inBackboneCount = 0;
+            vm.blastMatchCount = 0;
+            vm.normalizeAll();
+        /*
         var fastaData = new Buffer(inputString);
         var parser = fasta();
         parser.on('data', function(data) {
             var e;
             try {
-                e = JSON.parse(data.toString());
+                e = JSON.parse(unescape(encodeURIComponent(data.toString())));
+               // e = JSON.parse(utf8.encode(data.toString()));
                 result.push({occurrenceId: e.id, marker: 'its', sequence: e.seq});
             } catch (err) {
-                // illegal chars in fasta
+                console.log(err);
             }
         });
         parser.on('end', function() {
@@ -64,7 +81,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
         });
 
         parser.write(fastaData);
-        parser.end();
+        parser.end(); */
     }
 
     function parseCSV(csvString) {
@@ -79,7 +96,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             } else if (result.length == 0) {
                 vm.error = 'There are no rows in the data.';
             } else if (result.length > 6000) {
-                vm.error = 'Too many rows (maximum 6.000)';
+                vm.error = 'Too many rows (maximum 6000)';
             } else {
                 // make all keys lower to avoid casing issues
                 result = result.map(function(e) {
@@ -141,22 +158,14 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
     };
 
 
-    vm.defaultKingdom = undefined;
-    vm.setDefaultKingdom = function(kingdom) {
-        if (vm.defaultKingdom == kingdom) {
-            vm.defaultKingdom = undefined;
-        } else {
-            vm.defaultKingdom = kingdom;
-        }
-    };
-
     vm.normalizeAll = function() {
         vm.pagination.currentPage = 1;
         vm.processing = true;
-        lookupNames();
+        blastAll();
     };
+    var errorCount = 0;
 
-    function lookupName(item, callback) {
+    function blast(item, callback) {
         var query = {
             sequence: item.sequence,
             marker: item.marker || 'its'
@@ -170,13 +179,17 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             vm.setItem(item, response.data);
             callback();
         }, function errorCallback(response) {
-            console.log(response);
+            // console.log(response);
+            errorCount ++;
+            if (errorCount > Math.min(MAX_ERRORS, vm.species.length)) {
+                vm.error = 'The server is not responding. Please try again later and report an issue if the problem persists.';
+            }
             callback('match went wrong');
         });
     }
 
-    function lookupNames() {
-        async.eachLimit(vm.species, 10, lookupName, function(err) {
+    function blastAll() {
+        async.eachLimit(vm.species, 10, blast, function(err) {
             if (err) {
                 // TODO inform the user that not everything could be matched
             } else {
@@ -207,7 +220,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
                 classification += selected.nubMatch.classification[i].name;
                 if (i < (selected.nubMatch.classification.length - 1)) {
                     classification += '_';
-                    formattedClassification += '; ';
+                    formattedClassification += ' &#10095; ';
                 }
             }
             item.classification = classification;
@@ -227,7 +240,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
     };
 
     vm.generateCsv = function() {
-        var fields = ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue','matchType', 'scientificName', 'classification', 'sequence'];
+        var fields = ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue', 'matchType', 'scientificName', 'classification', 'sequence'];
         var csvContent = '';
 
         // write column names
@@ -242,7 +255,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
         // write rows
         vm.species.forEach(function(e) {
             // write row
-            if (!e.key && vm.exclude) {
+            if (e.matchType === 'BLAST_NO_MATCH' && vm.exclude) {
                 return;
             }
             fields.forEach(function(field, index) {
@@ -300,6 +313,17 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, SpeciesMatch, Species, con
             vm.itemToEdit = undefined;
         }
     });
+
+    vm.help = {
+        'occurrenceId': 'If you uploaded data in FASTA format, this is the ID line for the sequence. For publication to GBIF occurrenceId must be unique.',
+        'marker': 'The DNA marker, currently only ITS is supported',
+        'identity': 'The extent to which two sequences have the same residues at the same positions in an alignment',
+        'bitScore': 'The bit score is the required size of a sequence database in which the current match could be found just by chance. The bit score is a log2 scaled and normalized raw score. Each increase by one doubles the required database size  (2<sup>bit-score</sup>).',
+        'expectValue': 'The expect value is a parameter that describes the number of hits one can "expect" to see by chance when searching a database of a particular size. It decreases exponentially as the score of the match increases. Hence, a low expect value is better.',
+        'matchType': 'Badges representing different identity thresholds.',
+        'scientificName': 'The OTU identifier, which can be used as scientificName when publishing occurrence or sample event data to GBIF',
+        'classification': 'The higher classification of the OTU as represented in the GBIF backbone.'
+    };
 }
 
 module.exports = sequenceMatchingCtrl;

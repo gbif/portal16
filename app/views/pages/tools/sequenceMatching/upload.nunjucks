@@ -3,10 +3,10 @@
 
     <div layout="row" layout-align="center start" ng-cloak>
         <div class="nameParser__prose" >
-          <p>This tool will query a blast database of the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a>. 
-        All returned matches will then be matched towards the GBIF backbone taxonomy by their identifier (e.g. SH191277.07FU). These OTU identifiers can be used for publishing sequence based data to GBIF. When the matching is complete, the result can be downloaded as a csv with identifiers included.</p>
+          <p>This tool will query a blast database of the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a> (a reference database for DNA barcoding of Fungi). 
+        All returned matches will then be matched against the GBIF backbone taxonomy by their identifier (e.g. SH191277.07FU). These OTU identifiers can be used for publishing sequence based data to GBIF. When the matching is complete, the result can be downloaded as a csv with identifiers included.</p>
         <p>Only ITS sequences are currently supported.</p>
-            <p >Files can be uploaded in CSV or FASTA format. CSVs are expected to have a column named 'sequence' and an 'id' or occurrenceId column. It is also possible to paste sequneces into the text field below (only FASTA format)</p>
+            <p >Files can be uploaded in CSV or FASTA format. CSVs are expected to have a column named 'sequence' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
 
         </div>
     </div>
