@@ -3,4 +3,4 @@ files:
     translation: /locales/translations/%locale%/**/%original_file_name%
     languages_mapping:
       locale:
-        en: en-GB-oxendict
+        en: en
