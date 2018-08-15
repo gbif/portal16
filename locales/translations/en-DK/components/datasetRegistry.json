@@ -1,0 +1,50 @@
+{
+    "dataset": {
+        "registry": {
+            "failedSinceSuccess": "Failed attempts since last successful ingestion",
+            "lastFailed": "Last failed attempt",
+            "registrationDate": "Registration date",
+            "lastSuccess": "Last successful ingestion",
+            "lastWithChange": "Last ingestion with changes",
+            "noEntries": "This dataset has no ingestion entries",
+            "lastWithDataChange": "Last ingestion with data change",
+            "occInLastIngestion": "Occurrences in last ingestion",
+            "completionReasons": "Ingestion completion reasons",
+            "unfinished": "Unfinished ingestions",
+            "total": "Ingestions in total",
+            "endpoints": "Endpoints",
+            "installationContacts": "Installation contacts",
+            "installation": "Installation",
+            "dataLastChanged": "Data last changed",
+            "pubDate": "Publication date",
+            "hostedBy": "Hosted by",
+            "hostingStatus": "Hosting status",
+            "metdataLastModified": "Metadata last modified",
+            "preferredIdentifier": "Preferred identifier",
+            "alternativeIdentifier": "Alternative identifiers",
+            "orphaned": "Orphaned dataset",
+            "rescued": "Rescued orphan dataset",
+            "adopted": "Adopted dataset",
+            "lastIngestedBeforeDate": "Last ingested before {DATE}",
+            "inIngestionQueue": "Is in ingestion queue",
+            "addingToQueue": "Adding to queue",
+            "unableToStart": "Unable to start ingestion",
+            "ingestionChartExplainer": "Most recent ingestions. Top left is the latest.",
+            "ingestionStatus": "Ingestion status",
+            "itemInIngestionQueue": "Items in ingestion queue",
+            "datasetIngestionStatus": "Dataset ingestion status",
+            "gbifIngestionStatus": "GBIF ingestion status",
+            "lastIngestionSuccess": "Last ingestion a success",
+            "lastIngestionFailed": "Last ingestion failed",
+            "outOfSync": "Out of sync",
+            "becauseTrustedContact": "Because you are trusted contact"
+        },
+        "crawl": {
+            "finishReason": {
+                "NORMAL": "Normal",
+                "ABORT": "Abort",
+                "NOT_MODIFIED": "Not modified"
+            }
+        }
+    }
+}
