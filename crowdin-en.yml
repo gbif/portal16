@@ -1,5 +1,5 @@
 files:
-  - source: /locales/translations/en-DK/**/*.json
+  - source: /locales/source/en-DK/**/*.json
     translation: /locales/translations/%locale%/**/%original_file_name%
     languages_mapping:
       locale:

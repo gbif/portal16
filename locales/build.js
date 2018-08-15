@@ -2,7 +2,7 @@
 
 let buildConfig = require('../config/build');
 let config = require('../config/config');
-let translationBuilder = require('./translations/builder');
+let translationBuilder = require('./builder');
 let fs = require('fs');
 let path = require('path');
 let _ = require('lodash');
@@ -10,7 +10,7 @@ let dir = buildConfig.paths.root + '/locales/_build/';
 ensureDirectoryExistence(dir + 'translation.json');
 
 let enJson = translationBuilder('en');
-let enDKJson = translationBuilder('en-DK');
+let enDKJson = translationBuilder('en-DK', 'source');
 
 function buildLocale(locale) {
     let localeJson = translationBuilder(locale);
