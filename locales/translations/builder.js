@@ -7,10 +7,10 @@ let path = require('path');
 module.exports = builder;
 
 function getFile(locale, file) {
-    if (locale === 'en' || fs.existsSync(path.join(__dirname, `${file}.json`))) {
+    if (locale === 'en-DK' || fs.existsSync(path.join(__dirname, `${file}.json`))) {
         return require(file);
     } else {
-        console.log(`!Attention: Translation file ${file}.json not found. Falling back to english`);
+        console.log(`!Attention: Translation file ${file}.json not found. Falling back to en-DK (developers original text)`);
         return {};
     }
 }

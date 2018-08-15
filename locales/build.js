@@ -10,10 +10,11 @@ let dir = buildConfig.paths.root + '/locales/_build/';
 ensureDirectoryExistence(dir + 'translation.json');
 
 let enJson = translationBuilder('en');
+let enDKJson = translationBuilder('en-DK');
 
 function buildLocale(locale) {
     let localeJson = translationBuilder(locale);
-    let mergedJson = _.merge({}, enJson, localeJson);
+    let mergedJson = _.merge({}, enDKJson, enJson, localeJson);
     fs.writeFile(dir + locale + '.json', JSON.stringify(mergedJson, null, 2), function(err) {
         if (err) {
             console.log(err);
