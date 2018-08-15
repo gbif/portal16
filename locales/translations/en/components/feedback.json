@@ -8,7 +8,7 @@
     "data content": {
       "title": "Content",
       "example": "Such as: That page contains a typo. That species doesn’t exist. That location seems suspect. The new URL for that organization is...",
-      "annotate": "This publisher has a website for handling feedback. We recommend using that",
+      "annotate": "This publisher has a website for handling feedback. We recommend using that.",
       "contactPerMail": "Get in touch with the dataset contact"
     },
     "bug": {
