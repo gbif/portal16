@@ -10,7 +10,7 @@ let dir = buildConfig.paths.root + '/locales/_build/';
 ensureDirectoryExistence(dir + 'translation.json');
 
 let enJson = translationBuilder('en');
-let enDKJson = translationBuilder('en-DK', 'source');
+let enDKJson = translationBuilder('en-DK', 'source', true);
 
 function buildLocale(locale) {
     let localeJson = translationBuilder(locale);

@@ -15,8 +15,9 @@ function getFile(locale, file) {
     }
 }
 
-function builder(locale, folder) {
+function builder(locale, folder, keepEmptyStrings) {
     folder = folder || 'translations';
+    keepEmptyStrings = keepEmptyStrings || false;
     locale = locale || 'en';
     let translations = _.merge(
         {},
@@ -95,7 +96,9 @@ function builder(locale, folder) {
         getFile(locale, `./${folder}/${locale}/components/phrases`),
         getFile(locale, `./${folder}/${locale}/components/doNotTranslate`)
     );
-    removeEmptyStrings(translations);
+    if (!keepEmptyStrings) {
+        removeEmptyStrings(translations);
+    }
     return translations;
 }
 
