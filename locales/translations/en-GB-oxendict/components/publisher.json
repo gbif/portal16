@@ -1,23 +1,23 @@
 {
   "publisher": {
     "tabs": {
-      "aboutPublisher": "",
-      "publishersHomepage": ""
+      "aboutPublisher": "About",
+      "publishersHomepage": "Home page"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
-    "technicalContact": "",
-    "country": "",
-    "hosting": "",
-    "description": "",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "joinedAgo": "Joined {TIME_AGO}",
+    "newPublisher": "New publisher",
+    "technicalContact": "Technical contact",
+    "country": "Country or area",
+    "hosting": "Hosting",
+    "description": "Description",
+    "endorsedBy": "Endorsed by",
+    "pendingEndorsementBy": "Pending endorsement by",
+    "installations": "Installations",
+    "contacts": "Contacts",
+    "administrativeContact": "Administrative contact",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "Publisher",
+      "sinceDate": "Since {DATE}"
     }
   }
 }
