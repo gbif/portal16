@@ -1,17 +1,17 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
-      "CLB_INTERPRETATION_BASED": ""
+      "RESOURCE_STRUCTURE": "Estructura del recurso",
+      "RESOURCE_INTEGRITY": "Integridad de los registros",
+      "RECORD_STRUCTURE": "Estructura del recurso",
+      "OCC_INTERPRETATION_BASED": "Interpretación de registro de GBIF",
+      "METADATA_CONTENT": "Contenido de metadatos",
+      "CLB_INTERPRETATION_BASED": "Interpretación taxonómica de GBIF"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
+      "DWCA_UNREADABLE": "Archivo de Darwin Core ilegible",
+      "DWCA_META_XML_NOT_FOUND": "No se encontró el archivo Meta.xml",
+      "DWCA_META_XML_SCHEMA": "El esquema de validación de meta.xml falló",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
       "EML_NOT_FOUND": "",
