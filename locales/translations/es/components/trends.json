@@ -24,7 +24,7 @@
     "recordsByYearOfOccurrence": "Registros por año de registro",
     "theNumberOfOccurrenceRecordsAvailable": "Número de registros disponibles para cada día del año desde 1950.",
     "speciesByYearOfOccurrence": "Especies por año de registro",
-    "theNumberOfSpeciesForWhichRecordsAreAvailable": "",
+    "theNumberOfSpeciesForWhichRecordsAreAvailable": "Número de especies (ver arriba) para las cuales hay registros disponibles para cada año desde 1950.",
     "recordsByDayOfYear": "Registros por día del año",
     "recordsAvailableForEachDayOfTheYear": "El número de registros disponibles para cada día del año.",
     "speciesByDayOfYear": "Especies por día del año",
@@ -68,6 +68,6 @@
       "publishedByDescription": "Cambio a lo largo del tiempo en los datos publicados por instituciones en {{country}} disponibles desde GBIF.org"
     },
     "analyticsGlobalDescription": "Tendencias en disponibilidad de datos en la red de GBIF, de 2008 a 2016",
-    "analyticsTitle": "Tendencias de los datos"
+    "analyticsTitle": "Tendencias de datos"
   }
 }
