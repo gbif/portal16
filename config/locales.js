@@ -10,16 +10,9 @@ let env = process.env.NODE_ENV || 'local';
 let defaultLocale = 'en';
 
 // locales = ['en' , 'es', 'da', 'en-IN', 'zh-Hant-TW'],
-let locales = ['en'];
-if (env === 'uat') {
-    locales.push('es');
-    locales.push('ja');
-    // locales.push('da');
-}
+let locales = ['en', 'es', 'ja'];
 if (env === 'staging' || env === 'local' || env === 'dev') {
     locales.push('da');
-    locales.push('es');
-    locales.push('ja');
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
     locales.push('ar-MOCK');
