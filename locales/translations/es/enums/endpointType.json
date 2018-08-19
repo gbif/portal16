@@ -11,8 +11,8 @@
     "DIGIR_MANIS": "DiGIR MANIS",
     "TAPIR": "TAPIR",
     "BIOCASE": "BioCASe",
-    "BIOCASE_XML_ARCHIVE": "",
-    "OAI_PMH": "",
-    "OTHER": ""
+    "BIOCASE_XML_ARCHIVE": "Archivo XML BioCASe",
+    "OAI_PMH": "OAI PMH",
+    "OTHER": "Otro"
   }
 }
