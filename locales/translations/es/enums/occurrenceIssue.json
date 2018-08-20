@@ -12,7 +12,7 @@
     "COORDINATE_ACCURACY_INVALID": "Exactitud de las coordenadas inválida",
     "COORDINATE_PRECISION_INVALID": "Precisión de las coordenadas inválida",
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "Incertidumbre de las coordenadas inválida",
-    "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "",
+    "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "Incertidumbre en la precisión de las coordenadas inconsistente",
     "COUNTRY_COORDINATE_MISMATCH": "Las coordenadas no coinciden con el país",
     "COUNTRY_MISMATCH": "El país no coincide",
     "COUNTRY_INVALID": "País inválido",
@@ -42,11 +42,11 @@
     "IDENTIFIED_DATE_UNLIKELY": "Fecha identificada improbable",
     "IDENTIFIED_DATE_INVALID": "Fecha identificada errónea",
     "BASIS_OF_RECORD_INVALID": "Base del registro inválida",
-    "TYPE_STATUS_INVALID": "Estado del tipo erróneo",
-    "MULTIMEDIA_DATE_INVALID": "Fecha multimedia errónea",
+    "TYPE_STATUS_INVALID": "Estado del tipo inválido",
+    "MULTIMEDIA_DATE_INVALID": "Fecha multimedia inválida",
     "MULTIMEDIA_URI_INVALID": "URI de multimedia inválido",
     "REFERENCES_URI_INVALID": "URI de referencias inválido",
     "INTERPRETATION_ERROR": "Error de interpretación",
-    "INDIVIDUAL_COUNT_INVALID": "Cuenta individual errónea"
+    "INDIVIDUAL_COUNT_INVALID": "Conteo de individuos inválido"
   }
 }
