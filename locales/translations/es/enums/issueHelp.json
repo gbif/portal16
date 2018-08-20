@@ -6,7 +6,7 @@
     "RECORDED_DATE_INVALID": "",
     "PRESUMED_NEGATED_LATITUDE": "Latitud parece ser negativa, e.g. 32.3 en lugar de -32.3",
     "UNKNOWN_TERM": "Se desconoce un término utilizado en la definición del 'core' o extensión",
-    "DEPTH_MIN_MAX_SWAPPED": "",
+    "DEPTH_MIN_MAX_SWAPPED": "Establecer si se suministra mín>máx",
     "ORIGINAL_NAME_DERIVED": "",
     "ELEVATION_UNLIKELY": "",
     "PARENT_NAME_NOT_UNIQUE": "",
