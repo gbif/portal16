@@ -7,8 +7,8 @@
     "VERBATIM_BASIONYM": "Uso implícito de un basiónimo original.",
     "PROPARTE": "Uso duplicado de un registro simple pro parte.",
     "AUTONYM": "Generado, falta autónimo.",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
+    "IMPLICIT_NAME": "Generado, falta género o especie para los 'huérfanos' en nombre inferior.",
+    "MISSING_ACCEPTED": "Uso aceptado artificial para un sinónimo si falta, para preservar la jerarquía taxonómica.",
     "BASIONYM_PLACEHOLDER": "",
     "EX_AUTHOR_SYNONYM": "",
     "OTHER": ""
