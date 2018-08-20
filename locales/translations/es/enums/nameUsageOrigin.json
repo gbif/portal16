@@ -1,10 +1,10 @@
 {
   "nameUsageOrigin": {
     "SOURCE": "El registro procede directamente del registro original.",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
+    "DENORMED_CLASSIFICATION": "Uso implícito de una clasificación desnormalizada.",
+    "VERBATIM_PARENT": "Uso implícito de un nombre parental usado original.",
+    "VERBATIM_ACCEPTED": "Uso implícito de un nombre aceptado usado original.",
+    "VERBATIM_BASIONYM": "Uso implícito de un basiónimo original.",
     "PROPARTE": "",
     "AUTONYM": "",
     "IMPLICIT_NAME": "",
