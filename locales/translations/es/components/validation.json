@@ -62,37 +62,37 @@
     "summary": "Resumen de validación",
     "issues": "Problemas de validación",
     "fileHasIssues": "Algunos problemas fueron detectados por el validador:",
-    "fileHasNoIssues": "",
-    "error": "",
+    "fileHasNoIssues": "No se encontraron problemas en el archivo",
+    "error": "Error",
     "errors": {
-      "400": "",
-      "404": "",
-      "413": "",
-      "415": ""
+      "400": "El archivo no se pudo procesar, o puede estar perdido si ingresó una dirección URL.",
+      "404": "No se encontró el identificador del trabajo de validación. Si considera que esto es un error, por favor, repórtelo.",
+      "413": "El archivo es demasiado grande, para ser procesado por el validador de datos.",
+      "415": "Tipo no admitido de archivo. El archivo podría no ser procesado."
     },
-    "backToValidator": "",
+    "backToValidator": "Comenzar una nueva validación",
     "termsFrequency": {
-      "title": "",
-      "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "title": "Frecuencia del término",
+      "term": "Término",
+      "count": "Conteo",
+      "percentage": "Porcentaje",
+      "interpreted": "Interpretado"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "Número de fechas interpretadas",
+      "taxon": "Número de filas con taxonomía interpretada",
+      "location": "Número de coordenadas interpretadas"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "Valor de conteo interpretado"
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
+      "title": "Estado",
+      "SUBMITTED": "Enviando documento",
+      "FETCHING": "Recuperando archivo",
+      "ACCEPTED": "La validación comezó",
+      "RUNNING": "Validación en progreso",
+      "FINISHED": "Validación completa",
       "FAILED": "",
       "CONTACTING_SERVER": ""
     },
