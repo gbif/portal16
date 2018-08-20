@@ -27,7 +27,17 @@
                         </td>
                         <td>
                             {% if occurrence.record[term.simpleName] | isDefined %}
+                               {% if term.simpleName !== "typeStatus" %}
                                 {$ shorten.shorten(occurrence.record[term.simpleName]) $}
+                                {% endif %}
+                                {% if term.simpleName == "typeStatus" %}
+                                 {% if occurrence.record.typifiedName and occurrence.record.typifiedName !== occurrence.record.scientificName %}
+                                 
+                                    <span translate="occurrence.typeOf" translate-values="{TYPE: '{$ occurrence.record.typeStatus $}', NAME: '{$ occurrence.record.typifiedName $}' }"></span>
+                                    {% else %}
+                                    <span translate="typeStatus.{$ occurrence.record.typeStatus $}"></span>
+                                    {% endif %}
+                                {% endif %}
                                 {% if term.simpleName == "organismID" %}
                                 <span class="chip">
                                     <a ui-sref="occurrenceSearchTable({organism_id: '{$ occurrence.record[term.simpleName] $}' })">
