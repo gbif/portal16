@@ -1,6 +1,6 @@
 {
   "nameUsageOrigin": {
-    "SOURCE": "El registro procede directamente del registro original.",
+    "SOURCE": "El registro procede directamente del registro fuente.",
     "DENORMED_CLASSIFICATION": "Uso implícito de una clasificación desnormalizada.",
     "VERBATIM_PARENT": "Uso implícito de un nombre parental usado original.",
     "VERBATIM_ACCEPTED": "Uso implícito de un nombre aceptado usado original.",
@@ -9,8 +9,8 @@
     "AUTONYM": "Generado, falta autónimo.",
     "IMPLICIT_NAME": "Generado, falta género o especie para los 'huérfanos' en nombre inferior.",
     "MISSING_ACCEPTED": "Uso aceptado artificial para un sinónimo si falta, para preservar la jerarquía taxonómica.",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "BASIONYM_PLACEHOLDER": "Uso de marcador de posición para un basiónimo faltante o implícito.",
+    "EX_AUTHOR_SYNONYM": "Sinónimo implícito basado en la ilegitimidad ex autor. Ver artículo 46 del CIN: http://www.iapt-taxon.org/nomen/main.php?page=art46",
+    "OTHER": "Otro origen"
   }
 }
