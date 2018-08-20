@@ -26,23 +26,23 @@
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "El creador del recurso está ausente o incompleto",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "La descripción del conjunto de datos está ausente o es demasiado corta",
       "LICENSE_MISSING_OR_UNKNOWN": "La licencia no puede ser analizada, no es compatible con GBIF o simplemente falta",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Registro no identificado de forma única",
+      "UNREADABLE_SECTION_ERROR": "Error de sección ilegible",
+      "NoIssuesFound": "No se han encontrado problemas"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "Formato del archivo",
+      "DWCA": "Archivo Darwin Core",
+      "TABULAR": "Archivo de texto (.cvs, .tsv)",
+      "SPREADSHEET": "Hoja de cálculo (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "Tipo de fila",
       "CORE": {
         "title": "Núcleo"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "Extensiones"
       },
       "METADATA": {
         "description": "",
