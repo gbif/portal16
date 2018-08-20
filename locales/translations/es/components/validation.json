@@ -45,23 +45,23 @@
         "title": "Extensiones"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Metadatos que describen los datos en EML (Lenguaje de Metadatos Ecológicos)",
+        "title": "Documento de metadatos"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "Anotación semántica que describe la estructura de los datos (archivos, columnas, etc.)",
+        "title": "Meta descriptor"
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
-    "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
+    "fileSizeLimit": "Límite de tamaño del archivo: 100 mb",
+    "receivedMediaType": "Tipo de medio",
+    "uniqueIdentifier": "Identificador único",
+    "reportLocation": "Este informe ha sido escrito por",
+    "reportDeletion": "Y se eliminarán después de un mes. Hasta ese momento se puede revisar el informe a su conveniencia.",
+    "reportGenerated": "Se ha generado",
+    "summary": "Resumen de validación",
+    "issues": "Problemas de validación",
+    "fileHasIssues": "Algunos problemas fueron detectados por el validador:",
     "fileHasNoIssues": "",
     "error": "",
     "errors": {
