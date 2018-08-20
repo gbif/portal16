@@ -73,8 +73,8 @@
     "SEROVAR": "Serovar",
     "CHEMOFORM": "",
     "FORMA_SPECIALIS": "",
-    "CULTIVAR": "",
-    "STRAIN": "",
+    "CULTIVAR": "Cultivar",
+    "STRAIN": "Cepa",
     "OTHER": "Otro",
     "UNRANKED": "Sin clasificar"
   }
