@@ -3,14 +3,14 @@
     "SOURCE": "Fuente",
     "DENORMED_CLASSIFICATION": "",
     "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
-    "PROPARTE": "",
-    "AUTONYM": "",
-    "IMPLICIT_NAME": "",
+    "VERBATIM_ACCEPTED": "Original aceptado",
+    "VERBATIM_BASIONYM": "Basiónimo original",
+    "PROPARTE": "Proparte",
+    "AUTONYM": "Autónimo",
+    "IMPLICIT_NAME": "Nombre implícito",
     "MISSING_ACCEPTED": "",
     "BASIONYM_PLACEHOLDER": "",
     "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "OTHER": "Otro"
   }
 }
