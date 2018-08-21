@@ -1,8 +1,8 @@
 {
   "issueEnum": {
-    "PARENT_NAME_USAGE_ID_INVALID": "",
-    "ACCEPTED_NAME_USAGE_ID_INVALID": "",
-    "ORIGINAL_NAME_USAGE_ID_INVALID": "",
+    "PARENT_NAME_USAGE_ID_INVALID": "ParentNameUsageID no válida",
+    "ACCEPTED_NAME_USAGE_ID_INVALID": "AcceptedNameUsageID no válida",
+    "ORIGINAL_NAME_USAGE_ID_INVALID": "OriginalNameUsageID no válida",
     "RANK_INVALID": "",
     "NOMENCLATURAL_STATUS_INVALID": "",
     "TAXONOMIC_STATUS_INVALID": "",
