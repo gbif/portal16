@@ -2,15 +2,15 @@
   "originEnum": {
     "SOURCE": "Fuente",
     "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
+    "VERBATIM_PARENT": "Parental orginal",
     "VERBATIM_ACCEPTED": "Original aceptado",
     "VERBATIM_BASIONYM": "Basiónimo original",
     "PROPARTE": "Proparte",
     "AUTONYM": "Autónimo",
     "IMPLICIT_NAME": "Nombre implícito",
-    "MISSING_ACCEPTED": "",
+    "MISSING_ACCEPTED": "Aceptado ausente",
     "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
+    "EX_AUTHOR_SYNONYM": "Autor ex del sinónimo",
     "OTHER": "Otro"
   }
 }
