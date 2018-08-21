@@ -9,7 +9,7 @@
     "AUTONYM": "Autónimo",
     "IMPLICIT_NAME": "Nombre implícito",
     "MISSING_ACCEPTED": "Aceptado ausente",
-    "BASIONYM_PLACEHOLDER": "",
+    "BASIONYM_PLACEHOLDER": "Basónimo de referencia",
     "EX_AUTHOR_SYNONYM": "Autor ex del sinónimo",
     "OTHER": "Otro"
   }
