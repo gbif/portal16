@@ -5,7 +5,7 @@
     "COORDINATE_INVALID": "Coordenada inválida",
     "COORDINATE_ROUNDED": "Coordenadas redondeadas",
     "GEODETIC_DATUM_INVALID": "Datum geodésico inválido",
-    "GEODETIC_DATUM_ASSUMED_WGS84": "Se asume datum geodésico WGS84",
+    "GEODETIC_DATUM_ASSUMED_WGS84": "Dato geodésico WGS84 asumido",
     "COORDINATE_REPROJECTED": "Coordenadas reproyectadas",
     "COORDINATE_REPROJECTION_FAILED": "Reproyección fallida de las coordenadas",
     "COORDINATE_REPROJECTION_SUSPICIOUS": "Reproyección sospechosa de las coordenadas",
