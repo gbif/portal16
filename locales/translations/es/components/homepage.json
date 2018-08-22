@@ -3,7 +3,7 @@
         "counts": {
             "occurrences": "Registros de presencia",
             "datasets": "Conjuntos de datos",
-            "publishers": "Instituciones que publican",
+            "publishers": "Publicadores",
             "species": "Especies",
             "speciesSubtitle": "Conoce más sobre el número de especies incluidas en los datos de GBIF.org"
         },

@@ -1,12 +1,12 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "",
-    "COORDINATE_REPROJECTION_FAILED": "",
-    "NO_SPECIES": "",
+    "BASIS_OF_RECORD_INVALID": "El valor de basisOfRecord falta o es inválido. Valor debe coincidir con el vocabulario controlado Darwin Core.",
+    "COORDINATE_REPROJECTION_FAILED": "El decimal asignado a latitud y longitud no permite que sean reproyectadas en WGS84, basados en el datum proporcionado.",
+    "NO_SPECIES": "El grupo (actualmente sólo probados con géneros) carecen de cualquier especie aceptada. Dificultad específica del árbol taxonómico de GBIF.",
     "RECORDED_DATE_INVALID": "",
-    "PRESUMED_NEGATED_LATITUDE": "",
-    "UNKNOWN_TERM": "",
-    "DEPTH_MIN_MAX_SWAPPED": "",
+    "PRESUMED_NEGATED_LATITUDE": "Latitud parece ser negativa, e.g. 32.3 en lugar de -32.3",
+    "UNKNOWN_TERM": "Se desconoce un término utilizado en la definición del 'core' o extensión",
+    "DEPTH_MIN_MAX_SWAPPED": "Establecer si se suministra mín>máx",
     "ORIGINAL_NAME_DERIVED": "",
     "ELEVATION_UNLIKELY": "",
     "PARENT_NAME_NOT_UNIQUE": "",

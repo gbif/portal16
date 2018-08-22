@@ -3,10 +3,10 @@
     "PRESERVED_SPECIMEN": "Espécimen preservado",
     "FOSSIL_SPECIMEN": "Espécimen fósil",
     "LIVING_SPECIMEN": "Espécimen vivo",
-    "OBSERVATION": "",
+    "OBSERVATION": "Observación",
     "HUMAN_OBSERVATION": "Observación humana",
     "MACHINE_OBSERVATION": "Observación con máquina",
-    "MATERIAL_SAMPLE": "",
+    "MATERIAL_SAMPLE": "Muestra de material",
     "LITERATURE": "Literatura",
     "UNKNOWN": "Desconocida",
     "undefined": "Desconocida"

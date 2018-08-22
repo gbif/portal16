@@ -1,12 +1,12 @@
 {
   "extensionEnum": {
-    "DESCRIPTION": "",
-    "DISTRIBUTION": "",
-    "IDENTIFIER": "",
-    "MULTIMEDIA": "",
-    "REFERENCE": "",
-    "SPECIES_PROFILE": "",
-    "TYPES_AND_SPECIMEN": "",
-    "VERNACULAR_NAME": ""
+    "DESCRIPTION": "Descripción",
+    "DISTRIBUTION": "Distribución",
+    "IDENTIFIER": "Identificador",
+    "MULTIMEDIA": "Multimedia",
+    "REFERENCE": "Referencia",
+    "SPECIES_PROFILE": "Perfil de especies",
+    "TYPES_AND_SPECIMEN": "Tipos y especímenes",
+    "VERNACULAR_NAME": "Nombre vernáculo"
   }
 }
