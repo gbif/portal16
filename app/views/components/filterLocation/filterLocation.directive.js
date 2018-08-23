@@ -143,7 +143,6 @@ function filterLocationDirective(BUILD_VERSION) {
         }
 
         vm.addString = function() {
-            console.log('test');
             var parsingResult = parseStringToWKTs(vm.geometryString);
 
             if (parsingResult.geometry) {
