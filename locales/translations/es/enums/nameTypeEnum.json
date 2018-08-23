@@ -4,12 +4,12 @@
     "DOUBTFUL": "Dudoso",
     "BLACKLISTED": "En la lista negra",
     "VIRUS": "Virus",
-    "HYBRID": "Fórmula híbrida",
+    "HYBRID": "Fórmula del híbrido",
     "INFORMAL": "Informal",
     "OTU": "Unidad taxonómica operacional",
-    "CULTIVAR": "",
+    "CULTIVAR": "Cultivar",
     "CANDIDATUS": "Candidato",
-    "PLACEHOLDER": "",
+    "PLACEHOLDER": "Referente",
     "NO_NAME": "Sin nombre"
   }
 }

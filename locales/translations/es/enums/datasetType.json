@@ -1,7 +1,7 @@
 {
   "datasetType": {
     "OCCURRENCE": "Registro",
-    "CHECKLIST": "Listado taxonómico",
+    "CHECKLIST": "Lista de especies",
     "SAMPLING_EVENT": "Evento de muestreo",
     "METADATA": "Metadatos",
     "undefined": "Desconocido"
