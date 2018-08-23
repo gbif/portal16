@@ -1,6 +1,6 @@
 {
   "occurrence": {
-    "typeOf": "",
+    "typeOf": "{TYPE} of {NAME}",
     "coordinates": "Coordinates",
     "unknownDate": "Unknown date",
     "absent": "Absent",
