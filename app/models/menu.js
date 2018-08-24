@@ -43,7 +43,14 @@ module.exports = [
         'name': 'datasetClasses',
         'url': '/dataset-classes'
       },
-
+      {
+        'name': 'dataQuality',
+        'url': '/data-quality-requirements'
+      },
+      {
+        'name': 'dataHosting',
+        'url': '/article/4qfLORxmM8kYOIwSYSMc2M/data-hosting'
+      },
       {
         'name': 'endorsement',
         'url': '/become-a-publisher'
