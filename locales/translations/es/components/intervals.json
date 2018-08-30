@@ -2,24 +2,24 @@
     "intervals": {
         "noFilter": "Sin filtros",
         "elevation": {
-            "equals": "Is m",
+            "equals": "Es m",
             "between": "Entre y m",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "Incorrecto",
+            "lessThanOrEquals": "Debajo de los {to}m",
+            "greaterThanOrEquals": "Por encima de los {from}m",
+            "invalid": "Inválido",
             "select": {
                 "equals": "Es",
                 "between": "Entre",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Abajo",
+                "greaterThanOrEquals": "Arriba"
             }
         },
         "depth": {
             "equals": "Es m",
             "between": "Entre y m",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "Incorrecto",
+            "lessThanOrEquals": "Por encima de {to}m profundidad",
+            "greaterThanOrEquals": "Más profundo que {from}m",
+            "invalid": "Inválido",
             "select": {
                 "equals": "Es",
                 "between": "Entre",
@@ -32,7 +32,7 @@
             "between": "Entre el comienzo de y el final de",
             "lessThanOrEquals": "Antes del final de",
             "greaterThanOrEquals": "Tras el comienzo de",
-            "invalid": "Incorrecto",
+            "invalid": "Inválido",
             "select": {
                 "equals": "Es",
                 "between": "Entre",

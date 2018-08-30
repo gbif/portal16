@@ -12,11 +12,11 @@
     "dataFrom": "Datos de",
     "dataAboutCountry": "Datos sobre",
     "publishingTrends": "Tendencias de publicación",
-    "noDataPublishingActivity": "Sin actividad publicadora de datos",
-    "noInstitutionsHavePublished": "No existen instituciones de éste país que hayan publicado datos en GBIF",
+    "noDataPublishingActivity": "Sin actividad de publicación de datos",
+    "noInstitutionsHavePublished": "No existen instituciones de este país que haya publicado datos mediante GBIF",
     "trendsAboutCountry": "Tendencias sobre",
-    "nFrom": "",
-    "nAbout": "",
+    "nFrom": "{NUMBER_FORMATTED} de",
+    "nAbout": "{NUMBER_FORMATTED} sobre",
     "viewAllN": "Ver todos",
     "noPublications": "Sin publicaciones",
     "notParticipant": "No es participante",
@@ -24,13 +24,13 @@
     "countryNamingDisclaimer": "Los nombres de los países y áreas están basados en el [estándar ISO 3166-1](https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "Registros de presencia",
-      "datasets": "Juegos de datos",
-      "publishers": "Proveedores",
-      "countriesAndAreasContributeData": "",
+      "datasets": "Conjuntos de datos",
+      "publishers": "Publicadores",
+      "countriesAndAreasContributeData": "Países y áreas que contribuyen con datos",
       "publishedOccurrences": "Registros de presencia publicados",
-      "publishedDatasets": "Juegos de datos publicados",
+      "publishedDatasets": "Conjuntos de datos publicados",
       "countriesAndAreasCoveredByDataFrom": "Países y áreas cubiertas por datos de",
-      "publishersFrom": "Proveedores de"
+      "publishersFrom": "Publicadores de"
     },
     "activityReport": "Informe de actividad"
   }

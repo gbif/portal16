@@ -179,7 +179,7 @@ function createMap(element, options) {
             });
             cb(geometries);
             setTimeout(function() {
-                map.addInteraction(snap);
+                if (snap) map.addInteraction(snap);
                 map.addInteraction(modify);
             });
             });

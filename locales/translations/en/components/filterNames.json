@@ -18,7 +18,7 @@
     "location": "Location",
     "hasGeospatialIssue": "Has geospatial issue",
     "basisOfRecord": "Basis of record",
-    "issue": "Remarks",
+    "issue": "Issues and flags",
     "locality": "Locality",
     "lastInterpreted": "Last interpreted",
     "waterBody": "Water body",

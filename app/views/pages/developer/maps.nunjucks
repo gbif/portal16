@@ -45,7 +45,8 @@
                         The following features are supported:
                     <ul>
                         <li>Map layers are available for a <strong>country</strong>, <strong>dataset</strong>,
-                            <strong>taxon</strong> (species, subspecies or higher taxon), <strong>publisher</strong> or <strong>publishing country</strong>.
+                            <strong>taxon</strong> (species, subspecies or higher taxon), <strong>publisher</strong>,
+                            <strong>publishing country</strong> or <strong>network</strong>.
                             These layers can be filtered by <strong>year range</strong> and <strong>basis of record</strong>.
                         </li>
                         <li>Data is returned as points, or "binned" into hexagons or squares.</li>
@@ -161,7 +162,7 @@
                     </p>
 
                     <p>
-                        <em>One</em> primary search parameter is permitted, from these: <code>taxonKey</code>, <code>datasetKey</code>, <code>country</code>, <code>publishingOrg</code>, <code>publishingCountry</code>.
+                        <em>One</em> primary search parameter is permitted, from these: <code>taxonKey</code>, <code>datasetKey</code>, <code>country</code>, <code>networkKey</code>, <code>publishingOrg</code>, <code>publishingCountry</code>.
                     </p>
 
                     <p>
@@ -184,7 +185,7 @@
                                 All occurrences &mdash; no additional parameters<br/>
                                 <code>https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?style=purpleYellow.point</code>
                             </td>
-                            <td><a href="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?style=purpleYellow.point"><img src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?style=purpleYellow.point" width="64" height="64" /></a></td>
+                            <td><a href="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?style=purpleYellow.point"><img src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?style=purpleYellow.point" width="64" height="64" style="max-width: inherit; background-image: url(https://tile.gbif.org/3857/omt/0/0/0@1x.png?style=gbif-light); background-size: 64px 64px;"/></a></td>
                         </tr>
 
                         <tr>
@@ -192,7 +193,7 @@
                                 All birds (<i>Aves</i>) by small hexagons<br/>
                                 <code>https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?taxonKey=212&bin=hex&hexPerTile=30&style=classic-noborder.poly</code>
                             </td>
-                            <td><a href="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?taxonKey=212&bin=hex&hexPerTile=30&style=classic-noborder.poly"><img src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?taxonKey=212&bin=hex&hexPerTile=30&style=classic-noborder.poly" width="64" height="64" /></a></td>
+                            <td><a href="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?taxonKey=212&bin=hex&hexPerTile=30&style=classic-noborder.poly"><img src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?taxonKey=212&bin=hex&hexPerTile=30&style=classic-noborder.poly" width="64" height="64" style="max-width: inherit; background-image: url(https://tile.gbif.org/3857/omt/0/0/0@1x.png?style=gbif-light); background-size: 64px 64px;"/></a></td>
                         </tr>
 
                         <tr>
@@ -200,21 +201,21 @@
                                 All birds observed by machine between 2015 and 2017 as squares<br/>
                                 <code>https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?taxonKey=212&basisOfRecord=MACHINE_OBSERVATION&years=2015,2017&bin=square&squareSize=128&style=purpleYellow-noborder.poly</code>
                             </td>
-                            <td><a href="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?taxonKey=212&basisOfRecord=MACHINE_OBSERVATION&years=2015,2017&bin=square&squareSize=128&style=purpleYellow-noborder.poly"><img src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?taxonKey=212&basisOfRecord=MACHINE_OBSERVATION&years=2015,2017&bin=square&squareSize=128&style=purpleYellow-noborder.poly" width="64" height="64" /></a></td>
+                            <td><a href="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?taxonKey=212&basisOfRecord=MACHINE_OBSERVATION&years=2015,2017&bin=square&squareSize=128&style=purpleYellow-noborder.poly"><img src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?taxonKey=212&basisOfRecord=MACHINE_OBSERVATION&years=2015,2017&bin=square&squareSize=128&style=purpleYellow-noborder.poly" width="64" height="64" style="max-width: inherit; background-image: url(https://tile.gbif.org/3857/omt/0/0/0@1x.png?style=gbif-light); background-size: 64px 64px;"/></a></td>
                         </tr>
 
                         <tr>
                             <td>All preserved, fossil or living specimens from before 1900 published by Swedish publishers, in Arctic projection<br/>
                                 <code>https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?srs=EPSG:3575&publishingCountry=SE&basisOfRecord=PRESERVED_SPECIMEN&basisOfRecord=FOSSIL_SPECIMEN&basisOfRecord=LIVING_SPECIMEN&year=1600,1899&bin=square&squareSize=128&style=green.poly</code>
                             </td>
-                            <td><a href="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?srs=EPSG:3575&publishingCountry=SE&basisOfRecord=PRESERVED_SPECIMEN&basisOfRecord=FOSSIL_SPECIMEN&basisOfRecord=LIVING_SPECIMEN&year=1600,1899&bin=square&squareSize=128&style=green.poly"><img src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?srs=EPSG:3575&publishingCountry=SE&basisOfRecord=PRESERVED_SPECIMEN&basisOfRecord=FOSSIL_SPECIMEN&basisOfRecord=LIVING_SPECIMEN&year=1600,1899&bin=square&squareSize=128&style=green.poly" width="64" height="64" /></a></td>
+                            <td><a href="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?srs=EPSG:3575&publishingCountry=SE&basisOfRecord=PRESERVED_SPECIMEN&basisOfRecord=FOSSIL_SPECIMEN&basisOfRecord=LIVING_SPECIMEN&year=1600,1899&bin=square&squareSize=128&style=green.poly"><img src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@1x.png?srs=EPSG:3575&publishingCountry=SE&basisOfRecord=PRESERVED_SPECIMEN&basisOfRecord=FOSSIL_SPECIMEN&basisOfRecord=LIVING_SPECIMEN&year=1600,1899&bin=square&squareSize=128&style=green.poly" width="64" height="64" style="max-width: inherit; background-image: url(https://tile.gbif.org/3575/omt/0/0/0@1x.png?style=gbif-light); background-size: 64px 64px;"/></a></td>
                         </tr>
 
                         <tr>
                             <td>Ad-hoc query for occurrences with images, observed in January<br/>
                                 <code>https://api.gbif.org/v2/map/occurrence/adhoc/{z}/{x}/{y}@1x.png?srs=EPSG:4326&style=classic.poly&bin=square&squareSize=128&mediaType=StillImage&month=1</code>
                             </td>
-                            <td><a href="https://api.gbif.org/v2/map/occurrence/adhoc/0/0/0@1x.png?srs=EPSG:4326&style=classic.poly&bin=square&squareSize=128&mediaType=StillImage&month=1"><img src="https://api.gbif.org/v2/map/occurrence/adhoc/0/0/0@1x.png?srs=EPSG:4326&style=classic.poly&bin=square&squareSize=128&mediaType=StillImage&month=1" width="64" height="64" /></a></td>
+                            <td><a href="https://api.gbif.org/v2/map/occurrence/adhoc/0/0/0@1x.png?srs=EPSG:4326&style=classic.poly&bin=square&squareSize=128&mediaType=StillImage&month=1"><img src="https://api.gbif.org/v2/map/occurrence/adhoc/0/0/0@1x.png?srs=EPSG:4326&style=classic.poly&bin=square&squareSize=128&mediaType=StillImage&month=1" width="64" height="64" style="max-width: inherit; background-image: url(https://tile.gbif.org/4326/omt/0/0/0@1x.png?style=gbif-light); background-size: 64px 64px;"/></a></td>
                         </tr>
                     </table>
                     </p>

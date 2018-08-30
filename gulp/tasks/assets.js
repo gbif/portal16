@@ -1,9 +1,7 @@
 'use strict';
 
 let gulp = require('gulp'),
-    g = require('gulp-load-plugins')(),
-    config = rootRequire('config/build'),
-    configEnv = rootRequire('config/config');
+    config = rootRequire('config/build');
 
 gulp.task('assets', [], function() {
     return gulp.src(config.assets.paths)

@@ -79,7 +79,13 @@
                     {% if occurrence.record.typeStatus | isNotEmpty %}
                         <div>
                             <dt>{$ __('occurrence.highlights.specimenType') $}</dt>
-                            <dd>{$ __('typeStatus.' + occurrence.record.typeStatus) $}</dd>
+
+                                {% if occurrence.record.typifiedName and occurrence.record.typifiedName !== occurrence.record.scientificName %}
+                                    <dd translate="occurrence.typeOf" translate-values="{TYPE: '{$ occurrence.record.typeStatus $}', NAME: '{$ occurrence.record.typifiedName $}' }"></dd>
+                                {% else %}
+                                    <dd translate="typeStatus.{$ occurrence.record.typeStatus $}"></dd>
+                                {% endif %}
+                               
                         </div>
                     {% endif %}
                     {% if occurrence.record.organismID | isNotEmpty %}

@@ -43,7 +43,7 @@
     "continue": "Continuar",
     "forgotPassword": "¿Olvidaste tu contraseña?",
     "unknownUser": "Incapaz de iniciar sesión. Usuario o contraseña desconocidos",
-    "signIn": "Registrarse",
+    "signIn": "Iniciar sesión",
     "or": "O",
     "continueWithProvider": "Continuar con {PROVEEDOR}",
     "signUpWithProvider": "Conectarse con {PROVEEDOR}",
@@ -51,7 +51,7 @@
     "disconnectWithProvider": "Desconectar {PROVEEDOR}",
     "signInAgreement": "Al registrarse, acepta los términos de la política de privacidad de GBIF",
     "country": "País",
-    "countryRequired": "Se requiere el país",
+    "countryRequired": "País obligatorio",
     "email": "Correo electrónico",
     "emailRequired": "Se requiere el correo electrónico",
     "invalidEmail": "Por favor, introduce una dirección de correo electrónico válida",
@@ -59,10 +59,10 @@
     "usernameRequired": "Se requiere nombre de usuario",
     "invalidUsername": "Un nombre de usuario válido contiene entre 3 y 64 caracteres y solo contiene letras entre la a y la z (minúsculas) y ._-",
     "passwordRequired": "Se requiere contraseña",
-    "passwordLength": "La contraseña ha de ser de 6 o más caracteres",
-    "passwordMaxLength": "Tu contraseña no puede superar los 156 caracteres",
+    "passwordLength": "La contraseña debe tener 6 o más caracteres",
+    "passwordMaxLength": "Tu contraseña no puede superar los 256 caracteres",
     "next": "Siguiente",
-    "pleaseFillForm": "Por favor, cumplimenta el formulario",
+    "pleaseFillForm": "Por favor, completa el formulario",
     "selectAllImages": "Selecciona todas las imagenes siguientes como ésta",
     "signUp": "Registrarse",
     "cancel": "Cancelar",
@@ -81,6 +81,6 @@
     "passwordChangeInvalid": "Contraseña incorrecta - si has olvidado tu contraseña, cierra sesión y utiliza reestablecer contraseña",
     "verficationLinkSent": "Te hemos enviado un correo electrónico con un enlace de verificación para asegurarnos que es tu cuenta de correo electrónico. Bienvenido a GBIF",
     "resetPasswordRequest": "Reestablecimiento de contraseña solicitado",
-    "resetPasswordMessage": "Te hemos enviado un correo electrónico con un link para reestablecer tu contraseña"
+    "resetPasswordMessage": "Te hemos enviado un correo electrónico con un enlace para reestablecer tu contraseña."
   }
 }

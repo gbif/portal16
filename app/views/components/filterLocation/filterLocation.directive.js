@@ -250,6 +250,7 @@ function parseStringToWKTs(str) {
         for (i = 0; i < geojson.length; i++) {
             feature = geojson[i].getGeometry();
             wktGeom = wktformat.writeGeometry(feature);
+            wktGeom = getRightHandCorrectedWKT(wktGeom);
             wktGeometries.push(wktGeom);
         }
     } catch (e) {
@@ -273,15 +274,25 @@ function parseStringToWKTs(str) {
 
 function isValidWKT(testWKT) {
     try {
-        var f = wktformat.readFeature(testWKT);
-        var asGeoJson = geojsonformat.writeFeature(f, {rightHanded: true});
-        var rightHandCorrectedFeature = geojsonformat.readFeature(asGeoJson);
-        var newWkt = wktformat.writeFeature(rightHandCorrectedFeature, {
-            rightHanded: true
-        });
-
+        testWKT = formatWkt(testWKT);
+        var newWkt = getRightHandCorrectedWKT(testWKT);
         return testWKT === newWkt;
     } catch (err) {
         return false;
     }
+}
+
+function formatWkt(wktStr) {
+    var f = wktformat.readFeature(wktStr);
+    return wktformat.writeFeature(f);
+}
+
+function getRightHandCorrectedWKT(wktStr) {
+    var f = wktformat.readFeature(wktStr);
+    var asGeoJson = geojsonformat.writeFeature(f, {rightHanded: true});
+    var rightHandCorrectedFeature = geojsonformat.readFeature(asGeoJson);
+    var newWkt = wktformat.writeFeature(rightHandCorrectedFeature, {
+        rightHanded: true
+    });
+    return newWkt;
 }

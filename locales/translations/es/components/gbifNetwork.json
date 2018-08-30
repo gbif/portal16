@@ -1,53 +1,53 @@
 {
   "gbifNetwork": {
-    "title": "",
-    "contact": "",
+    "title": "Directorio",
+    "contact": "Contacto",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Participante votante",
+      "other": "Participantes votantes"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "País participante asociado",
+      "other": "Países asociados participantes"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "Otro participante asociado",
+      "other": "Otros participantes asociados"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Antiguo participante",
+      "other": "Antiguos participantes"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "Afiliado a GBIF",
+      "other": "Afiliados a GBIF"
     },
-    "role": "",
+    "role": "Rol",
     "group": {
 
     },
     "gbif_secretariat": "Secretariado de GBIF",
-    "membershipType": "",
-    "name": "",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
-    "datasets": "",
-    "regionalRepresentative": "",
+    "membershipType": "Miembro",
+    "name": "Nombre",
+    "endorsedDataPublisher": "Ha sido adherido {NUMBER_FORMATTED} dato {NUMBER, select, one{publicador} other{publicadores}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participante} other{participantes}}",
+    "dataset": "{NUMBER, select, one{conjunto de datos} other{conjuntos de datos}}",
+    "datasets": "Conjuntos de datos",
+    "regionalRepresentative": "{NUMBER, select, one{representante} other{representantes}}",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Organizaciones participantes",
+      "gbifAffiliates": "Afiliados a GBIF"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Jefe de delegación",
-      "NODE_MANAGER": "Gestor del nodo"
+      "NODE_MANAGER": "Administrador del nodo"
     },
-    "publishers": "",
-    "memberSince": "",
-    "participant": "",
-    "pPublishers": "",
-    "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": ""
+    "publishers": "Publicadores",
+    "memberSince": "Miembro desde",
+    "participant": "Participante",
+    "pPublishers": "{NUMBER, select, 1{publicador} other{publicadores}}",
+    "pOccurrence": "{NUMBER, select, 1{registro} other{registros}}",
+    "occurrenceDatasets": "Conjunto de datos de registros",
+    "occurrences": "Registros"
   }
 }
