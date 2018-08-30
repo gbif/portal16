@@ -22,7 +22,7 @@
     "ipt": "IPT",
     "dataValidator": "Средства проверки данных",
     "suggestDataset": "Сообщить о наборе данных",
-    "dataRepository": "",
+    "dataRepository": "Хранилище данных",
     "developers": "Пользователи",
     "api": "GBIF API",
     "rgbif": "Rgbif",
