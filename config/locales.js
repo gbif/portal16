@@ -18,6 +18,13 @@ if (env === 'staging' || env === 'local' || env === 'dev') {
     locales.push('ar-MOCK');
 }
 
+if (env === 'uat' || env === 'local') {
+    locales.push('fr');
+    locales.push('pt');
+    locales.push('ru');
+    locales.push('zh');
+}
+
 // if the locale is something we translate to in contentful, then add the mapping here.
 let contentfulLocaleMap = {}; // the contentful map should not handle locales that are not included in our contentful space hence no : _.keyBy(locales);
 // overwrites
