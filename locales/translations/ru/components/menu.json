@@ -52,10 +52,10 @@
     "events": "Мероприятия",
     "awards": "Награды",
     "ProgrammesProjects": "Программы и проекты",
-    "capacitySupport": "Программа поддержки развития потенциала (CESP)",
-    "bidProgramme": "",
-    "bifaProgramme": "",
+    "capacitySupport": "CESP: Программа поддержки развития потенциала",
+    "bidProgramme": "BID: Информация о биоразннобразии для развития",
+    "bifaProgramme": "BIFA: Фонд информации о биоразннобразии для Азии",
     "funders": "Спонсоры",
-    "governance": ""
+    "governance": "Руководство"
   }
 }
