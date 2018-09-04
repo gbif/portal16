@@ -41,13 +41,13 @@
       "username": "O seu email ou nome de utilizador Github (público)"
     },
     "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "issueTracking": "Todos os problemas estão visíveis ao público em [Github](https://github.com/gbif/portal-feedback/issues)",
+    "failure": "Alguma coisa não está bem — o sistema de comentários não funciona. Por favor envie-nos um email ou vá directamente ao [Github](https://github.com/gbif/portal-feedback/issues). Pedimos desculpa por este inconveniente.",
+    "weRecommendX": "Recomendamos o uso de [{NAME}]({LINK})",
+    "tellGbif": "Diga ao GBIF",
+    "submit": "Submeter",
+    "seeAllComments": "Ver todos",
+    "recommendMail": "Recomendamos o envio de um email a",
+    "pleaseLogin": "Por favor inicie a sessão para deixar comentários. Em alternativa, pode usar o [Github](https://github.com/gbif/portal-feedback/issues).\nA razão? Infelizmente estaremos a receber demasiado spam no nosso sistema de comentários, se não solicitarmos o início da sessão."
   }
 }
