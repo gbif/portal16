@@ -1,9 +1,9 @@
 {
   "datasetType": {
-    "OCCURRENCE": "Une occurrence",
-    "CHECKLIST": "",
-    "SAMPLING_EVENT": "",
-    "METADATA": "Les métadonnées",
-    "undefined": ""
+    "OCCURRENCE": "Occurrence",
+    "CHECKLIST": "Liste d'espèces",
+    "SAMPLING_EVENT": "Événement d’échantillonnage",
+    "METADATA": "Métadonnées",
+    "undefined": "Inconnu"
   }
 }
