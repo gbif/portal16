@@ -9,19 +9,19 @@
       "title": "Conteúdo",
       "example": "Tal como: Essa página contém um erro de digitação. Essa espécie não existe. Esse local parece suspeito. O novo URL para essa organização é...",
       "annotate": "Este publicador tem um sítio para receber comentários. Recomendamos o seu uso.",
-      "contactPerMail": ""
+      "contactPerMail": "Comunique com o contato do conjunto de dados"
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "Bug",
+      "example": "Tal como: O botão de pesquisa não funciona. A página não carrega. Não consigo ler porque as colunas se sobrepõem."
     },
     "idea": {
-      "title": "",
-      "example": ""
+      "title": "Ideia",
+      "example": "Tal como: Gostaria de ter links para dados de sequências genéticas relacionadas. Mostre-me todos os artigos em acesso aberto."
     },
     "question": {
-      "title": "",
-      "example": "",
+      "title": "Suporte técnico",
+      "example": "Tal como: Como proteger dados de espécies raras? Pode ajudar-me a encontrar todos os registos de esta espécie que ocorrem em águas internacionais?",
       "description": "",
       "comment": ""
     },
