@@ -2,38 +2,38 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Não foi possível ligar ao Facebook",
+        "GITHUB": "Não foi possível ligar ao Github"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Não foi iniciar sessão no Facebook",
+        "GITHUB": "Não foi iniciar sessão no Github"
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
+      "USERNAME_NOT_UNIQUE": "Este nome de utilizador já está a ser usado",
       "LOGIN_UNKNOWN": "",
-      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
-      "USER_ALREADY_LOGGED_IN": "",
-      "EMAIL_IN_USE": "",
-      "NO_EMAIL_PROVIDED": "",
-      "FAILED": ""
+      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "Este perfil já está associado a outra conta",
+      "USER_ALREADY_LOGGED_IN": "Já tem sessão iniciada",
+      "EMAIL_IN_USE": "O e-mail já está a ser utilizado",
+      "NO_EMAIL_PROVIDED": "E-mail não fornecido",
+      "FAILED": "O servidor falhou ao processar o pedido"
     },
-    "loginText": "",
-    "register": "",
-    "downloads": "",
-    "repeatPassword": "",
-    "repeatNewPassword": "",
-    "passwordsNotIdentical": "",
-    "setPassword": "",
-    "newPassword": "",
-    "invalidLinkMessage": "",
-    "logout": "",
-    "profile": "",
-    "invalidLink": "",
-    "noDownloads": "",
+    "loginText": "Iniciar sessão",
+    "register": "Registar",
+    "downloads": "Transferências",
+    "repeatPassword": "Repetir a palavra-passe",
+    "repeatNewPassword": "Repetir a nova palavra-passe",
+    "passwordsNotIdentical": "As duas palavras-passe não são idênticas",
+    "setPassword": "Definir a palavra-passe",
+    "newPassword": "Nova palavra-passe",
+    "invalidLinkMessage": "Os links nos emails devem ser utilizados nos primeiros 30 minutos e só funcionam uma vez.",
+    "logout": "Terminar sessão",
+    "profile": "Perfil",
+    "invalidLink": "Link inválido",
+    "noDownloads": "Ainda não fez transferências",
     "suggestToSearchOccurrences": "",
     "welcome": "",
     "accountConfirmed": "",
