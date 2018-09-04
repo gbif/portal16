@@ -1,8 +1,8 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
-            "datasets": "",
+            "occurrences": "Enregistrements d'occurrences",
+            "datasets": "Jeux de données",
             "publishers": "",
             "species": "",
             "speciesSubtitle": ""
