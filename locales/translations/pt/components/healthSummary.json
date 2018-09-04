@@ -7,16 +7,16 @@
             "OPERATIONAL": "Todos os sistemas operacionais",
             "INFO": "Todos os sistemas operacionais",
             "WARNING": "Estamos a ter problemas com sistemas instáveis ou lentos",
-            "CRITICAL": "Estamos a ter problemas com uma paralisação parcial dos sistemas"
+            "CRITICAL": "Estamos a ter problemas devido a uma paralisação parcial dos sistemas"
         },
         "notifications": {
             "WARNING": {
                 "title": "Serviços instáveis",
-                "summary": ""
+                "summary": "Estamos actualmente com problemas devido a serviços lentos ou instáveis."
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "Serviços indisponíveis",
+                "summary": "Estamos a ter problemas devido a uma paralisação parcial dos sistemas"
             }
         }
     }
