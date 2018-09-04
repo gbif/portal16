@@ -14,7 +14,7 @@
     },
     "error": {
       "USERNAME_NOT_UNIQUE": "Este nome de utilizador já está a ser usado",
-      "LOGIN_UNKNOWN": "",
+      "LOGIN_UNKNOWN": "Esta início de sessão não está associado a nenhuma conta - se já possui uma conta, então inicie a sessão com o nome de utilizador/email e palavra-passe. Ou então pode registar uma nova conta.",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "Este perfil já está associado a outra conta",
       "USER_ALREADY_LOGGED_IN": "Já tem sessão iniciada",
       "EMAIL_IN_USE": "O e-mail já está a ser utilizado",
@@ -78,9 +78,9 @@
     "changePassword": "Alterar a palavra-passe",
     "accountCreated": "Conta criada",
     "accountInfoUpdated": "A sua conta foi atualizada",
-    "passwordChangeInvalid": "",
-    "verficationLinkSent": "",
-    "resetPasswordRequest": "",
-    "resetPasswordMessage": ""
+    "passwordChangeInvalid": "Palavra-passe inválida - se esqueceu a sua palavra-passe, encerrar a sessão e use a redefinição de palavra-passe",
+    "verficationLinkSent": "Foi-lhe enviado um e-mail com um link de verificação para confirmar que este é o seu endereço de email. Bem-vindo ao GBIF",
+    "resetPasswordRequest": "Pedido de reposição da palavra-passe",
+    "resetPasswordMessage": "Enviamos-lhe um e-mail para redefinir a sua palavra-passe."
   }
 }
