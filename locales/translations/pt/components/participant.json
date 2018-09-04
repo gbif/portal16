@@ -2,19 +2,19 @@
     "participant": {
         "participant": "Participante",
         "participantSummary": "Sumário do participante",
-        "endorsedPublishers": "",
-        "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
+        "endorsedPublishers": "Publicadores avalizados",
+        "noEndorsedPublishers": "Publicadores não avalizados",
+        "memberStatus": "Estado do Membro",
+        "gbifParticipantSince": "Participante no GBIF desde",
         "headOfDelegation": "Chefe de delegação",
-        "gbifRegion": "",
-        "countryOrArea": "",
-        "nodeName": "",
-        "nodeEstablished": "",
-        "website": "",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "gbifRegion": "Região do GBIF",
+        "countryOrArea": "País ou área",
+        "nodeName": "Nome do Nó",
+        "nodeEstablished": "Estabelecimento do Nó",
+        "website": "Página Web",
+        "participantNodeManager": "Coordenador do Nó de Participante",
+        "pending": "Pendente",
+        "latestDatasetsPublished": "Últimos conjuntos de dados publicados",
+        "noDatasets": "Sem conjuntos de dados publicados"
     }
 }
