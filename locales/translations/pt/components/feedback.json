@@ -22,23 +22,23 @@
     "question": {
       "title": "Suporte técnico",
       "example": "Tal como: Como proteger dados de espécies raras? Pode ajudar-me a encontrar todos os registos de esta espécie que ocorrem em águas internacionais?",
-      "description": "",
-      "comment": ""
+      "description": "Todas as questões são respondidas pelo nosso suporte em helpdesk@gbif.org",
+      "comment": "Para consultas particulares e perguntas não técnicas pode contatar-nos em [info@gbif.org] (mailto:info@gbif.org) ou em [communication@gbif.org] (mailto:communication@gbif.org) para assuntos de imprensa."
     },
     "confirmation": {
-      "title": "",
+      "title": "Obrigado",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "Ver problema"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "Problemas de conteúdo",
+      "description": "Problemas de conteúdo referidos por outros utilizadores",
+      "create": "Deixe comentário"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "Sumário",
+      "description": "Descrição detalhada. Para questões taxonómicas, por favor forneça uma referência",
+      "username": "O seu email ou nome de utilizador Github (público)"
     },
     "markdownSupport": "",
     "issueTracking": "",
