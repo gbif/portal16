@@ -1,15 +1,15 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Laisser un commentaire",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Commentaires et questions",
+      "example": "Aidez-nous à résoudre tous les problèmes en choisissant quel type de commentaire vous fournissez"
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "title": "Contenu",
+      "example": "Tels que : cette page contient une faute de frappe. Cette espèce n’existe pas. Cet endroit semble suspect. La nouvelle URL pour cette organisation est...",
+      "annotate": "Cet éditeur de données a un site web pour la gestion des commentaires. Nous vous recommandons de l'utiliser.",
+      "contactPerMail": "Contacter l’interlocuteur du jeu de données"
     },
     "bug": {
       "title": "",
@@ -40,7 +40,7 @@
       "description": "",
       "username": ""
     },
-    "markdownSupport": "",
+    "markdownSupport": "Prise en charge du format Markdown",
     "issueTracking": "",
     "failure": "",
     "weRecommendX": "",

@@ -17,18 +17,18 @@
     },
     "idea": {
       "title": "Idea",
-      "example": "Tales como: Yo quiero los enlaces a la secuencia genética relacionada. Muéstrame todos los artículos de acceso abierto."
+      "example": "Tales como: quiero los enlaces a la secuencia genética relacionada. Muéstrame todos los artículos de acceso abierto."
     },
     "question": {
-      "title": "Mesa de ayuda",
+      "title": "Soporte técnico",
       "example": "Tales como: ¿Cómo puedes proteger los datos sobre especies raras? ¿Me pueden ayudar a encontrar todos los registros de esta especie en aguas internacionales?",
       "description": "Todas las preguntas serán contestadas por nuestro servicio de asistencia en helpdesk@gbif.org",
-      "comment": "Por consultas privadas y preguntas no técnicas, pueden encontrarnos en [info@gbif.org](mailto:info@gbif.org) o en [communication@gbif.org](mailto:communication@gbif.org) para asuntos de prensa."
+      "comment": "Para consultas privadas y preguntas no técnicas, pueden encontrarnos en [info@gbif.org](mailto:info@gbif.org) o en [communication@gbif.org](mailto:communication@gbif.org) para asuntos de prensa."
     },
     "confirmation": {
       "title": "Gracias",
       "example": "",
-      "seeIssue": "Ver problema"
+      "seeIssue": "Ver incidencia"
     },
     "issues": {
       "title": "Problemas de contenido",

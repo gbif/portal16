@@ -13,10 +13,10 @@
     "TAXONOMIC_STATUS_MISMATCH": "(falta la descripción)",
     "TITLE_MISSING_OR_TOO_SHORT": "El título del conjunto de datos está ausente o es demasiado corto",
     "COUNTRY_COORDINATE_MISMATCH": "",
-    "IDENTIFIED_DATE_INVALID": "",
-    "IDENTIFIED_DATE_UNLIKELY": "",
-    "PRESUMED_SWAPPED_COORDINATE": "",
-    "COUNTRY_INVALID": "",
+    "IDENTIFIED_DATE_INVALID": "El valor de dateIdentified es inválido. No puede ser convertido en una fecha válida.",
+    "IDENTIFIED_DATE_UNLIKELY": "El valor de dateIdentified es improbable, por ej. la fecha es futura. Cuidado: https://github.com/gbif/parsers/issues/9",
+    "PRESUMED_SWAPPED_COORDINATE": "Los valores de latitud y longitud aparecen intercambiados.",
+    "COUNTRY_INVALID": "El valor de country encontrado no se puede interpretar.",
     "COORDINATE_OUT_OF_RANGE": "",
     "TAXON_MATCH_NONE": "",
     "SPECIES_PROFILE_INVALID": "",
@@ -47,7 +47,7 @@
     "DWCA_UNREADABLE": "",
     "RESOURCE_CREATOR_MISSING_OR_INCOMPLETE": "",
     "PUBLISHED_BEFORE_GENUS": "",
-    "RANK_INVALID": "",
+    "RANK_INVALID": "Dwc:taxonRank podría no ser interpretado",
     "ACCEPTED_NAME_USAGE_ID_INVALID": "",
     "CONFLICTING_BASIONYM_COMBINATION": "",
     "INDIVIDUAL_COUNT_INVALID": "",
@@ -95,6 +95,6 @@
     "CONTINENT_INVALID": "",
     "VERNACULAR_NAME_INVALID": "",
     "DESCRIPTION_INVALID": "",
-    "REFERENCES_URI_INVALID": ""
+    "REFERENCES_URI_INVALID": "Un uri inválido es dado para dc:references."
   }
 }

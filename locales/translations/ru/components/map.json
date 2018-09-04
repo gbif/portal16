@@ -2,20 +2,20 @@
   "map": {
     "nGeoreferencedRecords": "",
     "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
+    "clickToSearchArea": "Кликните для выбора территории",
     "generatedDateAgo": "",
-    "anyYear": "",
+    "anyYear": "Любой год",
     "exploreArea": "",
     "explore": "",
     "style": "",
-    "filters": "",
+    "filters": "Фильтры",
     "projection": "",
     "select": "",
     "custom": "",
     "baseMap": "",
     "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "year": "Год",
+    "chooseColors": "Цвета",
     "predefined": {
       "CLASSIC_HEX": "",
       "CLASSIC": "",
@@ -29,10 +29,10 @@
       "LIGHT_DETAILS": "",
       "DARK": "",
       "DARK_DETAILS": "",
-      "OSM": ""
+      "OSM": "Дороги"
     },
     "bin": {
-      "PIXEL": "",
+      "PIXEL": "Точки",
       "SMALL_HEX": "",
       "LARGE_HEX": "",
       "SMALL_SQUARE": "",
