@@ -2,33 +2,33 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Ошибка подключения к Facebook",
+        "GITHUB": "Не удается подключиться к Github"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Не удается войти с Facebook",
+        "GITHUB": "Не удается войти с Github"
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
-      "LOGIN_UNKNOWN": "",
-      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
-      "USER_ALREADY_LOGGED_IN": "",
-      "EMAIL_IN_USE": "",
-      "NO_EMAIL_PROVIDED": "",
-      "FAILED": ""
+      "USERNAME_NOT_UNIQUE": "Это имя пользователя уже используется",
+      "LOGIN_UNKNOWN": "Этот логин не связан ни с одной из учетных записей. Если у вас уже есть учетная запись, войдите, используя имя пользователя/адрес электронной почты и пароль. Также Вы можете зарегистрировать новую учетную запись.",
+      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "Этот профиль уже связан с другой учетной записью",
+      "USER_ALREADY_LOGGED_IN": "Вы уже выполнили вход",
+      "EMAIL_IN_USE": "Данный адрес электронной почты уже используется",
+      "NO_EMAIL_PROVIDED": "Не предоставлен адрес электронной почты",
+      "FAILED": "Серверу не удалось обработать запрос"
     },
-    "loginText": "",
-    "register": "",
-    "downloads": "",
-    "repeatPassword": "",
-    "repeatNewPassword": "",
-    "passwordsNotIdentical": "",
-    "setPassword": "",
-    "newPassword": "",
+    "loginText": "Вход",
+    "register": "Регистрация",
+    "downloads": "Загрузки",
+    "repeatPassword": "Повторите пароль",
+    "repeatNewPassword": "Повторите новый пароль",
+    "passwordsNotIdentical": "Пароли не совпадают",
+    "setPassword": "Установить пароль",
+    "newPassword": "Новый пароль",
     "invalidLinkMessage": "",
     "logout": "",
     "profile": "",
