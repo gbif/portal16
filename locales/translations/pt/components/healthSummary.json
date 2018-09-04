@@ -1,17 +1,17 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "Saúde do sistema",
+        "description": "Qual é o estado dos vários serviços GBIF",
+        "updatedTimeAgo": "Atualizado {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "Todos os sistemas operacionais",
+            "INFO": "Todos os sistemas operacionais",
+            "WARNING": "Estamos a ter problemas com sistemas instáveis ou lentos",
+            "CRITICAL": "Estamos a ter problemas com uma paralisação parcial dos sistemas"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
+                "title": "Serviços instáveis",
                 "summary": ""
             },
             "CRITICAL": {
