@@ -1,7 +1,7 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
+        "participant": "Participante",
+        "participantSummary": "Sumário do participante",
         "endorsedPublishers": "",
         "noEndorsedPublishers": "",
         "memberStatus": "",
