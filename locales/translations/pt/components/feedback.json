@@ -1,14 +1,14 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Deixe um comentário",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Comentários e questões",
+      "example": "Ajude-nos a resolver quaisquer problemas escolhendo que tipo de comentário está a fazer"
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
+      "title": "Conteúdo",
+      "example": "Tal como: Essa página contém um erro de digitação. Essa espécie não existe. Esse local parece suspeito. O novo URL para essa organização é...",
+      "annotate": "Este publicador tem um sítio para receber comentários. Recomendamos o seu uso.",
       "contactPerMail": ""
     },
     "bug": {
