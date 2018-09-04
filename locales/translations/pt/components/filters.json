@@ -20,17 +20,17 @@
             "east": "Este",
             "withCoordinates": "Incluindo as coordenadas",
             "withoutCoordinates": "Sem coordenadas",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
-            "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "includeFlaggedAsSuspicious": "Incluir registos em que as coordenadas estão assinaladas como duvidosas",
+            "onlyShowFlagged": "Mostrar apenas os registos assinalados como duvidosos",
+            "past": "Usado recentemente",
+            "geojson": "GeoJSON",
+            "range": "Intervalo",
+            "noFiltersAdded": "Sem filtros de área adicionados",
+            "wktPlaceholder": "WKT ou GeoJSON — multipolygons não são suportados",
+            "invalidTextInput": "WKT ou GeoJSON inválido",
+            "tooLarge": "Geometria muito grande",
+            "tooLargeSuggestion": "Tente usar uma caixa delimitadora e em alternativa filtrar localmente",
+            "invalidRange": "Caixa delimitadora inválida"
         }
     }
 }
