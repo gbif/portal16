@@ -1,8 +1,8 @@
 {
     "counts": {
-        "nCitations": "",
-        "nRecords": "",
-        "nResults": "",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{citação} other{citações}}",
+        "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{registo} other{registos}}",
+        "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultado} other{resultados}}",
         "nEvents": "",
         "nInstallations": "",
         "nOccurrences": "",
