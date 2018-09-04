@@ -10,14 +10,14 @@
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, select, 1{ocorrência} other{ocorrências}} publicadas",
         "nEndorsedPublishers": "{NUMBER_FORMATED} aprovado {NUMBER, select, 1{publicador} other{publicadores}}",
         "nDatasets": "{NUMBER_FORMATED} {NUMBER, select, 1{conjunto de dados} other{conjuntos de dados}}",
-        "nPublishers": "",
-        "nCountries": "",
-        "nContacts": "",
-        "pRecords": "",
-        "pOccurrence": "",
-        "pSpecies": "",
-        "pInfraspecies": "",
-        "pPublishers": "",
-        "contacts": ""
+        "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, 1{publicador} other{publicadores}}",
+        "nCountries": "{NUMBER_FORMATED} {NUMBER, select, 1{país} other{países}}",
+        "nContacts": "{NUMBER_FORMATED} {NUMBER, select, 1{contato} other{contatos}}",
+        "pRecords": "{NUMBER, select, 1{registo} other{registos}}",
+        "pOccurrence": "{NUMBER, select, 1{ocorrência} other{ocorrências}}",
+        "pSpecies": "{NUMBER, select, 1{espécies} other{espécies}}",
+        "pInfraspecies": "{NUMBER, select, 1{infraespécies} other{infraespécies}}",
+        "pPublishers": "{NUMBER, select, 1{publicador} other{publicadores}}",
+        "contacts": "{NUMBER, select, 1{contato} other{contatos}}"
     }
 }
