@@ -48,6 +48,6 @@
     "submit": "Envoyer",
     "seeAllComments": "Tout voir",
     "recommendMail": "Nous vous recommandons d’envoyer un courriel à",
-    "pleaseLogin": ""
+    "pleaseLogin": "Veuillez vous connecter pour laisser des commentaires. Vous pouvez aussi également utiliser [Github](https://github.com/gbif/portal-feedback/issues).\nPourquoi ? Malheureusement, nous constatons beaucoup de courriel indésirable dans notre système si nous ne demandons pas aux utilisateurs de se connecter."
   }
 }
