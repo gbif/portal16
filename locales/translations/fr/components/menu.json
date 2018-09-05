@@ -2,9 +2,9 @@
   "menu": {
     "home": "Page d’accueil",
     "get": "",
-    "occurrences": "",
-    "species": "",
-    "datasets": "",
+    "occurrences": "Occurrences",
+    "species": "Espèces",
+    "datasets": "Jeux de données",
     "publishers": "",
     "trends": "",
     "citationGuidance": "",
