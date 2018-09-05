@@ -8,8 +8,8 @@
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Impossible de se connecter à Facebook",
+        "GITHUB": "Impossible de se connecter à Github"
       }
     },
     "error": {
@@ -22,7 +22,7 @@
       "FAILED": "Le serveur n'a pu traiter la requête"
     },
     "loginText": "Connexion",
-    "register": "",
+    "register": "Enregistrement",
     "downloads": "Téléchargements",
     "repeatPassword": "Répéter le mot de passe",
     "repeatNewPassword": "Répétez le nouveau mot de passe",
@@ -47,9 +47,9 @@
     "or": "Ou",
     "continueWithProvider": "Continuer avec {PROVIDER}",
     "signUpWithProvider": "",
-    "connectWithProvider": "",
-    "disconnectWithProvider": "",
-    "signInAgreement": "",
+    "connectWithProvider": "Connexion avec {PROVIDER}",
+    "disconnectWithProvider": "Se déconnecter de {PROVIDER}",
+    "signInAgreement": "En vous connectant, vous acceptez les [terms](/terms) et [privacy policy](/terms/privacy-policy).",
     "country": "Pays",
     "countryRequired": "Pays requis",
     "email": "Courriel",
@@ -62,25 +62,25 @@
     "passwordLength": "Le mot de passe doit contenir au moins 6 caractères",
     "passwordMaxLength": "Votre mot de passe ne peut contenir plus de 256 caractères",
     "next": "Suivant",
-    "pleaseFillForm": "",
-    "selectAllImages": "",
-    "signUp": "",
-    "cancel": "",
-    "resetPassword": "",
-    "back": "",
-    "startEditing": "",
-    "stopEditing": "",
+    "pleaseFillForm": "Veuillez remplir le formulaire",
+    "selectAllImages": "Sélectionnez ci-dessous toutes les images comme celle-ci",
+    "signUp": "S’inscrire",
+    "cancel": "Annuler",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "back": "Retour",
+    "startEditing": "Commencer la modification",
+    "stopEditing": "Arrêter la modification",
     "firstName": "Prénom",
     "lastName": "Nom de famille ",
     "save": "Sauvegarder",
     "currentPassword": "Mot de passe actuel",
     "invalidProfileUpdate": "Mis à jour du profil non valide",
     "changePassword": "Modifier le mot de passe",
-    "accountCreated": "",
+    "accountCreated": "Compte créé",
     "accountInfoUpdated": "Votre compte a été mis à jour",
-    "passwordChangeInvalid": "",
-    "verficationLinkSent": "",
-    "resetPasswordRequest": "",
-    "resetPasswordMessage": ""
+    "passwordChangeInvalid": "Mot de passe non valide - si vous avez oublié votre mot de passe, déconnectez-vous et réinitialisez votre mot de passe",
+    "verficationLinkSent": "Nous vous avons envoyé un courriel avec un lien de vérification afin de s'assurer que c'est bien votre courriel. Bienvenue à GBIF",
+    "resetPasswordRequest": "Demande de réinitialisation de mot de passe",
+    "resetPasswordMessage": "Nous vous avons envoyé un courriel avec un lien pour réinitialiser votre mot de passe."
   }
 }
