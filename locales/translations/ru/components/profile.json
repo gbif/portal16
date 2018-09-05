@@ -74,13 +74,13 @@
     "lastName": "Фамилия",
     "save": "Сохранить",
     "currentPassword": "Текущий пароль",
-    "invalidProfileUpdate": "",
-    "changePassword": "",
-    "accountCreated": "",
-    "accountInfoUpdated": "",
-    "passwordChangeInvalid": "",
-    "verficationLinkSent": "",
-    "resetPasswordRequest": "",
-    "resetPasswordMessage": ""
+    "invalidProfileUpdate": "Недопустимое обновление профиля",
+    "changePassword": "Изменить пароль",
+    "accountCreated": "Учетная запись создана",
+    "accountInfoUpdated": "Ваша учетная запись обновлена",
+    "passwordChangeInvalid": "Недопустимый пароль - если вы забыли свой пароль, то выйдите из системы и используйте функцию восстановления пароля",
+    "verficationLinkSent": "Вам было отправлено письмо, для проверки указанного Вами адреса электронной почты. Добро пожаловать в GBIF",
+    "resetPasswordRequest": "Запрос на сброс пароля",
+    "resetPasswordMessage": "Мы отправили вам письмо, содержащее ссылку для сброса пароля."
   }
 }
