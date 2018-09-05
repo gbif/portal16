@@ -41,7 +41,7 @@
       "username": ""
     },
     "markdownSupport": "",
-    "issueTracking": "",
+    "issueTracking": "Все сообщения о выявленных ошибках становятся общедоступными посредством [Github](https://github.com/gbif/portal-feedback/issues)",
     "failure": "",
     "weRecommendX": "",
     "tellGbif": "",
