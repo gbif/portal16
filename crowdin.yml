@@ -1,6 +1,7 @@
 files:
   - source: /locales/translations/en/**/*.json
     translation: /locales/translations/%locale%/**/%original_file_name%
+    update_option: update_as_unapproved
     languages_mapping:
       locale:
         ar: ar
