@@ -4,7 +4,7 @@ files:
     languages_mapping:
       locale:
         ar: ar
-        zh-CN: zh-hans
+        zh-CN: zh
         zh-TW: zh-hant
         da: da
         fr: fr
