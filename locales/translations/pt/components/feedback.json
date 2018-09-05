@@ -41,7 +41,7 @@
       "username": "O seu email ou nome de utilizador Github (público)"
     },
     "markdownSupport": "Suporte Markdown",
-    "issueTracking": "",
+    "issueTracking": "Todos os problemas são públicos e estão disponíveis através de [Github](https://github.com/gbif/portal-feedback/issues)",
     "failure": "Alguma coisa não está bem — o sistema de comentários não funciona. Por favor envie-nos um email ou vá directamente ao [Github](https://github.com/gbif/portal-feedback/issues). Pedimos desculpa por este inconveniente.",
     "weRecommendX": "Recomendamos o uso de [{NAME}]({LINK})",
     "tellGbif": "Diga ao GBIF",
