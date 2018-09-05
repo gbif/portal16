@@ -2,8 +2,8 @@
   "cms": {
     "project": {
       "project": "Projet",
-      "projectId": "Identifiant du projet",
-      "projectIdentifier": "",
+      "projectId": "ID du projet",
+      "projectIdentifier": "Identifiant de projet",
       "grantType": "Type de subvention",
       "duration": "Durée",
       "title": "Titre",
@@ -27,7 +27,7 @@
       "partners": "Partenaires"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "Ressources de données utilisés via GBIF"
     },
     "literature": {
       "keywords": "Mots-clés"
@@ -35,7 +35,7 @@
     "auxiliary": {
       "subject": "",
       "citation": "Citation",
-      "organisingParticipants": ""
+      "organisingParticipants": "Participants organisateurs"
     }
   }
 }
