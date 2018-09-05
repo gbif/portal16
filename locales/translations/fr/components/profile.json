@@ -2,8 +2,8 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "Impossible de se connecter à Facebook",
+        "GITHUB": "Impossible de se connecter à Github"
       }
     },
     "login": {
@@ -13,7 +13,7 @@
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
+      "USERNAME_NOT_UNIQUE": "Ce nom d'utilisateur est déjà utilisé",
       "LOGIN_UNKNOWN": "",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
       "USER_ALREADY_LOGGED_IN": "",
