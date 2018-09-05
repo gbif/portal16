@@ -1,0 +1,18 @@
+{
+    "nameParser": {
+        "loadTestNames": "",
+        "parse": "",
+        "or": "",
+        "selectFile": "",
+        "pasteNamesToParse": "",
+        "about": "",
+        "parser": "",
+        "nameParserTitle": "",
+        "dropHere": "",
+        "excludeUnparsed": "",
+        "generateCsv": "",
+        "parsingNames": "",
+        "nameParserDescription": "",
+        "nameParserRequirements": ""
+    }
+}
