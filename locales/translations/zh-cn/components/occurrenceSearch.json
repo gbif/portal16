@@ -1,0 +1,28 @@
+{
+  "occurrenceSearch": {
+    "table": "",
+    "gallery": "",
+    "map": "",
+    "taxonomy": "",
+    "charts": "",
+    "download": "",
+    "searchAllFields": "",
+    "description": "",
+    "nWithCoordinates": "",
+    "nWithImages": "",
+    "failedSearch": "",
+    "noImages": "",
+    "imageLicenseInfo": "",
+    "showMoreImages": "",
+    "default": "",
+    "custom": "",
+    "noOccurrencesWithCoordinates": "",
+    "containsSuspicious": "",
+    "hideSuspiciousCoordinates": "",
+    "currentFilter": "",
+    "selectColumns": "",
+    "done": "",
+    "yesCorrectSuggestion": "",
+    "noWrongSuggestion": ""
+  }
+}
