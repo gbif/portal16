@@ -9,11 +9,11 @@
       "news": "Actualités"
     },
     "memberSince": "Membre depuis",
-    "dataFrom": "",
-    "dataAboutCountry": "",
+    "dataFrom": "Données de {TRANSLATED_COUNTRY}",
+    "dataAboutCountry": "Données à propos de {TRANSLATED_COUNTRY}",
     "publishingTrends": "",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
+    "noDataPublishingActivity": "Aucune activité de publication de données",
+    "noInstitutionsHavePublished": "Aucune institution de ce pays n’a publié de données via le GBIF",
     "trendsAboutCountry": "",
     "nFrom": "",
     "nAbout": "",
@@ -29,9 +29,9 @@
       "countriesAndAreasContributeData": "",
       "publishedOccurrences": "Occurrences publiées",
       "publishedDatasets": "Jeux de données publiés",
-      "countriesAndAreasCoveredByDataFrom": "",
+      "countriesAndAreasCoveredByDataFrom": "Pays et zones couvertes par les données de {TRANSLATED_COUNTRY}",
       "publishersFrom": ""
     },
-    "activityReport": ""
+    "activityReport": "Rapport d'activité"
   }
 }
