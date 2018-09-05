@@ -32,7 +32,7 @@
     "gbifSoftware": "Traitement des données",
     "gbifLabs": "Labos GBIF",
     "observationTrends": "",
-    "developerBlog": "",
+    "developerBlog": "Blog des développeurs",
     "speciesMatching": "",
     "nameParser": "",
     "toolsCatalogue": "Catalogue d'outils",
@@ -46,7 +46,7 @@
     "contactUs": "Contacts",
     "information": "",
     "news": "Actualités",
-    "literature": "",
+    "literature": "Bibliographie",
     "newsletters": "",
     "featuredDataUse": "",
     "events": "Évènements",
@@ -55,7 +55,7 @@
     "capacitySupport": "CESP : Programme de soutien pour le renforcement des capacités",
     "bidProgramme": "BID: l'Information sur la Biodiversité pour le Développement",
     "bifaProgramme": "",
-    "funders": "",
-    "governance": ""
+    "funders": "Bailleurs de fonds",
+    "governance": "Gouvernance"
   }
 }
