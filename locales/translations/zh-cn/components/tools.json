@@ -1,0 +1,56 @@
+{
+    "tools": {
+        "categoryFeatured": "",
+        "suggestDataset": {
+            "NOT_OPEN": "",
+            "title": "",
+            "pleaseDescribeTheDataset": "",
+            "thankYou": "",
+            "form": {
+                "title": "",
+                "link": "",
+                "region": "",
+                "taxon": "",
+                "whyImportant": "",
+                "howWouldYouRateIt": "",
+                "high": "",
+                "medium": "",
+                "low": "",
+                "bibliographicRef": "",
+                "type": "",
+                "license": "",
+                "dataHolderContact": "",
+                "publicAlert": "",
+                "yourContact": "",
+                "comments": "",
+                "submit": "",
+                "followDiscussionBelow": "",
+                "followIssue": "",
+                "suggestAnother": "",
+                "saveFailure": ""
+            }
+        },
+        "observationTrends": {
+            "drawerTitle": "",
+            "intro": "",
+            "aboutLink": "",
+            "selectSpecies": "",
+            "noData": "",
+            "selectHigherTaxa": "",
+            "selectArea": "",
+            "hexagon": "",
+            "draw": "",
+            "clear": "",
+            "resultIntro": "",
+            "embedIntro": ""
+        },
+        "speciesLookup": {
+            "description": "",
+            "title": ""
+        },
+        "ipt": {
+            "description": "",
+            "dontSeeYourIpt": ""
+        }
+    }
+}
