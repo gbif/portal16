@@ -53,7 +53,7 @@ translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
 translationMap['pt'] = 'por';
 translationMap['da'] = 'dan';
-translationMap['zh'] = 'zh-hant';
+translationMap['zh'] = 'zh-hans';
 // mock test languages
 translationMap['de-MOCK'] = 'gsw';
 translationMap['ko-MOCK'] = 'kor';
