@@ -1,14 +1,14 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
-      "dataPublishing": "",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
-      "news": ""
+      "summary": "Résumé",
+      "dataPublishing": "Données publiées",
+      "dataAbout": "Données à propos",
+      "participartion": "Participation",
+      "publications": "Publications",
+      "news": "Actualités"
     },
-    "memberSince": "",
+    "memberSince": "Membre depuis",
     "dataFrom": "",
     "dataAboutCountry": "",
     "publishingTrends": "",
@@ -18,17 +18,17 @@
     "nFrom": "",
     "nAbout": "",
     "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "noPublications": "Aucune publication",
+    "notParticipant": "Pas un participant",
+    "notParticipantDescription": "Ce pays n’est pas un participant du GBIF",
+    "countryNamingDisclaimer": "Les noms des pays et des aires sont basés sur la norme [ISO 3166-1](https://www.iso.org/obp/ui/#search)",
     "counts": {
-      "occurrences": "",
-      "datasets": "",
-      "publishers": "",
+      "occurrences": "Occurrences",
+      "datasets": "Jeux de données",
+      "publishers": "Fournisseurs de données",
       "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
+      "publishedOccurrences": "Occurrences publiées",
+      "publishedDatasets": "Jeux de données publiés",
       "countriesAndAreasCoveredByDataFrom": "",
       "publishersFrom": ""
     },
