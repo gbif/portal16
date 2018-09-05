@@ -2,7 +2,7 @@
   "species": {
     "distribution": {
       "presentIn": "Presente en {país}",
-      "presentInNonCountry": "Presente en {ubicación}",
+      "presentInNonCountry": "Presente en",
       "threatStatus": "Grado de amenaza:",
       "distributionPlural": "Distribuciones"
     },

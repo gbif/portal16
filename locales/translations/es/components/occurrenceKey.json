@@ -80,7 +80,7 @@
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "Excluído",
+      "EXCLUDED": "Excluido",
       "AUTHORED": "Alterado",
       "INFERED": "Inferido"
     }

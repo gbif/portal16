@@ -1,10 +1,10 @@
 {
   "dataset": {
     "longType": {
-      "OCCURRENCE": "Conjunto de datos de registros de presencias",
+      "OCCURRENCE": "Juego de datos de registros de presencias",
       "CHECKLIST": "Conjunto de datos de listas de especies",
       "SAMPLING_EVENT": "Evento de muestreo",
-      "METADATA": "Conjunto de datos de metadatos"
+      "METADATA": "Juego de datos de metadatos"
     },
     "metricHighlights": {
       "occurrences": "Registros de presencia",
@@ -16,11 +16,11 @@
       "overlapWithNub": "Superponer con el Backbone de GBIF",
       "overlapWithCol": "Superponer con el Catálogo de la Vida"
     },
-    "noStatsForMetadata": "Las estadísticas no están disponibles para los metadatos, sólo para los conjuntos de datos",
+    "noStatsForMetadata": "Las estádísticas no están disponibles para los metadatos, sólo para los juegos de datos",
     "viewArticle": "Ver artículo",
     "registeredDate": "Registrado",
     "constituentOf": "Forma parte de",
-    "dataset": "Conjunto de datos",
+    "dataset": "Juego de datos",
     "taxonomy": "Taxonomía",
     "project": "Proyecto",
     "metrics": "Estadísticas",
@@ -71,7 +71,7 @@
     "license": "Licencia",
     "recommended": "Recomendado",
     "processedOccurrences": "Archivos registrados (anotados) en GBIF",
-    "noDescriptionProvided": "Sin descripción disponible",
+    "noDescriptionProvided": "Descripción no disponible",
     "pNetwork": "{NUMBER, select, 1{Red de trabajo} other{Redes de trabajo}}",
     "parentEvent": "Evento parental",
     "eventDescription": "Descripción del evento",
