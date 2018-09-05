@@ -22,7 +22,7 @@ if (env === 'uat' || env === 'local') {
     locales.push('fr');
     locales.push('pt');
     locales.push('ru');
-    locales.push('zh');
+    locales.push('zh-cn');
 }
 
 // if the locale is something we translate to in contentful, then add the mapping here.
@@ -35,8 +35,7 @@ contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';
 contentfulLocaleMap['ru'] = 'ru';
 contentfulLocaleMap['pt'] = 'pt';
-contentfulLocaleMap['zh'] = 'zh';
-contentfulLocaleMap['zh-hant-TW'] = 'zh';
+contentfulLocaleMap['zh-cn'] = 'zh';
 // mock test languages
 contentfulLocaleMap['de-MOCK'] = 'es';
 contentfulLocaleMap['ko-MOCK'] = 'zh';
@@ -53,7 +52,7 @@ translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
 translationMap['pt'] = 'por';
 translationMap['da'] = 'dan';
-translationMap['zh'] = 'zh-hans';
+translationMap['zh-cn'] = 'zh-hans';
 // mock test languages
 translationMap['de-MOCK'] = 'gsw';
 translationMap['ko-MOCK'] = 'kor';
@@ -63,7 +62,7 @@ translationMap['ar-MOCK'] = 'ara';
 let momentMap = _.keyBy(locales); // default to use the same language codes
 
 // overwrites specific that differs
-momentMap['zh'] = 'zh-cn';
+
 // mock test languages
 momentMap['de-MOCK'] = 'de-ch';
 momentMap['ko-MOCK'] = 'ko';
