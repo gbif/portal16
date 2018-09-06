@@ -1,20 +1,20 @@
 {
   "dataset": {
     "longType": {
-      "OCCURRENCE": "",
+      "OCCURRENCE": "Conjunto de dados de ocorrência",
       "CHECKLIST": "",
       "SAMPLING_EVENT": "",
       "METADATA": ""
     },
     "metricHighlights": {
-      "occurrences": "",
+      "occurrences": "Ocorrências",
       "withTaxonMatch": "",
-      "withCoordinates": "",
-      "withYear": "",
-      "acceptedNames": "",
-      "synonyms": "",
+      "withCoordinates": "Com coordenadas",
+      "withYear": "Com ano",
+      "acceptedNames": "Nomes aceitos",
+      "synonyms": "Sinónimos",
       "overlapWithNub": "",
-      "overlapWithCol": ""
+      "overlapWithCol": "Sobrepõem-se com o Catalogue of Life"
     },
     "noStatsForMetadata": "",
     "viewArticle": "",
