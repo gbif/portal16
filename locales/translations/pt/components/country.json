@@ -20,18 +20,18 @@
     "viewAllN": "",
     "noPublications": "Não há publicações",
     "notParticipant": "",
-    "notParticipantDescription": "",
+    "notParticipantDescription": "Este país não é um participante do GBIF",
     "countryNamingDisclaimer": "",
     "counts": {
-      "occurrences": "",
-      "datasets": "",
-      "publishers": "",
+      "occurrences": "Ocorrências",
+      "datasets": "Conjuntos de dados",
+      "publishers": "Publicadores",
       "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
+      "publishedOccurrences": "Ocorrências publicadas",
+      "publishedDatasets": "Conjuntos de dados publicados",
       "countriesAndAreasCoveredByDataFrom": "",
       "publishersFrom": ""
     },
-    "activityReport": ""
+    "activityReport": "Relatório de atividades"
   }
 }
