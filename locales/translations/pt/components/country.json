@@ -1,14 +1,14 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
-      "dataPublishing": "",
+      "summary": "Índice",
+      "dataPublishing": "Publicação de dados",
       "dataAbout": "",
-      "participartion": "",
-      "publications": "",
-      "news": ""
+      "participartion": "Participação",
+      "publications": "Publicações",
+      "news": "Notícias"
     },
-    "memberSince": "",
+    "memberSince": "Membro desde",
     "dataFrom": "",
     "dataAboutCountry": "",
     "publishingTrends": "",
