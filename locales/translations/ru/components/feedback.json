@@ -31,23 +31,23 @@
       "seeIssue": "Просмотр сообщения об ошибке"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "Ошибки в наполнении сайта",
+      "description": "Ошибки в содержимом сайта, выявленные другими пользователями",
+      "create": "Оставить отзыв"
     },
     "placeholders": {
       "summary": "Краткое описание",
-      "description": "",
-      "username": ""
+      "description": "Подробное описание. При указании на таксономическую ошибку, пожалуйста, указывайте ссылку на источник",
+      "username": "Адрес электронной почты или имя пользователя Github (общедоступно)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
+    "markdownSupport": "Поддержка Markdown",
+    "issueTracking": "Все сообщения о выявленных ошибках становятся общедоступными посредством [Github](https://github.com/gbif/portal-feedback/issues)",
+    "failure": "К сожалению, система обратной связи вышла из строя. Пожалуйста, отправьте нам письмо, или пройдите прямо на [Github](https://github.com/gbif/portal-feedback/issues). Приносим свои извинения.",
+    "weRecommendX": "Мы рекомендуем использовать [{NAME}] ({LINK})",
+    "tellGbif": "Расскажите GBIF",
     "submit": "Подтвердить",
     "seeAllComments": "Смотреть все",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "recommendMail": "Мы рекомендуем отправку почты в адрес",
+    "pleaseLogin": "Пожалуйста, войдите, чтобы оставить отзыв. В качестве альтернативы можно использовать [Github](https://github.com/gbif/portal-feedback/issues).\nПочему мы просим Вас об этом? К сожалению, если мы не требуем от пользователей входа в систему, нам приходит огромное количество спама рекламы по системе обратной связи."
   }
 }

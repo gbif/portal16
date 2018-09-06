@@ -1,37 +1,37 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
-      "dataPublishing": "",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
-      "news": ""
+      "summary": "Índice",
+      "dataPublishing": "Publicação de dados",
+      "dataAbout": "Dados sobre",
+      "participartion": "Participação",
+      "publications": "Publicações",
+      "news": "Notícias"
     },
-    "memberSince": "",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
-    "nFrom": "",
-    "nAbout": "",
-    "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "memberSince": "Membro desde",
+    "dataFrom": "Dados de {TRANSLATED_COUNTRY}",
+    "dataAboutCountry": "Dados sobre {TRANSLATED_COUNTRY}",
+    "publishingTrends": "Tendências de publicações",
+    "noDataPublishingActivity": "Nenhuma atividade de publicação de dados",
+    "noInstitutionsHavePublished": "Não há instituições deste país com dados publicados através do GBIF",
+    "trendsAboutCountry": "Tendências sobre {TRANSLATED_COUNTRY}",
+    "nFrom": "{NUMBER_FORMATTED} de",
+    "nAbout": "{NUMBER_FORMATTED} sobre",
+    "viewAllN": "Ver todos {NUMBER_FORMATTED}",
+    "noPublications": "Não há publicações",
+    "notParticipant": "Não é participante",
+    "notParticipantDescription": "Este país não é um participante do GBIF",
+    "countryNamingDisclaimer": "Nomes de países e regiões são baseados em [norma ISO 3166-1] (https://www.iso.org/obp/ui/#search)",
     "counts": {
-      "occurrences": "",
-      "datasets": "",
-      "publishers": "",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "occurrences": "Ocorrências",
+      "datasets": "Conjuntos de dados",
+      "publishers": "Publicadores",
+      "countriesAndAreasContributeData": "Países e áreas que contribuem com dados",
+      "publishedOccurrences": "Ocorrências publicadas",
+      "publishedDatasets": "Conjuntos de dados publicados",
+      "countriesAndAreasCoveredByDataFrom": "Países e áreas cobertas por dados de {TRANSLATED_COUNTRY}",
+      "publishersFrom": "Publicadores de {TRANSLATED_COUNTRY}"
     },
-    "activityReport": ""
+    "activityReport": "Relatório de atividades"
   }
 }
