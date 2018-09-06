@@ -1,31 +1,31 @@
 {
   "search": {
-    "placeholder": "",
-    "noSearchTermsEntered": "",
-    "notSureWhatYouAreLookingFor": "",
-    "cannotFindWhatYouAreLookingFor": "",
-    "trySpecifyingAType": "",
-    "everything": "",
+    "placeholder": "Находки, виды, новости...",
+    "noSearchTermsEntered": "Не было введено ключевых слов для поиска",
+    "notSureWhatYouAreLookingFor": "Сомневаетесь в целях поиска? Как насчет посмотреть на подборку изображений находок видов?",
+    "cannotFindWhatYouAreLookingFor": "Не нашли то что искали?",
+    "trySpecifyingAType": "Попробуйте указать тип",
+    "everything": "Всё",
     "occurrences": "Находки",
     "species": "Виды",
     "datasets": "Наборы данных",
     "resources": "Ресурсы",
-    "publishers": "",
-    "participants": "",
-    "search": "",
-    "clearFilters": "",
-    "filters": "",
-    "simple": "",
-    "advanced": "",
-    "allResultTypes": "",
-    "suggestions": "",
+    "publishers": "Публикатор данных",
+    "participants": "Участники",
+    "search": "Поиск",
+    "clearFilters": "Сбросить фильтр",
+    "filters": "Фильтры",
+    "simple": "Простой",
+    "advanced": "Расширенный режим",
+    "allResultTypes": "Все",
+    "suggestions": "Подсказки",
     "header": {
-      "searchDatasets": "",
-      "searchPublishers": "",
-      "searchSpecies": "",
-      "searchResources": "",
-      "searchOccurrences": ""
+      "searchDatasets": "Поиск наборов данных",
+      "searchPublishers": "Поиск публикаторов данных",
+      "searchSpecies": "Поиск видов",
+      "searchResources": "Поиск ресурсов",
+      "searchOccurrences": "Поиск находок видов"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{результат} other{результатов}}"
   }
 }
