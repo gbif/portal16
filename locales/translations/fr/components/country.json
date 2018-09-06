@@ -17,7 +17,7 @@
     "trendsAboutCountry": "",
     "nFrom": "",
     "nAbout": "",
-    "viewAllN": "",
+    "viewAllN": "Tout voir {NUMBER_FORMATTED}",
     "noPublications": "Aucune publication",
     "notParticipant": "Pas un participant",
     "notParticipantDescription": "Ce pays n’est pas un participant du GBIF",
@@ -30,7 +30,7 @@
       "publishedOccurrences": "Occurrences publiées",
       "publishedDatasets": "Jeux de données publiés",
       "countriesAndAreasCoveredByDataFrom": "Pays et zones couvertes par les données de {TRANSLATED_COUNTRY}",
-      "publishersFrom": ""
+      "publishersFrom": "Fournisseurs de données de {TRANSLATED_COUNTRY}"
     },
     "activityReport": "Rapport d'activité"
   }
