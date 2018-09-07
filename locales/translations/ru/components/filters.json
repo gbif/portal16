@@ -1,36 +1,36 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
-        "clear": "",
-        "add": "",
+        "searchPlaceholder": "Поиск",
+        "noPreference": "Нет предпочтений",
+        "invert": "Инвертировать",
+        "clear": "Очистить",
+        "add": "Добавить",
         "repatriation": {
-            "description": ""
+            "description": "Данные называют репатриированными, когда они публикуются учреждением в одной стране, но относятся к биоразнообразию другой страны"
         },
         "ternary": {
-            "yes": "",
-            "no": "",
-            "all": ""
+            "yes": "Да",
+            "no": "Нет",
+            "all": "Все"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
-            "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "north": "Север",
+            "south": "Юг",
+            "west": "Запад",
+            "east": "Восток",
+            "withCoordinates": "Содержат координаты",
+            "withoutCoordinates": "Без координат",
+            "includeFlaggedAsSuspicious": "Включать записи, координаты в которых помечены как подозрительные",
+            "onlyShowFlagged": "Показывать только те записи, которые помечены как подозрительные",
+            "past": "Недавно использованные",
+            "geojson": "GeoJSON",
+            "range": "Охват",
+            "noFiltersAdded": "Нет фильтров по местонахождениям",
+            "wktPlaceholder": "Мультиполигоны WKT и GeoJSON не поддерживаются",
+            "invalidTextInput": "Недопустимый WKT или GeoJSON",
+            "tooLarge": "Слишком большой охват",
+            "tooLargeSuggestion": "Попробуйте использовать ограничительную рамку и отфильтровать данные географически",
+            "invalidRange": "Недопустимый ограничивающий прямоугольник"
         }
     }
 }
