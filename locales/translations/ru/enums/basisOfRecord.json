@@ -1,14 +1,14 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
-    "LIVING_SPECIMEN": "",
-    "OBSERVATION": "",
-    "HUMAN_OBSERVATION": "",
-    "MACHINE_OBSERVATION": "",
-    "MATERIAL_SAMPLE": "",
-    "LITERATURE": "",
-    "UNKNOWN": "",
-    "undefined": ""
+    "PRESERVED_SPECIMEN": "Коллекционный образец",
+    "FOSSIL_SPECIMEN": "Ископаемый образец",
+    "LIVING_SPECIMEN": "Живой образец",
+    "OBSERVATION": "Наблюдение",
+    "HUMAN_OBSERVATION": "Наблюдение человеком",
+    "MACHINE_OBSERVATION": "Машинное наблюдение",
+    "MATERIAL_SAMPLE": "Материальный образец",
+    "LITERATURE": "Литература",
+    "UNKNOWN": "Неизвестно",
+    "undefined": "Не указано"
   }
 }
