@@ -1,8 +1,8 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "Без фильтров",
         "elevation": {
-            "equals": "",
+            "equals": "Составляет {from}м",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
