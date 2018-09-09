@@ -1,18 +1,18 @@
 {
   "dataset": {
     "longType": {
-      "OCCURRENCE": "",
-      "CHECKLIST": "",
-      "SAMPLING_EVENT": "",
-      "METADATA": ""
+      "OCCURRENCE": "Данные о находках",
+      "CHECKLIST": "Наборы данных со списками видов",
+      "SAMPLING_EVENT": "Мониторинг на пробных площадях",
+      "METADATA": "Метаданные"
     },
     "metricHighlights": {
       "occurrences": "Находки",
-      "withTaxonMatch": "",
-      "withCoordinates": "",
-      "withYear": "",
-      "acceptedNames": "",
-      "synonyms": "",
+      "withTaxonMatch": "С совпадениями по таксону",
+      "withCoordinates": "С координатами",
+      "withYear": "С указанием года",
+      "acceptedNames": "Валидные названия",
+      "synonyms": "Синонимы",
       "overlapWithNub": "",
       "overlapWithCol": ""
     },
