@@ -39,12 +39,12 @@
       "LARGE_SQUARE": "Квадраты"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
+      "CLASSIC": "Классические",
+      "FIRE": "Огненный",
+      "GLACIER": "Ледниковый",
+      "PURPLE_YELLOW": "Фиолетовый и желтый",
+      "PURPLE_HEAT": "Темнофиолетовый",
+      "BLUE_HEAT": "Темно синий",
       "ORANGE_HEAT": "",
       "GREEN": "",
       "BLUE_CLUSTER": "",
