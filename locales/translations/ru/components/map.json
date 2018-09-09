@@ -43,15 +43,15 @@
       "FIRE": "Огненный",
       "GLACIER": "Ледниковый",
       "PURPLE_YELLOW": "Фиолетовый и желтый",
-      "PURPLE_HEAT": "Темнофиолетовый",
-      "BLUE_HEAT": "Темно синий",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "PURPLE_HEAT": "Темно-фиолетовый",
+      "BLUE_HEAT": "Темно-синий",
+      "ORANGE_HEAT": "Темно-оранжевый",
+      "GREEN": "Зеленый",
+      "BLUE_CLUSTER": "Синий кластер",
+      "ORANGE_CLUSTER": "Оранжевый кластер"
     },
     "errors": {
-      "413": ""
+      "413": "Файл геометрии слишком большой для обработки API."
     }
   }
 }
