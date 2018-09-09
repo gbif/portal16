@@ -52,7 +52,7 @@
     "higherTaxonKey": "Высшие таксоны",
     "status": "Статус",
     "nameType": "Имя типа",
-    "origin": "",
-    "networkKey": ""
+    "origin": "Происхождение",
+    "networkKey": "Сеть GBIF"
   }
 }
