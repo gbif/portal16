@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{геопривязанные записи} other{геопривязанных записей}}",
     "noOccurrencesWithCoordinates": "",
     "clickToSearchArea": "Кликните для выбора территории",
     "generatedDateAgo": "",
