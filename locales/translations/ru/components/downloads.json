@@ -34,17 +34,17 @@
     "constituentDatasets": "",
     "noFiltersApplied": "",
     "apiUsageDescription": "",
-    "apiFilterView": "",
+    "apiFilterView": "API",
     "humanFilterView": "",
     "downloadStarted": "",
     "downloadExpectTime": "",
     "notificationEmailAddresses": "",
     "status": {
-      "PREPARING": "",
-      "SUSPENDED": "",
-      "RUNNING": "",
-      "CANCELLED": "",
-      "KILLED": ""
+      "PREPARING": "Готовятся",
+      "SUSPENDED": "Приостановлено",
+      "RUNNING": "Работающие",
+      "CANCELLED": "Отменены",
+      "KILLED": "Уничтожены"
     },
     "predicate": {
       "joinDescriptions": {
@@ -52,10 +52,10 @@
         "or": "",
         "not": ""
       },
-      "and": "",
-      "or": "",
-      "not": "",
-      "isNotNull": ""
+      "and": "И",
+      "or": "ИЛИ",
+      "not": "НЕ",
+      "isNotNull": "Не пустой"
     }
   }
 }
