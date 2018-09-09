@@ -25,13 +25,13 @@
     "counts": {
       "occurrences": "Находки",
       "datasets": "Наборы данных",
-      "publishers": "",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "publishers": "Публикаторы данных",
+      "countriesAndAreasContributeData": "Страны и регионы, публикующие данных",
+      "publishedOccurrences": "Опубликованных находок видов",
+      "publishedDatasets": "Опубликованных наборов данных",
+      "countriesAndAreasCoveredByDataFrom": "Стран и районов, охватываемых данным {TRANSLATED_COUNTRY}",
+      "publishersFrom": "Публикаторы данных из {TRANSLATED_COUNTRY}"
     },
-    "activityReport": ""
+    "activityReport": "Отчет о деятельности"
   }
 }
