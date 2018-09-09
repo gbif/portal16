@@ -13,14 +13,14 @@
     "select": "Выбрать",
     "custom": "Пользовательские",
     "baseMap": "Картооснова",
-    "binning": "",
+    "binning": "Группировка",
     "year": "Год",
     "chooseColors": "Цвета",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
+      "CLASSIC_HEX": "Классические шестиугольники",
+      "CLASSIC": "Классические точки",
+      "STREETS": "Улицы",
+      "GLACIER": "Ледник",
       "CUSTOM": ""
     },
     "basemap": {
