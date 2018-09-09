@@ -1,57 +1,57 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{геопривязанные записи} other{геопривязанных записей}}",
+    "noOccurrencesWithCoordinates": "Нет находок видов с координатами",
     "clickToSearchArea": "Кликните для выбора территории",
-    "generatedDateAgo": "",
+    "generatedDateAgo": "Сгенерировано {DATE_AGO}",
     "anyYear": "Любой год",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
+    "exploreArea": "Область исследования",
+    "explore": "Исследовать",
+    "style": "Стиль",
     "filters": "Фильтры",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
+    "projection": "Проекция",
+    "select": "Выбрать",
+    "custom": "Пользовательские",
+    "baseMap": "Картооснова",
+    "binning": "Группировка",
     "year": "Год",
     "chooseColors": "Цвета",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "Классические шестиугольники",
+      "CLASSIC": "Классические точки",
+      "STREETS": "Улицы",
+      "GLACIER": "Ледник",
+      "CUSTOM": "Пользовательский"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
+      "CLASSIC": "Пурпурный",
+      "LIGHT": "Светлая (без подписей)",
+      "LIGHT_DETAILS": "Светлая",
+      "DARK": "Темная (без подписей)",
+      "DARK_DETAILS": "Темная",
       "OSM": "Дороги"
     },
     "bin": {
       "PIXEL": "Точки",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "SMALL_HEX": "Малые шестиугольники",
+      "LARGE_HEX": "Шестиугольники",
+      "SMALL_SQUARE": "Малые квадраты",
+      "LARGE_SQUARE": "Квадраты"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "Классические",
+      "FIRE": "Огненный",
+      "GLACIER": "Ледниковый",
+      "PURPLE_YELLOW": "Фиолетовый и желтый",
+      "PURPLE_HEAT": "Темно-фиолетовый",
+      "BLUE_HEAT": "Темно-синий",
+      "ORANGE_HEAT": "Темно-оранжевый",
+      "GREEN": "Зеленый",
+      "BLUE_CLUSTER": "Синий кластер",
+      "ORANGE_CLUSTER": "Оранжевый кластер"
     },
     "errors": {
-      "413": ""
+      "413": "Файл геометрии слишком большой для обработки API."
     }
   }
 }
