@@ -21,22 +21,22 @@
       "CLASSIC": "Классические точки",
       "STREETS": "Улицы",
       "GLACIER": "Ледник",
-      "CUSTOM": ""
+      "CUSTOM": "Пользовательский"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
+      "CLASSIC": "Пурпурный",
+      "LIGHT": "Светлая (без подписей)",
+      "LIGHT_DETAILS": "Светлая",
+      "DARK": "Темная (без подписей)",
+      "DARK_DETAILS": "Темная",
       "OSM": "Дороги"
     },
     "bin": {
       "PIXEL": "Точки",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "SMALL_HEX": "Малые шестиугольники",
+      "LARGE_HEX": "Шестиугольники",
+      "SMALL_SQUARE": "Малые квадраты",
+      "LARGE_SQUARE": "Квадраты"
     },
     "colors": {
       "CLASSIC": "",
