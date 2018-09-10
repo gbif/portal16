@@ -1,10 +1,10 @@
 {
   "occurrenceSearch": {
-    "table": "",
-    "gallery": "",
-    "map": "",
-    "taxonomy": "",
-    "charts": "",
+    "table": "Tabela",
+    "gallery": "Galeria",
+    "map": "Mapa",
+    "taxonomy": "Taxonomia",
+    "charts": "Métricas",
     "download": "",
     "searchAllFields": "",
     "description": "",
