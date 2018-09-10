@@ -1,11 +1,11 @@
 {
   "continent": {
-    "NORTH_AMERICA": "",
-    "OCEANIA": "",
-    "EUROPE": "",
-    "ANTARCTICA": "",
-    "SOUTH_AMERICA": "",
-    "AFRICA": "",
-    "ASIA": ""
+    "NORTH_AMERICA": "América do Norte",
+    "OCEANIA": "Oceania",
+    "EUROPE": "Europa",
+    "ANTARCTICA": "Antártica",
+    "SOUTH_AMERICA": "América do Sul",
+    "AFRICA": "África",
+    "ASIA": "Ásia"
   }
 }
