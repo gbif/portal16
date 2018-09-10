@@ -9,10 +9,10 @@
     "FossilsIncludedDescription": "Há fósseis dentre os resultados. Isto pode significar ocorrências de espécies em locais inesperados",
     "livingSpecimensIncluded": "Espécimes vivos",
     "livingSpecimensIncludedDescription": "A pesquisa inclui espécimes vivos, tais como ocorrências em jardins botânicos e zoológicos.",
-    "yearRange": "",
+    "yearRange": "Intervalo de ano",
     "total": "Total",
     "license": "Licença",
-    "withTaxonMatch": "",
+    "withTaxonMatch": "Com táxon correspondente",
     "withCoordinates": "Com coordenadas",
     "withYear": "Com ano",
     "learnMore": "Saiba mais",
@@ -31,10 +31,10 @@
     "nMbitConn": "conexão Mbit {NUMBER}",
     "onceDownloaded": "Após a transferência do ficheiro, precisarás de {SIZE_FORMATTED} de espaço livre em disco para descomprimir os dados.",
     "datasetHasNumRows": "O conjunto de dados tem {NUMBER_FORMATTED} linhas de dados.",
-    "youWillNotBeAble": "",
-    "difficultToAnalyse": "",
-    "hours": "",
-    "minute": "",
-    "minutes": ""
+    "youWillNotBeAble": "Os dados não poderão ser visualizados ou analisados em Excel ou aplicação similar. Para trabalhar com estes dados é necessário o conhecimento prévio em e.g. R, Phyton ou bancos de dados relacionais.",
+    "difficultToAnalyse": "Um conjunto de dados deste tamanho é difícil de analisar em um computador desktop normal. Provavelmente necessitará aceder a algum tipo de serviço de computação distribuída.",
+    "hours": "Horas",
+    "minute": "Minuto",
+    "minutes": "Minutos"
   }
 }
