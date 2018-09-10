@@ -1,25 +1,25 @@
 {
   "species": {
     "distribution": {
-      "presentIn": "",
-      "presentInNonCountry": "",
-      "threatStatus": "",
-      "distributionPlural": ""
+      "presentIn": "Presente em {country}",
+      "presentInNonCountry": "Presente em {location}",
+      "threatStatus": "Estatuto de ameaça: {status}",
+      "distributionPlural": "Distribuição"
     },
     "tabs": {
-      "overview": "",
-      "metrics": "",
-      "referenceTaxon": "",
-      "verbatim": ""
+      "overview": "Visão geral",
+      "metrics": "Métricas",
+      "referenceTaxon": "Táxon de referência",
+      "verbatim": "Original"
     },
     "invasives": {
-      "nInvadedCountries": "",
-      "invasiveIn": "",
-      "accordingTo": "",
-      "occurrenceCount": "",
-      "seeAllCountries": ""
+      "nInvadedCountries": "Registada como invasora em {NUMBER_FORMATED} {NUMBER, select, 1{país o isla} other{países o islas}}",
+      "invasiveIn": "Registada como invasora em",
+      "accordingTo": "De acordo com",
+      "occurrenceCount": "Ocorrências no GBIF",
+      "seeAllCountries": "Mostrar tudo"
     },
-    "as": "",
+    "as": "Como",
     "in": "",
     "origin": "",
     "issues": "",
