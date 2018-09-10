@@ -42,7 +42,7 @@
     "yes": "Oui",
     "no": "Non",
     "pleaseSelectAValue": "Veuillez sélectionner une valeur",
-    "reuseTrustedIPThosting": "",
+    "reuseTrustedIPThosting": "Dans ce cas, il est recommandé d'essayer d’abord de réutiliser un [centre d'hébergement de données IPT] de confiance (https://github.com/gbif/ipt/wiki/dataHostingCentre)",
     "doYouNeedHelpPublishing": "",
     "areYouPlanningToInstallAndRun": "",
     "orgDetails": "",
