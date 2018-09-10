@@ -62,27 +62,27 @@
         "UNKNOWN": "Registado em {COUNTRY}"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Colhido em local desconhecido",
+        "FOSSIL_SPECIMEN": "Colhido em local desconhecido",
+        "LIVING_SPECIMEN": "Colhido em local desconhecido",
+        "HUMAN_OBSERVATION": "Observado em local desconhecido",
+        "MACHINE_OBSERVATION": "Observado em local desconhecido",
+        "MATERIAL_SAMPLE": "Colhido em local desconhecido",
+        "OCCURRENCE": "Registado em local desconhecido",
+        "OBSERVATION": "Observado em local desconhecido",
+        "LITERATURE": "Registado em local desconhecido",
+        "UNKNOWN": "Registado em local desconhecido"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "Espécie desconhecida"
     },
-    "occurrence": "",
-    "inLanguage": ""
+    "occurrence": "Ocorrência",
+    "inLanguage": "Em {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "Excluído",
+      "AUTHORED": "Alterado",
+      "INFERED": "Inferido"
     }
   }
 }
