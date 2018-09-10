@@ -36,7 +36,7 @@
     "synonyms": "Sinónimos",
     "synonymOf": "Sinónimo de",
     "basionymOf": "Basiónimo de",
-    "immediateChildren": "",
+    "immediateChildren": "Filhos imediatos",
     "descendants": "Descendentes",
     "loadMore": "Mais",
     "selectRoot": "Selecione a raiz",
@@ -57,13 +57,13 @@
     "seeAlso": "Ver também",
     "viewInGbifBackbone": "Ver no backbone do GBIF",
     "verbatimListingMsg": "Esta lista mostra a informação original tal como recebida do publicador, sem processos de interpretação posteriores.",
-    "interpretationMsg": "",
-    "viewGbifSpeciesMsg": "",
-    "inferredRecordMsg": "",
-    "noChildren": "",
-    "youAreBrowsing": "",
-    "lastCrawled": "",
-    "extensions": "",
-    "taxa": ""
+    "interpretationMsg": "Esta é a interpretação das espécies, como publicado em {DATASET}.",
+    "viewGbifSpeciesMsg": "Para ver como se vê esta espécie no GBIF aceda a [the backbone version](/species/{NUBKEY})",
+    "inferredRecordMsg": "Este registo foi criado durante a indexação e não existia explicitamente na fonte de dados nesta forma.",
+    "noChildren": "Sem filhos",
+    "youAreBrowsing": "Está a navegar",
+    "lastCrawled": "Rastreada ontem {DATE_FORMATTED}",
+    "extensions": "Extensões",
+    "taxa": "Taxa"
   }
 }
