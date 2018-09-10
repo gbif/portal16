@@ -1,7 +1,7 @@
 {
     "resourceSearch": {
-        "upcoming": "",
-        "past": "",
+        "upcoming": "Próximos",
+        "past": "Passados",
         "searchForNewsEventsDocuments": "",
         "occurrenceSearch": "",
         "subscribeToCalendar": "",
