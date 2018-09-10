@@ -35,31 +35,31 @@
       "Organism": "Organismo",
       "MaterialSample": "Mostra de material",
       "GeologicalContext": "Contexto geológico",
-      "other": ""
+      "other": "Outro"
     },
-    "term": "",
-    "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "term": "Termo",
+    "interpreted": "Interpretado",
+    "original": "Original",
+    "remarks": "Observações",
     "highlights": {
-      "location": "",
-      "specimenType": "",
-      "publisher": "",
-      "reference": "",
-      "verbatimName": ""
+      "location": "Localidade",
+      "specimenType": "Espécime tipo",
+      "publisher": "Publicador",
+      "reference": "Referência",
+      "verbatimName": "Nome textual"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Colheita em {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Colheita em {COUNTRY}",
+        "LIVING_SPECIMEN": "Colheita em {COUNTRY}",
+        "HUMAN_OBSERVATION": "Observado em {COUNTRY}",
+        "MACHINE_OBSERVATION": "Observado em {COUNTRY}",
+        "MATERIAL_SAMPLE": "Colheita em {COUNTRY}",
+        "OCCURRENCE": "Registado em {COUNTRY}",
+        "OBSERVATION": "Observado em {COUNTRY}",
+        "LITERATURE": "Registado em {COUNTRY}",
+        "UNKNOWN": "Registado em {COUNTRY}"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "",
