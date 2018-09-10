@@ -14,10 +14,10 @@
     "criticalErrorMsg": "O sistema atualmente não é capaz de processar seu pedido. Tente atualizar a página e comunique o problema, se este continuar.",
     "nonCriticalErrorMsg": "Nem todos os dados estão atualmente disponíveis. Está a ver uma visão parcial dos dados. Tente atualizar a página e comunique o problema, se este continuar.",
     "noResultsMessage": "Sem resultados – tente flexibilizar os seus filtros",
-    "noJavascriptEnabled": "",
-    "isSplashScreen": "",
-    "404Text": "",
-    "changeLanguage": "",
-    "noData": ""
+    "noJavascriptEnabled": "Lamentamos, mas o GBIF não funciona corretamente sem o JavaScript habilitado.",
+    "isSplashScreen": "O nosso sítio web detetou que está a usar um browser desatualizado e pouco seguro que impede que possa utilizar o sítio. Sugerimos que atualize para um browser moderno.",
+    "404Text": "Esta página pode já ter existido, mas não conseguimos voltar a encontrá-la. Por favor tente a nossa [search](/search) para encontrar o que procura. Pode sempre contactar-nos através de [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
+    "changeLanguage": "Alterar a língua",
+    "noData": "Sem dados"
   }
 }
