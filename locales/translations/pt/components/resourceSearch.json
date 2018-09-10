@@ -7,18 +7,18 @@
         "subscribeToCalendar": "Subscrever o calendário",
         "citationExplainer": "",
         "types": {
-            "events": "",
-            "news": "",
-            "resources": "",
+            "events": "Eventos",
+            "news": "Notícias",
+            "resources": "Recursos",
             "projects": "",
             "programmes": "",
             "documents": "",
             "tools": "",
             "dataUse": "",
-            "literature": ""
+            "literature": "Bibliografia"
         },
         "filters": {
-            "countriesOfCoverage": "",
+            "countriesOfCoverage": "País ou área de cobertura",
             "countriesOfResearcher": "",
             "literatureType": "",
             "contractCountry": "",
