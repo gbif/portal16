@@ -1,10 +1,10 @@
 {
   "role": {
-    "TECHNICAL_POINT_OF_CONTACT": "",
-    "ADMINISTRATIVE_POINT_OF_CONTACT": "",
-    "_PRIMARY_CONTACT": "",
-    "POINT_OF_CONTACT": "",
-    "ORIGINATOR": "",
+    "TECHNICAL_POINT_OF_CONTACT": "Ponto de contato técnico",
+    "ADMINISTRATIVE_POINT_OF_CONTACT": "Ponto de contato administrativo",
+    "_PRIMARY_CONTACT": "Contato principal",
+    "POINT_OF_CONTACT": "Ponto de contato",
+    "ORIGINATOR": "Criador",
     "GBIFS_STAFF_MEMBER": "",
     "METADATA_AUTHOR": "",
     "PRINCIPAL_INVESTIGATOR": "",
