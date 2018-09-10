@@ -1,9 +1,9 @@
 {
   "region": {
-    "GLOBAL": "",
-    "AFRICA": "",
-    "ASIA": "",
-    "EUROPE": "",
+    "GLOBAL": "Global",
+    "AFRICA": "África",
+    "ASIA": "Ásia",
+    "EUROPE": "Europa",
     "LATIN_AMERICA": "",
     "NORTH_AMERICA": "",
     "OCEANIA": ""
