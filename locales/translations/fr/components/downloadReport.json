@@ -31,8 +31,8 @@
     "nMbitConn": "",
     "onceDownloaded": "",
     "datasetHasNumRows": "",
-    "youWillNotBeAble": "",
-    "difficultToAnalyse": "",
+    "youWillNotBeAble": "Vous ne serez pas en mesure de visualiser ou d’analyser les données dans Excel ou d’autres applications similaires. Afin de travailler sur ces données, vous devez avoir des connaissance sur e.g. R, Python ou des bases de données relationnelles.",
+    "difficultToAnalyse": "Un jeu de données de cette taille est difficile à analyser sur votre ordinateur de bureau normal. Vous aurez probablement besoin d’un accès à une sorte de service de calcul partagé.",
     "hours": "Heures",
     "minute": "Minute",
     "minutes": "Minutes"
