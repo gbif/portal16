@@ -53,9 +53,9 @@
         "not": "Não deve aplicar-se nenhum"
       },
       "and": "E",
-      "or": "",
-      "not": "",
-      "isNotNull": ""
+      "or": "Ou",
+      "not": "Não",
+      "isNotNull": "Está definido"
     }
   }
 }
