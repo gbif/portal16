@@ -1,25 +1,25 @@
 {
   "gbifNetwork": {
-    "title": "",
+    "title": "Diretório",
     "contact": "Nos contact",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Participante votante",
+      "other": "Participantes votantes"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "País participante associado",
+      "other": "Países participantes associados"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "Outro participante associado",
+      "other": "Outros participantes associados"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Ex-participante",
+      "other": "Ex-participantes"
     },
     "gbif_affiliate": {
-      "one": "",
+      "one": "Afiliado do GBIF",
       "other": ""
     },
     "role": "",
