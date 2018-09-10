@@ -27,12 +27,12 @@
                     "undefined": "Desconhecido"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Organização participante votante",
+                    "ASSOCIATE": "Organização participante associada",
+                    "OBSERVER": "Organização participante observadora",
+                    "AFFILIATE": "Organização participante afiliada",
+                    "FORMER": "Organização ex-participante",
+                    "undefined": "Desconhecido"
                 }
             }
         }
