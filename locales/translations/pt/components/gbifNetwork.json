@@ -1,7 +1,7 @@
 {
   "gbifNetwork": {
     "title": "Diretório",
-    "contact": "Nos contact",
+    "contact": "Contato",
     "voting_participant": {
       "one": "Participante votante",
       "other": "Participantes votantes"
@@ -20,34 +20,34 @@
     },
     "gbif_affiliate": {
       "one": "Afiliado do GBIF",
-      "other": ""
+      "other": "Afiliados do GBIF"
     },
-    "role": "",
+    "role": "Papel",
     "group": {
 
     },
-    "gbif_secretariat": "Secretariado GBIF",
-    "membershipType": "",
-    "name": "",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
-    "datasets": "",
-    "regionalRepresentative": "",
+    "gbif_secretariat": "Secretariado do GBIF",
+    "membershipType": "Associação",
+    "name": "Nome",
+    "endorsedDataPublisher": "Deu aval a {NUMBER_FORMATTED} {NUMBER, select, one{publicador} other{publicadores}} de dados ",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participante} other{participantes}}",
+    "dataset": "{NUMBER, select, one{conjunto de dados} other{conjuntos de dados}}",
+    "datasets": "Conjuntos de dados",
+    "regionalRepresentative": "{NUMBER, select, one{representante} other{representantes}}",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Organizações participantes",
+      "gbifAffiliates": "Afiliados do GBIF"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Chefe de delegação",
-      "NODE_MANAGER": ""
+      "NODE_MANAGER": "Coordenador do nó"
     },
-    "publishers": "",
-    "memberSince": "",
-    "participant": "",
-    "pPublishers": "",
-    "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": ""
+    "publishers": "Publicadores",
+    "memberSince": "Membro desde",
+    "participant": "Participante",
+    "pPublishers": "{NUMBER, select, 1{publicador} other{publicadores}}",
+    "pOccurrence": "{NUMBER, select, 1{ocorrência} other{ocorrências}}",
+    "occurrenceDatasets": "Conjuntos de dados de ocorrência",
+    "occurrences": "Ocorrências"
   }
 }
