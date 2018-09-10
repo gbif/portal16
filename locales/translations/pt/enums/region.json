@@ -4,8 +4,8 @@
     "AFRICA": "África",
     "ASIA": "Ásia",
     "EUROPE": "Europa",
-    "LATIN_AMERICA": "",
-    "NORTH_AMERICA": "",
-    "OCEANIA": ""
+    "LATIN_AMERICA": "América Latina e Caraíbas",
+    "NORTH_AMERICA": "América do Norte",
+    "OCEANIA": "Oceania"
   }
 }
