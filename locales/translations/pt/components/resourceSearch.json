@@ -2,8 +2,8 @@
     "resourceSearch": {
         "upcoming": "Próximos",
         "past": "Passados",
-        "searchForNewsEventsDocuments": "",
-        "occurrenceSearch": "",
+        "searchForNewsEventsDocuments": "Pesquise notícias, eventos, documentos e muito mais. Se estiver à procura de ocorrências de espécies então tente a nossa pesquisa de ocorrências.",
+        "occurrenceSearch": "Pesquisa de ocorrências",
         "subscribeToCalendar": "",
         "citationExplainer": "",
         "types": {
