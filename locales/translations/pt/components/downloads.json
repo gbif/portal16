@@ -1,10 +1,10 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "",
-    "nConstituentDatasets": "",
-    "fileNotAvailable": "",
-    "downloadDeletionWarning": "",
-    "brokenDownload": "",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATED} {NUMBER, select, one{registo} other{registos}} transferidos",
+    "nConstituentDatasets": "Inclui registos de {NUMBER_FORMATTED} {NUMBER, select, one{conjunto de dados} other{conjuntos de dados}}",
+    "fileNotAvailable": "Este ficheiro não está mais disponível para transferência",
+    "downloadDeletionWarning": "Esta transferência não foi citada e é elegível para exclusão após {DATE}.",
+    "brokenDownload": "Transferência interrompida",
     "contactHelpdesk": "",
     "cancelled": "",
     "cancel": "",
