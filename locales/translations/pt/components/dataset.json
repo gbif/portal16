@@ -51,7 +51,7 @@
     "methodSteps": "Etapas do método",
     "nDownloadEvents": "",
     "nFromDataset": "",
-    "funding": "",
+    "funding": "Financiamento",
     "contacts": "",
     "registration": "",
     "dataDescription": "",
@@ -69,16 +69,16 @@
     "originalArchive": "",
     "annotatedEml": "Metadados registados no GBIF",
     "license": "Licença",
-    "recommended": "",
-    "processedOccurrences": "",
-    "noDescriptionProvided": "",
-    "pNetwork": "",
+    "recommended": "Recomendado",
+    "processedOccurrences": "Ficheiros registados no GBIF",
+    "noDescriptionProvided": "Não há descrição disponível",
+    "pNetwork": "{NUMBER, select, 1{Rede de trabalho} other{Redes de trabalho}}",
     "parentEvent": "",
-    "eventDescription": "",
+    "eventDescription": "Descrição do evento",
     "siblingEvents": "",
     "childEvents": "",
-    "occurrenceCount": "",
-    "inDataset": "",
-    "samplingArticleLink": ""
+    "occurrenceCount": "Número (quantidade) de registos",
+    "inDataset": "Em",
+    "samplingArticleLink": "Mais sobre eventos de colheita em GBIF.org"
   }
 }
