@@ -1,11 +1,11 @@
 {
   "eoi": {
-    "firstPleaseSeeIfYourOrg": "",
-    "ifYouAreAffiliatedWithTheSelectedOrganization": "",
-    "myOrgIsNotRegistered": "",
-    "searchOrganisations": "",
-    "termsAndConditions": "",
-    "iHaveReadAndUnderstood": "",
+    "firstPleaseSeeIfYourOrg": "Tout d’abord, vérifiez si votre organisation est déjà enregistrée comme institution sur GBIF.",
+    "ifYouAreAffiliatedWithTheSelectedOrganization": "Si vous êtes affilié à l’organisation sélectionnée, vous devriez communiquer avec le contact principal pour discuter des connaissances pratiques de la publication des données.",
+    "myOrgIsNotRegistered": "Mon organisation n’est pas déjà enregistrée.",
+    "searchOrganisations": "Recherche d'organisations",
+    "termsAndConditions": "Termes et conditions",
+    "iHaveReadAndUnderstood": "J’ai lu et compris [l'accord des éditeurs de données de GBIF](/terms/data-publisher) et j'accepte les conditions.",
     "iUnderstandThatIAmSeekingRegistrationOnBehalf": "",
     "iUnderstandThatMyOrganizationalInformation": "",
     "administrativeContact": "",
