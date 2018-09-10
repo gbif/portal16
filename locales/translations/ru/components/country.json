@@ -1,37 +1,37 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
+      "summary": "Реферат",
       "dataPublishing": "Публикация данных",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
+      "dataAbout": "Данные о",
+      "participartion": "Участие",
+      "publications": "Публикаторы",
       "news": "Новости"
     },
-    "memberSince": "",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
-    "nFrom": "",
-    "nAbout": "",
-    "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "memberSince": "Дата регистрации",
+    "dataFrom": "Данные из {TRANSLATED_COUNTRY}",
+    "dataAboutCountry": "Даныне о {TRANSLATED_COUNTRY}",
+    "publishingTrends": "Тенденции в публикации данных",
+    "noDataPublishingActivity": "Нет данных о публикационной активности",
+    "noInstitutionsHavePublished": "Нет институтов этой страны, которые опубликовали данные через GBIF",
+    "trendsAboutCountry": "Тенденции в {TRANSLATED_COUNTRY}",
+    "nFrom": "{NUMBER_FORMATTED} из",
+    "nAbout": "{NUMBER_FORMATTED} о",
+    "viewAllN": "Посмотреть все {NUMBER_FORMATTED}",
+    "noPublications": "Нет публикаций",
+    "notParticipant": "Не является участником",
+    "notParticipantDescription": "Эта страна не является участником GBIF",
+    "countryNamingDisclaimer": "Названия стран и территорий на основе [стандарта ISO 3166-1] (https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "Находки",
       "datasets": "Наборы данных",
-      "publishers": "",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "publishers": "Публикаторы данных",
+      "countriesAndAreasContributeData": "Страны и регионы, публикующие данных",
+      "publishedOccurrences": "Опубликованных находок видов",
+      "publishedDatasets": "Опубликованных наборов данных",
+      "countriesAndAreasCoveredByDataFrom": "Стран и районов, охватываемых данным {TRANSLATED_COUNTRY}",
+      "publishersFrom": "Публикаторы данных из {TRANSLATED_COUNTRY}"
     },
-    "activityReport": ""
+    "activityReport": "Отчет о деятельности"
   }
 }

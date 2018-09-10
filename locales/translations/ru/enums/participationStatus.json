@@ -1,10 +1,10 @@
 {
     "participationStatus": {
-        "VOTING": "",
-        "ASSOCIATE": "",
-        "OBSERVER": "",
-        "AFFILIATE": "",
-        "FORMER": "",
-        "undefined": ""
+        "VOTING": "С правом голоса",
+        "ASSOCIATE": "Ассоциированный",
+        "OBSERVER": "Наблюдатель",
+        "AFFILIATE": "Аффилированный",
+        "FORMER": "Бывший",
+        "undefined": "Неизвестный"
     }
 }
