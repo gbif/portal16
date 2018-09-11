@@ -10,13 +10,13 @@
     "when": "Quando",
     "language": "Idioma",
     "viewOnGBIF": "Ver no GBIF",
-    "published": "",
-    "programme": "",
-    "fundedBy": "",
-    "about": "",
-    "datasets": "",
-    "gbifWillAttend": "",
-    "dataUsedInStudy": "",
-    "resourceDescription": ""
+    "published": "Publicado",
+    "programme": "Programa",
+    "fundedBy": "Financiado por",
+    "about": "Sobre",
+    "datasets": "conjuntos de dados",
+    "gbifWillAttend": "Assistido pelo Secretariado do GBIF",
+    "dataUsedInStudy": "Dados utilizados no estudo",
+    "resourceDescription": "Pesquisar recursos no Global Biodiversity Information Facility. Acesso livre e aberto aos dados de biodiversidade."
   }
 }
