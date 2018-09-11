@@ -65,7 +65,7 @@
     "description": "Descrição",
     "gbifProjects": "Projetos do GBIF",
     "areYouAssociatedWithProgramme": "",
-    "exampleProgramme": "",
+    "exampleProgramme": "Por exemplo: Informação sobre Biodiversidade para o Desenvolvimento (BID), Fundo de Informação de Biodiversidade para a Ásia (BIFA), Programa de Suporte ao Aumento de Capacitação (CESP).",
     "pleaseEnterProjectIdentifier": "",
     "registerOrg": "",
     "technicalContact": "",
