@@ -1,43 +1,43 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "Sem filtro",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "É {from}m",
+            "between": "Entre {from} e {to}m",
+            "lessThanOrEquals": "Abaixo {to}m",
+            "greaterThanOrEquals": "Acima de {from}m",
+            "invalid": "Inválido",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "É",
+                "between": "Entre",
+                "lessThanOrEquals": "Abaixo",
+                "greaterThanOrEquals": "Acima"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "É {from}m",
+            "between": "Entre {from} e {to}m",
+            "lessThanOrEquals": "Acima de {to}m de profundidade",
+            "greaterThanOrEquals": "Mais profundo do que {from}m",
+            "invalid": "Inválido",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "É",
+                "between": "Entre",
+                "lessThanOrEquals": "Menos de",
+                "greaterThanOrEquals": "Mais profundo do que"
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "É {from}",
+            "between": "Entre o início de {from} e o final de {to}",
+            "lessThanOrEquals": "Antes do final de {to}",
+            "greaterThanOrEquals": "Após o início de {from}",
+            "invalid": "Inválido",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "É",
+                "between": "Entre",
+                "lessThanOrEquals": "Antes do final do",
+                "greaterThanOrEquals": "Após o início de"
             }
         }
     }

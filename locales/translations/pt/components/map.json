@@ -1,57 +1,57 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{registo georreferenciado} other{registos georeferenciados}}",
+    "noOccurrencesWithCoordinates": "Nenhuma ocorrência com coordenadas",
+    "clickToSearchArea": "Clique para pesquisar uma área",
+    "generatedDateAgo": "Gerada {DATE_AGO}",
+    "anyYear": "Qualquer ano",
+    "exploreArea": "Explore a área",
+    "explore": "Explore",
+    "style": "Estilo",
+    "filters": "Filtros",
+    "projection": "Projeção",
+    "select": "Selecionar",
+    "custom": "Personalizado",
+    "baseMap": "Mapa base",
+    "binning": "Categorização",
+    "year": "Ano",
+    "chooseColors": "Cores",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "Hexágonos clássicos",
+      "CLASSIC": "Postos clássicos",
+      "STREETS": "Ruas",
+      "GLACIER": "Glaciar",
+      "CUSTOM": "Personalizado"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "Magenta",
+      "LIGHT": "Luz (sem etiquetas)",
+      "LIGHT_DETAILS": "Claro",
+      "DARK": "Escuro (sem etiquetas)",
+      "DARK_DETAILS": "Escuro",
+      "OSM": "Estradas"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Pontos",
+      "SMALL_HEX": "Hexágonos pequenos",
+      "LARGE_HEX": "Hexágonos",
+      "SMALL_SQUARE": "Quadrado pequenos",
+      "LARGE_SQUARE": "Quadrados"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "Clássico",
+      "FIRE": "Fogo",
+      "GLACIER": "Glaciar",
+      "PURPLE_YELLOW": "Amarelo roxo",
+      "PURPLE_HEAT": "Roxo quente",
+      "BLUE_HEAT": "Azul quente",
+      "ORANGE_HEAT": "Laranja quente",
+      "GREEN": "Verde",
+      "BLUE_CLUSTER": "Azulado",
+      "ORANGE_CLUSTER": "Alaranjado"
     },
     "errors": {
-      "413": ""
+      "413": "A geometria deste ficheiro é demasiado grande para ser processada pelo API de dados."
     }
   }
 }
