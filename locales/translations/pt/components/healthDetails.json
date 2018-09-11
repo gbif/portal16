@@ -46,19 +46,19 @@
             },
             "CRAWLER": {
                 "name": "Ingestão",
-                "tooltip": ""
+                "tooltip": "Para atualizar conjuntos de dados - novo e antigo."
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "Pesquisa de recursos",
+                "tooltip": "E.g. para pesquisar a literatura, notícias."
             },
             "CLUSTER": {
-                "name": "",
-                "tooltip": ""
+                "name": "Carga do sistema",
+                "tooltip": "O backend para manipulação de transferências, ingestão e muito mais."
             },
             "DOWNLOAD": {
-                "name": "",
-                "tooltip": ""
+                "name": "Transferências",
+                "tooltip": "Para manipulação de trabalhos de transferência e enviar notificações aos utilizadores"
             }
         }
     }
