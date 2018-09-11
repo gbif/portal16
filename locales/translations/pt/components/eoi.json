@@ -59,12 +59,12 @@
     "logo": "Logotipo",
     "exampleImageUrl": "E.g. http://my.organization.org/images/logo.png",
     "invalidUrl": "URL inválido",
-    "brieflyDescribeScope": "",
+    "brieflyDescribeScope": "Descreva brevemente o escopo da tua instituição/organização em relação à missão do GBIF (e.g. coleções, pesquisa/investigação, gestão da informação de biodiversidade, etc.). Esta descrição aparecerá na tua página de publicador.",
     "clear": "Limpar",
     "clickMapToAddOrg": "Clique no mapa para adicionar a tua organização",
     "description": "Descrição",
     "gbifProjects": "Projetos do GBIF",
-    "areYouAssociatedWithProgramme": "",
+    "areYouAssociatedWithProgramme": "Estás associado a projetos financiados por Programas do GBIF?",
     "exampleProgramme": "Por exemplo: Informação sobre Biodiversidade para o Desenvolvimento (BID), Fundo de Informação de Biodiversidade para a Ásia (BIFA), Programa de Suporte ao Aumento de Capacitação (CESP).",
     "pleaseEnterProjectIdentifier": "Por favor, digite o identificador do projeto - e.g. BID-CA2016-0000-NAC",
     "registerOrg": "Registar organização",
@@ -77,7 +77,7 @@
     "youWillRecieveConfEmail": "Receberás um e-mail de confirmação após ter sido concedido o aval.",
     "yourOrgDetailsAreHere": "As informações da organização estão aqui.",
     "outage": "Estamos com uma interrupção parcial e não aceitamos inscrições no momento",
-    "eoiDescription": "",
+    "eoiDescription": "Para preparar a publicação de dados através do GBIF, pedimos aos potenciais publicadores para preencher este formulário online. Antes do GBIF indexar teus conjuntos de dados, a instituição deverá receber o aval de publicador de dados, seja de um dos países ou de organizações participantes do GBIF, através de um dos Nós. Se o teu país ainda não participa do GBIF, procuraremos o aval a teu favor na Comunidade GBIF.",
     "eoiTitle": "Tornar-se um publicador"
   }
 }
