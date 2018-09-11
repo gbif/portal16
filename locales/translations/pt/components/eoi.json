@@ -1,7 +1,7 @@
 {
   "eoi": {
-    "firstPleaseSeeIfYourOrg": "",
-    "ifYouAreAffiliatedWithTheSelectedOrganization": "",
+    "firstPleaseSeeIfYourOrg": "Primeiramente, por favor verifique se tua instituição já está registada como publicadora de dados no GBIF.",
+    "ifYouAreAffiliatedWithTheSelectedOrganization": "Se estás afiliado a instituição selecionada, deves contatá-la para obter informações práticas sobre publicação de dados.",
     "myOrgIsNotRegistered": "",
     "searchOrganisations": "",
     "termsAndConditions": "",
