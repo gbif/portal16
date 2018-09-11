@@ -4,8 +4,8 @@
       "aboutPublisher": "Sobre",
       "publishersHomepage": "Página inicial"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
+    "joinedAgo": "Desde {TIME_AGO}",
+    "newPublisher": "Publicador novo",
     "technicalContact": "Contato técnico",
     "country": "País ou área",
     "hosting": "Hospedagem",
