@@ -1,8 +1,8 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "",
-    "DOUBTFUL": "",
-    "SYNONYM": "",
+    "ACCEPTED": "Aceito",
+    "DOUBTFUL": "Duvidoso",
+    "SYNONYM": "Sinónimo",
     "HETEROTYPIC_SYNONYM": "",
     "HOMOTYPIC_SYNONYM": "",
     "PROPARTE_SYNONYM": "",
