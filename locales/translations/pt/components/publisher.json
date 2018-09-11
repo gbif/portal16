@@ -10,9 +10,9 @@
     "country": "País ou área",
     "hosting": "Hospedagem",
     "description": "Descrição",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
+    "endorsedBy": "Aprovado por",
+    "pendingEndorsementBy": "Aval pendente por",
+    "installations": "Instalações",
     "contacts": "Contatos",
     "administrativeContact": "Contato administrativo",
     "header": {
