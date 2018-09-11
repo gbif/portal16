@@ -38,7 +38,7 @@
     "checkListData": "Checklists",
     "occurrenceOnlyData": "Somente dados de ocorrência",
     "samplingEventData": "Dados baseados em amostragem",
-    "doYouHaveCapacity": "",
+    "doYouHaveCapacity": "Tens a capacidade de executar um servidor direto, OU acesso a um servidor, através dos quais podes partilhar o conjunto de dados original ao GBIF.org?",
     "yes": "Sim",
     "no": "Não",
     "pleaseSelectAValue": "Por favor, selecione um valor",
@@ -78,6 +78,6 @@
     "yourOrgDetailsAreHere": "",
     "outage": "",
     "eoiDescription": "",
-    "eoiTitle": ""
+    "eoiTitle": "Tornar-se um publicador"
   }
 }
