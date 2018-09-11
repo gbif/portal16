@@ -48,6 +48,8 @@ require('moment/locale/es');
 require('moment/locale/ja');
 require('moment/locale/zh-cn');
 require('moment/locale/ru');
+require('moment/locale/fr');
+require('moment/locale/pt');
 
 require('moment/locale/da');
 require('moment/locale/de-ch');
