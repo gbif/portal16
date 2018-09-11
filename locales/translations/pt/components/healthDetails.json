@@ -1,43 +1,43 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "automatedMonitoring": "Monitorização automatizada",
+        "systemLoad": "Carga do sistema",
+        "messages": "Mensagens",
+        "version": "Versão",
+        "nInQueue": "{NUMBER} na fila",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "Operacional",
+            "WARNING": "Instável",
+            "CRITICAL": "Não utilizável",
+            "INFO": "Atualização de sistema"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Ocorrência",
+                "tooltip": "E.g. busca e visualização de ocorrências."
             },
             "SPECIES": {
-                "name": "",
-                "tooltip": ""
+                "name": "Espécie",
+                "tooltip": "E.g. Procurar e visualizar espécies, sugestões de espécies"
             },
             "REGISTRY": {
                 "name": "Inscrição",
-                "tooltip": ""
+                "tooltip": "E.g. Conjunto de dados, publicadores, instalações, países, participantes e redes."
             },
             "IDENTITY": {
-                "name": "",
-                "tooltip": ""
+                "name": "Identidade",
+                "tooltip": "Para log in e out, conectar-se a contas, etc."
             },
             "MAPS": {
-                "name": "",
-                "tooltip": ""
+                "name": "Mapas",
+                "tooltip": "Para exibir imagens de mapa e obter informação sobre um mapa."
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "Sistema de gestão de conteúdo (sistema externo)",
+                "tooltip": "E.g. notícias e artigos"
             },
             "IMAGE_CACHE": {
-                "name": "",
+                "name": "Cache de imagem",
                 "tooltip": ""
             },
             "GITHUB": {
