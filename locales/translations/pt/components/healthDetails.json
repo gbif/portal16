@@ -38,14 +38,14 @@
             },
             "IMAGE_CACHE": {
                 "name": "Cache de imagem",
-                "tooltip": ""
+                "tooltip": "Responsável pela maioria das imagens no sítio web"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "GitHub (sistema externo)",
+                "tooltip": "Comentários, sugestões de conjuntos de dados"
             },
             "CRAWLER": {
-                "name": "",
+                "name": "Ingestão",
                 "tooltip": ""
             },
             "RESOURCE_SEARCH": {
