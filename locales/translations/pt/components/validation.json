@@ -1,7 +1,7 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "Estrutura do recurso",
+      "RESOURCE_STRUCTURE": "Estrutura de recursos",
       "RESOURCE_INTEGRITY": "Integridade do recurso",
       "RECORD_STRUCTURE": "Estrutura do registo",
       "OCC_INTERPRETATION_BASED": "Interpretação de ocorrência do GBIF",
@@ -111,14 +111,14 @@
     "dropHere": "Solte aqui",
     "or": "ou",
     "selectFile": "Selecionar ficheiro",
-    "fetchFileFromLocation": "",
+    "fetchFileFromLocation": "Pesquisar o ficheiro de localização",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
-      "about": "",
-      "darwinCoreExtensions": "",
-      "metaData": "",
-      "summary": ""
+      "newDataValidation": "Nova validação de dados",
+      "newValidation": "Nova validação",
+      "about": "Sobre",
+      "darwinCoreExtensions": "Extensões Darwin Core",
+      "metaData": "Metadados",
+      "summary": "Sumário"
     }
   }
 }
