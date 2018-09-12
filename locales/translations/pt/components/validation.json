@@ -56,7 +56,7 @@
     "fileSizeLimit": "Limite de tamanho do ficheiro: 100 mb",
     "receivedMediaType": "Tipo de média",
     "uniqueIdentifier": "Identificador único",
-    "reportLocation": "",
+    "reportLocation": "Este relatório foi escrito para",
     "reportDeletion": "",
     "reportGenerated": "",
     "summary": "",
