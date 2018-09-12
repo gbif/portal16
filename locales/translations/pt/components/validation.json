@@ -88,11 +88,11 @@
     },
     "status": {
       "title": "Estado",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
+      "SUBMITTED": "A enviar ficheiro",
+      "FETCHING": "A recuperar ficheiro",
+      "ACCEPTED": "Validação iniciada",
+      "RUNNING": "Validação em progresso",
+      "FINISHED": "Validação concluída",
       "FAILED": "",
       "CONTACTING_SERVER": ""
     },
