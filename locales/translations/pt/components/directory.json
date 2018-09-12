@@ -3,15 +3,15 @@
     "group": {
       "executiveCommittee": {
         "title": "Comité executivo",
-        "description": ""
+        "description": "O Comité Executivo opera por parte da Assembleia Geral quando este não está em sessão e em áreas onde houve responsabilidade delegada pela Assembleia. Entre suas funções estão a monitorização da performance do Secretariado em executar decisões tomadas pela Assembleia Geral, incluindo a implementação do Plano estratégico and do Programa de trabalho; e a gestão dos recursos financeiros."
       },
       "scienceCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité Científico",
+        "description": "O Comité Científico do GBIF é um comité consultivo que supervisiona o desenvolvimento e progresso do Programa de trabalho do GBIF e faz recomendações à Assembleia Geral, ao Comité Executivo e ao Secretariado. Podes ler os termos de referência [aqui.](/document/80877/current-terms-of-reference-for-the-science-committee)"
       },
       "budgetCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité de Orçamento",
+        "description": "O Comité de Orçamento é um comité consultivo que lida com questões financeiras relacionandas a administração dos fundos do GBIF. Entre outras funções, supervisiona a auditoria das contas anuais apresentadas à Assembleia Geral e fornece orientação para a seleção da empresa de auditoria do GBIF. O comité faz recomendações à Assembleia Geral, ao Comité Executivo e ao Secretariado. Seus termos de referência podem ser encontrados [aqui.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
         "title": "",
