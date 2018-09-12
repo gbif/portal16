@@ -68,26 +68,26 @@
       "400": "O ficheiro não pode ser processado, ou pode estar perdido se forneceste um URL.",
       "404": "A ID do trabalho de validação não foi encontrada. Se acreditas ser um erro, por favor relate-o.",
       "413": "O ficheiro é muito grande, para ser processado pelo validador de dados.",
-      "415": ""
+      "415": "Tipo de arquivo não suportado. O ficheiro não pode ser processado."
     },
-    "backToValidator": "",
+    "backToValidator": "Iniciar uma nova validação",
     "termsFrequency": {
-      "title": "",
-      "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "title": "Frequência do termo",
+      "term": "Termo",
+      "count": "Contagem",
+      "percentage": "Percentagem",
+      "interpreted": "Interpretado"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "Número de datas interpretadas",
+      "taxon": "Número de linhas com táxon interpretado",
+      "location": "Número de coordenadas interpretadas"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "Contagem de valor interpretado"
     },
     "status": {
-      "title": "",
+      "title": "Estado",
       "SUBMITTED": "",
       "FETCHING": "",
       "ACCEPTED": "",
