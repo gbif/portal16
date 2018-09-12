@@ -1,8 +1,8 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
+      "RESOURCE_STRUCTURE": "Структура ресурса",
+      "RESOURCE_INTEGRITY": "Целостность ресурса",
       "RECORD_STRUCTURE": "",
       "OCC_INTERPRETATION_BASED": "",
       "METADATA_CONTENT": "",
@@ -20,7 +20,7 @@
       "REQUIRED_TERM_MISSING": "",
       "COLUMN_MISMATCH": "",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
+      "UNKNOWN_TERM": "Неизвестный термин",
       "DUPLICATED_TERM": "",
       "TITLE_MISSING_OR_TOO_SHORT": "",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
