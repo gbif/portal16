@@ -41,16 +41,16 @@
             "hexagon": "Hexágono",
             "draw": "Desenhar",
             "clear": "Limpar",
-            "resultIntro": "",
-            "embedIntro": ""
+            "resultIntro": "Mudança na frequência de observação relativa para uma área selecionada",
+            "embedIntro": "Todos os dados mediados através da {GBIF network}"
         },
         "speciesLookup": {
             "description": "",
             "title": "Correspondência do nome das espécies"
         },
         "ipt": {
-            "description": "",
-            "dontSeeYourIpt": ""
+            "description": "O Integrated Publishing Toolkit (IPT) é um software em código aberto escrito em Java que é utilizado para publicar e partilhar conjuntos de dados de biodiversidade através da rede GBIF. O IPT pode também ser configurado quer com uma conta DataCite ou EZID para atribuir DOIs aos conjuntos de dados, tornando-se um repositório de dados.",
+            "dontSeeYourIpt": "Não encontra o seu IPT? Envie a [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") as suas coordenadas."
         }
     }
 }
