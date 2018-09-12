@@ -15,11 +15,11 @@
       },
       "nsg": {
         "title": "Comité de Orientação dos Nós",
-        "description": ""
+        "description": "Estabelecido em 2011, o Comité de Orientação dos Nós (NSG) é formado pelo presidente e vice-presidentes do [Comité de Coordenadores dos Nós Participantes] (/contact-us/directory?group=nodesCommittee), acompanhado por um representante regional de cada uma das seis regiões do GBIF ([África] (/ the-gbif-network / africa), [Ásia] (/ the-gbif-network / asia), [Europa] (/ the-gbif-network / europe), [América Latina / Caribe] ( / the-gbif-network / latin-america), [América do Norte] (/ the-gbif-network / america do norte) e [Oceania] (/ the-gbif-network / oceania)). Os objetivos do NSG são fazer recomendações específicas para os órgãos relevantes do GBIF com base no feedback fornecido pelos Nós Participantes; e aconselhar sobre os Programas de Trabalho anuais do GBIF, uma vez que estão relacionados aos esforços dos Nós do GBIF."
       },
       "nodesCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité de Coordenadores dos Nós",
+        "description": "O Comité de Coordenadores dos Nós (ou Comité dos Nós) é um grupo dinâmico formado por coordenadores de Nós, apontados pelos Participantes (países e organizações internacionais). O Comité inclui três posições (Chairs) estabelecidas através de votação pela Assembleia Geral, por período máximo de dois anos."
       },
       "secretariat": {
         "title": "Secretariado GBIF",
