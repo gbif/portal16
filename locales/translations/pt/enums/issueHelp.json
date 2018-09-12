@@ -1,12 +1,12 @@
 {
   "issueHelp": {
     "BASIS_OF_RECORD_INVALID": "O valor de basisOfRecord está ausente ou inválido. Valor deve coincidir com o vocabulário controlado do Darwin Core.",
-    "COORDINATE_REPROJECTION_FAILED": "",
-    "NO_SPECIES": "",
-    "RECORDED_DATE_INVALID": "",
-    "PRESUMED_NEGATED_LATITUDE": "",
-    "UNKNOWN_TERM": "",
-    "DEPTH_MIN_MAX_SWAPPED": "",
+    "COORDINATE_REPROJECTION_FAILED": "O decimal indicado para latitude e longitude não permite ser reprojetado para WGS84, baseando-se no datum fornecido.",
+    "NO_SPECIES": "Os grupos (atualmente apenas géneros estão testados) estão em falta de qualquer espécie aceita. Problema específico do backbone do GBIF.",
+    "RECORDED_DATE_INVALID": "É dada uma data inválida (parcial), como uma data não existente, mês zero inválido, etc.",
+    "PRESUMED_NEGATED_LATITUDE": "Latitude parece ser negativa, e.g. 32.3 ao invés de -32.3",
+    "UNKNOWN_TERM": "Desconhece-se um termo usado na definição de núcleo/extensão",
+    "DEPTH_MIN_MAX_SWAPPED": "Definir se fornecido min>max",
     "ORIGINAL_NAME_DERIVED": "",
     "ELEVATION_UNLIKELY": "",
     "PARENT_NAME_NOT_UNIQUE": "",
