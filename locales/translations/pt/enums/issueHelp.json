@@ -1,6 +1,6 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "",
+    "BASIS_OF_RECORD_INVALID": "O valor de basisOfRecord está ausente ou inválido. Valor deve coincidir com o vocabulário controlado do Darwin Core.",
     "COORDINATE_REPROJECTION_FAILED": "",
     "NO_SPECIES": "",
     "RECORDED_DATE_INVALID": "",
