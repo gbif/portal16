@@ -2,14 +2,14 @@
     "health": {
         "automatedMonitoring": "",
         "systemLoad": "",
-        "messages": "",
-        "version": "",
+        "messages": "Сообщения",
+        "version": "Версия",
         "nInQueue": "",
         "status": {
             "OPERATIONAL": "",
             "WARNING": "",
             "CRITICAL": "",
-            "INFO": ""
+            "INFO": "Обновление системы"
         },
         "components": {
             "OCCURRENCE": {
@@ -29,12 +29,12 @@
                 "tooltip": ""
             },
             "MAPS": {
-                "name": "",
+                "name": "Карты",
                 "tooltip": ""
             },
             "CONTENTFUL": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Например, новости и статьи"
             },
             "IMAGE_CACHE": {
                 "name": "",
@@ -46,18 +46,18 @@
             },
             "CRAWLER": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Для обновления наборов данных ﹣ новых и старых."
             },
             "RESOURCE_SEARCH": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Например, для поиска литературы, новостей."
             },
             "CLUSTER": {
                 "name": "",
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
+                "name": "Загрузки",
                 "tooltip": ""
             }
         }

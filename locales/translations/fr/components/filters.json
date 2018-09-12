@@ -3,21 +3,21 @@
         "searchPlaceholder": "",
         "noPreference": "",
         "invert": "",
-        "clear": "",
-        "add": "",
+        "clear": "Effacer",
+        "add": "Ajouter",
         "repatriation": {
             "description": ""
         },
         "ternary": {
-            "yes": "",
-            "no": "",
+            "yes": "Oui",
+            "no": "Non",
             "all": ""
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
+            "north": "Nord",
+            "south": "Sud",
+            "west": "Ouest",
+            "east": "Est",
             "withCoordinates": "",
             "withoutCoordinates": "",
             "includeFlaggedAsSuspicious": "",

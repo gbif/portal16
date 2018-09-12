@@ -1,11 +1,11 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
+      "RESOURCE_STRUCTURE": "Структура ресурса",
+      "RESOURCE_INTEGRITY": "Целостность ресурса",
       "RECORD_STRUCTURE": "",
       "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
+      "METADATA_CONTENT": "Метаданные",
       "CLB_INTERPRETATION_BASED": ""
     },
     "issueType": {
@@ -20,29 +20,29 @@
       "REQUIRED_TERM_MISSING": "",
       "COLUMN_MISMATCH": "",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
-      "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
+      "UNKNOWN_TERM": "Неизвестный термин",
+      "DUPLICATED_TERM": "Дублирование терминов",
+      "TITLE_MISSING_OR_TOO_SHORT": "Название набора данных отсутствует или слишком короткое",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "Описание набора данных отсутствует или слишком короткое",
       "LICENSE_MISSING_OR_UNKNOWN": "",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
       "UNREADABLE_SECTION_ERROR": "",
       "NoIssuesFound": ""
     },
     "fileFormat": {
-      "title": "",
+      "title": "Формат файла",
       "DWCA": "",
       "TABULAR": "",
-      "SPREADSHEET": ""
+      "SPREADSHEET": "Таблица (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "Тип строк",
       "CORE": {
         "title": "Ядро"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "Расширения"
       },
       "METADATA": {
         "description": "",
@@ -55,15 +55,15 @@
     },
     "fileSizeLimit": "",
     "receivedMediaType": "",
-    "uniqueIdentifier": "",
-    "reportLocation": "",
+    "uniqueIdentifier": "Уникальный идентификатор",
+    "reportLocation": "Этот отчёт был написан для",
     "reportDeletion": "",
     "reportGenerated": "",
     "summary": "",
     "issues": "",
     "fileHasIssues": "",
     "fileHasNoIssues": "",
-    "error": "",
+    "error": "Ошибка",
     "errors": {
       "400": "",
       "404": "",

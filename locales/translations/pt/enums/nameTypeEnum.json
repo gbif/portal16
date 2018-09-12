@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
-    "HYBRID": "",
-    "INFORMAL": "",
-    "OTU": "",
-    "CULTIVAR": "",
-    "CANDIDATUS": "",
-    "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "SCIENTIFIC": "Nome científico",
+    "DOUBTFUL": "Duvidoso",
+    "BLACKLISTED": "Na Lista Negra",
+    "VIRUS": "Vírus",
+    "HYBRID": "Fórmula de híbrido",
+    "INFORMAL": "Informal",
+    "OTU": "Unidade taxonómica operacional",
+    "CULTIVAR": "Cultivar",
+    "CANDIDATUS": "Candidatus",
+    "PLACEHOLDER": "Referência",
+    "NO_NAME": "Sem nome"
   }
 }

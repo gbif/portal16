@@ -1,16 +1,16 @@
 {
   "nameUsageOrigin": {
-    "SOURCE": "",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
-    "PROPARTE": "",
-    "AUTONYM": "",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "SOURCE": "O registo veio diretamente do registo fonte.",
+    "DENORMED_CLASSIFICATION": "Uso implícito de uma classificação denormalisada.",
+    "VERBATIM_PARENT": "Uso implícito de nome de pai de verbatim.",
+    "VERBATIM_ACCEPTED": "Uso implícito de nome aceito de verbatim.",
+    "VERBATIM_BASIONYM": "Uso implícito de basiónimo/nome original de verbatim.",
+    "PROPARTE": "Uso duplicado de registo único pro parte.",
+    "AUTONYM": "Gerado, falta autónimo.",
+    "IMPLICIT_NAME": "Gerado, falta o género ou espécie para 'órfãos' de nome inferior.",
+    "MISSING_ACCEPTED": "Uso artificial aceito para un sinónimo se em falta, para preservar a hierarquia taxonómica.",
+    "BASIONYM_PLACEHOLDER": "Uso de marcador de posição para basiónimo em falta ou implícito.",
+    "EX_AUTHOR_SYNONYM": "Sinônimo implícito baseado em ex autor ilegítimo. Consulte o artigo ICN 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
+    "OTHER": "Outra origem"
   }
 }

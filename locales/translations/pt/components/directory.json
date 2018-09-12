@@ -2,51 +2,51 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité executivo",
+        "description": "O Comité Executivo opera por parte da Assembleia Geral quando este não está em sessão e em áreas onde houve responsabilidade delegada pela Assembleia. Entre suas funções estão a monitorização da performance do Secretariado em executar decisões tomadas pela Assembleia Geral, incluindo a implementação do Plano estratégico and do Programa de trabalho; e a gestão dos recursos financeiros."
       },
       "scienceCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité Científico",
+        "description": "O Comité Científico do GBIF é um comité consultivo que supervisiona o desenvolvimento e progresso do Programa de trabalho do GBIF e faz recomendações à Assembleia Geral, ao Comité Executivo e ao Secretariado. Podes ler os termos de referência [aqui.](/document/80877/current-terms-of-reference-for-the-science-committee)"
       },
       "budgetCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité de Orçamento",
+        "description": "O Comité de Orçamento é um comité consultivo que lida com questões financeiras relacionandas a administração dos fundos do GBIF. Entre outras funções, supervisiona a auditoria das contas anuais apresentadas à Assembleia Geral e fornece orientação para a seleção da empresa de auditoria do GBIF. O comité faz recomendações à Assembleia Geral, ao Comité Executivo e ao Secretariado. Seus termos de referência podem ser encontrados [aqui.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
-        "title": "",
-        "description": ""
+        "title": "Comité de Orientação dos Nós",
+        "description": "Estabelecido em 2011, o Comité de Orientação dos Nós (NSG) é formado pelo presidente e vice-presidentes do [Comité de Coordenadores dos Nós Participantes] (/contact-us/directory?group=nodesCommittee), acompanhado por um representante regional de cada uma das seis regiões do GBIF ([África] (/ the-gbif-network / africa), [Ásia] (/ the-gbif-network / asia), [Europa] (/ the-gbif-network / europe), [América Latina / Caribe] ( / the-gbif-network / latin-america), [América do Norte] (/ the-gbif-network / america do norte) e [Oceania] (/ the-gbif-network / oceania)). Os objetivos do NSG são fazer recomendações específicas para os órgãos relevantes do GBIF com base no feedback fornecido pelos Nós Participantes; e aconselhar sobre os Programas de Trabalho anuais do GBIF, uma vez que estão relacionados aos esforços dos Nós do GBIF."
       },
       "nodesCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité de Coordenadores dos Nós",
+        "description": "O Comité de Coordenadores dos Nós (ou Comité dos Nós) é um grupo dinâmico formado por coordenadores de Nós, apontados pelos Participantes (países e organizações internacionais). O Comité inclui três posições (Chairs) estabelecidas através de votação pela Assembleia Geral, por período máximo de dois anos."
       },
       "secretariat": {
         "title": "Secretariado GBIF",
-        "description": ""
+        "description": "O Secretariado do GBIF, acolhido pelo Museu de História Natural em Copenhague, na Dinamarca, é responsável por desenvolver, executar e relatar sobre o Programa de Trabalho do GBIF. As tarefas do Secretariado incluem:\n - Operar o portal do GBIF e informática associada;\n - Atividades de coordenação da rede relacionadas a mobilização de dados, publicação e gestão;\n - Monitorização de lacunas e uso de dados mediados pelo GBIF para a ciência;\n - Funcionamento dos serviços centrais de comunicação e de colaboração."
       },
       "voting": {
-        "title": "",
-        "description": ""
+        "title": "Participantes votantes",
+        "description": "Países que assinaram o Memorando de Entendimento do GBIF e concordaram em fazer uma contribuição financeira básica para fundos do GBIF."
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "Países participantes associados",
+        "description": "Países que assinaram o Memorando de Entendimento do GBIF, mas não fazem uma contribuição financeira para os fundos do GBIF e não têm um voto na Assembleia Geral do GBIF."
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "Outros participantes associados",
+        "description": "Organizações intergovernamentais, organizações internacionais e outras organizações com um escopo internacional e economias, que assinaram o Memorando de Entendimento do GBIF."
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "Função",
+      "name": "Nome",
+      "participant": "Participante",
+      "participationStatus": "Status de participante"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "details": "Detalhes",
+    "roles": "Perfis",
+    "sinceDate": "Desde {DATE}",
+    "showAllContacts": "Todos"
   }
 }

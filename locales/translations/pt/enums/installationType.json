@@ -1,10 +1,10 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "",
-    "DIGIR_INSTALLATION": "",
-    "TAPIR_INSTALLATION": "",
-    "BIOCASE_INSTALLATION": "",
-    "HTTP_INSTALLATION": "",
-    "SYMBIOTA_INSTALLATION": ""
+    "IPT_INSTALLATION": "Instalação IPT",
+    "DIGIR_INSTALLATION": "Instalação DiGIR",
+    "TAPIR_INSTALLATION": "Instalação Tapir",
+    "BIOCASE_INSTALLATION": "Instalação Biocase",
+    "HTTP_INSTALLATION": "Instalação Http",
+    "SYMBIOTA_INSTALLATION": "Instalação Symbiota"
   }
 }

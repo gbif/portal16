@@ -1,56 +1,56 @@
 {
     "tools": {
-        "categoryFeatured": "",
+        "categoryFeatured": "Em destaque",
         "suggestDataset": {
-            "NOT_OPEN": "",
-            "title": "",
-            "pleaseDescribeTheDataset": "",
-            "thankYou": "",
+            "NOT_OPEN": "Não é uma licença aberta",
+            "title": "Sugerir um conjunto de dados",
+            "pleaseDescribeTheDataset": "Por favor, descreva o conjunto de dados",
+            "thankYou": "Obrigado",
             "form": {
-                "title": "",
-                "link": "",
-                "region": "",
-                "taxon": "",
-                "whyImportant": "",
-                "howWouldYouRateIt": "",
-                "high": "",
-                "medium": "",
-                "low": "",
-                "bibliographicRef": "",
-                "type": "",
-                "license": "",
-                "dataHolderContact": "",
-                "publicAlert": "",
-                "yourContact": "",
-                "comments": "",
-                "submit": "",
-                "followDiscussionBelow": "",
-                "followIssue": "",
-                "suggestAnother": "",
-                "saveFailure": ""
+                "title": "Título",
+                "link": "Link de Internet para dados",
+                "region": "Cobertura geográfica",
+                "taxon": "Cobertura taxonómica",
+                "whyImportant": "Porque é que este conjunto de dados é importante",
+                "howWouldYouRateIt": "Como classificaria a sua importância",
+                "high": "Essencial — GBIF não tem nenhuns dados nesta área",
+                "medium": "Importante — GBIF tem poucos dados nesta área",
+                "low": "Seria um bom complemento aos dados existentes",
+                "bibliographicRef": "Referência bibliográfica",
+                "type": "Tipo de conjunto de dados",
+                "license": "Informações sobre a licença",
+                "dataHolderContact": "Informação de contato do detentor dos dados",
+                "publicAlert": "Esses detalhes serão públicos",
+                "yourContact": "Informação do seu contato",
+                "comments": "Comentários",
+                "submit": "Enviar",
+                "followDiscussionBelow": "Siga ou junte-se à discussão no link abaixo.",
+                "followIssue": "Ver sugestão no github",
+                "suggestAnother": "Sugerir um outro conjunto de dados",
+                "saveFailure": "Isso não é bom. Não pudemos gravar a sua sugestão. Por favor, tente novamente mais tarde ou em alternativa, vá direto a [Github](https://github.com/gbif/data-mobilization/issues) onde as sugestões são geridas"
             }
         },
         "observationTrends": {
-            "drawerTitle": "",
-            "intro": "",
-            "aboutLink": "",
-            "selectSpecies": "",
-            "noData": "",
-            "selectHigherTaxa": "",
-            "selectArea": "",
-            "hexagon": "",
-            "draw": "",
-            "clear": "",
-            "resultIntro": "",
-            "embedIntro": ""
+            "drawerTitle": "Tendências relativas de observação",
+            "intro": "Um piloto para explorar se as tendências de observação relativas das espécies no GBIF fornece informação útil aos investigadores",
+            "aboutLink": "Leia sobre esta ferramenta",
+            "selectSpecies": "Selecione a espécie",
+            "noData": "Não temos dados georreferenciados sobre a espécie selecionada depois do ano 1900",
+            "selectHigherTaxa": "Selecione um taxon superior",
+            "selectArea": "Selecione uma área",
+            "hexagon": "Hexágono",
+            "draw": "Desenhar",
+            "clear": "Limpar",
+            "resultIntro": "Mudança na frequência de observação relativa para uma área selecionada",
+            "embedIntro": "Todos os dados mediados através da {GBIF network}"
         },
         "speciesLookup": {
-            "description": "",
-            "title": ""
+            "description": "Normalize os nomes das espécies de um ficheiro CSV contra o Catálogo de Referência GBIF. É esperado que o ficheiro contenha uma coluna chamada ‘scientificName’ e as colunas opcionais ‘kingdom’ and ‘id’.",
+            "title": "Correspondência do nome das espécies"
         },
         "ipt": {
-            "description": "",
-            "dontSeeYourIpt": ""
+            "description": "O Integrated Publishing Toolkit (IPT) é um software em código aberto escrito em Java que é utilizado para publicar e partilhar conjuntos de dados de biodiversidade através da rede GBIF. O IPT pode também ser configurado quer com uma conta DataCite ou EZID para atribuir DOIs aos conjuntos de dados, tornando-se um repositório de dados.",
+            "dontSeeYourIpt": "Não encontra o seu IPT? Envie a [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") as suas coordenadas."
         }
     }
 }
