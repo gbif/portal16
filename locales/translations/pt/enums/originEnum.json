@@ -1,16 +1,16 @@
 {
   "originEnum": {
     "SOURCE": "Fonte",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
-    "PROPARTE": "",
-    "AUTONYM": "",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "DENORMED_CLASSIFICATION": "Classificação denormed",
+    "VERBATIM_PARENT": "Pai verbatim",
+    "VERBATIM_ACCEPTED": "Aceito verbatim",
+    "VERBATIM_BASIONYM": "Basiónimo verbatim",
+    "PROPARTE": "Proparte",
+    "AUTONYM": "Autónimo",
+    "IMPLICIT_NAME": "Nome implícito",
+    "MISSING_ACCEPTED": "Aceite ausente",
+    "BASIONYM_PLACEHOLDER": "Basiónimo de referência",
+    "EX_AUTHOR_SYNONYM": "Autor ex do sinónimo",
+    "OTHER": "Outro"
   }
 }
