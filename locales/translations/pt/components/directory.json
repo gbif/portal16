@@ -23,30 +23,30 @@
       },
       "secretariat": {
         "title": "Secretariado GBIF",
-        "description": ""
+        "description": "O Secretariado do GBIF, acolhido pelo Museu de História Natural em Copenhague, na Dinamarca, é responsável por desenvolver, executar e relatar sobre o Programa de Trabalho do GBIF. As tarefas do Secretariado incluem:\n - Operar o portal do GBIF e informática associada;\n - Atividades de coordenação da rede relacionadas a mobilização de dados, publicação e gestão;\n - Monitorização de lacunas e uso de dados mediados pelo GBIF para a ciência;\n - Funcionamento dos serviços centrais de comunicação e de colaboração."
       },
       "voting": {
-        "title": "",
-        "description": ""
+        "title": "Participantes votantes",
+        "description": "Países que assinaram o Memorando de Entendimento do GBIF e concordaram em fazer uma contribuição financeira básica para fundos do GBIF."
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "Países participantes associados",
+        "description": "Países que assinaram o Memorando de Entendimento do GBIF, mas não fazem uma contribuição financeira para os fundos do GBIF e não têm um voto na Assembleia Geral do GBIF."
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "Outros participantes associados",
+        "description": "Organizações intergovernamentais, organizações internacionais e outras organizações com um escopo internacional e economias, que assinaram o Memorando de Entendimento do GBIF."
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "Função",
+      "name": "Nome",
+      "participant": "Participante",
+      "participationStatus": "Status de participante"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "details": "Detalhes",
+    "roles": "Perfis",
+    "sinceDate": "Desde {DATE}",
+    "showAllContacts": "Todos"
   }
 }
