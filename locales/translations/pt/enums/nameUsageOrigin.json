@@ -8,9 +8,9 @@
     "PROPARTE": "Uso duplicado de registo único pro parte.",
     "AUTONYM": "Gerado, falta autónimo.",
     "IMPLICIT_NAME": "Gerado, falta o género ou espécie para 'órfãos' de nome inferior.",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "MISSING_ACCEPTED": "Uso artificial aceito para un sinónimo se em falta, para preservar a hierarquia taxonómica.",
+    "BASIONYM_PLACEHOLDER": "Uso de marcador de posição para basiónimo em falta ou implícito.",
+    "EX_AUTHOR_SYNONYM": "Sinônimo implícito baseado em ex autor ilegítimo. Consulte o artigo ICN 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
+    "OTHER": "Outra origem"
   }
 }
