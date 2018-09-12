@@ -93,11 +93,11 @@
       "ACCEPTED": "Validação iniciada",
       "RUNNING": "Validação em progresso",
       "FINISHED": "Validação concluída",
-      "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "FAILED": "Falha na validação. Por favor, verifique o tipo de ficheiro, ou se você submeteu uma url, por favor verifique se o ficheiro existe no local.",
+      "CONTACTING_SERVER": "A contactar o servidor..."
     },
-    "jobId": "",
-    "indexeable": "",
+    "jobId": "Id do trabalho",
+    "indexeable": "O arquivo pode ser indexado pelo GBIF",
     "notIndexeable": "",
     "numberOfLines": "",
     "reportProducedByGbifDataValidator": "",
