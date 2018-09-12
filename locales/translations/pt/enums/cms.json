@@ -2,40 +2,40 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
-        "countriesOfResearcher": "",
-        "literatureType": "",
-        "contractCountry": "",
-        "topics": "",
-        "audiences": "",
-        "purposes": "",
-        "relevance": "",
-        "language": "",
-        "year": "",
-        "datasetKey": "",
-        "publishingOrg": "",
-        "peerReview": "",
-        "openAccess": "",
-        "gbifDownloadKey": ""
+        "countriesOfCoverage": "País ou área de cobertura",
+        "countriesOfResearcher": "País ou área do investigador",
+        "literatureType": "Tipo de bibliografia",
+        "contractCountry": "País ou área",
+        "topics": "Tópico",
+        "audiences": "Audiências",
+        "purposes": "Finalidade",
+        "relevance": "Relevância",
+        "language": "Idioma",
+        "year": "Ano",
+        "datasetKey": "Conjunto de dados",
+        "publishingOrg": "Publicador",
+        "peerReview": "Revisado por pares",
+        "openAccess": "Acesso aberto",
+        "gbifDownloadKey": "Chave de transferência"
       },
       "contentType": {
-        "event": "",
-        "news": "",
-        "resource": "",
-        "dataUse": "",
-        "project": "",
-        "participant": "",
-        "programme": "",
-        "document": "",
-        "tool": "",
-        "literature": ""
+        "event": "Evento",
+        "news": "Notícias",
+        "resource": "Recurso",
+        "dataUse": "Uso dos dados",
+        "project": "Projeto",
+        "participant": "Participante",
+        "programme": "Programa",
+        "document": "Documento",
+        "tool": "Ferramenta",
+        "literature": "Bibliografia"
       },
       "vocabularyTerms": {
         "articleType": {
-          "Nodes guidance": ""
+          "Nodes guidance": "Guia para Nós"
         },
         "projectGrantType": {
-          "REGIONAL": "",
+          "REGIONAL": "Prémio regional",
           "SMALL": "",
           "NATIONAL": "",
           "undefined": ""
