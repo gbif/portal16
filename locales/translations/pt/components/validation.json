@@ -24,38 +24,38 @@
       "DUPLICATED_TERM": "Termo duplicado",
       "TITLE_MISSING_OR_TOO_SHORT": "O título do conjunto de dados não existe ou é muito curto",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "O criador do recurso está faltando ou está incompleto",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
-      "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "A descrição do conjunto de dados está ausente ou é muito curta",
+      "LICENSE_MISSING_OR_UNKNOWN": "A licença não pode ser verificada, não é suportada pelo GBIF ou está faltando",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Registo não identificado de forma única",
+      "UNREADABLE_SECTION_ERROR": "Erro de seção ilegível",
+      "NoIssuesFound": "Não há problemas encontrados"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "Formato do ficheiro",
+      "DWCA": "Ficheiro Darwin Core",
+      "TABULAR": "Arquivo de texto (.csv, .tsv)",
+      "SPREADSHEET": "Folha de cálculo (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "Tipo de linha",
       "CORE": {
         "title": "Núcleo"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "Extensões"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Metadados que descrevem os dados em EML (linguagem de metadados ecológicos)",
+        "title": "Documento de metadados"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "Anotação semântica que descreve a estrutura dos dados (ficheiros, colunas, etc.)",
+        "title": "Meta Descrição"
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
+    "fileSizeLimit": "Limite de tamanho do ficheiro: 100 mb",
+    "receivedMediaType": "Tipo de média",
+    "uniqueIdentifier": "Identificador único",
     "reportLocation": "",
     "reportDeletion": "",
     "reportGenerated": "",
