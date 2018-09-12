@@ -30,20 +30,20 @@
             "addingToQueue": "A adicionar à fila",
             "unableToStart": "Não é possível iniciar a ingestão",
             "ingestionChartExplainer": "Ingestões mais recentes. Canto superior esquerdo é a mais recente.",
-            "ingestionStatus": "",
-            "itemInIngestionQueue": "",
-            "datasetIngestionStatus": "",
-            "gbifIngestionStatus": "",
-            "lastIngestionSuccess": "",
-            "lastIngestionFailed": "",
-            "outOfSync": "",
-            "becauseTrustedContact": ""
+            "ingestionStatus": "Status de ingestão",
+            "itemInIngestionQueue": "Itens na fila de ingestão",
+            "datasetIngestionStatus": "Status de ingestão do conjunto de dados",
+            "gbifIngestionStatus": "Status de ingestão do GBIF",
+            "lastIngestionSuccess": "Última ingestão com sucesso",
+            "lastIngestionFailed": "Última ingestão falhou",
+            "outOfSync": "Sem sincronização",
+            "becauseTrustedContact": "Porque és um contato confiável"
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "Normal",
+                "ABORT": "Cancelar",
+                "NOT_MODIFIED": "Não modificado"
             }
         }
     }
