@@ -34,19 +34,19 @@
             "drawerTitle": "Tendências relativas de observação",
             "intro": "",
             "aboutLink": "Leia sobre esta ferramenta",
-            "selectSpecies": "",
+            "selectSpecies": "Selecione a espécie",
             "noData": "",
             "selectHigherTaxa": "",
-            "selectArea": "",
-            "hexagon": "",
-            "draw": "",
-            "clear": "",
+            "selectArea": "Selecione uma área",
+            "hexagon": "Hexágono",
+            "draw": "Desenhar",
+            "clear": "Limpar",
             "resultIntro": "",
             "embedIntro": ""
         },
         "speciesLookup": {
             "description": "",
-            "title": ""
+            "title": "Species matching"
         },
         "ipt": {
             "description": "",
