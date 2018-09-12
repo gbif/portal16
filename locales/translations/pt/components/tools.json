@@ -36,7 +36,7 @@
             "aboutLink": "Leia sobre esta ferramenta",
             "selectSpecies": "Selecione a espécie",
             "noData": "",
-            "selectHigherTaxa": "",
+            "selectHigherTaxa": "Selecione um taxon superior",
             "selectArea": "Selecione uma área",
             "hexagon": "Hexágono",
             "draw": "Desenhar",
@@ -46,7 +46,7 @@
         },
         "speciesLookup": {
             "description": "",
-            "title": "Species matching"
+            "title": "Correspondência do nome das espécies"
         },
         "ipt": {
             "description": "",
