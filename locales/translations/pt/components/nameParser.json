@@ -12,7 +12,7 @@
         "excludeUnparsed": "Excluir não verificados",
         "generateCsv": "Gerar csv",
         "parsingNames": "A processar os nomes - aguarde",
-        "nameParserDescription": "",
+        "nameParserDescription": "Este é um formulário html simples para utilizar o processador (parser) de nomes. O processador é escrito em java e baseado em expressões regulares para separar sequências de caracteres de nome em seus componentes. Ele mantém apenas as partes de nomes necessárias para reconstruir um nome completo de 3 partes, com um subgênero opcional, mas ignora partes adicionais infra-específicas tais como a sub-espécie, para variedades. Por favor, veja [API documentation](/developer/species#parser) para mais detalhes.",
         "nameParserRequirements": ""
     }
 }
