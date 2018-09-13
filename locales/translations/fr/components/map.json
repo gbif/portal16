@@ -1,12 +1,12 @@
 {
   "map": {
     "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
+    "noOccurrencesWithCoordinates": "Aucune occurrence avec des coordonnées",
+    "clickToSearchArea": "Cliquez pour chercher une zone spécifique",
+    "generatedDateAgo": "Généré le {DATE_AGO}",
+    "anyYear": "N'importe quelle année",
+    "exploreArea": "Explorez la zone",
+    "explore": "Explorer",
     "style": "",
     "filters": "",
     "projection": "",
