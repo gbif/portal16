@@ -7,7 +7,7 @@
     "anyYear": "N'importe quelle année",
     "exploreArea": "Explorez la zone",
     "explore": "Explorer",
-    "style": "",
+    "style": "Style",
     "filters": "Filtres",
     "projection": "Projection",
     "select": "Sélectionner",
@@ -25,33 +25,33 @@
     },
     "basemap": {
       "CLASSIC": "Magenta",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
+      "LIGHT": "Clair (pas d’étiquettes)",
+      "LIGHT_DETAILS": "Clair",
+      "DARK": "Sombre (pas d’étiquettes)",
+      "DARK_DETAILS": "Sombre",
       "OSM": "Routes"
     },
     "bin": {
       "PIXEL": "Points",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "SMALL_HEX": "Petits hexagones",
+      "LARGE_HEX": "Hexagones",
+      "SMALL_SQUARE": "Petits carrés",
+      "LARGE_SQUARE": "Carrés"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "Classique",
+      "FIRE": "Feu",
+      "GLACIER": "Glacier",
+      "PURPLE_YELLOW": "Violet jaune",
+      "PURPLE_HEAT": "Violet chaud",
+      "BLUE_HEAT": "Bleu chaud",
+      "ORANGE_HEAT": "Orange chaud",
+      "GREEN": "Vert",
+      "BLUE_CLUSTER": "Groupe bleu",
+      "ORANGE_CLUSTER": "Groupe orange"
     },
     "errors": {
-      "413": ""
+      "413": "Le fichier de géométrie est trop volumineux pour être traités par les données API."
     }
   }
 }
