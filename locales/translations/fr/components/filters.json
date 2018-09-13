@@ -1,7 +1,7 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
+        "searchPlaceholder": "Rechercher",
+        "noPreference": "Pas de préférence",
         "invert": "",
         "clear": "Effacer",
         "add": "Ajouter",
@@ -11,24 +11,24 @@
         "ternary": {
             "yes": "Oui",
             "no": "Non",
-            "all": ""
+            "all": "Tout"
         },
         "location": {
             "north": "Nord",
             "south": "Sud",
             "west": "Ouest",
             "east": "Est",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
+            "withCoordinates": "Incluant les coordonnées",
+            "withoutCoordinates": "Sans coordonnées",
+            "includeFlaggedAsSuspicious": "Inclus des enregistrements dont les coordonnées sont marquées comme suspectes",
+            "onlyShowFlagged": "Montrer uniquement les enregistrements marqués comme suspects",
+            "past": "Récemment utilisé",
+            "geojson": "GeoJSON",
             "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
+            "noFiltersAdded": "Aucun filtre d'aire n'a été ajouté",
+            "wktPlaceholder": "WKT ou GeoJSON — les polygones multiples ne sont pas supportés",
+            "invalidTextInput": "WKT ou GeoJSON invalide",
+            "tooLarge": "Géométrie trop large",
             "tooLargeSuggestion": "",
             "invalidRange": ""
         }
