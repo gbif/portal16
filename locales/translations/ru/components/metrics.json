@@ -1,16 +1,16 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
-    "countByRank": "",
-    "countNamesByLanguage": "",
-    "countExtRecordsByExtension": "",
-    "countByOrigin": "",
-    "countByIssue": ""
+    "countByKingdom": "Количество по царствам",
+    "countByRank": "Количество по рангам",
+    "countNamesByLanguage": "Количество имен по языкам",
+    "countExtRecordsByExtension": "Количество расширений по типам расширений",
+    "countByOrigin": "Количество по происхождению",
+    "countByIssue": "Количество ошибок по типам ошибок"
   },
   "metrics": {
-    "issues": "",
-    "extensions": "",
-    "taxa": "",
+    "issues": "Ошибки",
+    "extensions": "Расширения",
+    "taxa": "Таксоны",
     "other": "",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
