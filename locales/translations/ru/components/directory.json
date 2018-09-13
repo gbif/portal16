@@ -2,11 +2,11 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "",
+        "title": "Исполнительный комитет",
         "description": ""
       },
       "scienceCommittee": {
-        "title": "",
+        "title": "Научный комитет",
         "description": ""
       },
       "budgetCommittee": {
@@ -41,12 +41,12 @@
     "columns": {
       "role": "",
       "name": "",
-      "participant": "",
+      "participant": "Участник",
       "participationStatus": ""
     },
     "details": "",
     "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "sinceDate": "С {DATE}",
+    "showAllContacts": "Все"
   }
 }
