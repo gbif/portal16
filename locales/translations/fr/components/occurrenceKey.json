@@ -71,7 +71,7 @@
         "OCCURRENCE": "Enregistré dans un lieu inconnu",
         "OBSERVATION": "Observé dans un lieu inconnu",
         "LITERATURE": "Enregistré dans un lieu inconnu",
-        "UNKNOWN": ""
+        "UNKNOWN": "Enregistré dans un lieu inconnu"
       },
       "unknownSpecies": "Espèce inconnue"
     },
