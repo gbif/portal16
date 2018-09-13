@@ -1,17 +1,17 @@
 {
     "nameParser": {
-        "loadTestNames": "",
-        "parse": "",
+        "loadTestNames": "Charger les noms à tester",
+        "parse": "Analyser",
         "or": "ou",
         "selectFile": "Sélectionner un fichier",
-        "pasteNamesToParse": "",
-        "about": "",
-        "parser": "",
-        "nameParserTitle": "",
-        "dropHere": "",
+        "pasteNamesToParse": "Coller les noms à analyser ici",
+        "about": "À propos",
+        "parser": "Analyseur",
+        "nameParserTitle": "Analyseur de nom",
+        "dropHere": "Déposer ici",
         "excludeUnparsed": "",
-        "generateCsv": "",
-        "parsingNames": "",
+        "generateCsv": "Générer le csv",
+        "parsingNames": "En cours d'analyse des noms - patientez",
         "nameParserDescription": "",
         "nameParserRequirements": ""
     }
