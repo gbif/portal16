@@ -17,12 +17,12 @@
     "default": "Par défaut",
     "custom": "Personnalisé",
     "noOccurrencesWithCoordinates": "Aucune occurrence avec coordonnées",
-    "containsSuspicious": "",
-    "hideSuspiciousCoordinates": "",
-    "currentFilter": "",
-    "selectColumns": "",
-    "done": "",
-    "yesCorrectSuggestion": "",
-    "noWrongSuggestion": ""
+    "containsSuspicious": "Cette carte contient des occurrences marqués par GBIF comme ayant des coordonnées suspectes.",
+    "hideSuspiciousCoordinates": "Les masquer",
+    "currentFilter": "Filtre actif",
+    "selectColumns": "Sélectionnez les colonnes de la table",
+    "done": "Fait",
+    "yesCorrectSuggestion": "Oui",
+    "noWrongSuggestion": "Non"
   }
 }
