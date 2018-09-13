@@ -13,11 +13,11 @@
     "noConnection": "Aucune connexion Internet n'a été trouvée",
     "criticalErrorMsg": "Le système est à l'heure actuelle incapable de répondre à votre requête. Essayer de rafraichir la page et veuillez nous prévenir du problème s'il continue.",
     "nonCriticalErrorMsg": "Toutes les données ne sont pas disponibles pour le moment. Vous visualisez une vue partielle des données. Veuillez essayer de rafraichir la page et informez nous de la problématique si elle persiste.",
-    "noResultsMessage": "",
-    "noJavascriptEnabled": "",
-    "isSplashScreen": "",
-    "404Text": "",
-    "changeLanguage": "",
-    "noData": ""
+    "noResultsMessage": "Aucun résulat – essayez des filtres moins restrictifs",
+    "noJavascriptEnabled": "Désolé, GBIF ne fonctionne pas correctement sans l'activation de JavaScript.",
+    "isSplashScreen": "Notre site Internet a détecté que vous utilisez un navigateur obsolète et non-sécuritaire qui vous empêchera d'utiliser ce site. Nous vous suggérons de mettre à jour votre navigateur.",
+    "404Text": "Cette page a probablement déjà existé, mais nous ne la trouvons plus.\nVeuillez essayer notre [search](/search) afin de trouver ce que vous recherchez. Vous avez toujours la possibilité de nous contacter à [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
+    "changeLanguage": "Changer de langue",
+    "noData": "Aucune donnée"
   }
 }
