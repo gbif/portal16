@@ -1,47 +1,47 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "automatedMonitoring": "Surveillance automatique",
+        "systemLoad": "Charge du système",
+        "messages": "Messages",
+        "version": "Version",
+        "nInQueue": "{NUMBER} dans la file d’attente",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "Opérationnel",
+            "WARNING": "Instable",
+            "CRITICAL": "Non utilisable",
+            "INFO": "Mise à jour système"
         },
         "components": {
             "OCCURRENCE": {
                 "name": "Une occurrence",
-                "tooltip": ""
+                "tooltip": "Par exemple la recherche et l’affichage des enregistrements."
             },
             "SPECIES": {
-                "name": "",
-                "tooltip": ""
+                "name": "Espèces",
+                "tooltip": "Par exemple, la recherche et l’affichage des espèces, les suggestions d’espèces"
             },
             "REGISTRY": {
                 "name": "Registre",
-                "tooltip": ""
+                "tooltip": "Par exemple les jeux de données, éditeurs, installations, pays, participants et réseaux."
             },
             "IDENTITY": {
-                "name": "",
-                "tooltip": ""
+                "name": "Identité",
+                "tooltip": "Pour vous connecter et déconnecter, connecter des comptes etc."
             },
             "MAPS": {
-                "name": "",
-                "tooltip": ""
+                "name": "Cartes",
+                "tooltip": "Pour l’affichage des images cartographiques et l'obtention d’informations à propos d'une carte."
             },
             "CONTENTFUL": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Par exemple, nouvelles et articles"
             },
             "IMAGE_CACHE": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Responsable de la plupart des images sur le site Internet"
             },
             "GITHUB": {
-                "name": "",
+                "name": "GitHub (système externe)",
                 "tooltip": ""
             },
             "CRAWLER": {
