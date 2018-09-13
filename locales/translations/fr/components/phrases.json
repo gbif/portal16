@@ -1,11 +1,11 @@
 {
   "phrases": {
-    "contactHelpdesk": "",
-    "defaultPageTitle": "",
+    "contactHelpdesk": "Contacter le support technique",
+    "defaultPageTitle": "GBIF",
     "defaultPageDescription": "",
-    "deletedOnDate": "",
-    "replacedBy": "",
-    "loading": "",
+    "deletedOnDate": "Supprimé le {DATE}",
+    "replacedBy": "Remplacé par",
+    "loading": "Chargement en cours",
     "failed": "",
     "errorNotAuthorized": "",
     "partialPage": "",
