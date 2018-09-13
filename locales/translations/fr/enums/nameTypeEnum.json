@@ -2,7 +2,7 @@
   "nameTypeEnum": {
     "SCIENTIFIC": "Nom scientifique du taxon",
     "DOUBTFUL": "Douteux",
-    "BLACKLISTED": "",
+    "BLACKLISTED": "Sur la liste noire",
     "VIRUS": "Virus",
     "HYBRID": "Formule hybride",
     "INFORMAL": "Informel",
