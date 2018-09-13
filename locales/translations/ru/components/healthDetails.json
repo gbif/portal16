@@ -1,20 +1,20 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
+        "automatedMonitoring": "Автоматизированный мониторинг",
+        "systemLoad": "Загрузка системы",
         "messages": "Сообщения",
         "version": "Версия",
-        "nInQueue": "",
+        "nInQueue": "{NUMBER} в очереди",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
+            "OPERATIONAL": "Работает",
+            "WARNING": "Нестабильный",
+            "CRITICAL": "Неработоспособный",
             "INFO": "Обновление системы"
         },
         "components": {
             "OCCURRENCE": {
                 "name": "Находка",
-                "tooltip": ""
+                "tooltip": "Например, поиск и просмотр находок."
             },
             "SPECIES": {
                 "name": "Виды",
