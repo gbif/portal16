@@ -42,23 +42,23 @@
             },
             "GITHUB": {
                 "name": "GitHub (système externe)",
-                "tooltip": ""
+                "tooltip": "Commentaires, suggestions de jeux de données"
             },
             "CRAWLER": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Pour mettre à jour les jeux de données ﹣nouveau et vieux."
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "Recherche de ressource",
+                "tooltip": "Par exemple, pour rechercher de la littérature, des actualités."
             },
             "CLUSTER": {
-                "name": "",
+                "name": "Charge du système",
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
-                "tooltip": ""
+                "name": "Téléchargements",
+                "tooltip": "Pour prendre en charge les téléchargements et envoyer des notifications aux utilisateurs"
             }
         }
     }
