@@ -1,17 +1,17 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
-    "countByRank": "",
-    "countNamesByLanguage": "",
-    "countExtRecordsByExtension": "",
-    "countByOrigin": "",
-    "countByIssue": ""
+    "countByKingdom": "Compte par règne",
+    "countByRank": "Compte par rang",
+    "countNamesByLanguage": "Compte des noms par langue",
+    "countExtRecordsByExtension": "Compte des extensions par type d'extensions",
+    "countByOrigin": "Compte par origine",
+    "countByIssue": "Compte des problématiques par type de problématiques"
   },
   "metrics": {
-    "issues": "",
-    "extensions": "",
-    "taxa": "",
-    "other": "",
+    "issues": "Problématiques",
+    "extensions": "Extensions",
+    "taxa": "Taxa",
+    "other": "Autre",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
     "explore": "",
