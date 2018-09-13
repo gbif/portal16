@@ -15,8 +15,8 @@
       "other": ""
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Бывший участник",
+      "other": "Бывшие участники"
     },
     "gbif_affiliate": {
       "one": "",
@@ -35,7 +35,7 @@
     "datasets": "Наборы данных",
     "regionalRepresentative": "",
     "participation": {
-      "nonCountryParticipants": "",
+      "nonCountryParticipants": "Организации-участники",
       "gbifAffiliates": ""
     },
     "roles": {
@@ -44,7 +44,7 @@
     },
     "publishers": "",
     "memberSince": "",
-    "participant": "",
+    "participant": "Участник",
     "pPublishers": "",
     "pOccurrence": "",
     "occurrenceDatasets": "",
