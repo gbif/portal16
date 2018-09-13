@@ -12,7 +12,7 @@
         "excludeUnparsed": "",
         "generateCsv": "Générer le csv",
         "parsingNames": "En cours d'analyse des noms - patientez",
-        "nameParserDescription": "",
-        "nameParserRequirements": ""
+        "nameParserDescription": "Il s’agit d’un simple formulaire html permettant d’utiliser l'analyseur de noms de GBIF. L’analyseur est écrit en java et basé sur des expressions régulières afin de disséquer les noms en plusieurs composantes. Il ne conserve que les parties du nom nécessaire à la reconstruction d'un nom complet en 3 parties, avec le sous-genre en option, mais ignore les informations supplémentaires sous l'espèce telles que les sous-espèces données aux variétés. Veuillez consulter notre [documentation API](/developer/species#parser) pour plus de détails.",
+        "nameParserRequirements": "Vous pouvez copier-coller une liste de noms, un par ligne, ou charger un fichier texte avec un nom par ligne. Les fichiers chargés doivent être encodés en utf-8 !"
     }
 }
