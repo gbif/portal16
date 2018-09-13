@@ -12,7 +12,7 @@
     "PARENT_NAME_NOT_UNIQUE": "O registro tem um nome de pai verbatim que não é único e refere-se a vários registos.",
     "TAXONOMIC_STATUS_MISMATCH": "(falta a descrição)",
     "TITLE_MISSING_OR_TOO_SHORT": "O título do conjunto de dados não existe ou é muito curto",
-    "COUNTRY_COORDINATE_MISMATCH": "",
+    "COUNTRY_COORDINATE_MISMATCH": "Coordenadas geográficas caem fora da área definida pelo limite referenciado do país [1]",
     "IDENTIFIED_DATE_INVALID": "",
     "IDENTIFIED_DATE_UNLIKELY": "",
     "PRESUMED_SWAPPED_COORDINATE": "",
