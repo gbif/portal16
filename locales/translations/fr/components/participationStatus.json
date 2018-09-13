@@ -1,12 +1,12 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Participant votant",
+            "ASSOCIATE": "Participant associé",
+            "OBSERVER": "Participant observateur",
+            "AFFILIATE": "Participant affilié",
+            "FORMER": "Ancien participant",
+            "undefined": "Inconnu"
         },
         "description": {
             "VOTING": "",
@@ -14,7 +14,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": ""
+            "undefined": "Inconnu"
         },
         "type": {
             "OTHER": {
@@ -24,7 +24,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "Inconnu"
                 },
                 "longForm": {
                     "VOTING": "",
@@ -32,7 +32,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "Inconnu"
                 }
             }
         }
