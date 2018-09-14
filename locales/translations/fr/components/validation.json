@@ -103,22 +103,22 @@
     "reportProducedByGbifDataValidator": "Rapport produit par le validateur de données GBIF",
     "validationReport": "Rapport de validation",
     "dataValidator": "Validateur de données",
-    "dataValidatorDescription": "",
+    "dataValidatorDescription": "Le validateur de données GBIF est un service qui permet à n’importe qui avec un jeu de données pertinent pour GBIF de recevoir un rapport sur la rectitude syntaxique et la validité du contenu figurant dans le jeu de données.",
     "thisIsAnEarlyAccessVersion": "",
-    "here": "",
+    "here": "Ici.",
     "coreRowType": "",
-    "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
+    "submit": "Soumettre",
+    "dropHere": "Déposer ici",
+    "or": "ou",
+    "selectFile": "Sélectionner un fichier",
     "fetchFileFromLocation": "",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
-      "about": "",
-      "darwinCoreExtensions": "",
-      "metaData": "",
-      "summary": ""
+      "newDataValidation": "Nouvelle validation des données",
+      "newValidation": "Nouvelle validation",
+      "about": "À propos",
+      "darwinCoreExtensions": "Extensions Darwin Core",
+      "metaData": "Métadonnées",
+      "summary": "Résumé"
     }
   }
 }
