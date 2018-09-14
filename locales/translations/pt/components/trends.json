@@ -19,7 +19,7 @@
     "speciesCountForObservationRecords": "Número de espécies por registos de observações",
     "numSpeciesAssociatedWithObsRecords": "O número de espécies associado a registos de observações.",
     "timeAndSeasonality": "Tempo e sasonalidade",
-    "theseChartsIllustrate3": "",
+    "theseChartsIllustrate3": "Estes gráficos ilustram mudanças na distribuição de registos por ano de ocorrência e por dia do ano, indicando na medida do possível o possível enviezamento para períodos mais recentes ou particulares. As representações são fornecidas para intervalos de aproximadamente 3 anos para mostrar mudanças nos intervalos.",
     "speciesCountsAreBasedOnTheNumberOfBinomialScientificNames": "O número de espécies está baseado no número de nomes científicos bionomiais para os quais o GBIF recebeu registos de dados, organizados, tanto quanto possível, utilizando sinónimos registados em bases de dados chave como o Catalogue of Life. Uma vez que muitos nomes não foram ainda incluidos nestas bases de dados, uma proporção destes nomes serão de sinónimos não reconhecidos e não representam espécies válidas. Deste modo, este número pode ser utilizado apenas como um indicador de riqueza, e não representa um valor correto de número de espécies. Todos os dados foram processados usando a mesmo e mais recente versão do Catálogo de Taxonomia de Referência do GBIF, e as comparações ao longo do tempo, são, desta forma, realistas.",
     "recordsByYearOfOccurrence": "Registos por ano de ocorrência",
     "theNumberOfOccurrenceRecordsAvailable": "O número de registos de ocorrência disponível para cada ano desde 1950.",
