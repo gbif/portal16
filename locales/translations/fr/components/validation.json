@@ -6,64 +6,64 @@
       "RECORD_STRUCTURE": "Structure de l'enregistrement",
       "OCC_INTERPRETATION_BASED": "Interprétation d'occurrence GBIF",
       "METADATA_CONTENT": "Contenu de métadonnées",
-      "CLB_INTERPRETATION_BASED": ""
+      "CLB_INTERPRETATION_BASED": "Interprétation de taxon GBIF"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
+      "DWCA_UNREADABLE": "Archive Darwin Core non-lisible",
+      "DWCA_META_XML_NOT_FOUND": "Fichier Meta.xml introuvable",
+      "DWCA_META_XML_SCHEMA": "Échec du schéma de validation du Meta.xml",
+      "RECORD_IDENTIFIER_NOT_FOUND": "Aucun identifiant d'enregistrement n'a été trouvé au sein du fichier",
       "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
+      "EML_NOT_FOUND": "Aucun document EML n'a été trouvé",
+      "EML_GBIF_SCHEMA": "Le document EML n'est pas valide par rapport au schéma",
       "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
+      "REQUIRED_TERM_MISSING": "Un terme requis pour le coeur/extension est manquant",
+      "COLUMN_MISMATCH": "Incompatibilité de colonne",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
-      "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
+      "UNKNOWN_TERM": "Terme inconnu",
+      "DUPLICATED_TERM": "Terme dupliqué",
+      "TITLE_MISSING_OR_TOO_SHORT": "Le titre du jeu de données est manquant ou trop court",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
       "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Enregistrement non-identifié de manière unique",
+      "UNREADABLE_SECTION_ERROR": "Erreur de section non-lisible",
+      "NoIssuesFound": "Aucun problème trouvé"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "Format de fichier",
+      "DWCA": "Archive Darwin Core",
+      "TABULAR": "Fichier tabulaire (.csv, .tsv)",
+      "SPREADSHEET": "Tableur (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "Type de ligne",
       "CORE": {
         "title": "Noyau"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "Extensions"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Métadonnées décrivant les données en EML (Ecological Metadata Language)",
+        "title": "Document de métadonnées"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "Annotation sémantique décrivant la structure des données (fichiers, colonnes, etc.)",
+        "title": "Descripteur de Meta"
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
+    "fileSizeLimit": "Taille maximale du fichier : 100 Mo",
+    "receivedMediaType": "Type de média",
+    "uniqueIdentifier": "Identifiant unique",
     "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "reportDeletion": "Et seront supprimés après un mois. D'ici là vous pourrez revoir le rapport à votre convenance.",
+    "reportGenerated": "Il a été généré",
+    "summary": "Résumé des validations",
+    "issues": "Problèmes de validation",
+    "fileHasIssues": "Certains problèmes ont été détectés par le validateur :",
+    "fileHasNoIssues": "Aucun problème dans le fichier",
+    "error": "Erreur",
     "errors": {
       "400": "",
       "404": "",
