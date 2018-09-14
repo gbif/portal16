@@ -1,14 +1,14 @@
 {
   "gbifNetwork": {
-    "title": "",
+    "title": "Annuaire",
     "contact": "Contactez-nous",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Participant votant",
+      "other": "Participants votants"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "Participant associé (pays)",
+      "other": "Participants associés (pays)"
     },
     "other_associate_participant": {
       "one": "",
