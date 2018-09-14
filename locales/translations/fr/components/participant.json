@@ -1,20 +1,20 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
-        "endorsedPublishers": "",
-        "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
+        "participant": "Participant",
+        "participantSummary": "Résumé du participant",
+        "endorsedPublishers": "Fournisseurs de données approuvés",
+        "noEndorsedPublishers": "Aucun fournisseurs de données approuvés",
+        "memberStatus": "Statut du membre",
+        "gbifParticipantSince": "Participant GBIF depuis",
         "headOfDelegation": "Chef de délegation",
-        "gbifRegion": "",
-        "countryOrArea": "",
-        "nodeName": "",
-        "nodeEstablished": "",
-        "website": "",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "gbifRegion": "Région GBIF",
+        "countryOrArea": "Pays ou région",
+        "nodeName": "Nom du nœud",
+        "nodeEstablished": "Noeud établi",
+        "website": "Site Internet",
+        "participantNodeManager": "Gestionnaire du noeud participant",
+        "pending": "En attente",
+        "latestDatasetsPublished": "Derniers jeux de données publiés",
+        "noDatasets": "Aucun jeu de données publié"
     }
 }
