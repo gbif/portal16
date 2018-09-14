@@ -3,11 +3,11 @@
     "group": {
       "executiveCommittee": {
         "title": "Comité exécutif",
-        "description": ""
+        "description": "Le Comité Exécutif opère au nom du Conseil d’administration, lorsque le Conseil n’est pas en session et dans les zones de responsabilité qui lui sont déléguées par le Conseil d’administration. Parmi ses fonctions sont le suivi de la performance du Secrétariat dans l’exécution des décisions prises par le Conseil d'administration incluant la mise en œuvre du Plan stratégique et le Programme de travail, ainsi que la gestion du budget."
       },
       "scienceCommittee": {
         "title": "Comité scientifique",
-        "description": ""
+        "description": "Le Comité scientifique du GBIF est un comité aviseur qui supervise le développement et le progrès du programme de travail GBIF et fait ses recommandations au Conseil d'adminsitration, au Comité exécutif et au Secrétariat. Vous pouvez lire les conditions générales des références [here.](/document/80877/current-terms-of-reference-for-the-science-committee)"
       },
       "budgetCommittee": {
         "title": "Comité budgétaire",
