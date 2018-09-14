@@ -3,7 +3,7 @@
         "registry": {
             "failedSinceSuccess": "",
             "lastFailed": "",
-            "registrationDate": "",
+            "registrationDate": "Дата регистрации",
             "lastSuccess": "",
             "lastWithChange": "",
             "noEntries": "",
@@ -16,7 +16,7 @@
             "installationContacts": "",
             "installation": "",
             "dataLastChanged": "",
-            "pubDate": "",
+            "pubDate": "Дата публикации",
             "hostedBy": "",
             "hostingStatus": "",
             "metdataLastModified": "",

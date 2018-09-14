@@ -1,13 +1,13 @@
 {
   "network": {
-    "network": "",
+    "network": "Réseau",
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": "",
-      "datasets": ""
+      "summary": "Résumé",
+      "homepage": "Page d'accueil",
+      "metrics": "Statistiques",
+      "datasets": "Réseau"
     },
-    "registeredDate": "",
+    "registeredDate": "Enregistré le {DATE}",
     "nParticipatingDatasets": ""
   }
 }

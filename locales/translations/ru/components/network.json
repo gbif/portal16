@@ -3,11 +3,11 @@
     "network": "",
     "tabs": {
       "summary": "",
-      "homepage": "",
-      "metrics": "",
+      "homepage": "Главная",
+      "metrics": "Метрика",
       "datasets": ""
     },
-    "registeredDate": "",
+    "registeredDate": "Зарегистрировано {DATE}",
     "nParticipatingDatasets": ""
   }
 }

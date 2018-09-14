@@ -1,52 +1,52 @@
 {
   "occurrence": {
-    "typeOf": "",
-    "coordinates": "",
-    "unknownDate": "",
-    "absent": "",
-    "issues": "",
+    "typeOf": "{TYPE} de {NAME}",
+    "coordinates": "Coordonnées",
+    "unknownDate": "Date inconnue",
+    "absent": "Absent",
+    "issues": "Problématiques",
     "dataset": "Ensemble de données",
-    "synced": "",
-    "modified": "",
-    "monthAndyear": "",
-    "coordinateUncertainty": "",
-    "citation": "",
-    "readFullDescription": "",
-    "showMoreInfo": "",
-    "noTaxonMatch": "",
-    "gbifTaxonInterpretation": "",
-    "aboutTheDataset": "",
-    "noLocationInformation": "",
+    "synced": "Synchronisés",
+    "modified": "Modifié",
+    "monthAndyear": "Mois & année",
+    "coordinateUncertainty": "Incertitude des coordonnées",
+    "citation": "Citation",
+    "readFullDescription": "plus",
+    "showMoreInfo": "plus",
+    "noTaxonMatch": "aucun",
+    "gbifTaxonInterpretation": "Interprétation de taxon par GBIF",
+    "aboutTheDataset": "À propos du jeu de données",
+    "noLocationInformation": "Il n’y a aucune information de localisation publiée pour cet enregistrement",
     "subMenu": {
-      "diagnostics": "",
-      "menu": "",
-      "showDiagnostics": "",
-      "hideDiagnostics": "",
-      "aboutDarwinCore": "",
-      "raw": ""
+      "diagnostics": "Diagnostic",
+      "menu": "Menu",
+      "showDiagnostics": "Afficher les diagnostics",
+      "hideDiagnostics": "Masquer les diagnostics",
+      "aboutDarwinCore": "À propos du Darwin Core",
+      "raw": "Brut"
     },
     "groups": {
       "Record": "Enregistrement",
       "Occurrence": "Une occurrence",
-      "Event": "",
-      "Identification": "",
-      "Taxon": "",
-      "Location": "",
-      "Organism": "",
+      "Event": "Événement",
+      "Identification": "Identification",
+      "Taxon": "Taxon",
+      "Location": "Lieu",
+      "Organism": "Organisme",
       "MaterialSample": "",
-      "GeologicalContext": "",
-      "other": ""
+      "GeologicalContext": "Contexte géologique",
+      "other": "Autre"
     },
-    "term": "",
-    "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "term": "Terme",
+    "interpreted": "Interprété",
+    "original": "Original",
+    "remarks": "Remarques",
     "highlights": {
-      "location": "",
+      "location": "Lieu",
       "specimenType": "",
-      "publisher": "",
-      "reference": "",
-      "verbatimName": ""
+      "publisher": "Fournisseurs de données",
+      "reference": "Référence",
+      "verbatimName": "Verbatim du nom"
     },
     "title": {
       "inCountry": {
@@ -62,27 +62,27 @@
         "UNKNOWN": ""
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Collecté dans un lieu inconnu",
+        "FOSSIL_SPECIMEN": "Collecté dans un lieu inconnu",
+        "LIVING_SPECIMEN": "Collecté dans un lieu inconnu",
+        "HUMAN_OBSERVATION": "Observé dans un lieu inconnu",
+        "MACHINE_OBSERVATION": "Observé dans un lieu inconnu",
+        "MATERIAL_SAMPLE": "Collecté dans un lieu inconnu",
+        "OCCURRENCE": "Enregistré dans un lieu inconnu",
+        "OBSERVATION": "Observé dans un lieu inconnu",
+        "LITERATURE": "Enregistré dans un lieu inconnu",
+        "UNKNOWN": "Enregistré dans un lieu inconnu"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "Espèce inconnue"
     },
     "occurrence": "Une occurrence",
-    "inLanguage": ""
+    "inLanguage": "En {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "Exclu",
+      "AUTHORED": "Modifié",
+      "INFERED": "Inféré"
     }
   }
 }

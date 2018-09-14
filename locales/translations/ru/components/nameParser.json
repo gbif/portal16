@@ -13,6 +13,6 @@
         "generateCsv": "",
         "parsingNames": "",
         "nameParserDescription": "",
-        "nameParserRequirements": ""
+        "nameParserRequirements": "Вы можете скопировать и вставить список названий, по одному на строку, или загрузить текстовый файл с именем в каждой строке. Загруженные файлы должны быть закодированы как utf8!"
     }
 }
