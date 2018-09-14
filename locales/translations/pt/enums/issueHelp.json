@@ -56,7 +56,7 @@
     "COLUMN_MISMATCH": "O número de coluna usado na linha não corresponde ao número esperado",
     "MULTIMEDIA_URI_INVALID": "Um uri inválido foi dado a um objeto multimídia.",
     "LICENSE_MISSING_OR_UNKNOWN": "A licença não pode ser processada, não é suportada pelo GBIF ou está faltando",
-    "PARENT_CYCLE": "",
+    "PARENT_CYCLE": "A classificação de pai e filho resultou em um ciclo que precisa de ser resolvido/cortado.",
     "TAXONOMIC_STATUS_INVALID": "Dwc:taxonomicStatus não pode ser interpretado",
     "ML_NOT_FOUND": "Nenhum documento EML encontrado",
     "MODIFIED_DATE_INVALID": "Uma data inválida (parcial) foi atribuida em dc:modified, como uma data não existente, mês zero inválido, etc.",
