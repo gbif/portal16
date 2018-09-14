@@ -2,7 +2,7 @@
     "intervals": {
         "noFilter": "Aucun filtre",
         "elevation": {
-            "equals": "",
+            "equals": "Est {from}m",
             "between": "Entre {from} et {to}m",
             "lessThanOrEquals": "Inférieur à {to}m",
             "greaterThanOrEquals": "Supérieur à {from}m",
@@ -15,7 +15,7 @@
             }
         },
         "depth": {
-            "equals": "",
+            "equals": "Est {from}m",
             "between": "Entre {from} et {to}m",
             "lessThanOrEquals": "Au-dessus de {to}m de profondeur",
             "greaterThanOrEquals": "Plus profond que {from}m",
@@ -28,10 +28,10 @@
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "Est {from}",
+            "between": "Depuis le début de {from} et la fin de {to}",
+            "lessThanOrEquals": "Avant la fin de {to}",
+            "greaterThanOrEquals": "Après la fin de {from}",
             "invalid": "Non valide",
             "select": {
                 "equals": "Est",
