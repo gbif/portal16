@@ -19,34 +19,34 @@
                 "bibliographicRef": "Référence bibliographique",
                 "type": "Type de jeu de données",
                 "license": "Information sur la licence",
-                "dataHolderContact": "",
+                "dataHolderContact": "Information de contact des détenteurs de données",
                 "publicAlert": "Ces détails seront publiques",
                 "yourContact": "Vos informations de contact",
                 "comments": "Commentaires",
-                "submit": "",
-                "followDiscussionBelow": "",
-                "followIssue": "",
-                "suggestAnother": "",
-                "saveFailure": ""
+                "submit": "Soumettre",
+                "followDiscussionBelow": "Suivez ou rejoignez la discussion future sur le lien ci-dessous.",
+                "followIssue": "Voir les suggestion sur GitHub",
+                "suggestAnother": "Suggérer un autre jeu de données",
+                "saveFailure": "Ce n’est pas bon. Nous n'avons pu enregistrer votre suggestion. Veuillez réessayer ultérieurement ou vous pouvez également aller directement sur [Github](https://github.com/gbif/data-mobilization/issues) où les suggestions sont gérées"
             }
         },
         "observationTrends": {
-            "drawerTitle": "",
-            "intro": "",
-            "aboutLink": "",
-            "selectSpecies": "",
-            "noData": "",
-            "selectHigherTaxa": "",
-            "selectArea": "",
-            "hexagon": "",
-            "draw": "",
-            "clear": "",
-            "resultIntro": "",
-            "embedIntro": ""
+            "drawerTitle": "Tendance relative des observations",
+            "intro": "Un projet pilote pour explorer si les tendances relatives d’observation des espèces au sein du GBIF fournissent des informations utiles pour les chercheurs",
+            "aboutLink": "Lire à propos de cet outil",
+            "selectSpecies": "Sélectionner les espèces",
+            "noData": "Nous n’avons pas de données géoréférencées sur les espèces sélectionnées après l'année 1900",
+            "selectHigherTaxa": "Sélectionnez un taxon supérieur",
+            "selectArea": "Sélectionnez une zone",
+            "hexagon": "Hexagone",
+            "draw": "Tracer",
+            "clear": "Vider",
+            "resultIntro": "Modification de la fréquence d’observation relative pour la zone sélectionnée",
+            "embedIntro": "Toutes les données acquises par l’intermédiaire du {GBIF network}"
         },
         "speciesLookup": {
-            "description": "",
-            "title": ""
+            "description": "Normaliser les noms des espèces d’un fichier CSV sur le squelette GBIF. Le fichier devrait avoir une colonne appelée « scientificName » et des colonnes facultatives « kingdom » et « id ».",
+            "title": "Correspondance taxonomique"
         },
         "ipt": {
             "description": "",
