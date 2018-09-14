@@ -85,16 +85,16 @@
     "DEPTH_NON_NUMERIC": "Indicar se a elevação não for valor numérico",
     "INTERPRETATION_ERROR": "Ocorreu um erro durante a interpretação, deixando a interpretação do registo incompleta.",
     "BACKBONE_MATCH_NONE": "Uso do nome não pode ser correspondido com o backbone do GBIF.",
-    "EML_GBIF_SCHEMA": "",
-    "CONTINENT_COUNTRY_MISMATCH": "",
-    "RELATIONSHIP_MISSING": "",
-    "NOMENCLATURAL_STATUS_INVALID": "",
-    "COORDINATE_PRECISION_INVALID": "",
-    "HOMONYM": "",
-    "ORTHOGRAPHIC_VARIANT": "",
-    "CONTINENT_INVALID": "",
-    "VERNACULAR_NAME_INVALID": "",
-    "DESCRIPTION_INVALID": "",
-    "REFERENCES_URI_INVALID": ""
+    "EML_GBIF_SCHEMA": "O documento EML não pode ser validado com o esquema",
+    "CONTINENT_COUNTRY_MISMATCH": "O continente interpretado e o país não combinam.",
+    "RELATIONSHIP_MISSING": "Houve problemas na representação de todas as relações de uso de nome, i.e. o link para o pai, o nome de aceite e/ou original. Faltam algumas relações da fonte original do registo interpretado em ChecklistBank. ",
+    "NOMENCLATURAL_STATUS_INVALID": "Dwc:nomenclaturalStatus não pode ser interpretado",
+    "COORDINATE_PRECISION_INVALID": "Indica um coordinatePrecision inválida ou muito improvável",
+    "HOMONYM": "Um homónimo não sinonimizado existe para esse nome, em alguma outra fonte do backbone e que foi ignorado no momento da compilação.",
+    "ORTHOGRAPHIC_VARIANT": "Uma variante ortográfica potencial existe no backbone. Questão específica do backbone do GBIF. ",
+    "CONTINENT_INVALID": "Valores de continente não interpretáveis encontrados.",
+    "VERNACULAR_NAME_INVALID": "Pelo menos um extensão de registo nome comum anexado a este uso de nome é inválido.",
+    "DESCRIPTION_INVALID": "Pelo menos uma extensão de registo de descrição anexada a este uso de nome é inválida.",
+    "REFERENCES_URI_INVALID": "Um uri inválido foi dado em dc:references."
   }
 }
