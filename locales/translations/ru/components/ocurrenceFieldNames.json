@@ -1,7 +1,7 @@
 {
   "ocurrenceFieldNames": {
-    "gbifID": "",
-    "abstract": "",
+    "gbifID": "GBIF ID",
+    "abstract": "Аннотация",
     "accessRights": "Права доступа",
     "accrualMethod": "",
     "accrualPeriodicity": "",
