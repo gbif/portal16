@@ -25,25 +25,25 @@
             "orphaned": "Jeu de données orphelin",
             "rescued": "Jeu de données orphelin secouru",
             "adopted": "Jeu de données adopté",
-            "lastIngestedBeforeDate": "",
-            "inIngestionQueue": "",
-            "addingToQueue": "",
-            "unableToStart": "",
-            "ingestionChartExplainer": "",
-            "ingestionStatus": "",
-            "itemInIngestionQueue": "",
-            "datasetIngestionStatus": "",
-            "gbifIngestionStatus": "",
-            "lastIngestionSuccess": "",
-            "lastIngestionFailed": "",
-            "outOfSync": "",
-            "becauseTrustedContact": ""
+            "lastIngestedBeforeDate": "Dernière ingestion avant {DATE}",
+            "inIngestionQueue": "Est dans la file d'ingestion",
+            "addingToQueue": "Ajout à la file",
+            "unableToStart": "Impossible de démarrer l’ingestion",
+            "ingestionChartExplainer": "Ingestion la plus récente. Celle du haut à gauche est la plus récente.",
+            "ingestionStatus": "État de l’ingestion",
+            "itemInIngestionQueue": "Éléments dans la file d’attente d'ingestion",
+            "datasetIngestionStatus": "État d’ingestion du jeu de données",
+            "gbifIngestionStatus": "État d’ingestion GBIF",
+            "lastIngestionSuccess": "La dernière ingestion est un succès",
+            "lastIngestionFailed": "La dernière ingestion a échoué",
+            "outOfSync": "Non-synchronisé",
+            "becauseTrustedContact": "Parce que vous êtes contact de confiance"
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "Normal",
+                "ABORT": "Interrompre",
+                "NOT_MODIFIED": "Non modifié"
             }
         }
     }
