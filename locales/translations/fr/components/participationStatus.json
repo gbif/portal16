@@ -9,8 +9,8 @@
             "undefined": "Inconnu"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
+            "VOTING": "Un participant votant du GBIF de {REGION}",
+            "ASSOCIATE": "Un participant associé de {REGION}",
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
