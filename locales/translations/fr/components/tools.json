@@ -4,7 +4,7 @@
         "suggestDataset": {
             "NOT_OPEN": "",
             "title": "",
-            "pleaseDescribeTheDataset": "",
+            "pleaseDescribeTheDataset": "Veuillez décrire le jeu de données",
             "thankYou": "",
             "form": {
                 "title": "",
