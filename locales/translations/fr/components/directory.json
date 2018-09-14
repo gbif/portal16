@@ -2,15 +2,15 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "",
+        "title": "Comité exécutif",
         "description": ""
       },
       "scienceCommittee": {
-        "title": "",
+        "title": "Comité scientifique",
         "description": ""
       },
       "budgetCommittee": {
-        "title": "",
+        "title": "Comité budgétaire",
         "description": ""
       },
       "nsg": {
@@ -18,7 +18,7 @@
         "description": ""
       },
       "nodesCommittee": {
-        "title": "",
+        "title": "Comité des gestionnaires de noeuds",
         "description": ""
       },
       "secretariat": {
@@ -26,27 +26,27 @@
         "description": ""
       },
       "voting": {
-        "title": "",
+        "title": "Participants votants",
         "description": ""
       },
       "associateCountries": {
-        "title": "",
+        "title": "Pays associés participants",
         "description": ""
       },
       "associateParticipants": {
-        "title": "",
+        "title": "Autres participants associés",
         "description": ""
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "Rôle",
+      "name": "Nom",
+      "participant": "Participant",
+      "participationStatus": "Statut de participation"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "details": "Plus d'informations",
+    "roles": "Rôles",
+    "sinceDate": "Depuis {DATE}",
+    "showAllContacts": "Tout"
   }
 }
