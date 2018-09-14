@@ -9,7 +9,7 @@
     "plantaeByBasisOfRecordText": "O número de registos de plantas categorizado pela base do registo. A categoria \"Desconhecido\" inclui registos sem base do registo definida ou com um valor não reconhecido para a base do registo.",
     "recordsForPlantae": "Registos para Plantae",
     "theseChartsIllustrate2": "Estes gráficos ilustram a alteração do número de espécies para as quais estão disponíveis registos de ocorrência.",
-    "speciesCounts": "Contagem de espécies",
+    "speciesCounts": "Número de espécies",
     "speciesCountDescription": "",
     "definition": "",
     "numOccSpeciesByKingdom": "",
