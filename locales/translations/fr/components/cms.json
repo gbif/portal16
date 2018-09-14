@@ -23,7 +23,7 @@
       "newsAndEvents": "Actualités et événements",
       "call": "Appel",
       "projectLead": "Chef de projet",
-      "contactDetalils": "",
+      "contactDetalils": "Détails du contact",
       "partners": "Partenaires"
     },
     "datause": {
@@ -33,7 +33,7 @@
       "keywords": "Mots-clés"
     },
     "auxiliary": {
-      "subject": "",
+      "subject": "Sujet",
       "citation": "Citation",
       "organisingParticipants": "Participants organisateurs"
     }
