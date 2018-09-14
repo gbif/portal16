@@ -1,10 +1,10 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "",
-    "nConstituentDatasets": "",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{occurrence} other{occurrences}} téléchargée",
+    "nConstituentDatasets": "Inclus les enregistrements de {NUMBER_FORMATTED} {NUMBER, select, one{jeu de données} other{jeux de données}}",
     "fileNotAvailable": "Le fichier n'est plus disponible pour téléchargement",
     "downloadDeletionWarning": "Ce téléchargement n’a pas été cité et est éligible à la suppression après {DATE}.",
-    "brokenDownload": "",
+    "brokenDownload": "Télécharger brisé",
     "contactHelpdesk": "Contacter le support technique",
     "cancelled": "Annulé",
     "cancel": "Annuler",
@@ -18,7 +18,7 @@
     "titleMissing": "Titre du jeu de données manquant",
     "underProcessing": "En traitement",
     "citation": "Citation",
-    "nRecordsAtTime": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, select, one{enregistrement} other{enregistrements}} au moment du téléchargement",
     "aboutDeletionPolicy": "En savoir plus sur notre [politique de suppression](/faq?question=for-how-long-will-does-gbif-store-downloads).",
     "readDatauseAndTerms": "Assurez-vous de lire l'[accord des utilisateurs de données](/terms/data-user) et [le guide de citation](/citation-guidelines).",
     "filterApplied": "Filtre appliqué le {DATE}",
@@ -48,14 +48,14 @@
     },
     "predicate": {
       "joinDescriptions": {
-        "and": "",
-        "or": "",
+        "and": "Tous doivent appliquer",
+        "or": "Au moins un doit appliquer",
         "not": "Aucun ne doit être inclus"
       },
       "and": "Et",
       "or": "Ou",
       "not": "Non",
-      "isNotNull": ""
+      "isNotNull": "Est défini"
     }
   }
 }
