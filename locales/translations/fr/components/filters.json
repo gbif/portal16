@@ -2,11 +2,11 @@
     "filters": {
         "searchPlaceholder": "Rechercher",
         "noPreference": "Pas de préférence",
-        "invert": "",
+        "invert": "Inverser",
         "clear": "Effacer",
         "add": "Ajouter",
         "repatriation": {
-            "description": ""
+            "description": "Les données sont considérées comme rapatriées lorsqu’elles sont publiées par une institution d'un pays, mais font partie de la biodiversité d'un autre pays"
         },
         "ternary": {
             "yes": "Oui",
@@ -24,13 +24,13 @@
             "onlyShowFlagged": "Montrer uniquement les enregistrements marqués comme suspects",
             "past": "Récemment utilisé",
             "geojson": "GeoJSON",
-            "range": "",
+            "range": "Couverture",
             "noFiltersAdded": "Aucun filtre d'aire n'a été ajouté",
             "wktPlaceholder": "WKT ou GeoJSON — les polygones multiples ne sont pas supportés",
             "invalidTextInput": "WKT ou GeoJSON invalide",
             "tooLarge": "Géométrie trop large",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "tooLargeSuggestion": "Essayez d’utiliser une boîte englobante pour filtrer plus précisément",
+            "invalidRange": "Boîte englobante non valide"
         }
     }
 }
