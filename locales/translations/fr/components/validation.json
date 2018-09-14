@@ -1,11 +1,11 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
+      "RESOURCE_STRUCTURE": "Structure de la ressource",
+      "RESOURCE_INTEGRITY": "Intégrité de la ressource",
+      "RECORD_STRUCTURE": "Structure de l'enregistrement",
+      "OCC_INTERPRETATION_BASED": "Interprétation d'occurrence GBIF",
+      "METADATA_CONTENT": "Contenu de métadonnées",
       "CLB_INTERPRETATION_BASED": ""
     },
     "issueType": {
