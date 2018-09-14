@@ -23,11 +23,11 @@
       },
       "secretariat": {
         "title": "Le Secrétariat du GBIF",
-        "description": ""
+        "description": "Le Secrétariat GBIF, situé au Musée d'Histoire Naturelle de Copenhague, au Danemark, est responsable du développement, de l'exécution et d'émettre des rapports sur le programme de travail de GBIF. Les tâches du Secrétariat incluent :\n - exploitation du portail GBIF et de l'informatique associée\n - coordination des activités du réseau en lien avec la mobilisation des données, la publication et la gestion\n - surveillance des trous dans les données et l'utilisation pour des projets scientifiques des données obtenues via le GBIF, et\n - gestion des communications centrales et des services collaboratifs"
       },
       "voting": {
         "title": "Participants votants",
-        "description": ""
+        "description": "Pays ayant signés le Protocole d'Accord de GBIF et acceptant de faire une contribution financière de base au fond central de GBIF."
       },
       "associateCountries": {
         "title": "Pays associés participants",
