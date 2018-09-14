@@ -31,11 +31,11 @@
       },
       "associateCountries": {
         "title": "Pays associés participants",
-        "description": ""
+        "description": "Pays ayant signés le Protocole d'Accord de GBIF mais ne faisant pas de contribution financière de base au fond central de GBIF, et n'ont pas de droit de vote au Conseil d'administration du GBIF."
       },
       "associateParticipants": {
         "title": "Autres participants associés",
-        "description": ""
+        "description": "Organisations intergouvernementales, organisations internationales et autres organisations avec une portée internationale, et des économies, qui ont signés le Protocole d'Accord du GBIF."
       }
     },
     "columns": {
