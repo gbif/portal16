@@ -26,6 +26,6 @@
       "searchResources": "Rechercher des ressources",
       "searchOccurrences": "Rechercher des occurrences"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{résultat} other{résultats}}"
   }
 }
