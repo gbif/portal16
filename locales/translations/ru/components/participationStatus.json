@@ -1,8 +1,8 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
+            "VOTING": "Участник с правом голоса",
+            "ASSOCIATE": "Ассоциированный участник",
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
