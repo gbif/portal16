@@ -3,13 +3,13 @@
         "longForm": {
             "VOTING": "Участник с правом голоса",
             "ASSOCIATE": "Ассоциированный участник",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "OBSERVER": "Наблюдающий участник",
+            "AFFILIATE": "Fффилиированный участник",
+            "FORMER": "Бывший участник",
+            "undefined": "Неизвестно"
         },
         "description": {
-            "VOTING": "",
+            "VOTING": "Участник GBIF с правом голоса из {REGION}",
             "ASSOCIATE": "",
             "OBSERVER": "",
             "AFFILIATE": "",
