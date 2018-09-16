@@ -59,11 +59,11 @@
     "verbatimListingMsg": "",
     "interpretationMsg": "",
     "viewGbifSpeciesMsg": "",
-    "inferredRecordMsg": "",
-    "noChildren": "",
-    "youAreBrowsing": "",
-    "lastCrawled": "",
-    "extensions": "",
-    "taxa": ""
+    "inferredRecordMsg": "Эта запись была создана во время индексирования и необязательно существует в источнике исходных данных.",
+    "noChildren": "Нет подчиненных таксонов",
+    "youAreBrowsing": "Вы просматриваете",
+    "lastCrawled": "Дата последнего обхода {DATE_FORMATTED}",
+    "extensions": "Расширения",
+    "taxa": "Таксоны"
   }
 }
