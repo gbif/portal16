@@ -10,8 +10,8 @@
         },
         "description": {
             "VOTING": "Участник GBIF с правом голоса из {REGION}",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
+            "ASSOCIATE": "Ассоциированный участник от {REGION}",
+            "OBSERVER": "Страна-наблюдатель GBIF от {REGION}",
             "AFFILIATE": "",
             "FORMER": "",
             "undefined": ""
