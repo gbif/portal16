@@ -14,9 +14,9 @@
     "programme": "Программа",
     "fundedBy": "Финансируется",
     "about": "О ресурсе",
-    "datasets": "",
-    "gbifWillAttend": "",
-    "dataUsedInStudy": "",
-    "resourceDescription": ""
+    "datasets": "наборы данных",
+    "gbifWillAttend": "Участие Секретариата GBIF",
+    "dataUsedInStudy": "Данные использованы в исследовании",
+    "resourceDescription": "Поиск ресурсов в Глобальной системе биологического разнообразия. Свободный и открытый доступ к данным о биоразнообразии."
   }
 }
