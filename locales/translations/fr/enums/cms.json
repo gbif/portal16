@@ -32,7 +32,7 @@
       },
       "vocabularyTerms": {
         "articleType": {
-          "Nodes guidance": ""
+          "Nodes guidance": "Guidage des noeuds"
         },
         "projectGrantType": {
           "REGIONAL": "Subvention régionale",
@@ -51,7 +51,7 @@
           "GBIF_CITED": "Cité par le GBIF",
           "GBIF_DISCUSSED": "Discuté par le GBIF",
           "GBIF_PRIMARY": "",
-          "GBIF_ACKNOWLEDGED": "",
+          "GBIF_ACKNOWLEDGED": "Reconnu par GBIF",
           "GBIF_PUBLISHED": "Publié par le GBIF",
           "GBIF_AUTHOR": "Auteur GBIF",
           "GBIF_MENTIONED": "Mentionné par le GBIF",
