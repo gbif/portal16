@@ -13,38 +13,38 @@
         "language": "Langue",
         "year": "Année",
         "datasetKey": "Ensemble de données",
-        "publishingOrg": "",
-        "peerReview": "",
+        "publishingOrg": "Fournisseur de données",
+        "peerReview": "Examen par les pairs",
         "openAccess": "le libre accès",
-        "gbifDownloadKey": ""
+        "gbifDownloadKey": "Clé de téléchargement"
       },
       "contentType": {
-        "event": "",
-        "news": "",
-        "resource": "",
-        "dataUse": "",
-        "project": "",
-        "participant": "",
-        "programme": "",
-        "document": "",
-        "tool": "",
-        "literature": ""
+        "event": "Événement",
+        "news": "Actualités",
+        "resource": "Ressource",
+        "dataUse": "Utilisation des données",
+        "project": "Projet",
+        "participant": "Participant",
+        "programme": "Programme",
+        "document": "Document",
+        "tool": "Outil",
+        "literature": "Littérature"
       },
       "vocabularyTerms": {
         "articleType": {
           "Nodes guidance": ""
         },
         "projectGrantType": {
-          "REGIONAL": "",
-          "SMALL": "",
-          "NATIONAL": "",
-          "undefined": ""
+          "REGIONAL": "Subvention régionale",
+          "SMALL": "Petite subvention",
+          "NATIONAL": "Subvention nationale",
+          "undefined": "Non spécifié"
         },
         "projectStatus": {
-          "APPROVED": "",
-          "CLOSED": "",
-          "IN_PROGRESS": "",
-          "undefined": ""
+          "APPROVED": "Approuvé",
+          "CLOSED": "Fermé",
+          "IN_PROGRESS": "En cours",
+          "undefined": "Non spécifié"
         },
         "relevance": {
           "GBIF_USED": "",
@@ -54,8 +54,8 @@
           "GBIF_ACKNOWLEDGED": "",
           "GBIF_PUBLISHED": "",
           "GBIF_AUTHOR": "",
-          "GBIF_MENTIONED": "",
-          "GBIF_FUNDED": ""
+          "GBIF_MENTIONED": "Mentionné par le GBIF",
+          "GBIF_FUNDED": "Financé par le GBIF"
         },
         "topics": {
           "AGRICULTURE": "",
