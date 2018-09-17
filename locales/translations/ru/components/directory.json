@@ -42,9 +42,9 @@
       "role": "",
       "name": "",
       "participant": "Участник",
-      "participationStatus": ""
+      "participationStatus": "Статус участника"
     },
-    "details": "",
+    "details": "Подробнее",
     "roles": "",
     "sinceDate": "С {DATE}",
     "showAllContacts": "Все"
