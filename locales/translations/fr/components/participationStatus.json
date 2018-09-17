@@ -9,29 +9,29 @@
             "undefined": "Inconnu"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
+            "VOTING": "Un participant votant du GBIF de {REGION}",
+            "ASSOCIATE": "Un participant associé de {REGION}",
+            "OBSERVER": "Un pays observateur du GBIF de {REGION}",
+            "AFFILIATE": "Un participant affilié de {REGION}",
+            "FORMER": "Un ancien participant du GBIF de {REGION}",
             "undefined": "Inconnu"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
+                    "VOTING": "Une organisation participante votante du GBIF de {REGION}",
+                    "ASSOCIATE": "Une organisation participante associé de {REGION}",
+                    "OBSERVER": "Une organisation participante observatrice de {REGION}",
+                    "AFFILIATE": "Une organisation participante affiliée de {REGION}",
+                    "FORMER": "Une ancienne organisation participante de {REGION}",
                     "undefined": "Inconnu"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
+                    "VOTING": "Organisation participante votante",
+                    "ASSOCIATE": "Organisation participante associée",
+                    "OBSERVER": "Organisation participante observatrice",
+                    "AFFILIATE": "Organisation participante affiliée",
+                    "FORMER": "Ancienne organisation participante",
                     "undefined": "Inconnu"
                 }
             }

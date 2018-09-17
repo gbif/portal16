@@ -50,16 +50,16 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Collecté en {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Collecté en {COUNTRY}",
+        "LIVING_SPECIMEN": "Collecté en {COUNTRY}",
+        "HUMAN_OBSERVATION": "Observé en {COUNTRY}",
+        "MACHINE_OBSERVATION": "Observé en {COUNTRY}",
+        "MATERIAL_SAMPLE": "Collecté en {COUNTRY}",
+        "OCCURRENCE": "Enregistré en {COUNTRY}",
+        "OBSERVATION": "Observé en {COUNTRY}",
+        "LITERATURE": "Enregistré en {COUNTRY}",
+        "UNKNOWN": "Enregistré en {COUNTRY}"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "Collecté dans un lieu inconnu",

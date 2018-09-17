@@ -8,6 +8,6 @@
       "datasets": "Réseau"
     },
     "registeredDate": "Enregistré le {DATE}",
-    "nParticipatingDatasets": ""
+    "nParticipatingDatasets": "{NUMBER_FORMATED} {NUMBER, select, 1{jeu de données} other{jeux de données}} participant"
   }
 }

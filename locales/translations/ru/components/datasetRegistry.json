@@ -1,14 +1,14 @@
 {
     "dataset": {
         "registry": {
-            "failedSinceSuccess": "",
-            "lastFailed": "",
+            "failedSinceSuccess": "Неудачных попыток после последней успешной",
+            "lastFailed": "Последняя неудачная попытка",
             "registrationDate": "Дата регистрации",
-            "lastSuccess": "",
-            "lastWithChange": "",
-            "noEntries": "",
-            "lastWithDataChange": "",
-            "occInLastIngestion": "",
+            "lastSuccess": "Последнее удачное получение данных",
+            "lastWithChange": "Последнее получение данных с изменениями",
+            "noEntries": "Данный набор данных не содержит полученных записей",
+            "lastWithDataChange": "Последнее получение данных с изменениями",
+            "occInLastIngestion": "Находки видов в последнем получении",
             "completionReasons": "",
             "unfinished": "",
             "total": "",

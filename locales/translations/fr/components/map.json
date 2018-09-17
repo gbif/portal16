@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{enregistrement géoréférencé} other{enregistrements géoréférencés}}",
     "noOccurrencesWithCoordinates": "Aucune occurrence avec des coordonnées",
     "clickToSearchArea": "Cliquez pour chercher une zone spécifique",
     "generatedDateAgo": "Généré le {DATE_AGO}",
@@ -13,7 +13,7 @@
     "select": "Sélectionner",
     "custom": "Personnalisé",
     "baseMap": "Fond de carte",
-    "binning": "",
+    "binning": "Groupement des données par classe",
     "year": "Année",
     "chooseColors": "Couleurs",
     "predefined": {

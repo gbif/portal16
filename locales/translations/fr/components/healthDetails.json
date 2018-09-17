@@ -33,11 +33,11 @@
                 "tooltip": "Pour l’affichage des images cartographiques et l'obtention d’informations à propos d'une carte."
             },
             "CONTENTFUL": {
-                "name": "",
+                "name": "Système de gestion du contenu (système externe)",
                 "tooltip": "Par exemple, nouvelles et articles"
             },
             "IMAGE_CACHE": {
-                "name": "",
+                "name": "Cache de l'image",
                 "tooltip": "Responsable de la plupart des images sur le site Internet"
             },
             "GITHUB": {
@@ -45,7 +45,7 @@
                 "tooltip": "Commentaires, suggestions de jeux de données"
             },
             "CRAWLER": {
-                "name": "",
+                "name": "Ingestion",
                 "tooltip": "Pour mettre à jour les jeux de données ﹣nouveau et vieux."
             },
             "RESOURCE_SEARCH": {
@@ -54,7 +54,7 @@
             },
             "CLUSTER": {
                 "name": "Charge du système",
-                "tooltip": ""
+                "tooltip": "L'arrière-plan pour gérer les téléchargements, l'ingestion et bien plus."
             },
             "DOWNLOAD": {
                 "name": "Téléchargements",

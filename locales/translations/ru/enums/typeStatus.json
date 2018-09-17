@@ -1,9 +1,9 @@
 {
   "typeStatus": {
-    "TYPE": "",
-    "TYPE_SPECIES": "",
-    "TYPE_GENUS": "",
-    "ALLOLECTOTYPE": "",
+    "TYPE": "Тип",
+    "TYPE_SPECIES": "Типовой вид",
+    "TYPE_GENUS": "Типовой род",
+    "ALLOLECTOTYPE": "Аллолектотип",
     "ALLONEOTYPE": "",
     "ALLOTYPE": "",
     "COTYPE": "",
@@ -39,7 +39,7 @@
     "SUPPLEMENTARYTYPE": "",
     "SYNTYPE": "",
     "TOPOTYPE": "",
-    "ORIGINALMATERIAL": "",
-    "NOTATYPE": ""
+    "ORIGINALMATERIAL": "Исходный материал",
+    "NOTATYPE": "Не является типом"
   }
 }

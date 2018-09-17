@@ -2,51 +2,51 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité exécutif",
+        "description": "Le Comité Exécutif opère au nom du Conseil d’administration, lorsque le Conseil n’est pas en session et dans les zones de responsabilité qui lui sont déléguées par le Conseil d’administration. Parmi ses fonctions sont le suivi de la performance du Secrétariat dans l’exécution des décisions prises par le Conseil d'administration incluant la mise en œuvre du Plan stratégique et le Programme de travail, ainsi que la gestion du budget."
       },
       "scienceCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité scientifique",
+        "description": "Le Comité scientifique du GBIF est un comité aviseur qui supervise le développement et le progrès du programme de travail GBIF et fait ses recommandations au Conseil d'adminsitration, au Comité exécutif et au Secrétariat. Vous pouvez lire son mandat [here.](/document/80877/current-terms-of-reference-for-the-science-committee)"
       },
       "budgetCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité budgétaire",
+        "description": "Le Comité budgétaire est un comité aviseur traitant de diverses questions financières relatives à l'administration des fonds GBIF. Entre autres fonctions, il supervise la vérification des comptes annuels soumis au Conseil d'administration, et il fournit des conseils pour le choix de la société d'audit du GBIF. Le Comité fait des recommandations au Conseil d'administration, au Comité exécutif et au Secrétariat. Son mandat peut être trouvé [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
         "title": "Comité de pilotage des points nodaux",
-        "description": ""
+        "description": "Établi en 2011, le comité de pilotage des points nodaux (Nodes Steering Group or NSG) comprend un président et un vice-président du [Comité des gestionnaires des points nodaux](/contact-us/directory?group=nodesCommittee) rejoint par un représentant régional de chacune des six régions de GBIF ([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America/Caribbean](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) et [Oceania](/the-gbif-network/oceania)). Les objectifs du NSG sont de formuler des recommandations aux comités GBIF pertinents basés sur les commentaires des noeuds participants, et de fournir des conseils sur les programmes de travail annuels puisqu'ils sont liés aux efforts des noeuds GBIF."
       },
       "nodesCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Comité des gestionnaires de noeuds",
+        "description": "Le Comité des gestionnaires de points nodaux (ou Comité des noeuds) est un groupe dynamique formés par les gestionnaires de noeuds nommés par tous les participants (pays et organisation internationales). Le Comité comprend trois présidents choisis à travers le vote du Conseil d'administration pour un maximum de deux mandats de deux ans."
       },
       "secretariat": {
         "title": "Le Secrétariat du GBIF",
-        "description": ""
+        "description": "Le Secrétariat GBIF, situé au Musée d'Histoire Naturelle de Copenhague, au Danemark, est responsable du développement, de l'exécution et d'émettre des rapports sur le programme de travail de GBIF. Les tâches du Secrétariat incluent :\n - exploitation du portail GBIF et de l'informatique associée\n - coordination des activités du réseau en lien avec la mobilisation des données, la publication et la gestion\n - surveillance des trous dans les données et l'utilisation pour des projets scientifiques des données obtenues via le GBIF, et\n - gestion des communications centrales et des services collaboratifs"
       },
       "voting": {
-        "title": "",
-        "description": ""
+        "title": "Participants votants",
+        "description": "Pays ayant signés le Protocole d'Accord de GBIF et acceptant de faire une contribution financière de base au fond central de GBIF."
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "Pays associés participants",
+        "description": "Pays ayant signés le Protocole d'Accord de GBIF mais ne faisant pas de contribution financière de base au fond central de GBIF, et n'ont pas de droit de vote au Conseil d'administration du GBIF."
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "Autres participants associés",
+        "description": "Organisations intergouvernementales, organisations internationales et autres organisations avec une portée internationale, et des économies, qui ont signés le Protocole d'Accord du GBIF."
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "Rôle",
+      "name": "Nom",
+      "participant": "Participant",
+      "participationStatus": "Statut de participation"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "details": "Plus d'informations",
+    "roles": "Rôles",
+    "sinceDate": "Depuis {DATE}",
+    "showAllContacts": "Tout"
   }
 }
