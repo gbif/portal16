@@ -30,7 +30,7 @@
     "COORDINATE_ROUNDED": "Coordonnées originales modifiées en arrondissant à 5 décimales.",
     "GEODETIC_DATUM_INVALID": "Le référentiel géodésique fourni ne peut être interprété.",
     "COORDINATE_INVALID": "Les valeurs de coordonnées ont été dans un format particulier mais GBIF est dans l'incapacité de les interpréter.",
-    "CLASSIFICATION_NOT_APPLIED": "",
+    "CLASSIFICATION_NOT_APPLIED": "La classification dénormalisée ne peut être appliquée au nom utilisé. Par example si l'id de base de classification n'a aucun rang.",
     "CONTINENT_DERIVED_FROM_COORDINATES": "",
     "ACCEPTED_NAME_MISSING": "",
     "ORIGINAL_NAME_USAGE_ID_INVALID": "",
