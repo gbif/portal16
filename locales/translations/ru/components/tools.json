@@ -2,7 +2,7 @@
     "tools": {
         "categoryFeatured": "",
         "suggestDataset": {
-            "NOT_OPEN": "",
+            "NOT_OPEN": "Не открытая лицензия",
             "title": "Сообщить о наборе данных",
             "pleaseDescribeTheDataset": "Пожалуйста, опишите набор данных",
             "thankYou": "",
@@ -45,7 +45,7 @@
             "embedIntro": ""
         },
         "speciesLookup": {
-            "description": "",
+            "description": "Стандартизировать названия видов из CSV-файла согласно базовой таксономии GBIF. Файл должен содержать столбец с названием 'научноеНазвание' и необязательный столбец 'царство' и 'id'.",
             "title": ""
         },
         "ipt": {
