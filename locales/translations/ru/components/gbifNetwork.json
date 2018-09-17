@@ -3,8 +3,8 @@
     "title": "",
     "contact": "Информация для связи",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Участник с правом голоса",
+      "other": "Участники с правом голоса"
     },
     "associate_country_participant": {
       "one": "",
