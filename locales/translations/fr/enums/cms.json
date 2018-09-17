@@ -53,7 +53,7 @@
           "GBIF_PRIMARY": "",
           "GBIF_ACKNOWLEDGED": "",
           "GBIF_PUBLISHED": "Publié par le GBIF",
-          "GBIF_AUTHOR": "",
+          "GBIF_AUTHOR": "Auteur GBIF",
           "GBIF_MENTIONED": "Mentionné par le GBIF",
           "GBIF_FUNDED": "Financé par le GBIF"
         },
@@ -96,22 +96,22 @@
           "web_page": "Page Internet",
           "thesis": "Thèse",
           "magazine_article": "Article de magazine",
-          "statute": "",
-          "patent": "",
-          "newspaper_article": "",
-          "computer_program": "",
-          "hearing": "",
-          "television_broadcast": "",
-          "encyclopedia_article": "",
-          "case": "",
-          "film": "",
-          "bill": ""
+          "statute": "Statut",
+          "patent": "Brevet",
+          "newspaper_article": "Article de journal",
+          "computer_program": "Programme informatique",
+          "hearing": "Audience",
+          "television_broadcast": "Émission de télévision",
+          "encyclopedia_article": "Article Encyclopédique",
+          "case": "Cas",
+          "film": "Film",
+          "bill": "Facture"
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Experts en biodiversité",
-          "DATA_HOLDERS": "",
+          "DATA_HOLDERS": "Détenteurs de données",
           "DATA_USERS": "Les utilisateurs de données",
-          "DECISION_MAKERS": "",
+          "DECISION_MAKERS": "Décideurs",
           "GBIF_NETWORK": "le réseau GBIF",
           "PUBLIC_STAKEHOLDERS": "Les parties prenantes publiques"
         }
