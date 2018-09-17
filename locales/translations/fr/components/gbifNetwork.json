@@ -29,7 +29,7 @@
     "gbif_secretariat": "Le Secrétariat du GBIF",
     "membershipType": "Adhésion",
     "name": "Nom",
-    "endorsedDataPublisher": "A approuvé {NUMBER_FORMATTED} données {NUMBER, select, one{Fournisseurs de données} other{fournisseurs de données}}",
+    "endorsedDataPublisher": "A approuvé {NUMBER_FORMATTED} {NUMBER, select, one{fournisseur de données} other{fournisseurs de données}}",
     "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participant} other{participants}}",
     "dataset": "{NUMBER, select, one{Jeu de données} other{Jeu de données}}",
     "datasets": "Jeux de données",
