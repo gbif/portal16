@@ -1,8 +1,8 @@
 {
   "role": {
-    "TECHNICAL_POINT_OF_CONTACT": "",
-    "ADMINISTRATIVE_POINT_OF_CONTACT": "",
-    "_PRIMARY_CONTACT": "",
+    "TECHNICAL_POINT_OF_CONTACT": "Point de contact technique",
+    "ADMINISTRATIVE_POINT_OF_CONTACT": "Point de contact administratif",
+    "_PRIMARY_CONTACT": "Contact principal",
     "POINT_OF_CONTACT": "",
     "ORIGINATOR": "",
     "GBIFS_STAFF_MEMBER": "",
