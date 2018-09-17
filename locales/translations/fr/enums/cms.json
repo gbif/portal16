@@ -2,15 +2,15 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
-        "countriesOfResearcher": "",
-        "literatureType": "",
+        "countriesOfCoverage": "Pays ou région de couverture",
+        "countriesOfResearcher": "Pays ou région du chercheur",
+        "literatureType": "Type de littérature",
         "contractCountry": "Pays",
-        "topics": "",
-        "audiences": "",
-        "purposes": "",
-        "relevance": "",
-        "language": "",
+        "topics": "Thème",
+        "audiences": "Publics",
+        "purposes": "Objectif",
+        "relevance": "Pertinence",
+        "language": "Langue",
         "year": "Année",
         "datasetKey": "Ensemble de données",
         "publishingOrg": "",
