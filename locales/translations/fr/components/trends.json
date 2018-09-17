@@ -19,7 +19,7 @@
     "speciesCountForObservationRecords": "Nombre d’espèces pour les enregistrements d’observation",
     "numSpeciesAssociatedWithObsRecords": "Le nombre d’espèces associées aux observations.",
     "timeAndSeasonality": "Temps et saisonnalité",
-    "theseChartsIllustrate3": "",
+    "theseChartsIllustrate3": "Ces graphiques illustrent les changements dans la propagation des enregistrements par année d'occurrence et par jour de l’année, ce qui indique l’ampleur du biais possible vers les périodes plus récentes ou saisons particulières. Les instantanés sont fournis pour des intervalles d’environ 3 ans afin de montrer les changements dans la propagation.",
     "speciesCountsAreBasedOnTheNumberOfBinomialScientificNames": "",
     "recordsByYearOfOccurrence": "Enregistrements par année de l'occurrence",
     "theNumberOfOccurrenceRecordsAvailable": "",
