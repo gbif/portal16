@@ -23,9 +23,9 @@
       "UNKNOWN_TERM": "Неизвестный термин",
       "DUPLICATED_TERM": "Дублирование терминов",
       "TITLE_MISSING_OR_TOO_SHORT": "Название набора данных отсутствует или слишком короткое",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "Создатель ресурса отсутствует или является неполным",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "Описание набора данных отсутствует или слишком короткое",
-      "LICENSE_MISSING_OR_UNKNOWN": "",
+      "LICENSE_MISSING_OR_UNKNOWN": "Лицензия не может быть проанализирована, не поддерживается GBIF или просто отсутствует",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Запись не идентифицирована однозначно",
       "UNREADABLE_SECTION_ERROR": "",
       "NoIssuesFound": ""
@@ -61,7 +61,7 @@
     "reportGenerated": "",
     "summary": "",
     "issues": "",
-    "fileHasIssues": "",
+    "fileHasIssues": "В результате проверки были обнаружены некоторые проблемы:",
     "fileHasNoIssues": "",
     "error": "Ошибка",
     "errors": {
@@ -75,11 +75,11 @@
       "title": "",
       "term": "",
       "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "percentage": "Процент",
+      "interpreted": "Интерпретировано"
     },
     "interpretedCounts": {
-      "date": "Число интерпретированных видов",
+      "date": "Число интерпретированных дат",
       "taxon": "Число строк с интерпретированным таксоном",
       "location": "Число интерпретированных координат"
     },
@@ -87,7 +87,7 @@
       "title": ""
     },
     "status": {
-      "title": "",
+      "title": "Статус",
       "SUBMITTED": "Отправка файла",
       "FETCHING": "Получение файла",
       "ACCEPTED": "Проверка началась",
@@ -96,21 +96,21 @@
       "FAILED": "",
       "CONTACTING_SERVER": "Подключение к серверу..."
     },
-    "jobId": "",
-    "indexeable": "",
+    "jobId": "Идентификатор задания",
+    "indexeable": "Этот файл может быть проиндексирован GBIF",
     "notIndexeable": "",
     "numberOfLines": "",
     "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
-    "dataValidator": "",
+    "validationReport": "Отчёт о проверке",
+    "dataValidator": "Валидатор данных",
     "dataValidatorDescription": "",
     "thisIsAnEarlyAccessVersion": "",
     "here": "Здесь.",
     "coreRowType": "",
     "submit": "",
     "dropHere": "",
-    "or": "",
-    "selectFile": "",
+    "or": "или",
+    "selectFile": "Выбрать файл",
     "fetchFileFromLocation": "",
     "tabs": {
       "newDataValidation": "",
