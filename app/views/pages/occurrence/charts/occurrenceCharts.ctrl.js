@@ -20,8 +20,8 @@ function occurrenceChartsCtrl(OccurrenceFilter, $httpParamSerializer, $sessionSt
     vm.$sessionStorage.occurrenceChartsShowDefaults = _.get(vm.$sessionStorage, 'occurrenceChartsShowDefaults', true);
 
     function setChartFromUrl() {
-        if ($state.params.t === 'custom') {
-            $sessionStorage.customChart = {dimension: $state.params.d, secondDimension: $state.params.d2};
+        if ($state.params.d) {
+            $sessionStorage.customChart = {dimension: $state.params.d, secondDimension: $state.params.d2, type: $state.params.t || 'TABLE'};
             $state.params.d = undefined;
             $state.params.d2 = undefined;
             $state.params.t = undefined;
