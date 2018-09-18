@@ -35,15 +35,15 @@
             "datasetIngestionStatus": "Статус передаваемых наборов данных",
             "gbifIngestionStatus": "Статус получения данных GBIF",
             "lastIngestionSuccess": "Последний сеанс получения данных завершился с успехом",
-            "lastIngestionFailed": "",
-            "outOfSync": "",
-            "becauseTrustedContact": ""
+            "lastIngestionFailed": "Последний сеанс получения данных закончился с ошибкой",
+            "outOfSync": "Не синхронизирован",
+            "becauseTrustedContact": "Так как вы являетесь доверенным лицом"
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "Нормально",
+                "ABORT": "Прервано",
+                "NOT_MODIFIED": "Не модифицировано"
             }
         }
     }
