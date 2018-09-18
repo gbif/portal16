@@ -65,12 +65,12 @@
     "fileHasNoIssues": "",
     "error": "Ошибка",
     "errors": {
-      "400": "",
+      "400": "Файл не может быть обработан, или он может отсутствовать, если указан URL-адрес.",
       "404": "",
       "413": "",
       "415": ""
     },
-    "backToValidator": "",
+    "backToValidator": "Начать новую проверку",
     "termsFrequency": {
       "title": "",
       "term": "",
@@ -79,9 +79,9 @@
       "interpreted": ""
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "Число интерпретированных видов",
+      "taxon": "Число строк с интерпретированным таксоном",
+      "location": "Число интерпретированных координат"
     },
     "interpretedValueCounts": {
       "title": ""
@@ -90,11 +90,11 @@
       "title": "",
       "SUBMITTED": "Отправка файла",
       "FETCHING": "Получение файла",
-      "ACCEPTED": "",
+      "ACCEPTED": "Проверка началась",
       "RUNNING": "",
-      "FINISHED": "",
+      "FINISHED": "Проверка завершена",
       "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "CONTACTING_SERVER": "Подключение к серверу..."
     },
     "jobId": "",
     "indexeable": "",
@@ -105,7 +105,7 @@
     "dataValidator": "",
     "dataValidatorDescription": "",
     "thisIsAnEarlyAccessVersion": "",
-    "here": "",
+    "here": "Здесь.",
     "coreRowType": "",
     "submit": "",
     "dropHere": "",
@@ -118,7 +118,7 @@
       "about": "",
       "darwinCoreExtensions": "Расширения Darwin Core",
       "metaData": "Мета данные",
-      "summary": ""
+      "summary": "Краткое описание"
     }
   }
 }
