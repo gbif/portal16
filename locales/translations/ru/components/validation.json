@@ -49,11 +49,11 @@
         "title": "Документ с метаданными"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "Семантическая аннотация, описывающая структуру данных (файлы, столбцы, и т. д.)",
+        "title": "Мета-дескриптор"
       }
     },
-    "fileSizeLimit": "",
+    "fileSizeLimit": "Максимальный размер файла: 100 mb",
     "receivedMediaType": "",
     "uniqueIdentifier": "Уникальный идентификатор",
     "reportLocation": "Этот отчёт был написан для",
@@ -88,8 +88,8 @@
     },
     "status": {
       "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
+      "SUBMITTED": "Отправка файла",
+      "FETCHING": "Получение файла",
       "ACCEPTED": "",
       "RUNNING": "",
       "FINISHED": "",
@@ -114,10 +114,10 @@
     "fetchFileFromLocation": "",
     "tabs": {
       "newDataValidation": "",
-      "newValidation": "",
+      "newValidation": "Новая проверка",
       "about": "",
-      "darwinCoreExtensions": "",
-      "metaData": "",
+      "darwinCoreExtensions": "Расширения Darwin Core",
+      "metaData": "Мета данные",
       "summary": ""
     }
   }
