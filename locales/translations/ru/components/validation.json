@@ -9,16 +9,16 @@
       "CLB_INTERPRETATION_BASED": "Интерпретация Таксона в GBIF"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
+      "DWCA_UNREADABLE": "Архив Darwin Core не читается",
       "DWCA_META_XML_NOT_FOUND": "Файл meta.xml не найден",
       "DWCA_META_XML_SCHEMA": "Сбой проверки схемы meta.xml",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
-      "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
+      "RECORD_IDENTIFIER_NOT_FOUND": "Идентификатор записи не был найден в файле",
+      "CORE_ROWTYPE_UNDETERMINED": "ТипСтроки не может быть найден или определён",
+      "EML_NOT_FOUND": "Документ EML не найден",
+      "EML_GBIF_SCHEMA": "Документ EML не проверяется по схеме",
+      "UNKNOWN_ROWTYPE": "Типстроки, используемый для ядра/расширения, неизвестен",
       "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
+      "COLUMN_MISMATCH": "Несоответствие столбцов",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
       "UNKNOWN_TERM": "Неизвестный термин",
       "DUPLICATED_TERM": "Дублирование терминов",
@@ -26,14 +26,14 @@
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "Описание набора данных отсутствует или слишком короткое",
       "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Запись не идентифицирована однозначно",
       "UNREADABLE_SECTION_ERROR": "",
       "NoIssuesFound": ""
     },
     "fileFormat": {
       "title": "Формат файла",
-      "DWCA": "",
-      "TABULAR": "",
+      "DWCA": "Архив Darwin Core",
+      "TABULAR": "Табличный Файл (.csv, .tsv)",
       "SPREADSHEET": "Таблица (.xlsx)"
     },
     "fileType": {
@@ -45,8 +45,8 @@
         "title": "Расширения"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Метаданные, описывающие данные в EML (язык экологических метаданных)",
+        "title": "Документ с метаданными"
       },
       "META_DESCRIPTOR": {
         "description": "",
