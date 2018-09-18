@@ -1,11 +1,11 @@
 {
     "nameParser": {
-        "loadTestNames": "",
-        "parse": "",
-        "or": "",
-        "selectFile": "",
-        "pasteNamesToParse": "",
-        "about": "",
+        "loadTestNames": "Загрузить тестовые названия",
+        "parse": "Разобрать",
+        "or": "или",
+        "selectFile": "Выбрать файл",
+        "pasteNamesToParse": "Вставьте здесь названия таксонов для разбора",
+        "about": "Описание",
         "parser": "",
         "nameParserTitle": "",
         "dropHere": "",
