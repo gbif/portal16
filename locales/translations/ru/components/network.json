@@ -1,11 +1,11 @@
 {
   "network": {
-    "network": "",
+    "network": "Сеть",
     "tabs": {
       "summary": "",
       "homepage": "Главная",
       "metrics": "Метрика",
-      "datasets": ""
+      "datasets": "Сеть"
     },
     "registeredDate": "Зарегистрировано {DATE}",
     "nParticipatingDatasets": ""
