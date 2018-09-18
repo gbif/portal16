@@ -2,31 +2,31 @@
     "tools": {
         "categoryFeatured": "",
         "suggestDataset": {
-            "NOT_OPEN": "",
+            "NOT_OPEN": "Не открытая лицензия",
             "title": "Сообщить о наборе данных",
             "pleaseDescribeTheDataset": "Пожалуйста, опишите набор данных",
             "thankYou": "",
             "form": {
                 "title": "",
-                "link": "",
-                "region": "",
-                "taxon": "",
+                "link": "Интернет-ссылка на данные",
+                "region": "Географический охват",
+                "taxon": "Таксономический охват",
                 "whyImportant": "Почему важен этот набор данных",
                 "howWouldYouRateIt": "",
-                "high": "",
-                "medium": "",
-                "low": "",
-                "bibliographicRef": "",
-                "type": "",
-                "license": "",
+                "high": "Необходимый - в GBIF отсутствуют данные с этой территории",
+                "medium": "Важный - в GBIF мало данных с этой территории",
+                "low": "Это будет хорошим дополнением к существующим данным",
+                "bibliographicRef": "Библиографическая ссылка",
+                "type": "Тип набора данных",
+                "license": "Информация о лицензии",
                 "dataHolderContact": "",
-                "publicAlert": "",
+                "publicAlert": "Эта информация будет общедоступной",
                 "yourContact": "Ваша контактная информация",
                 "comments": "Комментарии",
                 "submit": "",
                 "followDiscussionBelow": "",
                 "followIssue": "",
-                "suggestAnother": "",
+                "suggestAnother": "Предложить другой набор данных",
                 "saveFailure": ""
             }
         },
@@ -34,10 +34,10 @@
             "drawerTitle": "",
             "intro": "",
             "aboutLink": "",
-            "selectSpecies": "",
+            "selectSpecies": "Выбрать виды",
             "noData": "",
             "selectHigherTaxa": "Выбрать высший таксон",
-            "selectArea": "",
+            "selectArea": "Выбрать территорию",
             "hexagon": "",
             "draw": "",
             "clear": "Очистить",
@@ -45,11 +45,11 @@
             "embedIntro": ""
         },
         "speciesLookup": {
-            "description": "",
+            "description": "Стандартизировать названия видов из CSV-файла согласно базовой таксономии GBIF. Файл должен содержать столбец с названием 'научноеНазвание' и необязательный столбец 'царство' и 'id'.",
             "title": ""
         },
         "ipt": {
-            "description": "",
+            "description": "Интегрированный инструментарий для публикации (IPT) является бесплатным программным инструментом с открытым исходным кодом, написанным на языке Java, который используется для публикации и обмена наборами данных о биоразнообразии через сеть GBIF. IPT также можно настроить с помощью аккаунта DataCite или EZID для присвоения DOI наборам данных, преобразуя его в хранилище данных.",
             "dontSeeYourIpt": ""
         }
     }

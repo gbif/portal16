@@ -43,7 +43,7 @@
     "remarks": "Remarques",
     "highlights": {
       "location": "Lieu",
-      "specimenType": "",
+      "specimenType": "Spécimen type",
       "publisher": "Fournisseurs de données",
       "reference": "Référence",
       "verbatimName": "Verbatim du nom"
