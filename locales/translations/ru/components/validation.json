@@ -3,15 +3,15 @@
     "category": {
       "RESOURCE_STRUCTURE": "Структура ресурса",
       "RESOURCE_INTEGRITY": "Целостность ресурса",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
+      "RECORD_STRUCTURE": "Структура Записи",
+      "OCC_INTERPRETATION_BASED": "Интерпретация Находки в GBIF",
       "METADATA_CONTENT": "Метаданные",
-      "CLB_INTERPRETATION_BASED": ""
+      "CLB_INTERPRETATION_BASED": "Интерпретация Таксона в GBIF"
     },
     "issueType": {
       "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
+      "DWCA_META_XML_NOT_FOUND": "Файл meta.xml не найден",
+      "DWCA_META_XML_SCHEMA": "Сбой проверки схемы meta.xml",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
       "EML_NOT_FOUND": "",
