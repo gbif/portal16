@@ -34,7 +34,7 @@
             "itemInIngestionQueue": "Позиции в очереди на получение данных",
             "datasetIngestionStatus": "Статус передаваемых наборов данных",
             "gbifIngestionStatus": "Статус получения данных GBIF",
-            "lastIngestionSuccess": "",
+            "lastIngestionSuccess": "Последний сеанс получения данных завершился с успехом",
             "lastIngestionFailed": "",
             "outOfSync": "",
             "becauseTrustedContact": ""
