@@ -47,7 +47,7 @@
     "participant": "Участник",
     "pPublishers": "",
     "pOccurrence": "",
-    "occurrenceDatasets": "",
+    "occurrenceDatasets": "Наборы данных о находках видов",
     "occurrences": "Находки"
   }
 }
