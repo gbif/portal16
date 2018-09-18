@@ -103,7 +103,7 @@
     "reportProducedByGbifDataValidator": "",
     "validationReport": "Отчёт о проверке",
     "dataValidator": "Валидатор данных",
-    "dataValidatorDescription": "",
+    "dataValidatorDescription": "Валидатор данных GBIF - это сервис, который позволяет любому обладателю соответствующего GBIF набора данных получить отчёт о синтаксической правильности и валидности содержимого набора данных.",
     "thisIsAnEarlyAccessVersion": "",
     "here": "Здесь.",
     "coreRowType": "",
