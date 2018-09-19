@@ -12,7 +12,7 @@
     "COORDINATE_ACCURACY_INVALID": "Exactitude des coordonnées non valide",
     "COORDINATE_PRECISION_INVALID": "Précision des coordonnées non valide",
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "Incertitude des coordonnées en mètre non valide",
-    "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "",
+    "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "Incompatibilité entre précision des coordonnées et incertitude",
     "COUNTRY_COORDINATE_MISMATCH": "Incompatibilité entre les coordonnées et le pays",
     "COUNTRY_MISMATCH": "Incompatibilité de pays",
     "COUNTRY_INVALID": "Pays non valide",
