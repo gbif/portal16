@@ -3,37 +3,37 @@
     "category": {
       "RESOURCE_STRUCTURE": "Структура ресурса",
       "RESOURCE_INTEGRITY": "Целостность ресурса",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
+      "RECORD_STRUCTURE": "Структура Записи",
+      "OCC_INTERPRETATION_BASED": "Интерпретация Находки в GBIF",
       "METADATA_CONTENT": "Метаданные",
-      "CLB_INTERPRETATION_BASED": ""
+      "CLB_INTERPRETATION_BASED": "Интерпретация Таксона в GBIF"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
-      "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
+      "DWCA_UNREADABLE": "Архив Darwin Core не читается",
+      "DWCA_META_XML_NOT_FOUND": "Файл meta.xml не найден",
+      "DWCA_META_XML_SCHEMA": "Сбой проверки схемы meta.xml",
+      "RECORD_IDENTIFIER_NOT_FOUND": "Идентификатор записи не был найден в файле",
+      "CORE_ROWTYPE_UNDETERMINED": "ТипСтроки не может быть найден или определён",
+      "EML_NOT_FOUND": "Документ EML не найден",
+      "EML_GBIF_SCHEMA": "Документ EML не проверяется по схеме",
+      "UNKNOWN_ROWTYPE": "Типстроки, используемый для ядра/расширения, неизвестен",
       "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
+      "COLUMN_MISMATCH": "Несоответствие столбцов",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
       "UNKNOWN_TERM": "Неизвестный термин",
       "DUPLICATED_TERM": "Дублирование терминов",
       "TITLE_MISSING_OR_TOO_SHORT": "Название набора данных отсутствует или слишком короткое",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "Создатель ресурса отсутствует или является неполным",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "Описание набора данных отсутствует или слишком короткое",
-      "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
+      "LICENSE_MISSING_OR_UNKNOWN": "Лицензия не может быть проанализирована, не поддерживается GBIF или просто отсутствует",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Запись не идентифицирована однозначно",
       "UNREADABLE_SECTION_ERROR": "",
       "NoIssuesFound": ""
     },
     "fileFormat": {
       "title": "Формат файла",
-      "DWCA": "",
-      "TABULAR": "",
+      "DWCA": "Архив Darwin Core",
+      "TABULAR": "Табличный Файл (.csv, .tsv)",
       "SPREADSHEET": "Таблица (.xlsx)"
     },
     "fileType": {
@@ -45,15 +45,15 @@
         "title": "Расширения"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Метаданные, описывающие данные в EML (язык экологических метаданных)",
+        "title": "Документ с метаданными"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "Семантическая аннотация, описывающая структуру данных (файлы, столбцы, и т. д.)",
+        "title": "Мета-дескриптор"
       }
     },
-    "fileSizeLimit": "",
+    "fileSizeLimit": "Максимальный размер файла: 100 mb",
     "receivedMediaType": "",
     "uniqueIdentifier": "Уникальный идентификатор",
     "reportLocation": "Этот отчёт был написан для",
@@ -61,64 +61,64 @@
     "reportGenerated": "",
     "summary": "",
     "issues": "",
-    "fileHasIssues": "",
+    "fileHasIssues": "В результате проверки были обнаружены некоторые проблемы:",
     "fileHasNoIssues": "",
     "error": "Ошибка",
     "errors": {
-      "400": "",
+      "400": "Файл не может быть обработан, или он может отсутствовать, если указан URL-адрес.",
       "404": "",
       "413": "",
       "415": ""
     },
-    "backToValidator": "",
+    "backToValidator": "Начать новую проверку",
     "termsFrequency": {
       "title": "",
       "term": "",
       "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "percentage": "Процент",
+      "interpreted": "Интерпретировано"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "Число интерпретированных дат",
+      "taxon": "Число строк с интерпретированным таксоном",
+      "location": "Число интерпретированных координат"
     },
     "interpretedValueCounts": {
       "title": ""
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
+      "title": "Статус",
+      "SUBMITTED": "Отправка файла",
+      "FETCHING": "Получение файла",
+      "ACCEPTED": "Проверка началась",
       "RUNNING": "",
-      "FINISHED": "",
+      "FINISHED": "Проверка завершена",
       "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "CONTACTING_SERVER": "Подключение к серверу..."
     },
-    "jobId": "",
-    "indexeable": "",
+    "jobId": "Идентификатор задания",
+    "indexeable": "Этот файл может быть проиндексирован GBIF",
     "notIndexeable": "",
     "numberOfLines": "",
     "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
-    "dataValidator": "",
-    "dataValidatorDescription": "",
-    "thisIsAnEarlyAccessVersion": "",
-    "here": "",
+    "validationReport": "Отчёт о проверке",
+    "dataValidator": "Валидатор данных",
+    "dataValidatorDescription": "Валидатор данных GBIF - это сервис, который позволяет любому обладателю соответствующего GBIF набора данных получить отчёт о синтаксической правильности и валидности содержимого набора данных.",
+    "thisIsAnEarlyAccessVersion": "Эта ранняя версия доступа. Просьба сообщить о проблемах и оставить отзывы и предложения",
+    "here": "Здесь.",
     "coreRowType": "",
     "submit": "",
     "dropHere": "",
-    "or": "",
-    "selectFile": "",
+    "or": "или",
+    "selectFile": "Выбрать файл",
     "fetchFileFromLocation": "",
     "tabs": {
       "newDataValidation": "",
-      "newValidation": "",
+      "newValidation": "Новая проверка",
       "about": "",
-      "darwinCoreExtensions": "",
-      "metaData": "",
-      "summary": ""
+      "darwinCoreExtensions": "Расширения Darwin Core",
+      "metaData": "Мета данные",
+      "summary": "Краткое описание"
     }
   }
 }

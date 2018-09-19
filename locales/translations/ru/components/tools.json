@@ -25,7 +25,7 @@
                 "comments": "Комментарии",
                 "submit": "",
                 "followDiscussionBelow": "",
-                "followIssue": "",
+                "followIssue": "Посмотреть предложение на github",
                 "suggestAnother": "Предложить другой набор данных",
                 "saveFailure": ""
             }
@@ -33,9 +33,9 @@
         "observationTrends": {
             "drawerTitle": "",
             "intro": "",
-            "aboutLink": "",
+            "aboutLink": "Читать об этом инструменте",
             "selectSpecies": "Выбрать виды",
-            "noData": "",
+            "noData": "У нас нет данных с географическими привязками для выбранного вида после 1900 года",
             "selectHigherTaxa": "Выбрать высший таксон",
             "selectArea": "Выбрать территорию",
             "hexagon": "",

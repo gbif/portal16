@@ -17,7 +17,7 @@
     "default": "Par défaut",
     "custom": "Personnalisé",
     "noOccurrencesWithCoordinates": "Aucune occurrence avec coordonnées",
-    "containsSuspicious": "Cette carte contient des occurrences marqués par GBIF comme ayant des coordonnées suspectes.",
+    "containsSuspicious": "Cette carte contient des occurrences marquées par GBIF comme ayant des coordonnées suspectes.",
     "hideSuspiciousCoordinates": "Les masquer",
     "currentFilter": "Filtre actif",
     "selectColumns": "Sélectionnez les colonnes de la table",

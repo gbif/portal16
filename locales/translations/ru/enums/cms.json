@@ -2,7 +2,7 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
+        "countriesOfCoverage": "Страна или область покрытия",
         "countriesOfResearcher": "",
         "literatureType": "",
         "contractCountry": "",
@@ -10,8 +10,8 @@
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": "",
-        "year": "",
+        "language": "Язык",
+        "year": "Год",
         "datasetKey": "Набор данных",
         "publishingOrg": "",
         "peerReview": "",
@@ -23,28 +23,28 @@
         "news": "Новости",
         "resource": "",
         "dataUse": "",
-        "project": "",
-        "participant": "",
-        "programme": "",
-        "document": "",
-        "tool": "",
-        "literature": ""
+        "project": "Проект",
+        "participant": "Участник",
+        "programme": "Программа",
+        "document": "Документ",
+        "tool": "Инструмент",
+        "literature": "Литература"
       },
       "vocabularyTerms": {
         "articleType": {
           "Nodes guidance": ""
         },
         "projectGrantType": {
-          "REGIONAL": "",
-          "SMALL": "",
-          "NATIONAL": "",
-          "undefined": ""
+          "REGIONAL": "Региональный грант",
+          "SMALL": "Малый грант",
+          "NATIONAL": "Национальный грант",
+          "undefined": "Не определено"
         },
         "projectStatus": {
           "APPROVED": "",
           "CLOSED": "",
           "IN_PROGRESS": "",
-          "undefined": ""
+          "undefined": "Не определено"
         },
         "relevance": {
           "GBIF_USED": "",
@@ -58,29 +58,29 @@
           "GBIF_FUNDED": ""
         },
         "topics": {
-          "AGRICULTURE": "",
+          "AGRICULTURE": "Сельское хозяйство",
           "BIODIVERSITY_SCIENCE": "",
-          "BIOGEOGRAPHY": "",
+          "BIOGEOGRAPHY": "Биогеография",
           "CITIZEN_SCIENCE": "",
-          "CLIMATE_CHANGE": "",
+          "CLIMATE_CHANGE": "Изменение климата",
           "CONSERVATION": "",
           "DATA_MANAGEMENT": "Управление данными",
           "DATA_PAPER": "",
-          "ECOLOGY": "",
-          "ECOSYSTEM_SERVICES": "",
-          "EVOLUTION": "",
+          "ECOLOGY": "Экология",
+          "ECOSYSTEM_SERVICES": "Экосистемные услуги",
+          "EVOLUTION": "Эволюция",
           "FRESHWATER": "",
-          "HUMAN_HEALTH": "",
+          "HUMAN_HEALTH": "Здоровье человека",
           "INVASIVES": "",
           "MARINE": "",
-          "PHYLOGENETICS": "",
-          "SPECIES_DISTRIBUTIONS": "",
-          "TAXONOMY": ""
+          "PHYLOGENETICS": "Филогенетика",
+          "SPECIES_DISTRIBUTIONS": "Распространение видов",
+          "TAXONOMY": "Таксономия"
         },
         "purposes": {
           "CAPACITY_ENHANCEMENT": "",
-          "DATA_ACCESS": "",
-          "DATA_ANALYSIS": "",
+          "DATA_ACCESS": "Доступ к данным",
+          "DATA_ANALYSIS": "Анализ данных",
           "DATA_CURATION_QUALITY": "",
           "DATA_DIGITIZATION": "",
           "DATA_PUBLISHING": "Публикация данных"
@@ -97,23 +97,23 @@
           "thesis": "",
           "magazine_article": "",
           "statute": "",
-          "patent": "",
-          "newspaper_article": "",
+          "patent": "Патент",
+          "newspaper_article": "Статья в газете",
           "computer_program": "",
           "hearing": "",
           "television_broadcast": "",
-          "encyclopedia_article": "",
+          "encyclopedia_article": "Статья в энциклопедии",
           "case": "",
-          "film": "",
+          "film": "Фильм",
           "bill": ""
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Эксперты по биоразнообразию",
           "DATA_HOLDERS": "",
           "DATA_USERS": "Пользователи данных",
-          "DECISION_MAKERS": "",
+          "DECISION_MAKERS": "Лица, принимающие решения",
           "GBIF_NETWORK": "Сеть GBIF",
-          "PUBLIC_STAKEHOLDERS": ""
+          "PUBLIC_STAKEHOLDERS": "Общественные заинтересованные стороны"
         }
       }
     }

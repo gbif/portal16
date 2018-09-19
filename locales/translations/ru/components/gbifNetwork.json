@@ -1,53 +1,53 @@
 {
   "gbifNetwork": {
-    "title": "",
+    "title": "Каталог",
     "contact": "Информация для связи",
     "voting_participant": {
       "one": "Участник с правом голоса",
       "other": "Участники с правом голоса"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "Ассоциированные страна участник",
+      "other": "Ассоциированные страны участники"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "Другой ассоциированный участник",
+      "other": "Другие ассоциированные участники"
     },
     "former_participant": {
       "one": "Бывший участник",
       "other": "Бывшие участники"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "Филиал GBIF",
+      "other": "Филиалы GBIF"
     },
-    "role": "",
+    "role": "Роль",
     "group": {
 
     },
     "gbif_secretariat": "Секретариат GBIF",
-    "membershipType": "",
-    "name": "",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
+    "membershipType": "Членство",
+    "name": "Название",
+    "endorsedDataPublisher": "Одобрил {NUMBER_FORMATTED} данные {NUMBER, select, one{публикатора} other{публикаторов}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{участник} other{участники}}",
+    "dataset": "{NUMBER, select, one{набор данных} other{наборов данных}}",
     "datasets": "Наборы данных",
-    "regionalRepresentative": "",
+    "regionalRepresentative": "{NUMBER, select, one{представитель} other{представители}}",
     "participation": {
       "nonCountryParticipants": "Организации-участники",
-      "gbifAffiliates": ""
+      "gbifAffiliates": "Филиалы GBIF"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Глава делегации",
       "NODE_MANAGER": "Менеджер узла"
     },
-    "publishers": "",
-    "memberSince": "",
+    "publishers": "Публикаторы данных",
+    "memberSince": "Член с",
     "participant": "Участник",
-    "pPublishers": "",
-    "pOccurrence": "",
-    "occurrenceDatasets": "",
+    "pPublishers": "{NUMBER, select, 1{публикатор} other{публикаторов}}",
+    "pOccurrence": "{NUMBER, select, 1{находка} other{находок}}",
+    "occurrenceDatasets": "Наборы данных о находках видов",
     "occurrences": "Находки"
   }
 }

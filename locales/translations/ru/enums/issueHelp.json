@@ -1,8 +1,8 @@
 {
   "issueHelp": {
     "BASIS_OF_RECORD_INVALID": "",
-    "COORDINATE_REPROJECTION_FAILED": "",
-    "NO_SPECIES": "",
+    "COORDINATE_REPROJECTION_FAILED": "Указанные десятичные значения широты и долготы не могут быть спроецированы на WGS84 на основе предоставленных данных.",
+    "NO_SPECIES": "В группе (на данный момент тестирование проходят только роды) отсутствуют принятые виды. Конкретный вопрос базовой таксономии GBIF.",
     "RECORDED_DATE_INVALID": "",
     "PRESUMED_NEGATED_LATITUDE": "",
     "UNKNOWN_TERM": "",
@@ -10,9 +10,9 @@
     "ORIGINAL_NAME_DERIVED": "",
     "ELEVATION_UNLIKELY": "",
     "PARENT_NAME_NOT_UNIQUE": "",
-    "TAXONOMIC_STATUS_MISMATCH": "",
-    "TITLE_MISSING_OR_TOO_SHORT": "",
-    "COUNTRY_COORDINATE_MISMATCH": "",
+    "TAXONOMIC_STATUS_MISMATCH": "(описание отсутствует)",
+    "TITLE_MISSING_OR_TOO_SHORT": "Название набора данных отсутствует или слишком короткое",
+    "COUNTRY_COORDINATE_MISMATCH": "Географические координаты находятся вне области, определяемой указанной границей страны [1]",
     "IDENTIFIED_DATE_INVALID": "",
     "IDENTIFIED_DATE_UNLIKELY": "",
     "PRESUMED_SWAPPED_COORDINATE": "",
