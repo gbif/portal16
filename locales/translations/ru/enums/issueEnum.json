@@ -22,7 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "Альтернативные идентификаторы недействительны",
     "BACKBONE_MATCH_NONE": "Не может быть соотнесено с базовой таксономией GBIF",
     "BACKBONE_MATCH_FUZZY": "Нечёткое соответствие базовой таксономии GBIF",
-    "ACCEPTED_NAME_MISSING": "",
+    "ACCEPTED_NAME_MISSING": "Для синонима отсутствует принятое название",
     "ACCEPTED_NAME_NOT_UNIQUE": "Принятое название не уникально",
     "PARENT_NAME_NOT_UNIQUE": "",
     "ORIGINAL_NAME_NOT_UNIQUE": "",
