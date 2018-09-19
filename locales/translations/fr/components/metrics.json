@@ -41,7 +41,7 @@
     "noRankedAbove": "La liste d'espèces n’a aucun taxon dont le rang est supérieur à l'espèce.",
     "taxonomicOccDistribution": "Distribution taxonomique des occurrences",
     "groupByX": "Grouper par {TYPE}",
-    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{autre ou inconnu} other{autre ou inconnu}}",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{autre ou inconnu} other{autres ou inconnus}}",
     "unknownRank": "{RANK} inconnu",
     "vernacularNames": "Nom vernaculaire",
     "majorRanksPlural": {
