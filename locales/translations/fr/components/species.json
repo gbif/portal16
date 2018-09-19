@@ -62,7 +62,7 @@
     "inferredRecordMsg": "Cet enregistrement a été créé pendant l'indexation et n'existe pas explicitement dans les données sources.",
     "noChildren": "Aucun enfant",
     "youAreBrowsing": "Vous êtes en train de naviguer",
-    "lastCrawled": "",
+    "lastCrawled": "Dernière indexation le {DATE_FORMATTED}",
     "extensions": "Extensions",
     "taxa": "Taxa"
   }
