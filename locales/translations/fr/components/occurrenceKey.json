@@ -6,7 +6,7 @@
     "absent": "Absent",
     "issues": "Problématiques",
     "dataset": "Ensemble de données",
-    "synced": "Synchronisés",
+    "synced": "Synchronisé",
     "modified": "Modifié",
     "monthAndyear": "Mois & année",
     "coordinateUncertainty": "Incertitude des coordonnées",
@@ -27,7 +27,7 @@
     },
     "groups": {
       "Record": "Enregistrement",
-      "Occurrence": "Une occurrence",
+      "Occurrence": "Occurrence",
       "Event": "Événement",
       "Identification": "Identification",
       "Taxon": "Taxon",
