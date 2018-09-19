@@ -33,7 +33,7 @@
       "Taxon": "Taxon",
       "Location": "Lieu",
       "Organism": "Organisme",
-      "MaterialSample": "",
+      "MaterialSample": "Matériel Échantillonné",
       "GeologicalContext": "Contexte géologique",
       "other": "Autre"
     },
