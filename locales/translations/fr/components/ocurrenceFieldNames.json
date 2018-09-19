@@ -143,7 +143,7 @@
     "verbatimSRS": "Verbatim du SRS",
     "footprintWKT": "Empreinte WKT",
     "footprintSRS": "Empreinte SRS",
-    "footprintSpatialFit": "",
+    "footprintSpatialFit": "Fit de l'empreinte spatiale",
     "georeferencedBy": "Géoréférencé par",
     "georeferencedDate": "Date de géoréférencement",
     "georeferenceProtocol": "Protocole de géoréférencement",
