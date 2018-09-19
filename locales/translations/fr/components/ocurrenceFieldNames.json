@@ -138,7 +138,7 @@
     "decimalLongitude": "Longitude décimale",
     "coordinateUncertaintyInMeters": "Incertitude des coordonnées en mètres",
     "coordinatePrecision": "Précision des coordonnées",
-    "pointRadiusSpatialFit": "",
+    "pointRadiusSpatialFit": "Fit spatial du point-rayon (point-radius)",
     "verbatimCoordinateSystem": "Système de coordonnées verbatim",
     "verbatimSRS": "Verbatim du SRS",
     "footprintWKT": "Empreinte WKT",
