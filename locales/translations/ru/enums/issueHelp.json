@@ -1,8 +1,8 @@
 {
   "issueHelp": {
     "BASIS_OF_RECORD_INVALID": "",
-    "COORDINATE_REPROJECTION_FAILED": "",
-    "NO_SPECIES": "",
+    "COORDINATE_REPROJECTION_FAILED": "Указанные десятичные значения широты и долготы не могут быть спроецированы на WGS84 на основе предоставленных данных.",
+    "NO_SPECIES": "В группе (на данный момент тестирование проходят только роды) отсутствуют принятые виды. Конкретный вопрос базовой таксономии GBIF.",
     "RECORDED_DATE_INVALID": "",
     "PRESUMED_NEGATED_LATITUDE": "",
     "UNKNOWN_TERM": "",
