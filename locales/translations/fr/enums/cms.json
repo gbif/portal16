@@ -50,7 +50,7 @@
           "GBIF_USED": "Utilisé par le GBIF",
           "GBIF_CITED": "Cité par le GBIF",
           "GBIF_DISCUSSED": "Discuté par le GBIF",
-          "GBIF_PRIMARY": "",
+          "GBIF_PRIMARY": "GBIF primaire",
           "GBIF_ACKNOWLEDGED": "Reconnu par GBIF",
           "GBIF_PUBLISHED": "Publié par le GBIF",
           "GBIF_AUTHOR": "Auteur GBIF",
