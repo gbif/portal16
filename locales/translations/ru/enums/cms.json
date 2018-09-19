@@ -2,7 +2,7 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
+        "countriesOfCoverage": "Страна или область покрытия",
         "countriesOfResearcher": "",
         "literatureType": "",
         "contractCountry": "",
@@ -23,7 +23,7 @@
         "news": "Новости",
         "resource": "",
         "dataUse": "",
-        "project": "",
+        "project": "Проект",
         "participant": "Участник",
         "programme": "Программа",
         "document": "Документ",
@@ -35,7 +35,7 @@
           "Nodes guidance": ""
         },
         "projectGrantType": {
-          "REGIONAL": "",
+          "REGIONAL": "Региональный грант",
           "SMALL": "",
           "NATIONAL": "",
           "undefined": ""
