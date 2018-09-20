@@ -2,7 +2,7 @@
   "network": {
     "network": "Сеть",
     "tabs": {
-      "summary": "",
+      "summary": "Краткое описание",
       "homepage": "Главная",
       "metrics": "Метрика",
       "datasets": "Сеть"
