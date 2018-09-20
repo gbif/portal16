@@ -17,7 +17,7 @@
       "EML_NOT_FOUND": "Документ EML не найден",
       "EML_GBIF_SCHEMA": "Документ EML не проверяется по схеме",
       "UNKNOWN_ROWTYPE": "Типстроки, используемый для ядра/расширения, неизвестен",
-      "REQUIRED_TERM_MISSING": "",
+      "REQUIRED_TERM_MISSING": "Требуемый термин для ядра стандарта или его расширения отсутствует",
       "COLUMN_MISMATCH": "Несоответствие столбцов",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
       "UNKNOWN_TERM": "Неизвестный термин",
