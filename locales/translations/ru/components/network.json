@@ -8,6 +8,6 @@
       "datasets": "Сеть"
     },
     "registeredDate": "Зарегистрировано {DATE}",
-    "nParticipatingDatasets": ""
+    "nParticipatingDatasets": "{NUMBER_FORMATED} участвующих {NUMBER, select, 1{набор данных} other{наборов данных}}"
   }
 }
