@@ -11,7 +11,7 @@ let defaultLocale = 'en';
 
 // locales = ['en' , 'es', 'da', 'en-IN', 'zh-Hant-TW'],
 let locales = ['en', 'fr', 'ja', 'pt', 'es'];
-if (env === 'staging' || env === 'local' || env === 'dev') {
+if (env === 'local' || env === 'dev') {
     locales.push('da');
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
