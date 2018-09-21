@@ -13,7 +13,7 @@
     "PARENT_CYCLE": "",
     "CLASSIFICATION_RANK_ORDER_INVALID": "",
     "CLASSIFICATION_NOT_APPLIED": "",
-    "VERNACULAR_NAME_INVALID": "",
+    "VERNACULAR_NAME_INVALID": "Недопустимое народное название",
     "DESCRIPTION_INVALID": "Описание недействительно",
     "DISTRIBUTION_INVALID": "Распространение недействительно",
     "SPECIES_PROFILE_INVALID": "Профиль вида недействителен",
@@ -34,7 +34,7 @@
     "ORTHOGRAPHIC_VARIANT": "",
     "HOMONYM": "Омоним",
     "PUBLISHED_BEFORE_GENUS": "",
-    "UNPARSABLE": "",
+    "UNPARSABLE": "Название не удается разобрать",
     "PARTIALLY_PARSABLE": "Название частично проанализировано"
   }
 }
