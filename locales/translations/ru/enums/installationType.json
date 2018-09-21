@@ -1,8 +1,8 @@
 {
   "installationType": {
     "IPT_INSTALLATION": "Установка IPT",
-    "DIGIR_INSTALLATION": "",
-    "TAPIR_INSTALLATION": "",
+    "DIGIR_INSTALLATION": "Установка DiGIR",
+    "TAPIR_INSTALLATION": "Установка Tapir",
     "BIOCASE_INSTALLATION": "",
     "HTTP_INSTALLATION": "",
     "SYMBIOTA_INSTALLATION": ""
