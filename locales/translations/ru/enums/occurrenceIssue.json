@@ -1,14 +1,14 @@
 {
   "occurrenceIssue": {
-    "ZERO_COORDINATE": "",
-    "COORDINATE_OUT_OF_RANGE": "",
+    "ZERO_COORDINATE": "Нулевая координата",
+    "COORDINATE_OUT_OF_RANGE": "Координата вне диапазона",
     "COORDINATE_INVALID": "Координата недействительна",
     "COORDINATE_ROUNDED": "Координата округлена",
     "GEODETIC_DATUM_INVALID": "Геодезические данные недействительны",
     "GEODETIC_DATUM_ASSUMED_WGS84": "",
     "COORDINATE_REPROJECTED": "Координата перепроецирована",
-    "COORDINATE_REPROJECTION_FAILED": "",
-    "COORDINATE_REPROJECTION_SUSPICIOUS": "",
+    "COORDINATE_REPROJECTION_FAILED": "Сбой перепроецирования координат",
+    "COORDINATE_REPROJECTION_SUSPICIOUS": "Перепроецирование координат сомнительно",
     "COORDINATE_ACCURACY_INVALID": "",
     "COORDINATE_PRECISION_INVALID": "",
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "",
