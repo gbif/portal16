@@ -1,13 +1,13 @@
 {
     "threatStatus": {
-        "EXTINCT": "",
-        "EXTINCT_IN_THE_WILD": "",
-        "CRITICALLY_ENDANGERED": "",
-        "ENDANGERED": "",
-        "VULNERABLE": "",
-        "NEAR_THREATENED": "",
-        "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "",
-        "NOT_EVALUATED": ""
+        "EXTINCT": "Исчезнувший",
+        "EXTINCT_IN_THE_WILD": "Исчезнувший в дикой природе",
+        "CRITICALLY_ENDANGERED": "В критической опасности",
+        "ENDANGERED": "В опасности",
+        "VULNERABLE": "Уязвимый",
+        "NEAR_THREATENED": "Близок к уязвимому положению",
+        "LEAST_CONCERN": "Под наименьшей угрозой",
+        "DATA_DEFICIENT": "Данных недостаточно",
+        "NOT_EVALUATED": "Угроза не оценена"
     }
 }
