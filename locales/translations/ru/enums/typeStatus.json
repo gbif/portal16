@@ -24,10 +24,10 @@
     "ISOSYNTYPE": "",
     "ISOTYPE": "",
     "LECTOTYPE": "",
-    "NEOTYPE": "",
+    "NEOTYPE": "Неотип",
     "PARALECTOTYPE": "",
     "PARANEOTYPE": "",
-    "PARATYPE": "",
+    "PARATYPE": "Паратип",
     "PLASTOHOLOTYPE": "",
     "PLASTOISOTYPE": "",
     "PLASTOLECTOTYPE": "",
@@ -38,7 +38,7 @@
     "SECONDARYTYPE": "",
     "SUPPLEMENTARYTYPE": "",
     "SYNTYPE": "",
-    "TOPOTYPE": "",
+    "TOPOTYPE": "Топотип",
     "ORIGINALMATERIAL": "Исходный материал",
     "NOTATYPE": "Не является типом"
   }
