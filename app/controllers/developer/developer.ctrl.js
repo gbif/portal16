@@ -2,7 +2,7 @@ let express = require('express'),
     _ = require('lodash'),
     cfg = require('../../../config/config'),
     apiCfg = require('../../models/gbifdata/apiConfig'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/developer', router);

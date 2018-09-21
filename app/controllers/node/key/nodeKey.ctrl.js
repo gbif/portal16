@@ -6,7 +6,7 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     _ = require('lodash'),
 // contributors = require('../../dataset/key/contributors/contributors'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

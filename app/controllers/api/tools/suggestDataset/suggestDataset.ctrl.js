@@ -8,7 +8,7 @@ let express = require('express'),
     log = rootRequire('config/log'),
     fs = require('fs'),
     _ = require('lodash'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', 'utf8');
 

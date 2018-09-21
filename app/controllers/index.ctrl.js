@@ -1,6 +1,6 @@
 'use strict';
 let express = require('express');
-let router = express.Router();
+let router = express.Router({caseSensitive: true});
 let helper = rootRequire('app/models/util/util');
 let _ = require('lodash');
 let resource = rootRequire('app/controllers/resource/key/resourceKey');

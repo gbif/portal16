@@ -5,7 +5,7 @@ let express = require('express'),
     request = require('requestretry'),
     querystring = require('querystring'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

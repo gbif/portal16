@@ -3,7 +3,7 @@
  * Looks at the query parameter lang and returns the corresponding translation file.json to be used in the client.
  */
 let express = require('express');
-let router = express.Router();
+let router = express.Router({caseSensitive: true});
 let translations = require('./translations');
 let acceptLanguageParser = require('accept-language-parser');
 let auth = require('../../auth/auth.service');

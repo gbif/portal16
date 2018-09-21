@@ -3,7 +3,7 @@ let express = require('express'),
     url = require('url'),
     changeCase = require('change-case'),
     _ = require('lodash'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

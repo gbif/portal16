@@ -1,6 +1,6 @@
 let express = require('express'),
     baseConfig = require('../../../config/config'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

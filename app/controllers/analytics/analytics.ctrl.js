@@ -1,7 +1,7 @@
 let express = require('express'),
     cfg = require('../../../config/config'),
     apiCfg = require('../../models/gbifdata/apiConfig'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/analytics', router);

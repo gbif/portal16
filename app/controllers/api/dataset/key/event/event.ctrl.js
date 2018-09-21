@@ -5,7 +5,7 @@ let express = require('express'),
     querystring = require('querystring'),
     request = require('requestretry'),
     _ = require('lodash'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

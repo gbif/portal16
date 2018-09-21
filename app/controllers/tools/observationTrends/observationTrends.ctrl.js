@@ -3,7 +3,7 @@
 let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     resource = require('../../resource/key/resourceKey'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

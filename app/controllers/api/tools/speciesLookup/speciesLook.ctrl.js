@@ -7,7 +7,7 @@ let express = require('express'),
     // helper = require('../../../../models/util/util'),
     // github = require('octonode'),
     // querystring = require('querystring'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/api/tools/species-count', router);

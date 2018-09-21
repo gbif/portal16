@@ -6,7 +6,7 @@ let contributors = require('../../dataset/key/contributors/contributors');
 let authOperations = require('../../auth/gbifAuthRequest');
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 let log = require('../../../../config/log');
-let router = express.Router();
+let router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);
