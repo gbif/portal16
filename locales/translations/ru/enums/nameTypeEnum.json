@@ -1,9 +1,9 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
+    "SCIENTIFIC": "Научное название",
+    "DOUBTFUL": "Cомнительно",
+    "BLACKLISTED": "В черном списке",
+    "VIRUS": "Вирус",
     "HYBRID": "",
     "INFORMAL": "",
     "OTU": "",

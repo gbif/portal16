@@ -1,18 +1,18 @@
 {
   "endpointType": {
     "EML": "EML",
-    "FEED": "",
-    "WFS": "",
-    "WMS": "",
-    "TCS_RDF": "",
-    "TCS_XML": "",
+    "FEED": "Канал RSS",
+    "WFS": "WFS",
+    "WMS": "WMS",
+    "TCS_RDF": "TCS RDF",
+    "TCS_XML": "TCS XML",
     "DWC_ARCHIVE": "Архив Darwin Core",
-    "DIGIR": "",
-    "DIGIR_MANIS": "",
-    "TAPIR": "",
-    "BIOCASE": "",
-    "BIOCASE_XML_ARCHIVE": "",
-    "OAI_PMH": "",
-    "OTHER": ""
+    "DIGIR": "DiGIR",
+    "DIGIR_MANIS": "DiGIR MANIS",
+    "TAPIR": "TAPIR",
+    "BIOCASE": "BioCASe",
+    "BIOCASE_XML_ARCHIVE": "BioCASe XML Archive",
+    "OAI_PMH": "OAI PMH",
+    "OTHER": "Другое"
   }
 }
