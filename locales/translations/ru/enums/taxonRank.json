@@ -66,16 +66,16 @@
     "FORM": "Форма",
     "SUBFORM": "Подформа",
     "PATHOVAR": "",
-    "BIOVAR": "",
-    "CHEMOVAR": "",
-    "MORPHOVAR": "",
-    "PHAGOVAR": "",
-    "SEROVAR": "",
-    "CHEMOFORM": "",
+    "BIOVAR": "Биовар",
+    "CHEMOVAR": "Хемовар",
+    "MORPHOVAR": "Морфовар",
+    "PHAGOVAR": "Фаговар",
+    "SEROVAR": "Серовар",
+    "CHEMOFORM": "Хемоформа",
     "FORMA_SPECIALIS": "",
     "CULTIVAR": "",
     "STRAIN": "Штамм",
     "OTHER": "Другое",
-    "UNRANKED": ""
+    "UNRANKED": "Не имеет ранга"
   }
 }
