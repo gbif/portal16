@@ -3,11 +3,11 @@
     "ACCEPTED": "Принятый",
     "DOUBTFUL": "Cомнительный",
     "SYNONYM": "Синоним",
-    "HETEROTYPIC_SYNONYM": "",
-    "HOMOTYPIC_SYNONYM": "",
+    "HETEROTYPIC_SYNONYM": "Гетеротипный синоним",
+    "HOMOTYPIC_SYNONYM": "Гомотипный синоним",
     "PROPARTE_SYNONYM": "",
     "MISAPPLIED": "",
-    "INTERMEDIATE_RANK_SYNONYM": "",
+    "INTERMEDIATE_RANK_SYNONYM": "Синоним промежуточного ранга",
     "DETERMINATION_SYNONYM": ""
   }
 }
