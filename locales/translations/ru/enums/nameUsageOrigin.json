@@ -1,8 +1,8 @@
 {
   "nameUsageOrigin": {
     "SOURCE": "Запись получена непосредственно из источника записи.",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
+    "DENORMED_CLASSIFICATION": "Неявное использование ненормализованной классификации.",
+    "VERBATIM_PARENT": "Неявное использование названия, производного от дословного названия вышестоящего таксона.",
     "VERBATIM_ACCEPTED": "",
     "VERBATIM_BASIONYM": "",
     "PROPARTE": "",
