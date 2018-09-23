@@ -4,12 +4,12 @@
     "DOUBTFUL": "Cомнительно",
     "BLACKLISTED": "В черном списке",
     "VIRUS": "Вирус",
-    "HYBRID": "",
-    "INFORMAL": "",
-    "OTU": "",
-    "CULTIVAR": "",
-    "CANDIDATUS": "",
-    "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "HYBRID": "Формула гибрида",
+    "INFORMAL": "Неформальное",
+    "OTU": "Оперативная таксономическая единица",
+    "CULTIVAR": "Сорт",
+    "CANDIDATUS": "Кандидат",
+    "PLACEHOLDER": "Метка-заполнитель",
+    "NO_NAME": "Нет названия"
   }
 }
