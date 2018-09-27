@@ -91,7 +91,7 @@
     "organismID": "ID организма",
     "organismName": "Имя организма",
     "organismScope": "Статус организма",
-    "associatedOccurrences": "Связанные находки видов",
+    "associatedOccurrences": "Связанные находки",
     "associatedOrganisms": "Связанные организмы",
     "previousIdentifications": "Предыдущие идентификации",
     "organismRemarks": "Примечания к организму",
