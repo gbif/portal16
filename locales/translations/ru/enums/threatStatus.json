@@ -1,7 +1,7 @@
 {
     "threatStatus": {
-        "EXTINCT": "Исчезнувший",
-        "EXTINCT_IN_THE_WILD": "Исчезнувший в дикой природе",
+        "EXTINCT": "Вымерший",
+        "EXTINCT_IN_THE_WILD": "Вымерший в дикой природе",
         "CRITICALLY_ENDANGERED": "В критической опасности",
         "ENDANGERED": "В опасности",
         "VULNERABLE": "Уязвимый",

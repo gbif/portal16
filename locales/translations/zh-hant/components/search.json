@@ -12,20 +12,20 @@
     "resources": "",
     "publishers": "",
     "participants": "",
-    "search": "",
-    "clearFilters": "",
-    "filters": "",
+    "search": "搜尋",
+    "clearFilters": "清除篩選",
+    "filters": "篩選",
     "simple": "",
-    "advanced": "",
-    "allResultTypes": "",
-    "suggestions": "",
+    "advanced": "進階選項",
+    "allResultTypes": "全選",
+    "suggestions": "建議選項",
     "header": {
-      "searchDatasets": "",
+      "searchDatasets": "搜尋資料集",
       "searchPublishers": "",
-      "searchSpecies": "",
+      "searchSpecies": "搜尋物種",
       "searchResources": "",
       "searchOccurrences": ""
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED}{NUMBER, select,1{結果}other{結果}}"
   }
 }

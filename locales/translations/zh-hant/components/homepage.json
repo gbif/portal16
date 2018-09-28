@@ -2,12 +2,12 @@
     "homepage": {
         "counts": {
             "occurrences": "",
-            "datasets": "",
+            "datasets": "資料集",
             "publishers": "",
-            "species": "",
+            "species": "物種",
             "speciesSubtitle": ""
         },
-        "aboutGbifCountry": "",
+        "aboutGbifCountry": "關於GBIF{COUNTRY}",
         "summary": ""
     }
 }
