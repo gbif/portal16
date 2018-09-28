@@ -18,14 +18,14 @@
     "simple": "",
     "advanced": "進階選項",
     "allResultTypes": "全選",
-    "suggestions": "",
+    "suggestions": "建議選項",
     "header": {
-      "searchDatasets": "",
+      "searchDatasets": "搜尋資料集",
       "searchPublishers": "",
-      "searchSpecies": "",
+      "searchSpecies": "搜尋物種",
       "searchResources": "",
       "searchOccurrences": ""
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED}{NUMBER, select,1{結果}other{結果}}"
   }
 }
