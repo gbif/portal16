@@ -3,7 +3,7 @@
     "leaveFeedback": "Leave feedback",
     "intro": {
       "title": "Feedback and questions",
-      "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
+      "example": "Help us resolve any issues by choosing which type of feedback you’re providing. Please submit your feedback in English, if possible."
     },
     "data content": {
       "title": "Content",
@@ -37,7 +37,7 @@
     },
     "placeholders": {
       "summary": "Summary",
-      "description": "Detailed description. For taxonomic claims, please provide a reference",
+      "description": "Detailed description. For taxonomic claims, please provide a reference. Please submit your feedback in English, if possible.",
       "username": "Your email or Github username (public)"
     },
     "markdownSupport": "Markdown support",
