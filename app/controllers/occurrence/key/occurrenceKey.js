@@ -156,6 +156,7 @@ function getOccurrenceModel(occurrenceKey, __) {
         return occurrence;
     }).catch(function(err) {
         log.error(err);
+        throw (err);
     });
 }
 
