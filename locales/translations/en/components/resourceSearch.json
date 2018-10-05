@@ -30,7 +30,7 @@
             "year": "Year",
             "gbifDatasetKey": "Dataset",
             "publishingOrganizationKey": "Publisher",
-            "peerReview": "Peer-Reviewed",
+            "peerReview": "Peer-reviewed",
             "openAccess": "Open access",
             "gbifDownloadKey": "Download key"
         }
