@@ -49,7 +49,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         _.each(splitted, function(e) {
             var s = e.split('\n');
             if (s.length > 1 && s[0] && s[1]) {
-                result.push({occurrenceId: s[0], marker: 'its', sequence: s[1]});
+                result.push({occurrenceId: s[0].replace(/[^\x20-\x7E]/gmi, ''), marker: 'its', sequence: s[1].replace(/[^\x20-\x7E]/gmi, '')});
             }
         });
         vm.species = result;
@@ -245,7 +245,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
 
         // write column names
         fields.forEach(function(field, index) {
-            csvContent += field;
+            csvContent += ('"' + field + '"');
             if (index < fields.length - 1) {
                 csvContent += ',';
             }
