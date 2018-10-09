@@ -7,7 +7,7 @@
         "literatureType": "文献の種類",
         "contractCountry": "国または地域",
         "topics": "トピック",
-        "audiences": "",
+        "audiences": "聴衆",
         "purposes": "目的",
         "relevance": "関連性",
         "language": "言語",
@@ -103,9 +103,9 @@
           "hearing": "ヒアリング",
           "television_broadcast": "テレビ放送",
           "encyclopedia_article": "百科事典の記事",
-          "case": "",
+          "case": "ケース",
           "film": "映画",
-          "bill": ""
+          "bill": "法案"
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "生物多様性に関する知識の専門家",

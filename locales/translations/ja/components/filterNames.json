@@ -18,7 +18,7 @@
     "location": "場所",
     "hasGeospatialIssue": "地理空間情報の解釈に問題があります。",
     "basisOfRecord": "データレコードの種類",
-    "issue": "",
+    "issue": "問題とフラグ",
     "locality": "採集地・観測地",
     "lastInterpreted": "最終解釈日",
     "waterBody": "水域",
@@ -50,9 +50,9 @@
     "rank": "ランク",
     "constituentKey": "構成データセット",
     "higherTaxonKey": "上位の分類群",
-    "status": "",
+    "status": "状況",
     "nameType": "名前の種類",
-    "origin": "",
+    "origin": "由来",
     "networkKey": "GBIF ネットワーク"
   }
 }
