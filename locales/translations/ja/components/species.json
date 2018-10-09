@@ -13,14 +13,14 @@
       "verbatim": "オリジナルのまま"
     },
     "invasives": {
-      "nInvadedCountries": "",
-      "invasiveIn": "",
+      "nInvadedCountries": "次の場所で侵入生物として記録されています {NUMBER_FORMATED} {NUMBER, select, 1{国または島} other{国または島}}",
+      "invasiveIn": "次の場所で侵入生物として記録されています。",
       "accordingTo": "～によると",
       "occurrenceCount": "GBIFにおけるオカレンス",
       "seeAllCountries": "全てを表示"
     },
-    "as": "",
-    "in": "",
+    "as": "として",
+    "in": "で",
     "origin": "原産",
     "issues": "問題",
     "citation": "引用",
