@@ -99,7 +99,8 @@
                                                             <span><a ui-sref="datasetEvent({datasetKey: datasetEvent.datasetKey, eventKey: event.eventID})">{{ event.eventID }}</a></span>
                                                         </td>
                                                         <td>
-                                                            <span>{{ event.eventDate | momentFormat:"D MMMM YYYY"}}</span>
+                                                            <span ng-if="event.eventDate">{{ event.eventDate | momentFormat:"D MMMM YYYY"}}</span>
+                                                            <span ng-if="!event.eventDate" translate="phrases.noData" class="discreet"></span>
                                                         </td>
                                                         <td>
                                                             <span>{{ event.samplingProtocol }}</span>
