@@ -8,8 +8,8 @@
     "PROPARTE": "単一のレコードの部分を使用した重複使用",
     "AUTONYM": "オートニムなしにつき、生成",
     "IMPLICIT_NAME": "下位学名がオーファンのため、属あるいは種を生成",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
+    "MISSING_ACCEPTED": "分類階級を保存できない場合に使用される人工的に受け入れられたシノニムです",
+    "BASIONYM_PLACEHOLDER": "欠落または非正規のバシオニムのためのプレースホルダの使用",
     "EX_AUTHOR_SYNONYM": "",
     "OTHER": "その他の起源"
   }
