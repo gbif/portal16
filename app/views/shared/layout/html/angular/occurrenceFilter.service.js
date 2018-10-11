@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var _ = require('lodash');
 
 angular
     .module('portal')
@@ -87,9 +88,18 @@ angular
             tableQuery = angular.copy(state.query);
             apiQuery = angular.copy(state.query);
             apiQuery.facet = exhaustiveFacets;
+            
+            // set limits to a minimum of the nr of selected, else default value
+            apiQuery.facet.forEach(function(key) {
+                if (_.isArray(tableQuery[key]) && tableQuery[key].length > 10) {
+                    apiQuery[key + '.facetLimit'] = tableQuery[key].length;
+                }
+            });
+            // overwrite with custom facet sizes
             apiQuery['month.facetLimit'] = 12;
             apiQuery['type_status.facetLimit'] = 1000;
             apiQuery['issue.facetLimit'] = 1000;
+            
 
             // when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {
@@ -121,7 +131,6 @@ angular
                 }
             });
 
-
             // get multiselect facets only for keys that is filtered since we have already asked without multiselect and hence would get the same result twice
             apiQuery.facetMultiselect = true;
             // apiQuery.limit = 0; //no need to get the same results again
@@ -129,6 +138,12 @@ angular
             multiSelectFacetsKeys.forEach(function(key) {
                 if (angular.isDefined(apiQuery[key]) && [].concat(apiQuery[key]).length > 0) {
                     apiQuery.facet.push(key);
+                }
+            });
+            // set limits to a minimum of the nr of selected, else default value
+            apiQuery.facet.forEach(function(key) {
+                if (_.isArray(tableQuery[key]) && tableQuery[key].length > 10 && !apiQuery[key + '.facetLimit']) {
+                    apiQuery[key + '.facetLimit'] = tableQuery[key].length;
                 }
             });
             if (state.facetMultiselect.$cancelRequest) state.facetMultiselect.$cancelRequest();
