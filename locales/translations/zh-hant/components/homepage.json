@@ -1,13 +1,13 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
+            "occurrences": "出現紀錄",
             "datasets": "資料集",
-            "publishers": "",
+            "publishers": "發布機構",
             "species": "物種",
-            "speciesSubtitle": ""
+            "speciesSubtitle": "瞭解更多GBIF.org中資料涵蓋的物種數量"
         },
         "aboutGbifCountry": "關於GBIF{COUNTRY}",
-        "summary": ""
+        "summary": "自由開放取用生物多樣性資料"
     }
 }
