@@ -9,15 +9,15 @@
         "nOccurrencesAbout": "",
         "nOccurrencesPublished": "",
         "nEndorsedPublishers": "",
-        "nDatasets": "",
-        "nPublishers": "",
-        "nCountries": "",
-        "nContacts": "",
-        "pRecords": "",
+        "nDatasets": "{NUMBER_FORMATED}{NUMBER, select,1{資料集}other{資料集}}",
+        "nPublishers": "{NUMBER_FORMATED}{NUMBER, select,1{發布者}other{發布者}}",
+        "nCountries": "{NUMBER_FORMATED}{NUMBER, select,1{國家}other{國家}}",
+        "nContacts": "{NUMBER_FORMATED}{NUMBER, select,1{聯繫}other{聯繫}}",
+        "pRecords": "{NUMBER, select,1{紀錄}other{紀錄}}",
         "pOccurrence": "",
-        "pSpecies": "",
+        "pSpecies": "{NUMBER, select,1{物種}other{物種}}",
         "pInfraspecies": "",
-        "pPublishers": "",
-        "contacts": ""
+        "pPublishers": "{NUMBER, select,1{發布者}other{發布者}}",
+        "contacts": "{NUMBER, select, 1{聯繫}other{聯繫}}"
     }
 }
