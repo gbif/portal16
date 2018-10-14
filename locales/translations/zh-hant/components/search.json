@@ -21,9 +21,9 @@
     "suggestions": "建議選項",
     "header": {
       "searchDatasets": "搜尋資料集",
-      "searchPublishers": "",
+      "searchPublishers": "搜尋發布者",
       "searchSpecies": "搜尋物種",
-      "searchResources": "",
+      "searchResources": "搜尋資源",
       "searchOccurrences": ""
     },
     "nResults": "{NUMBER_FORMATED}{NUMBER, select,1{結果}other{結果}}"
