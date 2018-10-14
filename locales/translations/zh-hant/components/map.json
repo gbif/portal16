@@ -5,10 +5,10 @@
     "clickToSearchArea": "點選搜尋區域",
     "generatedDateAgo": "",
     "anyYear": "任何年份",
-    "exploreArea": "",
-    "explore": "",
+    "exploreArea": "探索區域",
+    "explore": "探索",
     "style": "",
-    "filters": "",
+    "filters": "篩選",
     "projection": "",
     "select": "選取",
     "custom": "",
@@ -20,16 +20,16 @@
       "CLASSIC_HEX": "",
       "CLASSIC": "",
       "STREETS": "街道",
-      "GLACIER": "",
+      "GLACIER": "冰河",
       "CUSTOM": ""
     },
     "basemap": {
       "CLASSIC": "",
-      "LIGHT": "",
+      "LIGHT": "淺色 (無標籤)",
       "LIGHT_DETAILS": "",
-      "DARK": "",
+      "DARK": "深色 (無標籤)",
       "DARK_DETAILS": "",
-      "OSM": ""
+      "OSM": "道路"
     },
     "bin": {
       "PIXEL": "",
@@ -41,7 +41,7 @@
     "colors": {
       "CLASSIC": "",
       "FIRE": "",
-      "GLACIER": "",
+      "GLACIER": "冰河",
       "PURPLE_YELLOW": "紫色 黃色",
       "PURPLE_HEAT": "",
       "BLUE_HEAT": "",
