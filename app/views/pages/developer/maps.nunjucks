@@ -43,7 +43,7 @@
                     <h3>Feature overview</h3>
 
                     <p style="text-align: center">
-                        <a href="https://api.gbif.org/v2/map/occurrence/density/2/3/2@1x.png?taxonKey=212&country=AU&style=orangeHeat.point"><img src="https://api.gbif.org/v2/map/occurrence/density/2/3/2@1x.png?taxonKey=212&country=AU&style=orangeHeat.point" width="128" height="128" style="max-width: inherit; background-image: url(https://tile.gbif.org/3857/omt/2/3/2@1x.png?style=gbif-dark); background-size: 64px 64px;"/></a><br/>
+                        <a href="https://api.gbif.org/v2/map/occurrence/density/2/3/2@1x.png?taxonKey=212&country=AU&style=orangeHeat.point"><img src="https://api.gbif.org/v2/map/occurrence/density/2/3/2@1x.png?taxonKey=212&country=AU&style=orangeHeat.point" width="128" height="128" style="max-width: inherit; background-image: url(https://tile.gbif.org/3857/omt/2/3/2@1x.png?style=gbif-dark); background-size: 128px 128px;"/></a><br/>
                         <em>Birds (<i>Aves</i>) in Australia.</em>
                     </p>
 
