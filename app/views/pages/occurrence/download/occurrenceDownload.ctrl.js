@@ -269,6 +269,9 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
             if (err.status == 401) {
                 // unauthorized
                 toastService.error({translate: 'phrases.errorNotAuthorized', feedback: true});
+            } if (err.status == 413) {
+                // Query too large for the API
+                toastService.error({translate: 'phrases.payloadTooLarge', feedback: true});
             } else {
                 toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
             }
