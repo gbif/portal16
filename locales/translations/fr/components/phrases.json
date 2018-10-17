@@ -18,6 +18,7 @@
     "isSplashScreen": "Notre site Internet a détecté que vous utilisez un navigateur obsolète et non-sécuritaire qui vous empêchera d'utiliser ce site. Nous vous suggérons de mettre à jour votre navigateur.",
     "404Text": "Cette page a probablement déjà existé, mais nous ne la trouvons plus.\nVeuillez essayer notre [search](/search) afin de trouver ce que vous recherchez. Vous avez toujours la possibilité de nous contacter à [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
     "changeLanguage": "Changer de langue",
-    "noData": "Aucune donnée"
+    "noData": "Aucune donnée",
+    "payloadTooLarge": ""
   }
 }

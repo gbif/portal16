@@ -18,6 +18,7 @@
     "isSplashScreen": "Vores hjemmeside har registreret, at du bruger en forældet usikker browser, der vil forhindre dig i at bruge webstedet. Vi foreslår, at du opgradere til en moderne browser.",
     "404Text": "Denne side måske har eksisteret engang, men vi kan ikke længere finde den. Prøv eventuelt at [søge](/search). Du er altid velkommen til at kontakte vores [helpdesk@gbif.org] (mailto:helpdesk@gbif.org).",
     "changeLanguage": "Skift sprog",
-    "noData": "Ingen data"
+    "noData": "Ingen data",
+    "payloadTooLarge": ""
   }
 }
