@@ -18,6 +18,7 @@
     "isSplashScreen": "",
     "404Text": "",
     "changeLanguage": "",
-    "noData": ""
+    "noData": "",
+    "payloadTooLarge": ""
   }
 }
