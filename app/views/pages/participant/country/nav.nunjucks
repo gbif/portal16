@@ -20,6 +20,10 @@
                 <li class="tab">
                     <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })">{{ 'countryKey.tabs.news' | translate }}<span class="gb-icon-link"></span></a>
                 </li>
+                <li class="tab" ng-if="countryKey.invasiveSpeciesDatasets.count > 0">
+                    <a ng-if="countryKey.invasiveSpeciesDatasets.count > 1" ui-sref="datasetSearchTable({keyword: 'country_' + countryKey.countryCode })">{{ 'countryKey.tabs.invasives' | translate }}<span class="gb-icon-link"></span></a>
+                    <a ng-if="countryKey.invasiveSpeciesDatasets.count == 1" ui-sref="datasetKey({key: countryKey.invasiveSpeciesDatasets.results[0].key })">{{ 'countryKey.tabs.invasives' | translate }}<span class="gb-icon-link"></span></a>
+                </li>
 
                 {% if main.fields.primaryLink.sys.id %}
                     <li class="tab">

@@ -14,7 +14,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, env, MapCapabilities, OccurrenceSearch, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets, OccurrenceTableSearch) {
+function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page, $translate, env, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets, OccurrenceTableSearch) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;
@@ -50,6 +50,12 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
     vm.datasets.$promise
         .then(function() {
             vm.datasetCount = Object.keys(vm.datasets).length;
+        });
+
+    vm.invasiveSpeciesDatasets = DatasetSearch.query({keyword: 'country_' + vm.countryCode, publishingOrg: constantKeys.publisher.GRIIS});// TODO move to hardcoded keys
+    vm.invasiveSpeciesDatasets.$promise
+        .then(function(data) {
+            vm.invasiveDatasetLength = data.count;
         });
 
     $http.get(env.dataApi + 'occurrence/count', {params: {country: vm.countryCode}})
