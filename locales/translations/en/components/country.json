@@ -6,7 +6,8 @@
       "dataAbout": "Data about",
       "participartion": "Participation",
       "publications": "Publications",
-      "news": "News"
+      "news": "News",
+      "invasives": ""
     },
     "memberSince": "Member since",
     "dataFrom": "Data from {TRANSLATED_COUNTRY}",
