@@ -6,7 +6,8 @@
       "dataAbout": "Data om",
       "participartion": "Participant",
       "publications": "Publikationer",
-      "news": "Nyheder"
+      "news": "Nyheder",
+      "invasives": ""
     },
     "memberSince": "Medlem siden",
     "dataFrom": "Data fra {TRANSLATED_COUNTRY}",
