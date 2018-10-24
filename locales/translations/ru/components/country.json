@@ -6,7 +6,8 @@
       "dataAbout": "Данные о",
       "participartion": "Участие",
       "publications": "Публикаторы",
-      "news": "Новости"
+      "news": "Новости",
+      "invasives": ""
     },
     "memberSince": "Дата регистрации",
     "dataFrom": "Данные из {TRANSLATED_COUNTRY}",
