@@ -25,7 +25,7 @@
             "orphaned": "Orphaned dataset",
             "rescued": "Rescued orphan dataset",
             "adopted": "Adopted dataset",
-            "neverIngested": "",
+            "neverIngested": "Never ingested",
             "inIngestionQueue": "Is in ingestion queue",
             "addingToQueue": "Adding to queue",
             "unableToStart": "Unable to start ingestion",
