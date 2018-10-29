@@ -8,9 +8,14 @@
     <div class="card__stripe">
         <div class="card__content clearfix">
             <a href="" ng-click="datasetKey.showTrustedDatasetDetails = true">
-                <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0" translate="dataset.registry.lastIngestionSuccess"></span>
-                <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0" translate="dataset.registry.lastIngestionFailed"></span>
-                <span class="gb-badge--red inline-block" ng-if="datasetKey.isOutOfSync" translate="dataset.registry.outOfSync"></span>
+                <span ng-if="datasetKey.processSummary.finished === 0">
+                    <span class="gb-badge--red inline-block" translate="dataset.registry.noEntries"></span>
+                </span>
+                <span ng-if="datasetKey.processSummary.finished !== 0">
+                    <span class="gb-badge--green inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess == 0" translate="dataset.registry.lastIngestionSuccess"></span>
+                    <span class="gb-badge--red inline-block" ng-if="datasetKey.processSummary.failuresSinceLastSuccess > 0" translate="dataset.registry.lastIngestionFailed"></span>
+                    <span class="gb-badge--red inline-block" ng-if="datasetKey.isOutOfSync" translate="dataset.registry.outOfSync"></span>
+                </span>
             </a>
             <div class="pull-right" ng-if="datasetKey.crawlingState != 'FAILED'">
                 <a ng-href="{{ portal.env.managementToolsSite }}crawl-history?uuid={{ datasetKey.key }}" class="gb-button--flat text-uppercase" translate="dataset.history"></a>
