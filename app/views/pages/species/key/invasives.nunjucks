@@ -7,7 +7,7 @@
                     <table class="table search-table smaller m-b-0">
                         <thead>
                             <tr>
-                                <th ng-repeat="col in ['invasiveIn', 'accordingTo', 'occurrenceCount']" translate="species.invasives.{{col}}"></th>
+                                <th ng-repeat="col in ['invasiveIn', 'accordingTo', 'isInvasive', 'occurrenceCount']" translate="species.invasives.{{col}}"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -17,6 +17,12 @@
                                 </td>
                                 <td>
                                     <span><a ui-sref="datasetKey({key: country.datasetKey})">{{ country.dataset }}</a></span>
+                                </td>
+                                <td>
+                                    <span><a ui-sref="speciesKeyVerbatim({speciesKey: country.taxonKey})">
+                                        <span ng-if="country.isInvasive" translate="species.invasives.isInvasive_yes"></span>
+                                        <span ng-if="!country.isInvasive" translate="species.invasives.isInvasive_no"></span>
+                                    </a></span>
                                 </td>
                                 <td>
                                     <span ng-if="!country.isSubCountry">
