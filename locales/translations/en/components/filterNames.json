@@ -53,6 +53,6 @@
     "status": "Status",
     "nameType": "Name type",
     "origin": "Origin",
-    "networkKey": "GBIF network"
+    "networkKey": "Data network"
   }
 }
