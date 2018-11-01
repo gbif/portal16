@@ -13,14 +13,14 @@
       "verbatim": "Verbatim"
     },
     "invasives": {
-      "nInvadedCountries": "Recorded as invasive in {NUMBER_FORMATED} {NUMBER, select, 1{country or island} other{countries and islands}}",
-      "invasiveIn": "Recorded as invasive in",
+      "nInvadedCountries": "Recorded as introduced in {NUMBER_FORMATED} {NUMBER, select, 1{country or island} other{countries and islands}}",
+      "invasiveIn": "Recorded as introduced in",
       "accordingTo": "According to",
       "occurrenceCount": "Occurrences in GBIF",
       "seeAllCountries": "Show all",
-      "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive": "Evidence of impact",
+      "isInvasive_yes": "Yes",
+      "isInvasive_no": "No"
     },
     "as": "As",
     "in": "In",
