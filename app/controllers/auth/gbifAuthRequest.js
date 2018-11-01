@@ -3,7 +3,7 @@
 const credentials = rootRequire('config/credentials').directory,
     appKey = credentials.appKey,
     secret = credentials.secret,
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     chai = require('chai'),
     expect = chai.expect,
     crypto = require('crypto'),

@@ -4,7 +4,7 @@ let express = require('express');
 let querystring = require('querystring');
 let queryResolver = require('./queryResolver');
 let router = express.Router({caseSensitive: true});
-let request = require('requestretry');
+let request = rootRequire('app/helpers/request');
 let downloadHelper = require('./downloadKeyHelper');
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 

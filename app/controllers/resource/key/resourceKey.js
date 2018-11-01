@@ -2,7 +2,7 @@
 
 let _ = require('lodash'),
     slug = require('slug'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     urljoin = require('url-join'),
     moment = require('moment'),
     querystring = require('querystring'),

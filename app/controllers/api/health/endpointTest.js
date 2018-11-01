@@ -2,7 +2,7 @@
 
 let chai = require('chai'),
     expect = chai.expect,
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     randomWords = require('random-words'),
     severity = require('./severity').severity,
  //   userAgent = require('../../../../config/config').userAgent,
@@ -40,7 +40,6 @@ function check(config) {
     options.method = config.method || 'GET';
     options.json = config.json || true;
     options.url = config.url;
-    options.userAgent = 'GBIF_WEBSITE';
     options.maxAttempts = 1;
     options.timeout = 60000;
     if (config.type == 'MAX_RESPONSE_TIME') {

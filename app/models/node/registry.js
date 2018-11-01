@@ -4,7 +4,7 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     _ = require('lodash'),
     chai = require('chai'),
     expect = chai.expect,
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 async function getNodeById(id) {
     let baseRequest = {

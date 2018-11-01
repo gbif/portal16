@@ -2,7 +2,7 @@
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     _ = require('lodash'),
     querystring = require('querystring'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     acceptLanguageParser = require('accept-language-parser'),
     langs = require('langs');
 

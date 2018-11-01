@@ -3,7 +3,7 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     format = rootRequire('app/helpers/format'),
     _ = require('lodash'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 module.exports = {
     getInstallation: getInstallation

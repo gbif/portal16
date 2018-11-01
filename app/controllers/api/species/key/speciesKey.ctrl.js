@@ -4,7 +4,7 @@ let express = require('express'),
     _ = require('lodash'),
     Q = require('q'),
     griisPublisherKey = rootRequire('config/config').publicConstantKeys.publisher.GRIIS,
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../../config/log');
 

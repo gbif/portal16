@@ -3,7 +3,7 @@
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     _ = require('lodash'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 async function get(key, depth) {
     depth = depth || 0;

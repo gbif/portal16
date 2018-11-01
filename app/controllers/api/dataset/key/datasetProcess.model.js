@@ -3,7 +3,7 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     authOperations = require('../../../auth/gbifAuthRequest'),
     _ = require('lodash'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 async function getProcess(key, query) {
     let baseRequest = {

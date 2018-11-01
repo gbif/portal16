@@ -7,7 +7,7 @@ let express = require('express'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
     querystring = require('querystring'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {

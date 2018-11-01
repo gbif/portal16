@@ -4,7 +4,7 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     _ = require('lodash'),
     querystring = require('querystring'),
     Species = require('./species'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 async function query(query, options) {
     options = options || {};

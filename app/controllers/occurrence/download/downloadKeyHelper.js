@@ -2,7 +2,7 @@
 let _ = require('lodash'),
     camelCase = require('camelcase'),
     Q = require('q'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     authOperations = require('../../auth/gbifAuthRequest'),
     helper = rootRequire('app/models/util/util'),

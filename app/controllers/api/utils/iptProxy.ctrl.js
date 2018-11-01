@@ -1,7 +1,7 @@
 'use strict';
 let express = require('express'),
     router = express.Router(),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     log = require('../../../../config/log');
 
 module.exports = function(app) {

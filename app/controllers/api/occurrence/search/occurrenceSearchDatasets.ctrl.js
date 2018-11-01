@@ -2,7 +2,7 @@
 let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
     log = require('../../../../../config/log');
 

@@ -4,7 +4,7 @@ let _ = require('lodash'),
     facetHelper = require('./expandFacets'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 let ranks = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
 let rankKeys = ['kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey'];

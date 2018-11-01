@@ -1,4 +1,4 @@
-let request = require('request'),
+let request = require('../../helpers/request'),
     async = require('async'),
     xmlParser = require('xml2js').parseString,
     isDevMode = require('../../../config/config').env == 'dev',
@@ -34,9 +34,6 @@ function getData(cb, path, options) {
     };
 
     requestOptions.headers = options.headers || {};
-    if (!requestOptions.headers['User-Agent']) {
-        requestOptions.headers['User-Agent'] = 'GBIF-portal';
-    }
     if (options.qs) requestOptions.qs = options.qs;
 
     request.get(requestOptions, function(err, response, body) {

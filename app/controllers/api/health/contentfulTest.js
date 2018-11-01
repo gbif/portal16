@@ -1,6 +1,6 @@
 'use strict';
 
-let request = require('requestretry'),
+let request = rootRequire('app/helpers/request'),
     severity = require('./severity').severity,
     _ = require('lodash');
 
