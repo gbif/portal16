@@ -15,7 +15,7 @@
   },
   "scenarios": [
     {
-      "name": "Sine page",
+      "name": "Singe page",
       "flow": [
         {
           "get": {
