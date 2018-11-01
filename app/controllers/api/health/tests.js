@@ -126,7 +126,7 @@ let tests = [
         message: 'Should return 415 on empty posts to download/request'
     },
     {
-        url: 'https://status.github.com/api/status.json',
+        url: 'http://status.github.com/api/status.json',
         component: 'GITHUB',
         type: 'HAVE_VALUE',
         key: 'status',

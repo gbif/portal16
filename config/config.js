@@ -78,7 +78,7 @@ let config = {
         oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//elk.gbif.org:5601/',
-        publicKibana: publicKibana || 'https://logs.gbif.org/',
+        publicKibana: publicKibana || 'http://logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
         locales: localeConfig.locales,
         defaultLocale: localeConfig.defaultLocale,

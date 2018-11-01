@@ -7,7 +7,7 @@ let request = rootRequire('app/helpers/request'),
 module.exports = {start: start};
 
 let config = {
-    url: 'https://www.contentfulstatus.com/history.json',
+    url: 'http://www.contentfulstatus.com/history.json',
     component: 'CONTENTFUL',
     severity: severity.WARNING
 };

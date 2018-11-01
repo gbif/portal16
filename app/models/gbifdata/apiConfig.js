@@ -200,13 +200,13 @@ let apiConfig = {
         userSession: 'USER_SESSION'
     },
     citesName: {
-        url: 'https://api.speciesplus.net/api/v1/taxon_concepts.json'
+        url: 'http://api.speciesplus.net/api/v1/taxon_concepts.json'
     },
     dwcextensions: {
         url: 'http://gbrds.gbif.org/registry/extensions.json'
     },
     openTreeOfLife: {
-        url: 'https://api.opentreeoflife.org/v3/'
+        url: 'http://api.opentreeoflife.org/v3/'
     },
     elkSearch: {
         url: elk + 'elasticsearch/'
