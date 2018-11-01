@@ -3,7 +3,7 @@ let Agent = require('agentkeepalive');
 
 // See https://www.npmjs.com/package/agentkeepalive
 const keepaliveAgent = new Agent({
-  maxSockets: 1000, // Default = Infinity
+  maxSockets: 10000, // Default = Infinity
   maxFreeSockets: 256, // default
   keepAlive: true,
   keepAliveMsecs: 5000
