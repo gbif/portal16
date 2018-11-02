@@ -1,12 +1,14 @@
 'use strict';
 
 let express = require('express'),
- //   apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     router = express.Router(),
-    notificationsComplete = require('./notifications.model')(),
-    portalHealth = require('./portalHealth');
-//    tests = require('./tests'),
- //   health = require('./health.model');
+    notification = require('./notifications.model'),
+    portalHealth = require('./portalHealth'),
+    log = require('../../../../config/log');
+
+ let notificationsComplete = notification().catch(function(err) {
+     log.warn({module: 'api/health'}, err); // the health couldn't be resolved within the timeout after startup
+ });
 
 module.exports = function(app) {
     app.use('/api', router);

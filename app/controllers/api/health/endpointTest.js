@@ -5,14 +5,8 @@ let chai = require('chai'),
     request = rootRequire('app/helpers/request'),
     randomWords = require('random-words'),
     severity = require('./severity').severity,
- //   userAgent = require('../../../../config/config').userAgent,
     Q = require('q'),
-    _ = require('lodash')
-/*    unknownError = {
-        message: 'Unknown error calling endpoint',
-        type: 'STATUS',
-        severity: severity.CRITICAL
-    }*/;
+    _ = require('lodash');
 
 module.exports = {fromConfig, check};
 
