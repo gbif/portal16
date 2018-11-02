@@ -6,7 +6,7 @@ const keepaliveAgent = new Agent({
   maxSockets: 10000, // Default = Infinity
   maxFreeSockets: 256, // default
   keepAlive: true,
-  keepAliveMsecs: 5000
+  keepAliveMsecs: 1000
 });
 
 let baseRequest = request.defaults({
