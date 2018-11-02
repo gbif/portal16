@@ -47,7 +47,7 @@ function renderSpeciesPage(req, res, next) {
         };
         helper.renderPage(req, res, next, contentItem, 'pages/species/key/seo');
     }).catch(function(err) {
-        if (err.type == 'NOT_FOUND') {
+        if (err.type === 'NOT_FOUND') {
             next();
         } else {
             next(err);

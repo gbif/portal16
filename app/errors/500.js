@@ -8,13 +8,8 @@ module.exports = function(app) {
         app.use(function(err, req, res, next) { // eslint-disable-line no-unused-vars
             let errorStatus = err.status || 500;
             log.error(
-                {
-                    err: {
-                        type: err.type,
-                        message: err.message,
-                        stack: err.stack
-                    }
-                }, errorStatus
+                err,
+                'A forwarded error occurred : ' + errorStatus
             );
             res.status(err.status || 500);
             res.render('error/error', {
