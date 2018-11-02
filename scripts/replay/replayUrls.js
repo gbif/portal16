@@ -45,9 +45,12 @@ async function getUserRequests() {
 async function replayUrls() {
     let urls = require('./urls');
     for (let i = 0; i < urls.length; i++) {
-        let url = `http://www.gbif-uat.org${urls[i]}`;
-        console.log(url);
-        await request.get(url, {method: 'HEAD'});
+        let url = `http://www.gbif-staging.org${urls[i]}`;
+        let response = await request.get(url, {method: 'HEAD'});
+        if (response.statusCode > 404) {
+            console.log('statusCode: ' + response.statusCode);
+            console.log(url);
+        }
     }
 }
 replayUrls();
