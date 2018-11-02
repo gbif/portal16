@@ -64,7 +64,7 @@ let config = {
         identityApi: identityApi || '//api.gbif.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://localhost:3000',
-        topDomain: undefined,
+        topDomain: 'localhost:3000',
         // notice the mock credentials will not work and shouldn't.
         // We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
         credentials: credentials || (rootPath + '/config/mockCredentials.json'),

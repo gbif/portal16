@@ -18,8 +18,8 @@ function onComplete() {
         function check() {
             if (status.health && status.messages && status.load) {
                 resolve(function() {
-return status;
-});
+                    return status;
+                });
             } else {
                 setTimeout(check, 2000);
             }
@@ -29,7 +29,7 @@ return status;
 }
 // start by updating status
 update();
-// after that update every 10 seconds
+// after that update every 30 seconds
 setInterval(function() {
     update();
 }, 30000);
