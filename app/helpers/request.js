@@ -1,23 +1,21 @@
-let request = require('requestretry');
-let Agent = require('agentkeepalive');
+const requestAgents = require('./requestAgents');
+const url = require('url');
+const _ = require('lodash');
 
-// See https://www.npmjs.com/package/agentkeepalive
-const keepaliveAgent = new Agent({
-  maxSockets: 10000, // Default = Infinity
-  maxFreeSockets: 256, // default
-  keepAlive: true,
-  keepAliveMsecs: 1000
-});
+const agentMapping = [
+  {startsWith: '/v1/occurrence/', requestAgent: requestAgents.occurrence}
+];
 
-let baseRequest = request.defaults({
-  agent: keepaliveAgent,
-  headers: {
-    'User-Agent': 'GBIF-portal'
-  },
-  maxAttempts: 2,
-  retryDelay: 3000, // in milliseconds
-  retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
-  timeout: 20000 // in milliseconds
-});
+function wrapper(options) {
+  const path = url.parse(options.url).path;
+  let match = _.find(agentMapping, function(e) {
+    if (e.startsWith) {
+      return path.startsWith(e.startsWith);
+    }
+  });
+  let requestAgent = match ? match.requestAgent : requestAgents.standard;
+  // eslint-disable-next-line prefer-rest-params
+  return requestAgent(...arguments);
+}
 
-module.exports = baseRequest;
+module.exports = wrapper;

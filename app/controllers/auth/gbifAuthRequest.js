@@ -22,7 +22,6 @@ async function authenticatedRequest(options) {
     let requestOptions = {
         maxAttempts: 5, // (default) try 5 times
         retryDelay: 5000, // (default) wait for 5s before trying again
-        retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
         fullResponse: true
     };
     requestOptions.method = options.method;

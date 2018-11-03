@@ -29,6 +29,7 @@ let STATUS_CODES = Object.freeze({
 function getData(path, options, cb) {
     let requestOptions = {
         url: path,
+        method: 'GET',
         timeout: options.timeout,
         maxAttempts: options.maxAttempts
     };
@@ -36,7 +37,7 @@ function getData(path, options, cb) {
     requestOptions.headers = options.headers || {};
     if (options.qs) requestOptions.qs = options.qs;
 
-    request.get(requestOptions, function(err, response, body) {
+    request(requestOptions, function(err, response, body) {
         // if timeout
         if (err) {
             if (err.code === 'ETIMEDOUT') {

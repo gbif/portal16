@@ -21,7 +21,7 @@ router.get('/installation/ipt/inventory/dataset', function(req, res) {
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
-    request.get({
+    request({
         url: url,
         method: 'GET',
         json: true,
