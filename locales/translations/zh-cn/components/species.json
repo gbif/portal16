@@ -17,7 +17,10 @@
       "invasiveIn": "",
       "accordingTo": "",
       "occurrenceCount": "",
-      "seeAllCountries": ""
+      "seeAllCountries": "",
+      "isInvasive": "",
+      "isInvasive_yes": "",
+      "isInvasive_no": ""
     },
     "as": "",
     "in": "",
