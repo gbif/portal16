@@ -17,7 +17,10 @@
       "invasiveIn": "Registada como invasora em",
       "accordingTo": "De acordo com",
       "occurrenceCount": "Ocorrências no GBIF",
-      "seeAllCountries": "Mostrar tudo"
+      "seeAllCountries": "Mostrar tudo",
+      "isInvasive": "",
+      "isInvasive_yes": "",
+      "isInvasive_no": ""
     },
     "as": "Como",
     "in": "Em",
