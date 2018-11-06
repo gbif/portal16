@@ -9,6 +9,7 @@ let // notifications = require('../notifications//notifications.model'),
     getMostSevere = require('./severity').getMostSevere,
     _ = require('lodash'),
     objectHash = require('object-hash'),
+    healthUpdateFrequency = require('../../../../config/config').healthUpdateFrequency,
     status = {};
 
 module.exports = onComplete;
@@ -40,7 +41,7 @@ update();
 // after that update every 30 seconds
 setInterval(function() {
     update();
-}, 30000);
+}, healthUpdateFrequency);
 
 function update() {
     updateHealth();

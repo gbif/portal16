@@ -36,14 +36,16 @@ function wrapper(options) {
 }
 
 let failingURLs = [
-  '/v1/dataset/85ae9a58-f762-11e1-a439-00145eb45e9a'
+  // '/v1/occurrence/search/?datasetKey=3b8c5ed8-b6c2-4264-ac52-a9d772d69e9f&limit=0&facet=eventId&facetLimit=11&facetOffset=0'
 ];
 
 let failingURLSubstrings = [
+  // '/v1/species'
 ];
 
 function failingWrapper(options) {
   const path = url.parse(options.url).path;
+  console.log(path);
   let requestAgent = requestAgents.standard;
   // eslint-disable-next-line prefer-rest-params
   let callbackIfAny = typeof arguments[1] === 'function' ? arguments[1] : undefined;
@@ -52,7 +54,7 @@ function failingWrapper(options) {
     return path === e;
   });
   let failUrlPartMatch = _.find(failingURLSubstrings, function(e) {
-    return path.startsWith(e.startsWith);
+    return path.startsWith(e);
   });
 
   let shouldFail = (failUrlMatch || failUrlPartMatch);

@@ -42,7 +42,8 @@ let path = require('path'),
     },
     elasticContentful = yargs.elasticContentful,
     apidocs = 'https://gbif.github.io/gbif-api/apidocs/org/gbif/api',
-    userAgent = 'GBIF_WEBSITE';
+    userAgent = 'GBIF_WEBSITE',
+    healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
 let config = {
@@ -85,7 +86,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: 240000
     },
     dev: {
         env: env,
@@ -123,7 +125,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     },
     uat: {
         env: env,
@@ -161,7 +164,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     },
     staging: {
         env: env,
@@ -199,7 +203,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     },
     prod: {
         env: env,
@@ -237,7 +242,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     },
     test: {
         env: env,
@@ -275,7 +281,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     }
 };
 
