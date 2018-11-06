@@ -1,41 +1,41 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
-      "grantType": "",
-      "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
-      "fundsAllocated": "",
-      "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
-      "typeOfGrant": "",
-      "projectStart": "",
-      "status": "",
-      "programme": "",
-      "contractCountry": "",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "project": "Проект",
+      "projectId": "ID проекта",
+      "projectIdentifier": "Идентификатор проекта",
+      "grantType": "Тип гранта",
+      "duration": "Продолжительность",
+      "title": "Название",
+      "start": "Начало",
+      "end": "Окончание",
+      "fundsAllocated": "Финансирование",
+      "matchingFunds": "Софинансирование",
+      "funding": "Финансирование",
+      "coFunding": "Совместное финансирование",
+      "fundedBy": "Финансируется",
+      "coFundedBy": "Софинансируется",
+      "typeOfGrant": "Тип гранта",
+      "projectStart": "Начало проекта",
+      "status": "Статус",
+      "programme": "Программа",
+      "contractCountry": "Страна или регион",
+      "newsAndEvents": "Новости и мероприятия",
+      "call": "Объявление",
+      "projectLead": "Руководитель проекта",
+      "contactDetalils": "Контактная информация",
+      "partners": "Партнеры"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "Источники данных используемые посредством GBIF"
     },
     "literature": {
-      "keywords": ""
+      "keywords": "Ключевые слова"
     },
     "auxiliary": {
-      "subject": "",
+      "subject": "Тема",
       "citation": "Цитата",
-      "organisingParticipants": ""
+      "organisingParticipants": "Организаторы"
     }
   }
 }

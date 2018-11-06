@@ -1,7 +1,7 @@
 'use strict';
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     _ = require('lodash');
 
 module.exports = {

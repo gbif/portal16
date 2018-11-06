@@ -15,6 +15,7 @@ app/views/shared/layout/html/angular/constants.json
 app/views/shared/layout/html/angular/gitCommit.json
 app/views/shared/style/bootstrap/.build/
 config/revision.json
+scripts/replay/urls.json
 locales/_build/
 npm-debug.log
 *.ignore.js

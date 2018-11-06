@@ -2,7 +2,7 @@
 let express = require('express'),
     cfg = rootRequire('config/config'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

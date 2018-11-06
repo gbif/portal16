@@ -1,7 +1,7 @@
 'use strict';
 let nunjucks = require('nunjucks');
 let _ = require('lodash');
-let request = require('requestretry');
+let request = rootRequire('app/helpers/request');
 
 async function getResource(url, options) {
     try {

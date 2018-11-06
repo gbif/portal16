@@ -1,6 +1,6 @@
 <div>
     <div class="white-background p-t-05" ng-if="countryKey.country.isActiveParticipant" ng-show="countryParticipation.loaded">
-        <div ng-include="'/api/template/country/' + countryKey.countryCode" onload="countryParticipation.loaded = true" ></div>
+        <div ng-include="'/api/template/country/' + countryKey.countryCode + '?locale=' + portal.LOCALE" onload="countryParticipation.loaded = true" ></div>
 
         <section class="horizontal-stripe seperator light-background m-t-1" id="contacts" ng-if="countryKey.country.node || countryKey.country.activePeople.length > 0">
             <div class="container--narrow">

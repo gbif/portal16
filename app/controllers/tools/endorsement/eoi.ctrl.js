@@ -2,7 +2,7 @@
 let express = require('express'),
     eoi = require('./eoi.controller'),
     page = require('./page.controller'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

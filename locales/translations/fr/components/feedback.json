@@ -1,53 +1,53 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Laisser un commentaire",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Commentaires et questions",
+      "example": "Aidez-nous à résoudre tous les problèmes en choisissant quel type de commentaire vous fournissez"
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "title": "Contenu",
+      "example": "Tels que : cette page contient une faute de frappe. Cette espèce n’existe pas. Cet endroit semble suspect. La nouvelle URL pour cette organisation est...",
+      "annotate": "Cet éditeur de données a un site web pour la gestion des commentaires. Nous vous recommandons de l'utiliser.",
+      "contactPerMail": "Contacter l’interlocuteur du jeu de données"
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "Erreur",
+      "example": "Tels que : le bouton de recherche ne fonctionne pas. La page ne se charge pas. Je ne peux pas lire cela car les colonnes se chevauchent."
     },
     "idea": {
-      "title": "",
-      "example": ""
+      "title": "Idée",
+      "example": "Tels que : je veux des liens vers les séquences génétiques connexes. Montrez-moi tous les articles en accès libre."
     },
     "question": {
-      "title": "",
-      "example": "",
-      "description": "",
-      "comment": ""
+      "title": "Helpdesk",
+      "example": "Telles que : Comment protéger les données sur les espèces rares ? Vous pouvez m’aider à trouver tous les enregistrements de cette espèce qui se produisent dans les eaux internationales ?",
+      "description": "Toutes les questions sont traitées par notre helpdesk via helpdesk@gbif.org",
+      "comment": "Pour les questions non techniques et requêtes privées, vous pouvez nous joindre au [info@gbif.org] (mailto:info@gbif.org) ou à [communication@gbif.org] (mailto:communication@gbif.org) pour les questions de la presse."
     },
     "confirmation": {
-      "title": "",
+      "title": "Merci",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "Voir question"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "Questions de contenu",
+      "description": "Questions de contenu signalées par d’autres utilisateurs",
+      "create": "Laisser un commentaire"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "Résumé",
+      "description": "Description détaillée. Pour les plaintes taxonomiques, veuillez fournir une référence",
+      "username": "Votre email ou nom d’utilisateur de Github (public)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "markdownSupport": "Prise en charge du format Markdown",
+    "issueTracking": "Toutes les questions/remarques sont publiques et disponibles via [Github](https://github.com/gbif/portal-feedback/issues)",
+    "failure": "Problème - le système de commentaires ne fonctionne pas. S’il vous plaît nous envoyer un mail ou aller directement à [Github](https://github.com/gbif/portal-feedback/issues). Nous sommes désolés de cet inconvénient.",
+    "weRecommendX": "Nous vous recommandons d’utiliser [{NAME}] ({LINK})",
+    "tellGbif": "Dites-le à GBIF",
+    "submit": "Envoyer",
+    "seeAllComments": "Tout voir",
+    "recommendMail": "Nous vous recommandons d’envoyer un courriel à",
+    "pleaseLogin": "Veuillez vous connecter pour laisser des commentaires. Vous pouvez aussi également utiliser [Github](https://github.com/gbif/portal-feedback/issues).\nPourquoi ? Malheureusement, nous constatons beaucoup de courriel indésirable dans notre système si nous ne demandons pas aux utilisateurs de se connecter."
   }
 }

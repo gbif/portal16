@@ -1,7 +1,7 @@
 'use strict';
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     config = rootRequire('config/config'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 module.exports = {
     getSpeciesSiteMapIndex: getSpeciesSiteMapIndex,

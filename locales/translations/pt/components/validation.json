@@ -1,124 +1,124 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
-      "CLB_INTERPRETATION_BASED": ""
+      "RESOURCE_STRUCTURE": "Estrutura de recursos",
+      "RESOURCE_INTEGRITY": "Integridade do recurso",
+      "RECORD_STRUCTURE": "Estrutura do registo",
+      "OCC_INTERPRETATION_BASED": "Interpretação de ocorrência do GBIF",
+      "METADATA_CONTENT": "Conteúdo de metadados",
+      "CLB_INTERPRETATION_BASED": "Interpretação de táxon do GBIF"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
-      "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
-      "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
-      "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "DWCA_UNREADABLE": "Ficheiro de Darwin Core ilegível",
+      "DWCA_META_XML_NOT_FOUND": "Ficheiro Meta.xml não encontrado",
+      "DWCA_META_XML_SCHEMA": "O esquema de validação de meta.xml falhou",
+      "RECORD_IDENTIFIER_NOT_FOUND": "Nenhum identificador de registo foi encontrado dentro do ficheiro",
+      "CORE_ROWTYPE_UNDETERMINED": "RowType não encontrado ou determinado",
+      "EML_NOT_FOUND": "Documento EML não encontrado",
+      "EML_GBIF_SCHEMA": "O documento EML não é compatível com o esquema",
+      "UNKNOWN_ROWTYPE": "Desconhece-se o rowType usado para a extensão",
+      "REQUIRED_TERM_MISSING": "Um termo necessário para o núcleo/extensão está faltando",
+      "COLUMN_MISMATCH": "Incompatibilidade de coluna",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Violação de integridade referencial registo",
+      "UNKNOWN_TERM": "Termo desconhecido",
+      "DUPLICATED_TERM": "Termo duplicado",
+      "TITLE_MISSING_OR_TOO_SHORT": "O título do conjunto de dados não existe ou é muito curto",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "O criador do recurso está faltando ou está incompleto",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "A descrição do conjunto de dados está ausente ou é muito curta",
+      "LICENSE_MISSING_OR_UNKNOWN": "A licença não pode ser verificada, não é suportada pelo GBIF ou está faltando",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Registo não identificado de forma única",
+      "UNREADABLE_SECTION_ERROR": "Erro de seção ilegível",
+      "NoIssuesFound": "Não há problemas encontrados"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "Formato do ficheiro",
+      "DWCA": "Ficheiro Darwin Core",
+      "TABULAR": "Arquivo de texto (.csv, .tsv)",
+      "SPREADSHEET": "Folha de cálculo (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "Tipo de linha",
       "CORE": {
         "title": "Núcleo"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "Extensões"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Metadados que descrevem os dados em EML (linguagem de metadados ecológicos)",
+        "title": "Documento de metadados"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "Anotação semântica que descreve a estrutura dos dados (ficheiros, colunas, etc.)",
+        "title": "Meta Descrição"
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
-    "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "fileSizeLimit": "Limite de tamanho do ficheiro: 100 mb",
+    "receivedMediaType": "Tipo de média",
+    "uniqueIdentifier": "Identificador único",
+    "reportLocation": "Este relatório foi escrito para",
+    "reportDeletion": "E será excluído após um mês. Até lá podes revisitar o relatório à vontade.",
+    "reportGenerated": "Foi gerado",
+    "summary": "Resumo de validação",
+    "issues": "Problemas de validação",
+    "fileHasIssues": "Alguns problemas foram detetados pelo validador:",
+    "fileHasNoIssues": "Nenhum problema encontrado no ficheiro",
+    "error": "Erro",
     "errors": {
-      "400": "",
-      "404": "",
-      "413": "",
-      "415": ""
+      "400": "O ficheiro não pode ser processado, ou pode estar perdido se forneceste um URL.",
+      "404": "A ID do trabalho de validação não foi encontrada. Se acreditas ser um erro, por favor relate-o.",
+      "413": "O ficheiro é muito grande, para ser processado pelo validador de dados.",
+      "415": "Tipo de arquivo não suportado. O ficheiro não pode ser processado."
     },
-    "backToValidator": "",
+    "backToValidator": "Iniciar uma nova validação",
     "termsFrequency": {
-      "title": "",
-      "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "title": "Frequência do termo",
+      "term": "Termo",
+      "count": "Contagem",
+      "percentage": "Percentagem",
+      "interpreted": "Interpretado"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "Número de datas interpretadas",
+      "taxon": "Número de linhas com táxon interpretado",
+      "location": "Número de coordenadas interpretadas"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "Contagem de valor interpretado"
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
-      "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "title": "Estado",
+      "SUBMITTED": "A enviar ficheiro",
+      "FETCHING": "A recuperar ficheiro",
+      "ACCEPTED": "Validação iniciada",
+      "RUNNING": "Validação em progresso",
+      "FINISHED": "Validação concluída",
+      "FAILED": "Falha na validação. Por favor, verifique o tipo de ficheiro, ou se você submeteu uma url, por favor verifique se o ficheiro existe no local.",
+      "CONTACTING_SERVER": "A contactar o servidor..."
     },
-    "jobId": "",
-    "indexeable": "",
-    "notIndexeable": "",
-    "numberOfLines": "",
-    "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
-    "dataValidator": "",
-    "dataValidatorDescription": "",
-    "thisIsAnEarlyAccessVersion": "",
-    "here": "",
-    "coreRowType": "",
-    "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
-    "fetchFileFromLocation": "",
+    "jobId": "Id do trabalho",
+    "indexeable": "O arquivo pode ser indexado pelo GBIF",
+    "notIndexeable": "O arquivo não pode ser indexado pelo GBIF",
+    "numberOfLines": "Número de linhas",
+    "reportProducedByGbifDataValidator": "Relatório produzido pelo validador de dados do GBIF",
+    "validationReport": "Relatório de validação",
+    "dataValidator": "Validador de dados",
+    "dataValidatorDescription": "O validador de dados do GBIF é um serviço que permite que qualquer pessoa, com um conjunto de dados relevantes para o GBIF, receba um relatório sobre a correção sintática e a validade do conteúdo contido dentro do conjunto de dados.",
+    "thisIsAnEarlyAccessVersion": "Esta uma versão inicial de acesso. Por favor, reporte problemas e feedback",
+    "here": "Aqui.",
+    "coreRowType": "Tipo de linha núcleo",
+    "submit": "Submeter",
+    "dropHere": "Solte aqui",
+    "or": "ou",
+    "selectFile": "Selecionar ficheiro",
+    "fetchFileFromLocation": "Pesquisar o ficheiro de localização",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
-      "about": "",
-      "darwinCoreExtensions": "",
-      "metaData": "",
-      "summary": ""
+      "newDataValidation": "Nova validação de dados",
+      "newValidation": "Nova validação",
+      "about": "Sobre",
+      "darwinCoreExtensions": "Extensões Darwin Core",
+      "metaData": "Metadados",
+      "summary": "Sumário"
     }
   }
 }

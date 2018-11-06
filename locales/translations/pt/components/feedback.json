@@ -1,53 +1,53 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Deixe um comentário",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Comentários e questões",
+      "example": "Ajude-nos a resolver quaisquer problemas escolhendo que tipo de comentário está a fazer"
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "title": "Conteúdo",
+      "example": "Tal como: Essa página contém um erro de digitação. Essa espécie não existe. Esse local parece suspeito. O novo URL para essa organização é...",
+      "annotate": "Este publicador tem um sítio para receber comentários. Recomendamos o seu uso.",
+      "contactPerMail": "Comunique com o contato do conjunto de dados"
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "Bug",
+      "example": "Tal como: O botão de pesquisa não funciona. A página não carrega. Não consigo ler porque as colunas se sobrepõem."
     },
     "idea": {
-      "title": "",
-      "example": ""
+      "title": "Ideia",
+      "example": "Tal como: Gostaria de ter links para dados de sequências genéticas relacionadas. Mostre-me todos os artigos em acesso aberto."
     },
     "question": {
-      "title": "",
-      "example": "",
-      "description": "",
-      "comment": ""
+      "title": "Suporte técnico",
+      "example": "Tal como: Como proteger dados de espécies raras? Pode ajudar-me a encontrar todos os registos de esta espécie que ocorrem em águas internacionais?",
+      "description": "Todas as questões são respondidas pelo nosso suporte em helpdesk@gbif.org",
+      "comment": "Para consultas particulares e perguntas não técnicas pode contatar-nos em [info@gbif.org] (mailto:info@gbif.org) ou em [communication@gbif.org] (mailto:communication@gbif.org) para assuntos de imprensa."
     },
     "confirmation": {
-      "title": "",
+      "title": "Obrigado",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "Ver problema"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "Problemas de conteúdo",
+      "description": "Problemas de conteúdo referidos por outros utilizadores",
+      "create": "Deixe comentário"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "Sumário",
+      "description": "Descrição detalhada. Para questões taxonómicas, por favor forneça uma referência",
+      "username": "O seu email ou nome de utilizador Github (público)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "markdownSupport": "Suporte Markdown",
+    "issueTracking": "Todos os problemas são públicos e estão disponíveis através de [Github](https://github.com/gbif/portal-feedback/issues)",
+    "failure": "Alguma coisa não está bem — o sistema de comentários não funciona. Por favor envie-nos um email ou vá directamente ao [Github](https://github.com/gbif/portal-feedback/issues). Pedimos desculpa por este inconveniente.",
+    "weRecommendX": "Recomendamos o uso de [{NAME}]({LINK})",
+    "tellGbif": "Diga ao GBIF",
+    "submit": "Submeter",
+    "seeAllComments": "Ver todos",
+    "recommendMail": "Recomendamos o envio de um email a",
+    "pleaseLogin": "Por favor inicie a sessão para deixar comentários. Em alternativa, pode usar o [Github](https://github.com/gbif/portal-feedback/issues).\nA razão? Infelizmente estaremos a receber demasiado spam no nosso sistema de comentários, se não solicitarmos o início da sessão."
   }
 }

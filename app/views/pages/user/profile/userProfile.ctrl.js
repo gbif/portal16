@@ -8,8 +8,10 @@ angular
     .controller('userProfileCtrl', userProfileCtrl);
 
 /** @ngInject */
-function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, toastService) {
+function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService) {
     var vm = this;
+    Page.setTitle('Profile');// TODO move into translation file
+    Page.drawer(false);
     vm.disableEditing = false;
     vm.emailPattern = regexPatterns.email;
 

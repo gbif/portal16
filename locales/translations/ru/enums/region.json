@@ -1,11 +1,11 @@
 {
   "region": {
-    "GLOBAL": "",
-    "AFRICA": "",
-    "ASIA": "",
-    "EUROPE": "",
-    "LATIN_AMERICA": "",
-    "NORTH_AMERICA": "",
-    "OCEANIA": ""
+    "GLOBAL": "Глобальный",
+    "AFRICA": "Африка",
+    "ASIA": "Азия",
+    "EUROPE": "Европа",
+    "LATIN_AMERICA": "Латинская Америка и Карибский бассейн",
+    "NORTH_AMERICA": "Северная Америка",
+    "OCEANIA": "Океания"
   }
 }

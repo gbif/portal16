@@ -2,7 +2,7 @@
 let express = require('express'),
     verifier = require('../../../models/verification/verification'),
     auth = require('../../auth/auth.service'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/api/verification', router);

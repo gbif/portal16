@@ -1,7 +1,7 @@
 'use strict';
 let express = require('express');
 let config = rootRequire('config/config');
-let router = express.Router();
+let router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

@@ -1,20 +1,20 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
-        "endorsedPublishers": "",
-        "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
+        "participant": "Участник",
+        "participantSummary": "Резюме участника",
+        "endorsedPublishers": "Одобренные публикаторы",
+        "noEndorsedPublishers": "Нет одобренных публикаторов",
+        "memberStatus": "Статус члена",
+        "gbifParticipantSince": "Участник GBIF с",
         "headOfDelegation": "Глава делегации",
-        "gbifRegion": "",
-        "countryOrArea": "",
-        "nodeName": "",
-        "nodeEstablished": "",
-        "website": "",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "gbifRegion": "Регион GBIF",
+        "countryOrArea": "Страна или регион",
+        "nodeName": "Имя узла",
+        "nodeEstablished": "Узел основан",
+        "website": "Веб-сайт",
+        "participantNodeManager": "Менеджер узла участника",
+        "pending": "Ожидает одобрения",
+        "latestDatasetsPublished": "Последние опубликованные наборы данных",
+        "noDatasets": "Нет опубликованных наборов данных"
     }
 }

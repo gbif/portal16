@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "État du système",
+        "description": "Quel est le statut des différents services GBIF",
+        "updatedTimeAgo": "Mis à jour il y a {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "Tous les systèmes sont opérationnels",
+            "INFO": "Tous les systèmes sont opérationnels",
+            "WARNING": "Nous éprouvons une instabilité ou un ralentissement des systèmes",
+            "CRITICAL": "Nous éprouvons une panne partielle"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "Services instables",
+                "summary": "Nous éprouvons actuellement une instabilité ou un ralentissement des services."
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "Services non disponibles",
+                "summary": "Nous éprouvons une panne partielle"
             }
         }
     }

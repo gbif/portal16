@@ -126,7 +126,7 @@ let tests = [
         message: 'Should return 415 on empty posts to download/request'
     },
     {
-        url: 'https://status.github.com/api/status.json',
+        url: 'http://status.github.com/api/status.json',
         component: 'GITHUB',
         type: 'HAVE_VALUE',
         key: 'status',
@@ -135,7 +135,7 @@ let tests = [
         message: 'The Github status endpoint should should return "good"'
     },
     {
-        url: config.domain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',
+        url: 'http://' + config.topDomain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',

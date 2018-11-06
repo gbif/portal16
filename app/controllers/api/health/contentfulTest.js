@@ -1,13 +1,13 @@
 'use strict';
 
-let request = require('requestretry'),
+let request = rootRequire('app/helpers/request'),
     severity = require('./severity').severity,
     _ = require('lodash');
 
 module.exports = {start: start};
 
 let config = {
-    url: 'https://www.contentfulstatus.com/history.json',
+    url: 'http://www.contentfulstatus.com/history.json',
     component: 'CONTENTFUL',
     severity: severity.WARNING
 };

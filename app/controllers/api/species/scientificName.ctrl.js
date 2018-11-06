@@ -3,7 +3,7 @@ let express = require('express'),
     router = express.Router(),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     ranks = require('../../../models/enums/allEnums').rank,
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     Q = require('q');
 
 const FAMILY_RANK_INDEX = ranks.indexOf('FAMILY'); // 15;

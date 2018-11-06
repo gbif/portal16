@@ -4,8 +4,8 @@ let express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    request = require('requestretry'),
-    router = express.Router();
+    request = rootRequire('app/helpers/request'),
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

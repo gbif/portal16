@@ -1,6 +1,6 @@
 let express = require('express'),
     helper = rootRequire('app/models/util/util'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

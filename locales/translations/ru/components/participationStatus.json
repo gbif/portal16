@@ -1,38 +1,38 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Участник с правом голоса",
+            "ASSOCIATE": "Ассоциированный участник",
+            "OBSERVER": "Наблюдающий участник",
+            "AFFILIATE": "Fффилиированный участник",
+            "FORMER": "Бывший участник",
+            "undefined": "Неизвестно"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Участник GBIF с правом голоса из {REGION}",
+            "ASSOCIATE": "Ассоциированный участник от {REGION}",
+            "OBSERVER": "Страна-наблюдатель GBIF от {REGION}",
+            "AFFILIATE": "Аффилированный участник от {REGION}",
+            "FORMER": "Бывший участник GBIF от {REGION}",
+            "undefined": "Неизвестно"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Организация-участник GBIF с правом голоса из {REGION}",
+                    "ASSOCIATE": "Ассоциированная организация-участник из {REGION}",
+                    "OBSERVER": "Наблюдающая организация-участник из {REGION}",
+                    "AFFILIATE": "Аффилированная организация-участник из {REGION}",
+                    "FORMER": "Бывшая организация-участник из {REGION}",
+                    "undefined": "Неизвестно"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Организация-участник с правом голоса",
+                    "ASSOCIATE": "Ассоциированная организация-участник",
+                    "OBSERVER": "Наблюдающая организация-участник",
+                    "AFFILIATE": "Аффилированная организация-участник",
+                    "FORMER": "Бывшая организация-участник",
+                    "undefined": "Неизвестно"
                 }
             }
         }

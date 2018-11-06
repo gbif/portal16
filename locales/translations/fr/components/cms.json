@@ -1,41 +1,41 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
-      "grantType": "",
-      "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
-      "fundsAllocated": "",
-      "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
-      "typeOfGrant": "",
-      "projectStart": "",
-      "status": "",
-      "programme": "",
-      "contractCountry": "",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "project": "Projet",
+      "projectId": "ID du projet",
+      "projectIdentifier": "Identifiant de projet",
+      "grantType": "Type de subvention",
+      "duration": "Durée",
+      "title": "Titre",
+      "start": "Début",
+      "end": "Fin",
+      "fundsAllocated": "Fonds alloués",
+      "matchingFunds": "Estimation du co-financement",
+      "funding": "Financement",
+      "coFunding": "Co-financement",
+      "fundedBy": "Financé par",
+      "coFundedBy": "Co-financé par",
+      "typeOfGrant": "Type de subvention",
+      "projectStart": "Début du projet",
+      "status": "État ",
+      "programme": "Programme",
+      "contractCountry": "Pays ou région",
+      "newsAndEvents": "Actualités et événements",
+      "call": "Appel",
+      "projectLead": "Chef de projet",
+      "contactDetalils": "Détails du contact",
+      "partners": "Partenaires"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "Ressources de données utilisés via GBIF"
     },
     "literature": {
-      "keywords": ""
+      "keywords": "Mots-clés"
     },
     "auxiliary": {
-      "subject": "",
-      "citation": "",
-      "organisingParticipants": ""
+      "subject": "Sujet",
+      "citation": "Citation",
+      "organisingParticipants": "Participants organisateurs"
     }
   }
 }

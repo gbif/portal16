@@ -1,53 +1,53 @@
 {
   "gbifNetwork": {
-    "title": "",
+    "title": "Annuaire",
     "contact": "Contactez-nous",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Participant votant",
+      "other": "Participants votants"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "Participant associé (pays)",
+      "other": "Participants associés (pays)"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "Participant associé (autre que pays)",
+      "other": "Participants associés (autres que pays)"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Ancien participant",
+      "other": "Anciens participants"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "Affilié au GBIF",
+      "other": "Affiliés au GBIF"
     },
-    "role": "",
+    "role": "Rôle",
     "group": {
 
     },
     "gbif_secretariat": "Le Secrétariat du GBIF",
-    "membershipType": "",
-    "name": "",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
-    "datasets": "",
-    "regionalRepresentative": "",
+    "membershipType": "Adhésion",
+    "name": "Nom",
+    "endorsedDataPublisher": "A approuvé {NUMBER_FORMATTED} {NUMBER, select, one{fournisseur de données} other{fournisseurs de données}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participant} other{participants}}",
+    "dataset": "{NUMBER, select, one{Jeu de données} other{Jeu de données}}",
+    "datasets": "Jeux de données",
+    "regionalRepresentative": "{NUMBER, select, one{Représentant} other{représentants}}",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Organisations participantes",
+      "gbifAffiliates": "Affiliés au GBIF"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Chef de délegation",
       "NODE_MANAGER": "Le responsable du point nodal"
     },
-    "publishers": "",
-    "memberSince": "",
-    "participant": "",
-    "pPublishers": "",
-    "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": ""
+    "publishers": "Fournisseurs de données",
+    "memberSince": "Membre depuis",
+    "participant": "Participant",
+    "pPublishers": "{NUMBER, select, 1{Fournisseur de données} other{fournisseurs de données}}",
+    "pOccurrence": "{NUMBER, select, 1{Occurrence} other{Evénements}}",
+    "occurrenceDatasets": "Jeu de données d'occurrences",
+    "occurrences": "Occurrences"
   }
 }

@@ -1,38 +1,38 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Participante votante",
+            "ASSOCIATE": "Participante associado",
+            "OBSERVER": "Participante observador",
+            "AFFILIATE": "Participante afiliado",
+            "FORMER": "Ex-participante",
+            "undefined": "Desconhecido"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Participante Votante do GBIF da {REGION}",
+            "ASSOCIATE": "Participante Associado do GBIF da {REGION}",
+            "OBSERVER": "Um Participante Observador do GBIF da {REGION}",
+            "AFFILIATE": "Participante Afiliado do GBIF da {REGION}",
+            "FORMER": "Ex-Participante do GBIF da {REGION}",
+            "undefined": "Desconhecido"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Organização participante votante do GBIF da {REGION}",
+                    "ASSOCIATE": "Organização participante associada do GBIF da {REGION}",
+                    "OBSERVER": "Organização participante observadora do GBIF da {REGION}",
+                    "AFFILIATE": "Organização participante afiliada do GBIF da {REGION}",
+                    "FORMER": "Organização ex-participante do GBIF da {REGION}",
+                    "undefined": "Desconhecido"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Organização participante votante",
+                    "ASSOCIATE": "Organização participante associada",
+                    "OBSERVER": "Organização participante observadora",
+                    "AFFILIATE": "Organização participante afiliada",
+                    "FORMER": "Organização ex-participante",
+                    "undefined": "Desconhecido"
                 }
             }
         }

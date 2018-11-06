@@ -4,7 +4,7 @@ let express = require('express'),
     _ = require('lodash'),
     Q = require('q'),
     griisPublisherKey = rootRequire('config/config').publicConstantKeys.publisher.GRIIS,
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../../config/log');
 
@@ -236,6 +236,17 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
         return keyword.startsWith('country_');
     });
     if (species.length > 0 && invadedCountry) {
+        // get verbatim species view
+        let verbatimSpecies = await getVerbatim(species[0].key);
+        let profiles = _.get(verbatimSpecies, 'extensions["http://rs.gbif.org/terms/1.0/SpeciesProfile"]', []);
+        let invasiveInfo = _.find(profiles, function(x) {
+            return x['http://rs.gbif.org/terms/1.0/isInvasive'];
+        });
+        let isInvasive = false;
+        if (invasiveInfo) {
+            isInvasive = isInvasiveString(invasiveInfo['http://rs.gbif.org/terms/1.0/isInvasive']);
+        }
+
         let isSubCountry = invadedCountry.length > 10;
         invadedCountry = invadedCountry.substring(8, 10).toUpperCase();
         // compose result obj with the properties we need for displaying the list - no need to send full species and dataaset obj.
@@ -246,11 +257,23 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
             dataset: dataset.title,
             scientificName: species[0].scientificName,
             nubKey: species[0].nubKey,
-            taxonKey: species[0].key
+            taxonKey: species[0].key,
+            isInvasive: isInvasive
         };
     } else {
         return undefined; // TODO ask thomas why he returns this above - i don't see how this would ever be the case
     }
 }
 
+async function getVerbatim(taxonKey) {
+    let response = await request({url: apiConfig.taxon.url + taxonKey + '/verbatim', timeout: 30000, method: 'GET', json: true});
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+function isInvasiveString(str) {
+    return str === 'invasive' || str === 'true' || str === 'yes' || str === 'Invasive' || str === 'True' || str === 'Yes';
+}
 

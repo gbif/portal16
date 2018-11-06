@@ -1,23 +1,23 @@
 {
   "publisher": {
     "tabs": {
-      "aboutPublisher": "",
-      "publishersHomepage": ""
+      "aboutPublisher": "Sobre",
+      "publishersHomepage": "Página inicial"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
-    "technicalContact": "",
-    "country": "",
-    "hosting": "",
-    "description": "",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "joinedAgo": "Desde {TIME_AGO}",
+    "newPublisher": "Publicador novo",
+    "technicalContact": "Contato técnico",
+    "country": "País ou área",
+    "hosting": "Hospedagem",
+    "description": "Descrição",
+    "endorsedBy": "Aprovado por",
+    "pendingEndorsementBy": "Aval pendente por",
+    "installations": "Instalações",
+    "contacts": "Contatos",
+    "administrativeContact": "Contato administrativo",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "Publicador",
+      "sinceDate": "Desde {DATE}"
     }
   }
 }

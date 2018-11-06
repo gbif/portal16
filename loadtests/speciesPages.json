@@ -1,0 +1,39 @@
+{
+  "config": {
+    "target": "http://localhost:3004",
+    "http": {
+      "pool": 100
+    },
+    "phases": [
+      {
+        "duration": 2,
+        "arrivalRate": 5
+      },
+      {
+        "duration": 10,
+        "arrivalRate": 50,
+        "rampTo": 300
+      }
+    ],
+    "payload": [
+      {
+        "path": "./speciesKeys.csv",
+        "fields": [
+          "key"
+        ]
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "name": "Species pages",
+      "flow": [
+        {
+          "get": {
+            "url": "/species/{{ key }}"
+          }
+        }
+      ]
+    }
+  ]
+}

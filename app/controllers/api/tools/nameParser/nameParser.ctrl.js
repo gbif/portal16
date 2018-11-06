@@ -1,6 +1,6 @@
 let express = require('express'),
     path = require('path'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/api/tools/nameparser', router);

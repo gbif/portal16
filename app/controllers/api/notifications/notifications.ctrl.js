@@ -2,7 +2,7 @@
 let express = require('express'),
     log = rootRequire('config/log'),
     notifications = require('./notifications.model'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/api/notifications', router);

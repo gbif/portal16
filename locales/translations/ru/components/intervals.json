@@ -1,43 +1,43 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "Без фильтров",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Составляет {from}м",
+            "between": "Между {from} и {to}м",
+            "lessThanOrEquals": "Ниже {to}м",
+            "greaterThanOrEquals": "Выше {from}м",
+            "invalid": "Ошибочный",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Равняется",
+                "between": "Между",
+                "lessThanOrEquals": "Ниже",
+                "greaterThanOrEquals": "Выше"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Составляет {from}м",
+            "between": "Между {from} и {to}м",
+            "lessThanOrEquals": "Выше {to}м глубины",
+            "greaterThanOrEquals": "Глубже, чем {from}м",
+            "invalid": "Ошибочный",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Равняется",
+                "between": "Между",
+                "lessThanOrEquals": "Менее чем",
+                "greaterThanOrEquals": "Глубже, чем"
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Составляет {from}",
+            "between": "Между началом {from} и окончанием {to}",
+            "lessThanOrEquals": "До окончания {to}",
+            "greaterThanOrEquals": "После начала {from}",
+            "invalid": "Ошибочный",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Равняется",
+                "between": "Между",
+                "lessThanOrEquals": "До окончания",
+                "greaterThanOrEquals": "После начала"
             }
         }
     }

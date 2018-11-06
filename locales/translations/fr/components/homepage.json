@@ -1,13 +1,13 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
-            "datasets": "",
-            "publishers": "",
-            "species": "",
-            "speciesSubtitle": ""
+            "occurrences": "Occurrences",
+            "datasets": "Jeux de données",
+            "publishers": "Institutions éditrices",
+            "species": "Espèces",
+            "speciesSubtitle": "En savoir plus sur le nombre d’espèces couvertes par les données dans GBIF.org."
         },
-        "aboutGbifCountry": "",
-        "summary": ""
+        "aboutGbifCountry": "A propos de GBIF {COUNTRY}",
+        "summary": "Accès libre et gratuit aux données de biodiversité"
     }
 }

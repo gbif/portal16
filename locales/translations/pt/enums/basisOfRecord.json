@@ -1,14 +1,14 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
-    "LIVING_SPECIMEN": "",
-    "OBSERVATION": "",
-    "HUMAN_OBSERVATION": "",
-    "MACHINE_OBSERVATION": "",
-    "MATERIAL_SAMPLE": "",
-    "LITERATURE": "",
-    "UNKNOWN": "",
-    "undefined": ""
+    "PRESERVED_SPECIMEN": "Espécime preservado",
+    "FOSSIL_SPECIMEN": "Espécime fóssil",
+    "LIVING_SPECIMEN": "Espécime vivo",
+    "OBSERVATION": "Observação",
+    "HUMAN_OBSERVATION": "Observação humana",
+    "MACHINE_OBSERVATION": "Observação por máquina",
+    "MATERIAL_SAMPLE": "Amostra de material",
+    "LITERATURE": "Bibliografia",
+    "UNKNOWN": "Desconhecido",
+    "undefined": "Desconhecido"
   }
 }

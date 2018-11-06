@@ -3,7 +3,7 @@
     "leaveFeedback": "Leave feedback",
     "intro": {
       "title": "Feedback and questions",
-      "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
+      "example": "Help us resolve any issues by choosing which type of feedback you’re providing. Please submit your feedback in English, if possible."
     },
     "data content": {
       "title": "Content",
@@ -37,11 +37,11 @@
     },
     "placeholders": {
       "summary": "Summary",
-      "description": "Detailed description. For taxonomic claims, please provide a reference",
+      "description": "Detailed description. For taxonomic claims, please provide a reference. Please submit your feedback in English, if possible.",
       "username": "Your email or Github username (public)"
     },
     "markdownSupport": "Markdown support",
-    "issueTracking": "All issues are visible to the public at [Github](https://github.com/gbif/portal-feedback/issues)",
+    "issueTracking": "All issues are public and available through [Github](https://github.com/gbif/portal-feedback/issues)",
     "failure": "This isn’t good — the feedback system doesn’t work. Please send us a mail or go straight to [Github](https://github.com/gbif/portal-feedback/issues). We are sorry about the trouble.",
     "weRecommendX": "We recommend using [{NAME}]({LINK})",
     "tellGbif": "Tell GBIF",

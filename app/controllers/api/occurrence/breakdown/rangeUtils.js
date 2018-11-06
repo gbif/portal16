@@ -4,7 +4,7 @@
 'use strict';
 
 let _ = require('lodash'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     facetConfig = require('./config'),

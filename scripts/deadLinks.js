@@ -8,7 +8,7 @@ let credentials = require('../config/credentials'),
     url = require('url'),
     fs = require('fs'),
     getLinks = require('get-md-links'),
-    md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true});
+    md = require('markdown-it')({ html: true, linkify: true, typographer: true, breaks: true });
 
 md.linkify.tlds('fuzzyLink', false);
 
@@ -17,7 +17,7 @@ async function getContentType(contentType) {
         contentType: contentType,
         limit: 1000
     };
-    let results = await resourceSearch.search(q, undefined, {rawResponse: true, requestTimeout: 120000});
+    let results = await resourceSearch.search(q, undefined, { rawResponse: true, requestTimeout: 120000 });
 
     return results;
 }
@@ -82,12 +82,12 @@ async function search() {
         });
 
         //prefix relative links
-        links = links.map(function(e){
-           if (_.startsWith(e, '/')) {
-               return 'https://www.gbif.org' + e;
-           } else {
-               return e;
-           }
+        links = links.map(function (e) {
+            if (_.startsWith(e, '/')) {
+                return 'https://www.gbif.org' + e;
+            } else {
+                return e;
+            }
         });
 
         //remove gbif links and doi links
@@ -101,7 +101,7 @@ async function search() {
 
         //prunedItem._links = links;
 
-        allLinks = allLinks.concat(links.map(function(e){
+        allLinks = allLinks.concat(links.map(function (e) {
             return {
                 link: e,
                 prunedItem
@@ -126,7 +126,7 @@ async function search() {
                 console.log('results written to file');
             });
 
-            let suspicousLinks = _.filter(statusCodes, function(e){
+            let suspicousLinks = _.filter(statusCodes, function (e) {
                 return e.statusCode > 299;
             });
 
@@ -141,7 +141,8 @@ async function search() {
     // console.log(allLinks);
 }
 
-var fetch = require("fetch");
+let fetch = require('fetch');
+
 function isAvilable(item, cb) {
     try {
         let options = {
@@ -149,11 +150,11 @@ function isAvilable(item, cb) {
             maxResponseLength: 10000,
             timeout: 30000
         };
-        fetch.fetchUrl(item.link, options, function(error, meta, body){
+        fetch.fetchUrl(item.link, options, function(error, meta, body) {
             if (error) {
                 item.statusCode = _.get(error, 'status') || 500;
             } else {
-                item.statusCode = _.get(meta, 'status') || 502
+                item.statusCode = _.get(meta, 'status') || 502;
             }
             cb(null, item);
         });

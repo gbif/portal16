@@ -1,23 +1,23 @@
 {
   "publisher": {
     "tabs": {
-      "aboutPublisher": "",
-      "publishersHomepage": ""
+      "aboutPublisher": "О публикаторе",
+      "publishersHomepage": "Домашняя страница"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
-    "technicalContact": "",
-    "country": "",
-    "hosting": "",
-    "description": "",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "joinedAgo": "Присоединился {TIME_AGO}",
+    "newPublisher": "Новый публикатор",
+    "technicalContact": "Технический контакт",
+    "country": "Страна или регион",
+    "hosting": "Хостинг",
+    "description": "Описание",
+    "endorsedBy": "Одобрено",
+    "pendingEndorsementBy": "Ожидает одобрения",
+    "installations": "Установки",
+    "contacts": "Контакты",
+    "administrativeContact": "Административный контакт",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "Публикатор данных",
+      "sinceDate": "Начиная с {DATE}"
     }
   }
 }

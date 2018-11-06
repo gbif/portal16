@@ -1,0 +1,17 @@
+{
+  "apps" : [{
+    "name"        : "portal16",
+    "script"      : "app.js",
+    "args"        : ["--port=3004", "--credentials=/etc/portal16/credentials", "--redirects=/etc/portal16/redirects"],
+    "watch"       : true,
+    "node_args"   : "",
+    "merge_logs"  : true,
+    "cwd"         : "/Users/hoefft/dev/git/gbif/portal16",
+    "env": {
+      "NODE_ENV": "local"
+    },
+    "env_production" : {
+       "NODE_ENV": "production"
+    }
+  }]
+}

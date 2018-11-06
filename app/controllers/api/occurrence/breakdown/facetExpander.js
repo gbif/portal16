@@ -4,7 +4,7 @@ let i18n = require('../../../../../config/i18n'),
     _ = require('lodash'),
     config = require('./config'),
     changeCase = require('change-case'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 module.exports = {
     expandFacets: expandFacets,

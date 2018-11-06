@@ -1,12 +1,12 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "給予回饋意見",
     "intro": {
       "title": "",
       "example": ""
     },
     "data content": {
-      "title": "",
+      "title": "內容",
       "example": "",
       "annotate": "",
       "contactPerMail": ""
@@ -20,20 +20,20 @@
       "example": ""
     },
     "question": {
-      "title": "",
-      "example": "",
+      "title": "服務台",
+      "example": "例如: 如何保護稀有物種的資料？你能幫我找到此物種在國際水域發生的所有紀錄嗎？",
       "description": "",
       "comment": ""
     },
     "confirmation": {
-      "title": "",
+      "title": "謝謝",
       "example": "",
       "seeIssue": ""
     },
     "issues": {
       "title": "",
       "description": "",
-      "create": ""
+      "create": "給予回饋意見"
     },
     "placeholders": {
       "summary": "",

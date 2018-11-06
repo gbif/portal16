@@ -1,56 +1,56 @@
 {
     "tools": {
-        "categoryFeatured": "",
+        "categoryFeatured": "Избранные",
         "suggestDataset": {
-            "NOT_OPEN": "",
+            "NOT_OPEN": "Не открытая лицензия",
             "title": "Сообщить о наборе данных",
-            "pleaseDescribeTheDataset": "",
-            "thankYou": "",
+            "pleaseDescribeTheDataset": "Пожалуйста, опишите набор данных",
+            "thankYou": "Благодарим вас",
             "form": {
-                "title": "",
-                "link": "",
-                "region": "",
-                "taxon": "",
-                "whyImportant": "",
-                "howWouldYouRateIt": "",
-                "high": "",
-                "medium": "",
-                "low": "",
-                "bibliographicRef": "",
-                "type": "",
-                "license": "",
-                "dataHolderContact": "",
-                "publicAlert": "",
-                "yourContact": "",
-                "comments": "",
-                "submit": "",
-                "followDiscussionBelow": "",
-                "followIssue": "",
-                "suggestAnother": "",
-                "saveFailure": ""
+                "title": "Название",
+                "link": "Интернет-ссылка на данные",
+                "region": "Географический охват",
+                "taxon": "Таксономический охват",
+                "whyImportant": "Почему важен этот набор данных",
+                "howWouldYouRateIt": "Как бы Вы оценили значение этого набора данных?",
+                "high": "Необходимый - в GBIF отсутствуют данные с этой территории",
+                "medium": "Важный - в GBIF мало данных с этой территории",
+                "low": "Это будет хорошим дополнением к существующим данным",
+                "bibliographicRef": "Библиографическая ссылка",
+                "type": "Тип набора данных",
+                "license": "Информация о лицензии",
+                "dataHolderContact": "Контактная информация владельца данных",
+                "publicAlert": "Эта информация будет общедоступной",
+                "yourContact": "Ваша контактная информация",
+                "comments": "Комментарии",
+                "submit": "Отправить",
+                "followDiscussionBelow": "Для того, чтобы подписаться на дальнейшее обсуждение используйте нижеприведенную ссылку.",
+                "followIssue": "Посмотреть предложение на github",
+                "suggestAnother": "Предложить другой набор данных",
+                "saveFailure": "К сожалению, мы не смогли сохранить Ваше предложение. Пожалуйста, повторите попытку позже или же пойдите прямо на [Github](https://github.com/gbif/data-mobilization/issues), где производится обработка предложений"
             }
         },
         "observationTrends": {
-            "drawerTitle": "",
-            "intro": "",
-            "aboutLink": "",
-            "selectSpecies": "",
-            "noData": "",
-            "selectHigherTaxa": "",
-            "selectArea": "",
-            "hexagon": "",
-            "draw": "",
-            "clear": "",
-            "resultIntro": "",
-            "embedIntro": ""
+            "drawerTitle": "Тенденции в изменении количества наблюдений",
+            "intro": "Пилотный проект для проверки того, является ли оценка тенденций относительного изменения числа наблюдений за видами, опубликованными через GBIF, полезной информацией для исследователей",
+            "aboutLink": "Читать об этом инструменте",
+            "selectSpecies": "Выбрать виды",
+            "noData": "У нас нет данных с географическими привязками для выбранного вида после 1900 года",
+            "selectHigherTaxa": "Выбрать высший таксон",
+            "selectArea": "Выбрать территорию",
+            "hexagon": "Шестиугольник",
+            "draw": "Нарисовать",
+            "clear": "Очистить",
+            "resultIntro": "Изменения относительной частоты наблюдений для выбранной территории",
+            "embedIntro": "Все данные передаются через {GBIF network}"
         },
         "speciesLookup": {
-            "description": "",
-            "title": ""
+            "description": "Стандартизировать названия видов из CSV-файла согласно базовой таксономии GBIF. Файл должен содержать столбец с названием 'научноеНазвание' и необязательный столбец 'царство' и 'id'.",
+            "title": "Совпадение названий видов"
         },
         "ipt": {
-            "description": "",
-            "dontSeeYourIpt": ""
+            "description": "Интегрированный инструментарий для публикации (IPT) является бесплатным программным инструментом с открытым исходным кодом, написанным на языке Java, который используется для публикации и обмена наборами данных о биоразнообразии через сеть GBIF. IPT также можно настроить с помощью аккаунта DataCite или EZID для присвоения DOI наборам данных, преобразуя его в хранилище данных.",
+            "dontSeeYourIpt": "Не видите ваш экземпляр IPT? Отправьте сообщение в [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") ваши координаты."
         }
     }
 }

@@ -1,36 +1,36 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
-        "clear": "",
-        "add": "",
+        "searchPlaceholder": "Rechercher",
+        "noPreference": "Pas de préférence",
+        "invert": "Inverser",
+        "clear": "Effacer",
+        "add": "Ajouter",
         "repatriation": {
-            "description": ""
+            "description": "Les données sont considérées comme rapatriées lorsqu’elles sont publiées par une institution d'un pays, mais font partie de la biodiversité d'un autre pays"
         },
         "ternary": {
-            "yes": "",
-            "no": "",
-            "all": ""
+            "yes": "Oui",
+            "no": "Non",
+            "all": "Tout"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
-            "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "north": "Nord",
+            "south": "Sud",
+            "west": "Ouest",
+            "east": "Est",
+            "withCoordinates": "Incluant les coordonnées",
+            "withoutCoordinates": "Sans coordonnées",
+            "includeFlaggedAsSuspicious": "Inclus des enregistrements dont les coordonnées sont marquées comme suspectes",
+            "onlyShowFlagged": "Montrer uniquement les enregistrements marqués comme suspects",
+            "past": "Récemment utilisé",
+            "geojson": "GeoJSON",
+            "range": "Couverture",
+            "noFiltersAdded": "Aucun filtre d'aire n'a été ajouté",
+            "wktPlaceholder": "WKT ou GeoJSON — les polygones multiples ne sont pas supportés",
+            "invalidTextInput": "WKT ou GeoJSON invalide",
+            "tooLarge": "Géométrie trop large",
+            "tooLargeSuggestion": "Essayez d’utiliser une boîte englobante pour filtrer plus précisément",
+            "invalidRange": "Boîte englobante non valide"
         }
     }
 }

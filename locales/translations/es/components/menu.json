@@ -10,9 +10,9 @@
     "citationGuidance": "Guía sobre cómo citar",
     "share": "Compartir",
     "dataPublishing": "Publicación de datos",
-    "datasetClasses": "Tipos de conjuntos de datos",
-    "dataQuality": "",
-    "dataHosting": "",
+    "datasetClasses": "Tipos de juegos de datos",
+    "dataQuality": "Calidad de datos",
+    "dataHosting": "Alojamiento de datos",
     "publishingGuide": "Publicación de datos",
     "endorsement": "Conviértase en publicador",
     "standards": "Estándares",
@@ -46,16 +46,16 @@
     "contactUs": "Contactos",
     "information": "Noticias & Divulgación",
     "news": "Noticias",
-    "literature": "Literatura",
+    "literature": "Bibliografía",
     "newsletters": "Boletines y listas",
     "featuredDataUse": "Uso de datos",
     "events": "Eventos",
     "awards": "Reconocimientos",
     "ProgrammesProjects": "Programas y proyectos",
-    "capacitySupport": "Programa de Apoyo para el Fortalecimiento de Capacidades (CESP)",
+    "capacitySupport": "Programa de Apoyo para la Mejora de Capacidades (CESP, por sus siglas en ingles)",
     "bidProgramme": "Información de Biodiversidad para el Desarrollo (BID)",
     "bifaProgramme": "Fondo de Información en Biodiversidad para Asia (BIFA, por sus siglas en inglés)",
     "funders": "Patrocinadores",
-    "governance": "Gobernanza"
+    "governance": "Gobierno"
   }
 }

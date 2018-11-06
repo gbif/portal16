@@ -4,7 +4,7 @@
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
                     <span class="article-header__category__upper" translate="dataset.longType.SAMPLING_EVENT"></span>
-                    <span class="article-header__category__lower" >{{ datasetEvent.event.eventDate | momentFormat:"LL"}}</span>
+                    <span class="article-header__category__lower" >{{ datasetEvent.event.eventDate | momentFormat:"D MMMM YYYY"}}</span>
                 </nav>
 
                 <h1 class="text-center">

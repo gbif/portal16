@@ -1,64 +1,64 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "automatedMonitoring": "Monitorização automatizada",
+        "systemLoad": "Carga do sistema",
+        "messages": "Mensagens",
+        "version": "Versão",
+        "nInQueue": "{NUMBER} na fila",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "Operacional",
+            "WARNING": "Instável",
+            "CRITICAL": "Não utilizável",
+            "INFO": "Atualização de sistema"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Ocorrência",
+                "tooltip": "E.g. busca e visualização de ocorrências."
             },
             "SPECIES": {
-                "name": "",
-                "tooltip": ""
+                "name": "Espécie",
+                "tooltip": "E.g. Procurar e visualizar espécies, sugestões de espécies"
             },
             "REGISTRY": {
                 "name": "Inscrição",
-                "tooltip": ""
+                "tooltip": "E.g. Conjunto de dados, publicadores, instalações, países, participantes e redes."
             },
             "IDENTITY": {
-                "name": "",
-                "tooltip": ""
+                "name": "Identidade",
+                "tooltip": "Para log in e out, conectar-se a contas, etc."
             },
             "MAPS": {
-                "name": "",
-                "tooltip": ""
+                "name": "Mapas",
+                "tooltip": "Para exibir imagens de mapa e obter informação sobre um mapa."
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "Sistema de gestão de conteúdo (sistema externo)",
+                "tooltip": "E.g. notícias e artigos"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Cache de imagem",
+                "tooltip": "Responsável pela maioria das imagens no sítio web"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "GitHub (sistema externo)",
+                "tooltip": "Comentários, sugestões de conjuntos de dados"
             },
             "CRAWLER": {
-                "name": "",
-                "tooltip": ""
+                "name": "Ingestão",
+                "tooltip": "Para atualizar conjuntos de dados - novo e antigo."
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "Pesquisa de recursos",
+                "tooltip": "E.g. para pesquisar a literatura, notícias."
             },
             "CLUSTER": {
-                "name": "",
-                "tooltip": ""
+                "name": "Carga do sistema",
+                "tooltip": "O backend para manipulação de transferências, ingestão e muito mais."
             },
             "DOWNLOAD": {
-                "name": "",
-                "tooltip": ""
+                "name": "Transferências",
+                "tooltip": "Para manipulação de trabalhos de transferência e enviar notificações aos utilizadores"
             }
         }
     }

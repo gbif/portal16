@@ -6,14 +6,15 @@
       "dataAbout": "Datos sobre",
       "participartion": "Participación",
       "publications": "Publicaciones",
-      "news": "Noticias"
+      "news": "Noticias",
+      "invasives": ""
     },
     "memberSince": "Miembro desde",
     "dataFrom": "Datos de",
     "dataAboutCountry": "Datos sobre",
     "publishingTrends": "Tendencias de publicación",
     "noDataPublishingActivity": "Sin actividad de publicación de datos",
-    "noInstitutionsHavePublished": "No existen instituciones de este país que haya publicado datos mediante GBIF",
+    "noInstitutionsHavePublished": "No existen instituciones de éste país que hayan publicado datos en GBIF",
     "trendsAboutCountry": "Tendencias sobre",
     "nFrom": "{NUMBER_FORMATTED} de",
     "nAbout": "{NUMBER_FORMATTED} sobre",
@@ -28,9 +29,9 @@
       "publishers": "Publicadores",
       "countriesAndAreasContributeData": "Países y áreas que contribuyen con datos",
       "publishedOccurrences": "Registros de presencia publicados",
-      "publishedDatasets": "Conjuntos de datos publicados",
+      "publishedDatasets": "Juegos de datos publicados",
       "countriesAndAreasCoveredByDataFrom": "Países y áreas cubiertas por datos de",
-      "publishersFrom": "Publicadores de"
+      "publishersFrom": "Proveedores de"
     },
     "activityReport": "Informe de actividad"
   }

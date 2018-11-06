@@ -1,13 +1,13 @@
 {
   "network": {
-    "network": "",
+    "network": "Сеть",
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": "",
-      "datasets": ""
+      "summary": "Краткое описание",
+      "homepage": "Главная",
+      "metrics": "Метрика",
+      "datasets": "Сеть"
     },
-    "registeredDate": "",
-    "nParticipatingDatasets": ""
+    "registeredDate": "Зарегистрировано {DATE}",
+    "nParticipatingDatasets": "{NUMBER_FORMATED} участвующих {NUMBER, select, 1{набор данных} other{наборов данных}}"
   }
 }

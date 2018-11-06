@@ -133,8 +133,8 @@
                         Lists all vernacular names for a name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/typeSpecimens", resp="TypeSpecimen Page", paging=true, respLink=apiBase+"species/5231190/typeSpecimens") %}
-                        Lists all type specimens for a name usage
+                        {% call trow(url="/{int}/typeSpecimens", resp="TypeSpecimen Page", paging=true, respLink=apiBase+"species/1720860/typeSpecimens") %}
+                        Lists all type specimens for a name usage, see also <a href="https://github.com/gbif/portal-feedback/issues/1146#issuecomment-366260607">limitations</a>
                         {% endcall %}
                         </tbody>
                     </table>

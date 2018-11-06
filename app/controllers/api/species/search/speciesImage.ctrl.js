@@ -3,7 +3,7 @@ let express = require('express'),
     router = express.Router(),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     log = require('../../../../../config/log');
 
 

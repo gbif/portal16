@@ -41,13 +41,19 @@
             <section id="features" class="white-background page--developer__anchor">
                 <div class="container--narrow">
                     <h3>Feature overview</h3>
+
+                    <p style="text-align: center">
+                        <a href="https://api.gbif.org/v2/map/occurrence/density/2/3/2@1x.png?taxonKey=212&country=AU&style=orangeHeat.point"><img src="https://api.gbif.org/v2/map/occurrence/density/2/3/2@1x.png?taxonKey=212&country=AU&style=orangeHeat.point" width="128" height="128" style="max-width: inherit; background-image: url(https://tile.gbif.org/3857/omt/2/3/2@1x.png?style=gbif-dark); background-size: 128px 128px;"/></a><br/>
+                        <em>Birds (<i>Aves</i>) in Australia.</em>
+                    </p>
+
                     <p>
                         The following features are supported:
                     <ul>
                         <li>Map layers are available for a <strong>country</strong>, <strong>dataset</strong>,
-                            <strong>taxon</strong> (species, subspecies or higher taxon), <strong>publisher</strong>,
+                            <strong>taxon</strong> (including species, subspecies or higher taxon), <strong>publisher</strong>,
                             <strong>publishing country</strong> or <strong>network</strong>.
-                            These layers can be filtered by <strong>year range</strong> and <strong>basis of record</strong>.
+                            These layers can be filtered by <strong>year range</strong>, <strong>basis of record</strong> and <strong>country</strong>.
                         </li>
                         <li>Data is returned as points, or "binned" into hexagons or squares.</li>
                         <li>Four map projections are supported.</li>
@@ -72,7 +78,7 @@
 
                     <p>A modern web browser can show either format.  The styling of vector tiles is determined by client-side configuration (e.g. JavaScript); raster tiles are styled according to a limited set of GBIF styles.  Point vector tiles are usually larger than an equivalent raster tile, and few JavaScript libraries can render them with acceptable speed.  Simple vector tiles (few points, or any number of squares or hexagons) are small, fast to render, and can make zooming in and out smoother.</p>
 
-                    <p>Vector tiles use <a href="https://www.mapbox.com/vector-tiles/">Mapbox Vector Tile format</a>, and contain a single layer <tt>occurrence</tt>.  Objects in that layer are either points (default) or polygons (if chosen), each object has a <tt>total</tt> value; that is the number of occurrences at that point or in the polygon.</p>
+                    <p>Vector tiles use <a href="https://www.mapbox.com/vector-tiles/">Mapbox Vector Tile format</a>, and contain a single layer <code>occurrence</code>.  Objects in that layer are either points (default) or polygons (if chosen), each object has a <code>total</code> value; that is the number of occurrences at that point or in the polygon.</p>
 
                     <p>Raster tiles are provided in PNG format, and are normally 512px wide squares.</p>
                 </div>
@@ -91,24 +97,24 @@
 
                     <table class="table table-bordered">
                         <tr>
-                            <th><tt>source</tt></th>
-                            <td>Either <tt>density</tt> for fast, precalculated tiles, or <tt>adhoc</tt> for any search.</td>
+                            <th><code>source</code></th>
+                            <td>Either <code>density</code> for fast, precalculated tiles, or <code>adhoc</code> for any search.</td>
                         </tr>
                         <tr>
-                            <th><tt>z</tt>, <tt>x</tt>, <tt>y</tt></th>
+                            <th><code>z</code>, <code>x</code>, <code>y</code></th>
                             <td>the zoom, column and row</td>
                         </tr>
 
                         <tr>
-                            <th><tt>format</tt></th>
+                            <th><code>format</code></th>
                             <td>
                                 <ul>
-                                    <li><tt>.mvt</tt> for a vector tile</li>
-                                    <li><tt>@Hx.png</tt> for a 256px raster tile (for legacy clients)</li>
-                                    <li><tt>@1x.png</tt> for a 512px raster tile</li>
-                                    <li><tt>@2x.png</tt> for a 1024px raster tile</li>
-                                    <li><tt>@3x.png</tt> for a 2048px raster tile</li>
-                                    <li><tt>@4x.png</tt> for a 4096px raster tile</li>
+                                    <li><code>.mvt</code> for a vector tile</li>
+                                    <li><code>@Hx.png</code> for a 256px raster tile (for legacy clients)</li>
+                                    <li><code>@1x.png</code> for a 512px raster tile</li>
+                                    <li><code>@2x.png</code> for a 1024px raster tile</li>
+                                    <li><code>@3x.png</code> for a 2048px raster tile</li>
+                                    <li><code>@4x.png</code> for a 4096px raster tile</li>
                                 </ul>
                                 The larger raster tiles are intended for high resolution displays, e.g. 4K displays and many mobile phones.
                             </td>
@@ -116,7 +122,7 @@
 
                         <tr>
                             <th>
-                                <tt>srs</tt>
+                                <code>srs</code>
                             </th>
                             <td>Spatial reference system.  One of:
                                 <ul>
@@ -130,25 +136,25 @@
                         </tr>
 
                         <tr>
-                            <th><tt>bin</tt> (optional)</th>
-                            <td><tt>square</tt> or <tt>hex</tt> to aggregate occurrence counts into squares or hexagons.  Points by default.
+                            <th><code>bin</code> (optional)</th>
+                            <td><code>square</code> or <code>hex</code> to aggregate occurrence counts into squares or hexagons.  Points by default.
                             </td>
                         </tr>
 
                         <tr>
-                            <th><tt>hexPerTile</tt> (optional)</th><td>sets the size of the hexagons (the number horizontally across a tile)</td>
+                            <th><code>hexPerTile</code> (optional)</th><td>sets the size of the hexagons (the number horizontally across a tile)</td>
                         </tr>
 
                         <tr>
-                            <th><tt>squareSize</tt> (optional)</th><td>sets the size of the squares.  Choose a factor of 4096 so they tessalate correctly: probably from <tt>8</tt>, <tt>16</tt>, <tt>32</tt>, <tt>64</tt>, <tt>128</tt>, <tt>256</tt>, </tt>512</tt>.</td>
+                            <th><code>squareSize</code> (optional)</th><td>sets the size of the squares.  Choose a factor of 4096 so they tessalate correctly: probably from <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, <code>256</code>, </code>512</code>.</td>
                         </tr>
 
                         <tr>
-                            <th><tt>style</tt> (optional)</th><td>for raster tiles, choose from the available styles. Defaults to <tt>classic.point</tt>.</td>
+                            <th><code>style</code> (optional)</th><td>for raster tiles, choose from the available styles. Defaults to <code>classic.point</code>.</td>
                         </tr>
 
                         <tr>
-                            <th><tt>params</tt> (optional)</th><td>parameters from the occurrence API, e.g. <tt>taxonKey</tt>.  See the next section.</td>
+                            <th><code>params</code> (optional)</th><td>parameters from the occurrence API, e.g. <code>taxonKey</code>.  See the next section.</td>
                         </tr>
                     </table>
                 </div>
@@ -166,12 +172,16 @@
                     </p>
 
                     <p>
-                        An additional parameter <tt>year</tt> limits the occurrences within a range of years, for example <tt>2000,2010</tt>.
+                        This can be combined with the parameter <code>country</code>, this limits the primary search to occurrences in that country.
                     </p>
 
                     <p>
-                        The final parameter <tt>basisOfRecord</tt> can be given multiple times to include records with that <a href="http://rs.tdwg.org/dwc/terms/#basisOfRecord">basis of record</a>.
-                        The full list is: <tt>OBSERVATION</tt>, <tt>HUMAN_OBSERVATION</tt>, <tt>MACHINE_OBSERVATION</tt>, <tt>MATERIAL_SAMPLE</tt>, <tt>PRESERVED_SPECIMEN</tt>, <tt>FOSSIL_SPECIMEN</tt>, <tt>LIVING_SPECIMEN</tt>, <tt>LITERATURE</tt>, <tt>UNKNOWN</tt>.
+                        An additional parameter <code>year</code> limits the occurrences within a range of years, for example <code>2000,2010</code>.
+                    </p>
+
+                    <p>
+                        The final parameter <code>basisOfRecord</code> can be given multiple times to include records with that <a href="http://rs.tdwg.org/dwc/terms/#basisOfRecord">basis of record</a>.
+                        The full list is: <code>OBSERVATION</code>, <code>HUMAN_OBSERVATION</code>, <code>MACHINE_OBSERVATION</code>, <code>MATERIAL_SAMPLE</code>, <code>PRESERVED_SPECIMEN</code>, <code>FOSSIL_SPECIMEN</code>, <code>LIVING_SPECIMEN</code>, <code>LITERATURE</code>, <code>UNKNOWN</code>.
                     </p>
 
                     <p>

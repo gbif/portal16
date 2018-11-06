@@ -45,7 +45,7 @@
         <div>
             <ul class="inline-bullet-list">
                 <li ng-repeat="userId in vm.getAsArray(vm.contact.userId)" ng-if="userId">
-                    <a ng-href="{{ userId }}"><img src="/img/orcid_16x16.gif" class="orcid-small" ng-if="vm.isOrcid(userId)">{{ userId }}</a>
+                    <a ng-href="{{ userId }}" class="breakAll"><img src="/img/orcid_16x16.gif" class="orcid-small" ng-if="vm.isOrcid(userId)">{{ userId }}</a>
                 </li>
             </ul>
         </div>

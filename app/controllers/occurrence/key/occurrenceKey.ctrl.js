@@ -2,10 +2,10 @@ let express = require('express'),
     occurrenceKey = require('./occurrenceKey'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     helper = rootRequire('app/models/util/util'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     querystring = require('querystring'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

@@ -60,7 +60,7 @@
     "invalidUsername": "A valid username is 3-64 characters and only contains letters a-z (lowercase) and ._-",
     "passwordRequired": "Password is required",
     "passwordLength": "Password must be 6 characters or more",
-    "passwordMaxLength": "You password may not be above 256 characters",
+    "passwordMaxLength": "Your password may not exceed 256 characters",
     "next": "Next",
     "pleaseFillForm": "Please fill in form",
     "selectAllImages": "Select all images below like this one",

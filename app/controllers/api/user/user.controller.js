@@ -4,7 +4,7 @@ let userModel = require('./user.model'),
     _ = require('lodash'),
     querystring = require('querystring'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     log = require('../../../../config/log');
 
 module.exports = {

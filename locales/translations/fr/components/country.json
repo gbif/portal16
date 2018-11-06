@@ -1,37 +1,38 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
-      "dataPublishing": "",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
-      "news": ""
+      "summary": "Résumé",
+      "dataPublishing": "Données publiées",
+      "dataAbout": "Données à propos",
+      "participartion": "Participation",
+      "publications": "Publications",
+      "news": "Actualités",
+      "invasives": ""
     },
-    "memberSince": "",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
-    "nFrom": "",
-    "nAbout": "",
-    "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "memberSince": "Membre depuis",
+    "dataFrom": "Données de {TRANSLATED_COUNTRY}",
+    "dataAboutCountry": "Données à propos de {TRANSLATED_COUNTRY}",
+    "publishingTrends": "Tendances de publication",
+    "noDataPublishingActivity": "Aucune activité de publication de données",
+    "noInstitutionsHavePublished": "Aucune institution de ce pays n’a publié de données via le GBIF",
+    "trendsAboutCountry": "Tendances concernant {TRANSLATED_COUNTRY}",
+    "nFrom": "{NUMBER_FORMATTED} provenant de",
+    "nAbout": "{NUMBER_FORMATTED} concernant",
+    "viewAllN": "Tout voir {NUMBER_FORMATTED}",
+    "noPublications": "Aucune publication",
+    "notParticipant": "Pas un participant",
+    "notParticipantDescription": "Ce pays n’est pas un participant du GBIF",
+    "countryNamingDisclaimer": "Les noms des pays et des aires sont basés sur la norme [ISO 3166-1](https://www.iso.org/obp/ui/#search)",
     "counts": {
-      "occurrences": "",
-      "datasets": "",
-      "publishers": "",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "occurrences": "Occurrences",
+      "datasets": "Jeux de données",
+      "publishers": "Fournisseurs de données",
+      "countriesAndAreasContributeData": "Pays et territoires fournissant des données",
+      "publishedOccurrences": "Occurrences publiées",
+      "publishedDatasets": "Jeux de données publiés",
+      "countriesAndAreasCoveredByDataFrom": "Pays et zones couvertes par les données de {TRANSLATED_COUNTRY}",
+      "publishersFrom": "Fournisseurs de données de {TRANSLATED_COUNTRY}"
     },
-    "activityReport": ""
+    "activityReport": "Rapport d'activité"
   }
 }

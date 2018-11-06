@@ -41,7 +41,7 @@
       "username": "Din e-mail eller Github brugernavn (er offentligt)"
     },
     "markdownSupport": "Markdown understøttes",
-    "issueTracking": "Al feedback er synlig for offentligheden på [Github](https://github.com/gbif/portal-feedback/issues)",
+    "issueTracking": "",
     "failure": "Dette er ikke godt — feedback-system ikke virker. Send os en mail eller gå direkte til [Github](https://github.com/gbif/portal-feedback/issues). Vi beklager ulejligheden.",
     "weRecommendX": "Vi anbefaler at bruge [{NAME}] ({LINK})",
     "tellGbif": "Fortæl det til GBIF",

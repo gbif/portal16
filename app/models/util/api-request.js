@@ -1,5 +1,4 @@
-let request = require('request'),
-    async = require('async'),
+let request = require('../../helpers/request'),
     xmlParser = require('xml2js').parseString,
     isDevMode = require('../../../config/config').env == 'dev',
     log = require('../../../config/log'),
@@ -27,19 +26,18 @@ let STATUS_CODES = Object.freeze({
     BACKEND_FETCH_FAILED: 503
 });
 
-function getData(cb, path, options) {
+function getData(path, options, cb) {
     let requestOptions = {
         url: path,
-        timeout: options.timeoutMilliSeconds
+        method: 'GET',
+        timeout: options.timeout,
+        maxAttempts: options.maxAttempts
     };
 
     requestOptions.headers = options.headers || {};
-    if (!requestOptions.headers['User-Agent']) {
-        requestOptions.headers['User-Agent'] = 'GBIF-portal';
-    }
     if (options.qs) requestOptions.qs = options.qs;
 
-    request.get(requestOptions, function(err, response, body) {
+    request(requestOptions, function(err, response, body) {
         // if timeout
         if (err) {
             if (err.code === 'ETIMEDOUT') {
@@ -141,36 +139,30 @@ function parseJson(body, path, cb) {
 
 function getApiData(path, callback, options) {
     options = options || {};
-    options.timeoutMilliSeconds = options.timeout || options.timeoutMilliSeconds || 3000; // TODO this is silly, why create a new property milliseconds for this? refactor to remove usage everywhere
-    options.retries = options.retries || 2;
+    options.timeout = options.timeout || options.timeoutMilliSeconds || 3000; // TODO this is silly, why create a new property milliseconds for this? refactor to remove usage everywhere
+    options.maxAttempts = options.retries || 2;
     options.failHard = options.failHard || false;
 
-    async.retry(
-        {times: options.retries, interval: 200},
-        function(cb) {
-            getData(cb, path, options);
-        },
-        function(err, result) {
-            if (err) {
-                // failed after all attempts
-                // if fail hard, then return explicit error. This will break async requests
-                // else return result marked as error
+    getData(path, options, function(err, result) {
+        if (err) {
+            // failed after all attempts
+            // if fail hard, then return explicit error. This will break async requests
+            // else return result marked as error
 
-                // log failed request if in development mode - otherwise leave it to the using function to decide if this is a problem. could well be a simple timeout or a wrong query
-                if (isDevMode) {
-                    log.error('api request failed at: ' + path, err.errorType);
-                }
-                if (options.failHard) {
-                    callback(err, null);
-                } else {
-                    callback(null, err);
-                }
-            } else {
-                // got useful response back
-                callback(null, result);
+            // log failed request if in development mode - otherwise leave it to the using function to decide if this is a problem. could well be a simple timeout or a wrong query
+            if (isDevMode) {
+                log.error('only in dev mode. api request failed at: ' + path, err.errorType);
             }
+            if (options.failHard) {
+                callback(err, null);
+            } else {
+                callback(null, err);
+            }
+        } else {
+            // got useful response back
+            callback(null, result);
         }
-    );
+    });
 }
 
 function getApiDataPromise(requestUrl, options) {

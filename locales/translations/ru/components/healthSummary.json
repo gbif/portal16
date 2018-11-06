@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "Состояние системы",
+        "description": "Состояние различных служб GBIF",
+        "updatedTimeAgo": "Обновлено {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "Все системы в норме",
+            "INFO": "Все системы в норме",
+            "WARNING": "Мы столкнулись с нестабильной или замедленной работой системы",
+            "CRITICAL": "Мы столкнулись с частичным отключением"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "Службы портала работают нестабильно",
+                "summary": "В настоящее время мы столкнулись с медленной или нестабильной работой наших служб."
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "Служба недоступна",
+                "summary": "Мы столкнулись с частичным отключением"
             }
         }
     }

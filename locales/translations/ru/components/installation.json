@@ -1,11 +1,11 @@
 {
     "installation": {
-        "installation": "",
-        "about": "",
-        "homepage": "",
-        "installationType": "",
-        "hostedBy": "",
-        "registered": "",
-        "endpoints": ""
+        "installation": "Установка",
+        "about": "Об инсталляции",
+        "homepage": "Главная",
+        "installationType": "Тип исталляции",
+        "hostedBy": "Размещено на",
+        "registered": "Зарегистрировано",
+        "endpoints": "Конечные точки"
     }
 }

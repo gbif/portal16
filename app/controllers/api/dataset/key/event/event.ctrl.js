@@ -3,9 +3,9 @@
 let express = require('express'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     _ = require('lodash'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

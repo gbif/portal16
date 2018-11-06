@@ -2,7 +2,7 @@ let express = require('express'),
     resourceItem = rootRequire('app/helpers/resourceItem'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     helper = rootRequire('app/models/util/util'),
-    router = express.Router();
+    router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);

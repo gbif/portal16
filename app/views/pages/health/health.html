@@ -58,13 +58,6 @@
                         <section class="m-t-2">
                             <h3 class="card-header" translate="health.systemLoad"></h3>
                             <div class="card card--spaced">
-                                <div class="card__stripe status--{{ health.status.load.components.CLUSTER.severity | lowercase }}">
-                                    <div class="card__content">
-                                        <span translate="health.components.CLUSTER.name"></span>
-                                        <span class="pull-right statusLabel">{{ health.status.load.components.CLUSTER.load | formatAsPercentage }}%</span>
-                                    </div>
-                                </div>
-
                                 <div class="card__stripe status--{{ health.status.load.components.CRAWLER.severity | lowercase }}">
                                     <div class="card__content">
                                         <span translate="health.components.CRAWLER.name"></span>
