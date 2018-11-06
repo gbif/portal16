@@ -10,8 +10,8 @@ module.exports = function(app) {
 router.get('/tools/sequence-matching', function(req, res) {
     res.render('pages/tools/sequenceMatching/sequenceMatching', {
         _meta: {
-            title: req.__('nameParser.nameParserTitle'),
-            description: req.__('nameParser.nameParserDescription')
+            title: req.__('Sequence matcher'),
+            description: req.__('A tool for matching fungal DNA sequences')
         }
     });
 });
@@ -19,8 +19,8 @@ router.get('/tools/sequence-matching', function(req, res) {
 router.get('/tools/sequence-matching/about', function(req, res) {
     res.render('pages/tools/sequenceMatching/sequenceMatching', {
         _meta: {
-            title: req.__('nameParser.nameParserTitle'),
-            description: req.__('nameParser.nameParserDescription')
+            title: req.__('Sequence matcher'),
+            description: req.__('A tool for matching fungal DNA sequences')
         }
     });
 });

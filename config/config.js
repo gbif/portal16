@@ -85,7 +85,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org'
     },
     dev: {
         env: env,
@@ -123,7 +124,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org'
     },
     uat: {
         env: env,
@@ -161,7 +163,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org'
     },
     staging: {
         env: env,
@@ -199,7 +202,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org'
     },
     prod: {
         env: env,
@@ -237,7 +241,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org'
     },
     test: {
         env: env,
@@ -275,7 +280,8 @@ let config = {
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org'
     }
 };
 

@@ -11,7 +11,7 @@ module.exports = function(app) {
 };
 
 router.post('/blast', function(req, res) {
-    let url = 'http://localhost:9000/blast';
+    let url = apiConfig.blast.url + '/blast';
     rt({method: 'POST', url: url, body: req.body, json: true})
         .then(function(response) {
             if (response.body.matchType) {

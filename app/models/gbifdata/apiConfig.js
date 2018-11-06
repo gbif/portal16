@@ -213,6 +213,9 @@ let apiConfig = {
     },
     publicKibana: {
         url: publicKibana + '/elasticsearch/_search?'
+    },
+    blast: {
+        url: baseConfig.blastApi
     }
 };
 
