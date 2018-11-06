@@ -52,7 +52,7 @@ function getData(path, options, cb) {
                 }, null);
             } else {
                 cb({
-                    errorType: ERRORS.API_TIMEOUT,
+                    errorType: ERRORS.BACKEND_FETCH_FAILED,
                     errorResponse: err
                 }, null);
             }
