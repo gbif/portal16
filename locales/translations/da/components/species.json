@@ -17,7 +17,10 @@
       "invasiveIn": "",
       "accordingTo": "Ifølge",
       "occurrenceCount": "Obervationer i GBIF",
-      "seeAllCountries": "Vis alle"
+      "seeAllCountries": "Vis alle",
+      "isInvasive": "",
+      "isInvasive_yes": "",
+      "isInvasive_no": ""
     },
     "as": "Som",
     "in": "I",
