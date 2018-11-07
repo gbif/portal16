@@ -18,7 +18,7 @@ function start(cb) {
     options.json = true;
     options.url = config.url;
     options.userAgent = 'GBIF_WEBSITE';
-    options.maxAttempts = 1;
+    options.maxAttempts = 3;
     options.timeout = 10000;
 
     request(options, function(err, response) {
