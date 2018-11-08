@@ -102,6 +102,19 @@
                         </div>
                     {% endif %}
                 </dl>
+                {% if occurrence.record.media.length > 0 %}
+                <div>
+                    {% if occurrence.media.image.length > 0 %}
+                        <a ng-href="#occurrencePage_media" class="btn-circle-md"><i class="gb-icon-camera"></i><div class="btn-circle-md__count">{$ occurrence.media.image.length $}</div></a>
+                    {% endif %}
+                    {% if occurrence.media.video.length > 0 %}
+                        <a ng-href="#occurrencePage_media" class="btn-circle-md"><i class="gb-icon-video"></i><div class="btn-circle-md__count">{$ occurrence.media.video.length $}</div></a>
+                    {% endif %}
+                    {% if occurrence.media.sound.length > 0 %}
+                        <a ng-href="#occurrencePage_media" class="btn-circle-md"><i class="gb-icon-audio"></i><div class="btn-circle-md__count">{$ occurrence.media.sound.length $}</div></a>
+                    {% endif %}
+                </div>
+                {% endif %}
             </div>
             <div>
                 <dl class="inline">
