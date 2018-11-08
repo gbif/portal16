@@ -49,10 +49,10 @@
       "verbatimName": "Verbatim name"
     },
     "media": {
-      "noIdentifier": "",
-      "noPlaybackSupport": "",
-      "takeMeThere": "",
-      "notWorkingTryPublishers": "",
+      "noIdentifier": "No media identifier provided",
+      "noPlaybackSupport": "Your browser does not support the format required to play this media.",
+      "takeMeThere": "Take me to media at publisher's site",
+      "notWorkingTryPublishers": "Media playback is not working as expected. Try publisher's site instead.",
       "download": ""
     },
     "title": {
