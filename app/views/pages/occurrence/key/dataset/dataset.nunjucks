@@ -1,5 +1,5 @@
 {% if occurrence.dataset.description | isDefined %}
-    <section class="horizontal-stripe light-background">
+    <section class="horizontal-stripe light-background seperator seperator--b">
         <div class="container--normal">
             <div class="container--prose description">
                 <h3 class="m-t-0">{$ __('occurrence.aboutTheDataset') $}</h3>
