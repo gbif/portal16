@@ -48,6 +48,13 @@
       "reference": "Referência",
       "verbatimName": "Nome textual"
     },
+    "media": {
+      "noIdentifier": "",
+      "noPlaybackSupport": "",
+      "takeMeThere": "",
+      "notWorkingTryPublishers": "",
+      "download": ""
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Colheita em {COUNTRY}",
