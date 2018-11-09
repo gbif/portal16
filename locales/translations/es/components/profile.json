@@ -45,7 +45,7 @@
     "unknownUser": "Incapaz de iniciar sesión. Usuario o contraseña desconocidos",
     "signIn": "Iniciar sesión",
     "or": "O",
-    "continueWithProvider": "Continuar con {PROVEEDOR}",
+    "continueWithProvider": "Continuar con {PROVIDER}",
     "signUpWithProvider": "Conectarse con {PROVEEDOR}",
     "connectWithProvider": "Conectar con {PROVEEDOR}",
     "disconnectWithProvider": "Desconectar {PROVEEDOR}",
