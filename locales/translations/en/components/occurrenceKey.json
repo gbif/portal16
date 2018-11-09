@@ -51,7 +51,7 @@
     "media": {
       "noIdentifier": "No media identifier provided",
       "noPlaybackSupport": "Your browser does not support the format required to play this media.",
-      "takeMeThere": "Take me to media at publisher's site",
+      "takeMeThere": "",
       "notWorkingTryPublishers": "",
       "download": "Download media"
     },
