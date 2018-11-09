@@ -48,6 +48,13 @@
       "reference": "Référence",
       "verbatimName": "Verbatim du nom"
     },
+    "media": {
+      "noIdentifier": "",
+      "noPlaybackSupport": "",
+      "takeMeThere": "",
+      "notWorkingTryPublishers": "",
+      "download": ""
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Collecté en {COUNTRY}",
