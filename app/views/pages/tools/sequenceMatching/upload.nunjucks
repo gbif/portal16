@@ -18,9 +18,9 @@
             <textarea class="nameParser__name-paste-area" ng-model="vm.inputList" rows="10" md-select-on-focus></textarea>
         </md-input-container>
         <div class="text-center">
-         <!--   <button class="gb-button--primary nameParser__parse-button"
-                    ng-click="nameParser.loadNames()" translate="nameParser.loadTestNames">
-                        </button> -->
+          <button class="gb-button--primary nameParser__parse-button"
+                    ng-click="vm.loadTestData()" > Load test data
+                        </button>
         <button class="gb-button--primary nameParser__parse-button"
                      ng-click="vm.handleFasta(vm.inputList)" >Blast
                         </button></div>
