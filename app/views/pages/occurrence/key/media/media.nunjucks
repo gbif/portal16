@@ -1,38 +1,80 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
 {% if occurrence.record.media.length > 0 %}
-    <section class="horizontal-stripe light-background seperator"
-            {% if occurrence.record.media.length > 5 %}
-    expand expand-text="'Show all'" collapse-text="'Collapse'" expand-model="occurrenceKey.mediaExpand"
-            {% endif %}>
+    <section class="horizontal-stripe light-background seperator" id="occurrencePage_media">
         <div>
-            <div class="card-columns{% if occurrence.record.media.length >= 5 %}-wide{% endif %}">
-                {% for media in occurrence.record.media | limit(5) %}
-                    <div class="card-figure">
-                        <figure>
-                    {% if media.type === 'StillImage' %}
-
-                        <a href="{$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
+            <div class="container--normal mediaItems">
+                {% for media in occurrence.record.media %}
+                    <div>
+                        <div class="card-figure">
+                            <figure>
+                        {% if (media.identifier | isUndefined) or (media.type | isUndefined) %}
+                            <div class="card__content seperator--b">
+                                <a href="{$ media.references $}" class="mediaItems_message">
+                                    <i class="gb-icon-unknown"></i>
+                                    <span>{$ __('occurrence.media.noIdentifier') $}</span>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if media.type === 'StillImage' %}
+                            <a href="{$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
                                 <img src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}"
-                                     onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
+                                    onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
                             </a>
-                    {% endif %}
-                            <figcaption class="card__content">
-                                <dl class="inline">
-                                    {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source', 'license', 'references'] %}
-                                        {% if media[field] %}
-                                            <div>
-                                                <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
-                                                <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                </dl>
-                                <a href="" class="pull-right" ng-click="occurrenceKey.mediaItems.m{$ loop.index $} = true"
-                                   ng-if="!occurrenceKey.mediaItems.m{$ loop.index $}" translate="occurrence.showMoreInfo"></a>
-                                <div class="details" ng-class="{show: occurrenceKey.mediaItems.m{$ loop.index $} }">
+                        {% endif %}
+                        {% if media.type === 'Sound' %}
+                        <div class="card__content seperator--b">
+                            {% if (media.format === 'audio/ogg') or (media.format === 'audio/x-wav') or (media.format === 'audio/mpeg') or (media.format === 'audio/wav') or (media.format === 'audio/mp3') or (media.format === 'audio/mp4') %}
+                                <audio controls style="width:100%">
+                                    <source src="{$ media.identifier $}" type="{$ media.format $}">
+                                    {$ __('occurrence.media.noPlaybackSupport') $}
+                                </audio>
+                                {% if occurrence.record.references | isNotEmpty %}
+                                    <div class="discreet--very smaller">
+                                        {$ __('occurrence.media.notWorkingTryPublishers') $} <a href="{$ occurrence.record.references $}">{$ __('occurrence.media.takeMeThere') $}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="discreet--very smaller">
+                                        {$ __('occurrence.media.notWorkingTryPublishers') $} <a href="{$ media.identifier $}">{$ __('occurrence.media.takeMeThere') $}</a>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                <a href="{$ media.identifier $}" class="mediaItems_message">
+                                    <i class="gb-icon-audio"></i>
+                                    <span>{$ __('occurrence.media.download') $}</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% if media.type === 'MovingImage' %}
+                            {% if (media.format === 'video/mp4') or (media.format === 'video/ogg') %}
+                                <div class="card__content seperator--b">
+                                    <video controls style="width:100%">
+                                        <source src="{$ media.identifier $}" type="video/mp4">
+                                       {$ __('occurrence.media.noPlaybackSupport') $}
+                                    </video>
+                                    {% if occurrence.record.references | isNotEmpty %}
+                                        <div class="discreet--very smaller">
+                                            {$ __('occurrence.media.notWorkingTryPublishers') $} <a href="{$ occurrence.record.references $}">{$ __('occurrence.media.takeMeThere') $}</a>
+                                        </div>
+                                    {% else %}
+                                        <div class="discreet--very smaller">
+                                            {$ __('occurrence.media.notWorkingTryPublishers') $} <a href="{$ media.identifier $}">{$ __('occurrence.media.takeMeThere') $}</a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="card__content seperator--b">
+                                    <a href="{$ media.identifier $}" class="mediaItems_message">
+                                        <i class="gb-icon-video"></i>
+                                        <span>{$ __('occurrence.media.download') $}</span>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                                <figcaption class="card__content">
                                     <dl class="inline">
-                                        {% for field in ['identifier', 'created', 'contributor', 'rightsHolder'] %}
+                                        {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source', 'license', 'references', 'created', 'contributor', 'rightsHolder', 'identifier'] %}
                                             {% if media[field] %}
                                                 <div>
                                                     <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
@@ -41,58 +83,12 @@
                                             {% endif %}
                                         {% endfor %}
                                     </dl>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </div>
-                {% endfor %}
-            </div>
-
-            {% if occurrence.record.media.length > 5 %}
-
-                <div class="card-columns-wide ng-cloak">
-                    {% for media in occurrence.record.media | slice(5) %}
-                        <div class="card-figure" ng-if="occurrenceKey.mediaExpand.isExpanded"
-                             ng-class="{isShown:occurrenceKey.mediaExpand.isExpanded}">
-                            <figure>
-                        {% if media.type === 'StillImage' %}
-                                <a ng-if= href="{$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
-                                    <img ng-src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}"
-                                         onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
-                                </a>
-                        {% endif %}
-                                <figcaption class="card__content">
-                                    <dl class="inline">
-                                        {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source'] %}
-                                            {% if media[field] %}
-                                                <div>
-                                                    <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
-                                                    <dd>{$ media[field] $}</dd>
-                                                </div>
-                                            {% endif %}
-                                        {% endfor %}
-                                        {% if media.references %}
-                                            <div>
-                                                <dt translate="ocurrenceFieldNames.reference"></dt>
-                                                <dd><a href="{$ media.references $}">{$ media.references | truncate(30) $}</a></dd>
-                                            </div>
-                                        {% endif %}
-                                        {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder'] %}
-                                            {% if media[field] %}
-                                                <div>
-                                                    <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
-                                                    <dd>{$ media[field] $}</dd>
-                                                </div>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </dl>
                                 </figcaption>
                             </figure>
                         </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
 {% endif %}

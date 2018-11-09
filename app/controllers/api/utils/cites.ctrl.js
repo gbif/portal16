@@ -4,7 +4,7 @@ let express = require('express'),
     _ = require('lodash'),
     apiConfig = rootRequire('/app/models/gbifdata/apiConfig'),
     cites = rootRequire('config/credentials').CITES,
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 module.exports = function(app) {
     app.use('/api', router);

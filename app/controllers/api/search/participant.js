@@ -5,7 +5,7 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     Fuse = require('fuse.js'),
     Q = require('q'),
     _ = require('lodash'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     maxPatternLength = 50;
 
 

@@ -1,6 +1,6 @@
 'use strict';
 let apiConfig = require('../../../models/gbifdata/apiConfig'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 module.exports = {
     getByKey: getByKey

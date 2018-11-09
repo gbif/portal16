@@ -3,7 +3,7 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
  //   querystring = require('querystring'),
     compose = require('composable-middleware'),
     utils = rootRequire('app/helpers/utils'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     _ = require('lodash');
 
 module.exports = {permissions: getPermissions, isTrustedContact: isTrustedContact};

@@ -6,16 +6,19 @@ let severity = require('./severity').severity,
 // select which es content to query
 let crawlHostName = 'prodcrawler1-vh.gbif.org',
     varnishIndexName = 'prod-varnish-*',
+    publicCrawlIndexName = 'prod-crawl-*',
     downloadKey = '0000222-130906152512535';
 switch (config.healthEnv || config.env) {
     case 'dev':
         crawlHostName = 'devcrawler-vh.gbif.org';
         varnishIndexName = 'dev-varnish-*';
+        publicCrawlIndexName = 'dev-crawl-*';
         downloadKey = '0000071-171031135223121';
         break;
     case 'uat':
         crawlHostName = 'uatcrawler1-vh.gbif.org';
         varnishIndexName = 'uat-varnish-*';
+        publicCrawlIndexName = 'uat-crawl-*';
         downloadKey = '0000222-130906152512535';
         break;
     default:
@@ -126,7 +129,7 @@ let tests = [
         message: 'Should return 415 on empty posts to download/request'
     },
     {
-        url: 'https://status.github.com/api/status.json',
+        url: 'http://status.github.com/api/status.json',
         component: 'GITHUB',
         type: 'HAVE_VALUE',
         key: 'status',
@@ -135,7 +138,7 @@ let tests = [
         message: 'The Github status endpoint should should return "good"'
     },
     {
-        url: config.domain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',
+        url: 'http://' + config.topDomain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
@@ -143,7 +146,7 @@ let tests = [
         message: 'Resource search should return more than 100 results for a search on content type = data use'
     },
     {
-        url: apiConfig.publicKibana.url + 'q=HOSTNAME:"' + crawlHostName + '"%20AND%20service:"crawler-coordinator-cleanup"%20AND%20@timestamp:%3E{SECONDS_AGO}',
+        url: apiConfig.publicKibana.url + 'q=HOSTNAME:"' + crawlHostName + '"%20AND%20service:"crawler-coordinator-cleanup"%20AND%20@timestamp:%3E{SECONDS_AGO}&index=' + publicCrawlIndexName,
         component: 'CRAWLER',
         secondsAgo: 180,
         type: 'NUMBER_ABOVE',

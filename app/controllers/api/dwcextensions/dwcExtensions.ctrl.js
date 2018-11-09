@@ -1,7 +1,7 @@
 'use strict';
 let express = require('express'),
     router = express.Router(),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 
 

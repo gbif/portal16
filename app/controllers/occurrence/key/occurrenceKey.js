@@ -153,6 +153,11 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrence.issueSummary = occurrencIssues.getSummary(occurrence.record.issues, occurrenceMeta.remarks);
         occurrence.fieldsWithDifferences = occurrencIssues.getFieldsWithDifferences(occurrence.record, occurrence.verbatim, occurrence.terms.terms);
         occurrence.usedExtensionFields = getUsedExtensionTerms(occurrence.verbatim);
+        occurrence.media = {
+            image: _.filter(_.get(occurrence, 'record.media', []), {type: 'StillImage'}),
+            sound: _.filter(_.get(occurrence, 'record.media', []), {type: 'Sound'}),
+            video: _.filter(_.get(occurrence, 'record.media', []), {type: 'MovingImage'})
+        };
         return occurrence;
     }).catch(function(err) {
         log.error(err);

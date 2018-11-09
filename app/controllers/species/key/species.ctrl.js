@@ -7,7 +7,7 @@ let express = require('express'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
     querystring = require('querystring'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
@@ -47,7 +47,7 @@ function renderSpeciesPage(req, res, next) {
         };
         helper.renderPage(req, res, next, contentItem, 'pages/species/key/seo');
     }).catch(function(err) {
-        if (err.type == 'NOT_FOUND') {
+        if (err.type === 'NOT_FOUND') {
             next();
         } else {
             next(err);

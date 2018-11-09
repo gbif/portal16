@@ -1,13 +1,13 @@
 'use strict';
 
-let request = require('requestretry'),
+let request = rootRequire('app/helpers/request'),
     severity = require('./severity').severity,
     _ = require('lodash');
 
 module.exports = {start: start};
 
 let config = {
-    url: 'https://www.contentfulstatus.com/history.json',
+    url: 'http://www.contentfulstatus.com/history.json',
     component: 'CONTENTFUL',
     severity: severity.WARNING
 };
@@ -18,7 +18,7 @@ function start(cb) {
     options.json = true;
     options.url = config.url;
     options.userAgent = 'GBIF_WEBSITE';
-    options.maxAttempts = 1;
+    options.maxAttempts = 3;
     options.timeout = 10000;
 
     request(options, function(err, response) {

@@ -9,19 +9,28 @@ let // notifications = require('../notifications//notifications.model'),
     getMostSevere = require('./severity').getMostSevere,
     _ = require('lodash'),
     objectHash = require('object-hash'),
+    healthUpdateFrequency = require('../../../../config/config').healthUpdateFrequency,
     status = {};
 
 module.exports = onComplete;
 
 function onComplete() {
+    let start = Date.now();
     return new Promise(function(resolve) {
         function check() {
             if (status.health && status.messages && status.load) {
                 resolve(function() {
-return status;
-});
+                    return status;
+                });
             } else {
-                setTimeout(check, 2000);
+                if (Date.now() - start > 10000) { // milliseconds - how long to wait before returning an error after server is restartet
+                    // reject('Server did not resolve the health within set timeout after startup');
+                    resolve(function() {
+                        return status;
+                    });
+                } else {
+                    setTimeout(check, 2000);
+                }
             }
         }
         check();
@@ -29,10 +38,10 @@ return status;
 }
 // start by updating status
 update();
-// after that update every 10 seconds
+// after that update every 30 seconds
 setInterval(function() {
     update();
-}, 30000);
+}, healthUpdateFrequency);
 
 function update() {
     updateHealth();

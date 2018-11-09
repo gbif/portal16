@@ -2,7 +2,7 @@
 let express = require('express');
 let router = express.Router({caseSensitive: true});
 let _ = require('lodash');
-let request = require('requestretry');
+let request = rootRequire('app/helpers/request');
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 let querystring = require('querystring');
 

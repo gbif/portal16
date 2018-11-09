@@ -1,7 +1,5 @@
 'use strict';
 
-// TODO error handling and tests missing
-
 let Q = require('q'),
     async = require('async'),
     helper = require('../../models/util/util');
@@ -16,7 +14,7 @@ Resource.getResource = function(resourceIdentifier, DataType, options) {
         if (err) {
             deferred.reject(err);
         } else if (typeof data.errorType !== 'undefined') {
-            let error = new Error(data);
+            let error = new Error(data.errorType + ' ' + data.url);
             error.type = data.errorType;
             deferred.reject(error);
         } else if (data) {

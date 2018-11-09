@@ -1,6 +1,6 @@
 'use strict';
 let _ = require('lodash'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 
 module.exports = {

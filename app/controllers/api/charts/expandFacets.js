@@ -4,7 +4,7 @@ let i18n = rootRequire('config/i18n'),
     _ = require('lodash'),
     enums = rootRequire('app/models/enums/allEnums'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    request = require('requestretry');
+    request = rootRequire('app/helpers/request');
 
 module.exports = {
     expandFacets: expandFacets,

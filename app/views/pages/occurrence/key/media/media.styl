@@ -1,0 +1,41 @@
+.mediaItems {
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    flex: 0 0 100%;
+    padding: 10px;
+    > div {
+      width: 100%;
+    }
+  }
+}
+
++isAbove(600px) {
+  .mediaItems {
+    > div {
+      flex: 0 0 50%;
+    }
+  }
+}
+
+.mediaItems_message {
+    background: #ececec;
+    margin: 30px;
+    height: 50px;
+    border-radius: 25px;
+    color: inherit;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 25px;
+  i {
+    font-size: 22px;
+    float: left;
+    padding-right: 10px;
+  }
+  i, span {
+    line-height: 50px;
+  }
+}

@@ -146,7 +146,7 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
 
         // create globe
         angular.element(document).ready(function() {
-            globeCanvas = document.querySelector('.occurrenceKey__map .globe')
+            globeCanvas = document.querySelector('.occurrenceKey__map .globe');
             if (!globe && globeCanvas) {
                 globe = globeCreator(globeCanvas, {
                     land: '#4d5258',

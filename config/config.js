@@ -42,7 +42,8 @@ let path = require('path'),
     },
     elasticContentful = yargs.elasticContentful,
     apidocs = 'https://gbif.github.io/gbif-api/apidocs/org/gbif/api',
-    userAgent = 'GBIF_WEBSITE';
+    userAgent = 'GBIF_WEBSITE',
+    healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
 let config = {
@@ -64,7 +65,7 @@ let config = {
         identityApi: identityApi || '//api.gbif.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://localhost:3000',
-        topDomain: undefined,
+        topDomain: 'localhost:3000',
         // notice the mock credentials will not work and shouldn't.
         // We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
         credentials: credentials || (rootPath + '/config/mockCredentials.json'),
@@ -78,14 +79,15 @@ let config = {
         oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//elk.gbif.org:5601/',
-        publicKibana: publicKibana || 'https://logs.gbif.org/',
+        publicKibana: publicKibana || 'http://logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
         locales: localeConfig.locales,
         defaultLocale: localeConfig.defaultLocale,
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: 240000
     },
     dev: {
         env: env,
@@ -116,14 +118,15 @@ let config = {
         oozie: oozie || '//c3master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c3master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//elk.gbif.org:5601/',
-        publicKibana: publicKibana || 'https://logs.gbif.org/',
+        publicKibana: publicKibana || 'http://logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWBqgxPaf8lu3pmE7fpp',
         locales: localeConfig.locales,
         defaultLocale: localeConfig.defaultLocale,
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     },
     uat: {
         env: env,
@@ -154,14 +157,15 @@ let config = {
         oozie: oozie || '//c4master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c4master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//elk.gbif.org:5601/',
-        publicKibana: publicKibana || 'https://logs.gbif.org/',
+        publicKibana: publicKibana || 'http://logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIcB5f8lu3pmEHgcY',
         locales: localeConfig.locales,
         defaultLocale: localeConfig.defaultLocale,
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     },
     staging: {
         env: env,
@@ -192,14 +196,15 @@ let config = {
         oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//elk.gbif.org:5601/',
-        publicKibana: publicKibana || 'https://logs.gbif.org/',
+        publicKibana: publicKibana || 'http://logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
         locales: localeConfig.locales,
         defaultLocale: localeConfig.defaultLocale,
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     },
     prod: {
         env: env,
@@ -230,14 +235,15 @@ let config = {
         oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//elk.gbif.org:5601/',
-        publicKibana: publicKibana || 'https://logs.gbif.org/',
+        publicKibana: publicKibana || 'http://logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
         locales: localeConfig.locales,
         defaultLocale: localeConfig.defaultLocale,
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     },
     test: {
         env: env,
@@ -268,14 +274,15 @@ let config = {
         oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//elk.gbif.org:5601/',
-        publicKibana: publicKibana || 'https://logs.gbif.org/',
+        publicKibana: publicKibana || 'http://logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWDqIeCpf8lu3pmEHglJ',
         locales: localeConfig.locales,
         defaultLocale: localeConfig.defaultLocale,
         contentfulLocaleMap: localeConfig.localeMappings.contentful,
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
-        userAgent: userAgent
+        userAgent: userAgent,
+        healthUpdateFrequency: healthUpdateFrequency
     }
 };
 

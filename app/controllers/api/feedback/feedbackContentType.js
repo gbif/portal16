@@ -1,7 +1,7 @@
 'use strict';
 let Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence,
     Node = require('../../../models/gbifdata/gbifdata').Node,
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     getAnnotations = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     localeFromQuery = require('../../../middleware/i18n/localeFromQuery'),
     locales = require('../../../../config/config').locales,

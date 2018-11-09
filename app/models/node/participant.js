@@ -1,6 +1,6 @@
 let credentials = rootRequire('config/credentials').directory,
     crypto = require('crypto'),
-    request = require('requestretry'),
+    request = rootRequire('app/helpers/request'),
     apiConfig = require('../gbifdata/apiConfig'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
     _ = require('lodash'),

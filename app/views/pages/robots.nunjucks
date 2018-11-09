@@ -1,8 +1,17 @@
 User-agent: *
+Disallow: /user/
+Disallow: /*/user/
+Disallow: /search/
+Disallow: /*/search/
 Disallow: /occurrence/
-Disallow: /en/occurrence/
-Disallow: /es/occurrence/
-Disallow: /da/occurrence/
+Disallow: /*/occurrence/
+Disallow: /species/search
+Disallow: /*/species/search
+Disallow: /dataset/search
+Disallow: /*/dataset/search
+Disallow: /publisher/search
+Disallow: /*/publisher/search
+crawl-delay: 0.1
 
 Sitemap: {$ DOMAIN $}/sitemap.xml
 Sitemap: {$ DOMAIN $}/sitemap-dataset.xml
