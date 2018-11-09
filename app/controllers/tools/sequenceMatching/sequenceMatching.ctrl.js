@@ -28,7 +28,7 @@ router.get('/tools/sequence-matching/about', function(req, res) {
 router.get('/templates/sequence-matching/about.html', function(req, res, next) {
     let query = {
         'content_type': 'Tool',
-        'fields.keywords': 'parser'
+        'fields.keywords': 'sequence'
     };
     resource.getFirst(query, 2, false, res.locals.gb.locales.current)
         .then((contentItem) => {
