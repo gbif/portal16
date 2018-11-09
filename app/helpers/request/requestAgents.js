@@ -3,10 +3,8 @@ let Agent = require('agentkeepalive');
 
 // See https://www.npmjs.com/package/agentkeepalive
 const stdAgent = new Agent({
-  maxSockets: 15000, // Default = Infinity
-  maxFreeSockets: 256, // default
-  keepAlive: true,
-  keepAliveMsecs: 1000
+  maxSockets: 8000, // Default = Infinity
+  keepAlive: true
 });
 
 let stdRequest = request.defaults({
@@ -14,7 +12,7 @@ let stdRequest = request.defaults({
   headers: {
     'User-Agent': 'GBIF-portal'
   },
-  maxAttempts: 1,
+  maxAttempts: 2,
   retryDelay: 3000, // in milliseconds
   retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
   timeout: 20000 // in milliseconds
@@ -22,18 +20,34 @@ let stdRequest = request.defaults({
 
 // seperate pool for occurrence requests as that API often has outages.
 const occurrenceAgent = new Agent({
-  maxSockets: 15000, // Default = Infinity
-  maxFreeSockets: 256, // default
-  keepAlive: true,
-  keepAliveMsecs: 1000
+  maxSockets: 8000, // Default = Infinity
+  keepAlive: true
 });
 
 let occurrenceRequest = request.defaults({
   agent: occurrenceAgent,
   headers: {
-    'User-Agent': 'GBIF-portal Occurrence'
+    'User-Agent': 'GBIF-portal'
   },
-  maxAttempts: 1,
+  maxAttempts: 2,
+  retryDelay: 3000, // in milliseconds
+  retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
+  timeout: 45000 // in milliseconds
+});
+
+
+// seperate pool for species requests as that API often has outages.
+const speciesAgent = new Agent({
+  maxSockets: 8000, // Default = Infinity
+  keepAlive: true
+});
+
+let speciesRequest = request.defaults({
+  agent: speciesAgent,
+  headers: {
+    'User-Agent': 'GBIF-portal'
+  },
+  maxAttempts: 2,
   retryDelay: 3000, // in milliseconds
   retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
   timeout: 45000 // in milliseconds
@@ -41,5 +55,6 @@ let occurrenceRequest = request.defaults({
 
 module.exports = {
     standard: stdRequest,
-    occurrence: occurrenceRequest
+    occurrence: occurrenceRequest,
+    species: speciesRequest
 };

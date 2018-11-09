@@ -42,7 +42,8 @@ let path = require('path'),
     },
     elasticContentful = yargs.elasticContentful,
     apidocs = 'https://gbif.github.io/gbif-api/apidocs/org/gbif/api',
-    userAgent = 'GBIF_WEBSITE';
+    userAgent = 'GBIF_WEBSITE',
+    healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
 let config = {
@@ -86,7 +87,8 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org'
+        blastApi: 'http://blast.gbif-dev.org',
+        healthUpdateFrequency: 240000
     },
     dev: {
         env: env,
@@ -125,7 +127,8 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org'
+        blastApi: 'http://blast.gbif-dev.org',
+        healthUpdateFrequency: healthUpdateFrequency
     },
     uat: {
         env: env,
@@ -164,7 +167,8 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org'
+        blastApi: 'http://blast.gbif-dev.org',
+        healthUpdateFrequency: healthUpdateFrequency
     },
     staging: {
         env: env,
@@ -203,7 +207,8 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org'
+        blastApi: 'http://blast.gbif-dev.org',
+        healthUpdateFrequency: healthUpdateFrequency
     },
     prod: {
         env: env,
@@ -242,7 +247,8 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org'
+        blastApi: 'http://blast.gbif-dev.org',
+        healthUpdateFrequency: healthUpdateFrequency
     },
     test: {
         env: env,
@@ -281,7 +287,8 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org'
+        blastApi: 'http://blast.gbif-dev.org',
+        healthUpdateFrequency: healthUpdateFrequency
     }
 };
 

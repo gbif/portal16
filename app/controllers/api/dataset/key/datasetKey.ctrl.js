@@ -47,7 +47,7 @@ router.get('/dataset/:key.:ext?', function(req, res, next) {
             res.json(dataset);
         })
         .catch(function(err) {
-            res.status(err.statusCode);
+            res.status(err.statusCode || 500);
             res.send();
         });
 });

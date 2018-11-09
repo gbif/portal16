@@ -48,6 +48,13 @@
       "reference": "Reference",
       "verbatimName": "Oprindeligt navn"
     },
+    "media": {
+      "noIdentifier": "",
+      "noPlaybackSupport": "",
+      "takeMeThere": "",
+      "notWorkingTryPublishers": "",
+      "download": ""
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Samlet i {COUNTRY}",

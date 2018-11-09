@@ -34,11 +34,11 @@ function check(config) {
     options.method = config.method || 'GET';
     options.json = config.json || true;
     options.url = config.url;
-    options.maxAttempts = 1;
+    options.maxAttempts = 3;
     options.timeout = 60000;
     if (config.type == 'MAX_RESPONSE_TIME') {
         options.timeout = config.val + 500;
-        options.maxAttempts = 1;
+        options.maxAttempts = 3;
     }
 
     options.url = options.url.replace('{NOW}', Date.now());

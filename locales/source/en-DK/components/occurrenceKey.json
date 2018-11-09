@@ -48,6 +48,13 @@
       "reference": "Reference",
       "verbatimName": "Verbatim name"
     },
+    "media": {
+      "noIdentifier": "No media identifier provided",
+      "noPlaybackSupport": "Your browser does not support playing the published format.",
+      "takeMeThere": "Take me there",
+      "notWorkingTryPublishers": "Not working as expected? Try the publisher's version.",
+      "download": "Download"
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "Collected in {COUNTRY}",

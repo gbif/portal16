@@ -1,11 +1,11 @@
 {
     "installation": {
-        "installation": "",
-        "about": "",
-        "homepage": "",
-        "installationType": "",
-        "hostedBy": "",
-        "registered": "",
+        "installation": "安裝",
+        "about": "關於",
+        "homepage": "首頁",
+        "installationType": "安裝類型",
+        "hostedBy": "主辦方:",
+        "registered": "已註冊",
         "endpoints": ""
     }
 }

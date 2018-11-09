@@ -17,7 +17,10 @@
       "invasiveIn": "",
       "accordingTo": "",
       "occurrenceCount": "",
-      "seeAllCountries": ""
+      "seeAllCountries": "",
+      "isInvasive": "影響的證據",
+      "isInvasive_yes": "是",
+      "isInvasive_no": "不是"
     },
     "as": "",
     "in": "",

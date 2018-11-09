@@ -48,6 +48,13 @@
       "reference": "引用文献",
       "verbatimName": "オリジナルデータの名前"
     },
+    "media": {
+      "noIdentifier": "",
+      "noPlaybackSupport": "",
+      "takeMeThere": "",
+      "notWorkingTryPublishers": "",
+      "download": ""
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "{COUNTRY} で採集",

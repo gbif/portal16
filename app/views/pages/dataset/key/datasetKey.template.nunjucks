@@ -2,24 +2,30 @@
     <div class="site-content__page">
         <div class="datasetKey2 light-background">
             <div class="wrapper-horizontal-stripes" ng-if="datasetKey.dataset.$resolved">
+                <div ng-if="datasetKey.dataset.title">
+                    {% include "./header.nunjucks" %}
 
-                {% include "./header.nunjucks" %}
+                    <div id="tabsScrollable">
+                        {% include "./nav.nunjucks" %}
+                    </div>
+                    <div class="tabs-fixed-container" id="tabsFixedContainer" ng-init="datasetKey.attachTabListener()">
+                        {% include "./nav.nunjucks" %}
+                    </div>
 
-                <div id="tabsScrollable">
-                    {% include "./nav.nunjucks" %}
+                    <div ng-if="datasetKey.$state.is('datasetKey')">
+                        {% include "./intro/intro.nunjucks" %}
+                        {% include "./main/prose.nunjucks" %}
+                    </div>
+
+                    <div ui-view>
+                    </div>
                 </div>
-                <div class="tabs-fixed-container" id="tabsFixedContainer" ng-init="datasetKey.attachTabListener()">
-                    {% include "./nav.nunjucks" %}
+                <div ng-if="!datasetKey.dataset.title">
+                    <div class="emptyInfo">
+                        <h3 translate="phrases.failed"></h3>
+                        <p translate="phrases.criticalErrorMsg"></p>
+                    </div>
                 </div>
-
-                <div ng-if="datasetKey.$state.is('datasetKey')">
-                    {% include "./intro/intro.nunjucks" %}
-                    {% include "./main/prose.nunjucks" %}
-                </div>
-
-                <div ui-view>
-                </div>
-
             </div>
             <div class="wrapper-horizontal-stripes" ng-if="!datasetKey.dataset.$resolved">
                 <div class="emptyInfo">
