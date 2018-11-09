@@ -18,9 +18,9 @@
       "accordingTo": "",
       "occurrenceCount": "",
       "seeAllCountries": "",
-      "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive": "影響的證據",
+      "isInvasive_yes": "是",
+      "isInvasive_no": "不是"
     },
     "as": "",
     "in": "",

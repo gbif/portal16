@@ -48,6 +48,13 @@
       "reference": "",
       "verbatimName": ""
     },
+    "media": {
+      "noIdentifier": "未提供媒體識別碼",
+      "noPlaybackSupport": "您的瀏覽器不支援播放此媒體格式。",
+      "takeMeThere": "連到原始網站",
+      "notWorkingTryPublishers": "",
+      "download": "下載媒體檔案"
+    },
     "title": {
       "inCountry": {
         "PRESERVED_SPECIMEN": "",
