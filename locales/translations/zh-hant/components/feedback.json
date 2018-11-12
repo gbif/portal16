@@ -2,7 +2,7 @@
   "feedback": {
     "leaveFeedback": "給予回饋意見",
     "intro": {
-      "title": "",
+      "title": "回饋和問題",
       "example": ""
     },
     "data content": {
@@ -16,7 +16,7 @@
       "example": ""
     },
     "idea": {
-      "title": "",
+      "title": "想法",
       "example": ""
     },
     "question": {
@@ -46,7 +46,7 @@
     "weRecommendX": "",
     "tellGbif": "",
     "submit": "",
-    "seeAllComments": "",
+    "seeAllComments": "查看全部",
     "recommendMail": "",
     "pleaseLogin": ""
   }
