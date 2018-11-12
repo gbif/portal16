@@ -98,7 +98,7 @@
     </section>
 {% endmacro %}
 
-{% macro submenu(sections) %}
+{% macro submenu(sections, colSections) %}
     <span class="relative-anchor-offset"><a name="menu"></a></span>
 
     <nav class="submenu developer-submenu" id="submenu">
@@ -109,6 +109,15 @@
                     {% for id,sect in sections %}
                         <li class="nav-chapter" du-scrollspy="{$ id $}">
                             <a href="#{$ id $}">{$ sect $}</a>
+                            {% if id == 'collections' %}
+                            <ul class="nav-chapters">
+                                {% for idCol,colsect in colSections %}
+                                    <li class="nav-chapter" du-scrollspy="{$ idCol $}">
+                                        <a href="#{$ idCol $}">{$ colsect $}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
                         </li>
                     {% endfor %}
                 </ul>
