@@ -4,7 +4,7 @@
         "nRecords": "{NUMBER_FORMATED}{NUMBER, select,1{紀錄}other{紀錄}}",
         "nResults": "{NUMBER_FORMATED}{NUMBER, select,1{結果}other{結果}}",
         "nEvents": "{NUMBER_FORMATED}{NUMBER, select,1{事件}other{事件}}",
-        "nInstallations": "",
+        "nInstallations": "{NUMBER_FORMATED}{NUMBER, select,1{安裝}other{安裝}}",
         "nOccurrences": "",
         "nOccurrencesAbout": "",
         "nOccurrencesPublished": "",
