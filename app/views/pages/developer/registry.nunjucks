@@ -391,7 +391,7 @@
                             </tbody>
                         </table>
                     </section>
-                    <section id="institution" class="white-background page--developer__anchor">                    
+                    <section id="institution">                    
                         <h4>Institution</h4>
                         <p>
                             This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Institution.java">institution</a> entity. 
