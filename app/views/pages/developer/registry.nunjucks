@@ -406,7 +406,7 @@
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grbio/institution/43484bfb-b6d4-41eb-9b5a-1ebb89b215a4", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
                             {$ trowInst(url="/{UUID}", method="DELETE", auth=true, description="Deletes the institution. The institution entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grbio/nstitution/43484bfb-b6d4-41eb-9b5a-1ebb89b215a4/contact", description="Lists all contacts for the institution") $}
+                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grbio/institution/43484bfb-b6d4-41eb-9b5a-1ebb89b215a4/contact", description="Lists all contacts for the institution") $}
                             {$ trowInst(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the institution. The UUID key of the contact must be passed in the body.") $}
                             {$ trowInst(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the institution the contact with key {UUID}") $}
                             {$ trowInst(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grbio/institution/43484bfb-b6d4-41eb-9b5a-1ebb89b215a4/identifier", description="Lists the identifiers of the institution") $}
