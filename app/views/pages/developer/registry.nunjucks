@@ -49,7 +49,7 @@
         <div class="submenu-wrapper horizontal-stripe white-background" id="submenuWrapper">
 
             <div class="col-md-2">
-            {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service', 'collections':'Collections'} %}
+            {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'collections':'Collections', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
             {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person'} %}
             {$ api.submenu(sections, colSections) $}
             </div>
@@ -342,75 +342,6 @@
                 </div>
             </section>
 
-            {$ api.paramArticle(apiName="Registry", addSearchParams=true, apiBase=apiBase, params={
-            "q": "Simple search parameter. The value for this parameter can be a simple word or a phrase. Wildcards can be added to the simple word parameters only, e.g. q=*puma*",
-            "country": "Filters by country given as a ISO 639-1 (2 letter) country code. Not yet implemented for use with dataset search, but will eventually search on the countries within the geospatial coverage of the dataset.  Country codes are listed in our <a href='"+apiBase+"enumeration/country'>Country enum</a>.",
-            "project_id": "Filter or facet based on the <a href='"+apiBase+"dataset/search?project_id=AA003-AA003311F'>project ID</a> of a given dataset. A dataset can have a project id if it is the result of a project. multiple datasets can have the same project id.",
-            "type": "For datasets, filters by dataset type as given in our <a href='"+apiBase+"vocabulary/DatasetType.html'>DatasetType enum</a>. For metadata documents, filters by the metadata type as given in our <a href='"+apiBase+"enumeration/basic/MetadataType'>MetadataType enum</a>",
-            "identifier": "The value for this parameter can be a simple string or integer, e.g. identifier=120",
-            "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier type as given in our <a href='"+apiBase+"enumeration/basic/IdentifierType'>IdentifierType enum</a>",
-            "isEndorsed": "Filters organizations by whether they are endorsed or not.",
-            "machineTagNamespace": "Filters for entities with a machine tag in the specified namespace.",
-            "machineTagName": "Filters for entities with a machine tag with the specified name (use in combination with the machineTagNamespace parameter).",
-            "machineTagValue": "Filters for entities with a machine tag with the specified value (use in combination with the machineTagNamespace and machineTagName parameters).",
-            "subtype": "Not yet implemented, but will eventually allow filtering of datasets by their dataset subtype as given in our <a href='"+apiBase+"enumeration/basic/DatasetSubtype'>DatasetSubtype enum</a>.",
-            "license": "The type of license applied to the dataset.",
-            "keyword": "Filters datasets by a case insensitive plain text keyword. The search is done on the merged collection of tags, the dataset keywordCollections and temporalCoverages.",
-            "publishingOrg": "Filters datasets by their publishing organization UUID key",
-            "hostingOrg": "Filters datasets by their hosting organization UUID key",
-            "decade": "Filters datasets by their temporal coverage broken down to decades. Decades are given as a full year, e.g. 1880, 1960, 2000, etc, and will return datasets wholly contained in the decade as well as those that cover the entire decade or more. Facet by decade to get the break down, e.g. <a href='"+apiBase+"dataset/search?facet=DECADE&amp;limit=0'>/search?facet=DECADE&amp;limit=0</a>",
-            "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2 letter) country code",
-            "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
-            "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them."
-            }) $}
-
-            <section id="oai-pmh" class="white-background page--developer__anchor">
-                <div class="container--narrow">
-                    <h3>OAI-PMH</h3>
-                    <p>In addition to the RESTful JSON API, Datasets are exposed using OAI-PMH. Two metadata formats can
-                        be retrieved: Ecological Metadata Language (EML) and OAI Dublin Core. Datasets are grouped into
-                        <em>sets</em> according to type, country and installation.</p>
-
-                    <p>The endpoint is at <strong>{$ apiBase $}oai-pmh/registry</strong></p>
-
-                    <p>Example queries:</p>
-
-                    <ul>
-                        <li>
-                            <p>Retrieve information about the OAI-PMH service: <a href="{$ apiBase $}oai-pmh/registry?verb=Identify">Identify</a>.</p>
-                        </li>
-
-                        <li>
-                            <p>Retrieve a list of available sets (dataset types, countries and serving installations):
-                                <a href="{$ apiBase $}oai-pmh/registry?verb=ListSets">ListSets</a>.</p>
-                            <p>Sets have names like <code>dataset_type:CHECKLIST</code> and <code>country:NL</code>.</p>
-                        </li>
-
-                        <li>
-                            <p>Retrieve the identifiers for all datasets from a particular installation: <a href="{$ apiBase $}oai-pmh/registry?verb=ListIdentifiers&amp;metadataPrefix=oai_dc">ListIdentifiers</a>.</p>
-                            <p>According to the OAI-PMH protocol, <code>metadataPrefix</code> must be set to either
-                                <code>oai_dc</code> or <code>eml</code>, even though both formats are supported for all datasets.</p>
-                        </li>
-
-                        <li>
-                            <p>Retrieve the metadata for all datasets served by installations in a country: <a href="{$ apiBase $}oai-pmh/registry?verb=ListRecords&amp;metadataPrefix=oai_dc&amp;set=Country:TG">ListRecords</a>.</p>
-                            <p>Country codes are based on the <a href="https://www.iso.org/obp/ui/#search">ISO 3166-1</a> standard.</p>
-                        </li>
-
-                        <li>
-                            <p>Some queries will return more than one page of results. In this case, the XML will end
-                                with a resumption token element, for example:
-                                <code class="block">&lt;resumptionToken cursor="1"&gt;MToxMDB8Mjpjb3VudHJ5Ok5MfDM6fDQ6fDU6b2FpX2Rj&lt;/resumptionToken&gt;</code>
-                                The second page of results can be retrieved like this: <a href="{$ apiBase $}oai-pmh/registry?verb=ListRecords&resumptionToken=MToxMDB8MjpDb3VudHJ5Ok5MfDM6fDQ6fDU6b2FpX2Rj">Resume</a>.
-                            </p>
-                        </li>
-                    </ul>
-                    <p>Full details of the protocol can be found in the <a href="https://www.openarchives.org/OAI/openarchivesprotocol.html">The Open Archives
-                            Initiative Protocol for Metadata Harvesting</a>, in particular the <a href="https://www.openarchives.org/OAI/openarchivesprotocol.html#ProtocolMessages">section
-                            on Protocol Requests and, Responses</a>.</p>
-                </div>
-            </section>
-
             {% macro trowCol(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/grbio/collection"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
@@ -420,7 +351,7 @@
             {% macro trowPerson(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/grbio/person"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
-            <section id="collections" class="white-background page--developer__anchor">
+            <section id="collections">
                 <div class="container--narrow">
                     <h3>Collections</h3>
                     <p>                        
@@ -505,6 +436,79 @@
                             </tbody>
                         </table>
                     </section>
+                </div>
+            </section>
+
+            {$ api.paramArticle(apiName="Registry", addSearchParams=true, apiBase=apiBase, params={
+            "q": "Simple search parameter. The value for this parameter can be a simple word or a phrase. Wildcards can be added to the simple word parameters only, e.g. q=*puma*",
+            "country": "Filters by country given as a ISO 639-1 (2 letter) country code. Not yet implemented for use with dataset search, but will eventually search on the countries within the geospatial coverage of the dataset.  Country codes are listed in our <a href='"+apiBase+"enumeration/country'>Country enum</a>.",
+            "project_id": "Filter or facet based on the <a href='"+apiBase+"dataset/search?project_id=AA003-AA003311F'>project ID</a> of a given dataset. A dataset can have a project id if it is the result of a project. multiple datasets can have the same project id.",
+            "type": "For datasets, filters by dataset type as given in our <a href='"+apiBase+"vocabulary/DatasetType.html'>DatasetType enum</a>. For metadata documents, filters by the metadata type as given in our <a href='"+apiBase+"enumeration/basic/MetadataType'>MetadataType enum</a>",
+            "identifier": "The value for this parameter can be a simple string or integer, e.g. identifier=120",
+            "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier type as given in our <a href='"+apiBase+"enumeration/basic/IdentifierType'>IdentifierType enum</a>",
+            "isEndorsed": "Filters organizations by whether they are endorsed or not.",
+            "machineTagNamespace": "Filters for entities with a machine tag in the specified namespace.",
+            "machineTagName": "Filters for entities with a machine tag with the specified name (use in combination with the machineTagNamespace parameter).",
+            "machineTagValue": "Filters for entities with a machine tag with the specified value (use in combination with the machineTagNamespace and machineTagName parameters).",
+            "subtype": "Not yet implemented, but will eventually allow filtering of datasets by their dataset subtype as given in our <a href='"+apiBase+"enumeration/basic/DatasetSubtype'>DatasetSubtype enum</a>.",
+            "license": "The type of license applied to the dataset.",
+            "keyword": "Filters datasets by a case insensitive plain text keyword. The search is done on the merged collection of tags, the dataset keywordCollections and temporalCoverages.",
+            "publishingOrg": "Filters datasets by their publishing organization UUID key",
+            "hostingOrg": "Filters datasets by their hosting organization UUID key",
+            "decade": "Filters datasets by their temporal coverage broken down to decades. Decades are given as a full year, e.g. 1880, 1960, 2000, etc, and will return datasets wholly contained in the decade as well as those that cover the entire decade or more. Facet by decade to get the break down, e.g. <a href='"+apiBase+"dataset/search?facet=DECADE&amp;limit=0'>/search?facet=DECADE&amp;limit=0</a>",
+            "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2 letter) country code",
+            "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
+            "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them.",
+            "contact": "Filters collections and institutions with the person key specified in their contact list",            
+            "institution":"Filters collections by the institution key specified",
+            "primaryInstitution":"Filters persons by the primary institution key specified",
+            "primaryCollection":"Filters persons by the primary collection key specified"
+            }) $}
+
+            <section id="oai-pmh" class="white-background page--developer__anchor">
+                <div class="container--narrow">
+                    <h3>OAI-PMH</h3>
+                    <p>In addition to the RESTful JSON API, Datasets are exposed using OAI-PMH. Two metadata formats can
+                        be retrieved: Ecological Metadata Language (EML) and OAI Dublin Core. Datasets are grouped into
+                        <em>sets</em> according to type, country and installation.</p>
+
+                    <p>The endpoint is at <strong>{$ apiBase $}oai-pmh/registry</strong></p>
+
+                    <p>Example queries:</p>
+
+                    <ul>
+                        <li>
+                            <p>Retrieve information about the OAI-PMH service: <a href="{$ apiBase $}oai-pmh/registry?verb=Identify">Identify</a>.</p>
+                        </li>
+
+                        <li>
+                            <p>Retrieve a list of available sets (dataset types, countries and serving installations):
+                                <a href="{$ apiBase $}oai-pmh/registry?verb=ListSets">ListSets</a>.</p>
+                            <p>Sets have names like <code>dataset_type:CHECKLIST</code> and <code>country:NL</code>.</p>
+                        </li>
+
+                        <li>
+                            <p>Retrieve the identifiers for all datasets from a particular installation: <a href="{$ apiBase $}oai-pmh/registry?verb=ListIdentifiers&amp;metadataPrefix=oai_dc">ListIdentifiers</a>.</p>
+                            <p>According to the OAI-PMH protocol, <code>metadataPrefix</code> must be set to either
+                                <code>oai_dc</code> or <code>eml</code>, even though both formats are supported for all datasets.</p>
+                        </li>
+
+                        <li>
+                            <p>Retrieve the metadata for all datasets served by installations in a country: <a href="{$ apiBase $}oai-pmh/registry?verb=ListRecords&amp;metadataPrefix=oai_dc&amp;set=Country:TG">ListRecords</a>.</p>
+                            <p>Country codes are based on the <a href="https://www.iso.org/obp/ui/#search">ISO 3166-1</a> standard.</p>
+                        </li>
+
+                        <li>
+                            <p>Some queries will return more than one page of results. In this case, the XML will end
+                                with a resumption token element, for example:
+                                <code class="block">&lt;resumptionToken cursor="1"&gt;MToxMDB8Mjpjb3VudHJ5Ok5MfDM6fDQ6fDU6b2FpX2Rj&lt;/resumptionToken&gt;</code>
+                                The second page of results can be retrieved like this: <a href="{$ apiBase $}oai-pmh/registry?verb=ListRecords&resumptionToken=MToxMDB8MjpDb3VudHJ5Ok5MfDM6fDQ6fDU6b2FpX2Rj">Resume</a>.
+                            </p>
+                        </li>
+                    </ul>
+                    <p>Full details of the protocol can be found in the <a href="https://www.openarchives.org/OAI/openarchivesprotocol.html">The Open Archives
+                            Initiative Protocol for Metadata Harvesting</a>, in particular the <a href="https://www.openarchives.org/OAI/openarchivesprotocol.html#ProtocolMessages">section
+                            on Protocol Requests and, Responses</a>.</p>
                 </div>
             </section>
 
