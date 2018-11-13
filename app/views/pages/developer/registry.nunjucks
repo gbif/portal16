@@ -459,10 +459,10 @@
             "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2 letter) country code",
             "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
             "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them.",
-            "contact": "Filters collections and institutions with the person key specified in their contact list",            
-            "institution":"Filters collections by the institution key specified",
-            "primaryInstitution":"Filters persons by the primary institution key specified",
-            "primaryCollection":"Filters persons by the primary collection key specified"
+            "contact": "Filters collections and institutions whose contacts contain the person key specified.",            
+            "institution":"Filters collections by the institution key specified.",
+            "primaryInstitution":"Filters persons by the primary institution key specified.",
+            "primaryCollection":"Filters persons by the primary collection key specified."
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
