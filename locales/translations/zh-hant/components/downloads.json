@@ -1,6 +1,6 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATTED}{NUMBER, select,one{出現記錄}other{出現記錄}}已下載",
     "nConstituentDatasets": "",
     "fileNotAvailable": "此檔案不再可供下載",
     "downloadDeletionWarning": "",
