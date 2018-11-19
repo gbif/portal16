@@ -49,8 +49,9 @@
         <div class="submenu-wrapper horizontal-stripe white-background" id="submenuWrapper">
 
             <div class="col-md-2">
-            {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
-            {$ api.submenu(sections) $}
+            {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'collections':'Collections', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
+            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person'} %}
+            {$ api.submenu(sections, colSections) $}
             </div>
             <div class="col-md-10">
             <section id="datasets" class="white-background page--developer__anchor">
@@ -341,6 +342,103 @@
                 </div>
             </section>
 
+            {% macro trowCol(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
+                {$ api.trow(url="/grbio/collection"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+            {% endmacro %}
+            {% macro trowInst(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
+                {$ api.trow(url="/grbio/institution"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+            {% endmacro %}
+            {% macro trowPerson(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
+                {$ api.trow(url="/grbio/person"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+            {% endmacro %}
+            <section id="collections">
+                <div class="container--narrow">
+                    <h3>Collections</h3>
+                    <p>                        
+                        The collections API provides CRUD services for collections, institutions and person entities. 
+                        The data was originally migrated from GRBIO and adapted to follow the same conventions as other registry services. Therefore, the deletion of 
+                        collections, institutions and persons is logical, meaning these entries remain registered forever
+                        and only get a deleted timestamp. On the other hand, the deletion of tags and identifiers is physical, meaning the entries are permanently removed.                                                                        
+                    </p>
+                    <p> 
+                        <i>Please note that this API is subject to change and therefore we cannot guarantee that these services will remain the same in the future.</i>
+                    </p>
+
+                    <section id="collection" class="white-background page--developer__anchor">                    
+                        <h4>Collection</h4>
+                        <p>
+                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Collection.java">collection</a> entity. 
+                            A collection can be associated with an <a href="#institution">institution</a> and can have a list of contacts, which are represented by the <a href="#person">person</a> entity. 
+                            It can also have tags and identifiers.
+                        </p>
+                        <table class='api table table-bordered table-striped table-params'>
+                            {$ api.apiTableHead() $}
+                            <tbody>
+                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grbio/collection", paging=true, params=["q","institution","contact"], description="Lists all collections")$}
+                            {$ trowCol(url="", method="POST", resp="UUID", auth=true, description="Creates a new collection") $}
+                            {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grbio/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
+                            {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
+                            {$ trowCol(url="/{UUID}", method="DELETE", auth=true, description="Deletes the collection. The collection entry gets a deleted timestamp but remains registered.") $}
+                            {$ trowCol(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grbio/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contact", description="Lists all contacts for the collection") $}
+                            {$ trowCol(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the collection. The UUID key of the contact must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the collection the contact with key {UUID}") $}
+                            {$ trowCol(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grbio/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/identifier", description="Lists the identifiers of the collection") $}
+                            {$ trowCol(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new collection identifier") $}
+                            {$ trowCol(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the collection the identifier with ID {ID}") $}
+                            {$ trowCol(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a collection") $}
+                            {$ trowCol(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the collection") $}
+                            {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the collection the tag with ID {ID}") $}
+                            </tbody>
+                        </table>
+                    </section>
+                    <section id="institution">                    
+                        <h4>Institution</h4>
+                        <p>
+                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Institution.java">institution</a> entity. 
+                            An institution can have a list of contacts, which are represented by the <a href="#person">person</a> entity.
+                            They can also have tags and identifiers.
+                        </p>
+                        <table class='api table table-bordered table-striped table-params'>
+                            {$ api.apiTableHead() $}
+                            <tbody>
+                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grbio/institution", paging=true, params=["q","contact"], description="Lists all institutions")$}
+                            {$ trowInst(url="", method="POST", resp="UUID", auth=true, description="Creates a new institution") $}
+                            {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grbio/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
+                            {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
+                            {$ trowInst(url="/{UUID}", method="DELETE", auth=true, description="Deletes the institution. The institution entry gets a deleted timestamp but remains registered.") $}
+                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grbio/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contact", description="Lists all contacts for the institution") $}
+                            {$ trowInst(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the institution. The UUID key of the contact must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the institution the contact with key {UUID}") $}
+                            {$ trowInst(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grbio/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/identifier", description="Lists the identifiers of the institution") $}
+                            {$ trowInst(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new institution identifier") $}
+                            {$ trowInst(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the institution the identifier with ID {ID}") $}
+                            {$ trowInst(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a institution") $}
+                            {$ trowInst(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the institution") $}
+                            {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the institution the tag with ID {ID}") $}
+                            </tbody>
+                        </table>
+                    </section>
+                    <section id="person" class="white-background page--developer__anchor">                    
+                        <h4>Person</h4>
+                        <p>
+                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Person.java">person</a> entity. 
+                            A person can be associated with a primary <a href="#collection">collection</a> and a primary <a href="#institution">institution</a>.
+                            As mentioned before, a person can also be a contact in the <a href="#collection">collection</a> and <a href="#institution">institution</a> entities.
+                        </p>
+                        <table class='api table table-bordered table-striped table-params'>
+                            {$ api.apiTableHead() $}
+                            <tbody>
+                            {$ trowPerson(url="", resp="Person List", respLink=apiBase+"grbio/person", paging=true, params=["q","primaryInstitution","primaryCollection"], description="Lists all persons")$}
+                            {$ trowPerson(url="", method="POST", resp="UUID", auth=true, description="Creates a new person") $}
+                            {$ trowPerson(url="/{UUID}", resp="Person", respLink=apiBase+"grbio/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a", description="Gets details for the person") $}
+                            {$ trowPerson(url="/{UUID}", method="PUT", auth=true, description="Updates the person") $}
+                            {$ trowPerson(url="/{UUID}", method="DELETE", auth=true, description="Deletes the person. The person entry gets a deleted timestamp but remains registered.") $}                            
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </section>
+
             {$ api.paramArticle(apiName="Registry", addSearchParams=true, apiBase=apiBase, params={
             "q": "Simple search parameter. The value for this parameter can be a simple word or a phrase. Wildcards can be added to the simple word parameters only, e.g. q=*puma*",
             "country": "Filters by country given as a ISO 639-1 (2 letter) country code. Not yet implemented for use with dataset search, but will eventually search on the countries within the geospatial coverage of the dataset.  Country codes are listed in our <a href='"+apiBase+"enumeration/country'>Country enum</a>.",
@@ -360,7 +458,11 @@
             "decade": "Filters datasets by their temporal coverage broken down to decades. Decades are given as a full year, e.g. 1880, 1960, 2000, etc, and will return datasets wholly contained in the decade as well as those that cover the entire decade or more. Facet by decade to get the break down, e.g. <a href='"+apiBase+"dataset/search?facet=DECADE&amp;limit=0'>/search?facet=DECADE&amp;limit=0</a>",
             "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2 letter) country code",
             "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
-            "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them."
+            "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them.",
+            "contact": "Filters collections and institutions whose contacts contain the person key specified.",            
+            "institution":"Filters collections by the institution key specified.",
+            "primaryInstitution":"Filters persons by the primary institution key specified.",
+            "primaryCollection":"Filters persons by the primary collection key specified."
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
