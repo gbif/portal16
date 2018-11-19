@@ -361,7 +361,7 @@
                         and only get a deleted timestamp. On the other hand, the deletion of tags and identifiers is physical, meaning the entries are permanently removed.                                                                        
                     </p>
                     <p> 
-                        <i>Please note that this API is subject to change and therefore we cannot guarantee that these services will remain the same in the future.</i>
+                        <i>Please note that this part of the API is still under development, and may change in the future.</i>
                     </p>
 
                     <section id="collection" class="white-background page--developer__anchor">                    
