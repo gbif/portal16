@@ -23,6 +23,13 @@
 
                        </td>
                        </tr>
+                          <tr >
+                           <td ><span ng-class="vm.getMatchTypeClass('BLAST_AMBIGUOUS_MATCH')">{{ 'BLAST_AMBIGUOUS_MATCH' | prettifyEnum }}</span></td>
+                       <td >
+                          {{'identity >= 98.5%, but there is at least one more match with similar identity'}} 
+
+                       </td>
+                       </tr>
                        <tr >
                            <td ><span ng-class="vm.getMatchTypeClass('BLAST_CLOSE_MATCH')">{{ 'BLAST_CLOSE_MATCH' | prettifyEnum }}</span></td>
                        <td >

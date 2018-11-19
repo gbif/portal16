@@ -10,7 +10,7 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue','matchType', 'scientificName','classification', 'sequence']">
+                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue','matchType', 'scientificName','alignment','classification', 'sequence']">
                             <a href="" 
                                ng-click="vm.state.sortType = col; vm.state.sortReverse = !vm.state.sortReverse">
                                
@@ -53,7 +53,11 @@
                         <td class="table-cell--widder">
                             <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
                             <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} <a class="gb-icon-link" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
-                            
+                        </td>
+                        <td>
+                            <button class="gb-button--primary nameParser__parse-button"
+                     ng-if="species.match" gb-help="{{vm.getAlignment(species.match)}}" gb-help-options="{isCms: false, hideIcon: true}" ng-click="$event.stopPropagation();" >{{'Aligment'}}
+                        </button>
                         </td>
                         <td class="table-cell--widder">
                             <span ng-bind-html="species.formattedClassification"></span>
@@ -61,8 +65,6 @@
                         <td class="table-cell">
                             <span>{{ species.sequence }}</span>
                         </td>
-                      
-
                     </tr>
                     </tbody>
                 </table>

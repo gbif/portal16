@@ -29,14 +29,16 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             return dialogText;
         }
     };
-    vm.loadTestData = function(){
-        vm.inputList = '> 1 Unknown fungus\n' +
-        'ATTACTCATCCAAATCCTTTGGATGGACTTGAGCTTGCATTAGCTGGCTTGAAATGAATTGGGTAAACATCTACCATGTCTATCGTCATATTTATTTGCGATATTCTAACTGGTAGTGAGTAGTCCCTTAATAATTTTTAA\n\n' +
-        '> 2 Cortinarius sp.\n' +
-        'CCTGATAAGTTGCTGCTGGTTCTCTAGGGAGCATGTGCACGCTTGTCATCTTTATATCTTCACCTGTGCACCTTTTGTAGACCTGAATATCTTTCTGAATGCTTTTTTTATTTTAGCACTCAGGATATGGAATTGGCTTTGATGTCTCTTCTTATATTTTCAGGTCTATGTTTCTTCATATACCCTAATGTATGTTATAGAATGTCATTTAATGGGCTTTTTATGCCTTTAAATCTATTACAACTTTCAGCAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACCTTGCGCTCCTTGGTATTCCGAGGAGCATGCCTGTTTGAGTGTCATTAATATTATCAACCTCTTTGGTTGGATTTGGGTTTACTGGCCTTGTTGAGGTCAGCTCTCCTTAAATGCATTAGCAGACAACATTTTGTCAACCGTTCATTGGTGTGATAATTATCTACGCTATTGATCGTGAAGGCAGGGTTCAGCTTCTAACAGTCCATTGGCTTGGACAAATTTTATTAATGTGACCTCAAATCAGGTAGGACTACCCGCTGAACTTAAGCA\n\n' +
-        '> 3 Entoloma sp.\n' +
-        'CATTATTGAATAAGCTTGGTTTCAGATTGTTGCTGGTTCTGCGGGACATGTGCACGTCTGTTCCATTTTTGTTACCACCTGTGCACTTTGTGTAGATCTGAATAACTCTCGAGGCAAACCTCGGTCTTCAAGACATTGCTGGGCATTTGAGATGTACGGCTTTGTCATTATATATTCAGATCTATGTCTTACTACACTACACAATAACAAGTATCTGAAGTTGGTTGCACCTATAAAGATATATTATAACTTTCAACAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACCTTGCGCTCCTTGGTATTCCGAGGAGCATGCCTGTTTGAGTGTCATGAAATCCCTCATCCTTTCGAGCTTTTATTATTAAGCTTGTCAGGCTTTGGATTCTGGGAGTTTGCTGGCTTTATCGAGTCAGCTCTTCTTAAATGTATTAGCAAGATCATCGCTAAATCATCTTTGATATGATAATTATCTATATCAATAAATGAGACCTAAGCGGATTCCATTTCGGAAAACAGATCGAGCTTTACAATCGTCTCAGGACAATTTGAATCATTGACCTCAAATCAG';
-    }
+    vm.loadTestData = function() {
+        vm.inputList =
+            '> 1 Unknown fungus\n' +
+            'ATTACTCATCCAAATCCTTTGGATGGACTTGAGCTTGCATTAGCTGGCTTGAAATGAATTGGGTAAACATCTACCATGTCTATCGTCATATTTATTTGCGATATTCTAACTGGTAGTGAGTAGTCCCTTAATAATTTTTAA\n\n' +
+            '> 2 Cortinarius sp.\n' +
+            'CCTGATAAGTTGCTGCTGGTTCTCTAGGGAGCATGTGCACGCTTGTCATCTTTATATCTTCACCTGTGCACCTTTTGTAGACCTGAATATCTTTCTGAATGCTTTTTTTATTTTAGCACTCAGGATATGGAATTGGCTTTGATGTCTCTTCTTATATTTTCAGGTCTATGTTTCTTCATATACCCTAATGTATGTTATAGAATGT' +
+            'CATTTAATGGGCTTTTTATGCCTTTAAATCTATTACAACTTTCAGCAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACCTTGCGCTCCTTGGTATTCCGAGGAGCATGCCTGTTTGAGTGTCATTAATATTATCAACCTCTTTGGTTGGATTTGGGTTTACTGGCCTTGTTGAGGTCAGCTCTCCTTAAATGCATTAGCAGACAACATTTTGTCAACCGTTCATTGGTGTGATAATTATCTACGCTATTGATCGTGAAGGCAGGGTTCAGCTTCTAACAGTCCATTGGCTTGGACAAATTTTATTAATGTGACCTCAAATCAGGTAGGACTACCCGCTGAACTTAAGCA\n\n' +
+            '> 3 Entoloma sp.\n' +
+            'CATTATTGAATAAGCTTGGTTTCAGATTGTTGCTGGTTCTGCGGGACATGTGCACGTCTGTTCCATTTTTGTTACCACCTGTGCACTTTGTGTAGATCTGAATAACTCTCGAGGCAAACCTCGGTCTTCAAGACATTGCTGGGCATTTGAGATGTACGGCTTTGTCATTATATATTCAGATCTATGTCTTACTACACTACACAATAACAAGTATCTGAAGTTGGTTGCACCTATAAAGATATATTATAACTTTCAACAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACCTTGCGCTCCTTGGTATTCCGAGGAGCATGCCTGTTTGAGTGTCATGAAATCCCTCATCCTTTCGAGCTTTTATTATTAAGCTTGTCAGGCTTTGGATTCTGGGAGTTTGCTGGCTTTATCGAGTCAGCTCTTCTTAAATGTATTAGCAAGATCATCGCTAAATCATCTTTGATATGATAATTATCTATATCAATAAATGAGACCTAAGCGGATTCCATTTCGGAAAACAGATCGAGCTTTACAATCGTCTCAGGACAATTTGAATCATTGACCTCAAATCAG';
+    };
 
     vm.handleDrop = function(e) {
         var file = e.dataTransfer.files[0];
@@ -57,15 +59,19 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         _.each(splitted, function(e) {
             var s = e.split('\n');
             if (s.length > 1 && s[0] && s[1]) {
-                result.push({occurrenceId: s[0].replace(/[^\x20-\x7E]/gmi, ''), marker: 'its', sequence: s[1].replace(/[^\x20-\x7E]/gmi, '')});
+                result.push({
+                    occurrenceId: s[0].replace(/[^\x20-\x7E]/gim, ''),
+                    marker: 'its',
+                    sequence: s[1].replace(/[^\x20-\x7E]/gim, '')
+                });
             }
         });
         vm.species = result;
-            vm.matchedSequenceCount = 0;
-            vm.aboveThresholdCount = 0;
-            vm.inBackboneCount = 0;
-            vm.blastMatchCount = 0;
-            vm.normalizeAll();
+        vm.matchedSequenceCount = 0;
+        vm.aboveThresholdCount = 0;
+        vm.inBackboneCount = 0;
+        vm.blastMatchCount = 0;
+        vm.normalizeAll();
         /*
         var fastaData = new Buffer(inputString);
         var parser = fasta();
@@ -110,11 +116,17 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
                 result = result.map(function(e) {
                     return getLowerKeysObj(e);
                 });
-                if (result.every(function(e) {
-                    return e.sequence || e.consensussequence;
-                })) {
+                if (
+                    result.every(function(e) {
+                        return e.sequence || e.consensussequence;
+                    })
+                ) {
                     result.forEach(function(e) {
-                        e.occurrenceId = e.occurrenceId || e.occurrenceid || e.occurrenceID || e.id;
+                        e.occurrenceId =
+                            e.occurrenceId ||
+                            e.occurrenceid ||
+                            e.occurrenceID ||
+                            e.id;
                         e.sequence = e.sequence || e.consensussequence;
                         e.marker = e.marker || 'its';
                     });
@@ -125,18 +137,28 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
                     vm.blastMatchCount = 0;
                     vm.normalizeAll();
                 } else {
-                    vm.error = 'all rows must have a sequence or consensusSequence field - see example file for the required format';
+                    vm.error =
+                        'all rows must have a sequence or consensusSequence field - see example file for the required format';
                 }
             }
             $scope.$apply();
         });
     }
     var isValidFile = function(file) {
-        return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1 || file.name.indexOf('.fasta') > 1 || file.name.indexOf('.fas') > 1);
+        return (
+            !!file &&
+            (file.type == '' ||
+                file.type == 'text/csv' ||
+                file.type == 'text/plain' ||
+                file.name.indexOf('.csv') > 1 ||
+                file.name.indexOf('.fasta') > 1 ||
+                file.name.indexOf('.fas') > 1)
+        );
     };
 
     function getLowerKeysObj(obj) {
-        var key, keys = Object.keys(obj);
+        var key,
+            keys = Object.keys(obj);
         var n = keys.length;
         var newobj = {};
         while (n--) {
@@ -150,7 +172,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         vm.invalidFileFormat = false;
         if (!isValidFile(file)) {
             vm.invalidFileFormat = true;
-            vm.error = 'Invalid file format - the file must be a csv file and all rows must have a scientificName column';
+            vm.error =
+                'Invalid file format - the file must be a csv file and all rows must have a scientificName column';
             return;
         }
         var reader = new FileReader();
@@ -158,13 +181,15 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             var csvString = reader.result;
             if (file.name.indexOf('.csv') > 1) {
                 parseCSV(csvString);
-            } else if (file.name.indexOf('.fasta') > 1 || file.name.indexOf('.fas') > 1) {
+            } else if (
+                file.name.indexOf('.fasta') > 1 ||
+                file.name.indexOf('.fas') > 1
+            ) {
                 parseFasta(csvString);
             }
         };
         reader.readAsText(file);
     };
-
 
     vm.normalizeAll = function() {
         vm.pagination.currentPage = 1;
@@ -175,25 +200,29 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
 
     function blast(item, callback) {
         var query = {
-            sequence: item.sequence,
+            sequence: item.sequence.replace(/[-.]/g, ''),
             marker: item.marker || 'its'
         };
         $http({
             method: 'post',
             data: query,
             url: '/api/blast'
-        }).then(function successCallback(response) {
-            item.match = response.data;
-            vm.setItem(item, response.data);
-            callback();
-        }, function errorCallback(response) {
-            // console.log(response);
-            errorCount ++;
-            if (errorCount > Math.min(MAX_ERRORS, vm.species.length)) {
-                vm.error = 'The server is not responding. Please try again later and report an issue if the problem persists.';
+        }).then(
+            function successCallback(response) {
+                item.match = response.data;
+                vm.setItem(item, response.data);
+                callback();
+            },
+            function errorCallback(response) {
+                // console.log(response);
+                errorCount++;
+                if (errorCount > Math.min(MAX_ERRORS, vm.species.length)) {
+                    vm.error =
+                        'The server is not responding. Please try again later and report an issue if the problem persists.';
+                }
+                callback('match went wrong');
             }
-            callback('match went wrong');
-        });
+        );
     }
 
     function blastAll() {
@@ -208,25 +237,40 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
 
     vm.setItem = function(item, selected) {
         // eslint-disable-next-line max-len
-        var fields = ['name', 'identity', 'bitScore', 'expectValue', 'matchType', 'appliedScientificName'];
+        var fields = [
+            'name',
+            'identity',
+            'bitScore',
+            'expectValue',
+            'matchType',
+            'appliedScientificName'
+        ];
         fields.forEach(function(field) {
             item[field] = selected[field];
         });
 
-        if (selected.nubMatch && selected.nubMatch.usage && selected.nubMatch.usage.formattedName) {
+        if (
+            selected.nubMatch &&
+            selected.nubMatch.usage &&
+            selected.nubMatch.usage.formattedName
+        ) {
             item.formattedName = selected.nubMatch.usage.formattedName;
         }
         item.scientificName = selected.name;
         item.nubMatch = selected.nubMatch;
 
-
         if (selected.nubMatch && selected.nubMatch.classification) {
             var classification = '';
             var formattedClassification = '';
             for (var i = 0; i < selected.nubMatch.classification.length; i++) {
-                formattedClassification += '<a href="/species/' + selected.nubMatch.classification[i].key + '" target="_BLANK">' + selected.nubMatch.classification[i].name + '</a>';
+                formattedClassification +=
+                    '<a href="/species/' +
+                    selected.nubMatch.classification[i].key +
+                    '" target="_BLANK">' +
+                    selected.nubMatch.classification[i].name +
+                    '</a>';
                 classification += selected.nubMatch.classification[i].name;
-                if (i < (selected.nubMatch.classification.length - 1)) {
+                if (i < selected.nubMatch.classification.length - 1) {
                     classification += '_';
                     formattedClassification += ' &#10095; ';
                 }
@@ -248,12 +292,22 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     };
 
     vm.generateCsv = function() {
-        var fields = ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue', 'matchType', 'scientificName', 'classification', 'sequence'];
+        var fields = [
+            'occurrenceId',
+            'marker',
+            'identity',
+            'bitScore',
+            'expectValue',
+            'matchType',
+            'scientificName',
+            'classification',
+            'sequence'
+        ];
         var csvContent = '';
 
         // write column names
         fields.forEach(function(field, index) {
-            csvContent += ('"' + field + '"');
+            csvContent += '"' + field + '"';
             if (index < fields.length - 1) {
                 csvContent += ',';
             }
@@ -267,7 +321,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
                 return;
             }
             fields.forEach(function(field, index) {
-                csvContent += (e[field] || e[field] === 0) ? '"' + e[field] + '"' : '';
+                csvContent +=
+                    e[field] || e[field] === 0 ? '"' + e[field] + '"' : '';
                 if (index < fields.length - 1) {
                     csvContent += ',';
                 }
@@ -275,7 +330,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             csvContent += '\n';
         });
         // add string to href as data uri making it downloadable
-        document.getElementById('sequenceMatcher_generatedCsv').href = 'data:application/octet-stream,' + encodeURI(csvContent);
+        document.getElementById('sequenceMatcher_generatedCsv').href =
+            'data:application/octet-stream,' + encodeURI(csvContent);
         vm.download = true;
     };
 
@@ -289,16 +345,57 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         if (matchType == 'BLAST_CLOSE_MATCH') {
             return 'badge badge--warning';
         }
+        if (matchType == 'BLAST_AMBIGUOUS_MATCH') {
+            return 'badge badge--warning';
+        }
         if (matchType == 'BLAST_EXACT_MATCH') {
             return 'badge badge--approved';
         }
+    };
+    function align(match) {
+        var paddingLength = Math.max(match.qstart.length, match.sstart.length) + 1;
+        var q =
+            '<pre>query ' +
+            match.qstart.padEnd(paddingLength) +
+            match.querySequence + ' ' + match.qend +
+            '<br/>';
+        var diff = ''.padEnd(paddingLength + 6);
+        var s =
+            'sbjct ' +
+            match.sstart.padEnd(paddingLength) +
+            match.subjectSequence + ' ' + match.send +
+            '</pre>';
+        var q2 = match.querySequence.split('');
+        var s2 = match.subjectSequence.split('');
+
+        for (var i = 0; i < q2.length; i++) {
+            if (q2[i] === s2[i]) {
+                diff = diff + '|';
+            } else {
+                diff = diff + ' ';
+            }
+        }
+        return q + diff + '<br/>' + s;
+    }
+    vm.getAlignment = function(match) {
+       var res = '<h3>' + (_.get(match, 'nubMatch.usage.formattedName') ? _.get(match, 'nubMatch.usage.formattedName')  : match.name) + '</h3>' + align(match);
+       if (match.alternatives && match.alternatives) {
+           res += '<br/><h3>Alternatives:</h3>';
+           for (var i = 0; i < match.alternatives.length; i++) {
+            res += '<h4>' + (_.get(match.alternatives[i], 'nubMatch.usage.formattedName') ? _.get(match.alternatives[i], 'nubMatch.usage.formattedName') : match.alternatives[i].name) + '</h4>' + align(match.alternatives[i]);
+           }
+       }
+       return res;
     };
 
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
         callback: function() {
-            if (vm.pagination.currentPage * vm.pagination.pageSize < vm.species.length) {
+            if (
+                vm.pagination.currentPage * vm.pagination.pageSize <
+                vm.species.length
+            ) {
                 vm.pagination.currentPage += 1;
             }
         }
@@ -323,14 +420,20 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     });
 
     vm.help = {
-        'occurrenceId': 'If you uploaded data in FASTA format, this is the ID line for the sequence. For publication to GBIF occurrenceId must be unique.',
-        'marker': 'The DNA marker, currently only ITS is supported',
-        'identity': 'The extent to which two sequences have the same residues at the same positions in an alignment',
-        'bitScore': 'The bit score is the required size of a sequence database in which the current match could be found just by chance. The bit score is a log2 scaled and normalized raw score. Each increase by one doubles the required database size  (2<sup>bit-score</sup>).',
-        'expectValue': 'The expect value is a parameter that describes the number of hits one can "expect" to see by chance when searching a database of a particular size. It decreases exponentially as the score of the match increases. Hence, a low expect value is better.',
-        'matchType': 'Badges representing different identity thresholds.',
-        'scientificName': 'The OTU identifier, which can be used as scientificName when publishing occurrence or sample event data to GBIF',
-        'classification': 'The higher classification of the OTU as represented in the GBIF backbone.'
+        occurrenceId:
+            'If you uploaded data in FASTA format, this is the ID line for the sequence. For publication to GBIF occurrenceId must be unique.',
+        marker: 'The DNA marker, currently only ITS is supported',
+        identity:
+            'The extent to which two sequences have the same residues at the same positions in an alignment',
+        bitScore:
+            'The bit score is the required size of a sequence database in which the current match could be found just by chance. The bit score is a log2 scaled and normalized raw score. Each increase by one doubles the required database size  (2<sup>bit-score</sup>).',
+        expectValue:
+            'The expect value is a parameter that describes the number of hits one can "expect" to see by chance when searching a database of a particular size. It decreases exponentially as the score of the match increases. Hence, a low expect value is better.',
+        matchType: 'Badges representing different identity thresholds.',
+        scientificName:
+            'The OTU identifier, which can be used as scientificName when publishing occurrence or sample event data to GBIF',
+        classification:
+            'The higher classification of the OTU as represented in the GBIF backbone.'
     };
 }
 

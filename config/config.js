@@ -87,7 +87,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
+        blastApi: 'http://localhost:9000',
         healthUpdateFrequency: 240000
     },
     dev: {
