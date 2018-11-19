@@ -206,14 +206,22 @@ module.exports = [
             'name': 'newsletters',
             'url': '/newsletters'
           },
-            {
-                'name': 'awards',
-                'url': '/awards'
-            },
+          {
+              'name': 'awards',
+              'url': '/awards'
+          },
           {
             'name': 'communitySite',
             'url': 'https://discourse.gbif.org',
             'type': 'EXTERNAL'
+          },
+          {
+              'name': 'mentoring',
+              'url': '/article/5SExsCfj7UaUkMCsuc6Oec'
+          },
+            {
+              'name': 'ambassadors',
+              'url': '/article/6dNF1d0tgcI4cmqeoS2sQ4'
           }
         ]
       },
@@ -236,6 +244,10 @@ module.exports = [
             'name': 'livingAtlases',
             'url': 'http://living-atlases.gbif.org',
             'type': 'EXTERNAL'
+          },
+          {
+            'name': 'easternEuropeCentralAsia',
+            'url': '/programme/3ilFFs3JdY2SqmyCuac0uc'
           }
         ]
       }
