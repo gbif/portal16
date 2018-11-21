@@ -117,7 +117,7 @@
                         Lists all distributions for a name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/media", resp="Media Page", paging=true, respLink=apiBase+"species/5231190/media") %}
+                        {% call trow(url="/{int}/media", resp="Media Page", paging=true, respLink=apiBase+"species/148403721/media") %}
                         Lists all media items for a name usage
                         {% endcall %}
 
