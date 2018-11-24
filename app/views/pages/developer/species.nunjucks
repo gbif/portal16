@@ -69,7 +69,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
-                        {% call trow(url="", paging=true, resp="NameUsage Page", respLink=apiBase+"species?datasetKey=00a0607f-fd7e-4268-9707-0f53aa265f1f&sourceId=ICIMOD_Barsey_Plants_001", params=["language","datasetKey","sourceId","name"]) %}
+                        {% call trow(url="", paging=true, resp="NameUsage Page", respLink=apiBase+"species?datasetKey=ca515b82-e301-43ff-9f69-2c0116e1c95b&sourceId=6B773CF4C72F0995A4228111BFAA28B8.taxon", params=["language","datasetKey","sourceId","name"]) %}
                         Lists all name usages across all checklists
                         {% endcall %}
 
@@ -81,7 +81,7 @@
                         Gets the single name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/verbatim", paging=false, resp="VerbatimNameUsage", respLink=apiBase+"species/5231190/verbatim") %}
+                        {% call trow(url="/{int}/verbatim", paging=false, resp="VerbatimNameUsage", respLink=apiBase+"species/101683527/verbatim") %}
                         Gets the verbatim name usage
                         {% endcall %}
 
@@ -105,7 +105,7 @@
                         Lists all synonyms for a name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/combinations", paging=false, resp="NameUsage List", respLink=apiBase+"species/5231190/combinations") %}
+                        {% call trow(url="/{int}/combinations", paging=false, resp="NameUsage List", respLink=apiBase+"species/2878694/combinations") %}
                         Lists all (re)combinations of a given basionym, excluding the basionym itself.
                         {% endcall %}
 
@@ -117,7 +117,7 @@
                         Lists all distributions for a name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/media", resp="Media Page", paging=true, respLink=apiBase+"species/5231190/media") %}
+                        {% call trow(url="/{int}/media", resp="Media Page", paging=true, respLink=apiBase+"species/148403721/media") %}
                         Lists all media items for a name usage
                         {% endcall %}
 

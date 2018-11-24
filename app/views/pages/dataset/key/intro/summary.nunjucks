@@ -13,6 +13,14 @@
                 <img ng-src="{{ datasetKey.dataset.logoUrl | imgCache }}" onError="this.style.display = 'none'">
             </div>
             <dl class="inline">
+                <div ng-if="datasetKey.dataset.project.identifier">
+                    <dt translate="dataset.projectId"></dt>
+                    <dd>
+                        <a ng-href="{{portal.urlPrefix}}{{ datasetKey.projects.results[0]._url }}" ng-if="datasetKey.projects.count == 1">{{ datasetKey.dataset.project.identifier }}</a>
+                        <span ng-if="datasetKey.projects.count != 1">{{ datasetKey.dataset.project.identifier }}</span>
+                    </dd>
+                </div>
+
                 <div>
                     <dt translate="dataset.registry.metdataLastModified"></dt>
                     <dd>
