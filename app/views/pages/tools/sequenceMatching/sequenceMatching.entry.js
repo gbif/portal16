@@ -378,11 +378,19 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         return q + diff + '<br/>' + s;
     }
     vm.getAlignment = function(match) {
-       var res = '<h3>' + (_.get(match, 'nubMatch.usage.formattedName') ? _.get(match, 'nubMatch.usage.formattedName')  : match.name) + '</h3>' + align(match);
+       var res = '<h3>'
+       + (_.get(match, 'nubMatch.usage.formattedName') ? _.get(match, 'nubMatch.usage.formattedName') : match.name)
+       + '</h3>'
+       + '<span class="discreet">identity: ' + match.identity + ' | bitScore: ' + match.bitScore + ' | expectValue: ' + match.expectValue + '</span>'
+       + align(match);
        if (match.alternatives && match.alternatives) {
            res += '<br/><h3>Alternatives:</h3>';
            for (var i = 0; i < match.alternatives.length; i++) {
-            res += '<h4>' + (_.get(match.alternatives[i], 'nubMatch.usage.formattedName') ? _.get(match.alternatives[i], 'nubMatch.usage.formattedName') : match.alternatives[i].name) + '</h4>' + align(match.alternatives[i]);
+            res += '<h4>'
+            + (_.get(match.alternatives[i], 'nubMatch.usage.formattedName') ? _.get(match.alternatives[i], 'nubMatch.usage.formattedName') : match.alternatives[i].name)
+            + '</h4>'
+            + '<span class="discreet">identity: ' + match.alternatives[i].identity + ' | bitScore: ' + match.alternatives[i].bitScore + '| expectValue: ' + match.alternatives[i].expectValue + '</span>'
+            + align(match.alternatives[i]);
            }
        }
        return res;
