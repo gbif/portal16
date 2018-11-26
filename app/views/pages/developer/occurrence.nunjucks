@@ -384,8 +384,8 @@
             <section id="predicates" class="white-background page--developer__anchor">
                 <div class="container--narrow">
                     <h3>Occurrence Download Predicates</h3>
-                    <p>A download predicate is an query expression to retrieve occurrence record downloads. A working example using Curl. Put this in a file called query.json:
-                        {% set downloadExampleQuery = {"creator":"userName","notification_address":["userEmail@example.com"],"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"LITERATURE"},{"type":"equals","key":"COUNTRY","value":"KW"}]}} %}
+                    <p>A download predicate is an query expression to retrieve occurrence record downloads. A working example using Curl: Put this in a file called query.json:
+                        {% set downloadExampleQuery = {"creator":"userName","notification_address":["userEmail@example.org"],"sendNotification": true,"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"LITERATURE"},{"type":"equals","key":"COUNTRY","value":"KW"}]}} %}
 <pre><code>{$ downloadExampleQuery | rawJson(true) | safe $}</code></pre>
 
                     </p>
@@ -397,6 +397,11 @@
                         A download ID is returned. This gives the status, and once ready, the download link:
                         <pre><code style="white-space: nowrap">curl -Ss {$ apiBase $}occurrence/download/0000022-170829143010713 | jq .</code></pre>
                         (<code>| jq .</code> is optional, but formats the JSON nicely.)
+                    </p>
+
+                    <p>
+                        It's also possible to format the Curl request without an external query file:
+                        <pre><code>curl --include --user userName:PASSWORD --header "Content-Type: application/json" --data '{"creator": "userName","notification_address": ["userEmail@example.org"],"format": "SIMPLE_CSV","predicate": {"type": "in","key": "COUNTRY","values": ["FJ","TO"]}}' {$ apiBase $}occurrence/download/request</code></pre>
                     </p>
 
                     <p>The table below lists the supported predicates that can be combined to build download requests
@@ -420,7 +425,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
@@ -433,7 +438,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
@@ -451,7 +456,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"and",<br/>
@@ -470,7 +475,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"or",<br/>
@@ -489,7 +494,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"lessThan",<br/>
@@ -507,7 +512,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"lessThanOrEquals",<br/>
@@ -525,7 +530,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"greaterThan",<br/>
@@ -543,7 +548,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"greaterThanOrEquals",<br/>
@@ -561,7 +566,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"in",<br/>
@@ -579,7 +584,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"within",<br/>
@@ -600,7 +605,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"not",<br/>
@@ -622,7 +627,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"like",<br/>
@@ -640,7 +645,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"isNotNull",<br/>
