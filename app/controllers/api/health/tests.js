@@ -121,14 +121,6 @@ let tests = [
         message: 'download key ' + downloadKey + ' should return 200'
     },
     {
-        url: apiConfig.occurrenceCancelDownload.url + '?cachebust={NOW}',
-        method: 'POST',
-        component: 'DOWNLOAD',
-        type: 'STATUS',
-        val: 415,
-        message: 'Should return 415 on empty posts to download/request'
-    },
-    {
         url: 'http://status.github.com/api/status.json',
         component: 'GITHUB',
         type: 'HAVE_VALUE',
