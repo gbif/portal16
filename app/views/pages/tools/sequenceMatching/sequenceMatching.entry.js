@@ -352,10 +352,11 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             return 'badge badge--approved';
         }
     };
+
     function align(match) {
         var paddingLength = Math.max(match.qstart.length, match.sstart.length) + 1;
         var q =
-            '<pre>query ' +
+            'query ' +
             match.qstart.padEnd(paddingLength) +
             match.querySequence + ' ' + match.qend +
             '<br/>';
@@ -363,8 +364,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         var s =
             'sbjct ' +
             match.sstart.padEnd(paddingLength) +
-            match.subjectSequence + ' ' + match.send +
-            '</pre>';
+            match.subjectSequence + ' ' + match.send;
         var q2 = match.querySequence.split('');
         var s2 = match.subjectSequence.split('');
 
@@ -377,23 +377,30 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         }
         return q + diff + '<br/>' + s;
     }
-    vm.getAlignment = function(match) {
-       var res = '<h3>'
-       + (_.get(match, 'nubMatch.usage.formattedName') ? _.get(match, 'nubMatch.usage.formattedName') : match.name)
-       + '</h3>'
-       + '<span class="discreet">identity: ' + match.identity + ' | bitScore: ' + match.bitScore + ' | expectValue: ' + match.expectValue + '</span>'
-       + align(match);
-       if (match.alternatives && match.alternatives) {
-           res += '<br/><h3>Alternatives:</h3>';
-           for (var i = 0; i < match.alternatives.length; i++) {
-            res += '<h4>'
-            + (_.get(match.alternatives[i], 'nubMatch.usage.formattedName') ? _.get(match.alternatives[i], 'nubMatch.usage.formattedName') : match.alternatives[i].name)
-            + '</h4>'
-            + '<span class="discreet">identity: ' + match.alternatives[i].identity + ' | bitScore: ' + match.alternatives[i].bitScore + '| expectValue: ' + match.alternatives[i].expectValue + '</span>'
-            + align(match.alternatives[i]);
-           }
-       }
-       return res;
+
+
+    vm.showAlignment = function(match) {
+        vm.currentAligment = {
+            header: (_.get(match, 'nubMatch.usage.formattedName') ? _.get(match, 'nubMatch.usage.formattedName') : match.name),
+            subHeader: 'identity: ' + match.identity + ' | bitScore: ' + match.bitScore + ' | expectValue: ' + match.expectValue,
+            alignment: align(match)
+        };
+        if (match.alternatives && match.alternatives) {
+            vm.currentAligment.alternatives = [];
+            for (var i = 0; i < match.alternatives.length; i++) {
+                vm.currentAligment.alternatives.push({
+                    header: (_.get(match.alternatives[i], 'nubMatch.usage.formattedName') ? _.get(match.alternatives[i], 'nubMatch.usage.formattedName') : match.alternatives[i].name),
+                    subHeader: 'identity: ' + match.alternatives[i].identity + ' | bitScore: ' + match.alternatives[i].bitScore + ' | expectValue: ' + match.alternatives[i].expectValue,
+                    alignment: align(match.alternatives[i])
+                });
+        }
+    }
+    vm.showAligmentOverlay = true;
+};
+
+    vm.closeAligmentOverlay = function() {
+        vm.showAligmentOverlay = false;
+        vm.currentAligment = null;
     };
 
     hotkeys.add({

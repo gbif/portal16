@@ -56,7 +56,7 @@
                         </td>
                         <td>
                             <button class="gb-button--primary nameParser__parse-button"
-                     ng-if="species.match" gb-help="{{vm.getAlignment(species.match)}}" gb-help-options="{isCms: false, hideIcon: true}" ng-click="$event.stopPropagation();" >{{'Aligment'}}
+                     ng-if="species.match" ng-click="vm.showAlignment(species.match)" >{{'Aligment'}}
                         </button>
                         </td>
                         <td class="table-cell--widder">
@@ -110,3 +110,26 @@
     </div>
 
 </div>
+<span class="gbHelp">
+    <div ng-cloak class="gbHelp__overlay" ng-if="vm.showAligmentOverlay">
+        <div class="gbHelp__content">
+            <div class="card gbHelp__card--loaded " >
+                
+                <div class="card__content" >
+                        <h3 ng-bind-html="vm.currentAligment.header"></h3>
+                        <span class="discreet" ng-bind-html="vm.currentAligment.subHeader"></span>
+                        <pre class="sequenceMatcher__alignment" ng-bind-html="vm.currentAligment.alignment"></pre>
+                        <div ng-if="vm.currentAligment.alternatives && vm.currentAligment.alternatives.length">
+                            <h3>Alternatives:</h3>
+                            <div ng-repeat="alt in vm.currentAligment.alternatives">
+                                <h4 ng-bind-html="alt.header"></h4>
+                                <span class="discreet" ng-bind-html="alt.subHeader"></span>
+                                 <pre class="sequenceMatcher__alignment" ng-bind-html="alt.alignment"></pre>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="gbHelp__close" ng-click="vm.closeAligmentOverlay()"></div>
+    </div>
+</span>
