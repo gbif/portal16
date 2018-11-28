@@ -27,12 +27,14 @@ async function authenticatedRequest(options) {
     requestOptions.method = options.method;
     requestOptions.url = options.url;
     requestOptions.json = options.body;
-    if (requestOptions.method == 'GET') {
+    
+    let expectJSON = typeof options.json === 'undefined' || options.json;
+    if (requestOptions.method == 'GET' && expectJSON) {
         requestOptions.json = true;
     }
 
     let headers = createHeader(options);
-    signHeader(requestOptions.method, headers);
+    signHeader(requestOptions.method, headers, expectJSON);
     requestOptions.headers = headers;
 
     let response = await request(requestOptions);
@@ -49,10 +51,13 @@ function createHeader(options) {
     return headers;
 }
 
-function signHeader(method, headers) {
+function signHeader(method, headers, isJson) {
     let stringToSign = method + NEWLINE + headers['x-url'];
     if (headers['Content-MD5']) {
-        stringToSign += NEWLINE + 'application/json' + NEWLINE + headers['Content-MD5'];
+        if (isJson) {
+            stringToSign += NEWLINE + 'application/json' + NEWLINE + headers['Content-MD5'];
+        }
+        stringToSign += NEWLINE + headers['Content-MD5'];
     }
     if (headers['x-gbif-user']) {
         stringToSign += NEWLINE + headers['x-gbif-user'];

@@ -170,16 +170,16 @@ async function createSimpleDownload(user, query) {
     query = query || {};
     expect(query, 'download query').to.be.an('object');
     expect(user.userName, 'user name').to.be.a('string');
-
+    
     query.notification_address = user.email || 'an_email_is_required_despite_not_needing_it';
-
+    
     let options = {
         url: apiConfig.occurrenceSearchDownload.url + '?' + querystring.stringify(query),
         userName: user.userName,
         type: 'PLAIN',
-        method: 'GET'
+        method: 'GET',
+        json: false
     };
-
     let response = await authOperations.authenticatedRequest(options);
     if (response.statusCode !== 200) {
         throw response;
