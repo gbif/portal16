@@ -36,7 +36,7 @@
       "create": "給予回饋意見"
     },
     "placeholders": {
-      "summary": "",
+      "summary": "總結",
       "description": "",
       "username": ""
     },
@@ -45,7 +45,7 @@
     "failure": "",
     "weRecommendX": "",
     "tellGbif": "",
-    "submit": "",
+    "submit": "提交",
     "seeAllComments": "查看全部",
     "recommendMail": "",
     "pleaseLogin": ""
