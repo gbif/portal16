@@ -77,9 +77,9 @@
     "invalidProfileUpdate": "",
     "changePassword": "變更密碼",
     "accountCreated": "建立帳戶",
-    "accountInfoUpdated": "",
-    "passwordChangeInvalid": "",
-    "verficationLinkSent": "",
+    "accountInfoUpdated": "已更新你的帳戶",
+    "passwordChangeInvalid": "無效密碼-如忘記你的密碼，登入後使用密碼重設",
+    "verficationLinkSent": "認證連結已寄出，請確認你的信箱。歡迎來到GBIF",
     "resetPasswordRequest": "",
     "resetPasswordMessage": ""
   }
