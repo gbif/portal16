@@ -18,7 +18,7 @@
       "EML_GBIF_SCHEMA": "",
       "UNKNOWN_ROWTYPE": "",
       "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
+      "COLUMN_MISMATCH": "無匹配欄位",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
       "UNKNOWN_TERM": "",
       "DUPLICATED_TERM": "",
@@ -53,7 +53,7 @@
         "title": ""
       }
     },
-    "fileSizeLimit": "",
+    "fileSizeLimit": "檔案大小限制: 100mb",
     "receivedMediaType": "",
     "uniqueIdentifier": "",
     "reportLocation": "",
@@ -75,7 +75,7 @@
       "title": "",
       "term": "",
       "count": "",
-      "percentage": "",
+      "percentage": "百分比",
       "interpreted": ""
     },
     "interpretedCounts": {
@@ -87,7 +87,7 @@
       "title": ""
     },
     "status": {
-      "title": "",
+      "title": "狀態",
       "SUBMITTED": "",
       "FETCHING": "",
       "ACCEPTED": "",
@@ -107,18 +107,18 @@
     "thisIsAnEarlyAccessVersion": "",
     "here": "",
     "coreRowType": "",
-    "submit": "",
+    "submit": "提交",
     "dropHere": "",
     "or": "",
-    "selectFile": "",
+    "selectFile": "選擇檔案",
     "fetchFileFromLocation": "",
     "tabs": {
       "newDataValidation": "",
       "newValidation": "",
       "about": "",
       "darwinCoreExtensions": "",
-      "metaData": "",
-      "summary": ""
+      "metaData": "元資料",
+      "summary": "總結"
     }
   }
 }
