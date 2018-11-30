@@ -13,10 +13,32 @@ module.exports = function(app) {
 };
 
 router.get('/sitemap.xml', function(req, res, next) {
-    res.set('Content-Type', 'text/xml');
-    helper.renderPage(req, res, next, {
-    }, 'sitemaps/index');
+    allSiteMapIndices()
+        .then(function(context) {
+            res.set('Content-Type', 'text/xml');
+            helper.renderPage(req, res, next, context, 'sitemaps/index');
+        })
+        .catch(function(err) {
+            next(err);
+        });
 });
+
+async function allSiteMapIndices() {
+    const network = pager.network.intervals();
+    const installation = pager.installation.intervals();
+    const node = pager.node.intervals();
+    const dataset = pager.dataset.intervals();
+    const publisher = pager.publisher.intervals();
+    const maps = await Promise.all([network, installation, node, dataset, publisher]);
+    const context = {
+        network: maps[0],
+        installation: maps[1],
+        node: maps[2],
+        dataset: maps[3],
+        publisher: maps[4]
+    };
+    return context;
+}
 
 // prose
 router.get('/sitemap-prose.xml', function(req, res, next) {
