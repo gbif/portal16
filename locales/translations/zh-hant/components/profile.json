@@ -65,11 +65,11 @@
     "pleaseFillForm": "",
     "selectAllImages": "",
     "signUp": "",
-    "cancel": "",
-    "resetPassword": "",
-    "back": "",
-    "startEditing": "",
-    "stopEditing": "",
+    "cancel": "取消",
+    "resetPassword": "重設密碼",
+    "back": "返回",
+    "startEditing": "開始編輯",
+    "stopEditing": "結束編輯",
     "firstName": "名",
     "lastName": "姓",
     "save": "儲存",
@@ -80,7 +80,7 @@
     "accountInfoUpdated": "已更新你的帳戶",
     "passwordChangeInvalid": "無效密碼-如忘記你的密碼，登入後使用密碼重設",
     "verficationLinkSent": "認證連結已寄出，請確認你的信箱。歡迎來到GBIF",
-    "resetPasswordRequest": "",
-    "resetPasswordMessage": ""
+    "resetPasswordRequest": "密碼重設請求",
+    "resetPasswordMessage": "我們已經把重設密碼連結寄到你的電子信箱"
   }
 }
