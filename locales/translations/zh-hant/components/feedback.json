@@ -12,8 +12,8 @@
       "contactPerMail": ""
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "錯誤",
+      "example": "例如: 搜尋鍵無法運作。頁面無法載入。因欄位重複無法讀取。"
     },
     "idea": {
       "title": "想法",
@@ -44,7 +44,7 @@
     "issueTracking": "",
     "failure": "",
     "weRecommendX": "",
-    "tellGbif": "",
+    "tellGbif": "告知GBIF",
     "submit": "提交",
     "seeAllComments": "查看全部",
     "recommendMail": "",
