@@ -16,8 +16,8 @@
       "USERNAME_NOT_UNIQUE": "",
       "LOGIN_UNKNOWN": "",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
-      "USER_ALREADY_LOGGED_IN": "",
-      "EMAIL_IN_USE": "",
+      "USER_ALREADY_LOGGED_IN": "您已登入",
+      "EMAIL_IN_USE": "電子郵件已被使用",
       "NO_EMAIL_PROVIDED": "未提供電子郵件",
       "FAILED": "伺服器無法執行要求"
     },
