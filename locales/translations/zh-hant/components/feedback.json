@@ -3,7 +3,7 @@
     "leaveFeedback": "給予回饋意見",
     "intro": {
       "title": "回饋和問題",
-      "example": ""
+      "example": "請選擇您所要提供的回饋形式，以協助我們解決問題。盡可能以英文提交。"
     },
     "data content": {
       "title": "內容",
@@ -38,7 +38,7 @@
     "placeholders": {
       "summary": "總結",
       "description": "",
-      "username": ""
+      "username": "你的電子郵件或Github使用者名稱(公開)"
     },
     "markdownSupport": "",
     "issueTracking": "",
