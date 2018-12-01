@@ -1,9 +1,9 @@
 {
   "network": {
-    "network": "",
+    "network": "網絡",
     "tabs": {
-      "summary": "",
-      "homepage": "",
+      "summary": "總結",
+      "homepage": "首頁",
       "metrics": "",
       "datasets": ""
     },
