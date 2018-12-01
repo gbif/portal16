@@ -2,9 +2,9 @@
   "dataset": {
     "longType": {
       "OCCURRENCE": "出現記錄資料集",
-      "CHECKLIST": "",
+      "CHECKLIST": "清單資料",
       "SAMPLING_EVENT": "",
-      "METADATA": ""
+      "METADATA": "元資料集"
     },
     "metricHighlights": {
       "occurrences": "",
@@ -17,12 +17,12 @@
       "overlapWithCol": ""
     },
     "noStatsForMetadata": "",
-    "viewArticle": "",
+    "viewArticle": "觀看文章",
     "registeredDate": "",
     "constituentOf": "",
     "dataset": "資料集",
     "taxonomy": "",
-    "project": "",
+    "project": "專案",
     "metrics": "",
     "constituents": "",
     "download": "下載",
@@ -30,8 +30,8 @@
     "nConstituentDatasets": "",
     "consistuentDatasets": "",
     "noConstituentDatasets": "",
-    "logs": "",
-    "noDownloads": "",
+    "logs": "紀錄檔",
+    "noDownloads": "尚未下載",
     "finished": "",
     "activity": "",
     "title": "",
@@ -56,9 +56,9 @@
     "registration": "",
     "dataDescription": "",
     "bibliography": "",
-    "citation": "",
+    "citation": "引用",
     "temporalCoverages": "",
-    "history": "",
+    "history": "歷史記錄",
     "ingestNow": "",
     "readFullDescription": "",
     "howToCite": "",
