@@ -6,7 +6,7 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "無效",
             "select": {
                 "equals": "",
                 "between": "",
@@ -36,8 +36,8 @@
             "select": {
                 "equals": "",
                 "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "結束前",
+                "greaterThanOrEquals": "開始後"
             }
         }
     }
