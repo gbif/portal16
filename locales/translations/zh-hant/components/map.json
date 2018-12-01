@@ -11,8 +11,8 @@
     "filters": "篩選",
     "projection": "投影",
     "select": "選取",
-    "custom": "",
-    "baseMap": "",
+    "custom": "自訂",
+    "baseMap": "底圖",
     "binning": "",
     "year": "年份",
     "chooseColors": "顏色",
@@ -26,21 +26,21 @@
     "basemap": {
       "CLASSIC": "",
       "LIGHT": "淺色 (無標籤)",
-      "LIGHT_DETAILS": "",
+      "LIGHT_DETAILS": "亮色",
       "DARK": "深色 (無標籤)",
-      "DARK_DETAILS": "",
+      "DARK_DETAILS": "暗色",
       "OSM": "道路"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "點數",
+      "SMALL_HEX": "小型六邊形",
+      "LARGE_HEX": "六邊形",
+      "SMALL_SQUARE": "小正方形",
+      "LARGE_SQUARE": "方形"
     },
     "colors": {
       "CLASSIC": "",
-      "FIRE": "",
+      "FIRE": "火",
       "GLACIER": "冰河",
       "PURPLE_YELLOW": "紫色 黃色",
       "PURPLE_HEAT": "",
