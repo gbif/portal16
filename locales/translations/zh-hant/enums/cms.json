@@ -7,7 +7,7 @@
         "literatureType": "",
         "contractCountry": "",
         "topics": "",
-        "audiences": "",
+        "audiences": "讀者",
         "purposes": "",
         "relevance": "",
         "language": "語言",
@@ -41,9 +41,9 @@
           "undefined": ""
         },
         "projectStatus": {
-          "APPROVED": "",
-          "CLOSED": "",
-          "IN_PROGRESS": "",
+          "APPROVED": "核准",
+          "CLOSED": "關閉",
+          "IN_PROGRESS": "處理中",
           "undefined": ""
         },
         "relevance": {
