@@ -7,7 +7,7 @@
     "anyYear": "任何年份",
     "exploreArea": "探索區域",
     "explore": "探索",
-    "style": "",
+    "style": "樣式",
     "filters": "篩選",
     "projection": "投影",
     "select": "選取",
@@ -17,11 +17,11 @@
     "year": "年份",
     "chooseColors": "顏色",
     "predefined": {
-      "CLASSIC_HEX": "",
+      "CLASSIC_HEX": "經典六邊形",
       "CLASSIC": "",
       "STREETS": "街道",
       "GLACIER": "冰河",
-      "CUSTOM": ""
+      "CUSTOM": "自訂"
     },
     "basemap": {
       "CLASSIC": "",
