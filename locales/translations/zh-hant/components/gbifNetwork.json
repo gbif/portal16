@@ -26,9 +26,9 @@
     "group": {
 
     },
-    "gbif_secretariat": "",
-    "membershipType": "",
-    "name": "",
+    "gbif_secretariat": "GBIF秘書處",
+    "membershipType": "會員",
+    "name": "名稱",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
@@ -42,7 +42,7 @@
       "HEAD_OF_DELEGATION": "",
       "NODE_MANAGER": ""
     },
-    "publishers": "",
+    "publishers": "發布者",
     "memberSince": "",
     "participant": "",
     "pPublishers": "",
