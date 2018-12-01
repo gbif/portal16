@@ -1,6 +1,6 @@
 {
   "ocurrenceFieldNames": {
-    "gbifID": "",
+    "gbifID": "全球生物多樣性機構ID",
     "abstract": "",
     "accessRights": "",
     "accrualMethod": "",
@@ -63,7 +63,7 @@
     "collectionCode": "",
     "datasetName": "資料集名稱",
     "ownerInstitutionCode": "",
-    "basisOfRecord": "",
+    "basisOfRecord": "記錄依據",
     "informationWithheld": "",
     "dataGeneralizations": "",
     "dynamicProperties": "",
