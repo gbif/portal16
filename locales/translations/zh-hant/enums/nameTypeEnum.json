@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "",
+    "SCIENTIFIC": "學名",
     "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
+    "BLACKLISTED": "列入黑名單",
+    "VIRUS": "病毒",
     "HYBRID": "",
-    "INFORMAL": "",
+    "INFORMAL": "非正式",
     "OTU": "",
     "CULTIVAR": "",
     "CANDIDATUS": "",
     "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "NO_NAME": "沒有名稱"
   }
 }
