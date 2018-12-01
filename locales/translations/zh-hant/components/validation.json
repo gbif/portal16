@@ -5,12 +5,12 @@
       "RESOURCE_INTEGRITY": "",
       "RECORD_STRUCTURE": "",
       "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
+      "METADATA_CONTENT": "元資料內容",
       "CLB_INTERPRETATION_BASED": ""
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
+      "DWCA_UNREADABLE": "無法讀取達爾文核心集歸檔",
+      "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 檔",
       "DWCA_META_XML_SCHEMA": "",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
@@ -31,22 +31,22 @@
       "NoIssuesFound": ""
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "檔案格式",
+      "DWCA": "達爾文核心集歸檔",
+      "TABULAR": "表格檔 (. csv,. tsv)",
+      "SPREADSHEET": "試算表 (. xlsx)"
     },
     "fileType": {
       "title": "",
       "CORE": {
-        "title": ""
+        "title": "核心"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "附加元件"
       },
       "METADATA": {
         "description": "",
-        "title": ""
+        "title": "元資料文件"
       },
       "META_DESCRIPTOR": {
         "description": "",
@@ -114,9 +114,9 @@
     "fetchFileFromLocation": "",
     "tabs": {
       "newDataValidation": "",
-      "newValidation": "",
-      "about": "",
-      "darwinCoreExtensions": "",
+      "newValidation": "新的驗證",
+      "about": "關於",
+      "darwinCoreExtensions": "達爾文核心集擴展",
       "metaData": "元資料",
       "summary": "總結"
     }
