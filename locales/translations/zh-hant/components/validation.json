@@ -1,9 +1,9 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
+      "RESOURCE_STRUCTURE": "資源結構",
+      "RESOURCE_INTEGRITY": "資源完整性",
+      "RECORD_STRUCTURE": "記錄結構",
       "OCC_INTERPRETATION_BASED": "",
       "METADATA_CONTENT": "元資料內容",
       "CLB_INTERPRETATION_BASED": ""
@@ -14,7 +14,7 @@
       "DWCA_META_XML_SCHEMA": "",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
+      "EML_NOT_FOUND": "找不到 EML文件",
       "EML_GBIF_SCHEMA": "",
       "UNKNOWN_ROWTYPE": "",
       "REQUIRED_TERM_MISSING": "",
@@ -88,12 +88,12 @@
     },
     "status": {
       "title": "狀態",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
-      "FAILED": "",
+      "SUBMITTED": "正在傳送檔案",
+      "FETCHING": "正在接收檔案",
+      "ACCEPTED": "開始驗證",
+      "RUNNING": "驗證中",
+      "FINISHED": "驗證完成",
+      "FAILED": "驗證失敗。請確認檔案形式，如您提交URL檔，請確認檔案的位址",
       "CONTACTING_SERVER": ""
     },
     "jobId": "",
@@ -113,7 +113,7 @@
     "selectFile": "選擇檔案",
     "fetchFileFromLocation": "",
     "tabs": {
-      "newDataValidation": "",
+      "newDataValidation": "新資料驗證",
       "newValidation": "新的驗證",
       "about": "關於",
       "darwinCoreExtensions": "達爾文核心集擴展",
