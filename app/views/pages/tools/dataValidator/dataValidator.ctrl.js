@@ -4,7 +4,7 @@ var fixedUtil = require('../../dataset/key/main/submenu');
 
 require('../../../components/fileUpload/fileUpload.directive');
 require('./feedback.service');
-
+var _ = require('lodash');
 
 angular
     .module('portal')
@@ -97,6 +97,8 @@ if ($sessionStorage.gbifRunningValidatonJob) {
 
     function handleFailedJob(data) {
         vm.jobStatus = data.status;
+        vm.errorCode = _.get(data, 'result.errorCode');
+        vm.errorMessage = _.get(data, 'result.errorMessage');
     }
 
 

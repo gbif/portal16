@@ -35,6 +35,15 @@
 
                     </div>
 
+                <div ng-if="vm.jobStatus ==='FAILED'" class="emptyInfo--small">
+                        <h3 ng-if="vm.errorCode" > {{vm.errorCode}}</h3>
+                        <p ng-if="vm.errorMessage">{{vm.errorMessage}}</p>
+
+                        <button  class="md-raised md-primary md-button md-ink-ripple"
+                                ng-click="vm.$state.go('dataValidator', {}, {reload: true})" translate="validation.backToValidator">
+                        </button>
+
+                    </div>
 
                     <div ng-if="vm.$state.is('dataValidatorKey')">
                         {% include "./intro/intro.nunjucks" %}

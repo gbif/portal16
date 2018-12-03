@@ -366,6 +366,8 @@ console.log(moment.utc().tz('Europe/Copenhagen')
 
     function handleFailedJob(data) {
         vm.jobStatus = data.status;
+        vm.errorCode = _.get(data, 'result.errorCode');
+        vm.errorMessage = _.get(data, 'result.errorMessage');
     }
 
 
