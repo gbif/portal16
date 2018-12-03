@@ -3,4 +3,29 @@
     <sitemap>
         <loc>{$ _meta.domain $}/sitemap-prose.xml</loc>
     </sitemap>
+    {% for page in network %}
+        <sitemap>
+            <loc>{$ _meta.domain $}/sitemap/network/{$ page.offset $}/{$ page.limit $}.xml</loc>
+        </sitemap>
+    {% endfor %}
+    {% for page in node %}
+        <sitemap>
+            <loc>{$ _meta.domain $}/sitemap/node/{$ page.offset $}/{$ page.limit $}.xml</loc>
+        </sitemap>
+    {% endfor %}
+     {% for page in installation %}
+        <sitemap>
+            <loc>{$ _meta.domain $}/sitemap/installation/{$ page.offset $}/{$ page.limit $}.xml</loc>
+        </sitemap>
+    {% endfor %}
+    {% for page in publisher %}
+        <sitemap>
+            <loc>{$ _meta.domain $}/sitemap/publisher/{$ page.offset $}/{$ page.limit $}.xml</loc>
+        </sitemap>
+    {% endfor %}
+    {% for page in dataset %}
+        <sitemap>
+            <loc>{$ _meta.domain $}/sitemap/dataset/{$ page.offset $}/{$ page.limit $}.xml</loc>
+        </sitemap>
+    {% endfor %}
 </sitemapindex>
