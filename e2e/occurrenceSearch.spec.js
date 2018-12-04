@@ -1,7 +1,7 @@
 'use strict';
 
-describe('E2E_01_Occurrence_Search', function() {
-    let searchDrawer, searchOccurrence, occurrenceTable;
+describe('Occurrence_Search', function() {
+    var searchDrawer, searchOccurrence, occurrenceTable;
 
     beforeEach(function() {
         searchDrawer = require('./po/searchDrawer.po.js');
