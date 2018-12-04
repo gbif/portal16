@@ -215,7 +215,7 @@ A hack to compensate for a missing API option to return a pregerenated version i
 */
 async function getPredicate(query) {
     let options = {
-        url: apiConfig.occurrenceSearch.url + 'predicate?' + querystring.stringify(query),
+        url: apiConfig.occurrenceDownload.url + 'request/predicate?' + querystring.stringify(query),
         method: 'GET',
         maxAttempts: 1,
         fullResponse: true,
