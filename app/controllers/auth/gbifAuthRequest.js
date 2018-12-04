@@ -55,7 +55,7 @@ function signHeader(method, headers, isJson) {
     let stringToSign = method + NEWLINE + headers['x-url'];
     if (headers['Content-MD5']) {
         if (isJson) {
-            stringToSign += NEWLINE + 'application/json' + NEWLINE + headers['Content-MD5'];
+            stringToSign += NEWLINE + 'application/json';
         }
         stringToSign += NEWLINE + headers['Content-MD5'];
     }
