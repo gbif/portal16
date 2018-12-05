@@ -9,7 +9,7 @@
                         {{ period.start | momentFormat:'D MMMM YYYY'  }}  - {{ period.end | momentFormat:'D MMMM YYYY' }}
                     </span>
                     <span ng-if="period['@type'] == 'single'">
-                        {{ period.period | momentFormat:'D MMMM YYYY' }}
+                        {{ period.date | momentFormat:'D MMMM YYYY' }}
                     </span>
                     <span ng-if="period['@type'] == 'verbatim'" ng-bind-html="period.period"></span>
                 </div>
