@@ -18,7 +18,7 @@
                 {{result._summary}}
             </p>
             <p class="discreet--very smaller">
-                <span translate="resource.published"></span> {{ result.createdAt | momentFormat:'D MMMM YYYY'}}
+                <span translate="resource.published"></span> {{ result.createdAt | momentFormat:'LL'}}
             </p>
         </div>
     </div>

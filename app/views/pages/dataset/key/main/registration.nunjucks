@@ -7,17 +7,17 @@
                 <dl class="inline">
                     <div ng-if="datasetKey.dataset.created">
                         <dt translate="dataset.registry.registrationDate"></dt>
-                        <dd>{{ datasetKey.dataset.created | momentFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.created | momentFormat:'LL' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.modified">
                         <dt translate="dataset.registry.metdataLastModified"></dt>
-                        <dd>{{ datasetKey.dataset.modified | momentFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.modified | momentFormat:'LL' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.pubDate">
                         <dt translate="dataset.registry.pubDate"></dt>
-                        <dd>{{ datasetKey.dataset.pubDate | momentFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.pubDate | momentFormat:'LL' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.host.$resolved">

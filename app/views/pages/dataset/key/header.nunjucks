@@ -6,7 +6,7 @@
                     <span class="article-header__category__upper"><a
                                 ui-sref="datasetSearchTable({type:datasetKey.dataset.type})" translate="dataset.longType.{{ datasetKey.dataset.type }}">
                             </a></span>
-                    <span class="article-header__category__lower" translate="dataset.registeredDate" translate-values="{DATE: (datasetKey.dataset.created | momentFormat:'D MMMM YYYY')}"></span>
+                    <span class="article-header__category__lower" translate="dataset.registeredDate" translate-values="{DATE: (datasetKey.dataset.created | momentFormat:'LL')}"></span>
                 </nav>
 
                 <h1 class="text-center">
@@ -33,7 +33,7 @@
                     </ol>
                 </div>
                 <p class="text-error" ng-if="datasetKey.dataset.deleted">
-                    <span translate="phrases.deletedOnDate" translate-values="{DATE: (datasetKey.dataset.deleted | momentFormat:'D MMMM YYYY') }"></span>
+                    <span translate="phrases.deletedOnDate" translate-values="{DATE: (datasetKey.dataset.deleted | momentFormat:'LL') }"></span>
                     <br/>
                     <span ng-if="datasetKey.duplicateOfDataset"><span translate="phrases.replacedBy"></span> <a class="inherit underline" ui-sref="datasetKey({key: datasetKey.duplicateOfDataset.key})">{{ datasetKey.duplicateOfDataset.title }}</a></span>
                 </p>

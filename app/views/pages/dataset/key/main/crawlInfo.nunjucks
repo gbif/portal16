@@ -5,23 +5,23 @@
     </div>
     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
         <dt translate="dataset.registry.lastFailed"></dt>
-        <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
+        <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'LL' }}</dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess">
         <dt translate="dataset.registry.lastSuccess"></dt>
         <dd>
-            {{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'D MMMM YYYY' }} <span>(<span translate="dataset.crawl.finishReason.{{datasetKey.processSummary.lastSuccess.finishReason}}"></span>)</span>
+            {{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'LL' }} <span>(<span translate="dataset.crawl.finishReason.{{datasetKey.processSummary.lastSuccess.finishReason}}"></span>)</span>
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastSuccess.finishReason !== 'NORMAL'">
         <dt translate="dataset.registry.lastWithChange"></dt>
-        <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | momentFormat:'D MMMM YYYY' }}</span>
+        <span ng-if="datasetKey.processSummary.lastNormal">{{ datasetKey.processSummary.lastNormal.finishedCrawling | momentFormat:'LL' }}</span>
         <span ng-if="!datasetKey.processSummary.lastNormal"><span translate="dataset.registry.noEntries"></span> <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span></span>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">
         <dt translate="dataset.registry.lastWithDataChange"></dt>
         <dd>
-            {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
+            {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'LL' }}
         </dd>
     </div>
     <div ng-if="datasetKey.processSummary.lastDataChange">

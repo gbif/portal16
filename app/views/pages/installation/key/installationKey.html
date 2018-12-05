@@ -13,7 +13,7 @@
                                 <h1 ng-class="{'text-error': installationKey.installation.deleted}">
                                     {{ installationKey.installation.title }}
                                 </h1>
-                                <p class="text-error text-center" ng-if="installationKey.installation.deleted"  translate="phrases.deletedOnDate" translate-values="{DATE: (installationKey.installation.deleted | momentFormat:'D MMMM YYYY') }">
+                                <p class="text-error text-center" ng-if="installationKey.installation.deleted"  translate="phrases.deletedOnDate" translate-values="{DATE: (installationKey.installation.deleted | momentFormat:'LL') }">
                                     <!--This publisher was deleted on DATE-->
                                 </p>
                             </header>
@@ -63,7 +63,7 @@
                                     </div>
                                     <div ng-if="installationKey.installation.created">
                                         <dt translate="installation.registered"></dt>
-                                        <dd>{{ installationKey.installation.created | momentFormat:'D MMMM YYYY' }}</dd>
+                                        <dd>{{ installationKey.installation.created | momentFormat:'LL' }}</dd>
                                     </div>
                                     <div ng-if="installationKey.installation.endpoints.length > 0">
                                         <dt translate="installation.endpoints"></dt>

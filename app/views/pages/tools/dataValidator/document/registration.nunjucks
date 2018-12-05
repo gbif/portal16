@@ -7,17 +7,17 @@
                 <dl class="inline">
                     <div ng-if="datasetKey.dataset.created">
                         <dt>Registration date</dt>
-                        <dd>{{ datasetKey.dataset.created | momentFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.created | momentFormat:'LL' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.modified">
                         <dt>Last modification date</dt>
-                        <dd>{{ datasetKey.dataset.modified | momentFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.modified | momentFormat:'LL' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.pubDate">
                         <dt>Publication date</dt>
-                        <dd>{{ datasetKey.dataset.pubDate | momentFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.dataset.pubDate | momentFormat:'LL' }}</dd>
                     </div>
 
                     <div ng-if="datasetKey.host.$resolved">
@@ -84,11 +84,11 @@
                     </div>
                     <div ng-if="datasetKey.processSummary.failuresSinceLastSuccess">
                         <dt>Last failed attempt</dt>
-                        <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.processSummary.lastAttempt.startedCrawling | momentFormat:'LL' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.lastSuccess">
                         <dt>Last Successful ingestion</dt>
-                        <dd>{{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'D MMMM YYYY' }}</dd>
+                        <dd>{{ datasetKey.processSummary.lastSuccess.finishedCrawling | momentFormat:'LL' }}</dd>
                     </div>
                     <div ng-if="datasetKey.processSummary.finished > 0">
                         <dt>Ingestion completion reasons</dt>

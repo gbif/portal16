@@ -24,14 +24,14 @@
                 <div>
                     <dt translate="dataset.registry.metdataLastModified"></dt>
                     <dd>
-                        {{ datasetKey.dataset.modified | momentFormat:'D MMMM YYYY' }}
+                        {{ datasetKey.dataset.modified | momentFormat:'LL' }}
                     </dd>
                 </div>
 
                 <div ng-if="datasetKey.processSummary.lastDataChange">
                     <dt translate="dataset.registry.dataLastChanged"></dt>
                     <dd>
-                        {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'D MMMM YYYY' }}
+                        {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'LL' }}
                     </dd>
                 </div>
                 <div>
