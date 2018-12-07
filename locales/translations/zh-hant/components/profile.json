@@ -2,19 +2,19 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "無法連結至Facebook",
+        "GITHUB": "無法連結至Github"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "無法登入Facebook",
+        "GITHUB": "無法登入Github"
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
-      "LOGIN_UNKNOWN": "",
+      "USERNAME_NOT_UNIQUE": "使用者名稱已被使用",
+      "LOGIN_UNKNOWN": "此登入訊息尚未連結至任何帳號，如果您已有帳號，請以使用者名稱/電子郵件及密碼登入。\n或您可以註冊新帳號。",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
       "USER_ALREADY_LOGGED_IN": "您已登入",
       "EMAIL_IN_USE": "電子郵件已被使用",
