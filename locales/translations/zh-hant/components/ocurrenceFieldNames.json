@@ -251,6 +251,6 @@
     "scientificNameAuthorship": "",
     "undefined": "未知領域",
     "coordinatesTextual": "這筆紀錄缺乏座標，但包含地點的文字描述。",
-    "coordinatesMissing": ""
+    "coordinatesMissing": "缺少座標"
   }
 }
