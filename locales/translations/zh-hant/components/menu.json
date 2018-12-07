@@ -48,17 +48,17 @@
     "information": "",
     "news": "新聞",
     "literature": "文學",
-    "mentoring": "",
+    "mentoring": "指導",
     "ambassadors": "大使",
-    "newsletters": "",
+    "newsletters": "通訊和清單",
     "featuredDataUse": "精選資料使用",
-    "events": "",
+    "events": "活動",
     "awards": "獎項",
     "ProgrammesProjects": "計畫與方案",
     "capacitySupport": "",
     "bidProgramme": "",
     "bifaProgramme": "",
-    "funders": "",
-    "governance": ""
+    "funders": "資助者",
+    "governance": "管理"
   }
 }
