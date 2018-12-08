@@ -1,7 +1,7 @@
 {
   "taxonRank": {
     "undefined": "",
-    "UNKNOWN": "",
+    "UNKNOWN": "未知",
     "DOMAIN": "域",
     "SUPERKINGDOM": "總界",
     "KINGDOM": "界",
@@ -40,8 +40,8 @@
     "SUBTRIBE": "",
     "INFRATRIBE": "",
     "SUPRAGENERIC_NAME": "",
-    "GENUS": "",
-    "SUBGENUS": "",
+    "GENUS": "屬",
+    "SUBGENUS": "亞屬",
     "INFRAGENUS": "",
     "SECTION": "",
     "SUBSECTION": "亞節",
