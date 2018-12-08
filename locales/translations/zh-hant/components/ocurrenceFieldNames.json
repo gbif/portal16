@@ -150,7 +150,7 @@
     "georeferenceSources": "地理參照來源",
     "georeferenceVerificationStatus": "",
     "georeferenceRemarks": "地理參照註記",
-    "geologicalContextID": "",
+    "geologicalContextID": "地理背景ID",
     "earliestEonOrLowestEonothem": "",
     "latestEonOrHighestEonothem": "",
     "earliestEraOrLowestErathem": "",
