@@ -1,7 +1,7 @@
 {
   "occurrence": {
     "typeOf": "",
-    "coordinates": "",
+    "coordinates": "座標",
     "unknownDate": "",
     "absent": "",
     "issues": "問題",
@@ -23,7 +23,7 @@
       "showDiagnostics": "",
       "hideDiagnostics": "",
       "aboutDarwinCore": "關於達爾文核心集",
-      "raw": ""
+      "raw": "未處理的"
     },
     "groups": {
       "Record": "記錄",
@@ -42,7 +42,7 @@
     "original": "",
     "remarks": "",
     "highlights": {
-      "location": "",
+      "location": "地點",
       "specimenType": "",
       "publisher": "",
       "reference": "",
