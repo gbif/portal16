@@ -32,17 +32,17 @@
     },
     "issues": {
       "title": "",
-      "description": "",
+      "description": "其他使用者回報此內容有問題",
       "create": "給予回饋意見"
     },
     "placeholders": {
       "summary": "總結",
-      "description": "",
+      "description": "詳細說明: 對於分類群的主張，請提供參考文獻。請盡可能以英文提交您的回饋資訊。",
       "username": "你的電子郵件或Github使用者名稱(公開)"
     },
-    "markdownSupport": "",
+    "markdownSupport": "備註支援",
     "issueTracking": "",
-    "failure": "",
+    "failure": "糟糕 - 回饋資訊系統無法運作。請寄電子郵件或至[Github](https://github.com/gbif/portal-feedback/issues)。對於這項錯誤問題，我們感到抱歉。",
     "weRecommendX": "",
     "tellGbif": "告知GBIF",
     "submit": "提交",
