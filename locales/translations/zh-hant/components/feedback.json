@@ -22,8 +22,8 @@
     "question": {
       "title": "服務台",
       "example": "例如: 如何保護稀有物種的資料？你能幫我找到此物種在國際水域發生的所有紀錄嗎？",
-      "description": "",
-      "comment": ""
+      "description": "有任何問題，我們的協助平台helpdesk@gbif.org都可以協助回答。",
+      "comment": "私人提問與非技術問題請洽[info@gbif.org](mailto:info@gbif.org) ，媒體事務請洽[communication@gbif.org](mailto:communication@gbif.org)"
     },
     "confirmation": {
       "title": "謝謝",
