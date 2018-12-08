@@ -3,7 +3,7 @@
     "nGeoreferencedRecords": "",
     "noOccurrencesWithCoordinates": "",
     "clickToSearchArea": "點選搜尋區域",
-    "generatedDateAgo": "",
+    "generatedDateAgo": "產生{DATE_AGO}",
     "anyYear": "任何年份",
     "exploreArea": "探索區域",
     "explore": "探索",
