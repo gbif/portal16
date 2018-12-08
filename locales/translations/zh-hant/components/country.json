@@ -19,8 +19,8 @@
     "nFrom": "",
     "nAbout": "",
     "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
+    "noPublications": "無發佈",
+    "notParticipant": "不是參與者",
     "notParticipantDescription": "",
     "countryNamingDisclaimer": "",
     "counts": {
@@ -29,7 +29,7 @@
       "publishers": "",
       "countriesAndAreasContributeData": "",
       "publishedOccurrences": "",
-      "publishedDatasets": "",
+      "publishedDatasets": "已發布的資料集",
       "countriesAndAreasCoveredByDataFrom": "",
       "publishersFrom": ""
     },
