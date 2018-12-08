@@ -31,7 +31,7 @@
       },
       "associateCountries": {
         "title": "相關參與國家",
-        "description": ""
+        "description": "已簽署合作備忘錄(MOU) ，但未提供基礎財務贊助給GBIF核心資金且未票選GBIF董事會的國家。"
       },
       "associateParticipants": {
         "title": "",
@@ -41,10 +41,10 @@
     "columns": {
       "role": "",
       "name": "",
-      "participant": "",
+      "participant": "參與者",
       "participationStatus": ""
     },
-    "details": "",
+    "details": "詳細資料",
     "roles": "",
     "sinceDate": "",
     "showAllContacts": ""
