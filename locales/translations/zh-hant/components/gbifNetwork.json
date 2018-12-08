@@ -40,14 +40,14 @@
     },
     "roles": {
       "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "NODE_MANAGER": "節點管理者"
     },
     "publishers": "發布者",
     "memberSince": "",
-    "participant": "",
+    "participant": "參與者",
     "pPublishers": "",
     "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": ""
+    "occurrenceDatasets": "出現記錄資料集",
+    "occurrences": "出現紀錄"
   }
 }
