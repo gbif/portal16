@@ -43,11 +43,11 @@
     "markdownSupport": "備註支援",
     "issueTracking": "",
     "failure": "糟糕 - 回饋資訊系統無法運作。請寄電子郵件或至[Github](https://github.com/gbif/portal-feedback/issues)。對於這項錯誤問題，我們感到抱歉。",
-    "weRecommendX": "",
+    "weRecommendX": "我們建議使用[{NAME}]({LINK})",
     "tellGbif": "告知GBIF",
     "submit": "提交",
     "seeAllComments": "查看全部",
     "recommendMail": "我們建議您寄電子郵件至",
-    "pleaseLogin": ""
+    "pleaseLogin": "請登入帳戶以留下您的回饋訊息。或您也可以使用[Github](https://github.com/gbif/portal-feedback/issues). 為什麼呢? 很不幸地，在無需登入的情況下，我們在回饋系統中看到許多垃圾廣告。"
   }
 }
