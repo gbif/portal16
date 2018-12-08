@@ -11,7 +11,7 @@
     "theseChartsIllustrate2": "",
     "speciesCounts": "",
     "speciesCountDescription": "",
-    "definition": "",
+    "definition": "定義",
     "numOccSpeciesByKingdom": "",
     "speciesCountByKingdom": "",
     "numSpeciesFromSpecimens": "",
@@ -56,7 +56,7 @@
     "thisChartShowsTheNumberOfRecordsSharedByPublishersWithin": "",
     "thisChartShowsGlobalTrends": "",
     "analytics": "",
-    "global": "",
+    "global": "全球",
     "changeOverTimeInDataAboutSpeciesFromCountry": "",
     "changeOverTimeInTheDataPublishedByInstitutionsWithin": "",
     "trendsInDataAvailabilityOnTheGbifNetwork": "",
@@ -68,6 +68,6 @@
       "publishedByDescription": ""
     },
     "analyticsGlobalDescription": "",
-    "analyticsTitle": ""
+    "analyticsTitle": "資料趨勢"
   }
 }
