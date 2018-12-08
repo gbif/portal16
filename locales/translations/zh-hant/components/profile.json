@@ -57,7 +57,7 @@
     "invalidEmail": "請輸入有效的電子郵件。",
     "username": "使用者名稱",
     "usernameRequired": "需要使用者名稱",
-    "invalidUsername": "",
+    "invalidUsername": "有效的使用者名稱只可為3-64個包含A至Z英文字母和\".\"，\"_\"，\"-\"",
     "passwordRequired": "密碼是必填的",
     "passwordLength": "密碼必須為6個字元或以上",
     "passwordMaxLength": "您的密碼不得超過256個字元",
