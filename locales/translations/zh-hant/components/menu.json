@@ -22,7 +22,7 @@
     "ipt": "",
     "dataValidator": "資料驗證程式",
     "suggestDataset": "建議資料集",
-    "dataRepository": "",
+    "dataRepository": "資料儲存庫",
     "developers": "使用者",
     "api": "",
     "rgbif": "",
@@ -56,8 +56,8 @@
     "awards": "獎項",
     "ProgrammesProjects": "計畫與方案",
     "capacitySupport": "",
-    "bidProgramme": "",
-    "bifaProgramme": "",
+    "bidProgramme": "BID: 生物多樣性資訊發展",
+    "bifaProgramme": "BIFA: 亞洲生物多樣性資訊基金",
     "funders": "資助者",
     "governance": "管理"
   }
