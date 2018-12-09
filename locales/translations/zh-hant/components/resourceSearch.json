@@ -1,6 +1,6 @@
 {
     "resourceSearch": {
-        "upcoming": "",
+        "upcoming": "即將到來",
         "past": "",
         "searchForNewsEventsDocuments": "",
         "occurrenceSearch": "",
@@ -21,11 +21,11 @@
             "countriesOfCoverage": "",
             "countriesOfResearcher": "",
             "literatureType": "",
-            "contractCountry": "",
-            "topics": "",
-            "audiences": "",
+            "contractCountry": "國家或地區",
+            "topics": "主題",
+            "audiences": "讀者",
             "purposes": "目的",
-            "relevance": "",
+            "relevance": "相關性",
             "language": "語言",
             "year": "年",
             "gbifDatasetKey": "資料集",
