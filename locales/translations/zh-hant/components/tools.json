@@ -3,8 +3,8 @@
         "categoryFeatured": "",
         "suggestDataset": {
             "NOT_OPEN": "",
-            "title": "",
-            "pleaseDescribeTheDataset": "",
+            "title": "建議資料集",
+            "pleaseDescribeTheDataset": "請描述此資料集",
             "thankYou": "謝謝",
             "form": {
                 "title": "標題",
