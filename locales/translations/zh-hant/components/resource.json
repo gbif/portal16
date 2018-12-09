@@ -1,11 +1,11 @@
 {
   "resource": {
     "resources": "資源",
-    "contactHelpdesk": "",
-    "addToCalendar": "",
+    "contactHelpdesk": "聯繫協助平台",
+    "addToCalendar": "新增至行事曆",
     "venue": "",
     "location": "地點",
-    "country": "",
+    "country": "國家或地區",
     "noDatasets": "無資料集可顯示",
     "when": "",
     "language": "語言",
