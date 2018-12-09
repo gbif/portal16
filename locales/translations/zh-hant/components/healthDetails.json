@@ -34,15 +34,15 @@
             },
             "CONTENTFUL": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "例如新聞和文章"
             },
             "IMAGE_CACHE": {
                 "name": "",
                 "tooltip": ""
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "Github(外部系統)",
+                "tooltip": "回饋, 資料集建議。"
             },
             "CRAWLER": {
                 "name": "攝取",
