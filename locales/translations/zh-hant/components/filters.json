@@ -1,7 +1,7 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
+        "searchPlaceholder": "搜尋",
+        "noPreference": "無偏好",
         "invert": "",
         "clear": "",
         "add": "",
