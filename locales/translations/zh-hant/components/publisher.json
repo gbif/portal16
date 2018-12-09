@@ -13,11 +13,11 @@
     "endorsedBy": "背書",
     "pendingEndorsementBy": "",
     "installations": "",
-    "contacts": "",
+    "contacts": "聯繫",
     "administrativeContact": "",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "發布者",
+      "sinceDate": "從{DATE}"
     }
   }
 }
