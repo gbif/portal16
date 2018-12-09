@@ -1,7 +1,7 @@
 {
   "cms": {
     "project": {
-      "project": "",
+      "project": "專案",
       "projectId": "",
       "projectIdentifier": "",
       "grantType": "",
@@ -13,11 +13,11 @@
       "matchingFunds": "",
       "funding": "",
       "coFunding": "",
-      "fundedBy": "",
+      "fundedBy": "贊助由",
       "coFundedBy": "",
       "typeOfGrant": "",
       "projectStart": "",
-      "status": "",
+      "status": "狀態",
       "programme": "",
       "contractCountry": "",
       "newsAndEvents": "",
@@ -33,9 +33,9 @@
       "keywords": ""
     },
     "auxiliary": {
-      "subject": "",
-      "citation": "",
-      "organisingParticipants": ""
+      "subject": "主題",
+      "citation": "引用",
+      "organisingParticipants": "組織參與者"
     }
   }
 }
