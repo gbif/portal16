@@ -6,7 +6,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": ""
+            "undefined": "未知"
         },
         "description": {
             "VOTING": "",
@@ -24,7 +24,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "未知"
                 },
                 "longForm": {
                     "VOTING": "",
