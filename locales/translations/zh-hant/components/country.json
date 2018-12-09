@@ -25,8 +25,8 @@
     "countryNamingDisclaimer": "",
     "counts": {
       "occurrences": "",
-      "datasets": "",
-      "publishers": "",
+      "datasets": "資料集",
+      "publishers": "發布者",
       "countriesAndAreasContributeData": "",
       "publishedOccurrences": "",
       "publishedDatasets": "已發布的資料集",
