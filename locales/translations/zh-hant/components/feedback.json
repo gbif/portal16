@@ -9,7 +9,7 @@
       "title": "內容",
       "example": "例如: 這個頁面包含拼字錯誤。物種不存在。位置似乎有疑問。該組織新URL是...",
       "annotate": "這個發布者有一個處理回饋的網站，我們建議使用它。",
-      "contactPerMail": ""
+      "contactPerMail": "與資料聯絡者取得聯繫"
     },
     "bug": {
       "title": "錯誤",
@@ -28,10 +28,10 @@
     "confirmation": {
       "title": "謝謝",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "查看問題"
     },
     "issues": {
-      "title": "",
+      "title": "內容問題",
       "description": "其他使用者回報此內容有問題",
       "create": "給予回饋意見"
     },
@@ -41,7 +41,7 @@
       "username": "你的電子郵件或Github使用者名稱(公開)"
     },
     "markdownSupport": "備註支援",
-    "issueTracking": "",
+    "issueTracking": "所以問題都是公開且開放取得透過[Github](https://github.com/gbif/portal-feedback/issues)",
     "failure": "糟糕 - 回饋資訊系統無法運作。請寄電子郵件或至[Github](https://github.com/gbif/portal-feedback/issues)。對於這項錯誤問題，我們感到抱歉。",
     "weRecommendX": "我們建議使用[{NAME}]({LINK})",
     "tellGbif": "告知GBIF",
