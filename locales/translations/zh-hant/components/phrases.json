@@ -1,12 +1,12 @@
 {
   "phrases": {
-    "contactHelpdesk": "",
+    "contactHelpdesk": "聯繫協助平台",
     "defaultPageTitle": "",
     "defaultPageDescription": "",
     "deletedOnDate": "",
     "replacedBy": "",
-    "loading": "",
-    "failed": "",
+    "loading": "正在載入",
+    "failed": "已失敗",
     "errorNotAuthorized": "",
     "partialPage": "",
     "noInformationFound": "",
