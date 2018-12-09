@@ -46,18 +46,18 @@
             },
             "CRAWLER": {
                 "name": "攝取",
-                "tooltip": ""
+                "tooltip": "更新資料集 - 新和舊"
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "搜尋來源",
+                "tooltip": "例如搜尋文獻，新聞。"
             },
             "CLUSTER": {
-                "name": "",
+                "name": "系統負載",
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
+                "name": "下載",
                 "tooltip": ""
             }
         }
