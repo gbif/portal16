@@ -6,9 +6,9 @@
         "limitSearchTo": "",
         "limitResultsTo": {
             "all": "",
-            "scientificNames": "",
+            "scientificNames": "學名",
             "vernacularNames": "",
-            "descriptions": ""
+            "descriptions": "描述說明"
         }
     }
 }
