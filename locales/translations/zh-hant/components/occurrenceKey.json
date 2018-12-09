@@ -87,9 +87,9 @@
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "排除",
+      "AUTHORED": "改變",
+      "INFERED": "推斷"
     }
   }
 }
