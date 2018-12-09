@@ -16,14 +16,14 @@
         },
         "depth": {
             "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "between": "在{from}和{to}之間",
+            "lessThanOrEquals": "在{to}深度之上",
+            "greaterThanOrEquals": "比{from}深",
+            "invalid": "無效",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
+                "equals": "是",
+                "between": "之間",
+                "lessThanOrEquals": "小於",
                 "greaterThanOrEquals": ""
             }
         },
