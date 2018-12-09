@@ -27,12 +27,12 @@
             "purposes": "目的",
             "relevance": "",
             "language": "語言",
-            "year": "",
-            "gbifDatasetKey": "",
-            "publishingOrganizationKey": "",
-            "peerReview": "",
-            "openAccess": "",
-            "gbifDownloadKey": ""
+            "year": "年",
+            "gbifDatasetKey": "資料集",
+            "publishingOrganizationKey": "發布者",
+            "peerReview": "同儕審定",
+            "openAccess": "開源",
+            "gbifDownloadKey": "下載序號"
         }
     }
 }
