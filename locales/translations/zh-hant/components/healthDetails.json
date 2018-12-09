@@ -1,23 +1,23 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
+        "automatedMonitoring": "自動監控",
+        "systemLoad": "系統負載",
+        "messages": "訊息",
+        "version": "版本",
         "nInQueue": "",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "操作",
+            "WARNING": "不穩定",
+            "CRITICAL": "不可用",
+            "INFO": "系統更新"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
+                "name": "出現紀錄",
                 "tooltip": ""
             },
             "SPECIES": {
-                "name": "",
+                "name": "物種",
                 "tooltip": ""
             },
             "REGISTRY": {
@@ -29,11 +29,11 @@
                 "tooltip": ""
             },
             "MAPS": {
-                "name": "",
+                "name": "地圖",
                 "tooltip": ""
             },
             "CONTENTFUL": {
-                "name": "",
+                "name": "內容管理系統(外部系統)",
                 "tooltip": "例如新聞和文章"
             },
             "IMAGE_CACHE": {
