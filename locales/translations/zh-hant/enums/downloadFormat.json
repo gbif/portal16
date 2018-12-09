@@ -1,7 +1,7 @@
 {
   "downloadFormat": {
     "SIMPLE_AVRO": "",
-    "SIMPLE_CSV": "",
+    "SIMPLE_CSV": "CSV",
     "DWCA": ""
   }
 }
