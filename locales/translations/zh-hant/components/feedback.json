@@ -7,8 +7,8 @@
     },
     "data content": {
       "title": "內容",
-      "example": "",
-      "annotate": "",
+      "example": "例如: 這個頁面包含拼字錯誤。物種不存在。位置似乎有疑問。該組織新URL是...",
+      "annotate": "這個發布者有一個處理回饋的網站，我們建議使用它。",
       "contactPerMail": ""
     },
     "bug": {
