@@ -15,15 +15,15 @@
             "endpoints": "端點",
             "installationContacts": "",
             "installation": "安裝",
-            "dataLastChanged": "",
+            "dataLastChanged": "最後更改的資料",
             "pubDate": "發布日期",
             "hostedBy": "被持有",
             "hostingStatus": "",
             "metdataLastModified": "最後修改的元資料",
             "preferredIdentifier": "",
             "alternativeIdentifier": "",
-            "orphaned": "",
-            "rescued": "",
+            "orphaned": "孤立的資料集",
+            "rescued": "已救出的孤立資料集",
             "adopted": "採用的資料集",
             "neverIngested": "從未獲取",
             "inIngestionQueue": "",
@@ -41,9 +41,9 @@
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "一般",
+                "ABORT": "中止",
+                "NOT_MODIFIED": "未修改"
             }
         }
     }
