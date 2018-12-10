@@ -15,7 +15,7 @@ router.get('/installation/:key.:ext?', function(req, res, next) {
         let a = resourceItem.get(apiConfig.installation.url + key, {
             expand: [
                 {
-                    urlTemplate: 'http://api.gbif.org/v1/organization/{$ organizationKey $}',
+                    urlTemplate: apiConfig.publisher.url + '{$ organizationKey $}',
                     expect: ['organizationKey'],
                     toField: 'endorsingPublisher'
                 }
