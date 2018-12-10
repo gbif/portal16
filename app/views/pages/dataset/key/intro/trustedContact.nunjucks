@@ -38,7 +38,7 @@
                         <span ng-repeat="recentItem in datasetKey.processSummary.recent" class="processSummary__{{ recentItem.finishReason }}">
                             <md-tooltip md-direction="top">
                                 
-                                {{ recentItem.startedCrawling | momentFormat:'D MMMM YYYY' }} <span translate="dataset.finished"></span>: <span translate="dataset.crawl.finishReason.{{recentItem.finishReason}}"></span>
+                                {{ recentItem.startedCrawling | momentFormat:'LL' }} <span translate="dataset.finished"></span>: <span translate="dataset.crawl.finishReason.{{recentItem.finishReason}}"></span>
                             </md-tooltip>
                         </span>
                         <span ng-repeat="recentItem in datasetKey.range(25 - datasetKey.processSummary.recent.length) track by $index" class="processSummary__EMPTY }}"></span>

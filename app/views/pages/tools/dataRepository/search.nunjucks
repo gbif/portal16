@@ -39,7 +39,7 @@
                                         {{result.description | md2html | stripTags | truncate:300 }}
                                     </p>
                                     <p class="small discreet--very">
-                                        {{ result.created | momentFormat:'D MMMM YYYY' }} - {{ result.files.length }} files - Archive size {{ result.size | formatBytes }}
+                                        {{ result.created | momentFormat:'LL' }} - {{ result.files.length }} files - Archive size {{ result.size | formatBytes }}
                                     </p>
                                 </div>
                             </div>

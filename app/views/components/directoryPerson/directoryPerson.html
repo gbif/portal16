@@ -24,7 +24,7 @@
                             <li ng-repeat="role in vm.person.roles">
                                 <div >{{ 'role.' + role.role | translate }}</div>
                                 <div ng-if="role.role == 'GBIFS_STAFF_MEMBER'">{{ vm.person.jobTitle }}</div>
-                                <div class="discreet small"><span translate="directory.sinceDate" translate-values="{DATE: (role.term.start | momentFormat:'D MMMM YYYY')}"></span></div>
+                                <div class="discreet small"><span translate="directory.sinceDate" translate-values="{DATE: (role.term.start | momentFormat:'LL')}"></span></div>
                             </li>
                             <li ng-repeat="role in vm.person.participants">
                                 <div >{{ 'role.' + role.role | translate }}</div>
@@ -32,7 +32,7 @@
                                     <a ui-sref="countrySummary({key: role.participant.countryCode})" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
                                     <a ui-sref="participant({key: role.participant.id})" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
                                 </div>
-                                <div class="discreet small"><span translate="directory.sinceDate" translate-values="{DATE: (role.term.start | momentFormat:'D MMMM YYYY')}"></span></div>
+                                <div class="discreet small"><span translate="directory.sinceDate" translate-values="{DATE: (role.term.start | momentFormat:'LL')}"></span></div>
                             </li>
                             <li ng-repeat="role in vm.person.nodes">
                                 <div >{{ 'role.' + role.role | translate }}</div>

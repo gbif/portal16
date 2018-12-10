@@ -173,7 +173,7 @@
                                         <div class="card">
                                             <div class="card__stripe">
                                                 <div class="card__content">
-                                                    <div translate="downloadKey.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | momentFormat:'D MMMM YYYY')}"></div>
+                                                    <div translate="downloadKey.downloadDeletionWarning" translate-values="{ DATE: (downloadKey.download.eraseAfter | momentFormat:'LL')}"></div>
                                                     <div ng-bind-html="'downloadKey.aboutDeletionPolicy' | translate | md2html"></div>
                                                 </div>
                                             </div>

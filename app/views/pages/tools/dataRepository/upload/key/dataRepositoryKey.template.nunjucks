@@ -10,7 +10,7 @@
                             <header class="col-xs-12 text-center">
                                 <nav class="article-header__category article-header__category--deep">
                                     <a class="article-header__category__upper" ng-href="{{portal.urlPrefix}}/data-repository">Repository Upload</a>
-                                    <span class="article-header__category__lower">{{ dataRepositoryKey.upload.created | momentFormat:'D MMMM YYYY' }}</span>
+                                    <span class="article-header__category__lower">{{ dataRepositoryKey.upload.created | momentFormat:'LL' }}</span>
                                 </nav>
                                 <h1 class="text-center">
                                     <span>{{ dataRepositoryKey.upload.title }}</span>
@@ -90,13 +90,13 @@
                                         <div>
                                             <dt>Creation date</dt>
                                             <dd>
-                                                <span>{{ dataRepositoryKey.upload.created | momentFormat:'D MMMM YYYY' }}</span>
+                                                <span>{{ dataRepositoryKey.upload.created | momentFormat:'LL' }}</span>
                                             </dd>
                                         </div>
                                         <div ng-if="dataRepositoryKey.upload.created != dataRepositoryKey.upload.modified">
                                             <dt>Last modified</dt>
                                             <dd>
-                                                <span>{{ dataRepositoryKey.upload.modified | momentFormat:'D MMMM YYYY' }}</span>
+                                                <span>{{ dataRepositoryKey.upload.modified | momentFormat:'LL' }}</span>
                                             </dd>
                                         </div>
                                         <div>

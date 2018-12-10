@@ -6,10 +6,10 @@
             <div>
                 <div ng-repeat="period in datasetKey.dataset.temporalCoverages">
                     <span ng-if="period['@type'] == 'range'">
-                        {{ period.start | momentFormat:'D MMMM YYYY'  }}  - {{ period.end | momentFormat:'D MMMM YYYY' }}
+                        {{ period.start | momentFormat:'LL'  }}  - {{ period.end | momentFormat:'LL' }}
                     </span>
                     <span ng-if="period['@type'] == 'single'">
-                        {{ period.period | momentFormat:'D MMMM YYYY' }}
+                        {{ period.date | momentFormat:'LL' }}
                     </span>
                     <span ng-if="period['@type'] == 'verbatim'" ng-bind-html="period.period"></span>
                 </div>

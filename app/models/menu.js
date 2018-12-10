@@ -138,7 +138,7 @@ module.exports = [
           },
           {
             'name': 'developerBlog',
-            'url': 'http://gbif.blogspot.com',
+            'url': 'https://data-blog.gbif.org/',
             'type': 'EXTERNAL'
           }
         ]
