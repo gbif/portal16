@@ -47,6 +47,7 @@ require('moment');
 require('moment/locale/es');
 require('moment/locale/ja');
 require('moment/locale/zh-cn');
+require('moment/locale/zh-tw');
 require('moment/locale/ru');
 require('moment/locale/fr');
 require('moment/locale/pt');
