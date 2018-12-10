@@ -26,15 +26,15 @@
     "occurrencesBreakdownPerField": "",
     "occurrencesPerFieldx2": "",
     "customFilters": "",
-    "linear": "",
+    "linear": "線性",
     "count": "",
-    "intervalSize": "",
-    "intervalDiffers": "",
+    "intervalSize": "間距大小",
+    "intervalDiffers": "不同大小的間距",
     "showOccPer": "",
     "andBreakdownPer": "",
-    "logarithmic": "",
+    "logarithmic": "對數",
     "singleTypeResults": "",
-    "chooseDimension": "",
+    "chooseDimension": "選擇維度",
     "clickToZoom": "",
     "pinchToZoom": "",
     "numAcceptedSpByHigher": "",
@@ -45,13 +45,13 @@
     "unknownRank": "",
     "vernacularNames": "",
     "majorRanksPlural": {
-      "KINGDOM": "",
-      "PHYLUM": "",
-      "CLASS": "",
-      "ORDER": "",
-      "FAMILY": "",
-      "GENUS": "",
-      "SPECIES": ""
+      "KINGDOM": "界",
+      "PHYLUM": "門",
+      "CLASS": "綱",
+      "ORDER": "目",
+      "FAMILY": "科",
+      "GENUS": "屬",
+      "SPECIES": "種"
     }
   }
 }

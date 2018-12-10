@@ -26,9 +26,9 @@
     "group": {
 
     },
-    "gbif_secretariat": "",
-    "membershipType": "",
-    "name": "",
+    "gbif_secretariat": "GBIF秘書處",
+    "membershipType": "會員",
+    "name": "名稱",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
@@ -40,14 +40,14 @@
     },
     "roles": {
       "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "NODE_MANAGER": "節點管理者"
     },
-    "publishers": "",
+    "publishers": "發布者",
     "memberSince": "",
-    "participant": "",
+    "participant": "參與者",
     "pPublishers": "",
     "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": ""
+    "occurrenceDatasets": "出現記錄資料集",
+    "occurrences": "出現紀錄"
   }
 }

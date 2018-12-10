@@ -6,11 +6,11 @@
         "description": ""
       },
       "scienceCommittee": {
-        "title": "",
+        "title": "科學委員會",
         "description": ""
       },
       "budgetCommittee": {
-        "title": "",
+        "title": "預算委員會",
         "description": ""
       },
       "nsg": {
@@ -22,16 +22,16 @@
         "description": ""
       },
       "secretariat": {
-        "title": "",
+        "title": "GBIF秘書處",
         "description": ""
       },
       "voting": {
         "title": "",
-        "description": ""
+        "description": "已簽署合作備忘錄(MOU) 並同意提供基礎財務贊助給GBIF核心資金的國家。"
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "相關參與國家",
+        "description": "已簽署合作備忘錄(MOU) ，但未提供基礎財務贊助給GBIF核心資金且未票選GBIF董事會的國家。"
       },
       "associateParticipants": {
         "title": "",
@@ -41,10 +41,10 @@
     "columns": {
       "role": "",
       "name": "",
-      "participant": "",
+      "participant": "參與者",
       "participationStatus": ""
     },
-    "details": "",
+    "details": "詳細資料",
     "roles": "",
     "sinceDate": "",
     "showAllContacts": ""

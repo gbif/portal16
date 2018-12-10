@@ -1,38 +1,38 @@
 {
   "occurrence": {
     "typeOf": "",
-    "coordinates": "",
+    "coordinates": "座標",
     "unknownDate": "",
     "absent": "",
-    "issues": "",
-    "dataset": "",
+    "issues": "問題",
+    "dataset": "資料集",
     "synced": "",
-    "modified": "",
-    "monthAndyear": "",
+    "modified": "修改",
+    "monthAndyear": "月 \/ 年",
     "coordinateUncertainty": "",
-    "citation": "",
-    "readFullDescription": "",
-    "showMoreInfo": "",
+    "citation": "引用",
+    "readFullDescription": "更多",
+    "showMoreInfo": "更多",
     "noTaxonMatch": "",
     "gbifTaxonInterpretation": "",
     "aboutTheDataset": "",
     "noLocationInformation": "",
     "subMenu": {
       "diagnostics": "",
-      "menu": "",
+      "menu": "選單",
       "showDiagnostics": "",
       "hideDiagnostics": "",
-      "aboutDarwinCore": "",
-      "raw": ""
+      "aboutDarwinCore": "關於達爾文核心集",
+      "raw": "未處理的"
     },
     "groups": {
-      "Record": "",
+      "Record": "記錄",
       "Occurrence": "",
       "Event": "",
-      "Identification": "",
-      "Taxon": "",
-      "Location": "",
-      "Organism": "",
+      "Identification": "辨識",
+      "Taxon": "分類群",
+      "Location": "地點",
+      "Organism": "生物體",
       "MaterialSample": "",
       "GeologicalContext": "",
       "other": ""
@@ -42,7 +42,7 @@
     "original": "",
     "remarks": "",
     "highlights": {
-      "location": "",
+      "location": "地點",
       "specimenType": "",
       "publisher": "",
       "reference": "",
@@ -87,9 +87,9 @@
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "排除",
+      "AUTHORED": "改變",
+      "INFERED": "推斷"
     }
   }
 }
