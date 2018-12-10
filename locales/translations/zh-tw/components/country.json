@@ -1,0 +1,38 @@
+{
+  "countryKey": {
+    "tabs": {
+      "summary": "",
+      "dataPublishing": "",
+      "dataAbout": "",
+      "participartion": "",
+      "publications": "",
+      "news": "",
+      "invasives": ""
+    },
+    "memberSince": "",
+    "dataFrom": "",
+    "dataAboutCountry": "",
+    "publishingTrends": "",
+    "noDataPublishingActivity": "",
+    "noInstitutionsHavePublished": "",
+    "trendsAboutCountry": "",
+    "nFrom": "",
+    "nAbout": "",
+    "viewAllN": "",
+    "noPublications": "無發佈",
+    "notParticipant": "不是參與者",
+    "notParticipantDescription": "",
+    "countryNamingDisclaimer": "",
+    "counts": {
+      "occurrences": "",
+      "datasets": "資料集",
+      "publishers": "發布者",
+      "countriesAndAreasContributeData": "",
+      "publishedOccurrences": "",
+      "publishedDatasets": "已發布的資料集",
+      "countriesAndAreasCoveredByDataFrom": "",
+      "publishersFrom": ""
+    },
+    "activityReport": ""
+  }
+}

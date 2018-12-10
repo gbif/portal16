@@ -1,0 +1,124 @@
+{
+  "validation": {
+    "category": {
+      "RESOURCE_STRUCTURE": "資源結構",
+      "RESOURCE_INTEGRITY": "資源完整性",
+      "RECORD_STRUCTURE": "記錄結構",
+      "OCC_INTERPRETATION_BASED": "",
+      "METADATA_CONTENT": "元資料內容",
+      "CLB_INTERPRETATION_BASED": ""
+    },
+    "issueType": {
+      "DWCA_UNREADABLE": "無法讀取達爾文核心集歸檔",
+      "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 檔",
+      "DWCA_META_XML_SCHEMA": "",
+      "RECORD_IDENTIFIER_NOT_FOUND": "",
+      "CORE_ROWTYPE_UNDETERMINED": "",
+      "EML_NOT_FOUND": "找不到 EML文件",
+      "EML_GBIF_SCHEMA": "",
+      "UNKNOWN_ROWTYPE": "核心集/擴展文件為未知的欄位類型",
+      "REQUIRED_TERM_MISSING": "缺少核心集/擴充文件必要名稱",
+      "COLUMN_MISMATCH": "無匹配欄位",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
+      "UNKNOWN_TERM": "未知名稱",
+      "DUPLICATED_TERM": "重複名稱",
+      "TITLE_MISSING_OR_TOO_SHORT": "資料集標題遺漏或太短",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
+      "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF不支援或授權遺失",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
+      "UNREADABLE_SECTION_ERROR": "",
+      "NoIssuesFound": ""
+    },
+    "fileFormat": {
+      "title": "檔案格式",
+      "DWCA": "達爾文核心集歸檔",
+      "TABULAR": "表格檔 (. csv,. tsv)",
+      "SPREADSHEET": "試算表 (. xlsx)"
+    },
+    "fileType": {
+      "title": "欄位類型",
+      "CORE": {
+        "title": "核心"
+      },
+      "EXTENSION": {
+        "title": "附加元件"
+      },
+      "METADATA": {
+        "description": "元資料為描述EML中的資料(生態元資料語言)",
+        "title": "元資料文件"
+      },
+      "META_DESCRIPTOR": {
+        "description": "",
+        "title": ""
+      }
+    },
+    "fileSizeLimit": "檔案大小限制: 100mb",
+    "receivedMediaType": "",
+    "uniqueIdentifier": "",
+    "reportLocation": "",
+    "reportDeletion": "",
+    "reportGenerated": "",
+    "summary": "驗證總結",
+    "issues": "",
+    "fileHasIssues": "",
+    "fileHasNoIssues": "",
+    "error": "錯誤",
+    "errors": {
+      "400": "",
+      "404": "",
+      "413": "此檔案太大，資料驗證工具無法處理。",
+      "415": ""
+    },
+    "backToValidator": "開始新的驗證",
+    "termsFrequency": {
+      "title": "專有名詞頻度",
+      "term": "名稱",
+      "count": "計數",
+      "percentage": "百分比",
+      "interpreted": ""
+    },
+    "interpretedCounts": {
+      "date": "",
+      "taxon": "",
+      "location": ""
+    },
+    "interpretedValueCounts": {
+      "title": ""
+    },
+    "status": {
+      "title": "狀態",
+      "SUBMITTED": "正在傳送檔案",
+      "FETCHING": "正在接收檔案",
+      "ACCEPTED": "開始驗證",
+      "RUNNING": "驗證中",
+      "FINISHED": "驗證完成",
+      "FAILED": "驗證失敗。請確認檔案形式，如您提交URL檔，請確認檔案的位址",
+      "CONTACTING_SERVER": ""
+    },
+    "jobId": "",
+    "indexeable": "",
+    "notIndexeable": "",
+    "numberOfLines": "",
+    "reportProducedByGbifDataValidator": "",
+    "validationReport": "驗證報告",
+    "dataValidator": "資料驗證程式",
+    "dataValidatorDescription": "",
+    "thisIsAnEarlyAccessVersion": "",
+    "here": "",
+    "coreRowType": "",
+    "submit": "提交",
+    "dropHere": "拖放到此處",
+    "or": "或",
+    "selectFile": "選擇檔案",
+    "fetchFileFromLocation": "從位址獲取檔案",
+    "tabs": {
+      "newDataValidation": "新資料驗證",
+      "newValidation": "新的驗證",
+      "about": "關於",
+      "darwinCoreExtensions": "達爾文核心集擴展",
+      "metaData": "元資料",
+      "summary": "總結"
+    }
+  }
+}

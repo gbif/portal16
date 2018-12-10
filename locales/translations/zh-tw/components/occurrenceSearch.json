@@ -1,0 +1,28 @@
+{
+  "occurrenceSearch": {
+    "table": "表",
+    "gallery": "圖片庫",
+    "map": "地圖",
+    "taxonomy": "分類系統",
+    "charts": "",
+    "download": "下載",
+    "searchAllFields": "",
+    "description": "",
+    "nWithCoordinates": "",
+    "nWithImages": "",
+    "failedSearch": "",
+    "noImages": "",
+    "imageLicenseInfo": "",
+    "showMoreImages": "更多",
+    "default": "預設",
+    "custom": "自訂",
+    "noOccurrencesWithCoordinates": "",
+    "containsSuspicious": "",
+    "hideSuspiciousCoordinates": "",
+    "currentFilter": "",
+    "selectColumns": "",
+    "done": "已完成",
+    "yesCorrectSuggestion": "是",
+    "noWrongSuggestion": "否"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "search": {
+    "placeholder": "出現紀錄，物種，新聞...",
+    "noSearchTermsEntered": "未輸入搜尋字串",
+    "notSureWhatYouAreLookingFor": "不確定您要找什麼？看看一些物種出現紀錄的照片",
+    "cannotFindWhatYouAreLookingFor": "找不到您要找的內容？",
+    "trySpecifyingAType": "嘗試指定類型",
+    "everything": "所有",
+    "occurrences": "出現紀錄",
+    "species": "物種",
+    "datasets": "資料集",
+    "resources": "資源",
+    "publishers": "發布者",
+    "participants": "會員",
+    "search": "搜尋",
+    "clearFilters": "清除篩選",
+    "filters": "篩選",
+    "simple": "簡單搜尋",
+    "advanced": "進階選項",
+    "allResultTypes": "全選",
+    "suggestions": "建議選項",
+    "header": {
+      "searchDatasets": "搜尋資料集",
+      "searchPublishers": "搜尋發布者",
+      "searchSpecies": "搜尋物種",
+      "searchResources": "搜尋資源",
+      "searchOccurrences": "搜尋出現紀錄"
+    },
+    "nResults": "{NUMBER_FORMATED}{NUMBER, select,1{結果}other{結果}}"
+  }
+}
