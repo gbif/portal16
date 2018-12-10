@@ -1,0 +1,36 @@
+{
+    "filters": {
+        "searchPlaceholder": "搜尋",
+        "noPreference": "無偏好",
+        "invert": "",
+        "clear": "清除",
+        "add": "新增",
+        "repatriation": {
+            "description": ""
+        },
+        "ternary": {
+            "yes": "是",
+            "no": "否",
+            "all": "全選"
+        },
+        "location": {
+            "north": "北",
+            "south": "南",
+            "west": "西",
+            "east": "東",
+            "withCoordinates": "包括座標",
+            "withoutCoordinates": "不含座標",
+            "includeFlaggedAsSuspicious": "",
+            "onlyShowFlagged": "",
+            "past": "最近使用",
+            "geojson": "GeojSON",
+            "range": "",
+            "noFiltersAdded": "",
+            "wktPlaceholder": "",
+            "invalidTextInput": "",
+            "tooLarge": "",
+            "tooLargeSuggestion": "",
+            "invalidRange": ""
+        }
+    }
+}
