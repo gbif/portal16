@@ -1,0 +1,95 @@
+{
+  "occurrence": {
+    "typeOf": "",
+    "coordinates": "座標",
+    "unknownDate": "",
+    "absent": "",
+    "issues": "問題",
+    "dataset": "資料集",
+    "synced": "",
+    "modified": "修改",
+    "monthAndyear": "月 \/ 年",
+    "coordinateUncertainty": "",
+    "citation": "引用",
+    "readFullDescription": "更多",
+    "showMoreInfo": "更多",
+    "noTaxonMatch": "",
+    "gbifTaxonInterpretation": "",
+    "aboutTheDataset": "",
+    "noLocationInformation": "",
+    "subMenu": {
+      "diagnostics": "",
+      "menu": "選單",
+      "showDiagnostics": "",
+      "hideDiagnostics": "",
+      "aboutDarwinCore": "關於達爾文核心集",
+      "raw": "未處理的"
+    },
+    "groups": {
+      "Record": "記錄",
+      "Occurrence": "",
+      "Event": "",
+      "Identification": "辨識",
+      "Taxon": "分類群",
+      "Location": "地點",
+      "Organism": "生物體",
+      "MaterialSample": "",
+      "GeologicalContext": "",
+      "other": ""
+    },
+    "term": "",
+    "interpreted": "",
+    "original": "",
+    "remarks": "",
+    "highlights": {
+      "location": "地點",
+      "specimenType": "",
+      "publisher": "",
+      "reference": "",
+      "verbatimName": ""
+    },
+    "media": {
+      "noIdentifier": "未提供媒體識別碼",
+      "noPlaybackSupport": "您的瀏覽器不支援播放此媒體格式。",
+      "takeMeThere": "連到原始網站",
+      "notWorkingTryPublishers": "",
+      "download": "下載媒體檔案"
+    },
+    "title": {
+      "inCountry": {
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
+      },
+      "unknownLocation": {
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
+      },
+      "unknownSpecies": ""
+    },
+    "occurrence": "",
+    "inLanguage": ""
+  },
+  "interpretationRemarks": {
+    "comments": {
+      "EXCLUDED": "排除",
+      "AUTHORED": "改變",
+      "INFERED": "推斷"
+    }
+  }
+}
