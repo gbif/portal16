@@ -4,7 +4,7 @@ let express = require('express'),
     passport = require('passport'),
     BasicStrategy = require('passport-http').BasicStrategy,
     User = require('../../api/user/user.model'),
-    btoa = require('btoa'),
+    Base64 = require('js-base64').Base64,
     auth = require('../auth.service');
 
 module.exports = function(app) {
@@ -43,7 +43,7 @@ router.get('/basic', function(req, res, next) {
 });
 
 passport.use(new BasicStrategy(function(userid, password, done) {
-    let authData = 'Basic ' + btoa(userid + ':' + password);
+    let authData = 'Basic ' + Base64.encode(userid + ':' + password);
     User.login(authData)
         .then(function(user) {
             done(null, user);
