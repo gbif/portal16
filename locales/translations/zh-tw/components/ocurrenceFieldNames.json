@@ -3,7 +3,7 @@
     "gbifID": "全球生物多樣性機構ID",
     "abstract": "摘要",
     "accessRights": "存取權限",
-    "accrualMethod": "",
+    "accrualMethod": "因應方法",
     "accrualPeriodicity": "",
     "accrualPolicy": "",
     "alternative": "替代方案",
