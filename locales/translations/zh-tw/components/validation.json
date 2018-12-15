@@ -100,7 +100,7 @@
     "indexeable": "",
     "notIndexeable": "",
     "numberOfLines": "",
-    "reportProducedByGbifDataValidator": "",
+    "reportProducedByGbifDataValidator": "GBIF資料驗證程式產生的報告",
     "validationReport": "驗證報告",
     "dataValidator": "資料驗證程式",
     "dataValidatorDescription": "",
