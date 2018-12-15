@@ -28,7 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF不支援或授權遺失",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
       "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "NoIssuesFound": "未找到問題"
     },
     "fileFormat": {
       "title": "檔案格式",
@@ -76,7 +76,7 @@
       "term": "名稱",
       "count": "計數",
       "percentage": "百分比",
-      "interpreted": ""
+      "interpreted": "已解釋"
     },
     "interpretedCounts": {
       "date": "",
@@ -94,7 +94,7 @@
       "RUNNING": "驗證中",
       "FINISHED": "驗證完成",
       "FAILED": "驗證失敗。請確認檔案形式，如您提交URL檔，請確認檔案的位址",
-      "CONTACTING_SERVER": ""
+      "CONTACTING_SERVER": "正在連結伺服器"
     },
     "jobId": "",
     "indexeable": "",
