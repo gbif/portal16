@@ -1,9 +1,9 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
+            "VOTING": "投票參與者",
+            "ASSOCIATE": "相關參與者",
+            "OBSERVER": "觀察參與者",
             "AFFILIATE": "附屬參與者",
             "FORMER": "前參與者",
             "undefined": "未知"
