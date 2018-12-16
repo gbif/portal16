@@ -10,7 +10,7 @@
     "errorNotAuthorized": "",
     "partialPage": "",
     "noInformationFound": "",
-    "noConnection": "",
+    "noConnection": "沒有網際網路連線。",
     "criticalErrorMsg": "",
     "nonCriticalErrorMsg": "",
     "noResultsMessage": "",
