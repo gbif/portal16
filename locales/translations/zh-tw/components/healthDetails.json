@@ -18,14 +18,14 @@
             },
             "SPECIES": {
                 "name": "物種",
-                "tooltip": ""
+                "tooltip": "例如，搜尋及察看物種、建議物種。"
             },
             "REGISTRY": {
-                "name": "",
+                "name": "註冊",
                 "tooltip": ""
             },
             "IDENTITY": {
-                "name": "",
+                "name": "身份",
                 "tooltip": ""
             },
             "MAPS": {
