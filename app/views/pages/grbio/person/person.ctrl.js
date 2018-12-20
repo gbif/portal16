@@ -12,7 +12,6 @@ function grbioPersonCtrl(Page, $state, $stateParams, PersonSearch) {
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
     vm.q = $stateParams.q;
-    Page.setTitle('Persons');
     Page.drawer(false);
     vm.$state = $state;
     vm.state = {};

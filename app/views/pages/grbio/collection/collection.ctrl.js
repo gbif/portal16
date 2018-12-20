@@ -12,7 +12,6 @@ function grbioCollectionCtrl(Page, $state, $stateParams, CollectionSearch) {
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
     vm.q = $stateParams.q;
-    Page.setTitle('Collections');
     Page.drawer(false);
     vm.$state = $state;
     vm.state = {};

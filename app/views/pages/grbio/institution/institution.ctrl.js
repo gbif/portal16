@@ -12,7 +12,6 @@ function grbioInstitutionCtrl(Page, $state, $stateParams, InstitutionSearch) {
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
     vm.q = $stateParams.q;
-    Page.setTitle('Institutions');
     Page.drawer(false);
     vm.$state = $state;
     vm.state = {};
