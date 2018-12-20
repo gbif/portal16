@@ -28,7 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF不支援或授權遺失",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
       "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "NoIssuesFound": "未找到問題"
     },
     "fileFormat": {
       "title": "檔案格式",
@@ -54,21 +54,21 @@
       }
     },
     "fileSizeLimit": "檔案大小限制: 100mb",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
-    "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
+    "receivedMediaType": "媒體類型",
+    "uniqueIdentifier": "唯一識別碼",
+    "reportLocation": "此報告已發送至",
+    "reportDeletion": "一個月後將被刪除。在此之前你可以隨時查看此報告。",
+    "reportGenerated": "已產生",
     "summary": "驗證總結",
-    "issues": "",
-    "fileHasIssues": "",
-    "fileHasNoIssues": "",
+    "issues": "驗證問題",
+    "fileHasIssues": "驗證程式檢測到一些問題:",
+    "fileHasNoIssues": "在檔案中未找到任何問題",
     "error": "錯誤",
     "errors": {
-      "400": "",
-      "404": "",
+      "400": "無法處理該檔案, 或者可能是你提供的URL遺失。",
+      "404": "找不到驗證作業ID。如果您認為這是一個錯誤, 請回報它。",
       "413": "此檔案太大，資料驗證工具無法處理。",
-      "415": ""
+      "415": "不支援的檔案類型。無法處理該檔案。"
     },
     "backToValidator": "開始新的驗證",
     "termsFrequency": {
@@ -76,7 +76,7 @@
       "term": "名稱",
       "count": "計數",
       "percentage": "百分比",
-      "interpreted": ""
+      "interpreted": "已解釋"
     },
     "interpretedCounts": {
       "date": "",
@@ -94,13 +94,13 @@
       "RUNNING": "驗證中",
       "FINISHED": "驗證完成",
       "FAILED": "驗證失敗。請確認檔案形式，如您提交URL檔，請確認檔案的位址",
-      "CONTACTING_SERVER": ""
+      "CONTACTING_SERVER": "正在連結伺服器"
     },
-    "jobId": "",
+    "jobId": "作業ID",
     "indexeable": "",
     "notIndexeable": "",
     "numberOfLines": "",
-    "reportProducedByGbifDataValidator": "",
+    "reportProducedByGbifDataValidator": "GBIF資料驗證程式產生的報告",
     "validationReport": "驗證報告",
     "dataValidator": "資料驗證程式",
     "dataValidatorDescription": "",

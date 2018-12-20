@@ -19,8 +19,8 @@
       "occurrenceCount": "Registros de presencia en GBIF",
       "seeAllCountries": "Mostrar todo",
       "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive_yes": "Si",
+      "isInvasive_no": "No"
     },
     "as": "Como",
     "in": "En",
