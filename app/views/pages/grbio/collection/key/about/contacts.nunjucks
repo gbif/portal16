@@ -1,0 +1,68 @@
+<section class="horizontal-stripe--paddingless">
+    <div class="container--normal">
+        <div ng-if="collectionKey.collection.mailingAddress.address">
+            <h4 class="card-header--bold m-t-1" translate="grbio.contact.mailingAddress">Mailing address</h4>
+            <div class="card card--spaced">
+                <div class="card__content">
+                    <dl class="inline container--fluid">
+                        <div class="row">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.address"></dt>
+                            <dd class="col-md-8 col-xs-12">{{collectionKey.collection.mailingAddress.address}}</dd>
+                        </div>
+                        <div class="row" ng-if="collectionKey.collection.mailingAddress.province">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.province"></dt>
+                            <dd class="col-md-8 col-xs-12">{{collectionKey.collection.mailingAddress.province}}</dd>
+                        </div>
+                        <div class="row" ng-if="collectionKey.collection.mailingAddress.postalCode">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.postalCode"></dt>
+                            <dd class="col-md-8 col-xs-12">{{collectionKey.collection.mailingAddress.postalCode}}</dd>
+                        </div>
+                        <div class="row" ng-if="collectionKey.collection.mailingAddress.city">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.city"></dt>
+                            <dd class="col-md-8 col-xs-12">{{collectionKey.collection.mailingAddress.city}}</dd>
+                        </div>
+                        <div class="row" ng-if="collectionKey.collection.mailingAddress.country">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.country"></dt>
+                            <dd class="col-md-8 col-xs-12" translate="country.{{collectionKey.collection.mailingAddress.country}}"></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div ng-if="collectionKey.collection.address.address">
+            <h4 class="card-header--bold m-t-1" translate="grbio.contact.physicalAddress">Address</h4>
+            <div class="card card--spaced">
+                <div class="card__content">
+                    <dl class="inline container--fluid">
+                        <div class="row">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.address"></dt>
+                            <dd class="col-md-8 col-xs-12">{{collectionKey.collection.address.address}}</dd>
+                        </div>
+                        <div class="row" ng-if="collectionKey.collection.address.province">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.province"></dt>
+                            <dd class="col-md-8 col-xs-12">{{collectionKey.collection.address.province}}</dd>
+                        </div>
+                        <div class="row" ng-if="collectionKey.collection.address.postalCode">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.postalCode"></dt>
+                            <dd class="col-md-8 col-xs-12">{{collectionKey.collection.address.postalCode}}</dd>
+                        </div>
+                        <div class="row" ng-if="collectionKey.collection.address.city">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.city"></dt>
+                            <dd class="col-md-8 col-xs-12">{{collectionKey.collection.address.city}}</dd>
+                        </div>
+                        <div class="row" ng-if="collectionKey.collection.address.country">
+                            <dt class="col-md-4 col-xs-12" translate="grbio.contact.country"></dt>
+                            <dd class="col-md-8 col-xs-12" translate="country.{{collectionKey.collection.address.country}}"></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div ng-if="collectionKey.collection.contacts.length > 0">
+            <h4 class="card-header--bold m-t-1" translate="grbio.contact.contacts" translate-values="{ NUMBER: collectionKey.collection.contacts.length + 1}">Contacts</h4>
+            <div class="contactsCard card card--spaced">
+                <grbioperson person="contact" ng-repeat="contact in collectionKey.collection.contacts"></grbioperson>
+            </div>
+        </div>
+    </div>
+</section>

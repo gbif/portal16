@@ -11,6 +11,12 @@ Disallow: /dataset/search
 Disallow: /*/dataset/search
 Disallow: /publisher/search
 Disallow: /*/publisher/search
+Disallow: /grbio/collection/search
+Disallow: /*/grbio/collection/search
+Disallow: /grbio/institution/search
+Disallow: /*/grbio/institution/search
+Disallow: /grbio/person/search
+Disallow: /*/grbio/person/search
 crawl-delay: 0.1
 
 Sitemap: {$ DOMAIN $}/sitemap.xml

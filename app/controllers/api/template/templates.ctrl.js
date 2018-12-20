@@ -71,6 +71,18 @@ router.get('/search/datasetResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/dataset/datasetSearchResult');
 });
 
+router.get('/collection/key.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/grbio/collection/key/collectionKey.template.nunjucks');
+});
+
+router.get('/institution/key.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/grbio/institution/key/institutionKey.template.nunjucks');
+});
+
+router.get('/grbioPerson/key.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/grbio/person/key/personKey.template.nunjucks');
+});
+
 router.get('/search/speciesResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/species/speciesSearchResult');
 });

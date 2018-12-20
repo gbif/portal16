@@ -1,0 +1,19 @@
+{
+  "enum": {
+    "identifierType": {
+      "URL": "URL",
+      "LSID": "LSID",
+      "HANDLER": "HANDLER",
+      "DOI": "DOI",
+      "UUID": "UUID",
+      "FTP": "FTP",
+      "URI": "URI",
+      "UNKNOWN": "Unknown",
+      "GBIF_PORTAL": "GBIF portal",
+      "GBIF_NODE": "GBIF node",
+      "GBIF_PARTICIPANT": "GBIF participant",
+      "GRBIO_ID": "GRBIO ID",
+      "GRBIO_URI": "GRBIO URI"
+    }
+  }
+}

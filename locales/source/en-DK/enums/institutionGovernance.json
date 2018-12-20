@@ -1,0 +1,17 @@
+{
+  "enum": {
+    "institutionGovernance": {
+      "ACADEMIC_FEDERAL": "Academic federal",
+      "ACADEMIC_FOR_PROFIT": "Academic for profit",
+      "ACADEMIC_LOCAL": "Academic local",
+      "ACADEMIC_NON_PROFIT": "Academic non profit",
+      "ACADEMIC_STATE": "Academic state",
+      "FEDERAL": "Federal",
+      "FOR_PROFIT": "For profit",
+      "LOCAL": "Local",
+      "NON_PROFIT": "Non profit",
+      "OTHER": "Other",
+      "STATE": "State"
+    }
+  }
+}

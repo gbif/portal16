@@ -181,6 +181,22 @@
                 return Math.abs(num);
             };
         })
+        .filter('visibleIdentifier', function() {
+            return function(arr) {
+                return arr.filter(function(identifier) {
+                    return [
+                        'URL',
+                        'LSID',
+                        'HANDLER',
+                        'DOI',
+                        'UUID',
+                        'FTP',
+                        'URI',
+                        'GRBIO_URI'
+                        ].indexOf(identifier.type) >= 0;
+                });
+            };
+        })
         .filter('httpParamSerializer', function($httpParamSerializer) {
             return function(obj) {
                 var query = angular.copy(obj);
