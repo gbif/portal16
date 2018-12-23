@@ -1,9 +1,9 @@
 {
   "endpointType": {
-    "EML": "",
+    "EML": "EML",
     "FEED": "RSS 訂閱",
-    "WFS": "",
-    "WMS": "",
+    "WFS": "WFS",
+    "WMS": "WMS",
     "TCS_RDF": "",
     "TCS_XML": "",
     "DWC_ARCHIVE": "",
