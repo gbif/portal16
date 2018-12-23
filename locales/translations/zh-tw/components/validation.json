@@ -103,7 +103,7 @@
     "reportProducedByGbifDataValidator": "GBIF資料驗證程式產生的報告",
     "validationReport": "驗證報告",
     "dataValidator": "資料驗證程式",
-    "dataValidatorDescription": "",
+    "dataValidatorDescription": "GBIF資料驗證程式是一項服務，允許所有GBIF相關資料集持有者接收關於資料集語法正確性、資料內容有效性的報告。",
     "thisIsAnEarlyAccessVersion": "",
     "here": "",
     "coreRowType": "",
