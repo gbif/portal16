@@ -1,7 +1,7 @@
 {
   "issueHelp": {
     "BASIS_OF_RECORD_INVALID": "",
-    "COORDINATE_REPROJECTION_FAILED": "",
+    "COORDINATE_REPROJECTION_FAILED": "無法根據給定的十進位緯度和經度資料重新投影到wgs84系統",
     "NO_SPECIES": "",
     "RECORDED_DATE_INVALID": "",
     "PRESUMED_NEGATED_LATITUDE": "",
@@ -45,7 +45,7 @@
     "DEPTH_UNLIKELY": "",
     "NAME_PARENT_MISMATCH": "",
     "DWCA_UNREADABLE": "無法讀取或汲取達爾文核心集歸檔",
-    "RESOURCE_CREATOR_MISSING_OR_INCOMPLETE": "",
+    "RESOURCE_CREATOR_MISSING_OR_INCOMPLETE": "來源建立者已不在或不完整。",
     "PUBLISHED_BEFORE_GENUS": "",
     "RANK_INVALID": "",
     "ACCEPTED_NAME_USAGE_ID_INVALID": "",
