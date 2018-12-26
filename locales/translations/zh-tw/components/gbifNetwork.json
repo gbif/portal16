@@ -1,7 +1,7 @@
 {
   "gbifNetwork": {
-    "title": "",
-    "contact": "",
+    "title": "目錄",
+    "contact": "聯繫",
     "voting_participant": {
       "one": "",
       "other": ""
@@ -32,7 +32,7 @@
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
-    "datasets": "",
+    "datasets": "資料集",
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",
