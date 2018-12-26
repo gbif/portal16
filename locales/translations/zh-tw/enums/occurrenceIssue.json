@@ -29,10 +29,10 @@
     "TAXON_MATCH_FUZZY": "分類群匹配模糊",
     "TAXON_MATCH_HIGHERRANK": "",
     "TAXON_MATCH_NONE": "無分類群匹配",
-    "DEPTH_NOT_METRIC": "",
+    "DEPTH_NOT_METRIC": "深度不是公制",
     "DEPTH_UNLIKELY": "",
-    "DEPTH_MIN_MAX_SWAPPED": "",
-    "DEPTH_NON_NUMERIC": "",
+    "DEPTH_MIN_MAX_SWAPPED": "深度最小值與最大值互換",
+    "DEPTH_NON_NUMERIC": "深度非數值",
     "ELEVATION_UNLIKELY": "",
     "ELEVATION_MIN_MAX_SWAPPED": "",
     "ELEVATION_NOT_METRIC": "",
@@ -45,8 +45,8 @@
     "TYPE_STATUS_INVALID": "",
     "MULTIMEDIA_DATE_INVALID": "",
     "MULTIMEDIA_URI_INVALID": "",
-    "REFERENCES_URI_INVALID": "",
-    "INTERPRETATION_ERROR": "",
-    "INDIVIDUAL_COUNT_INVALID": ""
+    "REFERENCES_URI_INVALID": "無效的參照url",
+    "INTERPRETATION_ERROR": "錯誤解釋",
+    "INDIVIDUAL_COUNT_INVALID": "無效個體計數"
   }
 }
