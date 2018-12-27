@@ -2,7 +2,7 @@
     "nameParser": {
         "loadTestNames": "",
         "parse": "",
-        "or": "",
+        "or": "或",
         "selectFile": "選擇檔案",
         "pasteNamesToParse": "",
         "about": "關於",
@@ -10,7 +10,7 @@
         "nameParserTitle": "",
         "dropHere": "拖放到此處",
         "excludeUnparsed": "",
-        "generateCsv": "",
+        "generateCsv": "生成 csv 檔",
         "parsingNames": "",
         "nameParserDescription": "",
         "nameParserRequirements": ""
