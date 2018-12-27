@@ -2,7 +2,7 @@
     "filters": {
         "searchPlaceholder": "搜尋",
         "noPreference": "無偏好",
-        "invert": "",
+        "invert": "倒序",
         "clear": "清除",
         "add": "新增",
         "repatriation": {
