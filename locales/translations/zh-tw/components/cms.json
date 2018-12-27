@@ -3,7 +3,7 @@
     "project": {
       "project": "專案",
       "projectId": "專案ID",
-      "projectIdentifier": "",
+      "projectIdentifier": "專案識別碼",
       "grantType": "補助經費類型",
       "duration": "期間",
       "title": "標題",
