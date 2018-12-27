@@ -8,7 +8,7 @@
         "nOccurrences": "{NUMBER_FORMATED}{NUMBER, select,1{出現記錄}other{出現記錄}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED}{NUMBER, select,1{出現記錄}other{出現記錄}}關於",
         "nOccurrencesPublished": "{NUMBER_FORMATED}{NUMBER, select,1{出現記錄}other{出現記錄}}發布",
-        "nEndorsedPublishers": "",
+        "nEndorsedPublishers": "{NUMBER_FORMATED} 認可 {NUMBER, select,1{發布者}other{發布者}}",
         "nDatasets": "{NUMBER_FORMATED}{NUMBER, select,1{資料集}other{資料集}}",
         "nPublishers": "{NUMBER_FORMATED}{NUMBER, select,1{發布者}other{發布者}}",
         "nCountries": "{NUMBER_FORMATED}{NUMBER, select,1{國家}other{國家}}",
