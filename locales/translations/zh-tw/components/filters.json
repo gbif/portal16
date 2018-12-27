@@ -27,7 +27,7 @@
             "range": "",
             "noFiltersAdded": "",
             "wktPlaceholder": "",
-            "invalidTextInput": "",
+            "invalidTextInput": "無效的WKT或GeoJSON",
             "tooLarge": "",
             "tooLargeSuggestion": "",
             "invalidRange": ""
