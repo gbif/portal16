@@ -2,8 +2,8 @@
     "dataset": {
         "registry": {
             "failedSinceSuccess": "",
-            "lastFailed": "",
-            "registrationDate": "",
+            "lastFailed": "上次嘗試失敗",
+            "registrationDate": "註冊日期",
             "lastSuccess": "",
             "lastWithChange": "",
             "noEntries": "",
@@ -27,7 +27,7 @@
             "adopted": "採用的資料集",
             "neverIngested": "從未獲取",
             "inIngestionQueue": "",
-            "addingToQueue": "",
+            "addingToQueue": "加入佇列",
             "unableToStart": "",
             "ingestionChartExplainer": "",
             "ingestionStatus": "",
@@ -37,7 +37,7 @@
             "lastIngestionSuccess": "",
             "lastIngestionFailed": "",
             "outOfSync": "不同步",
-            "becauseTrustedContact": ""
+            "becauseTrustedContact": "因為您是值得信賴的連絡人"
         },
         "crawl": {
             "finishReason": {
