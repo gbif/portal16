@@ -1,14 +1,14 @@
 {
     "tools": {
-        "categoryFeatured": "",
+        "categoryFeatured": "熱門推薦",
         "suggestDataset": {
-            "NOT_OPEN": "",
+            "NOT_OPEN": "不是公開授權",
             "title": "建議資料集",
             "pleaseDescribeTheDataset": "請描述此資料集",
             "thankYou": "謝謝",
             "form": {
                 "title": "標題",
-                "link": "",
+                "link": "網路連結至資料",
                 "region": "地理覆蓋範圍",
                 "taxon": "分類範圍",
                 "whyImportant": "為什麼這個資料集如此重要",
@@ -46,11 +46,11 @@
         },
         "speciesLookup": {
             "description": "",
-            "title": ""
+            "title": "物種名匹配"
         },
         "ipt": {
             "description": "整合發布套件(IPT) 是以Java編寫的免費開源軟體，透過GBIF網絡可用於發布和分享生物多樣性資料集。IPT也可以配置DataCite或EZID帳戶，以便將DOI分配給資料集並轉換為資料存儲庫。",
-            "dontSeeYourIpt": ""
+            "dontSeeYourIpt": "還沒有IPT嗎? 上傳[GBIF] (mailto:helpdesk@gbif.org \"來信GBIF協助平台詢求在地圖上加入IPT\") 你的座標。"
         }
     }
 }
