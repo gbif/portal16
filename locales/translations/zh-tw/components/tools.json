@@ -42,7 +42,7 @@
             "draw": "繪製",
             "clear": "清除",
             "resultIntro": "所選區域的相對觀測頻率變化",
-            "embedIntro": ""
+            "embedIntro": "透過 {GBIF network} 中介的所有資料"
         },
         "speciesLookup": {
             "description": "",
