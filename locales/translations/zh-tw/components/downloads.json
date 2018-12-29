@@ -49,7 +49,7 @@
     "predicate": {
       "joinDescriptions": {
         "and": "",
-        "or": "",
+        "or": "至少使用一項",
         "not": ""
       },
       "and": "和",
