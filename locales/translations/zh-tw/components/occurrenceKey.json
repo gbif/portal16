@@ -1,6 +1,6 @@
 {
   "occurrence": {
-    "typeOf": "",
+    "typeOf": "類型{TYPE} 名稱{NAME}",
     "coordinates": "座標",
     "unknownDate": "未知日期",
     "absent": "缺少",
@@ -33,14 +33,14 @@
       "Taxon": "分類群",
       "Location": "地點",
       "Organism": "生物體",
-      "MaterialSample": "",
+      "MaterialSample": "材料樣本",
       "GeologicalContext": "",
       "other": "其它"
     },
     "term": "名稱",
     "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "original": "原始",
+    "remarks": "註記",
     "highlights": {
       "location": "地點",
       "specimenType": "",
