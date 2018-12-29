@@ -26,7 +26,7 @@
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "資源建立者已不在或不完整。",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "缺少或資料集的描述太短",
       "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF不支援或授權遺失",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "未唯一標識的記錄",
       "UNREADABLE_SECTION_ERROR": "無法讀取的部分錯誤",
       "NoIssuesFound": "未找到問題"
     },
