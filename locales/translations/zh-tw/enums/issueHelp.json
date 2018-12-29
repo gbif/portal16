@@ -85,7 +85,7 @@
     "DEPTH_NON_NUMERIC": "如果高度為非數值，設定為數值。",
     "INTERPRETATION_ERROR": "在解釋過程中出現錯誤, 使記錄解釋不完整。",
     "BACKBONE_MATCH_NONE": "名稱用法無法與GBIF骨架匹配。",
-    "EML_GBIF_SCHEMA": "",
+    "EML_GBIF_SCHEMA": "Eml 文件檔不針對架構進行驗證",
     "CONTINENT_COUNTRY_MISMATCH": "",
     "RELATIONSHIP_MISSING": "",
     "NOMENCLATURAL_STATUS_INVALID": "無法解析dwc命名法狀態",
