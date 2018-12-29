@@ -248,7 +248,7 @@
     "verbatimCoordinates": "逐字記錄座標",
     "verbatimLatitude": "逐字記錄緯度",
     "verbatimLongitude": "逐字記錄經度",
-    "scientificNameAuthorship": "",
+    "scientificNameAuthorship": "學名作者",
     "undefined": "未知領域",
     "coordinatesTextual": "這筆紀錄缺乏座標，但包含地點的文字描述。",
     "coordinatesMissing": "缺少座標"
