@@ -19,8 +19,8 @@
       "other": ""
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "GBIF附屬機構",
+      "other": "GBIF附屬機構"
     },
     "role": "",
     "group": {
@@ -36,7 +36,7 @@
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "gbifAffiliates": "GBIF附屬機構"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "",
