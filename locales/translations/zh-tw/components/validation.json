@@ -4,7 +4,7 @@
       "RESOURCE_STRUCTURE": "資源結構",
       "RESOURCE_INTEGRITY": "資源完整性",
       "RECORD_STRUCTURE": "記錄結構",
-      "OCC_INTERPRETATION_BASED": "",
+      "OCC_INTERPRETATION_BASED": "GBIF分類群解釋",
       "METADATA_CONTENT": "元資料內容",
       "CLB_INTERPRETATION_BASED": "GBIF分類群解釋"
     },
@@ -27,7 +27,7 @@
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "缺少或資料集的描述太短",
       "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF不支援或授權遺失",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
+      "UNREADABLE_SECTION_ERROR": "無法讀取的部分錯誤",
       "NoIssuesFound": "未找到問題"
     },
     "fileFormat": {
@@ -104,7 +104,7 @@
     "validationReport": "驗證報告",
     "dataValidator": "資料驗證程式",
     "dataValidatorDescription": "GBIF資料驗證程式是一項服務，其允許所有GBIF相關資料集持有者接收關於資料集語法正確性、資料內容有效性的報告。",
-    "thisIsAnEarlyAccessVersion": "",
+    "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
     "here": "",
     "coreRowType": "",
     "submit": "提交",
