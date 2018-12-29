@@ -2,8 +2,8 @@
   "issueHelp": {
     "BASIS_OF_RECORD_INVALID": "",
     "COORDINATE_REPROJECTION_FAILED": "無法根據給定的十進位緯度和經度資料重新投影到wgs84系統",
-    "NO_SPECIES": "",
-    "RECORDED_DATE_INVALID": "",
+    "NO_SPECIES": "該類群(目前只對屬進行測試) 缺乏任何被接受的物種名。GBIF骨架的具體問題。",
+    "RECORDED_DATE_INVALID": "你輸入的是(部分) 無效的日期，例如日期不存在，月份為零等。",
     "PRESUMED_NEGATED_LATITUDE": "",
     "UNKNOWN_TERM": "",
     "DEPTH_MIN_MAX_SWAPPED": "",
