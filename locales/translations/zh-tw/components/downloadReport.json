@@ -1,7 +1,7 @@
 {
   "downloadReport": {
     "csvDescription": "",
-    "dwcaDescription": "",
+    "dwcaDescription": "達爾文核心集歸檔包含發布者提供的原始資料與GBIF解析後的資料。",
     "estimatedSize": "估計資料大小",
     "knownIssues": "已知的問題",
     "knownIssuesDescription": "",
