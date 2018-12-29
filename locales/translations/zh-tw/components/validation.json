@@ -49,7 +49,7 @@
         "title": "元資料文件"
       },
       "META_DESCRIPTOR": {
-        "description": "",
+        "description": "語義註記用來描述資料如何建構而成 (檔案、行等)",
         "title": ""
       }
     },
