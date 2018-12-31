@@ -59,15 +59,15 @@
     "global": "全球",
     "changeOverTimeInDataAboutSpeciesFromCountry": "",
     "changeOverTimeInTheDataPublishedByInstitutionsWithin": "",
-    "trendsInDataAvailabilityOnTheGbifNetwork": "",
-    "globalDataTrends": "",
-    "countryDataTrends": "",
-    "countryPublishingTrends": "",
+    "trendsInDataAvailabilityOnTheGbifNetwork": "GBIF 網絡資料可用性趨勢, 2008年至{{YEAR}}",
+    "globalDataTrends": "全球資料趨勢",
+    "countryDataTrends": "{{TRANSLATED_COUNTRY}} 資料趨勢",
+    "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} 發布者趨勢",
     "analyticsCountry": {
       "fromDescription": "",
       "publishedByDescription": ""
     },
-    "analyticsGlobalDescription": "",
+    "analyticsGlobalDescription": "GBIF 網絡資料可用性趨勢, 2008年至2016",
     "analyticsTitle": "資料趨勢"
   }
 }
