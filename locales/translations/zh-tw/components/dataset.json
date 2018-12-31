@@ -77,8 +77,8 @@
     "eventDescription": "",
     "siblingEvents": "",
     "childEvents": "",
-    "occurrenceCount": "",
-    "inDataset": "",
+    "occurrenceCount": "出現記錄計數",
+    "inDataset": "在",
     "samplingArticleLink": ""
   }
 }
