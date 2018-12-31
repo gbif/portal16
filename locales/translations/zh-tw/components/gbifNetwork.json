@@ -3,26 +3,26 @@
     "title": "目錄",
     "contact": "聯繫",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "投票參與者",
+      "other": "投票參與者"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "相關參與國家",
+      "other": "相關參與國家"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "其他相關參與者",
+      "other": "其他相關參與者"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "前參與者",
+      "other": "前參與者"
     },
     "gbif_affiliate": {
       "one": "GBIF附屬機構",
       "other": "GBIF附屬機構"
     },
-    "role": "",
+    "role": "身份",
     "group": {
 
     },
