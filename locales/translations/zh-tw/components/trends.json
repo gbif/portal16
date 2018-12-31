@@ -34,7 +34,7 @@
     "byGeneratingTheseChartsAnIssueWasDetected": "",
     "completenessAndPrecision": "",
     "theseChartsIllustrate4": "",
-    "aRecordIsHereDefinedToBeCompleteIfItIncludes": "",
+    "aRecordIsHereDefinedToBeCompleteIfItIncludes": "如果記錄資料至少包括對物種等級的識別、有效座標、完整的出現紀錄日期和記錄依據 (例如觀察、標本等), 則認定為完整記錄。",
     "completeness": "",
     "theseChartsIllustrate5": "",
     "allRecords": "所有記錄",
