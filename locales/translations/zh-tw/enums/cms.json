@@ -103,7 +103,7 @@
           "hearing": "聽覺",
           "television_broadcast": "新聞播報",
           "encyclopedia_article": "生物百科文章",
-          "case": "",
+          "case": "案件",
           "film": "",
           "bill": ""
         },
@@ -113,7 +113,7 @@
           "DATA_USERS": "資料使用者",
           "DECISION_MAKERS": "決策者",
           "GBIF_NETWORK": "GBIF網絡",
-          "PUBLIC_STAKEHOLDERS": ""
+          "PUBLIC_STAKEHOLDERS": "大眾利益相關者"
         }
       }
     }
