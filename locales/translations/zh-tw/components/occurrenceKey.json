@@ -43,9 +43,9 @@
     "remarks": "註記",
     "highlights": {
       "location": "地點",
-      "specimenType": "",
-      "publisher": "",
-      "reference": "",
+      "specimenType": "標本類型",
+      "publisher": "發布者",
+      "reference": "參照",
       "verbatimName": ""
     },
     "media": {
@@ -57,10 +57,10 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
+        "PRESERVED_SPECIMEN": "收集於{COUNTRY}",
+        "FOSSIL_SPECIMEN": "收集於{COUNTRY}",
+        "LIVING_SPECIMEN": "收集於{COUNTRY}",
+        "HUMAN_OBSERVATION": "觀察於{COUNTRY}",
         "MACHINE_OBSERVATION": "",
         "MATERIAL_SAMPLE": "",
         "OCCURRENCE": "",
