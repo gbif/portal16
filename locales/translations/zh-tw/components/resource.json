@@ -3,7 +3,7 @@
     "resources": "資源",
     "contactHelpdesk": "聯繫協助平台",
     "addToCalendar": "新增至行事曆",
-    "venue": "",
+    "venue": "地點",
     "location": "地點",
     "country": "國家或地區",
     "noDatasets": "無資料集可顯示",
@@ -15,8 +15,8 @@
     "fundedBy": "贊助由",
     "about": "關於",
     "datasets": "資料集",
-    "gbifWillAttend": "",
+    "gbifWillAttend": "GBIF 秘書處出席",
     "dataUsedInStudy": "使用在研究的資料",
-    "resourceDescription": ""
+    "resourceDescription": "在全球生物多樣性資訊機構搜尋來源。免費且公開自由存取的生物多樣性資料。"
   }
 }
