@@ -13,6 +13,6 @@
         "generateCsv": "生成 csv 檔",
         "parsingNames": "",
         "nameParserDescription": "",
-        "nameParserRequirements": ""
+        "nameParserRequirements": "您可以複製粘貼名稱清單, 每行一個, 或上傳每行具有名稱的文字檔。上傳的檔必須編碼為 utf8!"
     }
 }
