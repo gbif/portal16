@@ -69,7 +69,7 @@
     "pleaseEnterProjectIdentifier": "請輸入計畫識別碼 - 例如: BID-CA2016-0000-NAC",
     "registerOrg": "註冊組織",
     "technicalContact": "技術聯繫",
-    "techContactDescription": "",
+    "techContactDescription": "我們可以向誰提供技術資訊, 例如發送密碼以註冊資料發佈工具？",
     "submissionFailed": "提交失敗",
     "forSomeReason": "由於某些因素，你的提交失敗。",
     "pleaseContactUs": "請透過helpdesk@gbif.org告知我們關於你的興趣。",
