@@ -10,7 +10,7 @@
     "description": "在全球生物多樣性資訊機構搜尋物種出現紀錄資料。免費且公開自由存取的生物多樣性資料。",
     "nWithCoordinates": "{NUMBER_FORMATED} 帶座標",
     "nWithImages": "{NUMBER_FORMATED} 帶{NUMBER, select, 1{圖片}other{圖片}}",
-    "failedSearch": "",
+    "failedSearch": "你的篩選可能無效或伺服器出現問題。請再嘗試，若問題持續請回報。",
     "noImages": "沒有帶圖片的出現紀錄資料",
     "imageLicenseInfo": "",
     "showMoreImages": "更多",
