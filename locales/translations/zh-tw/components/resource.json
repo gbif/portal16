@@ -7,16 +7,16 @@
     "location": "地點",
     "country": "國家或地區",
     "noDatasets": "無資料集可顯示",
-    "when": "",
+    "when": "於",
     "language": "語言",
     "viewOnGBIF": "在GBIF查看",
     "published": "已發佈",
-    "programme": "",
+    "programme": "計畫",
     "fundedBy": "贊助由",
     "about": "關於",
     "datasets": "資料集",
     "gbifWillAttend": "",
-    "dataUsedInStudy": "",
+    "dataUsedInStudy": "使用在研究的資料",
     "resourceDescription": ""
   }
 }
