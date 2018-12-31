@@ -1,7 +1,7 @@
 {
     "dataset": {
         "registry": {
-            "failedSinceSuccess": "",
+            "failedSinceSuccess": "自從上次成功接收後，嘗試失敗。",
             "lastFailed": "上次嘗試失敗",
             "registrationDate": "註冊日期",
             "lastSuccess": "上次成功接收",
