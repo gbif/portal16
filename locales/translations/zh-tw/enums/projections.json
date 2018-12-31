@@ -1,8 +1,8 @@
 {
   "projections": {
-    "ARCTIC": "",
-    "MERCATOR": "",
-    "ANTARCTIC": "",
+    "ARCTIC": "北極",
+    "MERCATOR": "麥卡托投影",
+    "ANTARCTIC": "南極",
     "PLATE_CAREE": ""
   }
 }
