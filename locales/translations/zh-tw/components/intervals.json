@@ -32,10 +32,10 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "無效",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "是",
+                "between": "之間",
                 "lessThanOrEquals": "結束前",
                 "greaterThanOrEquals": "開始後"
             }
