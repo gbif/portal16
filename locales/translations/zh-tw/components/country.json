@@ -17,22 +17,22 @@
     "noInstitutionsHavePublished": "",
     "trendsAboutCountry": "",
     "nFrom": "",
-    "nAbout": "",
-    "viewAllN": "",
+    "nAbout": "{NUMBER_FORMATTED} 關於",
+    "viewAllN": "查看所有 {NUMBER_FORMATTED}",
     "noPublications": "無發佈",
     "notParticipant": "不是參與者",
-    "notParticipantDescription": "",
+    "notParticipantDescription": "這個國家不是 GBIF 的參與者",
     "countryNamingDisclaimer": "",
     "counts": {
-      "occurrences": "",
+      "occurrences": "出現紀錄",
       "datasets": "資料集",
       "publishers": "發布者",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
+      "countriesAndAreasContributeData": "國家和地區提供資料",
+      "publishedOccurrences": "已發佈的出現紀錄",
       "publishedDatasets": "已發布的資料集",
       "countriesAndAreasCoveredByDataFrom": "",
       "publishersFrom": ""
     },
-    "activityReport": ""
+    "activityReport": "活動報告"
   }
 }
