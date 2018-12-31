@@ -45,7 +45,7 @@
                 "tooltip": "回饋, 資料集建議。"
             },
             "CRAWLER": {
-                "name": "攝取",
+                "name": "接收",
                 "tooltip": "更新資料集 - 新和舊"
             },
             "RESOURCE_SEARCH": {
