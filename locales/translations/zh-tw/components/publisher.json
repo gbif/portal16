@@ -4,15 +4,15 @@
       "aboutPublisher": "關於",
       "publishersHomepage": "首頁"
     },
-    "joinedAgo": "",
+    "joinedAgo": "已加入 {TIME_AGO}",
     "newPublisher": "新資料發佈者",
     "technicalContact": "技術聯繫",
     "country": "國家或地區",
-    "hosting": "",
+    "hosting": "託管",
     "description": "描述說明",
     "endorsedBy": "背書",
     "pendingEndorsementBy": "",
-    "installations": "",
+    "installations": "安裝",
     "contacts": "聯繫",
     "administrativeContact": "",
     "header": {
