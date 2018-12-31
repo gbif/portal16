@@ -10,7 +10,7 @@
       "invasives": ""
     },
     "memberSince": "會員自從",
-    "dataFrom": "",
+    "dataFrom": "資料來自{TRANSLATED_COUNTRY}",
     "dataAboutCountry": "資料關於{TRANSLATED_COUNTRY}",
     "publishingTrends": "發布趨勢",
     "noDataPublishingActivity": "無資料發佈活動",
