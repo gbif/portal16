@@ -84,7 +84,7 @@
       "location": "解釋的座標數"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "解釋的計數值"
     },
     "status": {
       "title": "狀態",
