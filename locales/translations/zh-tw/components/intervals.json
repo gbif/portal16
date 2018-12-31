@@ -28,7 +28,7 @@
             }
         },
         "year": {
-            "equals": "",
+            "equals": "是{from}",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
