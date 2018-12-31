@@ -12,7 +12,7 @@
     "speciesCounts": "物種計數",
     "speciesCountDescription": "",
     "definition": "定義",
-    "numOccSpeciesByKingdom": "",
+    "numOccSpeciesByKingdom": "依照界來分別，可取得出現記錄的物種數量。",
     "speciesCountByKingdom": "依照界的物種計數",
     "numSpeciesFromSpecimens": "物種數量與標本紀錄有關",
     "speciesCountsForSpecimenRecords": "標本紀錄的物種計數",
