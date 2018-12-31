@@ -21,11 +21,11 @@
     "nRecordsAtTime": "",
     "aboutDeletionPolicy": "",
     "readDatauseAndTerms": "",
-    "filterApplied": "",
+    "filterApplied": "使用篩選 {DATE}",
     "rerunQuery": "",
     "postpone": "",
-    "deleteDownload": "",
-    "tellUs": "",
+    "deleteDownload": "刪除下載",
+    "tellUs": "告訴我們關於你的使用",
     "downloadKilled": "",
     "downloadDeleted": "",
     "storageDurationTeaser": "",
@@ -35,22 +35,22 @@
     "noFiltersApplied": "不使用篩選設定",
     "apiUsageDescription": "",
     "apiFilterView": "應用程式介面",
-    "humanFilterView": "",
+    "humanFilterView": "人類",
     "downloadStarted": "",
     "downloadExpectTime": "",
     "notificationEmailAddresses": "",
     "status": {
-      "PREPARING": "",
-      "SUSPENDED": "",
-      "RUNNING": "",
+      "PREPARING": "準備中",
+      "SUSPENDED": "已停權",
+      "RUNNING": "執行中",
       "CANCELLED": "已取消",
       "KILLED": ""
     },
     "predicate": {
       "joinDescriptions": {
-        "and": "",
+        "and": "需全部選用",
         "or": "至少使用一項",
-        "not": ""
+        "not": "不包含所有"
       },
       "and": "和",
       "or": "或",
