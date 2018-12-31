@@ -79,9 +79,9 @@
       "interpreted": "已解釋"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "解釋的日期數",
+      "taxon": "有解釋的分類群列數",
+      "location": "解釋的座標數"
     },
     "interpretedValueCounts": {
       "title": ""
