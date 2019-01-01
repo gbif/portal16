@@ -240,7 +240,7 @@
     "lastCrawled": "",
     "associatedMedia": "相關媒體",
     "country": "國家或地區",
-    "minimumElevationInMeters": "",
+    "minimumElevationInMeters": "最低海拔 (公尺)",
     "maximumElevationInMeters": "最高海拔 (公尺)",
     "minimumDepthInMeters": "最小深度 (公尺)",
     "maximumDepthInMeters": "最大深度 (公尺)",
