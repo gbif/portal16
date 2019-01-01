@@ -31,14 +31,14 @@
     "storageDurationTeaser": "",
     "predatesDoi": "",
     "file": "檔案",
-    "constituentDatasets": "",
+    "constituentDatasets": "包涵的資料集",
     "noFiltersApplied": "不使用篩選設定",
     "apiUsageDescription": "",
     "apiFilterView": "應用程式介面",
     "humanFilterView": "人類",
-    "downloadStarted": "",
-    "downloadExpectTime": "",
-    "notificationEmailAddresses": "",
+    "downloadStarted": "下載已開始, 目前正在處理中。",
+    "downloadExpectTime": "預計下載時間長達3小時才能完成。大多數下載將在15分鐘內完成。",
+    "notificationEmailAddresses": "一旦準備好, 將發送包含下載結果連結的通知電子郵件到以下位址: ",
     "status": {
       "PREPARING": "準備中",
       "SUSPENDED": "已停權",
@@ -55,7 +55,7 @@
       "and": "和",
       "or": "或",
       "not": "",
-      "isNotNull": ""
+      "isNotNull": "已定義"
     }
   }
 }
