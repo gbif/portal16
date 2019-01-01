@@ -1,17 +1,17 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "無篩選",
         "elevation": {
-            "equals": "",
-            "between": "",
+            "equals": "是{from} m",
+            "between": "在{from}和{to} m 之間",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "無效",
             "select": {
                 "equals": "",
-                "between": "",
+                "between": "之間",
                 "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "greaterThanOrEquals": "以上"
             }
         },
         "depth": {
