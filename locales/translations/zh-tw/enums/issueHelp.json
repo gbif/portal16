@@ -1,6 +1,6 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "",
+    "BASIS_OF_RECORD_INVALID": "紀錄依據的數值遺失或無效。數值必須與達爾文核心集類型文字相符",
     "COORDINATE_REPROJECTION_FAILED": "無法根據給定的十進位緯度和經度資料重新投影到wgs84系統",
     "NO_SPECIES": "該類群(目前只對屬進行測試) 缺乏任何被接受的物種名。GBIF骨架的具體問題。",
     "RECORDED_DATE_INVALID": "你輸入的是(部分) 無效的日期，例如日期不存在，月份為零等。",
@@ -40,7 +40,7 @@
     "CORE_ROWTYPE_UNDETERMINED": "",
     "TAXON_MATCH_HIGHERRANK": "",
     "RECORDED_DATE_UNLIKELY": "",
-    "ALT_IDENTIFIER_INVALID": "至少有一個附加到此名稱使用的物種檔案擴展紀錄為無效",
+    "ALT_IDENTIFIER_INVALID": "至少有一個附加到此名稱使用的備用識別擴展紀錄為無效",
     "ACCEPTED_NAME_NOT_UNIQUE": "",
     "DEPTH_UNLIKELY": "",
     "NAME_PARENT_MISMATCH": "",
@@ -75,7 +75,7 @@
     "RECORD_NOT_UNIQUELY_IDENTIFIED": "核心檔中的記錄並非唯一的標識",
     "ELEVATION_NOT_METRIC": "如果提供的深度資料非公制系統，設置為公制。例如使用英尺而非公尺。",
     "PRESUMED_NEGATED_LONGITUDE": "經度正負號似乎相反，例如32.3而不是-32.3",
-    "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到記錄識別",
+    "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到記錄識別碼",
     "DWCA_META_XML_SCHEMA": "不能根據其架構驗證 meta. xml 檔",
     "COORDINATE_REPROJECTED": "原始座標已成功從不同的大地測量基準重新投射到WGS84系統。",
     "RECORDED_DATE_MISMATCH": "事件日期和原子版本 (年、月、日) 表示的日期並不相同。警告: Https://github.com/gbif/parsers/issues/8",
