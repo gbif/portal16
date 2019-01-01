@@ -38,7 +38,7 @@
     "checkListData": "清單資料",
     "occurrenceOnlyData": "僅出現紀錄資料",
     "samplingEventData": "採樣事件資料",
-    "doYouHaveCapacity": "",
+    "doYouHaveCapacity": "透過該伺服器您將提供您的原始資料集給GBIF.org。您是否有能力執行即時伺服器或訪問伺服器?",
     "yes": "是",
     "no": "否",
     "pleaseSelectAValue": "請選擇一個值。",
