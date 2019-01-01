@@ -8,8 +8,8 @@
     "countByIssue": ""
   },
   "metrics": {
-    "issues": "",
-    "extensions": "",
+    "issues": "問題",
+    "extensions": "附加元件",
     "taxa": "",
     "other": "其它",
     "checklistMetrics": "",
@@ -25,7 +25,7 @@
     "occurrencesPerField": "",
     "occurrencesBreakdownPerField": "",
     "occurrencesPerFieldx2": "",
-    "customFilters": "",
+    "customFilters": "此圖表有自訂的篩選",
     "linear": "線性",
     "count": "計數",
     "intervalSize": "間距大小",
