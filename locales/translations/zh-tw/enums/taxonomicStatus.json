@@ -1,12 +1,12 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "",
-    "DOUBTFUL": "",
+    "ACCEPTED": "已接受的",
+    "DOUBTFUL": "有疑問的",
     "SYNONYM": "",
     "HETEROTYPIC_SYNONYM": "",
     "HOMOTYPIC_SYNONYM": "",
     "PROPARTE_SYNONYM": "",
-    "MISAPPLIED": "",
+    "MISAPPLIED": "誤用",
     "INTERMEDIATE_RANK_SYNONYM": "",
     "DETERMINATION_SYNONYM": ""
   }
