@@ -19,7 +19,7 @@
     "SPECIES_PROFILE_INVALID": "無效物種檔案",
     "MULTIMEDIA_INVALID": "無效的多媒體",
     "BIB_REFERENCE_INVALID": "",
-    "ALT_IDENTIFIER_INVALID": "",
+    "ALT_IDENTIFIER_INVALID": "備用識別碼無效",
     "BACKBONE_MATCH_NONE": "無法與GBIF骨架匹配",
     "BACKBONE_MATCH_FUZZY": "",
     "ACCEPTED_NAME_MISSING": "同種異名，缺乏有效學名。",
