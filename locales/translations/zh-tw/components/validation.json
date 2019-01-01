@@ -12,7 +12,7 @@
       "DWCA_UNREADABLE": "無法讀取達爾文核心集歸檔",
       "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 檔",
       "DWCA_META_XML_SCHEMA": "Meta. xml 架構驗證失敗",
-      "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到記錄識別",
+      "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到記錄識別碼",
       "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定行類型",
       "EML_NOT_FOUND": "找不到 EML文件",
       "EML_GBIF_SCHEMA": "Eml 檔案不針對架構進行驗證",
