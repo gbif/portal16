@@ -14,9 +14,9 @@
     "dataAboutCountry": "資料關於{TRANSLATED_COUNTRY}",
     "publishingTrends": "發布趨勢",
     "noDataPublishingActivity": "無資料發佈活動",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
-    "nFrom": "",
+    "noInstitutionsHavePublished": "此國家內的無任何機構透過GBIF發布資料",
+    "trendsAboutCountry": "趨勢關於{TRANSLATED_COUNTRY}",
+    "nFrom": "{NUMBER_FORMATTED} 來自",
     "nAbout": "{NUMBER_FORMATTED} 關於",
     "viewAllN": "查看所有 {NUMBER_FORMATTED}",
     "noPublications": "無發佈",
@@ -31,7 +31,7 @@
       "publishedOccurrences": "已發佈的出現紀錄",
       "publishedDatasets": "已發布的資料集",
       "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "publishersFrom": "發布者來自{TRANSLATED_COUNTRY}"
     },
     "activityReport": "活動報告"
   }
