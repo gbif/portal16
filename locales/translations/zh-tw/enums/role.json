@@ -1,7 +1,7 @@
 {
   "role": {
-    "TECHNICAL_POINT_OF_CONTACT": "",
-    "ADMINISTRATIVE_POINT_OF_CONTACT": "",
+    "TECHNICAL_POINT_OF_CONTACT": "技術聯絡點",
+    "ADMINISTRATIVE_POINT_OF_CONTACT": "管理聯絡點",
     "_PRIMARY_CONTACT": "主要聯絡",
     "POINT_OF_CONTACT": "聯絡點",
     "ORIGINATOR": "",
