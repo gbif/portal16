@@ -10,7 +10,7 @@
             "select": {
                 "equals": "",
                 "between": "之間",
-                "lessThanOrEquals": "",
+                "lessThanOrEquals": "下方",
                 "greaterThanOrEquals": "以上"
             }
         },
@@ -29,9 +29,9 @@
         },
         "year": {
             "equals": "是{from}",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "between": "在{from} 開始與{to} 結束之間",
+            "lessThanOrEquals": "在{to} 結束前",
+            "greaterThanOrEquals": "在{from} 開始之後",
             "invalid": "無效",
             "select": {
                 "equals": "是",
