@@ -1,7 +1,7 @@
 {
   "nameTypeEnum": {
     "SCIENTIFIC": "學名",
-    "DOUBTFUL": "",
+    "DOUBTFUL": "有疑問的",
     "BLACKLISTED": "列入黑名單",
     "VIRUS": "病毒",
     "HYBRID": "",
