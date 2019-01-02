@@ -30,7 +30,7 @@
     "COORDINATE_ROUNDED": "修改原始座標，四捨五入到小數點後第5位。",
     "GEODETIC_DATUM_INVALID": "給定的大地測量基準無法解析。",
     "COORDINATE_INVALID": "GBIF無法解讀以某種形式提供的座標。",
-    "CLASSIFICATION_NOT_APPLIED": "",
+    "CLASSIFICATION_NOT_APPLIED": "非標準化分類不能應用於名稱使用。例如如果依據ID的分類無排序。",
     "CONTINENT_DERIVED_FROM_COORDINATES": "內容解釋基於座標，而不是逐字字串資訊。",
     "ACCEPTED_NAME_MISSING": "同種異名，缺乏有效學名。",
     "ORIGINAL_NAME_USAGE_ID_INVALID": "無法解析dwc原始名稱使用者ID數值",
