@@ -5,7 +5,7 @@
     "countNamesByLanguage": "",
     "countExtRecordsByExtension": "",
     "countByOrigin": "",
-    "countByIssue": ""
+    "countByIssue": "依照類型來計算問題數量"
   },
   "metrics": {
     "issues": "問題",
