@@ -1,18 +1,18 @@
 {
   "endpointType": {
-    "EML": "",
+    "EML": "EML",
     "FEED": "RSS 訂閱",
-    "WFS": "",
-    "WMS": "",
-    "TCS_RDF": "",
-    "TCS_XML": "",
-    "DWC_ARCHIVE": "",
-    "DIGIR": "",
-    "DIGIR_MANIS": "",
-    "TAPIR": "",
-    "BIOCASE": "",
-    "BIOCASE_XML_ARCHIVE": "",
-    "OAI_PMH": "",
+    "WFS": "WFS",
+    "WMS": "WMS",
+    "TCS_RDF": "TCS RDF",
+    "TCS_XML": "TCS XML",
+    "DWC_ARCHIVE": "達爾文核心集歸檔",
+    "DIGIR": "DiGIR",
+    "DIGIR_MANIS": "DiGIR MANIS",
+    "TAPIR": "TAPIR",
+    "BIOCASE": "BioCASe",
+    "BIOCASE_XML_ARCHIVE": "BioCASE XML 檔集",
+    "OAI_PMH": "OAI PMH",
     "OTHER": "其它"
   }
 }

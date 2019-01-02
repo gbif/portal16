@@ -2,11 +2,11 @@
   "extensionEnum": {
     "DESCRIPTION": "描述說明",
     "DISTRIBUTION": "分佈",
-    "IDENTIFIER": "",
-    "MULTIMEDIA": "",
-    "REFERENCE": "",
+    "IDENTIFIER": "識別碼",
+    "MULTIMEDIA": "多媒體",
+    "REFERENCE": "參照",
     "SPECIES_PROFILE": "物種檔案",
-    "TYPES_AND_SPECIMEN": "",
-    "VERNACULAR_NAME": ""
+    "TYPES_AND_SPECIMEN": "類型與標本",
+    "VERNACULAR_NAME": "俗名"
   }
 }

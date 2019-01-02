@@ -1,6 +1,6 @@
 {
     "galleryBar": {
         "seeAllImages": "查看圖片集",
-        "nOccWithImages": ""
+        "nOccWithImages": "{NUMBER_FORMATED}{NUMBER, select,1{出現紀錄}other{出現紀錄}}關於圖片"
     }
 }

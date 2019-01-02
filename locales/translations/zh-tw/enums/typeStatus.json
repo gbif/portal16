@@ -5,7 +5,7 @@
     "TYPE_GENUS": "",
     "ALLOLECTOTYPE": "",
     "ALLONEOTYPE": "",
-    "ALLOTYPE": "",
+    "ALLOTYPE": "異型",
     "COTYPE": "",
     "EPITYPE": "",
     "EXEPITYPE": "",
@@ -39,7 +39,7 @@
     "SUPPLEMENTARYTYPE": "",
     "SYNTYPE": "",
     "TOPOTYPE": "",
-    "ORIGINALMATERIAL": "",
+    "ORIGINALMATERIAL": "原始材料",
     "NOTATYPE": ""
   }
 }

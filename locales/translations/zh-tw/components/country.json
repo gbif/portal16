@@ -1,38 +1,38 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
-      "dataPublishing": "",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
-      "news": "",
+      "summary": "概要",
+      "dataPublishing": "資料發佈",
+      "dataAbout": "資料關於",
+      "participartion": "參與",
+      "publications": "出版",
+      "news": "新聞",
       "invasives": ""
     },
-    "memberSince": "",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
-    "nFrom": "",
-    "nAbout": "",
-    "viewAllN": "",
+    "memberSince": "會員自從",
+    "dataFrom": "資料來自{TRANSLATED_COUNTRY}",
+    "dataAboutCountry": "資料關於{TRANSLATED_COUNTRY}",
+    "publishingTrends": "發布趨勢",
+    "noDataPublishingActivity": "無資料發佈活動",
+    "noInstitutionsHavePublished": "此國家內的無任何機構透過GBIF發布資料",
+    "trendsAboutCountry": "趨勢關於{TRANSLATED_COUNTRY}",
+    "nFrom": "{NUMBER_FORMATTED} 來自",
+    "nAbout": "{NUMBER_FORMATTED} 關於",
+    "viewAllN": "查看所有 {NUMBER_FORMATTED}",
     "noPublications": "無發佈",
     "notParticipant": "不是參與者",
-    "notParticipantDescription": "",
+    "notParticipantDescription": "這個國家不是 GBIF 的參與者",
     "countryNamingDisclaimer": "",
     "counts": {
-      "occurrences": "",
+      "occurrences": "出現紀錄",
       "datasets": "資料集",
       "publishers": "發布者",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
+      "countriesAndAreasContributeData": "國家和地區提供資料",
+      "publishedOccurrences": "已發佈的出現紀錄",
       "publishedDatasets": "已發布的資料集",
       "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "publishersFrom": "發布者來自{TRANSLATED_COUNTRY}"
     },
-    "activityReport": ""
+    "activityReport": "活動報告"
   }
 }

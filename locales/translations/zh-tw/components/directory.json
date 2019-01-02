@@ -2,7 +2,7 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "",
+        "title": "專屬委員會",
         "description": ""
       },
       "scienceCommittee": {
@@ -18,7 +18,7 @@
         "description": ""
       },
       "nodesCommittee": {
-        "title": "",
+        "title": "節點管理委員會",
         "description": ""
       },
       "secretariat": {
@@ -26,7 +26,7 @@
         "description": ""
       },
       "voting": {
-        "title": "",
+        "title": "投票參與者",
         "description": "已簽署合作備忘錄(MOU) 並同意提供基礎財務贊助給GBIF核心資金的國家。"
       },
       "associateCountries": {
@@ -39,14 +39,14 @@
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
+      "role": "身份",
+      "name": "名稱",
       "participant": "參與者",
-      "participationStatus": ""
+      "participationStatus": "參與狀態"
     },
     "details": "詳細資料",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "roles": "角色",
+    "sinceDate": "從{DATE}",
+    "showAllContacts": "全選"
   }
 }

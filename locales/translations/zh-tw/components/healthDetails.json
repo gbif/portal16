@@ -26,26 +26,26 @@
             },
             "IDENTITY": {
                 "name": "身份",
-                "tooltip": ""
+                "tooltip": "用於登入和登入，連結帳戶等"
             },
             "MAPS": {
                 "name": "地圖",
-                "tooltip": ""
+                "tooltip": "用於顯示地圖圖像和取得地圖相關資訊"
             },
             "CONTENTFUL": {
                 "name": "內容管理系統(外部系統)",
                 "tooltip": "例如新聞和文章"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "圖像快取",
+                "tooltip": "負責網站上的大部分圖片"
             },
             "GITHUB": {
                 "name": "Github(外部系統)",
                 "tooltip": "回饋, 資料集建議。"
             },
             "CRAWLER": {
-                "name": "攝取",
+                "name": "接收",
                 "tooltip": "更新資料集 - 新和舊"
             },
             "RESOURCE_SEARCH": {
@@ -54,11 +54,11 @@
             },
             "CLUSTER": {
                 "name": "系統負載",
-                "tooltip": ""
+                "tooltip": "用於處理下載、接收等其他更多項目。"
             },
             "DOWNLOAD": {
                 "name": "下載",
-                "tooltip": ""
+                "tooltip": "用於處理下載作業和發送使用者通知"
             }
         }
     }

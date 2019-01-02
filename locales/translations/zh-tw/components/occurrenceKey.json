@@ -1,51 +1,51 @@
 {
   "occurrence": {
-    "typeOf": "",
+    "typeOf": "類型{TYPE} 名稱{NAME}",
     "coordinates": "座標",
-    "unknownDate": "",
-    "absent": "",
+    "unknownDate": "未知日期",
+    "absent": "缺少",
     "issues": "問題",
     "dataset": "資料集",
-    "synced": "",
+    "synced": "已經同步",
     "modified": "修改",
     "monthAndyear": "月 \/ 年",
-    "coordinateUncertainty": "",
+    "coordinateUncertainty": "座標不確定",
     "citation": "引用",
     "readFullDescription": "更多",
     "showMoreInfo": "更多",
-    "noTaxonMatch": "",
-    "gbifTaxonInterpretation": "",
-    "aboutTheDataset": "",
-    "noLocationInformation": "",
+    "noTaxonMatch": "無",
+    "gbifTaxonInterpretation": "GBIF分類群解釋",
+    "aboutTheDataset": "關於資料集",
+    "noLocationInformation": "此發布紀錄內容無地點資訊",
     "subMenu": {
-      "diagnostics": "",
+      "diagnostics": "診斷信息",
       "menu": "選單",
-      "showDiagnostics": "",
-      "hideDiagnostics": "",
+      "showDiagnostics": "顯示診斷結果",
+      "hideDiagnostics": "隱藏診斷結果",
       "aboutDarwinCore": "關於達爾文核心集",
       "raw": "未處理的"
     },
     "groups": {
       "Record": "記錄",
-      "Occurrence": "",
-      "Event": "",
+      "Occurrence": "出現紀錄",
+      "Event": "活動",
       "Identification": "辨識",
       "Taxon": "分類群",
       "Location": "地點",
       "Organism": "生物體",
-      "MaterialSample": "",
+      "MaterialSample": "材料樣本",
       "GeologicalContext": "",
-      "other": ""
+      "other": "其它"
     },
-    "term": "",
+    "term": "名稱",
     "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "original": "原始",
+    "remarks": "註記",
     "highlights": {
       "location": "地點",
-      "specimenType": "",
-      "publisher": "",
-      "reference": "",
+      "specimenType": "標本類型",
+      "publisher": "發布者",
+      "reference": "參照",
       "verbatimName": ""
     },
     "media": {
@@ -57,10 +57,10 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
+        "PRESERVED_SPECIMEN": "收集於{COUNTRY}",
+        "FOSSIL_SPECIMEN": "收集於{COUNTRY}",
+        "LIVING_SPECIMEN": "收集於{COUNTRY}",
+        "HUMAN_OBSERVATION": "觀察於{COUNTRY}",
         "MACHINE_OBSERVATION": "",
         "MATERIAL_SAMPLE": "",
         "OCCURRENCE": "",
@@ -80,10 +80,10 @@
         "LITERATURE": "",
         "UNKNOWN": ""
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "未知的物種"
     },
-    "occurrence": "",
-    "inLanguage": ""
+    "occurrence": "出現紀錄",
+    "inLanguage": "在{LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {

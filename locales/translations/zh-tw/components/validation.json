@@ -4,30 +4,30 @@
       "RESOURCE_STRUCTURE": "資源結構",
       "RESOURCE_INTEGRITY": "資源完整性",
       "RECORD_STRUCTURE": "記錄結構",
-      "OCC_INTERPRETATION_BASED": "",
+      "OCC_INTERPRETATION_BASED": "GBIF分類群解釋",
       "METADATA_CONTENT": "元資料內容",
-      "CLB_INTERPRETATION_BASED": ""
+      "CLB_INTERPRETATION_BASED": "GBIF分類群解釋"
     },
     "issueType": {
       "DWCA_UNREADABLE": "無法讀取達爾文核心集歸檔",
       "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 檔",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
-      "CORE_ROWTYPE_UNDETERMINED": "",
+      "DWCA_META_XML_SCHEMA": "Meta. xml 架構驗證失敗",
+      "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到記錄識別碼",
+      "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定行類型",
       "EML_NOT_FOUND": "找不到 EML文件",
-      "EML_GBIF_SCHEMA": "",
+      "EML_GBIF_SCHEMA": "Eml 檔案不針對架構進行驗證",
       "UNKNOWN_ROWTYPE": "核心集/擴展文件為未知的欄位類型",
       "REQUIRED_TERM_MISSING": "缺少核心集/擴充文件必要名稱",
       "COLUMN_MISMATCH": "無匹配欄位",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "違反記錄參考完整性",
       "UNKNOWN_TERM": "未知名稱",
       "DUPLICATED_TERM": "重複名稱",
       "TITLE_MISSING_OR_TOO_SHORT": "資料集標題遺漏或太短",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "資源建立者已不在或不完整。",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "缺少或資料集的描述太短",
       "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF不支援或授權遺失",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "未唯一標識的記錄",
+      "UNREADABLE_SECTION_ERROR": "無法讀取的部分錯誤",
       "NoIssuesFound": "未找到問題"
     },
     "fileFormat": {
@@ -49,7 +49,7 @@
         "title": "元資料文件"
       },
       "META_DESCRIPTOR": {
-        "description": "",
+        "description": "語義註記用來描述資料如何建構而成 (檔案、行等)",
         "title": ""
       }
     },
@@ -79,12 +79,12 @@
       "interpreted": "已解釋"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "解釋的日期數",
+      "taxon": "有解釋的分類群列數",
+      "location": "解釋的座標數"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "解釋的計數值"
     },
     "status": {
       "title": "狀態",
@@ -97,14 +97,14 @@
       "CONTACTING_SERVER": "正在連結伺服器"
     },
     "jobId": "作業ID",
-    "indexeable": "",
-    "notIndexeable": "",
-    "numberOfLines": "",
+    "indexeable": "Gbif 可為該檔編制索引",
+    "notIndexeable": "Gbif 無法為該檔編制索引",
+    "numberOfLines": "行數",
     "reportProducedByGbifDataValidator": "GBIF資料驗證程式產生的報告",
     "validationReport": "驗證報告",
     "dataValidator": "資料驗證程式",
-    "dataValidatorDescription": "",
-    "thisIsAnEarlyAccessVersion": "",
+    "dataValidatorDescription": "GBIF資料驗證程式是一項服務，其允許所有GBIF相關資料集持有者接收關於資料集語法正確性、資料內容有效性的報告。",
+    "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
     "here": "",
     "coreRowType": "",
     "submit": "提交",

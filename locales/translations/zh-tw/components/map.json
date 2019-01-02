@@ -1,7 +1,7 @@
 {
   "map": {
     "nGeoreferencedRecords": "{NUMBER_FORMATED}{NUMBER, select,1{地理參照紀錄}other{地理參照紀錄}}",
-    "noOccurrencesWithCoordinates": "",
+    "noOccurrencesWithCoordinates": "出現紀錄內無座標",
     "clickToSearchArea": "點選搜尋區域",
     "generatedDateAgo": "產生{DATE_AGO}",
     "anyYear": "任何年份",
@@ -48,7 +48,7 @@
       "ORANGE_HEAT": "",
       "GREEN": "綠色",
       "BLUE_CLUSTER": "藍色群集",
-      "ORANGE_CLUSTER": ""
+      "ORANGE_CLUSTER": "橙色集群"
     },
     "errors": {
       "413": "此幾何檔案過大，資料程式應用介面(API) 無法處理。"

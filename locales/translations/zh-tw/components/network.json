@@ -4,10 +4,10 @@
     "tabs": {
       "summary": "總結",
       "homepage": "首頁",
-      "metrics": "",
+      "metrics": "公制",
       "datasets": "網絡"
     },
     "registeredDate": "",
-    "nParticipatingDatasets": ""
+    "nParticipatingDatasets": "{NUMBER_FORMATED} 參與{NUMBER, select,1{資料集} other{資料集}}"
   }
 }
