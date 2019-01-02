@@ -13,18 +13,18 @@
     "select": "選取",
     "custom": "自訂",
     "baseMap": "底圖",
-    "binning": "",
+    "binning": "分級",
     "year": "年份",
     "chooseColors": "顏色",
     "predefined": {
       "CLASSIC_HEX": "經典六邊形",
-      "CLASSIC": "",
+      "CLASSIC": "經典積分",
       "STREETS": "街道",
       "GLACIER": "冰河",
       "CUSTOM": "自訂"
     },
     "basemap": {
-      "CLASSIC": "",
+      "CLASSIC": "洋紅",
       "LIGHT": "淺色 (無標籤)",
       "LIGHT_DETAILS": "亮色",
       "DARK": "深色 (無標籤)",
