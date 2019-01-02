@@ -1,0 +1,25 @@
+{% extends "../../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+<div class="hidden">
+    <h1>
+				{$ collection.name $}
+		</h1>
+		<dl>
+				<dt>{$ __('collection.code') $}</dt>
+				<dd>{$ collection.code $}</dd>
+
+				<dt>{$ __('collection.statusOfCollection') $}</dt>
+				<dd>{$ collection.active $}</dd>
+
+				<dt>{$ __('collection.personalCollection') $}</dt>
+				<dd>{$ __('enum.isPersonalCollection.' + collection.personalCollection) $}</dd>
+
+				<dt>{$ __('collection.accessionStatus') $}</dt>
+				<dd>{$ __('enum.collectionAccessionStatus.' + collection.accessionStatus) $}</dd>
+
+				<dt>{$ __('collection.description') $}</dt>
+				<dd>{$ collection.description $}</dd>
+		</dl>
+</div>
+{% endblock %}

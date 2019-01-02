@@ -1,0 +1,18 @@
+<div class="container--narrow">
+    <div class="tabs" ng-class="{'tabs--noBorder': !grbio.$state.is('grbio')}">
+        <ul class="anchorTabs">
+            <li class="tab" ng-class="{isActive: grbio.$state.is('grbio')}">
+                <a ui-sref="grbio()" translate="grbio.tabs.about">About</a>
+            </li>
+            <li class="tab" ng-class="{isActive: grbio.$state.is('grbioInstitutionSearch')}">
+                <a href="" ui-sref="grbioInstitutionSearch()" translate="grbio.tabs.institutions">Institutions</a>
+            </li>
+            <li class="tab" ng-class="{isActive: grbio.$state.is('grbioCollectionSearch')}">
+                <a href="" ui-sref="grbioCollectionSearch()" translate="grbio.tabs.collections">Collections</a>
+            </li>
+            <li class="tab" ng-class="{isActive: grbio.$state.is('grbioPersonSearch')}">
+                <a href="" ui-sref="grbioPersonSearch()" translate="grbio.tabs.people">People</a>
+            </li>
+        </ul>
+    </div>
+</div>

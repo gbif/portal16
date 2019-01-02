@@ -1,0 +1,10 @@
+<section class="horizontal-stripe seperator">
+		<div class="container--normal">
+				<div class="row">
+						<div class="col-xs-12">
+								{% include('./summary.nunjucks') %}
+						</div>
+				</div>
+		</div>
+		{% include('./contacts.nunjucks') %}
+</section>

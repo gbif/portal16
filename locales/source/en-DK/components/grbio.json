@@ -1,0 +1,93 @@
+{
+  "collection": {
+    "search": {
+      "title": "Collections",
+      "description": "**Institutional Collections** are those collections that have been formally accessioned into the Institution and receive some level of institutional support.\n\n**Project Collections** are those that were collected by a researcher associated with an institution but have not been formally accessioned into the institution's collections. **Project Collections** may eventually become part of the **Institutional Collections** or remain under the management and control of the individual researchers.\n\n**Personal Collections** are under the control of an individual researcher and are not formally associated with or accessioned into an institution. They may be the personal property of a private collector or otherwise orphaned."
+    },
+    "headerTitle": "Collection",
+    "description": "Description",
+    "institutionName": "Institution name",
+    "code": "Code",
+    "statusOfCollection": "Status of collection",
+    "personalCollection": "Personal collection",
+    "isPersonalCollection": {
+      "true": "Yes",
+      "false": "No"
+    },
+    "accessionStatus": "Accession status",
+    "contentTypes": "Content types",
+    "preservationTypes": "Preservation types",
+    "homepage": "Homepage",
+    "apiUrl": "URL for Collection's Web Services",
+    "catalogUrl": "URL for Collection's Specimen Catalog/Database",
+    "identifiers": "Identifiers",
+    "collectionMailingAddress": "Mailing address",
+    "status": "Status",
+    "name": "Name",
+    "isActive": {
+      "true": "Active",
+      "false": "Inactive"
+    }
+  },
+  "institution": {
+    "search": {
+      "title": "Institutions",
+      "description": "**Institution**  refers to any institution or organization that owns and manages scientific collections. This includes herbaria, museums, zoos, botanical gardens, biobanks, and others. An institution may contain multiple collections, in which case those should be entered individually under  **Institutional/Project Collections**  and linked back to the parent institution.\n\nDue to the integration of several older datasets, and to avoid duplication of  **InstitutionCode**, <IH> has been appended to all Index Herbariorum Herbarium codes."
+    },
+    "headerTitle": "Institution",
+    "indexHerbariorumRecord": "Index Herbariorum Record",
+    "code": "Institution code",
+    "statusOfInstitution": "Status of Institution",
+    "additionalNames": "Additional names",
+    "description": "Description",
+    "homepage": "Homepage",
+    "disciplines": "Institutional disciplines",
+    "institutionalGovernance": "Institutional governance",
+    "type": "Institution Type",
+    "identifiers": "Identifiers",
+    "isActive": {
+      "true": "Active",
+      "false": "Inactive"
+    },
+    "true": "Yes",
+    "false": "No"
+  },
+  "grbioPerson": {
+    "search": {
+      "title": "Collection staff",
+      "description": "GRSciCOLL Staff Members are any type of staff that is involved with the collections. They can be associated with the institution and/or any type of collection."
+    },
+    "headerTitle": "Collection staff",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "position": "Job title",
+    "areaResponsibility": "Area of responsibility",
+    "researchPursuits": "Research Specialty",
+    "primaryInstitution": "Name of Primary Institution",
+    "primaryCollection": "Name of Primary Collection",
+    "affiliateInstitutions": "Additional affiliate institutions",
+    "affiliateCollections": "Additional affiliate collections"
+  },
+  "grbio": {
+    "title": "GRSciColl",
+    "tabs": {
+      "about": "About",
+      "institutions": "Institutions",
+      "collections": "Collections",
+      "people": "Staff members"
+    },
+    "contact": {
+      "phone": "Phone number",
+      "email": "E-mail",
+      "fax": "Fax number",
+      "mailingAddress": "Mailing address",
+      "physicalAddress": "Physical address",
+      "contacts": "Contacts",
+      "address": "Address",
+      "province": "State/Province",
+      "postalCode": "Postal/Zip Code",
+      "city": "City/Town",
+      "country": "Country"
+    }
+  }
+}

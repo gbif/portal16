@@ -1,0 +1,5 @@
+{% extends "../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    {% include "../resource/key/article/articleContent.nunjucks" %}
+{% endblock %}

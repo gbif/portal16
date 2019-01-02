@@ -1,0 +1,69 @@
+<div class="card card--spaced">
+	<div class="card__content">
+		<dl class="inline container--fluid">
+			<div class="row">
+				<dt class="col-md-4 col-xs-12" translate="institution.indexHerbariorumRecord"></dt>
+				<dd class="col-md-8 col-xs-12" translate="institution.{{institutionKey.institution.indexHerbariorumRecord}}"></dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.code">
+				<dt class="col-md-4 col-xs-12" translate="institution.code"></dt>
+				<dd class="col-md-8 col-xs-12">{{institutionKey.institution.code}}</dd>
+			</div>
+			<div class="row">
+				<dt class="col-md-4 col-xs-12" translate="institution.statusOfInstitution"></dt>
+				<dd class="col-md-8 col-xs-12" translate="institution.isActive.{{institutionKey.institution.active}}"></dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.additionalNames.length > 0">
+				<dt class="col-md-4 col-xs-12" translate="institution.additionalNames"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<ul class="inline-bullet-list">
+						<li ng-repeat="additionalName in institutionKey.institution.additionalNames">
+							{{additionalName}}
+						</li>
+					</ul>
+				</dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.description">
+				<dt class="col-md-4 col-xs-12" translate="institution.description"></dt>
+				<dd class="col-md-8 col-xs-12" ng-bind-html="institutionKey.institution.description">
+			</div>
+			<div class="row" ng-if="institutionKey.institution.homepage">
+				<dt class="col-md-4 col-xs-12" translate="institution.homepage"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<a ng-href="{{institutionKey.institution.homepage}}">{{institutionKey.institution.homepage}}</a/>
+				</dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.disciplines.length > 0">
+				<dt class="col-md-4 col-xs-12" translate="institution.disciplines"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<ul class="inline-bullet-list">
+						<li ng-repeat="discipline in institutionKey.institution.disciplines">
+							<span translate="enum.discipline.{{discipline}}"></span>
+						</li>
+					</ul>
+				</dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.institutionalGovernance">
+				<dt class="col-md-4 col-xs-12" translate="institution.institutionalGovernance"></dt>
+				<dd class="col-md-8 col-xs-12" translate="enum.institutionGovernance.{{institutionKey.institution.institutionalGovernance}}">
+				</dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.type">
+				<dt class="col-md-4 col-xs-12" translate="institution.type"></dt>
+				<dd class="col-md-8 col-xs-12" translate="enum.institutionType.{{institutionKey.institution.type}}">
+				</dd>
+			</div>
+			<div class="row" ng-if="(institutionKey.institution.identifiers | visibleIdentifier).length > 0">
+				<dt class="col-md-4 col-xs-12" translate="institution.identifiers"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<ul class="inline-bullet-list">
+						<li ng-repeat="identifier in institutionKey.institution.identifiers | visibleIdentifier" xng-if="identifier.type !== 'GRBIO_ID'">
+							<a ng-if="identifier.identifier | startsWith:'http' " ng-href="{{identifier.identifier}}" class="doi"><span translate="enum.identifierType.{{identifier.type}}">{{identifier.type}}</span><span>{{ identifier.identifier }}</span></a>
+							<span ng-if="!(identifier.identifier | startsWith:'http') " ng-href="{{identifier.identifier}}" class="doi"><span translate="enum.identifierType.{{identifier.type}}">{{identifier.type}}</span><span>{{ identifier.identifier }}</span></span>
+						</li>
+					</ul>
+				</dd>
+			</div>
+		</dl>
+	</div>
+</div>

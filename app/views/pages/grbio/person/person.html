@@ -1,0 +1,78 @@
+<div class="light-background p-t-05 seperator horizontal-stripe grbioPerson">
+    <div class="container--normal">
+        <section class="col-xs-12">
+            <div class="card card--spaced m-b-1">
+                <div class="card__content prose">
+                    <h3 translate="grbioPerson.search.title"></h3>
+                    <div ng-bind-html="'grbioPerson.search.description' | translate | md2html"></div>
+                </div>
+            </div>
+        </section>
+        <section class="col-xs-12">
+            <div class="m-b-05">
+                <div class="search-box">
+                    <form ng-submit="grbioPerson.pageChanged()">
+                        <input type="text" placeholder="{{ 'search.search' | translate }}" autocomplete="off"
+                                ng-model="grbioPerson.q">
+                        <a href="" class="search-box__submit gb-icon-search2 inherit noUnderline" type="submit">
+                            <span class="sr-only">{$ __('search.search') $}</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="col-xs-12">
+            <ng-include src="'/templates/components/loader/loader.html'" ng-if="grbioPerson.loading"></ng-include>
+            <div ng-if="!grbioPerson.loading">
+                <h3 class="card-header--bold" tx="counts.nResults" tx-nr="grbioPerson.data.count"></h3>
+                <div class="card card--spaced m-b-1">
+                    <div class="scrollable-y">
+                        <div>
+                            <table class="table search-table smaller">
+                                <thead>
+                                    <tr>
+                                        <th translate="grbioPerson.firstName"></th>
+                                        <th translate="grbioPerson.lastName"></th>
+                                        <th translate="grbio.contact.country"></th>
+                                        <th translate="grbioPerson.researchPursuits"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row in grbioPerson.data.results">
+                                    <td>
+                                        <span><a href="" ui-sref="grbioPersonKey({key: row.key})">{{ row.firstName }}</a></span>
+                                    </td>
+                                    <td>
+                                        <span>{{ row.lastName }}</span>
+                                    </td>
+                                    <td>
+                                        <span translate="country.{{row.mailingAddress.country}}"></span>
+                                    </td>
+                                    <td>
+                                        <span>{{row.researchPursuits | truncate:80}}</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <uib-pagination
+                        total-items="grbioPerson.data.count"
+                        ng-model="grbioPerson.currentPage"
+                        max-size="grbioPerson.maxSize"
+                        items-per-page="grbioPerson.limit"
+                        class="pagination-sm"
+                        boundary-link-numbers="true"
+                        rotate="false"
+                        first-text="{{'pagination.first' | translate}}"
+                        next-text="{{'pagination.next' | translate}}"
+                        previous-text="{{'pagination.previous' | translate}}"
+                        ng-change="grbioPerson.pageChanged()"
+                        ng-show="grbioPerson.data.count > grbioPerson.limit">
+                </uib-pagination>
+            </div>
+        </section>
+    </div>
+</div>

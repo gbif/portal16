@@ -331,6 +331,71 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'resourceListCtrl',
             controllerAs: 'resourceList'
         })
+        .state('grbio', {
+            parent: 'localization',
+            url: '/grbio',
+            views: {
+                main: {
+                    templateUrl: '/api/template/grbio/grbio.html?v=' + BUILD_VERSION,
+                    controller: 'grbioCtrl',
+                    controllerAs: 'grbio'
+                }
+            }
+        })
+        .state('grbioCollectionSearch', {
+            parent: 'grbio',
+            url: '/collection/search?q&offset',
+            templateUrl: '/templates/pages/grbio/collection/collection.html?v=' + BUILD_VERSION,
+            controller: 'grbioCollectionCtrl',
+            controllerAs: 'grbioCollection'
+        })
+        .state('collectionKey', {
+            parent: 'localization',
+            url: '/grbio/collection/:key',
+            views: {
+                main: {
+                    templateUrl: '/api/template/collection/key.html?v=' + BUILD_VERSION,
+                    controller: 'collectionKeyCtrl',
+                    controllerAs: 'collectionKey'
+                }
+            }
+        })
+        .state('grbioInstitutionSearch', {
+            parent: 'grbio',
+            url: '/institution/search?q&offset',
+            templateUrl: '/templates/pages/grbio/institution/institution.html?v=' + BUILD_VERSION,
+            controller: 'grbioInstitutionCtrl',
+            controllerAs: 'grbioInstitution'
+        })
+        .state('institutionKey', {
+            parent: 'localization',
+            url: '/grbio/institution/:key',
+            views: {
+                main: {
+                    templateUrl: '/api/template/institution/key.html?v=' + BUILD_VERSION,
+                    controller: 'institutionKeyCtrl',
+                    controllerAs: 'institutionKey'
+                }
+            }
+        })
+        .state('grbioPersonSearch', {
+            parent: 'grbio',
+            url: '/person/search?q&offset',
+            templateUrl: '/templates/pages/grbio/person/person.html?v=' + BUILD_VERSION,
+            controller: 'grbioPersonCtrl',
+            controllerAs: 'grbioPerson'
+        })
+        .state('grbioPersonKey', {
+            parent: 'localization',
+            url: '/grbio/person/:key',
+            views: {
+                main: {
+                    templateUrl: '/api/template/grbioPerson/key.html?v=' + BUILD_VERSION,
+                    controller: 'grbioPersonKeyCtrl',
+                    controllerAs: 'grbioPersonKey'
+                }
+            }
+        })
         .state('contactUs', {
             parent: 'localization',
             url: '/contact-us',
