@@ -106,7 +106,7 @@
     "dataValidatorDescription": "GBIF資料驗證程式是一項服務，其允許所有GBIF相關資料集持有者接收關於資料集語法正確性、資料內容有效性的報告。",
     "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
     "here": "",
-    "coreRowType": "",
+    "coreRowType": "核心列類型",
     "submit": "提交",
     "dropHere": "拖放到此處",
     "or": "或",
