@@ -24,7 +24,7 @@ function gdprDirective(BUILD_VERSION) {
     var vm = this;
     $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
         vm.profile = $sessionStorage.user;
-        if (!$sessionStorage.has_seen_gdpr_popup && vm.profile && typeof vm.profile.settings.has_read_gdpr_terms === 'undefined') {
+        if (!$sessionStorage.has_seen_gdpr_popup && vm.profile && (typeof vm.profile.settings.has_read_gdpr_terms === 'undefined' || vm.profile.settings.has_read_gdpr_terms === 'false')) {
             $sessionStorage.has_seen_gdpr_popup = true;
             openGDPRmodal();
          }
@@ -32,7 +32,7 @@ function gdprDirective(BUILD_VERSION) {
 
     $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
         vm.profile = $sessionStorage.user;
-        if (!$sessionStorage.has_seen_gdpr_popup && vm.profile && typeof vm.profile.settings.has_read_gdpr_terms === 'undefined') {
+        if (!$sessionStorage.has_seen_gdpr_popup && vm.profile && (typeof vm.profile.settings.has_read_gdpr_terms === 'undefined' || vm.profile.settings.has_read_gdpr_terms === 'false')) {
             $sessionStorage.has_seen_gdpr_popup = true;
             openGDPRmodal();
          }

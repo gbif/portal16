@@ -4,15 +4,18 @@
         <div class="anchor-block--tabs" id="temporalCoveragesBlock">
             <h3 translate="dataset.temporalCoverages"></h3>
             <div>
-                <div ng-repeat="period in datasetKey.dataset.temporalCoverages">
-                    <span ng-if="period['@type'] == 'range'">
+                <ul ng-repeat="period in datasetKey.dataset.temporalCoverages">
+                    <li ng-if="period['@type'] == 'range'">
                         {{ period.start | momentFormat:'LL'  }}  - {{ period.end | momentFormat:'LL' }}
-                    </span>
-                    <span ng-if="period['@type'] == 'single'">
+                    </li>
+                    <li ng-if="period['@type'] == 'single'">
                         {{ period.date | momentFormat:'LL' }}
-                    </span>
-                    <span ng-if="period['@type'] == 'verbatim'" ng-bind-html="period.period"></span>
-                </div>
+                    </li>
+                    <li ng-if="period['@type'] == 'verbatim'">
+											<span ng-bind-html="period.period"></span>
+											<span class="discreet--very p-l-1">{{period.type | prettifyEnum}}</span>
+										</li>
+                </ul>
             </div>
         </div>
     </div>
