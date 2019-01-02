@@ -46,7 +46,7 @@
     "theseChartsIllustrate7": "此圖表說明現有紀錄數量的變化，其中包含那些尚未發現有問題的座標。針對未確認為有效的座標，此圖表顯示這些出現記錄為已知的國家其紀錄數量。",
     "temporalPrecision": "時間精確度",
     "theseChartsIllustrate8": "這些圖表說明了可用記錄數量的變化, 其中包括年份、月份和日期等完整日期。只包括年份、月份和日期其中一項的紀錄數量也一併顯示。",
-    "geographicCoverageForRecordedSpecies": "",
+    "geographicCoverageForRecordedSpecies": "記錄物種的地理覆蓋範圍",
     "theseChartsIllustrate9": "",
     "oneDegree": "1.0度",
     "halfDegree": "0.5度",
