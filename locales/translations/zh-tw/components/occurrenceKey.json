@@ -73,12 +73,12 @@
         "FOSSIL_SPECIMEN": "",
         "LIVING_SPECIMEN": "",
         "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "MACHINE_OBSERVATION": "於未知地點觀察",
+        "MATERIAL_SAMPLE": "於未知地點收集",
+        "OCCURRENCE": "於未知地點紀錄",
+        "OBSERVATION": "於未知地點觀察",
+        "LITERATURE": "於未知地點紀錄",
+        "UNKNOWN": "於未知地點紀錄"
       },
       "unknownSpecies": "未知的物種"
     },
