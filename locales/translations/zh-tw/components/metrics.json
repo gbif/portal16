@@ -1,10 +1,10 @@
 {
   "datasetMetrics": {
     "countByKingdom": "",
-    "countByRank": "",
+    "countByRank": "以級別計數",
     "countNamesByLanguage": "",
     "countExtRecordsByExtension": "",
-    "countByOrigin": "",
+    "countByOrigin": "以來源計數",
     "countByIssue": "依照類型來計算問題數量"
   },
   "metrics": {
