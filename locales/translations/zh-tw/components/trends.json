@@ -57,15 +57,15 @@
     "thisChartShowsGlobalTrends": "",
     "analytics": "分析",
     "global": "全球",
-    "changeOverTimeInDataAboutSpeciesFromCountry": "",
-    "changeOverTimeInTheDataPublishedByInstitutionsWithin": "",
+    "changeOverTimeInDataAboutSpeciesFromCountry": "從 GBIF.org 可取得的物種資料在{{TRANSLATED_COUNTRY}}範圍內隨著時間的變化。",
+    "changeOverTimeInTheDataPublishedByInstitutionsWithin": "從 GBIF.org 可取得的各機構發布資料在{{TRANSLATED_COUNTRY}}範圍內隨著時間的變化。",
     "trendsInDataAvailabilityOnTheGbifNetwork": "GBIF 網絡資料可用性趨勢, 2008年至{{YEAR}}",
     "globalDataTrends": "全球資料趨勢",
     "countryDataTrends": "{{TRANSLATED_COUNTRY}} 資料趨勢",
     "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} 發布者趨勢",
     "analyticsCountry": {
-      "fromDescription": "",
-      "publishedByDescription": ""
+      "fromDescription": "從 GBIF.org 可取得的物種資料在{{country}}範圍內隨著時間的變化。",
+      "publishedByDescription": "從 GBIF.org 可取得的各機構發布資料在{{country}}範圍內隨著時間的變化。"
     },
     "analyticsGlobalDescription": "GBIF 網絡資料可用性趨勢, 2008年至2016",
     "analyticsTitle": "資料趨勢"
