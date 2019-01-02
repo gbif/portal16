@@ -77,7 +77,7 @@
     "youWillRecieveConfEmail": "當你的許可被批准，你將收到一封確認信。",
     "yourOrgDetailsAreHere": "您的組織詳細資料在這裡",
     "outage": "系統目前處於部分故障狀態, 暫時不接受註冊",
-    "eoiDescription": "",
+    "eoiDescription": "為了準備透過GBIF發佈資料，我們請求有潛力新發布者們填寫此線上表格。\n在GBIF開始為你的資料編制索引之前，你的機構必須通過GBIF參與節點的國家或組織之一的認可，成為資料發布者。如果你的國家尚未參與GBIF，我們將替你在GBIF社群中尋找認可。",
     "eoiTitle": "成為一個發布者"
   }
 }
