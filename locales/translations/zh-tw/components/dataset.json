@@ -16,7 +16,7 @@
       "overlapWithNub": "與GBIF骨架重疊",
       "overlapWithCol": "與生命分類項目重疊"
     },
-    "noStatsForMetadata": "",
+    "noStatsForMetadata": "無元資料統計數字，只可取得資料集的統計數字。",
     "viewArticle": "觀看文章",
     "registeredDate": "已註冊 {DATE}",
     "constituentOf": "組成",

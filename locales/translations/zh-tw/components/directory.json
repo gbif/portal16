@@ -23,7 +23,7 @@
       },
       "secretariat": {
         "title": "GBIF秘書處",
-        "description": ""
+        "description": "位於丹麥，哥本哈根的GBIF秘書處負責發展，執行及回報GBIF工作計畫。秘書處的任務包括:\n- 運作GBIF的入口網頁及相關資訊\n- 協調GBIF網絡中與資料流通、發布和管理相關的活動。\n- 監控資料缺口並使用GBIF中介資料於科學上，執行中央聯繫溝通和合作服務。"
       },
       "voting": {
         "title": "投票參與者",
@@ -34,8 +34,8 @@
         "description": "已簽署合作備忘錄(MOU) ，但未提供基礎財務贊助給GBIF核心資金且未票選GBIF董事會的國家。"
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "其他相關參與者",
+        "description": "已簽署GBIF合作備忘錄的跨政府組織、國際組織和其他國際範圍的組織、經濟體等。"
       }
     },
     "columns": {

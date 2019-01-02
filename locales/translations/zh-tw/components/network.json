@@ -7,7 +7,7 @@
       "metrics": "公制",
       "datasets": "網絡"
     },
-    "registeredDate": "",
+    "registeredDate": "已註冊 {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} 參與{NUMBER, select,1{資料集} other{資料集}}"
   }
 }
