@@ -45,7 +45,7 @@
             "embedIntro": "透過 {GBIF network} 中介的所有資料"
         },
         "speciesLookup": {
-            "description": "",
+            "description": "從CSV檔案標準化物種名稱違反GBIF架構。檔案應該包含學名、界及ID等欄位。",
             "title": "物種名匹配"
         },
         "ipt": {
