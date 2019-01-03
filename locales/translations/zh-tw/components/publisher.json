@@ -14,7 +14,7 @@
     "pendingEndorsementBy": "",
     "installations": "安裝",
     "contacts": "聯繫",
-    "administrativeContact": "",
+    "administrativeContact": "行政聯絡",
     "header": {
       "publisher": "發布者",
       "sinceDate": "從{DATE}"
