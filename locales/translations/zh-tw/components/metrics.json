@@ -10,7 +10,7 @@
   "metrics": {
     "issues": "問題",
     "extensions": "附加元件",
-    "taxa": "",
+    "taxa": "類群",
     "other": "其它",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
@@ -40,8 +40,8 @@
     "numAcceptedSpByHigher": "",
     "noRankedAbove": "該清單在物種上無排序的分類群。",
     "taxonomicOccDistribution": "",
-    "groupByX": "",
-    "pOtherOrUknown": "",
+    "groupByX": "以{TYPE} 分群",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{其他或未知} other{其他或未知}}",
     "unknownRank": "未知 {RANK}",
     "vernacularNames": "俗名",
     "majorRanksPlural": {
