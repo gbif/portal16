@@ -47,7 +47,7 @@
     "temporalPrecision": "時間精確度",
     "theseChartsIllustrate8": "這些圖表說明了可用記錄數量的變化, 其中包括年份、月份和日期等完整日期。只包括年份、月份和日期其中一項的紀錄數量也一併顯示。",
     "geographicCoverageForRecordedSpecies": "記錄物種的地理覆蓋範圍",
-    "theseChartsIllustrate9": "",
+    "theseChartsIllustrate9": "這些圖表說明了有出現記錄的物種數量的變化, 以及每個物種在不同規模下所記錄的地理覆蓋面積。在每個圖表中, 物種的分類是依照出現記錄所給定尺度內的方格數量。越多的方格代表該物種的資料覆蓋面積越大。自然情況下，已知有些物種只分布於小範圍, 因此方格數量少不一定代表缺乏相關資料。",
     "oneDegree": "1.0度",
     "halfDegree": "0.5度",
     "pointOneDegree": "0.1度",
