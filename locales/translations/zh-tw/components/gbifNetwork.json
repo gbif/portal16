@@ -30,23 +30,23 @@
     "membershipType": "會員",
     "name": "名稱",
     "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{參與者} other{參與者}}",
+    "dataset": "{NUMBER, select, one{資料集}other{資料集}}",
     "datasets": "資料集",
-    "regionalRepresentative": "",
+    "regionalRepresentative": "{NUMBER, select,one{代表} other{代表}}",
     "participation": {
-      "nonCountryParticipants": "",
+      "nonCountryParticipants": "參與組織",
       "gbifAffiliates": "GBIF附屬機構"
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
+      "HEAD_OF_DELEGATION": "首席代表",
       "NODE_MANAGER": "節點管理者"
     },
     "publishers": "發布者",
-    "memberSince": "",
+    "memberSince": "會員自從",
     "participant": "參與者",
-    "pPublishers": "",
-    "pOccurrence": "",
+    "pPublishers": "{NUMBER, select, 1{發布者} other{發布者}}",
+    "pOccurrence": "{NUMBER, select, 1{出現紀錄} other{出現紀錄}}",
     "occurrenceDatasets": "出現記錄資料集",
     "occurrences": "出現紀錄"
   }
