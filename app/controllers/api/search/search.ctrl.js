@@ -44,7 +44,7 @@ async function search(query, preferedLocale, __) {
         {
             keywords: query,
             contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'],
-            local: preferedLocale, limit: 2
+            local: preferedLocale, limit: 2, searchable: true
             }, __);
     let country = Country.query(query, preferedLocale);
 

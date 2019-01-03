@@ -74,7 +74,7 @@ let config = {
         verification: verification || (rootPath + '/app/models/verification/sample'),
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
         registry: registry || 'https://registry.gbif.org',
         oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
