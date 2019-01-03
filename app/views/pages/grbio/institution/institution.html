@@ -48,12 +48,13 @@
                                         <span><a href="" ui-sref="institutionKey({key: row.key})">{{ row.name }}</a></span>
                                     </td>
                                     <td>
-                                        <span>{{ row.mailingAddress.city }}</span>
+                                        <span ng-if="row.mailingAddress.city">{{ row.mailingAddress.city }}</span>
                                     </td>
                                     <td>
-                                        <span>{{ row.mailingAddress.province }}</span>
+                                        <span ng-if="row.mailingAddress.province">{{ row.mailingAddress.province }}</span>
                                     </td>
-                                    <td translate="country.{{row.mailingAddress.country}}">
+                                    <td>
+                                        <span ng-if="row.mailingAddress.country" translate="country.{{row.mailingAddress.country}}"></span>
                                     </td>
                                     <td>
                                         <span translate="collection.isActive.{{row.active}}"></span>

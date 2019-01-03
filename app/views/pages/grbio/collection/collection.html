@@ -43,7 +43,7 @@
                                         <span>{{ row.code }}</span>
                                     </td>
                                     <td>
-                                        <span><a href="" ui-sref="collectionKey({key: row.key})">{{ row.name }}</a></span>
+                                        <span ng-if="row.name"><a href="" ui-sref="collectionKey({key: row.key})">{{ row.name }}</a></span>
                                     </td>
                                     <td>
                                         <span ng-if="row.accessionStatus" translate="enum.collectionAccessionStatus.{{row.accessionStatus}}"></span>

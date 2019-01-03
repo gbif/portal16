@@ -46,10 +46,10 @@
                                         <span>{{ row.lastName }}</span>
                                     </td>
                                     <td>
-                                        <span translate="country.{{row.mailingAddress.country}}"></span>
+                                        <span ng-if="row.mailingAddress.country" translate="country.{{row.mailingAddress.country}}"></span>
                                     </td>
                                     <td>
-                                        <span>{{row.researchPursuits | truncate:80}}</span>
+                                        <span ng-if="row.researchPursuits">{{row.researchPursuits | truncate:80}}</span>
                                     </td>
                                 </tr>
                                 </tbody>
