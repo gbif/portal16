@@ -1,6 +1,6 @@
 {
     "nameParser": {
-        "loadTestNames": "",
+        "loadTestNames": "載入測試名稱",
         "parse": "",
         "or": "或",
         "selectFile": "選擇檔案",
