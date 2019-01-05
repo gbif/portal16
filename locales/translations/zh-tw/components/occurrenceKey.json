@@ -34,7 +34,7 @@
       "Location": "地點",
       "Organism": "生物體",
       "MaterialSample": "材料樣本",
-      "GeologicalContext": "",
+      "GeologicalContext": "地理背景",
       "other": "其它"
     },
     "term": "名稱",
@@ -46,7 +46,7 @@
       "specimenType": "標本類型",
       "publisher": "發布者",
       "reference": "參照",
-      "verbatimName": ""
+      "verbatimName": "逐字名"
     },
     "media": {
       "noIdentifier": "未提供媒體識別碼",
