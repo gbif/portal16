@@ -39,7 +39,7 @@
     "pinchToZoom": "",
     "numAcceptedSpByHigher": "更高分類群的有效名稱數量",
     "noRankedAbove": "該清單在物種上無排序的分類群。",
-    "taxonomicOccDistribution": "",
+    "taxonomicOccDistribution": "出現紀錄的分類群分布",
     "groupByX": "以{TYPE} 分群",
     "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{其他或未知} other{其他或未知}}",
     "unknownRank": "未知 {RANK}",
