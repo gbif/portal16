@@ -31,7 +31,7 @@
     "speciesForWhichRecordsAreAvailableForEachDayOfTheYear": "該年每一日可取得紀錄的物種數(見上方)",
     "note": "備註",
     "theseChartsMayRevealPatternsThatRepresentBiasesInDataCollection": "這些圖表可能顯示資料收集中的偏差 (季節性、公假日) 或資料管理中的潛在問題 (一年、每個月或一周裡面的第一天或最後幾天，顯示的記錄數量不成比例) 的模式。這類問題可能出現在資料處理的不同階段, 需要進一步調查。",
-    "byGeneratingTheseChartsAnIssueWasDetected": "",
+    "byGeneratingTheseChartsAnIssueWasDetected": "在產生圖表時偵測到GBIF處理過程的問題 [an issue] (http://dev.gbif.org/issues/browse/POR-2120)，導致年份的第一天看到的峰值出現在許多圖表中，問題已解決。",
     "completenessAndPrecision": "完整性和精度",
     "theseChartsIllustrate4": "這些圖表說明了現有記錄的完整性 (見下文) 的變化, 以及這些記錄在時間、地理和分類等方面的準確性的變化。",
     "aRecordIsHereDefinedToBeCompleteIfItIncludes": "如果記錄資料至少包括對物種等級的識別、有效座標、完整的出現紀錄日期和記錄依據 (例如觀察、標本等), 則認定為完整記錄。",
