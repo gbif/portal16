@@ -16,7 +16,7 @@
                 "high": "必要 - GBIF在此區沒有資料",
                 "medium": "重要 - GBIF在此區只有少數資料",
                 "low": "對現有資料這將是很好的補充文件",
-                "bibliographicRef": "",
+                "bibliographicRef": "參考書目",
                 "type": "資料集類型",
                 "license": "版權資訊",
                 "dataHolderContact": "資料持有者聯絡資訊",
@@ -32,7 +32,7 @@
         },
         "observationTrends": {
             "drawerTitle": "相對觀測趨勢",
-            "intro": "",
+            "intro": "嘗試探索GBIF的物種相對觀察趨勢是否可以提供研究者有用的資訊。",
             "aboutLink": "閱讀有關此工具的資訊",
             "selectSpecies": "選擇物種",
             "noData": "我們沒有關於選定物種在1900年之後的地理參考資料。",
