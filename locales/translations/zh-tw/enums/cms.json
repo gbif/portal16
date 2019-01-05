@@ -2,9 +2,9 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
-        "countriesOfResearcher": "",
-        "literatureType": "",
+        "countriesOfCoverage": "國家或覆蓋地區",
+        "countriesOfResearcher": "國家或地區研究者",
+        "literatureType": "文獻類型",
         "contractCountry": "國家或地區",
         "topics": "主題",
         "audiences": "讀者",
@@ -35,7 +35,7 @@
           "Nodes guidance": "節點方針"
         },
         "projectGrantType": {
-          "REGIONAL": "",
+          "REGIONAL": "區域補助款",
           "SMALL": "小額補助款",
           "NATIONAL": "國家補助金",
           "undefined": "未指定"
