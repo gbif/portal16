@@ -36,7 +36,7 @@
     "singleTypeResults": "{NUMBER} 出現紀錄在{FIELD} 相同",
     "chooseDimension": "選擇維度",
     "clickToZoom": "點擊拖曳至圖區來縮放",
-    "pinchToZoom": "",
+    "pinchToZoom": "收縮圖表以放大",
     "numAcceptedSpByHigher": "更高分類群的有效名稱數量",
     "noRankedAbove": "該清單在物種上無排序的分類群。",
     "taxonomicOccDistribution": "出現紀錄的分類群分布",
