@@ -2,8 +2,8 @@
   "datasetMetrics": {
     "countByKingdom": "",
     "countByRank": "以級別計數",
-    "countNamesByLanguage": "",
-    "countExtRecordsByExtension": "",
+    "countNamesByLanguage": "依照語言來計算名稱",
+    "countExtRecordsByExtension": "依照擴展文件類型來計算",
     "countByOrigin": "以來源計數",
     "countByIssue": "依照類型來計算問題數量"
   },
