@@ -30,7 +30,7 @@
     "ORIGINAL_NAME_DERIVED": "從基礎名關聯衍生的",
     "CONFLICTING_BASIONYM_COMBINATION": "衝突的基礎名組合",
     "NO_SPECIES": "不包括任何物種",
-    "NAME_PARENT_MISMATCH": "",
+    "NAME_PARENT_MISMATCH": "上層名稱無法匹配",
     "ORTHOGRAPHIC_VARIANT": "",
     "HOMONYM": "",
     "PUBLISHED_BEFORE_GENUS": "發佈早於母名稱",
