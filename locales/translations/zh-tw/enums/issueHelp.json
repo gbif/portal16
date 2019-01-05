@@ -87,7 +87,7 @@
     "BACKBONE_MATCH_NONE": "名稱用法無法與GBIF骨架匹配。",
     "EML_GBIF_SCHEMA": "Eml 文件檔不針對架構進行驗證",
     "CONTINENT_COUNTRY_MISMATCH": "解析的大陸和國家不匹配。",
-    "RELATIONSHIP_MISSING": "",
+    "RELATIONSHIP_MISSING": "存在所有名稱使用關係的問題，例如母名稱、有效名稱、原始名稱的連結。在Checklist裡的解析紀錄缺乏部分原始的來源關聯。 ",
     "NOMENCLATURAL_STATUS_INVALID": "無法解析dwc命名法狀態",
     "COORDINATE_PRECISION_INVALID": "表示無效或極不可能的座標精度",
     "HOMONYM": "",
