@@ -38,7 +38,7 @@
     "description": "描述說明",
     "synonyms": "同種異名",
     "synonymOf": "同種異名",
-    "basionymOf": "",
+    "basionymOf": "的基礎名",
     "immediateChildren": "",
     "descendants": "降序",
     "loadMore": "更多",
@@ -52,7 +52,7 @@
     "inLanguage": "在{language}",
     "publishedIn": "發佈在",
     "tradeRestrictions": "貿易限制",
-    "basionym": "",
+    "basionym": "基礎名",
     "nVernacularNames": "{NUMBER, select,1{俗名} other {俗名}}",
     "nameUsagesApplied": "名稱使用應用到GBIF的出現紀錄資料",
     "appearsIn": "出現在 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{資料集} other{資料集}}:",
@@ -65,7 +65,7 @@
     "inferredRecordMsg": "此記錄是在索引過程中建立的, 並不存在於來源資料。",
     "noChildren": "",
     "youAreBrowsing": "您正在瀏覽",
-    "lastCrawled": "",
+    "lastCrawled": "上次檢索 {DATE_FORMATTED}",
     "extensions": "附加元件",
     "taxa": "類群"
   }
