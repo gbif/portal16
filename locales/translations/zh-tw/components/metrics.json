@@ -1,6 +1,6 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
+    "countByKingdom": "依照界來計數",
     "countByRank": "以級別計數",
     "countNamesByLanguage": "依照語言來計算名稱",
     "countExtRecordsByExtension": "依照擴展文件類型來計算",
