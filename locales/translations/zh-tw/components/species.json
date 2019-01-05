@@ -13,8 +13,8 @@
       "verbatim": "逐字"
     },
     "invasives": {
-      "nInvadedCountries": "",
-      "invasiveIn": "",
+      "nInvadedCountries": "如{NUMBER_FORMATED} {NUMBER, select, 1{國家或島嶼}other{國家或島嶼}}所記錄",
+      "invasiveIn": "如所記錄",
       "accordingTo": "根據",
       "occurrenceCount": "在GBIF的出現紀錄",
       "seeAllCountries": "顯示全部",
