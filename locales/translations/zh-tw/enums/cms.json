@@ -36,8 +36,8 @@
         },
         "projectGrantType": {
           "REGIONAL": "",
-          "SMALL": "",
-          "NATIONAL": "",
+          "SMALL": "小額補助款",
+          "NATIONAL": "國家補助金",
           "undefined": "未指定"
         },
         "projectStatus": {
