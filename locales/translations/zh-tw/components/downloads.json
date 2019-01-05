@@ -44,7 +44,7 @@
       "SUSPENDED": "已停權",
       "RUNNING": "執行中",
       "CANCELLED": "已取消",
-      "KILLED": ""
+      "KILLED": "已砍掉"
     },
     "predicate": {
       "joinDescriptions": {
@@ -54,7 +54,7 @@
       },
       "and": "和",
       "or": "或",
-      "not": "",
+      "not": "否",
       "isNotNull": "已定義"
     }
   }
