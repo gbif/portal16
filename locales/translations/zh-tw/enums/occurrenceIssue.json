@@ -43,8 +43,8 @@
     "IDENTIFIED_DATE_INVALID": "無效的辨識日期",
     "BASIS_OF_RECORD_INVALID": "無效紀錄基礎",
     "TYPE_STATUS_INVALID": "",
-    "MULTIMEDIA_DATE_INVALID": "",
-    "MULTIMEDIA_URI_INVALID": "",
+    "MULTIMEDIA_DATE_INVALID": "多媒體日期無效",
+    "MULTIMEDIA_URI_INVALID": "多媒體 uri 無效",
     "REFERENCES_URI_INVALID": "無效的參照url",
     "INTERPRETATION_ERROR": "錯誤解釋",
     "INDIVIDUAL_COUNT_INVALID": "無效個體計數"
