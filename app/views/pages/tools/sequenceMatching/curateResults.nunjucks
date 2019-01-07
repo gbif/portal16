@@ -56,7 +56,7 @@
                         </td>
                         <td>
                             <button class="gb-button--primary nameParser__parse-button"
-                     ng-if="species.match" ng-click="vm.showAlignment(species.match)" >{{'Aligment'}}
+                     ng-if="species.match" ng-click="vm.showAlignment(species.match)" >{{'Alignment'}}
                         </button>
                         </td>
                         <td class="table-cell--widder">
