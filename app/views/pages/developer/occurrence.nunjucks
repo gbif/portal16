@@ -200,7 +200,7 @@
                         ADMIN only.
                         {% endcall %}
 
-                        {% call trowD(url="/{key}/datasets", method="GET", authRequired=false, resp="Datasets", respLink=apiBase+"occurrence/download/0000251-150304104939900/datasets") %}
+                        {% call trowD(url="/{key}/datasets", method="GET", authRequired=false, paging=true, resp="Datasets", respLink=apiBase+"occurrence/download/0000251-150304104939900/datasets") %}
                         Lists all the datasets of an occurrence download.
                         {% endcall %}
 
