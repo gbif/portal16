@@ -1,10 +1,10 @@
 {
   "downloadReport": {
-    "csvDescription": "",
+    "csvDescription": "空格分隔的CSV檔。只包含GBIF解析過的資料",
     "dwcaDescription": "達爾文核心集歸檔包含發布者提供的原始資料與GBIF解析後的資料。",
     "estimatedSize": "估計資料大小",
     "knownIssues": "已知的問題",
-    "knownIssuesDescription": "",
+    "knownIssuesDescription": "部分的GBIF處理過程是被標記，出現紀錄資料包含有疑問區域。",
     "FossilsIncluded": "化石",
     "FossilsIncludedDescription": "你的結果中有化石紀錄。這可能表示物種在意想不到的地點出現。",
     "livingSpecimensIncluded": "活標本",

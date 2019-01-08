@@ -22,7 +22,7 @@
     "peopleMoveOn": "繼續下一步! 請至少填寫一個備用聯絡方式，可考慮通用電子郵件如 helpdesk@a.com 確保可連絡到合適的人員。",
     "addAdministrativeContact": "添加管理連絡資訊",
     "addTecnicalContact": "加入技術聯繫",
-    "endorsingNode": "",
+    "endorsingNode": "認可節點",
     "pleaseCheckSuggestionBelow": "為了支持與 GBIF 節點相關的發布者及審查資料品質, 請確認以下的建議, 並在需要時更正:",
     "helpMeWithEndorsement": "幫我批准許可",
     "marineDataPublishers": "海洋資料發布者: 要求許可OBIS(海洋生物地理資訊系統) 相關資料",

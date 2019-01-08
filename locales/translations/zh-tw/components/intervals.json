@@ -4,18 +4,18 @@
         "elevation": {
             "equals": "是{from} m",
             "between": "在{from}和{to} m 之間",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "lessThanOrEquals": "低於 {to}m",
+            "greaterThanOrEquals": "以上 {from}m",
             "invalid": "無效",
             "select": {
-                "equals": "",
+                "equals": "是",
                 "between": "之間",
                 "lessThanOrEquals": "下方",
                 "greaterThanOrEquals": "以上"
             }
         },
         "depth": {
-            "equals": "",
+            "equals": "是{from} m",
             "between": "在{from}和{to}之間",
             "lessThanOrEquals": "在{to}深度之上",
             "greaterThanOrEquals": "比{from}深",

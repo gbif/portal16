@@ -43,9 +43,9 @@
       "FIRE": "火",
       "GLACIER": "冰河",
       "PURPLE_YELLOW": "紫色 黃色",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
+      "PURPLE_HEAT": "紫色熱圖",
+      "BLUE_HEAT": "藍色熱圖",
+      "ORANGE_HEAT": "橘色熱圖",
       "GREEN": "綠色",
       "BLUE_CLUSTER": "藍色群集",
       "ORANGE_CLUSTER": "橙色集群"

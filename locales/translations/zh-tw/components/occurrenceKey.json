@@ -34,11 +34,11 @@
       "Location": "地點",
       "Organism": "生物體",
       "MaterialSample": "材料樣本",
-      "GeologicalContext": "",
+      "GeologicalContext": "地理背景",
       "other": "其它"
     },
     "term": "名稱",
-    "interpreted": "",
+    "interpreted": "已解釋",
     "original": "原始",
     "remarks": "註記",
     "highlights": {
@@ -46,7 +46,7 @@
       "specimenType": "標本類型",
       "publisher": "發布者",
       "reference": "參照",
-      "verbatimName": ""
+      "verbatimName": "逐字名"
     },
     "media": {
       "noIdentifier": "未提供媒體識別碼",
@@ -61,18 +61,18 @@
         "FOSSIL_SPECIMEN": "收集於{COUNTRY}",
         "LIVING_SPECIMEN": "收集於{COUNTRY}",
         "HUMAN_OBSERVATION": "觀察於{COUNTRY}",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "MACHINE_OBSERVATION": "觀察於 {COUNTRY}",
+        "MATERIAL_SAMPLE": "收集於 {COUNTRY}",
+        "OCCURRENCE": "紀錄於 {COUNTRY}",
+        "OBSERVATION": "觀察於 {COUNTRY}",
+        "LITERATURE": "紀錄於 {COUNTRY}",
+        "UNKNOWN": "紀錄於 {COUNTRY}"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
+        "PRESERVED_SPECIMEN": "於未知地點收集",
+        "FOSSIL_SPECIMEN": "於未知地點收集",
+        "LIVING_SPECIMEN": "於未知地點收集",
+        "HUMAN_OBSERVATION": "於未知地點觀察",
         "MACHINE_OBSERVATION": "於未知地點觀察",
         "MATERIAL_SAMPLE": "於未知地點收集",
         "OCCURRENCE": "於未知地點紀錄",

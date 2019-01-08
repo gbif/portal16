@@ -1,6 +1,6 @@
 {
   "typeStatus": {
-    "TYPE": "",
+    "TYPE": "形式",
     "TYPE_SPECIES": "",
     "TYPE_GENUS": "",
     "ALLOLECTOTYPE": "",
@@ -40,6 +40,6 @@
     "SYNTYPE": "",
     "TOPOTYPE": "",
     "ORIGINALMATERIAL": "原始材料",
-    "NOTATYPE": ""
+    "NOTATYPE": "不是類型"
   }
 }
