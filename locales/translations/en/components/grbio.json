@@ -2,10 +2,10 @@
   "collection": {
     "search": {
       "title": "",
-      "description": ""
+      "description": "**Institutional Collections** are those that have been formally accessioned into an institution and receive some level of institutional support.\n\n**Project Collections** are those collected by a researcher associated with an institution that may have not been formally accessioned into its collections. Project Collections may eventually become part of the Institutional Collections or remain under the management and control of the individual researchers.\n\n**Personal Collections** are under the control of an individual researcher and are not formally associated with or accessioned into an institution. They may be the personal property of a private collector or otherwise orphaned."
     },
     "headerTitle": "",
-    "description": "",
+    "description": "Description",
     "institutionName": "",
     "code": "",
     "statusOfCollection": "",
@@ -32,14 +32,14 @@
   "institution": {
     "search": {
       "title": "",
-      "description": ""
+      "description": "**Institution** refers to any institution or organization that owns and manages scientific collections. This includes herbaria, museums, zoos, botanical gardens, biobanks, among others. An institution may contain multiple collections, in which case those should be entered individually under  **Institutional/Project Collections**  and linked back to the parent institution.\n\nDue to the integration of several older datasets, and to avoid duplication of  **InstitutionCode**, <IH> has been appended to all Index Herbariorum Herbarium codes."
     },
     "headerTitle": "",
     "indexHerbariorumRecord": "",
     "code": "",
     "statusOfInstitution": "",
     "additionalNames": "",
-    "description": "",
+    "description": "Description",
     "homepage": "",
     "disciplines": "",
     "institutionalGovernance": "",
@@ -55,7 +55,7 @@
   "grbioPerson": {
     "search": {
       "title": "",
-      "description": ""
+      "description": "One element that GRSciColl includes among its primary goals is \"to facilitate access to the staff members who manage them\". Staff members from the institutions and collections described in GRSciColl were themselves the original sources of the contact information presented here, taken as-is from the last snapshot of GRSciColl. GBIF aims to restore more open curation functionality in 2019 to ensure that community members can secure any necessary permissions to display staff member information and keep it up to date."
     },
     "headerTitle": "",
     "firstName": "",
