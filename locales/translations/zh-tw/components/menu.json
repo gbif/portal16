@@ -21,6 +21,7 @@
     "tools": "工具",
     "ipt": "IPT",
     "dataValidator": "資料驗證程式",
+    "sequenceID": "序列ID",
     "suggestDataset": "建議資料集",
     "dataRepository": "資料儲存庫",
     "developers": "使用者",

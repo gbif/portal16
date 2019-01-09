@@ -21,6 +21,7 @@
     "tools": "ツール",
     "ipt": "IPT",
     "dataValidator": "データ検証",
+    "sequenceID": "",
     "suggestDataset": "データセットを探す",
     "dataRepository": "データリポジトリ",
     "developers": "ユーザー",
