@@ -1,0 +1,10 @@
+{
+  "installationType": {
+    "IPT_INSTALLATION": "IPT安裝",
+    "DIGIR_INSTALLATION": "DiGIR安裝",
+    "TAPIR_INSTALLATION": "Tapir安裝",
+    "BIOCASE_INSTALLATION": "Biocase安裝",
+    "HTTP_INSTALLATION": "Http安裝",
+    "SYMBIOTA_INSTALLATION": ""
+  }
+}

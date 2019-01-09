@@ -1,0 +1,13 @@
+{
+  "taxonomicStatus": {
+    "ACCEPTED": "已接受的",
+    "DOUBTFUL": "有疑問的",
+    "SYNONYM": "",
+    "HETEROTYPIC_SYNONYM": "異型同種異名",
+    "HOMOTYPIC_SYNONYM": "同型同種異名",
+    "PROPARTE_SYNONYM": "",
+    "MISAPPLIED": "誤用",
+    "INTERMEDIATE_RANK_SYNONYM": "",
+    "DETERMINATION_SYNONYM": ""
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "establishmentMeans": {
+    "NATIVE": "原生",
+    "INTRODUCED": "引入的",
+    "NATURALISED": "歸化的",
+    "INVASIVE": "入侵的",
+    "MANAGED": "管理",
+    "UNCERTAIN": "不確定的"
+  }
+}

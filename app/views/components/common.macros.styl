@@ -2,15 +2,6 @@
     font-size 12px
     text-decoration none
     display inline-block
-    &:hover {
-        color $gray80
-        text-decoration none
-        span:first-of-type {
-            background darken($linkColor, 20)
-            border-color darken($linkColor, 20)
-        }
-    }
-
     span {
         border 1px solid $stripeBorderColor
     }
@@ -31,5 +22,15 @@
         padding 0 7px
         border-radius 0 5px 5px 0
         border-left-width 0
+    }
+}
+a.doi {
+    &:hover {
+        color $gray80
+        text-decoration none
+        span:first-of-type {
+            background darken($linkColor, 20)
+            border-color darken($linkColor, 20)
+        }
     }
 }

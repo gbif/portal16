@@ -19,6 +19,7 @@ if (env === 'local' || env === 'dev') {
 }
 
 if (env === 'uat' || env === 'local') {
+    locales.push('zh-tw');
     locales.push('zh-cn');
     locales.push('ru');
 }
@@ -34,6 +35,7 @@ contentfulLocaleMap['fr'] = 'fr';
 contentfulLocaleMap['ru'] = 'ru';
 contentfulLocaleMap['pt'] = 'pt';
 contentfulLocaleMap['zh-cn'] = 'zh';
+contentfulLocaleMap['zh-tw'] = 'zh-Hant';
 // mock test languages
 contentfulLocaleMap['de-MOCK'] = 'es';
 contentfulLocaleMap['ko-MOCK'] = 'zh';
@@ -50,6 +52,7 @@ translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
 translationMap['pt'] = 'por';
 translationMap['da'] = 'dan';
+translationMap['zh-tw'] = 'zh-hant';
 translationMap['zh-cn'] = 'zh-hans';
 // mock test languages
 translationMap['de-MOCK'] = 'gsw';
@@ -60,7 +63,7 @@ translationMap['ar-MOCK'] = 'ara';
 let momentMap = _.keyBy(locales); // default to use the same language codes
 
 // overwrites specific that differs
-
+momentMap['zh-tw'] = 'zh-tw';
 // mock test languages
 momentMap['de-MOCK'] = 'de-ch';
 momentMap['ko-MOCK'] = 'ko';
@@ -69,6 +72,7 @@ momentMap['ar-MOCK'] = 'ar-sa';
 // what locale to use for numbers
 let numberMap = {};// _.keyBy(locales); // default to use the same language codes
 // overwrites specific that differs
+numberMap['zh-tw'] = 'zh-tw';
 // mock test languages
 numberMap['de-MOCK'] = 'de-ch';
 numberMap['ko-MOCK'] = 'zh-cn';

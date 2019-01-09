@@ -1,0 +1,65 @@
+{
+    "health": {
+        "automatedMonitoring": "自動監控",
+        "systemLoad": "系統負載",
+        "messages": "訊息",
+        "version": "版本",
+        "nInQueue": "{NUMBER} 等待中",
+        "status": {
+            "OPERATIONAL": "操作",
+            "WARNING": "不穩定",
+            "CRITICAL": "不可用",
+            "INFO": "系統更新"
+        },
+        "components": {
+            "OCCURRENCE": {
+                "name": "出現紀錄",
+                "tooltip": "例如，搜尋及查看出現紀錄。"
+            },
+            "SPECIES": {
+                "name": "物種",
+                "tooltip": "例如，搜尋及察看物種、建議物種。"
+            },
+            "REGISTRY": {
+                "name": "註冊",
+                "tooltip": "例如，資料集、發布者、安裝程式、國家、參與者及網絡。"
+            },
+            "IDENTITY": {
+                "name": "身份",
+                "tooltip": "用於登入和登入，連結帳戶等"
+            },
+            "MAPS": {
+                "name": "地圖",
+                "tooltip": "用於顯示地圖圖像和取得地圖相關資訊"
+            },
+            "CONTENTFUL": {
+                "name": "內容管理系統(外部系統)",
+                "tooltip": "例如新聞和文章"
+            },
+            "IMAGE_CACHE": {
+                "name": "圖像快取",
+                "tooltip": "負責網站上的大部分圖片"
+            },
+            "GITHUB": {
+                "name": "Github(外部系統)",
+                "tooltip": "回饋, 資料集建議。"
+            },
+            "CRAWLER": {
+                "name": "接收",
+                "tooltip": "更新資料集 - 新和舊"
+            },
+            "RESOURCE_SEARCH": {
+                "name": "搜尋來源",
+                "tooltip": "例如搜尋文獻，新聞。"
+            },
+            "CLUSTER": {
+                "name": "系統負載",
+                "tooltip": "用於處理下載、接收等其他更多項目。"
+            },
+            "DOWNLOAD": {
+                "name": "下載",
+                "tooltip": "用於處理下載作業和發送使用者通知"
+            }
+        }
+    }
+}

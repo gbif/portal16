@@ -1,0 +1,22 @@
+{% extends "../../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+<div class="hidden">
+		<h1>
+				{$ institution.name $}
+		</h1>
+		<dl>
+				<dt>{$ __('institution.code') $}</dt>
+				<dd>{$ institution.code $}</dd>
+
+				<dt>{$ __('institution.statusOfInstitution') $}</dt>
+				<dd>{$ __('institution.isActive.' + institution.active) $}</dd>
+
+				<dt>{$ __('institution.description') $}</dt>
+				<dd>{$ institution.description $}</dd>
+
+				<dt>{$ __('institution.homepage') $}</dt>
+				<dd>{$ institution.homepage $}</dd>
+		</dl>
+</div>
+{% endblock %}

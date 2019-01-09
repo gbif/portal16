@@ -133,6 +133,10 @@ module.exports = [
             'url': '/tools/name-parser'
           },
           {
+            'name': 'sequenceID',
+            'url': '/tools/sequence-id'
+          },
+          {
             'name': 'observationTrends',
             'url': '/tools/observation-trends'
           },

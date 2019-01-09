@@ -1,0 +1,37 @@
+<section class="horizontal-stripe--paddingless m-t-1" ng-if="institutionKey.collections.count > 0">
+    <div class="container--normal">
+			<h3 class="card-header--bold" tx="counts.nCollections" tx-nr="institutionKey.collections.count"></h3>
+			<div class="card card--spaced m-b-1">
+					<div class="scrollable-y">
+							<div>
+									<table class="table search-table smaller">
+											<thead>
+													<tr>
+															<th translate="collection.code"></th>
+															<th translate="collection.name"></th>
+															<th translate="collection.accessionStatus"></th>
+															<th translate="collection.status"></th>
+													</tr>
+											</thead>
+											<tbody>
+											<tr ng-repeat="row in institutionKey.collections.results">
+													<td>
+															<span>{{ row.code }}</span>
+													</td>
+													<td>
+															<span><a href="" ui-sref="collectionKey({key: row.key})">{{ row.name }}</a></span>
+													</td>
+													<td>
+															<span ng-if="row.accessionStatus" translate="enum.collectionAccessionStatus.{{row.accessionStatus}}"></span>
+													</td>
+													<td>
+															<span translate="collection.isActive.{{row.active}}"></span>
+													</td>
+											</tr>
+											</tbody>
+									</table>
+							</div>
+					</div>
+			</div>
+	</div>
+</section>

@@ -1,0 +1,121 @@
+{
+  "enums": {
+    "cms": {
+      "filters": {
+        "countriesOfCoverage": "國家或覆蓋地區",
+        "countriesOfResearcher": "國家或地區研究者",
+        "literatureType": "文獻類型",
+        "contractCountry": "國家或地區",
+        "topics": "主題",
+        "audiences": "讀者",
+        "purposes": "目的",
+        "relevance": "相關性",
+        "language": "語言",
+        "year": "年份",
+        "datasetKey": "資料集",
+        "publishingOrg": "發布者",
+        "peerReview": "同儕審定",
+        "openAccess": "開源",
+        "gbifDownloadKey": "下載序號"
+      },
+      "contentType": {
+        "event": "活動",
+        "news": "新聞",
+        "resource": "資源",
+        "dataUse": "資料使用",
+        "project": "專案",
+        "participant": "參與者",
+        "programme": "計畫",
+        "document": "文件",
+        "tool": "工具",
+        "literature": "文獻"
+      },
+      "vocabularyTerms": {
+        "articleType": {
+          "Nodes guidance": "節點方針"
+        },
+        "projectGrantType": {
+          "REGIONAL": "區域補助款",
+          "SMALL": "小額補助款",
+          "NATIONAL": "國家補助金",
+          "undefined": "未指定"
+        },
+        "projectStatus": {
+          "APPROVED": "核准",
+          "CLOSED": "關閉",
+          "IN_PROGRESS": "處理中",
+          "undefined": "未指定"
+        },
+        "relevance": {
+          "GBIF_USED": "GBIF使用",
+          "GBIF_CITED": "GBIF引用",
+          "GBIF_DISCUSSED": "GBIF討論",
+          "GBIF_PRIMARY": "",
+          "GBIF_ACKNOWLEDGED": "GBIF感謝",
+          "GBIF_PUBLISHED": "GBIF發布",
+          "GBIF_AUTHOR": "GBIF作者",
+          "GBIF_MENTIONED": "GBIF提到",
+          "GBIF_FUNDED": "GBIF資助"
+        },
+        "topics": {
+          "AGRICULTURE": "農業",
+          "BIODIVERSITY_SCIENCE": "生物多樣性科學",
+          "BIOGEOGRAPHY": "生物地理學",
+          "CITIZEN_SCIENCE": "公民科學",
+          "CLIMATE_CHANGE": "氣候變遷",
+          "CONSERVATION": "保育",
+          "DATA_MANAGEMENT": "資料管理",
+          "DATA_PAPER": "資料論文",
+          "ECOLOGY": "生態",
+          "ECOSYSTEM_SERVICES": "生態系服務",
+          "EVOLUTION": "演化",
+          "FRESHWATER": "淡水",
+          "HUMAN_HEALTH": "人類健康",
+          "INVASIVES": "入侵的",
+          "MARINE": "海洋",
+          "PHYLOGENETICS": "系統發育",
+          "SPECIES_DISTRIBUTIONS": "物種分布",
+          "TAXONOMY": "分類學"
+        },
+        "purposes": {
+          "CAPACITY_ENHANCEMENT": "能力提升",
+          "DATA_ACCESS": "資料存取",
+          "DATA_ANALYSIS": "資料分析",
+          "DATA_CURATION_QUALITY": "資料策畫與品質",
+          "DATA_DIGITIZATION": "資料數位化",
+          "DATA_PUBLISHING": "資料發佈"
+        },
+        "literatureType": {
+          "journal": "期刊文章",
+          "book": "訂閱",
+          "generic": "一般",
+          "book_section": "書籍章節",
+          "conference_proceedings": "會議進行",
+          "working_paper": "工作文件",
+          "report": "報告",
+          "web_page": "網頁",
+          "thesis": "論文",
+          "magazine_article": "雜誌文章",
+          "statute": "法令",
+          "patent": "專利",
+          "newspaper_article": "新聞報導",
+          "computer_program": "電腦程式設計",
+          "hearing": "聽覺",
+          "television_broadcast": "新聞播報",
+          "encyclopedia_article": "生物百科文章",
+          "case": "案件",
+          "film": "底片",
+          "bill": "帳單"
+        },
+        "audiences": {
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "生物多樣性知識專家",
+          "DATA_HOLDERS": "資料持有者",
+          "DATA_USERS": "資料使用者",
+          "DECISION_MAKERS": "決策者",
+          "GBIF_NETWORK": "GBIF網絡",
+          "PUBLIC_STAKEHOLDERS": "大眾利益相關者"
+        }
+      }
+    }
+  }
+}

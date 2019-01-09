@@ -1,0 +1,44 @@
+{
+    "intervals": {
+        "noFilter": "無篩選",
+        "elevation": {
+            "equals": "是{from} m",
+            "between": "在{from}和{to} m 之間",
+            "lessThanOrEquals": "低於 {to}m",
+            "greaterThanOrEquals": "以上 {from}m",
+            "invalid": "無效",
+            "select": {
+                "equals": "是",
+                "between": "之間",
+                "lessThanOrEquals": "下方",
+                "greaterThanOrEquals": "以上"
+            }
+        },
+        "depth": {
+            "equals": "是{from} m",
+            "between": "在{from}和{to}之間",
+            "lessThanOrEquals": "在{to}深度之上",
+            "greaterThanOrEquals": "比{from}深",
+            "invalid": "無效",
+            "select": {
+                "equals": "是",
+                "between": "之間",
+                "lessThanOrEquals": "小於",
+                "greaterThanOrEquals": "深於"
+            }
+        },
+        "year": {
+            "equals": "是{from}",
+            "between": "在{from} 開始與{to} 結束之間",
+            "lessThanOrEquals": "在{to} 結束前",
+            "greaterThanOrEquals": "在{from} 開始之後",
+            "invalid": "無效",
+            "select": {
+                "equals": "是",
+                "between": "之間",
+                "lessThanOrEquals": "結束前",
+                "greaterThanOrEquals": "開始後"
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "participationStatus": {
+        "VOTING": "投票",
+        "ASSOCIATE": "有關聯的",
+        "OBSERVER": "觀察者",
+        "AFFILIATE": "附屬",
+        "FORMER": "前任",
+        "undefined": "未知 "
+    }
+}

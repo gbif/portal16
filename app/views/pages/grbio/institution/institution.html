@@ -1,0 +1,86 @@
+<div class="light-background p-t-05 seperator horizontal-stripe grbioInstitution">
+    <div class="container--normal">
+        <section class="col-xs-12">
+            <div class="card card--spaced m-b-1">
+                <div class="card__content prose">
+                    <h3 translate="institution.search.title"></h3>
+                    <div ng-bind-html="'institution.search.description' | translate | md2html"></div>
+                </div>
+            </div>
+        </section>
+        <section class="col-xs-12">
+            <div class="m-b-05">
+                <div class="search-box">
+                    <form ng-submit="grbioInstitution.pageChanged()">
+                        <input type="text" placeholder="{{ 'search.search' | translate }}" autocomplete="off"
+                                ng-model="grbioInstitution.q">
+                        <a href="" class="search-box__submit gb-icon-search2 inherit noUnderline" type="submit">
+                            <span class="sr-only">{$ __('search.search') $}</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="col-xs-12">
+            <ng-include src="'/templates/components/loader/loader.html'" ng-if="grbioInstitution.loading"></ng-include>
+            <div ng-if="!grbioInstitution.loading">
+                <h3 class="card-header--bold" tx="counts.nResults" tx-nr="grbioInstitution.data.count"></h3>
+                <div class="card card--spaced m-b-1">
+                    <div class="scrollable-y">
+                        <div>
+                            <table class="table search-table smaller">
+                                <thead>
+                                    <tr>
+                                        <th translate="collection.code"></th>
+                                        <th translate="collection.name"></th>
+                                        <th translate="grbio.contact.city"></th>
+                                        <th translate="grbio.contact.province"></th>
+                                        <th translate="grbio.contact.country"></th>
+                                        <th translate="collection.status"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row in grbioInstitution.data.results">
+                                    <td>
+                                        {{ row.code }}
+                                    </td>
+                                    <td>
+                                        <span><a href="" ui-sref="institutionKey({key: row.key})">{{ row.name }}</a></span>
+                                    </td>
+                                    <td>
+                                        <span ng-if="row.mailingAddress.city">{{ row.mailingAddress.city }}</span>
+                                    </td>
+                                    <td>
+                                        <span ng-if="row.mailingAddress.province">{{ row.mailingAddress.province }}</span>
+                                    </td>
+                                    <td>
+                                        <span ng-if="row.mailingAddress.country" translate="country.{{row.mailingAddress.country}}"></span>
+                                    </td>
+                                    <td>
+                                        <span translate="collection.isActive.{{row.active}}"></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <uib-pagination
+                        total-items="grbioInstitution.data.count"
+                        ng-model="grbioInstitution.currentPage"
+                        max-size="grbioInstitution.maxSize"
+                        items-per-page="grbioInstitution.limit"
+                        class="pagination-sm"
+                        boundary-link-numbers="true"
+                        rotate="false"
+                        first-text="{{'pagination.first' | translate}}"
+                        next-text="{{'pagination.next' | translate}}"
+                        previous-text="{{'pagination.previous' | translate}}"
+                        ng-change="grbioInstitution.pageChanged()"
+                        ng-show="grbioInstitution.data.count > grbioInstitution.limit">
+                </uib-pagination>
+            </div>
+        </section>
+    </div>
+</div>

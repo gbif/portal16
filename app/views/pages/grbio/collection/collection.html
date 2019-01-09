@@ -1,0 +1,78 @@
+<div class="light-background p-t-05 seperator horizontal-stripe grbioCollection">
+    <div class="container--normal">
+        <section class="col-xs-12">
+            <div class="card card--spaced m-b-1">
+                <div class="card__content prose">
+                    <h3 translate="collection.search.title"></h3>
+                    <div ng-bind-html="'collection.search.description' | translate | md2html"></div>
+                </div>
+            </div>
+        </section>
+        <section class="col-xs-12">
+            <div class="m-b-05">
+                <div class="search-box">
+                    <form ng-submit="grbioCollection.pageChanged()">
+                        <input type="text" placeholder="{{ 'search.search' | translate }}" autocomplete="off"
+                                ng-model="grbioCollection.q">
+                        <a href="" class="search-box__submit gb-icon-search2 inherit noUnderline" type="submit">
+                            <span class="sr-only">{$ __('search.search') $}</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="col-xs-12">
+            <ng-include src="'/templates/components/loader/loader.html'" ng-if="grbioCollection.loading"></ng-include>
+            <div ng-if="!grbioCollection.loading">
+                <h3 class="card-header--bold" tx="counts.nResults" tx-nr="grbioCollection.data.count"></h3>
+                <div class="card card--spaced m-b-1">
+                    <div class="scrollable-y">
+                        <div>
+                            <table class="table search-table smaller">
+                                <thead>
+                                    <tr>
+                                        <th translate="collection.code"></th>
+                                        <th translate="collection.name"></th>
+                                        <th translate="collection.accessionStatus"></th>
+                                        <th translate="collection.status"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row in grbioCollection.data.results">
+                                    <td>
+                                        <span>{{ row.code }}</span>
+                                    </td>
+                                    <td>
+                                        <span ng-if="row.name"><a href="" ui-sref="collectionKey({key: row.key})">{{ row.name }}</a></span>
+                                    </td>
+                                    <td>
+                                        <span ng-if="row.accessionStatus" translate="enum.collectionAccessionStatus.{{row.accessionStatus}}"></span>
+                                    </td>
+                                    <td>
+                                        <span translate="collection.isActive.{{row.active}}"></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <uib-pagination
+                        total-items="grbioCollection.data.count"
+                        ng-model="grbioCollection.currentPage"
+                        max-size="grbioCollection.maxSize"
+                        items-per-page="grbioCollection.limit"
+                        class="pagination-sm"
+                        boundary-link-numbers="true"
+                        rotate="false"
+                        first-text="{{'pagination.first' | translate}}"
+                        next-text="{{'pagination.next' | translate}}"
+                        previous-text="{{'pagination.previous' | translate}}"
+                        ng-change="grbioCollection.pageChanged()"
+                        ng-show="grbioCollection.data.count > grbioCollection.limit">
+                </uib-pagination>
+            </div>
+        </section>
+    </div>
+</div>

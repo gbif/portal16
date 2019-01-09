@@ -1,0 +1,23 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="grbioPersonKey light-background">
+            <div class="wrapper-horizontal-stripes" ng-if="grbioPersonKey.person.$resolved">
+
+                {% include "./header.nunjucks" %}
+                {# {% include "./nav.nunjucks" %} #}
+                <div ng-if="grbioPersonKey.$state.is('grbioPersonKey')">
+                    {% include "./about/index.nunjucks" %}
+                </div>
+
+                <div ui-view>
+                </div>
+
+            </div>
+            <div class="wrapper-horizontal-stripes" ng-if="!grbioPersonKey.person.$resolved">
+                <div class="emptyInfo">
+                    <h3 translate="phrases.loading"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

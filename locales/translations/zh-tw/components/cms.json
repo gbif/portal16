@@ -1,0 +1,41 @@
+{
+  "cms": {
+    "project": {
+      "project": "專案",
+      "projectId": "專案ID",
+      "projectIdentifier": "專案識別碼",
+      "grantType": "補助經費類型",
+      "duration": "期間",
+      "title": "標題",
+      "start": "開始",
+      "end": "結束",
+      "fundsAllocated": "資金分配",
+      "matchingFunds": "創設共同資助",
+      "funding": "資金",
+      "coFunding": "共同資助",
+      "fundedBy": "贊助由",
+      "coFundedBy": "共同資助的",
+      "typeOfGrant": "補助經費類型",
+      "projectStart": "專案開始",
+      "status": "狀態",
+      "programme": "計畫",
+      "contractCountry": "國家或地區",
+      "newsAndEvents": "新聞和活動",
+      "call": "撥打",
+      "projectLead": "專案負責人",
+      "contactDetalils": "聯絡詳情",
+      "partners": "夥伴"
+    },
+    "datause": {
+      "dataViaGbif": "透過GBIF使用資料來源"
+    },
+    "literature": {
+      "keywords": "關鍵字"
+    },
+    "auxiliary": {
+      "subject": "主題",
+      "citation": "引用",
+      "organisingParticipants": "組織參與者"
+    }
+  }
+}

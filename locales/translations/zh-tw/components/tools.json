@@ -1,0 +1,56 @@
+{
+    "tools": {
+        "categoryFeatured": "熱門推薦",
+        "suggestDataset": {
+            "NOT_OPEN": "不是公開授權",
+            "title": "建議資料集",
+            "pleaseDescribeTheDataset": "請描述此資料集",
+            "thankYou": "謝謝",
+            "form": {
+                "title": "標題",
+                "link": "網路連結至資料",
+                "region": "地理覆蓋範圍",
+                "taxon": "分類範圍",
+                "whyImportant": "為什麼這個資料集如此重要",
+                "howWouldYouRateIt": "你如何評斷它的重要性？",
+                "high": "必要 - GBIF在此區沒有資料",
+                "medium": "重要 - GBIF在此區只有少數資料",
+                "low": "對現有資料這將是很好的補充文件",
+                "bibliographicRef": "參考書目",
+                "type": "資料集類型",
+                "license": "版權資訊",
+                "dataHolderContact": "資料持有者聯絡資訊",
+                "publicAlert": "將發佈以上細節",
+                "yourContact": "你的聯絡資訊",
+                "comments": "評論",
+                "submit": "送出",
+                "followDiscussionBelow": "在底下連結追蹤或加入討論。",
+                "followIssue": "在Github查看建議",
+                "suggestAnother": "建議其他資料集",
+                "saveFailure": "糟糕。我們無法儲存你的建議。請稍後再試一次，或直接前往建議管理Github[Github](https://github.com/gbif/data-mobilization/issues)"
+            }
+        },
+        "observationTrends": {
+            "drawerTitle": "相對觀測趨勢",
+            "intro": "嘗試探索GBIF的物種相對觀察趨勢是否可以提供研究者有用的資訊。",
+            "aboutLink": "閱讀有關此工具的資訊",
+            "selectSpecies": "選擇物種",
+            "noData": "我們沒有關於選定物種在1900年之後的地理參考資料。",
+            "selectHigherTaxa": "選擇更高分類群",
+            "selectArea": "選擇地區",
+            "hexagon": "六角形",
+            "draw": "繪製",
+            "clear": "清除",
+            "resultIntro": "所選區域的相對觀測頻率變化",
+            "embedIntro": "透過 {GBIF network} 中介的所有資料"
+        },
+        "speciesLookup": {
+            "description": "從CSV檔案標準化物種名稱違反GBIF架構。檔案應該包含學名、界及ID等欄位。",
+            "title": "物種名匹配"
+        },
+        "ipt": {
+            "description": "整合發布套件(IPT) 是以Java編寫的免費開源軟體，透過GBIF網絡可用於發布和分享生物多樣性資料集。IPT也可以配置DataCite或EZID帳戶，以便將DOI分配給資料集並轉換為資料存儲庫。",
+            "dontSeeYourIpt": "還沒有IPT嗎? 上傳[GBIF] (mailto:helpdesk@gbif.org \"來信GBIF協助平台詢求在地圖上加入IPT\") 你的座標。"
+        }
+    }
+}

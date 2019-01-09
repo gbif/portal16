@@ -1,0 +1,12 @@
+<div>
+    <div href="" class="inherit contactsCard__name">
+        <div>
+            <a href="" ui-sref="grbioPersonKey({key:vm.person.key})">{{ vm.person.firstName }} {{ vm.person.lastName }}</a>
+        </div>
+    </div>
+    <div class="small discreet">
+        <div ng-if="vm.person.position">{{ vm.person.position }}</div>
+        <div ng-if="vm.person.phone">{{ vm.person.phone }}</div>
+        <div ng-if="vm.person.email"><a ng-href="mailto:{{ vm.person.email }}">{{ vm.person.email }}</a></div>
+    </div>
+</div>

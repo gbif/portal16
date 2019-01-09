@@ -3,51 +3,51 @@
     "leaveFeedback": "給予回饋意見",
     "intro": {
       "title": "回饋和問題",
-      "example": ""
+      "example": "請選擇您所要提供的回饋形式，以協助我們解決問題。盡可能以英文提交。"
     },
     "data content": {
       "title": "內容",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "example": "例如: 這個頁面包含拼字錯誤。物種不存在。位置似乎有疑問。該組織新URL是...",
+      "annotate": "這個發布者有一個處理回饋的網站，我們建議使用它。",
+      "contactPerMail": "與資料聯絡者取得聯繫"
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "錯誤",
+      "example": "例如: 搜尋鍵無法運作。頁面無法載入。因欄位重複無法讀取。"
     },
     "idea": {
       "title": "想法",
-      "example": ""
+      "example": "例如: 我想要連結至相關基因序列資料。列出所有可公開存取的文章。"
     },
     "question": {
       "title": "服務台",
       "example": "例如: 如何保護稀有物種的資料？你能幫我找到此物種在國際水域發生的所有紀錄嗎？",
-      "description": "",
-      "comment": ""
+      "description": "有任何問題，我們的協助平台helpdesk@gbif.org都可以協助回答。",
+      "comment": "私人提問與非技術問題請洽[info@gbif.org](mailto:info@gbif.org) ，媒體事務請洽[communication@gbif.org](mailto:communication@gbif.org)"
     },
     "confirmation": {
       "title": "謝謝",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "查看問題"
     },
     "issues": {
-      "title": "",
-      "description": "",
+      "title": "內容問題",
+      "description": "其他使用者回報此內容有問題",
       "create": "給予回饋意見"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "總結",
+      "description": "詳細說明: 對於分類群的主張，請提供參考文獻。請盡可能以英文提交您的回饋資訊。",
+      "username": "你的電子郵件或Github使用者名稱(公開)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
+    "markdownSupport": "備註支援",
+    "issueTracking": "所以問題都是公開且開放取得透過[Github](https://github.com/gbif/portal-feedback/issues)",
+    "failure": "糟糕 - 回饋資訊系統無法運作。請寄電子郵件或至[Github](https://github.com/gbif/portal-feedback/issues)。對於這項錯誤問題，我們感到抱歉。",
+    "weRecommendX": "我們建議使用[{NAME}]({LINK})",
+    "tellGbif": "告知GBIF",
+    "submit": "提交",
     "seeAllComments": "查看全部",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "recommendMail": "我們建議您寄電子郵件至",
+    "pleaseLogin": "請登入帳戶以留下您的回饋訊息。或您也可以使用[Github](https://github.com/gbif/portal-feedback/issues). 為什麼呢? 很不幸地，在無需登入的情況下，我們在回饋系統中看到許多垃圾廣告。"
   }
 }

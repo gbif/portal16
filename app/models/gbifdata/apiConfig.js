@@ -93,10 +93,15 @@ let apiConfig = {
         url: baseUrl + 'organization/',
         canonical: 'organization/'
     },
-    // publisherCreate: {
-    //     url: baseConfig.serverProtocol + '//api.gbif-dev.org/v1/' + 'organization/',
-    //     canonical: 'organization/'
-    // },
+    collection: {
+        url: baseUrl + 'grbio/collection/'
+    },
+    institution: {
+        url: baseUrl + 'grbio/institution/'
+    },
+    grbioPerson: {
+        url: baseUrl + 'grbio/person/'
+    },
     newsroomWebcal: {
 
      url: 'webcal:' + baseUrl + 'newsroom/events/'

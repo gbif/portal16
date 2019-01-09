@@ -1,0 +1,7 @@
+{
+  "downloadFormat": {
+    "SIMPLE_AVRO": "",
+    "SIMPLE_CSV": "CSV",
+    "DWCA": "達爾文核心集歸檔"
+  }
+}

@@ -1,0 +1,81 @@
+<div class="card card--spaced">
+	<div class="card__content">
+		<dl class="inline container--fluid">
+			<div class="row" ng-if="collectionKey.institution.name">
+				<dt class="col-md-4 col-xs-12" translate="collection.institutionName"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<a href="" ui-sref="institutionKey({key:collectionKey.institution.key})">{{collectionKey.institution.name}}</a>
+				</dd>
+			</div>
+			<div class="row">
+				<dt class="col-md-4 col-xs-12" translate="collection.code"></dt>
+				<dd class="col-md-8 col-xs-12">{{collectionKey.collection.code}}</dd>
+			</div>
+			<div class="row">
+				<dt class="col-md-4 col-xs-12" translate="collection.statusOfCollection"></dt>
+				<dd class="col-md-8 col-xs-12" translate="collection.isActive.{{collectionKey.collection.active}}"></dd>
+			</div>
+			<div class="row">
+				<dt class="col-md-4 col-xs-12" translate="collection.personalCollection"></dt>
+				<dd class="col-md-8 col-xs-12" translate="collection.isPersonalCollection.{{collectionKey.collection.personalCollection}}"></dd>
+			</div>
+			<div class="row" ng-if="collectionKey.collection.accessionStatus">
+				<dt class="col-md-4 col-xs-12" translate="collection.accessionStatus"></dt>
+				<dd class="col-md-8 col-xs-12" translate="enum.collectionAccessionStatus.{{collectionKey.collection.accessionStatus}}"></dd>
+			</div>
+			<div class="row" ng-if="collectionKey.collection.description">
+				<dt class="col-md-4 col-xs-12" translate="collection.description"></dt>
+				<dd class="col-md-8 col-xs-12" ng-bind-html="collectionKey.collection.description">
+			</div>
+			<div class="row" ng-if="collectionKey.collection.contentTypes.length > 0">
+				<dt class="col-md-4 col-xs-12" translate="collection.contentTypes"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<ul class="inline-bullet-list">
+						<li ng-repeat="contentType in collectionKey.collection.contentType">
+							<span translate="enum.collectionContentType.{{contentType}}"></span>
+						</li>
+					</ul>
+				</dd>
+			</div>
+			<div class="row" ng-if="collectionKey.collection.preservationTypes.length > 0">
+				<dt class="col-md-4 col-xs-12" translate="collection.preservationTypes"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<ul class="inline-bullet-list">
+						<li ng-repeat="preservationType in collectionKey.collection.preservationTypes">
+							<span translate="enum.collectionPreservationType.{{preservationType}}"></span>
+						</li>
+					</ul>
+				</dd>
+			</div>
+			<div class="row" ng-if="collectionKey.collection.homepage">
+				<dt class="col-md-4 col-xs-12" translate="collection.homepage"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<a ng-href="{{collectionKey.collection.homepage}}">{{collectionKey.collection.homepage}}</a/>
+				</dd>
+			</div>
+			<div class="row" ng-if="collectionKey.collection.apiUrl">
+				<dt class="col-md-4 col-xs-12" translate="collection.apiUrl"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<a ng-href="{{collectionKey.collection.apiUrl}}">{{collectionKey.collection.apiUrl}}</a>
+				</dd>
+			</div>
+			<div class="row" ng-if="collectionKey.collection.catalogUrl">
+				<dt class="col-md-4 col-xs-12" translate="collection.catalogUrl"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<a ng-href="{{collectionKey.collection.catalogUrl}}">{{collectionKey.collection.catalogUrl}}</a>
+				</dd>
+			</div>
+			<div class="row" ng-if="(collectionKey.collection.identifiers | visibleIdentifier).length > 0">
+				<dt class="col-md-4 col-xs-12" translate="collection.identifiers"></dt>
+				<dd class="col-md-8 col-xs-12">
+					<ul class="inline-bullet-list">
+						<li ng-repeat="identifier in collectionKey.collection.identifiers | visibleIdentifier" xng-if="identifier.type !== 'GRBIO_ID'">
+							<a ng-if="identifier.identifier | startsWith:'http' " ng-href="{{identifier.identifier}}" class="doi"><span translate="enum.identifierType.{{identifier.type}}">{{identifier.type}}</span><span>{{ identifier.identifier }}</span></a>
+							<span ng-if="!(identifier.identifier | startsWith:'http') " ng-href="{{identifier.identifier}}" class="doi"><span translate="enum.identifierType.{{identifier.type}}">{{identifier.type}}</span><span>{{ identifier.identifier }}</span></span>
+						</li>
+					</ul>
+				</dd>
+			</div>
+		</dl>
+	</div>
+</div>

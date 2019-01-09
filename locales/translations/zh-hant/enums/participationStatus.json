@@ -2,7 +2,7 @@
     "participationStatus": {
         "VOTING": "",
         "ASSOCIATE": "",
-        "OBSERVER": "",
+        "OBSERVER": "觀察者",
         "AFFILIATE": "",
         "FORMER": "",
         "undefined": ""

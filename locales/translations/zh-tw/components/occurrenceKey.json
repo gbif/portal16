@@ -1,0 +1,95 @@
+{
+  "occurrence": {
+    "typeOf": "類型{TYPE} 名稱{NAME}",
+    "coordinates": "座標",
+    "unknownDate": "未知日期",
+    "absent": "缺少",
+    "issues": "問題",
+    "dataset": "資料集",
+    "synced": "已經同步",
+    "modified": "修改",
+    "monthAndyear": "月 \/ 年",
+    "coordinateUncertainty": "座標不確定",
+    "citation": "引用",
+    "readFullDescription": "更多",
+    "showMoreInfo": "更多",
+    "noTaxonMatch": "無",
+    "gbifTaxonInterpretation": "GBIF分類群解釋",
+    "aboutTheDataset": "關於資料集",
+    "noLocationInformation": "此發布紀錄內容無地點資訊",
+    "subMenu": {
+      "diagnostics": "診斷信息",
+      "menu": "選單",
+      "showDiagnostics": "顯示診斷結果",
+      "hideDiagnostics": "隱藏診斷結果",
+      "aboutDarwinCore": "關於達爾文核心集",
+      "raw": "未處理的"
+    },
+    "groups": {
+      "Record": "記錄",
+      "Occurrence": "出現紀錄",
+      "Event": "活動",
+      "Identification": "辨識",
+      "Taxon": "分類群",
+      "Location": "地點",
+      "Organism": "生物體",
+      "MaterialSample": "材料樣本",
+      "GeologicalContext": "地理背景",
+      "other": "其它"
+    },
+    "term": "名稱",
+    "interpreted": "已解釋",
+    "original": "原始",
+    "remarks": "註記",
+    "highlights": {
+      "location": "地點",
+      "specimenType": "標本類型",
+      "publisher": "發布者",
+      "reference": "參照",
+      "verbatimName": "逐字名"
+    },
+    "media": {
+      "noIdentifier": "未提供媒體識別碼",
+      "noPlaybackSupport": "您的瀏覽器不支援播放此媒體格式。",
+      "takeMeThere": "連到原始網站",
+      "notWorkingTryPublishers": "",
+      "download": "下載媒體檔案"
+    },
+    "title": {
+      "inCountry": {
+        "PRESERVED_SPECIMEN": "收集於{COUNTRY}",
+        "FOSSIL_SPECIMEN": "收集於{COUNTRY}",
+        "LIVING_SPECIMEN": "收集於{COUNTRY}",
+        "HUMAN_OBSERVATION": "觀察於{COUNTRY}",
+        "MACHINE_OBSERVATION": "觀察於 {COUNTRY}",
+        "MATERIAL_SAMPLE": "收集於 {COUNTRY}",
+        "OCCURRENCE": "紀錄於 {COUNTRY}",
+        "OBSERVATION": "觀察於 {COUNTRY}",
+        "LITERATURE": "紀錄於 {COUNTRY}",
+        "UNKNOWN": "紀錄於 {COUNTRY}"
+      },
+      "unknownLocation": {
+        "PRESERVED_SPECIMEN": "於未知地點收集",
+        "FOSSIL_SPECIMEN": "於未知地點收集",
+        "LIVING_SPECIMEN": "於未知地點收集",
+        "HUMAN_OBSERVATION": "於未知地點觀察",
+        "MACHINE_OBSERVATION": "於未知地點觀察",
+        "MATERIAL_SAMPLE": "於未知地點收集",
+        "OCCURRENCE": "於未知地點紀錄",
+        "OBSERVATION": "於未知地點觀察",
+        "LITERATURE": "於未知地點紀錄",
+        "UNKNOWN": "於未知地點紀錄"
+      },
+      "unknownSpecies": "未知的物種"
+    },
+    "occurrence": "出現紀錄",
+    "inLanguage": "在{LANGUAGE_TRANSLATED}"
+  },
+  "interpretationRemarks": {
+    "comments": {
+      "EXCLUDED": "排除",
+      "AUTHORED": "改變",
+      "INFERED": "推斷"
+    }
+  }
+}
