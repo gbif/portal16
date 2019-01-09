@@ -21,6 +21,7 @@
     "tools": "Инструменты",
     "ipt": "IPT",
     "dataValidator": "Средства проверки данных",
+    "sequenceID": "",
     "suggestDataset": "Сообщить о наборе данных",
     "dataRepository": "Хранилище данных",
     "developers": "Пользователи",
