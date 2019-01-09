@@ -60,6 +60,7 @@
     "headerTitle": "Collection staff",
     "firstName": "First name",
     "lastName": "Last name",
+    "fullName": "Full name",
     "position": "Job title",
     "affiliations": "Affiliations",
     "areaResponsibility": "Area of responsibility",

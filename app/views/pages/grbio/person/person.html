@@ -31,8 +31,7 @@
                             <table class="table search-table smaller">
                                 <thead>
                                     <tr>
-                                        <th translate="grbioPerson.firstName"></th>
-                                        <th translate="grbioPerson.lastName"></th>
+                                        <th translate="grbioPerson.fullName"></th>
                                         <th translate="grbio.contact.country"></th>
                                         <th translate="grbioPerson.researchPursuits"></th>
                                     </tr>
@@ -40,10 +39,7 @@
                                 <tbody>
                                 <tr ng-repeat="row in grbioPerson.data.results">
                                     <td>
-                                        <span><a href="" ui-sref="grbioPersonKey({key: row.key})">{{ row.firstName }}</a></span>
-                                    </td>
-                                    <td>
-                                        <span>{{ row.lastName }}</span>
+                                        <span><a href="" ui-sref="grbioPersonKey({key: row.key})">{{ row.firstName }} {{ row.lastName }}</a></span>
                                     </td>
                                     <td>
                                         <span ng-if="row.mailingAddress.country" translate="country.{{row.mailingAddress.country}}"></span>
