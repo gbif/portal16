@@ -50,7 +50,7 @@
       },
       "META_DESCRIPTOR": {
         "description": "語義註記用來描述資料如何建構而成 (檔案、行等)",
-        "title": ""
+        "title": "元描述說明"
       }
     },
     "fileSizeLimit": "檔案大小限制: 100mb",
@@ -105,7 +105,7 @@
     "dataValidator": "資料驗證程式",
     "dataValidatorDescription": "GBIF資料驗證程式是一項服務，其允許所有GBIF相關資料集持有者接收關於資料集語法正確性、資料內容有效性的報告。",
     "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
-    "here": "",
+    "here": "這裡",
     "coreRowType": "核心列類型",
     "submit": "提交",
     "dropHere": "拖放到此處",
