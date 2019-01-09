@@ -144,8 +144,7 @@ async function getParsedName(speciesKey) {
         let species = await getSpecies(speciesKey);
 
         if (species.taxonomicStatus === 'SYNONYM') {
-            let accepted = await getSpecies(species.acceptedKey);
-            return name.scientificName + ' <i>(' + accepted.canonicalName + ')</i>';
+            return name.scientificName;
         } else {
                 let parent = await getSpecies(species.parentKey);
                 return (ranks.indexOf(parent.rank) < SPECIES_RANK_INDEX) ?
