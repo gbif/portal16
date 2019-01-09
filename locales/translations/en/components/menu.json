@@ -21,6 +21,7 @@
     "tools": "Tools",
     "ipt": "IPT",
     "dataValidator": "Data validator",
+    "sequenceID": "",
     "suggestDataset": "Suggest a dataset",
     "dataRepository": "Data repository",
     "developers": "Users",
