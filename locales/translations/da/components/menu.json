@@ -21,6 +21,7 @@
     "tools": "Værktøjer",
     "ipt": "IPT",
     "dataValidator": "Data-validator",
+    "sequenceID": "",
     "suggestDataset": "Foreslå et datasæt",
     "dataRepository": "Datalager",
     "developers": "Brugere",
