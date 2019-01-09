@@ -60,7 +60,9 @@
     "headerTitle": "",
     "firstName": "",
     "lastName": "",
+    "fullName": "Full name",
     "position": "",
+    "affiliations": "Affiliations",
     "areaResponsibility": "",
     "researchPursuits": "",
     "primaryInstitution": "",
@@ -87,7 +89,7 @@
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "Country or area"
     }
   }
 }
