@@ -61,6 +61,7 @@
     "firstName": "First name",
     "lastName": "Last name",
     "position": "Job title",
+    "affiliations": "Affiliations",
     "areaResponsibility": "Area of responsibility",
     "researchPursuits": "Research Specialty",
     "primaryInstitution": "Name of Primary Institution",

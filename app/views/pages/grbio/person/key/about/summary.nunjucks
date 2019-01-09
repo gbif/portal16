@@ -24,7 +24,7 @@
 		</dl>
 
 		<div ng-if="grbioPersonKey.showAffiliations">
-			<h3 class="card-header m-t-1">Affiliations</h3>
+			<h3 class="card-header m-t-1" translate="grbioPerson.affiliations">Affiliations</h3>
 			<dl class="inline container--fluid">
 				<div class="row" ng-if="grbioPersonKey.person.primaryInstitutionKey">
 					<dt class="col-md-4 col-xs-12" translate="grbioPerson.primaryInstitution"></dt>
