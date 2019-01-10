@@ -18,7 +18,7 @@
     "learnMore": "Learn more",
     "sizeZippedForDownload": "{SIZE_FORMATTED} zipped for download",
     "freeOfCost": "Free of cost – not free of responsibilities",
-    "promoteTransperant": "To promote transparent science and credit data publishers it is important to cite data correctly. You can do so by including the [recommended GBIF citation](https://www.gbif.org/citation-guidelines) in your work, which you will receive together with your requested data.",
+    "promoteTransperant": "While GBIF-mediated data is indeed open and free, please be aware that by downloading this data you are agreeing to \n\n- the [GBIF user agreement](https://www.gbif.org/terms/data-user), and\n- to [citing the data appropriately](https://www.gbif.org/citation-guidelines), if used.\n \nPlease make sure to include the unique **DOI** (shown on the following page) in the citation. The use of properly formatted data citations is important for transparency, reproducibility and attribution of data providers.",
     "ifAnalysingData": "If you are analysing the data you will download, please consider referencing this citation in your Materials and methods section.",
     "cancel": "Cancel",
     "proceed": "Proceed",
