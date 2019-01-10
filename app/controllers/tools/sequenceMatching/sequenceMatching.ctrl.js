@@ -7,20 +7,20 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/tools/sequence-matching', function(req, res) {
+router.get('/tools/sequence-id', function(req, res) {
     res.render('pages/tools/sequenceMatching/sequenceMatching', {
         _meta: {
-            title: req.__('Sequence matcher'),
-            description: req.__('A tool for matching fungal DNA sequences')
+            title: req.__('Sequence ID'),
+            description: req.__('A tool for identifying fungal DNA sequences')
         }
     });
 });
 
-router.get('/tools/sequence-matching/about', function(req, res) {
+router.get('/tools/sequence-id/about', function(req, res) {
     res.render('pages/tools/sequenceMatching/sequenceMatching', {
         _meta: {
-            title: req.__('Sequence matcher'),
-            description: req.__('A tool for matching fungal DNA sequences')
+            title: req.__('Sequence ID'),
+            description: req.__('A tool for identifying fungal DNA sequences')
         }
     });
 });
@@ -28,7 +28,7 @@ router.get('/tools/sequence-matching/about', function(req, res) {
 router.get('/templates/sequence-matching/about.html', function(req, res, next) {
     let query = {
         'content_type': 'Tool',
-        'fields.keywords': 'sequence'
+        'fields.keywords': 'sequenceID'
     };
     resource.getFirst(query, 2, false, res.locals.gb.locales.current)
         .then((contentItem) => {
