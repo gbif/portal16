@@ -49,11 +49,11 @@
       "verbatimName": "オリジナルデータの名前"
     },
     "media": {
-      "noIdentifier": "",
-      "noPlaybackSupport": "",
-      "takeMeThere": "",
+      "noIdentifier": "メディア識別子なし",
+      "noPlaybackSupport": "お使いのブラウザではこのメディアを再生するために必要なフォーマットをサポートしていません。",
+      "takeMeThere": "出版者のサイトのバージョンを見てみる",
       "notWorkingTryPublishers": "",
-      "download": ""
+      "download": "メディアをダウンロードする"
     },
     "title": {
       "inCountry": {
