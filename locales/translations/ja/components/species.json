@@ -18,9 +18,9 @@
       "accordingTo": "～によると",
       "occurrenceCount": "GBIFにおけるオカレンス",
       "seeAllCountries": "全てを表示",
-      "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive": "インパクトの証拠",
+      "isInvasive_yes": "はい",
+      "isInvasive_no": "いいえ"
     },
     "as": "として",
     "in": "で",
