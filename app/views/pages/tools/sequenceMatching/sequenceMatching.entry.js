@@ -62,7 +62,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
                 result.push({
                     occurrenceId: s[0].replace(/[^\x20-\x7E]/gim, ''),
                     marker: 'its',
-                    sequence: s[1].replace(/[^\x20-\x7E]/gim, '')
+                    sequence: s.slice(1).join('').replace(/[^\x20-\x7E]/gim, '')
                 });
             }
         });
