@@ -18,7 +18,7 @@
     "learnMore": "Learn more",
     "sizeZippedForDownload": "{SIZE_FORMATTED} zipped for download",
     "freeOfCost": "Free of cost – not free of responsibilities",
-    "promoteTransperant": "While GBIF-mediated data is indeed open and free, please be aware that by downloading this data you are agreeing to \n\n- the [GBIF user agreement](https://www.gbif.org/terms/data-user), and\n- to [citing the data appropriately](https://www.gbif.org/citation-guidelines), if used.\n \nPlease make sure to include the unique **DOI** (shown on the following page) in the citation. The use of properly formatted data citations is important for transparency, reproducibility and attribution of data providers.",
+    "promoteTransperant": "While data from GBIF.org is free and open, please remember that by downloading this data, you are agreeing:\n\n— to abide by the [GBIF user agreement](https://www.gbif.org/terms/data-user)\n— and, if you use the data, to [cite it appropriately](https://www.gbif.org/citation-guidelines)\n \nPlease make sure your citation includes the unique **DOI** (shown on the page once it refreshes). The use of properly formatted data citations ensures scientific transparency and reproducibility and enables proper attribution of credit to the data providers.",
     "ifAnalysingData": "If you are analysing the data you will download, please consider referencing this citation in your Materials and methods section.",
     "cancel": "Cancel",
     "proceed": "Proceed",
