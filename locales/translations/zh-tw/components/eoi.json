@@ -35,7 +35,7 @@
     "publOfFourTypesOfData": "GBIF支援4種資料類型的發佈，說明於此[here.](/dataset-classes)。\n資料的格式與持有仍由原始的資料發佈者來負責，但我們可以幫助你找到合適的技術解決方案。",
     "whichTypesOfData": "您希望發佈哪些類型的資料？",
     "resourcesMetaData": "元資料來源",
-    "checkListData": "清單資料",
+    "checkListData": "物種名錄資料",
     "occurrenceOnlyData": "僅出現紀錄資料",
     "samplingEventData": "採樣事件資料",
     "doYouHaveCapacity": "透過該伺服器您將提供您的原始資料集給GBIF.org。您是否有能力執行即時伺服器或訪問伺服器?",
