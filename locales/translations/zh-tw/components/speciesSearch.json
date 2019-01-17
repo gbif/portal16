@@ -1,7 +1,7 @@
 {
     "speciesSearch": {
         "youAreCurrentlySearchingInGBIFtaxonomy": "您正在從GBIF分類群搜尋物種",
-        "SearchAcrossChecklists": "從清單搜尋",
+        "SearchAcrossChecklists": "從物種名錄搜尋",
         "freeTextSearchFor": "你正執行{QUERY} 的免費文字搜尋",
         "limitSearchTo": "限縮搜尋至",
         "limitResultsTo": {

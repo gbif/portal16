@@ -2,7 +2,7 @@
   "dataset": {
     "longType": {
       "OCCURRENCE": "出現記錄資料集",
-      "CHECKLIST": "清單資料",
+      "CHECKLIST": "物種名錄資料集",
       "SAMPLING_EVENT": "採樣活動",
       "METADATA": "元資料集"
     },
