@@ -4,7 +4,7 @@
             "VOTING": "Voting participant",
             "ASSOCIATE": "Associate participant",
             "OBSERVER": "Observing participant",
-            "AFFILIATE": "Affiliate participant",
+            "AFFILIATE": "Affiliate",
             "FORMER": "Former participant",
             "undefined": "Unknown"
         },
@@ -12,7 +12,7 @@
             "VOTING": "A GBIF Voting participant from {REGION}",
             "ASSOCIATE": "An associate participant from {REGION}",
             "OBSERVER": "A GBIF Observer Country from {REGION}",
-            "AFFILIATE": "An affiliate participant from {REGION}",
+            "AFFILIATE": "An affiliate from {REGION}",
             "FORMER": "A GBIF Former Participant from {REGION}",
             "undefined": "Unknown"
         },
@@ -22,7 +22,7 @@
                     "VOTING": "A GBIF Voting participant organization from {REGION}",
                     "ASSOCIATE": "An associate participant organization from {REGION}",
                     "OBSERVER": "An observing participant organization from {REGION}",
-                    "AFFILIATE": "An affiliate participant organization from {REGION}",
+                    "AFFILIATE": "An affiliate organization from {REGION}",
                     "FORMER": "A former participant organization from {REGION}",
                     "undefined": "Unknown"
                 },
@@ -30,7 +30,7 @@
                     "VOTING": "Voting participant organization",
                     "ASSOCIATE": "Associate participant organization",
                     "OBSERVER": "Observing participant organization",
-                    "AFFILIATE": "Affiliate participant organization",
+                    "AFFILIATE": "Affiliate organization",
                     "FORMER": "Former participant organization",
                     "undefined": "Unknown"
                 }
