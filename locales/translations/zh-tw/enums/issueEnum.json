@@ -22,7 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "備用識別碼無效",
     "BACKBONE_MATCH_NONE": "無法與GBIF骨架匹配",
     "BACKBONE_MATCH_FUZZY": "模糊GBIF架構匹配",
-    "ACCEPTED_NAME_MISSING": "同種異名，缺乏有效學名。",
+    "ACCEPTED_NAME_MISSING": "同物異名，缺乏有效學名。",
     "ACCEPTED_NAME_NOT_UNIQUE": "有效名稱不是唯一",
     "PARENT_NAME_NOT_UNIQUE": "",
     "ORIGINAL_NAME_NOT_UNIQUE": "原始名稱不是唯一的",
