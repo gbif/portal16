@@ -7,7 +7,7 @@
     "HOMOTYPIC_SYNONYM": "同型同物異名",
     "PROPARTE_SYNONYM": "",
     "MISAPPLIED": "誤用",
-    "INTERMEDIATE_RANK_SYNONYM": "",
-    "DETERMINATION_SYNONYM": ""
+    "INTERMEDIATE_RANK_SYNONYM": "中等級同義字",
+    "DETERMINATION_SYNONYM": "確立同物異名"
   }
 }
