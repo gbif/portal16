@@ -1,16 +1,16 @@
 {
   "nameUsageOrigin": {
     "SOURCE": "紀錄直接從來源而來",
-    "DENORMED_CLASSIFICATION": "",
+    "DENORMED_CLASSIFICATION": "基於未標準化分類的隱晦用法。",
     "VERBATIM_PARENT": "",
     "VERBATIM_ACCEPTED": "",
     "VERBATIM_BASIONYM": "",
     "PROPARTE": "",
-    "AUTONYM": "",
+    "AUTONYM": "已產生，缺少真名。",
     "IMPLICIT_NAME": "",
     "MISSING_ACCEPTED": "",
     "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
+    "EX_AUTHOR_SYNONYM": "基於未受認可前作者的隱晦同義詞。請見 ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
     "OTHER": "其他來源"
   }
 }
