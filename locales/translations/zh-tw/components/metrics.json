@@ -17,7 +17,7 @@
     "explore": "探索",
     "majorGroups": "主要群",
     "failedToLoad": "無法載入樹狀圖",
-    "noChildren": "",
+    "noChildren": "無直接子代",
     "noOccurrences": "無出現紀錄",
     "nothingSelected": "無",
     "occurrences": "出現紀錄",
