@@ -5,7 +5,7 @@
     "SYNONYM": "同物異名",
     "HETEROTYPIC_SYNONYM": "異型同物異名",
     "HOMOTYPIC_SYNONYM": "同型同物異名",
-    "PROPARTE_SYNONYM": "",
+    "PROPARTE_SYNONYM": "部分同物異名",
     "MISAPPLIED": "誤用",
     "INTERMEDIATE_RANK_SYNONYM": "中等級同義字",
     "DETERMINATION_SYNONYM": "確立同物異名"
