@@ -6,7 +6,7 @@
         "clear": "清除",
         "add": "新增",
         "repatriation": {
-            "description": ""
+            "description": "當資料由一個國家的機構所發布，但資料內容與另一個國家的生物多樣性有關，則該資料將被調返另一國。"
         },
         "ternary": {
             "yes": "是",
@@ -29,8 +29,8 @@
             "wktPlaceholder": "WKT或GeoJSON - 不支援多邊形",
             "invalidTextInput": "無效的WKT或GeoJSON",
             "tooLarge": "幾何形狀過大",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "tooLargeSuggestion": "嘗試使用定界框, 然後以本地進行篩選。",
+            "invalidRange": "無效的定界框"
         }
     }
 }

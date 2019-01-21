@@ -12,7 +12,7 @@
       "withCoordinates": "含座標",
       "withYear": "依年份",
       "acceptedNames": "有效名稱",
-      "synonyms": "同種異名",
+      "synonyms": "同物異名",
       "overlapWithNub": "與GBIF骨架重疊",
       "overlapWithCol": "與生命分類項目重疊"
     },
