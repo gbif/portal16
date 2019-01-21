@@ -99,7 +99,7 @@ let apiConfig = {
     institution: {
         url: baseUrl + 'grbio/institution/'
     },
-    grbioPerson: {
+    grscicollPerson: {
         url: baseUrl + 'grbio/person/'
     },
     newsroomWebcal: {

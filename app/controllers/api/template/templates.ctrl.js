@@ -72,15 +72,15 @@ router.get('/search/datasetResult.html', function(req, res, next) {
 });
 
 router.get('/collection/key.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/grbio/collection/key/collectionKey.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/grscicoll/collection/key/collectionKey.template.nunjucks');
 });
 
 router.get('/institution/key.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/grbio/institution/key/institutionKey.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/grscicoll/institution/key/institutionKey.template.nunjucks');
 });
 
-router.get('/grbioPerson/key.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/grbio/person/key/personKey.template.nunjucks');
+router.get('/grscicollPerson/key.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/grscicoll/person/key/personKey.template.nunjucks');
 });
 
 router.get('/search/speciesResult.html', function(req, res, next) {

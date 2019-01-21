@@ -1,0 +1,68 @@
+<section class="horizontal-stripe--paddingless">
+    <div class="container--normal">
+        <div ng-if="institutionKey.institution.mailingAddress.city">
+            <h4 class="card-header--bold m-t-1" translate="grscicoll.contact.mailingAddress">Mailing address</h4>
+            <div class="card card--spaced">
+                <div class="card__content">
+                    <dl class="inline container--fluid">
+                        <div class="row">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.address"></dt>
+                            <dd class="col-md-8 col-xs-12">{{institutionKey.institution.mailingAddress.address}}</dd>
+                        </div>
+                        <div class="row" ng-if="institutionKey.institution.mailingAddress.province">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.province"></dt>
+                            <dd class="col-md-8 col-xs-12">{{institutionKey.institution.mailingAddress.province}}</dd>
+                        </div>
+                        <div class="row" ng-if="institutionKey.institution.mailingAddress.postalCode">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.postalCode"></dt>
+                            <dd class="col-md-8 col-xs-12">{{institutionKey.institution.mailingAddress.postalCode}}</dd>
+                        </div>
+                        <div class="row" ng-if="institutionKey.institution.mailingAddress.city">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.city"></dt>
+                            <dd class="col-md-8 col-xs-12">{{institutionKey.institution.mailingAddress.city}}</dd>
+                        </div>
+                        <div class="row" ng-if="institutionKey.institution.mailingAddress.country">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.country"></dt>
+                            <dd class="col-md-8 col-xs-12" translate="country.{{institutionKey.institution.mailingAddress.country}}"></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div ng-if="institutionKey.institution.address.city">
+            <h4 class="card-header--bold m-t-1" translate="grscicoll.contact.physicalAddress">Address</h4>
+            <div class="card card--spaced">
+                <div class="card__content">
+                    <dl class="inline container--fluid">
+                        <div class="row">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.address"></dt>
+                            <dd class="col-md-8 col-xs-12">{{institutionKey.institution.address.address}}</dd>
+                        </div>
+                        <div class="row" ng-if="institutionKey.institution.address.province">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.province"></dt>
+                            <dd class="col-md-8 col-xs-12">{{institutionKey.institution.address.province}}</dd>
+                        </div>
+                        <div class="row" ng-if="institutionKey.institution.address.postalCode">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.postalCode"></dt>
+                            <dd class="col-md-8 col-xs-12">{{institutionKey.institution.address.postalCode}}</dd>
+                        </div>
+                        <div class="row" ng-if="institutionKey.institution.address.city">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.city"></dt>
+                            <dd class="col-md-8 col-xs-12">{{institutionKey.institution.address.city}}</dd>
+                        </div>
+                        <div class="row" ng-if="institutionKey.institution.address.country">
+                            <dt class="col-md-4 col-xs-12" translate="grscicoll.contact.country"></dt>
+                            <dd class="col-md-8 col-xs-12" translate="country.{{institutionKey.institution.address.country}}"></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div ng-if="institutionKey.institution.contacts.length > 0">
+            <h4 class="card-header--bold m-t-1" translate="grscicoll.contact.contacts" translate-values="{ NUMBER: institutionKey.institution.contacts.length + 1}">Contacts</h4>
+            <div class="contactsCard card card--spaced">
+                <grscicollperson person="contact" ng-repeat="contact in institutionKey.institution.contacts"></grscicollperson>
+            </div>
+        </div>
+    </div>
+</section>

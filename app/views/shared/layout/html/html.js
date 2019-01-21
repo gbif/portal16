@@ -276,9 +276,9 @@ require('./angular/network.resource');
 require('./angular/resource.resource');
 require('./angular/resourceFilter.service');
 require('./angular/contentFulResource.resource');
-require('./angular/grbioCollection.resource');
-require('./angular/grbioInstitution.resource');
-require('./angular/grbioPerson.resource');
+require('./angular/grscicollCollection.resource');
+require('./angular/grscicollInstitution.resource');
+require('./angular/grscicollPerson.resource');
 
 require('./angular/highcharts.factory');
 
@@ -341,13 +341,13 @@ require('../../../pages/participant/participant/participantKey.ctrl');
 require('../../../pages/resource/key/programme/programme.ctrl');
 require('../../../pages/resource/key/project/project.ctrl');
 
-require('../../../pages/grbio/grbio.ctrl');
-require('../../../pages/grbio/collection/collection.ctrl');
-require('../../../pages/grbio/collection/key/collectionKey.ctrl');
-require('../../../pages/grbio/institution/institution.ctrl');
-require('../../../pages/grbio/institution/key/institutionKey.ctrl');
-require('../../../pages/grbio/person/person.ctrl');
-require('../../../pages/grbio/person/key/personKey.ctrl');
+require('../../../pages/grscicoll/grscicoll.ctrl');
+require('../../../pages/grscicoll/collection/collection.ctrl');
+require('../../../pages/grscicoll/collection/key/collectionKey.ctrl');
+require('../../../pages/grscicoll/institution/institution.ctrl');
+require('../../../pages/grscicoll/institution/key/institutionKey.ctrl');
+require('../../../pages/grscicoll/person/person.ctrl');
+require('../../../pages/grscicoll/person/key/personKey.ctrl');
 
 require('../../../pages/custom/contactUs/contactUs.ctrl');
 require('../../../pages/custom/contactUs/directory/contactDirectory.ctrl');
