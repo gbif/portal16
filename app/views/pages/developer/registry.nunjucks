@@ -388,6 +388,8 @@
                             {$ trowCol(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a collection") $}
                             {$ trowCol(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the collection") $}
                             {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the collection the tag with ID {ID}") $}
+                            {$ trowCol(url="/deleted", resp="Deleted Collections List", respLink=apiBase+"grbio/collection/deleted", paging=true, description="Lists the deleted collections") $}
+                            {$ trowCol(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grbio/collection/suggest?q=col", paging=false, description="Search that returns up to 20 matching collections. Results are ordered by relevance") $} 
                             </tbody>
                         </table>
                     </section>
@@ -415,6 +417,8 @@
                             {$ trowInst(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a institution") $}
                             {$ trowInst(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the institution") $}
                             {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the institution the tag with ID {ID}") $}
+                            {$ trowInst(url="/deleted", resp="Deleted Institutions List", respLink=apiBase+"grbio/institution/deleted", paging=true, description="Lists the deleted institutions") $}
+                            {$ trowInst(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grbio/institution/suggest?q=bio", paging=false, description="Search that returns up to 20 matching institutions. Results are ordered by relevance") $} 
                             </tbody>
                         </table>
                     </section>
@@ -433,6 +437,8 @@
                             {$ trowPerson(url="/{UUID}", resp="Person", respLink=apiBase+"grbio/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a", description="Gets details for the person") $}
                             {$ trowPerson(url="/{UUID}", method="PUT", auth=true, description="Updates the person") $}
                             {$ trowPerson(url="/{UUID}", method="DELETE", auth=true, description="Deletes the person. The person entry gets a deleted timestamp but remains registered.") $}                            
+                            {$ trowPerson(url="/deleted", resp="Deleted Persons List", respLink=apiBase+"grbio/person/deleted", paging=true, description="Lists the deleted persons") $}
+                            {$ trowPerson(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grbio/person/suggest?q=ste", paging=false, description="Search that returns up to 20 matching persons. Results are ordered by relevance") $} 
                             </tbody>
                         </table>
                     </section>
