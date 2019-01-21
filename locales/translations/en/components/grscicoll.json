@@ -1,0 +1,95 @@
+{
+  "collection": {
+    "search": {
+      "title": "",
+      "description": "**Institutional Collections** are those that have been formally accessioned into an institution and receive some level of institutional support.\n\n**Project Collections** are those collected by a researcher associated with an institution that may have not been formally accessioned into its collections. Project Collections may eventually become part of the Institutional Collections or remain under the management and control of the individual researchers.\n\n**Personal Collections** are under the control of an individual researcher and are not formally associated with or accessioned into an institution. They may be the personal property of a private collector or otherwise orphaned."
+    },
+    "headerTitle": "",
+    "description": "Description",
+    "institutionName": "",
+    "code": "",
+    "statusOfCollection": "",
+    "personalCollection": "",
+    "isPersonalCollection": {
+      "true": "",
+      "false": ""
+    },
+    "accessionStatus": "",
+    "contentTypes": "",
+    "preservationTypes": "",
+    "homepage": "",
+    "apiUrl": "",
+    "catalogUrl": "",
+    "identifiers": "",
+    "collectionMailingAddress": "",
+    "status": "",
+    "name": "",
+    "isActive": {
+      "true": "",
+      "false": ""
+    }
+  },
+  "institution": {
+    "search": {
+      "title": "",
+      "description": "**Institution** refers to any institution or organization that owns and manages scientific collections. This includes herbaria, museums, zoos, botanical gardens, biobanks, among others. An institution may contain multiple collections, in which case those should be entered individually under  **Institutional/Project Collections**  and linked back to the parent institution.\n\nDue to the integration of several older datasets, and to avoid duplication of  **InstitutionCode**, <IH> has been appended to all Index Herbariorum Herbarium codes."
+    },
+    "headerTitle": "",
+    "indexHerbariorumRecord": "",
+    "code": "",
+    "statusOfInstitution": "",
+    "additionalNames": "",
+    "description": "Description",
+    "homepage": "",
+    "disciplines": "",
+    "institutionalGovernance": "",
+    "type": "",
+    "identifiers": "",
+    "isActive": {
+      "true": "",
+      "false": ""
+    },
+    "true": "",
+    "false": ""
+  },
+  "grscicollPerson": {
+    "search": {
+      "title": "",
+      "description": ""
+    },
+    "headerTitle": "",
+    "firstName": "",
+    "lastName": "",
+    "fullName": "",
+    "position": "",
+    "affiliations": "",
+    "areaResponsibility": "",
+    "researchPursuits": "",
+    "primaryInstitution": "",
+    "primaryCollection": "",
+    "affiliateInstitutions": "",
+    "affiliateCollections": ""
+  },
+  "grscicoll": {
+    "title": "",
+    "tabs": {
+      "about": "",
+      "institutions": "",
+      "collections": "",
+      "people": ""
+    },
+    "contact": {
+      "phone": "",
+      "email": "",
+      "fax": "",
+      "mailingAddress": "",
+      "physicalAddress": "",
+      "contacts": "",
+      "address": "",
+      "province": "",
+      "postalCode": "",
+      "city": "",
+      "country": ""
+    }
+  }
+}
