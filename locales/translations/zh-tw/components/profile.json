@@ -78,9 +78,9 @@
     "changePassword": "變更密碼",
     "accountCreated": "已建立帳戶",
     "accountInfoUpdated": "已更新你的帳戶",
-    "passwordChangeInvalid": "無效密碼-如忘記你的密碼，登入後使用密碼重設",
-    "verficationLinkSent": "認證連結已寄出，請確認你的信箱。歡迎來到GBIF",
+    "passwordChangeInvalid": "無效密碼-如忘記你的密碼，登出並重設密碼。",
+    "verficationLinkSent": "驗證連結已寄出，請確認您的信箱。歡迎來到GBIF",
     "resetPasswordRequest": "密碼重設請求",
-    "resetPasswordMessage": "我們已經把重設密碼連結寄到你的電子信箱"
+    "resetPasswordMessage": "我們已經把重設密碼連結寄到您的電子信箱"
   }
 }
