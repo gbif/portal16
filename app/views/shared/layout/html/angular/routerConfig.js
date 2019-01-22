@@ -331,27 +331,27 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'resourceListCtrl',
             controllerAs: 'resourceList'
         })
-        .state('grbio', {
+        .state('grscicoll', {
             parent: 'localization',
-            url: '/grbio',
+            url: '/grscicoll',
             views: {
                 main: {
-                    templateUrl: '/api/template/grbio/grbio.html?v=' + BUILD_VERSION,
-                    controller: 'grbioCtrl',
-                    controllerAs: 'grbio'
+                    templateUrl: '/api/template/grscicoll/grscicoll.html?v=' + BUILD_VERSION,
+                    controller: 'grscicollCtrl',
+                    controllerAs: 'grscicoll'
                 }
             }
         })
-        .state('grbioCollectionSearch', {
-            parent: 'grbio',
+        .state('grscicollCollectionSearch', {
+            parent: 'grscicoll',
             url: '/collection/search?q&offset',
-            templateUrl: '/templates/pages/grbio/collection/collection.html?v=' + BUILD_VERSION,
-            controller: 'grbioCollectionCtrl',
-            controllerAs: 'grbioCollection'
+            templateUrl: '/templates/pages/grscicoll/collection/collection.html?v=' + BUILD_VERSION,
+            controller: 'grscicollCollectionCtrl',
+            controllerAs: 'grscicollCollection'
         })
         .state('collectionKey', {
             parent: 'localization',
-            url: '/grbio/collection/:key',
+            url: '/grscicoll/collection/:key',
             views: {
                 main: {
                     templateUrl: '/api/template/collection/key.html?v=' + BUILD_VERSION,
@@ -360,16 +360,16 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
-        .state('grbioInstitutionSearch', {
-            parent: 'grbio',
+        .state('grscicollInstitutionSearch', {
+            parent: 'grscicoll',
             url: '/institution/search?q&offset',
-            templateUrl: '/templates/pages/grbio/institution/institution.html?v=' + BUILD_VERSION,
-            controller: 'grbioInstitutionCtrl',
-            controllerAs: 'grbioInstitution'
+            templateUrl: '/templates/pages/grscicoll/institution/institution.html?v=' + BUILD_VERSION,
+            controller: 'grscicollInstitutionCtrl',
+            controllerAs: 'grscicollInstitution'
         })
         .state('institutionKey', {
             parent: 'localization',
-            url: '/grbio/institution/:key',
+            url: '/grscicoll/institution/:key',
             views: {
                 main: {
                     templateUrl: '/api/template/institution/key.html?v=' + BUILD_VERSION,
@@ -378,21 +378,21 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
-        .state('grbioPersonSearch', {
-            parent: 'grbio',
+        .state('grscicollPersonSearch', {
+            parent: 'grscicoll',
             url: '/person/search?q&offset',
-            templateUrl: '/templates/pages/grbio/person/person.html?v=' + BUILD_VERSION,
-            controller: 'grbioPersonCtrl',
-            controllerAs: 'grbioPerson'
+            templateUrl: '/templates/pages/grscicoll/person/person.html?v=' + BUILD_VERSION,
+            controller: 'grscicollPersonCtrl',
+            controllerAs: 'grscicollPerson'
         })
-        .state('grbioPersonKey', {
+        .state('grscicollPersonKey', {
             parent: 'localization',
-            url: '/grbio/person/:key',
+            url: '/grscicoll/person/:key',
             views: {
                 main: {
-                    templateUrl: '/api/template/grbioPerson/key.html?v=' + BUILD_VERSION,
-                    controller: 'grbioPersonKeyCtrl',
-                    controllerAs: 'grbioPersonKey'
+                    templateUrl: '/api/template/grscicollPerson/key.html?v=' + BUILD_VERSION,
+                    controller: 'grscicollPersonKeyCtrl',
+                    controllerAs: 'grscicollPersonKey'
                 }
             }
         })
