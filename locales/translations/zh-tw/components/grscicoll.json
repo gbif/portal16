@@ -6,51 +6,51 @@
     },
     "headerTitle": "蒐藏品",
     "description": "描述",
-    "institutionName": "",
-    "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "institutionName": "機構名稱",
+    "code": "代碼",
+    "statusOfCollection": "蒐藏品狀態",
+    "personalCollection": "私人蒐藏",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "是",
+      "false": "否"
     },
     "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
-    "homepage": "",
+    "contentTypes": "內容種類",
+    "preservationTypes": "保存類型",
+    "homepage": "首頁",
     "apiUrl": "",
     "catalogUrl": "",
-    "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "identifiers": "鑑定者",
+    "collectionMailingAddress": "郵寄地址",
+    "status": "狀態",
+    "name": "名稱",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "上線",
+      "false": "離線"
     }
   },
   "institution": {
     "search": {
-      "title": "",
+      "title": "機構",
       "description": ""
     },
-    "headerTitle": "",
+    "headerTitle": "機構",
     "indexHerbariorumRecord": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "code": "機構代碼",
+    "statusOfInstitution": "機構狀態",
+    "additionalNames": "其他名稱",
+    "description": "描述說明",
+    "homepage": "首頁",
+    "disciplines": "機構紀律",
+    "institutionalGovernance": "機構治理",
+    "type": "機構類型",
+    "identifiers": "鑑定者",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "上線",
+      "false": "離線"
     },
-    "true": "",
-    "false": ""
+    "true": "是",
+    "false": "否"
   },
   "grscicollPerson": {
     "search": {
@@ -58,16 +58,16 @@
       "description": ""
     },
     "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "firstName": "名",
+    "lastName": "姓",
+    "fullName": "全名",
+    "position": "職稱",
+    "affiliations": "附屬機構",
+    "areaResponsibility": "職責範圍",
+    "researchPursuits": "研究專長",
+    "primaryInstitution": "最初蒐藏機構名稱",
+    "primaryCollection": "最初蒐藏品名稱",
+    "affiliateInstitutions": "其他附屬機構",
     "affiliateCollections": ""
   },
   "grscicoll": {
