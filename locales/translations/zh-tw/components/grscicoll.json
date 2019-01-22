@@ -1,11 +1,11 @@
 {
   "collection": {
     "search": {
-      "title": "",
+      "title": "蒐藏品",
       "description": ""
     },
-    "headerTitle": "",
-    "description": "",
+    "headerTitle": "蒐藏品",
+    "description": "描述",
     "institutionName": "",
     "code": "",
     "statusOfCollection": "",
