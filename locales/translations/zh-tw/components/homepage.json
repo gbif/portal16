@@ -7,7 +7,7 @@
             "species": "物種",
             "speciesSubtitle": "瞭解更多GBIF.org中資料涵蓋的物種數量"
         },
-        "aboutGbifCountry": "關於GBIF{COUNTRY}",
+        "aboutGbifCountry": "關於GBIF {COUNTRY}",
         "summary": "自由開放取用生物多樣性資料"
     }
 }

@@ -15,7 +15,6 @@
     "withTaxonMatch": "一致する分類群",
     "withCoordinates": "経緯度",
     "withYear": "年",
-    "learnMore": "もっと詳しく",
     "sizeZippedForDownload": "{SIZE_FORMATTED} zip 形式でダウンロード",
     "freeOfCost": "無料ですが、責任は生じます。",
     "promoteTransperant": "データの正しい引用は、透明性の高い科学と、データ出版者に謝意を表するために重要です。このためには要求したデータとともに提供される［GBIFが推奨する引用］(https://www.gbif.org/citation-guidelines) に従ってください。",
