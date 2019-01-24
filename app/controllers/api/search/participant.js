@@ -8,7 +8,6 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     request = rootRequire('app/helpers/request'),
     maxPatternLength = 50;
 
-
 async function get(key, depth) {
     depth = depth || 0;
     let baseRequest = {
@@ -35,7 +34,10 @@ async function expand(participant) {
 }
 
 async function query(participantName) {
-    if (!_.isString(participantName) || maxPatternLength <= participantName.length) {
+    if (
+        !_.isString(participantName) ||
+        maxPatternLength <= participantName.length
+    ) {
         return;
     }
     let participants = await Participant.getParticipantsByType('OTHER');
@@ -54,16 +56,27 @@ async function query(participantName) {
         maxPatternLength: maxPatternLength
     });
 
-    let participantResults = fuse.search(participantName).filter((p)=>{
- return p.score < 0.3;
-}); // TODO how to best handle that fuse don't like pattern longer than around 50 chars
+    let participantResults = fuse.search(participantName).filter((p) => {
+        return p.score < 0.3;
+    }); // TODO how to best handle that fuse don't like pattern longer than around 50 chars
 
-    let pts = await Q.all(_.map(participantResults, (p) =>{
-        return Participant.get(p.item.id);
-     }));
-    let highlights = _.remove(pts, (ptcpt)=>{
+    let pts = await Q.all(
+        _.map(participantResults, (p) => {
+            return Participant.get(p.item.id);
+        })
+    );
+    // If Comms request to not have affiliates in search results comment this in:
+   /* pts = pts.filter((p) => {
+        return _.get(p, 'participant.participationStatus') !== 'AFFILIATE';
+    }); */
+    let highlights = _.remove(pts, (ptcpt) => {
         let p = ptcpt.participant;
-        return (p.name.toLowerCase() === participantName.toLowerCase() || (p.abbreviatedName && p.abbreviatedName.toLowerCase() === participantName.toLowerCase()));
+        return (
+            p.name.toLowerCase() === participantName.toLowerCase() ||
+            (p.abbreviatedName &&
+                p.abbreviatedName.toLowerCase() ===
+                    participantName.toLowerCase())
+        );
     });
     let response = {results: pts.slice(0, 4), count: pts.length};
     if (highlights.length > 0) {
