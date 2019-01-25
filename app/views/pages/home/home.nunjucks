@@ -52,29 +52,25 @@
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/occurrence/search" class="inherit noUnderline">
                             <h3 class="discreet">{$ __('homepage.counts.occurrences') $}</h3>
-                            <div count="{{ portal.dataApi }}occurrence/search">980,000,000</div>
+                            <div count="{{ portal.dataApi }}occurrence/search">1.000,000,000</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
                             <h3 class="discreet">{$ __('homepage.counts.datasets') $}</h3>
-                            <div count="{{ portal.dataApi }}dataset/search">39,000</div>
+                            <div count="{{ portal.dataApi }}dataset/search">40,000</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
                             <h3 class="discreet">{$ __('homepage.counts.publishers') $}</h3>
-                            <div count="{{ portal.dataApi }}organization" subtract="{{ portal.dataApi }}organization/nonPublishing">1,150</div>
+                            <div count="{{ portal.dataApi }}organization" subtract="{{ portal.dataApi }}organization/nonPublishing">1,300</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
-
-
-                        <a ng-href="/about-species-counts" class="inherit noUnderline">
-                        {#<a ng-href="{{ portal.urlPrefix }}/species/search?rank=SPECIES&status=ACCEPTED" class="inherit noUnderline">#}
-                            <h3 class="discreet">{$ __('homepage.counts.species') $}</h3>
-                            {#<div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}&rank=SPECIES&status=ACCEPTED">1,700,00</div>#}
-                            <p>{$ __('homepage.counts.speciesSubtitle') $}</p>
+                        <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType=journal&relevance=GBIF_USED&peerReview=true" class="inherit noUnderline">
+                            <h3 class="discreet">{$ __('homepage.counts.literature') $}</h3>
+                            <div count="/api/resource/search?contentType=literature&literatureType=journal&relevance=GBIF_USED&peerReview=true&limit=0">3,450</div>
                         </a>
                     </article>
                 </div>
