@@ -195,7 +195,7 @@ router.get('/user/:user', auth.isAuthenticated(), function(req, res) {
         let userCode = req.params.user;
         try {
             let user = encrypt.decryptJSON(userCode);
-            res.redirect(302, config.registry + '/web/#/user/' + user.userName);
+            res.redirect(302, config.registry + '/user/' + user.userName);
         } catch (err) {
             res.sendStatus(500);
         }
