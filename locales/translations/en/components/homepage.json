@@ -4,7 +4,7 @@
             "occurrences": "Occurrence records",
             "datasets": "Datasets",
             "publishers": "Publishing institutions",
-            "literature": ""
+            "literature": "Peer-reviewed papers using data"
         },
         "aboutGbifCountry": "About GBIF {COUNTRY}",
         "summary": "Free and open access to biodiversity data"
