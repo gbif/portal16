@@ -1,0 +1,17 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="white-background">
+            <div class="wrapper-horizontal-stripes" >
+                {% include "./header.nunjucks" %}
+                <div>
+                    {% include "./nav.nunjucks" %}
+                </div>
+                <div class="p-t-05" ng-if="grscicoll.$state.is('grscicoll')">
+                    {% include "./about.nunjucks" %}
+                </div>
+                <div ui-view></div>
+            </div>
+        </div>
+        {% include "../resource/key/preview.nunjucks" %}
+    </div>
+</div>

@@ -58,7 +58,7 @@ function builder(locale, folder, keepEmptyStrings) {
         getFile(locale, `./${folder}/${locale}/enums/error`),
         getFile(locale, `./${folder}/${locale}/enums/datasetType`),
         getFile(locale, `./${folder}/${locale}/components/menu`),
-        getFile(locale, `./${folder}/${locale}/components/grbio`),
+        getFile(locale, `./${folder}/${locale}/components/grscicoll`),
         getFile(locale, `./${folder}/${locale}/components/counts`),
         getFile(locale, `./${folder}/${locale}/components/feedback`),
         getFile(locale, `./${folder}/${locale}/components/filters`),

@@ -26,6 +26,6 @@
       "searchResources": "搜尋資源",
       "searchOccurrences": "搜尋出現紀錄"
     },
-    "nResults": "{NUMBER_FORMATED}{NUMBER, select,1{結果}other{結果}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select,1{結果}other{結果}}"
   }
 }
