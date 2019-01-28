@@ -1,8 +1,8 @@
 {
   "enum": {
     "collectionContentType": {
-      "ARCHAEOLOGICAL_OTHER": "",
-      "ARCHAEOLOGICAL_HUMAN_REMAINS": "",
+      "ARCHAEOLOGICAL_OTHER": "Archaeological other",
+      "ARCHAEOLOGICAL_HUMAN_REMAINS": "Archaeological human remains",
       "ARCHAEOLOGICAL_FAUNAL_REMAINS": "",
       "ARCHAEOLOGICAL_FLORAL_REMAINS": "",
       "ARCHAEOLOGICAL_C14": "",
