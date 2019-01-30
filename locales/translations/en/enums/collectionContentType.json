@@ -3,9 +3,9 @@
     "collectionContentType": {
       "ARCHAEOLOGICAL_OTHER": "Archaeological other",
       "ARCHAEOLOGICAL_HUMAN_REMAINS": "Archaeological human remains",
-      "ARCHAEOLOGICAL_FAUNAL_REMAINS": "",
-      "ARCHAEOLOGICAL_FLORAL_REMAINS": "",
-      "ARCHAEOLOGICAL_C14": "",
+      "ARCHAEOLOGICAL_FAUNAL_REMAINS": "Archaeological faunal remains",
+      "ARCHAEOLOGICAL_FLORAL_REMAINS": "Archaeological floral remains",
+      "ARCHAEOLOGICAL_C14": "Archaeological C14",
       "ARCHAEOLOGICAL_COPROLITES": "",
       "ARCHAEOLOGICAL_CERAMIC_ARTIFACTS": "",
       "ARCHAEOLOGICAL_FAUNAL_ARTIFACTS": "",
