@@ -7,10 +7,10 @@
       "LIVING_ORGANISM_COLLECTION": "Living organism collection",
       "MEDICAL_RESEARCH_INSTITUTE": "Medical research institute",
       "MUSEUM": "Museum",
-      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "",
-      "OTHER_INSTITUTIONAL_TYPE": "",
-      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "",
-      "UNIVERSITY_COLLEGE": "",
+      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "Museum herbarium private non profit",
+      "OTHER_INSTITUTIONAL_TYPE": "Other institutional type",
+      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "Other type research institution biorepository",
+      "UNIVERSITY_COLLEGE": "University college",
       "ZOO_AQUARIUM": "Zoo aquarium"
     }
   }
