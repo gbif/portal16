@@ -6,7 +6,7 @@
         "nCollections": "",
         "nInstitutions": "",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select,1{事件}other{事件}}",
-        "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{設施}other{設施}}",
+        "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{裝置}other{裝置}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}關於",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}} 發布",
