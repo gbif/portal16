@@ -1,12 +1,12 @@
 {
     "counts": {
-        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{引用} other{引用}}",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{引用書目} other{引用書目}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select,1{紀錄}other{紀錄}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select,1{結果}other{結果}}",
         "nCollections": "",
         "nInstitutions": "",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select,1{事件}other{事件}}",
-        "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{安裝}other{安裝}}",
+        "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{設施}other{設施}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}關於",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}} 發布",
