@@ -4,7 +4,7 @@
             "occurrences": "Occurrences",
             "datasets": "Jeux de données",
             "publishers": "Institutions éditrices",
-            "literature": ""
+            "literature": "Articles scientifiques utilisant des données"
         },
         "aboutGbifCountry": "A propos de GBIF {COUNTRY}",
         "summary": "Accès libre et gratuit aux données de biodiversité"
