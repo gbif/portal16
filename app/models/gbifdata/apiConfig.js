@@ -94,13 +94,13 @@ let apiConfig = {
         canonical: 'organization/'
     },
     collection: {
-        url: baseUrl + 'grbio/collection/'
+        url: baseUrl + 'grscicoll/collection/'
     },
     institution: {
-        url: baseUrl + 'grbio/institution/'
+        url: baseUrl + 'grscicoll/institution/'
     },
     grscicollPerson: {
-        url: baseUrl + 'grbio/person/'
+        url: baseUrl + 'grscicoll/person/'
     },
     newsroomWebcal: {
 
