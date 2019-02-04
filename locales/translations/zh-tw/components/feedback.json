@@ -1,6 +1,6 @@
 {
   "feedback": {
-    "leaveFeedback": "給予回饋意見",
+    "leaveFeedback": "意見回饋",
     "intro": {
       "title": "回饋和問題",
       "example": "請選擇您所要提供的回饋形式，以協助我們解決問題。盡可能以英文提交。我們預計在2個工作天內回覆。"
@@ -9,11 +9,11 @@
       "title": "內容",
       "example": "例如: 這個頁面包含拼字錯誤。物種不存在。位置似乎有疑問。該組織新URL是...",
       "annotate": "這個發布者有一個處理回饋意見的網站，我們建議您使用它。",
-      "contactPerMail": "與資料聯絡者取得聯繫"
+      "contactPerMail": "聯絡資料集聯絡人"
     },
     "bug": {
       "title": "錯誤",
-      "example": "例如: 搜尋鍵無法運作。頁面無法載入。因欄位重複而無法讀取。"
+      "example": "例如: 搜尋鍵無法運作。頁面無法載入。因欄位重疊而無法讀取。"
     },
     "idea": {
       "title": "想法",
@@ -22,7 +22,7 @@
     "question": {
       "title": "服務台",
       "example": "例如: 如何保護稀有物種的資料？你能幫我找到此物種在國際水域發生的所有紀錄嗎？",
-      "description": "有任何問題，我們的協助平台helpdesk@gbif.org都可以協助回答。",
+      "description": "我們的服務台 helpdesk@gbif.org 可以回答所有問題。",
       "comment": "私人提問與非技術問題請洽[info@gbif.org]（mailto:info@gbif.org） ，媒體事務請洽[communication@gbif.org]（mailto:communication@gbif.org）"
     },
     "confirmation": {
@@ -40,11 +40,11 @@
       "description": "詳細說明: 對於分類的主張，請提供參考文獻。請盡可能以英文提交您的回饋意見。",
       "username": "你的電子郵件或Github使用者名稱(公開)"
     },
-    "markdownSupport": "備註支援",
+    "markdownSupport": "Markdown 語法支援",
     "issueTracking": "所以問題都是公開且可透過[Github]取得(https://github.com/gbif/portal-feedback/issues)",
     "failure": "糟糕 - 回饋意見系統無法運作。請寄電子郵件或至[Github](https://github.com/gbif/portal-feedback/issues)。對於這項錯誤問題，我們感到抱歉。",
     "weRecommendX": "我們建議使用[{NAME}]({LINK})",
-    "tellGbif": "告知GBIF",
+    "tellGbif": "告知 GBIF",
     "submit": "提交",
     "seeAllComments": "查看全部",
     "recommendMail": "我們建議您寄電子郵件至",
