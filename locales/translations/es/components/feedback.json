@@ -3,7 +3,7 @@
     "leaveFeedback": "Deja tus comentarios",
     "intro": {
       "title": "Comentarios y preguntas",
-      "example": "Ayúdanos a resolver cualquier cuestión eligiendo el tipo de comentario que nos envías"
+      "example": "Ayúdanos a resolver cualquier cuestión eligiendo el tipo de comentario que nos envías. Por favor, si es posible, envía tu comentario en inglés. Trataremos de responder en un par de días."
     },
     "data content": {
       "title": "Contenido",
@@ -37,7 +37,7 @@
     },
     "placeholders": {
       "summary": "Resumen",
-      "description": "Descripción detallada. Para peticiones taxonómicas, por favor proporciona una referencia",
+      "description": "Descripción detallada. Para peticiones taxonómicas, por favor proporciona una referencia. Por favor, si es posible, envía tu comentario en inglés.",
       "username": "Email o nombre de usuario de GitHub"
     },
     "markdownSupport": "",
