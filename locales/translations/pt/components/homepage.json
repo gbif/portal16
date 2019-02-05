@@ -4,8 +4,7 @@
             "occurrences": "Registos de ocorrências",
             "datasets": "Conjuntos de dados",
             "publishers": "Instituições publicadoras",
-            "species": "Espécies",
-            "speciesSubtitle": "Saiba mais sobre o número de espécies abrangidas por dados no GBIF.org."
+            "literature": ""
         },
         "aboutGbifCountry": "Sobre o GBIF {COUNTRY}",
         "summary": "Acesso livre e aberto aos dados da biodiversidade"
