@@ -8,8 +8,8 @@
     "PROPARTE": "部分",
     "AUTONYM": "自動名",
     "IMPLICIT_NAME": "隱晦名",
-    "MISSING_ACCEPTED": "丟失接受",
-    "BASIONYM_PLACEHOLDER": "基礎名佔位符",
+    "MISSING_ACCEPTED": "已接受缺失",
+    "BASIONYM_PLACEHOLDER": "基礎名預留位置",
     "EX_AUTHOR_SYNONYM": "前作者同物異名",
     "OTHER": "其它"
   }
