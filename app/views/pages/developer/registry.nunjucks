@@ -356,7 +356,7 @@
                     <h3>Collections</h3>
                     <p>                        
                         The collections API provides CRUD services for collections, institutions and person entities. 
-                        The data was originally migrated from GRBIO and adapted to follow the same conventions as other registry services. Therefore, the deletion of 
+                        The data was originally migrated from GRSciColl and adapted to follow the same conventions as other registry services. Therefore, the deletion of 
                         collections, institutions and persons is logical, meaning these entries remain registered forever
                         and only get a deleted timestamp. On the other hand, the deletion of tags and identifiers is physical, meaning the entries are permanently removed.                                                                        
                     </p>
