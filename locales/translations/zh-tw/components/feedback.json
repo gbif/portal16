@@ -2,12 +2,12 @@
   "feedback": {
     "leaveFeedback": "意見回饋",
     "intro": {
-      "title": "回饋和問題",
-      "example": "請選擇您所要提供的回饋形式，以協助我們解決問題。盡可能以英文提交。我們預計在2個工作天內回覆。"
+      "title": "意見回饋和問題",
+      "example": "請選擇您所要提供的回饋類別，以協助我們處理問題。請以英文提交。我們盡力在 2 個工作天內回覆。"
     },
     "data content": {
       "title": "內容",
-      "example": "例如: 這個頁面包含拼字錯誤。物種不存在。位置似乎有疑問。該組織新URL是...",
+      "example": "例如：這個頁面包含拼字錯誤。該物種不存在。位置似乎有疑問。該組織新 URL 是...",
       "annotate": "這個發布者有一個處理回饋意見的網站，我們建議您使用它。",
       "contactPerMail": "聯絡資料集聯絡人"
     },
@@ -23,7 +23,7 @@
       "title": "服務台",
       "example": "例如: 如何保護稀有物種的資料？你能幫我找到此物種在國際水域發生的所有紀錄嗎？",
       "description": "我們的服務台 helpdesk@gbif.org 可以回答所有問題。",
-      "comment": "私人提問與非技術問題請洽[info@gbif.org]（mailto:info@gbif.org） ，媒體事務請洽[communication@gbif.org]（mailto:communication@gbif.org）"
+      "comment": "私人提問與非技術問題請洽 [info@gbif.org](mailto:info@gbif.org)，媒體事務請洽[communication@gbif.org](mailto:communication@gbif.org)"
     },
     "confirmation": {
       "title": "謝謝",
