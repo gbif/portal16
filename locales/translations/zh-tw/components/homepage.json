@@ -4,9 +4,9 @@
             "occurrences": "出現記錄",
             "datasets": "資料集",
             "publishers": "發布機構",
-            "literature": "同儕審查論文使用資料"
+            "literature": "使用資料的同儕審查論文"
         },
-        "aboutGbifCountry": "關於GBIF {COUNTRY}",
-        "summary": "自由開放取用生物多樣性資料"
+        "aboutGbifCountry": "關於 GBIF {COUNTRY}",
+        "summary": "自由、開放取用的生物多樣性資料"
     }
 }
