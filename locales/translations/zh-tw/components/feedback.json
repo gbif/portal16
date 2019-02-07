@@ -32,22 +32,22 @@
     },
     "issues": {
       "title": "內容問題",
-      "description": "其他使用者回報此內容有問題",
+      "description": "其他使用者回報的內容問題",
       "create": "給予回饋意見"
     },
     "placeholders": {
       "summary": "總結",
-      "description": "詳細說明: 對於分類的主張，請提供參考文獻。請盡可能以英文提交您的回饋意見。",
-      "username": "你的電子郵件或Github使用者名稱(公開)"
+      "description": "詳細說明: 對於分類學的主張，請提供參考文獻。請盡可能以英文提交您的回饋意見。",
+      "username": "你的電子郵件或 Github 使用者名稱（公開）"
     },
     "markdownSupport": "Markdown 語法支援",
-    "issueTracking": "所以問題都是公開且可透過[Github]取得(https://github.com/gbif/portal-feedback/issues)",
-    "failure": "糟糕 - 回饋意見系統無法運作。請寄電子郵件或至[Github](https://github.com/gbif/portal-feedback/issues)。對於這項錯誤問題，我們感到抱歉。",
-    "weRecommendX": "我們建議使用[{NAME}]({LINK})",
+    "issueTracking": "所以問題都是公開的且可透過 [Github](https://github.com/gbif/portal-feedback/issues)取得",
+    "failure": "糟糕 - 回饋意見系統無法運作。請寄電子郵件或直接至 [Github](https://github.com/gbif/portal-feedback/issues) 提交。抱歉發生這個問題。",
+    "weRecommendX": "我們建議使用 [{NAME}]({LINK})",
     "tellGbif": "告知 GBIF",
     "submit": "提交",
     "seeAllComments": "查看全部",
     "recommendMail": "我們建議您寄電子郵件至",
-    "pleaseLogin": "請登入帳戶以留下您的回饋意見。或您也可以使用[Github](https://github.com/gbif/portal-feedback/issues). 為什麼呢? 很不幸地，在無需登入的情況下，我們在回饋意見系統中看到許多垃圾廣告。"
+    "pleaseLogin": "請登入以留下您的回饋意見。為什麼呢？很不幸地，在無需登入的情況下，我們在回饋意見系統中看到許多垃圾廣告。或者，您也可以使用 [Github](https://github.com/gbif/portal-feedback/issues)。"
   }
 }
