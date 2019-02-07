@@ -1,8 +1,8 @@
 {
     "healthSummary": {
         "systemHealth": "系統運作狀況",
-        "description": "各種GBIF的服務狀態如何",
-        "updatedTimeAgo": "更新{TIME_AGO}",
+        "description": "各個 GBIF 服務的狀態",
+        "updatedTimeAgo": "{TIME_AGO} 更新",
         "statusSummary": {
             "OPERATIONAL": "所有系統皆在執行中",
             "INFO": "所有系統皆在執行中",
