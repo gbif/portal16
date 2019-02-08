@@ -8,8 +8,8 @@
     },
     "login": {
       "failed": {
-        "FACEBOOK": "無法登入 Facebook",
-        "GITHUB": "無法登入 Github"
+        "FACEBOOK": "無法以 Facebook 登入",
+        "GITHUB": "無法以 Github 登入"
       }
     },
     "error": {
