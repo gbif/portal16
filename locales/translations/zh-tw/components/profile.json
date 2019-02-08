@@ -2,14 +2,14 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "無法連結至Facebook",
-        "GITHUB": "無法連結至Github"
+        "FACEBOOK": "無法連結至 Facebook",
+        "GITHUB": "無法連結至 Github"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "無法登入Facebook",
-        "GITHUB": "無法登入Github"
+        "FACEBOOK": "無法登入 Facebook",
+        "GITHUB": "無法登入 Github"
       }
     },
     "error": {
