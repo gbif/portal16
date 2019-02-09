@@ -2,9 +2,9 @@
   "cms": {
     "project": {
       "project": "專案",
-      "projectId": "專案ID",
+      "projectId": "專案識別碼",
       "projectIdentifier": "專案識別碼",
-      "grantType": "補助經費類型",
+      "grantType": "獎助類型",
       "duration": "期間",
       "title": "標題",
       "start": "開始",
