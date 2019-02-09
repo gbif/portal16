@@ -1,15 +1,15 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "總結",
+      "summary": "概要",
       "dataPublishing": "資料發布",
-      "dataAbout": "資料關於",
-      "participartion": "參與",
-      "publications": "出版",
+      "dataAbout": "相關資料",
+      "participartion": "會員參與",
+      "publications": "論文發表",
       "news": "新聞",
       "invasives": ""
     },
-    "memberSince": "會員自從",
+    "memberSince": "會員始自",
     "dataFrom": "資料來自 {TRANSLATED_COUNTRY}",
     "dataAboutCountry": "資料關於 {TRANSLATED_COUNTRY}",
     "publishingTrends": "發布趨勢",
