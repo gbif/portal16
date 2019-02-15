@@ -3,8 +3,8 @@
     "longType": {
       "OCCURRENCE": "出現記錄資料集",
       "CHECKLIST": "物種名錄資料集",
-      "SAMPLING_EVENT": "採樣事件",
-      "METADATA": "描述資料資料集"
+      "SAMPLING_EVENT": "取樣事件",
+      "METADATA": "詮釋資料集"
     },
     "metricHighlights": {
       "occurrences": "出現紀錄",
