@@ -4,7 +4,7 @@
       "RESOURCE_STRUCTURE": "資源結構",
       "RESOURCE_INTEGRITY": "資源完整性",
       "RECORD_STRUCTURE": "紀錄結構",
-      "OCC_INTERPRETATION_BASED": "GBIF分類群解釋",
+      "OCC_INTERPRETATION_BASED": "GBIF出現紀錄闡述",
       "METADATA_CONTENT": "詮釋資料內容",
       "CLB_INTERPRETATION_BASED": "GBIF分類群解釋"
     },
