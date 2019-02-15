@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "csvDescription": "空格分隔的CSV檔。只包含GBIF解析過的資料",
+    "csvDescription": "空格分隔的CSV檔。只包含GBIF解析過的資料，不包含多媒體。",
     "dwcaDescription": "達爾文核心集歸檔包含發布者提供的原始資料與GBIF解析後的資料。",
     "estimatedSize": "估計資料大小",
     "knownIssues": "已知的問題",
@@ -23,7 +23,7 @@
     "proceed": "開始執行",
     "understood": "了解",
     "largeDownload": "大量下載",
-    "requestingFullDownload": "您要求完整下載 GBIF 中的所有發生資料。",
+    "requestingFullDownload": "您要求完整下載 GBIF 中的所有出現紀錄資料。",
     "occFiltersExplainedHere": "你可能希望在下載前先篩選資料。可以使用出現紀錄篩選器來完成。點此看更多解釋[here](/news/3K5oLzZXi0yG0SEO8E6c88/top-tip-using-filters-and-facets-on-gbiforg)",
     "estSizeIs": "預估下載的容量大小為{SIZE_FORMATTED}",
     "estDLtimes": "估計下載時間",
