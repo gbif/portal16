@@ -9,8 +9,8 @@
     "metricHighlights": {
       "occurrences": "出現紀錄",
       "withTaxonMatch": "與分類群匹配",
-      "withCoordinates": "與座標",
-      "withYear": "與年份",
+      "withCoordinates": "含座標",
+      "withYear": "含年份",
       "acceptedNames": "有效名稱",
       "synonyms": "同物異名",
       "overlapWithNub": "與GBIF骨架重疊",
