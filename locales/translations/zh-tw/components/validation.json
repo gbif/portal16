@@ -5,7 +5,7 @@
       "RESOURCE_INTEGRITY": "資源完整性",
       "RECORD_STRUCTURE": "記錄結構",
       "OCC_INTERPRETATION_BASED": "GBIF分類群解釋",
-      "METADATA_CONTENT": "元資料內容",
+      "METADATA_CONTENT": "詮釋資料內容",
       "CLB_INTERPRETATION_BASED": "GBIF分類群解釋"
     },
     "issueType": {
@@ -45,8 +45,8 @@
         "title": "附加元件"
       },
       "METADATA": {
-        "description": "元資料為描述EML中的資料(生態元資料語言)",
-        "title": "元資料文件"
+        "description": "詮釋資料描述EML中的資料(生態詮釋資料語言)",
+        "title": "詮釋資料文件"
       },
       "META_DESCRIPTOR": {
         "description": "語義註記用來描述資料如何建構而成 (檔案、行等)",
@@ -117,7 +117,7 @@
       "newValidation": "新的驗證",
       "about": "關於",
       "darwinCoreExtensions": "達爾文核心集擴展",
-      "metaData": "元資料",
+      "metaData": "詮釋資料",
       "summary": "總結"
     }
   }
