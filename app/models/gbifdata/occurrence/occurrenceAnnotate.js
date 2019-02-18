@@ -25,6 +25,12 @@ let config = {
             keys: ['key', 'institutionCode', 'collectionCode', 'catalogNumber', 'repositoryURI'],
             name: 'AnnoSys',
             abbrivation: 'An'
+        },
+        'ccc2e3ec-98ba-4e74-878d-7dcf0f57baba': {
+            url: '{{occurrenceID}}',
+            keys: ['occurrenceID'],
+            name: 'Danish Mycological Society',
+            abbrivation: 'DMS'
         }
     },
     installation: {
