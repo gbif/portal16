@@ -2,7 +2,7 @@
 let dataApi = rootRequire('app/models/gbifdata/apiConfig').base.url;
 let env = rootRequire('config/config').env;
 
-let AnnosysBaseUrl = env == 'prod' ? 'https://annosys.bgbm.fu-berlin.de/AnnoSys/' : 'https://annosys.bgbm.fu-berlin.de/AnnoSysTest/';
+let AnnosysBaseUrl = env === 'prod' ? 'http://annosys.bgbm.fu-berlin.de/AnnoSys/' : 'http://annosys.bgbm.fu-berlin.de/AnnoSysTest/';
 
 // TODO make environment dependent to allow for test annotations?
 let config = {
