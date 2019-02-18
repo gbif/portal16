@@ -40,15 +40,15 @@
                                 {% endif %}
                                 {% if term.simpleName == "organismID" %}
                                 <span class="chip">
-                                    <a ui-sref="occurrenceSearchTable({organism_id: '{$ occurrence.record[term.simpleName] $}' })">
-                                        <span count="{{ portal.dataApi }}occurrence/search?organism_id={$ occurrence.record[term.simpleName] $}" count-translation="counts.nOccurrences">&nbsp;</span>
+                                    <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', organism_id: '{$ occurrence.record.organismID $}' })">
+                                        <span count="{{ portal.dataApi }}occurrence/search?dataset_key={$ occurrence.record.datasetKey $}&organism_id={$ occurrence.record.organismID $}" count-translation="counts.nOccurrences">&nbsp;</span>
                                     </a>
                                 </span>
                                 {% endif %}
                                 {% if term.simpleName == "eventID" %}
                                 <span class="chip">
-                                    <a ui-sref="occurrenceSearchTable({event_id: '{$ occurrence.record[term.simpleName] $}', advanced: true })">
-                                        <span count="{{ portal.dataApi }}occurrence/search?event_id={$ occurrence.record[term.simpleName] $}" count-translation="counts.nOccurrences">&nbsp;</span>
+                                    <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', event_id: '{$ occurrence.record.eventID $}', advanced: true })">
+                                        <span count="{{ portal.dataApi }}occurrence/search?dataset_key={$ occurrence.record.datasetKey $}&event_id={$ occurrence.record.eventID $}" count-translation="counts.nOccurrences">&nbsp;</span>
                                     </a>
                                 </span>
                                 {% endif %}
