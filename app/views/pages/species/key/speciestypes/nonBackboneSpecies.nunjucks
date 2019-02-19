@@ -17,7 +17,7 @@
                             <div ng-bind-html="description.description"></div>
                             <p class="small source" ng-if="description.source">
                                 <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>: 
-                                <a class="inherit" ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a>
+                                {{ description.source }}
                             </p>
                         </div>
                     </div>
