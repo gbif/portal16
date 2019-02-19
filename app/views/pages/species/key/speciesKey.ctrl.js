@@ -99,13 +99,9 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });
 
-
     vm.occurrenceQuery = {taxon_key: vm.key};
-
     vm.descriptions = SpeciesDescriptions.get({id: vm.key, limit: 100});
-
     vm.combinations = SpeciesCombinations.query({id: vm.key});
-
     vm.distributions = SpeciesDistributions.query({id: vm.key});
 
     vm.species.$promise
