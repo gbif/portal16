@@ -11,8 +11,8 @@
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Oui",
+      "false": "Non"
     },
     "accessionStatus": "",
     "contentTypes": "",
@@ -49,8 +49,8 @@
       "true": "",
       "false": ""
     },
-    "true": "",
-    "false": ""
+    "true": "Oui",
+    "false": "Non"
   },
   "grscicollPerson": {
     "search": {
