@@ -14,7 +14,7 @@
     "recordedBy": "被記錄",
     "eventDate": "活動日期",
     "eventID": "活動ID",
-    "samplingProtocol": "採樣程序",
+    "samplingProtocol": "取樣程序",
     "location": "地點",
     "hasGeospatialIssue": "有地理空間問題",
     "basisOfRecord": "記錄依據",
