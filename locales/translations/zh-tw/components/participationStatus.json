@@ -28,11 +28,11 @@
                 },
                 "longForm": {
                     "VOTING": "投票組織會員",
-                    "ASSOCIATE": "相關參與者組織",
-                    "OBSERVER": "觀察參與者組織",
-                    "AFFILIATE": "附屬參與者組織",
-                    "FORMER": "前參與者組織",
-                    "undefined": "未知"
+                    "ASSOCIATE": "副組織會員",
+                    "OBSERVER": "觀察員組織會員",
+                    "AFFILIATE": "附屬組織會員",
+                    "FORMER": "前組織會員",
+                    "undefined": "不明"
                 }
             }
         }
