@@ -24,10 +24,10 @@
                     "OBSERVER": "來自{REGION}的觀察員組織會員",
                     "AFFILIATE": "來自{REGION}的附屬組織會員",
                     "FORMER": "來自{REGION}的前組織會員",
-                    "undefined": "未知"
+                    "undefined": "不明"
                 },
                 "longForm": {
-                    "VOTING": "投票參與者組織",
+                    "VOTING": "投票組織會員",
                     "ASSOCIATE": "相關參與者組織",
                     "OBSERVER": "觀察參與者組織",
                     "AFFILIATE": "附屬參與者組織",
