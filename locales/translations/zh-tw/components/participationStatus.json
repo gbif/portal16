@@ -1,29 +1,29 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "投票參與者",
-            "ASSOCIATE": "相關參與者",
-            "OBSERVER": "觀察參與者",
-            "AFFILIATE": "附屬參與者",
-            "FORMER": "前參與者",
-            "undefined": "未知"
+            "VOTING": "投票會員",
+            "ASSOCIATE": "副會員",
+            "OBSERVER": "觀察員",
+            "AFFILIATE": "附屬會員",
+            "FORMER": "前會員",
+            "undefined": "不明"
         },
         "description": {
-            "VOTING": "來自{REGION} GBIF投票參與者",
-            "ASSOCIATE": "來自{REGION} 相關參與者",
-            "OBSERVER": "來自{REGION} GBIF觀察國",
-            "AFFILIATE": "來自{REGION} 附屬參與者",
-            "FORMER": "來自{REGION} GBIF前參與者",
-            "undefined": "未知"
+            "VOTING": "來自{REGION}的 GBIF 投票會員",
+            "ASSOCIATE": "來自{REGION}的副會員",
+            "OBSERVER": "來自{REGION} 的 GBIF 觀察員國家",
+            "AFFILIATE": "來自{REGION}的附屬會員",
+            "FORMER": "來自{REGION}的 GBIF 前會員",
+            "undefined": "不明"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "來自{REGION} GBIF投票參與者組織",
-                    "ASSOCIATE": "來自{REGION} 相關參與者組織",
-                    "OBSERVER": "來自{REGION} 觀察參與者組織",
-                    "AFFILIATE": "來自{REGION} 附屬參與者組織",
-                    "FORMER": "來自{REGION} 前參與者組織",
+                    "VOTING": "來自{REGION}的 GBIF 投票組織會員",
+                    "ASSOCIATE": "來自{REGION}的副組織會員",
+                    "OBSERVER": "來自{REGION}的觀察員組織會員",
+                    "AFFILIATE": "來自{REGION}的附屬組織會員",
+                    "FORMER": "來自{REGION}的前組織會員",
                     "undefined": "未知"
                 },
                 "longForm": {
