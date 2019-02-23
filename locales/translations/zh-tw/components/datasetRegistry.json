@@ -23,7 +23,7 @@
             "preferredIdentifier": "首選識別碼",
             "alternativeIdentifier": "備用識別碼",
             "orphaned": "孤立的資料集",
-            "rescued": "已救出的孤立資料集",
+            "rescued": "取回的孤立資料集",
             "adopted": "採用的資料集",
             "neverIngested": "從未獲取",
             "inIngestionQueue": "在接收佇列中",
