@@ -2,7 +2,7 @@
   "trends": {
     "theseChartsIllustrate1": "此圖表顯示物種出現紀錄資料的可用性隨著時間變化。",
     "noOccRecords": "出現紀錄數",
-    "occByKingdomChartText": "依照界來分類的可用記錄數。\"未知\"包括分類群資訊，這些資訊無法連結至可用的分類群物種名錄。",
+    "occByKingdomChartText": "以界來分類的可用記錄數。\"未知\"包括分類群資訊，這些資訊無法連結至可用的分類群物種名錄。",
     "recordsByKingdom": "根據界來記錄",
     "animaliaByBasisOfRecordText": "動物記錄數按照紀錄分類。\"未知\" 包括沒有定義依據的紀錄或定義依據的數值未確認之紀錄。",
     "recordsForAnimalia": "動物界記錄",
