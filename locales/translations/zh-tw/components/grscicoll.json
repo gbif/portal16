@@ -19,7 +19,7 @@
     "preservationTypes": "保存類型",
     "homepage": "首頁",
     "apiUrl": "蒐藏品網頁服務的URL",
-    "catalogUrl": "收藏品標本名錄/資料庫的URL",
+    "catalogUrl": "蒐藏品標本名錄/資料庫的URL",
     "identifiers": "鑑定者",
     "collectionMailingAddress": "郵寄地址",
     "status": "狀態",
@@ -39,7 +39,7 @@
     "code": "機構代碼",
     "statusOfInstitution": "機構狀態",
     "additionalNames": "其他名稱",
-    "description": "描述說明",
+    "description": "描述",
     "homepage": "首頁",
     "disciplines": "機構紀律",
     "institutionalGovernance": "機構治理",
@@ -54,10 +54,10 @@
   },
   "grscicollPerson": {
     "search": {
-      "title": "收集人員",
+      "title": "蒐集人員",
       "description": "GRSciColl 員工是指參與收藏品的任何類型的工作人員。他們與機構及任何類型的收藏品都相關聯。"
     },
-    "headerTitle": "收集人員",
+    "headerTitle": "蒐集人員",
     "firstName": "名",
     "lastName": "姓",
     "fullName": "全名",
