@@ -1,7 +1,7 @@
 {
     "filters": {
         "searchPlaceholder": "搜尋",
-        "noPreference": "無偏好",
+        "noPreference": "無偏好設定",
         "invert": "倒序",
         "clear": "清除",
         "add": "新增",
@@ -29,7 +29,7 @@
             "wktPlaceholder": "WKT或GeoJSON - 不支援多邊形",
             "invalidTextInput": "無效的WKT或GeoJSON",
             "tooLarge": "幾何形狀過大",
-            "tooLargeSuggestion": "嘗試使用定界框, 然後以本地進行篩選。",
+            "tooLargeSuggestion": "嘗試使用定界框，然後進行區域篩選。",
             "invalidRange": "無效的定界框"
         }
     }
