@@ -3,7 +3,7 @@
         "categoryFeatured": "熱門推薦",
         "suggestDataset": {
             "NOT_OPEN": "不是公開授權",
-            "title": "建議資料集",
+            "title": "建議一個資料集",
             "pleaseDescribeTheDataset": "請描述此資料集",
             "thankYou": "謝謝",
             "form": {
@@ -18,7 +18,7 @@
                 "low": "對現有資料這將是很好的補充文件",
                 "bibliographicRef": "參考書目",
                 "type": "資料集類型",
-                "license": "版權資訊",
+                "license": "授權資訊",
                 "dataHolderContact": "資料持有者聯絡資訊",
                 "publicAlert": "將發佈以上細節",
                 "yourContact": "你的聯絡資訊",
@@ -27,7 +27,7 @@
                 "followDiscussionBelow": "在底下連結追蹤或加入討論。",
                 "followIssue": "在Github查看建議",
                 "suggestAnother": "建議其他資料集",
-                "saveFailure": "糟糕。我們無法儲存你的建議。請稍後再試一次，或直接前往建議管理Github[Github](https://github.com/gbif/data-mobilization/issues)"
+                "saveFailure": "糟糕。我們無法儲存你的建議。請稍後再試一次，或直接前往建議管理Github [Github](https://github.com/gbif/data-mobilization/issues)"
             }
         },
         "observationTrends": {
@@ -46,11 +46,11 @@
         },
         "speciesLookup": {
             "description": "從CSV檔案標準化物種名稱違反GBIF架構。檔案應該包含學名、界及ID等欄位。",
-            "title": "物種名匹配"
+            "title": "物種名吻合"
         },
         "ipt": {
-            "description": "整合發布套件(IPT) 是以Java編寫的免費開源軟體，透過GBIF網絡可用於發布和分享生物多樣性資料集。IPT也可以配置DataCite或EZID帳戶，以便將DOI分配給資料集並轉換為資料存儲庫。",
-            "dontSeeYourIpt": "還沒有IPT嗎? 上傳[GBIF] (mailto:helpdesk@gbif.org \"來信GBIF協助平台詢求在地圖上加入IPT\") 你的座標。"
+            "description": "整合發布套件（IPT）是以Java編寫的免費開源軟體，透過GBIF網絡可用於發布和分享生物多樣性資料集。IPT也可以配置DataCite或EZID帳戶，以便將DOI分配給資料集並轉換為資料存儲庫。",
+            "dontSeeYourIpt": "還沒有IPT嗎? 上傳 [GBIF] (mailto:helpdesk@gbif.org \"來信GBIF協助平台詢求在地圖上加入IPT\") 你的座標。"
         }
     }
 }
