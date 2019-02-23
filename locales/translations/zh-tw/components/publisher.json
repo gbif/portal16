@@ -5,19 +5,19 @@
       "publishersHomepage": "首頁"
     },
     "joinedAgo": "已加入 {TIME_AGO}",
-    "newPublisher": "新資料發佈者",
+    "newPublisher": "新資料發布者",
     "technicalContact": "技術聯繫",
     "country": "國家或地區",
     "hosting": "託管",
-    "description": "描述說明",
+    "description": "描述",
     "endorsedBy": "背書",
     "pendingEndorsementBy": "等待批准",
     "installations": "安裝",
-    "contacts": "聯繫",
+    "contacts": "聯絡人",
     "administrativeContact": "行政聯絡",
     "header": {
       "publisher": "發布者",
-      "sinceDate": "從{DATE}"
+      "sinceDate": "從 {DATE}"
     }
   }
 }
