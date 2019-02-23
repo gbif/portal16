@@ -1,7 +1,7 @@
 {
   "extensionEnum": {
-    "DESCRIPTION": "描述說明",
-    "DISTRIBUTION": "分佈",
+    "DESCRIPTION": "描述",
+    "DISTRIBUTION": "分布",
     "IDENTIFIER": "識別碼",
     "MULTIMEDIA": "多媒體",
     "REFERENCE": "參照",
