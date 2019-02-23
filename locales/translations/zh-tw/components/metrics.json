@@ -1,11 +1,11 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "依照界來計數",
+    "countByKingdom": "以界來計數",
     "countByRank": "以級別計數",
-    "countNamesByLanguage": "依照語言來計算名稱",
-    "countExtRecordsByExtension": "依照擴展文件類型來計算",
+    "countNamesByLanguage": "以語言來計算名稱",
+    "countExtRecordsByExtension": "以擴展文件類型來計算",
     "countByOrigin": "以來源計數",
-    "countByIssue": "依照類型來計算問題數量"
+    "countByIssue": "以類型來計算問題數量"
   },
   "metrics": {
     "issues": "問題",
@@ -22,9 +22,9 @@
     "nothingSelected": "無",
     "occurrences": "出現紀錄",
     "otherOrUknown": "其他或未知",
-    "occurrencesPerField": "每{FIELD} 的出現紀錄",
+    "occurrencesPerField": "每 {FIELD} 的出現紀錄",
     "occurrencesBreakdownPerField": "出現紀錄以每個領域來區分",
-    "occurrencesPerFieldx2": "每{FIELD} 每{FIELD2} 的出現紀錄",
+    "occurrencesPerFieldx2": "每 {FIELD} 每 {FIELD2} 的出現紀錄",
     "customFilters": "此圖表有自訂的篩選",
     "linear": "線性",
     "count": "計數",
