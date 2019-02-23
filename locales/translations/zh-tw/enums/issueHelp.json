@@ -86,7 +86,7 @@
     "INTERPRETATION_ERROR": "在解釋過程中出現錯誤，使記錄解釋不完整。",
     "BACKBONE_MATCH_NONE": "名稱用法無法與GBIF骨架匹配。",
     "EML_GBIF_SCHEMA": "Eml 文件檔不針對架構進行驗證",
-    "CONTINENT_COUNTRY_MISMATCH": "解析的大陸和國家不匹配。",
+    "CONTINENT_COUNTRY_MISMATCH": "解析的大陸和國家不吻合。",
     "RELATIONSHIP_MISSING": "存在所有名稱使用關係的問題，例如母名稱、有效名稱、原始名稱的連結。在Checklist裡的解析紀錄缺乏部分原始的來源關聯。 ",
     "NOMENCLATURAL_STATUS_INVALID": "無法解析dwc命名法狀態",
     "COORDINATE_PRECISION_INVALID": "表示無效或極不可能的座標精度",
@@ -95,6 +95,6 @@
     "CONTINENT_INVALID": "找到無法解釋的陸州數值。",
     "VERNACULAR_NAME_INVALID": "至少有一個附加到此名稱使用的普通名擴充紀錄為無效",
     "DESCRIPTION_INVALID": "至少有一個附加到此名稱使用的描述擴充紀錄為無效",
-    "REFERENCES_URI_INVALID": "給定dc參考資料的url無效"
+    "REFERENCES_URI_INVALID": "給定dc：參考資料的url無效"
   }
 }
