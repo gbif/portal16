@@ -5,7 +5,7 @@
         "searchForNewsEventsDocuments": "搜尋新聞、活動，文件或其他更多。如果您想搜尋物種出現紀錄，試試看出現記錄搜索。",
         "occurrenceSearch": "出現紀錄搜尋",
         "subscribeToCalendar": "訂閱至行事曆",
-        "citationExplainer": "閱讀更多關於文獻資訊，它如何被發現並連結到GBIF中介資料",
+        "citationExplainer": "閱讀更多關於文獻資訊，它如何被發現並連結到經由GBIF的資料",
         "types": {
             "events": "活動",
             "news": "新聞",
