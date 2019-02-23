@@ -47,11 +47,11 @@
       "BLUE_HEAT": "藍色熱圖",
       "ORANGE_HEAT": "橘色熱圖",
       "GREEN": "綠色",
-      "BLUE_CLUSTER": "藍色群集",
+      "BLUE_CLUSTER": "藍色集群",
       "ORANGE_CLUSTER": "橙色集群"
     },
     "errors": {
-      "413": "此幾何檔案過大，資料程式應用介面(API) 無法處理。"
+      "413": "此幾何檔案過大，資料程式應用介面無法處理。"
     }
   }
 }
