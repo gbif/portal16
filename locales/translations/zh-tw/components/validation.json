@@ -16,7 +16,7 @@
       "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定列類型",
       "EML_NOT_FOUND": "找不到 EML文件",
       "EML_GBIF_SCHEMA": "Eml 檔案不針對架構進行驗證",
-      "UNKNOWN_ROWTYPE": "核心集/擴展文件為未知的欄位類型",
+      "UNKNOWN_ROWTYPE": "核心集/擴展文件為未知的列類型",
       "REQUIRED_TERM_MISSING": "缺少核心集/擴充文件必要名稱",
       "COLUMN_MISMATCH": "無匹配欄位",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "違反紀錄參考之完整性",
@@ -27,37 +27,37 @@
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "資料集的描述遺漏或描述太短",
       "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF不支援或授權遺失",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "未唯一標識的記錄",
-      "UNREADABLE_SECTION_ERROR": "無法讀取的部分錯誤",
+      "UNREADABLE_SECTION_ERROR": "部分錯誤無法讀取",
       "NoIssuesFound": "未找到問題"
     },
     "fileFormat": {
       "title": "檔案格式",
       "DWCA": "達爾文核心集歸檔",
-      "TABULAR": "表格檔 (. csv,. tsv)",
-      "SPREADSHEET": "試算表 (. xlsx)"
+      "TABULAR": "表格檔 （. csv,. tsv）",
+      "SPREADSHEET": "試算表 （. xlsx）"
     },
     "fileType": {
-      "title": "欄位類型",
+      "title": "列類型",
       "CORE": {
-        "title": "核心"
+        "title": "核心集"
       },
       "EXTENSION": {
         "title": "附加元件"
       },
       "METADATA": {
-        "description": "詮釋資料描述EML中的資料(生態詮釋資料語言)",
+        "description": "詮釋資料描述EML中的資料（生態詮釋資料語言）",
         "title": "詮釋資料文件"
       },
       "META_DESCRIPTOR": {
-        "description": "語義註記用來描述資料如何建構而成 (檔案、行等)",
-        "title": "元描述說明"
+        "description": "語義註記用來描述資料如何建構而成 （檔案、欄等）",
+        "title": "描述標籤"
       }
     },
     "fileSizeLimit": "檔案大小限制: 100mb",
     "receivedMediaType": "媒體類型",
     "uniqueIdentifier": "唯一識別碼",
     "reportLocation": "此報告已發送至",
-    "reportDeletion": "一個月後將被刪除。在此之前你可以隨時查看此報告。",
+    "reportDeletion": "報告將於一個月後刪除。在此之前你可以隨時查看。",
     "reportGenerated": "所產生",
     "summary": "驗證總結",
     "issues": "驗證問題",
@@ -66,7 +66,7 @@
     "error": "錯誤",
     "errors": {
       "400": "無法處理該檔案，或者可能是您提供的URL遺失。",
-      "404": "找不到驗證作業ID。如果您認為這是一個錯誤，請回報它。",
+      "404": "找不到驗證作業ID。若您認定此為錯誤，請回報。",
       "413": "此檔案太大，資料驗證工具無法處理。",
       "415": "不支援的檔案類型。無法處理該檔案。"
     },
@@ -80,7 +80,7 @@
     },
     "interpretedCounts": {
       "date": "解釋的日期數",
-      "taxon": "已解釋的分類群欄位數",
+      "taxon": "已解釋的分類群列數",
       "location": "解釋的座標數"
     },
     "interpretedValueCounts": {
@@ -106,7 +106,7 @@
     "dataValidatorDescription": "GBIF資料驗證程式是一項服務，其允許所有GBIF相關資料集持有者接收關於資料集語法正確性、資料內容有效性的報告。",
     "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
     "here": "這裡",
-    "coreRowType": "核心欄位類型",
+    "coreRowType": "核心集列類型",
     "submit": "提交",
     "dropHere": "拖放到此處",
     "or": "或",
