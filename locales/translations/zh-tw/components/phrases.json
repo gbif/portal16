@@ -7,7 +7,7 @@
     "replacedBy": "被取代",
     "loading": "正在載入",
     "failed": "已失敗",
-    "errorNotAuthorized": "您似乎未被授權請嘗試刷新頁面或登錄",
+    "errorNotAuthorized": "您似乎未被授權。請嘗試刷新頁面或登錄。",
     "partialPage": "部分頁面",
     "noInformationFound": "找不到資訊",
     "noConnection": "沒有網際網路連線。",
