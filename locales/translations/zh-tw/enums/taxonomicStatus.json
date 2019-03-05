@@ -1,6 +1,6 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "已接受的",
+    "ACCEPTED": "有效的",
     "DOUBTFUL": "有疑問的",
     "SYNONYM": "同種異名",
     "HETEROTYPIC_SYNONYM": "異型同種異名",
