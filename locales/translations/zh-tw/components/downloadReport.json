@@ -17,7 +17,7 @@
     "withYear": "依年份",
     "sizeZippedForDownload": "{SIZE_FORMATTED} 壓縮下載",
     "freeOfCost": "免費 - 不表示無責任",
-    "promoteTransperant": "為了促進透明的科學和發布者的資料信譽, 正確引用參考資料是很重要的。您可以藉由在工作中加入 [推薦的 GBIF 引文] (http://www.gbif.org/citation-guidelines)來達成目的，您將收到這些引用以及您所需求的資料。",
+    "promoteTransperant": "",
     "ifAnalysingData": "如果您正在分析將要下載的資料, 請考慮在 \"材料和方法\" 的章節引用此資料來源。",
     "cancel": "取消",
     "proceed": "開始執行",
