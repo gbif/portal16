@@ -35,7 +35,7 @@
             "intro": "嘗試探索GBIF的物種相對觀察趨勢是否可以提供研究者有用的資訊。",
             "aboutLink": "閱讀有關此工具的資訊",
             "selectSpecies": "選擇物種",
-            "noData": "我們沒有關於選定物種在1900年之後的地理參考資料。",
+            "noData": "我們沒有1900年以後關於選定物種的地理參考資料。",
             "selectHigherTaxa": "選擇更高分類群",
             "selectArea": "選擇地區",
             "hexagon": "六角形",
@@ -49,8 +49,8 @@
             "title": "物種名吻合"
         },
         "ipt": {
-            "description": "整合發布套件（IPT）是以Java編寫的免費開源軟體，透過GBIF網絡可用於發布和分享生物多樣性資料集。IPT也可以配置DataCite或EZID帳戶，以便將DOI分配給資料集並轉換為資料存儲庫。",
-            "dontSeeYourIpt": "還沒有IPT嗎? 上傳 [GBIF] (mailto:helpdesk@gbif.org \"來信GBIF協助平台詢求在地圖上加入IPT\") 你的座標。"
+            "description": "整合發布套件（IPT）是以Java編寫的免費開源軟體，可透過GBIF網絡用於發布和分享生物多樣性資料集。IPT也可以配置DataCite或EZID帳戶，以便將DOI分配給資料集並轉換為資料存儲庫。",
+            "dontSeeYourIpt": "還沒有IPT嗎？上傳 [GBIF] （mailto:helpdesk@gbif.org \"來信GBIF協助平台詢求在地圖上加入IPT\"） 你的座標。"
         }
     }
 }
