@@ -12,7 +12,7 @@
     "speciesCounts": "物種計數",
     "speciesCountDescription": "物種數是依據GBIF收到的科學二名法紀錄資料數量所計算，盡可能使用關鍵資料庫如物種名錄中的同種異名紀錄來統整。由於仍有許多物種名沒有被包含在資料庫中，有部分的名稱會被當作未辨別的同種異名，不視為有效名稱。因此，這些名稱只能當成是物種豐度的指標，無法代表真正的物種數。所有的資料都以最新、相同的GBIF架構分類法來處理，因此不同時間之下的資料比較是具可信度的。",
     "definition": "定義",
-    "numOccSpeciesByKingdom": "以界來分別，可取得出現記錄的物種數量。",
+    "numOccSpeciesByKingdom": "以界來分別可取得出現記錄的物種數量。",
     "speciesCountByKingdom": "依照界的物種計數",
     "numSpeciesFromSpecimens": "物種數量與標本紀錄有關",
     "speciesCountsForSpecimenRecords": "標本紀錄的物種計數",
