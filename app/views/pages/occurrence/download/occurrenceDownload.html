@@ -188,7 +188,19 @@
                                             occDownload.estKbDwcA*occDownload.state.table.count*occDownload.unzipFactor*1024 |
                                             formatBytes:0:occDownload.state.query.locale }}</strong>
                                             (<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbDwcA*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)
-                                        
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>
+                                        <a href="" class="gb-button--primary" ng-click="occDownload.open('SPECIES_LIST')">
+                                            <span class="gb-icon-file-download"></span>
+                                            <span translate="downloadFormat.SPECIES_LIST"></span>
+                                        </a>
+                                    </p>
+                                    <p class="discreet small">
+                                        <span gb-help="csv-download">
+                                            <span translate="downloadReport.speciesListDescription"></span>
+                                        </span>
                                     </p>
                                 </div>
                             </div>
