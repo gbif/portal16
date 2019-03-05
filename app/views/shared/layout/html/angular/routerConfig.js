@@ -401,7 +401,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             url: '/contact-us',
             views: {
                 main: {
-                    templateUrl: '/api/template/contactUs/contactUs.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/template/contactUs/contactUs.html?v=' + BUILD_VERSION + '&locale=' + LOCALE,
                     controller: 'contactUsCtrl',
                     controllerAs: 'contactUs'
                 }
