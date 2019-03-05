@@ -13,7 +13,7 @@
       "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 檔",
       "DWCA_META_XML_SCHEMA": "Meta. xml 架構驗證失敗",
       "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到紀錄識別碼",
-      "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定行類型",
+      "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定列類型",
       "EML_NOT_FOUND": "找不到 EML文件",
       "EML_GBIF_SCHEMA": "Eml 檔案不針對架構進行驗證",
       "UNKNOWN_ROWTYPE": "核心集/擴展文件為未知的欄位類型",
@@ -80,7 +80,7 @@
     },
     "interpretedCounts": {
       "date": "解釋的日期數",
-      "taxon": "有解釋的分類群列數",
+      "taxon": "已解釋的分類群欄位數",
       "location": "解釋的座標數"
     },
     "interpretedValueCounts": {
@@ -106,7 +106,7 @@
     "dataValidatorDescription": "GBIF資料驗證程式是一項服務，其允許所有GBIF相關資料集持有者接收關於資料集語法正確性、資料內容有效性的報告。",
     "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
     "here": "這裡",
-    "coreRowType": "核心列類型",
+    "coreRowType": "核心欄位類型",
     "submit": "提交",
     "dropHere": "拖放到此處",
     "or": "或",
