@@ -79,12 +79,12 @@
       "interpreted": "解釋"
     },
     "interpretedCounts": {
-      "date": "解釋的日期數",
+      "date": "已解釋的日期數",
       "taxon": "已解釋的分類群列數",
-      "location": "解釋的座標數"
+      "location": "已解釋的座標數"
     },
     "interpretedValueCounts": {
-      "title": "解釋的計數值"
+      "title": "已解釋的計數值"
     },
     "status": {
       "title": "狀態",
@@ -103,7 +103,7 @@
     "reportProducedByGbifDataValidator": "由GBIF資料驗證程式產生的報告",
     "validationReport": "驗證報告",
     "dataValidator": "資料驗證程式",
-    "dataValidatorDescription": "GBIF資料驗證程式是一項服務，其允許所有GBIF相關資料集持有者接收關於資料集語法正確性、資料內容有效性的報告。",
+    "dataValidatorDescription": "GBIF資料驗證程式為一項提供所有GBIF相關資料集持有者關於資料集語法正確性、資料內容有效性報告的服務。",
     "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
     "here": "這裡",
     "coreRowType": "核心集列類型",
