@@ -61,7 +61,7 @@
     "viewInGbifBackbone": "查看GBIF骨架",
     "verbatimListingMsg": "此清單顯示的是GBIF從資料發布者收到的原始資訊，無進一步的解析處理。",
     "interpretationMsg": "此為 {DATASET} 中所發表的對該物種的解釋。",
-    "viewGbifSpeciesMsg": "要查看 GBIF 對這此物種的觀點, 請參見 [骨架版本](/物種/{NUBKEY})",
+    "viewGbifSpeciesMsg": "要查看 GBIF 對這此物種的觀點，請參見 ［骨架版本］（/物種/{NUBKEY}）",
     "inferredRecordMsg": "此記錄是在索引過程中建立的，並不存在於來源資料。",
     "noChildren": "無子代",
     "youAreBrowsing": "您正在瀏覽",
