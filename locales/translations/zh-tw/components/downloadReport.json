@@ -29,7 +29,7 @@
     "estDLtimes": "估計下載時間：",
     "nMbitConn": "{NUMBER} Mbit 已連結",
     "onceDownloaded": "當您下載檔案，需要有 {SIZE_FORMATTED} 足夠的磁碟空間來解壓縮資料。",
-    "datasetHasNumRows": "資料集內含 {NUMBER_FORMATTED} 資料欄位。",
+    "datasetHasNumRows": "資料集內含 {NUMBER_FORMATTED} 資料列。",
     "youWillNotBeAble": "您將無法在 Excel 及類似應用程式中查看或分析資料。為了使用這些資料，您需要瞭解 R、python 或關係資料庫等知識。",
     "difficultToAnalyse": "普通桌上型電腦難以分析此容量的資料集，您可能需要尋求分散式運算服務。",
     "hours": "小時",
