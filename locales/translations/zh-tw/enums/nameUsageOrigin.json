@@ -8,7 +8,7 @@
     "PROPARTE": "來自單一專業外部紀錄的重複用法。",
     "AUTONYM": "已產生，缺少真名。",
     "IMPLICIT_NAME": "已產生，缺少屬或種為孤立的下層名。",
-    "MISSING_ACCEPTED": "如缺少同物異名，則接受虛擬用法，以保持分類的階級。",
+    "MISSING_ACCEPTED": "如缺少同種異名，則接受虛擬用法，以保持分類的階級。",
     "BASIONYM_PLACEHOLDER": "為了缺失或隱晦基礎名的預留位置用法。",
     "EX_AUTHOR_SYNONYM": "基於未受認可前作者的隱晦同種異名。請見 ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
     "OTHER": "其他來源"
