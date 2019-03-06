@@ -8,19 +8,19 @@
     "data content": {
       "title": "内容",
       "example": "比如：这个页面有一个拼写错误。那个物种不存在。这个位置好像有问题。那个机构的新网址是……",
-      "annotate": "",
-      "contactPerMail": ""
+      "annotate": "该发布者有一个处理反馈信息的网站。我们建议使用这个网站。",
+      "contactPerMail": "与数据集联系人联系"
     },
     "bug": {
       "title": "问题​",
-      "example": ""
+      "example": "比如：搜索按钮不起作用。页面无法加载。我不能读取内容因为列与列有重叠。"
     },
     "idea": {
       "title": "想法",
-      "example": ""
+      "example": "比如：我想要与之相关的基因序列数据的链接。显示所有开放访问的文章。"
     },
     "question": {
-      "title": "",
+      "title": "帮助台",
       "example": "",
       "description": "",
       "comment": ""
@@ -43,7 +43,7 @@
     "markdownSupport": "",
     "issueTracking": "",
     "failure": "",
-    "weRecommendX": "",
+    "weRecommendX": "我们建议使用 [{NAME}]({LINK})",
     "tellGbif": "告诉GBIF",
     "submit": "提交",
     "seeAllComments": "查看全部",
