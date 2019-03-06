@@ -2,21 +2,21 @@
   "feedback": {
     "leaveFeedback": "留下您的意见",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "反馈和问题",
+      "example": "请选择您将提供什么类型的反馈信息来帮忙我们。如果可能的话，请用英语提交您的反馈。我们会争取在2个工作日内答复您。"
     },
     "data content": {
-      "title": "",
-      "example": "",
+      "title": "内容",
+      "example": "比如：这个页面有一个拼写错误。那个物种不存在。这个位置好像有问题。那个机构的新网址是……",
       "annotate": "",
       "contactPerMail": ""
     },
     "bug": {
-      "title": "",
+      "title": "问题​",
       "example": ""
     },
     "idea": {
-      "title": "",
+      "title": "想法",
       "example": ""
     },
     "question": {
@@ -26,14 +26,14 @@
       "comment": ""
     },
     "confirmation": {
-      "title": "",
+      "title": "谢谢！",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "查看问题"
     },
     "issues": {
-      "title": "",
+      "title": "内容问题",
       "description": "",
-      "create": ""
+      "create": "留下您的反馈信息"
     },
     "placeholders": {
       "summary": "",
@@ -44,10 +44,10 @@
     "issueTracking": "",
     "failure": "",
     "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
-    "recommendMail": "",
+    "tellGbif": "告诉GBIF",
+    "submit": "提交",
+    "seeAllComments": "查看全部",
+    "recommendMail": "我们建议发送邮件至",
     "pleaseLogin": ""
   }
 }
