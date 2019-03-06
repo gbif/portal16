@@ -1,8 +1,8 @@
 {
   "endpointType": {
-    "EML": "",
-    "FEED": "",
-    "WFS": "",
+    "EML": "EML",
+    "FEED": "RSS订阅",
+    "WFS": "WFS",
     "WMS": "",
     "TCS_RDF": "",
     "TCS_XML": "",
@@ -13,6 +13,6 @@
     "BIOCASE": "",
     "BIOCASE_XML_ARCHIVE": "",
     "OAI_PMH": "",
-    "OTHER": ""
+    "OTHER": "其它"
   }
 }
