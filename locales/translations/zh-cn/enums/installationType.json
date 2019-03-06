@@ -1,10 +1,10 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "",
-    "DIGIR_INSTALLATION": "",
-    "TAPIR_INSTALLATION": "",
-    "BIOCASE_INSTALLATION": "",
-    "HTTP_INSTALLATION": "",
+    "IPT_INSTALLATION": "IPT安装",
+    "DIGIR_INSTALLATION": "DiGIR安装",
+    "TAPIR_INSTALLATION": "Tapir安装",
+    "BIOCASE_INSTALLATION": "Biocase安装",
+    "HTTP_INSTALLATION": "Http安装",
     "SYMBIOTA_INSTALLATION": ""
   }
 }
