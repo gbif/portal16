@@ -32,7 +32,7 @@
     },
     "issues": {
       "title": "内容问题",
-      "description": "",
+      "description": "其他用户反馈的内容问题",
       "create": "留下您的反馈信息"
     },
     "placeholders": {
@@ -48,6 +48,6 @@
     "submit": "提交",
     "seeAllComments": "查看全部",
     "recommendMail": "我们建议发送邮件至",
-    "pleaseLogin": ""
+    "pleaseLogin": "请您登录后留下反馈信息。或者，您也可以使用 [Github](https://github.com/gbif/portal-feedback/issues).\n为什么需要登录？因为如果不要求登录，我们会在反馈系统里收到大量的垃圾广告邮件。"
   }
 }
