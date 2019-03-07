@@ -1,0 +1,53 @@
+{
+  "feedback": {
+    "leaveFeedback": "留下您的意见",
+    "intro": {
+      "title": "反馈和问题",
+      "example": "请选择您将提供什么类型的反馈信息来帮忙我们。如果可能的话，请用英语提交您的反馈。我们会争取在2个工作日内答复您。"
+    },
+    "data content": {
+      "title": "内容",
+      "example": "比如：这个页面有一个拼写错误。那个物种不存在。这个位置好像有问题。那个机构的新网址是……",
+      "annotate": "该发布者有一个处理反馈信息的网站。我们建议使用这个网站。",
+      "contactPerMail": "与数据集联系人联系"
+    },
+    "bug": {
+      "title": "问题​",
+      "example": "比如：搜索按钮不起作用。页面无法加载。我不能读取内容因为列与列有重叠。"
+    },
+    "idea": {
+      "title": "想法",
+      "example": "比如：我想要与之相关的基因序列数据的链接。显示所有开放访问的文章。"
+    },
+    "question": {
+      "title": "帮助台",
+      "example": "例如：你如何保护稀有物种的数据？能否帮我找到这个物种在国际水域出现的所有数据？",
+      "description": "所有问题都由我们的帮助台（helpdesk@gbif.org）解答。",
+      "comment": "关于私人询问和非技术问题，您可以通过发送邮件到[info@gbaif.org](mailto:info@gbaif.org)或[communication@gbaif.org](mailto:communication@gbif.org) 了解新闻消息。"
+    },
+    "confirmation": {
+      "title": "谢谢！",
+      "example": "",
+      "seeIssue": "查看问题"
+    },
+    "issues": {
+      "title": "内容问题",
+      "description": "其他用户反馈的内容问题",
+      "create": "留下您的反馈信息"
+    },
+    "placeholders": {
+      "summary": "概要",
+      "description": "详细说明。对于分类学讨论，请提供参考文献。如有可能的话，请用英语提交您的反馈信息。",
+      "username": "您的电子邮箱或Github用户名 (公开)"
+    },
+    "markdownSupport": "Markdown支持",
+    "issueTracking": "所有问题均为公开问题, 可通过 [Github](https://github.com/gbif/portal-feedback/issues)访问",
+    "failure": "看起来不妙——反馈系统没有响应。请您给我们发送电子邮件或直接转到 [Github](https://github.com/gbif/portal-feedback/issues)。很抱歉出现这样的问题。",
+    "weRecommendX": "我们建议使用 [{NAME}]({LINK})",
+    "tellGbif": "告诉GBIF",
+    "submit": "提交",
+    "seeAllComments": "查看全部",
+    "recommendMail": "我们建议发送邮件至",
+    "pleaseLogin": "请您登录后留下反馈信息。或者，您也可以使用 [Github](https://github.com/gbif/portal-feedback/issues).\n为什么需要登录？因为如果不要求登录，我们会在反馈系统里收到大量的垃圾广告邮件。"
+  }
+}
