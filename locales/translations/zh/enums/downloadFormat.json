@@ -1,0 +1,7 @@
+{
+  "downloadFormat": {
+    "SIMPLE_AVRO": "",
+    "SIMPLE_CSV": "",
+    "DWCA": "达尔文核心（Darwin Core Archive）"
+  }
+}
