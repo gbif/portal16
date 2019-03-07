@@ -1,8 +1,8 @@
 {
   "terms": {
-    "headline": "",
-    "description": "",
-    "readTerms": "",
-    "accept": ""
+    "headline": "使用GBIF的信息记录",
+    "description": "为了提高网站的友好性和可用性，GBIF使用cookie和相关类似程序来做统计分析，使内容更符合您的偏好，并与社会媒体对接。通过访问我们的网站，您同意我们和第三方按照我们的隐私和cookie条款的要求来使用cookie。",
+    "readTerms": "阅读条款",
+    "accept": "同意"
   }
 }
