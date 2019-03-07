@@ -27,26 +27,26 @@
                 "followDiscussionBelow": "通过以下链接关注或加入进一步的讨论。",
                 "followIssue": "在Github上查看建议。",
                 "suggestAnother": "建议另外一个数据集",
-                "saveFailure": ""
+                "saveFailure": "不好，我们无法保存您的建议。请稍后再试，或者您直接到我们管理建议使用的[Github](https://github.com/gbif/data-mobilization/issues)。"
             }
         },
         "observationTrends": {
-            "drawerTitle": "",
+            "drawerTitle": "相对观测趋势",
             "intro": "",
-            "aboutLink": "",
-            "selectSpecies": "",
-            "noData": "",
-            "selectHigherTaxa": "",
-            "selectArea": "",
-            "hexagon": "",
-            "draw": "",
-            "clear": "",
-            "resultIntro": "",
+            "aboutLink": "阅读有关此工具的信息",
+            "selectSpecies": "选择物种",
+            "noData": "我们没有所选定物种在1900年后带有地理标记的数据。",
+            "selectHigherTaxa": "选择更高的分类",
+            "selectArea": "选择一个区域",
+            "hexagon": "六边形",
+            "draw": "绘制点",
+            "clear": "清空",
+            "resultIntro": "更改选中区域的相对观察频率",
             "embedIntro": ""
         },
         "speciesLookup": {
             "description": "",
-            "title": ""
+            "title": "物种名称匹配"
         },
         "ipt": {
             "description": "",
