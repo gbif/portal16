@@ -1,20 +1,20 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
-        "endorsedPublishers": "",
-        "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
-        "headOfDelegation": "",
-        "gbifRegion": "",
-        "countryOrArea": "",
-        "nodeName": "",
-        "nodeEstablished": "",
-        "website": "",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "participant": "成员",
+        "participantSummary": "成员概况",
+        "endorsedPublishers": "认可的发布者",
+        "noEndorsedPublishers": "没有认可的发布者",
+        "memberStatus": "会员状态",
+        "gbifParticipantSince": "GBIF会员自",
+        "headOfDelegation": "负责人",
+        "gbifRegion": "GBIF区域",
+        "countryOrArea": "国家或地区",
+        "nodeName": "节点名称",
+        "nodeEstablished": "节点成立于",
+        "website": "网站",
+        "participantNodeManager": "成员节点管理员",
+        "pending": "正在处理",
+        "latestDatasetsPublished": "最近发布的数据集",
+        "noDatasets": "没有已发布的数据集"
     }
 }
