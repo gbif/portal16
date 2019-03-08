@@ -1,7 +1,7 @@
 {
     "pagination": {
-        "previous": "",
-        "next": "",
-        "first": ""
+        "previous": "前一页",
+        "next": "下一页",
+        "first": "第一页"
     }
 }
