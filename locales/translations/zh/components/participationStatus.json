@@ -3,16 +3,16 @@
         "longForm": {
             "VOTING": "选举成员",
             "ASSOCIATE": "合作成员",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "OBSERVER": "观察成员",
+            "AFFILIATE": "机构",
+            "FORMER": "前成员",
+            "undefined": "未知的"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
+            "VOTING": "一个来自 {REGION} 的GBIF选举成员",
+            "ASSOCIATE": "一个来自 {REGION} 的GBIF合作成员",
+            "OBSERVER": "一个来自 {REGION} 的GBIF观察国",
+            "AFFILIATE": "来自 {REGION} 的机构",
             "FORMER": "",
             "undefined": ""
         },
