@@ -59,11 +59,11 @@
     "citation": "引用",
     "temporalCoverages": "時間範圍",
     "history": "歷史記錄",
-    "ingestNow": "正在接收",
+    "ingestNow": "開始接收（資料） ",
     "readFullDescription": "更多",
     "howToCite": "如何引用",
     "geographicCoverages": "地理範圍",
-    "taxonomicCoverages": "分類範圍",
+    "taxonomicCoverages": "分類學的範圍",
     "additionalInfo": "額外資訊",
     "publishingCountriesAreas": "發布國家及地區",
     "originalArchive": "來源檔案",
@@ -71,7 +71,7 @@
     "license": "授權",
     "recommended": "推薦",
     "processedOccurrences": "GBIF 註記的存檔",
-    "noDescriptionProvided": "沒有描述",
+    "noDescriptionProvided": "沒有說明資訊",
     "pNetwork": "{NUMBER, select, 1{網絡} other{網絡}}",
     "parentEvent": "母事件",
     "eventDescription": "事件描述",
@@ -79,6 +79,6 @@
     "childEvents": "子事件",
     "occurrenceCount": "出現記錄計數",
     "inDataset": "在",
-    "samplingArticleLink": "更多關於GBIF.org 的取樣事件"
+    "samplingArticleLink": "更多 GBIF.org 上關於取樣事件的說明"
   }
 }
