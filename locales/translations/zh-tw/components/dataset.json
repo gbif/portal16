@@ -1,18 +1,18 @@
 {
   "dataset": {
     "longType": {
-      "OCCURRENCE": "出現記錄資料集",
+      "OCCURRENCE": "出現紀錄資料集",
       "CHECKLIST": "物種名錄資料集",
       "SAMPLING_EVENT": "取樣事件",
       "METADATA": "詮釋資料集"
     },
     "metricHighlights": {
       "occurrences": "出現紀錄",
-      "withTaxonMatch": "與分類群吻合",
+      "withTaxonMatch": "有對應的分類群",
       "withCoordinates": "含座標",
       "withYear": "含年份",
-      "acceptedNames": "有效名稱",
-      "synonyms": "同種異名",
+      "acceptedNames": "有效名",
+      "synonyms": "同物異名",
       "overlapWithNub": "與GBIF骨架重疊",
       "overlapWithCol": "與物種名錄重疊"
     },
