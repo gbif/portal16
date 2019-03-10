@@ -2,33 +2,33 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "无法连接到Facebook",
+        "GITHUB": "无法连接到Github"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": ""
+        "FACEBOOK": "无法登录 Facebook",
+        "GITHUB": "无法登录 Github"
       }
     },
     "error": {
       "USERNAME_NOT_UNIQUE": "",
       "LOGIN_UNKNOWN": "",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
-      "USER_ALREADY_LOGGED_IN": "",
-      "EMAIL_IN_USE": "",
-      "NO_EMAIL_PROVIDED": "",
-      "FAILED": ""
+      "USER_ALREADY_LOGGED_IN": "您已经登录。",
+      "EMAIL_IN_USE": "电子邮箱已被使用。",
+      "NO_EMAIL_PROVIDED": "没有提供电子邮箱。",
+      "FAILED": "服务器无法处理请求。"
     },
-    "loginText": "",
-    "register": "",
-    "downloads": "",
-    "repeatPassword": "",
-    "repeatNewPassword": "",
-    "passwordsNotIdentical": "",
-    "setPassword": "",
-    "newPassword": "",
+    "loginText": "登录",
+    "register": "注册",
+    "downloads": "下载",
+    "repeatPassword": "再次输入密码",
+    "repeatNewPassword": "重新输入新密码",
+    "passwordsNotIdentical": "两次输入的密码不一致",
+    "setPassword": "设置密码",
+    "newPassword": "新密码",
     "invalidLinkMessage": "",
     "logout": "",
     "profile": "",
