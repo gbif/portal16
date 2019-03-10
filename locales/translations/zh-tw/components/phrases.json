@@ -1,6 +1,6 @@
 {
   "phrases": {
-    "contactHelpdesk": "聯繫協助平台",
+    "contactHelpdesk": "聯繫服務台",
     "defaultPageTitle": "全球生物多樣性資訊機構",
     "defaultPageDescription": "全球生物多樣性資訊機構。自由且公開存取的生物多樣性資料。",
     "deletedOnDate": "刪除於 {DATE}",
@@ -16,7 +16,7 @@
     "noResultsMessage": "無結果，請嘗試放寬搜尋條件。",
     "noJavascriptEnabled": "很抱歉，如果沒有啟用 JavaScript，GBIF 無法正常運作。",
     "isSplashScreen": "我們的網站檢測到您使用的是過時且不安全的瀏覽器，該瀏覽器將阻止您使用此網站。我們建議您升級到最新的瀏覽器。",
-    "404Text": "此頁面之前可能存在，但目前搜尋不到。\n請嘗試 [search](/search) 來尋找。\n隨時歡迎透過[helpdesk@gbif.org](mailto:helpdesk@gbif.org)聯繫我們。",
+    "404Text": "此頁面之前可能存在，但目前搜尋不到。\n請嘗試我們的[搜尋功能](/search) 來尋找。\n隨時歡迎透過 [helpdesk@gbif.org](mailto:helpdesk@gbif.org) 聯繫我們。",
     "changeLanguage": "變更語言",
     "noData": "無資料",
     "payloadTooLarge": ""
