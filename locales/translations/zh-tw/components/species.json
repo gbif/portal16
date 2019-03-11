@@ -1,8 +1,8 @@
 {
   "species": {
     "distribution": {
-      "presentIn": "出現在 {country}",
-      "presentInNonCountry": "出現在 {location}",
+      "presentIn": "出現於 {country}",
+      "presentInNonCountry": "出現於 {location}",
       "threatStatus": "威脅狀態： {status}",
       "distributionPlural": "分布"
     },
@@ -13,10 +13,10 @@
       "verbatim": "逐字"
     },
     "invasives": {
-      "nInvadedCountries": "如{NUMBER_FORMATED} {NUMBER, select, 1{國家或島嶼}other{國家或島嶼}} 所記錄",
+      "nInvadedCountries": "如{NUMBER_FORMATED} {NUMBER, select, 1{國家或島嶼} other{國家或島嶼}} 所記錄",
       "invasiveIn": "如介紹內容所記錄",
       "accordingTo": "根據",
-      "occurrenceCount": "在GBIF的出現紀錄",
+      "occurrenceCount": "在GBIF 的出現紀錄",
       "seeAllCountries": "顯示全部",
       "isInvasive": "影響的證據",
       "isInvasive_yes": "是",
