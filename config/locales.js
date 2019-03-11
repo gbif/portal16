@@ -10,7 +10,7 @@ let env = process.env.NODE_ENV || 'local';
 let defaultLocale = 'en';
 
 // locales = ['en' , 'es', 'da', 'en-IN', 'zh-Hant-TW'],
-let locales = ['en', 'fr', 'ja', 'pt', 'es', 'zh'];
+let locales = ['en', 'fr', 'ja', 'pt', 'es'];
 if (env === 'local' || env === 'dev') {
     locales.push('da');
     locales.push('de-MOCK');
@@ -20,6 +20,7 @@ if (env === 'local' || env === 'dev') {
 
 if (env === 'uat' || env === 'local') {
     locales.push('zh-tw');
+    locales.push('zh');
     locales.push('ru');
 }
 
