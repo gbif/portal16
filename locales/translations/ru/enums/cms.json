@@ -44,6 +44,7 @@
           "APPROVED": "Утвержденный",
           "CLOSED": "Закрыт",
           "IN_PROGRESS": "Выполняется",
+          "DISCONTINUED": "",
           "undefined": "Не определено"
         },
         "relevance": {
