@@ -27,7 +27,7 @@
                             <h5 class="card-header">{{ description.type }}</h5>
                             <div ng-bind-html="description.description"></div>
                             <p class="small source">
-                                <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>: <a class="inherit" ui-sref="speciesKey({key: description.sourceTaxonKey})">{{ description.source }}</a>
+                                <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>: <a class="inherit" ui-sref="speciesKey({speciesKey: description.sourceTaxonKey})">{{ description.source }}</a>
                             </p>
                         </div>
                     </div>

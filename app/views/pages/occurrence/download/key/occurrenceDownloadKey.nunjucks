@@ -31,7 +31,11 @@
                             {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                                 <span class="discreet">{$ __('downloadKey.underProcessing') $}</span>
                             {% else %}
-                             <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
+                                {% if download.record.request.format === 'SPECIES_LIST' %}
+                                    <span translate="downloadKey.nRecordsDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
+                                {% else %}
+                                    <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
+                                {% endif %}
                             {% endif %}
                         </h1>
                         {% if download.record.status === 'FILE_ERASED' %}

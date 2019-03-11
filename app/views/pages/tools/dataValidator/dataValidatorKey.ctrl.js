@@ -16,6 +16,7 @@ angular
 /** @ngInject */
 function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env) {
     var vm = this;
+    vm.moment = moment;
     vm.dataApi = env.dataApi;
     vm.$state = $state;
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;

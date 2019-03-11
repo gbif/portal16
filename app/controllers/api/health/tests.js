@@ -13,7 +13,7 @@ switch (config.healthEnv || config.env) {
         crawlHostName = 'devcrawler-vh.gbif.org';
         varnishIndexName = 'dev-varnish-*';
         publicCrawlIndexName = 'dev-crawl-*';
-        downloadKey = '0000984-180611120914121';
+        downloadKey = '0000581-181121175518854';
         break;
     case 'uat':
         crawlHostName = 'uatcrawler1-vh.gbif.org';
@@ -121,13 +121,13 @@ let tests = [
         message: 'download key ' + downloadKey + ' should return 200'
     },
     {
-        url: 'http://status.github.com/api/status.json',
+        url: 'http://status.github.com/api/v2/status.json',
         component: 'GITHUB',
         type: 'HAVE_VALUE',
-        key: 'status',
-        val: 'good',
+        key: 'status.description',
+        val: 'All Systems Operational',
         severity: severity.WARNING,
-        message: 'The Github status endpoint should should return "good"'
+        message: 'The Github status endpoint should should return "All Systems Operational"'
     },
     {
         url: 'http://' + config.topDomain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',

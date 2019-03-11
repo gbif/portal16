@@ -2,7 +2,7 @@
 let dataApi = rootRequire('app/models/gbifdata/apiConfig').base.url;
 let env = rootRequire('config/config').env;
 
-let AnnosysBaseUrl = env == 'prod' ? 'https://annosys.bgbm.fu-berlin.de/AnnoSys/' : 'https://annosys.bgbm.fu-berlin.de/AnnoSysTest/';
+let AnnosysBaseUrl = env === 'prod' ? 'http://annosys.bgbm.fu-berlin.de/AnnoSys/' : 'http://annosys.bgbm.fu-berlin.de/AnnoSysTest/';
 
 // TODO make environment dependent to allow for test annotations?
 let config = {
@@ -25,6 +25,12 @@ let config = {
             keys: ['key', 'institutionCode', 'collectionCode', 'catalogNumber', 'repositoryURI'],
             name: 'AnnoSys',
             abbrivation: 'An'
+        },
+        'ccc2e3ec-98ba-4e74-878d-7dcf0f57baba': {
+            url: '{{occurrenceID}}',
+            keys: ['occurrenceID'],
+            name: 'Danish Mycological Society',
+            abbrivation: 'DMS'
         }
     },
     installation: {

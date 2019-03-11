@@ -182,7 +182,7 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 
     vm.open = function(format) {
         vm.state.table.$promise.then(function() {
-            if (vm.state.table.count > vm.largeDownloadOffset) {
+            if (vm.state.table.count > vm.largeDownloadOffset && format !== 'SPECIES_LIST') {
                 vm.openWarningModal(format);
             } else {
                 vm.openDownloadModal(format);

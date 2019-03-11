@@ -6,7 +6,7 @@ var angular = require('angular');
     angular
         .module('portal')
         .factory('InstitutionKey', function($resource, env) {
-            return $resource(env.dataApi + 'grbio/institution/:key', null, {
+            return $resource(env.dataApi + 'grscicoll/institution/:key', null, {
                     'query': {
                         method: 'GET',
                         isArray: false
@@ -15,7 +15,7 @@ var angular = require('angular');
             );
         })
         .factory('InstitutionSearch', function($resource, env) {
-            return $resource(env.dataApi + 'grbio/institution', null, {
+            return $resource(env.dataApi + 'grscicoll/institution', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,

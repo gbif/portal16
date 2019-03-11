@@ -343,20 +343,20 @@
             </section>
 
             {% macro trowCol(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
-                {$ api.trow(url="/grbio/collection"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+                {$ api.trow(url="/grscicoll/collection"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
             {% macro trowInst(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
-                {$ api.trow(url="/grbio/institution"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+                {$ api.trow(url="/grscicoll/institution"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
             {% macro trowPerson(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
-                {$ api.trow(url="/grbio/person"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+                {$ api.trow(url="/grscicoll/person"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
             <section id="collections">
                 <div class="container--narrow">
                     <h3>Collections</h3>
                     <p>                        
                         The collections API provides CRUD services for collections, institutions and person entities. 
-                        The data was originally migrated from GRBIO and adapted to follow the same conventions as other registry services. Therefore, the deletion of 
+                        The data was originally migrated from GRSciColl and adapted to follow the same conventions as other registry services. Therefore, the deletion of 
                         collections, institutions and persons is logical, meaning these entries remain registered forever
                         and only get a deleted timestamp. On the other hand, the deletion of tags and identifiers is physical, meaning the entries are permanently removed.                                                                        
                     </p>
@@ -374,22 +374,22 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grbio/collection", paging=true, params=["q","institution","contact"], description="Lists all collections")$}
+                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact"], description="Lists all collections")$}
                             {$ trowCol(url="", method="POST", resp="UUID", auth=true, description="Creates a new collection") $}
-                            {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grbio/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
+                            {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
                             {$ trowCol(url="/{UUID}", method="DELETE", auth=true, description="Deletes the collection. The collection entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowCol(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grbio/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contact", description="Lists all contacts for the collection") $}
+                            {$ trowCol(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contact", description="Lists all contacts for the collection") $}
                             {$ trowCol(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the collection. The UUID key of the contact must be passed in the body.") $}
                             {$ trowCol(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the collection the contact with key {UUID}") $}
-                            {$ trowCol(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grbio/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/identifier", description="Lists the identifiers of the collection") $}
+                            {$ trowCol(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/identifier", description="Lists the identifiers of the collection") $}
                             {$ trowCol(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new collection identifier") $}
                             {$ trowCol(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the collection the identifier with ID {ID}") $}
                             {$ trowCol(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a collection") $}
                             {$ trowCol(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the collection") $}
                             {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the collection the tag with ID {ID}") $}
-                            {$ trowCol(url="/deleted", resp="Deleted Collections List", respLink=apiBase+"grbio/collection/deleted", paging=true, description="Lists the deleted collections") $}
-                            {$ trowCol(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grbio/collection/suggest?q=col", paging=false, description="Search that returns up to 20 matching collections. Results are ordered by relevance") $} 
+                            {$ trowCol(url="/deleted", resp="Deleted Collections List", respLink=apiBase+"grscicoll/collection/deleted", paging=true, description="Lists the deleted collections") $}
+                            {$ trowCol(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/collection/suggest?q=col", paging=false, description="Search that returns up to 20 matching collections. Results are ordered by relevance") $} 
                             </tbody>
                         </table>
                     </section>
@@ -403,22 +403,22 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grbio/institution", paging=true, params=["q","contact"], description="Lists all institutions")$}
+                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact"], description="Lists all institutions")$}
                             {$ trowInst(url="", method="POST", resp="UUID", auth=true, description="Creates a new institution") $}
-                            {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grbio/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
+                            {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
                             {$ trowInst(url="/{UUID}", method="DELETE", auth=true, description="Deletes the institution. The institution entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grbio/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contact", description="Lists all contacts for the institution") $}
+                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contact", description="Lists all contacts for the institution") $}
                             {$ trowInst(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the institution. The UUID key of the contact must be passed in the body.") $}
                             {$ trowInst(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the institution the contact with key {UUID}") $}
-                            {$ trowInst(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grbio/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/identifier", description="Lists the identifiers of the institution") $}
+                            {$ trowInst(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/identifier", description="Lists the identifiers of the institution") $}
                             {$ trowInst(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new institution identifier") $}
                             {$ trowInst(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the institution the identifier with ID {ID}") $}
                             {$ trowInst(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a institution") $}
                             {$ trowInst(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the institution") $}
                             {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the institution the tag with ID {ID}") $}
-                            {$ trowInst(url="/deleted", resp="Deleted Institutions List", respLink=apiBase+"grbio/institution/deleted", paging=true, description="Lists the deleted institutions") $}
-                            {$ trowInst(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grbio/institution/suggest?q=bio", paging=false, description="Search that returns up to 20 matching institutions. Results are ordered by relevance") $} 
+                            {$ trowInst(url="/deleted", resp="Deleted Institutions List", respLink=apiBase+"grscicoll/institution/deleted", paging=true, description="Lists the deleted institutions") $}
+                            {$ trowInst(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/institution/suggest?q=bio", paging=false, description="Search that returns up to 20 matching institutions. Results are ordered by relevance") $} 
                             </tbody>
                         </table>
                     </section>
@@ -432,13 +432,13 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowPerson(url="", resp="Person List", respLink=apiBase+"grbio/person", paging=true, params=["q","primaryInstitution","primaryCollection"], description="Lists all persons")$}
+                            {$ trowPerson(url="", resp="Person List", respLink=apiBase+"grscicoll/person", paging=true, params=["q","primaryInstitution","primaryCollection"], description="Lists all persons")$}
                             {$ trowPerson(url="", method="POST", resp="UUID", auth=true, description="Creates a new person") $}
-                            {$ trowPerson(url="/{UUID}", resp="Person", respLink=apiBase+"grbio/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a", description="Gets details for the person") $}
+                            {$ trowPerson(url="/{UUID}", resp="Person", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a", description="Gets details for the person") $}
                             {$ trowPerson(url="/{UUID}", method="PUT", auth=true, description="Updates the person") $}
                             {$ trowPerson(url="/{UUID}", method="DELETE", auth=true, description="Deletes the person. The person entry gets a deleted timestamp but remains registered.") $}                            
-                            {$ trowPerson(url="/deleted", resp="Deleted Persons List", respLink=apiBase+"grbio/person/deleted", paging=true, description="Lists the deleted persons") $}
-                            {$ trowPerson(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grbio/person/suggest?q=ste", paging=false, description="Search that returns up to 20 matching persons. Results are ordered by relevance") $} 
+                            {$ trowPerson(url="/deleted", resp="Deleted Persons List", respLink=apiBase+"grscicoll/person/deleted", paging=true, description="Lists the deleted persons") $}
+                            {$ trowPerson(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/person/suggest?q=ste", paging=false, description="Search that returns up to 20 matching persons. Results are ordered by relevance") $} 
                             </tbody>
                         </table>
                     </section>
