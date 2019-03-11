@@ -14,10 +14,10 @@
       "DWCA_META_XML_SCHEMA": "Meta. xml 架構驗證失敗",
       "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到紀錄識別碼",
       "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定列類型",
-      "EML_NOT_FOUND": "找不到 EML文件",
+      "EML_NOT_FOUND": "找不到 EML 文件",
       "EML_GBIF_SCHEMA": "Eml 檔案不針對架構進行驗證",
-      "UNKNOWN_ROWTYPE": "核心集/擴展文件為未知的列類型",
-      "REQUIRED_TERM_MISSING": "缺少核心集/擴充文件必要名稱",
+      "UNKNOWN_ROWTYPE": "核心集 / 擴展文件為未知的列類型",
+      "REQUIRED_TERM_MISSING": "缺少核心集 / 擴充文件必要名稱",
       "COLUMN_MISMATCH": "無匹配欄位",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "違反紀錄參考之完整性",
       "UNKNOWN_TERM": "未知名稱",
@@ -25,7 +25,7 @@
       "TITLE_MISSING_OR_TOO_SHORT": "資料集標題遺漏或名稱太短",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "資源建立者已不在或不完整。",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "資料集的描述遺漏或描述太短",
-      "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF不支援或授權遺失",
+      "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF 不支援或授權遺失",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "未唯一標識的記錄",
       "UNREADABLE_SECTION_ERROR": "部分錯誤無法讀取",
       "NoIssuesFound": "未找到問題"
@@ -33,8 +33,8 @@
     "fileFormat": {
       "title": "檔案格式",
       "DWCA": "達爾文核心集歸檔",
-      "TABULAR": "表格檔 （. csv,. tsv）",
-      "SPREADSHEET": "試算表 （. xlsx）"
+      "TABULAR": "表格檔 (. csv,. tsv)",
+      "SPREADSHEET": "試算表 (. xlsx)"
     },
     "fileType": {
       "title": "列類型",
@@ -53,7 +53,7 @@
         "title": "描述標籤"
       }
     },
-    "fileSizeLimit": "檔案大小限制: 100mb",
+    "fileSizeLimit": "檔案大小限制： 100 mb",
     "receivedMediaType": "媒體類型",
     "uniqueIdentifier": "唯一識別碼",
     "reportLocation": "此報告已發送至",
