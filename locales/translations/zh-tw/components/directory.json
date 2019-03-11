@@ -7,15 +7,15 @@
       },
       "scienceCommittee": {
         "title": "科學委員會",
-        "description": "GBIF科學委員會是一個諮詢委員會，監督GBIF工作計畫的發展與進度並提供建議給董事會、執行委員會和秘書處。你可以點此 [here.](/document/80877/current-terms-of-reference-for-the-science-committee) 閱讀其權責範圍。"
+        "description": "GBIF 科學委員會是一個諮詢委員會，監督 GBIF 工作計畫的發展與進度並提供建議給董事會、執行委員會和秘書處。你可以點此 [here.](/document/80877/current-terms-of-reference-for-the-science-committee) 閱讀其權責範圍。"
       },
       "budgetCommittee": {
         "title": "預算委員會",
-        "description": "經費委員會是一個諮詢委員會，處理各種與GBIF基金管理有關的金融問題。另外也監督提交給董事會的年度帳目審計並向GBIF選定的審計公司提供指導。委員會向執行委員會和秘書處提供建議。它的職責範圍可在此 [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee) 找到。"
+        "description": "經費委員會是一個諮詢委員會，處理各種與 GBIF 基金管理有關的金融問題。另外也監督提交給董事會的年度帳目審計並向 GBIF 選定的審計公司提供指導。委員會向執行委員會和秘書處提供建議。它的職責範圍可在此 [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee) 找到。"
       },
       "nsg": {
         "title": "節點指導組",
-        "description": "節點指導小組(NSG)成立於2011年，成員為GBIF六大區域代表([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America/Caribbean](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania))的參與者節點管理委員會(/contact-us/directory?group=nodesCommittee)主席及副主席。\nNSG的目標是根據會員節點提供的反饋，向相關GBIF機構提出具體建議，也因為NSG與GBIF節點的工作息息相關，NSG也會提出關於GBIF年度工作計劃的建議。"
+        "description": "節點指導小組 (NSG) 成立於2011年，成員為 GBIF 六大區域代表 ([Africa](/the-gbif-network/africa)，[Asia](/the-gbif-network/asia)，[Europe](/the-gbif-network/europe)，[Latin America/Caribbean](/the-gbif-network/latin-america)，[North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)) 的參與者節點管理委員會 (/contact-us/directory?group=nodesCommittee) 主席及副主席。\nNSG 的目標是根據會員節點提供的反饋，向相關 GBIF 機構提出具體建議，NSG 與 GBIF 節點的工作息息相關，NSG 也會提出關於 GBIF 年度工作計劃的建議。"
       },
       "nodesCommittee": {
         "title": "節點經理委員會",
