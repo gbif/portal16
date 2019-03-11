@@ -38,10 +38,10 @@
     "humanFilterView": "人類",
     "downloadStarted": "已開始下載，目前正在處理中。",
     "downloadExpectTime": "預計完成下載時間需長達3小時。大多數檔案將在15分鐘內下載完成。",
-    "notificationEmailAddresses": "準備就緒後將發送含有下載結果連結的通知電子郵件到以下位址：",
+    "notificationEmailAddresses": "完成後將發送附有下載結果連結的通知電子郵件到以下位址： ",
     "status": {
       "PREPARING": "準備中",
-      "SUSPENDED": "已停權",
+      "SUSPENDED": "已暫停",
       "RUNNING": "執行中",
       "CANCELLED": "已取消",
       "KILLED": "已砍掉"
@@ -49,8 +49,8 @@
     "predicate": {
       "joinDescriptions": {
         "and": "需全部選用",
-        "or": "至少使用一項",
-        "not": "不包含所有"
+        "or": "至少選用一項",
+        "not": "不包含任何項目"
       },
       "and": "和",
       "or": "或",
