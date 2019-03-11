@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "{NUMBER_FORMATED}{NUMBER, select,1{地理參照紀錄}other{地理參照紀錄}}",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{地理參照紀錄} other{地理參照紀錄}}",
     "noOccurrencesWithCoordinates": "出現紀錄未含座標",
     "clickToSearchArea": "點選搜尋區域",
     "generatedDateAgo": "產生{DATE_AGO}",
