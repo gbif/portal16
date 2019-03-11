@@ -4,8 +4,8 @@
       "aboutPublisher": "關於",
       "publishersHomepage": "首頁"
     },
-    "joinedAgo": "已加入 {TIME_AGO}",
-    "newPublisher": "新資料發布者",
+    "joinedAgo": "於 {TIME_AGO} 加入",
+    "newPublisher": "新發布者",
     "technicalContact": "技術聯繫",
     "country": "國家或地區",
     "hosting": "託管",
@@ -17,7 +17,7 @@
     "administrativeContact": "行政聯絡",
     "header": {
       "publisher": "發布者",
-      "sinceDate": "從 {DATE}"
+      "sinceDate": "自 {DATE}"
     }
   }
 }
