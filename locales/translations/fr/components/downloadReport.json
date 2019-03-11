@@ -2,7 +2,7 @@
   "downloadReport": {
     "csvDescription": "CSV délimité par des tabulations. Contient uniquement les données après l'interprétation par GBIF. Aucun multimedia inclus.",
     "dwcaDescription": "L' archive Darwin Core contient aussi bien les données d’origine fournies par l'éditeur de données que celles interprétées par GBIF. Les liens (pas les fichiers) vers les multimédia sont inclus.",
-    "speciesListDescription": "",
+    "speciesListDescription": "Fichier CSV délimité par des tabulations avec la liste distincte des espèces dans le résultat de recherche.",
     "estimatedSize": "Taille estimée des données",
     "knownIssues": "Problèmes connus",
     "knownIssuesDescription": "Une partie du traitement fait par le GBIF est de signaler les occurrences contenant des champs suspect",
