@@ -44,6 +44,7 @@
           "APPROVED": "Godkendt",
           "CLOSED": "Lukket",
           "IN_PROGRESS": "Igangværende",
+          "DISCONTINUED": "",
           "undefined": "Ikke specificeret"
         },
         "relevance": {
