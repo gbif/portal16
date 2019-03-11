@@ -2,6 +2,7 @@
   "downloadReport": {
     "csvDescription": "Tabulatorsepareret CSV. Indeholder kun data efter GBIF fortolkning.",
     "dwcaDescription": "Darwin Core Arkivet indeholder både de originale data som forlægger leverede det og GBIFs fortolkning.",
+    "speciesListDescription": "",
     "estimatedSize": "Anslået filstørrelse",
     "knownIssues": "Kendte problemer",
     "knownIssuesDescription": "En del af GBIFs behandling er at markere observationer, der har mistænkelige felter",
