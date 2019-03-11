@@ -3,7 +3,7 @@
     "leaveFeedback": "Deja tus comentarios",
     "intro": {
       "title": "Comentarios y preguntas",
-      "example": "Ayúdanos a resolver cualquier cuestión eligiendo el tipo de comentario que nos envías"
+      "example": "Ayúdanos a resolver cualquier cuestión eligiendo el tipo de comentario que nos envías. Por favor, si es posible, envía tu comentario en inglés. Trataremos de responder en un par de días."
     },
     "data content": {
       "title": "Contenido",
@@ -37,12 +37,12 @@
     },
     "placeholders": {
       "summary": "Resumen",
-      "description": "Descripción detallada. Para peticiones taxonómicas, por favor proporciona una referencia",
+      "description": "Descripción detallada. Para peticiones taxonómicas, por favor proporciona una referencia. Por favor, si es posible, envía tu comentario en inglés.",
       "username": "Email o nombre de usuario de GitHub"
     },
     "markdownSupport": "",
     "issueTracking": "",
-    "failure": "Algo no va bien - el sistema de comentarios no funciona. Por favor, escríbenos vía email o accede a (https://github.com/gbif/portal-feedback/issues). Disculpad las molestias.",
+    "failure": "Algo no va bien - el sistema de comentarios no funciona. Por favor, escríbenos vía email o accede a [Github] (https://github.com/gbif/portal-feedback/issues). Disculpa las molestias.",
     "weRecommendX": "Recomendamos el uso de",
     "tellGbif": "Dile a GBIF",
     "submit": "Enviar",

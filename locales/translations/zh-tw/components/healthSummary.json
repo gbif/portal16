@@ -1,18 +1,18 @@
 {
     "healthSummary": {
         "systemHealth": "系統運作狀況",
-        "description": "各種GBIF的服務狀態如何",
-        "updatedTimeAgo": "更新{TIME_AGO}",
+        "description": "各個 GBIF 服務的狀態",
+        "updatedTimeAgo": "{TIME_AGO} 更新",
         "statusSummary": {
-            "OPERATIONAL": "所有系統皆在執行中",
-            "INFO": "所有系統皆在執行中",
-            "WARNING": "系統目前處於不穩定或緩慢狀態。",
+            "OPERATIONAL": "所有系統皆正常運作",
+            "INFO": "所有系統皆正常運作",
+            "WARNING": "系統不穩定或緩慢",
             "CRITICAL": "網站部分故障"
         },
         "notifications": {
             "WARNING": {
                 "title": "服務不穩定",
-                "summary": "服務目前處於緩慢或不穩定狀態。"
+                "summary": "服務不穩定或緩慢"
             },
             "CRITICAL": {
                 "title": "暫停服務",

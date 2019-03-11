@@ -4,7 +4,7 @@
             "VOTING": "Participante con derecho a voto",
             "ASSOCIATE": "Participante asociado",
             "OBSERVER": "Participante observador",
-            "AFFILIATE": "Participante afiliado",
+            "AFFILIATE": "Afiliado",
             "FORMER": "Antiguo participante",
             "undefined": "Desconocido"
         },
@@ -30,7 +30,7 @@
                     "VOTING": "Organización participante con derecho a voto",
                     "ASSOCIATE": "Organización participante asociada",
                     "OBSERVER": "Organización participante observadora",
-                    "AFFILIATE": "Organización participante afiliada",
+                    "AFFILIATE": "Organización afiliada",
                     "FORMER": "Organización antigua participante",
                     "undefined": "Desconocida"
                 }

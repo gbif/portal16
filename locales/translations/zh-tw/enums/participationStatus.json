@@ -1,7 +1,7 @@
 {
     "participationStatus": {
         "VOTING": "投票",
-        "ASSOCIATE": "有關聯的",
+        "ASSOCIATE": "關聯",
         "OBSERVER": "觀察者",
         "AFFILIATE": "附屬",
         "FORMER": "前任",

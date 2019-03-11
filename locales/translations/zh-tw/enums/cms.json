@@ -35,9 +35,9 @@
           "Nodes guidance": "節點方針"
         },
         "projectGrantType": {
-          "REGIONAL": "區域補助款",
-          "SMALL": "小額補助款",
-          "NATIONAL": "國家補助金",
+          "REGIONAL": "區域補助經費",
+          "SMALL": "小型補助經費",
+          "NATIONAL": "國家補助經費",
           "undefined": "未指定"
         },
         "projectStatus": {
@@ -83,7 +83,7 @@
           "DATA_ANALYSIS": "資料分析",
           "DATA_CURATION_QUALITY": "資料策畫與品質",
           "DATA_DIGITIZATION": "資料數位化",
-          "DATA_PUBLISHING": "資料發佈"
+          "DATA_PUBLISHING": "資料發布"
         },
         "literatureType": {
           "journal": "期刊文章",

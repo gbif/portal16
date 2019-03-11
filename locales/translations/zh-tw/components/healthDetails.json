@@ -8,32 +8,32 @@
         "status": {
             "OPERATIONAL": "操作",
             "WARNING": "不穩定",
-            "CRITICAL": "不可用",
+            "CRITICAL": "不可使用",
             "INFO": "系統更新"
         },
         "components": {
             "OCCURRENCE": {
                 "name": "出現紀錄",
-                "tooltip": "例如，搜尋及查看出現紀錄。"
+                "tooltip": "例如搜尋及查看出現紀錄。"
             },
             "SPECIES": {
                 "name": "物種",
-                "tooltip": "例如，搜尋及察看物種、建議物種。"
+                "tooltip": "例如搜尋及察看物種、建議物種。"
             },
             "REGISTRY": {
                 "name": "註冊",
-                "tooltip": "例如，資料集、發布者、安裝程式、國家、參與者及網絡。"
+                "tooltip": "例如資料集、發布者、安裝程式、國家、會員及網絡。"
             },
             "IDENTITY": {
                 "name": "身份",
-                "tooltip": "用於登入和登入，連結帳戶等"
+                "tooltip": "用於登入、登入及連結帳號等"
             },
             "MAPS": {
                 "name": "地圖",
-                "tooltip": "用於顯示地圖圖像和取得地圖相關資訊"
+                "tooltip": "用於顯示地圖圖像與取得地圖相關資訊"
             },
             "CONTENTFUL": {
-                "name": "內容管理系統(外部系統)",
+                "name": "內容管理系統 (外部系統)",
                 "tooltip": "例如新聞和文章"
             },
             "IMAGE_CACHE": {
@@ -41,8 +41,8 @@
                 "tooltip": "負責網站上的大部分圖片"
             },
             "GITHUB": {
-                "name": "Github(外部系統)",
-                "tooltip": "回饋, 資料集建議。"
+                "name": "Github (外部系統)",
+                "tooltip": "回饋，資料集建議。"
             },
             "CRAWLER": {
                 "name": "接收",
@@ -58,7 +58,7 @@
             },
             "DOWNLOAD": {
                 "name": "下載",
-                "tooltip": "用於處理下載作業和發送使用者通知"
+                "tooltip": "用於處理下載作業與發送使用者通知"
             }
         }
     }
