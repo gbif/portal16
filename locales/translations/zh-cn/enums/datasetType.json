@@ -1,9 +1,0 @@
-{
-  "datasetType": {
-    "OCCURRENCE": "出现记录",
-    "CHECKLIST": "名录",
-    "SAMPLING_EVENT": "取样活动",
-    "METADATA": "元数据",
-    "undefined": "未知"
-  }
-}
