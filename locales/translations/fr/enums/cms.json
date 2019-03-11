@@ -44,6 +44,7 @@
           "APPROVED": "Approuvé",
           "CLOSED": "Fermé",
           "IN_PROGRESS": "En cours",
+          "DISCONTINUED": "",
           "undefined": "Non spécifié"
         },
         "relevance": {
