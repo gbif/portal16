@@ -1,11 +1,11 @@
 {
   "eoi": {
     "firstPleaseSeeIfYourOrg": "請先查看您的組織是否已註冊為 GBIF 發行者。",
-    "ifYouAreAffiliatedWithTheSelectedOrganization": "如果您附屬於所選的組織，您可以聯繫該連絡人以獲取資料發布的實用知識。",
+    "ifYouAreAffiliatedWithTheSelectedOrganization": "如果您附屬於所選的組織，您可以聯繫該連絡人以獲取資料發布的實務知識。",
     "myOrgIsNotRegistered": "我所屬的組織尚未完成註冊。",
     "searchOrganisations": "搜尋組織",
     "termsAndConditions": "條款及細則",
-    "iHaveReadAndUnderstood": "我已閱讀並了解 [GBIF 的資料發布者協議] (/條款/資料發行者)，且同意上述條款。",
+    "iHaveReadAndUnderstood": "我已閱讀並了解[GBIF 的資料發布者協議](/條款/資料發行者)，且同意上述條款。",
     "iUnderstandThatIAmSeekingRegistrationOnBehalf": "我了解我正代表我的組織提出註冊請求，並確認組織的主管當局知曉。",
     "iUnderstandThatMyOrganizationalInformation": "我了解組織的資訊，包括所提供的聯絡細節將透過 gbif. org 公開。",
     "administrativeContact": "行政聯繫",
