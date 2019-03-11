@@ -20,19 +20,19 @@
                 "type": "資料集類型",
                 "license": "授權資訊",
                 "dataHolderContact": "資料持有者聯絡資訊",
-                "publicAlert": "將發佈以上細節",
+                "publicAlert": "將公開此詳細資訊",
                 "yourContact": "你的聯絡資訊",
                 "comments": "評論",
                 "submit": "送出",
-                "followDiscussionBelow": "在底下連結追蹤或加入討論。",
+                "followDiscussionBelow": "透過下方連結關注或加入進一步討論。",
                 "followIssue": "於 Github 查看建議",
                 "suggestAnother": "建議其他資料集",
-                "saveFailure": "糟糕。我們無法儲存你的建議。請稍後再試一次，或直接前往建議管理Github [Github](https://github.com/gbif/data-mobilization/issues)"
+                "saveFailure": "抱歉。我們無法儲存你的建議。請稍後再試一次，或直接前往建議管理 Github [Github](https://github.com/gbif/data-mobilization/issues)"
             }
         },
         "observationTrends": {
             "drawerTitle": "相對觀測趨勢",
-            "intro": "嘗試探索GBIF的物種相對觀察趨勢是否可以提供研究者有用的資訊。",
+            "intro": "嘗試探索 GBIF 的物種相對觀察趨勢是否可以提供研究者有用的資訊。",
             "aboutLink": "閱讀有關此工具的資訊",
             "selectSpecies": "選擇物種",
             "noData": "我們沒有1900年以後關於選定物種的地理參考資料。",
@@ -42,15 +42,15 @@
             "draw": "繪製",
             "clear": "清除",
             "resultIntro": "所選區域的相對觀測頻率變化",
-            "embedIntro": "透過 {GBIF network} 中介的所有資料"
+            "embedIntro": "經由 {GBIF network} 的所有資料"
         },
         "speciesLookup": {
-            "description": "從CSV檔案標準化物種名稱違反GBIF架構。檔案應該包含學名、界及ID等欄位。",
+            "description": "從 CSV 檔案標準化物種名稱違反 GBIF 架構。檔案應該包含學名、界及 ID 等欄位。",
             "title": "物種名吻合"
         },
         "ipt": {
-            "description": "整合發布套件（IPT）是以Java編寫的免費開源軟體，可透過GBIF網絡用於發布和分享生物多樣性資料集。IPT也可以配置DataCite或EZID帳戶，以便將DOI分配給資料集並轉換為資料存儲庫。",
-            "dontSeeYourIpt": "還沒有IPT嗎？上傳 [GBIF] （mailto:helpdesk@gbif.org \"來信GBIF協助平台詢求在地圖上加入IPT\"） 你的座標。"
+            "description": "整合發布套件 (IPT) 是以 Java 編寫的免費開源軟體，可透過 GBIF 網絡用於發布和分享生物多樣性資料集。IPT 也可以配置 DataCite 或 EZID 帳戶，以便將 DOI 分配給資料集並轉換為資料存儲庫。",
+            "dontSeeYourIpt": "還沒有 IPT 嗎？上傳 [GBIF] (mailto:helpdesk@gbif.org \"來信 GBIF 協助平台詢求在地圖上加入IPT\") 您的座標。"
         }
     }
 }
