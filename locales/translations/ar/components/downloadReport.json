@@ -2,6 +2,7 @@
   "downloadReport": {
     "csvDescription": "",
     "dwcaDescription": "",
+    "speciesListDescription": "",
     "estimatedSize": "",
     "knownIssues": "",
     "knownIssuesDescription": "",
