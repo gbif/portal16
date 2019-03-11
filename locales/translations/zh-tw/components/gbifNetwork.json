@@ -29,7 +29,7 @@
     "gbif_secretariat": "GBIF秘書處",
     "membershipType": "會員",
     "name": "名稱",
-    "endorsedDataPublisher": "已認可{NUMBER_FORMATTED} 資料 {NUMBER, select, one{發布者} other{發布者}}",
+    "endorsedDataPublisher": "已認可 {NUMBER_FORMATTED} 資料{NUMBER, select, one{發布者} other{發布者}}",
     "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{會員} other{會員}}",
     "dataset": "{NUMBER, select, one{資料集}other{資料集}}",
     "datasets": "資料集",
