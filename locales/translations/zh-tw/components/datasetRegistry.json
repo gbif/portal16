@@ -29,7 +29,7 @@
             "inIngestionQueue": "在接收佇列中",
             "addingToQueue": "加入佇列",
             "unableToStart": "無法進行接收",
-            "ingestionChartExplainer": "最近一次的接收。左上角是最新的。",
+            "ingestionChartExplainer": "左上方為最新一次的接收。",
             "ingestionStatus": "接收狀態",
             "itemInIngestionQueue": "接收佇列中的項目",
             "datasetIngestionStatus": "資料集接收狀態",
