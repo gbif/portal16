@@ -27,7 +27,7 @@
     },
     "confirmation": {
       "title": "Thank you",
-      "example": "",
+      "example": "Your feedback has logged as an issue in Github. If necessary and if contact details were provided, we might reach out to you for further information. You can track progress by visiting the issue page.",
       "seeIssue": "See issue"
     },
     "issues": {
