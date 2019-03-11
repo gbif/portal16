@@ -2,6 +2,7 @@
   "downloadReport": {
     "csvDescription": "CSV delimitado por tabulação. Contém somente os dados após a interpretação do GBIF.",
     "dwcaDescription": "O ficheiro de Darwin Core contém os dados originais fornecidos pelo publicador e os dados interpretados pelo GBIF.",
+    "speciesListDescription": "",
     "estimatedSize": "Tamanho estimado dos dados",
     "knownIssues": "Problemas conhecidos",
     "knownIssuesDescription": "Uma parte do processo do GBIF é sinalizar os registos de ocorrência que apresentam campos suspeitos",
