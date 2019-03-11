@@ -1,6 +1,6 @@
 {
   "occurrence": {
-    "typeOf": "類型{TYPE} 名稱{NAME}",
+    "typeOf": "{NAME} 的 {TYPE}",
     "coordinates": "座標",
     "unknownDate": "未知日期",
     "absent": "缺少",
@@ -8,7 +8,7 @@
     "dataset": "資料集",
     "synced": "已經同步",
     "modified": "修改",
-    "monthAndyear": "月 \/ 年",
+    "monthAndyear": "月與年",
     "coordinateUncertainty": "座標不確定",
     "citation": "引用",
     "readFullDescription": "更多",
@@ -23,7 +23,7 @@
       "showDiagnostics": "顯示診斷結果",
       "hideDiagnostics": "隱藏診斷結果",
       "aboutDarwinCore": "關於達爾文核心集",
-      "raw": "未處理的"
+      "raw": "原始的"
     },
     "groups": {
       "Record": "記錄",
@@ -33,7 +33,7 @@
       "Taxon": "分類群",
       "Location": "地點",
       "Organism": "生物體",
-      "MaterialSample": "材料樣本",
+      "MaterialSample": "材料樣品",
       "GeologicalContext": "地理背景",
       "other": "其它"
     },
@@ -57,24 +57,24 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "收集於{COUNTRY}",
-        "FOSSIL_SPECIMEN": "收集於{COUNTRY}",
-        "LIVING_SPECIMEN": "收集於{COUNTRY}",
-        "HUMAN_OBSERVATION": "觀察於{COUNTRY}",
+        "PRESERVED_SPECIMEN": "蒐集於 {COUNTRY}",
+        "FOSSIL_SPECIMEN": "蒐集於 {COUNTRY}",
+        "LIVING_SPECIMEN": "蒐集於 {COUNTRY}",
+        "HUMAN_OBSERVATION": "觀察於 {COUNTRY}",
         "MACHINE_OBSERVATION": "觀察於 {COUNTRY}",
-        "MATERIAL_SAMPLE": "收集於 {COUNTRY}",
+        "MATERIAL_SAMPLE": "蒐集於 {COUNTRY}",
         "OCCURRENCE": "紀錄於 {COUNTRY}",
         "OBSERVATION": "觀察於 {COUNTRY}",
         "LITERATURE": "紀錄於 {COUNTRY}",
         "UNKNOWN": "紀錄於 {COUNTRY}"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "於未知地點收集",
-        "FOSSIL_SPECIMEN": "於未知地點收集",
-        "LIVING_SPECIMEN": "於未知地點收集",
+        "PRESERVED_SPECIMEN": "於未知地點蒐集",
+        "FOSSIL_SPECIMEN": "於未知地點蒐集",
+        "LIVING_SPECIMEN": "於未知地點蒐集",
         "HUMAN_OBSERVATION": "於未知地點觀察",
         "MACHINE_OBSERVATION": "於未知地點觀察",
-        "MATERIAL_SAMPLE": "於未知地點收集",
+        "MATERIAL_SAMPLE": "於未知地點蒐集",
         "OCCURRENCE": "於未知地點紀錄",
         "OBSERVATION": "於未知地點觀察",
         "LITERATURE": "於未知地點紀錄",
@@ -83,7 +83,7 @@
       "unknownSpecies": "未知的物種"
     },
     "occurrence": "出現紀錄",
-    "inLanguage": "在{LANGUAGE_TRANSLATED}"
+    "inLanguage": "在 {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {

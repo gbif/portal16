@@ -47,7 +47,7 @@
           "undefined": "Não especificado"
         },
         "relevance": {
-          "GBIF_USED": "GBIF utlizado",
+          "GBIF_USED": "GBIF utilizado",
           "GBIF_CITED": "GBIF citado",
           "GBIF_DISCUSSED": "GBIF discutido",
           "GBIF_PRIMARY": "GBIF primário",

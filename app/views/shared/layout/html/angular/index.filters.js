@@ -93,6 +93,7 @@
         .filter('momentFormat', function(LOCALE, LOCALE_MAPPINGS) {
             moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
             return function(date, format) {
+                if (!date) return '';
                 if (format === 'LL') {
                     date = date.substr(0, 10);
                 }

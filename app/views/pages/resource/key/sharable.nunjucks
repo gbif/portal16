@@ -32,14 +32,6 @@
                     <i class="gb-icon-linkedin"></i>
                 </a>
             </li>
-            <li>
-                <a href="https://plus.google.com/share?url={$ _meta.domain | encodeURI $}/{$ _meta.originalUrl | encodeURI $}"
-                   onclick="window.open('https://plus.google.com/share?url={$ _meta.domain | encodeURI $}/{$ _meta.originalUrl | encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
-                   class="action-flow btn btn-lg btn-highlight btn-circle"
-                   tooltip="google+">
-                    <i class="gb-icon-google"></i>
-                </a>
-            </li>
         </ul>
     </div>
 {% endblock %}

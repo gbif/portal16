@@ -94,8 +94,8 @@
                             <dd>
                                 <span>{$ occurrence.record.organismID $}</span>
                                 <span class="chip">
-                                    <a ui-sref="occurrenceSearchTable({organism_id: '{$ occurrence.record.organismID $}' })">
-                                        <span count="{{ portal.dataApi }}occurrence/search?organism_id={$ occurrence.record.organismID $}" count-translation="counts.nOccurrences">&nbsp;</span>
+                                    <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', organism_id: '{$ occurrence.record.organismID $}' })">
+                                        <span count="{{ portal.dataApi }}occurrence/search?dataset_key={$ occurrence.record.datasetKey $}&organism_id={$ occurrence.record.organismID $}" count-translation="counts.nOccurrences">&nbsp;</span>
                                     </a>
                                 </span>
                             </dd>

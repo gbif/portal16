@@ -13,7 +13,7 @@
     "publishers": "發布者",
     "participants": "會員",
     "search": "搜尋",
-    "clearFilters": "清除篩選",
+    "clearFilters": "清除篩選條件",
     "filters": "篩選",
     "simple": "簡單搜尋",
     "advanced": "進階選項",
@@ -26,6 +26,6 @@
       "searchResources": "搜尋資源",
       "searchOccurrences": "搜尋出現紀錄"
     },
-    "nResults": "{NUMBER_FORMATED} {NUMBER, select,1{結果}other{結果}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select,1{個結果}other{個結果}}"
   }
 }

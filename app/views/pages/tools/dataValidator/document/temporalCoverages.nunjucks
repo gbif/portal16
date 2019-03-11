@@ -6,10 +6,10 @@
             <div>
                 <div ng-repeat="period in vm.eml.temporalCoverages">
                     <span ng-if="period['@type'] == 'range'">
-                        {{ period.start | momentFormat:'LL'  }}  - {{ period.end | momentFormat:'LL' }}
+                        {{ period.start_date | momentFormat:'LL'  }}  - {{ period.end_date | momentFormat:'LL' }}
                     </span>
                     <span ng-if="period['@type'] == 'single'">
-                        {{ period.period | momentFormat:'LL' }}
+                        {{ period.period_date | momentFormat:'LL' }}
                     </span>
                     <span ng-if="period['@type'] == 'verbatim'" ng-bind-html="period.period"></span>
                 </div>

@@ -4,8 +4,7 @@
             "occurrences": "Записи о находках видов",
             "datasets": "Наборы данных",
             "publishers": "Организации, публикующие данные",
-            "species": "Виды",
-            "speciesSubtitle": "Узнайте больше о количестве видов, данные о которых есть на GBIF.org."
+            "literature": ""
         },
         "aboutGbifCountry": "О GBIF {COUNTRY}",
         "summary": "Свободный и открытый доступ к данным по биоразнообразию"

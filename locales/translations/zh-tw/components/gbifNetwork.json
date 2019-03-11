@@ -3,20 +3,20 @@
     "title": "目錄",
     "contact": "聯繫",
     "voting_participant": {
-      "one": "投票參與者",
-      "other": "投票參與者"
+      "one": "投票會員",
+      "other": "投票會員們"
     },
     "associate_country_participant": {
-      "one": "相關參與國家",
-      "other": "相關參與國家"
+      "one": "相關國家會員",
+      "other": "相關國家會員們"
     },
     "other_associate_participant": {
-      "one": "其他相關參與者",
-      "other": "其他相關參與者"
+      "one": "其他相關會員",
+      "other": "其他相關會員們"
     },
     "former_participant": {
-      "one": "前參與者",
-      "other": "前參與者"
+      "one": "前會員",
+      "other": "前會員們"
     },
     "gbif_affiliate": {
       "one": "GBIF附屬機構",
@@ -29,22 +29,22 @@
     "gbif_secretariat": "GBIF秘書處",
     "membershipType": "會員",
     "name": "名稱",
-    "endorsedDataPublisher": "已認可{NUMBER_FORMATTED} 資料 {NUMBER, select, one{發布者} other{發布者}}",
-    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{參與者} other{參與者}}",
+    "endorsedDataPublisher": "已認可 {NUMBER_FORMATTED} 資料{NUMBER, select, one{發布者} other{發布者}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{會員} other{會員}}",
     "dataset": "{NUMBER, select, one{資料集}other{資料集}}",
     "datasets": "資料集",
     "regionalRepresentative": "{NUMBER, select,one{代表} other{代表}}",
     "participation": {
-      "nonCountryParticipants": "參與組織",
+      "nonCountryParticipants": "會員組織",
       "gbifAffiliates": "GBIF附屬機構"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "首席代表",
-      "NODE_MANAGER": "節點管理者"
+      "NODE_MANAGER": "節點經理"
     },
     "publishers": "發布者",
-    "memberSince": "會員自從",
-    "participant": "參與者",
+    "memberSince": "會員始自",
+    "participant": "會員",
     "pPublishers": "{NUMBER, select, 1{發布者} other{發布者}}",
     "pOccurrence": "{NUMBER, select, 1{出現紀錄} other{出現紀錄}}",
     "occurrenceDatasets": "出現記錄資料集",

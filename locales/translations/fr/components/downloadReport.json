@@ -1,7 +1,7 @@
 {
   "downloadReport": {
-    "csvDescription": "CSV délimité par des tabulations. Contient uniquement les données interprétées par GBIF.",
-    "dwcaDescription": "L'Archive Darwin Core contient les données d’origine telles que fournies par le fournisseur de données et celles interprétées par GBIF.",
+    "csvDescription": "CSV délimité par des tabulations. Contient uniquement les données après l'interprétation par GBIF. Aucun multimedia inclus.",
+    "dwcaDescription": "L' archive Darwin Core contient aussi bien les données d’origine fournies par l'éditeur de données que celles interprétées par GBIF. Les liens (pas les fichiers) vers les multimédia sont inclus.",
     "estimatedSize": "Taille estimée des données",
     "knownIssues": "Problèmes connus",
     "knownIssuesDescription": "Une partie du traitement fait par le GBIF est de signaler les occurrences contenant des champs suspect",
@@ -17,7 +17,7 @@
     "withYear": "Avec l’année",
     "sizeZippedForDownload": "{SIZE_FORMATTED} compressé pour téléchargement",
     "freeOfCost": "Gratuit – mais pas sans responsabilités",
-    "promoteTransperant": "Afin de promouvoir la transparence en science et de créditer les institutions qui publient, il est important de citer les données correctement. Vous pouvez le faire en incluant la [citation recommandée du GBIF] (https://www.gbif.org/citation-guidelines) dans votre travail, que vous recevrez avec les données demandées.",
+    "promoteTransperant": "Alors que l'accès aux données de GBIF.org est gratuit et ouvert, n’oubliez pas qu’en téléchargeant ces données, vous acceptez :\n\n— de vous conformer à l’accord utilisation GBIF (https://www.gbif.org/terms/data-user)\n— et, si vous utilisez les données, de [citer convenablement] (https://www.gbif.org/citation-guidelines)\n \nVeuillez vous assurer que votre citation inclut l’unique **DOI** (indiqué lorsque le téléchargement est terminé). L’utilisation des citations de données correctement formatée assure la reproductibilité et la transparence scientifique et permet l’attribution appropriée du crédit pour les fournisseurs de données.",
     "ifAnalysingData": "Si vous analysez les données que vous allez télécharger, veuillez penser à référencer cette citation dans la section matériel et méthodes de votre manuscript.",
     "cancel": "Annuler",
     "proceed": "Continuer",

@@ -1,9 +1,9 @@
 {
   "map": {
-    "nGeoreferencedRecords": "{NUMBER_FORMATED}{NUMBER, select,1{地理參照紀錄}other{地理參照紀錄}}",
-    "noOccurrencesWithCoordinates": "出現紀錄內無座標",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{地理參照紀錄} other{地理參照紀錄}}",
+    "noOccurrencesWithCoordinates": "出現紀錄未含座標",
     "clickToSearchArea": "點選搜尋區域",
-    "generatedDateAgo": "產生{DATE_AGO}",
+    "generatedDateAgo": "產生 {DATE_AGO}",
     "anyYear": "任何年份",
     "exploreArea": "探索區域",
     "explore": "探索",
@@ -47,11 +47,11 @@
       "BLUE_HEAT": "藍色熱圖",
       "ORANGE_HEAT": "橘色熱圖",
       "GREEN": "綠色",
-      "BLUE_CLUSTER": "藍色群集",
+      "BLUE_CLUSTER": "藍色集群",
       "ORANGE_CLUSTER": "橙色集群"
     },
     "errors": {
-      "413": "此幾何檔案過大，資料程式應用介面(API) 無法處理。"
+      "413": "此幾何檔案過大，資料程式應用介面無法處理。"
     }
   }
 }

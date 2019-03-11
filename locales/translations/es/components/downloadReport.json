@@ -1,7 +1,7 @@
 {
   "downloadReport": {
-    "csvDescription": "CSV delimitado por tabulaciones. Sólo contiene datos tras el mapeo de GBIF.",
-    "dwcaDescription": "El Archivo Darwin Core contiene los datos originales como los había suministrado el proveedor y el mapeo de GBIF",
+    "csvDescription": "CSV delimitado por tabulaciones. Sólo contiene datos tras el mapeo de GBIF. Sin archivos multimedia incluidos.",
+    "dwcaDescription": "El Archivo Darwin Core contiene los datos originales como los había suministrado el proveedor y el mapeo de GBIF. Enlaces (sin archivos) a material multimedia incluidos.",
     "estimatedSize": "Tamaño de datos estimados",
     "knownIssues": "Problemas conocidos",
     "knownIssuesDescription": "Una parte del proceso de GBIF es marcar los registros de presencia que contienen campos sospechosos",
@@ -17,7 +17,7 @@
     "withYear": "Con año",
     "sizeZippedForDownload": "comprimido para descargar",
     "freeOfCost": "Libre de coste - no exento de responsabilidades",
-    "promoteTransperant": "Para promover la ciencia transparente y dar visibilidad a los proveedores de datos es importante citar los datos correctamente. Puedes hacerlo incluyendo la [cita recomendada de GBIF] (https://www.gbif.org/citation-guidelines) en tu trabajo, la cual recibirás junto a los datos que solicites.",
+    "promoteTransperant": "Aunque los datos de GBIF.org son libres y gratuitos, debes recordar que descargándolos, estás comprometiéndote a:\n\n— acatar el [acuerdo de usuario de GBIF](https://www.gbif.org/terms/data-user)\n— y, si usas los datos, [a citarlos apropiadamente](https://www.gbif.org/citation-guidelines)\n\nPor favor, asegurate que tu cita incluye el **DOI** (mostrado en la página cuando la refrescas). El uso de citas de datos con formatos apropiados asegura la transparencia y reproducibilidad científicas y permite la atribución apropiada de créditos a los proveedores de datos.",
     "ifAnalysingData": "Si estás analizando los datos que descargarás, por favor considera hacer referencia a esta cita en tu sección de Materiales y Métodos.",
     "cancel": "Cancelar",
     "proceed": "Proceder",

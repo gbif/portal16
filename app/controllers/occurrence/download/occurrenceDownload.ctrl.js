@@ -42,11 +42,11 @@ function renderDownload(req, res, next, template) {
         // if unreasonably long request, then returtn a dumbed down version to display to the user
         if (download.predicateString && download.predicateString.length > 10000) {
             download._hugeQuery = true;
-            renderPage(req, res, next, download, template);
-            return;
-        }
-
-        if (!download.record.request.predicate) {
+            return Promise.all(promiseList).then(function(completedPromises) {
+                download._citationCount = completedPromises[0].count;
+                renderPage(req, res, next, download, template);
+            });
+        } else if (!download.record.request.predicate) {
             download.noFilters = true;
             return Promise.all(promiseList).then(function(completedPromises) {
                 download._citationCount = completedPromises[0].count;
