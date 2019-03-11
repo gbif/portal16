@@ -11,10 +11,10 @@
                 "link": "網路連結至資料",
                 "region": "地理覆蓋範圍",
                 "taxon": "分類範圍",
-                "whyImportant": "為什麼這個資料集如此重要",
-                "howWouldYouRateIt": "你如何評斷它的重要性？",
-                "high": "必要 - GBIF在此區沒有資料",
-                "medium": "重要 - GBIF在此區只有少數資料",
+                "whyImportant": "為什麼此資料集如此重要",
+                "howWouldYouRateIt": "如何評斷它的重要性？",
+                "high": "必要 - GBIF 在此區沒有資料",
+                "medium": "重要 - GBIF 在此區只有少數資料",
                 "low": "對現有資料這將是很好的附錄",
                 "bibliographicRef": "參考書目",
                 "type": "資料集類型",
@@ -25,7 +25,7 @@
                 "comments": "評論",
                 "submit": "送出",
                 "followDiscussionBelow": "在底下連結追蹤或加入討論。",
-                "followIssue": "在Github查看建議",
+                "followIssue": "於 Github 查看建議",
                 "suggestAnother": "建議其他資料集",
                 "saveFailure": "糟糕。我們無法儲存你的建議。請稍後再試一次，或直接前往建議管理Github [Github](https://github.com/gbif/data-mobilization/issues)"
             }
