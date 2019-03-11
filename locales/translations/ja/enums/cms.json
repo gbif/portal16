@@ -44,6 +44,7 @@
           "APPROVED": "承認済",
           "CLOSED": "終了",
           "IN_PROGRESS": "進行中",
+          "DISCONTINUED": "",
           "undefined": "情報なし"
         },
         "relevance": {
