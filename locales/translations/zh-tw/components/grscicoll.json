@@ -55,9 +55,9 @@
   "grscicollPerson": {
     "search": {
       "title": "蒐集人員",
-      "description": "GRSciColl 員工是指參與收藏品的任何類型的工作人員。他們與機構及任何類型的收藏品都相關聯。"
+      "description": "GRSciColl 職員是指參與蒐藏品的各項工作人員。他們與機構及任何類型的收藏品都相關聯。"
     },
-    "headerTitle": "蒐集人員",
+    "headerTitle": "蒐藏品職員",
     "firstName": "名",
     "lastName": "姓",
     "fullName": "全名",
