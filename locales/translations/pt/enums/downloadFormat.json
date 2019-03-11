@@ -3,6 +3,6 @@
     "SIMPLE_AVRO": "Apache Avro",
     "SIMPLE_CSV": "CSV",
     "DWCA": "Ficheiro Darwin Core",
-    "SPECIES_LIST": ""
+    "SPECIES_LIST": "Lista de espécies em CSV"
   }
 }
