@@ -5,7 +5,7 @@
     "myOrgIsNotRegistered": "我所屬的組織尚未完成註冊。",
     "searchOrganisations": "搜尋組織",
     "termsAndConditions": "條款及細則",
-    "iHaveReadAndUnderstood": "我已閱讀並了解[GBIF 的資料發布者協議](/條款/資料發行者)，且同意上述條款。",
+    "iHaveReadAndUnderstood": "我已閱讀並了解 [GBIF 的資料發布者協議](/terms/data-publisher)，且同意上述條款。",
     "iUnderstandThatIAmSeekingRegistrationOnBehalf": "我了解我正代表我的組織提出註冊請求，並確認組織的主管當局知曉此事。",
     "iUnderstandThatMyOrganizationalInformation": "我了解組織的資訊，包括所提供的聯絡細節，將透過 gbif.org 公開。",
     "administrativeContact": "行政聯繫",
@@ -25,7 +25,7 @@
     "endorsingNode": "認可節點",
     "pleaseCheckSuggestionBelow": "為了支持與 GBIF 節點相關的發布者及審查資料品質。請確認以下的建議，並適時更正：",
     "helpMeWithEndorsement": "協助我取得認可",
-    "marineDataPublishers": "海洋資料發布者：要求許可OBIS (海洋生物地理資訊系統) 相關資料",
+    "marineDataPublishers": "海洋資料發布者：取得 OBIS（海洋生物地理資訊系統）相關資料的認可",
     "suggested": "建議自",
     "orSelectAnotherAssOrg": "或選擇其他相關組織",
     "clickToSelect": "點擊以選擇",
@@ -77,7 +77,7 @@
     "youWillRecieveConfEmail": "您收到確認信後，表示您的認可要求已批准。",
     "yourOrgDetailsAreHere": "您組織的詳細資料在這裡。",
     "outage": "系統目前處於部分故障狀態，暫時不接受註冊",
-    "eoiDescription": "為了準備透過GBIF發佈資料，我們請求有潛力新發布者們填寫此線上表格。\n在GBIF開始為你的資料編制索引之前，你的機構必須通過GBIF參與節點的國家或組織之一的認可，成為資料發布者。如果你的國家尚未參與GBIF，我們將替你在GBIF社群中尋找認可。",
+    "eoiDescription": "為了準備透過 GBIF 發布資料，我們請求潛在的新發布者們填寫此線上表格。在 GBIF 開始為您的資料編制索引之前，您的機構必須得到 GBIF 會員中的國家或組織之一、透過其會員節點的認可，始成為資料發布者。如果您的國家尚未參與 GBIF，我們將替您在 GBIF 社群中尋找認可。",
     "eoiTitle": "成為一個發布者"
   }
 }
