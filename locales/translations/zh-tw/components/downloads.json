@@ -1,7 +1,7 @@
 {
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED}{NUMBER, select,one{出現記錄}other{出現記錄}}已下載",
-    "nConstituentDatasets": "包含從{NUMBER_FORMATTED} {NUMBER, select, one{資料集} other{資料集}}的紀錄",
+    "nConstituentDatasets": "包含從 {NUMBER_FORMATTED} {NUMBER, select, one {資料集} other{資料集}} 的紀錄",
     "fileNotAvailable": "此檔案不再可供下載",
     "downloadDeletionWarning": "此下載尚未經過引用，在 {DATE} 之後將被刪除。",
     "brokenDownload": "下載失敗",
@@ -10,7 +10,7 @@
     "cancel": "取消",
     "download": "下載",
     "occurrences": "出現紀錄",
-    "largeQueryMessage": "篩選範圍太大。有關詳細資訊請參閱下載。",
+    "largeQueryMessage": "篩選範圍太大。詳細資訊請參閱下載。",
     "date": "日期",
     "show": "顯示",
     "license": "授權",
@@ -18,7 +18,7 @@
     "titleMissing": "缺少資料集標題",
     "underProcessing": "正在執行",
     "citation": "引用",
-    "nRecordsAtTime": "在{NUMBER_FORMATED} {NUMBER, select, one{記錄} other{記錄}}下載的時間",
+    "nRecordsAtTime": "在 {NUMBER_FORMATED} {NUMBER, select, one{記錄} other{記錄}} 於下載的時間",
     "aboutDeletionPolicy": "閱讀更多關於我們 [刪除政策] (/faq?question=for-how-long-will-does-gbif-store-downloads)。",
     "readDatauseAndTerms": "請確認已詳閱 [資料使用者協議] (/條款/資料-使用者) 和 [引用指南] (/引用-指南)。",
     "filterApplied": "使用篩選 {DATE}",
