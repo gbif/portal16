@@ -1,8 +1,8 @@
 {
   "issueEnum": {
-    "PARENT_NAME_USAGE_ID_INVALID": "母名稱使用ID無效",
-    "ACCEPTED_NAME_USAGE_ID_INVALID": "已接受的名稱使用ID無效",
-    "ORIGINAL_NAME_USAGE_ID_INVALID": "原始名稱使用ID無效",
+    "PARENT_NAME_USAGE_ID_INVALID": "母名稱使用 ID 無效",
+    "ACCEPTED_NAME_USAGE_ID_INVALID": "已接受的名稱使用 ID 無效",
+    "ORIGINAL_NAME_USAGE_ID_INVALID": "原始名稱使用 ID 無效",
     "RANK_INVALID": "未知排序",
     "NOMENCLATURAL_STATUS_INVALID": "命名狀態未知",
     "TAXONOMIC_STATUS_INVALID": "分類狀態未知",
@@ -20,7 +20,7 @@
     "MULTIMEDIA_INVALID": "無效的多媒體",
     "BIB_REFERENCE_INVALID": "無效的參考書目",
     "ALT_IDENTIFIER_INVALID": "備用識別碼無效",
-    "BACKBONE_MATCH_NONE": "無法與GBIF骨架匹配",
+    "BACKBONE_MATCH_NONE": "無法與 GBIF 骨架配對",
     "BACKBONE_MATCH_FUZZY": "模糊GBIF架構匹配",
     "ACCEPTED_NAME_MISSING": "同種異名，缺乏有效學名。",
     "ACCEPTED_NAME_NOT_UNIQUE": "有效名稱不是唯一",
