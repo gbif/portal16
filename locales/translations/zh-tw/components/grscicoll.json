@@ -65,8 +65,8 @@
     "affiliations": "附屬機構",
     "areaResponsibility": "職責範圍",
     "researchPursuits": "研究專長",
-    "primaryInstitution": "最初蒐藏機構名稱",
-    "primaryCollection": "最初蒐藏品名稱",
+    "primaryInstitution": "初級蒐藏機構名稱",
+    "primaryCollection": "初級蒐藏品名稱",
     "affiliateInstitutions": "其他附屬機構",
     "affiliateCollections": ""
   },
