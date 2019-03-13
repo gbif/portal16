@@ -1,6 +1,6 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "{NUMBER_FORMATTED}{NUMBER, select,one{出現記錄}other{出現記錄}}已下載",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select,one{出現記錄}other{出現記錄}}已下載",
     "nRecordsDownloaded": "下載 {NUMBER_FORMATTED} {NUMBER, select, one{記錄} other{記錄}}",
     "nConstituentDatasets": "包含從 {NUMBER_FORMATTED} {NUMBER, select, one {資料集} other{資料集}}的紀錄",
     "fileNotAvailable": "此檔案不再可供下載",
