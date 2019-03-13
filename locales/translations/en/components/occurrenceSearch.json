@@ -23,6 +23,7 @@
     "selectColumns": "Select table columns",
     "done": "Done",
     "yesCorrectSuggestion": "Yes",
-    "noWrongSuggestion": "No"
+    "noWrongSuggestion": "No",
+    "errorUserThrottled": ""
   }
 }
