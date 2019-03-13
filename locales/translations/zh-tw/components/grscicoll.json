@@ -19,7 +19,7 @@
     "preservationTypes": "保存類型",
     "homepage": "首頁",
     "apiUrl": "蒐藏品網頁服務的URL",
-    "catalogUrl": "蒐藏品標本名錄/資料庫的URL",
+    "catalogUrl": "蒐藏品標本名錄 / 資料庫的 URL",
     "identifiers": "鑑定者",
     "collectionMailingAddress": "郵寄地址",
     "status": "狀態",
