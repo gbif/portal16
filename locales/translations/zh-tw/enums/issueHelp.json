@@ -46,7 +46,7 @@
     "NAME_PARENT_MISMATCH": "此 （有效的） 二名 / 三名法無法與上層名稱匹配，應該重新組合成上層屬/種。例如物種Picea alba 被錯誤配對而分類於 Abies 屬，應更改為 Abies alba。GBIF 骨幹的具體問題。 ",
     "DWCA_UNREADABLE": "無法讀取或汲取達爾文核心集歸檔",
     "RESOURCE_CREATOR_MISSING_OR_INCOMPLETE": "來源建立者已不在或不完整。",
-    "PUBLISHED_BEFORE_GENUS": "已有比上層屬更早的二名 / 三名法的名稱發布。可能表示該名稱為重組名。 ",
+    "PUBLISHED_BEFORE_GENUS": "已有比上層屬更早的二名／三名法的名稱發布。可能表示該名稱為重組名。 ",
     "RANK_INVALID": "無法解析 Dwc：分類群排序",
     "ACCEPTED_NAME_USAGE_ID_INVALID": "無法解析 dwc：接受名稱使用者 ID 數值",
     "CONFLICTING_BASIONYM_COMBINATION": "在同型基礎名稱組中，有一個以上的有效名稱。GBIF 骨幹的具體問題。 ",
