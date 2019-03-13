@@ -14,11 +14,11 @@
         "components": {
             "OCCURRENCE": {
                 "name": "出現紀錄",
-                "tooltip": "例如搜尋及查看出現紀錄。"
+                "tooltip": "例如：搜尋及查看出現紀錄。"
             },
             "SPECIES": {
                 "name": "物種",
-                "tooltip": "例如搜尋及察看物種、建議物種。"
+                "tooltip": "例如：搜尋及察看物種、建議物種。"
             },
             "REGISTRY": {
                 "name": "註冊",
