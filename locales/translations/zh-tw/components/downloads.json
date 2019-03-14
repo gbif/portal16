@@ -39,7 +39,7 @@
     "humanFilterView": "人類",
     "downloadStarted": "已開始下載，目前正在處理中。",
     "downloadExpectTime": "預計完成下載時間需長達 3 小時。大多數檔案將在 15 分鐘內下載完成。",
-    "notificationEmailAddresses": "完成後將發送附有下載結果連結的通知電子郵件到以下位址： ",
+    "notificationEmailAddresses": "完成後將發送附有下載結果連結的通知電子郵件至以下位址： ",
     "status": {
       "PREPARING": "準備中",
       "SUSPENDED": "已暫停",
