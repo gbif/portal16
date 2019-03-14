@@ -19,6 +19,7 @@
     "404Text": "此頁面之前可能存在，但目前搜尋不到。\n請嘗試我們的[搜尋功能](/search) 來尋找。\n隨時歡迎透過 [helpdesk@gbif.org](mailto:helpdesk@gbif.org) 聯繫我們。",
     "changeLanguage": "變更語言",
     "noData": "無資料",
-    "payloadTooLarge": ""
+    "payloadTooLarge": "",
+    "readMore": "閱讀更多"
   }
 }

@@ -20,7 +20,7 @@ if (env === 'local' || env === 'dev') {
 
 if (env === 'uat' || env === 'local') {
     locales.push('zh-tw');
-    locales.push('zh-cn');
+    locales.push('zh');
     locales.push('ru');
 }
 

@@ -17,7 +17,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed) {
+function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX) {
     var vm = this;
     vm.stateParams = $state;
     vm.downloadFormats = enums.downloadFormats;
@@ -266,14 +266,17 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
             window.location.href = 'download/' + response.data;
         }, function(err) {
             // TODO alert user of failure
-            if (err.status == 401) {
+            if (err.status === 401) {
                 // unauthorized
-                toastService.error({translate: 'phrases.errorNotAuthorized', feedback: true});
-            } if (err.status == 413) {
+                toastService.error({translate: 'phrases.errorNotAuthorized'});
+            } else if (err.status === 413) {
                 // Query too large for the API
-                toastService.error({translate: 'phrases.payloadTooLarge', feedback: true});
+                toastService.error({translate: 'phrases.payloadTooLarge'});
+            } else if (err.status === 420) {
+                // User throttled
+                toastService.error({translate: 'occurrenceSearch.errorUserThrottled', readMore: URL_PREFIX + '/restricted'});
             } else {
-                toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
+                toastService.error({translate: 'phrases.criticalErrorMsg'});
             }
         });
     };

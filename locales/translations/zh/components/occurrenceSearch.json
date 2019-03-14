@@ -23,6 +23,7 @@
     "selectColumns": "",
     "done": "",
     "yesCorrectSuggestion": "",
-    "noWrongSuggestion": ""
+    "noWrongSuggestion": "",
+    "errorUserThrottled": ""
   }
 }

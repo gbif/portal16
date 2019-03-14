@@ -1,6 +1,7 @@
 {
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{occurrence} other{occurrences}} téléchargée",
+    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{enregistrement} other{enregistrements}} au moment du téléchargement",
     "nConstituentDatasets": "Inclus les enregistrements de {NUMBER_FORMATTED} {NUMBER, select, one{jeu de données} other{jeux de données}}",
     "fileNotAvailable": "Le fichier n'est plus disponible pour téléchargement",
     "downloadDeletionWarning": "Ce téléchargement n’a pas été cité et est éligible à la suppression après {DATE}.",

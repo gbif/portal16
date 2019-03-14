@@ -2,6 +2,7 @@
   "downloadFormat": {
     "SIMPLE_AVRO": "",
     "SIMPLE_CSV": "",
-    "DWCA": ""
+    "DWCA": "",
+    "SPECIES_LIST": ""
   }
 }

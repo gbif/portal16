@@ -134,8 +134,7 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                 vm.waiting = false;
             }, function() {
                 toastService.error({
-                    translate: 'phrases.criticalErrorMsg',
-                    feedback: true
+                    translate: 'phrases.criticalErrorMsg'
                 });
                 vm.waiting = false;
             });
@@ -155,9 +154,9 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                 vm.waiting = false;
                 if (err.status < 500) { // 401 seems an odd error code for 'no such entry' but that is what the API returns
                     // TODO move error messages to translation file
-                    toastService.error({translate: 'profile.unknownUser', feedback: true});
+                    toastService.error({translate: 'profile.unknownUser'});
                 } else {
-                    toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
+                    toastService.error({translate: 'phrases.criticalErrorMsg'});
                 }
             });
         };

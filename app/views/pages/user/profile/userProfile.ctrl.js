@@ -68,7 +68,7 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
             vm.profileFormInvalid = false;
             User.update(vm.profile)
                 .then(function() {
-                    toastService.error({translate: 'profile.accountInfoUpdated', feedback: false});
+                    toastService.error({translate: 'profile.accountInfoUpdated'});
                     vm.original = JSON.parse(JSON.stringify(vm.profile));
                     vm.inEditMode = false;
                     vm.editModeChanged();
@@ -77,7 +77,7 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
                     if (err.status === 401) {
                         User.logout();
                     } else {
-                        toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
+                        toastService.error({translate: 'phrases.criticalErrorMsg'});
                     }
                 });
         } else {
@@ -91,16 +91,16 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
             vm.passwordFormInvalid = false;
             User.changePassword(vm.profile.userName, vm.oldPassword, vm.newPassword)
                 .then(function() {
-                    toastService.error({translate: 'profile.accountInfoUpdated', feedback: false});
+                    toastService.error({translate: 'profile.accountInfoUpdated'});
                     vm.original = JSON.parse(JSON.stringify(vm.profile));
                     vm.inEditMode = false;
                     vm.editModeChanged();
                 })
                 .catch(function(err) {
                     if (err.status === 401) {
-                        toastService.error({translate: 'profile.passwordChangeInvalid', feedback: true});
+                        toastService.error({translate: 'profile.passwordChangeInvalid'});
                     } else {
-                        toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
+                        toastService.error({translate: 'phrases.criticalErrorMsg'});
                     }
                 });
         } else {

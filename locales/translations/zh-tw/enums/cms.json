@@ -24,7 +24,7 @@
         "resource": "資源",
         "dataUse": "資料使用",
         "project": "專案",
-        "participant": "參與者",
+        "participant": "會員",
         "programme": "計畫",
         "document": "文件",
         "tool": "工具",
@@ -44,6 +44,7 @@
           "APPROVED": "核准",
           "CLOSED": "關閉",
           "IN_PROGRESS": "處理中",
+          "DISCONTINUED": "停止",
           "undefined": "未指定"
         },
         "relevance": {

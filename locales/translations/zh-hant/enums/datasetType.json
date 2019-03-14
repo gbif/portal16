@@ -1,9 +1,0 @@
-{
-  "datasetType": {
-    "OCCURRENCE": "出現紀錄",
-    "CHECKLIST": "清單",
-    "SAMPLING_EVENT": "採樣活動",
-    "METADATA": "元資料",
-    "undefined": "未知"
-  }
-}

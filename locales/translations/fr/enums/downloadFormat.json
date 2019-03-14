@@ -2,6 +2,7 @@
   "downloadFormat": {
     "SIMPLE_AVRO": "Apache Avro",
     "SIMPLE_CSV": "CSV",
-    "DWCA": "Archive Darwin Core"
+    "DWCA": "Archive Darwin Core",
+    "SPECIES_LIST": "Liste des espèces en format CSV"
   }
 }

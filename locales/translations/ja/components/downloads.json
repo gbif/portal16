@@ -1,6 +1,7 @@
 {
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATED} {NUMBER, select, 1{オカレンス} other{オカレンス}} ダウンロード済み",
+    "nRecordsDownloaded": "",
     "nConstituentDatasets": "{NUMBER_FORMATTED} {NUMBER, select, one{データセット} other{データセット}} からのレコードを含む",
     "fileNotAvailable": "このファイルはもうダウンロード可能ではありません。",
     "downloadDeletionWarning": "このダウンロードは引用されていないので、 {DATE} より後に削除の対象となります。",
