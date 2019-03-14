@@ -23,6 +23,7 @@
     "selectColumns": "表の列を選択する",
     "done": "完了",
     "yesCorrectSuggestion": "はい",
-    "noWrongSuggestion": "いいえ"
+    "noWrongSuggestion": "いいえ",
+    "errorUserThrottled": ""
   }
 }
