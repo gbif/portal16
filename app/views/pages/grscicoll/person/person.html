@@ -14,7 +14,7 @@
                     <form ng-submit="grscicollPerson.pageChanged()">
                         <input type="text" placeholder="{{ 'search.search' | translate }}" autocomplete="off"
                                 ng-model="grscicollPerson.q">
-                        <a href="" class="search-box__submit gb-icon-search2 inherit noUnderline" type="submit">
+                        <a href="" class="search-box__submit gb-icon-search2 inherit noUnderline" type="submit" ng-click="grscicollPerson.pageChanged()">
                             <span class="sr-only">{$ __('search.search') $}</span>
                         </a>
                     </form>
