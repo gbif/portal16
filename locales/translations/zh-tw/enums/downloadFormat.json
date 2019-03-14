@@ -3,6 +3,6 @@
     "SIMPLE_AVRO": "Apache Avro 數據序列化框架",
     "SIMPLE_CSV": "CSV",
     "DWCA": "達爾文核心集歸檔",
-    "SPECIES_LIST": ""
+    "SPECIES_LIST": "物種清單為 CSV 檔"
   }
 }

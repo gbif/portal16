@@ -1,27 +1,27 @@
 {
   "map": {
     "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
+    "noOccurrencesWithCoordinates": "没有带地标的记录",
+    "clickToSearchArea": "点击搜索区域",
+    "generatedDateAgo": "生成 {DATE_AGO}",
+    "anyYear": "任何年份",
+    "exploreArea": "探索区域",
     "explore": "",
     "style": "",
     "filters": "",
     "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
+    "select": "选择",
+    "custom": "自定义",
+    "baseMap": "底图",
     "binning": "",
     "year": "年份",
-    "chooseColors": "",
+    "chooseColors": "颜色",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "经典六边形",
+      "CLASSIC": "经典点状",
+      "STREETS": "街道",
+      "GLACIER": "冰川",
+      "CUSTOM": "自定义"
     },
     "basemap": {
       "CLASSIC": "",
@@ -29,24 +29,24 @@
       "LIGHT_DETAILS": "",
       "DARK": "",
       "DARK_DETAILS": "",
-      "OSM": ""
+      "OSM": "道路"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "点",
+      "SMALL_HEX": "小六边形",
+      "LARGE_HEX": "六边形",
+      "SMALL_SQUARE": "小方块",
+      "LARGE_SQUARE": "正方形"
     },
     "colors": {
       "CLASSIC": "",
       "FIRE": "",
       "GLACIER": "",
-      "PURPLE_YELLOW": "",
+      "PURPLE_YELLOW": "紫黄色",
       "PURPLE_HEAT": "",
       "BLUE_HEAT": "",
       "ORANGE_HEAT": "",
-      "GREEN": "",
+      "GREEN": "绿色",
       "BLUE_CLUSTER": "",
       "ORANGE_CLUSTER": ""
     },

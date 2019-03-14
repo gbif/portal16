@@ -1,38 +1,38 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
-      "dataPublishing": "",
-      "dataAbout": "",
-      "participartion": "",
-      "publications": "",
-      "news": "",
-      "invasives": ""
+      "summary": "概要",
+      "dataPublishing": "数据发布",
+      "dataAbout": "有关数据",
+      "participartion": "参与",
+      "publications": "出版物",
+      "news": "新闻",
+      "invasives": "外来物种"
     },
-    "memberSince": "",
-    "dataFrom": "",
-    "dataAboutCountry": "",
-    "publishingTrends": "",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
-    "nFrom": "",
-    "nAbout": "",
-    "viewAllN": "",
-    "noPublications": "",
-    "notParticipant": "",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "memberSince": "会员自",
+    "dataFrom": "来自 {TRANSLATED_COUNTRY} 的数据",
+    "dataAboutCountry": "有关 {TRANSLATED_COUNTRY} 的数据",
+    "publishingTrends": "发布趋势",
+    "noDataPublishingActivity": "无数据发布",
+    "noInstitutionsHavePublished": "该国没有任何机构通过 GBIF 发布数据",
+    "trendsAboutCountry": "有关 {TRANSLATED_COUNTRY} 的趋势",
+    "nFrom": "{NUMBER_FORMATTED} 从",
+    "nAbout": "{NUMBER_FORMATTED} 关于",
+    "viewAllN": "查看所有 {NUMBER_FORMATTED}",
+    "noPublications": "没有任何出版物",
+    "notParticipant": "不是会员",
+    "notParticipantDescription": "这个国家不是 GBIF 会员",
+    "countryNamingDisclaimer": "国家和地区的名称是基于[ISO 3166-1 标准](https://www.iso.org/obp/ui/#search)",
     "counts": {
-      "occurrences": "",
-      "datasets": "",
-      "publishers": "",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "occurrences": "出现记录",
+      "datasets": "数据集",
+      "publishers": "发布者",
+      "countriesAndAreasContributeData": "各国和各区域提供数据",
+      "publishedOccurrences": "已发布的出现记录",
+      "publishedDatasets": "已发布的数据集",
+      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} 提供的数据涵盖的国家和地区",
+      "publishersFrom": "来自 {TRANSLATED_COUNTRY} 的发布者"
     },
-    "activityReport": ""
+    "activityReport": "活动记录"
   }
 }
