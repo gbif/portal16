@@ -2,7 +2,7 @@
   "downloadReport": {
     "csvDescription": "以欄標分隔的 CSV 檔。只包含 GBIF 解析過的資料，不包含多媒體。",
     "dwcaDescription": "達爾文核心集檔案內含發布者提供的原始資料與 GBIF 解析後的資料。包括多媒體連結（但無檔案）。",
-    "speciesListDescription": "",
+    "speciesListDescription": "搜尋結果中包含不同物種列表的攔標分隔 CSV 檔",
     "estimatedSize": "預估資料大小",
     "knownIssues": "已知問題",
     "knownIssuesDescription": "GBIF 資料處理工作的其中一部分為標記出有可疑欄位的出現紀錄",
