@@ -4,9 +4,9 @@
     "coordinates": "座標",
     "unknownDate": "未知日期",
     "absent": "缺少",
-    "issues": "問題",
+    "issues": "議題",
     "dataset": "資料集",
-    "synced": "已經同步",
+    "synced": "已同步",
     "modified": "修改",
     "monthAndyear": "月與年",
     "coordinateUncertainty": "座標不確定",
@@ -14,11 +14,11 @@
     "readFullDescription": "更多",
     "showMoreInfo": "更多",
     "noTaxonMatch": "無",
-    "gbifTaxonInterpretation": "GBIF分類群解釋",
+    "gbifTaxonInterpretation": "GBIF 分類群解釋",
     "aboutTheDataset": "關於資料集",
     "noLocationInformation": "此發布紀錄內容無地點資訊",
     "subMenu": {
-      "diagnostics": "診斷信息",
+      "diagnostics": "診斷訊息",
       "menu": "選單",
       "showDiagnostics": "顯示診斷結果",
       "hideDiagnostics": "隱藏診斷結果",
@@ -28,7 +28,7 @@
     "groups": {
       "Record": "記錄",
       "Occurrence": "出現紀錄",
-      "Event": "活動",
+      "Event": "事件",
       "Identification": "辨識",
       "Taxon": "分類群",
       "Location": "地點",
@@ -45,7 +45,7 @@
       "location": "地點",
       "specimenType": "標本類型",
       "publisher": "發布者",
-      "reference": "參照",
+      "reference": "參考文獻",
       "verbatimName": "逐字名"
     },
     "media": {

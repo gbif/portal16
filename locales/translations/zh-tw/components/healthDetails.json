@@ -6,7 +6,7 @@
         "version": "版本",
         "nInQueue": "{NUMBER} 等待中",
         "status": {
-            "OPERATIONAL": "操作",
+            "OPERATIONAL": "運作中",
             "WARNING": "不穩定",
             "CRITICAL": "不可使用",
             "INFO": "系統更新"
@@ -18,7 +18,7 @@
             },
             "SPECIES": {
                 "name": "物種",
-                "tooltip": "例如：搜尋及察看物種、建議物種。"
+                "tooltip": "例如：搜尋及察看物種、物種建議。"
             },
             "REGISTRY": {
                 "name": "註冊",
@@ -26,7 +26,7 @@
             },
             "IDENTITY": {
                 "name": "身份",
-                "tooltip": "用於登入、登入及連結帳號等"
+                "tooltip": "用於登入、登入及連結帳戶等"
             },
             "MAPS": {
                 "name": "地圖",
@@ -34,7 +34,7 @@
             },
             "CONTENTFUL": {
                 "name": "內容管理系統（外部系統）",
-                "tooltip": "例如新聞和文章"
+                "tooltip": "例如：新聞與文章"
             },
             "IMAGE_CACHE": {
                 "name": "圖像快取",
@@ -46,7 +46,7 @@
             },
             "CRAWLER": {
                 "name": "接收",
-                "tooltip": "更新資料集－新和舊"
+                "tooltip": "更新資料集－新與舊"
             },
             "RESOURCE_SEARCH": {
                 "name": "搜尋來源",
@@ -54,7 +54,7 @@
             },
             "CLUSTER": {
                 "name": "系統負載",
-                "tooltip": "用於處理下載、接收等其他更多項目。"
+                "tooltip": "後端用於處理下載、接收等其他更多項目。"
             },
             "DOWNLOAD": {
                 "name": "下載",

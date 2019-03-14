@@ -18,9 +18,9 @@
       "accordingTo": "D'après",
       "occurrenceCount": "Occurrences dans GBIF",
       "seeAllCountries": "Tout afficher",
-      "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive": "Preuve d'impact",
+      "isInvasive_yes": "Oui",
+      "isInvasive_no": "Non"
     },
     "as": "Comme",
     "in": "Dans",

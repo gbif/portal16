@@ -25,7 +25,7 @@
             "orphaned": "Jeu de données orphelin",
             "rescued": "Jeu de données orphelin secouru",
             "adopted": "Jeu de données adopté",
-            "neverIngested": "",
+            "neverIngested": "Jamais ingéré",
             "inIngestionQueue": "Est dans la file d'ingestion",
             "addingToQueue": "Ajout à la file",
             "unableToStart": "Impossible de démarrer l’ingestion",

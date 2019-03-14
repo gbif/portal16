@@ -2,7 +2,7 @@
   "collection": {
     "search": {
       "title": "蒐藏品",
-      "description": "**機構蒐藏品** 是已正式加入某機構並獲得相當程度支持的蒐藏品。\n\n**計畫蒐藏品**是由機構內研究者所收集，但可能尚未被正式納入的蒐藏品。計畫蒐藏品最終可能變成機構蒐藏品的一部分或仍由各別研究者管理及控管。\n\n**私人蒐藏品**是由各別研究者控管，並未正式納入相關機構的蒐藏品。它們可能屬於蒐藏家的私人財物或未歸屬任何人。"
+      "description": "**機構蒐藏品** 是已正式加入機構並獲得相當程度支持的蒐藏品。\n\n**計畫蒐藏品**是由機構內研究者所收集，但可能尚未被正式納入的蒐藏品。計畫蒐藏品最終可能變成機構蒐藏品的一部分或仍由各別研究者管理及控管。\n\n**私人蒐藏品**是由各別研究者控管，並未正式納入相關機構的蒐藏品。它們可能為蒐藏家的私人財物或未歸屬任何人。"
     },
     "headerTitle": "蒐藏品",
     "description": "描述",
@@ -15,10 +15,10 @@
       "false": "否"
     },
     "accessionStatus": "加入狀態",
-    "contentTypes": "內容種類",
+    "contentTypes": "內容類型",
     "preservationTypes": "保存類型",
     "homepage": "首頁",
-    "apiUrl": "蒐藏品網頁服務的URL",
+    "apiUrl": "蒐藏品網頁服務的 URL",
     "catalogUrl": "蒐藏品標本名錄／資料庫的 URL",
     "identifiers": "鑑定者",
     "collectionMailingAddress": "郵寄地址",
@@ -32,10 +32,10 @@
   "institution": {
     "search": {
       "title": "機構",
-      "description": "** 機構 ** 是指擁有與管理科學蒐藏的任何機構或組織。這包括草本植物、博物館、動物園、植物園、生物庫等。一個機構可以包含多蒐藏品, 也就是說這些蒐藏品應在 ** 機構／計畫收藏品 ** 單獨輸入，並與其上層機構連結。\n\n由於整合了幾個較舊的資料集，並為避免 **機構代碼** 重複，<IH> 已附加到所有植物標本館索引代碼。"
+      "description": "** 機構 ** 是指擁有與管理科學蒐藏的任何機構或組織。包括草本植物、博物館、動物園、植物園、生物庫等。一個機構可以包含多個蒐藏品，也就是說這些蒐藏品應在 ** 機構／計畫收藏品 ** 單獨輸入，並與其上層機構連結。\n\n由於整合數個較舊的資料集，並為避免 **機構代碼** 重複，所有植物標本館索引代碼會附加 <IH> 。"
     },
     "headerTitle": "機構",
-    "indexHerbariorumRecord": "植物標本館索引",
+    "indexHerbariorumRecord": "植物標本館索引紀錄",
     "code": "機構代碼",
     "statusOfInstitution": "機構狀態",
     "additionalNames": "其他名稱",
@@ -54,7 +54,7 @@
   },
   "grscicollPerson": {
     "search": {
-      "title": "蒐集人員",
+      "title": "蒐藏品職員",
       "description": "GRSciColl 職員是指參與蒐藏品的各項工作人員。他們與機構及任何類型的蒐藏品都相關聯。"
     },
     "headerTitle": "蒐藏品職員",
@@ -65,8 +65,8 @@
     "affiliations": "附屬機構",
     "areaResponsibility": "職責範圍",
     "researchPursuits": "研究專長",
-    "primaryInstitution": "初級蒐藏機構名稱",
-    "primaryCollection": "初級蒐藏品名稱",
+    "primaryInstitution": "主要蒐藏機構名稱",
+    "primaryCollection": "主要蒐藏品名稱",
     "affiliateInstitutions": "其他附屬機構",
     "affiliateCollections": ""
   },

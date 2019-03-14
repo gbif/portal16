@@ -16,8 +16,8 @@
       "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定列類型",
       "EML_NOT_FOUND": "找不到 EML 文件",
       "EML_GBIF_SCHEMA": "Eml 檔案不針對架構進行驗證",
-      "UNKNOWN_ROWTYPE": "核心集 / 擴展文件為未知的列類型",
-      "REQUIRED_TERM_MISSING": "缺少核心集 / 擴充文件必要名稱",
+      "UNKNOWN_ROWTYPE": "核心集／延伸集為未知的列類型",
+      "REQUIRED_TERM_MISSING": "缺少核心集／延伸集必要名稱",
       "COLUMN_MISMATCH": "無匹配欄位",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "違反紀錄參考之完整性",
       "UNKNOWN_TERM": "未知名稱",
@@ -42,7 +42,7 @@
         "title": "核心集"
       },
       "EXTENSION": {
-        "title": "附加元件"
+        "title": "延伸集"
       },
       "METADATA": {
         "description": "詮釋資料描述EML中的資料（生態詮釋資料語言）",
@@ -116,7 +116,7 @@
       "newDataValidation": "新資料驗證",
       "newValidation": "新的驗證",
       "about": "關於",
-      "darwinCoreExtensions": "達爾文核心集擴展",
+      "darwinCoreExtensions": "達爾文核心延伸集",
       "metaData": "詮釋資料",
       "summary": "總結"
     }
