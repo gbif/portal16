@@ -3,13 +3,13 @@
     "countByKingdom": "以界來計數",
     "countByRank": "以級別計數",
     "countNamesByLanguage": "以語言來計算名稱",
-    "countExtRecordsByExtension": "以擴展文件類型來計算",
+    "countExtRecordsByExtension": "以延伸集類型來計算",
     "countByOrigin": "以來源計數",
     "countByIssue": "以問題類型來計算其數量"
   },
   "metrics": {
     "issues": "問題",
-    "extensions": "附加元件",
+    "extensions": "延伸集",
     "taxa": "類群",
     "other": "其它",
     "checklistMetrics": "物種名錄指數",
