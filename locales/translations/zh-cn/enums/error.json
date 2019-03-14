@@ -1,6 +1,0 @@
-{
-    "error": {
-        "USER_ALREADY_EXIST": "该用户已存在。请尝试另一个用户名或电子邮件。",
-        "CONSTRAINT_VIOLATION": "提供的信息无效或不足"
-    }
-}

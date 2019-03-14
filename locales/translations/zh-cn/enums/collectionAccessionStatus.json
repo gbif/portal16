@@ -1,8 +1,0 @@
-{
-  "enum": {
-    "collectionAccessionStatus": {
-      "INSTITUTIONAL": "",
-      "PROJECT": ""
-    }
-  }
-}

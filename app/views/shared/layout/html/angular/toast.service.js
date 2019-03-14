@@ -14,34 +14,47 @@ var angular = require('angular');
                 .catch(function(err) {
                     // ignore error
                 });
+            var readMoreTranslation = 'Read more';
+            $translate('phrases.readMore')
+                .then(function(translation) {
+                    readMoreTranslation = translation;
+                })
+                .catch(function(err) {
+                    // ignore error
+                });
 
             // TODO errors needs translating
             var defaultError = {
                 feedback: true,
+                readMore: false,
                 status: true,
                 message: 'An error occurred. Please try again.'
             };
 
             var defaultPartialFailure = {
                 feedback: true,
+                readMore: false,
                 status: true,
                 message: 'Not all of the page could be shown. If the problem persists please let us know.'
             };
 
             var defaultWarning = {
                 feedback: true,
+                readMore: false,
                 status: true,
                 message: 'We are having issues showing this page.'
             };
 
             var defaultPartialResult = {
                 feedback: false,
+                readMore: false,
                 status: true,
                 message: 'You are seeing a partial result. This is likely due to busy servers'
             };
 
             var defaultInfo = {
                 feedback: false,
+                readMore: false,
                 status: false
             };
 
@@ -68,12 +81,17 @@ var angular = require('angular');
                 if (mergedSettings.feedback) {
                     mergedSettings.message += '<div class="text-center"><a href="" class="gb-button--primary">' + leaveFeedbackTranslation + '</a></div>';
                 }
+                if (mergedSettings.readMore) {
+                    mergedSettings.message += '<div class="text-center"><a href="' + mergedSettings.readMore + '" class="gb-button--primary">' + readMoreTranslation + '</a></div>';
+                }
 
                 toastr[type](mergedSettings.message, mergedSettings.title,
                     {
                         allowHtml: true,
                         onShown: function(toast) {
-                            angular.element( toast.el[0]).find('a')[0].onclick = showFeedback;
+                            if (mergedSettings.feedback) {
+                                angular.element( toast.el[0]).find('.gb-button--primary')[0].onclick = showFeedback;
+                            }
                         }
                     });
             }
