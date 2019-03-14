@@ -24,6 +24,6 @@
     "done": "已完成",
     "yesCorrectSuggestion": "是",
     "noWrongSuggestion": "否",
-    "errorUserThrottled": ""
+    "errorUserThrottled": "您的帳戶暫時被停用"
   }
 }
