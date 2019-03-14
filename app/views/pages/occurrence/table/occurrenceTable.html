@@ -107,13 +107,12 @@
                                     <a ui-sref="occurrenceKey({key:result.key})" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
                                 </td>
                                 <td class="table-cell--wide" ng-if="occTable.showCol('dataset')">
-                                    <a ui-sref="occurrenceKey({key:result.key})">{{result._datasetKey.title}}</a>
+                                    <a ui-sref="datasetKey({key:result.datasetKey})" class="underline">{{result._datasetKey.title}}</a>
                                 </td>
                                 <td class="table-cell--narrow" ng-if="occTable.showCol('issues')">
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result.issues.length}}</a>
                                 </td>
-
-																<td ng-if="occTable.showCol('typeStatus')">
+                                <td ng-if="occTable.showCol('typeStatus')">
                                     <a ng-if="result.typeStatus" ui-sref="occurrenceKey({key:result.key})" translate="typeStatus.{{result.typeStatus}}">{{result.typeStatus}}</a>
                                 </td>
 
