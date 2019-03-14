@@ -69,7 +69,7 @@
     "ELEVATION_MIN_MAX_SWAPPED": "如果提供的最低海拔大於最高海拔，則設置。",
     "MULTIMEDIA_DATE_INVALID": "給定的 dc 建立多媒體物件之日期無效",
     "PARENT_NAME_USAGE_ID_INVALID": "（缺少描述）",
-    "COORDINATE_REPROJECTION_SUSPICIOUS": "顯示成功根據提供的座標資料重新投影，但這會導致資料位移 0.1 十進位度以上。",
+    "COORDINATE_REPROJECTION_SUSPICIOUS": "表示：根據提供的座標資料重新投影成功，但這會導致資料位移 0.1 十進位度以上。",
     "BASIONYM_AUTHOR_MISMATCH": "原始名稱的作者與實際名稱括弧中的作者不吻合。",
     "COUNTRY_DERIVED_FROM_COORDINATES": "國家解析是基於座標，而不是逐字字串資訊。",
     "RECORD_NOT_UNIQUELY_IDENTIFIED": "核心檔中的記錄並非唯一的標識",
