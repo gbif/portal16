@@ -35,7 +35,7 @@
       "description": "** 機構 ** 是指擁有與管理科學蒐藏的任何機構或組織。包括草本植物、博物館、動物園、植物園、生物庫等。一個機構可以包含多個蒐藏品，也就是說這些蒐藏品應在 ** 機構／計畫收藏品 ** 單獨輸入，並與其上層機構連結。\n\n由於整合數個較舊的資料集，並為避免 **機構代碼** 重複，所有植物標本館索引代碼會附加 <IH> 。"
     },
     "headerTitle": "機構",
-    "indexHerbariorumRecord": "植物標本館索引",
+    "indexHerbariorumRecord": "植物標本館索引紀錄",
     "code": "機構代碼",
     "statusOfInstitution": "機構狀態",
     "additionalNames": "其他名稱",
@@ -54,7 +54,7 @@
   },
   "grscicollPerson": {
     "search": {
-      "title": "蒐集人員",
+      "title": "蒐藏品職員",
       "description": "GRSciColl 職員是指參與蒐藏品的各項工作人員。他們與機構及任何類型的蒐藏品都相關聯。"
     },
     "headerTitle": "蒐藏品職員",
@@ -65,8 +65,8 @@
     "affiliations": "附屬機構",
     "areaResponsibility": "職責範圍",
     "researchPursuits": "研究專長",
-    "primaryInstitution": "初級蒐藏機構名稱",
-    "primaryCollection": "初級蒐藏品名稱",
+    "primaryInstitution": "主要蒐藏機構名稱",
+    "primaryCollection": "主要蒐藏品名稱",
     "affiliateInstitutions": "其他附屬機構",
     "affiliateCollections": ""
   },
