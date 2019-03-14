@@ -19,6 +19,7 @@
     "404Text": "Cette page a probablement déjà existé, mais nous ne la trouvons plus.\nVeuillez essayer notre [search](/search) afin de trouver ce que vous recherchez. Vous avez toujours la possibilité de nous contacter à [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
     "changeLanguage": "Changer de langue",
     "noData": "Aucune donnée",
-    "payloadTooLarge": ""
+    "payloadTooLarge": "",
+    "readMore": ""
   }
 }
