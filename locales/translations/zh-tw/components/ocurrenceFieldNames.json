@@ -236,7 +236,7 @@
     "genericName": "通用名稱",
     "typifiedName": "代表名稱",
     "protocol": "協定",
-    "lastParsed": "上次分析",
+    "lastParsed": "上次解析",
     "lastCrawled": "上次檢索",
     "associatedMedia": "相關媒體",
     "country": "國家或地區",

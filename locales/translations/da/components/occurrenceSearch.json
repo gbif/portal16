@@ -23,6 +23,7 @@
     "selectColumns": "Vælg tabelkolonner",
     "done": "OK",
     "yesCorrectSuggestion": "Ja",
-    "noWrongSuggestion": "Nej"
+    "noWrongSuggestion": "Nej",
+    "errorUserThrottled": ""
   }
 }

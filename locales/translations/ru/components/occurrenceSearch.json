@@ -23,6 +23,7 @@
     "selectColumns": "Выбор столбцов таблицы",
     "done": "Выполнено",
     "yesCorrectSuggestion": "Да",
-    "noWrongSuggestion": "Нет"
+    "noWrongSuggestion": "Нет",
+    "errorUserThrottled": ""
   }
 }

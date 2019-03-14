@@ -8,11 +8,11 @@
         "about": "關於",
         "parser": "解析器",
         "nameParserTitle": "名稱解析",
-        "dropHere": "拖放到此處",
+        "dropHere": "拖放至此處",
         "excludeUnparsed": "排除未解析的",
         "generateCsv": "生成 csv 檔",
         "parsingNames": "正在解析名稱，請稍候",
-        "nameParserDescription": "這是一個簡易的 html 表格，作為 GBIF 名稱解析器使用。解析器以 java 程式語言撰寫，採用正規表示法把字串分解為元件。它只保留可選亞屬名裡面重建完整名稱所需的三個部分，忽略額外的種內部分例如亞種的變種型。更多詳細資訊請查看 [API 文件](/developer/species#parser)",
+        "nameParserDescription": "這是 GBIF 名稱解析器所使用的簡易 html 格式。解析器以 java 程式語言撰寫，採用正規表示法把字串分解為元件。它只保留可選亞屬名裡面重建完整名稱所需的三個部分，忽略額外的種內部分，例如：亞種的變種型。更多詳細資訊請查看 [API 文件](/developer/species#parser)",
         "nameParserRequirements": "您可以逐行複製貼上名稱清單，或上傳名稱文字檔。上傳的檔案必須是 utf8 編碼格式！ "
     }
 }
