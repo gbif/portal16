@@ -7,7 +7,7 @@
     "charts": "指標",
     "download": "下載",
     "searchAllFields": "搜尋所有領域",
-    "description": "在全球生物多樣性資訊機構搜尋物種出現紀錄資料。免費且公開自由存取的生物多樣性資料。",
+    "description": "於全球生物多樣性資訊機構搜尋物種出現紀錄資料。自由且公開存取的生物多樣性資料。",
     "nWithCoordinates": "{NUMBER_FORMATED} 含座標",
     "nWithImages": "{NUMBER_FORMATED} 含 {NUMBER, select, 1{圖片} other{圖片}}",
     "failedSearch": "您的篩選可能無效或伺服器出現問題。請再嘗試，若問題仍持續請回報。",
