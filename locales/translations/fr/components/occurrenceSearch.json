@@ -24,6 +24,6 @@
     "done": "Fait",
     "yesCorrectSuggestion": "Oui",
     "noWrongSuggestion": "Non",
-    "errorUserThrottled": ""
+    "errorUserThrottled": "Votre accès a été restreint temporairement."
   }
 }
