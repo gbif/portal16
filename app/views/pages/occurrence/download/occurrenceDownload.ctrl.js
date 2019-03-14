@@ -268,19 +268,18 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
             // TODO alert user of failure
             if (err.status === 401) {
                 // unauthorized
-                toastService.error({translate: 'phrases.errorNotAuthorized', feedback: true});
+                toastService.error({translate: 'phrases.errorNotAuthorized'});
             } else if (err.status === 413) {
                 // Query too large for the API
-                toastService.error({translate: 'phrases.payloadTooLarge', feedback: true});
+                toastService.error({translate: 'phrases.payloadTooLarge'});
             } else if (err.status === 420) {
                 // User throttled
-                toastService.error({translate: 'occurrenceSearch.errorUserThrottled', feedback: false, readMore: URL_PREFIX + '/restricted'});
+                toastService.error({translate: 'occurrenceSearch.errorUserThrottled', readMore: URL_PREFIX + '/restricted'});
             } else {
-                toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
+                toastService.error({translate: 'phrases.criticalErrorMsg'});
             }
         });
     };
-    toastService.error({translate: 'phrases.criticalErrorMsg', feedback: true});
 
     // keep track of whether the user is logged in or not
     function setLoginState() {

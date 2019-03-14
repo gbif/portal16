@@ -5,55 +5,42 @@ var angular = require('angular');
 (function() {
     angular
         .module('portal')
-        .service('toastService', function(NAV_EVENTS, toastr, $rootScope, $translate) {
-            var leaveFeedbackTranslation = 'Leave feedback';
-            $translate('feedback.leaveFeedback')
-                .then(function(translation) {
-                    leaveFeedbackTranslation = translation;
-                })
-                .catch(function(err) {
-                    // ignore error
-                });
+        .service('toastService', function(toastr, $translate) {
             var readMoreTranslation = 'Read more';
             $translate('phrases.readMore')
                 .then(function(translation) {
                     readMoreTranslation = translation;
                 })
-                .catch(function(err) {
+                .catch(function() {
                     // ignore error
                 });
 
             // TODO errors needs translating
             var defaultError = {
-                feedback: true,
                 readMore: false,
                 status: true,
                 message: 'An error occurred. Please try again.'
             };
 
             var defaultPartialFailure = {
-                feedback: true,
                 readMore: false,
                 status: true,
                 message: 'Not all of the page could be shown. If the problem persists please let us know.'
             };
 
             var defaultWarning = {
-                feedback: true,
                 readMore: false,
                 status: true,
                 message: 'We are having issues showing this page.'
             };
 
             var defaultPartialResult = {
-                feedback: false,
                 readMore: false,
                 status: true,
                 message: 'You are seeing a partial result. This is likely due to busy servers'
             };
 
             var defaultInfo = {
-                feedback: false,
                 readMore: false,
                 status: false
             };
@@ -72,28 +59,20 @@ var angular = require('angular');
                     toast(type, settings, defaultError);
                 }
             }
-            
+
             function toast(type, settings, defaultSettings) {
                 settings = settings || {};
                 var mergedSettings = angular.merge({}, defaultSettings, settings);
 
-                // add feedback button ?
-                if (mergedSettings.feedback) {
-                    mergedSettings.message += '<div class="text-center"><a href="" class="gb-button--primary">' + leaveFeedbackTranslation + '</a></div>';
-                }
-                if (mergedSettings.readMore) {
+                if (!mergedSettings.feedback && mergedSettings.readMore) {
                     mergedSettings.message += '<div class="text-center"><a href="' + mergedSettings.readMore + '" class="gb-button--primary">' + readMoreTranslation + '</a></div>';
                 }
 
                 toastr[type](mergedSettings.message, mergedSettings.title,
                     {
-                        allowHtml: true,
-                        onShown: function(toast) {
-                            if (mergedSettings.feedback) {
-                                angular.element( toast.el[0]).find('.gb-button--primary')[0].onclick = showFeedback;
-                            }
-                        }
-                    });
+                        allowHtml: true
+                    }
+                );
             }
 
             this.error = function(settings) {
@@ -116,14 +95,13 @@ var angular = require('angular');
                 translatedToast('info', settings, defaultInfo);
             };
 
-            function showFeedback(event) {
-                $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
-                $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true});
-                $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
-                event.preventDefault();
-                return false;
-            }
-
+            // function showFeedback(event) {
+            //     $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
+            //     $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true});
+            //     $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
+            //     event.preventDefault();
+            //     return false;
+            // }
 
             return {
                 error: this.error,
