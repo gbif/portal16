@@ -38,36 +38,36 @@
     "indexHerbariorumRecord": "Enregistrement d'Index Herbariorum",
     "code": "Code de l'institution",
     "statusOfInstitution": "Statut de l'institution",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "additionalNames": "Autres noms",
+    "description": "Description",
+    "homepage": "Page d'accueil",
+    "disciplines": "Disciplines institutionnelles",
+    "institutionalGovernance": "Gouvernance institutionnelle",
+    "type": "Type d'institution",
+    "identifiers": "Identifiants",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Activé",
+      "false": "Désactivé"
     },
     "true": "Oui",
     "false": "Non"
   },
   "grscicollPerson": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Personnel de la collection",
+      "description": "Les membres du personnel de GRSciColl sont tout type de personnel impliqué dans les collections. Ils peuvent être associés à l'institution et/ou à tout type de collection."
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "headerTitle": "Personnel de la collection",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille ",
+    "fullName": "Nom complet",
+    "position": "Intitulé du poste",
+    "affiliations": "Affiliations",
+    "areaResponsibility": "Domaine de responsabilité",
+    "researchPursuits": "Spécialité de recherche",
+    "primaryInstitution": "Nom de l’institution principale",
+    "primaryCollection": "Nom de la collection principale",
+    "affiliateInstitutions": "Autres institutions affiliées",
     "affiliateCollections": ""
   },
   "grscicoll": {
