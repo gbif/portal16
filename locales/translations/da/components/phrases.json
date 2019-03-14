@@ -19,6 +19,7 @@
     "404Text": "Denne side måske har eksisteret engang, men vi kan ikke længere finde den. Prøv eventuelt at [søge](/search). Du er altid velkommen til at kontakte vores [helpdesk@gbif.org] (mailto:helpdesk@gbif.org).",
     "changeLanguage": "Skift sprog",
     "noData": "Ingen data",
-    "payloadTooLarge": ""
+    "payloadTooLarge": "",
+    "readMore": ""
   }
 }
