@@ -17,7 +17,7 @@
     "default": "預設",
     "custom": "自訂",
     "noOccurrencesWithCoordinates": "出現紀錄未含座標",
-    "containsSuspicious": "此地圖包含被GBIF標識，座標有疑問的出現紀錄資料。",
+    "containsSuspicious": "此地圖包含被 GBIF 標識為可疑座標的出現紀錄資料。",
     "hideSuspiciousCoordinates": "隱藏它們",
     "currentFilter": "目前篩選條件",
     "selectColumns": "選取欄位",
