@@ -61,7 +61,7 @@
     "ML_NOT_FOUND": "找不到 EML 文件",
     "MODIFIED_DATE_INVALID": "對於 dc: 修改後的 （部分）無效日， 例如日期不存在，月份為零等。",
     "REQUIRED_TERM_MISSING": "缺少核心集 / 擴充文件必要名稱",
-    "GEODETIC_DATUM_ASSUMED_WGS84": "表示假設已解析的座標以 WGS84 系統為基準, 因為資料未指明或無法解析。請參見GEODETIC_DATUM_INVALID。",
+    "GEODETIC_DATUM_ASSUMED_WGS84": "表示：假設已解析的座標是以 WGS84 系統為基準，因為資料未指明或無法解析。請參見GEODETIC_DATUM_INVALID。",
     "COUNTRY_MISMATCH": "解析的 dwc 國家與 dwc 國家代碼互相牴觸",
     "UNKNOWN_ROWTYPE": "核心集 / 擴展文件的列類型未知",
     "BIB_REFERENCE_INVALID": "至少有一個附加到此名稱使用的書目參考擴展紀錄為無效。",
