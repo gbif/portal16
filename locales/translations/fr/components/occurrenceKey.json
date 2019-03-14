@@ -49,11 +49,11 @@
       "verbatimName": "Verbatim du nom"
     },
     "media": {
-      "noIdentifier": "",
-      "noPlaybackSupport": "",
-      "takeMeThere": "",
+      "noIdentifier": "Aucun identifiant de média fourni",
+      "noPlaybackSupport": "Votre navigateur ne supporte pas le format requis pour lire ce média.",
+      "takeMeThere": "Essayez la version sur le site de l'éditeur",
       "notWorkingTryPublishers": "",
-      "download": ""
+      "download": "Télécharger le média"
     },
     "title": {
       "inCountry": {
