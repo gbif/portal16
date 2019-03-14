@@ -15,11 +15,11 @@
       },
       "nsg": {
         "title": "節點指導組",
-        "description": "節點指導小組 (NSG) 成立於2011年，成員為 GBIF 六大區域代表 ([Africa](/the-gbif-network/africa)，[Asia](/the-gbif-network/asia)，[Europe](/the-gbif-network/europe)，[Latin America/Caribbean](/the-gbif-network/latin-america)，[North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)) 的會員節點管理委員會 (/contact-us/directory?group=nodesCommittee) 主席及副主席。\nNSG 的目標是根據會員節點提供的反饋，向相關 GBIF 機構提出具體建議，NSG 與 GBIF 節點的工作息息相關，也會提出關於 GBIF 年度工作計劃的建議。"
+        "description": "節點指導小組 (NSG) 成立於2011年，成員為 GBIF 六大區域代表 ([Africa](/the-gbif-network/africa)，[Asia](/the-gbif-network/asia)，[Europe](/the-gbif-network/europe)，[Latin America/Caribbean](/the-gbif-network/latin-america)，[North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)) 會員節點管理委員會 (/contact-us/directory?group=nodesCommittee) 的主席及副主席。\nNSG 的目標是根據會員節點提供的反饋，向相關 GBIF 機構提出具體建議，NSG 與 GBIF 節點的工作息息相關，也會提出關於 GBIF 年度工作計劃的建議。"
       },
       "nodesCommittee": {
         "title": "節點經理委員會",
-        "description": "會員節點經理委員會（或節點委員會）為一個動態小組，成員由會員（國家或國際組織） 所指名的節點經理組成。委員會包括三位經過董事會投票表決任命的主席，其中最多兩位可有兩年的任期。"
+        "description": "會員節點經理委員會（或節點委員會）為一個動態小組，成員由會員（國家或國際組織） 所指名的節點經理組成。委員會包括三位經由董事會投票表決任命的主席，其中最多兩位可有兩年的任期。"
       },
       "secretariat": {
         "title": "GBIF秘書處",
