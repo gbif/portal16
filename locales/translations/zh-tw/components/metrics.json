@@ -5,7 +5,7 @@
     "countNamesByLanguage": "以語言來計算名稱",
     "countExtRecordsByExtension": "以擴展文件類型來計算",
     "countByOrigin": "以來源計數",
-    "countByIssue": "以類型來計算問題數量"
+    "countByIssue": "以問題類型來計算其數量"
   },
   "metrics": {
     "issues": "問題",
