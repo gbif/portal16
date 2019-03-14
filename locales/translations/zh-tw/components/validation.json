@@ -42,7 +42,7 @@
         "title": "核心集"
       },
       "EXTENSION": {
-        "title": "附加元件"
+        "title": "延伸集"
       },
       "METADATA": {
         "description": "詮釋資料描述EML中的資料（生態詮釋資料語言）",
@@ -116,7 +116,7 @@
       "newDataValidation": "新資料驗證",
       "newValidation": "新的驗證",
       "about": "關於",
-      "darwinCoreExtensions": "達爾文核心集擴展",
+      "darwinCoreExtensions": "達爾文核心延伸集",
       "metaData": "詮釋資料",
       "summary": "總結"
     }
