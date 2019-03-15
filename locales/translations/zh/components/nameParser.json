@@ -1,18 +1,18 @@
 {
     "nameParser": {
-        "loadTestNames": "",
-        "parse": "",
-        "or": "",
-        "selectFile": "",
-        "pasteNamesToParse": "",
-        "about": "",
-        "parser": "",
-        "nameParserTitle": "",
-        "dropHere": "",
-        "excludeUnparsed": "",
-        "generateCsv": "",
-        "parsingNames": "",
-        "nameParserDescription": "",
-        "nameParserRequirements": ""
+        "loadTestNames": "加载测试名称",
+        "parse": "解析",
+        "or": "或",
+        "selectFile": "选择文件",
+        "pasteNamesToParse": "在这里粘贴要解析的名字",
+        "about": "关于",
+        "parser": "解析器",
+        "nameParserTitle": "名称解析器（Name Parser）",
+        "dropHere": "拖放到此处",
+        "excludeUnparsed": "排除未分析的",
+        "generateCsv": "生成csv",
+        "parsingNames": "解析名称 - hang on",
+        "nameParserDescription": "这是一个使用 GBIF 名称解析器的简单 html 形式。这个解析器是用 java 编写的, 并基于正则表达式将字符串名称分解为其组件。它只保留重建一个完整的3部分名称和可选亚属所需的名称部分, 但忽略了其他的附加的种下部分, 如亚种。更多详细信息, 请参阅我们的 [API 文档] (/developer/species#parser)。",
+        "nameParserRequirements": "您可以复制一个名称列表，每个一行，或上传一个每行一个名称的文本文件。上传的文件必须用 utf8编码！"
     }
 }

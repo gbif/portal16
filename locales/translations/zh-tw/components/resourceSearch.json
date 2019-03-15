@@ -5,7 +5,7 @@
         "searchForNewsEventsDocuments": "搜尋新聞、活動，文件或其他更多項目。如果您想搜尋物種出現紀錄，試著以出現記錄搜索。",
         "occurrenceSearch": "出現紀錄搜尋",
         "subscribeToCalendar": "訂閱至行事曆",
-        "citationExplainer": "閱讀更多關於如何發現文獻，並連結至GBIF資料的資訊。",
+        "citationExplainer": "閱讀更多關於如何發現文獻，並連結至 GBIF 資料的資訊。",
         "types": {
             "events": "事件",
             "news": "新聞",
@@ -15,11 +15,11 @@
             "documents": "文件",
             "tools": "工具",
             "dataUse": "資料使用",
-            "literature": "文學"
+            "literature": "文獻"
         },
         "filters": {
             "countriesOfCoverage": "國家或覆蓋地區",
-            "countriesOfResearcher": "國家或地區研究者",
+            "countriesOfResearcher": "國家或研究者地區",
             "literatureType": "文獻類型",
             "contractCountry": "國家或地區",
             "topics": "主題",

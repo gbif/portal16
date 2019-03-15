@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "系统情况",
+        "description": "GBIF各项服务的现状如何？",
+        "updatedTimeAgo": "更新{TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "所有运行的系统",
+            "INFO": "所有运行的系统",
+            "WARNING": "我们的系统当前不稳定或很缓慢",
+            "CRITICAL": "我们系统当前部分运行中断"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "服务不稳定",
+                "summary": "我们当前的服务不稳定或很缓慢"
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "服务暂不可用",
+                "summary": "我们系统当前部分运行中断"
             }
         }
     }

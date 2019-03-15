@@ -11,10 +11,10 @@
     "hosting": "託管",
     "description": "描述",
     "endorsedBy": "背書",
-    "pendingEndorsementBy": "等待批准",
+    "pendingEndorsementBy": "待批准",
     "installations": "安裝",
     "contacts": "聯絡人",
-    "administrativeContact": "行政聯絡",
+    "administrativeContact": "行政聯繫",
     "header": {
       "publisher": "發布者",
       "sinceDate": "自 {DATE}"
