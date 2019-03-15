@@ -1,11 +1,11 @@
 {
     "installation": {
-        "installation": "",
-        "about": "",
-        "homepage": "",
-        "installationType": "",
-        "hostedBy": "",
-        "registered": "",
-        "endpoints": ""
+        "installation": "安装",
+        "about": "关于",
+        "homepage": "首页",
+        "installationType": "安装类型",
+        "hostedBy": "持有机构",
+        "registered": "已注册",
+        "endpoints": "终点"
     }
 }
