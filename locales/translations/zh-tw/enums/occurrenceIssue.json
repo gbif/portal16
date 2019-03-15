@@ -27,7 +27,7 @@
     "RECORDED_DATE_INVALID": "紀錄的日期無效",
     "RECORDED_DATE_UNLIKELY": "紀錄的日期不合理",
     "TAXON_MATCH_FUZZY": "模糊的分類群配對",
-    "TAXON_MATCH_HIGHERRANK": "分類配對到更高的階層",
+    "TAXON_MATCH_HIGHERRANK": "分類配對到更高的位階",
     "TAXON_MATCH_NONE": "無吻合的分類群",
     "DEPTH_NOT_METRIC": "深度不是公制",
     "DEPTH_UNLIKELY": "深度不合理",
