@@ -74,6 +74,10 @@ async function getDataset(key) {
 
     dataset._computedValues.bibliography = bibliography.getBibliography(dataset.bibliographicCitations);
 
+    // TODO treatment specific hack until API catch up
+    if (dataset.publishingOrganizationKey === '7ce8aef0-9e92-11dc-8738-b8a03c50a862') {
+        dataset.subtype = 'TREATMENT_ARTICLE';
+    }
     return dataset;
 }
 

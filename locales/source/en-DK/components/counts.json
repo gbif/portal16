@@ -17,6 +17,7 @@
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select, 1{contact} other{contacts}}",
         "pRecords": "{NUMBER, select, 1{record} other{records}}",
         "pOccurrence": "{NUMBER, select, 1{occurrence} other{occurrences}}",
+        "pMaterialSamples": "{NUMBER, select, 1{material examined} other{materials examined}}",
         "pSpecies": "{NUMBER, select, 1{species} other{species}}",
         "pInfraspecies": "{NUMBER, select, 1{infraspecies} other{infraspecies}}",
         "pPublishers": "{NUMBER, select, 1{publisher} other{publishers}}",
