@@ -1,13 +1,13 @@
 {
   "network": {
-    "network": "",
+    "network": "网络",
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": "",
-      "datasets": ""
+      "summary": "概要",
+      "homepage": "首页",
+      "metrics": "指标",
+      "datasets": "网络"
     },
-    "registeredDate": "",
-    "nParticipatingDatasets": ""
+    "registeredDate": "注册于 {DATE}",
+    "nParticipatingDatasets": "{NUMBER_FORMATED} 参与 {NUMBER, select, 1{dataset} other{datasets}}"
   }
 }
