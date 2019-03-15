@@ -1,17 +1,17 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
-    "countByRank": "",
-    "countNamesByLanguage": "",
-    "countExtRecordsByExtension": "",
-    "countByOrigin": "",
-    "countByIssue": ""
+    "countByKingdom": "按界统计",
+    "countByRank": "按级别统计",
+    "countNamesByLanguage": "按语言统计名称",
+    "countExtRecordsByExtension": "按扩展类型统计扩展",
+    "countByOrigin": "按来源统计",
+    "countByIssue": "按问题类型计算问题数量"
   },
   "metrics": {
-    "issues": "",
-    "extensions": "",
-    "taxa": "",
-    "other": "",
+    "issues": "问题",
+    "extensions": "扩展",
+    "taxa": "分类群",
+    "other": "其它",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
     "explore": "",
