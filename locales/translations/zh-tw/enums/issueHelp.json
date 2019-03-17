@@ -83,7 +83,7 @@
     "DESCRIPTION_MISSING_OR_TOO_SHORT": "資料集的描述遺漏或描述太短",
     "SCIENTIFIC_NAME_ASSEMBLED": "學名為個體名稱的部分組合，而不是一整個字串。",
     "DEPTH_NON_NUMERIC": "如果高度為非數值，設定為數值。",
-    "INTERPRETATION_ERROR": "在解釋過程中出現錯誤，使記錄解釋不完整。",
+    "INTERPRETATION_ERROR": "在解析過程中出現錯誤，使記錄解析不完整。",
     "BACKBONE_MATCH_NONE": "名稱用法無法與 GBIF 骨幹配對。",
     "EML_GBIF_SCHEMA": "Eml 文件檔不針對架構進行驗證",
     "CONTINENT_COUNTRY_MISMATCH": "解析的大陸和國家不吻合。",
