@@ -41,7 +41,7 @@
     "specimenRecords": "標本紀錄",
     "observationRecords": "觀察記錄",
     "taxonomicPrecision": "分類精準度",
-    "theseChartsIllustrate6": "這些圖表說明了現有記錄數量的變化，其中至少包括對物種等級的鑑定。此外也顯示物種內等級或屬等級的已識別紀錄數量。",
+    "theseChartsIllustrate6": "這些圖表說明了現有記錄數量的變化，其中至少包括對物種位階的鑑定。此外也顯示物種內，或屬位階的已鑑定紀錄數量。",
     "geographicPrecision": "地理精確度",
     "theseChartsIllustrate7": "此圖表說明現有紀錄數量的變化，其中包含那些尚未發現有問題的座標。針對未確認為有效的座標，此圖表顯示這些出現記錄為已知的國家其紀錄數量。",
     "temporalPrecision": "時間精確度",
