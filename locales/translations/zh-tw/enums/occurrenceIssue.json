@@ -46,7 +46,7 @@
     "MULTIMEDIA_DATE_INVALID": "多媒體日期無效",
     "MULTIMEDIA_URI_INVALID": "多媒體 uri 無效",
     "REFERENCES_URI_INVALID": "無效的參照 url",
-    "INTERPRETATION_ERROR": "錯誤解釋",
+    "INTERPRETATION_ERROR": "解析錯誤",
     "INDIVIDUAL_COUNT_INVALID": "無效個體計數"
   }
 }
