@@ -21,7 +21,7 @@
             "hostingStatus": "託管狀態",
             "metdataLastModified": "最後修改的詮釋資料",
             "preferredIdentifier": "首選識別碼",
-            "alternativeIdentifier": "備用識別碼",
+            "alternativeIdentifier": "替代識別碼",
             "orphaned": "孤立的資料集",
             "rescued": "取回的孤立資料集",
             "adopted": "採用的資料集",
