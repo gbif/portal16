@@ -1,13 +1,13 @@
 {
   "issueEnum": {
-    "PARENT_NAME_USAGE_ID_INVALID": "母名稱使用 ID 無效",
-    "ACCEPTED_NAME_USAGE_ID_INVALID": "已接受的名稱使用 ID 無效",
-    "ORIGINAL_NAME_USAGE_ID_INVALID": "原始名稱使用 ID 無效",
+    "PARENT_NAME_USAGE_ID_INVALID": "母名稱使用識別碼無效",
+    "ACCEPTED_NAME_USAGE_ID_INVALID": "已接受名稱使用識別碼無效",
+    "ORIGINAL_NAME_USAGE_ID_INVALID": "原始名稱使用識別碼無效",
     "RANK_INVALID": "分類位階未知",
     "NOMENCLATURAL_STATUS_INVALID": "命名狀態未知",
     "TAXONOMIC_STATUS_INVALID": "分類狀態未知",
     "SCIENTIFIC_NAME_ASSEMBLED": "組合的學名",
-    "CHAINED_SYNOYM": "連結同物異名",
+    "CHAINED_SYNOYM": "連結同種異名",
     "BASIONYM_AUTHOR_MISMATCH": "基礎名作者不吻合",
     "TAXONOMIC_STATUS_MISMATCH": "分類狀態不吻合",
     "PARENT_CYCLE": "分類親代週期",
