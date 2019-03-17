@@ -2,7 +2,7 @@
   "basisOfRecord": {
     "PRESERVED_SPECIMEN": "保存標本",
     "FOSSIL_SPECIMEN": "化石標本",
-    "LIVING_SPECIMEN": "活標本",
+    "LIVING_SPECIMEN": "活體標本",
     "OBSERVATION": "觀察",
     "HUMAN_OBSERVATION": "人類觀察",
     "MACHINE_OBSERVATION": "機器觀察",
