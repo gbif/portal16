@@ -10,7 +10,7 @@
       "overview": "概覽",
       "metrics": "指標",
       "referenceTaxon": "參考分類群",
-      "verbatim": "逐字"
+      "verbatim": "字面的"
     },
     "invasives": {
       "nInvadedCountries": "如 {NUMBER_FORMATED} {NUMBER, select, 1{國家或島嶼} other{國家或島嶼}}所記錄",
