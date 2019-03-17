@@ -10,8 +10,8 @@
     "DIGIR": "DiGIR",
     "DIGIR_MANIS": "DiGIR MANIS",
     "TAPIR": "TAPIR",
-    "BIOCASE": "生物蒐藏存取服務",
-    "BIOCASE_XML_ARCHIVE": "BioCASE XML 檔案集",
+    "BIOCASE": "生物典藏品檢索服務",
+    "BIOCASE_XML_ARCHIVE": "生物典藏品檢索服務 XML 檔案集",
     "OAI_PMH": "OAI PMH",
     "OTHER": "其它"
   }
