@@ -31,7 +31,7 @@
       },
       "associateCountries": {
         "title": "副國家會員",
-        "description": "已簽署合作備忘錄 (MOU)，但未提供基礎財務贊助給 GBIF 核心資金且未票選 GBIF 董事會的國家。"
+        "description": "已簽署合作備忘錄 (MOU)，但未提供基礎財務贊助給 GBIF 核心資金，且未票選 GBIF 董事會的國家。"
       },
       "associateParticipants": {
         "title": "其他副會員",
@@ -39,14 +39,14 @@
       }
     },
     "columns": {
-      "role": "身份",
+      "role": "角色",
       "name": "名稱",
       "participant": "會員",
       "participationStatus": "會員狀態"
     },
     "details": "詳細資料",
     "roles": "角色",
-    "sinceDate": "自 {DATE}",
-    "showAllContacts": "全選"
+    "sinceDate": "始自 {DATE}",
+    "showAllContacts": "全部"
   }
 }
