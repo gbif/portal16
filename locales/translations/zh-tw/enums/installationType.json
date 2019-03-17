@@ -1,6 +1,6 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "IPT 安裝",
+    "IPT_INSTALLATION": "安裝整合式發布套件",
     "DIGIR_INSTALLATION": "DiGIR 安裝",
     "TAPIR_INSTALLATION": "Tapir 安裝",
     "BIOCASE_INSTALLATION": "Biocase 安裝",
