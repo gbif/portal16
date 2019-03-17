@@ -76,15 +76,15 @@
       "term": "條款",
       "count": "計數",
       "percentage": "百分比",
-      "interpreted": "已解釋"
+      "interpreted": "已解析"
     },
     "interpretedCounts": {
-      "date": "已解釋的日期數",
-      "taxon": "已解釋的分類群列數",
-      "location": "已解釋的座標數"
+      "date": "已解析的日期數",
+      "taxon": "已解析的分類群列數",
+      "location": "已解析的座標數"
     },
     "interpretedValueCounts": {
-      "title": "已解釋的計數值"
+      "title": "已解析的計數值"
     },
     "status": {
       "title": "狀態",
@@ -93,28 +93,28 @@
       "ACCEPTED": "開始驗證",
       "RUNNING": "驗證中",
       "FINISHED": "驗證完成",
-      "FAILED": "驗證失敗。請確認檔案形式，如您提交URL檔，請確認檔案的位址",
+      "FAILED": "驗證失敗。請確認檔案形式，如您提交 URL 檔，請確認檔案的位址",
       "CONTACTING_SERVER": "正在連結伺服器..."
     },
-    "jobId": "作業ID",
+    "jobId": "作業識別碼",
     "indexeable": "GBIF 可為該檔編制索引",
     "notIndexeable": "GBIF 無法為該檔編制索引",
     "numberOfLines": "行數",
-    "reportProducedByGbifDataValidator": "由GBIF資料驗證程式產生的報告",
+    "reportProducedByGbifDataValidator": "由 GBIF 資料驗證程式產生的報告",
     "validationReport": "驗證報告",
     "dataValidator": "資料驗證程式",
-    "dataValidatorDescription": "GBIF資料驗證程式為一項提供所有GBIF相關資料集持有者關於資料集語法正確性、資料內容有效性報告的服務。",
+    "dataValidatorDescription": "GBIF 資料驗證程式為一項服務，提供所有 GBIF 相關資料集持有者關於資料集語法正確性、資料內容有效性報告。",
     "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
     "here": "這裡",
     "coreRowType": "核心集列類型",
-    "submit": "提交",
+    "submit": "繳交",
     "dropHere": "拖放到此處",
     "or": "或",
     "selectFile": "選擇檔案",
     "fetchFileFromLocation": "從位址獲取檔案",
     "tabs": {
       "newDataValidation": "新資料驗證",
-      "newValidation": "新的驗證",
+      "newValidation": "新驗證",
       "about": "關於",
       "darwinCoreExtensions": "達爾文核心延伸集",
       "metaData": "詮釋資料",
