@@ -92,7 +92,7 @@
     "COORDINATE_PRECISION_INVALID": "表示無效或極不可能的座標精度",
     "HOMONYM": "在其他骨幹來源中存在非同音同義名稱，該名稱在建立時被忽略。",
     "ORTHOGRAPHIC_VARIANT": "骨幹可能有潛在的異名變異，此為 GBIF 骨幹特定問題。 ",
-    "CONTINENT_INVALID": "找到無法解釋的陸州數值。",
+    "CONTINENT_INVALID": "找到無法解釋的大陸數值。",
     "VERNACULAR_NAME_INVALID": "至少有一個附加到此名稱使用的普通名延伸集紀錄為無效。",
     "DESCRIPTION_INVALID": "至少有一個附加到此名稱使用的描述延伸集紀錄為無效。",
     "REFERENCES_URI_INVALID": "給定 dc: 參考資料的 url 無效。"
