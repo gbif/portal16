@@ -20,7 +20,7 @@
     "homepage": "首頁",
     "apiUrl": "蒐藏品網頁服務的 URL",
     "catalogUrl": "蒐藏品標本名錄／資料庫的 URL",
-    "identifiers": "鑑定者",
+    "identifiers": "識別碼",
     "collectionMailingAddress": "郵寄地址",
     "status": "狀態",
     "name": "名稱",
@@ -44,7 +44,7 @@
     "disciplines": "機構紀律",
     "institutionalGovernance": "機構治理",
     "type": "機構類型",
-    "identifiers": "鑑定者",
+    "identifiers": "識別碼",
     "isActive": {
       "true": "上線",
       "false": "離線"

@@ -14,7 +14,7 @@
     "readFullDescription": "更多",
     "showMoreInfo": "更多",
     "noTaxonMatch": "無",
-    "gbifTaxonInterpretation": "GBIF 分類群解釋",
+    "gbifTaxonInterpretation": "GBIF 分類群解析",
     "aboutTheDataset": "關於資料集",
     "noLocationInformation": "此發布紀錄內容無地點資訊",
     "subMenu": {
@@ -29,7 +29,7 @@
       "Record": "記錄",
       "Occurrence": "出現紀錄",
       "Event": "事件",
-      "Identification": "辨識",
+      "Identification": "鑑定",
       "Taxon": "分類群",
       "Location": "地點",
       "Organism": "生物體",
@@ -46,7 +46,7 @@
       "specimenType": "標本類型",
       "publisher": "發布者",
       "reference": "參考文獻",
-      "verbatimName": "逐字名"
+      "verbatimName": "字面名"
     },
     "media": {
       "noIdentifier": "未提供媒體識別碼",

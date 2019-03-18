@@ -2,8 +2,8 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "國家或覆蓋地區",
-        "countriesOfResearcher": "國家或地區研究者",
+        "countriesOfCoverage": "覆蓋的國家或地區",
+        "countriesOfResearcher": "研究者的國家或地區",
         "literatureType": "文獻類型",
         "contractCountry": "國家或地區",
         "topics": "主題",
@@ -43,20 +43,20 @@
         "projectStatus": {
           "APPROVED": "核准",
           "CLOSED": "關閉",
-          "IN_PROGRESS": "處理中",
+          "IN_PROGRESS": "進展中",
           "DISCONTINUED": "停止",
           "undefined": "未指定"
         },
         "relevance": {
-          "GBIF_USED": "GBIF使用",
-          "GBIF_CITED": "GBIF引用",
-          "GBIF_DISCUSSED": "GBIF討論",
+          "GBIF_USED": "GBIF 使用",
+          "GBIF_CITED": "GBIF 引用",
+          "GBIF_DISCUSSED": "GBIF 討論",
           "GBIF_PRIMARY": "GBIF 首要",
-          "GBIF_ACKNOWLEDGED": "GBIF感謝",
+          "GBIF_ACKNOWLEDGED": "GBIF 感謝",
           "GBIF_PUBLISHED": "GBIF發布",
           "GBIF_AUTHOR": "GBIF作者",
           "GBIF_MENTIONED": "GBIF提到",
-          "GBIF_FUNDED": "GBIF資助"
+          "GBIF_FUNDED": "GBIF 資助"
         },
         "topics": {
           "AGRICULTURE": "農業",
@@ -82,7 +82,7 @@
           "CAPACITY_ENHANCEMENT": "能力提升",
           "DATA_ACCESS": "資料存取",
           "DATA_ANALYSIS": "資料分析",
-          "DATA_CURATION_QUALITY": "資料策畫與品質",
+          "DATA_CURATION_QUALITY": "資料管理與品質",
           "DATA_DIGITIZATION": "資料數位化",
           "DATA_PUBLISHING": "資料發布"
         },
@@ -104,8 +104,8 @@
           "hearing": "聽覺",
           "television_broadcast": "新聞播報",
           "encyclopedia_article": "生物百科文章",
-          "case": "案件",
-          "film": "底片",
+          "case": "案例",
+          "film": "影片",
           "bill": "帳單"
         },
         "audiences": {
@@ -113,8 +113,8 @@
           "DATA_HOLDERS": "資料持有者",
           "DATA_USERS": "資料使用者",
           "DECISION_MAKERS": "決策者",
-          "GBIF_NETWORK": "GBIF網絡",
-          "PUBLIC_STAKEHOLDERS": "大眾利益相關者"
+          "GBIF_NETWORK": "GBIF 網絡",
+          "PUBLIC_STAKEHOLDERS": "公眾利益相關者"
         }
       }
     }

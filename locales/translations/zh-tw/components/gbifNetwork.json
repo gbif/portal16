@@ -4,29 +4,29 @@
     "contact": "聯繫",
     "voting_participant": {
       "one": "投票會員",
-      "other": "投票會員們"
+      "other": "投票會員"
     },
     "associate_country_participant": {
       "one": "副國家會員",
-      "other": "副國家會員們"
+      "other": "副國家會員"
     },
     "other_associate_participant": {
       "one": "其他副會員",
-      "other": "其他副會員們"
+      "other": "其他副會員"
     },
     "former_participant": {
       "one": "前會員",
-      "other": "前會員們"
+      "other": "前會員"
     },
     "gbif_affiliate": {
-      "one": "GBIF附屬機構",
-      "other": "GBIF附屬機構"
+      "one": "GBIF 附屬機構",
+      "other": "GBIF 附屬機構"
     },
-    "role": "身份",
+    "role": "角色",
     "group": {
 
     },
-    "gbif_secretariat": "GBIF秘書處",
+    "gbif_secretariat": "GBIF 秘書處",
     "membershipType": "會員",
     "name": "名稱",
     "endorsedDataPublisher": "已認可 {NUMBER_FORMATTED} 資料{NUMBER, select, one{發布者} other{發布者}}",
@@ -36,7 +36,7 @@
     "regionalRepresentative": "{NUMBER, select,one{代表} other{代表}}",
     "participation": {
       "nonCountryParticipants": "會員組織",
-      "gbifAffiliates": "GBIF附屬機構"
+      "gbifAffiliates": "GBIF 附屬機構"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "首席代表",
