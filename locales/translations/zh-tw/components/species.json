@@ -37,7 +37,7 @@
     "synonym": "同種異名",
     "description": "描述",
     "synonyms": "同種異名",
-    "synonymOf": "同種異名",
+    "synonymOf": "的同種異名",
     "basionymOf": "基礎名",
     "immediateChildren": "直接子代",
     "descendants": "降序",
