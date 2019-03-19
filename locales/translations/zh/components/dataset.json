@@ -1,24 +1,24 @@
 {
   "dataset": {
     "longType": {
-      "OCCURRENCE": "",
-      "CHECKLIST": "",
-      "SAMPLING_EVENT": "",
-      "METADATA": ""
+      "OCCURRENCE": "出现记录数据集",
+      "CHECKLIST": "名录数据集",
+      "SAMPLING_EVENT": "采样事件",
+      "METADATA": "元数据数据集"
     },
     "metricHighlights": {
-      "occurrences": "",
-      "withTaxonMatch": "",
-      "withCoordinates": "",
-      "withYear": "",
-      "acceptedNames": "",
-      "synonyms": "",
-      "overlapWithNub": "",
-      "overlapWithCol": ""
+      "occurrences": "出现记录",
+      "withTaxonMatch": "与分类单元匹配",
+      "withCoordinates": "带坐标",
+      "withYear": "与年",
+      "acceptedNames": "接受名",
+      "synonyms": "异名",
+      "overlapWithNub": "与 GBIF 物种主干(Backbone)重叠",
+      "overlapWithCol": "与全球物种名录（Catalogue of Life）重叠"
     },
-    "noStatsForMetadata": "",
-    "viewArticle": "",
-    "registeredDate": "",
+    "noStatsForMetadata": "没有适用于元数据集的仅数据集统计信息",
+    "viewArticle": "查看文章",
+    "registeredDate": "注册于 {DATE}",
     "constituentOf": "",
     "dataset": "",
     "taxonomy": "",
