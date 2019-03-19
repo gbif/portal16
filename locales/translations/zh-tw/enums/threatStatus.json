@@ -2,12 +2,12 @@
     "threatStatus": {
         "EXTINCT": "滅絕",
         "EXTINCT_IN_THE_WILD": "野外滅絕",
-        "CRITICALLY_ENDANGERED": "極度瀕臨絕種",
+        "CRITICALLY_ENDANGERED": "極度瀕危",
         "ENDANGERED": "瀕危",
         "VULNERABLE": "易危",
         "NEAR_THREATENED": "近危",
         "LEAST_CONCERN": "無危",
-        "DATA_DEFICIENT": "資料缺陷",
+        "DATA_DEFICIENT": "缺乏資料",
         "NOT_EVALUATED": "未評估"
     }
 }
