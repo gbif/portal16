@@ -36,6 +36,7 @@
     },
     "headerTitle": "Institution",
     "indexHerbariorumRecord": "Index Herbariorum Record",
+    "numberSpecimens": "Number of specimens",
     "code": "Institution code",
     "statusOfInstitution": "Status of Institution",
     "additionalNames": "Additional names",
