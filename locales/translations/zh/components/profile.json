@@ -13,7 +13,7 @@
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
+      "USERNAME_NOT_UNIQUE": "此用户名已经被使用",
       "LOGIN_UNKNOWN": "",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
       "USER_ALREADY_LOGGED_IN": "您已经登录。",
