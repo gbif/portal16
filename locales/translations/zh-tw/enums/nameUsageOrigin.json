@@ -2,14 +2,14 @@
   "nameUsageOrigin": {
     "SOURCE": "紀錄直接從來源而來",
     "DENORMED_CLASSIFICATION": "來自未標準化分類的隱晦用法。",
-    "VERBATIM_PARENT": "來自逐字母名稱使用的隱晦用法。",
-    "VERBATIM_ACCEPTED": "來自逐字接受名稱使用的隱晦用法。",
-    "VERBATIM_BASIONYM": "來自逐字基礎名/原始名稱的隱晦用法。",
+    "VERBATIM_PARENT": "來自字面母名稱使用的隱晦用法。",
+    "VERBATIM_ACCEPTED": "來自字面有效名稱使用的隱晦用法。",
+    "VERBATIM_BASIONYM": "來自字面基礎名／原始名稱的隱晦用法。",
     "PROPARTE": "來自單一專業外部紀錄的重複用法。",
     "AUTONYM": "已產生，缺少真名。",
     "IMPLICIT_NAME": "已產生，缺少屬或種為孤立的下層名。",
-    "MISSING_ACCEPTED": "如缺少同種異名，則接受虛擬用法，以保持分類的階級。",
-    "BASIONYM_PLACEHOLDER": "為了缺失或隱晦基礎名的預留位置用法。",
+    "MISSING_ACCEPTED": "如缺少同種異名，則接受虛擬用法，以維持分類的階級。",
+    "BASIONYM_PLACEHOLDER": "缺失或隱晦基礎名的預留位置用法。",
     "EX_AUTHOR_SYNONYM": "基於未受認可前作者的隱晦同種異名。請見 ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
     "OTHER": "其他來源"
   }

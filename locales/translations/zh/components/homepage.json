@@ -4,9 +4,9 @@
             "occurrences": "物种出现记录",
             "datasets": "数据集",
             "publishers": "发布机构",
-            "literature": ""
+            "literature": "使用数据发布的同行评审的文章"
         },
-        "aboutGbifCountry": "",
-        "summary": ""
+        "aboutGbifCountry": "关于 GBIF {COUNTRY}",
+        "summary": "自由开放地获取生物多样性数据"
     }
 }

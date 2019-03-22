@@ -1,13 +1,13 @@
 {
     "speciesSearch": {
-        "youAreCurrentlySearchingInGBIFtaxonomy": "您正從GBIF分類群搜尋物種",
+        "youAreCurrentlySearchingInGBIFtaxonomy": "您正從 GBIF 分類群搜尋物種",
         "SearchAcrossChecklists": "從物種名錄搜尋",
-        "freeTextSearchFor": "你正執行 {QUERY} 的免費文字搜尋",
+        "freeTextSearchFor": "您正以 {QUERY} 來進行文字搜尋",
         "limitSearchTo": "限縮搜尋至",
         "limitResultsTo": {
             "all": "全選",
             "scientificNames": "學名",
-            "vernacularNames": "俗名",
+            "vernacularNames": "普通名",
             "descriptions": "描述"
         }
     }

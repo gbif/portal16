@@ -17,16 +17,16 @@
             "installation": "安裝",
             "dataLastChanged": "最後更改的資料",
             "pubDate": "發布日期",
-            "hostedBy": "所託管",
+            "hostedBy": "託管者：",
             "hostingStatus": "託管狀態",
             "metdataLastModified": "最後修改的詮釋資料",
-            "preferredIdentifier": "首選識別碼",
-            "alternativeIdentifier": "備用識別碼",
+            "preferredIdentifier": "優先識別碼",
+            "alternativeIdentifier": "替代識別碼",
             "orphaned": "孤立的資料集",
             "rescued": "取回的孤立資料集",
             "adopted": "採用的資料集",
             "neverIngested": "從未獲取",
-            "inIngestionQueue": "在接收佇列中",
+            "inIngestionQueue": "於接收佇列",
             "addingToQueue": "加入佇列",
             "unableToStart": "無法進行接收",
             "ingestionChartExplainer": "左上方為最新一次的接收。",
@@ -37,11 +37,11 @@
             "lastIngestionSuccess": "上次接收成功",
             "lastIngestionFailed": "上次接收失敗",
             "outOfSync": "不同步",
-            "becauseTrustedContact": "因為您是值得信賴的連絡人"
+            "becauseTrustedContact": "因為您是我們信賴的連絡人"
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "一般",
+                "NORMAL": "正常",
                 "ABORT": "中止",
                 "NOT_MODIFIED": "未修改"
             }

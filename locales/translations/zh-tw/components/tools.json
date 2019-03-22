@@ -12,16 +12,16 @@
                 "region": "地理覆蓋範圍",
                 "taxon": "分類範圍",
                 "whyImportant": "為什麼此資料集如此重要",
-                "howWouldYouRateIt": "如何評斷它的重要性？",
-                "high": "必要 - GBIF 在此區沒有資料",
-                "medium": "重要 - GBIF 在此區只有少數資料",
-                "low": "對現有資料這將是很好的附錄",
+                "howWouldYouRateIt": "如何評定它的重要性？",
+                "high": "必要－GBIF 在此區沒有資料",
+                "medium": "重要－GBIF 在此區只有少數資料",
+                "low": "對現有資料，會是好的補充附錄",
                 "bibliographicRef": "參考書目",
                 "type": "資料集類型",
                 "license": "授權資訊",
                 "dataHolderContact": "資料持有者聯絡資訊",
                 "publicAlert": "將公開此詳細資訊",
-                "yourContact": "你的聯絡資訊",
+                "yourContact": "您的聯絡資訊",
                 "comments": "評論",
                 "submit": "送出",
                 "followDiscussionBelow": "透過下方連結關注或加入進一步討論。",
@@ -32,11 +32,11 @@
         },
         "observationTrends": {
             "drawerTitle": "相對觀測趨勢",
-            "intro": "嘗試探索 GBIF 的物種相對觀察趨勢是否可以提供研究者有用的資訊。",
+            "intro": "嘗試探索 GBIF 的物種相對觀察趨勢，是否可以提供研究者有用的資訊。",
             "aboutLink": "閱讀有關此工具的資訊",
             "selectSpecies": "選擇物種",
-            "noData": "我們沒有1900年以後關於選定物種的地理參考資料。",
-            "selectHigherTaxa": "選擇更高分類群",
+            "noData": "我們沒有 1900 年以後關於選定物種的地理參考資料。",
+            "selectHigherTaxa": "選擇高階分類群",
             "selectArea": "選擇地區",
             "hexagon": "六角形",
             "draw": "繪製",
@@ -45,12 +45,12 @@
             "embedIntro": "經由 {GBIF network} 的所有資料"
         },
         "speciesLookup": {
-            "description": "從 CSV 檔案標準化物種名稱違反 GBIF 骨幹。檔案應該包含學名、界及 ID 等欄位。",
+            "description": "從 CSV 檔案標準化物種名稱違反 GBIF 骨幹。檔案應該包含學名、界及識別碼等欄位。",
             "title": "物種名吻合"
         },
         "ipt": {
-            "description": "整合發布套件 (IPT) 是以 Java 編寫的免費開源軟體，可透過 GBIF 網絡用於發布和分享生物多樣性資料集。IPT 也可以配置 DataCite 或 EZID 帳戶，以便將 DOI 分配給資料集並轉換為資料存儲庫。",
-            "dontSeeYourIpt": "還沒有 IPT 嗎？上傳 [GBIF] (mailto:helpdesk@gbif.org \"來信 GBIF 協助平台詢求在地圖上加入IPT\") 您的座標。"
+            "description": "整合發布套件 (IPT) 是以 Java 編寫的免費開源軟體，可透過 GBIF 網絡用於發布、分享生物多樣性資料集。IPT 也可以配置 DataCite 或 EZID 帳戶，以便將 DOI 分配給資料集並轉換為資料存儲庫。",
+            "dontSeeYourIpt": "還沒有 IPT 嗎？上傳 [GBIF](mailto:helpdesk@gbif.org \"來信 GBIF 協助平台詢求在地圖上加入IPT\") 您的座標。"
         }
     }
 }

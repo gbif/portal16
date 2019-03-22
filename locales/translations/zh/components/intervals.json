@@ -1,43 +1,43 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "无筛选",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "是 {from}m",
+            "between": "{from} 和 {to}m之间",
+            "lessThanOrEquals": "低于 {to}m",
+            "greaterThanOrEquals": "超过 {from}米",
+            "invalid": "无效的",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "是",
+                "between": "介于",
+                "lessThanOrEquals": "低于",
+                "greaterThanOrEquals": "高于"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "是 {from}m",
+            "between": "{from} 和 {to}m之间",
+            "lessThanOrEquals": "超过 {to}m 深度",
+            "greaterThanOrEquals": "深度大于 {from}m",
+            "invalid": "无效的",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "是",
+                "between": "介于",
+                "lessThanOrEquals": "少于",
+                "greaterThanOrEquals": "深于"
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "是 {from}",
+            "between": "从 {from} 开始至 {to} 结束",
+            "lessThanOrEquals": "在 {to} 结束前",
+            "greaterThanOrEquals": "{from} 开始后",
+            "invalid": "无效的",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "是",
+                "between": "介于",
+                "lessThanOrEquals": "在 {to} 结束前",
+                "greaterThanOrEquals": "开始后"
             }
         }
     }
