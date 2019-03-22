@@ -1,11 +1,11 @@
 {
   "publisher": {
     "tabs": {
-      "aboutPublisher": "",
-      "publishersHomepage": ""
+      "aboutPublisher": "关于",
+      "publishersHomepage": "首页"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
+    "joinedAgo": "加入 {TIME_AGO}",
+    "newPublisher": "新发布者",
     "technicalContact": "",
     "country": "",
     "hosting": "",
