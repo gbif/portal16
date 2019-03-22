@@ -1,9 +1,9 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
+        "automatedMonitoring": "自动监测",
+        "systemLoad": "系统负载",
+        "messages": "消息",
+        "version": "版本",
         "nInQueue": "",
         "status": {
             "OPERATIONAL": "",
