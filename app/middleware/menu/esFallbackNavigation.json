@@ -1,0 +1,1923 @@
+{
+    "offset": 0,
+    "limit": 100,
+    "endOfRecords": true,
+    "count": 60,
+    "results": [
+        {
+            "createdAt": "2019-03-12T09:34:34.951Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/article/5SExsCfj7UaUkMCsuc6Oec",
+            "id": "1mnuoHKSa434wrzkEP6Hhh",
+            "title": "Mentoring",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:34:34.951Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "mentoring",
+            "_url": "/navigation-element/1mnuoHKSa434wrzkEP6Hhh/mentoring"
+        },
+        {
+            "createdAt": "2019-03-12T09:33:56.499Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/newsletters",
+            "id": "2N5GYACC6RGvQ7UGM91uxH",
+            "title": "Newsletters and lists",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:33:56.499Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "newsletters-and-lists",
+            "_url": "/navigation-element/2N5GYACC6RGvQ7UGM91uxH/newsletters-and-lists"
+        },
+        {
+            "createdAt": "2019-03-12T09:32:41.233Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/strategic-plan",
+            "id": "3BeDXRuNbPwLRoUsru4vPm",
+            "title": "Strategic plan",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:32:41.233Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "strategic-plan",
+            "_url": "/navigation-element/3BeDXRuNbPwLRoUsru4vPm/strategic-plan"
+        },
+        {
+            "createdAt": "2019-03-12T09:32:27.958Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/partners",
+            "id": "1WrHiQ9sf59LsnHLgWLfUB",
+            "title": "Partnerships",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:32:27.958Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "partnerships",
+            "_url": "/navigation-element/1WrHiQ9sf59LsnHLgWLfUB/partnerships"
+        },
+        {
+            "createdAt": "2019-03-12T09:32:15.514Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/funders",
+            "id": "70AZUo0ENv8g7hS0D30DJb",
+            "title": "Funders",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:32:15.514Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "funders",
+            "_url": "/navigation-element/70AZUo0ENv8g7hS0D30DJb/funders"
+        },
+        {
+            "createdAt": "2019-03-12T09:38:27.564Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/programme/3ilFFs3JdY2SqmyCuac0uc",
+            "id": "3xFFNx7L7GSkMB1rxF9NhD",
+            "title": "Eastern Europe & Central Asia",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:38:27.564Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "eastern-europe-and-central-asia",
+            "_url": "/navigation-element/3xFFNx7L7GSkMB1rxF9NhD/eastern-europe-and-central-asia"
+        },
+        {
+            "createdAt": "2019-03-12T09:38:06.668Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "externalLink": true,
+            "link": "http://living-atlases.gbif.org/",
+            "id": "5r4360VUmCRx0rsppMKLHD",
+            "title": "Living Atlases",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:38:06.668Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "living-atlases",
+            "_url": "/navigation-element/5r4360VUmCRx0rsppMKLHD/living-atlases"
+        },
+        {
+            "createdAt": "2019-03-12T09:37:31.445Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/programme/82243/bid-biodiversity-information-for-development",
+            "id": "3ZZPTt5KQ6wpGTFeiNTD19",
+            "title": "BID: Biodiversity Information for Development",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:37:31.445Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "bid-biodiversity-information-for-development",
+            "_url": "/navigation-element/3ZZPTt5KQ6wpGTFeiNTD19/bid-biodiversity-information-for-development"
+        },
+        {
+            "createdAt": "2019-03-12T09:37:14.063Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/programme/82219/capacity-enhancement-support-programme",
+            "id": "1ew40Sl7QETUglJiOCFSgQ",
+            "title": "CESP: Capacity Enhancement Support Programme",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:37:14.063Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "cesp-capacity-enhancement-support-programme",
+            "_url": "/navigation-element/1ew40Sl7QETUglJiOCFSgQ/cesp-capacity-enhancement-support-programme"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "1ew40Sl7QETUglJiOCFSgQ",
+                    "title": "CESP: Capacity Enhancement Support Programme"
+                },
+                {
+                    "id": "3ZZPTt5KQ6wpGTFeiNTD19",
+                    "title": "BID: Biodiversity Information for Development"
+                },
+                {
+                    "id": "7EnWPyTqyAd0PQ8gvprrWH",
+                    "title": "BIFA: Biodiversity Information Fund for Asia"
+                },
+                {
+                    "id": "5r4360VUmCRx0rsppMKLHD",
+                    "title": "Living Atlases"
+                },
+                {
+                    "id": "3xFFNx7L7GSkMB1rxF9NhD",
+                    "title": "Eastern Europe & Central Asia"
+                }
+            ],
+            "createdAt": "2019-03-12T09:36:47.975Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "1sjVljQl1N8unj6cuTJJ5d",
+            "title": "Programmes & projects",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-14T14:30:37.500Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "programmes-and-projects",
+            "_url": "/navigation-element/1sjVljQl1N8unj6cuTJJ5d/programmes-and-projects"
+        },
+        {
+            "createdAt": "2019-03-12T09:34:05.733Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/awards",
+            "id": "7xta2nTbUfeRWp136KFrjP",
+            "title": "Awards",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:34:05.733Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "awards",
+            "_url": "/navigation-element/7xta2nTbUfeRWp136KFrjP/awards"
+        },
+        {
+            "createdAt": "2019-03-12T09:32:52.750Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/contact-us",
+            "id": "3GUGaGh5jKwBnCuonmDusI",
+            "title": "Contacts",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:32:52.750Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "contacts",
+            "_url": "/navigation-element/3GUGaGh5jKwBnCuonmDusI/contacts"
+        },
+        {
+            "createdAt": "2019-03-12T09:32:04.537Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/governance",
+            "id": "1oYf3YUi6NPUC7OFiotWl4",
+            "title": "Governance",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:32:04.537Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "governance",
+            "_url": "/navigation-element/1oYf3YUi6NPUC7OFiotWl4/governance"
+        },
+        {
+            "createdAt": "2019-03-12T09:31:28.243Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/what-is-gbif",
+            "id": "2pLcKA3IUsMqUzArqploVn",
+            "title": "What is GBIF?",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:31:28.243Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "what-is-gbif",
+            "_url": "/navigation-element/2pLcKA3IUsMqUzArqploVn/what-is-gbif"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "393nMMEjVdbmtfjA4gMJIw",
+                    "title": "About"
+                },
+                {
+                    "id": "0v7lUwQxwzcyM9kRJIepy",
+                    "title": "News & outreach"
+                },
+                {
+                    "id": "1sjVljQl1N8unj6cuTJJ5d",
+                    "title": "Programmes & projects"
+                }
+            ],
+            "createdAt": "2019-03-12T09:31:14.476Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "4SQ1VuIvXEP6W0Eq6BBFU3",
+            "title": "Inside GBIF",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:38:44.949Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "inside-gbif",
+            "_url": "/navigation-element/4SQ1VuIvXEP6W0Eq6BBFU3/inside-gbif"
+        },
+        {
+            "createdAt": "2019-03-12T09:37:50.936Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/programme/82629/bifa-biodiversity-information-fund-for-asia",
+            "id": "7EnWPyTqyAd0PQ8gvprrWH",
+            "title": "BIFA: Biodiversity Information Fund for Asia",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:37:50.936Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "bifa-biodiversity-information-fund-for-asia",
+            "_url": "/navigation-element/7EnWPyTqyAd0PQ8gvprrWH/bifa-biodiversity-information-fund-for-asia"
+        },
+        {
+            "createdAt": "2019-03-12T09:36:26.150Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/article/6dNF1d0tgcI4cmqeoS2sQ4",
+            "id": "6qaWuGvGOkD7nnY5w5GCIs",
+            "title": "Ambassadors",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:36:26.150Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "ambassadors",
+            "_url": "/navigation-element/6qaWuGvGOkD7nnY5w5GCIs/ambassadors"
+        },
+        {
+            "createdAt": "2019-03-12T09:34:20.389Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "externalLink": true,
+            "link": "https://discourse.gbif.org/",
+            "id": "5fg5nxHpz7lgrwevOft6ZE",
+            "title": "Community forum",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:34:20.389Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "community-forum",
+            "_url": "/navigation-element/5fg5nxHpz7lgrwevOft6ZE/community-forum"
+        },
+        {
+            "createdAt": "2019-03-12T09:33:43.294Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/resource/search?contentType=event",
+            "id": "5iRMRUuzZIRz8WuAv4Ocf1",
+            "title": "Events",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:33:43.294Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "events",
+            "_url": "/navigation-element/5iRMRUuzZIRz8WuAv4Ocf1/events"
+        },
+        {
+            "createdAt": "2019-03-12T09:33:28.903Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/resource/search?contentType=dataUse",
+            "id": "3q4wD3rtk8hrZHa2fw2PKn",
+            "title": "Featured data use",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:33:28.903Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "featured-data-use",
+            "_url": "/navigation-element/3q4wD3rtk8hrZHa2fw2PKn/featured-data-use"
+        },
+        {
+            "createdAt": "2019-03-12T09:33:17.560Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/resource/search?contentType=news",
+            "id": "16Sg7Iv8Y0oNfNL4UWfPPb",
+            "title": "News",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:33:17.560Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "news",
+            "_url": "/navigation-element/16Sg7Iv8Y0oNfNL4UWfPPb/news"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "16Sg7Iv8Y0oNfNL4UWfPPb",
+                    "title": "News"
+                },
+                {
+                    "id": "3q4wD3rtk8hrZHa2fw2PKn",
+                    "title": "Featured data use"
+                },
+                {
+                    "id": "5iRMRUuzZIRz8WuAv4Ocf1",
+                    "title": "Events"
+                },
+                {
+                    "id": "2N5GYACC6RGvQ7UGM91uxH",
+                    "title": "Newsletters and lists"
+                },
+                {
+                    "id": "7xta2nTbUfeRWp136KFrjP",
+                    "title": "Awards"
+                },
+                {
+                    "id": "5fg5nxHpz7lgrwevOft6ZE",
+                    "title": "Community forum"
+                },
+                {
+                    "id": "1mnuoHKSa434wrzkEP6Hhh",
+                    "title": "Mentoring"
+                },
+                {
+                    "id": "6qaWuGvGOkD7nnY5w5GCIs",
+                    "title": "Ambassadors"
+                }
+            ],
+            "createdAt": "2019-03-12T09:33:10.547Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "0v7lUwQxwzcyM9kRJIepy",
+            "title": "News & outreach",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-14T14:28:03.784Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "news-and-outreach",
+            "_url": "/navigation-element/0v7lUwQxwzcyM9kRJIepy/news-and-outreach"
+        },
+        {
+            "createdAt": "2019-03-12T09:31:51.619Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/become-member",
+            "id": "65pJ4p9XdKJ2JcImjpTSCI",
+            "title": "Become a member",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:31:51.619Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "become-a-member",
+            "_url": "/navigation-element/65pJ4p9XdKJ2JcImjpTSCI/become-a-member"
+        },
+        {
+            "createdAt": "2019-03-12T09:31:42.110Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/the-gbif-network",
+            "id": "10TPvVvl3fQ1fY9nwqKqlh",
+            "title": "The GBIF network",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-12T09:31:42.110Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "the-gbif-network",
+            "_url": "/navigation-element/10TPvVvl3fQ1fY9nwqKqlh/the-gbif-network"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "2pLcKA3IUsMqUzArqploVn",
+                    "title": "What is GBIF?"
+                },
+                {
+                    "id": "10TPvVvl3fQ1fY9nwqKqlh",
+                    "title": "The GBIF network"
+                },
+                {
+                    "id": "65pJ4p9XdKJ2JcImjpTSCI",
+                    "title": "Become a member"
+                },
+                {
+                    "id": "1oYf3YUi6NPUC7OFiotWl4",
+                    "title": "Governance"
+                },
+                {
+                    "id": "70AZUo0ENv8g7hS0D30DJb",
+                    "title": "Funders"
+                },
+                {
+                    "id": "1WrHiQ9sf59LsnHLgWLfUB",
+                    "title": "Partnerships"
+                },
+                {
+                    "id": "3BeDXRuNbPwLRoUsru4vPm",
+                    "title": "Strategic plan"
+                },
+                {
+                    "id": "3GUGaGh5jKwBnCuonmDusI",
+                    "title": "Contacts"
+                }
+            ],
+            "createdAt": "2019-03-12T09:31:20.889Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "393nMMEjVdbmtfjA4gMJIw",
+            "title": "About",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-14T14:19:48.205Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "about",
+            "_url": "/navigation-element/393nMMEjVdbmtfjA4gMJIw/about"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "4Tq5r41cq0viHsu5uU3zin",
+                    "title": "Species matching"
+                },
+                {
+                    "id": "26SWgAv7bHAN4s7XXEL1Cf",
+                    "title": "Name Parser"
+                },
+                {
+                    "id": "5gKHzJpI0ZrZDHtqKSjWE1",
+                    "title": "Sequence ID"
+                },
+                {
+                    "id": "45XWcFCrceafVGXFxLdXK9",
+                    "title": "Relative observation trends"
+                },
+                {
+                    "id": "6ZinidPwTiK3qVbiBzEaST",
+                    "title": "GBIF data blog"
+                }
+            ],
+            "createdAt": "2019-03-08T15:58:28.067Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "3lPWjQ7AglMTbJy4lE94l3",
+            "title": "GBIF labs",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:58:28.067Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "gbif-labs",
+            "_url": "/navigation-element/3lPWjQ7AglMTbJy4lE94l3/gbif-labs"
+        },
+        {
+            "createdAt": "2019-03-08T15:57:37.552Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/tools/observation-trends",
+            "id": "45XWcFCrceafVGXFxLdXK9",
+            "title": "Relative observation trends",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:57:37.552Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "relative-observation-trends",
+            "_url": "/navigation-element/45XWcFCrceafVGXFxLdXK9/relative-observation-trends"
+        },
+        {
+            "createdAt": "2019-03-08T15:57:00.449Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/tools/name-parser",
+            "id": "26SWgAv7bHAN4s7XXEL1Cf",
+            "title": "Name Parser",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:57:00.449Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "name-parser",
+            "_url": "/navigation-element/26SWgAv7bHAN4s7XXEL1Cf/name-parser"
+        },
+        {
+            "createdAt": "2019-03-08T15:55:47.033Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/tool/81747",
+            "id": "2Fb9cJFXTNfeVxtiiK6PY0",
+            "title": "rgbif",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:55:47.033Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "rgbif",
+            "_url": "/navigation-element/2Fb9cJFXTNfeVxtiiK6PY0/rgbif"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "5oZr5ksOKESbkRCJCBN6rt",
+                    "title": "GBIF API"
+                },
+                {
+                    "id": "2JeFKcFOD3qrXlSA5lcgxe",
+                    "title": "Data processing"
+                },
+                {
+                    "id": "2Fb9cJFXTNfeVxtiiK6PY0",
+                    "title": "rgbif"
+                },
+                {
+                    "id": "7FDN5uL0bXS0X246vLRNuX",
+                    "title": "MAXENT"
+                },
+                {
+                    "id": "nRqxFxUvGumyY8xmq4Iai",
+                    "title": "Tools catalogue"
+                }
+            ],
+            "createdAt": "2019-03-08T15:55:03.982Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "6phNmhPX80Eeqmcb2khU5I",
+            "title": "Users",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:58:23.440Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "users",
+            "_url": "/navigation-element/6phNmhPX80Eeqmcb2khU5I/users"
+        },
+        {
+            "createdAt": "2019-03-08T15:52:45.584Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/standards",
+            "id": "5fWqNYSuxiNSTBMn1xMb3z",
+            "title": "Standards",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:52:45.584Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "standards",
+            "_url": "/navigation-element/5fWqNYSuxiNSTBMn1xMb3z/standards"
+        },
+        {
+            "createdAt": "2019-03-08T15:50:35.890Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/dataset-classes",
+            "id": "3BzfVEqXHT0IAuxkDngPpE",
+            "title": "Dataset classes",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:50:35.890Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "dataset-classes",
+            "_url": "/navigation-element/3BzfVEqXHT0IAuxkDngPpE/dataset-classes"
+        },
+        {
+            "createdAt": "2019-03-08T15:48:26.583Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/citation-guidelines",
+            "id": "6fbiuZh6MkJ7pynOUVwHus",
+            "title": "Citation guidance",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:48:26.583Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "citation-guidance",
+            "_url": "/navigation-element/6fbiuZh6MkJ7pynOUVwHus/citation-guidance"
+        },
+        {
+            "createdAt": "2019-03-08T15:36:32.726Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/dataset/search",
+            "id": "rfcamfq8Xlx7CymQjKCcd",
+            "title": "Datasets",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:36:32.726Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "datasets",
+            "_url": "/navigation-element/rfcamfq8Xlx7CymQjKCcd/datasets"
+        },
+        {
+            "createdAt": "2019-03-08T15:34:34.750Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/species/search",
+            "id": "1GarUCIK6To4r7aKxstnNp",
+            "title": "Species",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:34:34.750Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "species",
+            "_url": "/navigation-element/1GarUCIK6To4r7aKxstnNp/species"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "7MsMsfBGwDI8hoWJ8pXgId",
+                    "title": "Publishing data"
+                },
+                {
+                    "id": "3BzfVEqXHT0IAuxkDngPpE",
+                    "title": "Dataset classes"
+                },
+                {
+                    "id": "2zfUymi9xCoqlf3J5emuhx",
+                    "title": "Data quality"
+                },
+                {
+                    "id": "2Ukw2O6JsLLV8D0kMNNKqf",
+                    "title": "Data hosting"
+                },
+                {
+                    "id": "1PRj6ARXdOLgAoIeMHiHuk",
+                    "title": "Become a publisher"
+                },
+                {
+                    "id": "5fWqNYSuxiNSTBMn1xMb3z",
+                    "title": "Standards"
+                },
+                {
+                    "id": "3hev1pv9hwQmLf1r7pq0TE",
+                    "title": "Data papers"
+                },
+                {
+                    "id": "601tcS3OrDkwOeol1fkMYg",
+                    "title": "Citizen science"
+                }
+            ],
+            "createdAt": "2019-03-08T15:33:16.866Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "11gLXyNnc4nS9uTvfoC7JR",
+            "title": "Share",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:53:17.577Z",
+            "revision": 3,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "share",
+            "_url": "/navigation-element/11gLXyNnc4nS9uTvfoC7JR/share"
+        },
+        {
+            "createdAt": "2019-03-08T15:57:17.941Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/tools/sequence-id",
+            "id": "5gKHzJpI0ZrZDHtqKSjWE1",
+            "title": "Sequence ID",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:57:17.941Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "sequence-id",
+            "_url": "/navigation-element/5gKHzJpI0ZrZDHtqKSjWE1/sequence-id"
+        },
+        {
+            "createdAt": "2019-03-08T15:56:47.652Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "/tools/species-lookup",
+            "id": "4Tq5r41cq0viHsu5uU3zin",
+            "title": "Species matching",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-14T14:07:46.130Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "species-matching",
+            "_url": "/navigation-element/4Tq5r41cq0viHsu5uU3zin/species-matching"
+        },
+        {
+            "createdAt": "2019-03-08T15:56:12.553Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/resource/search?contentType=tool",
+            "id": "nRqxFxUvGumyY8xmq4Iai",
+            "title": "Tools catalogue",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:56:12.553Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "tools-catalogue",
+            "_url": "/navigation-element/nRqxFxUvGumyY8xmq4Iai/tools-catalogue"
+        },
+        {
+            "createdAt": "2019-03-08T15:55:57.246Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/tool/81279",
+            "id": "7FDN5uL0bXS0X246vLRNuX",
+            "title": "MAXENT",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:55:57.246Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "maxent",
+            "_url": "/navigation-element/7FDN5uL0bXS0X246vLRNuX/maxent"
+        },
+        {
+            "createdAt": "2019-03-08T15:55:15.932Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/developer/summary",
+            "id": "5oZr5ksOKESbkRCJCBN6rt",
+            "title": "GBIF API",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:55:15.932Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "gbif-api",
+            "_url": "/navigation-element/5oZr5ksOKESbkRCJCBN6rt/gbif-api"
+        },
+        {
+            "createdAt": "2019-03-08T15:53:56.816Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/ipt",
+            "id": "21npWt0b4oy6kQwcGxqm1x",
+            "title": "IPT",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:53:56.816Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "ipt",
+            "_url": "/navigation-element/21npWt0b4oy6kQwcGxqm1x/ipt"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "JOC0aRSK8OYSfrUyM02LF",
+                    "title": "Publishers"
+                },
+                {
+                    "id": "6phNmhPX80Eeqmcb2khU5I",
+                    "title": "Users"
+                },
+                {
+                    "id": "3lPWjQ7AglMTbJy4lE94l3",
+                    "title": "GBIF labs"
+                }
+            ],
+            "createdAt": "2019-03-08T15:53:31.902Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "1GHTPPZyUiB4cf9Oo6ubAS",
+            "title": "Tools",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:58:35.920Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "tools",
+            "_url": "/navigation-element/1GHTPPZyUiB4cf9Oo6ubAS/tools"
+        },
+        {
+            "createdAt": "2019-03-08T15:50:55.822Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/publishing-data",
+            "id": "7MsMsfBGwDI8hoWJ8pXgId",
+            "title": "Publishing data",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:50:55.822Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "publishing-data",
+            "_url": "/navigation-element/7MsMsfBGwDI8hoWJ8pXgId/publishing-data"
+        },
+        {
+            "createdAt": "2019-03-08T15:48:00.966Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/publisher/search",
+            "id": "6w3sZMC7BSVtPWFSQND7MD",
+            "title": "Publishers",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:48:00.966Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "publishers",
+            "_url": "/navigation-element/6w3sZMC7BSVtPWFSQND7MD/publishers"
+        },
+        {
+            "createdAt": "2019-03-08T15:37:57.652Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "5yIfSonlzANkDgl01y64m2",
+            "title": "Organizations",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:37:57.652Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "organizations",
+            "_url": "/navigation-element/5yIfSonlzANkDgl01y64m2/organizations"
+        },
+        {
+            "createdAt": "2019-03-08T15:34:08.940Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "/occurrence/search",
+            "id": "2MKoJ5rFhgyS2g17lvAGbf",
+            "title": "Occurrences",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-14T14:08:04.507Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "occurrences",
+            "_url": "/navigation-element/2MKoJ5rFhgyS2g17lvAGbf/occurrences"
+        },
+        {
+            "createdAt": "2019-03-08T15:57:51.110Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "externalLink": true,
+            "link": "https://data-blog.gbif.org/",
+            "id": "6ZinidPwTiK3qVbiBzEaST",
+            "title": "GBIF data blog",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:57:51.110Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "gbif-data-blog",
+            "_url": "/navigation-element/6ZinidPwTiK3qVbiBzEaST/gbif-data-blog"
+        },
+        {
+            "createdAt": "2019-03-08T15:55:31.693Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/data-processing",
+            "id": "2JeFKcFOD3qrXlSA5lcgxe",
+            "title": "Data processing",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:55:31.693Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "data-processing",
+            "_url": "/navigation-element/2JeFKcFOD3qrXlSA5lcgxe/data-processing"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "21npWt0b4oy6kQwcGxqm1x",
+                    "title": "IPT"
+                },
+                {
+                    "id": "4tntSZCnrpG7x19lE0AOu3",
+                    "title": "Data validator"
+                },
+                {
+                    "id": "5KJFrVPUTj2YOVmKwlRoAr",
+                    "title": "Suggest a dataset"
+                }
+            ],
+            "createdAt": "2019-03-08T15:54:50.623Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "JOC0aRSK8OYSfrUyM02LF",
+            "title": "Publishers",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:54:50.623Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "publishers",
+            "_url": "/navigation-element/JOC0aRSK8OYSfrUyM02LF/publishers"
+        },
+        {
+            "createdAt": "2019-03-08T15:54:39.634Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/suggest-dataset",
+            "id": "5KJFrVPUTj2YOVmKwlRoAr",
+            "title": "Suggest a dataset",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:54:39.634Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "suggest-a-dataset",
+            "_url": "/navigation-element/5KJFrVPUTj2YOVmKwlRoAr/suggest-a-dataset"
+        },
+        {
+            "createdAt": "2019-03-08T15:54:25.190Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/tools/data-validator",
+            "id": "4tntSZCnrpG7x19lE0AOu3",
+            "title": "Data validator",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:54:25.190Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "data-validator",
+            "_url": "/navigation-element/4tntSZCnrpG7x19lE0AOu3/data-validator"
+        },
+        {
+            "createdAt": "2019-03-08T15:53:14.340Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/citizen-science",
+            "id": "601tcS3OrDkwOeol1fkMYg",
+            "title": "Citizen science",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:53:14.340Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "citizen-science",
+            "_url": "/navigation-element/601tcS3OrDkwOeol1fkMYg/citizen-science"
+        },
+        {
+            "createdAt": "2019-03-08T15:53:00.033Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/data-papers",
+            "id": "3hev1pv9hwQmLf1r7pq0TE",
+            "title": "Data papers",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:53:00.033Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "data-papers",
+            "_url": "/navigation-element/3hev1pv9hwQmLf1r7pq0TE/data-papers"
+        },
+        {
+            "createdAt": "2019-03-08T15:52:30.534Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/become-a-publisher",
+            "id": "1PRj6ARXdOLgAoIeMHiHuk",
+            "title": "Become a publisher",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:52:30.534Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "become-a-publisher",
+            "_url": "/navigation-element/1PRj6ARXdOLgAoIeMHiHuk/become-a-publisher"
+        },
+        {
+            "createdAt": "2019-03-08T15:51:32.481Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/article/4qfLORxmM8kYOIwSYSMc2M/data-hosting",
+            "id": "2Ukw2O6JsLLV8D0kMNNKqf",
+            "title": "Data hosting",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:51:32.481Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "data-hosting",
+            "_url": "/navigation-element/2Ukw2O6JsLLV8D0kMNNKqf/data-hosting"
+        },
+        {
+            "createdAt": "2019-03-08T15:51:18.195Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/data-quality-requirements",
+            "id": "2zfUymi9xCoqlf3J5emuhx",
+            "title": "Data quality",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:51:18.195Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "data-quality",
+            "_url": "/navigation-element/2zfUymi9xCoqlf3J5emuhx/data-quality"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "5yIfSonlzANkDgl01y64m2",
+                    "title": "Organizations"
+                }
+            ],
+            "createdAt": "2019-03-08T15:37:46.486Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "Rzp7QZfolCCa7E6rtrrXe",
+            "title": "The GBIF network",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:58:10.182Z",
+            "revision": 2,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "the-gbif-network",
+            "_url": "/navigation-element/Rzp7QZfolCCa7E6rtrrXe/the-gbif-network"
+        },
+        {
+            "createdAt": "2019-03-08T15:36:51.785Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "link": "https://www.gbif.org/analytics/global",
+            "id": "382orSWmYFHPU9G2oPObLe",
+            "title": "Trends",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-08T15:36:51.785Z",
+            "revision": 1,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "trends",
+            "_url": "/navigation-element/382orSWmYFHPU9G2oPObLe/trends"
+        },
+        {
+            "childNavigationElements": [
+                {
+                    "id": "2MKoJ5rFhgyS2g17lvAGbf",
+                    "title": "Occurrences"
+                },
+                {
+                    "id": "1GarUCIK6To4r7aKxstnNp",
+                    "title": "Species"
+                },
+                {
+                    "id": "rfcamfq8Xlx7CymQjKCcd",
+                    "title": "Datasets"
+                },
+                {
+                    "id": "6w3sZMC7BSVtPWFSQND7MD",
+                    "title": "Publishers"
+                },
+                {
+                    "id": "382orSWmYFHPU9G2oPObLe",
+                    "title": "Trends"
+                },
+                {
+                    "id": "6fbiuZh6MkJ7pynOUVwHus",
+                    "title": "Citation guidance"
+                }
+            ],
+            "createdAt": "2019-03-08T15:32:58.136Z",
+            "environment": {
+                "sys": {
+                    "id": "master",
+                    "type": "Link",
+                    "linkType": "Environment"
+                }
+            },
+            "id": "4P34Huqj4TQ0UHpGYoC2gi",
+            "title": "Get data",
+            "type": "Entry",
+            "contentType": "navigationElement",
+            "space": {
+                "sys": {
+                    "type": "Link",
+                    "linkType": "Space",
+                    "id": "qz96qz790wh9"
+                }
+            },
+            "updatedAt": "2019-03-14T14:40:43.512Z",
+            "revision": 5,
+            "_gbifDOIs": [],
+            "_summary": "",
+            "_slug": "get-data",
+            "_url": "/navigation-element/4P34Huqj4TQ0UHpGYoC2gi/get-data"
+        }
+    ],
+    "facets": [],
+    "filters": {}
+}
