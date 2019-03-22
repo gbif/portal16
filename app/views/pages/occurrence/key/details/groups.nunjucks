@@ -27,8 +27,12 @@
                         </td>
                         <td>
                             {% if occurrence.record[term.simpleName] | isDefined %}
-                               {% if term.simpleName !== "typeStatus" %}
+                               {% if term.simpleName !== "typeStatus" and term.simpleName !== "identificationRemarks" %}
                                 {$ shorten.shorten(occurrence.record[term.simpleName]) $}
+                                {% endif %}
+                                {% if term.simpleName == "identificationRemarks" %}
+                                
+                                <span ng-bind-html="'{$ occurrence.record[term.simpleName] $}' | linky"></span>
                                 {% endif %}
                                 {% if term.simpleName == "typeStatus" %}
                                  {% if occurrence.record.typifiedName and occurrence.record.typifiedName !== occurrence.record.scientificName %}
