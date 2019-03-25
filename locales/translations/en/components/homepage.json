@@ -7,6 +7,7 @@
             "literature": "Peer-reviewed papers using data"
         },
         "aboutGbifCountry": "About GBIF {COUNTRY}",
-        "summary": "Free and open access to biodiversity data"
+        "summary": "Free and open access to biodiversity data",
+        "whatIsGbif": ""
     }
 }
