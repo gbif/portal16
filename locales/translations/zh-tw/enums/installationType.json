@@ -1,10 +1,10 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "IPT 安裝",
-    "DIGIR_INSTALLATION": "DiGIR 安裝",
-    "TAPIR_INSTALLATION": "Tapir 安裝",
-    "BIOCASE_INSTALLATION": "Biocase 安裝",
-    "HTTP_INSTALLATION": "Http 安裝",
-    "SYMBIOTA_INSTALLATION": "共生區安裝"
+    "IPT_INSTALLATION": "安裝整合式發布套件",
+    "DIGIR_INSTALLATION": "安裝分散式通用資訊擷取協定",
+    "TAPIR_INSTALLATION": "安裝生物多樣性資訊標準組織資料檢索存取協定",
+    "BIOCASE_INSTALLATION": "安裝生物典藏品檢索服務",
+    "HTTP_INSTALLATION": "安裝超文本傳輸協定",
+    "SYMBIOTA_INSTALLATION": "安裝 Symbiota"
   }
 }

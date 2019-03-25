@@ -24,6 +24,6 @@
     "done": "Concluído",
     "yesCorrectSuggestion": "Sim",
     "noWrongSuggestion": "Não",
-    "errorUserThrottled": ""
+    "errorUserThrottled": "Seu acesso está temporariamente restringido."
   }
 }

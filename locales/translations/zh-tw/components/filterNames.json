@@ -13,7 +13,7 @@
     "mediaType": "媒體類型",
     "recordedBy": "記錄者為",
     "eventDate": "事件日期",
-    "eventID": "事件 ID",
+    "eventID": "事件識別碼",
     "samplingProtocol": "取樣程序",
     "location": "地點",
     "hasGeospatialIssue": "有地理空間問題",

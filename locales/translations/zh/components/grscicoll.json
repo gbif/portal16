@@ -1,7 +1,7 @@
 {
   "collection": {
     "search": {
-      "title": "",
+      "title": "馆藏",
       "description": ""
     },
     "headerTitle": "",
@@ -11,36 +11,38 @@
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "是",
+      "false": "否"
     },
     "accessionStatus": "",
     "contentTypes": "",
     "preservationTypes": "",
-    "homepage": "",
+    "homepage": "首页",
     "apiUrl": "",
     "catalogUrl": "",
     "identifiers": "",
     "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "status": "状态",
+    "name": "名字",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "活跃的",
+      "false": "未激活的"
     }
   },
   "institution": {
     "search": {
-      "title": "",
+      "title": "机构",
       "description": ""
     },
     "headerTitle": "",
     "indexHerbariorumRecord": "",
+    "numberSpecimens": "",
     "code": "",
     "statusOfInstitution": "",
     "additionalNames": "",
     "description": "",
     "homepage": "",
+    "foundingDate": "",
     "disciplines": "",
     "institutionalGovernance": "",
     "type": "",
@@ -49,8 +51,8 @@
       "true": "",
       "false": ""
     },
-    "true": "",
-    "false": ""
+    "true": "是",
+    "false": "否"
   },
   "grscicollPerson": {
     "search": {
@@ -58,14 +60,14 @@
       "description": ""
     },
     "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
+    "firstName": "名",
+    "lastName": "姓",
+    "fullName": "全名",
+    "position": "工作职位",
+    "affiliations": "所属机构",
+    "areaResponsibility": "负责领域",
+    "researchPursuits": "搜索特长",
+    "primaryInstitution": "一级机构名称",
     "primaryCollection": "",
     "affiliateInstitutions": "",
     "affiliateCollections": ""
@@ -88,8 +90,8 @@
       "address": "",
       "province": "",
       "postalCode": "",
-      "city": "",
-      "country": ""
+      "city": "城市/乡镇",
+      "country": "国家"
     }
   }
 }

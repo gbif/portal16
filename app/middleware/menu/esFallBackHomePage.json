@@ -1,0 +1,209 @@
+{
+  "offset": 0,
+  "limit": 20,
+  "endOfRecords": true,
+  "count": 1,
+  "results": [
+    {
+      "summary": "Free and open access to biodiversity data\n",
+      "primaryImage": [
+        {
+          "file": {
+            "url": "//images.ctfassets.net/qz96qz790wh9/1P6hs3crfKkQui004ES4Oq/365b1266768614c83f298a066cc0f07e/Bispira_turneri4.jpg",
+            "details": {
+              "size": 2374302,
+              "image": {
+                "width": 2048,
+                "height": 1580
+              }
+            },
+            "fileName": "Bispira turneri4.jpg",
+            "contentType": "image/jpeg"
+          },
+          "description": "Bispira turneri",
+          "title": "Bispira turneri"
+        },
+        {
+          "file": {
+            "url": "//images.ctfassets.net/qz96qz790wh9/7n5gVgiFHiuI6kACuG8EQ0/6a5b5db925c77bdaa5df1d7acd75fa0f/Radula_bolanderi.jpg",
+            "details": {
+              "size": 1476889,
+              "image": {
+                "width": 2048,
+                "height": 821
+              }
+            },
+            "fileName": "Radula bolanderi.jpg",
+            "contentType": "image/jpeg"
+          },
+          "description": "Radula bolanderi",
+          "title": "Radula bolanderi"
+        },
+        {
+          "file": {
+            "url": "//images.ctfassets.net/qz96qz790wh9/2t2INGBp6cWIiEeWKqwC80/f2c69bc8a297050081d8c1d481237eb2/Common_Milkweed_Asclepias_syriaca.jpeg",
+            "details": {
+              "size": 576666,
+              "image": {
+                "width": 1920,
+                "height": 1080
+              }
+            },
+            "fileName": "Common Milkweed Asclepias syriaca.jpeg",
+            "contentType": "image/jpeg"
+          },
+          "description": "<a href=\"/occurrence/1572349986\">Common Milkweed (<i>Asclepias syriaca</i>)</a> by nigrosh60 via <a href=\"/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7\">iNaturalist</a>. Photo licensed under <a href=\"http://creativecommons.org/licenses/by-nc/4.0/\">CC BY-NC 4.0</a>.",
+          "title": "Asclepias syriaca"
+        },
+        {
+          "file": {
+            "url": "//images.ctfassets.net/qz96qz790wh9/5eUyU6TdSEEAy8s6MqMaSe/7ceea438fe77cb05a54413cbf5212461/Mendocino_Cypress_Cupressus_pygmaea.jpg",
+            "details": {
+              "size": 2067532,
+              "image": {
+                "width": 2048,
+                "height": 1460
+              }
+            },
+            "fileName": "Mendocino Cypress Cupressus pygmaea.jpg",
+            "contentType": "image/jpeg"
+          },
+          "description": "Mendocino Cypress Cupressus pygmaea",
+          "title": "Mendocino Cypress Cupressus pygmaea"
+        },
+        {
+          "file": {
+            "url": "//images.ctfassets.net/qz96qz790wh9/5tXZ8CoxSow8iUS4sQQ6oa/e0a885f6f7364da29116b7277f17bf4f/Humpback_Whale_Megaptera_novaeangliae2.jpg",
+            "details": {
+              "size": 720413,
+              "image": {
+                "width": 2048,
+                "height": 1365
+              }
+            },
+            "fileName": "Humpback Whale Megaptera novaeangliae2.jpg",
+            "contentType": "image/jpeg"
+          },
+          "description": "<a href=\"/occurrence/1572380208\">Humpback whale (<i>Megaptera novaeangliae</i>)</a> by Donna Pomeroy via iNaturalist. Photo licensed under <a href=\"http://creativecommons.org/licenses/by-nc/4.0/\">CC BY-NC 4.0</a>.",
+          "title": "Humpback whale (Megaptera novaeangliae)"
+        },
+        {
+          "file": {
+            "url": "//images.ctfassets.net/qz96qz790wh9/Mp5T4rr4IMa4ygOy6IMWU/7f5670e8a3af20de46f45889b3153bdf/Western_Tiger_Swallowtail_Papilio_rutulus.jpg",
+            "details": {
+              "size": 1977842,
+              "image": {
+                "width": 2048,
+                "height": 1365
+              }
+            },
+            "fileName": "Western Tiger Swallowtail Papilio rutulus.jpg",
+            "contentType": "image/jpeg"
+          },
+          "description": "<a href=\"/occurrence/1572365183\">Western tiger swallowtail (<i>Papilio rutulus</i>)</a> by ldjaffe via iNaturalist. Photo licensed under <a href=\"http://creativecommons.org/licenses/by-nc/4.0/\">CC BY-NC 4.0</a>.",
+          "title": "Western tiger swallowtail (Papilio rutulus)"
+        },
+        {
+          "file": {
+            "url": "//images.ctfassets.net/qz96qz790wh9/65POmUE2ZyCmcCCOGgmWgS/6b5f21e930a31d332b817045e1d133f5/Nemateleotris_magnifica.jpeg",
+            "details": {
+              "size": 1690808,
+              "image": {
+                "width": 2766,
+                "height": 1353
+              }
+            },
+            "fileName": "Nemateleotris magnifica.jpeg",
+            "contentType": "image/jpeg"
+          },
+          "title": "Nemateleotris magnifica"
+        }
+      ],
+      "title": "GBIF | Global Biodiversity Information Facility",
+      "type": "Entry",
+      "aboutTitle": "What is GBIF?",
+      "space": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Space",
+          "id": "qz96qz790wh9"
+        }
+      },
+      "revision": 18,
+      "aboutBody": "GBIF—the Global Biodiversity Information Facility—is an open-data research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere to access data about all types of life on Earth.\n\nCoordinated through its Secretariat in Copenhagen, the GBIF network of member states and organizations—formally known as Participants—provides data-holding institutions around the world with common standards and open-source tools that enable them to share information about where and when species have been recorded.\n[Read more](/what-is-gbif)",
+      "features": [
+        {
+          "id": "2sfNt439xS2eGOyogU6yEA",
+          "title": "Science Review",
+          "url": "/science-review"
+        },
+        {
+          "id": "3R8FLvbL9YY2GUM0AQc2gE",
+          "title": "Introduction to sampling-event data",
+          "url": "/sampling-event-data"
+        },
+        {
+          "id": "K8RsKlOKmO8gsUCwGIOIa",
+          "title": "Top tips for the new GBIF.org",
+          "url": "/top-tips-for-using-the-new-gbif-dot-org"
+        },
+        {
+          "id": "60ri5YbDGgauaGsYKiAayi",
+          "title": "The GBIF network",
+          "url": "/the-gbif-network"
+        },
+        {
+          "id": "82292",
+          "summary": "The Republic of Congo (ROC) has become the latest country to sign the GBIF Memorandum of Understanding on free and open access to biodiversity data.",
+          "title": "Republic of Congo is new GBIF Participant"
+        },
+        {
+          "id": "5xzfaUT6G4gA8wO0ky6U4A",
+          "title": "Learn all about data papers",
+          "url": "/data-papers"
+        },
+        {
+          "id": "3QszIpSzBKs6CGouiA2u8o",
+          "title": "Living Atlases",
+          "url": "/programme/82953/living-atlases"
+        }
+      ],
+      "createdAt": "2017-08-28T14:19:45.329Z",
+      "environment": {
+        "sys": {
+          "id": "master",
+          "type": "Link",
+          "linkType": "Environment"
+        }
+      },
+      "mainNavigationElements": [
+        {
+          "id": "4P34Huqj4TQ0UHpGYoC2gi",
+          "title": "Get data"
+        },
+        {
+          "id": "11gLXyNnc4nS9uTvfoC7JR",
+          "title": "Share"
+        },
+        {
+          "id": "1GHTPPZyUiB4cf9Oo6ubAS",
+          "title": "Tools"
+        },
+        {
+          "id": "4SQ1VuIvXEP6W0Eq6BBFU3",
+          "title": "Inside GBIF"
+        }
+      ],
+      "aboutSpeciesCounts": "Learn more about the number of species covered by data in GBIF.org.",
+      "id": "3D1QT0b4vuKS4iGaaumqwG",
+      "contentType": "homePage",
+      "updatedAt": "2019-03-15T08:47:12.455Z",
+      "_gbifDOIs": [],
+      "_summary": "Free and open access to biodiversity data\n … ",
+      "_slug": "gbif-or-global-biodiversity-information-facility",
+      "_url": "/home-page/3D1QT0b4vuKS4iGaaumqwG/gbif-or-global-biodiversity-information-facility"
+    }
+  ],
+  "facets": [],
+  "filters": {}
+}

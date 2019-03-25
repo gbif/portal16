@@ -3,7 +3,7 @@
     "group": {
       "executiveCommittee": {
         "title": "執行委員會",
-        "description": "執行委員會於董事會不在的會議期間或於董事會授予其職責範圍內，代表董事會執行工作。\n其職責之一是監督秘書處在執行董事會決定事項方面的成效，包括策略計劃的實行、工作方案以及預算管理。"
+        "description": "執行委員會於董事會不在會議期間或於董事會授予其職責範圍內，代表董事會執行工作。\n其職責之一是監督秘書處在執行董事會決定事項方面的成效，包括策略計劃的實行、工作方案以及預算管理。"
       },
       "scienceCommittee": {
         "title": "科學委員會",
@@ -15,15 +15,15 @@
       },
       "nsg": {
         "title": "節點指導組",
-        "description": "節點指導小組 (NSG) 成立於2011年，成員為 GBIF 六大區域代表 ([Africa](/the-gbif-network/africa)，[Asia](/the-gbif-network/asia)，[Europe](/the-gbif-network/europe)，[Latin America/Caribbean](/the-gbif-network/latin-america)，[North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)) 會員節點管理委員會 (/contact-us/directory?group=nodesCommittee) 的主席及副主席。\nNSG 的目標是根據會員節點提供的反饋，向相關 GBIF 機構提出具體建議，NSG 與 GBIF 節點的工作息息相關，也會提出關於 GBIF 年度工作計劃的建議。"
+        "description": "節點指導組 (NSG) 成立於2011年，成員為 GBIF 六大區域代表 ([Africa](/the-gbif-network/africa)，[Asia](/the-gbif-network/asia)，[Europe](/the-gbif-network/europe)，[Latin America/Caribbean](/the-gbif-network/latin-america)，[North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)) 會員節點管理委員會 (/contact-us/directory?group=nodesCommittee) 的主席及副主席。\nNSG 的目標是根據會員節點提供的反饋，向相關 GBIF 機構提出具體建議，NSG 與 GBIF 節點的工作息息相關，也會提出關於 GBIF 年度工作計劃的建議。"
       },
       "nodesCommittee": {
         "title": "節點經理委員會",
         "description": "會員節點經理委員會（或節點委員會）為一個動態小組，成員由會員（國家或國際組織） 所指名的節點經理組成。委員會包括三位經由董事會投票表決任命的主席，其中最多兩位可有兩年的任期。"
       },
       "secretariat": {
-        "title": "GBIF秘書處",
-        "description": "位於丹麥，哥本哈根的 GBIF 秘書處負責發展、執行及回報 GBIF 工作計畫。秘書處的任務包括：\n- 運作 GBIF 的入口網頁及相關資訊\n- 協調 GBIF 網絡中與資料流通、發布和管理相關的活動\n- 監控資料缺口並使用經由 GBIF 的資料於科學上，執行中央聯繫溝通和合作服務"
+        "title": "GBIF 秘書處",
+        "description": "位於丹麥，哥本哈根的 GBIF 秘書處負責發展、執行及回報 GBIF 工作計畫。秘書處的任務包括：\n- 運作 GBIF 的入口網頁及相關資訊\n- 協調 GBIF 網絡中與資料流通、發布和管理相關的活動\n- 監控資料缺口並使用 GBIF 資料於科學上，執行中央聯繫溝通和合作服務"
       },
       "voting": {
         "title": "投票會員",
@@ -31,7 +31,7 @@
       },
       "associateCountries": {
         "title": "副國家會員",
-        "description": "已簽署合作備忘錄 (MOU)，但未提供基礎財務贊助給 GBIF 核心資金且未票選 GBIF 董事會的國家。"
+        "description": "已簽署合作備忘錄 (MOU)，但未提供基礎財務贊助給 GBIF 核心資金，且未票選 GBIF 董事會的國家。"
       },
       "associateParticipants": {
         "title": "其他副會員",
@@ -39,14 +39,14 @@
       }
     },
     "columns": {
-      "role": "身份",
+      "role": "角色",
       "name": "名稱",
       "participant": "會員",
       "participationStatus": "會員狀態"
     },
     "details": "詳細資料",
     "roles": "角色",
-    "sinceDate": "自 {DATE}",
-    "showAllContacts": "全選"
+    "sinceDate": "始自 {DATE}",
+    "showAllContacts": "全部"
   }
 }

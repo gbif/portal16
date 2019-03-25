@@ -1,14 +1,14 @@
 {
     "speciesSearch": {
-        "youAreCurrentlySearchingInGBIFtaxonomy": "",
-        "SearchAcrossChecklists": "",
-        "freeTextSearchFor": "",
-        "limitSearchTo": "",
+        "youAreCurrentlySearchingInGBIFtaxonomy": "您正在寻找基于 GBIF分类中的物种。",
+        "SearchAcrossChecklists": "跨名录检索",
+        "freeTextSearchFor": "您正在执行 \"{QUERY}\" 的自由文本搜索",
+        "limitSearchTo": "限制搜索到",
         "limitResultsTo": {
-            "all": "",
-            "scientificNames": "",
-            "vernacularNames": "",
-            "descriptions": ""
+            "all": "全部",
+            "scientificNames": "学名",
+            "vernacularNames": "俗名",
+            "descriptions": "描述"
         }
     }
 }

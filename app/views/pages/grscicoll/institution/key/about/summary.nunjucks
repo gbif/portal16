@@ -33,6 +33,10 @@
 					<a ng-href="{{institutionKey.institution.homepage}}">{{institutionKey.institution.homepage}}</a/>
 				</dd>
 			</div>
+			<div class="row">
+				<dt class="col-md-4 col-xs-12" translate="institution.numberSpecimens"></dt>
+				<dd class="col-md-8 col-xs-12">{{institutionKey.institution.numberSpecimens | localNumber}}</dd>
+			</div>
 			<div class="row" ng-if="institutionKey.institution.disciplines.length > 0">
 				<dt class="col-md-4 col-xs-12" translate="institution.disciplines"></dt>
 				<dd class="col-md-8 col-xs-12">
@@ -52,6 +56,10 @@
 				<dt class="col-md-4 col-xs-12" translate="institution.type"></dt>
 				<dd class="col-md-8 col-xs-12" translate="enum.institutionType.{{institutionKey.institution.type}}">
 				</dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.foundingDate">
+				<dt class="col-md-4 col-xs-12" translate="institution.foundingDate"></dt>
+				<dd class="col-md-8 col-xs-12">{{institutionKey.institution.foundingDate | momentFormat:'LL'}}</dd>
 			</div>
 			<div class="row" ng-if="(institutionKey.institution.identifiers | visibleIdentifier).length > 0">
 				<dt class="col-md-4 col-xs-12" translate="institution.identifiers"></dt>

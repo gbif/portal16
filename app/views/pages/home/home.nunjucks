@@ -35,7 +35,7 @@
                             </form>
                         </div>
                         <div class="home__quicklinks">
-                            <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">{$ __('menu.whatIsGbif') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">{$ __('homepage.whatIsGbif') $}</a>
                             <a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode"><span translate="homepage.aboutGbifCountry" translate-values="{COUNTRY: (('country.' + home.country.countryCode) | translate) }"></span></a>
                         </div>
                     </div>

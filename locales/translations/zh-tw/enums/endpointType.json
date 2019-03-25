@@ -6,12 +6,12 @@
     "WMS": "網路地圖服務（WMS）",
     "TCS_RDF": "TCS RDF",
     "TCS_XML": "TCS XML",
-    "DWC_ARCHIVE": "達爾文核心集歸檔",
+    "DWC_ARCHIVE": "達爾文核心集檔案",
     "DIGIR": "DiGIR",
     "DIGIR_MANIS": "DiGIR MANIS",
     "TAPIR": "TAPIR",
-    "BIOCASE": "生物蒐藏存取服務",
-    "BIOCASE_XML_ARCHIVE": "BioCASE XML 檔集",
+    "BIOCASE": "生物典藏品檢索服務",
+    "BIOCASE_XML_ARCHIVE": "生物典藏品檢索服務 XML 檔案集",
     "OAI_PMH": "OAI PMH",
     "OTHER": "其它"
   }

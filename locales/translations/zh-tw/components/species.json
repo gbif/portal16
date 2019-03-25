@@ -10,7 +10,7 @@
       "overview": "概覽",
       "metrics": "指標",
       "referenceTaxon": "參考分類群",
-      "verbatim": "逐字"
+      "verbatim": "字面的"
     },
     "invasives": {
       "nInvadedCountries": "如 {NUMBER_FORMATED} {NUMBER, select, 1{國家或島嶼} other{國家或島嶼}}所記錄",
@@ -37,7 +37,7 @@
     "synonym": "同種異名",
     "description": "描述",
     "synonyms": "同種異名",
-    "synonymOf": "同種異名",
+    "synonymOf": "的同種異名",
     "basionymOf": "基礎名",
     "immediateChildren": "直接子代",
     "descendants": "降序",
@@ -60,7 +60,7 @@
     "seeAlso": "您也可以參考：",
     "viewInGbifBackbone": "查看 GBIF 骨幹",
     "verbatimListingMsg": "此清單顯示的是 GBIF 從資料發布者收到的原始資訊，無進一步的解析處理。",
-    "interpretationMsg": "此為 {DATASET} 中所發表對該物種的解釋。",
+    "interpretationMsg": "此為 {DATASET} 中所發表對該物種的解析。",
     "viewGbifSpeciesMsg": "要查看 GBIF 對這此物種的觀點，請參見 [骨幹版本](/物種/{NUBKEY})",
     "inferredRecordMsg": "此記錄是在索引過程中建立的，並不存在於來源資料。",
     "noChildren": "無子代",

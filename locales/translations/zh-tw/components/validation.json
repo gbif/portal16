@@ -4,21 +4,21 @@
       "RESOURCE_STRUCTURE": "資源結構",
       "RESOURCE_INTEGRITY": "資源完整性",
       "RECORD_STRUCTURE": "紀錄結構",
-      "OCC_INTERPRETATION_BASED": "GBIF 出現紀錄闡述",
+      "OCC_INTERPRETATION_BASED": "GBIF 出現紀錄解析",
       "METADATA_CONTENT": "詮釋資料內容",
-      "CLB_INTERPRETATION_BASED": "GBIF 分類群解釋"
+      "CLB_INTERPRETATION_BASED": "GBIF 分類群解析"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "無法讀取達爾文核心集歸檔",
+      "DWCA_UNREADABLE": "無法讀取達爾文核心集檔案",
       "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 檔",
       "DWCA_META_XML_SCHEMA": "Meta. xml 架構驗證失敗",
       "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到紀錄識別碼",
       "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定列類型",
       "EML_NOT_FOUND": "找不到 EML 文件",
-      "EML_GBIF_SCHEMA": "Eml 檔案不針對架構進行驗證",
+      "EML_GBIF_SCHEMA": "EML 檔案不針對架構進行驗證",
       "UNKNOWN_ROWTYPE": "核心集／延伸集為未知的列類型",
       "REQUIRED_TERM_MISSING": "缺少核心集／延伸集必要名稱",
-      "COLUMN_MISMATCH": "無匹配欄位",
+      "COLUMN_MISMATCH": "無吻合欄位",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "違反紀錄參考之完整性",
       "UNKNOWN_TERM": "未知名稱",
       "DUPLICATED_TERM": "重複名稱",
@@ -26,13 +26,13 @@
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "資源建立者已不在或不完整。",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "資料集的描述遺漏或描述太短",
       "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF 不支援或授權遺失",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "未唯一標識的記錄",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "非唯一鑑定的記錄",
       "UNREADABLE_SECTION_ERROR": "部分錯誤無法讀取",
       "NoIssuesFound": "未找到問題"
     },
     "fileFormat": {
       "title": "檔案格式",
-      "DWCA": "達爾文核心集歸檔",
+      "DWCA": "達爾文核心集檔案",
       "TABULAR": "表格檔 (. csv,. tsv)",
       "SPREADSHEET": "試算表 (. xlsx)"
     },
@@ -45,7 +45,7 @@
         "title": "延伸集"
       },
       "METADATA": {
-        "description": "詮釋資料描述EML中的資料（生態詮釋資料語言）",
+        "description": "詮釋資料描述 EML 的資料（生態詮釋資料語言）",
         "title": "詮釋資料文件"
       },
       "META_DESCRIPTOR": {
@@ -58,33 +58,33 @@
     "uniqueIdentifier": "唯一識別碼",
     "reportLocation": "此報告已發送至",
     "reportDeletion": "報告將於一個月後刪除。在此之前你可以隨時查看。",
-    "reportGenerated": "所產生",
+    "reportGenerated": "已產生",
     "summary": "驗證總結",
     "issues": "驗證問題",
     "fileHasIssues": "驗證程式檢測到一些問題：",
     "fileHasNoIssues": "在檔案中未找到任何問題",
     "error": "錯誤",
     "errors": {
-      "400": "無法處理該檔案，或者可能是您提供的URL遺失。",
-      "404": "找不到驗證作業ID。若您認定此為錯誤，請回報。",
+      "400": "無法處理該檔案，或者可能是您提供的 URL 遺失。",
+      "404": "找不到驗證作業識別碼。若您認定此為錯誤，請回報。",
       "413": "此檔案太大，資料驗證工具無法處理。",
       "415": "不支援的檔案類型。無法處理該檔案。"
     },
-    "backToValidator": "開始新的驗證",
+    "backToValidator": "開始新驗證",
     "termsFrequency": {
-      "title": "條款頻度",
+      "title": "詞頻",
       "term": "條款",
       "count": "計數",
       "percentage": "百分比",
-      "interpreted": "解釋"
+      "interpreted": "已解析"
     },
     "interpretedCounts": {
-      "date": "已解釋的日期數",
-      "taxon": "已解釋的分類群列數",
-      "location": "已解釋的座標數"
+      "date": "已解析的日期數",
+      "taxon": "已解析的分類群列數",
+      "location": "已解析的座標數"
     },
     "interpretedValueCounts": {
-      "title": "已解釋的計數值"
+      "title": "已解析的計數值"
     },
     "status": {
       "title": "狀態",
@@ -93,28 +93,28 @@
       "ACCEPTED": "開始驗證",
       "RUNNING": "驗證中",
       "FINISHED": "驗證完成",
-      "FAILED": "驗證失敗。請確認檔案形式，如您提交URL檔，請確認檔案的位址",
+      "FAILED": "驗證失敗。請確認檔案形式，如您提交 URL 檔，請確認檔案的位址",
       "CONTACTING_SERVER": "正在連結伺服器..."
     },
-    "jobId": "作業ID",
+    "jobId": "作業識別碼",
     "indexeable": "GBIF 可為該檔編制索引",
     "notIndexeable": "GBIF 無法為該檔編制索引",
     "numberOfLines": "行數",
-    "reportProducedByGbifDataValidator": "由GBIF資料驗證程式產生的報告",
+    "reportProducedByGbifDataValidator": "由 GBIF 資料驗證程式產生的報告",
     "validationReport": "驗證報告",
     "dataValidator": "資料驗證程式",
-    "dataValidatorDescription": "GBIF資料驗證程式為一項提供所有GBIF相關資料集持有者關於資料集語法正確性、資料內容有效性報告的服務。",
+    "dataValidatorDescription": "GBIF 資料驗證程式為一項服務，提供所有 GBIF 相關資料集持有者關於資料集語法正確性、資料內容有效性報告。",
     "thisIsAnEarlyAccessVersion": "此為舊的存取版本，請回報問題和回饋意見",
     "here": "這裡",
     "coreRowType": "核心集列類型",
-    "submit": "提交",
+    "submit": "繳交",
     "dropHere": "拖放到此處",
     "or": "或",
     "selectFile": "選擇檔案",
     "fetchFileFromLocation": "從位址獲取檔案",
     "tabs": {
       "newDataValidation": "新資料驗證",
-      "newValidation": "新的驗證",
+      "newValidation": "新驗證",
       "about": "關於",
       "darwinCoreExtensions": "達爾文核心延伸集",
       "metaData": "詮釋資料",

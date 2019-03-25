@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <header class="col-xs-12 text-center article-header">
-                        <h1 > {$ __('menu.GbifNetwork') $}</h1>
+                        <h1 > {$ __('gbifNetwork.gbifNetwork') $}</h1>
                      <!--   <div class="article-header__intro anchor-block__above">
                             {# fulltext html already wrapped by <p> from Content API #}
                             {$ intro | safe $}

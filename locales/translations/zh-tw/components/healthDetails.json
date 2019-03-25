@@ -45,7 +45,7 @@
                 "tooltip": "意見回饋，資料集建議。"
             },
             "CRAWLER": {
-                "name": "接收",
+                "name": "注入",
                 "tooltip": "更新資料集－新與舊"
             },
             "RESOURCE_SEARCH": {

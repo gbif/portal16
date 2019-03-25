@@ -1,5 +1,6 @@
 {
     "tools": {
+        "tools": "",
         "categoryFeatured": "精选",
         "suggestDataset": {
             "NOT_OPEN": "不是可打开的许可",
@@ -51,6 +52,9 @@
         "ipt": {
             "description": "",
             "dontSeeYourIpt": ""
+        },
+        "dataRepository": {
+            "title": ""
         }
     }
 }
