@@ -1,5 +1,6 @@
 {
     "tools": {
+        "tools": "",
         "categoryFeatured": "Destacado(s)",
         "suggestDataset": {
             "NOT_OPEN": "No es (tiene) una licencia abierta",
@@ -51,6 +52,9 @@
         "ipt": {
             "description": "El IPT es una herramienta de software gratuito de código abierto, escrita en Java, que se utiliza para publicar y compartir conjuntos de datos a través de la red de GBIF. El IPT puede ser configurado tanto con una cuenta de DataCite como EZID, para asignar DOI's a los conjuntos de datos, transformándolo en un repositorio de datos.",
             "dontSeeYourIpt": "¿No encuentras tu IPT? Enviar [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") sus coordenadas."
+        },
+        "dataRepository": {
+            "title": ""
         }
     }
 }
