@@ -13,8 +13,8 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper" translate="menu.tools">Tools</span>
-                        <span class="article-header__category__lower" translate="menu.nameParser">Name Parser</span>
+                        <span class="article-header__category__upper" translate="tools.tools">Tools</span>
+                        <span class="article-header__category__lower" translate="nameParser.nameParserTitle">Name Parser</span>
                     </nav>
                 </div>
             </div>

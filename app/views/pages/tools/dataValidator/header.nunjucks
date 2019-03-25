@@ -3,7 +3,7 @@
         <div class="row">
             <header class="col-xs-12 text-center" >
                 <nav class="article-header__category article-header__category--deep" ng-if="!vm.jobid">
-                    <span class="article-header__category__upper" translate="menu.tools">Tools</span>
+                    <span class="article-header__category__upper" translate="tools.tools">Tools</span>
                     <span class="article-header__category__lower" translate="validation.dataValidator">Data validator</span>
                 </nav>
                 <nav class="article-header__category article-header__category--deep" ng-if="vm.jobid">
