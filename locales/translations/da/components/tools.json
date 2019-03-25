@@ -1,5 +1,6 @@
 {
     "tools": {
+        "tools": "",
         "categoryFeatured": "",
         "suggestDataset": {
             "NOT_OPEN": "",
@@ -51,6 +52,9 @@
         "ipt": {
             "description": "",
             "dontSeeYourIpt": "Ikke kan se din IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail til GBIF Helpdesk med anmodning om at IPT føjes til kort\") dine koordinater."
+        },
+        "dataRepository": {
+            "title": ""
         }
     }
 }
