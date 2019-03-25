@@ -7,6 +7,7 @@
             "literature": "Artículos científicos usando datos"
         },
         "aboutGbifCountry": "Sobre GBIF {COUNTRY}",
-        "summary": "Acceso libre y gratuito a los datos de biodiversidad"
+        "summary": "Acceso libre y gratuito a los datos de biodiversidad",
+        "whatIsGbif": ""
     }
 }

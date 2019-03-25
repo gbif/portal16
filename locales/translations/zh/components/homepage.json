@@ -7,6 +7,7 @@
             "literature": "使用数据发布的同行评审的文章"
         },
         "aboutGbifCountry": "关于 GBIF {COUNTRY}",
-        "summary": "自由开放地获取生物多样性数据"
+        "summary": "自由开放地获取生物多样性数据",
+        "whatIsGbif": ""
     }
 }

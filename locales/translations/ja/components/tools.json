@@ -1,5 +1,6 @@
 {
     "tools": {
+        "tools": "",
         "categoryFeatured": "特集",
         "suggestDataset": {
             "NOT_OPEN": "オープン ライセンスではないです。",
@@ -51,6 +52,9 @@
         "ipt": {
             "description": "統合出版ツールキット Integrated Publishing Toolkit (IPT) はJavaで書かれた無料のオープンソースツールで、データセットを出版して、GBIFネットワークを通じて共有するために用いられます。IPTは データリポジトリにデータセットを転送してDOIを得るため、DataCite あるいは EZID アカウントで設定することができます。",
             "dontSeeYourIpt": "IPTが見えない？ [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") にあなたの所在地の緯度・経度をお送りください。"
+        },
+        "dataRepository": {
+            "title": ""
         }
     }
 }
