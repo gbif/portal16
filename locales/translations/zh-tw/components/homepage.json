@@ -7,6 +7,7 @@
             "literature": "使用資料的同儕審查論文"
         },
         "aboutGbifCountry": "關於 GBIF {COUNTRY}",
-        "summary": "自由、開放取用的生物多樣性資料"
+        "summary": "自由、開放取用的生物多樣性資料",
+        "whatIsGbif": ""
     }
 }
