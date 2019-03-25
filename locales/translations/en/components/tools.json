@@ -1,6 +1,6 @@
 {
     "tools": {
-        "tools": "",
+        "tools": "Tools",
         "categoryFeatured": "Featured",
         "suggestDataset": {
             "NOT_OPEN": "Not an open license",
@@ -54,7 +54,7 @@
             "dontSeeYourIpt": "Don't see your IPT? Send [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") your coordinates."
         },
         "dataRepository": {
-            "title": ""
+            "title": "Data repository"
         }
     }
 }
