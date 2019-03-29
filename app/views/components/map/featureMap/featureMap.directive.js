@@ -22,6 +22,7 @@ function featureMapDirective(BUILD_VERSION) {
             features: '=',
             wkt: '=',
             mapStyle: '=',
+            featureStyle: '=',
             circle: '=',
             marker: '=',
             baselayer: '=',
@@ -125,7 +126,7 @@ function featureMapDirective(BUILD_VERSION) {
 
         function addFeatureLayer() {
             if (!featureLayer && _.get(vm.features, 'features.length', 0) > 0) {
-                featureLayer = setFeatures(map, vm.features);
+                featureLayer = setFeatures(map, vm.features, vm.featureStyle);
             }
             if (!circleLayer && typeof vm.circle !== 'undefined') {
                 circleLayer = setCircle(map, vm.circle);
@@ -183,7 +184,7 @@ function lonLatToCurrentProjection(map, point) {
     return ol.proj.fromLonLat(point, map.getView().getProjection());
 }
 
-function setFeatures(map, features) {
+function setFeatures(map, features, featureStyle) {
     var vectorSource = new ol.source.Vector({
         features: (new ol.format.GeoJSON()).readFeatures(features, {
             dataProjection: 'EPSG:4326',
@@ -193,10 +194,10 @@ function setFeatures(map, features) {
     });
     var vectorLayer = new ol.layer.Vector({
         source: vectorSource,
-        style: styleFunction
+        style: featureStyle || styleFunction
     });
     map.addLayer(vectorLayer);
-    map.getView().fit(vectorLayer.getSource().getExtent());
+    map.getView().fit(vectorLayer.getSource().getExtent(), {maxZoom: 6});
 }
 
 function setWKT(map, wkt) {

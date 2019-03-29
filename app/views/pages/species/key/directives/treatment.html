@@ -9,7 +9,7 @@
                 <h4>Distribution</h4>
                 <span ng-class="{'gb-icon-unfold-more-horizontal': !treatment.mapExpanded, 'gb-icon-unfold-less-horizontal': treatment.mapExpanded}" ng-click="treatment.mapExpanded = !treatment.mapExpanded" role="button" tabindex="0" class="gb-icon-unfold-less-horizontal" style=""></span>
                 </div>
-                <feature-map ng-if="treatment.mapExpanded" class="ipt__map fitContainer" features="treatment.geoJSON" baselayer="treatment.baselayer" projection="treatment.projection"  ></feature-map>
+                <feature-map ng-if="treatment.mapExpanded" class="ipt__map fitContainer" feature-style="treatment.featureStyle" features="treatment.geoJSON" baselayer="treatment.baselayer" projection="treatment.projection"  mapstyle="'light'"></feature-map>
                 </div>
                  <div ng-if="treatment.figures.$resolved && treatment.figures.results.length > 0">
                 <div layout="row" layout-align="end center">

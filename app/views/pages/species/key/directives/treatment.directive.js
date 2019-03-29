@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var ol = require('openlayers');
 
 angular
     .module('portal')
@@ -70,6 +71,15 @@ function treatmentDirective() {
                             };
                         })
                     };
+                    vm.featureStyle = new ol.style.Style({
+                        image: new ol.style.Circle({
+                            radius: 4,
+                            fill: new ol.style.Fill({
+                                color: 'blue'
+                            }),
+                            stroke: new ol.style.Stroke({color: 'blue', width: 2})
+                        })
+                    });
 
                     vm.geoJSON = geoJSON;
                     vm.projection = 'EPSG:3857';
