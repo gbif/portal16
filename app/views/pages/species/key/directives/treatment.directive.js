@@ -36,7 +36,7 @@ function treatmentDirective() {
                 access_token: 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ'
             }
         };
-        var occurrences = OccurrenceSearch.get({datasetKey: vm.species.datasetKey, taxonKey: vm.species.nubKey});
+        var occurrences = OccurrenceSearch.get({datasetKey: vm.species.datasetKey, taxonKey: vm.species.nubKey, limit: 500});
 
         occurrences.$promise.then(function() {
             if (occurrences.results && occurrences.results.length > 0) {
