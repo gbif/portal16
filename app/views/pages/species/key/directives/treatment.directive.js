@@ -26,6 +26,10 @@ function treatmentDirective() {
     /** @ngInject */
     function treatmentCtrl(OccurrenceSearch) {
         var vm = this;
+
+        // replace broken links in treatment
+        vm.treatment = vm.treatment.replace(new RegExp('http://plazi.cs.umb.edu', 'g'), 'http://treatment.plazi.org');
+
         vm.figuresExpanded = true;
         vm.mapExpanded = true;
         vm.baselayer = {
