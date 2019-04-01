@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "总览",
+      "treatment": "",
       "metrics": "指标",
       "referenceTaxon": "参考分类",
       "verbatim": ""
@@ -67,6 +68,7 @@
     "youAreBrowsing": "",
     "lastCrawled": "",
     "extensions": "",
-    "taxa": "分类群"
+    "taxa": "分类群",
+    "mediatedThrough": ""
   }
 }
