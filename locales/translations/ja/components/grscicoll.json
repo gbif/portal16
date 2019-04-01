@@ -57,7 +57,7 @@
   "grscicollPerson": {
     "search": {
       "title": "コレクションスタッフ",
-      "description": ""
+      "description": "GRSciCollスタッフメンバーはコレクションに関わる全ての職種のスタッフが含まれます。機関と連携したり、あらゆる種類のコレクションと関連付けることができます。"
     },
     "headerTitle": "コレクションスタッフ",
     "firstName": "名",
