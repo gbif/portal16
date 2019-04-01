@@ -4,7 +4,7 @@
             "occurrences": "オカレンスレコード",
             "datasets": "データセット",
             "publishers": "提供機関",
-            "literature": ""
+            "literature": "データを利用した査読付き論文"
         },
         "aboutGbifCountry": "GBIF {COUNTRY} について",
         "summary": "誰でも自由に利用できる生物多様性情報",
