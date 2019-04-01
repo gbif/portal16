@@ -3,6 +3,6 @@
     "SIMPLE_AVRO": "Apache Avro",
     "SIMPLE_CSV": "CSV",
     "DWCA": "Darwin Core Archive",
-    "SPECIES_LIST": ""
+    "SPECIES_LIST": "CSV形式の種リスト"
   }
 }
