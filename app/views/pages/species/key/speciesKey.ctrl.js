@@ -38,6 +38,7 @@ function speciesKey2Ctrl(
     SpeciesVernacularNames,
     constantKeys,
     Page,
+    PublisherExtended,
     MapCapabilities,
     BUILD_VERSION,
     $translate,
@@ -131,6 +132,9 @@ function speciesKey2Ctrl(
                         treatment['http://purl.org/dc/terms/description'];
                     vm.treatmentCitation = treatment['http://purl.org/dc/terms/bibliographicCitation'];
                 }
+                vm.dataset.$promise.then(function() {
+                    vm.publisher = PublisherExtended.get({key: vm.dataset.publishingOrganizationKey});
+                });
             });
             vm.verbatim.$promise.catch(vm.nonCriticalErrorHandler);
 

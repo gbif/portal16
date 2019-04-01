@@ -68,6 +68,7 @@
     "youAreBrowsing": "You are browsing",
     "lastCrawled": "Last crawled {DATE_FORMATTED}",
     "extensions": "Extensions",
-    "taxa": "Taxa"
+    "taxa": "Taxa",
+    "mediatedThrough": "Mediated through"
   }
 }
