@@ -43,33 +43,33 @@
     "description": "説明",
     "homepage": "ホームページ",
     "foundingDate": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "disciplines": "機関の規律",
+    "institutionalGovernance": "機関のガバナンス",
+    "type": "機関タイプ",
+    "identifiers": "識別子",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "活動中",
+      "false": "無活動"
     },
-    "true": "",
-    "false": ""
+    "true": "はい",
+    "false": "いいえ"
   },
   "grscicollPerson": {
     "search": {
-      "title": "",
+      "title": "コレクションスタッフ",
       "description": ""
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "headerTitle": "コレクションスタッフ",
+    "firstName": "名",
+    "lastName": "姓",
+    "fullName": "フルネーム",
+    "position": "職種",
+    "affiliations": "所属",
+    "areaResponsibility": "責任の範囲",
+    "researchPursuits": "研究専門分野",
+    "primaryInstitution": "主要機関の名称",
+    "primaryCollection": "主なコレクションの名称",
+    "affiliateInstitutions": "その他の所属機関",
     "affiliateCollections": ""
   },
   "grscicoll": {
