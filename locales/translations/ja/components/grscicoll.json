@@ -1,47 +1,47 @@
 {
   "collection": {
     "search": {
-      "title": "",
+      "title": "コレクション",
       "description": ""
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
-    "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "headerTitle": "コレクション",
+    "description": "説明",
+    "institutionName": "機関名",
+    "code": "コード",
+    "statusOfCollection": "コレクションのステータス",
+    "personalCollection": "個人コレクション",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "はい",
+      "false": "いいえ"
     },
-    "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
-    "homepage": "",
-    "apiUrl": "",
+    "accessionStatus": "受入状況",
+    "contentTypes": "コンテンツの種類",
+    "preservationTypes": "保存のタイプ",
+    "homepage": "ホームページ",
+    "apiUrl": "コレクションの Web サービスの URL",
     "catalogUrl": "コレクションの標本カタログおよびデータベースのURL",
-    "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "identifiers": "識別子",
+    "collectionMailingAddress": "メールアドレス",
+    "status": "ステータス",
+    "name": "名前",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "活動中",
+      "false": "無活動"
     }
   },
   "institution": {
     "search": {
-      "title": "",
+      "title": "機関",
       "description": ""
     },
-    "headerTitle": "",
+    "headerTitle": "機関",
     "indexHerbariorumRecord": "",
     "numberSpecimens": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "code": "機関コード",
+    "statusOfInstitution": "機関の状態",
+    "additionalNames": "その他の名称",
+    "description": "説明",
+    "homepage": "ホームページ",
     "foundingDate": "",
     "disciplines": "",
     "institutionalGovernance": "",
