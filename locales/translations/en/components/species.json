@@ -8,7 +8,7 @@
     },
     "tabs": {
       "overview": "Overview",
-      "treatment": "",
+      "treatment": "Treatment",
       "metrics": "Metrics",
       "referenceTaxon": "Reference taxon",
       "verbatim": "Verbatim"
@@ -69,6 +69,6 @@
     "lastCrawled": "Last crawled {DATE_FORMATTED}",
     "extensions": "Extensions",
     "taxa": "Taxa",
-    "mediatedThrough": ""
+    "mediatedThrough": "Mediated through"
   }
 }
