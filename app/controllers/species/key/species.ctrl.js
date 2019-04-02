@@ -56,27 +56,53 @@ function renderSpeciesPage(req, res, next) {
 }
 
 router.get('/species/first', function(req, res, next) {
-    if (!req.query.datasetKey) {
-        if (req.query.backboneOnly !== 'false') {
-            req.query.datasetKey = backboneKey;
-        } else {
-            req.query.advanced = 1;
+    if (req.query.sourceId) {
+        speciesBySourceId(req.query).then(function(resp) {
+            if (resp.results && resp.results.length === 1) {
+                res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + resp.results[0].key);
+            } else {
+                res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
+            }
+        }, function(err) {
+            next(err);
+        });
+    } else {
+        if (!req.query.datasetKey) {
+            if (req.query.backboneOnly !== 'false') {
+                req.query.datasetKey = backboneKey;
+            } else {
+                req.query.advanced = 1;
+            }
         }
+        speciesSearchFirst(req.query).then(function(resp) {
+            if (resp.count == 1) {
+                res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + resp.results[0].key);
+            } else {
+                res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
+            }
+        }, function(err) {
+            next(err);
+        });
     }
-    speciesSearchFirst(req.query).then(function(resp) {
-        if (resp.count == 1) {
-            res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + resp.results[0].key);
-        } else {
-            res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
-        }
-    }, function(err) {
-        next(err);
-    });
 });
 
 async function speciesSearchFirst(query) {
     let baseRequest = {
         url: apiConfig.taxonSearch.url + '?' + querystring.stringify(query),
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    let response = await request(baseRequest);
+    if (response.statusCode != 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function speciesBySourceId(query) {
+    let baseRequest = {
+        url: apiConfig.taxon.url + '?' + querystring.stringify(query),
         method: 'GET',
         json: true,
         fullResponse: true
