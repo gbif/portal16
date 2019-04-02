@@ -54,6 +54,48 @@ function authCallback(req, res, next, err, profile, info, setProviderValues, pro
     }
 }
 
+function getFirstVerifiedEmail(profile) {
+    // if not found by provider id, then the user hasn't commected.
+    // But we might be able to find the user by email instead.
+    let profileEmails = _.get(profile, 'emails', []);
+    let profileEmail = _.find(profileEmails, function(email) {
+        // Trust the email if:
+        // 1) the claim is that it has been verified
+        // 2) exception for facebook as they do not expose the verified claim, but does so according to tests and the wisdom of the internet.
+        return email.value && (email.verified === true || profile.provider === 'facebook'); // NB special exception for facebook as it has been validated that facebook only expose verified emails
+    });
+    return profileEmail;
+}
+
+class LoginError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'LoginError';
+        this.statusCode = 204;
+    }
+}
+
+async function getUserFromProvider(profile, identificationKey) {
+    try {
+        // check to see if the profile is linked to any users
+        let findQuery = {};
+        findQuery[identificationKey] = profile.id;
+        let user = await User.find(findQuery);
+        return user;
+    } catch (err) {
+        if (err.statusCode == 204) {
+            // if not found by provider id, then the user hasn't commected.
+            // But we might be able to find the user by email instead.
+            let profileEmail = getFirstVerifiedEmail(profile);
+            if (!profileEmail) {
+                throw new LoginError('No verified email in profile');
+            }
+            return User.getByUserName(profileEmail.value);
+        } else {
+            throw err;
+        }
+    }
+}
 
 /**
  * Log in with auth provider
@@ -64,10 +106,7 @@ function authCallback(req, res, next, err, profile, info, setProviderValues, pro
  * @param profile
  */
 function login(req, res, next, state, profile, providerEnum, identificationKey) {
-    // check to see if the profile is linked to any users
-    let findQuery = {};
-    findQuery[identificationKey] = profile.id;
-    User.find(findQuery)
+    getUserFromProvider(profile, identificationKey)
         .then(function(user) {
             // the user was found - log in
             auth.logUserIn(res, user);
@@ -230,8 +269,8 @@ function createAccount(req, res, next, state, profile, regState, setProviderValu
             auth.logUserIn(res, user);// might make better sense to user the returned user from the API, but currently it only returns a fraction of the user object
             res.redirect(302, state.target || '/');
         }).catch(function(err) {
-        next(err);
-    });
+            next(err);
+        });
 }
 
 async function optionalGetByUserName(userName) {
@@ -282,7 +321,7 @@ async function validateRegistration(loggedInUser, state, profile, identification
         // check to see if the user is already registered - if so then just login
         let profileId = _.get(profile, 'id');
         let profileEmails = _.get(profile, 'emails', []);
-        let profileEmail = _.get(profileEmails, '[0].value');
+        let profileEmail = getFirstVerifiedEmail(profile);
 
         if (!profileEmail) {
             return {
@@ -323,7 +362,7 @@ async function validateRegistration(loggedInUser, state, profile, identification
 
         return {
             status: 'CREATE_ACCOUNT',
-            email: profileEmail
+            email: profileEmail.value
         };
     } catch (err) {
         return {
