@@ -64,6 +64,7 @@ let config = {
         basemapTileApi: basemapTileApi || '//tile.gbif.org',
         identityApi: identityApi || '//api.gbif.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
+        // domain: 'http://www.gbif.org:7000',
         domain: 'http://localhost:3000',
         topDomain: 'localhost:3000',
         // notice the mock credentials will not work and shouldn't.

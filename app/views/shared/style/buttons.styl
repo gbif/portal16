@@ -105,6 +105,18 @@
     }
 }
 
+.gb-button--google{
+    @extends .gb-button--logo
+    border 1px solid #eee
+    background-color white
+    i {
+        background-image url("/img/social/google.png")
+    }
+    &__label {
+        color $bodyTextColor
+    }
+}
+
 .gb-button--error {
     @extends .gb-button--colored
     background tomato
