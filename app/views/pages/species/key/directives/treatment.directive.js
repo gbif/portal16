@@ -30,8 +30,6 @@ function treatmentDirective() {
         // replace broken links in treatment
         vm.treatment = vm.treatment.replace(new RegExp('http://plazi.cs.umb.edu', 'g'), 'http://treatment.plazi.org');
 
-        vm.figuresExpanded = true;
-        vm.mapExpanded = true;
         vm.baselayer = {
             url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
             attribution: '&copy; <a href="https://www.mapbox.com/" class="inherit">Mapbox</a>, '
