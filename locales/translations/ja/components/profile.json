@@ -3,13 +3,15 @@
     "connect": {
       "failed": {
         "FACEBOOK": "Facebook に接続できません",
-        "GITHUB": "Githubに接続できません"
+        "GITHUB": "Githubに接続できません",
+        "GOOGLE": ""
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "Facebook にログインできません。",
-        "GITHUB": "Githubにログインできません。"
+        "GITHUB": "Githubにログインできません。",
+        "GOOGLE": ""
       }
     },
     "error": {
