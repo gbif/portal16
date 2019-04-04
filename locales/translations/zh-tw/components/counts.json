@@ -17,6 +17,7 @@
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select,1{聯絡人}other{聯絡人}}",
         "pRecords": "{NUMBER, select,1{紀錄}other{紀錄}}",
         "pOccurrence": "{NUMBER, select,1{出現記錄} other{出現記錄}}",
+        "pMaterialSamples": "",
         "pSpecies": "{NUMBER, select,1{物種} other{物種}}",
         "pInfraspecies": "{NUMBER, select,1{種下名}other{種下名}}",
         "pPublishers": "{NUMBER, select,1{發布者} other{發布者}}",
