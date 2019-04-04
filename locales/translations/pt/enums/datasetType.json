@@ -5,5 +5,8 @@
     "SAMPLING_EVENT": "Evento de colheita",
     "METADATA": "Metadados",
     "undefined": "Desconhecido"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
   }
 }
