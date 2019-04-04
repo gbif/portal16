@@ -5,5 +5,8 @@
     "SAMPLING_EVENT": "",
     "METADATA": "",
     "undefined": "Ukendt"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
   }
 }
