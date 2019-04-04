@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "Visão geral",
+      "treatment": "Tratamento",
       "metrics": "Métricas",
       "referenceTaxon": "Táxon de referência",
       "verbatim": "Original"
@@ -67,6 +68,7 @@
     "youAreBrowsing": "Está a navegar",
     "lastCrawled": "Rastreada ontem {DATE_FORMATTED}",
     "extensions": "Extensões",
-    "taxa": "Taxa"
+    "taxa": "Taxa",
+    "mediatedThrough": "Mediada através"
   }
 }

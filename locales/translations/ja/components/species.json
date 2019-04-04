@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "概要",
+      "treatment": "処理",
       "metrics": "メトリクス",
       "referenceTaxon": "文献の分類群",
       "verbatim": "オリジナルのまま"
@@ -67,6 +68,7 @@
     "youAreBrowsing": "現在表示しているページ",
     "lastCrawled": "最終クロール日 {DATE_FORMATTED}",
     "extensions": "拡張モジュール",
-    "taxa": "分類群"
+    "taxa": "分類群",
+    "mediatedThrough": ""
   }
 }

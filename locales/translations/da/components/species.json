@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "Oversigt",
+      "treatment": "",
       "metrics": "Metrisk",
       "referenceTaxon": "Reference takson",
       "verbatim": "Original"
@@ -67,6 +68,7 @@
     "youAreBrowsing": "Du browser",
     "lastCrawled": "Senest indekseret {DATE_FORMATTED}",
     "extensions": "Udvidelser",
-    "taxa": "Taxa"
+    "taxa": "Taxa",
+    "mediatedThrough": ""
   }
 }
