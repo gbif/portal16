@@ -5,5 +5,8 @@
     "SAMPLING_EVENT": "サンプリング イベント",
     "METADATA": "メタデータ",
     "undefined": "不明"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
   }
 }
