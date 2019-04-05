@@ -11,7 +11,6 @@ require('./directives/treatment.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
-var _ = require('lodash');
 
 angular.module('portal').controller('speciesKey2Ctrl', speciesKey2Ctrl);
 

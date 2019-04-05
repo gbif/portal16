@@ -67,7 +67,7 @@ function treatmentDirective() {
                                 },
                                 properties: {
                                     key: o.key,
-                                    message: '<div>' + typeHeader + '<p>' + o.verbatimLabel + '</p></div>',
+                                    message: '<div>' + typeHeader + '<p><a href="/occurrence/' + o.key + '">' + o.verbatimLabel + '</a></p></div>',
                                     title: o.typeStatus ? o.typeStatus + ': ' + o.verbatimLabel : o.verbatimLabel
                                 }
                             };
