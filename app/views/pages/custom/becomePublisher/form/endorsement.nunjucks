@@ -12,7 +12,7 @@
                 <div flex="100">
                     <md-radio-group ng-model="eoi.form.suggestedNodeKey">
                         <md-radio-button value="other" class="md-primary" ng-if="!eoi.suggestedCountryNode" ><span translate="eoi.helpMeWithEndorsement">Help me with endorsement</span></md-radio-button>
-                        <md-radio-button ng-show="eoi.suggestedCountryNode" value="{{ eoi.suggestedCountryNode.key }}" class="md-primary">{{ eoi.suggestedCountryNode.title }} <span class="discreet--very" translate="eoi.suggested">suggested</span></md-radio-button>
+                        <md-radio-button ng-show="eoi.suggestedCountryNode" value="{{ eoi.suggestedCountryNode.key }}" class="md-primary">{{ eoi.suggestedCountryNode.participantTitle }} <span ng-if="eoi.suggestedCountryNode.title">({{ eoi.suggestedCountryNode.title }}) </span><span class="discreet--very" translate="eoi.suggested">suggested</span></md-radio-button>
                         <md-radio-button ng-show="eoi.suggestedNonCountryNode" value="{{ eoi.suggestedNonCountryNode.key }}" class="md-primary">{{ eoi.suggestedNonCountryNode.title }} </md-radio-button>
                         <md-radio-button value="{{ eoi.MAGIC_OBIS_KEY }}" class="md-primary">
                         <span translate="eoi.marineDataPublishers">
@@ -23,7 +23,7 @@
                     </md-radio-group>
 
                     <div layout="column">
-                        <p translate="eoi.orSelectAnotherAssOrg">Or select another associated organisation:</p>
+                        <p translate="eoi.orSelectAnotherAssOrg">If endorsement through the country node suggested above is not the right option, please check this list of associated participants for multinational or thematic networks:</p>
                         <md-input-container flex="50">
                             <label translate="eoi.clickToSelect">Click to select</label>
 
