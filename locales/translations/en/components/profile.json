@@ -4,14 +4,14 @@
       "failed": {
         "FACEBOOK": "Unable to connect to Facebook",
         "GITHUB": "Unable to connect to Github",
-        "GOOGLE": ""
+        "GOOGLE": "Unable to connect with Google"
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "Unable to login with Facebook",
         "GITHUB": "Unable to login with Github",
-        "GOOGLE": ""
+        "GOOGLE": "Unable to login with Google"
       }
     },
     "error": {
