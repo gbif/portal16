@@ -39,8 +39,8 @@
     "apiUsageDescription": "您可使用以下的 API 以再次下載今日資料。",
     "apiFilterView": "API",
     "humanFilterView": "人類",
-    "downloadStarted": "已開始下載，目前正在處理中。",
-    "downloadExpectTime": "預計完成下載時間需長達 3 小時。大多數檔案將在 15 分鐘內下載完成。",
+    "downloadStarted": "下載已開始, 目前正在處理中。",
+    "downloadExpectTime": "預計下載時間需長達 3 小時。大多數的下載將在 15 分鐘內完成。",
     "notificationEmailAddresses": "完成後將發送附有下載結果連結的通知電子郵件至以下位址： ",
     "status": {
       "PREPARING": "準備中",
@@ -53,7 +53,7 @@
       "joinDescriptions": {
         "and": "需全部選用",
         "or": "至少選用一項",
-        "not": "不包含任何項目"
+        "not": "不需包含任何項目"
       },
       "and": "和",
       "or": "或",
