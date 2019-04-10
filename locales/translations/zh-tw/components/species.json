@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "概覽",
+      "treatment": "",
       "metrics": "指標",
       "referenceTaxon": "參考分類群",
       "verbatim": "字面的"
@@ -67,6 +68,7 @@
     "youAreBrowsing": "您正在瀏覽",
     "lastCrawled": "上次檢索於 {DATE_FORMATTED}",
     "extensions": "延伸集",
-    "taxa": "類群"
+    "taxa": "類群",
+    "mediatedThrough": ""
   }
 }

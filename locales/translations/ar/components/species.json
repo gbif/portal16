@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "",
+      "treatment": "",
       "metrics": "",
       "referenceTaxon": "",
       "verbatim": ""
@@ -67,6 +68,7 @@
     "youAreBrowsing": "",
     "lastCrawled": "",
     "extensions": "",
-    "taxa": ""
+    "taxa": "",
+    "mediatedThrough": ""
   }
 }

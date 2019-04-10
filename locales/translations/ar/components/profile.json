@@ -3,13 +3,15 @@
     "connect": {
       "failed": {
         "FACEBOOK": "",
-        "GITHUB": ""
+        "GITHUB": "",
+        "GOOGLE": ""
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "",
-        "GITHUB": ""
+        "GITHUB": "",
+        "GOOGLE": ""
       }
     },
     "error": {

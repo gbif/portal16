@@ -1,7 +1,7 @@
 {
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATED} {NUMBER, select, 1{オカレンス} other{オカレンス}} ダウンロード済み",
-    "nRecordsDownloaded": "",
+    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{レコード} other{レコード}} ダウンロード済み",
     "nConstituentDatasets": "{NUMBER_FORMATTED} {NUMBER, select, one{データセット} other{データセット}} からのレコードを含む",
     "fileNotAvailable": "このファイルはもうダウンロード可能ではありません。",
     "downloadDeletionWarning": "このダウンロードは引用されていないので、 {DATE} より後に削除の対象となります。",
@@ -10,6 +10,7 @@
     "cancelled": "中止しました。",
     "cancel": "中止",
     "download": "ダウンロード",
+    "records": "",
     "occurrences": "オカレンス",
     "largeQueryMessage": "非常に大きいフィルターです。詳細についてはダウンロードを参照してください。",
     "date": "日付",
@@ -19,6 +20,7 @@
     "titleMissing": "データセット タイトルが見つかりません",
     "underProcessing": "処理中",
     "citation": "引用",
+    "format": "",
     "nRecordsAtTime": " ダウンロードしたときの {NUMBER_FORMATED} {NUMBER, select, one{レコード} other{レコード}}",
     "aboutDeletionPolicy": "[削除 policy](/faq?question=for-how-long-will-does-gbif-store-downloads)について続きを読む。",
     "readDatauseAndTerms": "[データ ユーザー agreement](/terms/data-user) と [引用 guidelines](/citation-guidelines) を必ずお読みください。",

@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "Vue d'ensemble",
+      "treatment": "Traitement",
       "metrics": "Statistiques",
       "referenceTaxon": "Taxon de référence",
       "verbatim": "Original"
@@ -67,6 +68,7 @@
     "youAreBrowsing": "Vous êtes en train de naviguer",
     "lastCrawled": "Dernière indexation le {DATE_FORMATTED}",
     "extensions": "Extensions",
-    "taxa": "Taxa"
+    "taxa": "Taxa",
+    "mediatedThrough": ""
   }
 }

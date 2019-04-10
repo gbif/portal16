@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "Обзор",
+      "treatment": "",
       "metrics": "Метрики",
       "referenceTaxon": "Референсный таксон",
       "verbatim": "Дословно"
@@ -67,6 +68,7 @@
     "youAreBrowsing": "Вы просматриваете",
     "lastCrawled": "Дата последнего обхода {DATE_FORMATTED}",
     "extensions": "Расширения",
-    "taxa": "Таксоны"
+    "taxa": "Таксоны",
+    "mediatedThrough": ""
   }
 }

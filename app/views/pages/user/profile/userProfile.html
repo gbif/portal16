@@ -158,6 +158,9 @@
                         <span translate="profile.error.{{userProfile.errorMessage}}"></span>
                     </p>
 
+                    <a href="/auth/google/connect" class="gb-button--google"
+                       ng-if="userProfile.profile.connectedAcounts && !userProfile.profile.connectedAcounts.google"><i></i><span
+                            class="gb-button--google__label" translate="profile.connectWithProvider" translate-values="{PROVIDER: 'Google'}">Connect with Google</span></a>
                     <a href="/auth/facebook/connect" class="gb-button--facebook"
                        ng-if="userProfile.profile.connectedAcounts && !userProfile.profile.connectedAcounts.facebook"><i></i><span
                             class="gb-button--facebook__label" translate="profile.connectWithProvider" translate-values="{PROVIDER: 'Facebook'}">Connect with Facebook</span></a>
@@ -168,6 +171,9 @@
                        ng-if="userProfile.profile.connectedAcounts && !userProfile.profile.connectedAcounts.orcid"><i></i><span
                             class="gb-button--facebook__label" translate="profile.connectWithProvider" translate-values="{PROVIDER: 'ORCiD'}">Connect with ORCiD</span></a>
                     <div ng-if="userProfile.inEditMode">
+                        <a href="/auth/google/disconnect" class="gb-button--google m-t-05"
+                           ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.google"><i></i><span
+                                class="gb-button--google__label" translate="profile.disconnectWithProvider" translate-values="{PROVIDER: 'Google'}">Disconnect Google</span></a>
                         <a href="/auth/facebook/disconnect" class="gb-button--facebook m-t-05"
                            ng-if="userProfile.inEditMode && userProfile.profile.connectedAcounts.facebook"><i></i><span
                                 class="gb-button--facebook__label" translate="profile.disconnectWithProvider" translate-values="{PROVIDER: 'Facebook'}">Disconnect Facebook</span></a>

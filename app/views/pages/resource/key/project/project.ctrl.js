@@ -37,7 +37,7 @@ function projectKeyCtrl(DatasetSearch, $q, env, $http, $location, $rootScope, BU
         vm.newsEvents = {};
         vm.newsEvents.results = values[0].data.results.concat(values[1].data.results);
         vm.newsEvents.images = _.assign(values[0].data.images, values[1].data.images);
-        _.orderBy(vm.newsEvents.results, '_date');
+        vm.newsEvents.results = _.orderBy(vm.newsEvents.results, '_date', 'desc');
     });
 
     function updateTab() {

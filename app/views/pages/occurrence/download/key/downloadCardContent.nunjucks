@@ -38,6 +38,14 @@
                                 </dd>
                             </div>
                         {% endif %}
+                        {% if download.record.request.format %}
+                            <div>
+                                <dt>{$ __('downloadKey.format') $}</dt>
+                                <dd>
+                                    <span translate="downloadFormat.{$ download.record.request.format $}"></span>
+                                </dd>
+                            </div>
+                        {% endif %}
                     </dl>
                 </div>
                 <div class="col-xs-12 col-sm-6">
@@ -45,7 +53,11 @@
                         {% if download.record.totalRecords or download.record.numberDatasets %}
                             {% if download.record.totalRecords %}
                                 <div>
-                                    <dt>{$ __('downloadKey.occurrences') $}</dt>
+                                    {% if download.record.request.format == 'SPECIES_LIST' %}
+                                        <dt>{$ __('downloadKey.records') $}</dt>
+                                    {% else %}
+                                        <dt>{$ __('downloadKey.occurrences') $}</dt>
+                                    {% endif %}
                                     <dd>
                                         <span>{{ {$ download.record.totalRecords $} | localNumber}}</span>
                                     </dd>

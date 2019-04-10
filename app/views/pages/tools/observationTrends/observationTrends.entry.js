@@ -79,12 +79,14 @@ function observationTrendsCtrl($scope, $http, constantKeys, suggestEndpoints, $h
         speciesCounts: []
     };
 
+    var maxYear = new Date().getFullYear();
+    var startYear = maxYear - 2;
     vm.sliderOptions = {
-        start: [1970, 2015],
+        start: [1970, startYear],
         range: {
             'min': [1900, 1],
             '50%': [1970, 1],
-            'max': [2017]
+            'max': [maxYear]
         },
         format: {
             to: function(value) {
