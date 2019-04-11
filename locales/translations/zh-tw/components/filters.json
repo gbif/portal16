@@ -27,7 +27,7 @@
             "range": "範圍",
             "noFiltersAdded": "未加入區域的篩選",
             "wktPlaceholder": "WKT 或 GeoJSON 格式—不支援多重多邊形",
-            "invalidTextInput": "無效的 WKT 或 GeoJSON",
+            "invalidTextInput": "無效的 WKT 或 GeoJSON 格式",
             "tooLarge": "幾何形狀過大",
             "tooLargeSuggestion": "嘗試使用定界框，然後進行區域篩選。",
             "invalidRange": "無效的定界框"
