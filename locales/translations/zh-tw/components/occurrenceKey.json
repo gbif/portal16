@@ -63,10 +63,10 @@
         "HUMAN_OBSERVATION": "觀察於 {COUNTRY}",
         "MACHINE_OBSERVATION": "觀察於 {COUNTRY}",
         "MATERIAL_SAMPLE": "蒐集於 {COUNTRY}",
-        "OCCURRENCE": "紀錄於 {COUNTRY}",
+        "OCCURRENCE": "記錄於 {COUNTRY}",
         "OBSERVATION": "觀察於 {COUNTRY}",
-        "LITERATURE": "紀錄於 {COUNTRY}",
-        "UNKNOWN": "紀錄於 {COUNTRY}"
+        "LITERATURE": "記錄於 {COUNTRY}",
+        "UNKNOWN": "記錄於 {COUNTRY}"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "於未知地點蒐集",
@@ -77,13 +77,13 @@
         "MATERIAL_SAMPLE": "於未知地點蒐集",
         "OCCURRENCE": "於未知地點紀錄",
         "OBSERVATION": "於未知地點觀察",
-        "LITERATURE": "於未知地點紀錄",
-        "UNKNOWN": "於未知地點紀錄"
+        "LITERATURE": "於未知地點記錄",
+        "UNKNOWN": "於未知地點記錄"
       },
       "unknownSpecies": "未知的物種"
     },
     "occurrence": "出現紀錄",
-    "inLanguage": "在 {LANGUAGE_TRANSLATED}"
+    "inLanguage": "於 {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {
