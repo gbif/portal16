@@ -3,7 +3,7 @@
     "countByKingdom": "以界計數",
     "countByRank": "以分類階層計數",
     "countNamesByLanguage": "以語言來計算名稱",
-    "countExtRecordsByExtension": "以延伸集類型來計算",
+    "countExtRecordsByExtension": "以延伸集類型來計算其數量",
     "countByOrigin": "以來源計數",
     "countByIssue": "以問題類型來計算其數量"
   },
@@ -16,7 +16,7 @@
     "occurrenceMetrics": "出現紀錄指標",
     "explore": "探索",
     "majorGroups": "主要群",
-    "failedToLoad": "無法載入樹狀圖",
+    "failedToLoad": "無法載入分類樹",
     "noChildren": "無直接子代",
     "noOccurrences": "無出現紀錄",
     "nothingSelected": "無",
