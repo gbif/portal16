@@ -33,13 +33,13 @@
       "Taxon": "分類群",
       "Location": "地點",
       "Organism": "生物體",
-      "MaterialSample": "材料樣品",
+      "MaterialSample": "材料樣本",
       "GeologicalContext": "地理背景",
       "other": "其它"
     },
     "term": "名稱",
-    "interpreted": "已解釋",
-    "original": "原始",
+    "interpreted": "已解析",
+    "original": "原始的",
     "remarks": "註記",
     "highlights": {
       "location": "地點",
