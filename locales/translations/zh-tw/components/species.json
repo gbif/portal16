@@ -54,7 +54,7 @@
     "publishedIn": "發布於",
     "tradeRestrictions": "貿易限制",
     "basionym": "基礎名",
-    "nVernacularNames": "{NUMBER, select,1{普通名} other {普通名}}",
+    "nVernacularNames": "{NUMBER, select, 1{俗名} other{俗名}}",
     "nameUsagesApplied": "名稱使用應用於 GBIF 的出現紀錄資料",
     "appearsIn": "出現於 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{資料集} other{資料集}}：",
     "viewOccurrences": "查看出現紀錄",
