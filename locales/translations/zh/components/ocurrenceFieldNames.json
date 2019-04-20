@@ -237,7 +237,7 @@
     "typifiedName": "类型名称",
     "protocol": "协议",
     "lastParsed": "最后解析",
-    "lastCrawled": "",
+    "lastCrawled": "最后的爬网",
     "associatedMedia": "相关媒介",
     "country": "国家",
     "minimumElevationInMeters": "最低海拔（米）",
@@ -249,7 +249,7 @@
     "verbatimLatitude": "逐字纬度",
     "verbatimLongitude": "逐字经度",
     "scientificNameAuthorship": "学名作者",
-    "undefined": "",
+    "undefined": "未知字段",
     "coordinatesTextual": "",
     "coordinatesMissing": ""
   }
