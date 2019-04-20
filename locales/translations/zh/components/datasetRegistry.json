@@ -36,14 +36,14 @@
             "gbifIngestionStatus": "GBIF接收状态",
             "lastIngestionSuccess": "最后接收成功",
             "lastIngestionFailed": "上一次读取失败",
-            "outOfSync": "",
-            "becauseTrustedContact": ""
+            "outOfSync": "未同步",
+            "becauseTrustedContact": "因为您是我们信任的联系人"
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "正常",
+                "ABORT": "中止",
+                "NOT_MODIFIED": "未修改"
             }
         }
     }
