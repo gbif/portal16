@@ -1,10 +1,10 @@
 {
     "dataset": {
         "registry": {
-            "failedSinceSuccess": "",
-            "lastFailed": "",
-            "registrationDate": "",
-            "lastSuccess": "",
+            "failedSinceSuccess": "自上次成功接收后失败的尝试",
+            "lastFailed": "上次尝试失败",
+            "registrationDate": "注册日期",
+            "lastSuccess": "上次成功抓取",
             "lastWithChange": "",
             "noEntries": "",
             "lastWithDataChange": "",
