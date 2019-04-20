@@ -1,9 +1,9 @@
 {
   "ocurrenceFieldNames": {
     "gbifID": "GBIF ID",
-    "abstract": "",
-    "accessRights": "",
-    "accrualMethod": "",
+    "abstract": "摘要",
+    "accessRights": "访问权限",
+    "accrualMethod": "权责发生制",
     "accrualPeriodicity": "",
     "accrualPolicy": "",
     "alternative": "",
