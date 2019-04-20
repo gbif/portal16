@@ -28,21 +28,21 @@
       "LICENSE_MISSING_OR_UNKNOWN": "",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
       "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "NoIssuesFound": "没有发现资源"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "文件格式",
+      "DWCA": "达尔文核心（Darwin Core Archive）",
+      "TABULAR": "表格文件 (. csv,. tsv)",
+      "SPREADSHEET": "表格 (xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "行类型",
       "CORE": {
-        "title": ""
+        "title": "核心"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "扩展"
       },
       "METADATA": {
         "description": "",
