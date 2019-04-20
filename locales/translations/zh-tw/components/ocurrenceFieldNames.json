@@ -169,7 +169,7 @@
     "member": "段",
     "bed": "層",
     "identificationID": "鑑定識別碼",
-    "identificationQualifier": "鑑定審定者",
+    "identificationQualifier": "鑑定審核者",
     "typeStatus": "類型狀態",
     "identifiedBy": "鑑定者：",
     "dateIdentified": "鑑定日期",
