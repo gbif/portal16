@@ -45,13 +45,13 @@
       "PURPLE_YELLOW": "紫黄色",
       "PURPLE_HEAT": "",
       "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
+      "ORANGE_HEAT": "橙色热量",
       "GREEN": "绿色",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "BLUE_CLUSTER": "蓝色集群",
+      "ORANGE_CLUSTER": "橙色群集"
     },
     "errors": {
-      "413": ""
+      "413": "几何文件太大, 无法由数据 API 处理。"
     }
   }
 }
