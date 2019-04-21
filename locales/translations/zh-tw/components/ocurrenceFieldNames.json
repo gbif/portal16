@@ -244,7 +244,7 @@
     "maximumElevationInMeters": "最高海拔（公尺）",
     "minimumDepthInMeters": "最小深度 （公尺）",
     "maximumDepthInMeters": "最大深度（公尺）",
-    "geodeticDatum": "地理量測資料",
+    "geodeticDatum": "大地基準",
     "verbatimCoordinates": "字面記錄座標",
     "verbatimLatitude": "字面記錄緯度",
     "verbatimLongitude": "字面記錄經度",
