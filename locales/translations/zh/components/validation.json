@@ -1,11 +1,11 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
+      "RESOURCE_STRUCTURE": "资源结构",
       "RESOURCE_INTEGRITY": "",
       "RECORD_STRUCTURE": "",
       "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
+      "METADATA_CONTENT": "元数据内容",
       "CLB_INTERPRETATION_BASED": ""
     },
     "issueType": {
