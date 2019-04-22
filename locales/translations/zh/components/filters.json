@@ -20,16 +20,16 @@
             "east": "东",
             "withCoordinates": "带有坐标",
             "withoutCoordinates": "没有坐标",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
+            "includeFlaggedAsSuspicious": "包括将坐标标记为可能有问题的记录",
+            "onlyShowFlagged": "仅显示标记为可能有问题的记录",
             "past": "最近使用的",
             "geojson": "GeoJSON",
             "range": "范围",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
+            "noFiltersAdded": "没有进行区域筛选",
+            "wktPlaceholder": "WKT 或 GeoJSON — 不支持多个多边形",
+            "invalidTextInput": "无效的 WKT 或 GeoJSON",
             "tooLarge": "几何太大了",
-            "tooLargeSuggestion": "",
+            "tooLargeSuggestion": "尝试使用边界框, 然后在本地进行筛选",
             "invalidRange": "无效的边界框"
         }
     }
