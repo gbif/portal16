@@ -14,7 +14,7 @@
       "DWCA_META_XML_SCHEMA": "",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
+      "EML_NOT_FOUND": "找不到 EML 文档",
       "EML_GBIF_SCHEMA": "",
       "UNKNOWN_ROWTYPE": "",
       "REQUIRED_TERM_MISSING": "",
