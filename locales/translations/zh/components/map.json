@@ -6,14 +6,14 @@
     "generatedDateAgo": "生成 {DATE_AGO}",
     "anyYear": "任何年份",
     "exploreArea": "探索区域",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
+    "explore": "探索",
+    "style": "风格",
+    "filters": "筛选",
+    "projection": "投影",
     "select": "选择",
     "custom": "自定义",
     "baseMap": "底图",
-    "binning": "",
+    "binning": "合并像素",
     "year": "年份",
     "chooseColors": "颜色",
     "predefined": {
@@ -24,11 +24,11 @@
       "CUSTOM": "自定义"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
+      "CLASSIC": "紫红色",
+      "LIGHT": "光线 (无标签)",
+      "LIGHT_DETAILS": "淡色",
+      "DARK": "暗色 (无标签)",
+      "DARK_DETAILS": "黑色",
       "OSM": "道路"
     },
     "bin": {
@@ -39,19 +39,19 @@
       "LARGE_SQUARE": "正方形"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
+      "CLASSIC": "经典",
+      "FIRE": "火焰",
+      "GLACIER": "冰川",
       "PURPLE_YELLOW": "紫黄色",
       "PURPLE_HEAT": "",
       "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
+      "ORANGE_HEAT": "橙色热量",
       "GREEN": "绿色",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "BLUE_CLUSTER": "蓝色集群",
+      "ORANGE_CLUSTER": "橙色群集"
     },
     "errors": {
-      "413": ""
+      "413": "几何文件太大, 无法由数据 API 处理。"
     }
   }
 }

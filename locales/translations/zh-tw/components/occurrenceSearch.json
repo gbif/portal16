@@ -12,11 +12,11 @@
     "nWithImages": "{NUMBER_FORMATED} 含{NUMBER, select, 1{圖片} other{圖片}}",
     "failedSearch": "您的篩選可能無效或伺服器出現問題。請再嘗試，若問題仍持續請回報。",
     "noImages": "沒有含圖片的出現紀錄資料",
-    "imageLicenseInfo": "請注意用於此圖片的授權可能與應用在出現紀錄有所不同。",
+    "imageLicenseInfo": "請注意，此圖片的授權可能與應用在出現紀錄的授權不同。",
     "showMoreImages": "更多",
     "default": "預設",
     "custom": "自訂",
-    "noOccurrencesWithCoordinates": "出現紀錄未含座標",
+    "noOccurrencesWithCoordinates": "沒有含座標的出現紀錄資料",
     "containsSuspicious": "此地圖包含被 GBIF 標識為可疑座標的出現紀錄資料。",
     "hideSuspiciousCoordinates": "隱藏它們",
     "currentFilter": "目前篩選條件",
@@ -24,6 +24,6 @@
     "done": "已完成",
     "yesCorrectSuggestion": "是",
     "noWrongSuggestion": "否",
-    "errorUserThrottled": "您的帳戶暫時被停用"
+    "errorUserThrottled": "您的存取暫時被停用"
   }
 }

@@ -1,11 +1,11 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
+      "RESOURCE_STRUCTURE": "资源结构",
       "RESOURCE_INTEGRITY": "",
       "RECORD_STRUCTURE": "",
       "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
+      "METADATA_CONTENT": "元数据内容",
       "CLB_INTERPRETATION_BASED": ""
     },
     "issueType": {
@@ -14,7 +14,7 @@
       "DWCA_META_XML_SCHEMA": "",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
+      "EML_NOT_FOUND": "找不到 EML 文档",
       "EML_GBIF_SCHEMA": "",
       "UNKNOWN_ROWTYPE": "",
       "REQUIRED_TERM_MISSING": "",
@@ -28,25 +28,25 @@
       "LICENSE_MISSING_OR_UNKNOWN": "",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
       "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "NoIssuesFound": "没有发现资源"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "文件格式",
+      "DWCA": "达尔文核心（Darwin Core Archive）",
+      "TABULAR": "表格文件 (. csv,. tsv)",
+      "SPREADSHEET": "表格 (xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "行类型",
       "CORE": {
-        "title": ""
+        "title": "核心"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "扩展"
       },
       "METADATA": {
         "description": "",
-        "title": ""
+        "title": "元数据文档"
       },
       "META_DESCRIPTOR": {
         "description": "",
@@ -56,30 +56,30 @@
     "fileSizeLimit": "",
     "receivedMediaType": "",
     "uniqueIdentifier": "",
-    "reportLocation": "",
-    "reportDeletion": "",
+    "reportLocation": "本报告已写入",
+    "reportDeletion": "一个月后将被删除。到那之前，您可以在方便时重新查看报告。",
     "reportGenerated": "",
     "summary": "",
     "issues": "",
     "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "fileHasNoIssues": "在文档中未找到资料。",
+    "error": "错误",
     "errors": {
-      "400": "",
+      "400": "无法处理文件，或者如果您提供了URL，信息可能丢失。",
       "404": "",
       "413": "",
       "415": ""
     },
-    "backToValidator": "",
+    "backToValidator": "开始新的验证",
     "termsFrequency": {
-      "title": "",
-      "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "title": "任期频率",
+      "term": "术语",
+      "count": "次数",
+      "percentage": "百分比",
+      "interpreted": "解释"
     },
     "interpretedCounts": {
-      "date": "",
+      "date": "说明日期数",
       "taxon": "",
       "location": ""
     },
@@ -87,12 +87,12 @@
       "title": ""
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
+      "title": "状态",
+      "SUBMITTED": "正在发送文件",
+      "FETCHING": "获取列表中",
+      "ACCEPTED": "验证已开始",
+      "RUNNING": "正在进行验证",
+      "FINISHED": "验证完成",
       "FAILED": "",
       "CONTACTING_SERVER": ""
     },
@@ -101,22 +101,22 @@
     "notIndexeable": "",
     "numberOfLines": "",
     "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
-    "dataValidator": "",
-    "dataValidatorDescription": "",
-    "thisIsAnEarlyAccessVersion": "",
-    "here": "",
-    "coreRowType": "",
-    "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
-    "fetchFileFromLocation": "",
+    "validationReport": "校验报告",
+    "dataValidator": "数据验证器",
+    "dataValidatorDescription": "GBIF数据验证器是一项数据服务。它允许任何有GBIF相关数据集的人接受数据集内内容的综合正确性和有效性的报告。",
+    "thisIsAnEarlyAccessVersion": "这是一个早期的访问版本。请报告问题和反馈",
+    "here": "这里。",
+    "coreRowType": "核心行类型",
+    "submit": "提交",
+    "dropHere": "拖放到此处",
+    "or": "或",
+    "selectFile": "选择文件",
+    "fetchFileFromLocation": "从位置获取文件",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
-      "about": "",
-      "darwinCoreExtensions": "",
+      "newDataValidation": "新的数据验证",
+      "newValidation": "新验证",
+      "about": "关于",
+      "darwinCoreExtensions": "达尔文核心扩展",
       "metaData": "",
       "summary": ""
     }
