@@ -3,9 +3,17 @@
         <div class="row">
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper"><a
-                                ui-sref="datasetSearchTable({type:datasetKey.dataset.type})" translate="dataset.longType.{{ datasetKey.dataset.type }}">
-                            </a></span>
+                    {# we could expand this to all dataset subtypes, but for now it is treatment only #}
+                    <span class="article-header__category__upper" ng-if="datasetKey.dataset.subtype === 'TREATMENT_ARTICLE'">
+                        <a  ui-sref="datasetSearchTable({type:datasetKey.dataset.type})" 
+                            translate="datasetSubtype.{{ datasetKey.dataset.subtype }}">
+                        </a>
+                    </span>
+                    <span class="article-header__category__upper" ng-if="datasetKey.dataset.subtype !== 'TREATMENT_ARTICLE'">
+                        <a  ui-sref="datasetSearchTable({type:datasetKey.dataset.type})" 
+                            translate="dataset.longType.{{ datasetKey.dataset.type }}">
+                        </a>
+                    </span>
                     <span class="article-header__category__lower" translate="dataset.registeredDate" translate-values="{DATE: (datasetKey.dataset.created | momentFormat:'LL')}"></span>
                 </nav>
 

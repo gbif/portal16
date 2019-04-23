@@ -10,7 +10,7 @@
                 <h1 scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}" ng-class="{'text-error': speciesKey2.species.deleted}">{{speciesKey2.species.scientificName}}</h1>
                 <p class="text-error" ng-if="speciesKey2.species.deleted"><span gb-help="why-do-some-taxa-show-as-being-deleted-what-does-this-mean"><span translate="phrases.deletedOnDate" translate-values="{DATE: (speciesKey2.species.deleted | momentFormat:'LL')}"></span></span></p>
 
-                <div class="article-header__highlights header-sources" ng-if="speciesKey2.species.publishedIn || (speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey)">
+                <div class="article-header__highlights header-sources" ng-if="!speciesKey2.treatmentCitation && (speciesKey2.species.publishedIn || (speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset && speciesKey2.species.datasetKey === speciesKey2.backboneKey))">
                     <div class="inline-block">
                         <span ng-if="speciesKey2.species.publishedIn"><span class="discreet--very">{{'species.publishedIn' | translate}}:</span> <span class="source" ng-bind-html="speciesKey2.species.publishedIn | parseUrlFilter:'_blank':'inherit' "></span></span>
                     </div>
@@ -19,8 +19,17 @@
                     </div>
                 </div>
 
-                <p ng-if="speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey" class="source">{{'species.in' | translate}} <a class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a></p>
+                <div class="article-header__highlights header-sources" nng-if="speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey">
+                    <div class="inline-block">
+                        <span ><span class="discreet--very">{{'species.in' | translate}}:</span> <a ng-if="!speciesKey2.treatmentCitation" class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a> <span class="source" ng-if="speciesKey2.treatmentCitation" ng-bind-html="speciesKey2.treatmentCitation | linky"></span></span>
+                    </div>
+                    <div class="inline-block m-t-05" ng-if="speciesKey2.publisher && speciesKey2.treatment">
+                        <span ><span class="discreet--very"><span >{{'species.mediatedThrough' | translate}}:</span></span> <a class="source" ng-if="speciesKey2.publisher && speciesKey2.publisher.homepage && speciesKey2.publisher.homepage[0]" ng-href="{{speciesKey2.publisher.homepage[0]}}">{{speciesKey2.publisher.title}}</a><span ng-if="!speciesKey2.species.references" class="source" >{{speciesKey2.publisher.title}}</span></span>
+                    </div>
+                </div>
 
+               <!-- <p ng-if="speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey" class="source">{{'species.in' | translate}}: <a ng-if="!speciesKey2.treatmentCitation" class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a> <span ng-if="speciesKey2.treatmentCitation" ng-bind-html="speciesKey2.treatmentCitation | linky"></span></p>
+                <p ng-if="speciesKey2.publisher && speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey" class="source">{{'species.mediatedBy' | translate}}: {{speciesKey2.publisher.title}}</p> -->
                 <div class="article-header__highlights">
                     <div ng-if="speciesKey2.vernacularName.vernacularName" >
                         <div>

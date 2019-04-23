@@ -253,11 +253,12 @@ function getClientUser(user) {
             has_read_gdpr_terms: user.settings.has_read_gdpr_terms
         },
         connectedAcounts: {
+            google: _.has(user, 'systemSettings["auth.google.id"]'),
             facebook: _.has(user, 'systemSettings["auth.facebook.id"]'),
             github: _.has(user, 'systemSettings["auth.github.id"]'),
             orcid: _.has(user, 'systemSettings["auth.orcid.id"]')
         },
-        photo: _.get(user, 'systemSettings["auth.facebook.photo"]') || _.get(user, 'systemSettings["auth.github.photo"]'),
+        photo: _.get(user, 'systemSettings["auth.facebook.photo"]') || _.get(user, 'systemSettings["auth.google.photo"]') || _.get(user, 'systemSettings["auth.github.photo"]'),
         githubUserName: _.get(user, 'systemSettings["auth.github.username"]'),
         orcid: _.get(user, 'systemSettings["auth.orcid.id"]')
     };

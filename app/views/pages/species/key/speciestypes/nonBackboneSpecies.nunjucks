@@ -1,13 +1,15 @@
 <div ng-if="!speciesKey2.isNub && speciesKey2.$state.is('speciesKey')">
-    <div>
+    <div ng-if="!speciesKey2.treatment">
         {% include "../images/speciesImages.nunjucks" %}
     </div>
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--desktop">
-
+            <treatment ng-if="speciesKey2.treatment" treatment="speciesKey2.treatment" figures="speciesKey2.speciesImages" species="speciesKey2.species" ></treatment>
             {% include "../warnings/warnings.nunjucks" %}
 
+            
+            <div ng-if="!speciesKey2.treatment">
             <div class="m-t-1" ng-if="speciesKey2.descriptions.results.length > 0">
                 <h4 class="card-header" translate="species.description"></h4>
                 <div class="card">
@@ -34,6 +36,7 @@
                     </div>
                 </div>
             </div>
+             </div>
 
             <div class="m-t-1" ng-if="speciesKey2.distributions.results.length > 0">
                 <h4 class="card-header" translate="species.distribution.distributionPlural"></h4>

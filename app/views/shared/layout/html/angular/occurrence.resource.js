@@ -78,26 +78,6 @@ var angular = require('angular');
             return $resource(env.dataApi + 'occurrence/download/:id/datasets');
         })
         // deprecated metrics API, but in agreement with Tim R, it is to be used for now until we find a better solution that also performs 15/6/2017
-        .factory('OccurrenceCountPublishingCountries', function($resource, env) {
-            return $resource(env.dataApi + 'occurrence/counts/publishingCountries', null, {
-                    'query': {
-                        method: 'GET',
-                        isArray: false,
-                        cancellable: true
-                    }
-                }
-            );
-        })
-        .factory('OccurrenceCountCountries', function($resource, env) {
-            return $resource(env.dataApi + 'occurrence/counts/countries', null, {
-                    'query': {
-                        method: 'GET',
-                        isArray: false,
-                        cancellable: true
-                    }
-                }
-            );
-        })
         .factory('OccurrenceCountDatasets', function($resource, env) {
             return $resource(env.dataApi + 'occurrence/counts/datasets', null, {
                     'query': {

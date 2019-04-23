@@ -52,6 +52,7 @@
         <p class="m-t-1">
             <button class="gb-button--brand" type="submit" translate="profile.signIn"></button>
             <div class="text-uppercase text-center discreet" translate="profile.or"></div>
+            <a href="/auth/google/login" class="gb-button--google center-block m-t-05"><i></i><span class="gb-button--google__label" translate="profile.continueWithProvider" translate-values="{PROVIDER: 'GOOGLE'}"></span></a>
             <a href="/auth/facebook/login" class="gb-button--facebook center-block m-t-05"><i></i><span class="gb-button--facebook__label" translate="profile.continueWithProvider" translate-values="{PROVIDER: 'Facebook'}"></span></a>
             <a href="/auth/github/login" class="gb-button--github center-block m-t-05"><i></i><span class="gb-button--facebook__label" translate="profile.continueWithProvider" translate-values="{PROVIDER: 'Github'}"></span></a>
             <a href="/auth/orcid/login" class="gb-button--orcid center-block m-t-05"><i></i><span class="gb-button--facebook__label" translate="profile.continueWithProvider" translate-values="{PROVIDER: 'ORCiD'}"></span></a>
@@ -117,7 +118,8 @@
             <p class="m-t-1">
                 <a href="" class="gb-button--brand" ng-click="vm.createNext()" translate="profile.next"></a>
                 <div class="text-uppercase text-center discreet" translate="profile.or"></div>
-                <a href="" class="gb-button--facebook center-block m-t-05"ng-click="vm.state = 'REGISTER'; vm.authProvider = 'FACEBOOK'; vm.changeState('EXTERNAL_AUTH_STATE')"><i></i><span class="gb-button--facebook__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Facebook'}"></span></a>
+                <a href="" class="gb-button--google center-block m-t-05" ng-click="vm.state = 'REGISTER'; vm.authProvider = 'GOOGLE'; vm.changeState('EXTERNAL_AUTH_STATE')"><i></i><span class="gb-button--google__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Google'}"></span></a>
+                <a href="" class="gb-button--facebook center-block m-t-05" ng-click="vm.state = 'REGISTER'; vm.authProvider = 'FACEBOOK'; vm.changeState('EXTERNAL_AUTH_STATE')"><i></i><span class="gb-button--facebook__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Facebook'}"></span></a>
                 <a href="" class="gb-button--github center-block m-t-05" ng-click="vm.state = 'REGISTER'; vm.authProvider = 'GITHUB'; vm.changeState('EXTERNAL_AUTH_STATE')"><i></i><span class="gb-button--github__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Github'}"></span></a>
             </p>
             <div class="small text-error" role="alert" ng-if="vm.formInvalid && vm.createUserForm.$invalid" translate="profile.pleaseFillForm"></div>
@@ -201,6 +203,7 @@
             </div>
 
             <p class="m-t-1">
+                <a ng-if="vm.authProvider == 'GOOGLE'" ng-click="vm.createFromProvider(vm.country, vm.username, 'google')" href="" class="gb-button--google center-block m-t-05" type="submit"><i></i><span class="gb-button--google__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Google'}"></span></a>
                 <a ng-if="vm.authProvider == 'FACEBOOK'" ng-click="vm.createFromProvider(vm.country, vm.username, 'facebook')" href="" class="gb-button--facebook center-block m-t-05" type="submit"><i></i><span class="gb-button--facebook__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Facebook'}"></span></a>
                 <a ng-if="vm.authProvider == 'GITHUB'" ng-click="vm.createFromProvider(vm.country, vm.username, 'github')" href="" class="gb-button--github center-block m-t-05" type="submit"><i></i><span class="gb-button--github__label" translate="profile.signUpWithProvider" translate-values="{PROVIDER: 'Github'}"></span></a>
             </p>

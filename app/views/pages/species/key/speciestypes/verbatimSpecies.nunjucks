@@ -32,10 +32,10 @@
             <div ng-if="speciesKey2.verbatimHasExtensions">
                 <h3 class="m-t-2" translate="species.extensions"></h3>
             </div>
-            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if="speciesKey2.dwcextensions[nameSpace] && extension.length > 0">
+            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if=" extension.length > 0">
                 <h4 class="card-header extension-header">
-                    <a class="inherit"  ng-href="{{speciesKey2.dwcextensions[nameSpace].url}}" >
-                        {{speciesKey2.dwcextensions[nameSpace].title}} <span class="gb-icon-link"></span>
+                    <a class="inherit"  ng-href="{{speciesKey2.dwcextensions[nameSpace] ? speciesKey2.dwcextensions[nameSpace].url : nameSpace}}" >
+                        {{speciesKey2.dwcextensions[nameSpace] ? speciesKey2.dwcextensions[nameSpace].title : nameSpace}} <span class="gb-icon-link"></span>
                     </a>
                 </h4>
                 <p class="discreet--very smaller extension-subheader">{{speciesKey2.dwcextensions[nameSpace].description}}</p>

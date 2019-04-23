@@ -4,8 +4,8 @@
         <a href="" id="bibliography"></a>
         <div class="anchor-block--tabs" id="bibliographyBlock">
             <h3 translate="dataset.bibliography"></h3>
-            <div class="dataset-key__bibliography__list small">
-                <ol>
+            <div class="dataset-key__bibliography__list">
+                <ol ng-class="{'no-decimals': datasetKey.dataset.bibliographicCitations.length<2}">
                     <li ng-repeat="reference in datasetKey.dataset.bibliographicCitations">
                         <div>
                             {{ reference.text }}

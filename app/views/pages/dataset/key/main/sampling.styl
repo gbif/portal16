@@ -1,34 +1,9 @@
 .dataset-key__sampling {
     ol {
         padding 0
-        list-style none
-    }
-}
-
-$counted-section-indent = vrBlock(2.5)
-.counted-section {
-    div:first-of-type {
-        float left
-        text-align center
-        width vrBlock(2)
-        margin-top -(vrBlock(0.0625))
-        margin-left 0.5px //compensate for the border on the text
-    }
-    div:last-of-type {
-        margin-left vrBlock(1)
-        padding-bottom vrBlock(1.5)
-        padding-left vrBlock(1.5)
-    }
-}
-
-.counted-section--connected {
-    @extends .counted-section
-    div:last-of-type {
-        border-left 1px solid lighten($blueTintedBlack, 10)
-    }
-    &:last-of-type {
-        div:last-of-type {
-            border none
+        list-style decimal
+        li {
+            padding-bottom 15px
         }
     }
 }

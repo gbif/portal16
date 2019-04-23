@@ -1,0 +1,30 @@
+<section  class="card--references card m-b-1">
+    <div class="card__content treatment" >
+        <div class="row">
+                <div class="col-xs-12 col-sm-7 col-md-12 col-lg-7 p-r-2 p-l-2 p-t-05" ng-bind-html="treatment.treatment">
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-12 col-lg-5">
+                <div ng-if="treatment.geoJSON">
+                <div layout="row" layout-align="end center">
+                <h4>Distribution</h4>
+                <span ng-class="{'gb-icon-unfold-more-horizontal': !treatment.mapExpanded, 'gb-icon-unfold-less-horizontal': treatment.mapExpanded}" ng-click="treatment.mapExpanded = !treatment.mapExpanded" role="button" tabindex="0" class="gb-icon-unfold-less-horizontal" style=""></span>
+                </div>
+                <feature-map ng-if="treatment.mapExpanded" class="ipt__map fitContainer" feature-style="treatment.featureStyle" features="treatment.geoJSON" baselayer="treatment.baselayer" projection="treatment.projection"  mapstyle="'light'"></feature-map>
+                </div>
+                 <div ng-if="treatment.figures.$resolved && treatment.figures.results.length > 0">
+                <div layout="row" layout-align="end center">
+                <h4>Figures</h4>
+                <span ng-class="{'gb-icon-unfold-more-horizontal': !treatment.figuresExpanded, 'gb-icon-unfold-less-horizontal': treatment.figuresExpanded}" ng-click="treatment.figuresExpanded = !treatment.figuresExpanded" role="button" tabindex="0" class="gb-icon-unfold-less-horizontal" style=""></span>
+                </div>
+                <div ng-if="treatment.figures.$resolved && treatment.figuresExpanded" ng-repeat="image in treatment.figures.results"  class="cursor-pointer showBroken inherit noUnderline m-b-1">
+                
+                <a  ng-href="{{image.references}}"><img ng-src="{{ image.identifier }}"></a>
+                <div class="summary m-t-05">{{image.description}}</div>
+                <div class="summary smaller"><span ng-if="image.rightsHolder || image.creator">&copy; {{ (image.rightsHolder) ? image.rightsHolder : image.creator }}</span></div>
+            </div>
+            </div>
+                </div>
+            </div>
+    
+    </div>
+</section>

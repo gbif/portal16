@@ -36,7 +36,7 @@
                     </li>
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.references">
                     <span>
-                        <a class="gb-button--brand" ng-href="{{speciesKey2.species.references}}" translate="species.tabs.referenceTaxon"></a>
+                        <a class="gb-button--brand" ng-href="{{speciesKey2.species.references}}" translate="species.source"></a>
                     </span>
                     </li>
                 </ul>
@@ -44,21 +44,26 @@
             <div class="tabs tabs--noBorder">
                 <ul class="anchorTabs">
                     <li class="tab" ng-class="{isActive: speciesKey2.$state.is('speciesKey')}">
-                        <a ui-sref="speciesKey({speciesKey: speciesKey2.key})" translate="species.tabs.overview"></a>
+                        <a ng-if="!speciesKey2.treatment" ui-sref="speciesKey({speciesKey: speciesKey2.key})" translate="species.tabs.overview"></a>
+                        <a ng-if="speciesKey2.treatment" ui-sref="speciesKey({speciesKey: speciesKey2.key})" translate="species.tabs.treatment"></a>
                     </li>
                     <li class="tab" ng-class="{isActive: speciesKey2.$state.is('speciesKeyMetrics')}" ng-if="speciesKey2.isNub && speciesKey2.occurrences.$resolved && speciesKey2.occurrences.count > 0">
                         <a ui-sref="speciesKeyMetrics({speciesKey: speciesKey2.key})" translate="species.tabs.metrics"></a>
                     </li>
                     <li class="tab" ng-if="speciesKey2.sourceTaxonLink">
                         <a ng-href="{{speciesKey2.sourceTaxonLink}}" target="{{speciesKey2.refLinkTarget || '_self'}}">
-                            <span translate="species.tabs.referenceTaxon">
+                            <span translate="species.tabs.referenceTaxon" ng-if="speciesKey2.isNub">
+                            </span>
+                            <span translate="species.source" ng-if="!speciesKey2.isNub">
                             </span>
                             <span class="gb-icon-link"></span>
                         </a>
                     </li>
                     <li class="tab" ng-if="speciesKey2.sourceTaxonExists && !speciesKey2.sourceTaxonLink">
                         <a ui-sref="speciesKey({speciesKey: speciesKey2.species.sourceTaxonKey})" >
-                            <span translate="species.tabs.referenceTaxon"></span>
+                            <span translate="species.tabs.referenceTaxon" ng-if="speciesKey2.isNub"></span>
+                            <span translate="species.source" ng-if="!speciesKey2.isNub">
+                            </span>
                             <span class="gb-icon-link"></span>
                         </a>
                     </li>

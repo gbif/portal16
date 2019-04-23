@@ -11,14 +11,13 @@
 
                 <div ng-if="datasetKey.dataset.samplingDescription.methodSteps.length > 0">
                     <h4 translate="dataset.methodSteps"></h4>
-                    <ol>
-                        <li class="counted-section--connected" ng-repeat="step in datasetKey.dataset.samplingDescription.methodSteps">
-                            <div>
-                                <span class="badge badge--white">{{ $index + 1 }}</span>
-                            </div>
-                            <div ng-bind-html="step"></div>
-                        </li>
-                    </ol>
+                    <div class="dataset-key__bibliography__list">
+                        <ol ng-class="{'no-decimals': datasetKey.dataset.samplingDescription.methodSteps.length<2}">
+                            <li ng-repeat="step in datasetKey.dataset.samplingDescription.methodSteps">
+                                <div ng-bind-html="step"></div>
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>

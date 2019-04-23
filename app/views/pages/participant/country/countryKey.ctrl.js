@@ -14,7 +14,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page, $translate, env, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets, OccurrenceTableSearch) {
+function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page, $translate, env, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountDatasets, OccurrenceTableSearch) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;

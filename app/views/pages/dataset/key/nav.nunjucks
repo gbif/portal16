@@ -9,8 +9,11 @@
                                 <span>
                                     <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="gb-button--brand">
                                         {{ datasetKey.occurrences.count | localNumber }}
-                                        <span class="gb-button--brand__label" translate="counts.pOccurrence" translate-values="{NUMBER: datasetKey.occurrences.count}">
-                                            Occurrences
+                                        <span
+                                            class="gb-button--brand__label" 
+                                            translate="{{datasetKey.dataset.subtype === 'TREATMENT_ARTICLE' ? 'counts.pMaterialSamples' : 'counts.pOccurrence'}}" 
+                                            translate-values="{NUMBER: datasetKey.occurrences.count}">
+                                            Occurrencess
                                         </span>
                                     </a>
                                 </span>
