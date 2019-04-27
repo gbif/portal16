@@ -1,9 +1,9 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "已下載 {NUMBER_FORMATTED} {NUMBER, select, one{出現紀錄} other{出現紀錄}}",
-    "nRecordsDownloaded": "已下載 {NUMBER_FORMATTED} {NUMBER, select, one{記錄} other{記錄}}",
-    "nConstituentDatasets": "包含來自 {NUMBER_FORMATTED} {NUMBER, select, one {資料集} other{資料集}} 的紀錄",
-    "fileNotAvailable": "此檔案不再可供下載",
+    "nOccurrencesDownloaded": "已下載 {NUMBER_FORMATTED} 筆{NUMBER, select, one{出現紀錄} other{出現紀錄}}",
+    "nRecordsDownloaded": "已下載 {NUMBER_FORMATTED} 筆{NUMBER, select, one{記錄} other{記錄}}",
+    "nConstituentDatasets": "包含來自 {NUMBER_FORMATTED} 個{NUMBER, select, one {資料集} other{資料集}} 的紀錄",
+    "fileNotAvailable": "此檔案不再提供下載",
     "downloadDeletionWarning": "此下載尚未被引用，將於 {DATE} 後刪除。",
     "brokenDownload": "下載中斷",
     "contactHelpdesk": "聯繫服務台",
