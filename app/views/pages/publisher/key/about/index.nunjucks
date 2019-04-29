@@ -12,5 +12,6 @@
 
         {% include('./contacts.nunjucks') %}
         {% include('./map.nunjucks') %}
+        {% include('./metrics.nunjucks') %}
     </section>
 </div>
