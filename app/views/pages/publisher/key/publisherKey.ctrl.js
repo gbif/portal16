@@ -96,6 +96,8 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTable
     vm.pushChart('year', 'LINE', {year: '1950,*'});
     vm.pushChart('license', 'PIE');
     vm.pushChart('datasetKey', 'TABLE');
+    vm.pushChart('institutionCode', 'TABLE');
+    vm.pushChart('collectionCode', 'TABLE');
 
     // Map
     function updateMap() {
