@@ -38,12 +38,12 @@ function renderPartialTrendsPage(req, res, next, country, isAbout, template) {
                 isAbout,
                 imgUrls: {// TODO more or less just copied from Markus' initial implemetation. Not translatable
                     from: {
-                        thumbBase: imageCacheUrl + 'fit-in/300x250/http://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/',
-                        imgBase: imageCacheUrl + 'http://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/'
+                        thumbBase: imageCacheUrl + 'fit-in/300x250/https://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/',
+                        imgBase: imageCacheUrl + 'https://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/'
                     },
                     about: {
-                        thumbBase: imageCacheUrl + 'fit-in/300x250/http://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/',
-                        imgBase: imageCacheUrl + 'http://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/'
+                        thumbBase: imageCacheUrl + 'fit-in/300x250/https://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/',
+                        imgBase: imageCacheUrl + 'https://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/'
                     }
                 },
                 _meta: {
@@ -63,12 +63,12 @@ function renderGlobalPartialTrendsPage(req, res, next, isAbout, template) {
                 isAbout,
                 imgUrls: {// TODO more or less just copied from Markus' initial implemetation. Not translatable
                     from: {
-                        thumbBase: imageCacheUrl + 'fit-in/300x250/http://' + cfg.analyticsImg + 'global/figure/',
-                        imgBase: imageCacheUrl + 'http://' + cfg.analyticsImg + 'global/figure/'
+                        thumbBase: imageCacheUrl + 'fit-in/300x250/https://' + cfg.analyticsImg + 'global/figure/',
+                        imgBase: imageCacheUrl + 'https://' + cfg.analyticsImg + 'global/figure/'
                     },
                     about: {
-                        thumbBase: imageCacheUrl + 'fit-in/300x250/http://' + cfg.analyticsImg + 'global/figure/',
-                        imgBase: imageCacheUrl + 'http://' + cfg.analyticsImg + 'global/figure/'
+                        thumbBase: imageCacheUrl + 'fit-in/300x250/https://' + cfg.analyticsImg + 'global/figure/',
+                        imgBase: imageCacheUrl + 'https://' + cfg.analyticsImg + 'global/figure/'
                     }
                 },
                 _meta: {
