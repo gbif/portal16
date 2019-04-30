@@ -15,7 +15,7 @@ var enums = {
 };
 
 var config = {
-    dimensions: ['basisOfRecord', 'country', 'kingdomKey', 'speciesKey', 'decimalLatitude', 'publishingCountry', 'issue', 'datasetKey', 'month', 'year', 'elevation', 'publishingOrg', 'license'],
+    dimensions: ['institutionCode', 'basisOfRecord', 'country', 'kingdomKey', 'speciesKey', 'decimalLatitude', 'publishingCountry', 'issue', 'datasetKey', 'month', 'year', 'elevation', 'publishingOrg', 'license'],
     secondaryDimensions: ['basisOfRecord', 'country', 'publishingCountry', 'issue', 'month', 'decimalLatitude', 'year', 'elevation', 'kingdomKey', 'license'],
     chartTypes: [COLUMN, PIE, TABLE, LINE],
     printableTypes: [LINE, COLUMN, PIE],
