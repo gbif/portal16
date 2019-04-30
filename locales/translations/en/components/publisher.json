@@ -2,6 +2,7 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "About",
+      "metrics": "",
       "publishersHomepage": "Home page"
     },
     "joinedAgo": "Joined {TIME_AGO}",
