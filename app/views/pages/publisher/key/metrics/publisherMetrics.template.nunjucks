@@ -1,0 +1,3 @@
+{% include('../about/images.nunjucks') %}
+{% include('../about/map.nunjucks') %}
+{% include('./metrics.nunjucks') %}

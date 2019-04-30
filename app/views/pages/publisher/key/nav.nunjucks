@@ -36,6 +36,10 @@
                                 <a ui-sref="publisherKey({key:publisherKey.key})" translate="publisher.tabs.aboutPublisher">
                                 </a>
                             </li>
+                            
+                            <li class="tab" ng-class="{isActive: publisherKey.$state.is('publisherMetrics')}">
+                                <a ui-sref="publisherMetrics({key: publisherKey.key})" translate="publisher.tabs.metrics"></a>
+                            </li>
 
                             <li class="tab" ng-if="publisherKey.publisher.homepage[0]">
                                 <a ng-href="{{ publisherKey.publisher.homepage[0] }}">

@@ -4,6 +4,7 @@ var angular = require('angular'),
     _ = require('lodash'),
     utils = require('../../../shared/layout/html/utils/utils');
 
+require('./metrics/publisherMetrics.ctrl');
 require('../../../components/literatureBreakdown/literatureBreakdown.directive');
 
 angular
@@ -11,7 +12,7 @@ angular
     .controller('publisherKeyCtrl', publisherKeyCtrl);
 
 /** @ngInject */
-function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTableSearch, LOCALE, PublisherExtended, OccurrenceSearch, 
+function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTableSearch, LOCALE, PublisherExtended, OccurrenceSearch,
     ResourceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Publisher');

@@ -18,6 +18,7 @@ module.exports = function(app) {
 
 router.get('/publisher/confirm', confirm);
 router.get('/publisher/:key.:ext?', render);
+router.get('/publisher/:key/metrics', render);
 
 
 function render(req, res, next) {

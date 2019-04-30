@@ -312,6 +312,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('publisherMetrics', {
+            parent: 'publisherKey',
+            url: '/metrics',
+            templateUrl: '/api/template/publisher/metrics.html?v=' + BUILD_VERSION,
+            controller: 'publisherMetricsCtrl',
+            controllerAs: 'publisherMetrics'
+        })
         .state('resourceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
