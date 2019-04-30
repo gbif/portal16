@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{带地标的记录} other{带地标的记录}}",
     "noOccurrencesWithCoordinates": "没有带地标的记录",
     "clickToSearchArea": "点击搜索区域",
     "generatedDateAgo": "生成 {DATE_AGO}",
@@ -43,8 +43,8 @@
       "FIRE": "火焰",
       "GLACIER": "冰川",
       "PURPLE_YELLOW": "紫黄色",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
+      "PURPLE_HEAT": "紫色",
+      "BLUE_HEAT": "蓝色",
       "ORANGE_HEAT": "橙色热量",
       "GREEN": "绿色",
       "BLUE_CLUSTER": "蓝色集群",
