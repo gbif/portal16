@@ -31,7 +31,7 @@
     "intervalSize": "间隔大小",
     "intervalDiffers": "不同大小的间隔",
     "showOccPer": "显示每个出现的次数",
-    "andBreakdownPer": "",
+    "andBreakdownPer": "可选择性的分开按",
     "logarithmic": "对数分布",
     "singleTypeResults": "",
     "chooseDimension": "选择维度",
