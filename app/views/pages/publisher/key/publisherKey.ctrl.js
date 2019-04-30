@@ -4,6 +4,7 @@ var angular = require('angular'),
     _ = require('lodash'),
     utils = require('../../../shared/layout/html/utils/utils');
 
+require('../../../components/literatureBreakdown/literatureBreakdown.directive');
 
 angular
     .module('portal')
@@ -96,7 +97,7 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTable
     vm.pushChart('year', 'LINE', {year: '1950,*'});
     vm.pushChart('license', 'PIE');
     vm.pushChart('datasetKey', 'TABLE');
-    vm.pushChart('institutionCode', 'TABLE');
+    vm.pushChart('institutionCode', 'PIE');
     vm.pushChart('collectionCode', 'TABLE');
 
     // Map

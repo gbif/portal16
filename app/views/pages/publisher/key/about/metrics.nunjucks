@@ -1,3 +1,9 @@
+<section ng-if="publisherKey.literature.count > 1">
+    <div class="container--desktop m-t-1">
+        <literature-breakdown filter="{publishingOrganizationKey: publisherKey.key}"></literature-breakdown>
+    </div>
+</section>
+
 <section ng-if="publisherKey.occurrences.count > 0" class="ng-cloak">
     <div class="container--desktop m-t-1">
         <h3 class="card-header--bold" translate="metrics.occurrencesPerField" translate-values="{FIELD: ('filterNames.kingdomKey' | translate )}"></h3>

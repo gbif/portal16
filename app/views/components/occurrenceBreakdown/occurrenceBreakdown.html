@@ -55,47 +55,47 @@
                             </tr>
                             </thead>
                             <thead ng-if="!vm.chartdata.categories">
-                            <tr>
-                                <th class="p-0 table-cell--50px"></th>
-                                <th translate="filterNames.{{vm.chartdata.field | camelCase}}"></th>
-                                <th class="table-cell--narrow" translate="metrics.count"></th>
-                                <th class="table-cell--100"></th>
-                            </tr>
+                                <tr>
+                                    <th class="p-0 table-cell--50px"></th>
+                                    <th translate="filterNames.{{vm.chartdata.field | camelCase}}"></th>
+                                    <th translate="metrics.count"></th>
+                                    <th class="table-cell--100"></th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="result in vm.chartdata.results">
-                                <td class="p-0">
-                                    <a ng-if="vm.chartdata.field == 'dataset_key'" ui-sref="datasetKey({key:result.filter.dataset_key})" class="inherit gb-icon-link table__symbol"></a>
-                                    <a ng-if="vm.chartdata.field == 'publishing_org'" ui-sref="publisherKey({key:result.filter.publishing_org})" class="inherit gb-icon-link table__symbol"></a>
-                                    <a ng-if="vm.chartdata.field == 'event_id'" ui-sref="datasetEvent({eventKey:result.filter.event_id, datasetKey:vm.filter.dataset_key})" class="inherit gb-icon-link table__symbol"></a>
-                                </td>
-                                <td>
-                                <span>
+                                <tr ng-repeat="result in vm.chartdata.results">
+                                    <td class="p-0">
+                                        <a ng-if="vm.chartdata.field == 'dataset_key'" ui-sref="datasetKey({key:result.filter.dataset_key})" class="inherit gb-icon-link table__symbol"></a>
+                                        <a ng-if="vm.chartdata.field == 'publishing_org'" ui-sref="publisherKey({key:result.filter.publishing_org})" class="inherit gb-icon-link table__symbol"></a>
+                                        <a ng-if="vm.chartdata.field == 'event_id'" ui-sref="datasetEvent({eventKey:result.filter.event_id, datasetKey:vm.filter.dataset_key})" class="inherit gb-icon-link table__symbol"></a>
+                                    </td>
+                                    <td>
                                     <span>
-                                        <a href="" ng-click="vm.occurrenceSearch(result.filter)" class="inherit">
-                                            {{result.displayName | truncate:50 }}
-                                            <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} <span translate="metrics.occurrences"></span></md-tooltip>
-                                        </a>
+                                        <span>
+                                            <a href="" ng-click="vm.occurrenceSearch(result.filter)" class="inherit">
+                                                {{result.displayName | truncate:50 }}
+                                                <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} <span translate="metrics.occurrences"></span></md-tooltip>
+                                            </a>
+                                        </span>
+                                        <span ng-if="$last && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!
+                                            <md-tooltip md-direction="right"><span translate="metrics.intervalDiffers"></span></md-tooltip>
+                                        </span>
                                     </span>
-                                    <span ng-if="$last && vm.chartdata.bucketSizeVaries" class="badge badge--warning">!
-                                        <md-tooltip md-direction="right"><span translate="metrics.intervalDiffers"></span></md-tooltip>
+                                    </td>
+                                    <td ng-if="!vm.chartdata.categories">
+                                    <span>
+                                        <a class="inherit" href="" ng-click="vm.occurrenceSearch(result.filter)">{{ result.count | localNumber }}</a>
                                     </span>
-                                </span>
-                                </td>
-                                <td ng-if="!vm.chartdata.categories" class="table-cell--narrow">
-                                <span>
-                                    <a class="inherit" href="" ng-click="vm.occurrenceSearch(result.filter)">{{ result.count | localNumber }}</a>
-                                </span>
-                                </td>
-                                <td ng-if="!vm.chartdata.categories">
-                                    <div style="width:100%;min-width:100px">
-                                        <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="brand-background p-bg"></div>
-                                    </div>
-                                </td>
-                                <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">
-                                    <a class="inherit" href="" ng-click="vm.occurrenceSearch(vm.getTableFilter(vm.chartdata.categories[$index].filter, result.filter))">{{ value | localNumber }}</a>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td ng-if="!vm.chartdata.categories">
+                                        <div style="width:100%;min-width:100px">
+                                            <div style="width:{{result._relativeCount}}%;height:10px;border-radius:2px;" class="brand-background p-bg"></div>
+                                        </div>
+                                    </td>
+                                    <td ng-if="vm.chartdata.categories" ng-repeat="value in result.values track by $index" class="shadeLevel-{{vm.level(value)}}">
+                                        <a class="inherit" href="" ng-click="vm.occurrenceSearch(vm.getTableFilter(vm.chartdata.categories[$index].filter, result.filter))">{{ value | localNumber }}</a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -255,7 +255,7 @@ function removeFields(results, fieldsPaths) {
 
 function transformFacets(result, __, types) {
     try {
-        types = types || ['YEAR', 'CONTENT_TYPE', 'LITERATURE_TYPE', 'LANGUAGE', 'AUDIENCES', 'PURPOSES', 'TOPICS'];
+        types = types || ['CONTENT_TYPE', 'LITERATURE_TYPE', 'LANGUAGE', 'AUDIENCES', 'PURPOSES', 'TOPICS'];
         if (!_.isEmpty(result.facets)) {
             result.facets.forEach(function(facet) {
                 facet.counts = facet.counts.map(function(e) {
@@ -266,6 +266,8 @@ function transformFacets(result, __, types) {
                     };
                     if (types.indexOf(facet.field) > -1) {
                         facetEntry.title = __('enums.cms.vocabularyTerms.' + e.name);
+                    } else {
+                        facetEntry.title = e.name;
                     }
                     return facetEntry;
                 });
