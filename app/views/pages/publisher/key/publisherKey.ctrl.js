@@ -84,7 +84,7 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTable
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: '', type: type, showSettings: false},
-            filter: {publishingOrg: vm.key, locale: LOCALE},
+            filter: {publishing_org: vm.key, locale: LOCALE},
             customFilter: customFilter
         };
         vm.charts.push(chartConfig);
