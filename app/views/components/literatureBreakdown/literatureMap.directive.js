@@ -5,14 +5,14 @@ var _ = require('lodash');
 
 angular
   .module('portal')
-  .directive('literatureBreakdown', literatureBreakdownDirective);
+  .directive('literatureMap', literatureMapDirective);
 
 /** @ngInject */
-function literatureBreakdownDirective(BUILD_VERSION) {
+function literatureMapDirective(BUILD_VERSION) {
   var directive = {
     restrict: 'E',
     transclude: true,
-    templateUrl: '/templates/components/literatureBreakdown/literatureBreakdown.html?v=' + BUILD_VERSION,
+    templateUrl: '/templates/components/literatureBreakdown/literatureMap.html?v=' + BUILD_VERSION,
     scope: {
       options: '=',
       display: '=',
@@ -20,7 +20,7 @@ function literatureBreakdownDirective(BUILD_VERSION) {
       filter: '='
     },
     link: chartLink,
-    controller: literatureBreakdown,
+    controller: literatureMap,
     controllerAs: 'vm',
     bindToController: true
   };
@@ -33,7 +33,7 @@ function literatureBreakdownDirective(BUILD_VERSION) {
   }
 
   /** @ngInject */
-  function literatureBreakdown($timeout, $state, $scope, ResourceSearch, Highcharts, $translate, $q) {
+  function literatureMap($timeout, $state, $scope, ResourceSearch, $translate, $q) {
     var vm = this;
     var UPDATE_DELAY_TIME = 500;
     vm.logarithmic = true;
@@ -77,14 +77,20 @@ function literatureBreakdownDirective(BUILD_VERSION) {
       $translate('occurrences');
       $q.all({
         response: vm.content.$promise,
-        citations_translation: $translate('metrics.citations')
+        occurrences_translation: $translate('metrics.occurrences'),
+        otherOrUknown_translation: $translate('metrics.otherOrUknown'),
+        clickToZoom_translation: $translate('metrics.clickToZoom'),
+        pinchToZoom_translation: $translate('metrics.pinchToZoom')
       })
         .then(function(resolved) {
           var response = resolved.response;
           vm.chartdata = response;// 'chart data after transform of the data response';
 
           vm.translations = {
-            citations: resolved.citations_translation
+            occurrences: resolved.occurrences_translation,
+            otherOrUknown: resolved.otherOrUknown_translation,
+            clickToZoom: resolved.clickToZoom_translation,
+            pinchToZoom: resolved.pinchToZoom_translation
           };
           formatData(vm.chartdata);
         })
@@ -119,7 +125,7 @@ function literatureBreakdownDirective(BUILD_VERSION) {
         yAxis: {
           min: 0,
           title: {
-            text: vm.translations.citations
+            text: 'Citations'
           }
         },
         credits: {
@@ -132,7 +138,7 @@ function literatureBreakdownDirective(BUILD_VERSION) {
           pointFormat: '{series.name}: <b>{point.y}</b>'
         },
         series: [{
-          name: vm.translations.citations,
+          name: 'Citations',
           data: _.map(categories, function(year) {
             return _.get(chartdata, 'facets.YEAR.counts[' + year + '].count', 0);
           })
@@ -181,4 +187,4 @@ function literatureBreakdownDirective(BUILD_VERSION) {
   }
 }
 
-module.exports = literatureBreakdownDirective;
+module.exports = literatureMapDirective;
