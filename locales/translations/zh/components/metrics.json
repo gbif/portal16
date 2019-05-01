@@ -21,6 +21,7 @@
     "noOccurrences": "没有记录",
     "nothingSelected": "没有",
     "occurrences": "出现记录",
+    "citations": "",
     "otherOrUknown": "其他的或未知的",
     "occurrencesPerField": "每 {FIELD} 的物种出现记录",
     "occurrencesBreakdownPerField": "按每个字段分开的出现记录",
