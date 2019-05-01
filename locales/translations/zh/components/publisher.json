@@ -2,6 +2,7 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "关于",
+      "metrics": "",
       "publishersHomepage": "首页"
     },
     "joinedAgo": "加入 {TIME_AGO}",

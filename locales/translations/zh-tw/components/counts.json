@@ -1,6 +1,7 @@
 {
     "counts": {
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{引用書目} other{引用書目}}",
+        "pCitations": "",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select,1{紀錄}other{紀錄}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select,1{結果}other{結果}}",
         "nCollections": "",
