@@ -21,6 +21,7 @@
     "noOccurrences": "Aucune occurrence",
     "nothingSelected": "Aucun",
     "occurrences": "Occurrences",
+    "citations": "",
     "otherOrUknown": "Autre ou inconnu",
     "occurrencesPerField": "Occurrences par {FIELD}",
     "occurrencesBreakdownPerField": "Répartition des occurrences par champ",
