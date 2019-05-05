@@ -31,7 +31,7 @@
     "nMbitConn": "{NUMBER} Mbit 连接",
     "onceDownloaded": "一旦您下载了文件, 您将需要用 {SIZE_FORMATTED} 的可用磁盘空间来解压缩数据。",
     "datasetHasNumRows": "这个数据集有 {NUMBER_FORMATTED} 行数据。",
-    "youWillNotBeAble": "",
+    "youWillNotBeAble": "您将不能在Excel或类似的程序中查看或分析该数据。为了处理这些数据，您会需要使用R、Python或Relational databases。",
     "difficultToAnalyse": "这个大小的数据集难以在普通电脑上进行分析。您可能需要使用某种分布式计算服务。",
     "hours": "小时",
     "minute": "分钟",
