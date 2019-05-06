@@ -131,6 +131,51 @@ let config = {
         blastApi: 'http://blast.gbif-dev.org',
         healthUpdateFrequency: healthUpdateFrequency
     },
+    // Demo is using UAT APIs where necessary, as these are public.
+    demo: {
+        env: env,
+        root: rootPath,
+        app: {
+            name: 'portal - pipelines demo'
+        },
+        port: port || 80,
+        serverProtocol: 'http:',
+        apidocs: apidocs,
+        managementToolsSite: '//management-tools.gbif-uat.org/',
+        dataApiV2: dataApiV2 || '//api-demo.gbif-dev.org/v2/',
+        dataApi: dataApi || '//api-demo.gbif-dev.org/v1/',
+        tileApi: tileApi || '//api-demo.gbif-dev.org/v1/map/density/tile.png',
+        basemapTileApi: basemapTileApi || '//tile.gbif-uat.org',
+        identityApi: identityApi || '//api-demo.gbif-dev.org/v1/',
+        analyticsImg: analyticsImg || 'www.gbif-uat.org/sites/default/files/gbif_analytics/',
+        domain: 'https://www-demo.gbif-dev.org',
+        // Not sure what this should be.
+        topDomain: 'demo.gbif-dev.org',
+        credentials: credentials || '/etc/portal16/credentials',
+        redirects: redirects || '/etc/portal16/redirects',
+        spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
+        verification: verification || '/var/lib/human-verification/images',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-uat.org:9200/',
+        registry: registry || 'https://registry.gbif-uat.org',
+        oozie: oozie || '//c4oozie.gbif-uat.org:11000/oozie/v2/',
+        yarnResourceManager: yarnResourceManager || '//c4yarn.gbif-uat.org:8088/ws/v1/',
+        // ELK doesn't exist like this any more.
+        elk: elk || '//elk.gbif.org:5601/',
+        publicKibana: publicKibana || 'http://logs.gbif.org/',
+        // Not updated
+        kibanaIndex: kibanaIndex || 'AWBqgxPaf8lu3pmE7fpp',
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
+        publicConstantKeys: publicConstantKeys,
+        // Not updated
+        fbAppId: 1534726343485342,
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org',
+        healthUpdateFrequency: healthUpdateFrequency
+    },
     uat: {
         env: env,
         root: rootPath,
