@@ -340,6 +340,31 @@
                 </div>
             </section>
 
+            <section id="capabilities" class="white-background page--developer__anchor">
+                <div class="container--narrow">
+                    <div class="row">
+                        <h3>Capabilities endpoint</h3>
+                        <p>A summary of the data available for a <code>density</code> search is available using the capabilities endpoint.  The URL format is</p>
+                        <p><code>https://api.gbif.org/v2/map/occurrence/density/capabilities.json?{params}</code></p>
+                        <p>where <code>params</code> is the same as for the tile URL query.</p>
+
+                        <p>An query for <code><a href="https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=3759969">https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=3759969&</a></code>
+                        gives this result:<p>
+ <pre><code>{
+  "minLat": -34,
+  "minLng": 16,
+  "maxLat": -25,
+  "maxLng": 25,
+  "minYear": 1937,
+  "maxYear": 1999,
+  "total": 6,
+  "generated": "2019-05-06T05:02Z"
+}</code></pre>
+                        <p>showing the bounding box, year range, total and the time the map data was last recalculated.</p>
+                    </div>
+                </div>
+            </section>
+
             <section id="preview" class="white-background page--developer__anchor">
                 <div class="container--narrow">
                     <div class="row">
