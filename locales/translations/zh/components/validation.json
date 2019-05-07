@@ -81,10 +81,10 @@
     "interpretedCounts": {
       "date": "说明日期数",
       "taxon": "已解析的分类群列数",
-      "location": ""
+      "location": "已解析的坐标数"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "已解析的计数值"
     },
     "status": {
       "title": "状态",
@@ -93,13 +93,13 @@
       "ACCEPTED": "验证已开始",
       "RUNNING": "正在进行验证",
       "FINISHED": "验证完成",
-      "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "FAILED": "验证失败。请检查文件类型。如您提交了 URL，请检查文件是否存在于该位置。",
+      "CONTACTING_SERVER": "正在连接服务器……"
     },
-    "jobId": "",
-    "indexeable": "",
-    "notIndexeable": "",
-    "numberOfLines": "",
+    "jobId": "作业编号",
+    "indexeable": "GBIF 可为该文件编制索引",
+    "notIndexeable": "GBIF 无法为该文件编制索引",
+    "numberOfLines": "行数",
     "reportProducedByGbifDataValidator": "",
     "validationReport": "校验报告",
     "dataValidator": "数据验证器",
