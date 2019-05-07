@@ -1,8 +1,8 @@
 {
   "eoi": {
-    "firstPleaseSeeIfYourOrg": "",
-    "ifYouAreAffiliatedWithTheSelectedOrganization": "",
-    "myOrgIsNotRegistered": "",
+    "firstPleaseSeeIfYourOrg": "首先，请先查看您的机构是否已注册成为GBIF发布者。",
+    "ifYouAreAffiliatedWithTheSelectedOrganization": "如果您属于所选择的机构，您可以联系该联系人以获取数据发布的操作知识。",
+    "myOrgIsNotRegistered": "我所在的机构还未完成注册。",
     "searchOrganisations": "",
     "termsAndConditions": "",
     "iHaveReadAndUnderstood": "",
