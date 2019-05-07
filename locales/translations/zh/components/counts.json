@@ -1,7 +1,7 @@
 {
     "counts": {
         "nCitations": "",
-        "pCitations": "",
+        "pCitations": "{NUMBER, select, 1{引用} other{引用}}",
         "nRecords": "",
         "nResults": "",
         "nCollections": "",
