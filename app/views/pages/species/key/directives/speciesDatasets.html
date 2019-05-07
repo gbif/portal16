@@ -6,21 +6,23 @@
                 <ul>
                     <li ng-repeat="result in vm.data.results" class="card--references__item">
                         <div ng-if="vm.type === 'CHECKLIST'" >
-                            <div class="text-muted"><a class="inherit max2Lines" ui-sref="datasetKey({key:result.key})" ng-href="/dataset/{{result.key}}" >
+                            <div dir="auto" class="text-muted"><a class="inherit max2Lines" ui-sref="datasetKey({key:result.key})" ng-href="/dataset/{{result.key}}" >
                                 {{result.title}}
                             </a></div>
                             <div class="small" ng-if="result._relatedTaxon">
                                 {{'species.as' | translate}}
                                 <a class="" ui-sref="speciesKey({speciesKey:result._relatedTaxon.key})" ng-href="/species/{{result._relatedTaxon.key}}">
-                                    <span ng-bind-html="result._relatedTaxon._parsedName || result._relatedTaxon.scientificName"></span>
+                                    <span dir="auto" ng-bind-html="result._relatedTaxon._parsedName || result._relatedTaxon.scientificName"></span>
                                 </a>
                             </div>
 
                         </div>
                         <div ng-if="vm.type === 'OCCURRENCE'">
-                            <div class="text-muted "><a class="inherit max2Lines" ui-sref="datasetKey({key:result.datasetKey})" ng-href="/dataset/{{result.datasetKey}}" >
-                                {{result._dataset.title}}
-                            </a></div>
+                            <div dir="auto" class="text-muted ">
+                                <a class="inherit max2Lines" ui-sref="datasetKey({key:result.datasetKey})" ng-href="/dataset/{{result.datasetKey}}" >
+                                    {{result._dataset.title}}
+                                </a>
+                            </div>
                             <div class="small" >
                                 <a ui-sref="occurrenceSearchTable({dataset_key:result.datasetKey, taxon_key:vm.key})" ng-href="/occurrence/search?dataset_key={{result.datasetKey}}&taxon_key={{vm.key}}">
                                     {{'species.viewOccurrences' | translate}}

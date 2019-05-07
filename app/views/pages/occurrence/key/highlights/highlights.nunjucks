@@ -7,7 +7,8 @@
                         <div>
                             <dt translate="occurrence.gbifTaxonInterpretation"></dt>
                             {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 %} <dd translate="occurrence.noTaxonMatch"></dd>{% endif %}
-                            {% if occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 %}   <dd>
+                            {% if occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 %}
+                            <dd dir="auto">
                                 <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })">
                                     {$ occurrence.record.scientificName $}
                                 </a>
@@ -18,7 +19,7 @@
                     {% if (occurrence.record.taxonRank | isNotEmpty) and occurrence.species.taxonomicStatus !== 'SYNONYM' and occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") === -1 %}
                         <div>
                             <dt>{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
-                            <dd>
+                            <dd dir="auto">
                                 <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })">
                                     {$ occurrence.record.scientificName $}
                                 </a>
@@ -28,7 +29,7 @@
                     {% if occurrence.species.taxonomicStatus === 'SYNONYM' %}
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.appliedName' ) $}</dt>
-                            <dd>
+                            <dd dir="auto">
                                 <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })">
                                     {$ occurrence.record.scientificName $}
                                 </a>
@@ -36,7 +37,7 @@
                         </div>
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.acceptedName' ) $}</dt>
-                            <dd>
+                            <dd dir="auto">
                                 <a ui-sref="speciesKey({ speciesKey:{$ occurrence.species.key $} })">
                                     {$ occurrence.species.accepted $}
                                 </a>
@@ -46,7 +47,7 @@
                     {% if occurrence.record.issues.indexOf("TAXON_MATCH_FUZZY") > -1 %}
                         <div>
                             <dt translate="occurrence.highlights.verbatimName">Verbatim name</dt>
-                            <dd>{$ occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] $}</dd>
+                            <dd dir="auto">{$ occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] $}</dd>
                         </div>
                     {% endif %}
 
@@ -91,8 +92,8 @@
                     {% if occurrence.record.organismID | isNotEmpty %}
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.organismID') $}</dt>
-                            <dd>
-                                <span>{$ occurrence.record.organismID $}</span>
+                            <dd dir="auto">
+                                <span dir="auto">{$ occurrence.record.organismID $}</span>
                                 <span class="chip">
                                     <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', organism_id: '{$ occurrence.record.organismID $}' })">
                                         <span count="{{ portal.dataApi }}occurrence/search?dataset_key={$ occurrence.record.datasetKey $}&organism_id={$ occurrence.record.organismID $}" count-translation="counts.nOccurrences">&nbsp;</span>
@@ -121,14 +122,14 @@
                     {% if occurrence.record.eventID | isNotEmpty %}
                     <div>
                         <dt>{$ __('ocurrenceFieldNames.eventID') $}</dt>
-                        <dd>
+                        <dd dir="auto">
                             <a ui-sref="datasetEvent({datasetKey: '{$ occurrence.record.datasetKey $}', eventKey: '{$ occurrence.record.eventID $}' })">{$ occurrence.record.eventID $}</a>
                         </dd>
                     </div>
                     {% endif %}
                     <div>
                         <dt>{$ __('occurrence.dataset') $}</dt>
-                        <dd>
+                        <dd dir="auto">
                             <a ui-sref="datasetKey({ key: occurrenceKey.data.datasetKey })">
                                 {$ occurrence.dataset.title | truncate(80) $}
                             </a>
@@ -136,7 +137,7 @@
                     </div>
                     <div>
                         <dt>{$ __('occurrence.highlights.publisher') $}</dt>
-                        <dd>
+                        <dd dir="auto">
                             <a ui-sref="publisherKey({ key: occurrenceKey.data.publishingOrgKey })">
                             {$ occurrence.publisher.title | truncate(80) $}</a>
                         </dd>
@@ -145,7 +146,7 @@
                     {% if occurrence.record.references | isNotEmpty %}
                         <div>
                             <dt>{$ __('occurrence.highlights.reference') $}</dt>
-                            <dd>
+                            <dd dir="auto">
                                 {% if occurrence.record.references | isLink %}
                                     <a href="{$ occurrence.record.references $}">{$ occurrence.record.references | truncate(50) $}</a>
                                 {% else %}

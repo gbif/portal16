@@ -11,7 +11,7 @@ angular
 function redlistDirective() {
     var directive = {
         restrict: 'E',
-        template: '<a href="{{vm.link}}" class="badge redlist-category-{{vm.category}}">{{vm.categoryTitle}}</a>',
+        template: '<a dir="auto" href="{{vm.link}}" class="badge redlist-category-{{vm.category}}">{{vm.categoryTitle}}</a>',
         scope: {},
         controller: redlistCtrl,
         controllerAs: 'vm',

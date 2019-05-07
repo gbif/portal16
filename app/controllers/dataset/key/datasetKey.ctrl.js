@@ -125,7 +125,7 @@ function getMetaSchema(dataset) {
         'publisher': {
             '@type': 'Organization',
             'name': dataset.publisher.title,
-            'url': dataset.publisher.homepage[0]
+            'url': _.get(dataset, 'publisher.homepage[0]')
           },
         'provider': {
           '@type': 'Organization',

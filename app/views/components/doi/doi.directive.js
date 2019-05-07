@@ -10,7 +10,7 @@ angular
 function doiDirective() {
     var directive = {
         restrict: 'E',
-        template: '<a ng-href="https://doi.org/{{ vm.asDoi(vm.link) }}" class="doi"><span>DOI</span><span>{{ vm.asDoi(vm.link) }}</span></a>',
+        template: '<a dir="ltr" ng-href="https://doi.org/{{ vm.asDoi(vm.link) }}" class="doi"><span>DOI</span><span>{{ vm.asDoi(vm.link) }}</span></a>',
         scope: {
         },
         controller: doiCtrl,

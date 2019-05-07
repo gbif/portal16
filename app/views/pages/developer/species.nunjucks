@@ -7,7 +7,7 @@
 
 {% block page %}
 
-    <article class="wrapper-horizontal-stripes page--developer">
+    <article dir="ltr" class="wrapper-horizontal-stripes page--developer">
         <section class="horizontal-stripe article-header white-background">
             <div class="container">
                 <div class="row">

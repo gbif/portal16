@@ -11,7 +11,7 @@ angular
 function citesDirective() {
     var directive = {
         restrict: 'E',
-        template: '<a href="{{vm.link}}" class="badge {{vm.class}}">{{vm.appendix}}</a>',
+        template: '<a dir="auto" href="{{vm.link}}" class="badge {{vm.class}}">{{vm.appendix}}</a>',
         scope: {},
         controller: citesCtrl,
         controllerAs: 'vm',

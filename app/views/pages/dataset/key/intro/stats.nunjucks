@@ -1,4 +1,4 @@
-<div class="row summaryStats" ng-if="datasetKey.occurrences.count">
+<div class="row summaryStats rtl-bootstrap" ng-if="datasetKey.occurrences.count">
     <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
         <div>
             <div class="summaryStats__circle summaryStats__circle--occurrences"></div>

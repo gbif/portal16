@@ -74,23 +74,16 @@ function literatureMapDirective(BUILD_VERSION) {
       }
       var q = _.assign({contentType: 'literature', limit: 0, facet: 'year'}, vm.filter);
       vm.content = ResourceSearch.query(q);
-      $translate('occurrences');
       $q.all({
         response: vm.content.$promise,
-        occurrences_translation: $translate('metrics.occurrences'),
-        otherOrUknown_translation: $translate('metrics.otherOrUknown'),
-        clickToZoom_translation: $translate('metrics.clickToZoom'),
-        pinchToZoom_translation: $translate('metrics.pinchToZoom')
+        citations: $translate('metrics.citations')
       })
         .then(function(resolved) {
           var response = resolved.response;
           vm.chartdata = response;// 'chart data after transform of the data response';
 
           vm.translations = {
-            occurrences: resolved.occurrences_translation,
-            otherOrUknown: resolved.otherOrUknown_translation,
-            clickToZoom: resolved.clickToZoom_translation,
-            pinchToZoom: resolved.pinchToZoom_translation
+            citations: resolved.citations
           };
           formatData(vm.chartdata);
         })
@@ -125,7 +118,7 @@ function literatureMapDirective(BUILD_VERSION) {
         yAxis: {
           min: 0,
           title: {
-            text: 'Citations'
+            text: vm.translations.citations
           }
         },
         credits: {
@@ -138,7 +131,7 @@ function literatureMapDirective(BUILD_VERSION) {
           pointFormat: '{series.name}: <b>{point.y}</b>'
         },
         series: [{
-          name: 'Citations',
+          name: vm.translations.citations,
           data: _.map(categories, function(year) {
             return _.get(chartdata, 'facets.YEAR.counts[' + year + '].count', 0);
           })

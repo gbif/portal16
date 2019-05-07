@@ -17,22 +17,22 @@
                     <span class="article-header__category__lower" translate="dataset.registeredDate" translate-values="{DATE: (datasetKey.dataset.created | momentFormat:'LL')}"></span>
                 </nav>
 
-                <h1 class="text-center">
+                <h1 dir="auto" class="text-center">
                     <span ng-class="{'text-error': datasetKey.dataset.deleted}">{{ datasetKey.dataset.title }}</span>
                 </h1>
                 <p ng-class="{'text-error': datasetKey.dataset.deleted, source: !datasetKey.dataset.deleted}">
-                    <span translate="dataset.publishedBy"></span> <a class="inherit underline" ui-sref="publisherKey({key:datasetKey.dataset.publishingOrganizationKey})">
+                    <span dir="auto" translate="dataset.publishedBy"></span> <a dir="auto" class="inherit underline" ui-sref="publisherKey({key:datasetKey.dataset.publishingOrganizationKey})">
                         {{ datasetKey.publisher.title }}
                     </a>
                     <br/>
                     <span class="source" ng-if="datasetKey.parentDataset.title"> 
-                        <span translate="dataset.constituentOf"></span> <a class="source underline" ui-sref="datasetKey({key:datasetKey.parentDataset.key})">{{ datasetKey.parentDataset.title }}</a>
+                        <span dir="auto" translate="dataset.constituentOf"></span> <a dir="auto" class="source underline" ui-sref="datasetKey({key:datasetKey.parentDataset.key})">{{ datasetKey.parentDataset.title }}</a>
                     </span>
                 </p>
                 <div ng-if="datasetKey.dataset._computedValues.contributors.highlighted.length > 0">
                     <ol class="inline-bullet-list">
                         <li ng-repeat="contributor in datasetKey.dataset._computedValues.contributors.highlighted">
-                            <a ng-href="{{ portal.urlPrefix }}/dataset/{{ datasetKey.key }}#contacts"
+                            <a dir="auto" ng-href="{{ portal.urlPrefix }}/dataset/{{ datasetKey.key }}#contacts"
                                class="inherit">
                                     <i class="gb-icon-mail" ng-if="contributor._primaryContact"></i>
                                 {{ contributor.firstName }} {{ contributor.lastName }}
@@ -43,7 +43,7 @@
                 <p class="text-error" ng-if="datasetKey.dataset.deleted">
                     <span translate="phrases.deletedOnDate" translate-values="{DATE: (datasetKey.dataset.deleted | momentFormat:'LL') }"></span>
                     <br/>
-                    <span ng-if="datasetKey.duplicateOfDataset"><span translate="phrases.replacedBy"></span> <a class="inherit underline" ui-sref="datasetKey({key: datasetKey.duplicateOfDataset.key})">{{ datasetKey.duplicateOfDataset.title }}</a></span>
+                    <span ng-if="datasetKey.duplicateOfDataset"><span dir="auto" translate="phrases.replacedBy"></span> <a dir="auto" class="inherit underline" ui-sref="datasetKey({key: datasetKey.duplicateOfDataset.key})">{{ datasetKey.duplicateOfDataset.title }}</a></span>
                 </p>
             </header>
         </div>

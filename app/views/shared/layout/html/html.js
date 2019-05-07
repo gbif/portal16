@@ -255,7 +255,6 @@ require('./angular/routerConfig');
 require('./angular/index.filters');
 require('./angular/occurrence.resource');
 require('./angular/dataset.resource');
-require('./angular/dbpedia.resource');
 require('./angular/redlist.resource');
 require('./angular/cites.resource');
 require('./angular/directory.resource');

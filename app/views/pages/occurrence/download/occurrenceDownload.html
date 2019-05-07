@@ -68,7 +68,7 @@
     </section>
 
 
-    <section class="horizontal-stripe--paddingless lighter-background">
+    <section class="horizontal-stripe--paddingless lighter-background rtl-supported rtl-bootstrap">
         <div class="container--normal">
             <div class="row">
                 <div class="col-xs-12">
@@ -106,42 +106,42 @@
                                     <dl class="inline">
                                         <div>
                                             <dt translate="downloadReport.total">Total</dt>
-                                            <dd>
+                                            <dd dir="auto">
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
                                                 <span ng-if="occDownload.hasData()">{{occDownload.state.table.count | localNumber:occDownload.state.query.locale }}</span>
                                             </dd>
                                         </div>
                                         <div>
                                             <dt translate="downloadReport.license">License</dt>
-                                            <dd>
+                                            <dd dir="auto">
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
                                                 <span ng-if="occDownload.hasData()">{{occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}</span>
                                             </dd>
                                         </div>
                                         <div>
                                             <dt translate="downloadReport.yearRange">Year range</dt>
-                                            <dd>
+                                            <dd dir="auto">
                                                 <span ng-if="!occDownload.showRange" class="loading"></span>
                                                 <span ng-if="occDownload.showRange">{{occDownload.minYear}}–{{occDownload.maxYear}}</span>
                                             </dd>
                                         </div>
                                         <div>
                                             <dt translate="downloadReport.withYear">With year</dt>
-                                            <dd>
+                                            <dd dir="auto">
                                                 <span ng-if="!occDownload.showYears" class="loading"></span>
                                                 <span ng-if="occDownload.showYears">{{ occDownload.withDate | formatAsPercentage }} %</span>
                                             </dd>
                                         </div>
                                         <div>
                                             <dt translate="downloadReport.withCoordinates">With coordinates</dt>
-                                            <dd>
+                                            <dd dir="auto">
                                                 <span ng-if="!occDownload.showCoordinates" class="loading"></span>
                                                 <span ng-if="occDownload.showCoordinates">{{ occDownload.hasCoordinates | formatAsPercentage }} %</span>
                                             </dd>
                                         </div>
                                         <div>
                                             <dt translate="downloadReport.withTaxonMatch"></dt>
-                                            <dd>
+                                            <dd dir="auto">
                                                 <span ng-if="!occDownload.showTaxonMatch" class="loading"></span>
                                                 <span ng-if="occDownload.showTaxonMatch">{{ occDownload.withTaxonMatch | formatAsPercentage }} %</span>
                                             </dd>
@@ -151,7 +151,7 @@
                             </div>
 
                             <div class="download-report__summary__download"
-                                 ng-class="{invisible: !occDownload.hasData()}">
+                                 ng-class="{invisible: !occDownload.hasData()}" dir="auto">
                                 <div>
                                     <p>
                                         <a href="" class="gb-button--primary" ng-click="occDownload.open('SIMPLE_CSV')">
@@ -159,17 +159,20 @@
                                             <span translate="downloadFormat.SIMPLE_CSV"></span>
                                         </a>
                                     </p>
-                                    <p class="discreet small">
+                                    <div class="discreet small">
                                         <span gb-help="csv-download">
                                             <span translate="downloadReport.csvDescription"></span>
                                         </span>
-                                        <br/>
-                                        <span translate="downloadReport.estimatedSize"></span>
-                                        <strong>{{
-                                            occDownload.estKbCsv*occDownload.state.table.count*occDownload.unzipFactor*1024 |
-                                            formatBytes:0:occDownload.state.query.locale }}</strong>
-                                        (<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbCsv*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)
-                                    </p>
+                                        <div dir="auto">
+                                            <span translate="downloadReport.estimatedSize"></span>:
+                                            <span>
+                                                <strong>{{
+                                                    occDownload.estKbCsv*occDownload.state.table.count*occDownload.unzipFactor*1024 |
+                                                    formatBytes:0:occDownload.state.query.locale }}</strong>
+                                                <span dir="ltr">(<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbCsv*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)</span>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <p>
@@ -178,17 +181,18 @@
                                             <span translate="downloadFormat.DWCA"></span>
                                         </a>
                                     </p>
-                                    <p class="discreet small">
+                                    <div class="discreet small">
                                         <span gb-help="dwc-download">
                                             <span translate="downloadReport.dwcaDescription"></span>
                                         </span>
-                                        <br/>
-                                        <span translate="downloadReport.estimatedSize"></span>
-                                        <strong>{{
-                                            occDownload.estKbDwcA*occDownload.state.table.count*occDownload.unzipFactor*1024 |
-                                            formatBytes:0:occDownload.state.query.locale }}</strong>
-                                            (<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbDwcA*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)
-                                    </p>
+                                        <div dir="auto">
+                                            <span translate="downloadReport.estimatedSize"></span>:
+                                            <strong>{{
+                                                occDownload.estKbDwcA*occDownload.state.table.count*occDownload.unzipFactor*1024 |
+                                                formatBytes:0:occDownload.state.query.locale }}</strong>
+                                            <span dir="ltr">(<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbDwcA*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <p>
@@ -270,27 +274,26 @@
 
     <script type="text/ng-template" id="largeDownloadWarning.html">
         <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
-        <div class="gb-modal-header">
+        <div class="gb-modal-header" dir="auto">
             <span class="modal-title body-text" id="modal-title" translate="downloadReport.largeDownload"></span>
         </div>
-        <div class="gb-modal-body" id="modal-body">
+        <div class="gb-modal-body rtl-supported" id="modal-body">
             <div class="gb-modal-body__content horizontal-stripe white-background">
                 <div ng-if="$ctrl.options.filterCount === 0">
-                   <strong translate="downloadReport.requestingFullDownload"></strong>
-                   <div ng-bind-html="'downloadReport.occFiltersExplainedHere' | translate | md2html"></div>
+                   <strong dir="auto" translate="downloadReport.requestingFullDownload"></strong>
+                   <div dir="auto" ng-bind-html="'downloadReport.occFiltersExplainedHere' | translate | md2html"></div>
                 </div>
-                <p translate="downloadReport.estSizeIs" translate-values="{SIZE_FORMATTED: ($ctrl.options.downloadSize | formatBytes:0:occDownload.state.query.locale)}"></p>
-                <p translate="downloadReport.estDLtimes">
-                    <ul>
-                        <li ng-repeat="(key, val) in $ctrl.options.downloadSpeed">
-                            <span translate="downloadReport.nMbitConn" translate-values="{NUMBER: key}"></span> : <strong>{{val}}</strong>
-                        </li>
-                    </ul>
-                </p>
-                <p translate="downloadReport.onceDownloaded" translate-values="{SIZE_FORMATTED: ($ctrl.options.spaceRequiredForUnzip | formatBytes:0:occDownload.state.query.locale) }"></p>
-                <p translate="downloadReport.datasetHasNumRows" translate-values="{NUMBER_FORMATTED: ($ctrl.options.rowCount | localNumber:occDownload.state.query.locale)}"></p>
-                <p ng-if="$ctrl.options.fileSizeType ==='LARGE' || $ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadReport.youWillNotBeAble"></p>
-                <p ng-if="$ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadReport.difficultToAnalyse"></p>
+                <p dir="auto" translate="downloadReport.estSizeIs" translate-values="{SIZE_FORMATTED: ($ctrl.options.downloadSize | formatBytes:0:occDownload.state.query.locale)}"></p>
+                <p dir="auto" translate="downloadReport.estDLtimes"></p>
+                <ul>
+                    <li ng-repeat="(key, val) in $ctrl.options.downloadSpeed">
+                        <span dir="auto" translate="downloadReport.nMbitConn" translate-values="{NUMBER: key}"></span> : <strong>{{val}}</strong>
+                    </li>
+                </ul>
+                <p dir="auto" translate="downloadReport.onceDownloaded" translate-values="{SIZE_FORMATTED: ($ctrl.options.spaceRequiredForUnzip | formatBytes:0:occDownload.state.query.locale) }"></p>
+                <p dir="auto" translate="downloadReport.datasetHasNumRows" translate-values="{NUMBER_FORMATTED: ($ctrl.options.rowCount | localNumber:occDownload.state.query.locale)}"></p>
+                <p dir="auto" ng-if="$ctrl.options.fileSizeType ==='LARGE' || $ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadReport.youWillNotBeAble"></p>
+                <p dir="auto" ng-if="$ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadReport.difficultToAnalyse"></p>
             </div>
         </div>
         <div class="gb-modal-footer">

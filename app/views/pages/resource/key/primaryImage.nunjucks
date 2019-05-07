@@ -6,7 +6,7 @@
                      alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}"
                      gallery-image>
             </div>
-            <figcaption class="container--narrow">
+            <figcaption class="container--narrow" dir="auto">
                 {$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | sanitizeTrusted(gb.locales.urlPrefix) | safe $}
             </figcaption>
         </figure>
@@ -19,7 +19,7 @@
                 <img class="bordered" ng-src="{$ _meta.imageCache $}http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}"
                      alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}">
                 {% if resolved.Asset[main.fields.primaryImage.sys.id].fields.description %}
-                    <figcaption>
+                    <figcaption dir="auto">
                         <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
                     </figcaption>
                 {% endif %}

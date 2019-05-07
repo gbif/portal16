@@ -1,14 +1,14 @@
 {% if occurrence.dataset.description | isDefined %}
-    <section class="horizontal-stripe light-background seperator seperator--b">
+    <section class="horizontal-stripe light-background seperator seperator--b rtl-supported">
         <div class="container--normal">
             <div class="container--prose description">
                 <h3 class="m-t-0">{$ __('occurrence.aboutTheDataset') $}</h3>
                 {% if occurrence.dataset.description | striptags | length < 300 %}
-                    <div class="prose-columns prose-columns--single-col">
+                    <div dir="auto">
                         {$ occurrence.dataset.description | linkify | safe $}
                     </div>
                 {% else %}
-                    <div class="prose-columns">
+                    <div dir="auto" class="prose-columns">
                         {% if occurrence.dataset.description | striptags | length < 600 %}
                             {$ occurrence.dataset.description | linkify | safe $}
                         {% else %}

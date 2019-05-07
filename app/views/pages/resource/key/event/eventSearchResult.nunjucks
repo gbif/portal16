@@ -1,8 +1,8 @@
-<div class="card m-b-05 searchCard" ng-class="{'event--past': (result.end | isPast)}">
+<div class="card m-b-05 searchCard rtl-supported" ng-class="{'event--past': (result.end | isPast)}">
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type" translate="enums.cms.contentType.event"></span>
-            <h3 class="searchCard__headline">
+            <h3 class="searchCard__headline" dir="auto">
                 <a ng-href="{{ result.primaryLink.url }}" ng-if="result.primaryLink.url">
                     {{result.title}}
                     <span class="gb-icon-link"></span>
@@ -20,14 +20,14 @@
                     <div>{{ result.start | momentFormat: 'D MMM' }}</div>
                     <span>{{ result.start | momentFormat:'YYYY' }}</span>
                 </div>
-                <p class="m-b-025">
+                <p class="m-b-025" dir="auto">
                     {{result._summary}}
                 </p>
                 <div class="discreet--very smaller" ng-if="result.start">
                     <div ng-if="result.country || result.location || result.venue">
                         <span class="gb-icon-marker"></span><span translate="country.{{ result.country }}" ng-if="result.country"></span>
-                        <span ng-if="result.location"> - {{ result.location }}</span>
-                        <span ng-if="result.venue"> - {{ result.venue }}</span>
+                        <span ng-if="result.location" dir="auto"> - {{ result.location }}</span>
+                        <span ng-if="result.venue" dir="auto"> - {{ result.venue }}</span>
                     </div>
                     <div>
                         <span class="gb-icon-calendar"></span>

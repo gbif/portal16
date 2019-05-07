@@ -16,12 +16,12 @@
                     <span class="article-header__category__upper">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>
                 </nav>
                 {% endif %}
-                <h1>{$ main.fields.title $}</h1>
-                <div class="article-header__intro">
+                <h1 dir="auto">{$ main.fields.title $}</h1>
+                <div class="article-header__intro" dir="auto">
                     {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 </div>
                 {% if main.fields.numberOfResourceUsed | isNotEmpty %}
-                    <span class="article-header__meta">
+                    <span class="article-header__meta" dir="auto">
                     {$ main.fields.numberOfResourceUsed | striptags $}
                     </span>
                 {% endif %}

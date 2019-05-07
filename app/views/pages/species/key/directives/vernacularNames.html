@@ -6,12 +6,12 @@
                 <li ng-repeat="name in vm.vernacularNames.results | limitTo: vm.limit : vm.offset" class="card--references__item">
                     <div  >
                         <div>
-                            <span class="vernacular">{{ name.datasets[0].vernacularName }}</span>
+                            <span dir="auto" class="vernacular">{{ name.datasets[0].vernacularName }}</span>
                             <span class="discreet--very" translate="species.inLanguage" translate-values="{language: (('language.'+ name.language) | translate)}"></span>
                         </div>
                         <div class="small" ng-if="vm.isNub ==='true'">
                             <span translate="species.sourcePlural" translate-values="{NUMBER: name.datasets.length}"></span>:
-                            <a class="" ui-sref=".({speciesKey:name.datasets[0].sourceTaxonKey})" >
+                            <a dir="auto" class="" ui-sref=".({speciesKey:name.datasets[0].sourceTaxonKey})" >
                                 <span ng-bind-html="name.datasets[0].source"></span>
                             </a>
 
@@ -38,14 +38,14 @@
     <div class="content__overlay__card">
         <div class="content__overlay__card__header seperator--b">
             <div>
-                <span class="article-header__meta">{{ vm.currentName.vernacularName }}</span>
+                <span dir="auto" class="article-header__meta">{{ vm.currentName.vernacularName }}</span>
                 <span class="discreet--very" translate="species.inLanguage" translate-values="{language: (('language.'+ vm.currentName.language) | translate}"></span>
                 </span>
             </div>
         <div class="content__overlay__card__list">
             <ul>
                 <li ng-repeat="option in vm.currentName.datasets">
-                    <a ui-sref=".({speciesKey:option.sourceTaxonKey})" ui-sref-opts="{inherit: false}" class="inherit noUnderline">
+                    <a dir="auto" ui-sref=".({speciesKey:option.sourceTaxonKey})" ui-sref-opts="{inherit: false}" class="inherit noUnderline">
                         <span>{{ option.source }}</span>
                     </a>
                 </li>

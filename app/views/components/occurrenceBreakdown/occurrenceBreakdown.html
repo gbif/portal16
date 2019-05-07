@@ -5,7 +5,7 @@
     <div class="occurrenceBreakdownChart__single" ng-if="vm.resultType() === 'SINGLE_BUCKET'">
         <div class="occurrenceBreakdownChart__single__value">
             <span translate="metrics.singleTypeResults" translate-values="{NUMBER: (vm.chartdata.results[0].count | localNumber), FIELD: ('filterNames.' + (vm.chartdata.field | camelCase) | translate )}"></span>
-            <div ng-switch on="vm.chartdata.field">
+            <div ng-switch on="vm.chartdata.field" dir="auto">
                 <a ng-switch-when="dataset_key" ui-sref="datasetKey({key:vm.chartdata.results[0].filter.dataset_key})" class="inherit">
                     {{vm.chartdata.results[0].displayName | truncate:50}}
                 </a>
@@ -20,7 +20,7 @@
         </div>
         <div class="occurrenceBreakdownChart__single__value" ng-if="vm.chartdata.categories">
             <span>and '<span translate="filterNames.{{vm.chartdata.secondField | camelCase}}"></span>'</span>
-            <div ng-switch on="vm.chartdata.secondField">
+            <div ng-switch on="vm.chartdata.secondField" dir="auto">
                 <a ng-switch-when="dataset_key" ui-sref="datasetKey({key:vm.chartdata.categories[0].filter.dataset_key})" class="inherit">
                     {{vm.chartdata.categories[0].displayName | truncate:50}}
                 </a>
@@ -44,7 +44,7 @@
                             <tr>
                                 <th class="p-0"></th>
                                 <th translate="filterNames.{{vm.chartdata.field | camelCase}}">{{vm.chartdata.field}}</th>
-                                <th ng-repeat="category in vm.chartdata.categories">
+                                <th ng-repeat="category in vm.chartdata.categories" dir="auto">
                                     <span>
                                         <a href="" ng-click="vm.occurrenceSearch(category.filter)" class="inherit">{{category.displayName}}</a>
                                         <span ng-if="$last && vm.chartdata.secondDimension.bucketSizeVaries" class="badge badge--warning">!
@@ -73,7 +73,7 @@
                                     <span>
                                         <span>
                                             <a href="" ng-click="vm.occurrenceSearch(result.filter)" class="inherit">
-                                                {{result.displayName | truncate:50 }}
+                                                <span dir="auto">{{result.displayName | truncate:50 }}</span>
                                                 <md-tooltip md-direction="top" ng-if="vm.chartdata.categories">{{result.count | localNumber}} <span translate="metrics.occurrences"></span></md-tooltip>
                                             </a>
                                         </span>

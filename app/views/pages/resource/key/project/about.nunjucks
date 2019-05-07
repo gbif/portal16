@@ -51,7 +51,7 @@
                         {% if resolved.Entry[main.fields.programme.sys.id].fields.title %}
                             <div>
                                 <dt translate="enums.cms.contentType.programme">Programme</dt>
-                                <dd><a href="{$ gb.locales.urlPrefix $}/programme/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.title $}</a></dd>
+                                <dd><a href="{$ gb.locales.urlPrefix $}/programme/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}" dir="auto">{$ resolved.Entry[main.fields.programme.sys.id].fields.title $}</a></dd>
                             </div>
                         {% endif %}
                         {% if main.fields.projectId %}
@@ -78,9 +78,9 @@
                                     {% for funder in resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations %}
                                         <li>
                                         {% if resolved.Entry[funder.sys.id].fields.url %}
-                                            <a href="{$ resolved.Entry[funder.sys.id].fields.url $}">{$ resolved.Entry[funder.sys.id].fields.title $}</a>
+                                            <a dir="auto" href="{$ resolved.Entry[funder.sys.id].fields.url $}">{$ resolved.Entry[funder.sys.id].fields.title $}</a>
                                         {% else %}
-                                            <span>{$ resolved.Entry[funder.sys.id].fields.title $}</span>
+                                            <span dir="auto">{$ resolved.Entry[funder.sys.id].fields.title $}</span>
                                         {% endif %}
                                         </li>
                                     {% endfor %}
@@ -97,9 +97,9 @@
                                     {% for funder in main.fields.fundingOrganisations %}
                                         <li>
                                             {% if resolved.Entry[funder.sys.id].fields.url %}
-                                                <a href="{$ resolved.Entry[funder.sys.id].fields.url $}">{$ resolved.Entry[funder.sys.id].fields.title $}</a>
+                                                <a dir="auto" href="{$ resolved.Entry[funder.sys.id].fields.url $}">{$ resolved.Entry[funder.sys.id].fields.title $}</a>
                                             {% else %}
-                                                <span>{$ resolved.Entry[funder.sys.id].fields.title $}</span>
+                                                <span dir="auto">{$ resolved.Entry[funder.sys.id].fields.title $}</span>
                                             {% endif %}
                                         </li>
                                     {% endfor %}
@@ -119,13 +119,13 @@
                                         <li>
                                             {% if resolved.Entry[partner.sys.id].sys.contentType.sys.id == "Participant" %}
                                                 {# if country #}
-                                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[partner.sys.id].fields.country.sys.id $}/about">GBIF {$ resolved.Entry[partner.sys.id].fields.title $}</a>
+                                                <a dir="auto" href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[partner.sys.id].fields.country.sys.id $}/about">GBIF {$ resolved.Entry[partner.sys.id].fields.title $}</a>
                                             {% else %}
                                                 {#if organisation#}
                                                 {% if resolved.Entry[partner.sys.id].fields.url %}
-                                                    <a href="{$ resolved.Entry[partner.sys.id].fields.url $}">{$ resolved.Entry[partner.sys.id].fields.title $}</a>
+                                                    <a  dir="auto"href="{$ resolved.Entry[partner.sys.id].fields.url $}">{$ resolved.Entry[partner.sys.id].fields.title $}</a>
                                                 {% else %}
-                                                    <span>{$ resolved.Entry[partner.sys.id].fields.title $}</span>
+                                                    <span dir="auto">{$ resolved.Entry[partner.sys.id].fields.title $}</span>
                                                 {% endif %}
                                             {% endif %}
                                         </li>
@@ -138,7 +138,7 @@
                     {% if resolved.Entry[main.fields.leadPartner.sys.id] %}
                     <div>
                         <dt translate="cms.project.projectLead">Project lead</dt>
-                        <dd>
+                        <dd dir="auto">
                             {% if resolved.Entry[main.fields.leadPartner.sys.id].sys.contentType.sys.id == "Participant" %}
                                 {# if country #}
                                 <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[main.fields.leadPartner.sys.id].fields.country.sys.id $}/about">GBIF {$ resolved.Entry[main.fields.leadPartner.sys.id].fields.title $}</a>
@@ -158,7 +158,7 @@
                         <div>
                             <dt translate="cms.project.contactDetalils">Contact details</dt>
                             <dd>
-                                <div>
+                                <div dir="auto">
                                     {$ main.fields.leadContact | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
 
                                 </div>

@@ -13,7 +13,6 @@ function speciesDatasetsDirective() {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/speciesDatasets.html',
         scope: {
-
             key: '@',
             type: '@'
         },
@@ -31,12 +30,8 @@ function speciesDatasetsDirective() {
             offset: 0,
             endOfRecords: true
         };
-      //  $anchorScroll.yOffset = 60;
         vm.defaultLimit = 10;
         vm.offsetParam = vm.type.toLowerCase() + 'DatasetOffset';
-        // vm.limit = 5;
-        // vm.offset = 0;
-        // vm.endOfRecords = false;
 
         function attachParsedNames(data) {
             if (data && data.length > 0) {

@@ -6,7 +6,7 @@
                     <a href="{$ resolved.Entry[link.sys.id].fields.url $}" class="inherit noUnderline">
                         <img src="/img/fileTypes/link.png">
                         <div>
-                            <div>
+                            <div dir="auto">
                                 {$ resolved.Entry[link.sys.id].fields.label $}
                             </div>
                         </div>
@@ -18,7 +18,7 @@
                     <a href="{$ resolved.Asset[document.sys.id].fields.file.url $}" class="inherit noUnderline">
                         <img src="/img/fileTypes/{$ resolved.Asset[document.sys.id].fields.file.contentType | fileContentTypeToIconName $}.png">
                         <div>
-                            <div>
+                            <div dir="auto">
                                 {% if resolved.Asset[document.sys.id].fields.title %}
                                     {$ resolved.Asset[document.sys.id].fields.title $}
                                 {% else %}

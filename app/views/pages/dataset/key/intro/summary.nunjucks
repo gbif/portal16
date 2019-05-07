@@ -1,10 +1,10 @@
-<div class="container-fluid card">
+<div class="container-fluid card rtl-bootstrap">
     <div class="row card__content">
         <div class="col-xs-12 col-sm-6 col-md-8">
-            <div ng-if="datasetKey.dataset.description.length < 750" ng-bind-html="datasetKey.dataset.description"></div>
-            <div ng-if="datasetKey.dataset.description.length >= 750">
+            <div dir="auto" ng-if="datasetKey.dataset.description.length < 750" ng-bind-html="datasetKey.dataset.description"></div>
+            <div dir="auto" ng-if="datasetKey.dataset.description.length >= 750">
                 {{ datasetKey.dataset.description | stripTags | truncate: 500 }}
-                <a class="m-l-1" href="#description" translate="dataset.readFullDescription"></a>
+                <a dir="auto" class="m-l-1" href="#description" translate="dataset.readFullDescription"></a>
             </div>
             <div class="discreet-comment" ng-if="!datasetKey.dataset.description" translate="dataset.noDescriptionProvided"></div>
         </div>
@@ -17,7 +17,7 @@
                     <dt translate="dataset.projectId"></dt>
                     <dd>
                         <a ng-href="{{portal.urlPrefix}}{{ datasetKey.projects.results[0]._url }}" ng-if="datasetKey.projects.count == 1">{{ datasetKey.dataset.project.identifier }}</a>
-                        <span ng-if="datasetKey.projects.count != 1">{{ datasetKey.dataset.project.identifier }}</span>
+                        <span dir="ltr" ng-if="datasetKey.projects.count != 1">{{ datasetKey.dataset.project.identifier }}</span>
                     </dd>
                 </div>
 
@@ -36,22 +36,22 @@
                 </div>
                 <div>
                     <dt translate="dataset.registry.hostedBy">Host</dt>
-                    <dd><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
+                    <dd dir="auto"><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
                 </div>
                 <div ng-if="datasetKey.dataset.network && datasetKey.dataset.network.length > 0">
                     <dt class="uppercase-first" translate="dataset.pNetwork" translate-values="{NUMBER: datasetKey.dataset.network.length}">Networks</dt>
                     <dd><ul class="inline-bullet-list">
-                        <li ng-repeat="nw in datasetKey.dataset.network"><a ui-sref="network({key: nw.key})">{{nw.title}}</a></li>
+                        <li dir="auto" ng-repeat="nw in datasetKey.dataset.network"><a ui-sref="network({key: nw.key})">{{nw.title}}</a></li>
                     </ul></dd>
                 </div>
                 <div>
                     <dt translate="dataset.license"></dt>
-                    <dd>
+                    <dd dir="ltr">
                         <license link="{{ datasetKey.dataset.license }}"></license>
                     </dd>
                 </div>
                 <div>
-                    <a href="#citation" class="doi"><span class="gb-icon-quote"></span><span translate="dataset.howToCite"></span></a>
+                    <a href="#citation" class="doi" dir="ltr"><span class="gb-icon-quote"></span><span dir="auto" translate="dataset.howToCite"></span></a>
                     <doi link="{{ datasetKey.dataset.doi }}"></doi>
                 </div>
             </dl>

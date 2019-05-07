@@ -8,18 +8,18 @@
                 <dl class="inline">
                     <div ng-if="publisherKey.publisher.description">
                         <dt translate="publisher.description"></dt>
-                        <dd ng-bind-html="publisherKey.publisher.description">
+                        <dd ng-bind-html="publisherKey.publisher.description" dir="auto">
                         </dd>
                     </div>
                     <div ng-if="publisherKey.publisher.endorsementApproved">
                         <dt translate="publisher.endorsedBy"></dt>
-                        <dd>
+                        <dd dir="auto">
                             <a ng-href="{{portal.urlPrefix}}/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.publisher.endorsementApproved === false">
                         <dt translate="publisher.pendingEndorsementBy"></dt>
-                        <dd>
+                        <dd dir="auto">
                             <a ng-href="/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
                     </div>
@@ -28,41 +28,39 @@
                         <dd>
                            <ul class="inline-bullet-list">
                                <li ng-repeat="installation in publisherKey.installations.results">
-                                   <a ui-sref="installation({key:installation.key})" ng-href="/installation/{{ installation.key }}">{{ installation.title }}</a>
+                                   <a dir="auto" ui-sref="installation({key:installation.key})" ng-href="/installation/{{ installation.key }}">{{ installation.title }}</a>
                                </li>
                            </ul>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.adminContact">
                         <dt translate="publisher.administrativeContact"></dt>
-                        <dd>
+                        <dd dir="auto">
                             <a ng-href="mailto:{{ publisherKey.adminContact.email[0] }}">{{ publisherKey.adminContact.firstName }} {{ publisherKey.adminContact.lastName }}</a>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.technicalContact">
                         <dt translate="publisher.technicalContact"></dt>
-                        <dd>
+                        <dd dir="auto">
                             <a ng-href="mailto:{{ publisherKey.technicalContact.email[0] }}">{{ publisherKey.technicalContact.firstName }} {{ publisherKey.technicalContact.lastName }}</a>
                         </dd>
                     </div>
 
                     <div ng-if="publisherKey.publisher.country">
                         <dt translate="publisher.country"></dt>
-                        <dd>
+                        <dd dir="auto">
                             <a ui-sref="countrySummary({key:publisherKey.publisher.country})">{{ 'country.' + publisherKey.publisher.country | translate }}</a>
                         </dd>
                     </div>
 
                     <div ng-if="publisherKey.hostStats.datasetCount" class="m-t-1">
                         <dt translate="publisher.hosting"></dt>
-                        <dd>
-                            <dd>
+                        <dd dir="auto">
                             <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})" tx="counts.nDatasets" tx-nr="publisherKey.hostStats.datasetCount"></a> 
-                                (<ul class="inline-bullet-list">
-                                    <li tx="counts.nPublishers" tx-nr="publisherKey.hostStats.publisherCount"></li>
-                                    <li tx="counts.nCountries" tx-nr="publisherKey.hostStats.countryCount"></li>
-                                </ul>)
-                        </dd>
+                            (<ul class="inline-bullet-list">
+                                <li tx="counts.nPublishers" tx-nr="publisherKey.hostStats.publisherCount"></li>
+                                <li tx="counts.nCountries" tx-nr="publisherKey.hostStats.countryCount"></li>
+                            </ul>)
                         </dd>
                     </div>
                 </dl>

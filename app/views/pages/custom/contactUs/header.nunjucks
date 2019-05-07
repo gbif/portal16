@@ -1,11 +1,11 @@
 <div class="horizontal-stripe article-header p-b-05">
     <header class="text-center">
-        <h1>{$ main.fields.title $}</h1>
-        <div class="article-header__intro">
+        <h1 dir="auto">{$ main.fields.title $}</h1>
+        <div dir="auto" class="article-header__intro">
             {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
         </div>
         {% if main.fields.numberOfResourceUsed | isNotEmpty %}
-            <span class="article-header__meta">
+            <span class="article-header__meta" dir="auto">
                 {$ main.fields.numberOfResourceUsed | striptags $}
             </span>
         {% endif %}

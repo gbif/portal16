@@ -118,3 +118,42 @@ $secondaryInk = #9cabb3;
         }
     }
 }
+
+.rtl {
+    .taxonomyBrowser {
+        &__headline, &__subheadline {
+            margin-left 0
+            margin-right 70px
+        }
+        &__description {
+            margin-left 0
+            margin-right 70px
+        }
+        &__synonym {
+            > div {
+                padding-left 0
+                padding-right 15px
+            }
+            &__bordered {
+                border-left none
+                border-right 2px solid $orangePeel
+            }
+        }
+
+        &__basionyms {
+            margin-left 0 !important
+            margin-right -70px !important
+            > div {
+                padding-right 0
+            }
+        }
+        &__group {
+            text-align right
+            text-align left
+        }
+        &__action {
+            right auto
+            left 0
+        }
+    }
+}

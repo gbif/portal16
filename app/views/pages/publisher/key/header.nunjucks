@@ -8,10 +8,10 @@
                         </a></span>
                     <span class="article-header__category__lower" translate="publisher.header.sinceDate" translate-values="{DATE: (publisherKey.publisher.created | momentFormat:'LL') }"></span>
                 </nav>
-                <h1>
+                <h1 dir="auto">
                     <span ng-class="{'text-error': publisherKey.publisher.deleted}">{{ publisherKey.publisher.title }}</span>
                 </h1>
-                <p class="text-error text-center" ng-if="publisherKey.publisher.deleted" translate="phrases.deletedOnDate" translate-values="{DATE: (publisherKey.publisher.deleted | momentFormat:'LL') }"></p>
+                <p dir="auto" class="text-error text-center" ng-if="publisherKey.publisher.deleted" translate="phrases.deletedOnDate" translate-values="{DATE: (publisherKey.publisher.deleted | momentFormat:'LL') }"></p>
             </header>
         </div>
     </div>

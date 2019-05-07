@@ -16,16 +16,16 @@
             </div>
 
             <div ng-if="faq.answer">
-                <div class="card card--spaced m-b-05 searchCard">
+                <div class="card card--spaced m-b-05 searchCard rtl-supported" dir="auto">
                     <div class="card__stripe">
                         <div class="card__content">
-                            <h3 class="searchCard__headline">
+                            <h3 class="searchCard__headline" dir="auto">
                                 {{faq.answer.title}}
                             </h3>
                         </div>
                     </div>
                     <div class="card__stripe">
-                        <div class="card__content clearfix">
+                        <div class="card__content clearfix" dir="auto">
                             <div ng-bind-html="faq.answer._trustedBody"></div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                 {#<ng-include src="'/templates/components/loader/loader.html'" ng-if="!faq.hasData()"></ng-include>#}
                 <div ng-if="faq.answers.$resolved">
                     <div ng-repeat="result in faq.answers.results">
-                        <div class="card m-b-05 searchCard">
+                        <div class="card m-b-05 searchCard rtl-supported" dir="auto">
                             <div class="card__stripe">
                                 <div class="card__content">
                                     <a ui-sref="faq({question:result.identifier, q: undefined})" class="pull-right gb-icon-link inherit noUnderline"></a>

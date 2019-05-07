@@ -78,7 +78,7 @@
                                             {% if media[field] %}
                                                 <div>
                                                     <dt translate="ocurrenceFieldNames.{$ field $}">{$ field $}</dt>
-                                                    <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
+                                                    <dd dir="auto">{$ shorten.compactTableCell(media[field]) $}</dd>
                                                 </div>
                                             {% endif %}
                                         {% endfor %}

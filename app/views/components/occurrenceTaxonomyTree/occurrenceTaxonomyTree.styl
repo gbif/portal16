@@ -18,7 +18,7 @@ occurrence-taxonomy-tree {
             }
         }
     }
-    li{
+    li {
         position relative
         padding-left $treeInset
         margin-left 10px
@@ -114,6 +114,43 @@ occurrence-taxonomy-tree {
                     bottom initial
                     height 1.4em
                 }
+            }
+        }
+    }
+}
+
+.rtl .occurrenceTaxonomyTree {
+    li {
+        padding-left 0
+        margin-left 0
+        padding-right $treeInset
+        margin-right 10px
+    }
+    &__filter {
+        border-right 1px solid #dcdcdc
+        border-left none
+    }
+    .title {
+        >div {
+            left auto
+            right 0
+        }
+    }
+    ul {
+        padding-left auto
+        padding-right 0
+    }
+    .hasTreeLines {
+        .title {
+            &:after {
+                left auto
+                right -($treeInset)
+            }
+        }
+        li {
+            >.pipe {
+                left auto
+                right 0
             }
         }
     }

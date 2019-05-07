@@ -1,7 +1,7 @@
 <div class="light-background p-t-05 seperator">
     <div>
         <div class="scrollable-y">
-            <div class="table-container">
+            <div class="table-container rtl-bootstrap">
                 <table class="table search-table smaller">
                     <thead>
                     <tr>

@@ -382,3 +382,65 @@
         }
     }
 }
+
+.rtl {
+    .mapWidget {
+        &.isSmall {
+            .time-slider__container {
+                margin-left 0
+                margin-right 20px
+            }
+            .mapWidget__control {
+                left auto
+                right 0
+            }
+        }
+        &__mapButtons {
+            left auto
+            right 0.5rem
+        }
+        &__drawButtons {
+            right auto
+            left 0.5rem
+        }
+    }
+
+    .mapWidget {
+        &__help {
+            left 0
+            right auto
+        }
+        &__info {
+            left auto
+            right 0
+        }
+    }
+
+    .mapWidget__controlsArea {
+        &__toggleArea {
+            float left
+            >span {
+                left auto
+                right -5px
+            }
+        }
+    }
+
+    .mapWidget.isSmall {
+        .mapWidget__controlsArea {
+            &__popup {
+                left auto
+                right 0
+            }
+        }
+    }
+
+    .mapWidget.isLarge {
+        .mapWidget__controlsArea {
+            &__section {
+                right auto
+                left 0
+            }
+        }
+    }
+}

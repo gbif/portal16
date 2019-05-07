@@ -22,12 +22,12 @@
 
                     <div ng-if="datasetKey.host.$resolved">
                         <dt translate="dataset.registry.hostedBy"></dt>
-                        <dd><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
+                        <dd dir="auto"><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>
                     </div>
 
                     <div ng-if="datasetKey.installation.$resolved">
                         <dt translate="dataset.registry.installation">Installation</dt>
-                        <dd><a ng-href="/installation/{{ datasetKey.installation.key }}">{{ datasetKey.installation.title }}</a></dd>
+                        <dd dir="auto"><a ng-href="/installation/{{ datasetKey.installation.key }}">{{ datasetKey.installation.title }}</a></dd>
                     </div>
 
 
@@ -36,7 +36,7 @@
                         <dd>
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="person in datasetKey.installation.contacts" ng-if="person.email[0]">
-                                    <a ng-href="mailto:{{ person.email[0] }}">
+                                    <a dir="auto" ng-href="mailto:{{ person.email[0] }}">
                                         <span>{{ person.firstName }} {{ person.lastName }}</span>
                                     </a>
                                 </li>
@@ -47,7 +47,7 @@
                     <div ng-if="datasetKey.dataset._endpoints.length > 0">
                         <dt translate="dataset.registry.endpoints"></dt>
                         <dd>
-                            <ul class="inline-bullet-list">
+                            <ul dir="ltr" class="inline-bullet-list">
                                 <li ng-repeat="endpoint in datasetKey.dataset._endpoints" ng-if="endpoint.url">
                                     <a ng-href="{{ endpoint.url }}">
                                         {{ endpoint.url }}
@@ -67,13 +67,13 @@
                     </div>
                     <div ng-if="datasetKey.dataset.doi">
                         <dt translate="dataset.registry.preferredIdentifier"></dt>
-                        <dd>
+                        <dd dir="ltr">
                             <doi link="{{ datasetKey.dataset.doi }}"></doi>
                         </dd>
                     </div>
                     <div ng-if="datasetKey.dataset._identifiers.length > 0">
                         <dt translate="dataset.registry.alternativeIdentifier"></dt>
-                        <dd>
+                        <dd dir="ltr">
                             <ul class="inline-bullet-list">
                                 <li ng-repeat="identifier in datasetKey.dataset._identifiers">
                                   <!--  <doi link="{{ identifier.identifier }}" ng-if="identifier.type == 'DOI' && (identifier.identifier | startsWith:'doi:')"></doi>
@@ -85,7 +85,7 @@
                                     </a>
                                     <doi  link="{{ identifier.identifier }}" ng-if="identifier.type == 'DOI'">
                                     </doi>
-                                    <span ng-if="identifier.type == 'UNKNOWN'">
+                                    <span dir="auto" ng-if="identifier.type == 'UNKNOWN'">
                                         {{ identifier.identifier }}
                                     </span>
                                 </li>

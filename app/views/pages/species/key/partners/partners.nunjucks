@@ -1,7 +1,7 @@
     <div class="m-t-1" ng-if="speciesKey2.images.$resolved && speciesKey2.mappedOccurrences.$resolved">
             <h4 class="card-header" translate="species.seeAlso"></h4>
 
-            <div class="card" >
+            <div class="card" dir="ltr">
                     <div class="container-fluid card--padded">
                         <div class="row" ng-if="!speciesKey2.ott_id">
                             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 text-center">

@@ -6,19 +6,19 @@
             <div class="dataset-key__taxonomicCoverages__content">
                 <div ng-repeat="taxonomicCoverage in datasetKey.dataset._computedValues.taxonomicCoverages">
 
-                    <div ng-if="taxonomicCoverage.description " ng-bind-html="taxonomicCoverage.description"></div>
+                    <div ng-if="taxonomicCoverage.description " ng-bind-html="portal.trustAsHtml(taxonomicCoverage.description)"></div>
 
                     <div class="dataset-key__taxonomicCoverages__rank" ng-repeat="rank in taxonomicCoverage._ranks" ng-if="rank.taxa">
                         <h4 translate="taxonRank.{{ rank.rank }}"></h4>
                         <div class="dataset-key__taxonomicCoverages__columns">
                             <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey.dataset.type == 'CHECKLIST'">
                                 <a ui-sref="speciesSearchList({advanced:true,dataset_key: datasetKey.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa">
-                                    {{ name.scientificName }} <span ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
+                                    <span dir="ltr">{{ name.scientificName }}</span><span dir="auto" ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
                                 </a>
                             </span>
                             <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey.dataset.type != 'CHECKLIST'">
                                 <a ui-sref="occurrenceSearchTable({advanced:true,dataset_key: datasetKey.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa">
-                                    {{ name.scientificName }} <span ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
+                                    <span dir="ltr">{{ name.scientificName }}</span> <span dir="auto" ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
                                 </a>
                             </span>
                         </div>

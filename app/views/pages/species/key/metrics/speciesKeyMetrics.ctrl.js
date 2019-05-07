@@ -9,7 +9,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function speciesKeyMetricsCtrl($stateParams, $httpParamSerializer) {
+function speciesKeyMetricsCtrl($stateParams, LOCALE, $httpParamSerializer) {
     var vm = this;
     vm.key = $stateParams.speciesKey;
     vm.charts = [];
@@ -20,7 +20,7 @@ function speciesKeyMetricsCtrl($stateParams, $httpParamSerializer) {
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: secondDimension || '', type: type, customizable: customizable, showSettings: true, limit: limit},
-            filter: {taxon_key: vm.key},
+            filter: {taxon_key: vm.key, locale: LOCALE},
             customFilter: customFilter
         };
         list.push(chartConfig);

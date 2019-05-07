@@ -2,9 +2,9 @@
     <li ng-repeat="item in item.children">
         <div class="pipe"></div>
         <div class="title">
-            <a ng-if="item._resolved.rank !== 'SPECIES'" ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item._resolved.canonicalName}}</a>
-            <span ng-if="item._resolved.rank === 'SPECIES'">{{item._resolved.canonicalName}}</span>
-            <a href="" ng-click="vm.search(item._resolved.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item.count | localNumber }}</a>
+            <a dir="auto" ng-if="item._resolved.rank !== 'SPECIES'" ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item._resolved.canonicalName}}</a>
+            <span dir="auto" ng-if="item._resolved.rank === 'SPECIES'">{{item._resolved.canonicalName}}</span>
+            <a dir="auto" href="" ng-click="vm.search(item._resolved.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item.count | localNumber }}</a>
         </div>
         <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialExplorerTree.html'"></div>
     </li>
@@ -23,20 +23,20 @@
     <li ng-if="item.expanded && item.state == 'EMPTY'">
         <div class="pipe"></div>
         <div class="title title--action">
-            <span translate="metrics.noChildren"></span>
+            <span dir="auto" translate="metrics.noChildren"></span>
         </div>
     </li>
     <li ng-if="item.expanded && item.state == 'END' && item.childCount !== item.count">
         <div class="pipe"></div>
         <div class="title title--action">
-            <span translate="metrics.unknownRank" translate-values="{RANK: vm.nextRank(item._resolved.rank)}"></span>
-            <span class="discreet--very occurrenceTaxonomyTree__filter">{{ (item.count - item.childCount) | localNumber }}</span>
+            <span dir="auto" translate="metrics.unknownRank" translate-values="{RANK: vm.nextRank(item._resolved.rank)}"></span>
+            <span dir="auto" class="discreet--very occurrenceTaxonomyTree__filter">{{ (item.count - item.childCount) | localNumber }}</span>
         </div>
     </li>
     <li ng-if="item.expanded && item.state == 'FAILED'">
         <div class="pipe"></div>
         <div class="title title--action">
-            <span translate="metrics.failedToLoad"></span>
+            <span dir="auto" translate="metrics.failedToLoad"></span>
         </div>
     </li>
 </ul>
