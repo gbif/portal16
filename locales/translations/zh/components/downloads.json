@@ -20,7 +20,7 @@
     "titleMissing": "缺少数据集标题",
     "underProcessing": "正在处理中",
     "citation": "引用",
-    "format": "",
+    "format": "格式",
     "nRecordsAtTime": "于 {NUMBER_FORMATED} {NUMBER, select, one{记录} other{记录}}下载时",
     "aboutDeletionPolicy": "阅读更多关于我们的[刪除政策](/faq?question=for-how-long-will-does-gbif-store-downloads)。",
     "readDatauseAndTerms": "请确认已仔细阅读[数据使用者协议](/terms/data-user) 与 [引用指南](/citation-guidelines)。",
@@ -47,13 +47,13 @@
       "SUSPENDED": "已暂停",
       "RUNNING": "正在运行",
       "CANCELLED": "已取消",
-      "KILLED": ""
+      "KILLED": "已删除"
     },
     "predicate": {
       "joinDescriptions": {
-        "and": "",
-        "or": "",
-        "not": ""
+        "and": "需全部选用",
+        "or": "至少选择一项",
+        "not": "不需包含任何项目"
       },
       "and": "与",
       "or": "或",
