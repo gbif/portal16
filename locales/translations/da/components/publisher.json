@@ -2,6 +2,7 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "Om",
+      "metrics": "",
       "publishersHomepage": "Hjemmeside"
     },
     "joinedAgo": "Registreret for {TIME_AGO}",

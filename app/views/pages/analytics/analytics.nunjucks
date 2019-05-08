@@ -3,8 +3,8 @@
 {% macro chart(title, imgfile, info) %}
     <div class="chart">
         <div class="info">
-            <h4>{$ title $}</h4>
-            <p>{$ info $}</p>
+            <h4 dir="auto">{$ title $}</h4>
+            <p dir="auto">{$ info $}</p>
         </div>
         <div class="figure">
             <img src="{$ thumbBase $}{$ imgfile $}.png" data-jslghtbx="{$ imgBase $}{$ imgfile $}.png"
@@ -24,7 +24,7 @@
                             <span class="article-header__category__upper" translate="trends.analytics">Analytics</span>
                             <span class="article-header__category__lower">{% if country %}{$ __('country.'+country) $}{% else %}{$ __('trends.global') $}{% endif %}</span>
                         </nav>
-                        <h1>
+                        <h1 dir="auto">
                             {% if country and about %}
                             {$ __('trends.countryDataTrends', {TRANSLATED_COUNTRY:__('country.'+ country ) }) $}
                                
@@ -35,7 +35,7 @@
                                 
                             {% endif %}
                         </h1>
-                        <div class="article-header__intro">
+                        <div dir="auto" class="article-header__intro">
                             {% if country and about %}
                                 <p>{$ __('trends.changeOverTimeInDataAboutSpeciesFromCountry', {TRANSLATED_COUNTRY:__('country.'+ country ) }) $}</p>
                                 {% elif country %}

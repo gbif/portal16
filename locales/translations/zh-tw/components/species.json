@@ -8,6 +8,7 @@
     },
     "tabs": {
       "overview": "概覽",
+      "treatment": "",
       "metrics": "指標",
       "referenceTaxon": "參考分類群",
       "verbatim": "字面的"
@@ -53,7 +54,7 @@
     "publishedIn": "發布於",
     "tradeRestrictions": "貿易限制",
     "basionym": "基礎名",
-    "nVernacularNames": "{NUMBER, select,1{普通名} other {普通名}}",
+    "nVernacularNames": "{NUMBER, select, 1{俗名} other{俗名}}",
     "nameUsagesApplied": "名稱使用應用於 GBIF 的出現紀錄資料",
     "appearsIn": "出現於 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{資料集} other{資料集}}：",
     "viewOccurrences": "查看出現紀錄",
@@ -67,6 +68,7 @@
     "youAreBrowsing": "您正在瀏覽",
     "lastCrawled": "上次檢索於 {DATE_FORMATTED}",
     "extensions": "延伸集",
-    "taxa": "類群"
+    "taxa": "類群",
+    "mediatedThrough": ""
   }
 }

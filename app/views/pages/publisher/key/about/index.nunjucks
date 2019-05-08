@@ -7,10 +7,6 @@
                 </div>
             </div>
         </div>
-
-        {% include('./images.nunjucks') %}
-
         {% include('./contacts.nunjucks') %}
-        {% include('./map.nunjucks') %}
     </section>
 </div>

@@ -18,15 +18,15 @@
             },
             "SPECIES": {
                 "name": "物種",
-                "tooltip": "例如：搜尋及察看物種、物種建議。"
+                "tooltip": "例如：搜尋及查看物種、物種建議。"
             },
             "REGISTRY": {
-                "name": "註冊",
+                "name": "註冊表",
                 "tooltip": "例如：資料集、發布者、安裝程式、國家、會員及網絡。"
             },
             "IDENTITY": {
                 "name": "身份",
-                "tooltip": "用於登入、登入及連結帳戶等"
+                "tooltip": "用於登入、登出及連結帳戶等"
             },
             "MAPS": {
                 "name": "地圖",
@@ -37,7 +37,7 @@
                 "tooltip": "例如：新聞與文章"
             },
             "IMAGE_CACHE": {
-                "name": "圖像快取",
+                "name": "圖片快取",
                 "tooltip": "負責網站上的大部分圖片"
             },
             "GITHUB": {
@@ -45,11 +45,11 @@
                 "tooltip": "意見回饋，資料集建議。"
             },
             "CRAWLER": {
-                "name": "注入",
+                "name": "接收",
                 "tooltip": "更新資料集－新與舊"
             },
             "RESOURCE_SEARCH": {
-                "name": "搜尋來源",
+                "name": "資源搜尋",
                 "tooltip": "例如：搜尋文獻，新聞。"
             },
             "CLUSTER": {

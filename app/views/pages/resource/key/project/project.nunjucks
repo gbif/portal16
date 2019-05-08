@@ -6,7 +6,7 @@
         gb.projectId = '{$ main.fields.projectId $}';
         gb.projectKey = '{$ main.sys.id $}';
     </script>
-    <article class="wrapper-horizontal-stripes programme white-background" ng-controller="projectKeyCtrl as projectKey">
+    <article class="wrapper-horizontal-stripes programme white-background rtl-supported" ng-controller="projectKeyCtrl as projectKey">
         {% include "./header.nunjucks" %}
 
         {% include "./nav.nunjucks" %}

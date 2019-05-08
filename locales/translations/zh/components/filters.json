@@ -1,36 +1,36 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
-        "clear": "",
-        "add": "",
+        "searchPlaceholder": "搜索",
+        "noPreference": "没有首选项",
+        "invert": "倒序",
+        "clear": "清空",
+        "add": "添加",
         "repatriation": {
             "description": ""
         },
         "ternary": {
-            "yes": "",
-            "no": "",
-            "all": ""
+            "yes": "是",
+            "no": "否",
+            "all": "全部"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
-            "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "north": "北",
+            "south": "南",
+            "west": "西",
+            "east": "东",
+            "withCoordinates": "带有坐标",
+            "withoutCoordinates": "没有坐标",
+            "includeFlaggedAsSuspicious": "包括将坐标标记为可能有问题的记录",
+            "onlyShowFlagged": "仅显示标记为可能有问题的记录",
+            "past": "最近使用的",
+            "geojson": "GeoJSON",
+            "range": "范围",
+            "noFiltersAdded": "没有进行区域筛选",
+            "wktPlaceholder": "WKT 或 GeoJSON — 不支持多个多边形",
+            "invalidTextInput": "无效的 WKT 或 GeoJSON",
+            "tooLarge": "几何太大了",
+            "tooLargeSuggestion": "尝试使用边界框, 然后在本地进行筛选",
+            "invalidRange": "无效的边界框"
         }
     }
 }

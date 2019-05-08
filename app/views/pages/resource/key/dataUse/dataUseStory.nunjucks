@@ -10,13 +10,13 @@
                                     href="{$ gb.locales.urlPrefix $}/resource/search?contentType=dataUse">{$ __('enums.cms.contentType.dataUse') $}</a></span>
                         <span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>
                     </nav>
-                    <h1>{$ main.fields.title $}</h1>
-                    <div class="article-header__intro">
+                    <h1 dir="auto">{$ main.fields.title $}</h1>
+                    <div class="article-header__intro" dir="auto">
                         {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                     </div>
                     {% if main.fields.resourceUsed | isNotEmpty %}
                     <span class="article-header__meta">
-                        {$ __('cms.datause.dataViaGbif') $} : {$ main.fields.resourceUsed | striptags $}
+                        {$ __('cms.datause.dataViaGbif') $} : <span dir="auto">{$ main.fields.resourceUsed | striptags $}</span>
                     </span>
                     {% endif %}
                 </header>
@@ -29,7 +29,7 @@
                     {% include "../body.nunjucks" %}
 
                     {% if main.fields.primaryLink %}
-                        <div class="text-center m-b-1">
+                        <div class="text-center m-b-1" dir="auto">
                             <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small"><span class="gb-icon-link"></span> {$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
                         </div>
                     {% endif %}

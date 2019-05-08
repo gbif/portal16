@@ -70,7 +70,7 @@
     <section class="horizontal-stripe--paddingless lighter-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
 
-        <div class="occurrence-search__table__area" ng-show="occTable.hasData()">
+        <div class="occurrence-search__table__area rtl-bootstrap" ng-show="occTable.hasData()">
             <div class="scrollable-y">
                 <div class="table-container">
                     <table class="table search-table smaller">
@@ -84,59 +84,59 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="result in occTable.occurrenceState.table.results" class="lastCellFlexible">
+                            <tr ng-repeat="result in occTable.occurrenceState.table.results" class="lastCellFlexible rtl-supported">
                                 <td class="table-cell table-cell--action"></td>
-                                <td class="table-cell--wide">
+                                <td dir="auto" class="table-cell--wide" >
                                     <a ui-sref="occurrenceKey({key:result.key})" class="issue-bullet__no-indent" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</a>
                                     <a ui-sref="occurrenceKey({key:result.key})" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1) || !result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']" ng-bind-html="result._parsedName || result.scientificName"></a>
                                 </td>
-                                <td class="table-cell--normal" ng-if="occTable.showCol('country')">
+                                <td dir="auto" class="table-cell--normal" ng-if="occTable.showCol('country')">
                                     <a ui-sref="occurrenceKey({key:result.key})" translate="country.{{result.countryCode}}" ng-if="result.countryCode && result.countryCode != 'ZZ'">{{result.country}}</a>
                                 </td>
-                                <td class="table-cell--normal" ng-if="occTable.showCol('coordinates')">
+                                <td dir="auto" class="table-cell--normal" ng-if="occTable.showCol('coordinates')">
                                     <a ui-sref="occurrenceKey({key:result.key})">
                                         {{occTable.formatCoordinates(result.decimalLatitude, result.decimalLongitude)}}
                                     </a>
                                 </td>
-                                <td class="table-cell--normal" ng-if="occTable.showCol('eventDate')">
+                                <td dir="auto" class="table-cell--normal" ng-if="occTable.showCol('eventDate')">
                                     <a ui-sref="occurrenceKey({key:result.key})" ng-if="result.eventDate">
                                         {{result.eventDate | momentFormat:'YYYY MMMM'}}
                                     </a>
                                 </td>
-                                <td class="table-cell--normal" ng-if="occTable.showCol('basisOfRecord')">
+                                <td dir="auto" class="table-cell--normal" ng-if="occTable.showCol('basisOfRecord')">
                                     <a ui-sref="occurrenceKey({key:result.key})" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
                                 </td>
-                                <td class="table-cell--wide" ng-if="occTable.showCol('dataset')">
+                                <td dir="auto" class="table-cell--wide" ng-if="occTable.showCol('dataset')">
                                     <a ui-sref="datasetKey({key:result.datasetKey})" class="underline">{{result._datasetKey.title}}</a>
                                 </td>
-                                <td class="table-cell--narrow" ng-if="occTable.showCol('issues')">
+                                <td dir="auto" class="table-cell--narrow" ng-if="occTable.showCol('issues')">
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result.issues.length}}</a>
                                 </td>
-                                <td ng-if="occTable.showCol('typeStatus')">
+                                <td dir="auto" ng-if="occTable.showCol('typeStatus')">
                                     <a ng-if="result.typeStatus" ui-sref="occurrenceKey({key:result.key})" translate="typeStatus.{{result.typeStatus}}">{{result.typeStatus}}</a>
                                 </td>
 
-                                <td ng-repeat="col in ['individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy']"
+                                <td dir="auto" ng-repeat="col in ['individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy']"
                                     ng-if="occTable.showCol(col)">
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result[col]}}</a>
                                 </td>
 
-                                <td class="table-cell--wide" ng-if="occTable.showCol('publisher')">
+                                <td dir="auto" class="table-cell--wide" ng-if="occTable.showCol('publisher')">
                                     <a class="inherit" ui-sref="occurrenceKey({key:result.key})">{{result._publishingOrgKey.title}}</a>
                                 </td>
 
-                                <td class="table-cell--narrow" ng-if="occTable.showCol('taxonRank')">
+                                <td dir="auto" class="table-cell--narrow" ng-if="occTable.showCol('taxonRank')">
                                     <a ui-sref="occurrenceKey({key:result.key})" translate="taxonRank.{{result.taxonRank}}" ng-if="result.taxonRank && result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1">{{result.taxonRank}}</a>
                                     <a ui-sref="occurrenceKey({key:result.key})" translate="taxonRank.UNKNOWN" ng-if="!result.taxonRank || result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1"></a>
                                 </td>
 
-                                <td class="table-cell--narrow"
+                                <td dir="auto" class="table-cell--narrow"
                                     ng-repeat="col in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']"
                                     ng-if="occTable.showCol(col)">
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result[col]}}</a>
                                 </td>
 
-                                <td class="table-cell--wide" ng-if="occTable.showCol('species')">
+                                <td dir="auto" class="table-cell--wide" ng-if="occTable.showCol('species')">
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result.species}}</a>
                                 </td>
                             </tr>

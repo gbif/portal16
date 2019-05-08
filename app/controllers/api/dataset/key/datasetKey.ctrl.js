@@ -9,6 +9,7 @@ let express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
     auth = require('../../../auth/auth.service'),
+    md = require('markdown-it')({html: true, linkify: false, typographer: true, breaks: true}),
     Dataset = require('../../../../models/gbifdata/gbifdata').Dataset;
 
 module.exports = function(app) {
@@ -82,26 +83,36 @@ async function getDataset(key) {
 }
 
 function clean(obj) {
-    cleanField(obj, 'description');
-    cleanField(obj, 'purpose');
-    cleanField(obj, 'samplingDescription.studyExtent');
-    cleanField(obj, 'samplingDescription.sampling');
-    cleanField(obj, 'samplingDescription.qualityControl');
-    cleanField(obj, 'additionalInfo');
+    cleanMarkdownField(obj, 'description');
+    cleanMarkdownField(obj, 'purpose');
+    cleanMarkdownField(obj, 'samplingDescription.studyExtent');
+    cleanMarkdownField(obj, 'samplingDescription.sampling');
+    cleanMarkdownField(obj, 'samplingDescription.qualityControl');
+    cleanMarkdownField(obj, 'additionalInfo');
 
     cleanArray(obj, 'samplingDescription.methodSteps');
 
     _.get(obj, 'geographicCoverages', []).forEach(function(e) {
-        cleanField(e, 'description');
+        cleanMarkdownField(e, 'description');
     });
     _.get(obj, 'taxonomicCoverages', []).forEach(function(e) {
-        cleanField(e, 'description');
+        cleanMarkdownField(e, 'description');
     });
 }
 
-function cleanField(o, field) {
+// function cleanField(o, field) {
+//     if (_.has(o, field)) {
+//         _.set(o, field, format.sanitize(format.linkify(format.decodeHtml(_.get(o, field)))));
+//     }
+// }
+
+function cleanMarkdownField(o, field) {
     if (_.has(o, field)) {
-        _.set(o, field, format.sanitize(format.linkify(format.decodeHtml(_.get(o, field)))));
+        _.set(o, field, format.sanitize(format.linkify(format.decodeHtml(md.render(_.get(o, field)))))
+            .replace(/(<p>)/g, '<p dir="auto">')
+            .replace(/(<ul>)/g, '<ul dir="auto">')
+            .replace(/(<ol>)/g, '<ol dir="auto">')
+            );
     }
 }
 

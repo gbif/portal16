@@ -1,14 +1,14 @@
-<div class="card m-b-05 searchCard">
+<div class="card m-b-05 searchCard rtl-supported">
     <div class="card__stripe">
         <div class="card__content">
-            <h3 class="searchCard__headline">
+            <h3 class="searchCard__headline" dir="auto">
                 <a ui-sref="faq({question:result.identifier, q: undefined})" >{{result.title}}</a>
             </h3>
         </div>
     </div>
     <div class="card__stripe">
         <div class="card__content clearfix">
-            <p>
+            <p dir="auto">
                 {{result._summary}}
             </p>
         </div>

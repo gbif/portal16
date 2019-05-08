@@ -22,10 +22,10 @@
                     {# only show if the interpreted version has data. #}
                     <tr
                             {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
-                        <td>
+                        <td dir="auto">
                             {$ __('ocurrenceFieldNames.' + term.simpleName) $}
                         </td>
-                        <td>
+                        <td dir="auto">
                             {% if occurrence.record[term.simpleName] | isDefined %}
                                {% if term.simpleName !== "typeStatus" and term.simpleName !== "identificationRemarks" %}
                                 {$ shorten.shorten(occurrence.record[term.simpleName]) $}
@@ -60,10 +60,10 @@
                                 {#<span class="small">{$ __('interpretationRemarks.comments.EXCLUDED') $}</span>#}
                             {% endif %}
                         </td>
-                        <td class="ng-cloak" ng-show="!occurrenceKey.hideDetails">
+                        <td dir="auto" class="ng-cloak" ng-show="!occurrenceKey.hideDetails">
                             {$ shorten.shorten(occurrence.verbatim[term.qualifiedName]) $}
                         </td>
-                        <td class="ng-cloak" ng-show="!occurrenceKey.hideDetails">
+                        <td dir="auto" class="ng-cloak" ng-show="!occurrenceKey.hideDetails">
                             {% if occurrence.issues[term.simpleName] %}
                                 {% for issue in occurrence.issues[term.simpleName] %}
                                     <span class="badge badge--{$ issue.severity | lower $}">{$ __('occurrenceIssue.' + issue.type) $}</span>

@@ -3,13 +3,15 @@
     "connect": {
       "failed": {
         "FACEBOOK": "Kan ikke forbinde til Facebook",
-        "GITHUB": "Kan ikke forbinde til Github"
+        "GITHUB": "Kan ikke forbinde til Github",
+        "GOOGLE": ""
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "Facebook login fejlede",
-        "GITHUB": "Github login fejlede"
+        "GITHUB": "Github login fejlede",
+        "GOOGLE": ""
       }
     },
     "error": {

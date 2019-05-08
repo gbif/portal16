@@ -2,27 +2,27 @@
   "directory": {
     "group": {
       "executiveCommittee": {
-        "title": "",
-        "description": ""
+        "title": "执行委员会",
+        "description": "执行委员会在理事会闭会期间并在理事会委托的责任范围内代表理事会运作。其职能之一是监测秘书处在执行理事会所作决定方面的业绩, 包括《战略计划》和《工作方案》的执行情况以及预算的管理。"
       },
       "scienceCommittee": {
-        "title": "",
+        "title": "科学委员会",
         "description": ""
       },
       "budgetCommittee": {
-        "title": "",
+        "title": "预算委员会",
         "description": ""
       },
       "nsg": {
-        "title": "",
+        "title": "节点工作组",
         "description": ""
       },
       "nodesCommittee": {
-        "title": "",
+        "title": "节点管理员委员会",
         "description": ""
       },
       "secretariat": {
-        "title": "",
+        "title": "GBIF 秘书处",
         "description": ""
       },
       "voting": {
@@ -34,19 +34,19 @@
         "description": ""
       },
       "associateParticipants": {
-        "title": "",
+        "title": "其他机构会员",
         "description": ""
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "角色",
+      "name": "名字",
+      "participant": "成员",
+      "participationStatus": "会员状态"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "details": "详细信息",
+    "roles": "角色",
+    "sinceDate": "{DATE} 以来",
+    "showAllContacts": "全部"
   }
 }

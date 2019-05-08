@@ -5,5 +5,8 @@
     "SAMPLING_EVENT": "Événement d’échantillonnage",
     "METADATA": "Métadonnées",
     "undefined": "Inconnu"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
   }
 }

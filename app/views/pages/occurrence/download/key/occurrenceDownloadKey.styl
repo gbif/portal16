@@ -72,6 +72,13 @@ downloadKey {
     }
 }
 
+.rtl {
+    .toggle {
+        right auto
+        left 0
+    }
+}
+
 .predicates {
     &.isSimplePredicate {
         .leaf {
@@ -201,6 +208,35 @@ downloadKey {
     }
 }
 
+.rtl {
+    .predicates {
+        ul ul .join, ul .leaf {
+            &:after {
+                right: 0px;
+                left: auto;
+            }
+        }
+        .node {
+            margin-right 0
+            margin-left 10px
+        }
+        ul > li {
+            padding-left: 0;
+            padding-right: 30px;
+            margin-right: 10px;
+            margin-left: 0;
+            &:before {
+                right: -4px;
+                left auto
+            }
+            .pipe {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+}
+
 .stripeList {
     ul {
         padding 0
@@ -240,6 +276,13 @@ downloadKey {
             }
             border-bottom 1px solid $stripeBorderColor
         }
+    }
+}
+
+.rtl {
+    .stripeList ul li>a:hover .meta--right {
+        right auto
+        left vrBlock(1.5)
     }
 }
 

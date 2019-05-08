@@ -1,8 +1,8 @@
-<div class="card m-b-05 searchCard">
+<div class="card m-b-05 searchCard rtl-supported">
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('enums.cms.contentType.project') $}</span>
-            <h3 class="searchCard__headline">
+            <h3 class="searchCard__headline" dir="auto">
                 <a ng-href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                     {{result.title}}
                 </a>
@@ -14,11 +14,11 @@
             <a href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                 <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
             </a>
-            <p>
+            <p dir="auto">
                 {{result._summary}}
             </p>
             <p class="discreet--very smaller" ng-if="result.programme.title">
-                <span translate="resource.programme"></span>: <a ng-href="{{ portal.urlPrefix }}/programme/{{ result.programme.id }}" class="inherit">{{ result.programme.title | limitTo:150 }}</a>
+                <span translate="resource.programme"></span>: <a ng-href="{{ portal.urlPrefix }}/programme/{{ result.programme.id }}" class="inherit" dir="auto">{{ result.programme.title | limitTo:150 }}</a>
             </p>
             <ul class="list-chips">
                 <li ng-repeat="purpose in result.purposes">

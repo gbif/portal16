@@ -103,6 +103,10 @@ router.get('/publisher/installations.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/publisher/key/installations/publisherInstallations.template.nunjucks');
 });
 
+router.get('/publisher/metrics.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/publisher/key/metrics/publisherMetrics.template.nunjucks');
+});
+
 router.get('/search/countryResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/countrySearchResult');
 });

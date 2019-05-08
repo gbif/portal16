@@ -12,9 +12,9 @@
                                     __('enums.cms.contentType.news') $}</a></span>
                             <span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>
                         </nav>
-                        <h1>{$ main.fields.title $}</h1>
+                        <h1 dir="auto">{$ main.fields.title $}</h1>
                         {% if main.fields.summary %}
-                            <div class="article-header__intro">
+                            <div class="article-header__intro" dir="auto">
                                 {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                             </div>
                         {% endif %}
@@ -29,7 +29,7 @@
                     {% include "../body.nunjucks" %}
 
                     {% if main.fields.primaryLink %}
-                        <div class="text-center m-b-1">
+                        <div class="text-center m-b-1" dir="auto">
                             <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small"><span class="gb-icon-link"></span> {$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
                         </div>
                     {% endif %}

@@ -4,10 +4,10 @@
     "coordinates": "座標",
     "unknownDate": "未知日期",
     "absent": "缺少",
-    "issues": "議題",
+    "issues": "問題",
     "dataset": "資料集",
     "synced": "已同步",
-    "modified": "修改",
+    "modified": "已修改",
     "monthAndyear": "月與年",
     "coordinateUncertainty": "座標不確定",
     "citation": "引用",
@@ -26,20 +26,20 @@
       "raw": "原始的"
     },
     "groups": {
-      "Record": "記錄",
+      "Record": "紀錄",
       "Occurrence": "出現紀錄",
       "Event": "事件",
       "Identification": "鑑定",
       "Taxon": "分類群",
       "Location": "地點",
       "Organism": "生物體",
-      "MaterialSample": "材料樣品",
+      "MaterialSample": "材料樣本",
       "GeologicalContext": "地理背景",
       "other": "其它"
     },
     "term": "名稱",
-    "interpreted": "已解釋",
-    "original": "原始",
+    "interpreted": "已解析",
+    "original": "原始的",
     "remarks": "註記",
     "highlights": {
       "location": "地點",
@@ -63,10 +63,10 @@
         "HUMAN_OBSERVATION": "觀察於 {COUNTRY}",
         "MACHINE_OBSERVATION": "觀察於 {COUNTRY}",
         "MATERIAL_SAMPLE": "蒐集於 {COUNTRY}",
-        "OCCURRENCE": "紀錄於 {COUNTRY}",
+        "OCCURRENCE": "記錄於 {COUNTRY}",
         "OBSERVATION": "觀察於 {COUNTRY}",
-        "LITERATURE": "紀錄於 {COUNTRY}",
-        "UNKNOWN": "紀錄於 {COUNTRY}"
+        "LITERATURE": "記錄於 {COUNTRY}",
+        "UNKNOWN": "記錄於 {COUNTRY}"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "於未知地點蒐集",
@@ -77,13 +77,13 @@
         "MATERIAL_SAMPLE": "於未知地點蒐集",
         "OCCURRENCE": "於未知地點紀錄",
         "OBSERVATION": "於未知地點觀察",
-        "LITERATURE": "於未知地點紀錄",
-        "UNKNOWN": "於未知地點紀錄"
+        "LITERATURE": "於未知地點記錄",
+        "UNKNOWN": "於未知地點記錄"
       },
       "unknownSpecies": "未知的物種"
     },
     "occurrence": "出現紀錄",
-    "inLanguage": "在 {LANGUAGE_TRANSLATED}"
+    "inLanguage": "於 {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {

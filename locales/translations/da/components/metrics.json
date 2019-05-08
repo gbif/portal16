@@ -21,6 +21,7 @@
     "noOccurrences": "Ingen observationer",
     "nothingSelected": "Intet valgt",
     "occurrences": "Observationer",
+    "citations": "",
     "otherOrUknown": "Anden eller ukendt",
     "occurrencesPerField": "Observationer per {FIELD}",
     "occurrencesBreakdownPerField": "Observationsstatistik per felt",

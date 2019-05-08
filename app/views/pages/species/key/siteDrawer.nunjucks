@@ -27,7 +27,7 @@
 
             </div>
             <div class="checklist-info" ng-if="speciesKey2.species.$resolved && !speciesKey2.isNub">
-                <div><span translate="species.youAreBrowsing"></span>: <a class="inherit" href="" ui-sref="datasetKey({key: speciesKey2.species.datasetKey})">{{ speciesKey2.dataset.title  }}</a></div>
+                <div><span translate="species.youAreBrowsing"></span>: <a dir="auto" class="inherit" href="" ui-sref="datasetKey({key: speciesKey2.species.datasetKey})">{{ speciesKey2.dataset.title  }}</a></div>
             </div>
             <taxonomy-browser occ="false" taxon-key="{{speciesKey2.key}}" dataset-key="{{speciesKey2.species.datasetKey}}" ng-if="speciesKey2.species.datasetKey"></taxonomy-browser>
         </div>

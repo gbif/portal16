@@ -1,10 +1,13 @@
 User-agent: *
+{% if DOMAIN != 'https://www.gbif.org' %}Disallow: /{% else %}
 Disallow: /user/
 Disallow: /*/user/
 Disallow: /search/
 Disallow: /*/search/
 Disallow: /occurrence/
 Disallow: /*/occurrence/
+Allow: /occurrence/download/*
+Allow: /*/occurrence/download/*
 Disallow: /species/search
 Disallow: /*/species/search
 Disallow: /dataset/search
@@ -26,3 +29,4 @@ Sitemap: {$ DOMAIN $}/sitemap-node.xml
 Sitemap: {$ DOMAIN $}/sitemap-network.xml
 Sitemap: {$ DOMAIN $}/sitemap-installation.xml
 Sitemap: {$ DOMAIN $}/sitemap-species.xml
+{% endif %}

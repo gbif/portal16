@@ -1,14 +1,14 @@
 {
   "map": {
     "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{地理參照紀錄} other{地理參照紀錄}}",
-    "noOccurrencesWithCoordinates": "出現紀錄未含座標",
-    "clickToSearchArea": "點選搜尋區域",
+    "noOccurrencesWithCoordinates": "沒有含座標的出現紀錄資料",
+    "clickToSearchArea": "點選以搜尋區域",
     "generatedDateAgo": "{DATE_AGO} 產生",
     "anyYear": "任何年份",
     "exploreArea": "探索區域",
     "explore": "探索",
     "style": "樣式",
-    "filters": "篩選",
+    "filters": "篩選器",
     "projection": "投影",
     "select": "選取",
     "custom": "自訂",
@@ -18,7 +18,7 @@
     "chooseColors": "顏色",
     "predefined": {
       "CLASSIC_HEX": "經典六邊形",
-      "CLASSIC": "經典積分",
+      "CLASSIC": "經典圓點",
       "STREETS": "街道",
       "GLACIER": "冰河",
       "CUSTOM": "自訂"
@@ -26,9 +26,9 @@
     "basemap": {
       "CLASSIC": "洋紅",
       "LIGHT": "淺色（無標籤）",
-      "LIGHT_DETAILS": "亮色",
+      "LIGHT_DETAILS": "淺色",
       "DARK": "深色（無標籤）",
-      "DARK_DETAILS": "暗色",
+      "DARK_DETAILS": "深色",
       "OSM": "道路"
     },
     "bin": {
@@ -39,8 +39,8 @@
       "LARGE_SQUARE": "方形"
     },
     "colors": {
-      "CLASSIC": "經典式樣",
-      "FIRE": "火",
+      "CLASSIC": "經典樣式",
+      "FIRE": "火色",
       "GLACIER": "冰河",
       "PURPLE_YELLOW": "紫色 黃色",
       "PURPLE_HEAT": "紫色熱圖",
@@ -51,7 +51,7 @@
       "ORANGE_CLUSTER": "橙色集群"
     },
     "errors": {
-      "413": "此幾何檔案過大，資料應用程式介面無法處理。"
+      "413": "此幾何檔案過大，資料 API 無法處理。"
     }
   }
 }

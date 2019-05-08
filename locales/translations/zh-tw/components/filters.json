@@ -2,7 +2,7 @@
     "filters": {
         "searchPlaceholder": "搜尋",
         "noPreference": "無偏好設定",
-        "invert": "倒序",
+        "invert": "倒置",
         "clear": "清除",
         "add": "新增",
         "repatriation": {
@@ -20,14 +20,14 @@
             "east": "東",
             "withCoordinates": "包括座標",
             "withoutCoordinates": "不含座標",
-            "includeFlaggedAsSuspicious": "包括被標註為可疑座標的記錄",
+            "includeFlaggedAsSuspicious": "包括被標註為可疑座標的紀錄",
             "onlyShowFlagged": "只顯示標註為可疑的紀錄",
             "past": "最近使用",
-            "geojson": "GeojSON",
+            "geojson": "GeoJSON 格式",
             "range": "範圍",
             "noFiltersAdded": "未加入區域的篩選",
-            "wktPlaceholder": "WKT 或 GeoJSON - 不支援 multipolygons",
-            "invalidTextInput": "無效的 WKT 或 GeoJSON",
+            "wktPlaceholder": "WKT 或 GeoJSON 格式—不支援多重多邊形",
+            "invalidTextInput": "無效的 WKT 或 GeoJSON 格式",
             "tooLarge": "幾何形狀過大",
             "tooLargeSuggestion": "嘗試使用定界框，然後進行區域篩選。",
             "invalidRange": "無效的定界框"

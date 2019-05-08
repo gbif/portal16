@@ -42,6 +42,15 @@ function datasetActivityCtrl($http, $state, $stateParams, env, endpoints, NAV_EV
     vm.openHelpdesk = function() {
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
     };
+
+    // $http.get('/api/eventData/dataset/' + vm.key)
+    //     .then(function(response) {
+    //         // extract the ansers we care about
+    //         vm.eventData = response.data;
+    //     })
+    //     .catch(function() {
+    //         // ignore errors
+    //     });
 }
 
 module.exports = datasetActivityCtrl;

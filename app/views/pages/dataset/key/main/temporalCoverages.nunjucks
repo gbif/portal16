@@ -12,9 +12,11 @@
                         {{ period.date | momentFormat:'LL' }}
                     </li>
                     <li ng-if="period['@type'] == 'verbatim'">
-											<span ng-bind-html="period.period"></span>
-											<span class="discreet--very p-l-1">{{period.type | prettifyEnum}}</span>
-										</li>
+                        <div>
+                            <span dir="auto" ng-bind-html="period.period"></span>
+                            <span dir="auto" class="discreet--very p-l-1">{{period.type | prettifyEnum}}</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

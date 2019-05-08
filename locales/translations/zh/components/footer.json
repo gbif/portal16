@@ -1,13 +1,13 @@
 {
   "footer": {
-    "whatIsGbif": "",
-    "api": "",
-    "faq": "",
-    "newsletter": "",
-    "privacy": "",
-    "terms": "",
-    "citation": "",
-    "acknowledgements": "",
-    "contact": ""
+    "whatIsGbif": "GBIF是什么机构？",
+    "api": "API",
+    "faq": "常见问题解答",
+    "newsletter": "通讯",
+    "privacy": "隐私政策",
+    "terms": "使用条款与协议",
+    "citation": "引用",
+    "acknowledgements": "致谢",
+    "contact": "联系我们"
   }
 }

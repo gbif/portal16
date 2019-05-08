@@ -1,41 +1,41 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
-      "grantType": "",
-      "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
-      "fundsAllocated": "",
-      "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
-      "typeOfGrant": "",
-      "projectStart": "",
-      "status": "",
-      "programme": "",
-      "contractCountry": "",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "project": "项目",
+      "projectId": "项目编号",
+      "projectIdentifier": "项目标识符",
+      "grantType": "经费类别",
+      "duration": "周期",
+      "title": "标题",
+      "start": "开始时间",
+      "end": "结束",
+      "fundsAllocated": "经费支出",
+      "matchingFunds": "预期的共同资助方",
+      "funding": "资金",
+      "coFunding": "共同资助方",
+      "fundedBy": "资助人：",
+      "coFundedBy": "联合供资者",
+      "typeOfGrant": "经费类别",
+      "projectStart": "项目开始",
+      "status": "状态",
+      "programme": "计划",
+      "contractCountry": "国家或地区",
+      "newsAndEvents": "新闻和活动",
+      "call": "电话",
+      "projectLead": "项目负责人",
+      "contactDetalils": "联系方式",
+      "partners": "合作伙伴"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "通过 GBIF 使用的数据资源"
     },
     "literature": {
-      "keywords": ""
+      "keywords": "关键词"
     },
     "auxiliary": {
-      "subject": "",
-      "citation": "",
-      "organisingParticipants": ""
+      "subject": "主题",
+      "citation": "引用",
+      "organisingParticipants": "组织参与者"
     }
   }
 }

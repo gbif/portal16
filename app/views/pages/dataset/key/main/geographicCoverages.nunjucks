@@ -5,7 +5,7 @@
             <h3 translate="dataset.geographicCoverages"></h3>
             <div>
                 <div ng-repeat="geographicCoverage in datasetKey.dataset.geographicCoverages">
-                    <div ng-if="geographicCoverage.description" ng-bind-html="geographicCoverage.description"></div>
+                    <div dir="auto" ng-if="geographicCoverage.description" ng-bind-html="geographicCoverage.description"></div>
                     <div ng-if="geographicCoverage.boundingBox && datasetKey.coverages">
                         <feature-map features="datasetKey.coverages" map-style="'gbif-geyser-en'"></feature-map>
                     </div>

@@ -15,8 +15,8 @@
 
         <div class="filter-group" ng-if="species.state.query.q">
             <div class="m-05 m-l-1">
-                <span translate="speciesSearch.freeTextSearchFor" translate-values="{QUERY: species.state.query.q}"></span><br>
-            <span translate="speciesSearch.limitSearchTo"></span>
+                <span dir="auto" translate="speciesSearch.freeTextSearchFor" translate-values="{QUERY: species.state.query.q}"></span><br>
+            <span dir="auto" translate="speciesSearch.limitSearchTo"></span>
                 <select ng-model="species.state.query.qField">
                     <option value=""><em>{{ 'speciesSearch.limitResultsTo.all' | translate }}</em></option>
                     <option value="SCIENTIFIC" translate="speciesSearch.limitResultsTo.scientificNames"></option>

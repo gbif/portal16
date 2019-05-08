@@ -50,13 +50,13 @@
                             <tbody>
                             <tr ng-repeat="person in contactDirectory[participationGroup] | filter:contactDirectory.q | orderBy:contactDirectory.state.sortType:contactDirectory.state.sortReverse" ng-click="contactDirectory.showPerson(person.id)">
                                 <td>
-                                    <span>{{ person.firstName }} {{ person.surname }}</span>
+                                    <span dir="auto">{{ person.firstName }} {{ person.surname }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ 'role.' + person.role | translate }}</span>
+                                    <span dir="auto">{{ 'role.' + person.role | translate }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ person.participant }}</span>
+                                    <span dir="auto">{{ person.participant }}</span>
                                 </td>
                             </tr>
                             </tbody>
@@ -102,16 +102,16 @@
                             <tbody>
                             <tr ng-repeat="person in contactDirectory[committee] | filter:contactDirectory.q | orderBy:contactDirectory.state.sortType:contactDirectory.state.sortReverse" ng-click="contactDirectory.showPerson(person.personId || person.id)">
                                 <td>
-                                    <span>{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
+                                    <span dir="auto">{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
                                 </td>
                                 <td>
-                                    <span ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
+                                    <span dir="auto" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ person.participant }}</span>
+                                    <span dir="auto">{{ person.participant }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ 'participationStatus.' + person.participationStatus | translate }}</span>
+                                    <span dir="auto">{{ 'participationStatus.' + person.participationStatus | translate }}</span>
                                 </td>
                             </tr>
                             </tbody>

@@ -11,7 +11,7 @@
             <a href="" ng-click="vm.zoomIn()">+</a>
             <a href="" ng-click="vm.zoomOut()">-</a>
         </div>
-        <div class="mapWidget__info">
+        <div dir="auto" class="mapWidget__info">
             <span ng-if="!vm.baselayer">© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
             <span ng-if="vm.baselayer" ng-bind-html="vm.baselayer.attribution"></span>
         </div>

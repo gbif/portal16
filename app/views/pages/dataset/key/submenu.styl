@@ -79,4 +79,35 @@ $submenuProgressColor = lighten($blueTintedBlack, 10);
             top $navBar_height
         }
     }
+
+    .rtl {
+        .submenu-wrapper {
+            .submenu {
+                .part-name > h3 {
+                    margin-left 0
+                    margin-right 0
+                    padding 0 20px 0 30px
+                }
+                .nav-chapter {
+                    a {
+                        margin-left 0
+                        margin-right -10px
+                        border-left none
+                        border-right 2px solid $greyBackground
+                        &.subitem {
+                            padding-left 0
+                            padding-right 20px
+
+                        }
+                    }
+                    &.active {
+                        a {
+                            border-left none
+                            border-right 2px solid $linkColor
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,4 +1,4 @@
-<div class="filter-group filter-group--search">
+<div class="filter-group filter-group--search rtl-bootstrap">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
             <span translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
@@ -17,7 +17,7 @@
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
                              ng-if="vm.filterConfig.facets.hasFacets"></div>
-                        <span ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}">{{key}}</span>
+                        <span dir="auto" ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}">{{key}}</span>
                         <span class="filter-group__filter__name__count"
                               ng-if="vm.showFacetCount() && vm.filterState.data.facets">
                             {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
@@ -38,6 +38,7 @@
                    uib-typeahead="suggestion for suggestion in vm.getSuggestions($viewValue)"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"
+                   typeahead-template-url="dropdown.html" 
                    ng-keyup="vm.searchOnEnter($event)">
         </div>
 
@@ -49,7 +50,7 @@
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key"
                            ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
-                        <span class="filter-group__filter__name__title">{{facet.title}}</span>
+                        <span dir="auto" class="filter-group__filter__name__title">{{facet.title}}</span>
                         <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
                     </span>
                 </label>

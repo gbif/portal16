@@ -7,7 +7,7 @@
         "limitResultsTo": {
             "all": "全選",
             "scientificNames": "學名",
-            "vernacularNames": "普通名",
+            "vernacularNames": "俗名",
             "descriptions": "描述"
         }
     }

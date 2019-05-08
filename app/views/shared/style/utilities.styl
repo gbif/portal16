@@ -179,3 +179,117 @@ for num in 0 1 2 3 {
     border-radius 50%
     border 1px solid $stripeBorderColor
 }
+
+.rtl {
+    dd {
+        margin-right 0
+    }
+}
+.rtl .rtl-supported {
+    direction rtl
+    text-align right
+}
+// bootstrap overwrites
+.rtl .rtl-bootstrap {
+    caption, th {
+        text-align right
+    }
+    .pull-right {
+        float left!important;
+    }
+    .pull-left {
+        float right!important;
+    }
+    .radio label,
+    .checkbox label {
+        padding-left: 0;
+        padding-right: 20px;
+    }
+    .radio input[type="radio"],
+    .radio-inline input[type="radio"],
+    .checkbox input[type="checkbox"],
+    .checkbox-inline input[type="checkbox"] {
+        margin-left: 0;
+        margin-right: -20px;
+    }
+}
+.rtl {
+    .dropdown-menu {
+        left auto 
+        right 0
+        text-align right
+    }
+    .gb-icon-angle-left:before {
+        content: $icon-string-angle-right
+    }
+    .gb-icon-angle-right:before {
+        content: $icon-string-angle-left
+    }
+}
+
+@media (min-width: 1200px) {
+    .rtl .rtl-bootstrap {
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9 {
+            float: right;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .rtl .rtl-bootstrap {
+        .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+            float: right;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .rtl .rtl-bootstrap {
+        .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
+            float: right;
+        }
+    }
+}
+
+.rtl .rtl-bootstrap {
+    .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+        float: right;
+    }
+}
+
+
+
+.rtl {
+    // transform scaleX(-1) //TODO temporary
+    .pull-right-rtl {
+        float left
+    }
+    .pull-left-rtl {
+        float right
+    }
+}
+
+.rtl-text {
+    direction rtl!important
+}
+.ltr-text {
+    direction ltr!important
+}
+
+.no-decimals li {
+    list-style none!important
+}
+
+.is-rtl {
+    direction rtl
+}
+
+.rtl {
+    .rtl_false {
+        direction ltr
+        unicode-bidi isolate
+    }
+    .rtl_true {
+        direction rtl
+    }
+}

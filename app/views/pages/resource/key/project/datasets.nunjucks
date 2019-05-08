@@ -5,11 +5,11 @@
             <div class="col-xs-12">
                 <div ng-repeat="result in projectKey.datasets.results">
 
-                    <article class="card m-b-05 searchCard">
+                    <article class="card m-b-05 searchCard rtl-supported">
                         <div class="card__stripe">
                             <div class="card__content">
                                 <a href="" ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}" class="inherit searchCard__type hoverBox"></a>
-                                <h3 class="searchCard__headline">
+                                <h3 class="searchCard__headline" dir="auto">
                                     <a ng-href="{{ portal.urlPrefix }}/dataset/{{result.key}}">{{result.title}}</a>
                                 </h3>
                             </div>
@@ -22,15 +22,15 @@
                                         <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=DATASET&resolution=4">
                                     </div>
                                 </div>
-                                <p ng-if="result.description">
+                                <p ng-if="result.description" dir="auto">
                                     {{result.description | stripTags | limitTo:200 }}
                                 </p>
-                                <p ng-if="!result.description" class="discreet" translate="dataset.noDescriptionProvided">
+                                <p ng-if="!result.description" class="discreet" translate="dataset.noDescriptionProvided" dir="auto">
                                 </p>
                                 <p class="discreet--very smaller" ng-if="result.publishingOrganizationTitle">
-                                    <span translate="dataset.publishedBy"></span> {{ result.publishingOrganizationTitle | limitTo:100 }}
+                                    <span translate="dataset.publishedBy"></span> <span dir="auto">{{ result.publishingOrganizationTitle | limitTo:100 }}</span>
                                 </p>
-                                <p ng-if="result.highlights && result.highlights.description">
+                                <p ng-if="result.highlights && result.highlights.description" dir="auto">
                                     <span>... <span ng-bind-html="result.highlights.description"></span> ...</span>
                                 </p>
                                 <ul class="list-chips" ng-if="result.type != 'METADATA'">

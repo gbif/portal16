@@ -1,6 +1,21 @@
 <div class="horizontal-stripe--paddingless">
-    <div class="container--narrow">
+    <div class="container--normal">
         <div class="m-t-2">
+            <section ng-if="datasetKey.literature.count > 1">
+                <div>
+                    <literature-breakdown filter="{gbifDatasetKey: datasetKey.key}"></literature-breakdown>
+                </div>
+            </section>
+
+            {# <section>
+                <div ng-if="datasetActivity.eventData.message.facets.source.values.twitter">
+                    {{datasetActivity.eventData.message.facets.source.values.twitter}} twitter
+                </div>
+                <div ng-if="datasetActivity.eventData.messages.source.values.wikipedia">
+                    {{datasetActivity.eventData.messages.source.values.wikipedia}} wikipedia
+                </div>
+            </section> #}
+
             <div ng-if="datasetActivity.loadingDownloads">
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
             </div>

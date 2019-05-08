@@ -2,23 +2,23 @@
     "intervals": {
         "noFilter": "無篩選",
         "elevation": {
-            "equals": "是 {from}m",
-            "between": "在 {from} 和 {to}m 之間",
-            "lessThanOrEquals": "低於 {to}m",
-            "greaterThanOrEquals": "高於 {from}m",
+            "equals": "是 {from}米",
+            "between": "在 {from} 至 {to}米 之間",
+            "lessThanOrEquals": "低於 {to}米",
+            "greaterThanOrEquals": "高於 {from}米",
             "invalid": "無效",
             "select": {
                 "equals": "是",
                 "between": "之間",
-                "lessThanOrEquals": "下方",
+                "lessThanOrEquals": "以下",
                 "greaterThanOrEquals": "以上"
             }
         },
         "depth": {
-            "equals": "是 {from}m",
-            "between": "在 {from} 和 {to}m 之間",
-            "lessThanOrEquals": "在 {to}m 深度之上",
-            "greaterThanOrEquals": "深於 {from}m 深度",
+            "equals": "是 {from}米",
+            "between": "在 {from} 至 {to}米 之間",
+            "lessThanOrEquals": "{to}米深度以上",
+            "greaterThanOrEquals": "深於 {from}米",
             "invalid": "無效",
             "select": {
                 "equals": "是",

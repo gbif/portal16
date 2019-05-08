@@ -2,9 +2,10 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "關於",
+      "metrics": "",
       "publishersHomepage": "首頁"
     },
-    "joinedAgo": "於 {TIME_AGO} 加入",
+    "joinedAgo": "於 {TIME_AGO} 前加入",
     "newPublisher": "新發布者",
     "technicalContact": "技術聯繫",
     "country": "國家或地區",

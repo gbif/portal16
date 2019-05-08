@@ -5,5 +5,8 @@
     "SAMPLING_EVENT": "取样活动",
     "METADATA": "元数据",
     "undefined": "未知"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
   }
 }

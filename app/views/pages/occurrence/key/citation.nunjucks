@@ -5,7 +5,7 @@
                 <h5 class="card-header" translate="occurrence.citation"></h5>
                 <div class="card card--spaced">
                     <div class="card__content">
-                        <div>
+                        <div dir="auto">
                             {$ occurrence.dataset.citation.text $} {$ _meta.domain $}/occurrence/{$ occurrence.record.key $}
                         </div>
                     </div>

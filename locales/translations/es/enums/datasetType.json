@@ -5,5 +5,8 @@
     "SAMPLING_EVENT": "Evento de muestreo",
     "METADATA": "Metadatos",
     "undefined": "Desconocido"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
   }
 }

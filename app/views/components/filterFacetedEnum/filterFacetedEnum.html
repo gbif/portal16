@@ -1,4 +1,4 @@
-<div class="filter-group" ng-mouseover="vm.isHovered = true">
+<div class="filter-group rtl-bootstrap" ng-mouseover="vm.isHovered = true">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
             <span translate="{{vm.filterConfig.title}}">{{vm.filterConfig.title}}</span>
@@ -28,7 +28,7 @@
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
                              ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
-                        <span
+                        <span dir="auto"
                               ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}"
                               xtranslate="{{vm.filterConfig.valueTranslationPrefix}}{{key}}">{{key}}</span>
                         <span class="filter-group__filter__name__count"

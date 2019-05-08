@@ -5,14 +5,14 @@
             <ul>
                 <li ng-repeat="result in vm.references.results" class="card--references__item">
                     <div>
-                        <div ng-bind-html="result.citation" class="max2Lines">{{ result.citation }}</div>
+                        <div dir="auto" ng-bind-html="result.citation" class="max2Lines">{{ result.citation }}</div>
                         <div class="small">
-                            <span class="source" ng-if="result.type">{{ result.type}} – </span>
-                            <span class="source" ng-if="result.source">{{ result.source }} </span>
-                            <a class="" ng-href="{{result.doi}}" ng-if="result.doi">
+                            <span dir="auto" class="source" ng-if="result.type">{{ result.type}} – </span>
+                            <span dir="auto" class="source" ng-if="result.source">{{ result.source }} </span>
+                            <a dir="ltr" class="" ng-href="{{result.doi}}" ng-if="result.doi">
                                 {{result.doi}}
                             </a>
-                            <a class="" ng-href="https://scholar.google.com/scholar?q={{result.citation}}" ng-if="!result.doi">
+                            <a dir="auto" class="" ng-href="https://scholar.google.com/scholar?q={{result.citation}}" ng-if="!result.doi">
                                 Google Scholar
                             </a>
                         </div>
@@ -23,8 +23,8 @@
         </div>
         <div ng-if="vm.hasPages">
             <div class="clearfix m-05">
-                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.references.offset==0}">Previous</a>
-                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.references.endOfRecords}">Next</a>
+                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.references.offset==0}" translate="pagination.previous"></a>
+                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.references.endOfRecords}" translate="pagination.next"></a>
             </div>
         </div>
     </section>

@@ -1,83 +1,75 @@
-<div class="occurrenceTaxonomyTree">
+<div class="occurrenceTaxonomyTree rtl-supported">
     <ng-transclude></ng-transclude>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-6">
-                <ul class="occurrenceTaxonomyTree__root">
-                    <li>
+        <ul class="occurrenceTaxonomyTree__root">
+            <li>
+                <div class="pipe"></div>
+                <div class="title occurrenceTaxonomyTree__toggle" dir="auto">
+                    <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: !vm.showFrequenyTree}" translate="metrics.explore"></a>
+                    <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: vm.showFrequenyTree}" translate="metrics.majorGroups"></a>
+                </div>
+                <ul class="hasTreeLines" ng-if="!vm.showFrequenyTree">
+                    <li ng-repeat="item in vm.fullTree.children">
                         <div class="pipe"></div>
-                        <div class="title occurrenceTaxonomyTree__toggle">
-                            <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: !vm.showFrequenyTree}" translate="metrics.explore"></a>
-                            <a ng-click="vm.showFrequenyTree = !vm.showFrequenyTree" href="" ng-class="{isActive: vm.showFrequenyTree}" translate="metrics.majorGroups"></a>
+                        <div class="title">
+                            <a dir="auto" ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item._resolved.canonicalName}}</a>
+                            <a dir="auto" href="" ng-click="vm.search(item._resolved.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item.count | localNumber }}</a>
                         </div>
-                        <ul class="hasTreeLines" ng-if="!vm.showFrequenyTree">
-                            <li ng-repeat="item in vm.fullTree.children">
-                                <div class="pipe"></div>
-                                <div class="title">
-                                    <a ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item._resolved.canonicalName}}</a>
-                                    <a href="" ng-click="vm.search(item._resolved.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item.count | localNumber }}</a>
-                                </div>
-                                <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialExplorerTree.html'"></div>
-                            </li>
-                            <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'LOADING'">
-                                <div class="pipe"></div>
-                                <div class="title title--action loadingNode">
-                                    <span class="loading"></span>
-                                </div>
-                            </li>
-                            <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'MORE'">
-                                <div class="pipe"></div>
-                                <div class="title title--action">
-                                    <a href="" ng-click="vm.appendTaxa(vm.fullTree)">…</a>
-                                </div>
-                            </li>
-                            <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'END' && vm.fullTree.children.length == 0">
-                                <div class="pipe"></div>
-                                <div class="title title--action">
-                                    <span translate="metrics.noOccurrences"></span>
-                                </div>
-                            </li>
-                            <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'FAILED'">
-                                <div class="pipe"></div>
-                                <div class="title title--action">
-                                    <span translate="metrics.failedToLoad"></span>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="hasTreeLines" ng-if="vm.showFrequenyTree">
-                            <li ng-repeat="item in vm.tree">
-                                <div class="pipe"></div>
-                                <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline">
-                                   <!-- <div style="width:{{item.percentage | formatAsPercentage}}%"></div> -->
-                                    <span>{{item.canonicalName}}</span><span class="discreet--very">{{item.percentage | formatAsPercentage }}%</span>
-                                </a>
-                                <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialTree.html'"></div>
-                            </li>
-                            <li ng-if="!vm.frequent.$resolved">
-                                <div class="pipe"></div>
-                                <div class="title title--action loadingNode">
-                                    <span class="loading"></span>
-                                </div>
-                            </li>
-                            <li ng-if="vm.frequent.$resolved && vm.tree.length == 0">
-                                <div class="pipe"></div>
-                                <div class="title title--action">
-                                    <span translate="metrics.noOccurrences"></span>
-                                </div>
-                            </li>
-                            <li ng-if="vm.frequent.$resolved && vm.frequent._failed">
-                                <div class="pipe"></div>
-                                <div class="title title--action">
-                                    <span translate="metrics.failedToLoad"></span>
-                                </div>
-                            </li>
-                        </ul>
+                        <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialExplorerTree.html'"></div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'LOADING'">
+                        <div class="pipe"></div>
+                        <div class="title title--action loadingNode">
+                            <span class="loading"></span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'MORE'">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <a href="" ng-click="vm.appendTaxa(vm.fullTree)">…</a>
+                        </div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'END' && vm.fullTree.children.length == 0">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span translate="metrics.noOccurrences" dir="auto"></span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.fullTree.expanded && vm.fullTree.state == 'FAILED'">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span translate="metrics.failedToLoad" dir="auto"></span>
+                        </div>
                     </li>
                 </ul>
-            </div>
-            <div class="col-xs-6">
-                <div class="chartArea" style="width:100%; xheight: 250px"></div>
-            </div>
-        </div>
+                <ul class="hasTreeLines" ng-if="vm.showFrequenyTree">
+                    <li ng-repeat="item in vm.tree">
+                        <div class="pipe"></div>
+                        <a ng-click="vm.search(item.key)" href="" class="title inherit noUnderline">
+                            <!-- <div style="width:{{item.percentage | formatAsPercentage}}%"></div> -->
+                            <span dir="auto">{{item.canonicalName}}</span><span dir="auto" class="discreet--very">{{item.percentage | formatAsPercentage }}%</span>
+                        </a>
+                        <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialTree.html'"></div>
+                    </li>
+                    <li ng-if="!vm.frequent.$resolved">
+                        <div class="pipe"></div>
+                        <div class="title title--action loadingNode">
+                            <span class="loading"></span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.frequent.$resolved && vm.tree.length == 0">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span translate="metrics.noOccurrences" dir="auto"></span>
+                        </div>
+                    </li>
+                    <li ng-if="vm.frequent.$resolved && vm.frequent._failed">
+                        <div class="pipe"></div>
+                        <div class="title title--action">
+                            <span translate="metrics.failedToLoad" dir="auto"></span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </div>

@@ -1,75 +1,75 @@
 {
   "collection": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "コレクション",
+      "description": "**機関コレクション** は機関に正式に受け入れされたコレクションであり、機関から何らかの支援を受けているものです。\n\n**プレジェクトコレクション** は機関に関連付けされる研究者によって収集され、機関に正式に受け入れされていないコレクションも含みます。プロジェクトコレクションは結果的に機関のコレクションの一部になるか、もしくは個々の研究者によって運用管理されていくものです。\n\n**個人コレクション** は個々の研究者の管理下にあり、正式には機関と関連しないコレクションです。個人のコレクターの個人資産や孤立したコレクションも含まれるかもしれません。"
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
-    "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "headerTitle": "コレクション",
+    "description": "説明",
+    "institutionName": "機関名",
+    "code": "コード",
+    "statusOfCollection": "コレクションのステータス",
+    "personalCollection": "個人コレクション",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "はい",
+      "false": "いいえ"
     },
-    "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
-    "homepage": "",
-    "apiUrl": "",
+    "accessionStatus": "受入状況",
+    "contentTypes": "コンテンツの種類",
+    "preservationTypes": "保存のタイプ",
+    "homepage": "ホームページ",
+    "apiUrl": "コレクションの Web サービスの URL",
     "catalogUrl": "コレクションの標本カタログおよびデータベースのURL",
-    "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "identifiers": "識別子",
+    "collectionMailingAddress": "メールアドレス",
+    "status": "ステータス",
+    "name": "名前",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "活動中",
+      "false": "無活動"
     }
   },
   "institution": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "機関",
+      "description": "**機関** は科学のコレクションを所有し管理するあらゆる機関や組織のことを指します。植物標本、博物館、動物園、植物園、バイオバンクなどが含まれます。機関は複数のコレクションを持つことがあるため、その際は **機関／プロジェクトのコレクション** の欄に個別の名称を記入し、大元の機関へのリンクを付けてください。\n\n古いデータセットを統合するため、また **機関コード** の重複を避けるために、全てのIndex Herbariorumの植物標本コードに<IH>を付け加える必要があります。"
     },
-    "headerTitle": "",
-    "indexHerbariorumRecord": "",
+    "headerTitle": "機関",
+    "indexHerbariorumRecord": "Index Herbariorum Record（植物標本レコードの索引）",
     "numberSpecimens": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "code": "機関コード",
+    "statusOfInstitution": "機関の状態",
+    "additionalNames": "その他の名称",
+    "description": "説明",
+    "homepage": "ホームページ",
     "foundingDate": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "disciplines": "機関の規律",
+    "institutionalGovernance": "機関のガバナンス",
+    "type": "機関タイプ",
+    "identifiers": "識別子",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "活動中",
+      "false": "無活動"
     },
-    "true": "",
-    "false": ""
+    "true": "はい",
+    "false": "いいえ"
   },
   "grscicollPerson": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "コレクションスタッフ",
+      "description": "GRSciCollスタッフメンバーはコレクションに関わる全ての職種のスタッフが含まれます。機関と連携したり、あらゆる種類のコレクションと関連付けることができます。"
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "headerTitle": "コレクションスタッフ",
+    "firstName": "名",
+    "lastName": "姓",
+    "fullName": "フルネーム",
+    "position": "職種",
+    "affiliations": "所属",
+    "areaResponsibility": "責任の範囲",
+    "researchPursuits": "研究専門分野",
+    "primaryInstitution": "主要機関の名称",
+    "primaryCollection": "主なコレクションの名称",
+    "affiliateInstitutions": "その他の所属機関",
     "affiliateCollections": ""
   },
   "grscicoll": {

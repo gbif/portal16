@@ -2,8 +2,11 @@
   "datasetType": {
     "OCCURRENCE": "出現紀錄",
     "CHECKLIST": "物種名錄",
-    "SAMPLING_EVENT": "取樣事件",
+    "SAMPLING_EVENT": "調查活動",
     "METADATA": "詮釋資料",
     "undefined": "未知"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
   }
 }

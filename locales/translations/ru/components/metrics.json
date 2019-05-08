@@ -21,6 +21,7 @@
     "noOccurrences": "Нет находок",
     "nothingSelected": "Пусто",
     "occurrences": "Находки",
+    "citations": "",
     "otherOrUknown": "Другие или неизвестные",
     "occurrencesPerField": "Находок на {FIELD}",
     "occurrencesBreakdownPerField": "Разбивка находок по полям",

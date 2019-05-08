@@ -8,19 +8,19 @@
 
                     <div ng-if="datasetKey.dataset.language">
                         <dt translate="dataset.metadataLanguage"></dt>
-                        <dd translate="language.{{ datasetKey.dataset.language }}"></dd>
+                        <dd dir="auto" translate="language.{{ datasetKey.dataset.language }}"></dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.dataLanguage">
                         <dt translate="dataset.dataLanguage"></dt>
-                        <dd translate="language.{{ datasetKey.dataset.dataLanguage }}"></dd>
+                        <dd dir="auto" translate="language.{{ datasetKey.dataset.dataLanguage }}"></dd>
                     </div>
 
                     <div ng-if="datasetKey.dataset.dataDescriptions.length > 0">
                         <dt translate="dataset.dataDescriptions"></dt>
                         <dd>
                             <ul class="inline-bullet-list">
-                                <li ng-repeat="descr in datasetKey.dataset.dataDescriptions">
+                                <li dir="auto" ng-repeat="descr in datasetKey.dataset.dataDescriptions">
                                     <a ng-href="{{ descr.url }}">
                                         <span ng-if="descr.name">{{ descr.name }}</span>
                                         <span ng-if="!descr.name && descr.url">{{ descr.url }}</span>

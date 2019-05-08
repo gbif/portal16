@@ -13,9 +13,9 @@
                                 </span>
                                 <span class="article-header__category__lower">{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</span>
                             </nav>
-                            <h1>{$ main.fields.title $}</h1>
+                            <h1 dir="auto">{$ main.fields.title $}</h1>
 
-                            <div class="article-header__button">
+                            <div class="article-header__button" dir="auto">
                                 {% if main.fields.primaryLink %}
                                 <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small">{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
                                 {% endif %}
@@ -63,13 +63,13 @@
                                 {% if main.fields.venue %}
                                     <div>
                                         <dt>{$ __('resource.venue') $}</dt>
-                                        <dd>{$ main.fields.venue | safe $}</dd>
+                                        <dd dir="auto">{$ main.fields.venue | safe $}</dd>
                                     </div>
                                 {% endif %}
                                 {% if main.fields.location %}
                                     <div>
                                         <dt>{$ __('resource.location') $}</dt>
-                                        <dd>{$ main.fields.location | safe $}</dd>
+                                        <dd dir="auto">{$ main.fields.location | safe $}</dd>
                                     </div>
                                 {% endif %}
                                 {% if main.fields.country %}
@@ -94,7 +94,7 @@
                                 {% if main.fields.eventLanguage %}
                                     <div>
                                         <dt>{$ __('resource.language') $}</dt>
-                                        <dd>{$ main.fields.eventLanguage $}</dd>
+                                        <dd dir="auto">{$ main.fields.eventLanguage $}</dd>
                                     </div>
                                 {% endif %}
                             </dl>

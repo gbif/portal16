@@ -1,15 +1,15 @@
 {
   "collection": {
     "search": {
-      "title": "蒐藏品",
-      "description": "**機構蒐藏品** 是已正式加入機構並獲得相當程度支持的蒐藏品。\n\n**計畫蒐藏品**是由機構內研究者所收集，但可能尚未被正式納入的蒐藏品。計畫蒐藏品最終可能變成機構蒐藏品的一部分或仍由各別研究者管理及控管。\n\n**私人蒐藏品**是由各別研究者控管，並未正式納入相關機構的蒐藏品。它們可能為蒐藏家的私人財物或未歸屬任何人。"
+      "title": "典藏",
+      "description": "**機構典藏** 是已正式被加入機構並獲得相當程度支持的典藏。\n\n**計畫典藏**是由機構內研究員所收集，但可能尚未被正式納入的典藏。計畫典藏最終可能變成機構典藏的一部分或仍由個別研究員管理及控管。\n\n**私人典藏**是由個別研究者控管，並未正式被納入相關機構的典藏。它們可能為蒐藏家的私人財產或未歸屬於任何人。"
     },
-    "headerTitle": "蒐藏品",
+    "headerTitle": "典藏",
     "description": "描述",
     "institutionName": "機構名稱",
     "code": "代碼",
-    "statusOfCollection": "蒐藏品狀態",
-    "personalCollection": "私人蒐藏",
+    "statusOfCollection": "典藏狀態",
+    "personalCollection": "私人典藏",
     "isPersonalCollection": {
       "true": "是",
       "false": "否"
@@ -18,8 +18,8 @@
     "contentTypes": "內容類型",
     "preservationTypes": "保存類型",
     "homepage": "首頁",
-    "apiUrl": "蒐藏品網頁服務的 URL",
-    "catalogUrl": "蒐藏品標本名錄／資料庫的 URL",
+    "apiUrl": "典藏網頁服務的 URL 位址",
+    "catalogUrl": "典藏標本名錄／資料庫的 URL 位址",
     "identifiers": "識別碼",
     "collectionMailingAddress": "郵寄地址",
     "status": "狀態",
@@ -32,7 +32,7 @@
   "institution": {
     "search": {
       "title": "機構",
-      "description": "** 機構 ** 是指擁有與管理科學蒐藏的任何機構或組織。包括草本植物、博物館、動物園、植物園、生物庫等。一個機構可以包含多個蒐藏品，也就是說這些蒐藏品應在 ** 機構／計畫收藏品 ** 單獨輸入，並與其上層機構連結。\n\n由於整合數個較舊的資料集，並為避免 **機構代碼** 重複，所有植物標本館索引代碼會附加 <IH> 。"
+      "description": "**機構** 是指擁有與管理科學典藏的任何機構或組織。包括草本植物、博物館、動物園、植物園、生物庫等。一個機構可以包含多種典藏，也就是說這些典藏應在 **機構／計畫典藏** 中單獨輸入，並與其上層機構連結。\n\n由於整合數個較舊的資料集，並為避免 **機構代碼** 重複，所有植物標本館索引代碼會附加 <IH> 。"
     },
     "headerTitle": "機構",
     "indexHerbariorumRecord": "植物標本館索引紀錄",
@@ -56,19 +56,19 @@
   },
   "grscicollPerson": {
     "search": {
-      "title": "蒐藏品職員",
-      "description": "GRSciColl 職員是指參與蒐藏品的各項工作人員。他們與機構及任何類型的蒐藏品都相關聯。"
+      "title": "典藏人員",
+      "description": "GRSciColl 職員是指參與典藏各項工作的人員。他們與機構及/或任何類型的典藏都相關聯。"
     },
-    "headerTitle": "蒐藏品職員",
+    "headerTitle": "典藏人員",
     "firstName": "名",
     "lastName": "姓",
     "fullName": "全名",
     "position": "職稱",
-    "affiliations": "附屬機構",
+    "affiliations": "所屬機構",
     "areaResponsibility": "職責範圍",
     "researchPursuits": "研究專長",
-    "primaryInstitution": "主要蒐藏機構名稱",
-    "primaryCollection": "主要蒐藏品名稱",
+    "primaryInstitution": "主要機構名稱",
+    "primaryCollection": "主要典藏名稱",
     "affiliateInstitutions": "其他附屬機構",
     "affiliateCollections": ""
   },

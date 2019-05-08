@@ -1,10 +1,10 @@
-<div class="card-head">
+<div class="card-head" style="margin-top: -20px">
     <h4 class="card-header--bold" translate="dataset.registry.becauseTrustedContact"></h4>
     <div class="card-menu">
         <a href="" class="card-menu__option inherit noUnderline" ng-click="datasetKey.showTrustedDatasetDetails = !datasetKey.showTrustedDatasetDetails" ng-class="{'gb-icon-unfold-more-horizontal': !datasetKey.showTrustedDatasetDetails, 'gb-icon-unfold-less-horizontal': datasetKey.showTrustedDatasetDetails}"></a>
     </div>
 </div>
-<div class="card m-b-1 trusted-contact">
+<div class="card m-b-1 trusted-contact rtl-supported rtl-bootstrap">
     <div class="card__stripe">
         <div class="card__content clearfix">
             <a href="" ng-click="datasetKey.showTrustedDatasetDetails = true">
@@ -37,7 +37,6 @@
                     <div class="processSummary">
                         <span ng-repeat="recentItem in datasetKey.processSummary.recent" class="processSummary__{{ recentItem.finishReason }}">
                             <md-tooltip md-direction="top">
-                                
                                 {{ recentItem.startedCrawling | momentFormat:'LL' }} <span translate="dataset.finished"></span>: <span translate="dataset.crawl.finishReason.{{recentItem.finishReason}}"></span>
                             </md-tooltip>
                         </span>

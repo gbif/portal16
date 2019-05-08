@@ -110,6 +110,12 @@ let fields = {
     },
     EVENT_ID: {
         type: type.RAW
+    },
+    INSTITUTION_CODE: {
+        type: type.RAW
+    },
+    COLLECTION_CODE: {
+        type: type.RAW
     }
 };
 // All other rank keys are the same as taxonKey

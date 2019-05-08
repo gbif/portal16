@@ -1,6 +1,5 @@
 <div class="card card--spaced m-b-1">
     <div class="card__content">
-
         <h3 translate="directory.group.{{ committee }}.title"></h3>
         <p ng-bind-html="'directory.group.'+committee+'.description' | translate | md2html"></p>
     </div>
@@ -31,11 +30,11 @@
                 <tbody>
                 <tr ng-repeat="person in contactDirectory[committee] | filter:contactDirectory.q | orderBy:contactDirectory.state.sortType:contactDirectory.state.sortReverse" ng-click="contactDirectory.showPerson(person.personId || person.id)">
                     <td>
-                        <span>{{ person.name }}</span>
+                        <span dir="auto">{{ person.name }}</span>
                     </td>
                     <td>
                         <span ng-if="person.roles" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
-                        <span ng-if="!person.role">{{ person.jobTitle }}</span>
+                        <span dir="auto" ng-if="!person.role">{{ person.jobTitle }}</span>
                     </td>
                 </tr>
                 </tbody>

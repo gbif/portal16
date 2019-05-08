@@ -1,6 +1,6 @@
-<a ng-href="" class="seperator species-list seperator">
+<a ng-href="" class="seperator species-list seperator text-left" dir="auto">
     <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
-    <span class="small discreet" translate="taxonRank.{{match.model.rank}}">{{match.model.rank}}</span>
+    <span class="small discreet" translate="taxonRank.{{match.model.rank}}" dir="auto">{{match.model.rank}}</span>
     <div class="small discreet classification-list">
         <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
               ng-if="match.model[taxa] && taxa != match.model.rank.toLowerCase()">

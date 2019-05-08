@@ -1,6 +1,7 @@
 {
     "counts": {
         "nCitations": "",
+        "pCitations": "",
         "nRecords": "",
         "nResults": "",
         "nCollections": "",
@@ -17,6 +18,7 @@
         "nContacts": "",
         "pRecords": "",
         "pOccurrence": "",
+        "pMaterialSamples": "",
         "pSpecies": "",
         "pInfraspecies": "",
         "pPublishers": "",

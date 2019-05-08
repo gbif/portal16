@@ -4,6 +4,8 @@
  It also sets the locale of the i18n framework for handling translations.
  */
 
+let localeConfig = rootRequire('config/locales');
+
 // Given a list of possible locales it detects if it is in a given URL. returns the locale or undefined if not present.
 // e.g. getLocaleFromUrl('/da/blogposts/123', ['da', 'en']) -> 'da'
 // e.g. getLocaleFromUrl('/da/blogposts/123', ['es', 'en']) -> undefined
@@ -43,21 +45,27 @@ function use(app, locales, defaultLocale) {
             res.locals.gb.locales = {
                 urlPrefix: '/' + locale,
                 current: locale,
-                locales: locales
+                locales: locales,
+                config: localeConfig,
+                rtl: localeConfig.localeMappings.rtl[locale]
             };
         } else if (typeof queryLocale !== 'undefined' && queryLocale != defaultLocale && locales.indexOf(queryLocale) > -1) {
             req.setLocale(queryLocale);
             res.locals.gb.locales = {
                 urlPrefix: '/' + queryLocale,
                 current: queryLocale,
-                locales: locales
+                locales: locales,
+                config: localeConfig,
+                rtl: localeConfig.localeMappings.rtl[queryLocale]
             };
         } else {
             req.setLocale(defaultLocale); // remove to use browser preference
             res.locals.gb.locales = {
                 urlPrefix: '',
                 current: defaultLocale,
-                locales: locales
+                locales: locales,
+                config: localeConfig,
+                rtl: localeConfig.localeMappings.rtl[defaultLocale]
             };
         }
         // console.log();

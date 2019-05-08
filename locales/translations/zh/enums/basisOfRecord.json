@@ -1,7 +1,7 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
+    "PRESERVED_SPECIMEN": "保存样本",
+    "FOSSIL_SPECIMEN": "化石标本",
     "LIVING_SPECIMEN": "",
     "OBSERVATION": "",
     "HUMAN_OBSERVATION": "",

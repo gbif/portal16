@@ -1,4 +1,4 @@
-<div class="filter-group" ng-mouseover="vm.isHovered = true">
+<div class="filter-group rtl-bootstrap" ng-mouseover="vm.isHovered = true">
     <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
         <h4>
             <span translate="{{vm.translationPrefix}}.{{vm.title}}">{{vm.title}}</span>
@@ -15,7 +15,7 @@
                     <input type="checkbox" ng-model="vm.checkboxModel[key]" ng-change="vm.apply(option, checked)"
                            ng-disabled="vm.disabled">
                     <span class="filter-group__filter__name">
-                        <span ng-class="{'filter-group__filter__name__title' : !vm.checkboxModel[key], 'discreet--very': !option.title}"
+                        <span dir="auto" ng-class="{'filter-group__filter__name__title' : !vm.checkboxModel[key], 'discreet--very': !option.title}"
                               class="uppercase-first">{{(option.title) ? option.title : ('participationStatus.undefined' | translate) }}</span>
                         <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()">{{option.count | localNumber:vm.filterState.query.locale}}</span>
                     </span>

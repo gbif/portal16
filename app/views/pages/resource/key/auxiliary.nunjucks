@@ -81,7 +81,7 @@
                     {% for participant in main.fields.organisingParticipants %}
                         {% if resolved.Entry[participant.sys.id] %}
                             <li>
-                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[participant.sys.id].fields.country.sys.id $}">{$ resolved.Entry[participant.sys.id].fields.title $}</a>
+                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[participant.sys.id].fields.country.sys.id $}" dir="auto">{$ resolved.Entry[participant.sys.id].fields.title $}</a>
                             </li>
                         {% endif %}
                     {% endfor %}

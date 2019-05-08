@@ -9,7 +9,7 @@
                     {$ __('enums.cms.vocabularyTerms.projectStatus.' + main.fields.status) $}
                 </span>
             </nav>
-            <h1>{$ main.fields.title $}</h1>
+            <h1 dir="auto">{$ main.fields.title $}</h1>
 
             <div class="article-header__highlights">
 

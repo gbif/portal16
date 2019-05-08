@@ -106,3 +106,8 @@
     </style>
 </noscript>
 
+{% if _meta.schema %}
+<script type="application/ld+json">
+{$ _meta.schema | rawJson(true) | safe $}
+</script>
+{% endif %}

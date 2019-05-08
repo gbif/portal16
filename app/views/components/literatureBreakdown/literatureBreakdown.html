@@ -1,0 +1,25 @@
+<div class="occurrenceBreakdownCard">
+    <h3 class="card-header--bold" translate="counts.pCitations"></h3>
+    <div class="card card--spaced">
+        <div class="card__loader text-center" ng-if="vm.chartApi.isLoading()"></div>
+        <div class="card__stripe">
+            <div class="card__content row">
+              <div class="col-md-6">
+                <div class="overflow-auto">
+                  <highchart config="vm.chartConfig" ng-if="vm.chartConfig" style="width:100%; height:200px; padding-top: 20px" ></highchart>
+                </div>
+              </div>
+              <div class="col-md-6 text-center chart-summary-count">
+                <div class="chart-summary-count__number">
+                  <a ui-sref="resourceSearchList(vm.getFilterForAll())" class="inherit">{{vm.content.count}}</a>
+                </div>
+                <div class="chart-summary-count__unit" translate="counts.pCitations" translate-values="{NUMBER: vm.content.count}">
+                </div>
+                <div class="chart-summary-count__description">
+                  <a ng-href="/literature-tracking" class="m-b-1 discreet small ng-scope" translate="resourceSearch.citationExplainer" href="/literature-tracking"></a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

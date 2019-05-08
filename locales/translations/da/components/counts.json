@@ -1,6 +1,7 @@
 {
     "counts": {
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{citation} other{citationer}}",
+        "pCitations": "",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{optegnelse} other{optegnelser}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultat} other{resultater}}",
         "nCollections": "",
@@ -17,6 +18,7 @@
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select, 1{kontakt} other{kontakter}}",
         "pRecords": "{NUMBER, select, 1{optegnelse} other{optegnelser}}",
         "pOccurrence": "{NUMBER, select, 1{observation} other{observationer}}",
+        "pMaterialSamples": "",
         "pSpecies": "{NUMBER, select, 1{art} other{arter}}",
         "pInfraspecies": "{NUMBER, select, 1{infraart} other{infraarter}}",
         "pPublishers": "{NUMBER, select, 1{forlægger} other{forlæggere}}",

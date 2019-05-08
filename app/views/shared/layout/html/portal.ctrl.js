@@ -8,7 +8,7 @@ angular
     .controller('portalCtrl', portalCtrl);
 
 /** @ngInject */
-function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, env, constantKeys, NAV_EVENTS, IS_TOUCH, LOCALE, Page, User, $state) {
+function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, $sce, env, constantKeys, NAV_EVENTS, IS_TOUCH, LOCALE, Page, User, $state) {
     var vm = this;
     vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
@@ -55,6 +55,10 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
         updateUser();
     });
+
+    vm.trustAsHtml = function(htmlCode) {
+        return $sce.trustAsHtml(htmlCode);
+    };
 }
 
 module.exports = portalCtrl;

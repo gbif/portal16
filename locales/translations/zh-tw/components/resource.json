@@ -1,15 +1,15 @@
 {
   "resource": {
     "resources": "資源",
-    "contactHelpdesk": "聯繫協助平台",
+    "contactHelpdesk": "聯繫服務台",
     "addToCalendar": "新增至行事曆",
-    "venue": "會場",
+    "venue": "地點",
     "location": "地點",
     "country": "國家或地區",
     "noDatasets": "無資料集可顯示",
     "when": "於",
     "language": "語言",
-    "viewOnGBIF": "在 GBIF 查看",
+    "viewOnGBIF": "在 GBIF 上查看",
     "published": "已發布",
     "programme": "計畫",
     "fundedBy": "資助人：",

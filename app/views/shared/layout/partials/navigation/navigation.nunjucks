@@ -1,4 +1,4 @@
-<div class="stickyNav"
+<div class="stickyNav rtl-supported"
      ng-class="{'mobileMenu--active': nav.mobileMenuActive, 'mainMenu--firstLevelActive': nav.activeMenu, hasOffset: nav.scrollOffset > 0}"
      ng-controller="navCtrl as nav">
     <div class="stickyNav__container">
@@ -38,14 +38,14 @@
                                 ng-class="{'mainMenu--childActive': nav.activeMenu == '{$ menuGroup.name $}'}"
                                 {% if menuGroup.roles %} ng-if='nav.hasRole({$ menuGroup.roles | rawJson $})' {% endif %}>
                                 <a class=" mainMenu__parentItem" href=""
-                                   ng-click="nav.toggleMenu('{$ menuGroup.name $}')">{$ menuGroup.name $}</a>
+                                   ng-click="nav.toggleMenu('{$ menuGroup.name $}')" dir="auto">{$ menuGroup.name $}</a>
                                 <ul class="mainMenu__childGroup">
                                     <li class="mainMenu__columns">
                                         <nav><h2>{# NO SUB HEADER SINCE THERE IS ONLY ONE CHILD #}</h2>
                                             <ul class="mainMenu__childItem">
                                                 {% for item in menuGroup.items %}
                                                     <li {% if item.roles %} ng-if='nav.hasRole({$ item.roles | rawJson $})' {% endif %}>
-                                                        <a href="{% if not item.externalLink %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$ item.name $}
+                                                        <a dir="auto" href="{% if not item.externalLink %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$ item.name $}
                                                             {% if item.externalLink %}
                                                                 <span class="gb-icon-link"></span>
                                                             {% endif %}
@@ -63,15 +63,15 @@
                                 ng-class="{'mainMenu--childActive': nav.activeMenu == '{$ menuGroup.name $}'}"
                                 {% if menuGroup.roles %} ng-if='nav.hasRole({$ menuGroup.roles | rawJson $})' {% endif %}>
                                 <a class=" mainMenu__parentItem" href=""
-                                   ng-click="nav.toggleMenu('{$ menuGroup.name $}')">{$ menuGroup.name $}</a>
+                                   ng-click="nav.toggleMenu('{$ menuGroup.name $}')" dir="auto">{$ menuGroup.name $}</a>
                                 <ul class="mainMenu__childGroup">
                                     {% for category in menuGroup.items %}
                                         <li class="mainMenu__columns" {% if category.roles %} ng-if='nav.hasRole({$ category.roles | rawJson $})' {% endif %}>
-                                            <nav><h2>{$ category.name $}</h2>
+                                            <nav><h2 dir="auto">{$ category.name $}</h2>
                                                 <ul class="mainMenu__childItem">
                                                     {% for item in category.items %}
                                                         <li {% if item.roles %} ng-if='nav.hasRole({$ item.roles | rawJson $})' {% endif %}>
-                                                            <a href="{% if not item.externalLink %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$ item.name $}
+                                                            <a href="{% if not item.externalLink %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}" dir="auto">{$ item.name $}
                                                                 {% if item.externalLink %}
                                                                     <span class="gb-icon-link"></span>
                                                                 {% endif %}
@@ -87,7 +87,7 @@
                         {% endif %}
                     {% endfor %}
                     <li class="mainMenu__firstLevel hide-on-laptop">
-                        <a class="mainMenu__parentItem" href="{$ gb.locales.urlPrefix $}/user/profile"><span translate="profile.userProfile">User profile</span> <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
+                        <a class="mainMenu__parentItem" dir="auto" href="{$ gb.locales.urlPrefix $}/user/profile"><span translate="profile.userProfile">User profile</span> <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
                     </li>
                 </ul>
             </nav>

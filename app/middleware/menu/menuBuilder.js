@@ -8,7 +8,11 @@ let fallbackMenu;
 function transformEsNavigationElements(mainNavigationElements, navElements) {
     let navIdMap = _.keyBy(navElements.results, 'id');
     let menuBuild = [];
+
     mainNavigationElements.forEach(function(e) {
+        if (!e.id) {
+            throw new Error('Invalid navigation element');
+        }
         menuBuild.push(buildElement(e.id, navIdMap));
     });
     return menuBuild;
@@ -27,6 +31,12 @@ function buildElement(key, navIdMap) {
         item.items = [];
         item.type = 'normal';
         navEl.childNavigationElements.forEach(function(e, i) {
+            if (e.id === key) {
+                throw new Error('Circular menu: ' + key);
+            }
+            if (!e.id) {
+                throw new Error('Missing child id: ' + key);
+            }
             let sub = buildElement(e.id, navIdMap);
             if (sub.items) {
                 if (item.type !== 'mega' && i > 0) {

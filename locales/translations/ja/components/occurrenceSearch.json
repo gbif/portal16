@@ -24,6 +24,6 @@
     "done": "完了",
     "yesCorrectSuggestion": "はい",
     "noWrongSuggestion": "いいえ",
-    "errorUserThrottled": ""
+    "errorUserThrottled": "一時的にアクセスが制限されています。"
   }
 }

@@ -39,13 +39,13 @@ function renderPage(req, res, next, path, country, about) {
             country: country,
             about: about,
             year: new Date().getFullYear(),
-            thumbBase: apiCfg.image.url + 'fit-in/300x250/http://' + cfg.analyticsImg + path + '/figure/',
-            imgBase: apiCfg.image.url + 'http://' + cfg.analyticsImg + path + '/figure/',
+            thumbBase: apiCfg.image.url + 'fit-in/300x250/https://' + cfg.analyticsImg + path + '/figure/',
+            imgBase: apiCfg.image.url + 'https://' + cfg.analyticsImg + path + '/figure/',
             _meta: {
                 title: req.__('trends.analyticsTitle'),
                 description: description,
                 imageCache: apiCfg.image.url,
-                image: 'http://' + cfg.analyticsImg + path + '/figure/occ_repatriation.png'
+                image: 'https://' + cfg.analyticsImg + path + '/figure/occ_repatriation.png'
             }
         });
     } catch (e) {
