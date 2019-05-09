@@ -1,4 +1,8 @@
 {
+  "treatment": {
+    "distribution": "",
+    "figures": ""
+  },
   "species": {
     "distribution": {
       "presentIn": "Forekommer i {country}",
@@ -40,6 +44,7 @@
     "synonyms": "Synonymer",
     "synonymOf": "Synonym til",
     "basionymOf": "Basionym til",
+    "homotypicSynonymOf": "",
     "immediateChildren": "Umiddelbare børn",
     "descendants": "Underliggende taxa",
     "loadMore": "Flere",
