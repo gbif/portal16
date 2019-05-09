@@ -1,4 +1,8 @@
 {
+  "treatment": {
+    "distribution": "",
+    "figures": ""
+  },
   "species": {
     "distribution": {
       "presentIn": "{country} に存在",
@@ -40,6 +44,7 @@
     "synonyms": "シノニム",
     "synonymOf": "～のシノニム",
     "basionymOf": "～のバソニム",
+    "homotypicSynonymOf": "",
     "immediateChildren": "ツリー直下の子階層",
     "descendants": "末裔",
     "loadMore": "もっと読み込む",
