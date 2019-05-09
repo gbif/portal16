@@ -1,7 +1,7 @@
 {
   "treatment": {
-    "distribution": "",
-    "figures": ""
+    "distribution": "Distribution",
+    "figures": "Figures"
   },
   "species": {
     "distribution": {
@@ -44,7 +44,7 @@
     "synonyms": "Synonymes",
     "synonymOf": "Synonyme de",
     "basionymOf": "Basionyme de",
-    "homotypicSynonymOf": "",
+    "homotypicSynonymOf": "Synonyme homotypique de",
     "immediateChildren": "Descendants directs",
     "descendants": "Descendants",
     "loadMore": "Plus",
