@@ -45,20 +45,20 @@
                 "tooltip": "反馈，数据集建议"
             },
             "CRAWLER": {
-                "name": "",
-                "tooltip": ""
+                "name": "接收",
+                "tooltip": "更新数据集 - 新与旧。"
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "资源搜索",
+                "tooltip": "例如，搜索文献，新闻。"
             },
             "CLUSTER": {
-                "name": "",
-                "tooltip": ""
+                "name": "系统负载",
+                "tooltip": "后端用于处理下载、接收等其他更多功能。"
             },
             "DOWNLOAD": {
-                "name": "",
-                "tooltip": ""
+                "name": "下载",
+                "tooltip": "用于处理下载任务和发送用户通知。"
             }
         }
     }
