@@ -77,7 +77,7 @@
     "youWillRecieveConfEmail": "您收到确认信后，表示您的背书要求已批准。",
     "yourOrgDetailsAreHere": "您的机构详情在此。",
     "outage": "系统目前处于部分故障状态，暂时无法接受注册",
-    "eoiDescription": "",
+    "eoiDescription": "为了准备通过 GBIF发布数据，我们请求潜在的新发布者们填写此在线表格。在 GBIF开始为您的数据集编制索引前，您的机构必须得到一个GBIF国家或机构成员通过其节点的认可，才能成为数据发布者。如果您的国家尚未加入 GBIF，我们将替您在 GBIF 社群中寻找认可。",
     "eoiTitle": "成为一个发布者"
   }
 }
