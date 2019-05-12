@@ -14,7 +14,7 @@
       "true": "是",
       "false": "否"
     },
-    "accessionStatus": "",
+    "accessionStatus": "加入状态",
     "contentTypes": "内容类型",
     "preservationTypes": "保存类型",
     "homepage": "首页",
@@ -34,8 +34,8 @@
       "title": "机构",
       "description": ""
     },
-    "headerTitle": "",
-    "indexHerbariorumRecord": "",
+    "headerTitle": "机构",
+    "indexHerbariorumRecord": "植物标本馆索引记录",
     "numberSpecimens": "",
     "code": "机构代码",
     "statusOfInstitution": "机构状态",
@@ -57,9 +57,9 @@
   "grscicollPerson": {
     "search": {
       "title": "馆藏工作人员",
-      "description": ""
+      "description": "GRSciColl 职员是指参与馆藏工作的人员。他们与机构及/或任何类型的馆藏都相关联。"
     },
-    "headerTitle": "",
+    "headerTitle": "馆藏工作人员",
     "firstName": "名",
     "lastName": "姓",
     "fullName": "全名",
@@ -68,8 +68,8 @@
     "areaResponsibility": "负责领域",
     "researchPursuits": "搜索特长",
     "primaryInstitution": "一级机构名称",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "primaryCollection": "主要馆藏名称",
+    "affiliateInstitutions": "其他附属机构",
     "affiliateCollections": ""
   },
   "grscicoll": {
