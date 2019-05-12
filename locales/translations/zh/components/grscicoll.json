@@ -37,26 +37,26 @@
     "headerTitle": "",
     "indexHerbariorumRecord": "",
     "numberSpecimens": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "code": "机构代码",
+    "statusOfInstitution": "机构状态",
+    "additionalNames": "其他名称",
+    "description": "描述",
+    "homepage": "首页",
     "foundingDate": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "disciplines": "机构条例",
+    "institutionalGovernance": "机构管理",
+    "type": "机构类型",
+    "identifiers": "识别码",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "活跃的",
+      "false": "未激活的"
     },
     "true": "是",
     "false": "否"
   },
   "grscicollPerson": {
     "search": {
-      "title": "",
+      "title": "馆藏工作人员",
       "description": ""
     },
     "headerTitle": "",
