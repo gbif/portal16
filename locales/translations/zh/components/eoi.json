@@ -25,7 +25,7 @@
     "endorsingNode": "背书节点",
     "pleaseCheckSuggestionBelow": "为了支持与 GBIF 节点相关的发布者及审查数据质量，所有发布者都与一个GBIF节点关联。请确认以下建议，并根据需要修订：  ",
     "helpMeWithEndorsement": "协助我取得认可",
-    "marineDataPublishers": "",
+    "marineDataPublishers": "海洋数据发布者：取得 OBIS（海洋生物地理信息系统）相关数据的认可",
     "suggested": "建议",
     "orSelectAnotherAssOrg": "如果通过上述建议的国家节点背书不是正确的选择，请查看多国或专题网络的相关会员名单：",
     "clickToSelect": "点击以选择",
