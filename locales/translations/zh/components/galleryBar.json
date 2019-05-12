@@ -1,6 +1,6 @@
 {
     "galleryBar": {
         "seeAllImages": "查看图片库",
-        "nOccWithImages": ""
+        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, select,1{条出现记录}other{条出现记录}}带有图片"
     }
 }
