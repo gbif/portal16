@@ -23,7 +23,7 @@
                 "dataHolderContact": "数据拥有者的联系信息",
                 "publicAlert": "这些信息将被公开",
                 "yourContact": "您的联系信息",
-                "comments": "",
+                "comments": "评论",
                 "submit": "提交",
                 "followDiscussionBelow": "通过以下链接关注或加入进一步的讨论。",
                 "followIssue": "在Github上查看建议。",
@@ -33,7 +33,7 @@
         },
         "observationTrends": {
             "drawerTitle": "相对观测趋势",
-            "intro": "",
+            "intro": "尝试探索 GBIF 的物种相对观察趋势，是否可以提供研究者有用的信息。",
             "aboutLink": "阅读有关此工具的信息",
             "selectSpecies": "选择物种",
             "noData": "我们没有所选定物种在1900年后带有地理标记的数据。",
@@ -43,7 +43,7 @@
             "draw": "绘制点",
             "clear": "清空",
             "resultIntro": "更改选中区域的相对观察频率",
-            "embedIntro": ""
+            "embedIntro": "经由 {GBIF network} 的所有数据"
         },
         "speciesLookup": {
             "description": "",
