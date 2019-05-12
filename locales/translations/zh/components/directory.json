@@ -19,18 +19,18 @@
       },
       "nodesCommittee": {
         "title": "节点管理员委员会",
-        "description": ""
+        "description": "成员节点管理员委员会（或节点委员会）是一个动态小组，由成员（国家或国际组织） 所指名的节点管理员组成。委员会包括三位经由董事会投票表决任命的主席，其中可有两位有两年的任期。"
       },
       "secretariat": {
         "title": "GBIF 秘书处",
-        "description": ""
+        "description": "GBIF秘书处位于丹麦哥本哈根，负责发展、执行和汇报GBIF工作计划。秘书处的任务包括：\n- 运作 GBIF 网站及相关信息\n- 协调 GBIF 网络中与数据流通、发布和管理相关的活动\n- 监控数据缺口并使用GBIF数据于科学\n- 执行中央联系沟通和合作服务"
       },
       "voting": {
-        "title": "",
-        "description": ""
+        "title": "选举成员",
+        "description": "已签署合作备忘录 (MOU) 并同意提供基础财务赞助给 GBIF 核心资金的国家。"
       },
       "associateCountries": {
-        "title": "",
+        "title": "合作国家成员",
         "description": ""
       },
       "associateParticipants": {
