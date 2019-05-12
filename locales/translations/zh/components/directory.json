@@ -31,11 +31,11 @@
       },
       "associateCountries": {
         "title": "合作国家成员",
-        "description": ""
+        "description": "已签署合作备忘录 (MOU)，但未提供基础财务赞助给GBIF核心资金，且没有票选GBIF董事会的国家。"
       },
       "associateParticipants": {
         "title": "其他机构会员",
-        "description": ""
+        "description": "已签署 GBIF 合作备忘录的政府间机构、国际组织与其他国际范围的组织、经济体等。"
       }
     },
     "columns": {
