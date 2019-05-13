@@ -10,17 +10,17 @@
         "summary": "Free and open access to biodiversity data",
         "whatIsGbif": "What is GBIF?",
         "featureTypes": {
-            "event": "",
-            "news": "",
-            "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
-            "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": ""
+            "event": "Event",
+            "news": "News",
+            "resource": "Resource",
+            "dataUse": "Data use",
+            "project": "Project",
+            "programme": "Programme",
+            "document": "Document",
+            "tool": "Tool",
+            "literature": "Literature",
+            "treatment": "Treatment",
+            "blog": "Data-blog"
         }
     }
 }
