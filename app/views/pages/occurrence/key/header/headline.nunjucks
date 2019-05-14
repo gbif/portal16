@@ -1,6 +1,6 @@
 {% import "../../../../components/common.macros.nunjucks" as commonMacros %}
 
-<h1 class="text-center">
+<h1 class="text-center" dir="auto">
     {% if not occurrence.record.scientificName and not occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"]  %}
         <span > "{$ occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] $}"</span>
 
@@ -19,9 +19,9 @@
 
 <div class="h4 article-header__highlights">
     <div ng-if="occurrenceKey.vernacularName.$resolved && occurrenceKey.vernacularName.vernacularName">
-                            <span class="vernacular">{{ occurrenceKey.vernacularName.vernacularName }}</span>
-                            <span class="discreet--very" translate="occurrence.inLanguage" translate-values="{LANGUAGE_TRANSLATED: ('language.' + occurrenceKey.vernacularName.language | translate)}"></span>
-                        </div>
+        <span class="vernacular">{{ occurrenceKey.vernacularName.vernacularName }}</span>
+        <span dir="auto" class="discreet--very" translate="occurrence.inLanguage" translate-values="{LANGUAGE_TRANSLATED: ('language.' + occurrenceKey.vernacularName.language | translate)}"></span>
+    </div>
     {% if occurrence.record.individualCount > 1 %}
         <span class="badge">{$ occurrence.record.individualCount $}</span>
     {% endif %}

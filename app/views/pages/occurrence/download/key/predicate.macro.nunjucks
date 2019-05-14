@@ -2,8 +2,8 @@
     {% if p.type == 'and' or p.type == 'or' %}
         <ul>
             <div class="join">
-                <span class="node">{$ __('downloadKey.predicate.' + p.type) $}</span>
-                <span class="discreet">{$ __('downloadKey.predicate.joinDescriptions.' + p.type) $}</span>
+                <span dir="auto" class="node">{$ __('downloadKey.predicate.' + p.type) $}</span>
+                <span dir="auto" class="discreet">{$ __('downloadKey.predicate.joinDescriptions.' + p.type) $}</span>
             </div>
 
             {% for predicate in p.predicates %}
@@ -16,8 +16,8 @@
     {% elseif p.type == 'not' %}
         <ul class="not">
             <div class="join">
-                <span class="node">{$ __('downloadKey.predicate.' + p.type) $}</span>
-                <span class="discreet">{$ __('downloadKey.predicate.joinDescriptions.not') $}</span>
+                <span dir="auto" class="node">{$ __('downloadKey.predicate.' + p.type) $}</span>
+                <span dir="auto" class="discreet">{$ __('downloadKey.predicate.joinDescriptions.not') $}</span>
             </div>
             <li>
                 <div class="pipe"></div>
@@ -26,29 +26,29 @@
         </ul>
     {% elseif p.type == 'in' %}
         <div class="leaf">
-            <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
+            <span dir="auto" class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
             <ol class="inline-bullet-list">
                 {% for option in p.values %}
                     <li class="node-value" tooltip-placement="top"
                                        tooltip-popup-delay="200"
-                                       uib-tooltip="{$ __('downloadKey.predicate.joinDescriptions.or') $}"><span>{$ option $}</span></li>
+                                       uib-tooltip="{$ __('downloadKey.predicate.joinDescriptions.or') $}"><span dir="auto">{$ option $}</span></li>
                 {% endfor %}
             </ol>
         </div>
     {% elseif p.type == 'isNotNull' %}
         <div class="leaf">
-            <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
-            <span class="node-value discreet--very">{$ __('downloadKey.predicate.isNotNull') $}</span>
+            <span dir="auto" class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
+            <span dir="auto" class="node-value discreet--very">{$ __('downloadKey.predicate.isNotNull') $}</span>
         </div>
     {% elseif p.type == 'within' %}
         <div class="leaf">
-            <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
-            <span class="node-value">{$ p.geometry $}</span>
+            <span dir="auto" class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
+            <span dir="auto" class="node-value">{$ p.geometry $}</span>
         </div>
     {% else %}
         <div class="leaf">
-            <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
-            <span class="node-value">{$ p.value $}</span>
+            <span dir="auto" class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
+            <span dir="auto" class="node-value">{$ p.value $}</span>
         </div>
     {% endif %}
 {% endmacro %}

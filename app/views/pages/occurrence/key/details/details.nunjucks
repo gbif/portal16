@@ -18,8 +18,8 @@
                     <li>
                         <a href="" class="inherit uppercase-first"
                            ng-click="occurrenceKey.hideDetails = !occurrenceKey.hideDetails; occurrenceKey.expandMore = false;">
-                            <span ng-show="occurrenceKey.hideDetails">{$ __('occurrence.subMenu.showDiagnostics') $} (Alt+d)</span>
-                            <span ng-show="!occurrenceKey.hideDetails">{$ __('occurrence.subMenu.hideDiagnostics') $} (Alt+d)</span>
+                            <span ng-show="occurrenceKey.hideDetails">{$ __('occurrence.subMenu.showDiagnostics') $} <span dir="ltr">(Alt+d)</span></span>
+                            <span ng-show="!occurrenceKey.hideDetails">{$ __('occurrence.subMenu.hideDiagnostics') $} <span dir="ltr">(Alt+d)</span></span>
                         </a>
                     </li>
                     <li class="uppercase-first">

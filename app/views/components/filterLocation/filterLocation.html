@@ -1,4 +1,4 @@
-<div class="filter-group filter-group--location">
+<div class="filter-group filter-group--location rtl-bootstrap">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
             <span translate="filterNames.location">Location</span>
@@ -58,7 +58,7 @@
                     <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
                         <span class="filter-group__filter__name">
                             <span class="filter-group__filter__name__title"
-                                  ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
+                                  ng-class="{invalid: !geometry.valid}" dir="ltr">{{geometry.q}}</span>
                         </span>
                 </label>
             </div>
@@ -76,7 +76,7 @@
                                            ng-change="vm.removeFromList($index, geometry)">
                                     <span class="filter-group__filter__name">
                                         <span class="filter-group__filter__name__title"
-                                              ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
+                                              ng-class="{invalid: !geometry.valid}" dir="ltr">{{geometry.q}}</span>
                                     </span>
                                 </label>
                             </div>
@@ -99,7 +99,7 @@
                                            translate="filters.location.range">Range</label>
                                     <label ng-model="vm.inputType" uib-btn-radio="'GEOJSON'"
                                            ng-change="vm.changeInputType()"
-                                           translate="filters.location.geojson">GeoJson</label>
+                                           translate="filters.location.geojson" dir="auto">GeoJson</label>
                                     <label ng-model="vm.inputType" uib-btn-radio="'PAST'"
                                            ng-change="vm.changeInputType()"
                                            translate="filters.location.past">Past</label>
@@ -144,7 +144,7 @@
                                             <input type="checkbox" ng-model="geometry.active"
                                                    ng-change="vm.addToList($index, geometry)">
                                         <span class="filter-group__filter__name">
-                                            <span class="filter-group__filter__name__title"
+                                            <span dir="ltr" class="filter-group__filter__name__title"
                                                   ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
                                         </span>
                                         </label>

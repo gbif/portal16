@@ -1,0 +1,33 @@
+<section ng-if="publisherKey.literature.count > 1">
+    <div class="container--desktop m-t-1">
+        <literature-breakdown filter="{publishingOrganizationKey: publisherKey.key}"></literature-breakdown>
+    </div>
+</section>
+
+<section ng-if="publisherKey.occurrences.count > 0" class="ng-cloak">
+    <div class="container--desktop m-t-1">
+        <h3 class="card-header--bold" translate="metrics.occurrencesPerField" translate-values="{FIELD: ('filterNames.kingdomKey' | translate )}"></h3>
+        <div class="card taxonBreakdown">
+            <div class="card__content">
+                <a ui-sref="occurrenceSearchTable({publishing_org: publisherMetrics.key, taxon_key: kingdom.id})"
+                    class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdom in publisherMetrics.kingdoms">
+                    <div class="taxon-icon gb-icon-{{ kingdom.icon }}"></div>
+                    <div>
+                        <div class="small" translate="kingdomKey.{{kingdom.id}}">{{ kingdom.title }}</div>
+                        <strong ng-if="publisherMetrics.kingdomCounts[kingdom.id].count">{{ publisherMetrics.kingdomCounts[kingdom.id].count | localNumber }}</strong>
+                        <strong ng-if="!publisherMetrics.kingdomCounts[kingdom.id].count">0</strong>
+                        <div class="small" translate="counts.pOccurrence" translate-values="{NUMBER: publisherMetrics.kingdomCounts[kingdom.id].count}">occurrences</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container--desktop ng-cloak">
+        <section class="occChart-col m-t-1">
+            <div ng-repeat="chart in publisherMetrics.charts">
+                <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" custom-filter="chart.customFilter"></occurrence-breakdown-card>
+            </div>
+        </section>
+    </div>
+</section>

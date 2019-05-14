@@ -15,7 +15,7 @@
         <!--and-->
         <!--<input required type="text" ng-blur="vm.blurTo" ng-keyup="vm.changeTo()" placeholder="2016" ng-if="vm.selected == 'between'" ng-model="vm.to" ng-pattern="/^[0-9]{4}$/" name="to" class="">-->
     </div>
-    <form class="filter-group__filter__interval__input" name="vm.form">
+    <form class="filter-group__filter__interval__input" name="vm.form" dir="ltr">
         <input required type="text" ng-blur="vm.blurFrom()" ng-keyup="vm.changeFrom()" placeholder="{{vm.intervalOptions.range.min[0]}}"
                ng-model="vm.from" ng-pattern="/^[0-9]{0,4}$/" name="from">
         <input required type="text" ng-blur="vm.blurTo()" ng-keyup="vm.changeTo()" placeholder="{{vm.intervalOptions.range.max[0]}}"

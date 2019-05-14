@@ -8,6 +8,7 @@ require('./directives/speciesDatasets.directive.js');
 require('./directives/vernacularNames.directive.js');
 require('./directives/nameUsages.directive.js');
 require('./directives/treatment.directive.js');
+// require('./directives/typeSpecimen.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');

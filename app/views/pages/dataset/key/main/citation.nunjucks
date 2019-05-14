@@ -3,7 +3,7 @@
         <a href="" id="citation"></a>
         <div class="anchor-block--tabs" id="citationBlock">
             <h3 translate="dataset.citation"></h3>
-            <div class="small">
+            <div class="small" dir="auto">
                 {{ datasetKey.dataset.citation.text }}
             </div>
         </div>

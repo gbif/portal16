@@ -4,13 +4,15 @@ var angular = require('angular'),
     _ = require('lodash'),
     utils = require('../../../shared/layout/html/utils/utils');
 
+require('./metrics/publisherMetrics.ctrl');
+require('../../../components/literatureBreakdown/literatureBreakdown.directive');
 
 angular
     .module('portal')
     .controller('publisherKeyCtrl', publisherKeyCtrl);
 
 /** @ngInject */
-function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTableSearch, LOCALE, PublisherExtended, OccurrenceSearch, 
+function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTableSearch, LOCALE, PublisherExtended, OccurrenceSearch,
     ResourceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Publisher');
@@ -84,7 +86,7 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTable
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: '', type: type, showSettings: false},
-            filter: {publishingOrg: vm.key, locale: LOCALE},
+            filter: {publishing_org: vm.key, locale: LOCALE},
             customFilter: customFilter
         };
         vm.charts.push(chartConfig);
@@ -96,7 +98,7 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTable
     vm.pushChart('year', 'LINE', {year: '1950,*'});
     vm.pushChart('license', 'PIE');
     vm.pushChart('datasetKey', 'TABLE');
-    vm.pushChart('institutionCode', 'TABLE');
+    vm.pushChart('institutionCode', 'PIE');
     vm.pushChart('collectionCode', 'TABLE');
 
     // Map

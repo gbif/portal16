@@ -1,5 +1,4 @@
 <div class="container--desktop m-t-1" ng-if="speciesKey2.speciesImages.results.length > 0">
-    <h4 class="card-header">{{ speciesKey2.speciesImages.results.length | localNumber }}{{(speciesKey2.speciesImages.endOfRecords == false) ? '+':'' }} images</h4>
     <div class="galleryBar">
         <div>
             <div ng-repeat="image in speciesKey2.speciesImages.results"  class="cursor-pointer galleryBar__img showBroken inherit noUnderline hoverBox">

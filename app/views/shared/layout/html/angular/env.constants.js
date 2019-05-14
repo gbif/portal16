@@ -38,4 +38,8 @@ angular
         window.gb.env.localeMappings
     ).constant('LOCALE_2_LETTER',
         window.gb.locale.substr(0, 2)
-    ).constant('IS_TOUCH', window.gb.supportsTouch);
+    ).constant(
+        'IS_TOUCH', window.gb.supportsTouch
+    ).constant('IS_RTL',
+        window.gb.env.localeMappings.rtl[window.gb.locale]
+    );

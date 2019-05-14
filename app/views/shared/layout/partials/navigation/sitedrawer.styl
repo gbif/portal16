@@ -81,4 +81,17 @@ forceShowDrawer() {
     transition none
     right 0
   }
+
+  .rtl {
+    .site-drawer {
+      right 0
+      left auto
+      &.is-locked {
+        ~ .site-content {
+          padding-right $filterDrawerWidth
+          padding-left 0
+        }
+      }
+    }
+  }
 }

@@ -1,4 +1,4 @@
-<div class="light-background documentPage">
+<div class="light-background documentPage rtl-supported">
     <article class="wrapper-horizontal-stripes">
         <div class="horizontal-stripe p-b-05">
             <div class="article-header">
@@ -14,18 +14,18 @@
             <div class="container--narrow">
                 <div class="card card--spaced">
                     <div class="card__content text-center seperator--b">
-                        <h3>{$ main.fields.title $}</h3>
+                        <h3 dir="auto">{$ main.fields.title $}</h3>
                         <a href="{$ resolved.Asset[main.fields.document.sys.id].fields.file.url $}" class="gb-button--brand">Download <span class="gb-icon-file-download"></span></a>
                     </div>
                     <div class="card__content clearfix">
-                        <div class="clearfix">
+                        <div class="clearfix" dir="auto">
                             {$ (main.fields.body or main.fields.summary) | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                         </div>
                     </div>
                     {% if main.fields.citation %}
                     <div class="card__content seperator">
                         <h4>Citations</h4>
-                        <div class="smaller">
+                        <div class="smaller" dir="auto">
                             {$ main.fields.citation | renderMarkdown | sanitize | linkify | safe $}
                         </div>
                     </div>

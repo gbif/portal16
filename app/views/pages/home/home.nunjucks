@@ -124,9 +124,10 @@
         <article class="card card--flexible article-box hoverBox">
             {#<div>#}
             {% if article.primaryImage %}
-                <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+                <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe article-box__image">
                     <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
                          alt="" class="article-thumb">
+                    <span class="article-box__type">{$ __("homepage.featureTypes." + article.contentType ) $}</span>
                 </a>
             {% endif %}
             <div class="card__stripe--expandable inherit">
@@ -156,6 +157,7 @@
                             <div>{$ article.start | formatDate(gb.locales.current, 'D') $}</div>
                             <span>{$ article.start | formatDate(gb.locales.current, 'YYYY') $}</span>
                         </div>
+                        {% if article.type %}<span class="article-box__type">{$ __("homepage.featureTypes.event" ) $}</span>{% endif %}
                     </div>
                 </div>
             </a>
@@ -179,9 +181,10 @@
         <article class="card card--flexible article-box hoverBox">
             {#<div>#}
             {% if article.primaryImage %}
-                <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="card__stripe">
+                <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="card__stripe article-box__image">
                     <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
                          alt="" class="article-thumb">
+                    {% if article.type %}<span class="article-box__type">{$ __("homepage.featureTypes." + article.type ) $}</span>{% endif %}
                 </a>
             {% endif %}
             <div class="card__stripe--expandable inherit">

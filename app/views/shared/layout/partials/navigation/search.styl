@@ -45,6 +45,19 @@
     //}
 }
 
+.rtl {
+    .search-box {
+        input {
+            padding-left vrBlock(1)
+            padding-right 0
+        }
+        .search-box__submit {
+            right auto
+            left 0
+        }
+    }
+}
+
 .search-box {
     @extends .hoverBox
     background white

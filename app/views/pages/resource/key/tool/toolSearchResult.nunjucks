@@ -1,8 +1,8 @@
-<div class="card m-b-05 searchCard">
+<div class="card m-b-05 searchCard rtl-supported">
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('enums.cms.contentType.tool') $}</span>
-            <h3 class="searchCard__headline">
+            <h3 class="searchCard__headline" dir="auto">
                 <a ng-if="!result.primaryLink || (result.primaryLink.url | gbifUrlAsRelative).indexOf('/') !==0" ng-href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                     {{result.title}}
                 </a>
@@ -17,7 +17,7 @@
             <a href="{{ portal.urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                 <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
             </a>
-            <p>
+            <p dir="auto">
                 {{result._summary}}
             </p>
         </div>

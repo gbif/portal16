@@ -6,9 +6,18 @@ let buildConfig = require('../config/build');
 let dir = buildConfig.paths.root + '/locales/_build/';
 let _ = require('lodash');
 let koreanString = '한국관광공사에오신것을환영합니다국내최대음란사이트소라넷운영자자진귀국국내최대음란물사이트였던소라넷운영자가운데한명이외국에서도피생활을하다가자진귀국해경찰에구속됐다';
-let arabString = 'بسماللهالرحمحيطةبالعملالإعلاميفيمصروكذلكمعاستمرارحجبمحتويالمؤسسةعنالوصولللجمهورقررتإدارةمؤسسةالبديلتعلنإشعارآخرونعتذرلجمهورنرارفيالوضعالاليالبديل٢٢إبريل٢٠١٨';
+// let arabString = 'بسماللهالرحمحيطةبالعملالإعلاميفيمصروكذلكمعاستمرارحجبمحتويالمؤسسةعنالوصولللجمهورقررتإدارةمؤسسةالبديلتعلنإشعارآخرونعتذرلجمهورنرارفيالوضعالاليالبديل٢٢إبريل٢٠١٨';
+let arabString = 'כלישראלישלהםחלקלעולםהבאשנאמרועמךכולםצדיקיםלעולםיירשוארץנצרמטעימעשהיד٢٠١٨';
+let reverseAlphabet = '() zγxwvυɈƨɿpqonmlʞįiʜϱʇɘbɔdɒZYXWVUTƧЯϘԳOИM⅃ﻼႱIHӘᆿƎႧƆઘA'.split('').reverse();
+let normalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ()'.split('');
+let reverseMap = {};
+normalAlphabet.forEach(function(e, i) {
+    reverseMap[e] = reverseAlphabet[i];
+});
+// console.log(reverseMap);
 
 let enJson = require(dir + 'en');
+let googleTranslateArabic = require(buildConfig.paths.root + '/locales/googleTranslate/ar');
 let translatedPaths = [
     // 'menu.',
     // 'search.',
@@ -47,7 +56,7 @@ function mockify(object, path, language) {
     _.each(object, (val, key) => {
         if (typeof val === 'string') {
             if (isTranslatedKey(path + key)) {
-                newObject[key] = getMockText(val, language);
+                newObject[key] = getMockText(val, language, path + key);
             } else {
                 newObject[key] = val;
             }
@@ -59,17 +68,21 @@ function mockify(object, path, language) {
     return newObject;
 }
 
-function getMockText(str, language) {
-    if ((str.indexOf('{') !== -1 ) || (str.indexOf('%s') !== -1)) {
-        return '[[[!' + str + '!]]]';
-    } else {
-        if (language === 'ko-MOCK') {
-            return mockKorean(str);
-        } else if (language === 'ar-MOCK') {
-            return mockArab(str);
-        } else {
-            return pseudoloc.str(str);
+function getMockText(str, language, path) {
+    if (language === 'ko-MOCK') {
+        if ((str.indexOf('{') !== -1 ) || (str.indexOf('%s') !== -1)) {
+            return '[[[!' + str + '!]]]';
         }
+        return mockKorean(str);
+    } else if (language === 'ar-MOCK') {
+        let arVal = _.get(googleTranslateArabic, path);
+        return arVal || str;
+        // return mockArab(str);
+    } else {
+        if ((str.indexOf('{') !== -1 ) || (str.indexOf('%s') !== -1)) {
+            return '[[[!' + str + '!]]]';
+        }
+        return pseudoloc.str(str);
     }
 }
 
@@ -78,6 +91,11 @@ function mockKorean(str) {
 }
 
 function mockArab(str) {
+    // return str.split('').reverse().map(function(e) {
+    //     return typeof reverseMap[e] !== 'undefined' ? reverseMap[e] : e;
+    // }).reduce(function(accumulator, currentValue) {
+    //     return accumulator + currentValue;
+    // }, '');
     return generateMockString(arabString, str, 1.3);
 }
 

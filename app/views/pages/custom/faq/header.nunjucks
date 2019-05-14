@@ -1,5 +1,5 @@
 <div class="horizontal-stripe article-header seperator--b">
-    <header class="text-center">
+    <header class="text-center" dir="auto">
         <h1>{{ faq.faqItem.title }}</h1>
         <div class="article-header__intro" ng-bind-html="faq.faqItem.summary"></div>
     </header>

@@ -7,17 +7,17 @@
             <div class="dataset-key__bibliography__list">
                 <ol ng-class="{'no-decimals': datasetKey.dataset.bibliographicCitations.length<2}">
                     <li ng-repeat="reference in datasetKey.dataset.bibliographicCitations">
-                        <div>
+                        <div dir="auto">
                             {{ reference.text }}
                         </div>
                         <div>
                             <ul class="inline-bullet-list">
-                                <li ng-repeat="identifier in reference._identifiers">
+                                <li dir="ltr" ng-repeat="identifier in reference._identifiers">
                                     <a ng-if="identifier.type == 'PDF' || identifier.type == 'DOI' || identifier.type == 'URL'" ng-href="{{identifier.ref}}" translate="dataset.viewArticle"></a>
                                     <a ng-if="identifier.type == 'ISSN'" ng-href="{{identifier.ref}}">{{ identifier.text }}</a>
-                                    <span ng-if="identifier.type == 'STR'">{{ identifier.text }}</span>
+                                    <span dir="auto" ng-if="identifier.type == 'STR'">{{ identifier.text }}</span>
                                 </li>
-                                <li ng-if="reference._query">
+                                <li dir="ltr" ng-if="reference._query">
                                     <a ng-href="{{ reference._query }}">Google scholar</a>
                                 </li>
                             </ul>

@@ -27,7 +27,6 @@
                                 <a ui-sref="networkDataset({key: networkKey.key})" translate="network.tabs.datasets"></a>
                             </li>
 
-                            <!-- Add metrics tab once networks are added to the occ index -->
                             <li class="tab" ng-class="{isActive: networkKey.$state.is('networkMetrics')}">
                                 <a ui-sref="networkMetrics({key: networkKey.key})" translate="network.tabs.metrics"></a>
                             </li>

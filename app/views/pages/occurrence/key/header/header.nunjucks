@@ -18,14 +18,14 @@
 
                 {% include('./headline.nunjucks') %}
 
-                <span class="classification-list discreet">
+                <div class="classification-list discreet rtl-supported inline-block">
                     {% for taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] %}
                         {% if occurrence.record[taxa] and taxa != occurrence.record.taxonRank | lower %}
-                            <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record[taxa + 'Key'] $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record[taxa + 'Key'] $}"
-                               class="{$ taxa $}">{$ occurrence.record[taxa] $}</a>
+                            <span><a dir="ltr" ui-sref="speciesKey({ speciesKey:{$ occurrence.record[taxa + 'Key'] $} })" href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record[taxa + 'Key'] $}"
+                               class="{$ taxa $}">{$ occurrence.record[taxa] $}</a></span>
                         {% endif %}
                     {% endfor %}
-                </span>
+                </div>
             </header>
         </div>
 

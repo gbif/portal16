@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 <!--[if !IE]> -->
-<html lang="en" class="not_ie" ng-app="portal">
+<html lang="{$ gb.locales.current $}" class="not_ie" ng-app="portal" {% if gb.locales.rtl %} dir="rtl" {% endif %} >
 <!-- <![endif]-->
 <!--[if IE]>
 <html lang="en" class="ie" ng-app="portal">
@@ -13,7 +13,10 @@
     {% block head %}{% endblock %}
     {% block styles %}{% endblock %}
 </head>
-<body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %}
+<body class="
+    {% if gb.locales.rtl %} rtl {% endif %} 
+    {% if _meta.bodyClass | isNotEmpty %}{$ _meta.bodyClass $}{% endif %}
+" 
     ng-init="portal.urlPrefix='{$ gb.locales.urlPrefix $}';BUILD_VERSION={$ BUILD_VERSION $}"
     ng-class="{'hasDrawer': portal.getDrawer()}"
     ng-controller="portalCtrl as portal">
@@ -55,6 +58,12 @@
     <div gdpr></div>
 </div>
 <div gb-help-overlay></div>
+
+<script type="text/ng-template" id="dropdown.html">
+  <a href="" dir="auto">
+        <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+    </a>
+</script>
 
 <script>
     window.gb = window.gb || {};

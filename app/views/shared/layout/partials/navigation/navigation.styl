@@ -1,5 +1,16 @@
 $menuBackgroundColor = $navBar_background_color //#76a576
 //navbar
+.rtl {
+    .stickyNav {
+        .gbif-logo {
+            float right
+        }
+        &__actions {
+            right auto
+            left 0
+        }
+    }
+}
 .stickyNav {
     height $navBar_height
     position fixed
@@ -192,6 +203,16 @@ body.hasTransparentMenu {
     transform translate3d(100%, 0, 0)
 }
 
+.rtl {
+    .mainMenu--hasChild .mainMenu__parentItem::after {
+        right auto
+        left 0
+        transform rotate(90deg)
+    }
+    .mainMenu--childActive .mainMenu__parentItem {
+        transform rotate(180deg)
+    }
+}
 .mainMenu--hasChild .mainMenu__parentItem::after {
     @extends .iconFont
     transform rotate(-90deg)
@@ -218,6 +239,18 @@ body.hasTransparentMenu {
 }
 
 //active
+.rtl {
+    .mainMenu .mainMenu--childActive {
+        left auto 
+        right 100%
+    }
+    .mainMenu .mainMenu__childGroup {
+        transform translate3d(-100%, 0, 0)
+    }
+    .mainMenu--firstLevelActive .mainMenu {
+        transform translate3d(100%, 0, 0)
+    }
+}
 .mainMenu .mainMenu--childActive {
     position absolute
     left 100%
@@ -270,21 +303,13 @@ body.hasTransparentMenu {
         padding-right 1rem
     }
 
-    //.mainMenu__columns:nth-child(3n + 1) {
-    //    margin-left 0
-    //    margin-right -100%
-    //    clear both
-    //    margin-left 0
-    //}
-    //.mainMenu__columns:nth-child(3n + 2) {
-    //    margin-left 30%
-    //    margin-right -100%
-    //    clear both
-    //    margin-left 0
-    //}
-
     .mainMenu__childGroup {
         margin 0 (-($halfGutter))
+    }
+    .rtl {
+        .mainMenu__columns {
+            float right
+        }
     }
     .mainMenu__columns {
         width 33%
@@ -318,6 +343,14 @@ body.hasTransparentMenu {
             margin-right 3rem
         }
     }
+    .rtl {
+        .stickyNav {
+            .gbif-logo {
+                margin-right 0
+                margin-left 3rem
+            }
+        }
+    }
 
     .mainMenu .mainMenu__childGroup {
         display none
@@ -329,7 +362,7 @@ body.hasTransparentMenu {
     }
 
     .mainMenu--firstLevelActive .mainMenu {
-        transform translate3d(0, 0, 0)
+        transform translate3d(0, 0, 0) !important
         position static
     }
 
@@ -386,6 +419,11 @@ body.hasTransparentMenu {
             }
         }
     }
+    .rtl {
+        .mainMenu .mainMenu--childActive {
+            right auto
+        }
+    }
     .mainMenu .mainMenu--childActive {
         padding 0
         width auto
@@ -405,6 +443,10 @@ body.hasTransparentMenu {
         }
     }
 
+    .rtl .mainMenu--childActive .mainMenu__parentItem {
+        transform none
+    }
+    
     .mainMenu--childActive .mainMenu__parentItem {
         position relative
         top auto
@@ -422,6 +464,10 @@ body.hasTransparentMenu {
         padding-bottom 0
     }
 
+    .rtl .mainMenu .mainMenu__childGroup {
+        left auto 
+        right 0
+    }
     .mainMenu .mainMenu__childGroup {
         margin 0 //
         transform translate3d(0, 0, 0)
@@ -447,7 +493,6 @@ body.hasTransparentMenu {
         margin 0 !important
     }
 }
-
 
 
 .stickyNav__actions__login {

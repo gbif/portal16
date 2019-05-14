@@ -50,7 +50,7 @@
                     </li>
                 </ul>
                 <div class="menubox__section__content clearfix" ng-if="vm.comments.count > vm.comments.results.length">
-                    <a ng-href="{{ vm.comments.url }}" target="_blank" class="btn btn-default flat pull-right" translate="feedback.seeAllComments"></a>
+                    <a ng-href="{{ vm.comments.url }}" target="_blank" class="btn btn-default flat pull-right-rtl" translate="feedback.seeAllComments"></a>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
                 <ul>
                     <li ng-repeat="type in vm.type">
                         <a ng-if="type == vm.type.CONTENT && vm.comments.count > 0" href=""
-                           class="feedback__issuesToggle pull-right"
+                           class="feedback__issuesToggle pull-right-rtl"
                            ng-class="{isActive: vm.selected == vm.ISSUES}"
                            ng-click="vm.selected = vm.ISSUES">
                             <div class="comment-bubble">{{ vm.comments.count }}</div>
@@ -170,7 +170,7 @@
                             <div class="clearfix">
                                 <button ng-disabled="!vm.functionalityForm.$valid || vm.state == 'SENDING'" type="submit"
                                         ng-click="vm.createIssue(vm.issue)"
-                                        class="btn btn-default flat pull-right" 
+                                        class="btn btn-default flat pull-right-rtl" 
                                         translate="feedback.submit">
                                 </button>
                             </div>

@@ -28,6 +28,7 @@ let environment = {
         jsLocale: localeConfig.localeMappings.jsLocale,
         translation: localeConfig.localeMappings.translation,
         numbers: localeConfig.localeMappings.numbers,
+        rtl: localeConfig.localeMappings.rtl,
         localNames: localNameMap
     }
 };

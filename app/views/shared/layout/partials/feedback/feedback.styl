@@ -2,6 +2,27 @@ $feedbackPrimaryColor = #94b974 // #6599a2 //#1f8ceb //#398194
 $feedbackPrimaryInk = white
 $menuboxBorderRadius = 4px;
 
+.rtl {
+    .menubox {
+        direction rtl
+        &__close {
+            right auto
+            left 0
+            text-align left
+        }
+        &__back {
+            left auto
+            right 0
+            transform rotate(180deg)
+        }
+        .feedback__textarea {
+            > label > div {
+                right auto
+                left 5px
+            }
+        }
+    }
+}
 .menubox {
     display none
     &.is-active {
@@ -72,66 +93,16 @@ $menuboxBorderRadius = 4px;
             }
         }
     }
-    //nav {
-    //    ul {
-    //        padding 0
-    //    }
-    //    li {
-    //        display inline-block
-    //        float left
-    //        width 25%
-    //        &:first-of-type {
-    //            padding-left 10px
-    //        }
-    //        &:last-of-type {
-    //            padding-right 10px
-    //        }
-    //        a {
-    //            line-height 1
-    //            text-align center
-    //            display block
-    //            color darken($feedbackPrimaryColor, 20)
-    //            border-bottom 3px solid transparent
-    //            span {
-    //                font-size 30px
-    //            }
-    //            div {
-    //                font-size 12px
-    //                padding-bottom 5px
-    //            }
-    //        }
-    //        &.isHovered, &:hover {
-    //            a {
-    //                color darken($feedbackPrimaryColor, 30)
-    //            }
-    //        }
-    //        &.isActive {
-    //            a {
-    //                color $feedbackPrimaryInk
-    //                border-bottom 3px solid lighten($feedbackPrimaryColor, 25)
-    //            }
-    //        }
-    //    }
-    //}
     &__content {
         flex 1 1 auto
         background #f7f7f7
     }
     &__section {
-        //> div {
-        //    padding 20px
-        //}
         &__content {
             &__annotate {
                 text-align center
                 padding 10px 0
                 color $feedbackPrimaryInk
-                //a {
-                //    padding 10px 20px
-                //    background $feedbackPrimaryColor
-                //    color $feedbackPrimaryInk
-                //    box-shadow 1px 2px 3px rgba(0, 0, 0, 0.2)
-                //}
             }
         }
         &--issues {
@@ -225,12 +196,6 @@ $menuboxBorderRadius = 4px;
     }
     &__section__content {
         padding vrBlock(1)
-        //.is-collapsable {
-        //    max-height 1500px
-        //    transition max-height 2000ms ease
-        //    overflow hidden
-        //    max-height 0
-        //}
     }
     .feedback__failure {
         border-left 5px solid tomato
@@ -298,6 +263,12 @@ $menuboxBorderRadius = 4px;
 }
 
 +isAbove($mobile) {
+    .rtl {
+        .menubox {
+            left vrBlock(1)
+            right initial
+        }
+    }
     .menubox {
         overflow auto
         top vrBlock(2)
@@ -339,7 +310,6 @@ $menuboxBorderRadius = 4px;
                 width 370px
                 position fixed
                 top 0
-                right 0
             }
         }
     }

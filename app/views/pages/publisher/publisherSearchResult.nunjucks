@@ -1,8 +1,8 @@
-<div class="card m-b-05 searchCard searchCard--publisher">
+<div class="card m-b-05 searchCard searchCard--publisher rtl-supported">
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type" ng-if="result.created | isNew" translate="publisher.newPublisher">New publisher</span>
-            <h3 class="searchCard__headline">
+            <h3 class="searchCard__headline" dir="auto">
                 <a ui-sref="publisherKey({key:result.key})" href="{{ portal.urlPrefix }}/publisher/{{result.key}}">
                     {{result.title}}
                 </a>
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content searchCard__content clearfix">
+        <div class="card__content searchCard__content clearfix rtl-bootstrap">
             <a ui-sref="publisherKey({key:result.key})" href="{{ portal.urlPrefix }}/publisher/{{result.key}}" class="pull-right">
                 <img class="searchCard__img--noCrop" ng-src="{$ _meta.imageCache $}128x/{{ result.logoUrl | encodeURIComponent }}" ng-if="result.logoUrl">
             </a>
@@ -18,9 +18,9 @@
                 <span translate="publisher.joinedAgo" translate-values="{TIME_AGO: (result.created | momentFromNow)}"></span>
             </div>
             <div ng-if="result._contact.email[0]" class="small">
-                <span class="uppercase-first" translate="gbifNetwork.contact"></span>: <a href="mailto:{{ result._contact.email[0] }}">{{ result._contact.firstName }} {{ result._contact.lastName }}</a>
+                <span class="uppercase-first" translate="gbifNetwork.contact"></span>: <a dir="auto" href="mailto:{{ result._contact.email[0] }}">{{ result._contact.firstName }} {{ result._contact.lastName }}</a>
             </div>
-            <p>
+            <p dir="auto">
                 {{result.description | truncate:200 }}
             </p>
             <ul class="list-chips">

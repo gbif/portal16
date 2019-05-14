@@ -1,9 +1,9 @@
-<article class="card m-b-05 searchCard">
+<article class="card m-b-05 searchCard rtl-supported">
     <div class="card__stripe">
         <div class="card__content">
             <a href="" ui-sref="datasetSearchTable({type:result.type})" ng-href="{{ portal.urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}" class="inherit searchCard__type hoverBox"></a>
             <h3 class="searchCard__headline">
-                <a ui-sref="datasetKey({key:result.key})" ng-href="{{ portal.urlPrefix }}/dataset/{{result.key}}">{{result.title}}</a>
+                <a ui-sref="datasetKey({key:result.key})" ng-href="{{ portal.urlPrefix }}/dataset/{{result.key}}" dir="auto">{{result.title}}</a>
             </h3>
         </div>
     </div>
@@ -15,21 +15,20 @@
                     <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=DATASET&resolution=4">
                 </div>
             </div>
-            <p ng-if="result.description">
+            <p ng-if="result.description" dir="auto">
                 {{result.description | stripTags | truncate:200 }}
             </p>
-            <p ng-if="!result.description" class="discreet" translate="dataset.noDescriptionProvided">
-                
+            <p ng-if="!result.description" class="discreet" translate="dataset.noDescriptionProvided" dir="auto">
             </p>
             <p class="discreet--very smaller" ng-if="result.publishingOrganizationTitle">
-                <span translate="dataset.publishedBy"></span> {{ result.publishingOrganizationTitle | truncate:100 }}
+                <span translate="dataset.publishedBy" dir="auto"></span> <span dir="auto">{{ result.publishingOrganizationTitle | truncate:100 }}</span>
             </p>
-            <p ng-if="result.highlights && result.highlights.description">
+            <p ng-if="result.highlights && result.highlights.description" dir="auto">
                 <span>... <span ng-bind-html="result.highlights.description"></span> ...</span>
 
             </p>
             <p ng-if="result.highlights && result.highlights.keywords">
-                <span translate="dataset.keywords"></span>: <span ng-bind-html="result.highlights.keywords"></span>
+                <span translate="dataset.keywords" dir="auto"></span>: <span ng-bind-html="result.highlights.keywords" dir="auto"></span>
             </p>
             <ul class="list-chips" ng-if="result.type != 'METADATA'">
                 <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">

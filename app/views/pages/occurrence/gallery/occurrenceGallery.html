@@ -76,8 +76,8 @@
             <div class="small discreet" ng-if="occGallery.occurrenceState.query.license">
                 <p translate="occurrenceSearch.imageLicenseInfo"></p>
             </div>
-            <div class="imageGallery">
-                <a class="imageGallery__img" ng-repeat="image in occGallery.results" ui-sref="occurrenceKey({key:image.key})">
+            <div class="imageGallery rtl-supported">
+                <a class="imageGallery__img" ng-repeat="image in occGallery.results" ui-sref="occurrenceKey({key:image.key})" dir="auto">
                     <img ng-src="{{occGallery.imageCache}}x260/{{image._images[0].identifier | encodeURIComponent}}"
                          gallery-image on-img-error="occGallery.imageFailed">
                     <div class="summary smaller p-bg"  ng-if="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || image.issues.indexOf('TAXON_MATCH_NONE') > -1) && image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(image.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</div>

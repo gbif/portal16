@@ -89,6 +89,7 @@ function renderPage(req, res, next, download, template) {
                 title: 'Ocurrences',
                 _meta: {
                     title: res.__('downloadKey.download')
+                    // schema: getMetaSchema(download) // discontinued due to issues in https://github.com/gbif/portal-feedback/issues/1669#issuecomment-488245627
                 }
             });
         }
@@ -96,3 +97,53 @@ function renderPage(req, res, next, download, template) {
         next(e);
     }
 }
+
+// discontinued due to issues in https://github.com/gbif/portal-feedback/issues/1669#issuecomment-488245627
+// function getMetaSchema(download, datasets) {
+//     let isBasedOn = _.range(0, 24000).map(function(e) {
+//         return {
+//             '@type': 'DataSet',
+//             '@id': 'https://doi.org/10.15468/pdlhty' + e
+//         };
+//     });
+
+//     let schema = {
+//         '@context': 'http://schema.org',
+//         '@type': 'DataSet',
+//         '@id': 'https://doi.org/10.15468/dl.2ohxaa',
+//         'distribution': {
+//             '@type': 'DataDownload',
+//             'contentUrl': 'http://api.gbif.org/v1/occurrence/download/request/0029115-180131172636756.zip',
+//             'contentSize': '450889',
+//             'encodingFormat': 'text/csv',
+//             'expires': '2020-03-13'
+//         },
+//         'isBasedOn': isBasedOn,
+//         'identifier': [
+//           {
+//             '@type': 'PropertyValue',
+//             'propertyID': 'doi',
+//             'value': 'https://doi.org/10.15468/dl.2ohxaa'
+//           },
+//           {
+//             '@type': 'PropertyValue',
+//             'propertyID': 'UUID',
+//             'value': '0029115-180131172636756'
+//           }
+//         ],
+//         'url': 'https://www.gbif.org/occurrence/download/0029115-180131172636756',
+//         'name': 'GBIF Occurrence Download',
+//         'description': 'A dataset containing 8285 species occurrences available in GBIF matching the query: TaxonKey: Macrolepiota procera (Scop.) Singer, 1948. The dataset includes 8285 records from 146 constituent datasets: ... Data from some individual datasets included in this download may be licensed under less restrictive terms.',
+//         'license': 'http://creativecommons.org/licenses/by/4.0/legalcode',
+//         'inLanguage': 'eng',
+//         'datePublished': '2018-04-05',
+//         'provider': {
+//           '@type': 'Organization',
+//             'name': 'GBIF',
+//             'url': 'https://www.gbif.org',
+//             'logo': 'https://www.gbif.org/img/logo/GBIF-2015.png',
+//             'email': 'info@gbif.org'
+//         }
+//       };
+//     return schema;
+// }

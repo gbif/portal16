@@ -3,17 +3,17 @@
         <div class="directoryPerson__header seperator--b">
             <h4>{{vm.person.firstName}} {{vm.person.surname}}</h4>
         </div>
-        <div class="card__content">
+        <div class="card__content rtl-supported">
             <table>
                 <tr>
                     <td translate="directory.details"></td>
                     <td>
                         <div>
-                            <div ng-if="vm.person.institutionName" class="text-italic discreet--very">{{vm.person.institutionName}}</div>
-                            <div ng-if="vm.person.address" class="whiteSpace-preLine">{{vm.person.address}}</div>
-                            <div ng-if="vm.person.countryCode" translate="country.{{vm.person.countryCode}}"></div>
-                            <div ng-if="vm.person.phone"><a href="tel:{{vm.person.phone}}" class="inherit">{{vm.person.phone}}</a></div>
-                            <div ng-if="vm.person.email"><a href="mailto:{{vm.person.email}}" class="inherit">{{vm.person.email}}</a></div>
+                            <div dir="auto" ng-if="vm.person.institutionName" class="text-italic discreet--very">{{vm.person.institutionName}}</div>
+                            <div dir="auto" ng-if="vm.person.address" class="whiteSpace-preLine">{{vm.person.address}}</div>
+                            <div dir="auto" ng-if="vm.person.countryCode" translate="country.{{vm.person.countryCode}}"></div>
+                            <div dir="auto" ng-if="vm.person.phone"><a href="tel:{{vm.person.phone}}" class="inherit">{{vm.person.phone}}</a></div>
+                            <div dir="auto" ng-if="vm.person.email"><a href="mailto:{{vm.person.email}}" class="inherit">{{vm.person.email}}</a></div>
                         </div>
                     </td>
                 </tr>
@@ -29,19 +29,19 @@
                             <li ng-repeat="role in vm.person.participants">
                                 <div >{{ 'role.' + role.role | translate }}</div>
                                 <div class="discreet small">
-                                    <a ui-sref="countrySummary({key: role.participant.countryCode})" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
-                                    <a ui-sref="participant({key: role.participant.id})" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
+                                    <a dir="auto" ui-sref="countrySummary({key: role.participant.countryCode})" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
+                                    <a dir="auto" ui-sref="participant({key: role.participant.id})" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
                                 </div>
                                 <div class="discreet small"><span translate="directory.sinceDate" translate-values="{DATE: (role.term.start | momentFormat:'LL')}"></span></div>
                             </li>
                             <li ng-repeat="role in vm.person.nodes">
-                                <div >{{ 'role.' + role.role | translate }}</div>
+                                <div>{{ 'role.' + role.role | translate }}</div>
                                 <div ng-if="role.participant" class="discreet small">
-                                    <a ui-sref="countrySummary({key: role.participant.countryCode})" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
-                                    <a ui-sref="participant({key: role.participant.id})" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
+                                    <a dir="auto" ui-sref="countrySummary({key: role.participant.countryCode})" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
+                                    <a dir="auto" ui-sref="participant({key: role.participant.id})" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
                                 </div>
                                 <div ng-if="!role.participant">
-                                    <a ng-href="{{vm.URL_PREFIX}}/node/{{role.nodeId}}">{{ role.node.name }}</a>
+                                    <a dir="auto" ng-href="{{vm.URL_PREFIX}}/node/{{role.nodeId}}">{{ role.node.name }}</a>
                                 </div>
                             </li>
                         </ul>

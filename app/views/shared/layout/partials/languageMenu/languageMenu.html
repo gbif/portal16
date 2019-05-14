@@ -18,7 +18,7 @@
         </div>
 		<div class="menubox__content">
 			<div class="menubox__section">
-				<div class="menubox__section__content">
+				<div class="menubox__section__content" dir="{{vm.IS_RTL ? 'rtl' : 'ltr'}}">
 					<md-radio-group ng-model="vm.chosenLocale" ng-change="vm.changeLanguage()">
 						<md-radio-button 
 							ng-value="locale" 
@@ -26,12 +26,14 @@
 							ng-repeat="locale in vm.locales"
 							ng-class="{'m-b-0': $last}"
 							>
-							<span>{{vm.LOCALE_MAPPINGS.localNames[locale]}}</span>
-							<span class="discreet--very" ng-if="locale !== 'en'">
-							(
-								<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}" translate-language="en"></span>
-							)
-							</span>
+							<div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}">
+								<span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}">{{vm.LOCALE_MAPPINGS.localNames[locale]}}</span>
+								<span class="discreet--very ltr-text" ng-if="locale !== 'en'">
+								(
+									<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}" translate-language="en"></span>
+								)
+								</span>
+							</div>
 						</md-radio-button>
 					</md-radio-group>
 				</div>

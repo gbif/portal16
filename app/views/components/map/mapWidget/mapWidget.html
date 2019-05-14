@@ -13,7 +13,7 @@
         </div>
         <div class="mapWidget__info">
             <span translate="map.generatedDateAgo" translate-values="{DATE_AGO: ((vm.capabilities.generated || '2017-05-01') | momentFromNow:gb.locales.current)}"></span>
-            <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a ng-href="{{vm.URL_PREFIX}}/citation-guidelines" class="inherit">GBIF</a>.</span>
+            <span dir="ltr">© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a ng-href="{{vm.URL_PREFIX}}/citation-guidelines" class="inherit">GBIF</a>.</span>
         </div>
     </div>
     <div class="mapWidget__controlsArea">
@@ -50,10 +50,10 @@
                     <div ng-class="{'mapWidget__controlsArea__section__content': vm.styleBreaks.current == 0}">
                         <div class="time-slider time-slider__card">
                             <div class="gb-btn-group time-slider__buttons">
-                                <label ng-if="vm.singleYearSpan" uib-btn-radio="true" ng-model="vm.allYears"><span translate="map.year">Year</span> {{ vm.singleYearSpan }}</label>
+                                <label dir="ltr" ng-if="vm.singleYearSpan" uib-btn-radio="true" ng-model="vm.allYears"><span translate="map.year">Year</span> {{ vm.singleYearSpan }}</label>
                                 <label ng-model="vm.allYears" uib-btn-radio="true"
                                        ng-change="vm.updateFilters()" ng-if="!vm.singleYearSpan" translate="map.anyYear"></label>
-                                <label ng-model="vm.allYears" uib-btn-radio="false" ng-if="!vm.singleYearSpan"
+                                <label dir="ltr" ng-model="vm.allYears" uib-btn-radio="false" ng-if="!vm.singleYearSpan"
                                        ng-change="vm.updateFilters()"><span class="time-slider__years"></span></label>
                             </div>
                             <div class="time-slider__container">

@@ -1,8 +1,8 @@
-<div class="card m-b-05 searchCard">
+<div class="card m-b-05 searchCard rtl-supported">
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('enums.cms.contentType.literature') $}</span>
-            <h3 class="searchCard__headline">
+            <h3 class="searchCard__headline" dir="auto">
                 <a ng-href="https://doi.org/{{result.identifiers.doi}}" ng-if="result.identifiers.doi">
                     {{result.title}}
                     <span class="gb-icon-link"></span>
@@ -19,7 +19,7 @@
     </div>
     <div class="card__stripe">
         <div class="card__content searchCard__content">
-            <div class="searchCard__meta">
+            <div class="searchCard__meta" dir="auto">
                 <span ng-repeat="author in result.authors | limitTo:6 ">{{ author.lastName }}, {{ author.firstName | limitTo:1 }}. </span>
                 <span ng-if="result.authors[6]">... - </span>
                 ({{ result.year }})
@@ -33,17 +33,17 @@
                     </span>
                 </span>
             </div>
-            <p>
+            <p dir="auto">
                 {{result.abstract}}
             </p>
-            <div class="m-b-025">
+            <div class="m-b-025" dir="auto">
                 <ul class="inline-bullet-list discreet--very smaller">
                     <li ng-repeat="keyword in result.keywords | limitTo: 6">
                         {{ keyword }}
                     </li>
                 </ul>
             </div>
-            <ul class="list-chips">
+            <ul class="list-chips" dir="auto">
                 <li>
                     <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="enums.cms.vocabularyTerms.literatureType.{{ result.literatureType }}"></a>
                 </li>

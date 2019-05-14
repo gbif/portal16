@@ -140,7 +140,8 @@ $articleCategorySeparatorSpacing = 6px
         }
     }
     .article-header__category__lower {
-        border-left 2px solid $orangePeel
+        border 2px solid $orangePeel
+        border-width 0 0 0 2px
         margin-left $articleCategorySeparatorSpacing
         padding-left ($articleCategorySeparatorSpacing + 2)
     }
@@ -153,9 +154,25 @@ $articleCategorySeparatorSpacing = 6px
         }
     }
 }
+.rtl {
+    .article-header__category {
+        direction rtl
+        .article-header__category__lower {
+            border-width 0 2px 0 0
+            margin-right $articleCategorySeparatorSpacing
+            padding-right ($articleCategorySeparatorSpacing + 2)
+        }
+        &.article-header__category--deep {
+            text-align right
+            .article-header__category__upper {
+                text-align left
+            }
+        }
+    }
+}
 
 //TODO isn't used it seems
-.article-header__field {
+.xxxarticle-header__field {
     display inline-block
     padding 10px 20px
     text-align center
@@ -172,7 +189,7 @@ $articleCategorySeparatorSpacing = 6px
 }
 
 //TODO isn't used it seems
-.header-short-text {
+.xxxheader-short-text {
     max-width 800px
     margin 0 auto
 }
@@ -409,7 +426,7 @@ $headerImageMaxFullWidth = $desktop
             font-size 80%
         }
         &:last-of-type:after {
-            content '';
+            content none;
         }
     }
     &--discreet {
@@ -419,6 +436,23 @@ $headerImageMaxFullWidth = $desktop
         }
     }
 }
+// .rtl {
+//     .inline-bullet-list {
+//         li {
+//             &:after {
+//                 content none;
+//             }
+//             &:before {
+//                 font-style normal
+//                 content '\25CF' // ❯
+//                 font-size 80%
+//             }
+//             &:last-of-type:before {
+//                 content none;
+//             }
+//         }
+//     }
+// }
 
 .article-image {
     padding-bottom 60%

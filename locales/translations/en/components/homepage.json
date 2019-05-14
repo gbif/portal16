@@ -8,6 +8,20 @@
         },
         "aboutGbifCountry": "About GBIF {COUNTRY}",
         "summary": "Free and open access to biodiversity data",
-        "whatIsGbif": "What is GBIF?"
+        "whatIsGbif": "What is GBIF?",
+        "featureTypes": {
+            "event": "Event",
+            "news": "News",
+            "resource": "Resource",
+            "dataUse": "Data use",
+            "project": "Project",
+            "programme": "Programme",
+            "document": "Document",
+            "tool": "Tool",
+            "literature": "Literature",
+            "treatment": "Treatment",
+            "blog": "Data-blog",
+            "guidance": "Guidance"
+        }
     }
 }
