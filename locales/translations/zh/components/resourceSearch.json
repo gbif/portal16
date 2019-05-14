@@ -5,10 +5,10 @@
         "searchForNewsEventsDocuments": "搜索 for news, 事件, documents and much more. If you are looking for 物种出现记录 then try our 出现记录搜索.",
         "occurrenceSearch": "出现记录搜索",
         "subscribeToCalendar": "订阅日历",
-        "citationExplainer": "",
+        "citationExplainer": "阅读更多相关文献，其是如何被发现并与由GBIF介导的数据联系起来。",
         "types": {
-            "events": "",
-            "news": "",
+            "events": "事件",
+            "news": "新闻",
             "resources": "",
             "projects": "",
             "programmes": "",
