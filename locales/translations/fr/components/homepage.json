@@ -10,17 +10,17 @@
         "summary": "Accès libre et gratuit aux données de biodiversité",
         "whatIsGbif": "",
         "featureTypes": {
-            "event": "",
-            "news": "",
-            "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
-            "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": "",
+            "event": "Événement",
+            "news": "Actualités",
+            "resource": "Ressource",
+            "dataUse": "Utilisation des données",
+            "project": "Projet",
+            "programme": "Programme",
+            "document": "Document",
+            "tool": "Outil",
+            "literature": "Littérature",
+            "treatment": "Taxonomie",
+            "blog": "Blogue de données",
             "guidance": ""
         }
     }
