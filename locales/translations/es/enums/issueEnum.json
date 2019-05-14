@@ -11,7 +11,7 @@
     "BASIONYM_AUTHOR_MISMATCH": "Autor del basónimo no coincidente",
     "TAXONOMIC_STATUS_MISMATCH": "Estado taxonómico no coincidente",
     "PARENT_CYCLE": "Ciclo de clasificación parental",
-    "CLASSIFICATION_RANK_ORDER_INVALID": "",
+    "CLASSIFICATION_RANK_ORDER_INVALID": "Órden del rango de clasificación inválido",
     "CLASSIFICATION_NOT_APPLIED": "No aplica la clasificación",
     "VERNACULAR_NAME_INVALID": "Nombre vernáculo inválido",
     "DESCRIPTION_INVALID": "Descripción inválida",

@@ -8,6 +8,20 @@
         },
         "aboutGbifCountry": "關於 GBIF {COUNTRY}",
         "summary": "自由、開放取用的生物多樣性資料",
-        "whatIsGbif": ""
+        "whatIsGbif": "",
+        "featureTypes": {
+            "event": "活動",
+            "news": "新聞",
+            "resource": "資源",
+            "dataUse": "資料使用",
+            "project": "專案",
+            "programme": "計畫",
+            "document": "文件",
+            "tool": "工具",
+            "literature": "文獻",
+            "treatment": "",
+            "blog": "資料部落格",
+            "guidance": ""
+        }
     }
 }

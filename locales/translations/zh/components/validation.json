@@ -53,22 +53,22 @@
         "title": ""
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
+    "fileSizeLimit": "文件大小限制：100 mb",
+    "receivedMediaType": "媒体类型",
+    "uniqueIdentifier": "唯一标识符",
     "reportLocation": "本报告已写入",
     "reportDeletion": "一个月后将被删除。到那之前，您可以在方便时重新查看报告。",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
+    "reportGenerated": "生成",
+    "summary": "验证摘要",
+    "issues": "验证问题",
+    "fileHasIssues": "验证器检测到一些问题：",
     "fileHasNoIssues": "在文档中未找到资料。",
     "error": "错误",
     "errors": {
       "400": "无法处理文件，或者如果您提供了URL，信息可能丢失。",
-      "404": "",
-      "413": "",
-      "415": ""
+      "404": "找不到验证作业ID。如果您认为这是一个错误，请报告它。",
+      "413": "文件太大，需要由数据验证器处理。",
+      "415": "不支持的文件类型。文件无法处理。"
     },
     "backToValidator": "开始新的验证",
     "termsFrequency": {
@@ -80,11 +80,11 @@
     },
     "interpretedCounts": {
       "date": "说明日期数",
-      "taxon": "",
-      "location": ""
+      "taxon": "已解析的分类群列数",
+      "location": "已解析的坐标数"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "已解析的计数值"
     },
     "status": {
       "title": "状态",
@@ -93,13 +93,13 @@
       "ACCEPTED": "验证已开始",
       "RUNNING": "正在进行验证",
       "FINISHED": "验证完成",
-      "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "FAILED": "验证失败。请检查文件类型。如您提交了 URL，请检查文件是否存在于该位置。",
+      "CONTACTING_SERVER": "正在连接服务器……"
     },
-    "jobId": "",
-    "indexeable": "",
-    "notIndexeable": "",
-    "numberOfLines": "",
+    "jobId": "作业编号",
+    "indexeable": "GBIF 可为该文件编制索引",
+    "notIndexeable": "GBIF 无法为该文件编制索引",
+    "numberOfLines": "行数",
     "reportProducedByGbifDataValidator": "",
     "validationReport": "校验报告",
     "dataValidator": "数据验证器",

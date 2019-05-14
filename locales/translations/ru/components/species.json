@@ -1,4 +1,8 @@
 {
+  "treatment": {
+    "distribution": "",
+    "figures": ""
+  },
   "species": {
     "distribution": {
       "presentIn": "Обитает в {country}",
@@ -40,6 +44,7 @@
     "synonyms": "Синонимы",
     "synonymOf": "Синоним",
     "basionymOf": "Базионим",
+    "homotypicSynonymOf": "",
     "immediateChildren": "Нижестоящий таксон",
     "descendants": "Потомки",
     "loadMore": "Еще",

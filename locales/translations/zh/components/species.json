@@ -1,4 +1,8 @@
 {
+  "treatment": {
+    "distribution": "",
+    "figures": ""
+  },
   "species": {
     "distribution": {
       "presentIn": "出现在 {country}",
@@ -40,6 +44,7 @@
     "synonyms": "异名",
     "synonymOf": "异名",
     "basionymOf": "基本名称",
+    "homotypicSynonymOf": "",
     "immediateChildren": "直系亲属",
     "descendants": "降序",
     "loadMore": "更多",

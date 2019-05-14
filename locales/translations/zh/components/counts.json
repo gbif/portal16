@@ -1,7 +1,7 @@
 {
     "counts": {
         "nCitations": "",
-        "pCitations": "",
+        "pCitations": "{NUMBER, select, 1{引用} other{引用}}",
         "nRecords": "",
         "nResults": "",
         "nCollections": "",
@@ -17,7 +17,7 @@
         "nCountries": "",
         "nContacts": "",
         "pRecords": "",
-        "pOccurrence": "",
+        "pOccurrence": "{NUMBER, select, 1{出现记录} 其它{出现记录}}",
         "pMaterialSamples": "",
         "pSpecies": "",
         "pInfraspecies": "",

@@ -1,4 +1,8 @@
 {
+  "treatment": {
+    "distribution": "",
+    "figures": ""
+  },
   "species": {
     "distribution": {
       "presentIn": "",
@@ -40,6 +44,7 @@
     "synonyms": "",
     "synonymOf": "",
     "basionymOf": "",
+    "homotypicSynonymOf": "",
     "immediateChildren": "",
     "descendants": "",
     "loadMore": "",

@@ -2,26 +2,26 @@
   "collection": {
     "search": {
       "title": "馆藏",
-      "description": ""
+      "description": "**机构馆藏** 是已正式被加入机构并获得相当程度支持的馆藏。\n\n**项目馆藏**是由机构内的研究员收集，但可能还未被正式纳入的馆藏。项目馆藏最终可能成为机构馆藏的一部分或仍由个别研究员管控。\n\n**私人馆藏**是由个别研究员管控，并没有正式加入相关机构的馆藏。它们可能是私人财产或不属于任何个人。"
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
-    "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "headerTitle": "馆藏",
+    "description": "描述",
+    "institutionName": "机构名称",
+    "code": "代码",
+    "statusOfCollection": "馆藏状态",
+    "personalCollection": "个人收藏",
     "isPersonalCollection": {
       "true": "是",
       "false": "否"
     },
-    "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
+    "accessionStatus": "加入状态",
+    "contentTypes": "内容类型",
+    "preservationTypes": "保存类型",
     "homepage": "首页",
-    "apiUrl": "",
-    "catalogUrl": "",
-    "identifiers": "",
-    "collectionMailingAddress": "",
+    "apiUrl": "馆藏网页服务的 URL 地址",
+    "catalogUrl": "馆藏标本名录／数据库的 URL 地址",
+    "identifiers": "标识符",
+    "collectionMailingAddress": "通讯地址",
     "status": "状态",
     "name": "名字",
     "isActive": {
@@ -32,34 +32,34 @@
   "institution": {
     "search": {
       "title": "机构",
-      "description": ""
+      "description": "**机构** 是指用于并管理科学馆藏的任何机构或组织。包括草本植物、博物館、动物园、植物园、生物库等。一个机构可以包含多种馆藏，也就是说这些馆藏应在 **机构／项目馆藏** 中单独输入，并与其上层机构关联。\n\n由于整合多个旧的数据集，为避免 **机构代码** 重复，所有植物标本馆索引代码会附加 <IH> 。"
     },
-    "headerTitle": "",
-    "indexHerbariorumRecord": "",
+    "headerTitle": "机构",
+    "indexHerbariorumRecord": "植物标本馆索引记录",
     "numberSpecimens": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "code": "机构代码",
+    "statusOfInstitution": "机构状态",
+    "additionalNames": "其他名称",
+    "description": "描述",
+    "homepage": "首页",
     "foundingDate": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "disciplines": "机构条例",
+    "institutionalGovernance": "机构管理",
+    "type": "机构类型",
+    "identifiers": "识别码",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "活跃的",
+      "false": "未激活的"
     },
     "true": "是",
     "false": "否"
   },
   "grscicollPerson": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "馆藏工作人员",
+      "description": "GRSciColl 职员是指参与馆藏工作的人员。他们与机构及/或任何类型的馆藏都相关联。"
     },
-    "headerTitle": "",
+    "headerTitle": "馆藏工作人员",
     "firstName": "名",
     "lastName": "姓",
     "fullName": "全名",
@@ -68,8 +68,8 @@
     "areaResponsibility": "负责领域",
     "researchPursuits": "搜索特长",
     "primaryInstitution": "一级机构名称",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "primaryCollection": "主要馆藏名称",
+    "affiliateInstitutions": "其他附属机构",
     "affiliateCollections": ""
   },
   "grscicoll": {
