@@ -2,11 +2,11 @@
   "typeStatus": {
     "TYPE": "类型",
     "TYPE_SPECIES": "类型物种",
-    "TYPE_GENUS": "类型属",
+    "TYPE_GENUS": "模式属",
     "ALLOLECTOTYPE": "异体选定模式标本",
     "ALLONEOTYPE": "异型种类",
     "ALLOTYPE": "异型",
-    "COTYPE": "表型",
+    "COTYPE": "全模式标本",
     "EPITYPE": "表位类型",
     "EXEPITYPE": "前表位类型",
     "EXHOLOTYPE": "前全型",
@@ -40,6 +40,6 @@
     "SYNTYPE": "同步类型",
     "TOPOTYPE": "典型标本",
     "ORIGINALMATERIAL": "原始材料",
-    "NOTATYPE": ""
+    "NOTATYPE": "不是一种模式标本"
   }
 }
