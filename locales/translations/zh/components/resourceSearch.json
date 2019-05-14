@@ -3,8 +3,8 @@
         "upcoming": "即将到来",
         "past": "过去",
         "searchForNewsEventsDocuments": "搜索 for news, 事件, documents and much more. If you are looking for 物种出现记录 then try our 出现记录搜索.",
-        "occurrenceSearch": "",
-        "subscribeToCalendar": "",
+        "occurrenceSearch": "出现记录搜索",
+        "subscribeToCalendar": "订阅日历",
         "citationExplainer": "",
         "types": {
             "events": "",
