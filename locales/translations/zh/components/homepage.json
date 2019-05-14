@@ -10,7 +10,7 @@
         "summary": "自由开放地获取生物多样性数据",
         "whatIsGbif": "",
         "featureTypes": {
-            "event": "",
+            "event": "事件",
             "news": "",
             "resource": "",
             "dataUse": "",
