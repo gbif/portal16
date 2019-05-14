@@ -8,6 +8,19 @@
         },
         "aboutGbifCountry": "Sobre GBIF {COUNTRY}",
         "summary": "Acceso libre y gratuito a los datos de biodiversidad",
-        "whatIsGbif": ""
+        "whatIsGbif": "",
+        "featureTypes": {
+            "event": "",
+            "news": "",
+            "resource": "",
+            "dataUse": "",
+            "project": "",
+            "programme": "",
+            "document": "",
+            "tool": "",
+            "literature": "",
+            "treatment": "",
+            "blog": ""
+        }
     }
 }
