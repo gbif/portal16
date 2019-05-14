@@ -2,23 +2,23 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "关于",
-      "metrics": "",
-      "publishersHomepage": "首页"
+      "metrics": "指标",
+      "publishersHomepage": "主页"
     },
     "joinedAgo": "加入 {TIME_AGO}",
     "newPublisher": "新发布者",
-    "technicalContact": "",
+    "technicalContact": "技术联系人",
     "country": "国家或地区",
-    "hosting": "",
-    "description": "",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "hosting": "网站托管",
+    "description": "描述",
+    "endorsedBy": "受认可",
+    "pendingEndorsementBy": "待批准",
+    "installations": "安装",
+    "contacts": "联系人",
+    "administrativeContact": "行政联系人",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "发布者",
+      "sinceDate": "{DATE} 以来"
     }
   }
 }
