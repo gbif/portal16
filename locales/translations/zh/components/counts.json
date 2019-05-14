@@ -17,7 +17,7 @@
         "nCountries": "",
         "nContacts": "",
         "pRecords": "",
-        "pOccurrence": "",
+        "pOccurrence": "{NUMBER, select, 1{出现记录} 其它{出现记录}}",
         "pMaterialSamples": "",
         "pSpecies": "",
         "pInfraspecies": "",
