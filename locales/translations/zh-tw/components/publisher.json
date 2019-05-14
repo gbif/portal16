@@ -2,7 +2,7 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "關於",
-      "metrics": "",
+      "metrics": "指標",
       "publishersHomepage": "首頁"
     },
     "joinedAgo": "於 {TIME_AGO} 前加入",
