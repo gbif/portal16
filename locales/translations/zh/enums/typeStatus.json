@@ -1,8 +1,8 @@
 {
   "typeStatus": {
-    "TYPE": "",
-    "TYPE_SPECIES": "",
-    "TYPE_GENUS": "",
+    "TYPE": "类型",
+    "TYPE_SPECIES": "类型物种",
+    "TYPE_GENUS": "类型属",
     "ALLOLECTOTYPE": "",
     "ALLONEOTYPE": "",
     "ALLOTYPE": "",
