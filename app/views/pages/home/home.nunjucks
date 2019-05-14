@@ -157,6 +157,7 @@
                             <div>{$ article.start | formatDate(gb.locales.current, 'D') $}</div>
                             <span>{$ article.start | formatDate(gb.locales.current, 'YYYY') $}</span>
                         </div>
+                        {% if article.type %}<span class="article-box__type">{$ __("homepage.featureTypes.event" ) $}</span>{% endif %}
                     </div>
                 </div>
             </a>

@@ -20,7 +20,8 @@
             "tool": "Tool",
             "literature": "Literature",
             "treatment": "Treatment",
-            "blog": "Blog"
+            "blog": "Blog",
+            "guidance": "Guidance"
           }
     }
 }
