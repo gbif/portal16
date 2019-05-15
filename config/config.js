@@ -133,11 +133,11 @@ let config = {
     },
 
     // Dev-ES uses ElasticSearch
-    dev-es: {
+    deves: {
         env: env,
         root: rootPath,
         app: {
-            name: 'portal - dev-es'
+            name: 'portal - deves'
         },
         port: port || 80,
         serverProtocol: 'http:',
@@ -175,11 +175,11 @@ let config = {
     },
 
     // Dev-SOLR uses SOLR
-    dev-solr: {
+    devsolr: {
         env: env,
         root: rootPath,
         app: {
-            name: 'portal - dev-solr'
+            name: 'portal - devsolr'
         },
         port: port || 80,
         serverProtocol: 'http:',
