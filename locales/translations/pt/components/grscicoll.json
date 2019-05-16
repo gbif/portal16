@@ -1,22 +1,22 @@
 {
   "collection": {
     "search": {
-      "title": "",
+      "title": "Coleções",
       "description": ""
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
-    "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "headerTitle": "Coleção",
+    "description": "Descrição",
+    "institutionName": "Nome da instituição",
+    "code": "Código",
+    "statusOfCollection": "Estado da coleção",
+    "personalCollection": "Coleção pessoal",
     "isPersonalCollection": {
       "true": "Sim",
       "false": "Não"
     },
     "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
+    "contentTypes": "Tipos de conteúdo",
+    "preservationTypes": "Tipos de Preservação",
     "homepage": "",
     "apiUrl": "",
     "catalogUrl": "",
