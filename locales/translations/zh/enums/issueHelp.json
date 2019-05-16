@@ -1,7 +1,7 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "",
-    "COORDINATE_REPROJECTION_FAILED": "",
+    "BASIS_OF_RECORD_INVALID": "BasisOfRecord 的值丢失或无效。值必须与达尔文核心类型词汇相匹配。",
+    "COORDINATE_REPROJECTION_FAILED": "给定的十进制纬度和经度不能根据提供的数据重新投影到 WGS84。",
     "NO_SPECIES": "",
     "RECORDED_DATE_INVALID": "",
     "PRESUMED_NEGATED_LATITUDE": "",
