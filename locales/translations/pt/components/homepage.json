@@ -4,24 +4,24 @@
             "occurrences": "Registos de ocorrências",
             "datasets": "Conjuntos de dados",
             "publishers": "Instituições publicadoras",
-            "literature": ""
+            "literature": "Artigos revistos utilizando dados"
         },
         "aboutGbifCountry": "Sobre o GBIF {COUNTRY}",
         "summary": "Acesso livre e aberto aos dados da biodiversidade",
         "whatIsGbif": "",
         "featureTypes": {
-            "event": "",
-            "news": "",
-            "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
-            "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": "",
-            "guidance": ""
+            "event": "Evento",
+            "news": "Notícias",
+            "resource": "Recurso",
+            "dataUse": "Uso dos dados",
+            "project": "Projeto",
+            "programme": "Programa",
+            "document": "Documento",
+            "tool": "Ferramenta",
+            "literature": "Bibliografia",
+            "treatment": "Taxonomia",
+            "blog": "Blog de dados",
+            "guidance": "Orientação"
         }
     }
 }
