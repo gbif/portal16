@@ -67,9 +67,9 @@
     "affiliations": "Afiliação",
     "areaResponsibility": "Área de responsabilidade",
     "researchPursuits": "Especialidade de investigação",
-    "primaryInstitution": "Nome da instituição primária",
-    "primaryCollection": "Nome da coleção primária",
-    "affiliateInstitutions": "",
+    "primaryInstitution": "Nome da Instituição Principal",
+    "primaryCollection": "Nome da Coleção Principal",
+    "affiliateInstitutions": "Instituições adicionais de afiliação",
     "affiliateCollections": ""
   },
   "grscicoll": {
