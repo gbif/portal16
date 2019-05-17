@@ -1,8 +1,8 @@
 {
     "counts": {
-        "nCitations": "",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{引文} other{引文}}",
         "pCitations": "{NUMBER, select, 1{引用} other{引用}}",
-        "nRecords": "",
+        "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{记录} other{记录}}",
         "nResults": "",
         "nCollections": "",
         "nInstitutions": "",
@@ -20,8 +20,8 @@
         "pOccurrence": "{NUMBER, select, 1{出现记录} 其它{出现记录}}",
         "pMaterialSamples": "",
         "pSpecies": "",
-        "pInfraspecies": "",
-        "pPublishers": "",
-        "contacts": ""
+        "pInfraspecies": "{NUMBER, select, 1{次物种} other{次物种}}",
+        "pPublishers": "{NUMBER, select, 1{发布者} other{发布者}}",
+        "contacts": "{NUMBER, select, 1{联系人} other{联系人}}"
     }
 }
