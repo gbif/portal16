@@ -74,11 +74,11 @@ function getMetaSchema(dataset) {
     let authors = _.filter(dataset.contacts, {type: 'ORIGINATOR'}).map(function(contact) {
         let c = {
             '@type': 'Person',
-            'givenName': contact.firstName,
-            'familyName': contact.lastName,
+            'name': `${contact.firstName} ${contact.lastName}`,
             'email': contact.email[0],
             'telephone': contact.phone[0],
             'jobTitle': contact.position,
+            'identifier': contact.userId[0],
             'address': {
                 '@type': 'PostalAddress',
                 'streetAddress': contact.address,
@@ -125,7 +125,8 @@ function getMetaSchema(dataset) {
         'publisher': {
             '@type': 'Organization',
             'name': dataset.publisher.title,
-            'url': _.get(dataset, 'publisher.homepage[0]')
+            'url': _.get(dataset, 'publisher.homepage[0]'),
+            'logo': _.get(dataset, 'publisher.logo')
           },
         'provider': {
           '@type': 'Organization',
