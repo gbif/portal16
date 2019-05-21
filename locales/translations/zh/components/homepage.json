@@ -11,17 +11,17 @@
         "whatIsGbif": "",
         "featureTypes": {
             "event": "事件",
-            "news": "",
-            "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
-            "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": "",
-            "guidance": ""
+            "news": "新闻",
+            "resource": "资源",
+            "dataUse": "数据使用",
+            "project": "项目",
+            "programme": "计划",
+            "document": "文档",
+            "tool": "工具",
+            "literature": "文献",
+            "treatment": "分类学",
+            "blog": "数据博客",
+            "guidance": "指导"
         }
     }
 }

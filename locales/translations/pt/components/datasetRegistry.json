@@ -25,7 +25,7 @@
             "orphaned": "Conjunto de dados órfão",
             "rescued": "Conjunto de dados órfão resgatado",
             "adopted": "Conjunto de dados adotado",
-            "neverIngested": "",
+            "neverIngested": "Nunca importado",
             "inIngestionQueue": "Está na fila de ingestão",
             "addingToQueue": "A adicionar à fila",
             "unableToStart": "Não é possível iniciar a ingestão",
