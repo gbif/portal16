@@ -116,3 +116,14 @@
 {$ _meta.schema | rawJson(true) | safe $}
 </script>
 {% endif %}
+
+{% if gb.locales.originalUrl === "/" %}
+<script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "url": "http://www.gbif.org/",
+      "logo": "https://www.gbif.org/img/logo/GBIF50.png"
+      }
+</script>
+{% endif %}
