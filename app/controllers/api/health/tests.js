@@ -10,7 +10,7 @@ let crawlHostName = 'prodcrawler1-vh.gbif.org',
     downloadKey = '0000222-130906152512535';
 switch (config.healthEnv || config.env) {
     case 'dev':
-        crawlHostName = 'devcrawler-vh.gbif.org';
+        crawlHostName = 'devcrawler1-vh.gbif.org';
         varnishIndexName = 'dev-varnish-*';
         publicCrawlIndexName = 'dev-crawl-*';
         downloadKey = '0000581-181121175518854';
