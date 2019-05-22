@@ -57,8 +57,8 @@ translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
 translationMap['pt'] = 'por';
 translationMap['da'] = 'dan';
+translationMap['zh'] = 'zh-hans';
 translationMap['zh-tw'] = 'zh-hant';
-translationMap['zh-cn'] = 'zh-hans';
 // mock test languages
 translationMap['de-MOCK'] = 'gsw';
 translationMap['ko-MOCK'] = 'kor';
