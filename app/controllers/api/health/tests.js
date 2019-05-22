@@ -63,9 +63,9 @@ let tests = [
         message: 'Should respond with free text query within 8 seconds - else warn'
     },
     {
-        url: apiConfig.taxon.url + '42?cachebust={NOW}',
+        url: apiConfig.taxon.url + '196?cachebust={NOW}',
         component: 'SPECIES',
-        message: 'A specific species key (42) should resolve'
+        message: 'A specific species key (196) should resolve'
     },
     {
         url: apiConfig.taxon.url + 'suggest?datasetKey=' + backboneKey + '&limit=10&q=puma+concolor+(Linnaeus,+1771)&cachebust={NOW}',
