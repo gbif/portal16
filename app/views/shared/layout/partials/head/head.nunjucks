@@ -111,7 +111,7 @@
     </style>
 </noscript>
 
-{% if _meta.schema %}
+{% if _meta.schema and gb.locales.urlPrefix === ""%}
 <script type="application/ld+json">
 {$ _meta.schema | rawJson(true) | safe $}
 </script>
