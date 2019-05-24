@@ -91,7 +91,7 @@ angular
     .config(mdConfig);
 
 /** @ngInject */
-function runBlock( $translate, $http, LOCALE, $rootScope) { // $log
+function runBlock( $translate, $http, LOCALE, $rootScope, $location, $window) { // $log
     $rootScope.$on('$stateChangeStart', function(e) {
         if (window.gb.state > 399) {
             e.preventDefault();
@@ -99,6 +99,7 @@ function runBlock( $translate, $http, LOCALE, $rootScope) { // $log
     });
 
     $rootScope.$on('$stateChangeSuccess', function() {
+        $window.ga('send', 'pageview', $location.path());
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
 }
