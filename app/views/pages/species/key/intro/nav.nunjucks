@@ -33,7 +33,10 @@
 
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">
                     <span>
-                        <a class="gb-button--brand" ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})" translate="species.viewInGbifBackbone"></a>
+                        <a class="gb-button--brand" 
+                            ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})" 
+                            ng-click="portal.gaEvent('species', 'navBar', 'viewBackboneVersion')"
+                            translate="species.viewInGbifBackbone"></a>
                     </span>
                     </li>
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.references">
