@@ -98,8 +98,13 @@ function runBlock( $translate, $http, LOCALE, $rootScope, $location, $window) { 
         }
     });
 
+    // ga('send', 'pageview');
     $rootScope.$on('$stateChangeSuccess', function() {
-        $window.ga('send', 'pageview', $location.path());
+        if (window.gbifHasSentGoogleAnalyticsForThisUrl === window.location.href) {
+            window.gbifHasSentGoogleAnalyticsForThisUrl = undefined;
+        } else {
+            $window.ga('send', 'pageview', $location.path());
+        }
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
 }
