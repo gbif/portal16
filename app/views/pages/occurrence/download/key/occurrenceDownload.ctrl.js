@@ -31,10 +31,7 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootSc
 
     vm.pageChanged = function() {
         vm.offset = (vm.currentPage - 1) * vm.limit;
-        $location.hash('datasets');
-        $scope.$watchCollection($location.search('offset', vm.offset), function() {
-            $window.location.reload();
-        });
+        window.location.href = window.location.origin + window.location.pathname + '?offset=' + vm.offset + '#datasets';
     };
 
     vm.setInitials = function(offset, limit, key) {
