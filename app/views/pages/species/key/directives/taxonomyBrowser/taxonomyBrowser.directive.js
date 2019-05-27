@@ -60,6 +60,16 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
         };
         vm.gotoSpecies = function(key) {
             delete $stateParams.root;
+            
+            // tracking
+            var trackingData = {
+                hitType: 'event',
+                eventCategory: 'species',
+                eventAction: 'taxonomyBrowser'
+            };
+            ga('send', trackingData);
+            
+            // go to state
             vm.$state.go(vm.$state.current, {speciesKey: key}, {reload: true});
         };
 
