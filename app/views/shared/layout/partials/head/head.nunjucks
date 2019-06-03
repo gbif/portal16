@@ -100,6 +100,7 @@
 
     ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
     ga('send', 'pageview');
+    window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
 </script>
 
 <noscript>
