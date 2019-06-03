@@ -27,10 +27,10 @@
                         </td>
                         <td dir="auto">
                             {% if occurrence.record[term.simpleName] | isDefined %}
-                               {% if term.simpleName !== "typeStatus" and term.simpleName !== "identificationRemarks" %}
+                               {% if term.simpleName !== "typeStatus" and term.simpleName !== "identificationRemarks" and term.simpleName !== "associatedSequences"%}
                                 {$ shorten.shorten(occurrence.record[term.simpleName]) $}
                                 {% endif %}
-                                {% if term.simpleName == "identificationRemarks" %}
+                                {% if term.simpleName == "identificationRemarks" or term.simpleName == "associatedSequences" %}
                                 
                                 <span ng-bind-html="'{$ occurrence.record[term.simpleName] $}' | linky"></span>
                                 {% endif %}
