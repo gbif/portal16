@@ -51,7 +51,7 @@
     "media": {
       "noIdentifier": "没有提供媒体标识符",
       "noPlaybackSupport": "您的浏览器不支持播放此媒体所需的格式。",
-      "takeMeThere": "",
+      "takeMeThere": "尝试连接到发布者网站版本",
       "notWorkingTryPublishers": "",
       "download": "下载媒体档案"
     },
