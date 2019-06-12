@@ -314,7 +314,7 @@ let config = {
         serverProtocol: 'http:',
         apidocs: apidocs,
         managementToolsSite: '//registry.gbif-uat.org/',
-        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
+        dataApiV2: dataApiV2 || '//api-es.gbif-uat.org/v2/',
         dataApi: dataApi || '//api-es.gbif-uat.org/v1/',
         tileApi: tileApi || '//api-es.gbif-uat.org/v1/map/density/tile.png',
         basemapTileApi: basemapTileApi || '//tile.gbif-uat.org',
