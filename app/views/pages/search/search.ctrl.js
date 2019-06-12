@@ -7,7 +7,7 @@ angular
     .controller('searchCtrl', searchCtrl);
 
 /** @ngInject */
-function searchCtrl($state, $stateParams, Page, $http, $cookies) {
+function searchCtrl($state, $stateParams, Page, LOCALE, $http, $cookies) {
     var vm = this;
     Page.setTitle('Search');
     Page.drawer(false);
@@ -36,14 +36,14 @@ function searchCtrl($state, $stateParams, Page, $http, $cookies) {
     vm.searchUrlFragment = function() {
         var pathName = window.location.pathname;
         var fragment = pathName.substr(pathName.lastIndexOf('/') + 1);
-        vm.search(fragment);
+        vm.search(decodeURIComponent(fragment));
     };
 
     vm.search = function(q) {
         vm.searchResults = $http.get('/api/omnisearch', {
             params: {
                 q: q || vm.freeTextQuery,
-                locale: $stateParams.locale
+                locale: LOCALE
             }
         });
         vm.loading = true;
