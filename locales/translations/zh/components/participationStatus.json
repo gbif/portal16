@@ -20,19 +20,19 @@
             "OTHER": {
                 "description": {
                     "VOTING": "来自{REGION} 的 GBIF 投票组织成员",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
+                    "ASSOCIATE": "來自{REGION} 的其他组织成员",
+                    "OBSERVER": "来自{REGION} 的观察组织成员",
+                    "AFFILIATE": "来自{REGION}的附属组织成员",
+                    "FORMER": "来自{REGION}的前组织成员",
                     "undefined": "未知的"
                 },
                 "longForm": {
                     "VOTING": "投票组织成员",
                     "ASSOCIATE": "其他组织成员",
                     "OBSERVER": "观察组织成员",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "AFFILIATE": "附属组织",
+                    "FORMER": "前组织成员",
+                    "undefined": "未知的"
                 }
             }
         }
