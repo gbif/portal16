@@ -12,7 +12,7 @@
     "nWithImages": "{NUMBER_FORMATED} 含{NUMBER, select, 1{图片} other{图片}}",
     "failedSearch": "您的筛选可能无效或者服务器出现问题。请再尝试，若仍有问题请报告问题。",
     "noImages": "不带图片的出现记录",
-    "imageLicenseInfo": "",
+    "imageLicenseInfo": "请注意，此图片的授权可能与出现记录的授权不同。",
     "showMoreImages": "更多",
     "default": "默认",
     "custom": "自定义",
@@ -20,10 +20,10 @@
     "containsSuspicious": "此地图包含被 GBIF标记为可疑位点的出现记录。",
     "hideSuspiciousCoordinates": "隐藏它们",
     "currentFilter": "当前筛选条件",
-    "selectColumns": "",
+    "selectColumns": "选择列",
     "done": "完成",
     "yesCorrectSuggestion": "是",
     "noWrongSuggestion": "否",
-    "errorUserThrottled": ""
+    "errorUserThrottled": "您的访问权限暂时被限制。"
   }
 }
