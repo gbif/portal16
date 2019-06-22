@@ -40,7 +40,7 @@
     "mediator": "调解人",
     "medium": "中等",
     "modified": "已修改",
-    "provenance": "",
+    "provenance": "出处",
     "publisher": "发布者",
     "references": "参考文献",
     "relation": "关系",
@@ -94,7 +94,7 @@
     "associatedOccurrences": "相关事件",
     "associatedOrganisms": "相关生物",
     "previousIdentifications": "以前的鉴定",
-    "organismRemarks": "",
+    "organismRemarks": "生物注释",
     "materialSampleID": "材料样本ID",
     "eventID": "事件编号",
     "parentEventID": "父事件ID",
@@ -250,7 +250,7 @@
     "verbatimLongitude": "逐字经度",
     "scientificNameAuthorship": "学名作者",
     "undefined": "未知字段",
-    "coordinatesTextual": "",
-    "coordinatesMissing": ""
+    "coordinatesTextual": "这条记录有包含地点的文字描述，但没有坐标。",
+    "coordinatesMissing": "缺少坐标"
   }
 }
