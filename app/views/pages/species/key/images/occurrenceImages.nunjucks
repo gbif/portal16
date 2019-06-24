@@ -2,10 +2,10 @@
     <h4 class="card-header" tx="galleryBar.nOccWithImages" tx-nr="speciesKey2.images.count"></h4>
     <div class="galleryBar">
         <div>
-            <a ng-repeat="occurrence in speciesKey2.images.results" ng-href="{{urlPrefix}}/occurrence/{{occurrence.key}}" ng-if="occurrence._image" class="galleryBar__img showBroken inherit noUnderline hoverBox">
+            <a ng-click="portal.gaEvent('species', 'gallery', 'occurrence')" ng-repeat="occurrence in speciesKey2.images.results" ui-sref="occurrenceKey({key:occurrence.key})" ng-if="occurrence._image" class="galleryBar__img showBroken inherit noUnderline hoverBox">
                 <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
             </a>
         </div>
-        <a ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand" ng-if="speciesKey2.images.count > speciesKey2.images.results.length" translate="galleryBar.seeAllImages"></a>
+        <a ng-click="portal.gaEvent('species', 'gallery', 'more')" ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand" ng-if="speciesKey2.images.count > speciesKey2.images.results.length" translate="galleryBar.seeAllImages"></a>
     </div>
 </div>

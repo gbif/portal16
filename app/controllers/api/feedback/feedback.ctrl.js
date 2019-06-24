@@ -132,13 +132,6 @@ function createIssue(req, data, cb) {
         labels: labels
     };
 
-    // START: A little gift to Markus who typically create issues as notes to himself but doesn't label them. Assign the issue to Markus for further classification.
-    if (req.user.userName === 'markus' && data.type === 'bug') {
-        issueData.labels = ['bug'];
-        issueData.assignee = 'mdoering';
-    }
-    // END: Markus gift
-
     let ghrepo = client.repo(credentials.repository);
     ghrepo.issue(issueData, function(err, data) {
         if (err) {

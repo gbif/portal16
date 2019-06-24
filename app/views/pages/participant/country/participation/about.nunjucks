@@ -7,6 +7,70 @@
 
 <div class="container--narrow m-b-1 m-t-1 ng-cloak">
     {% include "../participantSummary.nunjucks" %}
+    <div class="node__summary m-t-05">
+        <div class="node__info">
+            <section class="">
+                <div class="row">
+                    {% if main.fields.linksToSocialMedia | isNotEmpty  or main.fields.rssFeeds | isNotEmpty or main.fields.newsletters | isNotEmpty%}
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="articleLinks m-b-05">
+                                {% if main.fields.linksToSocialMedia.length > 0 %}
+                                    {% for media in main.fields.linksToSocialMedia %}
+                                        <div>
+                                            {%  if resolved.Entry[media.sys.id].fields.url | socialMediaIcon %}
+                                                <a href="{$ resolved.Entry[media.sys.id].fields.url $}">
+                                                    <img src="{$ resolved.Entry[media.sys.id].fields.url | socialMediaIcon $}" title="{$ resolved.Entry[media.sys.id].fields.label $}">
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if main.fields.rssFeeds.length > 0 %}
+                                    {% for rssFeed in main.fields.rssFeeds %}
+                                        {% if loop.first %}
+                                            <div>
+                                                <a href="{$ resolved.Entry[rssFeed.sys.id].fields.url $}">
+                                                    <img src="/img/social/rss.png">
+                                                </a>
+                                                {% if loop.length > 1 %}
+                                                    <span>{$ resolved.Entry[rssFeed.sys.id].fields.label $}</span>
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="articleLinks m-b-05">
+                                {% if main.fields.rssFeeds.length > 1 %}
+                                    {% for rssFeed in main.fields.rssFeeds %}
+                                        {% if not loop.first %}
+                                            <div>
+                                                <a href="{$ resolved.Entry[rssFeed.sys.id].fields.url $}">
+                                                    <img src="/img/social/rss.png">
+                                                </a>
+                                                <span>{$ resolved.Entry[rssFeed.sys.id].fields.label $}</span>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="articleLinks m-b-05">
+                                {% if main.fields.newsletters | isNotEmpty %}
+                                    {% for media in main.fields.newsletters %}
+                                        <a href="{$ resolved.Entry[media.sys.id].fields.url $}" class="gb-button--discreet">
+                                            {$ resolved.Entry[media.sys.id].fields.label or 'newsletter' $}
+                                        </a>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+    </div>
 </div>
 
 <div class="horizontal-stripe white-background">
@@ -28,9 +92,9 @@
                     </figure>
                 {% endif %}
 
-                {% if main.fields.nodeHistory %}
-                <h3>History</h3>
-                {$ main.fields.nodeHistory | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+                {% if main.fields.progressAndPlans %}
+                <h3>Progress and plans</h3>
+                {$ main.fields.progressAndPlans | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 {% endif %}
 
                 {% if main.fields.nodeMission %}
@@ -38,89 +102,28 @@
                 {$ main.fields.nodeMission | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 {% endif %}
 
-                {% if main.fields.nodeStructure %}
-                <h3>Structure</h3>
-                {$ main.fields.nodeStructure | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
-                {% endif %}
-
                 {% if main.fields.nodeFunding %}
                 <h3>Funding</h3>
                 {$ main.fields.nodeFunding | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                 {% endif %}
 
+                {% if main.fields.nodeHistory %}
+                <h3>History</h3>
+                {$ main.fields.nodeHistory | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+                {% endif %}
+
+                {% if main.fields.nodeStructure %}
+                <h3>Structure</h3>
+                {$ main.fields.nodeStructure | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+                {% endif %}
 
             </div>
         {% endif %}
 
-        <div class="article-secondary">
-
-            <div class="node__summary">
-                <div class="node__info">
-                    <section class="">
-                        <div class="row">
-                            {% if main.fields.linksToSocialMedia | isNotEmpty  or main.fields.rssFeeds | isNotEmpty or main.fields.newsletters | isNotEmpty%}
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="articleLinks m-b-05">
-                                        {% if main.fields.linksToSocialMedia.length > 0 %}
-                                            {% for media in main.fields.linksToSocialMedia %}
-                                                <div>
-                                                    {%  if resolved.Entry[media.sys.id].fields.url | socialMediaIcon %}
-                                                        <a href="{$ resolved.Entry[media.sys.id].fields.url $}">
-                                                            <img src="{$ resolved.Entry[media.sys.id].fields.url | socialMediaIcon $}" title="{$ resolved.Entry[media.sys.id].fields.label $}">
-                                                        </a>
-                                                    {% endif %}
-                                                </div>
-                                            {% endfor %}
-                                        {% endif %}
-                                        {% if main.fields.rssFeeds.length > 0 %}
-                                            {% for rssFeed in main.fields.rssFeeds %}
-                                                {% if loop.first %}
-                                                    <div>
-                                                        <a href="{$ resolved.Entry[rssFeed.sys.id].fields.url $}">
-                                                            <img src="/img/social/rss.png">
-                                                        </a>
-                                                        {% if loop.length > 1 %}
-                                                            <span>{$ resolved.Entry[rssFeed.sys.id].fields.label $}</span>
-                                                        {% endif %}
-                                                    </div>
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="articleLinks m-b-05">
-                                        {% if main.fields.rssFeeds.length > 1 %}
-                                            {% for rssFeed in main.fields.rssFeeds %}
-                                                {% if not loop.first %}
-                                                    <div>
-                                                        <a href="{$ resolved.Entry[rssFeed.sys.id].fields.url $}">
-                                                            <img src="/img/social/rss.png">
-                                                        </a>
-                                                        <span>{$ resolved.Entry[rssFeed.sys.id].fields.label $}</span>
-                                                    </div>
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="articleLinks m-b-05">
-                                        {% if main.fields.newsletters | isNotEmpty %}
-                                            {% for media in main.fields.newsletters %}
-                                                <a href="{$ resolved.Entry[media.sys.id].fields.url $}" class="gb-button--discreet">
-                                                    {$ resolved.Entry[media.sys.id].fields.label or 'newsletter' $}
-                                                </a>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </section>
-                </div>
-            </div>
+        {# <div class="article-secondary">
             {% include "../../../resource/key/documentsLinks.nunjucks" %}
         </div>
-        {% include "../../../resource/key/auxiliary.nunjucks" %}
+        {% include "../../../resource/key/auxiliary.nunjucks" %} #}
     </div>
 </div>
 

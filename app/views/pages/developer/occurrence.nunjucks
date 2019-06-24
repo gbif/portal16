@@ -390,6 +390,9 @@
 
                     </p>
                     <p>
+                        Where <code>creator</code> is your GBIF username, <code>notification_address</code> is a email address to notify when the download is ready,  and <code>format</code> one of the following values: <code>SIMPLE_CSV</code>, <code>DWCA</code>, or <code>SPECIES_LIST</code> (<a href="../../faq?question=download-formats">information about download formats</a>).
+                    </p>
+                    <p>
                         Then issue:
                     <pre><code style="white-space: nowrap">curl --include --user userName:PASSWORD --header "Content-Type: application/json" --data @query.json {$ apiBase $}occurrence/download/request</code></pre>
                     </p>

@@ -59,8 +59,8 @@ function adhocMapDirective(BUILD_VERSION) {
         };
         vm.styles = {
             CLASSIC: {
-                baseMap: {style: 'gbif-light'},
-                overlay: [],
+                baseMap: {style: 'gbif-classic'},
+                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 79}],
                 background: '#02393d'
             },
             ORANGE_DOTS: {
@@ -95,9 +95,14 @@ function adhocMapDirective(BUILD_VERSION) {
                 overlay: [{style: 'green2.poly', bin: 'hex', hexPerTile: 15}],
                 background: '#e0e0e0'
             },
+            LIGHT: {
+                baseMap: {style: 'gbif-light'},
+                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 79}],
+                background: '#e0e0e0'
+            },
             DARK: {
-                baseMap: {style: 'gbif-dark'},
-                overlay: [],
+                baseMap: {style: 'gbif-tuatara'},
+                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 79}],
                 background: '#272727'
             }
         };

@@ -23,7 +23,6 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {};
-
     // enums
     vm.filters.typeStatus = {
         titleTranslation: 'filterNames.typeStatus',

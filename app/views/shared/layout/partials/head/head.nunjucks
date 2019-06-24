@@ -98,8 +98,9 @@
         m.parentNode.insertBefore(a, m)
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-42057855-4', 'auto');
+    ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
     ga('send', 'pageview');
+    window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
 </script>
 
 <noscript>
@@ -111,8 +112,19 @@
     </style>
 </noscript>
 
-{% if _meta.schema %}
+{% if _meta.schema and gb.locales.urlPrefix === ""%}
 <script type="application/ld+json">
 {$ _meta.schema | rawJson(true) | safe $}
+</script>
+{% endif %}
+
+{% if gb.locales.originalUrl === "/" %}
+<script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "url": "http://www.gbif.org/",
+      "logo": "https://www.gbif.org/img/logo/GBIF50.png"
+      }
 </script>
 {% endif %}

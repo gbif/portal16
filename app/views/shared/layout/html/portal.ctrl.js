@@ -59,6 +59,17 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     vm.trustAsHtml = function(htmlCode) {
         return $sce.trustAsHtml(htmlCode);
     };
+
+    vm.gaEvent = function(category, action, label, intValue) {
+        var trackingData = {
+            hitType: 'event'
+        };
+        if (category) trackingData.eventCategory = category;
+        if (action) trackingData.eventAction = action;
+        if (label) trackingData.eventLabel = label;
+        if (intValue) trackingData.eventValue = intValue;
+        ga('send', trackingData);
+    };
 }
 
 module.exports = portalCtrl;

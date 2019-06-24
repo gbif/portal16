@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="m-t-1" ng-init="rootSearch.searchUrlFragment('INPN - Données flore des CBN agrégées par la FCBN');">
+                <div class="m-t-1" ng-init="rootSearch.searchUrlFragment();">
                     <h4 class="card-header">{$ __('search.search') $}</h4>
                     <form class="search-box" ng-submit="rootSearch.updateSearch()">
                         <input type="text"
@@ -34,7 +34,7 @@
                         </a>
                     </form>
                 </div>
-                <div class="ng-cloak m-t-1" ng-if="rootSearch.results.resourceHighlights.count > 0 || rootSearch.results.resources.count > 0 || rootSearch.results.datasets.count">
+                <div class="ng-cloak m-t-1" ng-if="rootSearch.results.resourceHighlights.count > 0 || rootSearch.results.resources.count > 0">
                     <h4 class="card-header">{$ __('search.suggestions') $}</h4>
 
                     <div ng-if="rootSearch.results.resourceHighlights.count > 0">
@@ -62,12 +62,6 @@
                             <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'literature'"></ng-include>
                             <ng-include src="'/api/template/search/toolResult.html?v=' +        portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'tool'"></ng-include>
                             <ng-include src="'/api/template/search/documentResult.html?v=' +    portal.BUILD_VERSION+'&locale='+rootSearch.locale" ng-if="result.contentType == 'document'"></ng-include>
-                        </div>
-                    </div>
-
-                    <div ng-if="rootSearch.results.datasets.count > 0">
-                        <div ng-repeat="result in rootSearch.results.datasets.results | limitTo:1">
-                            <ng-include src="'/api/template/search/datasetResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
                         </div>
                     </div>
                     
