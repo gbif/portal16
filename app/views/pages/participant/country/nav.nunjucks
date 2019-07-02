@@ -11,14 +11,8 @@
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryPublishing')}">
                     <a ui-sref="countryPublishing()" translate="countryKey.tabs.dataPublishing">Data publishing</a>
                 </li>
-                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryResearch')}">
-                    <a ui-sref="countryResearch()" translate="countryKey.tabs.publications">Publications</a>
-                </li>
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryParticipation')}" ng-if="countryKey.country.isActiveParticipant">
                     <a ui-sref="countryParticipation()" translate="countryKey.tabs.participartion">Participation</a>
-                </li>
-                <li class="tab">
-                    <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })">{{ 'countryKey.tabs.news' | translate }}<span class="gb-icon-link"></span></a>
                 </li>
                 <li class="tab" ng-if="countryKey.invasiveSpeciesDatasets.count > 0">
                     <a ng-if="countryKey.invasiveSpeciesDatasets.count > 1" ui-sref="datasetSearchTable({keyword: 'country_' + countryKey.countryCode })">{{ 'countryKey.tabs.invasives' | translate }}<span class="gb-icon-link"></span></a>
@@ -34,6 +28,29 @@
                         <a href="{$ node.nodeUrl $}">{$ node.acronym or (node.nodeUrl | reduceUrlToDomain) $}<span class="gb-icon-link"></span></a>
                     </li>
                 {% endif %}
+
+                <li class="tab" uib-dropdown dropdown-append-to-body>
+                                <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
+                                    <span translate="countryKey.tabs.more">
+                                        More
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
+                                    aria-labelledby="btn-append-to-body">
+                                    <li role="menuitem">
+                                        <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })">{{ 'countryKey.tabs.news' | translate }}<span class="gb-icon-link"></span></a>
+                                    </li>
+                                    <li role="menuitem" >
+                                         <a ui-sref="countryProjects()" translate="countryKey.tabs.projects">Projects</a>
+                                    </li>
+                                    <li role="menuitem" >
+                                         <a ui-sref="countryResearch({relation: 'from'})" translate="countryKey.tabs.publicationsFrom">Publications from</a>
+                                    </li>
+                                    <li role="menuitem" >
+                                         <a ui-sref="countryResearch({relation: 'about'})" translate="countryKey.tabs.publicationsAbout">Publications about</a>
+                                    </li>
+                                </ul>
+                            </li>
 
                 <li class="tab tab-right">
                     <span>

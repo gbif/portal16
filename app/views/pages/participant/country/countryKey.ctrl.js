@@ -7,6 +7,8 @@ require('./about/countryAbout.ctrl');
 require('./publishing/countryPublishing.ctrl');
 require('./participation/countryParticipation.ctrl');
 require('./research/countryResearch.ctrl');
+require('./projects/countryProjects.ctrl');
+
 
 angular
     .module('portal')

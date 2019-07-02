@@ -575,10 +575,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('countryResearch', {
             parent: 'country',
-            url: '/publications',
+            url: '/publications/:relation?',
             templateUrl: '/api/template/country/publications.html?v=' + BUILD_VERSION,
             controller: 'countryResearchCtrl',
             controllerAs: 'countryResearch'
+        })
+        .state('countryProjects', {
+            parent: 'country',
+            url: '/projects',
+            templateUrl: '/api/template/country/projects.html?v=' + BUILD_VERSION,
+            controller: 'countryProjectsCtrl',
+            controllerAs: 'countryProjects'
         })
         .state('health', {
             parent: 'localization',
