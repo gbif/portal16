@@ -7,35 +7,35 @@
       },
       "scienceCommittee": {
         "title": "科学委员会",
-        "description": ""
+        "description": "GBIF 科学委员会是一个咨询委员会，监督GBIF工作计划的发展与进度，并提供建议给董事会、执行委员会和秘书处。你可以点击 [这里](/document/80877/current-terms-of-reference-for-the-science-committee) 了解更多信息。"
       },
       "budgetCommittee": {
         "title": "预算委员会",
-        "description": ""
+        "description": "预算委员会是一个咨询委员会，处理各种与GBIF 经费管理有关的金融问题。另外也监督提交给董事会的年度账目审计并向GBIF选定的审计公司提供指导。委员会向执行委员会和秘书处提供建议。它的职责范围可在这里找到 [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee) 找到。"
       },
       "nsg": {
         "title": "节点工作组",
-        "description": ""
+        "description": "节点指导小组 (Nodes Steering Group，NSG) 成立于2011年，其成员为 GBIF 六大区域代表 ([Africa](/the-gbif-network/africa)，[Asia](/the-gbif-network/asia)，[Europe](/the-gbif-network/europe)，[Latin America/Caribbean](/the-gbif-network/latin-america)，[North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)) 成员节点管理委员会 (/contact-us/directory?group=nodesCommittee) 的主席及副主席。NSG 的目标是根据成员节点提供的反馈，向相关GBIF机构提出具体建议，NSG 与 GBIF 节点的工作息息相关，也会提出关于GBIF年度工作计划的建议。"
       },
       "nodesCommittee": {
         "title": "节点管理员委员会",
-        "description": ""
+        "description": "成员节点管理员委员会（或节点委员会）是一个动态小组，由成员（国家或国际组织） 所指名的节点管理员组成。委员会包括三位经由董事会投票表决任命的主席，其中可有两位有两年的任期。"
       },
       "secretariat": {
         "title": "GBIF 秘书处",
-        "description": ""
+        "description": "GBIF秘书处位于丹麦哥本哈根，负责发展、执行和汇报GBIF工作计划。秘书处的任务包括：\n- 运作 GBIF 网站及相关信息\n- 协调 GBIF 网络中与数据流通、发布和管理相关的活动\n- 监控数据缺口并使用GBIF数据于科学\n- 执行中央联系沟通和合作服务"
       },
       "voting": {
-        "title": "",
-        "description": ""
+        "title": "选举成员",
+        "description": "已签署合作备忘录 (MOU) 并同意提供基础财务赞助给 GBIF 核心资金的国家。"
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "合作国家成员",
+        "description": "已签署合作备忘录 (MOU)，但未提供基础财务赞助给GBIF核心资金，且没有票选GBIF董事会的国家。"
       },
       "associateParticipants": {
         "title": "其他机构会员",
-        "description": ""
+        "description": "已签署 GBIF 合作备忘录的政府间机构、国际组织与其他国际范围的组织、经济体等。"
       }
     },
     "columns": {

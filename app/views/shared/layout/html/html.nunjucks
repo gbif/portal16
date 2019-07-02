@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 <!--[if !IE]> -->
-<html lang="en" class="not_ie" ng-app="portal" {% if gb.locales.rtl %} dir="rtl" {% endif %} >
+<html lang="{$ gb.locales.current $}" class="not_ie" ng-app="portal" {% if gb.locales.rtl %} dir="rtl" {% endif %} >
 <!-- <![endif]-->
 <!--[if IE]>
 <html lang="en" class="ie" ng-app="portal">

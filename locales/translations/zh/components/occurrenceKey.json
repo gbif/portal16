@@ -49,11 +49,11 @@
       "verbatimName": ""
     },
     "media": {
-      "noIdentifier": "",
-      "noPlaybackSupport": "",
-      "takeMeThere": "",
+      "noIdentifier": "没有提供媒体标识符",
+      "noPlaybackSupport": "您的浏览器不支持播放此媒体所需的格式。",
+      "takeMeThere": "尝试连接到发布者网站版本",
       "notWorkingTryPublishers": "",
-      "download": ""
+      "download": "下载媒体档案"
     },
     "title": {
       "inCountry": {
@@ -65,8 +65,8 @@
         "MATERIAL_SAMPLE": "在 {COUNTRY} 采集",
         "OCCURRENCE": "在 {COUNTRY} 记录",
         "OBSERVATION": "在 {COUNTRY} 观察到",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "LITERATURE": "记录于 {COUNTRY}",
+        "UNKNOWN": "记录于 {COUNTRY}"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "在未知位置采集",
@@ -75,21 +75,21 @@
         "HUMAN_OBSERVATION": "在未知位置观察到",
         "MACHINE_OBSERVATION": "在未知位置观察到",
         "MATERIAL_SAMPLE": "在未知位置采集",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "OCCURRENCE": "在未知地点记录",
+        "OBSERVATION": "在未知地点观察到",
+        "LITERATURE": "记录于未知地点",
+        "UNKNOWN": "记录于未知地点"
       },
       "unknownSpecies": "未知的物种"
     },
-    "occurrence": "",
+    "occurrence": "出现记录",
     "inLanguage": "在 {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {
       "EXCLUDED": "排除",
-      "AUTHORED": "",
-      "INFERED": ""
+      "AUTHORED": "更改",
+      "INFERED": "推断"
     }
   }
 }

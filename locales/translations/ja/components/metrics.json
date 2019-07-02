@@ -21,7 +21,7 @@
     "noOccurrences": "オカレンスデータがありません",
     "nothingSelected": "なし",
     "occurrences": "オカレンス",
-    "citations": "",
+    "citations": "引用",
     "otherOrUknown": "その他または不明",
     "occurrencesPerField": "{FIELD} ごとのオカレンス",
     "occurrencesBreakdownPerField": "フィールドごとに分けたオカレンス",

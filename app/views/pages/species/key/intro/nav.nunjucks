@@ -5,7 +5,7 @@
                 <ul>
                     <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
                         <span>
-                            <a ng-if="speciesKey2.occurrences.count > 0" href=""
+                            <a ng-if="speciesKey2.occurrences.count > 0" href="" ng-click="portal.gaEvent('species', 'navBar', 'occurrenceSearch')"
                                 class="gb-button--brand"
                                 ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrences.count | localNumber }} 
                                 <span class="gb-button--brand__label" translate="counts.pOccurrence" translate-values="{NUMBER: speciesKey2.occurrences.count}"></span>
@@ -17,12 +17,14 @@
                     <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
                         <span>
                             <a ng-if="speciesKey2.subsumedSpecies.count > 0 && !speciesKey2.isSpeciesOrBelow" href=""
+                            ng-click="portal.gaEvent('species', 'navBar', 'speciesSearch')"
                             class="gb-button--primary"
                             ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, rank: 'SPECIES', status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count | localNumber }}
                                 <span ng-if="!speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="counts.pSpecies" translate-values="{NUMBER: speciesKey2.subsumedSpecies.count}"></span>
                             </a>
                             <a ng-if="speciesKey2.subsumedSpecies.count > 0 && speciesKey2.isSpeciesOrBelow" href=""
                             class="gb-button--primary"
+                            ng-click="portal.gaEvent('species', 'navBar', 'speciesSearch')"
                             ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count | localNumber }}
                                 <span ng-if="speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label" translate="counts.pInfraspecies" translate-values="{NUMBER: speciesKey2.subsumedSpecies.count}"></span>
                             </a>
@@ -31,7 +33,10 @@
 
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">
                     <span>
-                        <a class="gb-button--brand" ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})" translate="species.viewInGbifBackbone"></a>
+                        <a class="gb-button--brand" 
+                            ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})" 
+                            ng-click="portal.gaEvent('species', 'navBar', 'viewBackboneVersion')"
+                            translate="species.viewInGbifBackbone"></a>
                     </span>
                     </li>
                     <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.references">

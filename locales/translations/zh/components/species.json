@@ -1,4 +1,8 @@
 {
+  "treatment": {
+    "distribution": "分布",
+    "figures": "图片"
+  },
   "species": {
     "distribution": {
       "presentIn": "出现在 {country}",
@@ -14,7 +18,7 @@
       "verbatim": "逐字的"
     },
     "invasives": {
-      "nInvadedCountries": "",
+      "nInvadedCountries": "如 {NUMBER_FORMATED} {NUMBER, select, 1{国家或岛屿} other{国家或岛屿}}所记录",
       "invasiveIn": "作为引入种而被记录",
       "accordingTo": "根据",
       "occurrenceCount": "GBIF中的出现记录",
@@ -32,14 +36,15 @@
     "term": "术语",
     "value": "值",
     "classification": "类别",
-    "sourcePlural": "",
-    "nMoreDatasets": "",
+    "sourcePlural": "{NUMBER, select,1{来源} other{来源}}",
+    "nMoreDatasets": "{NUMBER} 更多{NUMBER, select,1{数据集} other {数据集}}",
     "acceptedName": "接受名",
     "synonym": "异名",
     "description": "描述",
     "synonyms": "异名",
     "synonymOf": "异名",
     "basionymOf": "基本名称",
+    "homotypicSynonymOf": "",
     "immediateChildren": "直系亲属",
     "descendants": "降序",
     "loadMore": "更多",
@@ -64,7 +69,7 @@
     "interpretationMsg": "这是在 {DATASET} 中发表的对该物种的说明。",
     "viewGbifSpeciesMsg": "要查看 GBIF对这一物种的看法，请参见 [主干版本] (/pecess/{NUBKEY})",
     "inferredRecordMsg": "此记录是在索引过程中创建的, 并不在源数据中存在。",
-    "noChildren": "",
+    "noChildren": "无子集",
     "youAreBrowsing": "您正在浏览",
     "lastCrawled": "上次爬网 {DATE_FORMATTED}",
     "extensions": "扩展",

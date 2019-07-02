@@ -10,7 +10,7 @@ let crawlHostName = 'prodcrawler1-vh.gbif.org',
     downloadKey = '0000222-130906152512535';
 switch (config.healthEnv || config.env) {
     case 'dev':
-        crawlHostName = 'devcrawler-vh.gbif.org';
+        crawlHostName = 'devcrawler1-vh.gbif.org';
         varnishIndexName = 'dev-varnish-*';
         publicCrawlIndexName = 'dev-crawl-*';
         downloadKey = '0000581-181121175518854';
@@ -63,9 +63,9 @@ let tests = [
         message: 'Should respond with free text query within 8 seconds - else warn'
     },
     {
-        url: apiConfig.taxon.url + '42?cachebust={NOW}',
+        url: apiConfig.taxon.url + '196?cachebust={NOW}',
         component: 'SPECIES',
-        message: 'A specific species key (42) should resolve'
+        message: 'A specific species key (196) should resolve'
     },
     {
         url: apiConfig.taxon.url + 'suggest?datasetKey=' + backboneKey + '&limit=10&q=puma+concolor+(Linnaeus,+1771)&cachebust={NOW}',
@@ -98,12 +98,12 @@ let tests = [
         message: 'Expect 401 when requesting login'
     },
     {
-        url: apiConfig.mapCapabilities.url + '?taxonKey=42&cachebust={NOW}',
+        url: apiConfig.mapCapabilities.url + '?taxonKey=196&cachebust={NOW}',
         component: 'MAPS',
         type: 'NUMBER_ABOVE',
         key: 'total',
         val: 100,
-        message: 'Map capabilities for taxonKey 42 should return a json with a total above 100'
+        message: 'Map capabilities for taxonKey 196 should return a json with a total above 100'
     },
     {
         url: apiConfig.mapOccurrenceDensity.url + '0/0/0@1x.png?cachebust={NOW}',

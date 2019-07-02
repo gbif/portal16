@@ -2,8 +2,8 @@
   "network": {
     "network": "网络",
     "tabs": {
-      "summary": "概要",
-      "homepage": "首页",
+      "summary": "总结",
+      "homepage": "主页",
       "metrics": "指标",
       "datasets": "网络"
     },

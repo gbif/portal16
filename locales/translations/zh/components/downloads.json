@@ -1,8 +1,8 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "",
-    "nRecordsDownloaded": "",
-    "nConstituentDatasets": "",
+    "nOccurrencesDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{出现记录} other{出现记录}}",
+    "nRecordsDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{记录} other{记录}}",
+    "nConstituentDatasets": "包含来自 {NUMBER_FORMATTED} 个{NUMBER, select, one {数据集} other{数据集}} 的记录",
     "fileNotAvailable": "此文件不再可供下载。",
     "downloadDeletionWarning": "此下载未被引用, 并有资格在 {DATE} 后删除。",
     "brokenDownload": "中断的下载",
@@ -20,11 +20,11 @@
     "titleMissing": "缺少数据集标题",
     "underProcessing": "正在处理中",
     "citation": "引用",
-    "format": "",
-    "nRecordsAtTime": "",
-    "aboutDeletionPolicy": "",
-    "readDatauseAndTerms": "",
-    "filterApplied": "",
+    "format": "格式",
+    "nRecordsAtTime": "于 {NUMBER_FORMATED} {NUMBER, select, one{记录} other{记录}}下载时",
+    "aboutDeletionPolicy": "阅读更多关于我们的[刪除政策](/faq?question=for-how-long-will-does-gbif-store-downloads)。",
+    "readDatauseAndTerms": "请确认已仔细阅读[数据使用者协议](/terms/data-user) 与 [引用指南](/citation-guidelines)。",
+    "filterApplied": "筛选于 {DATE}",
     "rerunQuery": "重新运行查询",
     "postpone": "推迟删除",
     "deleteDownload": "删除下载",
@@ -36,24 +36,24 @@
     "file": "文件",
     "constituentDatasets": "涉及的数据集",
     "noFiltersApplied": "没有设置筛选",
-    "apiUsageDescription": "",
+    "apiUsageDescription": "您可使用以下的 API 再次下载今天的数据。",
     "apiFilterView": "API",
     "humanFilterView": "人类",
     "downloadStarted": "下载已经开始，目前正在处理。",
     "downloadExpectTime": "请等待最多3小时完成下载。大多数下载将在15分钟内完成。",
-    "notificationEmailAddresses": "",
+    "notificationEmailAddresses": "完成后将发送附有下载结果链接的电子邮件到以下地址： ",
     "status": {
       "PREPARING": "准备中...",
       "SUSPENDED": "已暂停",
       "RUNNING": "正在运行",
       "CANCELLED": "已取消",
-      "KILLED": ""
+      "KILLED": "已删除"
     },
     "predicate": {
       "joinDescriptions": {
-        "and": "",
-        "or": "",
-        "not": ""
+        "and": "需全部选用",
+        "or": "至少选择一项",
+        "not": "不需包含任何项目"
       },
       "and": "与",
       "or": "或",

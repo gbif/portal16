@@ -1,6 +1,11 @@
 {#<title>{$ _meta.title $}</title>#}
 <title ng-bind="head.getTitle('{$ _meta.title | replace("'", "")$}')">{$ _meta.title $}</title>
 
+{% for locale in gb.locales.locales %}
+<link rel="alternate" hreflang="{$ locale $}" href="{$ gb.locales.domain $}/{$ locale $}{$ gb.locales.originalUrl $}" />
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{$ gb.locales.domain $}{$ gb.locales.originalUrl $}" />
+
 {# open graph tags - server rendered as social media sites necessarily always run js #}
 <meta property="fb:app_id" content="{$ _meta.fbAppId $}" />
 {% if _meta.title %}
@@ -93,8 +98,9 @@
         m.parentNode.insertBefore(a, m)
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-42057855-4', 'auto');
+    ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
     ga('send', 'pageview');
+    window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
 </script>
 
 <noscript>
@@ -106,8 +112,19 @@
     </style>
 </noscript>
 
-{% if _meta.schema %}
+{% if _meta.schema and gb.locales.urlPrefix === ""%}
 <script type="application/ld+json">
 {$ _meta.schema | rawJson(true) | safe $}
+</script>
+{% endif %}
+
+{% if gb.locales.originalUrl === "/" %}
+<script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "url": "http://www.gbif.org/",
+      "logo": "https://www.gbif.org/img/logo/GBIF50.png"
+      }
 </script>
 {% endif %}

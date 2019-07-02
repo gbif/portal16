@@ -8,6 +8,20 @@
         },
         "aboutGbifCountry": "",
         "summary": "",
-        "whatIsGbif": ""
+        "whatIsGbif": "",
+        "featureTypes": {
+            "event": "",
+            "news": "",
+            "resource": "",
+            "dataUse": "",
+            "project": "",
+            "programme": "",
+            "document": "",
+            "tool": "",
+            "literature": "",
+            "treatment": "",
+            "blog": "",
+            "guidance": ""
+        }
     }
 }

@@ -2,7 +2,7 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "Sobre",
-      "metrics": "",
+      "metrics": "Métricas",
       "publishersHomepage": "Página inicial"
     },
     "joinedAgo": "Desde {TIME_AGO}",

@@ -8,6 +8,20 @@
         },
         "aboutGbifCountry": "О GBIF {COUNTRY}",
         "summary": "Свободный и открытый доступ к данным по биоразнообразию",
-        "whatIsGbif": ""
+        "whatIsGbif": "",
+        "featureTypes": {
+            "event": "",
+            "news": "",
+            "resource": "",
+            "dataUse": "",
+            "project": "",
+            "programme": "",
+            "document": "",
+            "tool": "",
+            "literature": "",
+            "treatment": "",
+            "blog": "",
+            "guidance": ""
+        }
     }
 }

@@ -5,6 +5,7 @@
  */
 
 let localeConfig = rootRequire('config/locales');
+let config = rootRequire('config/config');
 
 // Given a list of possible locales it detects if it is in a given URL. returns the locale or undefined if not present.
 // e.g. getLocaleFromUrl('/da/blogposts/123', ['da', 'en']) -> 'da'
@@ -47,7 +48,9 @@ function use(app, locales, defaultLocale) {
                 current: locale,
                 locales: locales,
                 config: localeConfig,
-                rtl: localeConfig.localeMappings.rtl[locale]
+                rtl: localeConfig.localeMappings.rtl[locale],
+                originalUrl: req.originalUrl,
+                domain: config.domain
             };
         } else if (typeof queryLocale !== 'undefined' && queryLocale != defaultLocale && locales.indexOf(queryLocale) > -1) {
             req.setLocale(queryLocale);
@@ -56,7 +59,9 @@ function use(app, locales, defaultLocale) {
                 current: queryLocale,
                 locales: locales,
                 config: localeConfig,
-                rtl: localeConfig.localeMappings.rtl[queryLocale]
+                rtl: localeConfig.localeMappings.rtl[queryLocale],
+                originalUrl: req.originalUrl,
+                domain: config.domain
             };
         } else {
             req.setLocale(defaultLocale); // remove to use browser preference
@@ -65,7 +70,9 @@ function use(app, locales, defaultLocale) {
                 current: defaultLocale,
                 locales: locales,
                 config: localeConfig,
-                rtl: localeConfig.localeMappings.rtl[defaultLocale]
+                rtl: localeConfig.localeMappings.rtl[defaultLocale],
+                originalUrl: req.originalUrl,
+                domain: config.domain
             };
         }
         // console.log();

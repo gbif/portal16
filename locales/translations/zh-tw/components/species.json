@@ -1,4 +1,8 @@
 {
+  "treatment": {
+    "distribution": "分布",
+    "figures": "圖片"
+  },
   "species": {
     "distribution": {
       "presentIn": "出現於 {country}",
@@ -40,6 +44,7 @@
     "synonyms": "同種異名",
     "synonymOf": "的同種異名",
     "basionymOf": "基礎名",
+    "homotypicSynonymOf": "",
     "immediateChildren": "直接子代",
     "descendants": "降序",
     "loadMore": "更多",
@@ -69,6 +74,6 @@
     "lastCrawled": "上次檢索於 {DATE_FORMATTED}",
     "extensions": "延伸集",
     "taxa": "類群",
-    "mediatedThrough": ""
+    "mediatedThrough": "經由"
   }
 }

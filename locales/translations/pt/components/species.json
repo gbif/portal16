@@ -1,4 +1,8 @@
 {
+  "treatment": {
+    "distribution": "Distribuição",
+    "figures": "Figuras"
+  },
   "species": {
     "distribution": {
       "presentIn": "Presente em {country}",
@@ -40,6 +44,7 @@
     "synonyms": "Sinónimos",
     "synonymOf": "Sinónimo de",
     "basionymOf": "Basiónimo de",
+    "homotypicSynonymOf": "Sinónimo homotípico de",
     "immediateChildren": "Filhos imediatos",
     "descendants": "Descendentes",
     "loadMore": "Mais",
