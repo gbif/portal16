@@ -279,6 +279,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('speciesKeyTreatments', {
+            parent: 'speciesKey',
+            url: '/treatments',
+            views: {
+                main: {
+                    templateUrl: '/api/template/species/key.html?v=' + BUILD_VERSION,
+                    controller: 'speciesKey2Ctrl',
+                    controllerAs: 'speciesKey2'
+                }
+            }
+        })
         .state('publisherSearch', {
             parent: 'localization',
             url: '/publisher?offset&limit&q&country',
