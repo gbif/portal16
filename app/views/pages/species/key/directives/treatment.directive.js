@@ -43,7 +43,7 @@ function treatmentDirective() {
         occurrences.$promise.then(function() {
             if (occurrences.results && occurrences.results.length > 0) {
                 var filteredOccurrences = occurrences.results ? occurrences.results.filter(function(data) {
-                    return (typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
+                    return (typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined') && (data.canonicalName === vm.species.canonicalName);
                 }).sort(function(a, b) {
                     if (a.typeStatus && a.typeStatus.toLowerCase() === 'holotype') {
                         return 1;
