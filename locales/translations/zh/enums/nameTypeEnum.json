@@ -1,9 +1,9 @@
 {
   "nameTypeEnum": {
     "SCIENTIFIC": "学名",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
+    "DOUBTFUL": "存疑",
+    "BLACKLISTED": "列入黑名单",
+    "VIRUS": "病毒",
     "HYBRID": "",
     "INFORMAL": "",
     "OTU": "",
