@@ -12,11 +12,11 @@
     "viewOnGBIF": "在GBIF上查看",
     "published": "已发布",
     "programme": "方案",
-    "fundedBy": "",
-    "about": "",
-    "datasets": "",
-    "gbifWillAttend": "",
-    "dataUsedInStudy": "",
-    "resourceDescription": ""
+    "fundedBy": "资助人",
+    "about": "关于",
+    "datasets": "数据集",
+    "gbifWillAttend": "由GBIF秘书处参加",
+    "dataUsedInStudy": "研究中使用的数据",
+    "resourceDescription": "在全球生物多样性信息网络中搜索资源。自由、开放地获取生物多样性数据。"
   }
 }
