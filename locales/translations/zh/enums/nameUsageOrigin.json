@@ -1,8 +1,8 @@
 {
   "nameUsageOrigin": {
-    "SOURCE": "",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
+    "SOURCE": "记录来自源记录。",
+    "DENORMED_CLASSIFICATION": "非规范化分类中的隐式用法。",
+    "VERBATIM_PARENT": "从逐字母名称用法中隐式使用。",
     "VERBATIM_ACCEPTED": "",
     "VERBATIM_BASIONYM": "",
     "PROPARTE": "",
