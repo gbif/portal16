@@ -211,7 +211,7 @@ router.get('/species/:key/treatment', function(req, res) {
             if (treatment) {
                 res.status(200).json(treatment);
             } else {
-                res.sendStatus(204);
+                res.sendStatus(404);
             }
         }).catch(function(err) {
             log.error(err);

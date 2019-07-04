@@ -115,7 +115,12 @@ function speciesKey2Ctrl(
             });
             // Treatments
             vm.speciesTreatment = SpeciesTreatment.get({id: vm.key});
-
+            vm.speciesTreatment.$promise.then(function() {
+                vm.hasTreatment = true;
+            });
+            vm.speciesTreatment.$promise.catch(function() {
+                vm.hasTreatment = false;
+            });
             vm.verbatim.$promise.catch(vm.nonCriticalErrorHandler);
 
             vm.dwcextensions = DwcExtension.get();
