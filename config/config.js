@@ -37,7 +37,8 @@ let path = require('path'),
             backboneNetwork: '029f9226-0d8a-4f28-97fe-13180e9eb0e5'
         },
         publisher: {
-            'GRIIS': 'cdef28b1-db4e-4c58-aa71-3c5238c2d0b5'
+            'GRIIS': 'cdef28b1-db4e-4c58-aa71-3c5238c2d0b5',
+            'PLAZI': '7ce8aef0-9e92-11dc-8738-b8a03c50a862'
         }
     },
     elasticContentful = yargs.elasticContentful,

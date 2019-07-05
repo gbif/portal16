@@ -21,7 +21,7 @@
                     <span ng-class="{'text-error': datasetKey.dataset.deleted}">{{ datasetKey.dataset.title }}</span>
                 </h1>
                 <p ng-class="{'text-error': datasetKey.dataset.deleted, source: !datasetKey.dataset.deleted}">
-                    <span dir="auto" translate="dataset.publishedBy"></span> <a dir="auto" class="inherit underline" ui-sref="publisherKey({key:datasetKey.dataset.publishingOrganizationKey})">
+                    <span dir="auto" translate="{{datasetKey.isMediatedByPlazi ? 'dataset.mediatedBy' : 'dataset.publishedBy'}}"></span> <a dir="auto" class="inherit underline" ui-sref="publisherKey({key:datasetKey.dataset.publishingOrganizationKey})">
                         {{ datasetKey.publisher.title }}
                     </a>
                     <br/>
