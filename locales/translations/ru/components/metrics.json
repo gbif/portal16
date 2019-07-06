@@ -33,7 +33,7 @@
     "intervalDiffers": "Интервал переменного размера",
     "showOccPer": "Показать количество находок на",
     "andBreakdownPer": "И при необходимости разбить их на",
-    "logarithmic": "Логарифмически",
+    "logarithmic": "Логарифмический",
     "singleTypeResults": "{NUMBER} находок, где '{FIELD}' равно:",
     "chooseDimension": "Выбор измерения",
     "clickToZoom": "Щелкните и перетащите для увеличения нужной области",
