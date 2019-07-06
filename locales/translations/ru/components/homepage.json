@@ -10,18 +10,18 @@
         "summary": "Свободный и открытый доступ к данным о биоразнообразии",
         "whatIsGbif": "",
         "featureTypes": {
-            "event": "",
+            "event": "Мероприятия",
             "news": "Новости",
             "resource": "Ресурсы",
-            "dataUse": "",
+            "dataUse": "Использование данных",
             "project": "Проекты",
-            "programme": "",
+            "programme": "Программы",
             "document": "Документы",
             "tool": "Инструменты",
             "literature": "Литература",
-            "treatment": "",
-            "blog": "",
-            "guidance": ""
+            "treatment": "Систематика",
+            "blog": "Дата-блог",
+            "guidance": "Руководства"
         }
     }
 }
