@@ -28,36 +28,36 @@
     "rerunQuery": "再查詢一次",
     "postpone": "暫緩刪除",
     "deleteDownload": "刪除下載",
-    "tellUs": "告訴我們您的用途",
-    "downloadKilled": "下載請求失敗。請再試一次或與我們聯繫。",
-    "downloadDeleted": "此檔案已被刪除。如果您需要恢復檔案，請與我們聯繫。",
-    "storageDurationTeaser": "GBIF 將儲存此資料多久時間？",
-    "predatesDoi": "此下載早於我們所使用的 DOIs",
+    "tellUs": "告訴我們您的資料用途",
+    "downloadKilled": "下載失敗。請再試一次或與我們聯繫。",
+    "downloadDeleted": "此檔案已被刪除。如果您需要回復檔案，請與我們聯繫。",
+    "storageDurationTeaser": "GBIF 將儲存此資料多久？",
+    "predatesDoi": "此下載早於我們使用 DOIs",
     "file": "檔案",
     "constituentDatasets": "相關聯的資料集",
     "noFiltersApplied": "未使用篩選設定",
     "apiUsageDescription": "您可使用以下的 API 以再次下載今日資料。",
-    "apiFilterView": "API",
+    "apiFilterView": "應用程式介面（API）",
     "humanFilterView": "人類",
     "downloadStarted": "下載已開始, 目前正在處理中。",
-    "downloadExpectTime": "預計下載時間需長達 3 小時。大多數的下載將在 15 分鐘內完成。",
+    "downloadExpectTime": "預計下載時間需最多 3 小時。大多數的下載將在 15 分鐘內完成。",
     "notificationEmailAddresses": "完成後將發送附有下載結果連結的通知電子郵件至以下位址： ",
     "status": {
       "PREPARING": "準備中",
       "SUSPENDED": "已暫停",
       "RUNNING": "執行中",
       "CANCELLED": "已取消",
-      "KILLED": "已刪除"
+      "KILLED": "已中止"
     },
     "predicate": {
       "joinDescriptions": {
         "and": "需全部選用",
-        "or": "至少選用一項",
+        "or": "需至少選用一項",
         "not": "不需包含任何項目"
       },
       "and": "和",
       "or": "或",
-      "not": "否",
+      "not": "非",
       "isNotNull": "已定義"
     }
   }
