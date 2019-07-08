@@ -28,8 +28,8 @@
       "isInvasive_no": "Non"
     },
     "treatment": {
-      "distribution": "",
-      "figures": ""
+      "distribution": "Distribution",
+      "figures": "Figures"
     },
     "as": "Comme",
     "in": "Dans",
