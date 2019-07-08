@@ -36,7 +36,7 @@
     "file": "檔案",
     "constituentDatasets": "相關聯的資料集",
     "noFiltersApplied": "未使用篩選設定",
-    "apiUsageDescription": "您可使用以下的 API 以再次下載今日資料。",
+    "apiUsageDescription": "您可使用以下的查詢透過 API 以再次下載今日資料。",
     "apiFilterView": "應用程式介面（API）",
     "humanFilterView": "人類",
     "downloadStarted": "下載已開始, 目前正在處理中。",
