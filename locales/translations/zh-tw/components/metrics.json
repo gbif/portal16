@@ -1,7 +1,7 @@
 {
   "datasetMetrics": {
     "countByKingdom": "以界計數",
-    "countByRank": "以級別計數",
+    "countByRank": "以分類位階計數",
     "countNamesByLanguage": "以語言來計算名稱",
     "countExtRecordsByExtension": "以延伸集類型來計算其數量",
     "countByOrigin": "以來源計數",
@@ -17,7 +17,7 @@
     "explore": "探索",
     "majorGroups": "主要群",
     "failedToLoad": "無法載入分類樹",
-    "noChildren": "無直接子代",
+    "noChildren": "無直接子單元",
     "noOccurrences": "無出現紀錄",
     "nothingSelected": "無",
     "occurrences": "出現紀錄",
