@@ -22,6 +22,7 @@
         "pSpecies": "{NUMBER, select, 1{вид} other{виды}}",
         "pInfraspecies": "{NUMBER, select, 1{подвид} other{подвиды}}",
         "pPublishers": "{NUMBER, select, 1{публикатор} other{публикаторы}}",
-        "contacts": "{NUMBER, select, 1{контакт} other{контакты}}"
+        "contacts": "{NUMBER, select, 1{контакт} other{контакты}}",
+        "nTreatments": ""
     }
 }
