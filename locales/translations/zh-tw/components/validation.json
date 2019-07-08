@@ -23,10 +23,10 @@
       "UNKNOWN_TERM": "未知名稱",
       "DUPLICATED_TERM": "重複名稱",
       "TITLE_MISSING_OR_TOO_SHORT": "資料集標題遺漏或名稱太短",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "資源建立者已不在或不完整。",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "資源建立者不明或不完整",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "資料集的描述遺漏或描述太短",
-      "LICENSE_MISSING_OR_UNKNOWN": "無法解析此授權，GBIF 不支援或授權遺失",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "非唯一鑑定的記錄",
+      "LICENSE_MISSING_OR_UNKNOWN": "無法處理授權，GBIF 不支援或授權不存在",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "非唯一識別的記錄",
       "UNREADABLE_SECTION_ERROR": "部分錯誤無法讀取",
       "NoIssuesFound": "未找到問題"
     },
