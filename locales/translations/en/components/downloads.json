@@ -5,6 +5,7 @@
     "nConstituentDatasets": "Includes records from {NUMBER_FORMATTED} {NUMBER, select, one{dataset} other{datasets}}",
     "fileNotAvailable": "This file is no longer available for download",
     "downloadDeletionWarning": "This download hasn't been cited and is eligible for deletion after {DATE}.",
+    "occurrenceDownload": "Occurrence download",
     "brokenDownload": "Broken download",
     "contactHelpdesk": "Contact helpdesk",
     "cancelled": "Cancelled",
