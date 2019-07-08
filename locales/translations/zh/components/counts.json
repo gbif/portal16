@@ -22,6 +22,7 @@
         "pSpecies": "{NUMBER, select,1{物种} other{物种}}",
         "pInfraspecies": "{NUMBER, select, 1{次物种} other{次物种}}",
         "pPublishers": "{NUMBER, select, 1{发布者} other{发布者}}",
-        "contacts": "{NUMBER, select, 1{联系人} other{联系人}}"
+        "contacts": "{NUMBER, select, 1{联系人} other{联系人}}",
+        "nTreatments": ""
     }
 }
