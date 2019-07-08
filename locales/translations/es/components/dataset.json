@@ -38,6 +38,7 @@
     "projectId": "ID del proyecto",
     "studyArea": "Área de estudio",
     "publishedBy": "Publicado por",
+    "mediatedBy": "",
     "description": "Descripción",
     "metadataLanguage": "Idioma de los metadatos",
     "dataLanguage": "Idioma de los datos",

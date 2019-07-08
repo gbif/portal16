@@ -5,6 +5,7 @@
     "nConstituentDatasets": "包含來自 {NUMBER_FORMATTED} 個{NUMBER, select, one {資料集} other{資料集}} 的紀錄",
     "fileNotAvailable": "此檔案不再提供下載",
     "downloadDeletionWarning": "此下載尚未被引用，將於 {DATE} 後刪除。",
+    "occurrenceDownload": "",
     "brokenDownload": "下載中斷",
     "contactHelpdesk": "聯繫服務台",
     "cancelled": "已取消",

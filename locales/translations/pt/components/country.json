@@ -5,9 +5,12 @@
       "dataPublishing": "Publicação de dados",
       "dataAbout": "Dados sobre",
       "participartion": "Participação",
-      "publications": "Publicações",
+      "publicationsFrom": "",
+      "publicationsAbout": "",
       "news": "Notícias",
-      "invasives": ""
+      "invasives": "",
+      "more": "",
+      "projects": ""
     },
     "memberSince": "Membro desde",
     "dataFrom": "Dados de {TRANSLATED_COUNTRY}",
@@ -20,6 +23,7 @@
     "nAbout": "{NUMBER_FORMATTED} sobre",
     "viewAllN": "Ver todos {NUMBER_FORMATTED}",
     "noPublications": "Não há publicações",
+    "noProjects": "",
     "notParticipant": "Não é participante",
     "notParticipantDescription": "Este país não é um participante do GBIF",
     "countryNamingDisclaimer": "Nomes de países e regiões são baseados em [norma ISO 3166-1](https://www.iso.org/obp/ui/#search)",

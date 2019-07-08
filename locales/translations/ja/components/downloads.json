@@ -5,6 +5,7 @@
     "nConstituentDatasets": "{NUMBER_FORMATTED} {NUMBER, select, one{データセット} other{データセット}} からのレコードを含む",
     "fileNotAvailable": "このファイルはもうダウンロード可能ではありません。",
     "downloadDeletionWarning": "このダウンロードは引用されていないので、 {DATE} より後に削除の対象となります。",
+    "occurrenceDownload": "",
     "brokenDownload": "ダウンロードが壊れました",
     "contactHelpdesk": "ヘルプデスクにお問い合わせください。",
     "cancelled": "中止しました。",

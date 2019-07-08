@@ -27,6 +27,10 @@
       "isInvasive_yes": "はい",
       "isInvasive_no": "いいえ"
     },
+    "treatment": {
+      "distribution": "",
+      "figures": ""
+    },
     "as": "として",
     "in": "で",
     "origin": "原産",

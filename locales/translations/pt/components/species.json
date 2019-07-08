@@ -27,6 +27,10 @@
       "isInvasive_yes": "Sim",
       "isInvasive_no": "Não"
     },
+    "treatment": {
+      "distribution": "",
+      "figures": ""
+    },
     "as": "Como",
     "in": "Em",
     "origin": "Origem",

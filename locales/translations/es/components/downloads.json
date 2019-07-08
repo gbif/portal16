@@ -5,6 +5,7 @@
     "nConstituentDatasets": "Incluye registros de {NUMBER_FORMATTED} {NUMBER, select, one{conjunto de datos} other{conjuntos de datos}}",
     "fileNotAvailable": "El archivo ya no está disponible para descarga",
     "downloadDeletionWarning": "Esta descarga no se ha citado y es posible eliminarla despues de {DATE}.",
+    "occurrenceDownload": "",
     "brokenDownload": "Descarga interrumpida",
     "contactHelpdesk": "Contacta con el servicio de asistencia técnica",
     "cancelled": "Cancelada",

@@ -22,6 +22,7 @@
         "pSpecies": "{NUMBER, select, 1{especie} other{especies}}",
         "pInfraspecies": "{NUMBER, select, 1{infraespecie} other{infraespecies}}",
         "pPublishers": "{NUMBER, select, 1{publicador} other{publicadores}}",
-        "contacts": "{NUMBER, select, 1{contacto} other{contactos}}"
+        "contacts": "{NUMBER, select, 1{contacto} other{contactos}}",
+        "nTreatments": ""
     }
 }

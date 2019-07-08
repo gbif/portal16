@@ -5,6 +5,7 @@
     "nConstituentDatasets": "Indkluderer observationer fra {NUMBER_FORMATTED} {NUMBER, select, other{datasæt}}",
     "fileNotAvailable": "Denne fil er ikke længere tilgængelig",
     "downloadDeletionWarning": "Denne download har ikke været citeret og er berettiget til sletning efter {DATE}.",
+    "occurrenceDownload": "",
     "brokenDownload": "Ødelagt download",
     "contactHelpdesk": "Kontakt helpdesk",
     "cancelled": "Annulleret",

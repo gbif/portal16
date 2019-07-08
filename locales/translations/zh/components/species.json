@@ -27,6 +27,10 @@
       "isInvasive_yes": "是",
       "isInvasive_no": "否"
     },
+    "treatment": {
+      "distribution": "",
+      "figures": ""
+    },
     "as": "作为",
     "in": "在",
     "origin": "起源",

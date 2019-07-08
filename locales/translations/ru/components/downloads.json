@@ -5,6 +5,7 @@
     "nConstituentDatasets": "Включает записи из  {NUMBER_FORMATTED} {NUMBER, select, one{набора данных} other{наборов данных}}",
     "fileNotAvailable": "Этот файл больше не доступен для скачивания",
     "downloadDeletionWarning": "Эта загрузка не была упомянута и отмечена для удаления после {DATE}.",
+    "occurrenceDownload": "",
     "brokenDownload": "Прерванная загрузка",
     "contactHelpdesk": "Связаться со службой поддержки",
     "cancelled": "Отменены",

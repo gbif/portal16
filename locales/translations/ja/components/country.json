@@ -5,9 +5,12 @@
       "dataPublishing": "データの出版",
       "dataAbout": "に関するデータ",
       "participartion": "参加",
-      "publications": "公開成果",
+      "publicationsFrom": "",
+      "publicationsAbout": "",
       "news": "ニュース",
-      "invasives": ""
+      "invasives": "",
+      "more": "",
+      "projects": ""
     },
     "memberSince": "メンバー登録日",
     "dataFrom": "{TRANSLATED_COUNTRY} からのデータ",
@@ -20,6 +23,7 @@
     "nAbout": "{NUMBER_FORMATTED} について",
     "viewAllN": "すべての{NUMBER_FORMATTED} を表示します。",
     "noPublications": "公開成果なし",
+    "noProjects": "",
     "notParticipant": "参加者ではない。",
     "notParticipantDescription": "この国は、GBIF の参加者ではないです。",
     "countryNamingDisclaimer": "国や地域の名前は [ISO 3166-1 規格] に基づきます (https://www.iso.org/obp/ui/#search)",

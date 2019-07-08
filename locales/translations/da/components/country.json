@@ -5,9 +5,12 @@
       "dataPublishing": "Udgivet data",
       "dataAbout": "Data om",
       "participartion": "Participant",
-      "publications": "Publikationer",
+      "publicationsFrom": "",
+      "publicationsAbout": "",
       "news": "Nyheder",
-      "invasives": ""
+      "invasives": "",
+      "more": "",
+      "projects": ""
     },
     "memberSince": "Medlem siden",
     "dataFrom": "Data fra {TRANSLATED_COUNTRY}",
@@ -20,6 +23,7 @@
     "nAbout": "",
     "viewAllN": "",
     "noPublications": "",
+    "noProjects": "",
     "notParticipant": "",
     "notParticipantDescription": "",
     "countryNamingDisclaimer": "Navne på lande og områder er baseret på [ISO 3166-1-standarden] (https://www.iso.org/obp/ui/#search)",

@@ -5,9 +5,12 @@
       "dataPublishing": "Публикация данных",
       "dataAbout": "Данные о",
       "participartion": "Участие",
-      "publications": "Публикаторы",
+      "publicationsFrom": "",
+      "publicationsAbout": "",
       "news": "Новости",
-      "invasives": ""
+      "invasives": "",
+      "more": "",
+      "projects": ""
     },
     "memberSince": "Дата регистрации",
     "dataFrom": "Данные из {TRANSLATED_COUNTRY}",
@@ -20,6 +23,7 @@
     "nAbout": "{NUMBER_FORMATTED} о",
     "viewAllN": "Посмотреть все {NUMBER_FORMATTED}",
     "noPublications": "Нет публикаций",
+    "noProjects": "",
     "notParticipant": "Не является участником",
     "notParticipantDescription": "Эта страна не является участником GBIF",
     "countryNamingDisclaimer": "Названия стран и территорий на основе [стандарта ISO 3166-1] (https://www.iso.org/obp/ui/#search)",

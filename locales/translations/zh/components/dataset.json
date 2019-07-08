@@ -38,6 +38,7 @@
     "projectId": "项目编号",
     "studyArea": "研究领域",
     "publishedBy": "发布者",
+    "mediatedBy": "",
     "description": "描述",
     "metadataLanguage": "元数据语言",
     "dataLanguage": "数据语言",
