@@ -6,7 +6,7 @@
         "clear": "清除",
         "add": "新增",
         "repatriation": {
-            "description": "當一個國家的機構所發布的生物多樣性資料與另一個國家有關，則該資料將被回歸至後者。"
+            "description": "當一個國家的機構所發布的生物多樣性資料與另一個國家有關，則該資料將返回至後者。"
         },
         "ternary": {
             "yes": "是",
@@ -20,7 +20,7 @@
             "east": "東",
             "withCoordinates": "包括座標",
             "withoutCoordinates": "不含座標",
-            "includeFlaggedAsSuspicious": "包括被標註為可疑座標的紀錄",
+            "includeFlaggedAsSuspicious": "包括座標被標註為可疑的紀錄",
             "onlyShowFlagged": "只顯示標註為可疑的紀錄",
             "past": "最近使用",
             "geojson": "GeoJSON 格式",

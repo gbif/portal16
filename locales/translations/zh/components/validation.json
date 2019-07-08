@@ -3,8 +3,8 @@
     "category": {
       "RESOURCE_STRUCTURE": "资源结构",
       "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
+      "RECORD_STRUCTURE": "记录结构",
+      "OCC_INTERPRETATION_BASED": "GBIF出现记录解析",
       "METADATA_CONTENT": "元数据内容",
       "CLB_INTERPRETATION_BASED": ""
     },
@@ -118,7 +118,7 @@
       "about": "关于",
       "darwinCoreExtensions": "达尔文核心扩展",
       "metaData": "",
-      "summary": ""
+      "summary": "总结"
     }
   }
 }

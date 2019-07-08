@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "学名",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
-    "HYBRID": "",
-    "INFORMAL": "",
-    "OTU": "",
-    "CULTIVAR": "",
-    "CANDIDATUS": "",
-    "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "SCIENTIFIC": "科学名称",
+    "DOUBTFUL": "存疑",
+    "BLACKLISTED": "列入黑名单",
+    "VIRUS": "病毒",
+    "HYBRID": "混合配方",
+    "INFORMAL": "非正式的",
+    "OTU": "操作分类股",
+    "CULTIVAR": "品种",
+    "CANDIDATUS": "暂定",
+    "PLACEHOLDER": "占位符",
+    "NO_NAME": "无名"
   }
 }

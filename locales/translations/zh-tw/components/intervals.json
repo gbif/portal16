@@ -2,10 +2,10 @@
     "intervals": {
         "noFilter": "無篩選",
         "elevation": {
-            "equals": "是 {from}米",
-            "between": "在 {from} 至 {to}米 之間",
-            "lessThanOrEquals": "低於 {to}米",
-            "greaterThanOrEquals": "高於 {from}米",
+            "equals": "{from}米",
+            "between": "在 {from} 至 {to} 米 之間",
+            "lessThanOrEquals": "低於 {to} 米",
+            "greaterThanOrEquals": "高於 {from} 米",
             "invalid": "無效",
             "select": {
                 "equals": "是",
@@ -15,27 +15,27 @@
             }
         },
         "depth": {
-            "equals": "是 {from}米",
-            "between": "在 {from} 至 {to}米 之間",
-            "lessThanOrEquals": "{to}米深度以上",
-            "greaterThanOrEquals": "深於 {from}米",
+            "equals": " {from} 米",
+            "between": "在 {from} 至 {to} 米 之間",
+            "lessThanOrEquals": "在深度 {to} 米之上",
+            "greaterThanOrEquals": "在深度 {from} 米之下",
             "invalid": "無效",
             "select": {
                 "equals": "是",
                 "between": "之間",
                 "lessThanOrEquals": "小於",
-                "greaterThanOrEquals": "深於"
+                "greaterThanOrEquals": "深度大於"
             }
         },
         "year": {
             "equals": "是 {from}",
-            "between": "在 {from} 開始與 {to} 結束之間",
-            "lessThanOrEquals": "在 {to} 結束前",
-            "greaterThanOrEquals": "在 {from} 開始之後",
+            "between": "始於 {from} 終於 {to}",
+            "lessThanOrEquals": "在 {to} 前",
+            "greaterThanOrEquals": "在 {from} 之後",
             "invalid": "無效",
             "select": {
                 "equals": "是",
-                "between": "之間",
+                "between": "介於",
                 "lessThanOrEquals": "結束前",
                 "greaterThanOrEquals": "開始後"
             }

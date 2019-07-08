@@ -1,16 +1,16 @@
 {
   "nameUsageOrigin": {
-    "SOURCE": "",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
-    "PROPARTE": "",
-    "AUTONYM": "",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "SOURCE": "记录来自源记录。",
+    "DENORMED_CLASSIFICATION": "非规范化分类中的隐式用法。",
+    "VERBATIM_PARENT": "从逐字母名称用法中隐式使用。",
+    "VERBATIM_ACCEPTED": "逐字接受的名称用法中的隐式用法。",
+    "VERBATIM_BASIONYM": "逐字/原始名称中的隐式用法。",
+    "PROPARTE": "从单个亲段记录中重复使用。",
+    "AUTONYM": "生成, 缺少自动信息。",
+    "IMPLICIT_NAME": "生成、缺失属或物种为孤立的较低名称。",
+    "MISSING_ACCEPTED": "如果同义词缺少, 则人为接受用法以保留分类层次结构。",
+    "BASIONYM_PLACEHOLDER": "缺失或隐式基词的占位符用法。",
+    "EX_AUTHOR_SYNONYM": "基于非法前作者的隐含同义词。 见ICN第46条：http：//www.iapt-taxon.org/nomen/main.php？page = art46",
+    "OTHER": "其它来源"
   }
 }

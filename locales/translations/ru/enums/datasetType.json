@@ -1,10 +1,10 @@
 {
   "datasetType": {
-    "OCCURRENCE": "Находка",
-    "CHECKLIST": "Список видов",
-    "SAMPLING_EVENT": "Мониторинг на пробных площадях",
+    "OCCURRENCE": "Находки",
+    "CHECKLIST": "Таксономические списки",
+    "SAMPLING_EVENT": "Данные площадных и маршрутных учётов",
     "METADATA": "Метаданные",
-    "undefined": "Неизвестно"
+    "undefined": "не указано"
   },
   "datasetSubtype": {
     "TREATMENT_ARTICLE": ""
