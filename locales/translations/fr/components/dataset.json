@@ -38,6 +38,7 @@
     "projectId": "Identifiant du projet",
     "studyArea": "Zone d’étude",
     "publishedBy": "Publié par",
+    "mediatedBy": "",
     "description": "Description",
     "metadataLanguage": "Langue des métadonnées",
     "dataLanguage": "Langue des données",
