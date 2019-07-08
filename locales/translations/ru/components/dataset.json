@@ -38,6 +38,7 @@
     "projectId": "ID проекта",
     "studyArea": "Район исследований",
     "publishedBy": "Опубликовано",
+    "mediatedBy": "",
     "description": "Описание",
     "metadataLanguage": "Язык метаданных",
     "dataLanguage": "Язык данных",
