@@ -27,6 +27,10 @@
       "isInvasive_yes": "",
       "isInvasive_no": ""
     },
+    "treatment": {
+      "distribution": "",
+      "figures": ""
+    },
     "as": "Som",
     "in": "I",
     "origin": "Oprindelse",
