@@ -36,7 +36,7 @@
     "logarithmic": "對數",
     "singleTypeResults": "{NUMBER} 出現紀錄在 {FIELD} 相同",
     "chooseDimension": "選擇維度",
-    "clickToZoom": "點擊拖曳至圖區來縮放",
+    "clickToZoom": "點擊拖曳至圖區以縮放",
     "pinchToZoom": "抓取圖表以放大",
     "numAcceptedSpByHigher": "更高分類群的有效物種數量",
     "noRankedAbove": "此物種名錄在物種之上無排序的分類群。",
