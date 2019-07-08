@@ -5,9 +5,12 @@
       "dataPublishing": "",
       "dataAbout": "",
       "participartion": "",
-      "publications": "",
+      "publicationsFrom": "",
+      "publicationsAbout": "",
       "news": "",
-      "invasives": ""
+      "invasives": "",
+      "more": "",
+      "projects": ""
     },
     "memberSince": "",
     "dataFrom": "",
@@ -20,6 +23,7 @@
     "nAbout": "",
     "viewAllN": "",
     "noPublications": "",
+    "noProjects": "",
     "notParticipant": "",
     "notParticipantDescription": "",
     "countryNamingDisclaimer": "",
