@@ -4,7 +4,7 @@
         "systemLoad": "系統負載",
         "messages": "訊息",
         "version": "版本",
-        "nInQueue": "{NUMBER} 等待中",
+        "nInQueue": "{NUMBER} 排程中",
         "status": {
             "OPERATIONAL": "運作中",
             "WARNING": "不穩定",
