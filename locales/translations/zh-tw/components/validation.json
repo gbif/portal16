@@ -11,11 +11,11 @@
     "issueType": {
       "DWCA_UNREADABLE": "無法讀取達爾文核心集檔案",
       "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 檔",
-      "DWCA_META_XML_SCHEMA": "Meta. xml 架構驗證失敗",
+      "DWCA_META_XML_SCHEMA": "meta.xml 格式驗證失敗",
       "RECORD_IDENTIFIER_NOT_FOUND": "在檔案中找不到紀錄識別碼",
       "CORE_ROWTYPE_UNDETERMINED": "找不到或無法確定列類型",
       "EML_NOT_FOUND": "找不到 EML 文件",
-      "EML_GBIF_SCHEMA": "EML 檔案不針對架構進行驗證",
+      "EML_GBIF_SCHEMA": "EML 檔案不針對格式進行驗證",
       "UNKNOWN_ROWTYPE": "核心集／延伸集為未知的列類型",
       "REQUIRED_TERM_MISSING": "缺少核心集／延伸集必要名稱",
       "COLUMN_MISMATCH": "無吻合欄位",
