@@ -49,14 +49,14 @@
         "title": "詮釋資料文件"
       },
       "META_DESCRIPTOR": {
-        "description": "語義註記用來描述資料如何建構而成 （檔案、欄等）",
+        "description": "用來描述資料如何建構的語義註記 （檔案、欄等）",
         "title": "描述標籤"
       }
     },
     "fileSizeLimit": "檔案大小限制： 100 mb",
     "receivedMediaType": "媒體類型",
     "uniqueIdentifier": "唯一識別碼",
-    "reportLocation": "此報告已發送至",
+    "reportLocation": "此報告已寫至",
     "reportDeletion": "報告將於一個月後刪除。在此之前你可以隨時查看。",
     "reportGenerated": "已產生",
     "summary": "驗證總結",
@@ -93,12 +93,12 @@
       "ACCEPTED": "開始驗證",
       "RUNNING": "驗證中",
       "FINISHED": "驗證完成",
-      "FAILED": "驗證失敗。請確認檔案形式，如您提交 URL 檔，請確認檔案的位址",
-      "CONTACTING_SERVER": "正在連結伺服器..."
+      "FAILED": "驗證失敗。請確認檔案形式，如您送出的是 URL，請確認檔案的位址。",
+      "CONTACTING_SERVER": "正在連絡伺服器..."
     },
     "jobId": "作業識別碼",
-    "indexeable": "GBIF 可為該檔編制索引",
-    "notIndexeable": "GBIF 無法為該檔編制索引",
+    "indexeable": "GBIF 能處理此檔案",
+    "notIndexeable": "GBIF 無法處理此檔案",
     "numberOfLines": "行數",
     "reportProducedByGbifDataValidator": "由 GBIF 資料驗證程式產生的報告",
     "validationReport": "驗證報告",
