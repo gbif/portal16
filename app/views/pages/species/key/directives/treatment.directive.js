@@ -30,8 +30,6 @@ function treatmentDirective() {
         // replace broken links in treatment
         vm.treatment = vm.treatment.replace(new RegExp('http://plazi.cs.umb.edu', 'g'), 'http://treatment.plazi.org');
 
-        vm.figuresExpanded = true;
-        vm.mapExpanded = true;
         vm.baselayer = {
             url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
             attribution: '&copy; <a href="https://www.mapbox.com/" class="inherit">Mapbox</a>, '
@@ -45,7 +43,7 @@ function treatmentDirective() {
         occurrences.$promise.then(function() {
             if (occurrences.results && occurrences.results.length > 0) {
                 var filteredOccurrences = occurrences.results ? occurrences.results.filter(function(data) {
-                    return (typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined');
+                    return (typeof data.decimalLatitude !== 'undefined' && typeof data.decimalLongitude !== 'undefined') && (data.canonicalName === vm.species.canonicalName);
                 }).sort(function(a, b) {
                     if (a.typeStatus && a.typeStatus.toLowerCase() === 'holotype') {
                         return 1;
@@ -69,7 +67,7 @@ function treatmentDirective() {
                                 },
                                 properties: {
                                     key: o.key,
-                                    message: '<div>' + typeHeader + '<p>' + o.verbatimLabel + '</p></div>',
+                                    message: '<div>' + typeHeader + '<p><a href="/occurrence/' + o.key + '">' + o.verbatimLabel + '</a></p></div>',
                                     title: o.typeStatus ? o.typeStatus + ': ' + o.verbatimLabel : o.verbatimLabel
                                 }
                             };

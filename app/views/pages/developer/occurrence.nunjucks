@@ -263,7 +263,7 @@
                         Lists occurrence counts by year.
                         {% endcall %}
 
-                        {% call trowM(url="/occurrence/counts/datasets", resp="Counts", respLink=apiBase+"occurrence/counts/datasets?country=DE", params=["country","nubKey"]) %}
+                        {% call trowM(url="/occurrence/counts/datasets", resp="Counts", respLink=apiBase+"occurrence/counts/datasets?country=DE", params=["country","taxonKey"]) %}
                         Lists occurrence counts for datasets that cover a given taxon or country.
                         {% endcall %}
 
@@ -298,7 +298,6 @@
                    >ISO-3166-1</a>) of the country in which the occurrence was recorded.",
             "continent": "Continent, as defined in our <a href='"+apidocs+"/vocabulary/Continent.html'>Continent
                 enum</a>",
-            "nubKey": "A taxon key from the GBIF backbone.",
             "publishingCountry" : "The 2-letter country code (as per <a
                     href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'
                    >ISO-3166-1</a>) of the owining organization's country.",
@@ -374,18 +373,19 @@
             "q" : "Simple search parameter. The value for this parameter can be a simple word or a phrase.",
             "limit": "The maximum number of results to return. This can't be greater than 300, any value greater is set
             to 300.",
-            "facet": "A list of facet names used to retrieve the most frequent values for a field. Facets are allowed
-            for all the parameters except for: last interpreted date, event date and geometry",
-            "facet, paging": "All facets parameters allow, paging requests using the parameters <em>facetOffset</em> and
+            "facet": "A facet name used to retrieve the most frequent values for a field. Facets are allowed
+            for all the parameters except for: eventDate, geometry, lastInterpreted, locality, organismId, stateProvince, waterBody.  This parameter may
+            by repeated to request multiple facets, as in this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&facet=basisOfRecord&limit=0'>/occurrence/search?facet=datasetKey&amp;facet=basisOfRecord&amp;limit=0</a>",
+            "facetOffset, facetLimit": "Facet parameters allow paging requests using the parameters <em>facetOffset</em> and
             <em>facetLimit</em> as this example <a
-                    href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>"
+                    href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>/occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>"
             }) $}
 
             <section id="predicates" class="white-background page--developer__anchor">
                 <div class="container--narrow">
                     <h3>Occurrence Download Predicates</h3>
-                    <p>A download predicate is an query expression to retrieve occurrence record downloads. A working example using Curl: Put this in a file called query.json:
-                        {% set downloadExampleQuery = {"creator":"userName","notification_address":["userEmail@example.org"],"sendNotification": true,"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"LITERATURE"},{"type":"equals","key":"COUNTRY","value":"KW"}]}} %}
+                    <p>A download predicate is an query expression to retrieve occurrence record downloads. A working example using <em>curl</em>: Put this in a file called query.json:
+                        {% set downloadExampleQuery = {"creator":"userName","notification_address":["userEmail@example.org"],"sendNotification": true,"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"PRESERVED_SPECIMEN"},{"type":"in","key":"COUNTRY","values":["KW","IQ","IR"]}]}} %}
 <pre><code>{$ downloadExampleQuery | rawJson(true) | safe $}</code></pre>
 
                     </p>
@@ -435,9 +435,9 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"BASIS_OF_RECORD",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"LITERATURE"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
-                                or
+                                <br/>or<br/>
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
@@ -448,7 +448,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"HAS_COORDINATE",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"true"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -464,10 +464,12 @@
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"and",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"predicates":
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{"type":"equals","key":"HAS_GEOSPATIAL_ISSUE","value":"false"},<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"type":"equals","key":"TAXON_KEY","value":"2440447"}]<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;[<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"type":"equals","key":"HAS_GEOSPATIAL_ISSUE","value":"false"},<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"type":"equals","key":"TAXON_KEY","value":"2440447"}<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;]<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -483,11 +485,14 @@
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"or",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"predicates":
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{"type":"equals","key":"HAS_GEOSPATIAL_ISSUE","value":"false"},<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"type":"equals","key":"TAXON_KEY","value":"2440447"}]<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;[<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"type":"equals","key":"HAS_GEOSPATIAL_ISSUE","value":"false"},<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"type":"equals","key":"TAXON_KEY","value":"2440447"}<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;]<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
+                                When requesting many values of the same field (for example, multiple taxa or countries) the "in" predicate (below) is more appropriate.
                             </td>
                         </tr>
                         <tr>
@@ -504,7 +509,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"YEAR",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"1900"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -522,7 +527,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"ALTITUDE",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"1000"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -540,7 +545,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"YEAR",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"1900"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -558,7 +563,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"ALTITUDE",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"1000"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -576,7 +581,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"values":["cat1","cat2","cat3"]<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -597,7 +602,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-62.578125
                                     51.179342,-130.78125 51.179342))"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -612,14 +617,14 @@
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"not",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"predicate":<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"cat1"<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"predicate":<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"cat1"<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -637,7 +642,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"PAPS5-560%"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -654,7 +659,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"isNotNull",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"parameter":"ISSUE"<br/>
                                     &nbsp;&nbsp;}<br/>
-                                    }<br/>
+                                    }
                                 </code>
                             </td>
                         </tr>
@@ -667,7 +672,7 @@
             <section id="download_limits" class="white-background page--developer__anchor">
                 <div class="container--narrow">
                     <h3>Occurrence Download Limits</h3>
-                    <p>Occurrence downloads is a very resource demanding service which needs to be monitored and limited
+                    <p>Occurrence downloads are a very resource demanding service which needs to be monitored and limited
                         according to the GBIF platform load.
                         In order to avoid that downloads requested by a single user utilize most of the resources two
                         rules have been set:</p>
@@ -680,6 +685,8 @@
                             given user can only have <b style="font-weight: bold;">1</b> download.
                         </li>
                     </ul>
+                    <p>The number of user downloads currently in progress can be seen on the <a href="../../health">System Health</a> page.
+                        Your own downloads can be seen on your <a href="../../user/download">My Downloads</a> page.</p>
                 </div>
             </section>
 

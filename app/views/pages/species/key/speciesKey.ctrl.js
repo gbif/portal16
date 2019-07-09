@@ -12,7 +12,6 @@ require('./directives/treatment.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
-var _ = require('lodash');
 
 angular.module('portal').controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
@@ -36,7 +35,8 @@ function speciesKey2Ctrl(
     CitesApi,
     TaxonomySynonyms,
     suggestEndpoints,
-    SpeciesVernacularNames,
+    SpeciesTreatment,
+    SpeciesTreatments,
     constantKeys,
     Page,
     PublisherExtended,
@@ -80,10 +80,6 @@ function speciesKey2Ctrl(
         utils.attachImages(resp.results);
     });
 
-    vm.speciesImages.$promise.then(function(resp) {
-        utils.attachImages(resp.results);
-    });
-
     vm.isNub = false;
 
     vm.species.$promise.then(function(resp) {
@@ -118,24 +114,12 @@ function speciesKey2Ctrl(
                 }
             });
             // Treatments
-            vm.verbatim.$promise.then(function() {
-                var treatment = _.get(
-                    vm.verbatim,
-                    'extensions["http://eol.org/schema/media/Document"][0]'
-                );
-                if (
-                    treatment &&
-                    treatment['http://purl.org/dc/terms/description'] &&
-                    treatment['http://purl.org/dc/terms/contributor'] &&
-                    treatment['http://purl.org/dc/terms/contributor'].indexOf('Plazi') > -1
-                ) {
-                    vm.treatment =
-                        treatment['http://purl.org/dc/terms/description'];
-                    vm.treatmentCitation = treatment['http://purl.org/dc/terms/bibliographicCitation'];
-                }
-                vm.dataset.$promise.then(function() {
-                    vm.publisher = PublisherExtended.get({key: vm.dataset.publishingOrganizationKey});
-                });
+            vm.speciesTreatment = SpeciesTreatment.get({id: vm.key});
+            vm.speciesTreatment.$promise.then(function() {
+                vm.hasTreatment = true;
+            });
+            vm.speciesTreatment.$promise.catch(function() {
+                vm.hasTreatment = false;
             });
             vm.verbatim.$promise.catch(vm.nonCriticalErrorHandler);
 
@@ -160,6 +144,8 @@ function speciesKey2Ctrl(
                         // ignore error
                     });
             }
+            // treatments if any
+            vm.treatments = SpeciesTreatments.query({id: vm.key});
         }
         vm.isSynonym =
             typeof vm.species.taxonomicStatus !== 'undefined' &&

@@ -143,6 +143,9 @@ router.get('/country/publications.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/research/research.template.nunjucks');
 });
 
+router.get('/country/projects.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/projects/projects.template.nunjucks');
+});
 
 router.get('/species/key.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/species/key/speciesKey.template.nunjucks');

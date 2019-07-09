@@ -106,6 +106,24 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesTreatment', function($resource, env) {
+            return $resource('/api/species/:id/treatment', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
+        .factory('SpeciesTreatments', function($resource, env) {
+            return $resource('/api/species/:id/treatments', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: true
+                    }
+                }
+            );
+        })
         .factory('SpeciesVernacularName', function($resource) {
             return $resource('/api/species/:id/vernacularName', null, {
                     'query': {

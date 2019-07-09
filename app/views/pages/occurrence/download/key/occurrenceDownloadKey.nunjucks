@@ -33,6 +33,8 @@
                             {% else %}
                                 {% if download.record.request.format === 'SPECIES_LIST' %}
                                     <span translate="downloadKey.nRecordsDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
+                                {% elif download.record.totalRecords === 0 %}
+                                    <span translate="downloadKey.occurrenceDownload" > </span>
                                 {% else %}
                                     <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
                                 {% endif %}

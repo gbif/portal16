@@ -1,0 +1,28 @@
+<section class="horizontal-stripe light-background p-t-05 seperator">
+    <div class="container--narrow">
+        <div class="row">
+            <div class="col-xs-12 ng-cloak" ng-if="!countryProjects.projects.$resolved">
+                <div class="emptyInfo">
+                    <h3 class="uppercase-first" translate="phrases.loading">Loading</h3>
+                    <span class="loading"></span>
+                </div>
+            </div>
+            <div class="col-xs-12 ng-cloak" ng-if="countryProjects.projects.count > 0">
+
+
+                        <ng-include src="'/api/template/search/projectResult.html?v=' +  portal.BUILD_VERSION+'&locale='+countryProjects.locale"
+                                    ng-repeat="result in countryProjects.projects.results" ></ng-include>
+                        <div ng-if="countryProjects.projects.count > countryProjects.limit" class="text-center m-t-1">
+                            <a ui-sref="resourceSearchList({contentType: 'project', contractCountry: countryProjects.countryCode})" class="gb-button--discreet" translate="countryKey.viewAllN" translate-values="{NUMBER_FORMATTED: (countryProjects.projects.count | localNumber)}"></a>
+                        </div>
+                   
+
+            </div>
+             <div class="emptyInfo" ng-if="countryProjects.projects.count === 0">
+                        <h3 translate="countryKey.noProjects">No projects</h3>
+                    </div>
+           
+        </div>
+    </div>
+</section>
+

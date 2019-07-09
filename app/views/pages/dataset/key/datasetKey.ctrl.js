@@ -16,6 +16,7 @@ require('../../../components/doi/doi.directive');
 require('../../../components/license/license.directive');
 require('../../../components/map/featureMap/featureMap.directive');
 
+
 angular
     .module('portal')
     .controller('datasetKeyCtrl', datasetKeyCtrl);
@@ -105,6 +106,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
 
     vm.dataset.$promise.then(function() {
         Page.setTitle(vm.dataset.title);
+        vm.isMediatedByPlazi = constantKeys.publisher.PLAZI === vm.dataset.publishingOrganizationKey;
         vm.publisher = Publisher.get({id: vm.dataset.publishingOrganizationKey});
         vm.installation = Installation.get({id: vm.dataset.installationKey});
         vm.installation.$promise.then(function() {

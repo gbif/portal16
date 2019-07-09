@@ -1,30 +1,25 @@
-<section  class="card--references card m-b-1 rtl-bootstrap">
-  <div class="card__content treatment" >
-    <div class="row">
-      <div dir="auto" class="col-xs-12 col-sm-7 col-md-12 col-lg-7 p-r-2 p-l-2 p-t-05" ng-bind-html="treatment.treatment"></div>
-      <div class="col-xs-12 col-sm-5 col-md-12 col-lg-5">
-        <div ng-if="treatment.geoJSON">
-          <div layout="row" layout-align="end center">
-            <h4 translate="treatment.distribution">Distribution</h4>
-          </div>
-          <feature-map class="ipt__map fitContainer" feature-style="treatment.featureStyle" features="treatment.geoJSON" baselayer="treatment.baselayer" projection="treatment.projection"  mapstyle="'light'"></feature-map>
-        </div>
-        <div ng-if="treatment.figures.$resolved && treatment.figures.results.length > 0">
-          <div layout="row" layout-align="end center">
-            <h4 translate="treatment.figures">Figures</h4>
-          </div>
-          <div ng-if="treatment.figures.$resolved" ng-repeat="image in treatment.figures.results" class="cursor-pointer showBroken inherit noUnderline m-b-1">
-            <a ng-href="{{image.references}}">
-              <img ng-src="{{ image.identifier }}"></a>
-              <div dir="auto" class="summary m-t-05">{{image.description}}</div>
-              <div dir="auto" class="summary smaller">
-                <span ng-if="image.rightsHolder || image.creator">&copy;
-                  {{ (image.rightsHolder) ? image.rightsHolder : image.creator }}</span>
-              </div>
-            </div>
+<div class="treatment row">
+  <div dir="auto" class="col-xs-12 col-sm-7 col-md-12 col-lg-7 body-text" ng-bind-html="treatment.treatment"></div>
+  <div class="col-xs-12 col-sm-5 col-md-12 col-lg-5">
+    <div ng-if="treatment.geoJSON">
+      <div layout="row">
+        <h4 class="card-header" translate="species.treatment.distribution"></h4>
+      </div>
+      <feature-map class="ipt__map fitContainer" feature-style="treatment.featureStyle" features="treatment.geoJSON" baselayer="treatment.baselayer" projection="treatment.projection"  mapstyle="'light'"></feature-map>
+    </div>
+    <div ng-if="treatment.figures.length > 0">
+      <div layout="row">
+        <h4 class="card-header" translate="species.treatment.figures"></h4>
+      </div>
+      <div ng-repeat="image in treatment.figures"  class="cursor-pointer showBroken inherit noUnderline m-b-1">
+        <a  ng-href="{{image.references}}">
+          <img ng-src="{{ image.identifier }}"></a>
+          <div dir="auto" class="summary m-t-05">{{image.description}}</div>
+          <div dir="auto" class="summary smaller">
+            <span ng-if="image.rightsHolder || image.creator">&copy;
+              {{ (image.rightsHolder) ? image.rightsHolder : image.creator }}</span>
           </div>
         </div>
       </div>
-
     </div>
-  </section>
+  </div>

@@ -1,0 +1,16 @@
+        <section class="card card--spaced--very m-b-1" ng-repeat="treatment in speciesKey2.treatments">
+            <div class="card__stripe">
+                <div class="card__content">
+                    <div class="m-b-2">
+                        <h3>{{treatment.datasetTitle}}</h3>
+                        <div>
+                            <span><span class="discreet--very">{{'species.in' | translate}}:</span> <a ng-if="!treatment.citation" class="inherit" ui-sref="datasetKey({key:treatment.species.datasetKey})">{{ treatment.datasetTitle }}</a> <span class="source" ng-if="treatment.citation" ng-bind-html="treatment.citation | linky"></span></span>
+                        </div>
+                        <div class="m-t-05">
+                            <span ><span class="discreet--very"><span >{{'species.mediatedThrough' | translate}}:</span></span> <a class="source" ng-if="treatment.publisherHomepage" ng-href="{{treatment.publisherHomepage}}">{{treatment.publisherTitle}}</a><span ng-if="!treatment.publisherHomepage" class="source" >{{treatment.publisherTitle}}</span></span>
+                        </div>
+                    </div>
+                    <treatment ng-if="treatment.description" treatment="treatment.description" figures="treatment.images" species="treatment.species" ></treatment>
+                </div>
+            </div>
+        </section>

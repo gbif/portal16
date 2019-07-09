@@ -117,6 +117,109 @@ router.get('/species/:key/occurencedatasets', function(req, res) {
         });
 });
 
+async function getTreatment(key) {
+    let species = await getSpecies(key);
+    let verbatimSpecies = await getVerbatim(key);
+    let images = await getSpeciesMedia(key);
+    let dataset = await getDataset(species.datasetKey);
+    let publisher = await getPublisher(dataset.publishingOrganizationKey);
+    let treatmentCandidate = _.get(verbatimSpecies, 'extensions["http://eol.org/schema/media/Document"][0]');
+    if (
+        treatmentCandidate &&
+        treatmentCandidate['http://purl.org/dc/terms/description'] &&
+        treatmentCandidate['http://purl.org/dc/terms/contributor'] &&
+        treatmentCandidate['http://purl.org/dc/terms/contributor'].indexOf('Plazi') > -1
+    ) {
+        let treatment = treatmentCandidate['http://purl.org/dc/terms/description'];
+        let treatmentCitation = treatmentCandidate['http://purl.org/dc/terms/bibliographicCitation'];
+        return {
+            description: treatment,
+            citation: treatmentCitation,
+            species: species,
+            images: images.results,
+            publisherTitle: publisher.title,
+            publisherHomepage: _.get(publisher, 'homepage[0]'),
+            publisherKey: publisher.key,
+            datasetTitle: dataset.title
+        };
+    }
+}
+
+// this is an ugly hack because we do not model treatments
+async function getTreatments(key) {
+    let limit = 1000;
+    let offset = 0;
+
+    // get datasets that deal with this taxon.
+    let baseRequest = {
+        url: apiConfig.dataset.url + 'search?taxonKey=' + key + '&type=CHECKLIST' + '&limit=' + limit + '&offset=' + offset,
+        timeout: 30000,
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    let response = await request(baseRequest);
+    if (parseInt(response.statusCode !== 200)) {
+        throw response;
+    }
+    // filter on plazi (could be subtype TREATMENT if that was modelled)
+    let plaziDatasets = _.filter(response.body.results, {'publishingOrganizationKey': '7ce8aef0-9e92-11dc-8738-b8a03c50a862'});
+
+    // for each of these datasets look for the related species within those datasets.
+    for (let i = 0; i < plaziDatasets.length; i++) {
+        let e = plaziDatasets[i];
+        let related = await request({
+            url: apiConfig.taxon.url + key + '/related?datasetKey=' + e.key,
+            timeout: 30000,
+            method: 'GET',
+            json: true
+        });
+        let species = related.body.results;
+
+        // if that related species (which is from plazi) has a reference to plazi, then it probably has a treatment attached to it.
+        e._relatedTaxon = _.find(species, function(s) {
+            return s.references;
+        });
+        if (e._relatedTaxon) {
+            e.treatment = await getTreatment(e._relatedTaxon.key);
+        }
+    }
+
+    // treaments are only those related species that have links to treatment bank
+    let treatments = _.filter(plaziDatasets, function(e) {
+        return _.has(e, '_relatedTaxon.references');
+    });
+
+    // for each treatment lookup the verbatim (from which we use the eol extension to show treatment info)
+    // and get the images for that taxon.
+
+    return _.map(treatments, 'treatment');
+}
+router.get('/species/:key/treatments', function(req, res) {
+    getTreatments(req.params.key)
+        .then(function(treatments) {
+            res.status(200).json(treatments);
+        }).catch(function(err) {
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.sendStatus(status);
+        });
+});
+router.get('/species/:key/treatment', function(req, res) {
+    getTreatment(req.params.key)
+        .then(function(treatment) {
+            if (treatment) {
+                res.status(200).json(treatment);
+            } else {
+                res.sendStatus(404);
+            }
+        }).catch(function(err) {
+            log.error(err);
+            let status = err.statusCode || 500;
+            res.sendStatus(status);
+        });
+});
+
 router.get('/species/:key/checklistdatasets', function(req, res) {
     let limit = parseInt(req.query.limit) || 20;
     let offset = parseInt(req.query.offset) || 0;
@@ -267,6 +370,38 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
 
 async function getVerbatim(taxonKey) {
     let response = await request({url: apiConfig.taxon.url + taxonKey + '/verbatim', timeout: 30000, method: 'GET', json: true});
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function getSpecies(taxonKey) {
+    let response = await request({url: apiConfig.taxon.url + taxonKey, timeout: 30000, method: 'GET', json: true});
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function getSpeciesMedia(taxonKey) {
+    let response = await request({url: apiConfig.taxon.url + taxonKey + '/media?mediaType=stillImage&limit=100', timeout: 30000, method: 'GET', json: true});
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function getDataset(key) {
+    let response = await request({url: apiConfig.dataset.url + key, timeout: 30000, method: 'GET', json: true});
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function getPublisher(key) {
+    let response = await request({url: apiConfig.publisher.url + key, timeout: 30000, method: 'GET', json: true});
     if (response.statusCode !== 200) {
         throw response;
     }

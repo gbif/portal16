@@ -5,6 +5,7 @@
         {% include "../map/map.nunjucks" %}
     </div>
 
+
     {% include "../invasives.nunjucks" %}
 
     <div ng-if="!speciesKey2.images.$resolved || !speciesKey2.capabilities.$resolved" class="emptyInfo">
@@ -24,7 +25,7 @@
                 <div class="card">
                     <div class="card__content">
                         <div ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'}" class="m-b-1">
-                            <h5 class="card-header">{{ description.type }}</h5>
+                            <h5 class="card-header">{{ description.type | prettifyEnum}}</h5>
                             <div ng-bind-html="description.description"></div>
                             <p class="small source">
                                 <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>: <a class="inherit" ui-sref="speciesKey({speciesKey: description.sourceTaxonKey})">{{ description.source }}</a>
@@ -70,6 +71,11 @@
     </div>
 </div>
 
+    <div ng-if="speciesKey2.treatments.length > 0 && speciesKey2.$state.is('speciesKeyTreatments')" class="container--desktop m-t-1">
+        
+        {% include "../treatments/treatments.nunjucks" %}
+
+    </div>
 <div class="container--desktop">
     {% include "../metrics/metrics.nunjucks" %}
 </div>
