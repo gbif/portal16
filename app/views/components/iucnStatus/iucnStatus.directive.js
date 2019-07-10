@@ -13,8 +13,7 @@ function iucnStatusDirective() {
         restrict: 'E',
         templateUrl: '/templates/components/iucnStatus/iucnStatus.html',
         scope: {
-            threatStatus: '=',
-            name: '@'
+            key: '@'
         },
         controller: iucnStatusCtrl,
         controllerAs: 'vm',
@@ -30,51 +29,27 @@ function iucnStatusDirective() {
     return directive;
 
     /** @ngInject */
-    function iucnStatusCtrl($scope, RedlistSpecies, endpoints) {
+    function iucnStatusCtrl($http) {
         var vm = this;
-        vm.iucnUserLink = endpoints.iucnUserLink;
         vm.insufficientCategories = ['NE', 'DD'];
         vm.mainCategories = ['LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
-
-        $scope.$watch(function() {
-            return vm.name;
-        }, function() {
-            getRedListData(vm.name);
-        });
-
-        function getRedListData(name) {
-            if (!name) {
-                return;
+        vm.loading = true;
+        $http({
+            method: 'get',
+            url: '/api/wikidata/species/' + vm.key + '?locale=' + gb.locale
+        }).then(function(res) {
+            vm.loading = false;
+            vm.iucnTaxonid = _.get(res, 'data.iucnIdentifier[0].id');
+            if (_.get(res, 'data.iucnThreatStatus.abbrevation.value')) {
+                vm.category = legacyCategories.hasOwnProperty(_.get(res, 'data.iucnThreatStatus.abbrevation.value')) ?
+                legacyCategories[_.get(res, 'data.iucnThreatStatus.abbrevation.value')] : _.get(res, 'data.iucnThreatStatus.abbrevation.value');
+            } else {
+                vm.category = 'NE';
             }
-            vm.loading = true;
-            vm.category = 'blank';
-            vm.redlistResult = RedlistSpecies.query({
-                name: name
-
-            }, function(data) {
-                var iucn = _.head(data.result);
-                if (iucn) {
-                    if (legacyCategories.hasOwnProperty(iucn.category)) {
-                        iucn.category = legacyCategories[iucn.category];
-                    }
-                    vm.category = iucn.category;
-                    vm.iucnTaxonid = iucn.taxonid;
-                    vm.threatStatus = {
-                        iucn: iucn,
-                        category: vm.category,
-                        link: vm.iucnUserLink + iucn.taxonid
-                    };
-                } else {
-                    vm.category = 'NE';
-                }
-
-                vm.loading = false;
-            }, function() {
-                vm.loading = false;
-                vm.failed = true;
-            });
-        }
-        getRedListData(vm.name);
+            vm.sourceLink = _.get(res, 'data.iucnIdentifier[0].url');
+        }).catch(function(err) {
+            vm.loading = false;
+        });
     }
 }
 
