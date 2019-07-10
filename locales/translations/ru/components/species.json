@@ -78,6 +78,7 @@
     "lastCrawled": "Дата последнего обхода {DATE_FORMATTED}",
     "extensions": "Расширения",
     "taxa": "Таксоны",
-    "mediatedThrough": ""
+    "mediatedThrough": "",
+    "taxonIdentifiers": ""
   }
 }
