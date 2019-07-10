@@ -78,6 +78,7 @@
     "lastCrawled": "最終クロール日 {DATE_FORMATTED}",
     "extensions": "拡張モジュール",
     "taxa": "分類群",
-    "mediatedThrough": ""
+    "mediatedThrough": "",
+    "taxonIdentifiers": ""
   }
 }
