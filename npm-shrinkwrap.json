@@ -16715,6 +16715,11 @@
         "string-width": "1.0.2"
       }
     },
+    "wikibase-sdk": {
+      "version": "7.0.8",
+      "resolved": "https://registry.npmjs.org/wikibase-sdk/-/wikibase-sdk-7.0.8.tgz",
+      "integrity": "sha512-fs85F7rnqUay73En0ThUCEgCoJjfidcHj+YJK80yjcrqK/DZa00L+DGwOJ2BMc7/ZFq3w3OguFlwCFiXZAlsbg=="
+    },
     "wkt-parser": {
       "version": "1.2.0",
       "resolved": "https://registry.npmjs.org/wkt-parser/-/wkt-parser-1.2.0.tgz",

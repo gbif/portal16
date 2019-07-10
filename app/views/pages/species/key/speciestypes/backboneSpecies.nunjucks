@@ -34,12 +34,9 @@
                     </div>
                 </div>
             </div>
-            <div class="m-t-1" ng-show="speciesKey2.status && speciesKey2.status.category != 'NE'">
-                <h4 class="card-header">{{'species.iucnStatus' | translate}}</h4>
-                <div class="card">
-                    <iucn-status threat-status="speciesKey2.status" name="{{ speciesKey2.species.canonicalName }}"></iucn-status>
-                </div>
-            </div>
+                
+            <iucn-status key="{{speciesKey2.key}}" ></iucn-status>
+           
             <div class="m-t-1" ng-show="speciesKey2.references.hasResults">
                 <h4 class="card-header">{{'species.references' | translate}}</h4>
                 <references key="{{ speciesKey2.key }}" references="speciesKey2.references"></references>
@@ -66,7 +63,9 @@
                     </div>
                 </div>
             </div>
-            {% include "../partners/partners.nunjucks" %}
+                        <wikidata-identifiers key="{{ speciesKey2.key }}"></wikidata-identifiers>
+
+           {# {% include "../partners/partners.nunjucks" %} #}
         </div>
     </div>
 </div>

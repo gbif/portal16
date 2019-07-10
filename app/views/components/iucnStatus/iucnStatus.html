@@ -1,19 +1,18 @@
-<div class="iucn__status">
-    <!--<ul class="clearfix">-->
-        <!--<li ng-repeat="status in vm.insufficientCategories" class="iucn__status__missingData" ng-class="{isActive:vm.category == status}">-->
-            <!--<span>{{status}}</span>-->
-        <!--</li>-->
-        <!--<li ng-repeat="status in vm.mainCategories" ng-class="{isActive:vm.category == status}">-->
-            <!--<span>{{status}}</span>-->
-        <!--</li>-->
-    <!--</ul>-->
-    <div class="iucn__status__img">
-        <img ng-src="/img/iucnStatus/{{vm.category}}.png">
-    </div>
 
-    <div class="iucn__status__desc {{vm.category}}">
-        <span ng-if="!vm.loading" translate="iucnStatus.{{vm.category}}"></span>
-        <span ng-if="vm.loading">Loading</span>
-        <a ng-href="{{vm.iucnUserLink}}{{vm.iucnTaxonid}}" class="iucn__status__source inherit">Source: IUCN</a>
+
+
+<div class="m-t-1" ng-if="vm.category && vm.category !== 'NE'">
+    <h4 class="card-header">{{'species.iucnStatus' | translate}}</h4>
+    <div class="card">
+        <div class="iucn__status">
+            <div class="iucn__status__img">
+                <img ng-src="/img/iucnStatus/{{vm.category}}.png">
+            </div>
+            <div class="iucn__status__desc {{vm.category}}">
+                <span ng-if="!vm.loading" translate="iucnStatus.{{vm.category}}"></span>
+                <span ng-if="vm.loading">Loading</span>
+                <a ng-href="{{vm.sourceLink}}" class="iucn__status__source inherit">Source: IUCN</a>
+            </div>
+        </div>
     </div>
 </div>
