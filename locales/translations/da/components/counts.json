@@ -1,6 +1,6 @@
 {
     "counts": {
-        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 0{citationer} 1{citation} other{citationerere}}",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 0{citationer} 1{citation} other{citationerer}}",
         "pCitations": "",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{optegnelse} other{optegnelser}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultat} other{resultater}}",
