@@ -36,6 +36,7 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     };
 
     vm.uiShowChart = function(query, state) {
+        query.locale = LOCALE;
         $sessionStorage.customChart = state;
         $sessionStorage.occurrenceChartsShowDefaults = false;
         $state.go('occurrenceSearchCharts', query, {inherit: false});
