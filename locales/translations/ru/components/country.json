@@ -1,19 +1,19 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "Реферат",
+      "summary": "Общие сведения",
       "dataPublishing": "Публикация данных",
       "dataAbout": "Данные о",
-      "participartion": "Участие",
+      "participartion": "Членство в GBIF",
       "publicationsFrom": "Публикации из",
       "publicationsAbout": "Публикации о",
       "news": "Новости",
       "invasives": "",
-      "more": "",
-      "projects": ""
+      "more": "Ещё",
+      "projects": "Проекты"
     },
-    "memberSince": "Дата регистрации",
-    "dataFrom": "Данные из {TRANSLATED_COUNTRY}",
+    "memberSince": "Член GBIF с",
+    "dataFrom": " {TRANSLATED_COUNTRY} данные из страны",
     "dataAboutCountry": "Даныне о {TRANSLATED_COUNTRY}",
     "publishingTrends": "Тенденции в публикации данных",
     "noDataPublishingActivity": "Нет данных о публикационной активности",
@@ -23,7 +23,7 @@
     "nAbout": "{NUMBER_FORMATTED} о",
     "viewAllN": "Посмотреть все {NUMBER_FORMATTED}",
     "noPublications": "Нет публикаций",
-    "noProjects": "",
+    "noProjects": "Нет проектов",
     "notParticipant": "Не является участником",
     "notParticipantDescription": "Эта страна не является участником GBIF",
     "countryNamingDisclaimer": "Названия стран и территорий на основе [стандарта ISO 3166-1] (https://www.iso.org/obp/ui/#search)",
