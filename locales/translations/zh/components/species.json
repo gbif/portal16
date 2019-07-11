@@ -78,6 +78,7 @@
     "lastCrawled": "上次爬网 {DATE_FORMATTED}",
     "extensions": "扩展",
     "taxa": "分类群",
-    "mediatedThrough": "通过调解"
+    "mediatedThrough": "通过调解",
+    "taxonIdentifiers": ""
   }
 }
