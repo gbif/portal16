@@ -34,7 +34,7 @@
       "countriesAndAreasContributeData": "Страны и территории, публикующие данные",
       "publishedOccurrences": "Опубликованных находок видов",
       "publishedDatasets": "Опубликованных наборов данных",
-      "countriesAndAreasCoveredByDataFrom": "Стран и районов, охватываемых данным {TRANSLATED_COUNTRY}",
+      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие NN стран и территорий",
       "publishersFrom": "Публикаторы данных из {TRANSLATED_COUNTRY}"
     },
     "activityReport": "Отчет о деятельности"
