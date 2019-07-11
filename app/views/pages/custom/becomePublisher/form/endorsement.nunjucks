@@ -29,7 +29,6 @@
 
 
                             <md-select name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
-                                <md-option><em translate="eoi.none">None</em></md-option>
                                 <md-option ng-repeat="participant in eoi.nonCountryParticipants" ng-value="participant.id">
                                     {{participant.name}}
                                 </md-option>
