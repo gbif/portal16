@@ -78,6 +78,7 @@
     "lastCrawled": "上次檢索於 {DATE_FORMATTED}",
     "extensions": "延伸集",
     "taxa": "類群",
-    "mediatedThrough": "經由"
+    "mediatedThrough": "經由",
+    "taxonIdentifiers": ""
   }
 }

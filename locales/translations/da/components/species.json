@@ -78,6 +78,7 @@
     "lastCrawled": "Senest indekseret {DATE_FORMATTED}",
     "extensions": "Udvidelser",
     "taxa": "Taxa",
-    "mediatedThrough": ""
+    "mediatedThrough": "",
+    "taxonIdentifiers": ""
   }
 }

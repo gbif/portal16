@@ -78,6 +78,7 @@
     "lastCrawled": "Último rastreo {DATE_FORMATTED}",
     "extensions": "Extensiones",
     "taxa": "Taxones",
-    "mediatedThrough": ""
+    "mediatedThrough": "",
+    "taxonIdentifiers": ""
   }
 }

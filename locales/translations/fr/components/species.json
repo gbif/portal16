@@ -78,6 +78,7 @@
     "lastCrawled": "Dernière indexation le {DATE_FORMATTED}",
     "extensions": "Extensions",
     "taxa": "Taxa",
-    "mediatedThrough": ""
+    "mediatedThrough": "",
+    "taxonIdentifiers": ""
   }
 }
