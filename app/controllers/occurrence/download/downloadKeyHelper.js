@@ -39,7 +39,9 @@ function addChildKeys(predicate) {
         });
         keys = _.intersection(keys);
         if (keys.length == 1) {
-            predicate._childKeys = keys[0];
+            let keyValue = keys[0];
+            if (children.length > 1 && ['YEAR', 'DEPTH', 'ELEVATION', 'EVENT_DATE'].indexOf(keyValue) !== -1) keyValue = 'MIXED';
+            predicate._childKeys = keyValue;
         } else {
             predicate._childKeys = 'MIXED';
         }
