@@ -1,0 +1,24 @@
+<div ng-if="vm.wikidataIdentifiers" class="m-t-1"> 
+<h4 class="card-header" translate="species.taxonIdentifiers">Taxon identifiers</h4>
+
+    <div class="card" dir="ltr">
+        <div class="card__content">
+            <div class="m-b-1 m-t-1">
+                <ul class="inline-bullet-list wiki-identifier-list" >
+                    <li ng-repeat="identifier in vm.wikidataIdentifiers" >
+                      {{identifier.label.value}} : <a href="{{identifier.url}}" tooltip-placement="bottom"
+                        tooltip-popup-delay="200"
+                        uib-tooltip="{{identifier.description.value}}">{{identifier.id}}</a>
+                    </li>
+                </ul>
+                </div>
+                <div class="small " >
+                            <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>:
+                            <a dir="auto" class=""  href="{{vm.sourceLink}}">
+                                 wikidata: {{vm.sourceId}}
+                            </a>
+                        </div>
+            
+        </div>
+    </div>
+ </div>           
