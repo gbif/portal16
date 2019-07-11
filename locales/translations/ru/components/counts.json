@@ -2,7 +2,7 @@
     "counts": {
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{цитирований} other{цитирований}}",
         "pCitations": "",
-        "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{запись} other{записей}}",
+        "nRecords": "{NUMBER_FORMATED, plural,\n0 {# записей}\none {# запись}\nfew {# записи}\nmany {# записей}\nother {# записей}\n}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{результат} other{результатов}}",
         "nCollections": "",
         "nInstitutions": "",
