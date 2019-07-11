@@ -1,7 +1,7 @@
 {
     "counts": {
-        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{цитирований} other{цитирований}}",
-        "pCitations": "",
+        "nCitations": "{NUMBER, plural,\n0 {цитирований}\none {цитирование}\nfew {цитирования}\nmany {цитирований}\nother {цитирования}\n}",
+        "pCitations": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {цитирований}\none {цитирование}\nfew {цитирования}\nmany {цитирований}\nother {цитирования}\n}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {записей}\none {запись}\nfew {записи}\nmany {записей}\nother {записей}\n}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {результатов}\none {результат}\nfew {результата}\nmany {результатов}\nother {результатов}\n}",
         "nCollections": "",
@@ -21,8 +21,8 @@
         "pMaterialSamples": "",
         "pSpecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {видов}\none {вид}\nfew {вида}\nmany {видов}\nother {вида}\n}",
         "pInfraspecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {подвидов}\none {подвид}\nfew {подвида}\nmany {подвидов}\nother {подвида}\n}",
-        "pPublishers": "{NUMBER, select, 1{публикатор} other{публикаторы}}",
-        "contacts": "{NUMBER, select, 1{контакт} other{контакты}}",
-        "nTreatments": ""
+        "pPublishers": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {организаций}\none {организация}\nfew {организации}\nmany {организаций}\nother {организации}\n}",
+        "contacts": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {контактов}\none {контакт}\nfew {контакта}\nmany {контактов}\nother {контакта}\n}",
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {подвидов}\none {подвид}\nfew {подвида}\nmany {подвидов}\nother {подвида}\n}"
     }
 }
