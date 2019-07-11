@@ -22,6 +22,7 @@ if (env === 'uat' || env === 'local') {
     locales.push('zh-tw');
     locales.push('zh');
     locales.push('ru');
+    locales.push('da');
 }
 
 // specify rtl
