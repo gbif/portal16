@@ -54,6 +54,10 @@ let queryResolver = {
     license: {
         type: 'ENUM',
         valueTranslation: 'license.'
+    },
+    eventDate: {
+        type: 'ENUM',
+        valueTranslation: 'intervals.year.'
     }
 };
 
