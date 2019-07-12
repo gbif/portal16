@@ -27,7 +27,7 @@
     },
     "confirmation": {
       "title": "Obrigado",
-      "example": "",
+      "example": "Seu comentário foi registado como um problema no Github. Se necessário, e se os detalhes do contato forem fornecidos, poderemos lhe contatar para obter mais informações. Podes acompanhar o progresso directamente na página do problema.",
       "seeIssue": "Ver problema"
     },
     "issues": {
