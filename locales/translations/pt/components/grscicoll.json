@@ -57,7 +57,7 @@
   "grscicollPerson": {
     "search": {
       "title": "Funcionários da coleção",
-      "description": ""
+      "description": "Membros da equipe GRiColl são qualquer tipo de membro envolvido com as coleções. Eles podem ser associados à instituição e/ou a qualquer tipo de coleção."
     },
     "headerTitle": "Funcionários da coleção",
     "firstName": "Primeiro nome",
@@ -86,7 +86,7 @@
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
-      "contacts": "",
+      "contacts": "Contactos",
       "address": "",
       "province": "",
       "postalCode": "",
