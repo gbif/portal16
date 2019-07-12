@@ -28,8 +28,8 @@
       "isInvasive_no": "Não"
     },
     "treatment": {
-      "distribution": "",
-      "figures": ""
+      "distribution": "Distribuição",
+      "figures": "Figuras"
     },
     "as": "Como",
     "in": "Em",
@@ -79,6 +79,6 @@
     "extensions": "Extensões",
     "taxa": "Taxa",
     "mediatedThrough": "Mediada através",
-    "taxonIdentifiers": ""
+    "taxonIdentifiers": "Identificadores de taxon"
   }
 }
