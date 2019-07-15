@@ -15,12 +15,12 @@
       "RECORD_IDENTIFIER_NOT_FOUND": "在文件中找不到记录识别码",
       "CORE_ROWTYPE_UNDETERMINED": "找不到或无法确定列类型",
       "EML_NOT_FOUND": "找不到 EML 文档",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
+      "EML_GBIF_SCHEMA": "EML文件没通过格式进行验证",
+      "UNKNOWN_ROWTYPE": "核心集／延伸集的列类型未知",
+      "REQUIRED_TERM_MISSING": "缺少核心集／延伸集所需术语",
+      "COLUMN_MISMATCH": "列不匹配",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "违反记录参考的完整性",
+      "UNKNOWN_TERM": "未知术语",
       "DUPLICATED_TERM": "",
       "TITLE_MISSING_OR_TOO_SHORT": "",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
@@ -117,7 +117,7 @@
       "newValidation": "新验证",
       "about": "关于",
       "darwinCoreExtensions": "达尔文核心扩展",
-      "metaData": "",
+      "metaData": "元数据",
       "summary": "总结"
     }
   }
