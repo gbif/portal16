@@ -1,29 +1,29 @@
 {
   "collection": {
     "search": {
-      "title": "",
+      "title": "Коллекции",
       "description": ""
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
+    "headerTitle": "Коллекция",
+    "description": "Описание",
+    "institutionName": "Название организации",
     "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "statusOfCollection": "Статус коллекции",
+    "personalCollection": "Личная коллекция",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Да",
+      "false": "Нет"
     },
     "accessionStatus": "",
     "contentTypes": "",
     "preservationTypes": "",
-    "homepage": "",
+    "homepage": "Домашняя страница",
     "apiUrl": "",
     "catalogUrl": "",
     "identifiers": "",
     "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "status": "Статус",
+    "name": "Название",
     "isActive": {
       "true": "",
       "false": ""
@@ -38,7 +38,7 @@
     "indexHerbariorumRecord": "",
     "numberSpecimens": "",
     "code": "",
-    "statusOfInstitution": "",
+    "statusOfInstitution": "Статус организации",
     "additionalNames": "",
     "description": "",
     "homepage": "",
