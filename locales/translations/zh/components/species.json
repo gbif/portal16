@@ -28,8 +28,8 @@
       "isInvasive_no": "否"
     },
     "treatment": {
-      "distribution": "",
-      "figures": ""
+      "distribution": "分布",
+      "figures": "图片"
     },
     "as": "作为",
     "in": "在",
