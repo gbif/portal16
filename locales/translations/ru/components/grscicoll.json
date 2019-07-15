@@ -40,8 +40,8 @@
     "code": "",
     "statusOfInstitution": "Статус организации",
     "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "description": "Описание",
+    "homepage": "Домашняя страница",
     "foundingDate": "",
     "disciplines": "",
     "institutionalGovernance": "",
@@ -51,12 +51,12 @@
       "true": "",
       "false": ""
     },
-    "true": "",
-    "false": ""
+    "true": "Да",
+    "false": "Нет"
   },
   "grscicollPerson": {
     "search": {
-      "title": "",
+      "title": "Штат коллекции",
       "description": ""
     },
     "headerTitle": "",
