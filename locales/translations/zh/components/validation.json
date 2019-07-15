@@ -13,7 +13,7 @@
       "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 文件",
       "DWCA_META_XML_SCHEMA": "Meta.xml 格式验证失败",
       "RECORD_IDENTIFIER_NOT_FOUND": "在文件中找不到记录识别码",
-      "CORE_ROWTYPE_UNDETERMINED": "",
+      "CORE_ROWTYPE_UNDETERMINED": "找不到或无法确定列类型",
       "EML_NOT_FOUND": "找不到 EML 文档",
       "EML_GBIF_SCHEMA": "",
       "UNKNOWN_ROWTYPE": "",
