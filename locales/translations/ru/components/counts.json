@@ -12,7 +12,7 @@
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n} о",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {опубликованных находок}\none {опубликованная находка}\nfew {опубликованных находки}\nmany {опубликованных находок}\nother {опубликованных находок}\n}",
         "nEndorsedPublishers": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {одобренных организаций}\none {одобренная организация}\nfew {одобренных организации}\nmany {одобренных организаций}\nother {одобренных организации}\n}",
-        "nDatasets": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {наборов данных}\none {набор данных}\nfew {набора данных}\nmany {наборов данных}\nother {наборов данных}\n}",
+        "nDatasets": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {наборов}\none {набор}\nfew {набора}\nmany {наборов}\nother {наборов}\n} данных",
         "nPublishers": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {организаций}\none {организация}\nfew {организации}\nmany {организаций}\nother {организаций}\n}",
         "nCountries": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {стран}\none {страна}\nfew {страны}\nmany {стран}\nother {стран}\n}",
         "nContacts": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {контактов}\none {контакт}\nfew {контакта}\nmany {контактов}\nother {контактов}\n}",
