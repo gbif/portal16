@@ -2,17 +2,17 @@
   "validation": {
     "category": {
       "RESOURCE_STRUCTURE": "资源结构",
-      "RESOURCE_INTEGRITY": "",
+      "RESOURCE_INTEGRITY": "资源完整性",
       "RECORD_STRUCTURE": "记录结构",
       "OCC_INTERPRETATION_BASED": "GBIF出现记录解析",
       "METADATA_CONTENT": "元数据内容",
-      "CLB_INTERPRETATION_BASED": ""
+      "CLB_INTERPRETATION_BASED": "GBF分类群解释"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
+      "DWCA_UNREADABLE": "无法读取达尔文核心集档案",
+      "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 文件",
+      "DWCA_META_XML_SCHEMA": "Meta.xml 格式验证失败",
+      "RECORD_IDENTIFIER_NOT_FOUND": "在文件中找不到记录识别码",
       "CORE_ROWTYPE_UNDETERMINED": "",
       "EML_NOT_FOUND": "找不到 EML 文档",
       "EML_GBIF_SCHEMA": "",
