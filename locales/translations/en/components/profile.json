@@ -20,7 +20,7 @@
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "This profile is already connected to another account",
       "USER_ALREADY_LOGGED_IN": "You are already logged in",
       "EMAIL_IN_USE": "The email is already in use",
-      "NO_EMAIL_PROVIDED": "No email proivded",
+      "NO_EMAIL_PROVIDED": "No email provided",
       "FAILED": "Server failed to process request"
     },
     "loginText": "Login",
