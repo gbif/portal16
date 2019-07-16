@@ -26,6 +26,6 @@
       "searchResources": "Поиск ресурсов",
       "searchOccurrences": "Поиск находок видов"
     },
-    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{результат} other{результатов}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {результатов}\none {результат}\nfew {результата}\nmany {результатов}\nother {результатов}\n}"
   }
 }
