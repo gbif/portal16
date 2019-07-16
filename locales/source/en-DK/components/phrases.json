@@ -21,6 +21,7 @@
     "noData": "No data",
     "payloadTooLarge": "The request is too large - try to simplify your query.",
     "readMore": "Read more",
-    "share": "Share"
+    "share": "Share",
+    "loginRequiredDueToSpam": "Please login to proceed."
   }
 }
