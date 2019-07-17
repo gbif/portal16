@@ -2,7 +2,7 @@
   "search": {
     "placeholder": "Находки, виды, новости...",
     "noSearchTermsEntered": "Не введены ключевые слова для поиска",
-    "notSureWhatYouAreLookingFor": "Не знаете, как сформулировать запрос для поиска? Воспользуйтесь функцией поиска по изображениям.",
+    "notSureWhatYouAreLookingFor": "Не знаете, как сформулировать запрос для поиска? \nВоспользуйтесь функцией поиска по изображениям.",
     "cannotFindWhatYouAreLookingFor": "По вашему запросу ничего не найдено",
     "trySpecifyingAType": "Выберите раздел для поиска",
     "everything": "Все разделы",
@@ -13,10 +13,10 @@
     "publishers": "Организации",
     "participants": "Участники",
     "search": "Поиск",
-    "clearFilters": "Сбросить фильтр",
+    "clearFilters": "Сбросить фильтры",
     "filters": "Фильтры",
-    "simple": "Простой",
-    "advanced": "Расширенный режим",
+    "simple": "Простой поиск",
+    "advanced": "Расширенный",
     "allResultTypes": "Все",
     "suggestions": "Подсказки",
     "header": {
