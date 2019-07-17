@@ -21,10 +21,10 @@
     "suggestions": "Подсказки",
     "header": {
       "searchDatasets": "Поиск наборов данных",
-      "searchPublishers": "Поиск публикаторов данных",
+      "searchPublishers": "Поиск организаций",
       "searchSpecies": "Поиск видов",
       "searchResources": "Поиск ресурсов",
-      "searchOccurrences": "Поиск находок видов"
+      "searchOccurrences": "Поиск находок"
     },
     "nResults": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {результатов}\none {результат}\nfew {результата}\nmany {результатов}\nother {результатов}\n}"
   }
