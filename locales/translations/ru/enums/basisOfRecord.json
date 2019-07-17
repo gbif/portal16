@@ -2,12 +2,12 @@
   "basisOfRecord": {
     "PRESERVED_SPECIMEN": "Коллекционный образец",
     "FOSSIL_SPECIMEN": "Ископаемый образец",
-    "LIVING_SPECIMEN": "Живой образец",
+    "LIVING_SPECIMEN": "Живой экземпляр",
     "OBSERVATION": "Наблюдение",
     "HUMAN_OBSERVATION": "Наблюдение человеком",
-    "MACHINE_OBSERVATION": "Машинное наблюдение",
-    "MATERIAL_SAMPLE": "Материальный образец",
-    "LITERATURE": "Литература",
+    "MACHINE_OBSERVATION": "Автоматическое наблюдение",
+    "MATERIAL_SAMPLE": "Образец из коллекции",
+    "LITERATURE": "Литературные данные",
     "UNKNOWN": "Неизвестно",
     "undefined": "Не указано"
   }
