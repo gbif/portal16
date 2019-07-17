@@ -1,7 +1,7 @@
 {
   "search": {
     "placeholder": "Находки, виды, новости...",
-    "noSearchTermsEntered": "Не было введено ключевых слов для поиска",
+    "noSearchTermsEntered": "Не введены ключевые слова для поиска",
     "notSureWhatYouAreLookingFor": "Сомневаетесь в целях поиска? Как насчет посмотреть на подборку изображений находок видов?",
     "cannotFindWhatYouAreLookingFor": "Не нашли то что искали?",
     "trySpecifyingAType": "Попробуйте указать тип",
