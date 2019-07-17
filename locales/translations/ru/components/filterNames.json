@@ -24,7 +24,7 @@
     "waterBody": "Водоем",
     "stateProvince": "Область\/район",
     "publishingCountry": "Страна или территория",
-    "institutionCode": "Код учреждения",
+    "institutionCode": "Сокращенное название организации",
     "license": "Лицензия",
     "organismId": "Идентификатор вида",
     "depth": "Глубина",
