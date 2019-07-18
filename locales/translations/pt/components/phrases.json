@@ -21,6 +21,7 @@
     "noData": "Sem dados",
     "payloadTooLarge": "",
     "readMore": "Lê mais",
-    "share": ""
+    "share": "",
+    "loginRequiredDueToSpam": ""
   }
 }
