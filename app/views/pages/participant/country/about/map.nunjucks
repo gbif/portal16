@@ -5,24 +5,24 @@
         <div class="row summaryStats">
             <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count" count="{{ portal.dataApi }}occurrence/search?country={{ countryKey.countryCode }}"></div>
-                    <div class="summaryStats__simple__description" translate="countryKey.counts.occurrences">
+                    <div class="summaryStats__simple__count">{{countryKey.occurrencesAbout | localNumber}}<span ng-class="{'loading':  countryKey.occurrencesAbout === undefined}"></span></div>
+                    <div class="summaryStats__simple__description" tx="countryKey.counts.occurrences" tx-nr="countryKey.occurrencesFrom">
                         Occurrences
                     </div>
                 </div>
             </a>
             <a ng-click="portal.uiShowChart({country: countryKey.countryCode}, {dimension: 'datasetKey'})" href="" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count">{{countryKey.datasetCount}}</div>
-                    <div class="summaryStats__simple__description" translate="countryKey.counts.datasets">
+                    <div class="summaryStats__simple__count">{{countryKey.datasetCount | localNumber}}<span ng-class="{'loading':  countryKey.datasetCount === undefined}"></span></div>
+                    <div class="summaryStats__simple__description" tx="countryKey.counts.datasets" tx-nr="countryKey.datasetCount">
                         Datasets
                     </div>
                 </div>
             </a>
             <a ng-click="portal.uiShowChart({country: countryKey.countryCode}, {dimension: 'publishingCountry'})" href="" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count">{{countryKey.publishingCountriesCount}}</div>
-                    <div class="summaryStats__simple__description" translate="countryKey.counts.countriesAndAreasContributeData">
+                    <div class="summaryStats__simple__count">{{countryKey.publishingCountriesCount | localNumber}}<span ng-class="{'loading':  countryKey.publishingCountriesCount === undefined}"></span></div>
+                    <div class="summaryStats__simple__description" tx="countryKey.counts.countriesAndAreasContributeData" tx-nr="countryKey.publishingCountriesCount">
                         countries and areas contribute data
                     </div>
                 </div>
@@ -30,8 +30,8 @@
 
             <a ng-click="portal.uiShowChart({country: countryKey.countryCode}, {dimension: 'publishingOrg'})" href="" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count" count-type="facet" count="{{ portal.dataApi }}occurrence/search?country={{ countryKey.countryCode }}&limit=0&facet=publishingOrg&facetLimit=999999"></div>
-                    <div class="summaryStats__simple__description" translate="countryKey.counts.publishers">
+                    <div class="summaryStats__simple__count">{{countryKey.publishersAbout | localNumber}}<span ng-class="{'loading':  countryKey.publishersAbout === undefined}"></span></div>
+                    <div class="summaryStats__simple__description" tx="countryKey.counts.publishers" tx-nr="countryKey.publishersAbout">
                         Publishers
                     </div>
                 </div>

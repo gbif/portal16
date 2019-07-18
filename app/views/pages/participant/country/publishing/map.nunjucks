@@ -5,30 +5,30 @@
         <div class="row summaryStats">
             <a ui-sref="occurrenceSearchTable({publishing_country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count" count="{{ portal.dataApi }}occurrence/search?publishingCountry={{ countryKey.countryCode }}"></div>
-                    <div class="summaryStats__simple__description" translate="countryKey.counts.publishedOccurrences"></div>
+                    <div class="summaryStats__simple__count">{{ countryKey.occurrencesFrom | localNumber }}<span ng-class="{'loading':  countryKey.occurrencesFrom === undefined}"></span></div>
+                    <div class="summaryStats__simple__description" tx="countryKey.counts.publishedOccurrences" tx-nr="countryKey.occurrencesFrom"></div>
                 </div>
             </a>
             <a ui-sref="datasetSearchTable({publishing_country:countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count" count="{{ portal.dataApi }}dataset/search?publishingCountry={{ countryKey.countryCode }}"></div>
-                    <div class="summaryStats__simple__description" translate="countryKey.counts.publishedDatasets"></div>
+                    <div class="summaryStats__simple__count">{{ countryKey.datasetsFrom.count | localNumber }}<span ng-class="{'loading':  countryKey.datasetsFrom === undefined}"></span></div>
+                    <div class="summaryStats__simple__description" tx="countryKey.counts.publishedDatasets" tx-nr="countryKey.datasetsFrom.count"></div>
                 </div>
             </a>
             <a ng-click="portal.uiShowChart({publishing_country: countryKey.countryCode}, {dimension: 'country'})" href="" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count" count-type="facet" count="{{ portal.dataApi }}occurrence/search?publishing_country={{ countryKey.countryCode }}&limit=0&facet=country&facetLimit=999999"></div>
+                    <div class="summaryStats__simple__count">{{ countryKey.countriesCoveredBy | localNumber }}<span ng-class="{'loading':  countryKey.countriesCoveredBy === undefined}"></span></div>
                     <div class="summaryStats__simple__description">
-                        <span translate="countryKey.counts.countriesAndAreasCoveredByDataFrom" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate)}"></span> 
+                        <span translate="countryKey.counts.countriesAndAreasCoveredByDataFrom" translate-values="{NUMBER: countryKey.countriesCoveredBy, TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate)}"></span> 
                     </div>
                 </div>
             </a>
 
             <a ui-sref="publisherSearchList({country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count" count="/api/publisher/search?isEndorsed=true&country={{ countryKey.countryCode }}"></div>
+                    <div class="summaryStats__simple__count">{{ countryKey.publishersFrom.count | localNumber }}<span ng-class="{'loading':  countryKey.publishersFrom.count === undefined}"></span></div>
                     <div class="summaryStats__simple__description">
-                        <span translate="countryKey.counts.publishersFrom" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate)}"></span> 
+                        <span translate="countryKey.counts.publishersFrom" translate-values="{NUMBER: countryKey.publishersFrom.count, TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate)}"></span> 
                     </div>
                 </div>
             </a>

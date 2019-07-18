@@ -16,7 +16,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page, $translate, env, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountDatasets, OccurrenceTableSearch) {
+function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page, $translate, env, PublisherSearch, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountDatasets, OccurrenceTableSearch) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;
@@ -54,6 +54,9 @@ function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page
             vm.datasetCount = Object.keys(vm.datasets).length;
         });
 
+    vm.datasetsFrom = DatasetSearch.query({publishingCountry: vm.countryCode});
+    vm.publishersFrom = PublisherSearch.query({country: vm.countryCode, isEndorsed: true});
+
     vm.invasiveSpeciesDatasets = DatasetSearch.query({keyword: 'country_' + vm.countryCode, publishingOrg: constantKeys.publisher.GRIIS});// TODO move to hardcoded keys
     vm.invasiveSpeciesDatasets.$promise
         .then(function(data) {
@@ -82,21 +85,27 @@ function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page
     ];
 
     OccurrenceTableSearch.query({
-        publishingCountry: vm.countryCode,
-        facet: 'kingdomKey',
-        limit: 0
+        'publishingCountry': vm.countryCode,
+        'facet': ['kingdomKey', 'country'],
+        'country.facetLimit': 999999,
+        'limit': 0
     }, function(response) {
         vm.kingdomsFrom = response.facets.KINGDOM_KEY.counts;
+        vm.countriesCoveredBy = Object.keys(response.facets.COUNTRY.counts).length;
+        vm.occurrencesFrom = response.count;
     }, function() {
         // TODO couldn't get the data
     });
 
     OccurrenceTableSearch.query({
-        country: vm.countryCode,
-        facet: 'kingdomKey',
-        limit: 0
+        'country': vm.countryCode,
+        'facet': ['kingdomKey', 'publishingOrg'],
+        'publishingOrg.facetLimit': 999999,
+        'limit': 0
     }, function(response) {
         vm.kingdomsAbout = response.facets.KINGDOM_KEY.counts;
+        vm.publishersAbout = Object.keys(response.facets.PUBLISHING_ORG.counts).length;
+        vm.occurrencesAbout = response.count;
     }, function() {
         // TODO couldn't get the data
     });
