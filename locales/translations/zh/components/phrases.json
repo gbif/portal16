@@ -21,6 +21,7 @@
     "noData": "没有数据",
     "payloadTooLarge": "",
     "readMore": "阅读更多",
-    "share": ""
+    "share": "",
+    "loginRequiredDueToSpam": ""
   }
 }
