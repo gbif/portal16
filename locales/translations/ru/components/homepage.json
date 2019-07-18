@@ -1,12 +1,12 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "Число записей находок видов",
+            "occurrences": "Число записей о находках видов",
             "datasets": "Опубликованных наборов данных",
             "publishers": "Зарегистрированных в GBIF организаций",
             "literature": "Рецензируемых статей с использованием данных GBIF"
         },
-        "aboutGbifCountry": "О GBIF В {COUNTRY}",
+        "aboutGbifCountry": "{COUNTRY} В GBIF",
         "summary": "Свободный и открытый доступ к данным о биоразнообразии",
         "whatIsGbif": "",
         "featureTypes": {
@@ -20,7 +20,7 @@
             "tool": "Инструменты",
             "literature": "Литература",
             "treatment": "Систематика",
-            "blog": "Дата-блог",
+            "blog": "Блог",
             "guidance": "Руководства"
         }
     }

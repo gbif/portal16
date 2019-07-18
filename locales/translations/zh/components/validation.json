@@ -2,25 +2,25 @@
   "validation": {
     "category": {
       "RESOURCE_STRUCTURE": "资源结构",
-      "RESOURCE_INTEGRITY": "",
+      "RESOURCE_INTEGRITY": "资源完整性",
       "RECORD_STRUCTURE": "记录结构",
       "OCC_INTERPRETATION_BASED": "GBIF出现记录解析",
       "METADATA_CONTENT": "元数据内容",
-      "CLB_INTERPRETATION_BASED": ""
+      "CLB_INTERPRETATION_BASED": "GBF分类群解释"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
-      "CORE_ROWTYPE_UNDETERMINED": "",
+      "DWCA_UNREADABLE": "无法读取达尔文核心集档案",
+      "DWCA_META_XML_NOT_FOUND": "找不到 meta. xml 文件",
+      "DWCA_META_XML_SCHEMA": "Meta.xml 格式验证失败",
+      "RECORD_IDENTIFIER_NOT_FOUND": "在文件中找不到记录识别码",
+      "CORE_ROWTYPE_UNDETERMINED": "找不到或无法确定列类型",
       "EML_NOT_FOUND": "找不到 EML 文档",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
+      "EML_GBIF_SCHEMA": "EML文件没通过格式进行验证",
+      "UNKNOWN_ROWTYPE": "核心集／延伸集的列类型未知",
+      "REQUIRED_TERM_MISSING": "缺少核心集／延伸集所需术语",
+      "COLUMN_MISMATCH": "列不匹配",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "违反记录参考的完整性",
+      "UNKNOWN_TERM": "未知术语",
       "DUPLICATED_TERM": "",
       "TITLE_MISSING_OR_TOO_SHORT": "",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
@@ -117,7 +117,7 @@
       "newValidation": "新验证",
       "about": "关于",
       "darwinCoreExtensions": "达尔文核心扩展",
-      "metaData": "",
+      "metaData": "元数据",
       "summary": "总结"
     }
   }
