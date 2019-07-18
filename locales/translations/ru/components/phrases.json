@@ -21,6 +21,7 @@
     "noData": "Нет данных",
     "payloadTooLarge": "",
     "readMore": "",
-    "share": ""
+    "share": "",
+    "loginRequiredDueToSpam": ""
   }
 }
