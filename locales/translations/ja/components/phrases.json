@@ -21,6 +21,7 @@
     "noData": "データなし",
     "payloadTooLarge": "",
     "readMore": "もっと読む",
-    "share": ""
+    "share": "",
+    "loginRequiredDueToSpam": ""
   }
 }
