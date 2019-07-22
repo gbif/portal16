@@ -3,10 +3,10 @@
     "cms": {
       "filters": {
         "countriesOfCoverage": "Страна или область покрытия",
-        "countriesOfResearcher": "Страна или регион исследователя",
+        "countriesOfResearcher": "Страна (территория) исследователей",
         "literatureType": "Тип литературы",
         "contractCountry": "Страна или регион",
-        "topics": "Тема",
+        "topics": "Тематика",
         "audiences": "Аудитория",
         "purposes": "Цель",
         "relevance": "Релевантность",
