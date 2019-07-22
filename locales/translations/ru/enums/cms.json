@@ -52,9 +52,9 @@
           "GBIF_CITED": "Процитирован GBIF",
           "GBIF_DISCUSSED": "Обсужден в GBIF",
           "GBIF_PRIMARY": "Предпочитаемый GBIF",
-          "GBIF_ACKNOWLEDGED": "Признан GBIF",
+          "GBIF_ACKNOWLEDGED": "Выражена благодарность GBIF",
           "GBIF_PUBLISHED": "Опубликовано в GBIF",
-          "GBIF_AUTHOR": "Автор GBIF",
+          "GBIF_AUTHOR": "Автором является сотрудник GBIF",
           "GBIF_MENTIONED": "Упомянуто GBIF",
           "GBIF_FUNDED": "Профинансирован GBIF"
         },
