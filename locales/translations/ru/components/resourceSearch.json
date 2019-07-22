@@ -25,7 +25,7 @@
             "topics": "Тема",
             "audiences": "Аудитория",
             "purposes": "Назначение",
-            "relevance": "Актуальность",
+            "relevance": "Отношение публикации к GBIF",
             "language": "Язык",
             "year": "Год",
             "gbifDatasetKey": "Набор данных",
