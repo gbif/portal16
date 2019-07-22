@@ -2,7 +2,7 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "Страна или область покрытия",
+        "countriesOfCoverage": "Страна (территория) интереса",
         "countriesOfResearcher": "Страна (территория) исследователей",
         "literatureType": "Тип литературы",
         "contractCountry": "Страна или регион",
