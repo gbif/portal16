@@ -19,7 +19,7 @@
         "gbifDownloadKey": "Ключ для скачивания"
       },
       "contentType": {
-        "event": "Событие",
+        "event": "Мероприятие",
         "news": "Новости",
         "resource": "Ресурс",
         "dataUse": "Использование данных",
