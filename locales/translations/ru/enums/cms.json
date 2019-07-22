@@ -41,8 +41,8 @@
           "undefined": "Не определено"
         },
         "projectStatus": {
-          "APPROVED": "Утвержденный",
-          "CLOSED": "Закрыт",
+          "APPROVED": "Одобрен",
+          "CLOSED": "Завершен",
           "IN_PROGRESS": "Выполняется",
           "DISCONTINUED": "",
           "undefined": "Не определено"
