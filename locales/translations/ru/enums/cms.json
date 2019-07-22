@@ -4,7 +4,7 @@
       "filters": {
         "countriesOfCoverage": "Страна (территория) интереса",
         "countriesOfResearcher": "Страна (территория) исследователей",
-        "literatureType": "Тип литературы",
+        "literatureType": "Тип публикации",
         "contractCountry": "Страна или регион",
         "topics": "Тематика",
         "audiences": "Аудитория",
