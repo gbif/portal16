@@ -5,7 +5,7 @@
       "projectId": "ID проекта",
       "projectIdentifier": "Идентификатор проекта",
       "grantType": "Тип гранта",
-      "duration": "Продолжительность",
+      "duration": "Сроки выполнения проекта",
       "title": "Название",
       "start": "Начало",
       "end": "Окончание",
@@ -27,7 +27,7 @@
       "partners": "Партнеры"
     },
     "datause": {
-      "dataViaGbif": "Источники данных используемые посредством GBIF"
+      "dataViaGbif": "Число записей,  полученных через GBIF"
     },
     "literature": {
       "keywords": "Ключевые слова"
