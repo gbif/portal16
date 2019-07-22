@@ -18,8 +18,8 @@
             "literature": "Литература"
         },
         "filters": {
-            "countriesOfCoverage": "Страна или область охвата",
-            "countriesOfResearcher": "Страна или регион исследователя",
+            "countriesOfCoverage": "Страна (территория) интереса",
+            "countriesOfResearcher": "Страна (территория) исследователей",
             "literatureType": "Вид литературы",
             "contractCountry": "Страна или территория",
             "topics": "Тема",
