@@ -49,14 +49,14 @@
         },
         "relevance": {
           "GBIF_USED": "Использован GBIF",
-          "GBIF_CITED": "Процитирован GBIF",
+          "GBIF_CITED": "Есть литературная ссылка на GBIF",
           "GBIF_DISCUSSED": "Обсужден в GBIF",
           "GBIF_PRIMARY": "Предпочитаемый GBIF",
           "GBIF_ACKNOWLEDGED": "Выражена благодарность GBIF",
           "GBIF_PUBLISHED": "Опубликовано в GBIF",
           "GBIF_AUTHOR": "Автором является сотрудник GBIF",
-          "GBIF_MENTIONED": "Упомянуто GBIF",
-          "GBIF_FUNDED": "Профинансирован GBIF"
+          "GBIF_MENTIONED": "GBIF упомянута",
+          "GBIF_FUNDED": "Профинансировано GBIF"
         },
         "topics": {
           "AGRICULTURE": "Сельское хозяйство",
