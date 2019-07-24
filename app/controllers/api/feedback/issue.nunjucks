@@ -4,9 +4,9 @@
 
 -----
 
-{% if __contact %}User provided contact info: {$ __contact | quoteLinks | striptags $}{% endif %}
-{% if __agent %}System: {$ __agent $}{% endif %}
+{% if __githubUserName %}Github user: @{$ __githubUserName $}{% endif %}
 {% if __user %}User: [See in registry]({$ __domain $}/api/feedback/user/{$ __user $}){% endif %}
+{% if __agent %}System: {$ __agent $}{% endif %}
 {% if __referer %}Referer: {$ __referer | safe $}{% endif %}
 {% if width %}Window size: width {$ width $} - height {$ height $}{% endif %}
 [API log](http://elk.gbif.org:5601/app/kibana?#/discover?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'{$ __timestamp.before $}',mode:absolute,to:'{$ __timestamp.after $}'))&_a=(columns:!(_source),index:'prod-varnish-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'response:%3E499')),sort:!('@timestamp',desc)))
