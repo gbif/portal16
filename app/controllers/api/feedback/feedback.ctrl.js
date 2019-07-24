@@ -106,6 +106,7 @@ function createIssue(req, data, cb) {
         userName: req.user.userName,
         date: new Date()
     });
+    let githubUserName = _.get(req.user, 'systemSettings["auth.github.username"]');
 
     try {
         ip = req.clientIp;
@@ -113,7 +114,7 @@ function createIssue(req, data, cb) {
         if (typeof getStatus == 'function') {
             data._health = _.get(getStatus(), 'severity');
         }
-        description = getDescription(data, agent, referer, user);
+        description = getDescription(data, agent, referer, user, githubUserName);
         title = getTitle(data.form.title, data.type, referer);
         labels = getLabels(data, country);
     } catch (err) {
@@ -155,7 +156,7 @@ function getLabels(data, country) {
 }
 
 
-function getDescription(data, agent, referer, user) {
+function getDescription(data, agent, referer, user, githubUserName) {
     // add contact type
     let contact = data.form.contact,
         now = moment();
@@ -169,6 +170,7 @@ function getDescription(data, agent, referer, user) {
 
     data.__agent = agent.toString();
     data.__user = user;
+    data.__githubUserName = githubUserName;
     data.__domain = config.domain;
     data.__referer = referer;
 

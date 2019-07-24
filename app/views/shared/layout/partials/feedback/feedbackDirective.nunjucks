@@ -151,15 +151,15 @@
                                 </div>
                             </label>
                         </div>
-
-                        <div class="feedback-input">
+                        {# Since we have desided to require login to provide feedback, there is no need to ask for user details #}
+                        {# <div class="feedback-input">
                             <label>
                                 <span translate="feedback.placeholders.username'"></span>
                                 <input type="text"
                                        ng-model="vm.issue.contact"
                                        placeholder="{{ 'feedback.placeholders.username' | translate }}" ng-required="vm.type.QUESTION == vm.selected">
                             </label>
-                        </div>
+                        </div> #}
 
                         <div class="menubox__section__content p-t-05">
 
@@ -167,10 +167,10 @@
                                 <div ng-bind-html="'feedback.issueTracking' | translate | md2html"></div>
                                 <div ng-if="vm.type.QUESTION == vm.selected" ng-bind-html="'feedback.question.comment' | translate | md2html"></div>
                             </div>
-                            <div class="clearfix">
+                            <div class="clearfix rtl-bootstrap">
                                 <button ng-disabled="!vm.functionalityForm.$valid || vm.state == 'SENDING'" type="submit"
                                         ng-click="vm.createIssue(vm.issue)"
-                                        class="btn btn-default flat pull-right-rtl" 
+                                        class="btn btn-default flat pull-right" 
                                         translate="feedback.submit">
                                 </button>
                             </div>
