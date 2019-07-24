@@ -2,13 +2,13 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "Страна или область покрытия",
-        "countriesOfResearcher": "Страна или регион исследователя",
-        "literatureType": "Тип литературы",
-        "contractCountry": "Страна или регион",
-        "topics": "Тема",
+        "countriesOfCoverage": "Страна (территория) интереса",
+        "countriesOfResearcher": "Страна (территория) исследователей",
+        "literatureType": "Тип публикации",
+        "contractCountry": "Страна или территория",
+        "topics": "Тематика",
         "audiences": "Аудитория",
-        "purposes": "Цель",
+        "purposes": "Направление",
         "relevance": "Релевантность",
         "language": "Язык",
         "year": "Год",
@@ -19,7 +19,7 @@
         "gbifDownloadKey": "Ключ для скачивания"
       },
       "contentType": {
-        "event": "Событие",
+        "event": "Мероприятие",
         "news": "Новости",
         "resource": "Ресурс",
         "dataUse": "Использование данных",
@@ -41,30 +41,30 @@
           "undefined": "Не определено"
         },
         "projectStatus": {
-          "APPROVED": "Утвержденный",
-          "CLOSED": "Закрыт",
+          "APPROVED": "Одобрен",
+          "CLOSED": "Завершен",
           "IN_PROGRESS": "Выполняется",
-          "DISCONTINUED": "",
+          "DISCONTINUED": "Прекращен",
           "undefined": "Не определено"
         },
         "relevance": {
-          "GBIF_USED": "Использован GBIF",
-          "GBIF_CITED": "Процитирован GBIF",
+          "GBIF_USED": "Использованы материалы (любые: данные, публикации, ПО, etc) GBIF",
+          "GBIF_CITED": "Есть ссылка на GBIF в списке литературы",
           "GBIF_DISCUSSED": "Обсужден в GBIF",
-          "GBIF_PRIMARY": "Предпочитаемый GBIF",
-          "GBIF_ACKNOWLEDGED": "Признан GBIF",
-          "GBIF_PUBLISHED": "Опубликовано в GBIF",
-          "GBIF_AUTHOR": "Автор GBIF",
-          "GBIF_MENTIONED": "Упомянуто GBIF",
-          "GBIF_FUNDED": "Профинансирован GBIF"
+          "GBIF_PRIMARY": "Наиболее значимые публикации по мнению GBIF",
+          "GBIF_ACKNOWLEDGED": "Выражена благодарность GBIF",
+          "GBIF_PUBLISHED": "Опубликовано организацией GBIF",
+          "GBIF_AUTHOR": "Автором является сотрудник GBIF",
+          "GBIF_MENTIONED": "GBIF упомянута",
+          "GBIF_FUNDED": "Профинансировано GBIF"
         },
         "topics": {
           "AGRICULTURE": "Сельское хозяйство",
-          "BIODIVERSITY_SCIENCE": "Наука о биоразнооразии",
+          "BIODIVERSITY_SCIENCE": "Наука о биоразнообразии",
           "BIOGEOGRAPHY": "Биогеография",
-          "CITIZEN_SCIENCE": "Гражданская наука",
+          "CITIZEN_SCIENCE": "Citizen science",
           "CLIMATE_CHANGE": "Изменение климата",
-          "CONSERVATION": "Охрана редких видов",
+          "CONSERVATION": "Охрана природы",
           "DATA_MANAGEMENT": "Управление данными",
           "DATA_PAPER": "Статья о данных",
           "ECOLOGY": "Экология",
@@ -79,10 +79,10 @@
           "TAXONOMY": "Таксономия"
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "Укрепление потенциала",
+          "CAPACITY_ENHANCEMENT": "Повышение квалификации",
           "DATA_ACCESS": "Доступ к данным",
           "DATA_ANALYSIS": "Анализ данных",
-          "DATA_CURATION_QUALITY": "Курирование данных и обеспечение качества",
+          "DATA_CURATION_QUALITY": "Курирование данных и контроль качества",
           "DATA_DIGITIZATION": "Оцифровка данных",
           "DATA_PUBLISHING": "Публикация данных"
         },
@@ -104,13 +104,13 @@
           "hearing": "Слушания",
           "television_broadcast": "Телепередача",
           "encyclopedia_article": "Статья в энциклопедии",
-          "case": "Пример",
+          "case": "Дело",
           "film": "Фильм",
           "bill": "Законопроект"
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Эксперты по биоразнообразию",
-          "DATA_HOLDERS": "Держатели данных",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Эксперты в области биоразнообразия",
+          "DATA_HOLDERS": "Владельцы данных",
           "DATA_USERS": "Пользователи данных",
           "DECISION_MAKERS": "Лица, принимающие решения",
           "GBIF_NETWORK": "Сеть GBIF",

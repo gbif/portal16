@@ -5,36 +5,36 @@
       "projectId": "ID проекта",
       "projectIdentifier": "Идентификатор проекта",
       "grantType": "Тип гранта",
-      "duration": "Продолжительность",
-      "title": "Название",
+      "duration": "Сроки выполнения проекта",
+      "title": "Название проекта",
       "start": "Начало",
       "end": "Окончание",
-      "fundsAllocated": "Финансирование",
-      "matchingFunds": "Софинансирование",
+      "fundsAllocated": "Выделенные средства",
+      "matchingFunds": "Предполагаемое софинансирование",
       "funding": "Финансирование",
       "coFunding": "Совместное финансирование",
       "fundedBy": "Финансируется",
       "coFundedBy": "Софинансируется",
       "typeOfGrant": "Тип гранта",
       "projectStart": "Начало проекта",
-      "status": "Статус",
+      "status": "Статус проекта",
       "programme": "Программа",
-      "contractCountry": "Страна или регион",
+      "contractCountry": "Страна или территория",
       "newsAndEvents": "Новости и мероприятия",
-      "call": "Объявление",
+      "call": "Конкурс",
       "projectLead": "Руководитель проекта",
       "contactDetalils": "Контактная информация",
       "partners": "Партнеры"
     },
     "datause": {
-      "dataViaGbif": "Источники данных используемые посредством GBIF"
+      "dataViaGbif": "Число записей,  полученных через GBIF"
     },
     "literature": {
       "keywords": "Ключевые слова"
     },
     "auxiliary": {
       "subject": "Тема",
-      "citation": "Цитата",
+      "citation": "Цитирование",
       "organisingParticipants": "Организаторы"
     }
   }
