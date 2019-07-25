@@ -1,7 +1,9 @@
 {% macro shorten(text, linkLength = 40, textLenght = 200) %}
     {% if text | isLink %}
         <a href="{$ text $}">{$ text | truncateMiddle(linkLength) $}</a>
-        {% elif text.length > textLenght %}
+    {% elif text | asLink %}
+        <a href="{$ text | asLink $}">{$ text | truncateMiddle(linkLength) $}</a>
+    {% elif text.length > textLenght %}
         <span shorten class="shorten">
             <span>{$ text | slice(0, textLenght-100 ) $}</span><span class="shorten__collapsable">{$ text | slice(textLenght - 100) $}</span>
         </span>

@@ -20,41 +20,38 @@
 
                 {% for term in occurrence.terms.groups[group] %}
                     {# only show if the interpreted version has data. #}
-                    <tr
-                            {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
+                    <tr {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
                         <td dir="auto">
                             {$ __('ocurrenceFieldNames.' + term.simpleName) $}
                         </td>
                         <td dir="auto">
                             {% if occurrence.record[term.simpleName] | isDefined %}
-                               {% if term.simpleName !== "typeStatus" and term.simpleName !== "identificationRemarks" and term.simpleName !== "associatedSequences"%}
-                                {$ shorten.shorten(occurrence.record[term.simpleName]) $}
+                                {% if term.simpleName !== "typeStatus" and term.simpleName !== "identificationRemarks" and term.simpleName !== "associatedSequences"%}
+                                    {$ shorten.shorten(occurrence.record[term.simpleName]) $}
                                 {% endif %}
                                 {% if term.simpleName == "identificationRemarks" or term.simpleName == "associatedSequences" %}
-                                
-                                <span ng-bind-html="'{$ occurrence.record[term.simpleName] $}' | linky"></span>
+                                    <span ng-bind-html="'{$ occurrence.record[term.simpleName] $}' | linky"></span>
                                 {% endif %}
                                 {% if term.simpleName == "typeStatus" %}
-                                 {% if occurrence.record.typifiedName and occurrence.record.typifiedName !== occurrence.record.scientificName %}
-                                 
-                                    <span translate="occurrence.typeOf" translate-values="{TYPE: '{$ occurrence.record.typeStatus $}', NAME: '{$ occurrence.record.typifiedName $}' }"></span>
+                                    {% if occurrence.record.typifiedName and occurrence.record.typifiedName !== occurrence.record.scientificName %}
+                                        <span translate="occurrence.typeOf" translate-values="{TYPE: '{$ occurrence.record.typeStatus $}', NAME: '{$ occurrence.record.typifiedName $}' }"></span>
                                     {% else %}
-                                    <span translate="typeStatus.{$ occurrence.record.typeStatus $}"></span>
+                                        <span translate="typeStatus.{$ occurrence.record.typeStatus $}"></span>
                                     {% endif %}
                                 {% endif %}
                                 {% if term.simpleName == "organismID" %}
-                                <span class="chip">
-                                    <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', organism_id: '{$ occurrence.record.organismID $}' })">
-                                        <span count="{{ portal.dataApi }}occurrence/search?dataset_key={$ occurrence.record.datasetKey $}&organism_id={$ occurrence.record.organismID $}" count-translation="counts.nOccurrences">&nbsp;</span>
-                                    </a>
-                                </span>
+                                    <span class="chip">
+                                        <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', organism_id: '{$ occurrence.record.organismID $}' })">
+                                            <span count="{{ portal.dataApi }}occurrence/search?dataset_key={$ occurrence.record.datasetKey $}&organism_id={$ occurrence.record.organismID $}" count-translation="counts.nOccurrences">&nbsp;</span>
+                                        </a>
+                                    </span>
                                 {% endif %}
                                 {% if term.simpleName == "eventID" %}
-                                <span class="chip">
-                                    <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', event_id: '{$ occurrence.record.eventID $}', advanced: true })">
-                                        <span count="{{ portal.dataApi }}occurrence/search?dataset_key={$ occurrence.record.datasetKey $}&event_id={$ occurrence.record.eventID $}" count-translation="counts.nOccurrences">&nbsp;</span>
-                                    </a>
-                                </span>
+                                    <span class="chip">
+                                        <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', event_id: '{$ occurrence.record.eventID $}', advanced: true })">
+                                            <span count="{{ portal.dataApi }}occurrence/search?dataset_key={$ occurrence.record.datasetKey $}&event_id={$ occurrence.record.eventID $}" count-translation="counts.nOccurrences">&nbsp;</span>
+                                        </a>
+                                    </span>
                                 {% endif %}
                                 {#{% else %}#}
                                 {#<span class="small">{$ __('interpretationRemarks.comments.EXCLUDED') $}</span>#}
