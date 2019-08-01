@@ -161,6 +161,7 @@
                                 href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client"
                                 >occurrence-download-ws-client</a>.
                     </p>
+
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(params=false) $}
                         <tbody>
@@ -385,12 +386,12 @@
                 <div class="container--narrow">
                     <h3>Occurrence Download Predicates</h3>
                     <p>A download predicate is an query expression to retrieve occurrence record downloads. A working example using <em>curl</em>: Put this in a file called query.json:
-                        {% set downloadExampleQuery = {"creator":"userName","notification_address":["userEmail@example.org"],"sendNotification": true,"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"PRESERVED_SPECIMEN"},{"type":"in","key":"COUNTRY","values":["KW","IQ","IR"]}]}} %}
+                        {% set downloadExampleQuery = {"creator":"userName","notificationAddresses":["userEmail@example.org"],"sendNotification": true,"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"PRESERVED_SPECIMEN"},{"type":"in","key":"COUNTRY","values":["KW","IQ","IR"]}]}} %}
 <pre><code>{$ downloadExampleQuery | rawJson(true) | safe $}</code></pre>
 
                     </p>
                     <p>
-                        Where <code>creator</code> is your GBIF username, <code>notification_address</code> is a email address to notify when the download is ready,  and <code>format</code> one of the following values: <code>SIMPLE_CSV</code>, <code>DWCA</code>, or <code>SPECIES_LIST</code> (<a href="../../faq?question=download-formats">information about download formats</a>).
+                        Where <code>creator</code> is your GBIF username, <code>notificationAddress</code> is a email address to notify when the download is ready,  and <code>format</code> one of the following values: <code>SIMPLE_CSV</code>, <code>DWCA</code>, or <code>SPECIES_LIST</code> (<a href="../../faq?question=download-formats">information about download formats</a>).
                     </p>
                     <p>
                         Then issue:
@@ -404,7 +405,7 @@
 
                     <p>
                         It's also possible to format the Curl request without an external query file:
-                        <pre><code>curl --include --user userName:PASSWORD --header "Content-Type: application/json" --data '{"creator": "userName","notification_address": ["userEmail@example.org"],"format": "SIMPLE_CSV","predicate": {"type": "in","key": "COUNTRY","values": ["FJ","TO"]}}' {$ apiBase $}occurrence/download/request</code></pre>
+                        <pre><code>curl --include --user userName:PASSWORD --header "Content-Type: application/json" --data '{"creator": "userName","notificationAddresses": ["userEmail@example.org"],"format": "SIMPLE_CSV","predicate": {"type": "in","key": "COUNTRY","values": ["FJ","TO"]}}' {$ apiBase $}occurrence/download/request</code></pre>
                     </p>
 
                     <p>The table below lists the supported predicates that can be combined to build download requests
@@ -428,7 +429,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
@@ -441,7 +442,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
@@ -459,7 +460,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"and",<br/>
@@ -480,7 +481,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"or",<br/>
@@ -491,7 +492,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;]<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }
-                                </code>
+                                </code><br/>
                                 When requesting many values of the same field (for example, multiple taxa or countries) the "in" predicate (below) is more appropriate.
                             </td>
                         </tr>
@@ -502,7 +503,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"lessThan",<br/>
@@ -520,7 +521,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"lessThanOrEquals",<br/>
@@ -538,7 +539,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"greaterThan",<br/>
@@ -556,7 +557,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"greaterThanOrEquals",<br/>
@@ -574,7 +575,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"in",<br/>
@@ -592,7 +593,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"within",<br/>
@@ -613,7 +614,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"not",<br/>
@@ -635,7 +636,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"like",<br/>
@@ -653,7 +654,7 @@
                                 <code class="block">
                                     {<br/>
                                     &nbsp;&nbsp;"creator":"userName",<br/>
-                                    &nbsp;&nbsp;"notification_address": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"isNotNull",<br/>
@@ -677,6 +678,8 @@
                         In order to avoid that downloads requested by a single user utilize most of the resources two
                         rules have been set:</p>
                     <ul style="margin-left: 20px !important;">
+                        <li>A download predicate may contain a maximum of 100,000 taxon keys (including kingdom keys, phylum keys etc).</li>
+                        <li>A download predicate may contain a maximum of 5,000 points in any "within" predicate geometries.</p>
                         <li>If the total number of downloads is less than <b style="font-weight: bold;">100</b> any
                             given user can have no more than <b style="font-weight: bold;">3</b> downloads
                             simultaneously.

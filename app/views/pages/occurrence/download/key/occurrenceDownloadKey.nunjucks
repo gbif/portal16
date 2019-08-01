@@ -113,7 +113,7 @@
                                 <p>{$ __('downloadKey.downloadStarted') $}</p>
                                 <p>{$ __('downloadKey.downloadExpectTime') $}</p>
                                 <div ng-if="downloadKey.isUsersDownload" class="ng-cloak">
-                                    <p dir="ltr">{$ __('downloadKey.notificationEmailAddresses') $}{{ downloadKey.download.request.notification_address[0] }}</p>
+                                    <p dir="ltr">{$ __('downloadKey.notificationEmailAddresses') $}{{ downloadKey.download.request.notificationAddresses[0] }}</p>
                                 </div>
                             </div>
                         </div>
