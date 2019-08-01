@@ -28,6 +28,7 @@ if (env === 'uat' || env === 'local') {
 // specify rtl
 let rtlLocaleMap = {}; // the contentful map should not handle locales that are not included in our contentful space hence no : _.keyBy(locales);
 // overwrites
+rtlLocaleMap['ar'] = true;
 rtlLocaleMap['ar-MOCK'] = true;
 
 // if the locale is something we translate to in contentful, then add the mapping here.
