@@ -242,6 +242,18 @@ module.exports = function(nunjucksConfiguration) {
     })();
 
     (function() {
+        nunjucksConfiguration.addFilter('asLink', function(data) {
+            if (typeof data !== 'string') {
+                return false;
+            }
+            if (data.startsWith('urn:lsid:')) {
+                return 'http://lsid.info/' + data;
+            }
+            return false;
+        });
+    })();
+
+    (function() {
         nunjucksConfiguration.addFilter('linkify', format.linkify);
     })();
 

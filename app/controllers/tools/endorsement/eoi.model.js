@@ -87,6 +87,13 @@ function create(body) {
         });
     }
 
+    if (body.comments.expectedDataContent) {
+        markdownJson.push({p: 'Expected data content:'});
+        markdownJson.push({
+            blockquote: body.comments.expectedDataContent
+        });
+    }
+
     if (body.comments.serverCapable) {
         markdownJson.push({
             p:

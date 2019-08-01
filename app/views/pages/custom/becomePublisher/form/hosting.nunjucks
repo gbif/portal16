@@ -25,7 +25,7 @@
                                 </md-checkbox>
 
 
-                                <md-checkbox ng-model="eoi.form.comments.expectToPublishDataTypes.OccurenceData" aria-label="Occurrence-only data" class="md-primary md-align-top-left">
+                                <md-checkbox ng-model="eoi.form.comments.expectToPublishDataTypes.OccurrenceData" aria-label="Occurrence-only data" class="md-primary md-align-top-left">
                                    <span translate="eoi.occurrenceOnlyData"> Occurrence-only data</span>
                                 </md-checkbox>
 
@@ -35,6 +35,13 @@
 
                         </div>
                     </fieldset>
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label translate="eoi.expectedDataTitle">Data description</label>
+                        <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                        <div class="hint discreet--very small" translate="eoi.expectedDataContent">What kinds of relevant data do you have that you intend to publish through GBIF? Please give a brief description.</div>
+                    </md-input-container>
+                </div>
 
 
                 <div class="m-b-1">
