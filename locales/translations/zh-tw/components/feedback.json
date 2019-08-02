@@ -27,7 +27,7 @@
     },
     "confirmation": {
       "title": "謝謝",
-      "example": "",
+      "example": "您的意見回饋已在Github 紀錄為議題，如有必要，我們將根據您提供的聯絡方式聯繫您取得更多資訊。您可藉由造訪議題頁面來追蹤進度。",
       "seeIssue": "查看問題"
     },
     "issues": {
