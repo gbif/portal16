@@ -1,7 +1,7 @@
 {
   "taxonRank": {
     "undefined": "Неизвестный таксон",
-    "UNKNOWN": "Неизвестно",
+    "UNKNOWN": "Неизвестный",
     "DOMAIN": "Домен",
     "SUPERKINGDOM": "Надцарство",
     "KINGDOM": "Царство",
@@ -25,7 +25,7 @@
     "SUBCOHORT": "Субкогорта",
     "INFRACOHORT": "Инфракогорта",
     "MAGNORDER": "Магнотряд",
-    "SUPERORDER": "Надпорядок",
+    "SUPERORDER": "Надотряд",
     "GRANDORDER": "Грандотряд",
     "ORDER": "Отряд \/ порядок",
     "SUBORDER": "Подпорядок",
@@ -59,7 +59,7 @@
     "PROLES": "Раса",
     "RACE": "Раса",
     "NATIO": "Племя",
-    "ABERRATION": "Аберрация",
+    "ABERRATION": "Отклонение",
     "MORPH": "Морфа",
     "VARIETY": "Разновидность",
     "SUBVARIETY": "Подразновидность",
