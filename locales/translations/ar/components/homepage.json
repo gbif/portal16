@@ -1,27 +1,27 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
-            "datasets": "",
-            "publishers": "",
-            "literature": ""
+            "occurrences": "سجلات الوقائع",
+            "datasets": "قواعد البيانات",
+            "publishers": "مؤسسات النشر",
+            "literature": "أبحاث علمية محكمة باستخدام بيانات"
         },
-        "aboutGbifCountry": "",
-        "summary": "",
+        "aboutGbifCountry": "حول {GBIF {COUNTRY",
+        "summary": "بيانات تنوع حيوي مجانية ومفتوحة",
         "whatIsGbif": "",
         "featureTypes": {
-            "event": "",
-            "news": "",
-            "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
-            "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": "",
-            "guidance": ""
+            "event": "حدث",
+            "news": "أخبار",
+            "resource": "مورد",
+            "dataUse": "البيانات المستخدمة",
+            "project": "مشروع",
+            "programme": "برنامج",
+            "document": "مستند",
+            "tool": "أداة",
+            "literature": "مراجع",
+            "treatment": "الوضع التصنيفي",
+            "blog": "مدونة البيانات",
+            "guidance": "الدليل الإرشادي"
         }
     }
 }
