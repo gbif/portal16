@@ -1,6 +1,6 @@
 {
   "resource": {
-    "resources": "Ресурсы",
+    "resources": "Материалы",
     "contactHelpdesk": "Связаться со службой поддержки",
     "addToCalendar": "Добавить в календарь",
     "venue": "Место проведения",
@@ -10,7 +10,7 @@
     "when": "Когда",
     "language": "Язык",
     "viewOnGBIF": "Просмотр на GBIF",
-    "published": "Опубликован",
+    "published": "Опубликовано",
     "programme": "Программа",
     "fundedBy": "Финансируется",
     "about": "Описание",
