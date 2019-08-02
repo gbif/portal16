@@ -9,7 +9,7 @@
     "occurrences": "Находки",
     "species": "Виды",
     "datasets": "Наборы данных",
-    "resources": "Ресурсы",
+    "resources": "Материалы",
     "publishers": "Организации",
     "participants": "Участники",
     "search": "Поиск",
@@ -23,7 +23,7 @@
       "searchDatasets": "Поиск наборов данных",
       "searchPublishers": "Поиск организаций",
       "searchSpecies": "Поиск видов",
-      "searchResources": "Поиск ресурсов",
+      "searchResources": "Поиск материалов",
       "searchOccurrences": "Поиск находок"
     },
     "nResults": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {результатов}\none {результат}\nfew {результата}\nmany {результатов}\nother {результатов}\n}"
