@@ -38,6 +38,8 @@
     "checkListData": "名录数据",
     "occurrenceOnlyData": "仅出现记录数据",
     "samplingEventData": "采样活动数据",
+    "expectedDataTitle": "",
+    "expectedDataContent": "",
     "doYouHaveCapacity": "您是否能夠执行、维护服务器，或访问一个服务器，以将您的原始数据集公开在 GBIF.org？",
     "yes": "是",
     "no": "否",
