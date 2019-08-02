@@ -1,13 +1,13 @@
 {
   "network": {
-    "network": "",
+    "network": "شبكة",
     "tabs": {
-      "summary": "",
-      "homepage": "",
+      "summary": "مُلخّص",
+      "homepage": "الصفحة الرئيسية",
       "metrics": "",
-      "datasets": ""
+      "datasets": "شبكة"
     },
-    "registeredDate": "",
+    "registeredDate": "مُسجَّل {DATE}",
     "nParticipatingDatasets": ""
   }
 }
