@@ -82,16 +82,16 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "電子郵址",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
-      "contacts": "",
+      "contacts": "聯絡資訊",
       "address": "",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "國家"
     }
   }
 }
