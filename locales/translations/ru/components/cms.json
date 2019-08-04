@@ -27,7 +27,7 @@
       "partners": "Партнеры"
     },
     "datause": {
-      "dataViaGbif": "Число записей,  полученных через GBIF"
+      "dataViaGbif": "Данные, полученные через GBIF"
     },
     "literature": {
       "keywords": "Ключевые слова"
