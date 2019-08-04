@@ -20,7 +20,7 @@
         "filters": {
             "countriesOfCoverage": "Страна (территория) интереса",
             "countriesOfResearcher": "Страна (территория) исследователей",
-            "literatureType": "Литературный источник",
+            "literatureType": "Источник",
             "contractCountry": "Страна или территория",
             "topics": "Тематика",
             "audiences": "Аудитория",
@@ -32,7 +32,7 @@
             "publishingOrganizationKey": "Организация",
             "peerReview": "Рецензируемые публикации",
             "openAccess": "В открытом доступе",
-            "gbifDownloadKey": "Ключ для скачивания"
+            "gbifDownloadKey": "Ключ для получения файла"
         }
     }
 }
