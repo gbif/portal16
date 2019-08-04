@@ -16,7 +16,7 @@
         "publishingOrg": "Организация",
         "peerReview": "Рецензируемая публикация",
         "openAccess": "В открытом доступе",
-        "gbifDownloadKey": "Ввести ключ для скачивания"
+        "gbifDownloadKey": "Ключ для получения файла"
       },
       "contentType": {
         "event": "Мероприятие",
