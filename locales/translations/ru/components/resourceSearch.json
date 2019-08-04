@@ -30,7 +30,7 @@
             "year": "Год",
             "gbifDatasetKey": "Набор данных",
             "publishingOrganizationKey": "Организация",
-            "peerReview": "Рецензируемые публикации",
+            "peerReview": "Рецензируемые публикации_",
             "openAccess": "В открытом доступе",
             "gbifDownloadKey": "Ключ для получения файла"
         }
