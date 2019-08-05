@@ -70,7 +70,7 @@ translationMap['ar-MOCK'] = 'ara';
 let momentMap = _.keyBy(locales); // default to use the same language codes
 
 // overwrites specific that differs
-momentMap['zh-tw'] = 'zh-tw';
+momentMap['zh'] = 'zh-tw';
 // mock test languages
 momentMap['de-MOCK'] = 'de-ch';
 momentMap['ko-MOCK'] = 'ko';
