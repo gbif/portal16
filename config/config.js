@@ -72,7 +72,7 @@ let config = {
         // We still have private endpoints (such as the directory) this is unfortunate as it means outside users can only develop on a small part of the site.
         credentials: credentials || (rootPath + '/config/mockCredentials.json'),
         redirects: redirects || (rootPath + '/config/mockRedirects.json'),
-        spamTerms: spamTerms || (rootPath + '/config/mockSpam.txt'),
+        spamTerms: ('/etc/portal16/spam.txt'), //(rootPath + '/config/mockSpam.txt'),
         verification: verification || (rootPath + '/app/models/verification/sample'),
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
