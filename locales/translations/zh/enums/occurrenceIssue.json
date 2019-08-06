@@ -1,9 +1,9 @@
 {
   "occurrenceIssue": {
-    "ZERO_COORDINATE": "",
-    "COORDINATE_OUT_OF_RANGE": "",
-    "COORDINATE_INVALID": "",
-    "COORDINATE_ROUNDED": "",
+    "ZERO_COORDINATE": "零坐标",
+    "COORDINATE_OUT_OF_RANGE": "坐标范围外",
+    "COORDINATE_INVALID": "坐标无效",
+    "COORDINATE_ROUNDED": "坐标四舍五入",
     "GEODETIC_DATUM_INVALID": "",
     "GEODETIC_DATUM_ASSUMED_WGS84": "",
     "COORDINATE_REPROJECTED": "",
