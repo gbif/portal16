@@ -133,7 +133,7 @@
             <div class="card__stripe--expandable inherit">
                 <div class="card__content">
                     <h4 class="article-box__title">
-                        <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
                     </h4>
                     <span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span>
                 </div>
@@ -166,7 +166,7 @@
                 <div class="card__content">
                     <h4 class="article-box__title">
                         <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">
-                            {$ article.title | truncate(80) $}
+                            {$ article.title | truncate(80) | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                         </a>
                     </h4>
                     <span class="article-box__footer">{$ article.start | dateRange(article.end, false, gb.locales.current) $}</span>
@@ -190,9 +190,9 @@
             <div class="card__stripe--expandable inherit">
                 <div class="card__content">
                     <h4 class="article-box__title">
-                        <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ article.title $}</a>
+                        <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ article.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
                     </h4>
-                    <span class="article-box__footer">{$ article.comment $}</span>
+                    <span class="article-box__footer">{$ article.comment | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</span>
                 </div>
             </div>
         </article>
