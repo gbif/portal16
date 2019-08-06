@@ -1,7 +1,7 @@
 {
   "endpointType": {
     "EML": "EML",
-    "FEED": "Канал RSS",
+    "FEED": "RSS канал",
     "WFS": "WFS",
     "WMS": "WMS",
     "TCS_RDF": "TCS RDF",
@@ -11,8 +11,8 @@
     "DIGIR_MANIS": "DiGIR MANIS",
     "TAPIR": "TAPIR",
     "BIOCASE": "BioCASe",
-    "BIOCASE_XML_ARCHIVE": "BioCASe XML Archive",
+    "BIOCASE_XML_ARCHIVE": "BioCASe XML архив",
     "OAI_PMH": "OAI PMH",
-    "OTHER": "Другое"
+    "OTHER": "Другая"
   }
 }
