@@ -54,8 +54,12 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTable
     });
 
     function extractContacts() {
-        vm.technicalContact = _.find(vm.publisher.contacts, {type: 'TECHNICAL_POINT_OF_CONTACT'});
-        vm.adminContact = _.find(vm.publisher.contacts, {type: 'ADMINISTRATIVE_POINT_OF_CONTACT'});
+        var sortedContacts = _.sortBy(vm.publisher.contacts,
+            function(o) {
+                return !o.primary;
+            });
+        vm.technicalContact = _.find(sortedContacts, {type: 'TECHNICAL_POINT_OF_CONTACT'});
+        vm.adminContact = _.find(sortedContacts, {type: 'ADMINISTRATIVE_POINT_OF_CONTACT'});
     }
 
     vm.kingdoms = [
