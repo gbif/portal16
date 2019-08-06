@@ -1,7 +1,7 @@
 {
   "role": {
-    "TECHNICAL_POINT_OF_CONTACT": "Контакт с техническим специалистом",
-    "ADMINISTRATIVE_POINT_OF_CONTACT": "Административный контакт",
+    "TECHNICAL_POINT_OF_CONTACT": "Ответственный за технические вопросы",
+    "ADMINISTRATIVE_POINT_OF_CONTACT": "Координатор",
     "_PRIMARY_CONTACT": "Основной контакт",
     "POINT_OF_CONTACT": "Контакт",
     "ORIGINATOR": "Составитель",
