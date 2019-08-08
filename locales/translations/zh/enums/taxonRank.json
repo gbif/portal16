@@ -1,11 +1,11 @@
 {
   "taxonRank": {
-    "undefined": "",
-    "UNKNOWN": "",
-    "DOMAIN": "",
-    "SUPERKINGDOM": "",
+    "undefined": "未知分类单元",
+    "UNKNOWN": "未知的",
+    "DOMAIN": "域",
+    "SUPERKINGDOM": "超界",
     "KINGDOM": "界",
-    "SUBKINGDOM": "",
+    "SUBKINGDOM": "亚界",
     "INFRAKINGDOM": "",
     "SUPERPHYLUM": "",
     "PHYLUM": "门",
