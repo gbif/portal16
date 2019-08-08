@@ -1,8 +1,8 @@
 {
   "downloadFormat": {
-    "SIMPLE_AVRO": "",
-    "SIMPLE_CSV": "",
+    "SIMPLE_AVRO": "Apache Avro",
+    "SIMPLE_CSV": "CSV",
     "DWCA": "达尔文核心（Darwin Core Archive）",
-    "SPECIES_LIST": ""
+    "SPECIES_LIST": "CSV格式的物种列表"
   }
 }
