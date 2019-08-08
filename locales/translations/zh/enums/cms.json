@@ -53,9 +53,9 @@
           "GBIF_DISCUSSED": "",
           "GBIF_PRIMARY": "",
           "GBIF_ACKNOWLEDGED": "GBIF感谢的",
-          "GBIF_PUBLISHED": "",
-          "GBIF_AUTHOR": "",
-          "GBIF_MENTIONED": "",
+          "GBIF_PUBLISHED": "GBIF发布",
+          "GBIF_AUTHOR": "GBIF作者",
+          "GBIF_MENTIONED": "GBIF提到",
           "GBIF_FUNDED": "GBIF资助的"
         },
         "topics": {
@@ -67,15 +67,15 @@
           "CONSERVATION": "保护",
           "DATA_MANAGEMENT": "数据管理",
           "DATA_PAPER": "数据论文",
-          "ECOLOGY": "",
-          "ECOSYSTEM_SERVICES": "",
-          "EVOLUTION": "",
-          "FRESHWATER": "",
-          "HUMAN_HEALTH": "",
+          "ECOLOGY": "生态学",
+          "ECOSYSTEM_SERVICES": "生态系统服务",
+          "EVOLUTION": "进化",
+          "FRESHWATER": "淡水",
+          "HUMAN_HEALTH": "人类健康",
           "INVASIVES": "入侵的",
           "MARINE": "海洋",
-          "PHYLOGENETICS": "",
-          "SPECIES_DISTRIBUTIONS": "",
+          "PHYLOGENETICS": "系统发育",
+          "SPECIES_DISTRIBUTIONS": "物种分布",
           "TAXONOMY": "分类学"
         },
         "purposes": {
@@ -83,7 +83,7 @@
           "DATA_ACCESS": "数据访问",
           "DATA_ANALYSIS": "数据分析",
           "DATA_CURATION_QUALITY": "数据管理和质量",
-          "DATA_DIGITIZATION": "",
+          "DATA_DIGITIZATION": "数据数字化",
           "DATA_PUBLISHING": "数据发布"
         },
         "literatureType": {
@@ -113,8 +113,8 @@
           "DATA_HOLDERS": "数据拥有者",
           "DATA_USERS": "数据使用者",
           "DECISION_MAKERS": "决策者",
-          "GBIF_NETWORK": "",
-          "PUBLIC_STAKEHOLDERS": ""
+          "GBIF_NETWORK": "GBIF网络",
+          "PUBLIC_STAKEHOLDERS": "公共利益攸关方"
         }
       }
     }
