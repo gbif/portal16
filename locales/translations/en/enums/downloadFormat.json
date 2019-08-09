@@ -1,8 +1,8 @@
 {
   "downloadFormat": {
     "SIMPLE_AVRO": "Apache Avro",
-    "SIMPLE_CSV": "CSV",
+    "SIMPLE_CSV": "Simple",
     "DWCA": "Darwin Core Archive",
-    "SPECIES_LIST": "Species list as CSV"
+    "SPECIES_LIST": "Species list"
   }
 }
