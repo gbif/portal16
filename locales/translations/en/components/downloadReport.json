@@ -2,7 +2,7 @@
   "downloadReport": {
     "csvDescription": "Contains GBIF interpretation of data only. No multimedia included. Data in tab-delimited CSV format.",
     "dwcaDescription": "The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation. Links (but not files) to multimedia included.",
-    "speciesListDescription": "Tab delimited CSV with the distinct list of species in the search result.",
+    "speciesListDescription": "Contains list of distinct taxon names in the search result. Only occurrence counts, no details on individual occurrences. Data in tab-delimited CSV format.",
     "estimatedSize": "Estimated data size",
     "knownIssues": "Known issues",
     "knownIssuesDescription": "A part of the GBIF processing is to flag occurrences that have suspicious fields",
