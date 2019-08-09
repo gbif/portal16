@@ -54,7 +54,7 @@
             "dontSeeYourIpt": "Не видите ваш экземпляр IPT? Отправьте сообщение в [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") ваши координаты."
         },
         "dataRepository": {
-            "title": ""
+            "title": "Хранилище данных"
         }
     }
 }
