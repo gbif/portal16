@@ -1,7 +1,7 @@
 {
   "datasetType": {
     "OCCURRENCE": "Находки",
-    "CHECKLIST": "Таксономический список",
+    "CHECKLIST": "Таксономические списки",
     "SAMPLING_EVENT": "Описания, учеты или сборы",
     "METADATA": "Метаданные",
     "undefined": "Не указано"
