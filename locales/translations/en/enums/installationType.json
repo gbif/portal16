@@ -5,6 +5,7 @@
     "TAPIR_INSTALLATION": "Tapir installation",
     "BIOCASE_INSTALLATION": "Biocase installation",
     "HTTP_INSTALLATION": "Http installation",
-    "SYMBIOTA_INSTALLATION": "Symbiota installation"
+    "SYMBIOTA_INSTALLATION": "Symbiota installation",
+    "EARTHCAPE_INSTALLATION": ""
   }
 }
