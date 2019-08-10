@@ -71,11 +71,11 @@
     "MORPHOVAR": "形态变型",
     "PHAGOVAR": "噬菌型",
     "SEROVAR": "血清型",
-    "CHEMOFORM": "",
-    "FORMA_SPECIALIS": "",
-    "CULTIVAR": "",
-    "STRAIN": "",
-    "OTHER": "",
-    "UNRANKED": ""
+    "CHEMOFORM": "化学型",
+    "FORMA_SPECIALIS": "专化型",
+    "CULTIVAR": "品种",
+    "STRAIN": "株",
+    "OTHER": "其它",
+    "UNRANKED": "未排序"
   }
 }
