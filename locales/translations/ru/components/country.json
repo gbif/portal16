@@ -32,8 +32,8 @@
       "datasets": "Наборы данных",
       "publishers": "Организации",
       "countriesAndAreasContributeData": "Страны и территории, публикующие данные",
-      "publishedOccurrences": "Опубликованных находок видов",
-      "publishedDatasets": "Опубликованных наборов данных",
+      "publishedOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
+      "publishedDatasets": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {опубликованных наборов данных}\none {опубликованный набор данных}\nfew {опубликованных набора данных}\nmany {опубликованных наборов данных}\nother {опубликованных набора данных}\n}",
       "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER} стран и территорий",
       "publishersFrom": "Публикаторы данных из {TRANSLATED_COUNTRY}"
     },
