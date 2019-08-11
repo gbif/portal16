@@ -18,14 +18,14 @@
     "publishingTrends": " Публикации данных: основные тенденции",
     "noDataPublishingActivity": "Нет данных о публикационной активности",
     "noInstitutionsHavePublished": "В этой стране нет организаций, которые опубликовали данные через GBIF.org",
-    "trendsAboutCountry": "{TRANSLATED_COUNTRY} тенденции",
+    "trendsAboutCountry": "{TRANSLATED_COUNTRY}: тенденции",
     "nFrom": "{NUMBER_FORMATTED} из",
     "nAbout": "{NUMBER_FORMATTED} о",
     "viewAllN": "Посмотреть все {NUMBER_FORMATTED}",
     "noPublications": "Нет публикаций",
     "noProjects": "Нет проектов",
     "notParticipant": "Не является членом GBIF",
-    "notParticipantDescription": "Эта страна не является членом GBIF",
+    "notParticipantDescription": "Эта страна не является официальным участником GBIF",
     "countryNamingDisclaimer": "Русскоязычные названия стран и территорий по ГОСТ 7.67-2003 (https://www.ifap.ru/library/gost/7672003.pdf)",
     "counts": {
       "occurrences": "Находки",
@@ -35,7 +35,7 @@
       "publishedOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
       "publishedDatasets": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {опубликованных наборов данных}\none {опубликованный набор данных}\nfew {опубликованных набора данных}\nmany {опубликованных наборов данных}\nother {опубликованных набора данных}\n}",
       "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER} стран и территорий",
-      "publishersFrom": "Публикаторы данных из {TRANSLATED_COUNTRY}"
+      "publishersFrom": "Зарегистрированные в GBIF организации из {TRANSLATED_COUNTRY}"
     },
     "activityReport": "Отчет о деятельности"
   }
