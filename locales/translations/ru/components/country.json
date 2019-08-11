@@ -17,7 +17,7 @@
     "dataAboutCountry": "{TRANSLATED_COUNTRY}: данные о стране ",
     "publishingTrends": " Публикации данных: основные тенденции",
     "noDataPublishingActivity": "Нет данных о публикационной активности",
-    "noInstitutionsHavePublished": "В этой стране нет организаций, которые опубликовали данные через GBIF",
+    "noInstitutionsHavePublished": "В этой стране нет организаций, которые опубликовали данные через GBIF.org",
     "trendsAboutCountry": "{TRANSLATED_COUNTRY} тенденции",
     "nFrom": "{NUMBER_FORMATTED} из",
     "nAbout": "{NUMBER_FORMATTED} о",
