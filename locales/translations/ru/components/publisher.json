@@ -17,8 +17,8 @@
     "contacts": "Контакты",
     "administrativeContact": "Административный контакт",
     "header": {
-      "publisher": "Публикатор данных",
-      "sinceDate": "Начиная с {DATE}"
+      "publisher": "Организация",
+      "sinceDate": "в GBIF с {DATE}"
     }
   }
 }
