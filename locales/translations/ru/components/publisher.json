@@ -2,18 +2,18 @@
   "publisher": {
     "tabs": {
       "aboutPublisher": "Об организациии",
-      "metrics": "",
+      "metrics": "Метрики",
       "publishersHomepage": "Домашняя страница"
     },
     "joinedAgo": "Присоединился {TIME_AGO}",
     "newPublisher": "Новая организация",
     "technicalContact": "Технический контакт",
-    "country": "Страна или регион",
+    "country": "Страна (территория)",
     "hosting": "Хостинг",
     "description": "Описание",
-    "endorsedBy": "Одобрено",
+    "endorsedBy": "Одобрена",
     "pendingEndorsementBy": "Ожидает одобрения",
-    "installations": "Установки",
+    "installations": "Используемые IPT-инсталляции",
     "contacts": "Контакты",
     "administrativeContact": "Административный контакт",
     "header": {
