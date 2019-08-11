@@ -12,7 +12,7 @@
       "more": "Ещё",
       "projects": "Проекты"
     },
-    "memberSince": "Член GBIF с",
+    "memberSince": "Официально участвует в GBIF с",
     "dataFrom": " {TRANSLATED_COUNTRY}: данные из страны",
     "dataAboutCountry": "{TRANSLATED_COUNTRY}: данные о стране ",
     "publishingTrends": " Публикации данных: основные тенденции",
@@ -26,7 +26,7 @@
     "noProjects": "Нет проектов",
     "notParticipant": "Не является членом GBIF",
     "notParticipantDescription": "Эта страна не является членом GBIF",
-    "countryNamingDisclaimer": "Названия стран и территорий в соответствии с [стандарта ISO 3166-1] (https://www.iso.org/obp/ui/#search)",
+    "countryNamingDisclaimer": "Названия стран и территорий дано в соответствии ГОСТом 7.67-2003 (https://www.ifap.ru/library/gost/7672003.pdf)",
     "counts": {
       "occurrences": "Находки",
       "datasets": "Наборы данных",
