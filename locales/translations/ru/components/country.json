@@ -3,7 +3,7 @@
     "tabs": {
       "summary": "Общие сведения",
       "dataPublishing": "Публикация данных",
-      "dataAbout": "Данные о",
+      "dataAbout": "Данные о стране",
       "participartion": "Членство в GBIF",
       "publicationsFrom": "Публикации из",
       "publicationsAbout": "Публикации о",
@@ -13,8 +13,8 @@
       "projects": "Проекты"
     },
     "memberSince": "Член GBIF с",
-    "dataFrom": " {TRANSLATED_COUNTRY} данные из страны",
-    "dataAboutCountry": "{TRANSLATED_COUNTRY} данные о стране ",
+    "dataFrom": " {TRANSLATED_COUNTRY}: данные из страны",
+    "dataAboutCountry": "{TRANSLATED_COUNTRY}: данные о стране ",
     "publishingTrends": " Публикации данных: основные тенденции",
     "noDataPublishingActivity": "Нет данных о публикационной активности",
     "noInstitutionsHavePublished": "В этой стране нет организаций, которые опубликовали данные через GBIF",
@@ -34,7 +34,7 @@
       "countriesAndAreasContributeData": "Страны и территории, публикующие данные",
       "publishedOccurrences": "Опубликованных находок видов",
       "publishedDatasets": "Опубликованных наборов данных",
-      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие NN стран и территорий",
+      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER} стран и территорий",
       "publishersFrom": "Публикаторы данных из {TRANSLATED_COUNTRY}"
     },
     "activityReport": "Отчет о деятельности"
