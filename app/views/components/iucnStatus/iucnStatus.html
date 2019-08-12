@@ -9,7 +9,7 @@
                 <img ng-src="/img/iucnStatus/{{vm.category}}.png">
             </div>
             <div class="iucn__status__desc {{vm.category}}">
-                <span ng-if="!vm.loading" translate="iucnStatus.{{vm.category}}"></span>
+                <span ng-if="!vm.loading" translate="threatStatus.{{vm.category}}"></span>
                 <span ng-if="vm.loading">Loading</span>
                 <a ng-href="{{vm.sourceLink}}" class="iucn__status__source inherit">Source: IUCN</a>
             </div>

@@ -20,10 +20,19 @@ function iucnStatusDirective() {
         bindToController: true
     };
 
-    var legacyCategories = {
-        'LR/lc': 'LC',
-        'LR/cd': 'LC',
-        'LR/nt': 'NT'
+    var categoriesMap = {
+        'LR/lc': 'LEAST_CONCERN', // Legacy
+        'LR/cd': 'LEAST_CONCERN', // Legacy
+        'LR/nt': 'NEAR_THREATENED', // Legacy
+        'LC': 'LEAST_CONCERN',
+        'NT': 'NEAR_THREATENED',
+        'VU': 'VULNERABLE',
+        'EN': 'ENDANGERED',
+        'CR': 'CRITICALLY_ENDANGERED',
+        'EW': 'EXTINCT_IN_THE_WILD',
+        'EX': 'EXTINCT',
+        'DD': 'DATA_DEFICIENT',
+        'NE': 'NOT_EVALUATED'
     };
 
     return directive;
@@ -31,8 +40,6 @@ function iucnStatusDirective() {
     /** @ngInject */
     function iucnStatusCtrl($http) {
         var vm = this;
-        vm.insufficientCategories = ['NE', 'DD'];
-        vm.mainCategories = ['LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
         vm.loading = true;
         $http({
             method: 'get',
@@ -41,10 +48,10 @@ function iucnStatusDirective() {
             vm.loading = false;
             vm.iucnTaxonid = _.get(res, 'data.iucnIdentifier[0].id');
             if (_.get(res, 'data.iucnThreatStatus.abbrevation.value')) {
-                vm.category = legacyCategories.hasOwnProperty(_.get(res, 'data.iucnThreatStatus.abbrevation.value')) ?
-                legacyCategories[_.get(res, 'data.iucnThreatStatus.abbrevation.value')] : _.get(res, 'data.iucnThreatStatus.abbrevation.value');
+                vm.category = categoriesMap.hasOwnProperty(_.get(res, 'data.iucnThreatStatus.abbrevation.value')) ?
+                categoriesMap[_.get(res, 'data.iucnThreatStatus.abbrevation.value')] : 'NOT_EVALUATED';
             } else {
-                vm.category = 'NE';
+                vm.category = 'NOT_EVALUATED';
             }
             vm.sourceLink = _.get(res, 'data.iucnIdentifier[0].url');
         }).catch(function(err) {
