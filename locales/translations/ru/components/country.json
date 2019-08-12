@@ -26,7 +26,7 @@
     "noProjects": "Нет проектов",
     "notParticipant": "Не является членом GBIF",
     "notParticipantDescription": "Эта страна не является официальным участником GBIF",
-    "countryNamingDisclaimer": "Русскоязычные названия стран и территорий по [ГОСТ 7.67-2003](https://www.ifap.ru/library/gost/7672003.pdf)",
+    "countryNamingDisclaimer": "Русскоязычные названия стран и территорий на основе [ГОСТ 7.67-2003](https://www.ifap.ru/library/gost/7672003.pdf)",
     "counts": {
       "occurrences": "Находки",
       "datasets": "Наборы данных",
