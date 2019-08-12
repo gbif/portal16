@@ -46,7 +46,7 @@
     "NAME_PARENT_MISMATCH": "(接受的)双/三位一体名称与父名称不匹配,应重新组合到父属/物种中。例如，与父属冷杉一起使用的云冷杉物种不匹配，应该由欧洲冷杉取代。GBIF骨干具体问题。",
     "DWCA_UNREADABLE": "无法读取或提取达尔文核心档案",
     "RESOURCE_CREATOR_MISSING_OR_INCOMPLETE": "资源创建者丢失或不完整",
-    "PUBLISHED_BEFORE_GENUS": "",
+    "PUBLISHED_BEFORE_GENUS": "发布早于父属的双/三位一体名称。这可能表示名称应该是一个组合。",
     "RANK_INVALID": "",
     "ACCEPTED_NAME_USAGE_ID_INVALID": "",
     "CONFLICTING_BASIONYM_COMBINATION": "",
