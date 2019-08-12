@@ -1,9 +1,6 @@
 {
   "downloadReport": {
-    "csvDescription": "Tab delimited CSV. Only contains the data after GBIF interpretation.",
-    "dwcaDescription": "The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.",
-    "speciesListDescription": "Tab delimited CSV with the distinct list of species in the search result.",
-    "estimatedSize": "Estimated data size",
+    "title": "Download report",
     "knownIssues": "Known issues",
     "knownIssuesDescription": "A part of the GBIF processing is to flag occurrences that have suspicious fields",
     "FossilsIncluded": "Fossils",
@@ -36,5 +33,25 @@
     "hours": "Hours",
     "minute": "Minute",
     "minutes": "Minutes"
+  },
+  "downloadOptions": {
+    "title": "Download options",
+    "content": {
+      "rawData": "Raw data",
+      "interpretedData": "Interpreted data",
+      "images": "Images",
+      "coordinates": "Coordinates",
+      "fileFormat": "Format",
+      "estimatedSize": "Estimated data size"
+    },
+    "fileFormats": {
+      "tabCsv": "Tab-delimited CSV"
+    },
+    "tableValues": {
+      "yes": "✓",
+      "yesIfAvailable": "✓ (if available)",
+      "yesLinks": "✓ (links)",
+      "no": ""
+    }
   }
 }

@@ -70,9 +70,181 @@
 
     <section class="horizontal-stripe--paddingless lighter-background rtl-supported rtl-bootstrap">
         <div class="container--normal">
+            <div class="m-t-1" ng-if="occDownload.hasUser && occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
+                <!-- download table -->
+                <h3 class="card-header" translate="downloadOptions.title">Download options</h3>
+                <div class="card card--spaced">
+                    <div class="card__content">
+                        <div class="scrollable-y">
+                            <div class="table-container rtl-bootstrap">
+                                <table class="table search-table smaller">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th translate="downloadOptions.content.rawData">Raw data</th>
+                                        <th translate="downloadOptions.content.interpretedData">Interpreted data</th>
+                                        <th translate="downloadOptions.content.images">Images</th>
+                                        <th translate="downloadOptions.content.coordinates">Coordinates</th>
+                                        <th translate="downloadOptions.content.fileFormat">Format</th>
+                                        <th translate="downloadOptions.content.estimatedSize">Estimated data size</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <a href="" class="center-block gb-button--brand" ng-click="occDownload.open('SIMPLE_CSV')">
+                                                        <span class="gb-icon-file-download"></span>
+                                                        <span translate="downloadFormat.SIMPLE_CSV"></span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td translate="downloadOptions.tableValues.no"></td>
+                                            <td translate="downloadOptions.tableValues.yes">✓</td>
+                                            <td translate="downloadOptions.tableValues.no"></td>
+                                            <td translate="downloadOptions.tableValues.yesIfAvailable">✓ (if available)</td>
+                                            <td translate="downloadOptions.fileFormats.tabCsv">Tab-delimited CSV</td>
+                                            <td>
+                                                <strong>{{
+                                                    occDownload.estKbCsv*occDownload.state.table.count*occDownload.unzipFactor*1024 |
+                                                    formatBytes:0:occDownload.state.query.locale }}</strong>
+                                                <span dir="ltr">(<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbCsv*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <a href="" class="center-block gb-button--brand" ng-click="occDownload.open('DWCA')">
+                                                        <span class="gb-icon-file-download"></span>
+                                                        <span translate="downloadFormat.DWCA"></span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td translate="downloadOptions.tableValues.yes"></td>
+                                            <td translate="downloadOptions.tableValues.yes">✓</td>
+                                            <td translate="downloadOptions.tableValues.yesLinks"></td>
+                                            <td translate="downloadOptions.tableValues.yesIfAvailable">✓ (if available)</td>
+                                            <td translate="downloadOptions.fileFormats.tabCsv">Tab-delimited CSV</td>
+                                            <td>
+                                                <strong>{{
+                                                occDownload.estKbDwcA*occDownload.state.table.count*occDownload.unzipFactor*1024 |
+                                                formatBytes:0:occDownload.state.query.locale }}</strong>
+                                                <span dir="ltr">(<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbDwcA*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <a href="" class="center-block gb-button--brand" ng-click="occDownload.open('SPECIES_LIST')">
+                                                        <span class="gb-icon-file-download"></span>
+                                                        <span translate="downloadFormat.SPECIES_LIST"></span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td translate="downloadOptions.tableValues.no"></td>
+                                            <td translate="downloadOptions.tableValues.yes">✓</td>
+                                            <td translate="downloadOptions.tableValues.no"></td>
+                                            <td translate="downloadOptions.tableValues.yesIfAvailable">✓ (if available)</td>
+                                            <td translate="downloadOptions.fileFormats.tabCsv">Tab-delimited CSV</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- download report -->
+                <h3 class="card-header m-t-1" translate="downloadReport.title">Download report</h3>
+                <div class="card card--spaced">
+                    <div class="card__content">
+                        <dl class="inline">
+                            <div>
+                                <dt translate="downloadReport.total">Total</dt>
+                                <dd dir="auto">
+                                    <span ng-if="!occDownload.hasData()" class="loading"></span>
+                                    <span ng-if="occDownload.hasData()">{{occDownload.state.table.count | localNumber:occDownload.state.query.locale }}</span>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt translate="downloadReport.license">License</dt>
+                                <dd dir="auto">
+                                    <span ng-if="!occDownload.hasData()" class="loading"></span>
+                                    <span ng-if="occDownload.hasData()">{{occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}</span>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt translate="downloadReport.yearRange">Year range</dt>
+                                <dd dir="auto">
+                                    <span ng-if="!occDownload.showRange" class="loading"></span>
+                                    <span ng-if="occDownload.showRange">{{occDownload.minYear}}–{{occDownload.maxYear}}</span>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt translate="downloadReport.withYear">With year</dt>
+                                <dd dir="auto">
+                                    <span ng-if="!occDownload.showYears" class="loading"></span>
+                                    <span ng-if="occDownload.showYears">{{ occDownload.withDate | formatAsPercentage }} %</span>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt translate="downloadReport.withCoordinates">With coordinates</dt>
+                                <dd dir="auto">
+                                    <span ng-if="!occDownload.showCoordinates" class="loading"></span>
+                                    <span ng-if="occDownload.showCoordinates">{{ occDownload.hasCoordinates | formatAsPercentage }} %</span>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt translate="downloadReport.withTaxonMatch"></dt>
+                                <dd dir="auto">
+                                    <span ng-if="!occDownload.showTaxonMatch" class="loading"></span>
+                                    <span ng-if="occDownload.showTaxonMatch">{{ occDownload.withTaxonMatch | formatAsPercentage }} %</span>
+                                </dd>
+                            </div>
+                        </dl>
+                        <div class="download-report__notifications" ng-show="occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
+                            <div ng-if="!occDownload.showTaxonMatch" class="discreet text-center">
+                                <ng-include src="'/templates/components/loader/loader.html'"
+                                            ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
+                            </div>
+                            <div class="m-t-1" ng-if="occDownload.showTaxonMatch && occDownload.issues.length > 0">
+                                <div>
+                                    <h4 translate="downloadReport.knownIssues"></h4>
+                                    <p class="discreet" translate="downloadReport.knownIssuesDescription"></p>
+                                    <div>
+                                        <div>
+                                            <span class="badge-composite--{{issue.severity | lowercase }}"
+                                                  ng-repeat="issue in occDownload.issues | limitTo:occDownload.issueLimit">
+                                                <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
+                                                <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-t-1" ng-if="occDownload.showFossilWarning()">
+                                <div>
+                                    <h4 translate="downloadReport.FossilsIncluded"></h4>
+                                    <p class="discreet" translate="downloadReport.FossilsIncludedDescription">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="m-t-1" ng-if="occDownload.showLivingWarning()">
+                                <div>
+                                    <h4 translate="downloadReport.livingSpecimensIncluded"></h4>
+                                    <p class="discreet" translate="downloadReport.livingSpecimensIncludedDescription">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--If user is logged in, but the query isn't eligible for download, then inform the user-->
             <div class="row">
                 <div class="col-xs-12">
-                    <!--TODO this area should only be VISIBLE if logged in. Else show login box . but until we have user mangement, then just allow people to enter login info-->
                     <div class="download-report m-t-2" ng-if="occDownload.hasUser">
                         <div ng-if="!occDownload.stateParams.params.q && !occDownload.hasData()" class="discreet text-center">
                             <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
@@ -90,161 +262,6 @@
                             <h2>
                                 Nothing to download
                             </h2>
-                        </div>
-                        <div class="download-report__summary" ng-show="occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
-                            <div class="card">
-                                <!-- maps need a thumbnail service. That should come soon in agreement with Tim R and Matt B – 16/06/2017. When that comes it makes sense to add this again, but using the thumbnail service.-->
-                                <!--<div class="download-report__map">-->
-                                    <!--<div ng-if="occDownload.loadingThumbnail">-->
-                                        <!--<div class="loading"></div>-->
-                                    <!--</div>-->
-
-                                    <!--<img ng-src="{{occDownload.thumbnail}}" gb-load="occDownload.onThumbLoad()"-->
-                                         <!--ng-class="{invisible:occDownload.loadingThumbnail}"/>-->
-                                <!--</div>-->
-                                <div class="card__content">
-                                    <dl class="inline">
-                                        <div>
-                                            <dt translate="downloadReport.total">Total</dt>
-                                            <dd dir="auto">
-                                                <span ng-if="!occDownload.hasData()" class="loading"></span>
-                                                <span ng-if="occDownload.hasData()">{{occDownload.state.table.count | localNumber:occDownload.state.query.locale }}</span>
-                                            </dd>
-                                        </div>
-                                        <div>
-                                            <dt translate="downloadReport.license">License</dt>
-                                            <dd dir="auto">
-                                                <span ng-if="!occDownload.hasData()" class="loading"></span>
-                                                <span ng-if="occDownload.hasData()">{{occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}</span>
-                                            </dd>
-                                        </div>
-                                        <div>
-                                            <dt translate="downloadReport.yearRange">Year range</dt>
-                                            <dd dir="auto">
-                                                <span ng-if="!occDownload.showRange" class="loading"></span>
-                                                <span ng-if="occDownload.showRange">{{occDownload.minYear}}–{{occDownload.maxYear}}</span>
-                                            </dd>
-                                        </div>
-                                        <div>
-                                            <dt translate="downloadReport.withYear">With year</dt>
-                                            <dd dir="auto">
-                                                <span ng-if="!occDownload.showYears" class="loading"></span>
-                                                <span ng-if="occDownload.showYears">{{ occDownload.withDate | formatAsPercentage }} %</span>
-                                            </dd>
-                                        </div>
-                                        <div>
-                                            <dt translate="downloadReport.withCoordinates">With coordinates</dt>
-                                            <dd dir="auto">
-                                                <span ng-if="!occDownload.showCoordinates" class="loading"></span>
-                                                <span ng-if="occDownload.showCoordinates">{{ occDownload.hasCoordinates | formatAsPercentage }} %</span>
-                                            </dd>
-                                        </div>
-                                        <div>
-                                            <dt translate="downloadReport.withTaxonMatch"></dt>
-                                            <dd dir="auto">
-                                                <span ng-if="!occDownload.showTaxonMatch" class="loading"></span>
-                                                <span ng-if="occDownload.showTaxonMatch">{{ occDownload.withTaxonMatch | formatAsPercentage }} %</span>
-                                            </dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                            </div>
-
-                            <div class="download-report__summary__download"
-                                 ng-class="{invisible: !occDownload.hasData()}" dir="auto">
-                                <div>
-                                    <p>
-                                        <a href="" class="gb-button--primary" ng-click="occDownload.open('SIMPLE_CSV')">
-                                            <span class="gb-icon-file-download"></span>
-                                            <span translate="downloadFormat.SIMPLE_CSV"></span>
-                                        </a>
-                                    </p>
-                                    <div class="discreet small">
-                                        <span gb-help="csv-download">
-                                            <span translate="downloadReport.csvDescription"></span>
-                                        </span>
-                                        <div dir="auto">
-                                            <span translate="downloadReport.estimatedSize"></span>:
-                                            <span>
-                                                <strong>{{
-                                                    occDownload.estKbCsv*occDownload.state.table.count*occDownload.unzipFactor*1024 |
-                                                    formatBytes:0:occDownload.state.query.locale }}</strong>
-                                                <span dir="ltr">(<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbCsv*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>
-                                        <a href="" class="gb-button--primary" ng-click="occDownload.open('DWCA')">
-                                            <span class="gb-icon-file-download"></span>
-                                            <span translate="downloadFormat.DWCA"></span>
-                                        </a>
-                                    </p>
-                                    <div class="discreet small">
-                                        <span gb-help="dwc-download">
-                                            <span translate="downloadReport.dwcaDescription"></span>
-                                        </span>
-                                        <div dir="auto">
-                                            <span translate="downloadReport.estimatedSize"></span>:
-                                            <strong>{{
-                                                occDownload.estKbDwcA*occDownload.state.table.count*occDownload.unzipFactor*1024 |
-                                                formatBytes:0:occDownload.state.query.locale }}</strong>
-                                            <span dir="ltr">(<span translate="downloadReport.sizeZippedForDownload" translate-values="{SIZE_FORMATTED: (occDownload.estKbDwcA*occDownload.state.table.count*1024 | formatBytes:0:occDownload.state.query.locale) }"></span>)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>
-                                        <a href="" class="gb-button--primary" ng-click="occDownload.open('SPECIES_LIST')">
-                                            <span class="gb-icon-file-download"></span>
-                                            <span translate="downloadFormat.SPECIES_LIST"></span>
-                                        </a>
-                                    </p>
-                                    <p class="discreet small">
-                                        <span gb-help="csv-download">
-                                            <span translate="downloadReport.speciesListDescription"></span>
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="download-report__notifications" ng-show="occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
-                            <div ng-if="!occDownload.showTaxonMatch" class="discreet text-center">
-                                <ng-include src="'/templates/components/loader/loader.html'"
-                                            ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
-                            </div>
-                            <div class="m-t-2" ng-if="occDownload.showTaxonMatch && occDownload.issues.length > 0">
-                                <div>
-                                    <h4 translate="downloadReport.knownIssues"></h4>
-                                    <p class="discreet" translate="downloadReport.knownIssuesDescription"></p>
-                                    <div>
-                                        <div>
-                                            <span class="badge-composite--{{issue.severity | lowercase }}"
-                                                  ng-repeat="issue in occDownload.issues | limitTo:occDownload.issueLimit">
-                                                <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
-                                                <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-t-2" ng-if="occDownload.showFossilWarning()">
-                                <div>
-                                    <h4 translate="downloadReport.FossilsIncluded"></h4>
-                                    <p class="discreet" translate="downloadReport.FossilsIncludedDescription">
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="m-t-2" ng-if="occDownload.showLivingWarning()">
-                                <div>
-                                    <h4 translate="downloadReport.livingSpecimensIncluded"></h4>
-                                    <p class="discreet" translate="downloadReport.livingSpecimensIncludedDescription">
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
