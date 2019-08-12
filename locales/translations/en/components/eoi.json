@@ -38,6 +38,8 @@
     "checkListData": "Checklist data",
     "occurrenceOnlyData": "Occurrence-only data",
     "samplingEventData": "Sampling-event data",
+    "expectedDataTitle": "Data description",
+    "expectedDataContent": "What kinds of relevant data do you have that you intend to publish through GBIF? Please give a brief description.",
     "doYouHaveCapacity": "Do you have EITHER the capacity to run a live server, OR access to a server, through which you will make your original dataset available to GBIF.org?",
     "yes": "Yes",
     "no": "No",

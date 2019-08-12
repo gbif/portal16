@@ -28,8 +28,8 @@
       "isInvasive_no": "不是"
     },
     "treatment": {
-      "distribution": "",
-      "figures": ""
+      "distribution": "分布",
+      "figures": "圖片"
     },
     "as": "作為",
     "in": "在",
@@ -48,7 +48,7 @@
     "synonyms": "同種異名",
     "synonymOf": "的同種異名",
     "basionymOf": "基礎名",
-    "homotypicSynonymOf": "",
+    "homotypicSynonymOf": "同型同種異名",
     "immediateChildren": "直接子代",
     "descendants": "降序",
     "loadMore": "更多",
@@ -79,6 +79,6 @@
     "extensions": "延伸集",
     "taxa": "類群",
     "mediatedThrough": "經由",
-    "taxonIdentifiers": ""
+    "taxonIdentifiers": "分類群辨識碼"
   }
 }

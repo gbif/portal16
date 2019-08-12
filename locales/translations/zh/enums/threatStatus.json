@@ -1,13 +1,13 @@
 {
     "threatStatus": {
-        "EXTINCT": "",
-        "EXTINCT_IN_THE_WILD": "",
-        "CRITICALLY_ENDANGERED": "",
-        "ENDANGERED": "",
-        "VULNERABLE": "",
-        "NEAR_THREATENED": "",
-        "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "",
-        "NOT_EVALUATED": ""
+        "EXTINCT": "绝灭",
+        "EXTINCT_IN_THE_WILD": "野外绝灭",
+        "CRITICALLY_ENDANGERED": "极危",
+        "ENDANGERED": "濒危",
+        "VULNERABLE": "易危",
+        "NEAR_THREATENED": "近危",
+        "LEAST_CONCERN": "无危",
+        "DATA_DEFICIENT": "数据缺乏",
+        "NOT_EVALUATED": "未评估"
     }
 }

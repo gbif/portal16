@@ -16,7 +16,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page, $translate, env, PublisherSearch, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountDatasets, OccurrenceTableSearch) {
+function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page, $translate, env, PublisherSearch, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountDatasets, OccurrenceTableSearch, ResourceSearch) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;
@@ -30,6 +30,12 @@ function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page
     });
 
     vm.country = Country.get({key: vm.countryCode});
+
+    ResourceSearch.query({contractCountry: vm.countryCode, contentType: 'project', limit: 1}, function(data) {
+        vm.projects = data;
+    }, function() {
+        // TODO handle request error
+    });
 
     vm.countryCapabilities = MapCapabilities.get({country: vm.key});
     vm.publishingCountryCapabilities = MapCapabilities.get({publishingCountry: vm.countryCode});

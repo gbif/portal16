@@ -16,7 +16,7 @@ function datasetStatsCtrl($http, $stateParams, $state, env, endpoints, DatasetMe
     var vm = this;
     vm.key = $stateParams.key;
     vm.taxon_key = $stateParams.taxon_key;
-    vm.filter = {datasetKey: vm.key, taxon_key: vm.taxon_key};
+    vm.filter = {dataset_key: vm.key, taxon_key: vm.taxon_key};
     vm.checklistMetrics = DatasetMetrics.get({key: vm.key});
 
     vm.getDownloads = function() {

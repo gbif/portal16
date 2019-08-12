@@ -41,7 +41,7 @@ function testTerm(str, term) {
 }
 
 function normalize(str) {
-    return str.toLowerCase().replace(/[.,'"`:;*_^~¨\-\s\u{0100}-\u{E007F}]/gu, '');
+    return str.toLowerCase().replace(/[.,'"`:;*_^~¨\-\u{0100}-\u{E007F}]/gu, '');
 }
 
 function generateTerms(spamTerms) {

@@ -13,15 +13,15 @@
         "language": "Язык",
         "year": "Год",
         "datasetKey": "Набор данных",
-        "publishingOrg": "Публикатор данных",
-        "peerReview": "Прошедшие рецензию",
-        "openAccess": "Открытый доступ",
-        "gbifDownloadKey": "Ключ для скачивания"
+        "publishingOrg": "Организация",
+        "peerReview": "Рецензируемая публикация",
+        "openAccess": "В открытом доступе",
+        "gbifDownloadKey": "Ключ для получения файла"
       },
       "contentType": {
         "event": "Мероприятие",
         "news": "Новости",
-        "resource": "Ресурс",
+        "resource": "Материал",
         "dataUse": "Использование данных",
         "project": "Проект",
         "participant": "Участник",
@@ -32,31 +32,31 @@
       },
       "vocabularyTerms": {
         "articleType": {
-          "Nodes guidance": "Инструкции"
+          "Nodes guidance": "Инструкция для национальных узлов"
         },
         "projectGrantType": {
           "REGIONAL": "Региональный грант",
           "SMALL": "Малый грант",
           "NATIONAL": "Национальный грант",
-          "undefined": "Не определено"
+          "undefined": "Не указано"
         },
         "projectStatus": {
           "APPROVED": "Одобрен",
           "CLOSED": "Завершен",
           "IN_PROGRESS": "Выполняется",
           "DISCONTINUED": "Прекращен",
-          "undefined": "Не определено"
+          "undefined": "Не указано"
         },
         "relevance": {
-          "GBIF_USED": "Использованы материалы (любые: данные, публикации, ПО, etc) GBIF",
-          "GBIF_CITED": "Есть ссылка на GBIF в списке литературы",
-          "GBIF_DISCUSSED": "Обсужден в GBIF",
-          "GBIF_PRIMARY": "Наиболее значимые публикации по мнению GBIF",
+          "GBIF_USED": "Использованы материалы портала GBIF",
+          "GBIF_CITED": "Ссылка на GBIF в списке литературы",
+          "GBIF_DISCUSSED": "GBIF является предметом обсуждения",
+          "GBIF_PRIMARY": "GBIF - основной источник данных в исследовании",
           "GBIF_ACKNOWLEDGED": "Выражена благодарность GBIF",
-          "GBIF_PUBLISHED": "Опубликовано организацией GBIF",
-          "GBIF_AUTHOR": "Автором является сотрудник GBIF",
-          "GBIF_MENTIONED": "GBIF упомянута",
-          "GBIF_FUNDED": "Профинансировано GBIF"
+          "GBIF_PUBLISHED": "Статьи о данных, опубликованных в GBIF",
+          "GBIF_AUTHOR": "Автор является сотрудником GBIF",
+          "GBIF_MENTIONED": "GBIF упоминается в публикации",
+          "GBIF_FUNDED": "Исследование поддержано GBIF"
         },
         "topics": {
           "AGRICULTURE": "Сельское хозяйство",
@@ -70,10 +70,10 @@
           "ECOLOGY": "Экология",
           "ECOSYSTEM_SERVICES": "Экосистемные услуги",
           "EVOLUTION": "Эволюция",
-          "FRESHWATER": "Пресноводный",
+          "FRESHWATER": "Пресноводные экосистемы",
           "HUMAN_HEALTH": "Здоровье человека",
-          "INVASIVES": "Инвазивный",
-          "MARINE": "Морской",
+          "INVASIVES": "Инвазивные виды",
+          "MARINE": "Морские экосистемы",
           "PHYLOGENETICS": "Филогенетика",
           "SPECIES_DISTRIBUTIONS": "Распространение видов",
           "TAXONOMY": "Таксономия"
@@ -89,14 +89,14 @@
         "literatureType": {
           "journal": "Статья в научном журнале",
           "book": "Монография",
-          "generic": "Общий",
+          "generic": "Прочее",
           "book_section": "Раздел монографии",
           "conference_proceedings": "Материалы конференции",
-          "working_paper": "Рабочий документ",
+          "working_paper": "Рукописи и препринты",
           "report": "Отчет",
           "web_page": "Веб-страница",
-          "thesis": "Диссертация",
-          "magazine_article": "Статья в журнале",
+          "thesis": "Диссертация (квалификационная работа)",
+          "magazine_article": "Статья в популярном журнале",
           "statute": "Устав",
           "patent": "Патент",
           "newspaper_article": "Статья в газете",
@@ -114,7 +114,7 @@
           "DATA_USERS": "Пользователи данных",
           "DECISION_MAKERS": "Лица, принимающие решения",
           "GBIF_NETWORK": "Сеть GBIF",
-          "PUBLIC_STAKEHOLDERS": "Общественные заинтересованные стороны"
+          "PUBLIC_STAKEHOLDERS": "Госструктуры"
         }
       }
     }

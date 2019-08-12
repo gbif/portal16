@@ -1,6 +1,6 @@
 {
   "phrases": {
-    "contactHelpdesk": "联系服务台",
+    "contactHelpdesk": "联系帮助台",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "全球生物多样性信息网络。自由且公开存取的生物多样性数据。",
     "deletedOnDate": "已于 {DATE} 删除",
@@ -22,6 +22,6 @@
     "payloadTooLarge": "",
     "readMore": "阅读更多",
     "share": "",
-    "loginRequiredDueToSpam": ""
+    "loginRequiredDueToSpam": "请登录继续。"
   }
 }

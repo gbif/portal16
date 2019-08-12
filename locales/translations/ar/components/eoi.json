@@ -38,6 +38,8 @@
     "checkListData": "",
     "occurrenceOnlyData": "",
     "samplingEventData": "",
+    "expectedDataTitle": "",
+    "expectedDataContent": "",
     "doYouHaveCapacity": "",
     "yes": "",
     "no": "",

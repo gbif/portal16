@@ -41,7 +41,7 @@
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Глава делегации",
-      "NODE_MANAGER": "Менеджер узла"
+      "NODE_MANAGER": "Руководитель национального узла"
     },
     "publishers": "Публикаторы данных",
     "memberSince": "Член с",

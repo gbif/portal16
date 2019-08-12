@@ -38,6 +38,8 @@
     "checkListData": "Checklists",
     "occurrenceOnlyData": "Somente dados de ocorrência",
     "samplingEventData": "Dados baseados em amostragem",
+    "expectedDataTitle": "",
+    "expectedDataContent": "",
     "doYouHaveCapacity": "Tens a capacidade de executar um servidor direto, OU acesso a um servidor, através dos quais podes partilhar o conjunto de dados original ao GBIF.org?",
     "yes": "Sim",
     "no": "Não",

@@ -48,7 +48,7 @@
     "synonyms": "异名",
     "synonymOf": "异名",
     "basionymOf": "基本名称",
-    "homotypicSynonymOf": "",
+    "homotypicSynonymOf": "的同模式异名",
     "immediateChildren": "直系亲属",
     "descendants": "降序",
     "loadMore": "更多",
@@ -62,8 +62,8 @@
     "inLanguage": "在 {language} 中",
     "publishedIn": "已发布",
     "tradeRestrictions": "贸易限制",
-    "basionym": "",
-    "nVernacularNames": "",
+    "basionym": "基名",
+    "nVernacularNames": "{NUMBER, select, 1{俗名} other{俗名}}",
     "nameUsagesApplied": "应用于 GBIF 的出现记录的名称用法",
     "appearsIn": "出现在 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{dataset} other{datasets}}:",
     "viewOccurrences": "查看出现记录",
@@ -79,6 +79,6 @@
     "extensions": "扩展",
     "taxa": "分类群",
     "mediatedThrough": "通过调解",
-    "taxonIdentifiers": ""
+    "taxonIdentifiers": "分类群识别码"
   }
 }

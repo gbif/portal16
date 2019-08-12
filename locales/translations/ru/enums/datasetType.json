@@ -2,9 +2,9 @@
   "datasetType": {
     "OCCURRENCE": "Находки",
     "CHECKLIST": "Таксономические списки",
-    "SAMPLING_EVENT": "Данные площадных и маршрутных учётов",
+    "SAMPLING_EVENT": "Описания, учеты или сборы",
     "METADATA": "Метаданные",
-    "undefined": "не указано"
+    "undefined": "Не указано"
   },
   "datasetSubtype": {
     "TREATMENT_ARTICLE": ""

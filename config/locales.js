@@ -18,6 +18,7 @@ if (env === 'local' || env === 'dev') {
 }
 
 if (env === 'uat' || env === 'local') {
+    locales.push('ar');
     locales.push('zh-tw');
     locales.push('zh');
     locales.push('ru');
@@ -27,6 +28,7 @@ if (env === 'uat' || env === 'local') {
 // specify rtl
 let rtlLocaleMap = {}; // the contentful map should not handle locales that are not included in our contentful space hence no : _.keyBy(locales);
 // overwrites
+rtlLocaleMap['ar'] = true;
 rtlLocaleMap['ar-MOCK'] = true;
 
 // if the locale is something we translate to in contentful, then add the mapping here.
@@ -68,7 +70,7 @@ translationMap['ar-MOCK'] = 'ara';
 let momentMap = _.keyBy(locales); // default to use the same language codes
 
 // overwrites specific that differs
-momentMap['zh-tw'] = 'zh-tw';
+momentMap['zh'] = 'zh-tw';
 // mock test languages
 momentMap['de-MOCK'] = 'de-ch';
 momentMap['ko-MOCK'] = 'ko';

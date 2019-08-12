@@ -1,16 +1,16 @@
 {
   "originEnum": {
-    "SOURCE": "",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
-    "PROPARTE": "",
-    "AUTONYM": "",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "SOURCE": "来源",
+    "DENORMED_CLASSIFICATION": "规范分类",
+    "VERBATIM_PARENT": "逐字父项",
+    "VERBATIM_ACCEPTED": "逐字记录已接受",
+    "VERBATIM_BASIONYM": "逐字记录",
+    "PROPARTE": "部分",
+    "AUTONYM": "自动名",
+    "IMPLICIT_NAME": "隐式名称",
+    "MISSING_ACCEPTED": "已接受缺失",
+    "BASIONYM_PLACEHOLDER": "基名占位符",
+    "EX_AUTHOR_SYNONYM": "前作者同义词",
+    "OTHER": "其它"
   }
 }

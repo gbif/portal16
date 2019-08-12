@@ -38,6 +38,8 @@
     "checkListData": "物種名錄資料",
     "occurrenceOnlyData": "僅含出現紀錄的資料",
     "samplingEventData": "取樣事件資料",
+    "expectedDataTitle": "",
+    "expectedDataContent": "",
     "doYouHaveCapacity": "您是否能夠執行、維護伺服器，**或**存取一伺服器，以將您的原始資料集公開在 GBIF.org？",
     "yes": "是",
     "no": "否",

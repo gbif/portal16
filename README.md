@@ -1,7 +1,5 @@
 # Portal 2016
-A new GBIF.org, scheduled to be completed in 2016
-
-> Note: Under development
+The GBIF.org website.
 
 ## Install, build and run
 
