@@ -26,7 +26,7 @@
     "noProjects": "",
     "notParticipant": "参加者ではない。",
     "notParticipantDescription": "この国は、GBIF の参加者ではないです。",
-    "countryNamingDisclaimer": "国や地域の名前は [ISO 3166-1 規格] に基づきます (https://www.iso.org/obp/ui/#search)",
+    "countryNamingDisclaimer": "国や地域の名前は [ISO 3166-1 規格](https://www.iso.org/obp/ui/#search) に基づきます",
     "counts": {
       "occurrences": "オカレンス",
       "datasets": "データセット",
