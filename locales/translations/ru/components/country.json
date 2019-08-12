@@ -31,11 +31,11 @@
       "occurrences": "{NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
       "datasets": "{NUMBER, plural,\n0 {Наборы данных}\none {Наборы данных}\nfew {Наборы данных}\nmany {Наборы данных}\nother {Наборы данных}\n}",
       "publishers": "Организации",
-      "countriesAndAreasContributeData": "Страны и территории, публикующие данные",
+      "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Страны и территории}\none {Страна и территория}\nfew {Страны и территории}\nmany {стран и территорий}\nother {Страны и территории}\n}, публикующие данные",
       "publishedOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
       "publishedDatasets": "{NUMBER, plural,\n0 {опубликованных наборов данных}\none {опубликованный набор данных}\nfew {опубликованных набора данных}\nmany {опубликованных наборов данных}\nother {опубликованных набора данных}\n}",
-      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER} стран и территорий",
-      "publishersFrom": "Зарегистрированные в GBIF организации из {TRANSLATED_COUNTRY}"
+      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER, plural,\n0 {Страны и территории}\none {Страна и территория}\nfew {Страны и территории}\nmany {стран и территорий}\nother {Страны и территории}\n}",
+      "publishersFrom": "Зарегистрированные в GBIF {NUMBER, plural,\n0 {организаций}\none {организация}\nfew {организации}\nmany {организация}\nother {Организации}\n} из {TRANSLATED_COUNTRY}"
     },
     "activityReport": "Отчет о деятельности"
   }
