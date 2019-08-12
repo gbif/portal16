@@ -82,16 +82,16 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Email",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
       "contacts": "Contactos",
-      "address": "",
+      "address": "Morada",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "País"
     }
   }
 }

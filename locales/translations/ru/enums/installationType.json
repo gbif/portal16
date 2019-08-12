@@ -5,6 +5,7 @@
     "TAPIR_INSTALLATION": "Установка Tapir",
     "BIOCASE_INSTALLATION": "Установка Biocase",
     "HTTP_INSTALLATION": "Установка Http",
-    "SYMBIOTA_INSTALLATION": "Установка Symbiota"
+    "SYMBIOTA_INSTALLATION": "Установка Symbiota",
+    "EARTHCAPE_INSTALLATION": "EarthCape"
   }
 }

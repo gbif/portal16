@@ -8,7 +8,7 @@
         },
         "aboutGbifCountry": "Sobre o GBIF {COUNTRY}",
         "summary": "Acesso livre e aberto aos dados da biodiversidade",
-        "whatIsGbif": "",
+        "whatIsGbif": "O que é o GBIF?",
         "featureTypes": {
             "event": "Evento",
             "news": "Notícias",
@@ -21,7 +21,8 @@
             "literature": "Literatura",
             "treatment": "Taxonomia",
             "blog": "Blog de dados",
-            "guidance": "Orientação"
+            "guidance": "Orientação",
+            "data": "Dados"
         }
     }
 }
