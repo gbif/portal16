@@ -2,14 +2,14 @@
     "resourceSearch": {
         "upcoming": "Предстоящие",
         "past": "Прошедшие",
-        "searchForNewsEventsDocuments": "Поиск новостей, событий, документов и гораздо больше. Если вы ищите информацию о находках видов, тогда попробуйте соответствующий раздел поиск.",
+        "searchForNewsEventsDocuments": "Здесь Вы можете найти новости, информацию о мероприятиях, разнообразные документы и многое другое. Для поиска информации о находках видов перейдите в соответствующий раздел.",
         "occurrenceSearch": "Поиск находок",
-        "subscribeToCalendar": "Подписка на календарь",
-        "citationExplainer": "Узнайте больше о литературе, как она обнаруживается и связывается с данными в GBIF.",
+        "subscribeToCalendar": "Подписаться на календарь мероприятий",
+        "citationExplainer": "Узнайте больше о том, как  отслеживается использование данных GBIF в публикациях",
         "types": {
             "events": "Мероприятия",
             "news": "Новости",
-            "resources": "Ресурсы",
+            "resources": "Материалы",
             "projects": "Проекты",
             "programmes": "Программы",
             "documents": "Документы",
@@ -20,19 +20,19 @@
         "filters": {
             "countriesOfCoverage": "Страна (территория) интереса",
             "countriesOfResearcher": "Страна (территория) исследователей",
-            "literatureType": "Тип литературы",
+            "literatureType": "Источник",
             "contractCountry": "Страна или территория",
-            "topics": "Тема",
+            "topics": "Тематика",
             "audiences": "Аудитория",
-            "purposes": "Назначение",
+            "purposes": "Направление",
             "relevance": "Отношение публикации к GBIF",
             "language": "Язык",
             "year": "Год",
             "gbifDatasetKey": "Набор данных",
             "publishingOrganizationKey": "Организация",
-            "peerReview": "Рецензируемые",
-            "openAccess": "Открытый доступ",
-            "gbifDownloadKey": "Ключ для скачивания"
+            "peerReview": "Рецензируемая публикация",
+            "openAccess": "В открытом доступе",
+            "gbifDownloadKey": "Ключ для получения файла"
         }
     }
 }

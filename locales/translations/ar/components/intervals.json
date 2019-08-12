@@ -1,12 +1,12 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "بدون تصفية",
         "elevation": {
             "equals": "",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "غير صحيح",
             "select": {
                 "equals": "",
                 "between": "",

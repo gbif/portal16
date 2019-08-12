@@ -1,22 +1,22 @@
 {
   "resource": {
-    "resources": "Ресурсы",
+    "resources": "Материалы",
     "contactHelpdesk": "Связаться со службой поддержки",
     "addToCalendar": "Добавить в календарь",
     "venue": "Место проведения",
-    "location": "Местоположение",
-    "country": "Страна или регион",
+    "location": "Город",
+    "country": "Страна (территория)",
     "noDatasets": "Нет наборов данных",
     "when": "Когда",
     "language": "Язык",
-    "viewOnGBIF": "Просмотр на GBIF",
-    "published": "Опубликован",
+    "viewOnGBIF": "Информация на GBIF.org",
+    "published": "Опубликовано",
     "programme": "Программа",
     "fundedBy": "Финансируется",
     "about": "Описание",
     "datasets": "наборы данных",
-    "gbifWillAttend": "Участие Секретариата GBIF",
-    "dataUsedInStudy": "Данные использованы в исследовании",
+    "gbifWillAttend": "При участии Секретариата GBIF",
+    "dataUsedInStudy": "Данные, использованные в исследовании",
     "resourceDescription": "Поиск ресурсов в Глобальной системе биологического разнообразия. Свободный и открытый доступ к данным о биоразнообразии."
   }
 }

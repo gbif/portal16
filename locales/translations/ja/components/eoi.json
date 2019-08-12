@@ -38,6 +38,8 @@
     "checkListData": "チェックリストのデータ",
     "occurrenceOnlyData": "オカレンスのみのデータ",
     "samplingEventData": "サンプリングイベント データ",
+    "expectedDataTitle": "",
+    "expectedDataContent": "",
     "doYouHaveCapacity": "あなたは、元のデータセットを GBIF.org が利用可能となるように、ライブ サーバーの運営能力か、サーバへのアクセス権をもっていますか。",
     "yes": "はい",
     "no": "いいえ",

@@ -1,11 +1,11 @@
 {
     "installation": {
         "installation": "",
-        "about": "",
-        "homepage": "",
+        "about": "حول",
+        "homepage": "الصفحة الرئيسية",
         "installationType": "",
-        "hostedBy": "",
-        "registered": "",
-        "endpoints": ""
+        "hostedBy": "إستضافة من",
+        "registered": "مُسجَّل",
+        "endpoints": "نقاط الانتهاء"
     }
 }

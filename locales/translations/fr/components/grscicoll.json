@@ -82,16 +82,16 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Courriel",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
       "contacts": "Contacts",
-      "address": "",
+      "address": "Adresse",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "Pays"
     }
   }
 }
