@@ -17,7 +17,7 @@
         "nCountries": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {стран}\none {страна}\nfew {страны}\nmany {стран}\nother {стран}\n}",
         "nContacts": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {контактов}\none {контакт}\nfew {контакта}\nmany {контактов}\nother {контактов}\n}",
         "pRecords": "{NUMBER, plural,\n0 {записей}\none {запись}\nfew {записи}\nmany {записей}\nother {записей}\n}",
-        "pOccurrence": "{NUMBER, plural,\n0 {# находок}\none {# находка}\nfew {# находки}\nmany {# находок}\nother {# находок}\n}",
+        "pOccurrence": "{NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
         "pMaterialSamples": "",
         "pSpecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {видов}\none {вид}\nfew {вида}\nmany {видов}\nother {видов}\n}",
         "pInfraspecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {подвидовых таксонов}\none {подвидовой таксон}\nfew {подвидовых таксона}\nmany {подвидовых таксонов}\nother {подвидовых таксонов}\n}",
