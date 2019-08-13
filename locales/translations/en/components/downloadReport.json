@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "title": "",
+    "title": "Download report",
     "knownIssues": "Known issues",
     "knownIssuesDescription": "A part of the GBIF processing is to flag occurrences that have suspicious fields",
     "FossilsIncluded": "Fossils",
@@ -35,9 +35,9 @@
     "minutes": "Minutes"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "Download options",
     "content": {
-      "rawData": "",
+      "rawData": "Raw data",
       "interpretedData": "",
       "images": "",
       "coordinates": "",
