@@ -38,11 +38,11 @@
     "title": "Download options",
     "content": {
       "rawData": "Raw data",
-      "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
-      "estimatedSize": ""
+      "interpretedData": "Interpreted data",
+      "images": "Multimedia",
+      "coordinates": "Coordinates",
+      "fileFormat": "Format",
+      "estimatedSize": "Estimated data size"
     },
     "fileFormats": {
       "tabCsv": ""
