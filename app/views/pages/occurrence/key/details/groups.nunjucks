@@ -1,7 +1,7 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
 {% for group in occurrence.terms.usedGroups %}
-    <section class="term-block is-collapsed"
+    <section class="term-block is-expanded"
              ng-class="{ 'is-expanded': !occurrenceKey.hideDetails, 'is-collapsed': occurrenceKey.hideDetails }">
         <div class="term-block__header">
             <h4>{$ __('occurrence.groups.' + group) $}</h4>
