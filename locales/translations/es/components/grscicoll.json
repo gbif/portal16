@@ -1,75 +1,75 @@
 {
   "collection": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Colecciones",
+      "description": "**Colecciones Institucionales** son aquellas que han sido formalmente ingresadas a una institución y reciben algún nivel de apoyo institucional.\n\n**Colecciones de Proyecto** son las generadas por un investigador asociado a una institución que puede no haber sido previamente ingresadas en sus colecciones. Las Colecciones de proyectos pueden convertirse en parte de las Colecciones Institucionales o permanecer bajo la gestión y control de cada investigador.\n\n**Colecciones Personales** están bajo el control de un investigador individual y no están formalmente asociadas o ingresadas a una institución. Pueden ser propiedad personal de un coleccionista privado o de otro modo, huérfanas."
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
-    "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "headerTitle": "Colección",
+    "description": "Descripción",
+    "institutionName": "Nombre de la Institución",
+    "code": "Código",
+    "statusOfCollection": "Estado de la colección",
+    "personalCollection": "Colección personal",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Sí",
+      "false": "No"
     },
-    "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
-    "homepage": "",
-    "apiUrl": "",
-    "catalogUrl": "",
-    "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "accessionStatus": "Status de carga",
+    "contentTypes": "Tipos de contenido",
+    "preservationTypes": "Tipos de preservación",
+    "homepage": "Página Principal",
+    "apiUrl": "URL para los Servicios Web de la colección",
+    "catalogUrl": "URL para el Catálogo/Base de Datos de Especies de la colección",
+    "identifiers": "Identificadores",
+    "collectionMailingAddress": "Dirección postal",
+    "status": "Estado",
+    "name": "Nombre",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Activo",
+      "false": "Inactivo"
     }
   },
   "institution": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Instituciones",
+      "description": "**La institución** se refiere a cualquier institución o organización que posea y administre colecciones científicas. Esto incluye herbarios, museos, zoológicos, jardines botánicos, biobancos, entre otros. Una institución puede contener múltiples colecciones, en cuyo caso las deben ser ingresadas individualmente bajo  **Colecciones Institucionales/Proyecto**  y vinculadas a la institución padre.\n\nDebido a la integración de varios conjuntos de datos antiguos, y evitar la duplicación de  **InstitutionCode**, <IH> se ha anexado a todos los códigos Herbariorum Herbarium Index."
     },
-    "headerTitle": "",
-    "indexHerbariorumRecord": "",
+    "headerTitle": "Institución",
+    "indexHerbariorumRecord": "Registro del Index Herbariorum",
     "numberSpecimens": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "code": "Código de la institución",
+    "statusOfInstitution": "Estado de la institución",
+    "additionalNames": "Nombre adicional",
+    "description": "Descripción",
+    "homepage": "Página Principal",
     "foundingDate": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "disciplines": "Disciplinas institucionales",
+    "institutionalGovernance": "Gobernanza institucional",
+    "type": "Tipo de institución",
+    "identifiers": "Identificadores",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Activo",
+      "false": "Inactivo"
     },
-    "true": "",
-    "false": ""
+    "true": "Sí",
+    "false": "No"
   },
   "grscicollPerson": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Personal de la colección",
+      "description": "Los miembros del personal de GRSciColl corresponden a todo tipo de personal involucrado en las colecciones, pueden estar asociados con la institución y/o cualquier tipo de colección."
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "headerTitle": "Personal de la colección",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "fullName": "Nombre completo",
+    "position": "Título profesional",
+    "affiliations": "Afiliaciones",
+    "areaResponsibility": "Área de responsabilidad",
+    "researchPursuits": "Especialidad en investigación",
+    "primaryInstitution": "Nombre de la Institución primaria",
+    "primaryCollection": "Nombre de la colección primaria",
+    "affiliateInstitutions": "Instituciones afiliadas adicionales",
     "affiliateCollections": ""
   },
   "grscicoll": {
@@ -82,16 +82,16 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Correo electrónico",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "Contactos",
+      "address": "Dirección",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "País"
     }
   }
 }
