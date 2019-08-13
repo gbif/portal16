@@ -1,9 +1,6 @@
 {
   "downloadReport": {
-    "csvDescription": "CSV с разделителем - табуляцией. Содержит только данные, интерпретированные GBIF.",
-    "dwcaDescription": "Архив Darwin Core содержит оригинальные данные в том виде, в каком их представил публикатор и данные, интерпретироанные GBIF.",
-    "speciesListDescription": "",
-    "estimatedSize": "Оценочный размер данных",
+    "title": "",
     "knownIssues": "Известные ошибки",
     "knownIssuesDescription": "Часть обработки данных службами GIBIF - это пометка данных о находках видах, которые содержат сомнительные поля",
     "FossilsIncluded": "Ископаемые",
@@ -36,5 +33,25 @@
     "hours": "Часы",
     "minute": "Минута",
     "minutes": "Минуты"
+  },
+  "downloadOptions": {
+    "title": "",
+    "content": {
+      "rawData": "",
+      "interpretedData": "",
+      "images": "",
+      "coordinates": "",
+      "fileFormat": "",
+      "estimatedSize": ""
+    },
+    "fileFormats": {
+      "tabCsv": ""
+    },
+    "tableValues": {
+      "yes": "",
+      "yesIfAvailable": "",
+      "yesLinks": "",
+      "no": ""
+    }
   }
 }

@@ -1,9 +1,6 @@
 {
   "downloadReport": {
-    "csvDescription": "CSV delimitado por tabulaciones. Sólo contiene datos tras el mapeo de GBIF.",
-    "dwcaDescription": "El Archivo Darwin Core contiene los datos originales como los había suministrado el proveedor y el mapeo de GBIF. Enlaces (sin archivos) a material multimedia incluidos.",
-    "speciesListDescription": "",
-    "estimatedSize": "Tamaño de datos estimados",
+    "title": "",
     "knownIssues": "Problemas conocidos",
     "knownIssuesDescription": "Una parte del proceso de GBIF es marcar los registros de presencia que contienen campos sospechosos",
     "FossilsIncluded": "Fósiles",
@@ -36,5 +33,25 @@
     "hours": "Horas",
     "minute": "Minuto",
     "minutes": "Minutos"
+  },
+  "downloadOptions": {
+    "title": "",
+    "content": {
+      "rawData": "",
+      "interpretedData": "",
+      "images": "",
+      "coordinates": "",
+      "fileFormat": "",
+      "estimatedSize": ""
+    },
+    "fileFormats": {
+      "tabCsv": ""
+    },
+    "tableValues": {
+      "yes": "",
+      "yesIfAvailable": "",
+      "yesLinks": "",
+      "no": ""
+    }
   }
 }
