@@ -50,6 +50,7 @@ function use(app, locales, defaultLocale) {
                 config: localeConfig,
                 rtl: localeConfig.localeMappings.rtl[locale],
                 originalUrl: req.originalUrl,
+                url: req.url,
                 domain: config.domain
             };
         } else if (typeof queryLocale !== 'undefined' && queryLocale != defaultLocale && locales.indexOf(queryLocale) > -1) {
@@ -61,6 +62,7 @@ function use(app, locales, defaultLocale) {
                 config: localeConfig,
                 rtl: localeConfig.localeMappings.rtl[queryLocale],
                 originalUrl: req.originalUrl,
+                url: req.url,
                 domain: config.domain
             };
         } else {
@@ -72,6 +74,7 @@ function use(app, locales, defaultLocale) {
                 config: localeConfig,
                 rtl: localeConfig.localeMappings.rtl[defaultLocale],
                 originalUrl: req.originalUrl,
+                url: req.url,
                 domain: config.domain
             };
         }

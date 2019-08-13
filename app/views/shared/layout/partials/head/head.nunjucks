@@ -2,9 +2,13 @@
 <title ng-bind="head.getTitle('{$ _meta.title | replace("'", "")$}')">{$ _meta.title $}</title>
 
 {% for locale in gb.locales.locales %}
-<link rel="alternate" hreflang="{$ locale $}" href="{$ gb.locales.domain $}/{$ locale $}{$ gb.locales.originalUrl $}" />
+    {% if locale == 'en' %}
+    <link rel="alternate" hreflang="{$ locale $}" href="{$ gb.locales.domain $}{$ gb.locales.url $}" />
+    {% else %}
+    <link rel="alternate" hreflang="{$ locale $}" href="{$ gb.locales.domain $}/{$ locale $}{$ gb.locales.url $}" />
+    {% endif %}
 {% endfor %}
-<link rel="alternate" hreflang="x-default" href="{$ gb.locales.domain $}{$ gb.locales.originalUrl $}" />
+<link rel="alternate" hreflang="x-default" href="{$ gb.locales.domain $}{$ gb.locales.url $}" />
 
 {# open graph tags - server rendered as social media sites necessarily always run js #}
 <meta property="fb:app_id" content="{$ _meta.fbAppId $}" />
