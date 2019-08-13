@@ -51,7 +51,7 @@
       "yes": "✔",
       "yesIfAvailable": "✔ (if available)",
       "yesLinks": "✔ (links)",
-      "no": ""
+      "no": " "
     }
   }
 }
