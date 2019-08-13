@@ -48,28 +48,28 @@
     "type": "",
     "identifiers": "",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Activo",
+      "false": "Inactivo"
     },
-    "true": "",
-    "false": ""
+    "true": "Sí",
+    "false": "No"
   },
   "grscicollPerson": {
     "search": {
-      "title": "",
+      "title": "Personal de la colección",
       "description": ""
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "headerTitle": "Personal de la colección",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "fullName": "Nombre completo",
+    "position": "Título profesional",
+    "affiliations": "Afiliaciones",
+    "areaResponsibility": "Área de responsabilidad",
+    "researchPursuits": "Especialidad en investigación",
+    "primaryInstitution": "Nombre de la Institución primaria",
+    "primaryCollection": "Nombre de la colección primaria",
+    "affiliateInstitutions": "Instituciones afiliadas adicionales",
     "affiliateCollections": ""
   },
   "grscicoll": {
@@ -82,16 +82,16 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Correo electrónico",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "Contactos",
+      "address": "Dirección",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "País"
     }
   }
 }
