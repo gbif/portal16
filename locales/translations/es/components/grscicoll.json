@@ -45,8 +45,8 @@
     "foundingDate": "",
     "disciplines": "Disciplinas institucionales",
     "institutionalGovernance": "Gobernanza institucional",
-    "type": "",
-    "identifiers": "",
+    "type": "Tipo de institución",
+    "identifiers": "Identificadores",
     "isActive": {
       "true": "Activo",
       "false": "Inactivo"
