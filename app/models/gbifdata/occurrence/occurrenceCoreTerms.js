@@ -43,7 +43,8 @@ function sortTerms(terms) {
     // sort order of terms in a set order followed by alphabetically
     [
         'day', 'month', 'year',
-        'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'specificEpithet'
+        'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'specificEpithet',
+        'earliestEonOrLowestEonothem', 'latestEonOrHighestEonothem', 'earliestEraOrLowestErathem', 'latestEraOrHighestErathem', 'earliestPeriodOrLowestSystem', 'latestPeriodOrHighestSystem', 'earliestEpochOrLowestSeries', 'latestEpochOrHighestSeries', 'earliestAgeOrLowestStage', 'latestAgeOrHighestStage', 'lowestBiostratigraphicZone', 'highestBiostratigraphicZone', 'lithostratigraphicTerms', 'group', 'formation', 'member', 'bed'
     ].forEach(function(e, i) {
         termOrder[e] = i - 1000;
     });
