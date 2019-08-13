@@ -1,9 +1,6 @@
 {
   "downloadReport": {
-    "csvDescription": "CSV delimitado por tabulação. Contém somente os dados após a interpretação do GBIF.",
-    "dwcaDescription": "O ficheiro de Darwin Core contém os dados originais fornecidos pelo publicador e os dados interpretados pelo GBIF.",
-    "speciesListDescription": "CSV delimitado por tabulações com a lista distinta de espécies no resultado da busca.",
-    "estimatedSize": "Tamanho estimado dos dados",
+    "title": "",
     "knownIssues": "Problemas conhecidos",
     "knownIssuesDescription": "Uma parte do processo do GBIF é sinalizar os registos de ocorrência que apresentam campos suspeitos",
     "FossilsIncluded": "Fósseis",
@@ -36,5 +33,25 @@
     "hours": "Horas",
     "minute": "Minuto",
     "minutes": "Minutos"
+  },
+  "downloadOptions": {
+    "title": "",
+    "content": {
+      "rawData": "",
+      "interpretedData": "",
+      "images": "",
+      "coordinates": "",
+      "fileFormat": "",
+      "estimatedSize": ""
+    },
+    "fileFormats": {
+      "tabCsv": ""
+    },
+    "tableValues": {
+      "yes": "",
+      "yesIfAvailable": "",
+      "yesLinks": "",
+      "no": ""
+    }
   }
 }
