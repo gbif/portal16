@@ -48,9 +48,9 @@
       "tabCsv": ""
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
+      "yes": "✔",
+      "yesIfAvailable": "✔ (if available)",
+      "yesLinks": "✔ (links)",
       "no": ""
     }
   }
