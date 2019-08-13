@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "title": "",
+    "title": "Descarregar relatório",
     "knownIssues": "Problemas conhecidos",
     "knownIssuesDescription": "Uma parte do processo do GBIF é sinalizar os registos de ocorrência que apresentam campos suspeitos",
     "FossilsIncluded": "Fósseis",
@@ -35,14 +35,14 @@
     "minutes": "Minutos"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "Opções de download",
     "content": {
-      "rawData": "",
-      "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
-      "estimatedSize": ""
+      "rawData": "Dados brutos",
+      "interpretedData": "Dados interpretados",
+      "images": "Multimédia",
+      "coordinates": "Coordenadas",
+      "fileFormat": "Formato",
+      "estimatedSize": "Tamanho estimado dos dados"
     },
     "fileFormats": {
       "tabCsv": ""
