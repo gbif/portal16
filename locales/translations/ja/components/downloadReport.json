@@ -1,9 +1,6 @@
 {
   "downloadReport": {
-    "csvDescription": "タブ区切り CSV です。GBIF 解釈の後データのみを格納します。",
-    "dwcaDescription": "このダーウィン コア アーカイブには、データ出版者によるオリジナルのデータと GBIFによる 解釈を施したデータの両方が含まれています。",
-    "speciesListDescription": "検索結果に含まれる重複無しの種名リスト（タブ区切りのCSV形式）",
-    "estimatedSize": "データの推定サイズ",
+    "title": "",
     "knownIssues": "既知の課題",
     "knownIssuesDescription": "GBIF による処理の一つは疑わしいオカレンスを指摘することです。",
     "FossilsIncluded": "化石",
@@ -36,5 +33,25 @@
     "hours": "時間",
     "minute": "分",
     "minutes": "分"
+  },
+  "downloadOptions": {
+    "title": "",
+    "content": {
+      "rawData": "",
+      "interpretedData": "",
+      "images": "",
+      "coordinates": "",
+      "fileFormat": "",
+      "estimatedSize": ""
+    },
+    "fileFormats": {
+      "tabCsv": ""
+    },
+    "tableValues": {
+      "yes": "",
+      "yesIfAvailable": "",
+      "yesLinks": "",
+      "no": ""
+    }
   }
 }
