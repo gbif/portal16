@@ -1,9 +1,6 @@
 {
   "downloadReport": {
-    "csvDescription": "以制表符定界的CSV格式。仅包含GBIF处理后的数据，不含多媒体数据。",
-    "dwcaDescription": "达尔文核心档案（Darwin Core Archive）包含发布者提供的最初数据和GBIF的解译，如链接（不包括文件）到多媒体信息。",
-    "speciesListDescription": "制表符分隔的CSV格式，且在搜索结果中列出不同的物种。",
-    "estimatedSize": "估计数据大小",
+    "title": "",
     "knownIssues": "已知问题",
     "knownIssuesDescription": "GBIF处理的一部分内容是标记上有可疑字段的分布记录。",
     "FossilsIncluded": "化石",
@@ -36,5 +33,25 @@
     "hours": "小时",
     "minute": "分钟",
     "minutes": "分钟"
+  },
+  "downloadOptions": {
+    "title": "",
+    "content": {
+      "rawData": "",
+      "interpretedData": "",
+      "images": "",
+      "coordinates": "",
+      "fileFormat": "",
+      "estimatedSize": ""
+    },
+    "fileFormats": {
+      "tabCsv": ""
+    },
+    "tableValues": {
+      "yes": "",
+      "yesIfAvailable": "",
+      "yesLinks": "",
+      "no": ""
+    }
   }
 }
