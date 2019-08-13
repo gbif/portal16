@@ -14,15 +14,15 @@
             "news": "",
             "resource": "",
             "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
-            "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": "",
-            "guidance": "",
-            "data": ""
+            "project": "Proyecto",
+            "programme": "Programa",
+            "document": "Documento",
+            "tool": "Herramienta",
+            "literature": "Bibliografía",
+            "treatment": "Taxonomía",
+            "blog": "Blog-datos",
+            "guidance": "Orientación\/Guía",
+            "data": "Datos"
         }
     }
 }
