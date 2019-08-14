@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "title": "",
+    "title": "Rapport de téléchargement",
     "knownIssues": "Problèmes connus",
     "knownIssuesDescription": "Une partie du traitement fait par le GBIF est de signaler les occurrences contenant des champs suspect",
     "FossilsIncluded": "Fossiles",
@@ -35,9 +35,9 @@
     "minutes": "Minutes"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "Options de téléchargement",
     "content": {
-      "rawData": "",
+      "rawData": "Données brutes",
       "interpretedData": "",
       "images": "",
       "coordinates": "",
