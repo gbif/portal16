@@ -25,6 +25,8 @@
     "yesCorrectSuggestion": "Yes",
     "noWrongSuggestion": "No",
     "errorUserThrottled": "Your access has been temporarily restricted.",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "The URL of your query exceeds 2,000 characters and may not work properly in all browsers. For large and\/or complicated queries, please consider using the download API."
   }
 }
