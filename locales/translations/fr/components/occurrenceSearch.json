@@ -27,6 +27,6 @@
     "errorUserThrottled": "Votre accès a été restreint temporairement.",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
-    "largeQueryLengthWarning": ""
+    "largeQueryLengthWarning": "L'URL de votre requête dépasse 2 000 caractères et pourrait ne pas fonctionner correctement dans tous les navigateurs. Pour des requêtes grandes et\/ou compliquées, veuillez envisager d'utiliser l'API de téléchargement."
   }
 }
