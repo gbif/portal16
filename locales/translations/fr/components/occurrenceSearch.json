@@ -24,6 +24,9 @@
     "done": "Fait",
     "yesCorrectSuggestion": "Oui",
     "noWrongSuggestion": "Non",
-    "errorUserThrottled": "Votre accès a été restreint temporairement."
+    "errorUserThrottled": "Votre accès a été restreint temporairement.",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
+    "largeQueryLengthWarning": ""
   }
 }
