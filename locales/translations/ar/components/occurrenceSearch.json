@@ -24,6 +24,9 @@
     "done": "",
     "yesCorrectSuggestion": "",
     "noWrongSuggestion": "",
-    "errorUserThrottled": ""
+    "errorUserThrottled": "",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
+    "largeQueryLengthWarning": ""
   }
 }
