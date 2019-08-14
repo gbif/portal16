@@ -34,9 +34,11 @@
             <div class="container--narrow">
                 {% include "../body.nunjucks" %}
 
+                {% if main.fields.documents or main.fields.secondaryLinks%}
                 <div class="article-secondary">
                     {% include "../documentsLinks.nunjucks" %}
                 </div>
+                {% endif %}
 
                 {% include "../auxiliary.nunjucks" %}
             </div>
