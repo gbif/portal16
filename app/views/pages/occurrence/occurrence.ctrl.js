@@ -14,7 +14,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
     var vm = this;
     $translate('resource.occurrenceSearch').then(function(title) {
         Page.setTitle(title);
@@ -598,6 +598,10 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         vm.occurrenceState.query.offset = undefined;
         vm.occurrenceState.query.limit = undefined;
         $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
+    };
+
+    vm.getUrlSize = function() {
+        return $window.location.href.length;
     };
 
     $scope.$watch(function() {

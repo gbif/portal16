@@ -37,6 +37,16 @@
             </div>
         </div>
 
+        <div class="seperator--b"
+             ng-if="occurrence.getUrlSize() > 2000">
+            <div class="m-05">
+                <p class="text-error">
+                    <span translate="occurrenceSearch.largeQueryLengthWarning"></span>
+                </p>
+                <a href="../../developer/occurrence" translate="phrases.readMore">Read more</a>
+            </div>
+        </div>
+
         <div class="filter-group text-center">
             <div class="gb-btn-group">
                 <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="false"

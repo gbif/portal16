@@ -24,6 +24,7 @@
     "done": "Done",
     "yesCorrectSuggestion": "Yes",
     "noWrongSuggestion": "No",
-    "errorUserThrottled": "You have been temporarily restricted."
+    "errorUserThrottled": "You have been temporarily restricted.",
+    "largeQueryLengthWarning": "You are using a very large query. Be aware that this will not work in all browsers. A better option is to use the download API for such queries."
   }
 }
