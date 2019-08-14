@@ -24,6 +24,7 @@
     "done": "Done",
     "yesCorrectSuggestion": "Yes",
     "noWrongSuggestion": "No",
-    "errorUserThrottled": "Your access has been temporarily restricted."
+    "errorUserThrottled": "Your access has been temporarily restricted.",
+    "largeQueryLengthWarning": ""
   }
 }
