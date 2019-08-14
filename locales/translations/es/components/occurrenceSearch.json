@@ -24,6 +24,9 @@
     "done": "Hecho",
     "yesCorrectSuggestion": "Sí",
     "noWrongSuggestion": "No",
-    "errorUserThrottled": "Acceso temporalmente restringido."
+    "errorUserThrottled": "Acceso temporalmente restringido.",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
+    "largeQueryLengthWarning": ""
   }
 }
