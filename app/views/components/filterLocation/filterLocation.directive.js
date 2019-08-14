@@ -14,7 +14,7 @@ angular
     .directive('filterLocation', filterLocationDirective);
 
 /** @ngInject */
-function filterLocationDirective(BUILD_VERSION) {
+function filterLocationDirective(BUILD_VERSION, toastService) {
     var directive = {
         restrict: 'A',
         transclude: true,
@@ -34,7 +34,7 @@ function filterLocationDirective(BUILD_VERSION) {
     /** @ngInject */
     function filterLocation($scope, $filter, OccurrenceFilter, $localStorage) {
         var vm = this;
-        var wktSizeLimit = 1200;
+        var wktSizeLimit = 5000;
         vm.inputType = 'BBOX';
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
@@ -154,6 +154,10 @@ function filterLocationDirective(BUILD_VERSION) {
                     return;
                 }
 
+                if (parsingResult.isSimplified) {
+                    toastService.warning({translate: 'occurrenceSearch.polygonSimplifiedToFewerDecimals'});
+                }
+
                 vm.hasCoordinate = true;
                 $filter('unique')(parsingResult.geometry).forEach(function(q) {
                     addGeometrySuggestion(q);
@@ -181,6 +185,7 @@ function filterLocationDirective(BUILD_VERSION) {
             } else {
                 vm.geometryString = wkt;
                 vm.addString();
+                toastService.warning({translate: 'occurrenceSearch.polygonSimplifiedToFewerPoints'});
             }
         };
 
@@ -238,11 +243,12 @@ function filterLocationDirective(BUILD_VERSION) {
 }
 
 module.exports = filterLocationDirective;
+
 var wktformat = new ol.format.WKT();
 var geojsonformat = new ol.format.GeoJSON();
 
 function parseStringToWKTs(str) {
-    var i, geojson, feature, wktGeom, wktGeometries = [];
+    var i, geojson, feature, isSimplified, orderChanged, wktGeom, wktGeometries = [];
     // assume geojson
     try {
         var geojsonGeometry = JSON.parse(str);
@@ -256,8 +262,11 @@ function parseStringToWKTs(str) {
     } catch (e) {
         // not a json object. try to parse as wkt
         try {
-            if (isValidWKT(str)) {
-                wktGeometries.push(str);
+            var parsedWkt = getAsValidWKT(str);
+            if (!parsedWkt.failed) {
+                isSimplified = parsedWkt.isSimplified;
+                orderChanged = parsedWkt.orderChanged;
+                wktGeometries.push(parsedWkt.wkt);
             } else {
                 throw 'Not valid wkt';
             }
@@ -268,8 +277,25 @@ function parseStringToWKTs(str) {
         }
     }
     return {
-        geometry: wktGeometries
+        geometry: wktGeometries,
+        isSimplified: isSimplified,
+        orderChanged: orderChanged
     };
+}
+
+function getAsValidWKT(testWkt) {
+    try {
+        var simplifiedWkt = formatWkt(testWkt);
+        var counterClockwiseWkt = getRightHandCorrectedWKT(simplifiedWkt);
+        return {
+            failed: false,
+            isSimplified: simplifiedWkt !== testWkt,
+            orderChanged: counterClockwiseWkt !== simplifiedWkt,
+            wkt: counterClockwiseWkt
+        };
+    } catch (err) {
+        return {failed: true};
+    }
 }
 
 function isValidWKT(testWKT) {
@@ -284,7 +310,7 @@ function isValidWKT(testWKT) {
 
 function formatWkt(wktStr) {
     var f = wktformat.readFeature(wktStr);
-    return wktformat.writeFeature(f);
+    return wktformat.writeFeature(f, {decimals: 5});
 }
 
 function getRightHandCorrectedWKT(wktStr) {
@@ -292,7 +318,8 @@ function getRightHandCorrectedWKT(wktStr) {
     var asGeoJson = geojsonformat.writeFeature(f, {rightHanded: true});
     var rightHandCorrectedFeature = geojsonformat.readFeature(asGeoJson);
     var newWkt = wktformat.writeFeature(rightHandCorrectedFeature, {
-        rightHanded: true
+        rightHanded: true, 
+        decimals: 5
     });
     return newWkt;
 }
