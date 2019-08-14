@@ -37,21 +37,21 @@
   "downloadOptions": {
     "title": "",
     "content": {
-      "rawData": "",
-      "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
-      "estimatedSize": ""
+      "rawData": "Rådata",
+      "interpretedData": "Fortolket data",
+      "images": "Multimedia",
+      "coordinates": "Koordinater",
+      "fileFormat": "Format",
+      "estimatedSize": "Anslået datastørrelse"
     },
     "fileFormats": {
-      "tabCsv": ""
+      "tabCsv": "Tab-separeret CSV"
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (hvis tilgængelig)",
+      "yesLinks": "✔ (links)",
+      "no": "✘"
     }
   }
 }

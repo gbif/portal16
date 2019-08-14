@@ -45,13 +45,13 @@
       "estimatedSize": "Tamanho estimado dos dados"
     },
     "fileFormats": {
-      "tabCsv": ""
+      "tabCsv": "CSV delimitado por aba"
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (se disponível)",
+      "yesLinks": "✔ (links)",
+      "no": "  "
     }
   }
 }
