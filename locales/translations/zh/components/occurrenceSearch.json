@@ -24,6 +24,9 @@
     "done": "完成",
     "yesCorrectSuggestion": "是",
     "noWrongSuggestion": "否",
-    "errorUserThrottled": "您的访问权限暂时被限制。"
+    "errorUserThrottled": "您的访问权限暂时被限制。",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
+    "largeQueryLengthWarning": ""
   }
 }
