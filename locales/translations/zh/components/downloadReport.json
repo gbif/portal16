@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "title": "",
+    "title": "下载报告",
     "knownIssues": "已知问题",
     "knownIssuesDescription": "GBIF处理的一部分内容是标记上有可疑字段的分布记录。",
     "FossilsIncluded": "化石",
@@ -35,9 +35,9 @@
     "minutes": "分钟"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "下载选项",
     "content": {
-      "rawData": "",
+      "rawData": "原始数据",
       "interpretedData": "",
       "images": "",
       "coordinates": "",
