@@ -7,7 +7,7 @@
     },
     "joinedAgo": "Присоединился {TIME_AGO}",
     "newPublisher": "Новая организация",
-    "technicalContact": "Технический контакт",
+    "technicalContact": "Технические вопросы",
     "country": "Страна (территория)",
     "hosting": "Хостинг",
     "description": "Описание",
@@ -15,7 +15,7 @@
     "pendingEndorsementBy": "Ожидает одобрения",
     "installations": "Используемые IPT-инсталляции",
     "contacts": "Контакты",
-    "administrativeContact": "Административный контакт",
+    "administrativeContact": "Административные вопросы",
     "header": {
       "publisher": "Организация",
       "sinceDate": "в GBIF с {DATE}"
