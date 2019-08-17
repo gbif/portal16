@@ -30,10 +30,10 @@
     "counts": {
       "occurrences": "{NUMBER, plural,\n0 {Находок}\none {Находка}\nfew {Находки}\nmany {Находок}\nother {Находок}\n}",
       "datasets": "{NUMBER, plural,\n0 {Наборов данных}\none {Набор данных}\nfew {Набора данных}\nmany {Наборов данных}\nother {Наборов данных}\n}",
-      "publishers": "Организации",
+      "publishers": "{NUMBER, plural,\n0 {Организаций}\none {Организация}\nfew {Организации}\nmany {Организаций}\nother {Организаций}\n}",
       "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Стран и территорий, опубликовавших данные}\none {Страна или территория, опубликовавшая данные}\nfew {Страны и территории, опубликовавших данные}\nmany {стран и территорий, опубликовавших данные}\nother {Страны и территории, опубликовавших данные}\n} ",
-      "publishedOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
-      "publishedDatasets": "{NUMBER, plural,\n0 {опубликованных наборов данных}\none {опубликованный набор данных}\nfew {опубликованных набора данных}\nmany {опубликованных наборов данных}\nother {опубликованных набора данных}\n}",
+      "publishedOccurrences": "{NUMBER, plural,\n0 {Опубликованных находок}\none {Опубликованных находка}\nfew {Опубликованных находки}\nmany {Опубликованных находок}\nother {Опубликованных находок}\n}",
+      "publishedDatasets": "{NUMBER, plural,\n0 {Опубликованных наборов данных}\none {Опубликованный набор данных}\nfew {Опубликованных набора данных}\nmany {Опубликованных наборов данных}\nother {Опубликованных набора данных}\n}",
       "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER, plural,\n0 {Страны и территории}\none {Страна и территория}\nfew {Страны и территории}\nmany {стран и территорий}\nother {Страны и территории}\n}",
       "publishersFrom": "Зарегистрированные в GBIF {NUMBER, plural,\n0 {организаций}\none {организация}\nfew {организации}\nmany {организация}\nother {Организации}\n} из {TRANSLATED_COUNTRY}"
     },
