@@ -28,10 +28,10 @@
     "notParticipantDescription": "Эта страна не является официальным участником GBIF",
     "countryNamingDisclaimer": "Русскоязычные названия стран и территорий на основе [ГОСТ 7.67-2003](https://www.ifap.ru/library/gost/7672003.pdf)",
     "counts": {
-      "occurrences": "{NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
+      "occurrences": "{NUMBER, plural,\n0 {Находок}\none {Находка}\nfew {Находки}\nmany {Находок}\nother {Находок}\n}",
       "datasets": "{NUMBER, plural,\n0 {Наборов данных}\none {Набор данных}\nfew {Набора данных}\nmany {Наборов данных}\nother {Наборов данных}\n}",
       "publishers": "Организации",
-      "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Стран или территорий, опубликовавших данные}\none {Страна или территория, опубликовавшая данные}\nfew {Страны и территории, опубликовавших данные}\nmany {стран и территорий, опубликовавших данные}\nother {Страны и территории, опубликовавших данные}\n} ",
+      "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Стран и территорий, опубликовавших данные}\none {Страна или территория, опубликовавшая данные}\nfew {Страны и территории, опубликовавших данные}\nmany {стран и территорий, опубликовавших данные}\nother {Страны и территории, опубликовавших данные}\n} ",
       "publishedOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
       "publishedDatasets": "{NUMBER, plural,\n0 {опубликованных наборов данных}\none {опубликованный набор данных}\nfew {опубликованных набора данных}\nmany {опубликованных наборов данных}\nother {опубликованных набора данных}\n}",
       "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER, plural,\n0 {Страны и территории}\none {Страна и территория}\nfew {Страны и территории}\nmany {стран и территорий}\nother {Страны и территории}\n}",
