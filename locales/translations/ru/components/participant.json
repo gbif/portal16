@@ -2,7 +2,7 @@
     "participant": {
         "participant": "Участник",
         "participantSummary": "Резюме участника",
-        "endorsedPublishers": "Одобренные публикаторы",
+        "endorsedPublishers": "Одобренные организации",
         "noEndorsedPublishers": "Нет одобренных организаций",
         "memberStatus": "Статус участника",
         "gbifParticipantSince": "Участник GBIF с",
@@ -10,7 +10,7 @@
         "gbifRegion": "Регион GBIF",
         "countryOrArea": "Страна или регион",
         "nodeName": "Название национального узла",
-        "nodeEstablished": "Узел основан",
+        "nodeEstablished": "Узел организован",
         "website": "Веб-сайт",
         "participantNodeManager": "Руководитель национального узла",
         "pending": "Ожидает одобрения",
