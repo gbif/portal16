@@ -29,9 +29,9 @@
     "countryNamingDisclaimer": "Русскоязычные названия стран и территорий на основе [ГОСТ 7.67-2003](https://www.ifap.ru/library/gost/7672003.pdf)",
     "counts": {
       "occurrences": "{NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
-      "datasets": "{NUMBER, plural,\n0 {Наборы данных}\none {Наборы данных}\nfew {Наборы данных}\nmany {Наборы данных}\nother {Наборы данных}\n}",
+      "datasets": "{NUMBER, plural,\n0 {Наборов данных}\none {Набор данных}\nfew {Набора данных}\nmany {Наборов данных}\nother {Наборов данных}\n}",
       "publishers": "Организации",
-      "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Страны и территории}\none {Страна и территория}\nfew {Страны и территории}\nmany {стран и территорий}\nother {Страны и территории}\n}, публикующие данные",
+      "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Стран или территорий, опубликовавших данные}\none {Страна или территория, опубликовавшая данные}\nfew {Страны и территории, опубликовавших данные}\nmany {стран и территорий, опубликовавших данные}\nother {Страны и территории, опубликовавших данные}\n} ",
       "publishedOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
       "publishedDatasets": "{NUMBER, plural,\n0 {опубликованных наборов данных}\none {опубликованный набор данных}\nfew {опубликованных набора данных}\nmany {опубликованных наборов данных}\nother {опубликованных набора данных}\n}",
       "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER, plural,\n0 {Страны и территории}\none {Страна и территория}\nfew {Страны и территории}\nmany {стран и территорий}\nother {Страны и территории}\n}",
