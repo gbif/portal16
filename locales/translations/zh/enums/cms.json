@@ -38,7 +38,7 @@
           "REGIONAL": "区域性基金",
           "SMALL": "小额经费",
           "NATIONAL": "",
-          "undefined": ""
+          "undefined": "未标明"
         },
         "projectStatus": {
           "APPROVED": "已批准",
@@ -50,7 +50,7 @@
         "relevance": {
           "GBIF_USED": "GBIF使用的",
           "GBIF_CITED": "GBIF引用的",
-          "GBIF_DISCUSSED": "",
+          "GBIF_DISCUSSED": "GBIF讨论",
           "GBIF_PRIMARY": "",
           "GBIF_ACKNOWLEDGED": "GBIF感谢的",
           "GBIF_PUBLISHED": "GBIF发布",
