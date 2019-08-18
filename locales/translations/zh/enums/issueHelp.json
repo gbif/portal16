@@ -61,7 +61,7 @@
     "ML_NOT_FOUND": "未找到生态元数据语言文档",
     "MODIFIED_DATE_INVALID": "对于修改的记录日期给出（部分）无效日期，例如不存在的日期，无效的零月等。",
     "REQUIRED_TERM_MISSING": "缺少核心/扩展的必需术语",
-    "GEODETIC_DATUM_ASSUMED_WGS84": "",
+    "GEODETIC_DATUM_ASSUMED_WGS84": "指示解释的坐标假设它们基于WGS84基准，因为基准未指示或可解释。 请参阅GEODETIC_DATUM_INVALID。",
     "COUNTRY_MISMATCH": "",
     "UNKNOWN_ROWTYPE": "",
     "BIB_REFERENCE_INVALID": "",
