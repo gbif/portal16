@@ -95,6 +95,6 @@
     "CONTINENT_INVALID": "找到无法解释的大陆值。",
     "VERNACULAR_NAME_INVALID": "附加此名称使用的至少一个本地名称扩展记录无效。",
     "DESCRIPTION_INVALID": "附加到此名称用法的至少一个描述扩展记录无效。",
-    "REFERENCES_URI_INVALID": ""
+    "REFERENCES_URI_INVALID": "为达尔文核心：参考提供了无效的统一资源标识符。"
   }
 }
