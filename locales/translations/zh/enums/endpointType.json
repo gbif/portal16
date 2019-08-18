@@ -12,7 +12,7 @@
     "TAPIR": "TDWG信息检索访问协议",
     "BIOCASE": "",
     "BIOCASE_XML_ARCHIVE": "",
-    "OAI_PMH": "",
+    "OAI_PMH": "OAI-PMH",
     "OTHER": "其它"
   }
 }
