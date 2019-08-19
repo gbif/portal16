@@ -54,7 +54,7 @@
     "nFromDataset": "{NUMBER_FORMATED} {NUMBER, select, 1{находок видов из этого набора данных} other{находок видов из этого набора данных}}",
     "funding": "Финансирование",
     "contacts": "Контакты",
-    "registration": "GBIF регистрация",
+    "registration": "Техническая информация",
     "dataDescription": "Описание данных",
     "bibliography": "Библиография",
     "citation": "Цитировать набор данных",
