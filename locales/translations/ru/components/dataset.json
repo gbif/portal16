@@ -7,7 +7,7 @@
       "METADATA": "Набор метаданных"
     },
     "metricHighlights": {
-      "occurrences": "Находки",
+      "occurrences": "{NUMBER, plural,\n0 {Находок}\none {Находка}\nfew {Находки}\nmany {Находок}\nother {Находок}\n}",
       "withTaxonMatch": "Совпадение с базовой таксономией GBIF",
       "withCoordinates": "С координатами",
       "withYear": "С указанием года",
@@ -57,7 +57,7 @@
     "registration": "GBIF регистрация",
     "dataDescription": "Описание данных",
     "bibliography": "Библиография",
-    "citation": "Цитирование",
+    "citation": "Цитировать набор данных",
     "temporalCoverages": "Временной интервал",
     "history": "История",
     "ingestNow": "Получить сейчас",
