@@ -24,9 +24,7 @@
       "other": "Филиалы GBIF"
     },
     "role": "Роль",
-    "group": {
-
-    },
+    "group": {},
     "gbif_secretariat": "Секретариат GBIF",
     "membershipType": "Членство",
     "name": "Название",
