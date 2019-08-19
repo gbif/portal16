@@ -6,7 +6,7 @@
             <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
                     <div class="summaryStats__simple__count">{{countryKey.occurrencesAbout | localNumber}}<span ng-class="{'loading':  countryKey.occurrencesAbout === undefined}"></span></div>
-                    <div class="summaryStats__simple__description" tx="countryKey.counts.occurrences" tx-nr="countryKey.occurrencesFrom">
+                    <div class="summaryStats__simple__description" tx="countryKey.counts.occurrences" tx-nr="countryKey.occurrencesAbout">
                         Occurrences
                     </div>
                 </div>
