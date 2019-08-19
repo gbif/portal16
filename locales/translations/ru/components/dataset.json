@@ -49,7 +49,7 @@
     "keywords": "Ключевые слова",
     "qualityControl": "Контроль качества данных",
     "sampling": "Отбор проб",
-    "methodSteps": "Методика",
+    "methodSteps": "Методы исследования",
     "nDownloadEvents": "{NUMBER_FORMATED} {NUMBER, select, 1{скачивание} other{скачиваний}}",
     "nFromDataset": "{NUMBER_FORMATED} {NUMBER, select, 1{находок видов из этого набора данных} other{находок видов из этого набора данных}}",
     "funding": "Финансирование",
