@@ -8,7 +8,7 @@
     },
     "metricHighlights": {
       "occurrences": "{NUMBER, plural,\n0 {Находок}\none {Находка}\nfew {Находки}\nmany {Находок}\nother {Находок}\n}",
-      "withTaxonMatch": "Совпадает с таксономией GBIF",
+      "withTaxonMatch": "Согласно таксономии GBIF",
       "withCoordinates": "С координатами",
       "withYear": "С указанием года",
       "acceptedNames": "Валидные названия",
