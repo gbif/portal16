@@ -33,7 +33,7 @@
             "ingestionStatus": "Статус индексации",
             "itemInIngestionQueue": "Позиции в очереди на получение данных",
             "datasetIngestionStatus": "Статус передаваемых наборов данных",
-            "gbifIngestionStatus": "Статус получения данных GBIF",
+            "gbifIngestionStatus": "Статус индексации в GBIF",
             "lastIngestionSuccess": "Последняя индексация успешна",
             "lastIngestionFailed": "Последняя индексация была неудачной",
             "outOfSync": "Не синхронизирован",
