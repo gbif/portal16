@@ -43,7 +43,7 @@
             "finishReason": {
                 "NORMAL": "нормально",
                 "ABORT": "прервано",
-                "NOT_MODIFIED": "нет изменений"
+                "NOT_MODIFIED": "без изменений"
             }
         }
     }
