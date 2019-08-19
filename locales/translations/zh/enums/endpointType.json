@@ -10,9 +10,9 @@
     "DIGIR": "分布式通用信息检索",
     "DIGIR_MANIS": "分布式通用信息检索 哺乳动物网络信息系统",
     "TAPIR": "TDWG信息检索访问协议",
-    "BIOCASE": "",
-    "BIOCASE_XML_ARCHIVE": "",
-    "OAI_PMH": "",
+    "BIOCASE": "生物馆藏检索服务",
+    "BIOCASE_XML_ARCHIVE": "生物馆藏检索服务XML档案",
+    "OAI_PMH": "OAI-PMH",
     "OTHER": "其它"
   }
 }

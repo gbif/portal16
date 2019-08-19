@@ -24,6 +24,9 @@
     "done": "Concluído",
     "yesCorrectSuggestion": "Sim",
     "noWrongSuggestion": "Não",
-    "errorUserThrottled": "Seu acesso está temporariamente restringido."
+    "errorUserThrottled": "Seu acesso está temporariamente restringido.",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
+    "largeQueryLengthWarning": "A URL da sua consulta excede 2.000 caracteres e pode não funcionar corretamente em todos os navegadores. Para consultas grandes e\/ou complicadas, por favor considere usar a API de download."
   }
 }

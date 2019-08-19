@@ -24,6 +24,9 @@
     "done": "已完成",
     "yesCorrectSuggestion": "是",
     "noWrongSuggestion": "否",
-    "errorUserThrottled": "您的存取暫時被停用"
+    "errorUserThrottled": "您的存取暫時被停用",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
+    "largeQueryLengthWarning": ""
   }
 }

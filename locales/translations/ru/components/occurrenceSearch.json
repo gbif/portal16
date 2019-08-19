@@ -24,6 +24,9 @@
     "done": "Выполнено",
     "yesCorrectSuggestion": "Да",
     "noWrongSuggestion": "Нет",
-    "errorUserThrottled": ""
+    "errorUserThrottled": "",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
+    "largeQueryLengthWarning": ""
   }
 }

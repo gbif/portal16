@@ -5,9 +5,9 @@
     "SYNONYM": "同物异名",
     "HETEROTYPIC_SYNONYM": "异模式异名",
     "HOMOTYPIC_SYNONYM": "同模式异名",
-    "PROPARTE_SYNONYM": "",
+    "PROPARTE_SYNONYM": "部分同物异名",
     "MISAPPLIED": "误用",
-    "INTERMEDIATE_RANK_SYNONYM": "",
-    "DETERMINATION_SYNONYM": ""
+    "INTERMEDIATE_RANK_SYNONYM": "中间等级同物异名",
+    "DETERMINATION_SYNONYM": "确定同物异名"
   }
 }

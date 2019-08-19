@@ -24,6 +24,9 @@
     "done": "完了",
     "yesCorrectSuggestion": "はい",
     "noWrongSuggestion": "いいえ",
-    "errorUserThrottled": "一時的にアクセスが制限されています。"
+    "errorUserThrottled": "一時的にアクセスが制限されています。",
+    "polygonSimplifiedToFewerDecimals": "",
+    "polygonSimplifiedToFewerPoints": "",
+    "largeQueryLengthWarning": ""
   }
 }

@@ -46,7 +46,7 @@
       "specimenType": "标本类型",
       "publisher": "发布者",
       "reference": "参考文献",
-      "verbatimName": ""
+      "verbatimName": "逐字名称"
     },
     "media": {
       "noIdentifier": "没有提供媒体标识符",

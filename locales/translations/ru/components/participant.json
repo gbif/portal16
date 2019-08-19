@@ -2,19 +2,19 @@
     "participant": {
         "participant": "Участник",
         "participantSummary": "Резюме участника",
-        "endorsedPublishers": "Одобренные публикаторы",
-        "noEndorsedPublishers": "Нет одобренных публикаторов",
+        "endorsedPublishers": "Одобренные организации",
+        "noEndorsedPublishers": "Нет одобренных организаций",
         "memberStatus": "Статус участника",
         "gbifParticipantSince": "Участник GBIF с",
         "headOfDelegation": "Глава делегации",
         "gbifRegion": "Регион GBIF",
-        "countryOrArea": "Страна или регион",
-        "nodeName": "Имя национального узла",
-        "nodeEstablished": "Узел основан",
+        "countryOrArea": "Страна или территория",
+        "nodeName": "Название национального узла",
+        "nodeEstablished": "Узел организован",
         "website": "Веб-сайт",
         "participantNodeManager": "Руководитель национального узла",
         "pending": "Ожидает одобрения",
-        "latestDatasetsPublished": "Последние опубликованные наборы данных",
+        "latestDatasetsPublished": "Недавно опубликованные наборы данных",
         "noDatasets": "Нет опубликованных наборов данных"
     }
 }

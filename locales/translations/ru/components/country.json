@@ -1,15 +1,15 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "Общие сведения",
+      "summary": "Основные сведения",
       "dataPublishing": "Публикация данных",
       "dataAbout": "Данные о стране",
       "participartion": "Членство в GBIF",
       "publicationsFrom": "Публикация данных организациями из этой страны",
       "publicationsAbout": "Публикация данных об этой стране",
       "news": "Новости",
-      "invasives": "",
-      "more": "Ещё",
+      "invasives": "Чужеродные виды",
+      "more": "Дополнительно",
       "projects": "Проекты"
     },
     "memberSince": "Официально участвует в GBIF с",
@@ -28,14 +28,14 @@
     "notParticipantDescription": "Эта страна не является официальным участником GBIF",
     "countryNamingDisclaimer": "Русскоязычные названия стран и территорий на основе [ГОСТ 7.67-2003](https://www.ifap.ru/library/gost/7672003.pdf)",
     "counts": {
-      "occurrences": "{NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
-      "datasets": "{NUMBER, plural,\n0 {Наборы данных}\none {Наборы данных}\nfew {Наборы данных}\nmany {Наборы данных}\nother {Наборы данных}\n}",
-      "publishers": "Организации",
-      "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Страны и территории}\none {Страна и территория}\nfew {Страны и территории}\nmany {стран и территорий}\nother {Страны и территории}\n}, публикующие данные",
-      "publishedOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
-      "publishedDatasets": "{NUMBER, plural,\n0 {опубликованных наборов данных}\none {опубликованный набор данных}\nfew {опубликованных набора данных}\nmany {опубликованных наборов данных}\nother {опубликованных набора данных}\n}",
-      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} опубликовала данные, охватывающие {NUMBER, plural,\n0 {Страны и территории}\none {Страна и территория}\nfew {Страны и территории}\nmany {стран и территорий}\nother {Страны и территории}\n}",
-      "publishersFrom": "Зарегистрированные в GBIF {NUMBER, plural,\n0 {организаций}\none {организация}\nfew {организации}\nmany {организация}\nother {Организации}\n} из {TRANSLATED_COUNTRY}"
+      "occurrences": "{NUMBER, plural,\n0 {Находок}\none {Находка}\nfew {Находки}\nmany {Находок}\nother {Находок}\n}",
+      "datasets": "{NUMBER, plural,\n0 {Наборов данных}\none {Набор данных}\nfew {Набора данных}\nmany {Наборов данных}\nother {Наборов данных}\n}",
+      "publishers": "{NUMBER, plural,\n0 {Организаций}\none {Организация}\nfew {Организации}\nmany {Организаций}\nother {Организаций}\n}",
+      "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Стран и территорий, опубликовавших данные}\none {Страна или территория, опубликовавшая данные}\nfew {Страны и территории, опубликовавших данные}\nmany {Стран и территорий, опубликовавших данные}\nother {Страны и территории, опубликовавших данные}\n} ",
+      "publishedOccurrences": "{NUMBER, plural,\n0 {Опубликованных находок}\none {Опубликованная находка}\nfew {Опубликованные находки}\nmany {Опубликованных находок}\nother {Опубликованных находок}\n}",
+      "publishedDatasets": "{NUMBER, plural,\n0 {Опубликованных наборов данных}\none {Опубликованный набор данных}\nfew {Опубликованных набора данных}\nmany {Опубликованных наборов данных}\nother {Опубликованных набора данных}\n}",
+      "countriesAndAreasCoveredByDataFrom": "{NUMBER, plural,\n0 {Стран и территорий охватывают опубликованные данные}\none {Страна или территория охвачена опубликованными данными}\nfew {Страны и территории охвачены опубликованными данными}\nmany {Стран и территорий охвачено опубликованными данными}\nother {Стран и территорий опубликованными данными}\n}",
+      "publishersFrom": "{NUMBER, plural,\n0 {Зарегистрированных организаций}\none {Зарегистрированная организация}\nfew {Зарегистрированные организации}\nmany {Зарегистрированных организаций}\nother {Зарегистрированных организаций}\n}"
     },
     "activityReport": "Отчет о деятельности"
   }
