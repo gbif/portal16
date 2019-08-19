@@ -40,7 +40,7 @@
                                     <li role="menuitem">
                                         <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })">{{ 'countryKey.tabs.news' | translate }}<span class="gb-icon-link"></span></a>
                                     </li>
-                                    <li role="menuitem" ng-if="countryKey.projects.$resolved && countryKey.projects.results.length > 1">
+                                    <li role="menuitem" ng-if="countryKey.projects.$resolved && countryKey.projects.results.length > 0">
                                          <a ui-sref="countryProjects()" translate="countryKey.tabs.projects">Projects</a>
                                     </li>
                                     <li role="menuitem" >
