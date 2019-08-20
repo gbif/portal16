@@ -2,7 +2,7 @@
     <div>
         <a href="" id="additionalInfo"></a>
         <div class="anchor-block--tabs" id="additionalInfoBlock">
-            <h3>Additional info</h3>
+            <h3 translate="dataset.additionalInfo">Additional info</h3>
             <div ng-bind-html="datasetKey.dataset.additionalInfo"></div>
         </div>
     </div>
