@@ -19,10 +19,11 @@
 
                     <a href=""
                        ng-class="{'gb-button--brand': countryResearch.showLiteratureFrom, 'gb-button--discreet': !countryResearch.showLiteratureFrom}"
-                       ng-click="countryResearch.showLiteratureFrom = !countryResearch.showLiteratureFrom" translate="countryKey.nFrom" translate-values="{NUMBER_FORMATTED: (countryResearch.literatureFrom.count | localNumber)}"> </a>
+                       ui-sref="countryResearch({relation: 'from'})" translate="countryKey.nFrom" translate-values="{NUMBER_FORMATTED: (countryResearch.literatureFrom.count | localNumber)}"> </a>
                     <a href=""
                        ng-class="{'gb-button--brand': !countryResearch.showLiteratureFrom, 'gb-button--discreet': countryResearch.showLiteratureFrom}"
-                       ng-click="countryResearch.showLiteratureFrom = !countryResearch.showLiteratureFrom" translate="countryKey.nAbout" translate-values="{NUMBER_FORMATTED: (countryResearch.literatureAbout.count | localNumber)}"></a>
+                       ui-sref="countryResearch({relation: 'about'})" translate="countryKey.nAbout" translate-values="{NUMBER_FORMATTED: (countryResearch.literatureAbout.count | localNumber)}"></a>
+                
                 </div>
 
                 <div ng-if="!countryResearch.showLiteratureFrom">

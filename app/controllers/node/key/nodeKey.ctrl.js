@@ -90,7 +90,8 @@ router.get('/country/:iso/summary.:ext?', renderCountry);
 router.get('/country/:iso/about.:ext?', renderCountry);
 router.get('/country/:iso/publishing.:ext?', renderCountry);
 router.get('/country/:iso/participation.:ext?', renderCountry);
-router.get('/country/:iso/publications.:ext?', renderCountry);
+router.get('/country/:iso/publications/:relation.:ext?', renderCountry);
+router.get('/country/:iso/projects.:ext?', renderCountry);
 
 function renderCountry(req, res, next) {
     let isoCode = req.params.iso.toUpperCase();
