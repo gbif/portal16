@@ -41,7 +41,7 @@ contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';
 contentfulLocaleMap['ru'] = 'ru';
 contentfulLocaleMap['pt'] = 'pt';
-contentfulLocaleMap['zh-cn'] = 'zh';
+contentfulLocaleMap['zh'] = 'zh-Hans';
 contentfulLocaleMap['zh-tw'] = 'zh-Hant';
 // mock test languages
 contentfulLocaleMap['de-MOCK'] = 'es';
@@ -70,7 +70,8 @@ translationMap['ar-MOCK'] = 'ara';
 let momentMap = _.keyBy(locales); // default to use the same language codes
 
 // overwrites specific that differs
-momentMap['zh'] = 'zh-tw';
+momentMap['zh'] = 'zh-cn';
+
 // mock test languages
 momentMap['de-MOCK'] = 'de-ch';
 momentMap['ko-MOCK'] = 'ko';
