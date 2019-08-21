@@ -24,9 +24,7 @@
       "other": "GBIF 附属机构"
     },
     "role": "角色",
-    "group": {
-
-    },
+    "group": {},
     "gbif_secretariat": "GBIF 秘书处",
     "membershipType": "会员资格",
     "name": "名字",

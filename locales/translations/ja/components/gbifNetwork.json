@@ -24,9 +24,7 @@
       "other": "GBIF提携団体"
     },
     "role": "役割",
-    "group": {
-
-    },
+    "group": {},
     "gbif_secretariat": "GBIF 事務局",
     "membershipType": "メンバーシップ",
     "name": "名称",

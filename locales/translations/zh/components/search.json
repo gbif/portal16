@@ -26,6 +26,6 @@
       "searchResources": "搜索资源...",
       "searchOccurrences": "搜索出现记录"
     },
-    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{result} other{results}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{结果} other{结果}}"
   }
 }
