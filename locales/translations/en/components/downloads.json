@@ -33,7 +33,7 @@
     "downloadKilled": "The download request was unsuccessful. Please try it again or get in touch.",
     "downloadDeleted": "This file has been deleted. If you need it restored then please get in touch.",
     "storageDurationTeaser": "For how long will GBIF store this data?",
-    "predatesDoi": "This download predates our use of DOIs",
+    "predatesDoi": "This download predates our use of DOIs. Please contact us if you wish to cite this download",
     "file": "File",
     "constituentDatasets": "Involved datasets",
     "noFiltersApplied": "No filters used",
