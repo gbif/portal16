@@ -33,7 +33,7 @@
     "downloadKilled": "下載失敗。請再試一次或與我們聯繫。",
     "downloadDeleted": "此檔案已被刪除。如果您需要回復檔案，請與我們聯繫。",
     "storageDurationTeaser": "GBIF 將儲存此資料多久？",
-    "predatesDoi": "此下載早於我們使用 DOIs",
+    "predatesDoi": "此下載早於我們所使用的 DOIs",
     "file": "檔案",
     "constituentDatasets": "相關聯的資料集",
     "noFiltersApplied": "未使用篩選設定",
