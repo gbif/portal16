@@ -3,7 +3,7 @@
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{引文} other{引文}}",
         "pCitations": "{NUMBER, select, 1{引用} other{引用}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{记录} other{记录}}",
-        "nResults": "{NUMBER_FORMATED} {NUMBER, select,1{结果}other{结果}}",
+        "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{结果} other{结果}}",
         "nCollections": "",
         "nInstitutions": "",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select,1{活动}other{活动}}",
