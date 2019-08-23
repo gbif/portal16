@@ -1,6 +1,6 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "Количество по царствам",
+    "countByKingdom": "Распределение записей по царствам",
     "countByRank": "Распределение записей по рангам таксонов",
     "countNamesByLanguage": "Количество имен по языкам",
     "countExtRecordsByExtension": "Количество расширений по типам расширений",
@@ -12,7 +12,7 @@
     "extensions": "Расширения",
     "taxa": "Таксоны",
     "other": "Другое",
-    "checklistMetrics": "Метрики списков видов",
+    "checklistMetrics": "Метрики списка видов",
     "occurrenceMetrics": "Метрики находок",
     "explore": "Просмотр",
     "majorGroups": "Основные группы",
