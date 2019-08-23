@@ -11,6 +11,11 @@ let queryResolver = {
         url: apiConfig.dataset.url,
         field: 'title'
     },
+    publishingOrg: {
+        type: 'ENDPOINT',
+        url: apiConfig.publisher.url,
+        field: 'title'
+    },
     year: {
         type: 'ENUM',
         valueTranslation: 'intervals.year.'
