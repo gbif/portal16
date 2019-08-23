@@ -5,7 +5,7 @@
       "metrics": "Метрики",
       "publishersHomepage": "Домашняя страница"
     },
-    "joinedAgo": "Присоединился {TIME_AGO}",
+    "joinedAgo": "Присоединилась к GBIF {TIME_AGO}",
     "newPublisher": "Новая организация",
     "technicalContact": "Технические вопросы",
     "country": "Страна (территория)",
@@ -13,7 +13,7 @@
     "description": "Описание",
     "endorsedBy": "Одобрена",
     "pendingEndorsementBy": "Ожидает одобрения",
-    "installations": "Используемые IPT-инсталляции",
+    "installations": "Поддерживаемые инсталляции",
     "contacts": "Контакты",
     "administrativeContact": "Административные вопросы",
     "header": {

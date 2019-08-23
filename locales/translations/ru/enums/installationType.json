@@ -1,11 +1,11 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "Установка IPT",
-    "DIGIR_INSTALLATION": "Установка DiGIR",
-    "TAPIR_INSTALLATION": "Установка Tapir",
-    "BIOCASE_INSTALLATION": "Установка Biocase",
-    "HTTP_INSTALLATION": "Установка Http",
-    "SYMBIOTA_INSTALLATION": "Установка Symbiota",
+    "IPT_INSTALLATION": "IPT",
+    "DIGIR_INSTALLATION": "DiGIR",
+    "TAPIR_INSTALLATION": "TAPIR",
+    "BIOCASE_INSTALLATION": "BioCASe",
+    "HTTP_INSTALLATION": "HTTP",
+    "SYMBIOTA_INSTALLATION": "Symbiota",
     "EARTHCAPE_INSTALLATION": "EarthCape"
   }
 }
