@@ -1,7 +1,7 @@
 {
   "datasetMetrics": {
     "countByKingdom": "Количество по царствам",
-    "countByRank": "Количество по рангам",
+    "countByRank": "Распределение записей по рангам таксонов",
     "countNamesByLanguage": "Количество имен по языкам",
     "countExtRecordsByExtension": "Количество расширений по типам расширений",
     "countByOrigin": "Количество по происхождению",
@@ -38,7 +38,7 @@
     "chooseDimension": "Выбор измерения",
     "clickToZoom": "Щелкните и перетащите для увеличения нужной области",
     "pinchToZoom": "Щелкните по диаграмме, чтобы увеличить ее",
-    "numAcceptedSpByHigher": "Количество признанных видов высших таксонов",
+    "numAcceptedSpByHigher": "Число валидных видов внутри таксонов высшего ранга",
     "noRankedAbove": "Список видов не содержит таксонов, рангом выше вида.",
     "taxonomicOccDistribution": "Таксономическое распределение находок",
     "groupByX": "Группы по {TYPE}",
