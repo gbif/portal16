@@ -2,9 +2,9 @@
     "installation": {
         "installation": "Инсталляция",
         "about": "Об инсталляции",
-        "homepage": "Главная",
+        "homepage": "Страница инсталляции",
         "installationType": "Тип исталляции",
-        "hostedBy": "Размещено на",
+        "hostedBy": "Техническое обеспечение",
         "registered": "Зарегистрирована",
         "endpoints": "Конечные точки"
     }
