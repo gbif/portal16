@@ -1,8 +1,8 @@
 {
     "dataset": {
         "registry": {
-            "failedSinceSuccess": "Неудачных попыток после последней успешной",
-            "lastFailed": "Последняя неудачная попытка",
+            "failedSinceSuccess": "Неудачных попыток индексации после последней успешной",
+            "lastFailed": "Последняя неудачная попытка индексации",
             "registrationDate": "Дата регистрации набора данных",
             "lastSuccess": "Последняя успешная индексация",
             "lastWithChange": "Последняя индексация после изменений ",
@@ -27,12 +27,12 @@
             "adopted": "Принятые наборы данных",
             "neverIngested": "Не индексировано",
             "inIngestionQueue": "В очереди на индексацию",
-            "addingToQueue": "Добавление в очередь",
+            "addingToQueue": "Добавление в очередь на индексацию",
             "unableToStart": "Невозможно запустить индексацию",
-            "ingestionChartExplainer": "Недавние сеансы передачи данных. Вверху слева - последний.",
+            "ingestionChartExplainer": "Недавние индексации. Вверху слева - последняя.",
             "ingestionStatus": "Статус индексации",
-            "itemInIngestionQueue": "Позиции в очереди на получение данных",
-            "datasetIngestionStatus": "Статус передаваемых наборов данных",
+            "itemInIngestionQueue": "Позиции в очереди на индексацию",
+            "datasetIngestionStatus": "Статус индексации набора данных",
             "gbifIngestionStatus": "Статус индексации в GBIF",
             "lastIngestionSuccess": "Последняя индексация успешна",
             "lastIngestionFailed": "Последняя индексация была неудачной",
