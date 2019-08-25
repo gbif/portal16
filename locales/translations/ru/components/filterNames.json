@@ -5,7 +5,7 @@
     "year": "Год",
     "country": "Страна или территория",
     "taxonKey": "Латинское название",
-    "elevation": "Высота (ВНУМ)",
+    "elevation": "Высота",
     "collectionCode": "Код коллекции",
     "recordNumber": "Номер записи",
     "datasetKey": "Набор данных",
