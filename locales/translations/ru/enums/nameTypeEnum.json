@@ -1,6 +1,6 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "Научное название",
+    "SCIENTIFIC": "Латинское название",
     "DOUBTFUL": "Cомнительно",
     "BLACKLISTED": "В черном списке",
     "VIRUS": "Вирус",
