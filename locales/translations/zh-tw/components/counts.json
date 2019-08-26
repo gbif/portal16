@@ -1,11 +1,11 @@
 {
     "counts": {
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{引用書目} other{引用書目}}",
-        "pCitations": "{NUMBER, select, 1{引用} other{引用}}",
+        "pCitations": "{NUMBER, select, 1{引用書目} other{引用書目}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select,1{紀錄}other{紀錄}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select,1{結果}other{結果}}",
-        "nCollections": "",
-        "nInstitutions": "",
+        "nCollections": "{NUMBER_FORMATED} {NUMBER, select,1{蒐藏}other{蒐藏}}",
+        "nInstitutions": "{NUMBER_FORMATED} {NUMBER, select, 1{機構} other{機構}}",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select,1{活動}other{活動}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{裝置}other{裝置}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}",
