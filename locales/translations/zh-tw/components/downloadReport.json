@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "title": "",
+    "title": "下載報告",
     "knownIssues": "已知問題",
     "knownIssuesDescription": "GBIF 資料處理工作的其中一部分為標記出有可疑欄位的出現紀錄",
     "FossilsIncluded": "化石",
@@ -35,9 +35,9 @@
     "minutes": "分鐘"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "下載選項",
     "content": {
-      "rawData": "",
+      "rawData": "原始資料",
       "interpretedData": "",
       "images": "",
       "coordinates": "",
