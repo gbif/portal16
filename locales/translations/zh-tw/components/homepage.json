@@ -8,7 +8,7 @@
         },
         "aboutGbifCountry": "關於 GBIF {COUNTRY}",
         "summary": "自由、開放取用的生物多樣性資料",
-        "whatIsGbif": "",
+        "whatIsGbif": "什麼是 GBIF？",
         "featureTypes": {
             "event": "活動",
             "news": "新聞",
@@ -22,7 +22,7 @@
             "treatment": "分類學",
             "blog": "資料部落格",
             "guidance": "指導方針",
-            "data": ""
+            "data": "資料"
         }
     }
 }
