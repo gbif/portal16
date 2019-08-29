@@ -162,9 +162,9 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead() $}
                         <tbody>
-                        {$ trowI(url="", resp="Installation List", respLink=apiBase+"installation", paging=true, params=["q","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all installations") $}
+                        {$ trowI(url="", resp="Installation List", respLink=apiBase+"installation", paging=true, params=["q","identifier","identifierType","installationType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all installations") $}
                         {$ trowI(url="", method="POST", resp="UUID", auth=true, description="Creates a new installation") $}
-                        {$ trowI(url="/{UUID}", resp="Installation", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed", description="Gets details for the single installation") $}
+                        {$ trowI(url="/{UUID}", resp="Installation", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed", description="Gets details for a single installation") $}
                         {$ trowI(url="/{UUID}", method="PUT", auth=true, description="Updates the installation") $}
                         {$ trowI(url="/{UUID}", method="DELETE", auth=true, description="Deletes the installation. The installation entry gets a deleted timestamp but remains registered.") $}
                         {$ trowI(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/contact", description="Lists all contacts for the installation") $}
