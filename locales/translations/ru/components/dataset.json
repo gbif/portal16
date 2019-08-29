@@ -13,8 +13,8 @@
       "withYear": "С указанием года",
       "acceptedNames": "Валидные названия",
       "synonyms": "Синонимы",
-      "overlapWithNub": "Совпадает с Базовой таксономией GBIF",
-      "overlapWithCol": "Совпадает с Catalogue of Life"
+      "overlapWithNub": "Согласно таксономии GBIF",
+      "overlapWithCol": "Согласно Catalogue of Life"
     },
     "noStatsForMetadata": "Нет статистики для наборов метаданных",
     "viewArticle": "Просмотр статьи",
@@ -60,7 +60,7 @@
     "citation": "Цитировать набор данных",
     "temporalCoverages": "Временной интервал",
     "history": "История",
-    "ingestNow": "Получить сейчас",
+    "ingestNow": "Запустить индексацию",
     "readFullDescription": "Подробнее",
     "howToCite": "Как цитировать",
     "geographicCoverages": "Географический охват",

@@ -6,7 +6,7 @@
         "limitSearchTo": "Ограничить поиск",
         "limitResultsTo": {
             "all": "Все",
-            "scientificNames": "Научные названия видов",
+            "scientificNames": "Латинские названия видов",
             "vernacularNames": "Народные названия видов",
             "descriptions": "Описания"
         }

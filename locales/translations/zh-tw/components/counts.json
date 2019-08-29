@@ -1,11 +1,11 @@
 {
     "counts": {
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{引用書目} other{引用書目}}",
-        "pCitations": "{NUMBER, select, 1{引用} other{引用}}",
+        "pCitations": "{NUMBER, select, 1{引用書目} other{引用書目}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select,1{紀錄}other{紀錄}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select,1{結果}other{結果}}",
-        "nCollections": "",
-        "nInstitutions": "",
+        "nCollections": "{NUMBER_FORMATED} {NUMBER, select,1{蒐藏}other{蒐藏}}",
+        "nInstitutions": "{NUMBER_FORMATED} {NUMBER, select, 1{機構} other{機構}}",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select,1{活動}other{活動}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{裝置}other{裝置}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}",
@@ -18,11 +18,11 @@
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select,1{聯絡人}other{聯絡人}}",
         "pRecords": "{NUMBER, select,1{紀錄}other{紀錄}}",
         "pOccurrence": "{NUMBER, select,1{出現記錄} other{出現記錄}}",
-        "pMaterialSamples": "",
+        "pMaterialSamples": "{NUMBER, select, 1{已檢視材料} other{已檢視材料}}",
         "pSpecies": "{NUMBER, select,1{物種} other{物種}}",
         "pInfraspecies": "{NUMBER, select,1{種下名}other{種下名}}",
         "pPublishers": "{NUMBER, select,1{發布者} other{發布者}}",
         "contacts": "{NUMBER, select, 1{聯絡人} other{聯絡人}}",
-        "nTreatments": ""
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{分類處理} other{分類處理}}"
     }
 }

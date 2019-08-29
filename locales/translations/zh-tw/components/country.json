@@ -6,9 +6,9 @@
       "dataAbout": "相關資料",
       "participartion": "會員參與",
       "publicationsFrom": "發布自",
-      "publicationsAbout": "",
+      "publicationsAbout": "相關發表",
       "news": "新聞",
-      "invasives": "",
+      "invasives": "外來種",
       "more": "更多…",
       "projects": "專案"
     },
@@ -28,7 +28,7 @@
     "notParticipantDescription": "這個國家不是 GBIF 的會員",
     "countryNamingDisclaimer": "國家和地區的名稱以 [ISO 3166-1 標準](http://www.iso.org/obp/ui/#search)為依據",
     "counts": {
-      "occurrences": "出現紀錄",
+      "occurrences": "{NUMBER, plural,\n0 {出現紀錄}\none {出現紀錄}\nfew {出現紀錄}\nmany {出現紀錄}\nother {出現紀錄}\n}",
       "datasets": "資料集",
       "publishers": "發布者",
       "countriesAndAreasContributeData": "貢獻資料的國家和地區",
