@@ -16,7 +16,7 @@
     "about": "About",
     "datasets": "datasets",
     "gbifWillAttend": "Attended by GBIF Secretariat",
-    "dataUsedInStudy": "Data used in study",
+    "dataUsedInStudy": "Data referenced in study",
     "resourceDescription": "Search for resources in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
   }
 }
