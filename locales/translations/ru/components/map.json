@@ -12,8 +12,8 @@
     "projection": "Проекция",
     "select": "Выбрать",
     "custom": "Настраиваемый",
-    "baseMap": "Картооснова",
-    "binning": "Группировка",
+    "baseMap": "Топооснова",
+    "binning": "Условные знаки",
     "year": "Год",
     "chooseColors": "Цвета",
     "predefined": {
