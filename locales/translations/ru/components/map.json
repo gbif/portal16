@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{геопривязанные записи} other{геопривязанных записей}}",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {геопривязанных записей}\none {геопривязанная запись} \nfew {геопривязанные записи}\nmany {геопривязанных записей} \nother {геопривязанных записей}\n}",
     "noOccurrencesWithCoordinates": "Нет находок видов с координатами",
     "clickToSearchArea": "Кликните по карте для просмотра находок",
     "generatedDateAgo": "Сгенерировано {DATE_AGO}",
