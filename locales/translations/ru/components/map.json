@@ -11,16 +11,16 @@
     "filters": "Фильтры",
     "projection": "Проекция",
     "select": "Выбрать",
-    "custom": "Пользовательские",
+    "custom": "Настраиваемый",
     "baseMap": "Картооснова",
     "binning": "Группировка",
     "year": "Год",
     "chooseColors": "Цвета",
     "predefined": {
-      "CLASSIC_HEX": "Классические шестиугольники",
-      "CLASSIC": "Классические точки",
+      "CLASSIC_HEX": "С шестиугольниками\n",
+      "CLASSIC": "Точечный",
       "STREETS": "Улицы",
-      "GLACIER": "Ледник",
+      "GLACIER": "Ледниковый",
       "CUSTOM": "Пользовательский"
     },
     "basemap": {
