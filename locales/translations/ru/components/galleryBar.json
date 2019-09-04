@@ -1,6 +1,6 @@
 {
     "galleryBar": {
         "seeAllImages": "Просмотр галереи",
-        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, select, 1{находка} other{находок}} с изображениями"
+        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n} с изображениями"
     }
 }
