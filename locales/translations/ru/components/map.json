@@ -2,7 +2,7 @@
   "map": {
     "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{геопривязанные записи} other{геопривязанных записей}}",
     "noOccurrencesWithCoordinates": "Нет находок видов с координатами",
-    "clickToSearchArea": "Кликните для выбора территории",
+    "clickToSearchArea": "Кликните по карте для просмотра находок",
     "generatedDateAgo": "Сгенерировано {DATE_AGO}",
     "anyYear": "Все года",
     "exploreArea": "Находки данной области карты",
@@ -33,19 +33,19 @@
     },
     "bin": {
       "PIXEL": "Точки",
-      "SMALL_HEX": "Малые шестиугольники",
-      "LARGE_HEX": "Шестиугольники",
-      "SMALL_SQUARE": "Малые квадраты",
-      "LARGE_SQUARE": "Квадраты"
+      "SMALL_HEX": "Шестиугольники",
+      "LARGE_HEX": "Большие шестиугольники",
+      "SMALL_SQUARE": "Квадраты",
+      "LARGE_SQUARE": "Большие квадраты"
     },
     "colors": {
       "CLASSIC": "Классические",
       "FIRE": "Огненный",
       "GLACIER": "Ледниковый",
       "PURPLE_YELLOW": "Фиолетовый и желтый",
-      "PURPLE_HEAT": "Темно-фиолетовый",
-      "BLUE_HEAT": "Темно-синий",
-      "ORANGE_HEAT": "Темно-оранжевый",
+      "PURPLE_HEAT": "Фиолетовый",
+      "BLUE_HEAT": "Синий",
+      "ORANGE_HEAT": "Оранжевый",
       "GREEN": "Зеленый",
       "BLUE_CLUSTER": "Синий кластер",
       "ORANGE_CLUSTER": "Оранжевый кластер"
