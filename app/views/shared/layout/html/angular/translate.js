@@ -19,6 +19,14 @@ function translaterConfig($translateProvider, BUILD_VERSION, LOCALE) {
     $translateProvider.preferredLanguage(LOCALE);
     $translateProvider.fallbackLanguage('en');
     $translateProvider.useSanitizeValueStrategy('escape'); // http://angular-translate.github.io/docs/#/guide/19_security
+    $translateProvider.useMissingTranslationHandlerLog();
 }
+
+angular
+    .module('portal').factory('$translateMissingTranslationHandlerLog', function $translateMissingTranslationHandlerLog($sanitize) {
+    return function(translationId) {
+      return $sanitize(translationId);
+    };
+  });
 
 module.exports = translaterConfig;
