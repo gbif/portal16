@@ -8,9 +8,11 @@ angular
     .controller('userProfileCtrl', userProfileCtrl);
 
 /** @ngInject */
-function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService) {
+function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService, $translate) {
     var vm = this;
-    Page.setTitle('Profile');// TODO move into translation file
+    $translate('profile.profile').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(false);
     vm.disableEditing = false;
     vm.emailPattern = regexPatterns.email;

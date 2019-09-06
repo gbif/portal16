@@ -10,9 +10,12 @@ angular
     .controller('contactDirectoryCtrl', contactDirectoryCtrl);
 
 /** @ngInject */
-function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
+function contactDirectoryCtrl(Page, $state, $stateParams, $http, $translate) {
     var vm = this;
-    Page.setTitle('Directory');
+    $translate('directory.title').then(function(title) {
+        Page.setTitle(title);
+    });
+
     Page.drawer(false);
     vm.$state = $state;
     vm.state = {};

@@ -13,9 +13,11 @@ angular
     .controller('publisherCtrl', publisherCtrl);
 
 /** @ngInject */
-function publisherCtrl($state, hotkeys, PublisherFilter, Page) {
+function publisherCtrl($state, hotkeys, PublisherFilter, Page, $translate) {
     var vm = this;
-    Page.setTitle('Publisher search');
+    $translate('publisher.searchTitle').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(true);
     vm.state = PublisherFilter.getState();
 

@@ -7,11 +7,12 @@ angular
     .controller('userCtrl', userCtrl);
 
 /** @ngInject */
-function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state) {
+function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state, $translate) {
     var vm = this;
     vm.$state = $state;
-    Page.setTitle('Profile');
-
+    $translate('profile.profile').then(function(title) {
+        Page.setTitle(title);
+    });
     var activeUser = User.loadActiveUser();
     if (activeUser) {
         activeUser.then(function() {

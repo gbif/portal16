@@ -7,9 +7,12 @@ angular
     .controller('contactUsCtrl', contactUsCtrl);
 
 /** @ngInject */
-function contactUsCtrl(Page, $state) {
+function contactUsCtrl(Page, $state, $translate) {
     var vm = this;
-    Page.setTitle('Contact us');
+    $translate('constactUs.title').then(function(title) {
+        Page.setTitle(title);
+    });
+
     Page.drawer(false);
     vm.$state = $state;
 }

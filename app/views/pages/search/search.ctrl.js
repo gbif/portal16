@@ -7,9 +7,11 @@ angular
     .controller('searchCtrl', searchCtrl);
 
 /** @ngInject */
-function searchCtrl($state, $stateParams, Page, LOCALE, $http, $cookies) {
+function searchCtrl($state, $stateParams, Page, LOCALE, $http, $cookies, $translate) {
     var vm = this;
-    Page.setTitle('Search');
+    $translate('resourceSearch.title').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(false);
     vm.isActive = false;
     vm.query = angular.copy($stateParams);

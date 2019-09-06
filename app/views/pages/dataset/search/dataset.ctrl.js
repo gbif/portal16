@@ -13,10 +13,12 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Publisher, enums, Page, BUILD_VERSION) {
+function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, $translate, Publisher, enums, Page, BUILD_VERSION) {
     var vm = this;
     vm.state = DatasetFilter.getState();
-    Page.setTitle('Dataset search');
+    $translate('dataset.datasetSearchTitle').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(true);
 
 

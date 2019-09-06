@@ -8,12 +8,14 @@ angular
     .controller('grscicollPersonKeyCtrl', grscicollPersonKeyCtrl);
 
 /** @ngInject */
-function grscicollPersonKeyCtrl(Page, $state, $stateParams, PersonKey, InstitutionKey, CollectionKey, InstitutionSearch, CollectionSearch) {
+function grscicollPersonKeyCtrl(Page, $state, $stateParams, PersonKey, InstitutionKey, CollectionKey, InstitutionSearch, CollectionSearch, $translate) {
     var vm = this;
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
     vm.q = $stateParams.q;
-    Page.setTitle('Person');
+    $translate('collection.grscicollPerson.title').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(false);
     vm.key = $stateParams.key;
     vm.$state = $state;
@@ -21,7 +23,7 @@ function grscicollPersonKeyCtrl(Page, $state, $stateParams, PersonKey, Instituti
     vm.showAffiliations = false;
     vm.person.$promise
         .then(function(data) {
-            Page.setTitle('Person');
+           // Page.setTitle('Person');
             if (data.primaryInstitutionKey) vm.institution = InstitutionKey.get({key: data.primaryInstitutionKey});
             if (data.primaryCollectionKey) vm.collection = CollectionKey.get({key: data.primaryCollectionKey});
             vm.showAffiliations = vm.showAffiliations || data.primaryInstitutionKey || data.primaryCollectionKey;

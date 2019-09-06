@@ -7,10 +7,12 @@ angular
     .controller('resourceCtrl', resourceCtrl);
 
 /** @ngInject */
-function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, suggestEndpoints, Page, enums, NAV_EVENTS, BUILD_VERSION) {
+function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, suggestEndpoints, Page, enums, NAV_EVENTS, BUILD_VERSION, $translate) {
     var vm = this;
     vm.state = ResourceFilter.getState();
-    Page.setTitle('Resource search');
+    $translate('resourceSearch.title').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(true);
     vm.filters = {};
 

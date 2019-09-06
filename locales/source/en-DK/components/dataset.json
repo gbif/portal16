@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "Dataset search",
     "longType": {
       "OCCURRENCE": "Occurrence dataset",
       "CHECKLIST": "Checklist dataset",
@@ -81,5 +82,5 @@
     "occurrenceCount": "Occurrence count",
     "inDataset": "In",
     "samplingArticleLink": "More about sampling events on GBIF.org"
-  }
+    }
 }
