@@ -24,9 +24,7 @@
       "other": "GBIF affiliates"
     },
     "role": "Role",
-    "group": {
-
-    },
+    "group": {},
     "gbif_secretariat": "GBIF Secretariat",
     "membershipType": "Membership",
     "name": "Name",
