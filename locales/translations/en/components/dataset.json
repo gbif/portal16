@@ -1,6 +1,6 @@
 {
   "dataset": {
-    "datasetSearchTitle": "",
+    "datasetSearchTitle": "Dataset search",
     "longType": {
       "OCCURRENCE": "Occurrence dataset",
       "CHECKLIST": "Checklist dataset",
