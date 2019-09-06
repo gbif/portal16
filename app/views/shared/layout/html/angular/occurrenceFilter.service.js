@@ -114,7 +114,7 @@ angular
                 state.failedFacetRequest = false;
                 // state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
             }, function(err) {
-                if (err.status > 399 || err.status === -1) {
+                if (err.status > 399) {
                     state.failedFacetRequest = true;
                     state.facetError = err;
                 }
@@ -125,7 +125,7 @@ angular
             state.table = OccurrenceTableSearch.query(tableQuery, function() {
                 state.failedRequest = false;
             }, function(err) {
-                if (err.status > 399 || err.status === -1) {
+                if (err.status > 399) {
                     state.failedRequest = true;
                     state.error = err;
                 }
