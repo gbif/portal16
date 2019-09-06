@@ -156,7 +156,7 @@
                 };
 
                 that.changePassword = function(userName, oldPassword, newPassword) {
-                    var authData = $window.btoa(userName + ':' + oldPassword); // the identity API assumes btoa encoded
+                    var authData = Base64.encode(userName + ':' + oldPassword);
                     var config = {
                         headers: {'Authorization': 'Basic ' + authData}
                     };
