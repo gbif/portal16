@@ -1,51 +1,51 @@
 {
   "map": {
-    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{геопривязанные записи} other{геопривязанных записей}}",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {геопривязанных записей}\none {геопривязанная запись} \nfew {геопривязанные записи}\nmany {геопривязанных записей} \nother {геопривязанных записей}\n}",
     "noOccurrencesWithCoordinates": "Нет находок видов с координатами",
-    "clickToSearchArea": "Кликните для выбора территории",
+    "clickToSearchArea": "Кликните по карте для просмотра находок",
     "generatedDateAgo": "Сгенерировано {DATE_AGO}",
     "anyYear": "Все года",
-    "exploreArea": "Область исследования",
-    "explore": "Исследовать",
+    "exploreArea": "Находки данной области карты",
+    "explore": "Поиск находок",
     "style": "Стиль",
     "filters": "Фильтры",
-    "projection": "Проекция",
+    "projection": "Картографическая проекция",
     "select": "Выбрать",
-    "custom": "Пользовательские",
-    "baseMap": "Картооснова",
-    "binning": "Группировка",
+    "custom": "Настроить",
+    "baseMap": "Топооснова",
+    "binning": "Значки",
     "year": "Год",
     "chooseColors": "Цвета",
     "predefined": {
-      "CLASSIC_HEX": "Классические шестиугольники",
-      "CLASSIC": "Классические точки",
-      "STREETS": "Улицы",
-      "GLACIER": "Ледник",
-      "CUSTOM": "Пользовательский"
+      "CLASSIC_HEX": "С шестиугольниками\n",
+      "CLASSIC": "Точечный",
+      "STREETS": "Гексагональная сеть",
+      "GLACIER": "Ледниковый",
+      "CUSTOM": "Настраиваемый"
     },
     "basemap": {
-      "CLASSIC": "Пурпурный",
+      "CLASSIC": "Классическая",
       "LIGHT": "Светлая (без подписей)",
       "LIGHT_DETAILS": "Светлая",
       "DARK": "Темная (без подписей)",
       "DARK_DETAILS": "Темная",
-      "OSM": "Дороги"
+      "OSM": "Административная"
     },
     "bin": {
       "PIXEL": "Точки",
-      "SMALL_HEX": "Малые шестиугольники",
-      "LARGE_HEX": "Шестиугольники",
-      "SMALL_SQUARE": "Малые квадраты",
-      "LARGE_SQUARE": "Квадраты"
+      "SMALL_HEX": "Шестиугольники",
+      "LARGE_HEX": "Большие шестиугольники",
+      "SMALL_SQUARE": "Квадраты",
+      "LARGE_SQUARE": "Большие квадраты"
     },
     "colors": {
       "CLASSIC": "Классические",
       "FIRE": "Огненный",
       "GLACIER": "Ледниковый",
       "PURPLE_YELLOW": "Фиолетовый и желтый",
-      "PURPLE_HEAT": "Темно-фиолетовый",
-      "BLUE_HEAT": "Темно-синий",
-      "ORANGE_HEAT": "Темно-оранжевый",
+      "PURPLE_HEAT": "Фиолетовый",
+      "BLUE_HEAT": "Синий",
+      "ORANGE_HEAT": "Оранжевый",
       "GREEN": "Зеленый",
       "BLUE_CLUSTER": "Синий кластер",
       "ORANGE_CLUSTER": "Оранжевый кластер"
