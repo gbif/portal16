@@ -1,5 +1,6 @@
 {
   "occurrenceSearch": {
+    "title": "",
     "table": "Tabel",
     "gallery": "Galleri",
     "map": "Kort",
@@ -27,6 +28,6 @@
     "errorUserThrottled": "",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
-    "largeQueryLengthWarning": "Din søgnings URL overstiger 2.000 karakterer og vil derfor muligvis ikke fungere i alle browsere. Til store og\/eller komplicerede søgninger kan det anbefales, at du anvender download API'et."
+    "largeQueryLengthWarning": "Din søgnings URL overstiger 2.000 karakterer og vil derfor muligvis ikke fungere i alle browsere. Til store og/eller komplicerede søgninger kan det anbefales, at du anvender download API'et."
   }
 }
