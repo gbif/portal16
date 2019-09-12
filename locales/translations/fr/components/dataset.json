@@ -1,6 +1,6 @@
 {
   "dataset": {
-    "datasetSearchTitle": "",
+    "datasetSearchTitle": "Recherche de jeux de données",
     "longType": {
       "OCCURRENCE": "Jeu de données d'occurrences",
       "CHECKLIST": "Liste taxonomique",
