@@ -61,5 +61,8 @@
       "not": "ない",
       "isNotNull": "定義済み"
     }
+  },
+  "myDownloads": {
+    "title": ""
   }
 }
