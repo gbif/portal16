@@ -30,7 +30,7 @@
     }
   },
   "institution": {
-    "title": "",
+    "title": "Institution",
     "search": {
       "title": "Institutions",
       "description": "**Institution** se réfère à toute institution ou organisation qui possède et gère des collections scientifiques. Ceci inclut les herbiers, les muséums, les parcs zoologiques, les jardins botaniques, les banques de données biologiques, entre autres. Une institution peut contenir plusieurs collections, auquel cas elles doivent être saisies individuellement sous  **Collections Institutionnelles/Projet** et liées à l'institution mère.\n\nEn raison de l'intégration de plusieurs jeux de données anciens, et pour éviter la duplication de  **Code Institutionnel**, <IH> a été apposé à tous les codes de l'Index Herbarorium Herbarium."
@@ -56,7 +56,7 @@
     "false": "Non"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "Personne",
     "search": {
       "title": "Personnel de la collection",
       "description": "Les membres du personnel de GRSciColl sont tout type de personnel impliqué dans les collections. Ils peuvent être associés à l'institution et/ou à tout type de collection."
@@ -77,16 +77,16 @@
   "grscicoll": {
     "title": "",
     "tabs": {
-      "about": "",
-      "institutions": "",
-      "collections": "",
+      "about": "À propos",
+      "institutions": "Institutions",
+      "collections": "Collections",
       "people": ""
     },
     "contact": {
       "phone": "",
       "email": "Courriel",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "Adresse électronique",
       "physicalAddress": "",
       "contacts": "Contacts",
       "address": "Adresse",
