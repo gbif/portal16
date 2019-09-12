@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "",
     "longType": {
       "OCCURRENCE": "Conjunto de dados de ocorrência",
       "CHECKLIST": "Conjuntos de dados de checklists",
@@ -78,6 +79,7 @@
     "eventDescription": "Descrição do evento",
     "siblingEvents": "Evento irmão",
     "childEvents": "Evento filho",
+    "events": "",
     "occurrenceCount": "Número (quantidade) de registos",
     "inDataset": "Em",
     "samplingArticleLink": "Mais sobre eventos de colheita em GBIF.org"
