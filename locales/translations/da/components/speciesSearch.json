@@ -1,5 +1,6 @@
 {
     "speciesSearch": {
+        "title": "",
         "youAreCurrentlySearchingInGBIFtaxonomy": "Du søger efter arter i GBIF taksonomien.",
         "SearchAcrossChecklists": "Søg på tværs af tjeklister",
         "freeTextSearchFor": "Du foretager en fritekst-søgning på '{QUERY}'",
