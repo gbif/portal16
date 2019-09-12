@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "",
     "longType": {
       "OCCURRENCE": "Набор данных о находках",
       "CHECKLIST": "Таксономический список",
@@ -78,6 +79,7 @@
     "eventDescription": "Характеристика описания, учета или сбора",
     "siblingEvents": "Одноуровневые события сбора данных (мониторинга) на пробных площадях",
     "childEvents": "Дочерние описания, учеты или сборы",
+    "events": "",
     "occurrenceCount": "Число находок",
     "inDataset": "В",
     "samplingArticleLink": "Больше сведений о мониторинге на пробных площадях на GBIF.org"
