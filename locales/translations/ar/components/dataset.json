@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "",
     "longType": {
       "OCCURRENCE": "",
       "CHECKLIST": "",
@@ -78,6 +79,7 @@
     "eventDescription": "",
     "siblingEvents": "",
     "childEvents": "",
+    "events": "",
     "occurrenceCount": "",
     "inDataset": "",
     "samplingArticleLink": ""
