@@ -7,9 +7,11 @@ angular
     .controller('grscicollCtrl', grscicollCtrl);
 
 /** @ngInject */
-function grscicollCtrl(Page, $state) {
+function grscicollCtrl(Page, $state, $translate) {
     var vm = this;
-    Page.setTitle('grscicoll');
+    $translate('collection.grscicoll.title').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(false);
     vm.$state = $state;
 }

@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "",
     "longType": {
       "OCCURRENCE": "出現紀錄資料集",
       "CHECKLIST": "物種名錄資料集",
@@ -78,6 +79,7 @@
     "eventDescription": "事件描述",
     "siblingEvents": "姊妹事件",
     "childEvents": "子事件",
+    "events": "",
     "occurrenceCount": "出現記錄計數",
     "inDataset": "在",
     "samplingArticleLink": "更多 GBIF.org 上關於取樣事件的說明"

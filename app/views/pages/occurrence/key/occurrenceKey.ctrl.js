@@ -15,7 +15,9 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
     var globe;
     var globeCanvas;
     vm.key = $stateParams.key;
-    Page.setTitle('Occurrence ' + vm.key);
+    $translate('occurrence.occurrence').then(function(title) {
+        Page.setTitle(title + ' ' + vm.key);
+    });
     Page.drawer(false);
 
     vm.datasetProcessSummary = DatasetProcessSummary.get({key: occurrence.datasetKey});

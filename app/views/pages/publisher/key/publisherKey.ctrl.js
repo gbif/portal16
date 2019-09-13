@@ -13,9 +13,11 @@ angular
 
 /** @ngInject */
 function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTableSearch, LOCALE, PublisherExtended, OccurrenceSearch,
-    ResourceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
+    ResourceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION, $translate) {
     var vm = this;
-    Page.setTitle('Publisher');
+    $translate('publisher.header.publisher').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(false);
     vm.key = $stateParams.key;
     vm.capabilities = MapCapabilities.get({publishingOrg: vm.key});

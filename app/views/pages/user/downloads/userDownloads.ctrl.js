@@ -8,10 +8,12 @@ angular
 
 
 /** @ngInject */
-function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $stateParams, User, Page) {
+function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $stateParams, User, Page, $translate) {
     var vm = this;
     User.loadActiveUser();
-    Page.setTitle('My downloads');// TODO move into translation file
+    $translate('myDownloads.title').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(false);
 
     function updatePaginationCounts() {

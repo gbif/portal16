@@ -8,12 +8,14 @@ angular
     .controller('institutionKeyCtrl', institutionKeyCtrl);
 
 /** @ngInject */
-function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, CollectionSearch) {
+function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, CollectionSearch, $translate) {
     var vm = this;
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
     vm.q = $stateParams.q;
-    Page.setTitle('Institution');
+    $translate('collection.institution.title').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(false);
     vm.key = $stateParams.key;
     vm.$state = $state;

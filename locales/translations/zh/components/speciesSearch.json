@@ -1,5 +1,6 @@
 {
     "speciesSearch": {
+        "title": "",
         "youAreCurrentlySearchingInGBIFtaxonomy": "您正在寻找基于 GBIF分类中的物种。",
         "SearchAcrossChecklists": "跨名录检索",
         "freeTextSearchFor": "您正在执行 \"{QUERY}\" 的自由文本搜索",

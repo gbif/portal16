@@ -61,5 +61,8 @@
       "not": "НЕ",
       "isNotNull": "Не пустой"
     }
+  },
+  "myDownloads": {
+    "title": ""
   }
 }

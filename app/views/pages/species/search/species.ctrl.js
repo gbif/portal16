@@ -6,9 +6,11 @@ angular
     .controller('speciesCtrl', speciesCtrl);
 
 /** @ngInject */
-function speciesCtrl($scope, $state, SpeciesFilter, Species, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
+function speciesCtrl($scope, $state, SpeciesFilter, $translate, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
     var vm = this;
-    Page.setTitle('Species search');
+    $translate('speciesSearch.title').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(true);
     vm.state = SpeciesFilter.getState();
     vm.$state = $state;

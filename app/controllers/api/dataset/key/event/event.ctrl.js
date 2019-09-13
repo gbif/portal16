@@ -22,7 +22,7 @@ router.get('/api/dataset/:datasetKey/event/:eventKey', function render(req, res,
 });
 
 router.get('/api/dataset/:datasetKey/eventCount', function render(req, res) {
-    let limit = 1001;
+    let limit = 10001;
     let q = {datasetKey: req.params.datasetKey, limit: 0, facet: 'eventId', facetLimit: limit};
     if (req.query.parentEventID) {
         q.parentEventID = req.query.parentEventID;

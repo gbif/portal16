@@ -1,5 +1,6 @@
 <div class="container--desktop m-t-1 ng-cloak" ng-if="datasetKey.hasEvents">
-    <h4 class="card-header--bold" tx="counts.nEvent" tx-nr="datasetKey.eventCount"></h4>
+    <h4 ng-if="datasetKey.eventCount" class="card-header--bold" tx="counts.nEvents" tx-nr="datasetKey.eventCount"></h4>
+    <h4 ng-if="!datasetKey.eventCount" class="card-header--bold" translate="dataset.events"></h4>
     <div class="card card--spaced m-b-1">
         <div class="card__stripe card__stripe--light">
             <div class="scrollable-y">

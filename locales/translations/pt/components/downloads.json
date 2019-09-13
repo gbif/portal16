@@ -61,5 +61,8 @@
       "not": "Não",
       "isNotNull": "Está definido"
     }
+  },
+  "myDownloads": {
+    "title": ""
   }
 }

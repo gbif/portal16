@@ -13,12 +13,13 @@ angular
     .controller('dataValidatorDocumentCtrl', dataValidatorDocumentCtrl);
 
 /** @ngInject */
-function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env) {
+function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env, $translate) {
     var vm = this;
     vm.$state = $state;
     vm.dataApi = env.dataApi;
-
-    Page.setTitle('Data validator');
+    $translate('validation.dataValidator').then(function(title) {
+        Page.setTitle(title);
+    });
     Page.drawer(false);
 
     vm.getEML = function(jobid) {

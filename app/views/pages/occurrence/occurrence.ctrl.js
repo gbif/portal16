@@ -16,7 +16,7 @@ angular
 /** @ngInject */
 function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
     var vm = this;
-    $translate('resource.occurrenceSearch').then(function(title) {
+    $translate('occurrenceSearch.title').then(function(title) {
         Page.setTitle(title);
     });
     Page.drawer(true);

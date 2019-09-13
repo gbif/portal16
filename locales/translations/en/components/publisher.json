@@ -1,5 +1,6 @@
 {
   "publisher": {
+    "searchTitle": "Publisher search",
     "tabs": {
       "aboutPublisher": "About",
       "metrics": "Metrics",
