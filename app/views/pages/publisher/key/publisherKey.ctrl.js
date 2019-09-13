@@ -113,12 +113,8 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, OccurrenceTable
 
         vm.marker = {point: [vm.publisher.longitude, vm.publisher.latitude], message: vm.publisher.title};
         vm.baselayer = {
-            url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
-            attribution: '&copy; <a href=\'https://www.mapbox.com/\' class="inherit">Mapbox</a> '
-            + '<a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\' class="inherit">OpenStreetMap contributors</a>',
-            params: {
-                access_token: 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ'
-            }
+            url: 'https://tile.gbif.org/3857/omt/{z}/{x}/{y}@1x.png?style=osm-bright-en&srs=EPSG%3A3857',
+            attribution: '&copy; <a href=\'http://www.openstreetmap.org/copyright\' target=\'_blank\' class="inherit">OpenStreetMap contributors</a>'
         };
     }
 }

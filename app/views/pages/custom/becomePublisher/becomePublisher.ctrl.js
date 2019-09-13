@@ -140,7 +140,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
             layers: [
                 new ol.layer.Tile({
                     source: new ol.source.XYZ({
-                        url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ'
+                        url: 'https://tile.gbif.org/3857/omt/{z}/{x}/{y}@1x.png?style=osm-bright-en&srs=EPSG%3A3857'
                     })
                 })
             ],

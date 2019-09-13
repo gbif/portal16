@@ -151,7 +151,7 @@ function featureMapDirective(BUILD_VERSION) {
 
 function createMap(element, style, baseLayer, projection) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
-    var baseMapStyle = {style: style || 'gbif-geyser-en'};
+    var baseMapStyle = {style: style || 'osm-bright-en'};
 
     var interactions = ol.interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
     var map = new ol.Map({

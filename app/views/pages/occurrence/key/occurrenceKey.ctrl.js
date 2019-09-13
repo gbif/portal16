@@ -84,16 +84,8 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
         vm.projection = 'EPSG:3575';
         vm.center.zoom = 4;
     } else if (vm.data.decimalLatitude) {
-        vm.projection = 'EPSG:3857';
+        vm.projection = 'EPSG:4326';
         vm.center.zoom = 6;
-        vm.baselayer = {
-            url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?',
-            attribution: '&copy; <a href="https://www.mapbox.com/" class="inherit">Mapbox</a>, '
-            + '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank" class="inherit">OpenStreetMap contributors</a>',
-            params: {
-                access_token: accessToken
-            }
-        };
     }
 
     if ((typeof vm.data.footprintWKT === 'undefined' || !hasValidOrNoSRS(vm.data)) && (typeof vm.data.decimalLatitude === 'undefined' || typeof vm.data.decimalLongitude === 'undefined')) {
