@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "",
     "longType": {
       "OCCURRENCE": "Observationsdatasæt",
       "CHECKLIST": "Checklistedatasæt",
@@ -78,6 +79,7 @@
     "eventDescription": "Event beskrivelse",
     "siblingEvents": "Søskende events",
     "childEvents": "Underordnede events",
+    "events": "",
     "occurrenceCount": "Antal observationer",
     "inDataset": "",
     "samplingArticleLink": ""

@@ -30,6 +30,7 @@
     }
   },
   "institution": {
+    "title": "",
     "search": {
       "title": "Instituciones",
       "description": "**La institución** se refiere a cualquier institución o organización que posea y administre colecciones científicas. Esto incluye herbarios, museos, zoológicos, jardines botánicos, biobancos, entre otros. Una institución puede contener múltiples colecciones, en cuyo caso las deben ser ingresadas individualmente bajo  **Colecciones Institucionales/Proyecto**  y vinculadas a la institución padre.\n\nDebido a la integración de varios conjuntos de datos antiguos, y evitar la duplicación de  **InstitutionCode**, <IH> se ha anexado a todos los códigos Herbariorum Herbarium Index."
@@ -55,6 +56,7 @@
     "false": "No"
   },
   "grscicollPerson": {
+    "title": "",
     "search": {
       "title": "Personal de la colección",
       "description": "Los miembros del personal de GRSciColl corresponden a todo tipo de personal involucrado en las colecciones, pueden estar asociados con la institución y/o cualquier tipo de colección."

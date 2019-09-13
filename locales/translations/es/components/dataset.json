@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "",
     "longType": {
       "OCCURRENCE": "Juego de datos de registros de presencias",
       "CHECKLIST": "Conjunto de datos de listas de especies",
@@ -78,6 +79,7 @@
     "eventDescription": "Descripción del evento",
     "siblingEvents": "Evento hermano",
     "childEvents": "Eventos derivados",
+    "events": "",
     "occurrenceCount": "Número (cantidad) de registros",
     "inDataset": "En",
     "samplingArticleLink": "Más sobre eventos de muestreo en GBIF.org"

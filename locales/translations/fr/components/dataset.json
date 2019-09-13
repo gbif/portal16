@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "Recherche de jeux de données",
     "longType": {
       "OCCURRENCE": "Jeu de données d'occurrences",
       "CHECKLIST": "Liste taxonomique",
@@ -78,6 +79,7 @@
     "eventDescription": "Description de l'événement",
     "siblingEvents": "Événements associés",
     "childEvents": "Sous-événements",
+    "events": "",
     "occurrenceCount": "Nombre d’occurrences",
     "inDataset": "Dans",
     "samplingArticleLink": "Plus d’informations à propos des événements d'échantillonnage sur GBIF.org"

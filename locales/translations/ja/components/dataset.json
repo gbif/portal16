@@ -1,5 +1,6 @@
 {
   "dataset": {
+    "datasetSearchTitle": "",
     "longType": {
       "OCCURRENCE": "オカレンスデータセット",
       "CHECKLIST": "チェックリスト データセット",
@@ -78,6 +79,7 @@
     "eventDescription": "イベントの説明",
     "siblingEvents": "同胞イベント",
     "childEvents": "子イベント",
+    "events": "",
     "occurrenceCount": "オカレンスのカウント",
     "inDataset": "内",
     "samplingArticleLink": "GBIF.orgにおけるサンプリングイベントをもっと表示"
