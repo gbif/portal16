@@ -30,7 +30,7 @@
     }
   },
   "institution": {
-    "title": "",
+    "title": "Instituição",
     "search": {
       "title": "Instituição",
       "description": "**Instituição** refere-se a qualquer instituição ou organização que possui e gere coleções científicas. Isso inclui herbaria, museus, zoos, jardins botânicos, bio bancos, entre outros. Uma instituição pode conter múltiplas coleções, caso em que essas devem ser inseridas individualmente através de **Coleções institucionais/projectos**  e ligadas à instituição-mãe.\n\nDevido à integração de vários conjuntos de dados antigos, e para evitar duplicações de *CódigoInstitucional**, <IH> foi anexado a todos os códigos do Index Herbariorum Herbarium."
@@ -56,7 +56,7 @@
     "false": "Não"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "Pessoa",
     "search": {
       "title": "Funcionários da coleção",
       "description": "Membros da equipe GRiColl são qualquer tipo de membro envolvido com as coleções. Eles podem ser associados à instituição e/ou a qualquer tipo de coleção."
@@ -77,16 +77,16 @@
   "grscicoll": {
     "title": "",
     "tabs": {
-      "about": "",
-      "institutions": "",
-      "collections": "",
+      "about": "Sobre",
+      "institutions": "Instituições",
+      "collections": "Coleções",
       "people": ""
     },
     "contact": {
       "phone": "",
       "email": "Email",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "Endereço para correspondência",
       "physicalAddress": "",
       "contacts": "Contactos",
       "address": "Morada",
