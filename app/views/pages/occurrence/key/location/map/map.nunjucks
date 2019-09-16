@@ -12,7 +12,8 @@
                     projection="occurrenceKey.projection"
                     mapcenter="occurrenceKey.center"
                     on-map-move="occurrenceKey.onMapMove"
-                    mapstyle="'osm-bright'"></feature-map>
+                    map-style="'osm-bright-' + occurrenceKey.LOCALE_2_LETTER">
+                </feature-map>
 
                 <div class="globe-context">
                     <canvas class="globe"></canvas>

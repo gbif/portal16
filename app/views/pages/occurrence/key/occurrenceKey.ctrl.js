@@ -9,9 +9,10 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION) {
+function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION, LOCALE_2_LETTER) {
     var vm = this;
     vm.gb = gb;
+    vm.LOCALE_2_LETTER = LOCALE_2_LETTER;
     var globe;
     var globeCanvas;
     vm.key = $stateParams.key;
