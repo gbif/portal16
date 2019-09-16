@@ -32,8 +32,6 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
 
     vm.hideDetails = false;
 
-    var accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
-
     vm.highlights = {
         issues: {
             expanded: false
