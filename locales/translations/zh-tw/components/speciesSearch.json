@@ -1,6 +1,6 @@
 {
     "speciesSearch": {
-        "title": "",
+        "title": "物種搜尋",
         "youAreCurrentlySearchingInGBIFtaxonomy": "您正從 GBIF 分類群搜尋物種",
         "SearchAcrossChecklists": "從物種名錄搜尋",
         "freeTextSearchFor": "您正以 {QUERY} 來進行文字搜尋",
