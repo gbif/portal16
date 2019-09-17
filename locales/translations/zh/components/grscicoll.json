@@ -56,7 +56,7 @@
     "false": "否"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "人",
     "search": {
       "title": "馆藏工作人员",
       "description": "GRSciColl 职员是指参与馆藏工作的人员。他们与机构及/或任何类型的馆藏都相关联。"
@@ -78,15 +78,15 @@
     "title": "",
     "tabs": {
       "about": "关于",
-      "institutions": "",
-      "collections": "",
+      "institutions": "机构",
+      "collections": "集合",
       "people": ""
     },
     "contact": {
       "phone": "",
       "email": "电子邮件",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "邮寄地址",
       "physicalAddress": "",
       "contacts": "联系人",
       "address": "地址",
