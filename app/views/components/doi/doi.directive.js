@@ -25,7 +25,7 @@ function doiDirective() {
     function doiCtrl() {
         var vm = this;
         vm.asDoi = function() {
-            return vm.link.replace(/^.*(10\.)/, '10.');
+            return vm.link.replace(/^(.*doi.org\/)?(doi:)?(10\.)/, '10.');
         };
     }
 }
