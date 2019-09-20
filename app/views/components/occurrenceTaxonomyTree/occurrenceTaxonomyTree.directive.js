@@ -94,16 +94,15 @@ function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
             var filter = vm.filter || {};
 
             var customQuery = {offset: item.children.length, limit: 20};
-            if (item._resolved && item._resolved.key) {
+            var resolvedAndHasKey = item._resolved && typeof item._resolved.key !== 'undefined';
+            if (resolvedAndHasKey) {
                 var filterKeys = [];
                 vm.filteredTaxa.forEach(function(taxon) {
                     if (hasTaxonKey(taxon, item._resolved.key, item._resolved.rank)) {
                         filterKeys.push(taxon.key);
                     }
                 });
-                if (filterKeys.length == 0 && item._resolved.key) {
-                    filterKeys.push(item._resolved.key);
-                }
+                filterKeys.push(item._resolved.key);
                 customQuery.taxon_key = filterKeys;
             }
 
