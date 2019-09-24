@@ -13,6 +13,37 @@ let linkTools = require('./links/links');
 let defaultLanguage = require('../../config/config').defaultLocale;
 let localeConfig = require('../../config/locales');
 
+let defaultAllowedTags = [
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'blockquote',
+    'p',
+    'a',
+    'ul',
+    'ol',
+    'nl',
+    'li',
+    'b',
+    'i',
+    'strong',
+    'em',
+    'strike',
+    'code',
+    'hr',
+    'br',
+    'div',
+    'table',
+    'thead',
+    'caption',
+    'tbody',
+    'tr',
+    'th',
+    'td',
+    'pre'
+];
+
 // GBIF/UN date style
 moment.updateLocale('en', {
     longDateFormat: {
@@ -201,18 +232,18 @@ function localizeLinks(dirty, urlPrefix) {
     urlPrefix = urlPrefix || '';
     dirty = dirty || '';
     return sanitizeHtml(dirty, {
-            allowedTags: false,
-            allowedAttributes: false,
-            transformTags: {
-                'a': function(tagName, attr) {
-                    attr.href = prefixLinkUrl(attr.href, urlPrefix);
-                    return {
-                        tagName: 'a',
-                        attribs: attr
-                    };
-                }
+        allowedTags: false,
+        allowedAttributes: false,
+        transformTags: {
+            'a': function(tagName, attr) {
+                attr.href = prefixLinkUrl(attr.href, urlPrefix);
+                return {
+                    tagName: 'a',
+                    attribs: attr
+                };
             }
         }
+    }
     );
 }
 
@@ -229,55 +260,55 @@ function sanitizeTrusted(dirty, urlPrefix) {
     let allowedTags = ['img', 'h2', 'iframe', 'span'];
     let clean;
     clean = sanitizeHtml(dirty, {
-            allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
-            allowedAttributes: {
-                '*': ['id', 'href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen', 'gb-help', 'gb-help-options']
-            },
-            transformTags: {
-                'a': function(tagName, attr) {
-                    if (attr.href) {
-                        attr.href = prefixLinkUrl(attr.href, urlPrefix);
-                        let linkUrl = url.parse(attr.href);
-                        let urlPathname = linkUrl.pathname;
-                        let urlParams = new URLSearchParams(linkUrl.search);
-                        if (urlPathname === '/faq' && urlParams.get('question') && urlParams.get('inline') === 'true') {
-                            return {
-                                tagName: 'span',
-                                attribs: {
-                                    'gb-help': urlParams.get('question')
-                                }
-                            };
-                        } else {
-                            return {
-                                tagName: 'a',
-                                attribs: attr
-                            };
-                        }
+        allowedTags: defaultAllowedTags.concat(allowedTags),
+        allowedAttributes: {
+            '*': ['id', 'href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen', 'gb-help', 'gb-help-options']
+        },
+        transformTags: {
+            'a': function(tagName, attr) {
+                if (attr.href) {
+                    attr.href = prefixLinkUrl(attr.href, urlPrefix);
+                    let linkUrl = url.parse(attr.href);
+                    let urlPathname = linkUrl.pathname;
+                    let urlParams = new URLSearchParams(linkUrl.search);
+                    if (urlPathname === '/faq' && urlParams.get('question') && urlParams.get('inline') === 'true') {
+                        return {
+                            tagName: 'span',
+                            attribs: {
+                                'gb-help': urlParams.get('question')
+                            }
+                        };
                     } else {
                         return {
                             tagName: 'a',
                             attribs: attr
                         };
                     }
+                } else {
+                    return {
+                        tagName: 'a',
+                        attribs: attr
+                    };
                 }
-
-                // 'iframe': function (tagName, attr) {
-                //    // My own custom magic goes here
-                //    var innerElement = '<iframe src="' + attr.src + '"/>';
-                //    var w = parseInt(attr.width),
-                //        h = parseInt(attr.height);
-                //    var ratio = w / h;
-                //    return {
-                //        tagName: 'div',
-                //        attribs: {
-                //            class: 'video-container',
-                //            style: 'padding-bottom:60%'
-                //        },
-                //        text: innerElement
-                //    };
-                // }
             }
+
+            // 'iframe': function (tagName, attr) {
+            //    // My own custom magic goes here
+            //    var innerElement = '<iframe src="' + attr.src + '"/>';
+            //    var w = parseInt(attr.width),
+            //        h = parseInt(attr.height);
+            //    var ratio = w / h;
+            //    return {
+            //        tagName: 'div',
+            //        attribs: {
+            //            class: 'video-container',
+            //            style: 'padding-bottom:60%'
+            //        },
+            //        text: innerElement
+            //    };
+            // }
         }
+    }
     );
     return clean;
 }
@@ -285,9 +316,9 @@ function sanitizeTrusted(dirty, urlPrefix) {
 function removeHtml(dirty) {
     dirty = dirty || '';
     let clean = sanitizeHtml(dirty, {
-            allowedTags: [],
-            allowedAttributes: []
-        }
+        allowedTags: [],
+        allowedAttributes: []
+    }
     );
     return clean;
 }
@@ -296,14 +327,14 @@ function sanitize(dirty, additionalAllowedTags) {
     dirty = dirty || '';
     let allowedTags = additionalAllowedTags ? ['img', 'h2'].concat(additionalAllowedTags) : ['img', 'h2'];
     let clean = sanitizeHtml(dirty, {
-            allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
-            allowedAttributes: {
-                '*': ['href', 'name', 'target', 'src', 'class', 'gb-help', 'gb-help-options']
-            },
-            exclusiveFilter: function(frame) {
-                return frame.tag === 'p' && !frame.text.trim();
-            }
+        allowedTags: defaultAllowedTags.concat(allowedTags),
+        allowedAttributes: {
+            '*': ['href', 'name', 'target', 'src', 'class', 'gb-help', 'gb-help-options']
+        },
+        exclusiveFilter: function(frame) {
+            return frame.tag === 'p' && !frame.text.trim();
         }
+    }
     );
     return clean;
 }
@@ -312,12 +343,12 @@ function addPortalClasses(raw) {
     raw = raw || '';
     let clean;
     clean = sanitizeHtml(raw, {
-            allowedTags: false,
-            allowedAttributes: false,
-            transformTags: {
-                'table': sanitizeHtml.simpleTransform('table', {class: 'table'})
-            }
+        allowedTags: false,
+        allowedAttributes: false,
+        transformTags: {
+            'table': sanitizeHtml.simpleTransform('table', {class: 'table'})
         }
+    }
     );
     return clean;
 }
