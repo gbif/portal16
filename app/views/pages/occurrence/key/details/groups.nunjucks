@@ -26,19 +26,25 @@
                         </td>
                         <td dir="auto">
                             {% if occurrence.record[term.simpleName] | isDefined %}
-                                {% if term.simpleName !== "typeStatus" and term.simpleName !== "identificationRemarks" and term.simpleName !== "associatedSequences"%}
-                                    {$ shorten.shorten(occurrence.record[term.simpleName]) $}
-                                {% endif %}
+
                                 {% if term.simpleName == "identificationRemarks" or term.simpleName == "associatedSequences" %}
                                     <span ng-bind-html="'{$ occurrence.record[term.simpleName] $}' | linky"></span>
-                                {% endif %}
-                                {% if term.simpleName == "typeStatus" %}
+                                {% elif term.simpleName == "basisOfRecord" %}
+                                    <span translate="basisOfRecord.{$ occurrence.record.basisOfRecord $}"></span>
+                                {% elif term.simpleName == "taxonRank" %}
+                                    <span translate="taxonRank.{$ occurrence.record.taxonRank $}"></span>
+                                {% elif term.simpleName == "taxonomicStatus" %}
+                                    <span translate="taxonomicStatus.{$ occurrence.record.taxonomicStatus $}"></span>
+                                {% elif term.simpleName == "typeStatus" %}
                                     {% if occurrence.record.typifiedName and occurrence.record.typifiedName !== occurrence.record.scientificName %}
                                         <span translate="occurrence.typeOf" translate-values="{TYPE: '{$ occurrence.record.typeStatus $}', NAME: '{$ occurrence.record.typifiedName $}' }"></span>
                                     {% else %}
                                         <span translate="typeStatus.{$ occurrence.record.typeStatus $}"></span>
                                     {% endif %}
+                                {% else %}
+                                    {$ shorten.shorten(occurrence.record[term.simpleName]) $}
                                 {% endif %}
+
                                 {% if term.simpleName == "organismID" %}
                                     <span class="chip">
                                         <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', organism_id: '{$ occurrence.record.organismID $}' })">
