@@ -15,8 +15,7 @@ let knownFilters =
 let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 let client = new elasticsearch.Client({
-    host: elasticContentful,
-    index: 'content'
+    host: elasticContentful
 });
 
 async function getItem(requestQuery, __, options) {
@@ -106,11 +105,11 @@ function buildQuery(query) {
         _.set(body, 'query.bool.must[0].bool.should[0].match_phrase._all.query', query.q);
         _.set(body, 'query.bool.must[0].bool.should[0].match_phrase._all.boost', 100);
 
-        if (query.q.indexOf('"') == -1) {
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', 'and');
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.boost', 50);
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.lenient', true);
+        if (query.q.indexOf('"') === -1) {
+            // _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
+            // _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', 'and');
+            // _.set(body, 'query.bool.must[0].bool.should[2].match._all.boost', 50);
+            // _.set(body, 'query.bool.must[0].bool.should[2].match._all.lenient', true);
 
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
             _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', 'and');
@@ -222,52 +221,47 @@ function buildQuery(query) {
                 }
             ];
         } else {
-            body.query = {
-                'function_score': {
-                    'functions': [
-                        {
-                            'gauss': {
-                                'createdAt': {
-                                    'origin': 'now',
-                                    'scale': '1h',
-                                    'decay': 0.98
-                                }
-                            },
-                            'weight': 10
-                        }
-                    ],
-                    'query': body.query
-                }
-            };
-
-            // body.sort = [
-            //    {
-            //        "createdAt": {
-            //            "order": "desc",
-            //            "missing" : "_last",
-            //            "unmapped_type": "date"
-            //        }
-            //    }
-            // ];
+            // body.query = {
+            //     'function_score': {
+            //         'functions': [
+            //             {
+            //                 'gauss': {
+            //                     'createdAt': {
+            //                         'origin': 'now',
+            //                         'scale': '1h',
+            //                         'decay': 0.98
+            //                     }
+            //                 },
+            //                 'weight': 10
+            //             }
+            //         ],
+            //         'query': body.query
+            //     }
+            // };
+            body.sort = [
+               {
+                   createdAt: {
+                       order: 'desc',
+                       missing: '_last',
+                       unmapped_type: 'date'
+                   }
+               }
+            ];
         }
     } else {
-        body.query = {
-            'function_score': {
-                'boost': '5',
-                'functions': [
-                    {
-                        'filter': {'match': {'keywords': {'query': query.q}}},
-                        'weight': 100
-                    }
-                    // ,{
-                    //    "filter": { "match": { "title": {"query": query.q } } },
-                    //    "weight": 20
-                    // }
-                ],
-                'score_mode': 'avg',
-                'query': body.query
-            }
-        };
+        // body.query = {
+        //     'function_score': {
+        //         'boost': '5',
+        //         'functions': [
+        //             {
+        //                 'filter': {'match': {'keywords': {'query': query.q}}},
+        //                 'weight': 100
+        //             }
+        //         ],
+        //         'score_mode': 'avg',
+        //         'query': body.query
+        //     }
+        // };
     }
 
     searchParams.body = body;
