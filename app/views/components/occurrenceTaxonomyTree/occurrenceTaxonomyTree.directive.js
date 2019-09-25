@@ -102,7 +102,9 @@ function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
                         filterKeys.push(taxon.key);
                     }
                 });
-                filterKeys.push(item._resolved.key);
+                if (filterKeys.length === 0 && resolvedAndHasKey) {
+                    filterKeys.push(item._resolved.key);
+                }
                 customQuery.taxon_key = filterKeys;
             }
 
