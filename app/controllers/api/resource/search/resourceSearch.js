@@ -15,7 +15,8 @@ let knownFilters =
 let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 let client = new elasticsearch.Client({
-    host: elasticContentful
+    host: elasticContentful,
+    index: 'content'
 });
 
 async function getItem(requestQuery, __, options) {
@@ -228,8 +229,8 @@ function buildQuery(query) {
                             'gauss': {
                                 'createdAt': {
                                     'origin': 'now',
-                                    'scale': '7d',
-                                    'decay': 0.75
+                                    'scale': '1h',
+                                    'decay': 0.98
                                 }
                             },
                             'weight': 10
