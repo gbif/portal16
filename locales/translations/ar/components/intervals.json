@@ -9,9 +9,9 @@
             "invalid": "غير صحيح",
             "select": {
                 "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "between": "ما بين",
+                "lessThanOrEquals": "أقل",
+                "greaterThanOrEquals": "أعلى"
             }
         },
         "depth": {
@@ -19,12 +19,12 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "غير صحيح",
             "select": {
                 "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "between": "ما بين",
+                "lessThanOrEquals": "أقل من",
+                "greaterThanOrEquals": "أعمق من"
             }
         },
         "year": {
@@ -32,12 +32,12 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "غير صحيح",
             "select": {
                 "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "between": "ما بين",
+                "lessThanOrEquals": "قبل النهاية",
+                "greaterThanOrEquals": "بعد البداية"
             }
         }
     }
