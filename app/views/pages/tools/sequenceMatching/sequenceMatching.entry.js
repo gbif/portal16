@@ -21,7 +21,18 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     vm.itemToEdit = undefined;
     vm.error;
     vm.$location = $location;
-    vm.matchThreshold = 98.5;
+    vm.thresholds = {
+        'ITS': 98.5,
+        'COI': 99
+    };
+    vm.selectedMarker = 'COI';
+    vm.matchThreshold = vm.thresholds[vm.selectedMarker];
+
+    $scope.$watch(function() {
+        return vm.selectedMarker;
+    }, function(newMarker) {
+        vm.matchThreshold = vm.thresholds[newMarker];
+    });
     window.onbeforeunload = function(e) {
         if (!vm.error && vm.species && vm.species.length > 0) {
             var dialogText = 'By leaving the page you loose your data.';
@@ -30,7 +41,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         }
     };
     vm.loadTestData = function() {
-        vm.inputList =
+        if (vm.selectedMarker === 'ITS') {
+            vm.inputList =
             '> 1 Unknown fungus\n' +
             'ATTACTCATCCAAATCCTTTGGATGGACTTGAGCTTGCATTAGCTGGCTTGAAATGAATTGGGTAAACATCTACCATGTCTATCGTCATATTTATTTGCGATATTCTAACTGGTAGTGAGTAGTCCCTTAATAATTTTTAA\n\n' +
             '> 2 Cortinarius sp.\n' +
@@ -38,6 +50,21 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             'CATTTAATGGGCTTTTTATGCCTTTAAATCTATTACAACTTTCAGCAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACCTTGCGCTCCTTGGTATTCCGAGGAGCATGCCTGTTTGAGTGTCATTAATATTATCAACCTCTTTGGTTGGATTTGGGTTTACTGGCCTTGTTGAGGTCAGCTCTCCTTAAATGCATTAGCAGACAACATTTTGTCAACCGTTCATTGGTGTGATAATTATCTACGCTATTGATCGTGAAGGCAGGGTTCAGCTTCTAACAGTCCATTGGCTTGGACAAATTTTATTAATGTGACCTCAAATCAGGTAGGACTACCCGCTGAACTTAAGCA\n\n' +
             '> 3 Entoloma sp.\n' +
             'CATTATTGAATAAGCTTGGTTTCAGATTGTTGCTGGTTCTGCGGGACATGTGCACGTCTGTTCCATTTTTGTTACCACCTGTGCACTTTGTGTAGATCTGAATAACTCTCGAGGCAAACCTCGGTCTTCAAGACATTGCTGGGCATTTGAGATGTACGGCTTTGTCATTATATATTCAGATCTATGTCTTACTACACTACACAATAACAAGTATCTGAAGTTGGTTGCACCTATAAAGATATATTATAACTTTCAACAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACCTTGCGCTCCTTGGTATTCCGAGGAGCATGCCTGTTTGAGTGTCATGAAATCCCTCATCCTTTCGAGCTTTTATTATTAAGCTTGTCAGGCTTTGGATTCTGGGAGTTTGCTGGCTTTATCGAGTCAGCTCTTCTTAAATGTATTAGCAAGATCATCGCTAAATCATCTTTGATATGATAATTATCTATATCAATAAATGAGACCTAAGCGGATTCCATTTCGGAAAACAGATCGAGCTTTACAATCGTCTCAGGACAATTTGAATCATTGACCTCAAATCAG';
+        } else if (vm.selectedMarker === 'COI') {
+            vm.inputList =
+            '>6710bb2567be9253b3e723a8787dd4835beddd61\n' +
+            'ACTTTCTGCTAGTATTGCACATGGAGGAGCTTCTGTTGATTTAGCTATTTTTTCCCTTCATTTAGCTGGAATATCATCAATTTTAGGGGCTGTAAATTTTATTACTACAGTAATTAATATACGATCTAATGGAATTTCTTATGATCGTATACCTTTATTTGTATGATCAGTAGTAATTACTGCTTTATTATTACTTTTATCATTA\n' +
+            '>16d5df0f1e7fd0b46a2e94108ece90c036f87e3f\n' +
+            'CTTATCAGCCAGTATTGCCCATACAGGAGCTTCTGTAGACTTAGCTATTTTTTCTTTACATTTAGCCGGAATTTCTTCTATTTTAGGAGCTGTAAATTTTATTACAACTACAATTAATATACGATCAAGAGGAATTACATTAGATCGAATACCTTTATTTGTTTGATCTGTTGTCATTACTGCAATTTTATTATTGCTTTCTCTT\n' +
+            '>c5e12cc67306e65864499750d51b19babdff0fba\n' +
+            'TCTTTCTTCAGGAATTGCTCATGGTGGTGCATCAGTAGATTTAGCTATTTTTTCTCTTCATTTAGCAGGAATTTCCTCTATTCTAGGAGCAGTAAACTTCATCACAACCGTGATTAATATACGATCAACAGGAATTACATTTGATCGAATACCTCTATTTGTTTGATCTGTGGTAATTACAGCTATCTTATTGTTACTATCTTTA\n' +
+            '>d5050033bfc25a1af1b18e6e5d63b4b2d31711c1\n' +
+            'ATTGTCAGCAGGAATCGCGCATGGAGGAGCATCAGTTGATCTGGCTATTTTTTCATTACACCTAGCAGGAATTTCATCAATTTTGGGGGCAGTAAATTTTATTACAACAGTAATTAATATGCGATCAACAGGGATTACTCTTGATCGAATACCTCTATTTGTATGATCAGTTGTTATTACTGCAATTCTTTTATTATTATCCCTC\n' +
+            '>87b84f17dc0528473a63af68c5da4ed4ddf5ee83\n' +
+            'TCTATCCTCAATTATAGGTCATAATTCACCATCAGTAGATTTAGGAATTTTCTCTATTCATATTGCAGGTGTATCATCAATTATAGGATCAATTAATTTTATTGTAACAATTTTAAATATACATACAAAAACTCATTCATTAAACTTTTTACCATTATTTTCATGATCAGTTCTAGTTACAGCAATTCTCCTTTTATTATCATTA\n' +
+            '>a5bc3bae939c439294d7965e19de082c06493ea0\n' +
+            'TCTTTCTGCTAGTATTGCACATGGAGGAGCTTCTGTTGATTTAGCTATTTTTTCTCTTCATTTAGCAGGAATATCTTCAATTTTAGGGGCAGTAAATTTTATTACAACAGTAATTAATATACGTTCTAGTGGACTTACTTATGATCGAATACCTTTATTTGTATGATCAGTAGTAATTACAGCTTTATTATTACTTCTATCATTA';
+        }
     };
 
     vm.handleDrop = function(e) {
@@ -61,7 +88,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             if (s.length > 1 && s[0] && s[1]) {
                 result.push({
                     occurrenceId: s[0].replace(/[^\x20-\x7E]/gim, ''),
-                    marker: 'its',
+                    marker: vm.selectedMarker,
                     sequence: s.slice(1).join('').replace(/[^\x20-\x7E]/gim, '')
                 });
             }
@@ -116,6 +143,14 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
                 result = result.map(function(e) {
                     return getLowerKeysObj(e);
                 });
+                if (_.get(result, '[0].marker')) {
+                    var firstRecordMarker = _.get(result, '[0].marker');
+                    if (firstRecordMarker.toLowerCase().indexOf('its') > -1) {
+                        vm.selectedMarker = 'ITS';
+                    } else if (firstRecordMarker.toLowerCase().indexOf('coi') > -1 || firstRecordMarker.toLowerCase().indexOf('co1') > -1) {
+                        vm.selectedMarker = 'COI';
+                    }
+                }
                 if (
                     result.every(function(e) {
                         return e.sequence || e.consensussequence;
@@ -128,7 +163,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
                             e.occurrenceID ||
                             e.id;
                         e.sequence = e.sequence || e.consensussequence;
-                        e.marker = e.marker || 'its';
+                        e.marker = e.marker || vm.selectedMarker;
                     });
                     vm.species = result;
                     vm.matchedSequenceCount = 0;
@@ -437,7 +472,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     vm.help = {
         occurrenceId:
             'If you uploaded data in FASTA format, this is the ID line for the sequence. For publication to GBIF occurrenceId must be unique.',
-        marker: 'The DNA marker, currently only ITS is supported',
+        marker: 'The DNA marker, COI and ITS are supported',
         identity:
             'The extent to which two sequences have the same residues at the same positions in an alignment',
         bitScore:

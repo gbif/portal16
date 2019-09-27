@@ -3,18 +3,25 @@
 
     <div layout="row" layout-align="center start" ng-cloak>
         <div class="nameParser__prose" >
-          <p>This tool will query a blast database of the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a> (a reference database for DNA barcoding of Fungi). 
-        All returned matches will then be matched against the GBIF backbone taxonomy by their identifier (e.g. SH191277.07FU). These OTU identifiers can be used for publishing sequence based data to GBIF. When the matching is complete, the result can be downloaded as a csv with identifiers included.</p>
-        <p>Only ITS sequences are currently supported.</p>
-            <p >Files can be uploaded in CSV or FASTA format. CSVs are expected to have a column named 'sequence' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
+          <p>This tool will query taxonomy reference databases for Fungi and Animals</p>
+          <p>ITS sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a> (a reference database for DNA barcoding of Fungi)</p>
+        <p>COI sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">International Barcode of Life project (iBOL)</a> public data (COI-5P sequences)</p>
+            <p >Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
 
         </div>
     </div>
     <div layout="row" layout-align="center start" layout-padding ng-cloak>
     <div class="nameParser__name-paste-form" layout-align="start center">
     <form >
+    <label >Select marker</label>
+    <md-radio-group ng-model="vm.selectedMarker" layout="row">
+
+      <md-radio-button class="md-primary" value="ITS" >ITS</md-radio-button>
+      <md-radio-button class="md-primary" value="COI"> COI </md-radio-button>
+
+    </md-radio-group>
         <md-input-container class="md-block ">
-            <label >Paste sequences here (fasta format)</label>
+            <label >Paste sequences here (fasta format, remember to select marker)</label>
             <textarea class="nameParser__name-paste-area" ng-model="vm.inputList" rows="10" md-select-on-focus></textarea>
         </md-input-container>
         <div class="text-center">
@@ -52,16 +59,26 @@
     <div class="nameParser__prose">
     <h4>References</h4>
         <div layout="row" >
-            <div class="small p-r-1">
+            <div class="small p-r-1" flex="33">
                 
                         <div>
-                            UNITE Community (2017): UNITE general FASTA release. Version 01.12.2017. UNITE Community. 
+                            UNITE Community (2019): UNITE general FASTA release for Fungi 2. Version 18.11.2018. UNITE Community. 
                         </div>
-                        <doi link="https://doi.org/10.15156/BIO/587475"></doi>
+                        <doi link="https://doi.org/10.15156/BIO/786353"></doi>
                             
 
             </div>
-            <div class="small p-r-1">
+            <div class="small p-r-1" flex="33">
+                
+                        <div>
+                            The International Barcode of Life Consortium (2016). International Barcode of Life project (iBOL). Occurrence dataset accessed via GBIF.org on 2019-09-26.
+                        </div>
+                        <doi link="https://doi.org/10.15468/inygc6"></doi>
+                            
+
+            </div>
+
+            <div class="small p-r-1" flex="33">
                 
                         <div>
                             Kõljalg, U. et.al. (2013). Towards a unified paradigm for sequence‐based identification of fungi. Molecular Ecology. 22 (21): 5271-5277.
@@ -71,7 +88,21 @@
 
 
             </div>
-            <div class="small">
+            </div>
+            <div layout="row" class="m-t-1 m-b-1" >
+            <div class="small p-r-1" flex="33">
+                
+                        <div>
+                            Ratnasingham, S., & Hebert, P. D. N. (2013, July 8). A DNA-Based Registry for All Animal Species: The Barcode Index Number (BIN) System. (D. Fontaneto, Ed.) PLoS ONE. Public Library of Science (PLoS).
+                        </div>
+                        <doi link="http://doi.org/10.1371/journal.pone.0066213"></doi>
+                     
+
+
+            </div>
+
+            
+            <div class="small p-r-1" flex="33">
                 
                         <div>
                             Altschul, S., Gish, W., Miller, W., Myers, E., Lipman, D. (1990). Basic local alignment search tool. Journal of Molecular Biology. 215 (3): 403–410.
@@ -79,6 +110,18 @@
                         <doi link="https://doi.org/10.1016/S0022-2836(05)80360-2"></doi>
 
             </div>
+
+            <div class="small p-r-1" flex="33">
+                
+                        <div>
+                            Palmer JM, Jusino MA, Banik MT, Lindner DL. 2018. Non-biological synthetic spike-in controls and the AMPtk software pipeline improve mycobiome data. PeerJ 6:e4925;
+                        </div>
+                        <doi link="https://doi.org/10.7717/peerj.4925"></doi>
+
+            </div>
+
+            
+
         </div>
     </div>
     </div>

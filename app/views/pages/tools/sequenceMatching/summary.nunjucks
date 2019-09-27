@@ -1,10 +1,16 @@
 <div class="container-fluid card" ng-cloak ng-if="vm.lookupComplete">
     <div class="row card__content">
         <div class="col-xs-12">
-            <div >
+            <div ng-if="vm.selectedMarker === 'ITS'">
             <p>Your data have been matched against a blast database of the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a>. 
-        All returned matches have then been matched against the GBIF backbone taxonomy by their identifier (e.g. SH191277.07FU). These OTU identifiers can be used for publishing sequence based data to GBIF. The result can be downloaded as a csv with identifiers included.</p>
-        <p>Sequences were assumed to be in the ITS region.</p>
+        All returned matches have then been matched against the GBIF backbone taxonomy by their identifier (e.g. SH1571756.08FU). These OTU identifiers can be used for publishing sequence based data to GBIF. The result can be downloaded as a csv with identifiers included.</p>
+        
+                          
+        </div>
+        <div ng-if="vm.selectedMarker === 'COI'">
+            <p>Your data have been matched against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">International Barcode of Life project (iBOL)</a> public data (COI-5P sequences)
+        All returned matches have then been matched against the GBIF backbone taxonomy by their identifier (e.g. BOLD:ADJ8357). These OTU identifiers can be used for publishing sequence based data to GBIF. The result can be downloaded as a csv with identifiers included.</p>
+        
                           
         </div>
             
@@ -13,7 +19,7 @@
         <div class="col-xs-12">
              <h4>Match types</h4>
 
-                   <table class="table sequenceMatcher__summaryTable">
+                   <table class="table sequenceMatcher__summaryTable" ng-if="vm.selectedMarker === 'ITS'">
 
                        <tbody>
                        <tr >
@@ -34,6 +40,48 @@
                            <td ><span ng-class="vm.getMatchTypeClass('BLAST_CLOSE_MATCH')">{{ 'BLAST_CLOSE_MATCH' | prettifyEnum }}</span></td>
                        <td >
                           {{'identity < 98.5% but > 90%. It is something close to the OTU, maybe the same Genus.'}} 
+
+                       </td>
+                       </tr>
+                                             <tr >
+                           <td ><span ng-class="vm.getMatchTypeClass('BLAST_WEAK_MATCH')">{{ 'BLAST_WEAK_MATCH' | prettifyEnum }}</span></td>
+                       <td >
+                           {{'there is a match, but with identity < 90%. Depending on the quality of the sequence, bit score, identity and expect value, a higher taxon could be inferred from this.'}} 
+
+                       </td>
+                       </tr>
+                                              <tr >
+                           <td ><span ng-class="vm.getMatchTypeClass('BLAST_NO_MATCH')">{{ 'BLAST_NO_MATCH' | prettifyEnum }}</span></td>
+                       <td >
+                           No match. 
+
+                       </td>
+                       </tr>
+
+                       </tbody>
+                   </table>
+
+                   <table class="table sequenceMatcher__summaryTable" ng-if="vm.selectedMarker === 'COI'">
+
+                       <tbody>
+                       <tr >
+                           <td ><span ng-class="vm.getMatchTypeClass('BLAST_EXACT_MATCH')">{{ 'BLAST_EXACT_MATCH' | prettifyEnum }}</span></td>
+                       <td >
+                           identity >= 99%. This is within the threshold of the OTU.
+
+                       </td>
+                       </tr>
+                          <tr >
+                           <td ><span ng-class="vm.getMatchTypeClass('BLAST_AMBIGUOUS_MATCH')">{{ 'BLAST_AMBIGUOUS_MATCH' | prettifyEnum }}</span></td>
+                       <td >
+                          {{'identity >= 99%, but there is at least one more match with similar identity'}} 
+
+                       </td>
+                       </tr>
+                       <tr >
+                           <td ><span ng-class="vm.getMatchTypeClass('BLAST_CLOSE_MATCH')">{{ 'BLAST_CLOSE_MATCH' | prettifyEnum }}</span></td>
+                       <td >
+                          {{'identity < 99% but > 90%. It is something close to the OTU, maybe the same Genus.'}} 
 
                        </td>
                        </tr>
