@@ -51,7 +51,7 @@
         },
         "ipt": {
             "description": "整合發布套件 (IPT) 是以 Java 編寫的免費開源軟體，可透過 GBIF 網絡用於發布、分享生物多樣性資料集。IPT 也可以配置 DataCite 或 EZID 帳戶，以便將 DOI 分配給資料集並轉換為資料存儲庫。",
-            "dontSeeYourIpt": "還沒有 IPT 嗎？上傳 [GBIF](mailto:helpdesk@gbif.org \"來信 GBIF 協助平台詢求在地圖上加入IPT\") 您的座標。"
+            "dontSeeYourIpt": "沒看到您的 IPT ？將您的座標告訴 [GBIF](mailto:helpdesk@gbif.org \"來信 GBIF 協助平台詢求在地圖上加入IPT\") 。"
         },
         "dataRepository": {
             "title": ""
