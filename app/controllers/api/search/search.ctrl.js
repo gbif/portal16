@@ -10,7 +10,8 @@ let express = require('express'),
     SpeciesMatch = require('./speciesMatches'),
     Publisher = require('./publisher'),
     Participant = require('./participant'),
-    Country = require('./countrySearch');
+    Country = require('./countrySearch'),
+    SequenceMatch = require('./sequences');
 
 module.exports = function(app) {
     app.use('/api', router);
@@ -40,6 +41,7 @@ async function search(query, preferedLocale, __) {
     let speciesMatches = SpeciesMatch.query({name: query, verbose: true, hl: true});
     let resources = resourceSearch.search({q: query, searchable: true, local: preferedLocale, limit: 10}, __);
     let faq = resourceSearch.search({q: query, searchable: true, contentType: ['help'], local: preferedLocale, limit: 5}, __);
+    let sequences = SequenceMatch.query(query);
     let resourceHighlights = resourceSearch.search(
         {
             keywords: query,
@@ -48,7 +50,7 @@ async function search(query, preferedLocale, __) {
             }, __);
     let country = Country.query(query, preferedLocale);
 
-    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights, participants, faq]);
+    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights, participants, faq, sequences]);
     let response = {
         speciesMatches: values[0],
         species: values[1],
@@ -58,7 +60,8 @@ async function search(query, preferedLocale, __) {
         country: values[5],
         resourceHighlights: values[6],
         participants: values[7],
-        faq: values[8]
+        faq: values[8],
+        sequences: values[9]
     };
 
     response.species.results = pruneDuplicateSpecies(response.speciesMatches, response.species.results);

@@ -177,6 +177,11 @@
                                             </div>
                                         </div>
 
+                                        <div ng-if="rootSearch.results.sequences.count > 0">
+                                            <div ng-repeat="result in rootSearch.results.sequences.results">
+                                                <ng-include src="'/api/template/search/sequenceResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
+                                            </div>
+                                        </div>
                                         <div class="emptyInfo">
                                             <h3 translate="search.cannotFindWhatYouAreLookingFor"></h3>
                                             <p translate="search.trySpecifyingAType">Try specifying a type</p>

@@ -269,3 +269,7 @@ router.get('/tools/dataRepository/about.html', function(req, res, next) {
 router.get('/tools/dataRepository/key.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/upload/key/dataRepositoryKey.template.nunjucks');
 });
+
+router.get('/search/sequenceResult.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/sequenceMatching/sequenceSearchResult');
+});

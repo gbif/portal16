@@ -1,0 +1,60 @@
+<article class="card m-b-05 searchCard rtl-supported rtl-bootstrap">
+    <div class="card__stripe">
+        <div class="card__content">
+            <a  ng-href="{{ portal.urlPrefix }}/tools/sequence-id" class="inherit searchCard__type hoverBox" translate="tools.sequenceId.title"></a>
+            <h3 class="searchCard__headline" dir="auto">
+                <a href="speciesKey({speciesKey:result.nubMatch.usage.key})" ng-href="{{ portal.urlPrefix }}/species/{{result.nubMatch.usage.key}}" scientific-name key="{{ result.nubMatch.usage.key }}" name="{{result.scientificName}}"></a>
+            </h3>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content searchCard__content clearfix">
+        <span class="discreet small">identity: {{result.identity}}% | bitScore: {{result.bitScore}} | expectValue: {{result.expectValue}}</span>
+        <pre class="sequenceMatcher__alignment__small" ng-bind-html="result.alignment"></pre>
+            <div class="searchCard__img asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.nubMatch.usage.key }}&has_coordinate=true&has_geospatial_issue=false">
+                <div class="teaser-map--small">
+                    <img src="/img/tile000/basemap-grey-light2.png">
+                    <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.nubMatch.usage.key}}&type=TAXON&resolution=4">
+                </div>
+            </div>
+            <div class="pull-right hideInvalid" taxon-occ-img="{{ result.nubMatch.usage.key }}" ></div>
+
+            <div class="searchCard__meta" ng-if="result.publishedIn">
+                <span translate="species.publishedIn"></span>: <span dir="auto">{{ result.publishedIn | truncate:180 }}</span>
+            </div>
+
+            <div class="searchCard__meta" ng-if="result.datasetKey && result.datasetKey != portal.constantKeys.dataset.backbone">
+                <span translate="datasetType.CHECKLIST"></span>: <a class="" ui-sref="datasetKey({key:result.datasetKey})" ng-href="{{ portal.urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
+                    | truncate:50 }}</a>
+            </div>
+            <div class="small" ng-if="result.nubMatch.usage.acceptedKey">
+                <span translate="species.synonymOf"></span>: <a dir="auto" ui-sref="speciesKey({speciesKey:result.nubMatch.usage.acceptedKey})" ng-href="{{ portal.urlPrefix }}/species/{{ result.acceptedKey }}">{{ result.accepted }} </a>
+            </div>
+            <p class="discreet classification-list" ng-if="result.nubMatch.classification && result.nubMatch.classification.length > 1">
+                {{ 'species.classification' | translate }} : <span ng-repeat="taxon in result.nubMatch.classification"
+                      > <a ui-sref="speciesKey({speciesKey:taxon.key})"><span dir="ltr" ng-bind-html="taxon.name"></span> </a></span>
+            </p>
+            <p ng-if="result.highlights && result.highlights.vernacularNames && result.highlights.vernacularNames.length > 0">
+                <span translate="extensionEnum.VERNACULAR_NAME"></span>: <span ng-bind-html="result.highlights.vernacularNames[0].vernacularName"></span> <span ng-if="result.highlights.vernacularNames[0].language">in <span translate="language.{{result.highlights.vernacularNames[0].language  }}"></span></span>
+
+            </p>
+            <p ng-if="result.highlights && result.highlights.descriptions && result.highlights.descriptions.length > 0">
+                <span ng-repeat="hl in result.highlights.descriptions">... <span ng-bind-html="hl"></span> ...</span>
+
+            </p>
+            <ul class="list-chips">
+                <li ng-if="result.taxonomicStatus">
+                    <a href="" ui-sref="speciesSearchList({status:result.taxonomicStatus})" translate="taxonomicStatus.{{ result.taxonomicStatus }}">{{ result.taxonomicStatus }}</a>
+                </li>
+                <li ng-if="result.rank">
+                    <a href="" ui-sref="speciesSearchList({rank:result.rank})" translate="taxonRank.{{ result.rank }}">{{ result.rank }}</a>
+                </li>
+                <li ng-if="!result.datasetKey || result.datasetKey == portal.constantKeys.dataset.backbone">
+                    <a ui-sref="occurrenceSearchTable({taxon_key:result.nubMatch.usage.key})">
+                        <span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.nubMatch.usage.key }}" count-translation="counts.nOccurrences">&nbsp;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</article>
