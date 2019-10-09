@@ -23,7 +23,7 @@ function occurrenceSpeciesCtrl($scope, OccurrenceFilter, OccurrenceBreakdown, $m
     vm.endOfRecords = false;
     vm.currentPage = 1;
     vm.types = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
-    vm.type = 'species';
+    vm.type = 'family';
     vm.totalItems = function() {
         var total = vm.offset + vm.limit;
         if (!vm.endOfRecords) {
