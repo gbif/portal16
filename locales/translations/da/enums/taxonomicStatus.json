@@ -1,7 +1,7 @@
 {
   "taxonomicStatus": {
     "ACCEPTED": "Accepteret",
-    "DOUBTFUL": "Tvivlsom [](/faq?question=what-does-the-taxon-status-doubtful-mean-and-when-is-used&inline=true)",
+    "DOUBTFUL": "Tvivlsom",
     "SYNONYM": "Synonym",
     "HETEROTYPIC_SYNONYM": "Heterotypisk synonym",
     "HOMOTYPIC_SYNONYM": "Homotypisk synonym",
