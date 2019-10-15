@@ -40,7 +40,7 @@
       "description": "Descripción detallada. Para peticiones taxonómicas, por favor proporciona una referencia. Por favor, si es posible, envía tu comentario en inglés.",
       "username": "Email o nombre de usuario de GitHub"
     },
-    "markdownSupport": "",
+    "markdownSupport": "Soporte Markdown",
     "issueTracking": "Todos los recursos son públicos y están disponibles a través de [Github](https://github.com/gbif/portal-feedback/issues)",
     "failure": "Algo no va bien - el sistema de comentarios no funciona. Por favor, escríbenos vía email o accede a [Github] (https://github.com/gbif/portal-feedback/issues). Disculpa las molestias.",
     "weRecommendX": "Recomendamos el uso de",

@@ -55,6 +55,9 @@
         },
         "dataRepository": {
             "title": ""
+        },
+        "sequenceId": {
+            "title": "序列 ID"
         }
     }
 }

@@ -55,6 +55,9 @@
         },
         "dataRepository": {
             "title": "Хранилище данных"
+        },
+        "sequenceId": {
+            "title": ""
         }
     }
 }
