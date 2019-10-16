@@ -538,8 +538,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             url: '/tools/machine-vision',
             views: {
                 main: {
-                    // templateUrl: '/api/template/machineVision.html?v=' + BUILD_VERSION,
-                    templateUrl: '/api/template/machine-vision/machine-vision.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/machine-vision/machine-vision.html?v=' + BUILD_VERSION,
                     controller: 'machineVisionCtrl',
                     controllerAs: 'machineVision'
                 }
@@ -549,8 +548,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             parent: 'machineVision',
             url: '/statement-of-intent',
             templateUrl: '/templates/pages/network/key/dataset/networkDataset.html?v=' + BUILD_VERSION
-            // controller: 'machineVisionStatementCtrl',
-            // controllerAs: 'machineVisionStatement'
         })
         .state('country', {
             parent: 'localization',

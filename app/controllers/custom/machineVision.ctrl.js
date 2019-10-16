@@ -36,7 +36,7 @@ router.get('/tools/machine-vision/statement-of-intent', function(req, res, next)
   });
 });
 
-router.get('/api/template/machine-vision/machine-vision.html', function(req, res, next) {
+router.get('/api/machine-vision/machine-vision.html', function(req, res, next) {
     let isPreview = !_.isUndefined(req.query._isPreview);
     let cmsContent = resource.getFirst({
         'content_type': 'Tool',
@@ -51,7 +51,7 @@ router.get('/api/template/machine-vision/machine-vision.html', function(req, res
     });
 });
 
-router.get('/api/template/machine-vision/statement.html', function(req, res, next) {
+router.get('/api/machine-vision/statement.html', function(req, res, next) {
     let isPreview = !_.isUndefined(req.query._isPreview);
     let cmsContent = resource.getByAlias('/tools/machine-vision/statement-of-intent', 2, isPreview, res.locals.gb.locales.current);
     cmsContent.then(function(content) {
