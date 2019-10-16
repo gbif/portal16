@@ -1,5 +1,5 @@
 <div class="horizontal-stripe light-background seperator seperator--b text-center">
-  <iframe src="{$ resolved.entry[main.fields.primarylink.sys.id].fields.url $}" width="1200px" height="600px" class="style-scope overlay-demo"></iframe>
+  <iframe src="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" width="1200px" height="600px" class="style-scope overlay-demo"></iframe>
 </div>
 
 {% include "../../resource/key/primaryImage.nunjucks" %}
