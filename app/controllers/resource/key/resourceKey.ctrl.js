@@ -73,7 +73,7 @@ router.get('/api/resource/content/:type', function(req, res, next) {
             template = 'pages/network/key/prose';
             break;
         default:
-            template = 'pages/resource/key/article/main';
+            template = 'pages/resource/key/article/articleContent';
     }
     resource.getFirst(query, 2, false, query.locale)
         .then(function(result) {

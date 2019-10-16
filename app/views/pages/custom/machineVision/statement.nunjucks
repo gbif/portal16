@@ -1,0 +1,15 @@
+{% include "../../resource/key/primaryImage.nunjucks" %}
+
+<div class="horizontal-stripe white-background">
+  <div class="container--narrow">
+    {% include "../../resource/key/body.nunjucks" %}
+
+    {% if main.fields.documents or main.fields.secondaryLinks%}
+      <div class="article-secondary">
+        {% include "../../resource/key/documentsLinks.nunjucks" %}
+      </div>
+    {% endif %}
+
+    {% include "../../resource/key/auxiliary.nunjucks" %}
+  </div>
+</div>

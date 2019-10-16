@@ -119,6 +119,10 @@ router.get('/network.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/network/key/networkKey.template.nunjucks');
 });
 
+router.get('/machineVision.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/custom/machineVision/machineVision.template.nunjucks');
+});
+
 router.get('/country.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/country.template.nunjucks');
 });

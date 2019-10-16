@@ -1,0 +1,16 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="light-background">
+            <div class="wrapper-horizontal-stripes">
+                {% include "./header.nunjucks" %}
+                {% include "./nav.nunjucks" %}
+                <div ng-show="machineVision.$state.is('machineVision')">
+                    {% include "./demo.nunjucks" %}
+                </div>
+                <div ng-show="machineVision.$state.is('machineVisionStatement')">
+                    <ng-include src="'/api/template/machine-vision/statement.html'"></ng-include>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

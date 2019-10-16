@@ -4,7 +4,7 @@
 
         {% if main.fields.citation %}
             <section class="no-break">
-                <h4 translate="cms.auxiliary.citation"></h4>
+                <h3 translate="cms.auxiliary.citation"></h3>
                 {$ main.fields.citation | renderMarkdown | sanitize | linkify | safe $}
             </section>
         {% endif %}
@@ -14,7 +14,7 @@
         {#{% if main.fields.countriesOfResearcher | isNotEmpty or main.fields.countriesOfCoverage | isNotEmpty or main.fields.topics | isNotEmpty or main.fields.audiences | isNotEmpty or main.fields.purposes | isNotEmpty or main.fields.organisingParticipants | isNotEmpty %}#}
         {% if main.fields | hasAtLeastOneKey(['countriesOfResearcher', 'countriesOfCoverage', 'topics', 'audiences', 'purposes']) %}
             <section class="no-break ng-cloak">
-                <h4 translate="cms.auxiliary.subject"></h4>
+                <h3 translate="cms.auxiliary.subject"></h3>
                 <ul class="list-chips">
                     {% if main.fields.countriesOfResearcher.length > 0 %}
                         <li class="list-chips__category uppercase-first">
@@ -76,7 +76,7 @@
 
         {% if main.fields.organisingParticipants %}
             <section class="no-break">
-                <h4 translate="cms.auxiliary.organisingParticipants"></h4>
+                <h3 translate="cms.auxiliary.organisingParticipants"></h3>
                 <ul class="list-chips">
                     {% for participant in main.fields.organisingParticipants %}
                         {% if resolved.Entry[participant.sys.id] %}

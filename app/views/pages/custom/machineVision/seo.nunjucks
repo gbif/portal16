@@ -1,0 +1,9 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <div class="hidden">
+        {% include "../../resource/key/article/articleContent.nunjucks" %}
+    </div>
+{% endblock %}

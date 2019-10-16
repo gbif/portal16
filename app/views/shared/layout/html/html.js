@@ -340,6 +340,8 @@ require('../../../pages/resource/search/list/resourceList.ctrl');
 
 require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 
+require('../../../pages/custom/machineVision/machineVision.ctrl');
+
 require('../../../pages/participant/country/countryKey.ctrl');
 require('../../../pages/participant/participant/participantKey.ctrl');
 

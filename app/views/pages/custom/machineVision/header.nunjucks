@@ -1,0 +1,15 @@
+<div class="horizontal-stripe article-header white-background p-b-1">
+    <div class="container">
+        <div class="row">
+            <header class="col-xs-12 text-center">
+                <nav class="article-header__category">
+                    <span class="article-header__category__upper"
+                            translate="enums.cms.contentType.tool"></span>
+                </nav>
+                <h1>
+                    {$ main.fields.title $}
+                </h1>
+            </header>
+        </div>
+    </div>
+</div>

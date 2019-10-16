@@ -533,7 +533,25 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'networkMetricsCtrl',
             controllerAs: 'networkMetrics'
         })
-        // end comment in
+        .state('machineVision', {
+            parent: 'localization',
+            url: '/tools/machine-vision',
+            views: {
+                main: {
+                    // templateUrl: '/api/template/machineVision.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/template/machine-vision/machine-vision.html?v=' + BUILD_VERSION,
+                    controller: 'machineVisionCtrl',
+                    controllerAs: 'machineVision'
+                }
+            }
+        })
+        .state('machineVisionStatement', {
+            parent: 'machineVision',
+            url: '/statement-of-intent',
+            templateUrl: '/templates/pages/network/key/dataset/networkDataset.html?v=' + BUILD_VERSION
+            // controller: 'machineVisionStatementCtrl',
+            // controllerAs: 'machineVisionStatement'
+        })
         .state('country', {
             parent: 'localization',
             url: '/country/:key',
