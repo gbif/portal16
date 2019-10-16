@@ -1,4 +1,4 @@
-<div class="horizontal-stripe article-header white-background p-b-1">
+<div class="horizontal-stripe article-header white-background p-b-0">
     <div class="container">
         <div class="row">
             <header class="col-xs-12 text-center">
@@ -6,9 +6,10 @@
                     <span class="article-header__category__upper"
                             translate="enums.cms.contentType.tool"></span>
                 </nav>
-                <h1>
-                    {$ main.fields.title $}
-                </h1>
+                <h1 dir="auto">{$ main.fields.title $}</h1>
+                <div class="article-header__intro" dir="auto">
+                    {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+                </div>
             </header>
         </div>
     </div>

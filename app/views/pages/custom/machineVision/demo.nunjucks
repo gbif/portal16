@@ -1,10 +1,11 @@
-{% include "../../resource/key/primaryImage.nunjucks" %}
+{# {% include "../../resource/key/primaryImage.nunjucks" %}
 
 <div class="horizontal-stripe white-background">
   <div class="container--narrow">
     {% include "../../resource/key/body.nunjucks" %}
   </div>
-</div>
+</div> #}
+
 <div class="horizontal-stripe light-background seperator seperator--b text-center">
   <iframe src="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" width="1200px" height="600px" class="style-scope overlay-demo"></iframe>
 </div>

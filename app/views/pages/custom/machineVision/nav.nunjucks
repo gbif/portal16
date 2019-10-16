@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="tabs__wrapper">
-                    <nav class="tabs m-b-1">
+                    <nav class="tabs" ng-class="{tabs--noBorder: machineVision.$state.is('machineVision')}">
                         <ul>
                             <li class="tab" ng-class="{isActive: machineVision.$state.is('machineVision')}">
                                 <a ui-sref="machineVision()" translate="tools.machineVision.tabs.demo"></a>
