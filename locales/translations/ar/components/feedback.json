@@ -1,12 +1,12 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "تقديم تعليقات",
     "intro": {
-      "title": "",
+      "title": "الردود والاسئلة",
       "example": ""
     },
     "data content": {
-      "title": "",
+      "title": "المحتوى",
       "example": "",
       "annotate": "",
       "contactPerMail": ""
