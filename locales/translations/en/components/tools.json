@@ -58,6 +58,12 @@
         },
         "sequenceId": {
             "title": "Sequence ID"
+        },
+        "machineVision": {
+            "tabs": {
+                "demo": "Demo",
+                "statement": "Statement of intent"
+            }
         }
     }
 }
