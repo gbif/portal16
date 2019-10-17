@@ -58,6 +58,12 @@
         },
         "sequenceId": {
             "title": "序列 ID"
+        },
+        "machineVision": {
+            "tabs": {
+                "demo": "",
+                "statement": ""
+            }
         }
     }
 }
