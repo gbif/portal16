@@ -16,27 +16,27 @@
       "example": ""
     },
     "idea": {
-      "title": "",
+      "title": "فكرة",
       "example": ""
     },
     "question": {
-      "title": "",
+      "title": "مكتب المساعدة",
       "example": "",
       "description": "",
       "comment": ""
     },
     "confirmation": {
-      "title": "",
+      "title": "شكرا لك",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "شاهد الإصدار"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "محتوى الإصدار",
+      "description": "مشكلات المحتوى الاتي أبلغ عنها المستخدمون الآخرون",
+      "create": "تقديم تعليقات"
     },
     "placeholders": {
-      "summary": "",
+      "summary": "الملخص",
       "description": "",
       "username": ""
     },
