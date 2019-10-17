@@ -113,13 +113,13 @@ function notEmpty(value) {
     return !_.isUndefined(value) && (!_.isObjectLike(value) || !_.isEmpty(value));
 }
 
-function getUsedExtensionTerms(verbatim) {
+function getUsedExtensionTerms(fragment) {
     let used = {};
-    if (verbatim.extensions) {
-        Object.keys(verbatim.extensions).forEach(function(extensionType) {
-            if (verbatim.extensions[extensionType].length > 0) {
+    if (fragment.extensions) {
+        Object.keys(fragment.extensions).forEach(function(extensionType) {
+            if (fragment.extensions[extensionType].length > 0) {
                 used[extensionType] = {};
-                verbatim.extensions[extensionType].forEach(function(extension) {
+                fragment.extensions[extensionType].forEach(function(extension) {
                     Object.keys(extension).forEach(function(field) {
                         used[extensionType][field] = true;
                     });
@@ -136,7 +136,7 @@ function getUsedExtensionTerms(verbatim) {
 
 function getOccurrenceModel(occurrenceKey, __) {
     let getOptions = {
-        expand: ['publisher', 'dataset', 'datasetProcess', 'verbatim', 'taxonName', 'species']
+        expand: ['publisher', 'dataset', 'datasetProcess', 'verbatim', 'taxonName', 'species', 'fragment']
     };
 
     let promises = [
@@ -152,7 +152,7 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrence.issues = occurrencIssues.getFieldsWithIssues(occurrence.record.issues, occurrenceMeta.remarks);
         occurrence.issueSummary = occurrencIssues.getSummary(occurrence.record.issues, occurrenceMeta.remarks);
         occurrence.fieldsWithDifferences = occurrencIssues.getFieldsWithDifferences(occurrence.record, occurrence.verbatim, occurrence.terms.terms);
-        occurrence.usedExtensionFields = getUsedExtensionTerms(occurrence.verbatim);
+        occurrence.usedExtensionFields = getUsedExtensionTerms(occurrence.fragment);
         occurrence.media = {
             image: _.filter(_.get(occurrence, 'record.media', []), {type: 'StillImage'}),
             sound: _.filter(_.get(occurrence, 'record.media', []), {type: 'Sound'}),

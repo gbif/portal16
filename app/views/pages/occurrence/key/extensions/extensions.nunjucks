@@ -1,6 +1,6 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
-{% if occurrence.verbatim.extensions | isNotEmpty and occurrence.usedExtensionFields | isNotEmpty %}
+{% if occurrence.fragment.extensions | isNotEmpty and occurrence.usedExtensionFields | isNotEmpty %}
     <section class="horizontal-stripe bare-background extensions">
         <div class="container--normal">
             <div class="row">
@@ -9,7 +9,7 @@
 
                         {% if occurrence.usedExtensionFields[name] | isNotEmpty %}
                             <h5 dir="auto" class="card-header">{$ name | prettifyEnum $}</h5>
-                            <div {% if occurrence.verbatim.extensions[name].length >= 6 %}expand{% endif %}
+                            <div {% if occurrence.fragment.extensions[name].length >= 6 %}expand{% endif %}
                                  class="card card-table" expand-text="'Show all {$ extensions.length $}'"
                                  collapse-text="'Collapse'">
                                 <div class="scrollable">
@@ -23,8 +23,8 @@
                                         </thead>
                                         <tbody>
 
-                                        {% if occurrence.verbatim.extensions[name].length < 6 %}
-                                            {% for extension in occurrence.verbatim.extensions[name] %}
+                                        {% if occurrence.fragment.extensions[name].length < 6 %}
+                                            {% for extension in occurrence.fragment.extensions[name] %}
                                                 <tr dir="auto">
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
                                                         {$ shorten.compactTableCell(extension[term]) $}
@@ -32,7 +32,7 @@
                                                 </tr>
                                             {% endfor %}
                                         {% else %}
-                                            {% for extension in occurrence.verbatim.extensions[name] | limit(3) %}
+                                            {% for extension in occurrence.fragment.extensions[name] | limit(3) %}
                                                 <tr dir="auto">
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
                                                         {$ shorten.compactTableCell(extension[term]) $}
@@ -40,7 +40,7 @@
                                                 </tr>
                                             {% endfor %}
 
-                                            {% for extension in occurrence.verbatim.extensions[name] | slice(3) %}
+                                            {% for extension in occurrence.fragment.extensions[name] | slice(3) %}
                                                 <tr dir="auto" class="is-collapsable ng-cloak">
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
                                                         {$ shorten.compactTableCell(extension[term]) $}
