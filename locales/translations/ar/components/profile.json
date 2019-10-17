@@ -2,21 +2,21 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
+        "FACEBOOK": "لا يمكن الاتصال بصفحة الفيسبوك",
         "GITHUB": "",
         "GOOGLE": ""
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
+        "FACEBOOK": "لا يمكن الدخول باستعمال الفيسبوك",
         "GITHUB": "",
         "GOOGLE": ""
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
-      "LOGIN_UNKNOWN": "",
+      "USERNAME_NOT_UNIQUE": "هذا المستخدِم قيد الاستعمال حالياً",
+      "LOGIN_UNKNOWN": "هذا الاسم المستخدِم للدخول للموقع غير مرتبط حالياً بأي حساب - إضا كان لديك حساب، يرجى الدخول باستعمال اسم الدخول أو البريد الالكتروني وكلمة السر المرتبطة به. أو قم بالتسجيل لفتح حساب جديد.",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
       "USER_ALREADY_LOGGED_IN": "",
       "EMAIL_IN_USE": "",
