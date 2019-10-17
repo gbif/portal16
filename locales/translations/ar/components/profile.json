@@ -61,7 +61,7 @@
     "usernameRequired": "إسم المستخدم مطلوب",
     "invalidUsername": "",
     "passwordRequired": "كلمة السر مطلوبة",
-    "passwordLength": "",
+    "passwordLength": "يجب أن تكون كلمة السر من 6 حروف أو أكثر",
     "passwordMaxLength": "",
     "next": "",
     "pleaseFillForm": "",
