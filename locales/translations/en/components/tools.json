@@ -61,8 +61,8 @@
         },
         "machineVision": {
             "tabs": {
-                "demo": "",
-                "statement": ""
+                "demo": "Demo",
+                "statement": "Statement of intent"
             }
         }
     }
