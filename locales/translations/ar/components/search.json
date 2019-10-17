@@ -1,10 +1,10 @@
 {
   "search": {
-    "title": "",
-    "placeholder": "",
-    "noSearchTermsEntered": "",
+    "title": "بحث",
+    "placeholder": "أحداث، أنواع، أخبار ...",
+    "noSearchTermsEntered": "لم يتم إدخال مصطلحات للبحث",
     "notSureWhatYouAreLookingFor": "",
-    "cannotFindWhatYouAreLookingFor": "",
+    "cannotFindWhatYouAreLookingFor": "تعذر الحصول عن ما تبحث عنه؟",
     "trySpecifyingAType": "",
     "everything": "",
     "occurrences": "",
