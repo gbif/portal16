@@ -61,8 +61,8 @@
         },
         "machineVision": {
             "tabs": {
-                "demo": "",
-                "statement": ""
+                "demo": "演示",
+                "statement": "意向说明"
             }
         }
     }
