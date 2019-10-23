@@ -544,9 +544,9 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
-        .state('machineVisionStatement', {
+        .state('machineVisionAbout', {
             parent: 'machineVision',
-            url: '/statement-of-intent',
+            url: '/about',
             templateUrl: '/templates/pages/network/key/dataset/networkDataset.html?v=' + BUILD_VERSION
         })
         .state('country', {

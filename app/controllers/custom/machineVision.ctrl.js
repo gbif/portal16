@@ -25,9 +25,9 @@ router.get('/tools/machine-vision', function(req, res, next) {
     });
 });
 
-router.get('/tools/machine-vision/statement-of-intent', function(req, res, next) {
+router.get('/tools/machine-vision/about', function(req, res, next) {
   let isPreview = !_.isUndefined(req.query._isPreview);
-  let cmsContent = resource.getByAlias('/tools/machine-vision/statement-of-intent', 2, isPreview, res.locals.gb.locales.current);
+  let cmsContent = resource.getByAlias('/tools/machine-vision/about', 2, isPreview, res.locals.gb.locales.current);
   cmsContent.then(function(content) {
       helper.renderPage(req, res, next, content, 'pages/custom/machineVision/seo');
   }).catch(function(err) {
@@ -51,11 +51,11 @@ router.get('/api/machine-vision/machine-vision.html', function(req, res, next) {
     });
 });
 
-router.get('/api/machine-vision/statement.html', function(req, res, next) {
+router.get('/api/machine-vision/about.html', function(req, res, next) {
     let isPreview = !_.isUndefined(req.query._isPreview);
-    let cmsContent = resource.getByAlias('/tools/machine-vision/statement-of-intent', 2, isPreview, res.locals.gb.locales.current);
+    let cmsContent = resource.getByAlias('/tools/machine-vision/about', 2, isPreview, res.locals.gb.locales.current);
     cmsContent.then(function(content) {
-        helper.renderPage(req, res, next, content, 'pages/custom/machineVision/statement');
+        helper.renderPage(req, res, next, content, 'pages/custom/machineVision/about');
     }).catch(function(err) {
         log.info(err.message);
         res.status = err.statusCode || 500;

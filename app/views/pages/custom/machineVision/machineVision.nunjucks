@@ -7,8 +7,8 @@
                 <div ng-show="machineVision.$state.is('machineVision')">
                     {% include "./demo.nunjucks" %}
                 </div>
-                <div ng-show="machineVision.$state.is('machineVisionStatement')" class="p-t-1">
-                    <ng-include src="'/api/machine-vision/statement.html'"></ng-include>
+                <div ng-show="machineVision.$state.is('machineVisionAbout')" class="p-t-1">
+                    <ng-include src="'/api/machine-vision/about.html'"></ng-include>
                 </div>
             </div>
         </div>
