@@ -58,6 +58,12 @@
         },
         "sequenceId": {
             "title": ""
+        },
+        "machineVision": {
+            "tabs": {
+                "demo": "",
+                "statement": ""
+            }
         }
     }
 }
