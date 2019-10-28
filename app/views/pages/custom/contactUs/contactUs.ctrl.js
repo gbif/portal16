@@ -9,7 +9,7 @@ angular
 /** @ngInject */
 function contactUsCtrl(Page, $state, $translate) {
     var vm = this;
-    $translate('constactUs.title').then(function(title) {
+    $translate('contactUs.title').then(function(title) {
         Page.setTitle(title);
     });
 
