@@ -39,7 +39,7 @@
     "axis": "^0.6.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.13.3",
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "browser-sync": "^2.10.1",
     "browserify": "^13.0.1",
     "btoa": "^1.1.2",
