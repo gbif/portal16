@@ -55,7 +55,7 @@ function expand(data, settings, __, cb) {
 
         async.parallel({
             facetFilters: function(callback) {
-                async.each(tasks, expandKey, callback);
+                async.eachLimit(tasks, 25, expandKey, callback);
             },
             resultList: function(callback) {
                 getResultTasks(data.results, settings.expandList, callback);
