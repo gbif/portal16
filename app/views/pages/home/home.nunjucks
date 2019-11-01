@@ -79,9 +79,11 @@
                     <div class="home__news">
                         <div class="articles">
                         {% for feature in highlights | slice(0,8) %}
-                            {% if feature.contentType == 'news' or feature.contentType == 'dataUse'%}
+                            {% if feature.contentType == 'News'%}
                                 {$ newsArticle(feature, __) $}
-                            {% elif feature.contentType == 'event' %}
+                            {% elif feature.contentType == 'DataUse' %}
+                                {$ dataUseArticle(feature, __) $}
+                            {% elif feature.contentType == 'Event' %}
                                 {$ eventArticle(feature, __) $}
                             {% elif feature.contentType == 'feature' %}
                                 {$ featureArticle(feature, __) $}
@@ -118,11 +120,10 @@
     <script src="/js/base/pages/home.js?v={$ BUILD_VERSION $}"></script>
 {% endblock %}
 
-
+{# 
 {% macro newsArticle(article, __) %}
     {% if article %}
         <article class="card card--flexible article-box hoverBox">
-            {#<div>#}
             {% if article.primaryImage %}
                 <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe article-box__image">
                     <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
@@ -135,7 +136,8 @@
                     <h4 class="article-box__title">
                         <a href="{$ gb.locales.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
                     </h4>
-                    <span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span>
+                    <!--span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span-->
+                    <span class="article-box__footer">{$ article.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</span>
                 </div>
             </div>
         </article>
@@ -174,12 +176,11 @@
             </div>
         </article>
     {% endif %}
-{% endmacro %}
+{% endmacro %} #}
 
 {% macro featureArticle(article, __) %}
     {% if article %}
-        <article class="card card--flexible article-box hoverBox">
-            {#<div>#}
+        <article class="card card--spaced card--flexible article-box hoverBox">
             {% if article.primaryImage %}
                 <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="card__stripe article-box__image">
                     <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
@@ -192,7 +193,74 @@
                     <h4 class="article-box__title">
                         <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ article.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
                     </h4>
-                    <span class="article-box__footer">{$ article.comment | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</span>
+                    {# <div class="article-box__footer">{$ article.comment | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div> #}
+                </div>
+            </div>
+        </article>
+    {% endif %}
+{% endmacro %}
+
+{% macro newsArticle(article, __) %}
+    {% if article %}
+        <article class="card card--spaced card--flexible article-box hoverBox">
+            {% if article.primaryImage %}
+                <a href="{$ gb.locales.urlPrefix + '/news/' + article.id $}" class="card__stripe article-box__image">
+                    <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
+                         alt="" class="article-thumb">
+                    <span class="article-box__type">{$ __("homepage.featureTypes.news" ) $}</span>
+                </a>
+            {% endif %}
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="{$ gb.locales.urlPrefix + '/news/' + article.id $}" class="inherit">{$ article.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
+                    </h4>
+                    {# <div class="article-box__footer">{$ article.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div> #}
+                </div>
+            </div>
+        </article>
+    {% endif %}
+{% endmacro %}
+
+{% macro dataUseArticle(article, __) %}
+    {% if article %}
+        <article class="card card--spaced card--flexible article-box hoverBox">
+            {% if article.primaryImage %}
+                <a href="{$ gb.locales.urlPrefix + '/data-use/' + article.id $}" class="card__stripe article-box__image">
+                    <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
+                         alt="" class="article-thumb">
+                    <span class="article-box__type">{$ __("homepage.featureTypes.dataUse" ) $}</span>
+                </a>
+            {% endif %}
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="{$ gb.locales.urlPrefix + '/data-use/' + article.id $}" class="inherit">{$ article.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
+                    </h4>
+                    {# <div class="article-box__footer">{$ article.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div> #}
+                </div>
+            </div>
+        </article>
+    {% endif %}
+{% endmacro %}
+
+{% macro eventArticle(article, __) %}
+    {% if article %}
+        <article class="card card--spaced card--flexible article-box hoverBox">
+            {% if article.primaryImage %}
+                <a href="{$ gb.locales.urlPrefix + '/event/' + article.id $}" class="card__stripe article-box__image">
+                    <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
+                         alt="" class="article-thumb">
+                   <span class="article-box__type">{$ __("homepage.featureTypes.event" ) $}</span>
+                </a>
+            {% endif %}
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="{$ gb.locales.urlPrefix + '/event/' + article.id $}" class="inherit">{$ article.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
+                    </h4>
+                    <div class="article-box__footer">{$ article.start | formatDate(gb.locales.current, 'DD MMM YYYY') $}</div>
+                    <div class="article-box__footer">{$ article.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
                 </div>
             </div>
         </article>
