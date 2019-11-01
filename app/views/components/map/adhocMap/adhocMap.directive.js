@@ -104,6 +104,11 @@ function adhocMapDirective(BUILD_VERSION) {
                 baseMap: {style: 'gbif-tuatara'},
                 overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 79}],
                 background: '#272727'
+            },
+            SPOTTY: {
+                baseMap: {style: 'gbif-geyser-en'},
+                overlay: [{style: 'scaled.circles', mode: 'GEO_CENTROID'}],
+                background: '#e0e0e0'
             }
         };
         vm.styleOptions = Object.keys(vm.styles);

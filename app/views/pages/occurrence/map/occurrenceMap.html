@@ -75,7 +75,7 @@
                     <div ng-if="occMap.suspiciousCount > 0"><span translate="occurrenceSearch.containsSuspicious"></span> <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" translate="occurrenceSearch.hideSuspiciousCoordinates">Hide them</a></div>
                     <div ng-if="occMap.occurrenceState.query.has_coordinate === 'false' || occMap.count === 0" translate="occurrenceSearch.noOccurrencesWithCoordinates"></div>
                 </div>
-                <adhoc-map filter="occMap.occurrenceState.query" map-style="{suggested: 'SQUARE_DOTS'}" map-events="occMap.mapEvents" class="fitSize fitSize--noBar"></adhoc-map>
+                <adhoc-map filter="occMap.occurrenceState.query" map-style="{suggested: occMap.mapStyle}" map-events="occMap.mapEvents" class="fitSize fitSize--noBar"></adhoc-map>
             </div>
         </div>
     </section>
