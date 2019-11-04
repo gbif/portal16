@@ -289,7 +289,10 @@
             "eventDate": "Occurrence date in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a
                     href='/developer/summary#common'>range queries</a>.",
             "lastInterpreted": "This date the record was last modified in GBIF, in ISO 8601 format: yyyy, yyyy-MM,
-            yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
+            yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.  Note that this is the
+            date the record was last changed in GBIF, not necessarily the date the record was first/last changed by
+            the publisher.  Data is re-interpreted when we change the taxonomic backbone, geographic data sources, or
+            interpretation processes.",
             "decimalLatitude": "Latitude in decimals between -90 and 90 based on WGS 84.. Supports <a
                     href='/developer/summary#common'>range queries</a>.",
             "decimalLongitude": "Longitude in decimals between -180 and 180 based on WGS 84.. Supports <a
