@@ -4,7 +4,7 @@
     "tabs": {
       "summary": "Краткое описание",
       "homepage": "Главная",
-      "metrics": "Метрика",
+      "metrics": "Показатели",
       "datasets": "Сеть"
     },
     "registeredDate": "Зарегистрировано {DATE}",
