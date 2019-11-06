@@ -54,6 +54,7 @@
                     </a>
                 </li>
             </ul>
+            <div class="m-t-05 small" ng-if="result.taxonomicStatus === 'DOUBTFUL'" gb-help="what-does-the-taxon-status-doubtful-mean-and-when-is-used">{{ 'species.whyDoubtful' | translate }}</div>
         </div>
     </div>
 </article>

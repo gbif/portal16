@@ -4,7 +4,10 @@
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category" ng-class="{'article-header__category--deep': speciesKey2.species.taxonomicStatus}">
                     <span class="article-header__category__upper" translate="taxonRank.{{speciesKey2.species.rank || 'UNRANKED'}}"></span>
-                    <span class="article-header__category__lower" translate="taxonomicStatus.{{speciesKey2.species.taxonomicStatus}}" ng-if="speciesKey2.species.taxonomicStatus"></span>
+                    <span class="article-header__category__lower" ng-if="speciesKey2.species.taxonomicStatus">
+                        {{ ('taxonomicStatus.' + speciesKey2.species.taxonomicStatus) | translate }}
+                        <span ng-if="speciesKey2.species.taxonomicStatus === 'DOUBTFUL'" gb-help="what-does-the-taxon-status-doubtful-mean-and-when-is-used"></span>
+                    </span>
                 </nav>
 
                 <h1 dir="auto" scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}" ng-class="{'text-error': speciesKey2.species.deleted}">{{speciesKey2.species.scientificName}}</h1>
