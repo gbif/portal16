@@ -193,7 +193,9 @@
                     <h4 class="article-box__title">
                         <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ article.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
                     </h4>
-                    {# <div class="article-box__footer">{$ article.comment | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div> #}
+                    {% if article.comment %}
+                    <div class="article-box__footer">{$ article.comment | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
+                    {% endif %}
                 </div>
             </div>
         </article>
