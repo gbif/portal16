@@ -92,11 +92,12 @@ function filterTaxonDirective(BUILD_VERSION) {
         vm.getSuggestions = function(val) {
             // if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
+                console.log(vm.filterConfig.search.defaultParams);
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
-                    params: {
+                    params: _.assign({}, vm.filterConfig.search.defaultParams, {
                         q: val.toLowerCase(),
                         limit: 10
-                    }
+                    })
                 }).then(function(response) {
                     return _.filter(response.data, function(e) {
                         return !vm.usedKeys[e.key];
