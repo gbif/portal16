@@ -79,6 +79,7 @@
     "extensions": "Расширения",
     "taxa": "Таксоны",
     "mediatedThrough": "",
-    "taxonIdentifiers": ""
+    "taxonIdentifiers": "",
+    "whyDoubtful": ""
   }
 }
