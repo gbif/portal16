@@ -79,6 +79,7 @@
     "extensions": "Udvidelser",
     "taxa": "Taxa",
     "mediatedThrough": "",
-    "taxonIdentifiers": ""
+    "taxonIdentifiers": "",
+    "whyDoubtful": ""
   }
 }
