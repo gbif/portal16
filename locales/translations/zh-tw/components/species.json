@@ -79,6 +79,7 @@
     "extensions": "延伸集",
     "taxa": "類群",
     "mediatedThrough": "經由",
-    "taxonIdentifiers": "分類群辨識碼"
+    "taxonIdentifiers": "分類群辨識碼",
+    "whyDoubtful": ""
   }
 }

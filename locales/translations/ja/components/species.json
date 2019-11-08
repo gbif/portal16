@@ -79,6 +79,7 @@
     "extensions": "拡張モジュール",
     "taxa": "分類群",
     "mediatedThrough": "",
-    "taxonIdentifiers": ""
+    "taxonIdentifiers": "",
+    "whyDoubtful": ""
   }
 }

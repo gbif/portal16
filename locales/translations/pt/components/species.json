@@ -79,6 +79,7 @@
     "extensions": "Extensões",
     "taxa": "Taxa",
     "mediatedThrough": "Mediada através",
-    "taxonIdentifiers": "Identificadores de taxon"
+    "taxonIdentifiers": "Identificadores de taxon",
+    "whyDoubtful": ""
   }
 }

@@ -79,6 +79,7 @@
     "extensions": "扩展",
     "taxa": "分类群",
     "mediatedThrough": "通过调解",
-    "taxonIdentifiers": "分类群识别码"
+    "taxonIdentifiers": "分类群识别码",
+    "whyDoubtful": ""
   }
 }
