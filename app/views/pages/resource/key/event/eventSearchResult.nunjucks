@@ -27,7 +27,7 @@
                     <div ng-if="result.country || result.location || result.venue">
                         <span class="gb-icon-marker"></span><span translate="country.{{ result.country }}" ng-if="result.country"></span>
                         <span ng-if="result.location" dir="auto"> - {{ result.location }}</span>
-                        <span ng-if="result.venue" dir="auto"> - {{ result.venue }}</span>
+                        <span ng-if="result.venue" dir="auto"> - {{ result.venue | stripTags }}</span>
                     </div>
                     <div>
                         <span class="gb-icon-calendar"></span>
