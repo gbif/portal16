@@ -18,6 +18,9 @@ function decorate(participant) {
     let activeRelations = _.concat([], participantPeople, nodePeople);
 
     let activePeople = getOrderedListOfPeople(activeRelations, participant.contacts);
+    activePeople.forEach((x) => {
+        x.country = x.countryCode;
+    });
     participant.activePeople = activePeople;
     // decorate people with
     return participant;

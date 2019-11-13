@@ -17,7 +17,7 @@
             <li dir="auto" ng-repeat="position in vm.contact.position">{{position}}</li>
         </ul>
         <div ng-if="(vm.contact.organization || vm.contact.institutionName) && (vm.contact.firstName || vm.contact.lastName || vm.contact.surname)" dir="auto">{{ vm.contact.organization || vm.contact.institutionName}}</div>
-        <div ng-repeat="addressLine in vm.getAsArray(vm.contact.address)" ng-bind="addressLine" dir="auto"></div>
+        <div class="whiteSpace-preLine" ng-repeat="addressLine in vm.getAsArray(vm.contact.address)" ng-bind="addressLine" dir="auto"></div>
         <div dir="ltr">{{ vm.contact.city }} {{ vm.contact.postalCode }}</div>
         <div>{{ vm.contact.province }}</div>
         <div ng-if="vm.contact.country" translate="country.{{vm.contact.country}}"></div>
