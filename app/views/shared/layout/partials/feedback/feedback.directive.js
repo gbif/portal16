@@ -132,6 +132,17 @@ function feedbackDirective(BUILD_VERSION) {
         vm.hasUserToken = function() {
             return !!User.getAuthToken();
         };
+
+        vm.gaEvent = function(action, label, intValue) {
+            var trackingData = {
+                hitType: 'event',
+                eventCategory: 'feedback'
+            };
+            if (action) trackingData.eventAction = action;
+            if (label) trackingData.eventLabel = label;
+            if (intValue) trackingData.eventValue = intValue;
+            ga('send', trackingData);
+        };
     }
 }
 
