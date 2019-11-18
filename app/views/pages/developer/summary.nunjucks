@@ -94,10 +94,14 @@
                         downtimes before they happen.
                     </p>
                     <p>
+                        You can also post questions to the <a href="https://discourse.gbif.org/">GBIF Community Forum</a>.
+                    </p>
+                    <p>
                         We welcome any example uses of the API to guest feature on the <a
                                 href="https://data-blog.gbif.org/">GBIF data blog</a>.
                     </p>
-                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a>
+                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a>,
+                        or using the feedback button at the top of the page.
                     </p>
                 </div>
             </section>
