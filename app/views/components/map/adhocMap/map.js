@@ -22,14 +22,16 @@ function createMap(element, options) {
     var filters = options.filters || {};
     var currentProjection = projections.EPSG_4326;
 
-    this.update = function(options) {
+    this.update = function(options, resetView) {
         options = options || {};
         baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-geyser-en'};
         overlayStyle = options.overlay || overlayStyle || {};
         filters = options.filters || filters || {};
         map.getLayers().clear();
         source.clear();
-        map.setView(currentProjection.getView(0, 0, 1));
+        if (resetView) {
+            map.setView(currentProjection.getView(0, 0, 1));
+        }
 
         map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
         map.addLayer(drawLayer);
@@ -46,15 +48,18 @@ function createMap(element, options) {
             });
         }
 
+        if (options.filters.geometry) {
+            initGeometry(options.filters.geometry);
+        }
 
-        if (options.fitExtent && options.filters.geometry) {
-            setTimeout(function() {
-                map.getView().fit(ol.proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
-
-                initGeometry(options.filters.geometry);
-            });
-        } else if (currentProjection.fitExtent) {
-            map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
+        if (options.fitExtent) {
+            if (options.filters.geometry) {
+                setTimeout(function() {
+                    map.getView().fit(ol.proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
+                });
+            } else if (currentProjection.fitExtent) {
+                map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
+            }
         }
     };
 
@@ -310,7 +315,7 @@ function createMap(element, options) {
         });
     }
 
-    this.update(options);
+    this.update(options, true);
 
     this.getViewExtent = function() {
         var e = map.getView().calculateExtent(map.getSize());

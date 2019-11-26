@@ -230,7 +230,12 @@ function adhocMapDirective(BUILD_VERSION) {
             vm.widgetContextStyle = {
                 background: s.background
             };
-            map.update(s);
+            var options = {
+                baseMap: s.baseMap,
+                overlay: s.overlay,
+                filters: getQuery()
+            };
+            map.update(options);
         };
 
         vm.updateFilters = function() {
