@@ -4,6 +4,7 @@
     "catalogNumber": "Número de catálogo",
     "year": "Ano",
     "country": "País ou área",
+    "continent": "",
     "taxonKey": "Nome científico",
     "elevation": "Elevação",
     "collectionCode": "Código de coleção",
