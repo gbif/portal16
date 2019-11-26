@@ -122,8 +122,8 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function(element) {
-            var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'CLASSIC')] || vm.styles.CLASSIC;
-            vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC');
+            var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'SQUARE_DOTS')] || vm.styles.CLASSIC;
+            vm.style = _.get(vm.mapStyle, 'suggested', 'SQUARE_DOTS');
             vm.widgetContextStyle = {
                 background: suggestedStyle.background
             };
@@ -150,6 +150,11 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.zoomOut = function() {
             var view = map.map.getView();
             view.setZoom(view.getZoom() - 1);
+        };
+
+        vm.toggleStyle = function() {
+            vm.style = vm.style === 'SPOTTY' ? 'SQUARE_DOTS' : 'SPOTTY';
+            vm.setStyle(vm.style);
         };
 
         vm.enableClickGeometry = function() {

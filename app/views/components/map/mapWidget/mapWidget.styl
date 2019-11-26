@@ -74,6 +74,25 @@
             &.is-active {
                 color $navBar_background_color
             }
+            &[tooltip]:after {
+                border-radius 2px
+                background-color #585858
+                color #fff
+                content attr(tooltip)
+                font-size 12px
+                visibility hidden
+                opacity 0
+                padding 5px 7px
+                margin 7px
+                position absolute
+                left 100%
+                white-space nowrap
+                z-index $pageFab//1000
+            }
+            &[tooltip]:hover:after {
+                visibility visible
+                opacity 1
+            }
         }
         
     }

@@ -10,7 +10,7 @@ angular
 /** @ngInject */
 function occurrenceMapCtrl($state, $scope, OccurrenceSearch, OccurrenceFilter) {
     var vm = this;
-    vm.mapStyle = location.hash === '#spotty' ? 'SPOTTY' : 'SQUARE_DOTS';
+    vm.mapStyle = 'SPOTTY';
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     vm.count = -1;
     vm.mapMenu = {

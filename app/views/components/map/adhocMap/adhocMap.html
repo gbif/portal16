@@ -7,6 +7,7 @@
             <a href="" ng-click="vm.zoomOut()">-</a>
             <a href="" class="gb-icon-select smallIcon" ng-click="vm.enableClickGeometry()"
                ng-class="{'is-active': vm.clickQueryActive }"></a>
+            <a href="" class="gb-icon-format-paint smallIcon" ng-click="vm.toggleStyle()" tooltip="Toggle map styling"></a>
         </div>
         <div class="mapWidget__drawButtons" ng-if="!vm.noDrawing">
             <a href="" class="gb-icon-rectangle smallIcon" ng-click="vm.enableRectangleDraw()"
