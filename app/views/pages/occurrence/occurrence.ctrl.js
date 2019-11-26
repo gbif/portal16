@@ -79,6 +79,20 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
        }
     };
 
+    vm.filters.continent = {
+        titleTranslation: 'filterNames.continent',
+        queryKey: 'continent',
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'continent.',
+        showAll: true,
+        enums: enums.continent,
+        reversible: true,
+        facets: {
+            hasFacets: true,
+            facetKey: 'CONTINENT'
+        }
+     };
+
     vm.filters.license = {
         titleTranslation: 'filterNames.license',
         queryKey: 'license',

@@ -1,6 +1,7 @@
 module.exports = {
     'month': require('./basic/month.json'),
     'country': require('./basic/country.json'),
+    'continent': require('./basic/continent.json'),
     'typeStatus': require('./basic/typeStatus.json'),
     'basisOfRecord': require('./basic/basisOfRecord.json'),
     // "contactType":  require('./basic/contactType.json'),
