@@ -4,7 +4,7 @@
     "catalogNumber": "Catalog number",
     "year": "Year",
     "country": "Country or area",
-    "continent": "",
+    "continent": "Continent",
     "taxonKey": "Scientific name",
     "elevation": "Elevation",
     "collectionCode": "Collection code",
