@@ -4,6 +4,7 @@
     "catalogNumber": "Numéro de catalogue",
     "year": "Année",
     "country": "Pays ou région",
+    "continent": "",
     "taxonKey": "Nom scientifique du taxon",
     "elevation": "Altitude",
     "collectionCode": "Code de la collection",

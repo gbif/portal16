@@ -4,6 +4,7 @@
     "catalogNumber": "Номер в каталоге",
     "year": "Год",
     "country": "Страна или территория",
+    "continent": "",
     "taxonKey": "Латинское название",
     "elevation": "Высота",
     "collectionCode": "Код коллекции",

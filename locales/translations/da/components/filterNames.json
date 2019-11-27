@@ -4,6 +4,7 @@
     "catalogNumber": "Katalognummer",
     "year": "År",
     "country": "Land eller område",
+    "continent": "",
     "taxonKey": "Videnskabeligt navn",
     "elevation": "Elevation",
     "collectionCode": "Samlingskode",

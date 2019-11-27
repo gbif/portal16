@@ -4,6 +4,7 @@
     "catalogNumber": "目录编号",
     "year": "年份",
     "country": "国家或地区",
+    "continent": "",
     "taxonKey": "学名",
     "elevation": "海拔",
     "collectionCode": "保藏代码",
