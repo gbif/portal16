@@ -4,8 +4,8 @@
         "description": "",
         "updatedTimeAgo": "",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
+            "OPERATIONAL": "جميع الأنظمة التشغيلية",
+            "INFO": "جميع الأنظمة التشغيلية",
             "WARNING": "",
             "CRITICAL": ""
         },
