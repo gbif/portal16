@@ -44,7 +44,7 @@
     "password": "كلمة السر",
     "continue": "إستمرار",
     "forgotPassword": "نسيت كلمة السر؟",
-    "unknownUser": "",
+    "unknownUser": "غير قادر على تسجيل الدخول. المستخدم أو كلمة المرور غير معروفة.",
     "signIn": "تسجيل الدخول",
     "or": "أو",
     "continueWithProvider": "",
