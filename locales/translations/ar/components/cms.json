@@ -20,22 +20,22 @@
       "status": "الحالة",
       "programme": "البرنامج",
       "contractCountry": "البلد أو المنطقة",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "newsAndEvents": "الأخبار و الأحداث",
+      "call": "دعوة",
+      "projectLead": "مدير المشروع",
+      "contactDetalils": "تفاصيل جهة الاتصال",
+      "partners": "الشركاء"
     },
     "datause": {
       "dataViaGbif": ""
     },
     "literature": {
-      "keywords": ""
+      "keywords": "الكلمات المفتاحية"
     },
     "auxiliary": {
-      "subject": "",
-      "citation": "",
-      "organisingParticipants": ""
+      "subject": "الموضوع",
+      "citation": "اقتباس",
+      "organisingParticipants": "تنظيم المشاركين"
     }
   }
 }
