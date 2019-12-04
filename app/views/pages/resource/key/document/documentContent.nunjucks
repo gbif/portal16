@@ -15,7 +15,11 @@
                 <div class="card card--spaced">
                     <div class="card__content text-center seperator--b">
                         <h3 dir="auto">{$ main.fields.title $}</h3>
+                        {% if resolved.Asset[main.fields.document.sys.id].fields.file.url %}
                         <a href="{$ resolved.Asset[main.fields.document.sys.id].fields.file.url $}" class="gb-button--brand">Download <span class="gb-icon-file-download"></span></a>
+                        {% elif resolved.Entry[main.fields.primaryLink.sys.id].fields.url %}
+                        <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--brand">Read document</a>
+                        {% endif %}
                     </div>
                     <div class="card__content clearfix">
                         <div class="clearfix" dir="auto">
