@@ -1,41 +1,41 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
-      "grantType": "",
-      "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
-      "fundsAllocated": "",
-      "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
-      "typeOfGrant": "",
-      "projectStart": "",
-      "status": "",
-      "programme": "",
-      "contractCountry": "",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "project": "مشروع",
+      "projectId": "تعريف المشروع",
+      "projectIdentifier": "معرف المشروع",
+      "grantType": "نوع المنحة",
+      "duration": "المدّة",
+      "title": "العنوان",
+      "start": "البداية",
+      "end": "النهاية",
+      "fundsAllocated": "التمويل المخصص",
+      "matchingFunds": "التكلفة التقديرية للتمويل المشترك",
+      "funding": "التمويل",
+      "coFunding": "التمويل المشترك",
+      "fundedBy": "مموّل بواسطة",
+      "coFundedBy": "تمويل مشترك بواسطة",
+      "typeOfGrant": "نوع المنحة",
+      "projectStart": "بداية المشروع",
+      "status": "الحالة",
+      "programme": "البرنامج",
+      "contractCountry": "البلد أو المنطقة",
+      "newsAndEvents": "الأخبار و الأحداث",
+      "call": "دعوة",
+      "projectLead": "مدير المشروع",
+      "contactDetalils": "تفاصيل جهة الاتصال",
+      "partners": "الشركاء"
     },
     "datause": {
       "dataViaGbif": ""
     },
     "literature": {
-      "keywords": ""
+      "keywords": "الكلمات المفتاحية"
     },
     "auxiliary": {
-      "subject": "",
-      "citation": "",
-      "organisingParticipants": ""
+      "subject": "الموضوع",
+      "citation": "اقتباس",
+      "organisingParticipants": "تنظيم المشاركين"
     }
   }
 }

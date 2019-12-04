@@ -4,19 +4,19 @@
         "description": "",
         "updatedTimeAgo": "",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "جميع الأنظمة التشغيلية",
+            "INFO": "جميع الأنظمة التشغيلية",
+            "WARNING": "نحن نعاني من عدم استقرار أو بطئ في النظام",
+            "CRITICAL": "نحن نعاني من عطل جزئي"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "الخدمات ليست مستقرة",
+                "summary": "نحن نعاني الآن من بطئ أو خدمات غير مستقرة."
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "الخدمات غير متاحة",
+                "summary": "نحن نعاني من عطل جزئي"
             }
         }
     }
