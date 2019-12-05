@@ -76,7 +76,7 @@
 <div class="horizontal-stripe white-background">
     <div class="container--narrow">
 
-        {% if main.fields | hasAtLeastOneKey(['body', 'nodeHistory', 'nodeMission', 'nodeStructure', 'nodeFunding']) %}
+        {% if main.fields | hasAtLeastOneKey(['body', 'nodeHistory', 'nodeMission', 'nodeStructure', 'nodeFunding', 'progressAndPlans']) %}
             <div class="body-text">
                 {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
 
