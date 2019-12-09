@@ -40,7 +40,7 @@ function hasDisplayName(contact) {
  */
 function removeContactsWithoutIdentifierOrName(contacts) {
     return contacts.filter(function(e) {
-        return getContactIdentifiers(e).length > 0 && hasDisplayName(e);
+        return getContactIdentifiers(e).length > 0 || hasDisplayName(e);
     });
 }
 
