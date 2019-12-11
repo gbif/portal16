@@ -72,11 +72,18 @@ function speciesKey2Ctrl(
         media_type: 'stillImage',
         limit: 20
     });
-    vm.speciesImages = SpeciesMedia.get({
+    SpeciesMedia.get({
         id: vm.key,
         media_type: 'stillImage',
         limit: 50
-    });
+    }).$promise.then(function(data) {
+        if (data.results) {
+            data.results = data.results .filter(function(img) {
+                return img.identifier.indexOf('zenodo.org') === -1;
+                });
+        }
+        vm.speciesImages = data;
+    }).catch(vm.nonCriticalErrorHandler);
 
     vm.images.$promise.then(function(resp) {
         utils.attachImages(resp.results);
@@ -261,7 +268,7 @@ function speciesKey2Ctrl(
     vm.capabilities.$promise.catch(vm.criticalErrorHandler);
 
     vm.vernacularName.$promise.catch(vm.nonCriticalErrorHandler);
-    vm.speciesImages.$promise.catch(vm.nonCriticalErrorHandler);
+   // vm.speciesImages.$promise.catch(vm.nonCriticalErrorHandler);
     vm.images.$promise.catch(vm.nonCriticalErrorHandler);
     vm.descriptions.$promise.catch(vm.nonCriticalErrorHandler);
     vm.combinations.$promise.catch(vm.nonCriticalErrorHandler);

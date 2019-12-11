@@ -21,7 +21,9 @@ router.get('/species/:key/images', function(req, res) {
 
     images
         .then(function(response) {
-            let imgList = getImages(response.results);
+            let imgList = getImages(response.results).filter((img) => {
+                return img.identifier.indexOf('zenodo.org') === -1;
+                });
             res.json(imgList);
         })
         .catch(function(err) {
@@ -63,10 +65,13 @@ router.get('/species/:key/image', function(req, res) {
 
     images
         .then(function(imgList) {
-            if (imgList.length > 0) {
-                res.send(imgList[0]);
+            const filteredImages = imgList.filter((img) => {
+                return img.identifier.indexOf('zenodo.org') === -1;
+                });
+            if (filteredImages.length > 0) {
+                res.send(filteredImages[0]);
             } else {
-                res.status(204);
+                res.status(404);
                 res.send();
             }
         })
