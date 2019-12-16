@@ -31,7 +31,7 @@
 				<dt class="col-md-4 col-xs-12" translate="collection.contentTypes"></dt>
 				<dd class="col-md-8 col-xs-12">
 					<ul class="inline-bullet-list">
-						<li ng-repeat="contentType in collectionKey.collection.contentType">
+						<li ng-repeat="contentType in collectionKey.collection.contentTypes">
 							<span translate="enum.collectionContentType.{{contentType}}"></span>
 						</li>
 					</ul>

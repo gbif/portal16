@@ -61,6 +61,18 @@
 				<dt class="col-md-4 col-xs-12" translate="institution.foundingDate"></dt>
 				<dd class="col-md-8 col-xs-12">{{institutionKey.institution.foundingDate | momentFormat:'LL'}}</dd>
 			</div>
+			<div class="row" ng-if="institutionKey.institution.geographicDescription">
+				<dt class="col-md-4 col-xs-12" translate="institution.geographicDescription"></dt>
+				<dd class="col-md-8 col-xs-12">{{institutionKey.institution.geographicDescription}}</dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.taxonomicDescription">
+				<dt class="col-md-4 col-xs-12" translate="institution.taxonomicDescription"></dt>
+				<dd class="col-md-8 col-xs-12">{{institutionKey.institution.taxonomicDescription}}</dd>
+			</div>
+			<div class="row" ng-if="institutionKey.institution.citesPermitNumber">
+				<dt class="col-md-4 col-xs-12" translate="institution.citesPermitNumber"></dt>
+				<dd class="col-md-8 col-xs-12">{{institutionKey.institution.citesPermitNumber}}</dd>
+			</div>
 			<div class="row" ng-if="(institutionKey.institution.identifiers | visibleIdentifier).length > 0">
 				<dt class="col-md-4 col-xs-12" translate="institution.identifiers"></dt>
 				<dd class="col-md-8 col-xs-12">
