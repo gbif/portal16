@@ -121,6 +121,7 @@
                 <div class="container--narrow">
                     <h3>Dataset Search</h3>
                     <p>The dataset search API provides search services for datasets.</p>
+                    <p>There is currently <a href="https://github.com/gbif/registry/issues/165">an issue</a> with search, making it unreliable for retrieving all datasets by paging through all the results.  Use this service for free-text search, and the dataset list API (above) for retrieving all matching datasets.</p>
 
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
