@@ -8,7 +8,7 @@
         },
         "aboutGbifCountry": "حول {GBIF {COUNTRY",
         "summary": "بيانات تنوع حيوي مجانية ومفتوحة",
-        "whatIsGbif": "",
+        "whatIsGbif": "ما هو جيبف؟",
         "featureTypes": {
             "event": "حدث",
             "news": "أخبار",
