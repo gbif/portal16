@@ -75,13 +75,13 @@
     "processedOccurrences": "أرشيف شروح جيبف",
     "noDescriptionProvided": "لا يوجد وصف متاح",
     "pNetwork": "{NUMBER, select,1{شبكة الاتصال} other{شبكات اتصال}}",
-    "parentEvent": "",
-    "eventDescription": "",
-    "siblingEvents": "",
-    "childEvents": "",
+    "parentEvent": "الواقعة الرئيسية",
+    "eventDescription": "وصف الواقعة",
+    "siblingEvents": "واقعة قريبة",
+    "childEvents": "واقعات تابعة",
     "events": "",
-    "occurrenceCount": "",
-    "inDataset": "",
-    "samplingArticleLink": ""
+    "occurrenceCount": "عدد التكرار",
+    "inDataset": "في",
+    "samplingArticleLink": "المزيد عن وقعات أخذ العينات في GBIF.org"
   }
 }
