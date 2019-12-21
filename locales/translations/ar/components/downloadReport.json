@@ -1,8 +1,8 @@
 {
   "downloadReport": {
-    "title": "",
-    "knownIssues": "",
-    "knownIssuesDescription": "",
+    "title": "تحميل التقرير",
+    "knownIssues": "مشاكل معروفة",
+    "knownIssuesDescription": "جزء من معالجة جيبف هو وضع علامة على التكرارات التي تحتوي على حقول مشبوهة",
     "FossilsIncluded": "",
     "FossilsIncludedDescription": "",
     "livingSpecimensIncluded": "",
