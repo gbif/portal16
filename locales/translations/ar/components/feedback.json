@@ -23,7 +23,7 @@
       "title": "مكتب المساعدة",
       "example": "مثل: كيف تحمي البيانات الخاصة بالأنواع النادرة؟ هل يمكنك مساعدتي في العثور على جميع سجلات هذه الأنواع التي حدث في المياه الدولية؟",
       "description": "يتم الرد على جميع الأسئلة من خلال مكتب المساعدة الخاص بنا على helpdesk@gbif.org",
-      "comment": ""
+      "comment": "للاستفسارات الخاصة والأسئلة غير الفنية يمكنك التواصل معنا على [info@gbif.org) [mailto: info@gbif.org) أو على [communication@gbif.org) [mailto: communication@gbif.org) للمسائل الصحفية."
     },
     "confirmation": {
       "title": "شكرا لك",
@@ -37,17 +37,17 @@
     },
     "placeholders": {
       "summary": "الملخص",
-      "description": "",
+      "description": "وصف مفصل. بالنسبة للمطالبات التصنيفية، يرجى تقديم مرجع. يرجى تقديم ملاحظاتك باللغة الإنجليزية، إن أمكن.",
       "username": ""
     },
-    "markdownSupport": "",
+    "markdownSupport": "دعم السعر المخفض",
     "issueTracking": "",
     "failure": "",
     "weRecommendX": "",
     "tellGbif": "",
     "submit": "أرسل",
     "seeAllComments": "مشاهدة الكل",
-    "recommendMail": "",
+    "recommendMail": "نوصي بإرسال بريد إلى",
     "pleaseLogin": ""
   }
 }
