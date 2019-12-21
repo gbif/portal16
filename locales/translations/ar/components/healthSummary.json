@@ -1,8 +1,8 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "النظام سليم",
+        "description": "ما هو وضع الخدمات المختلف عند جيبف",
+        "updatedTimeAgo": "تم التحديث {TIME_AGO}",
         "statusSummary": {
             "OPERATIONAL": "جميع الأنظمة التشغيلية",
             "INFO": "جميع الأنظمة التشغيلية",
