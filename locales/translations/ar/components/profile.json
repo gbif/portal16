@@ -17,11 +17,11 @@
     "error": {
       "USERNAME_NOT_UNIQUE": "هذا المستخدِم قيد الاستعمال حالياً",
       "LOGIN_UNKNOWN": "هذا الاسم المستخدِم للدخول للموقع غير مرتبط حالياً بأي حساب - إضا كان لديك حساب، يرجى الدخول باستعمال اسم الدخول أو البريد الالكتروني وكلمة السر المرتبطة به. أو قم بالتسجيل لفتح حساب جديد.",
-      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
-      "USER_ALREADY_LOGGED_IN": "",
+      "PROVIDER_ACCOUNT_ALREADY_IN_USE": "ملف التعريف هذا مرتبط بالفعل بحساب آخر",
+      "USER_ALREADY_LOGGED_IN": "أنت بالفعل سجلت دخول",
       "EMAIL_IN_USE": "البريد الإلكتروني موجود مسبقاً",
       "NO_EMAIL_PROVIDED": "لم يتم تزويد بريد الكتروني",
-      "FAILED": ""
+      "FAILED": "الخادم فشل في معالجة الطلب"
     },
     "loginText": "تسجيل الدخول",
     "register": "تسجيل",
@@ -36,8 +36,8 @@
     "profile": "الملف الشخصي",
     "invalidLink": "رابط غير صالح",
     "noDownloads": "لم تقم بتنزيل أي شيء بعد",
-    "suggestToSearchOccurrences": "",
-    "welcome": "مرحبا بكم في {GBIF}",
+    "suggestToSearchOccurrences": "قد ترغب في [البحث عن تكرارات] (/ تكرارات/بحث)",
+    "welcome": "مرحبا بكم في {جيبف}",
     "accountConfirmed": "تم تأكيد حسابك وأنت الان مسجل دخولك",
     "userProfile": "الملف التعريفي للمستخدم",
     "usernameEmail": "إسم المستخدم أو البريد الإلكتروني",
