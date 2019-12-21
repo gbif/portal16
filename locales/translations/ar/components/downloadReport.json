@@ -23,21 +23,21 @@
     "largeDownload": "تحميل كبير الحجم",
     "requestingFullDownload": "أنت تطلب تنزيل كامل بيانات التكرارت الموجودة في جيبف.",
     "occFiltersExplainedHere": "",
-    "estSizeIs": "",
-    "estDLtimes": "",
+    "estSizeIs": "الحجم المقدر للتنزيل هو {SIZE_FORMATTED}",
+    "estDLtimes": "عدد مرات التنزيل المقدرة:",
     "nMbitConn": "",
     "onceDownloaded": "",
     "datasetHasNumRows": "",
     "youWillNotBeAble": "",
     "difficultToAnalyse": "",
-    "hours": "",
-    "minute": "",
-    "minutes": ""
+    "hours": "ساعات",
+    "minute": "دقيقة",
+    "minutes": "دقائق"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "خيارات التحميل",
     "content": {
-      "rawData": "",
+      "rawData": "مسودة البيانات",
       "interpretedData": "",
       "images": "",
       "coordinates": "",
