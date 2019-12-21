@@ -51,7 +51,7 @@
     "signUpWithProvider": "سجل مع {المزود}",
     "connectWithProvider": "أتصل مع {المزود}",
     "disconnectWithProvider": "إنقطاع {المزود}",
-    "signInAgreement": "",
+    "signInAgreement": "من خلال تسجيل الدخول، فإنك تقبل من جيبف [الشروط](/الشروط)و [سياسة الخصوصية](/الشروط/سياسة-الخصوصية).",
     "country": "الدولة",
     "countryRequired": "الدولة مطلوبة",
     "email": "البريد الإلكتروني",
