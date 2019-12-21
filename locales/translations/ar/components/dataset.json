@@ -1,9 +1,9 @@
 {
   "dataset": {
-    "datasetSearchTitle": "",
+    "datasetSearchTitle": "بحث عن مجموعة بيانات",
     "longType": {
-      "OCCURRENCE": "",
-      "CHECKLIST": "",
+      "OCCURRENCE": "مجموعة بيانات التكرار",
+      "CHECKLIST": "القائمة المرجعية لمجموعة بيانات",
       "SAMPLING_EVENT": "",
       "METADATA": ""
     },
