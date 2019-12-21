@@ -4,16 +4,16 @@
     "longType": {
       "OCCURRENCE": "مجموعة بيانات التكرار",
       "CHECKLIST": "القائمة المرجعية لمجموعة بيانات",
-      "SAMPLING_EVENT": "",
-      "METADATA": ""
+      "SAMPLING_EVENT": "واقعة أخذ العينات",
+      "METADATA": "مجموعة البيانات الوصفية"
     },
     "metricHighlights": {
-      "occurrences": "",
-      "withTaxonMatch": "",
-      "withCoordinates": "",
-      "withYear": "",
-      "acceptedNames": "",
-      "synonyms": "",
+      "occurrences": "التكرارات",
+      "withTaxonMatch": "يماثل تصنيف تكسون",
+      "withCoordinates": "مع الإحداثيات",
+      "withYear": "مع السنة",
+      "acceptedNames": "الأسماء المقبولة",
+      "synonyms": "مرادفات",
       "overlapWithNub": "",
       "overlapWithCol": ""
     },
