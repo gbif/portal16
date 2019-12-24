@@ -22,7 +22,7 @@
     "nothingSelected": "нет категории",
     "occurrences": "Число находок",
     "citations": "Цитирования",
-    "otherOrUknown": "Другие или неизвестные",
+    "otherOrUknown": "для {NUMBER} находок значение другое или неизвестно",
     "occurrencesPerField": "Распределение находок по категории: {FIELD}",
     "occurrencesBreakdownPerField": "Разбивка находок по полям",
     "occurrencesPerFieldx2": "Число находок категории: {FIELD} по категории: {FIELD2}",
@@ -44,7 +44,7 @@
     "groupByX": "Группы по {TYPE}",
     "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{другой или неизвестный} other{других или неизвестных}}",
     "unknownRank": "Неизвестный {RANK}",
-    "vernacularNames": "Народные названия",
+    "vernacularNames": "Названия на национальном языке",
     "majorRanksPlural": {
       "KINGDOM": "Царство",
       "PHYLUM": "Тип",
