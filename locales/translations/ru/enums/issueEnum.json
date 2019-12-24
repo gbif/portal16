@@ -13,7 +13,7 @@
     "PARENT_CYCLE": "Зацикленная иерархическая классификация",
     "CLASSIFICATION_RANK_ORDER_INVALID": "Недопустимый порядок рангов классификации",
     "CLASSIFICATION_NOT_APPLIED": "Классификация не применяется",
-    "VERNACULAR_NAME_INVALID": "Недопустимое народное название",
+    "VERNACULAR_NAME_INVALID": "Некорректное название на национальном языке",
     "DESCRIPTION_INVALID": "Описание недействительно",
     "DISTRIBUTION_INVALID": "Распространение недействительно",
     "SPECIES_PROFILE_INVALID": "Профиль вида недействителен",
