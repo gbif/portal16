@@ -3,14 +3,14 @@
     "connect": {
       "failed": {
         "FACEBOOK": "لا يمكن الاتصال بصفحة الفيسبوك",
-        "GITHUB": "",
+        "GITHUB": "لا يمكن الاتصال بـ Github",
         "GOOGLE": ""
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "لا يمكن الدخول باستعمال الفيسبوك",
-        "GITHUB": "",
+        "GITHUB": "لا يمكن الدخول ب Github",
         "GOOGLE": ""
       }
     },
@@ -62,8 +62,8 @@
     "invalidUsername": "اسم المستخدم الصحيح يحتوي على 3-64 حرفاً والأحرف المتضمنة هي a-z (أحرف صغيرة) و ._-",
     "passwordRequired": "كلمة السر مطلوبة",
     "passwordLength": "يجب أن تكون كلمة السر من 6 حروف أو أكثر",
-    "passwordMaxLength": "",
-    "next": "",
+    "passwordMaxLength": "كلمة السر يجب أن لا يتجاوز 256 حرفاً",
+    "next": "التالي",
     "pleaseFillForm": "",
     "selectAllImages": "",
     "signUp": "",
