@@ -11,18 +11,18 @@
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 1{تكرار} other{تكرارات}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED}{NUMBER, select, 1{تكرار} other{تكرارات}} حول",
         "nOccurrencesPublished": "{NUMBER_FORMATED}{NUMBER, select, 1{تكرار} other{تكرارات}} نشرت",
-        "nEndorsedPublishers": "{NUMBER_FORMATED} مصدق {NUMBER, select, 1{ناشر} other{ناشرين}}",
-        "nDatasets": "{NUMBER_FORMATED} {NUMBER, select, 1{قاعدة بيانات} other{قواعد بيانات}}",
-        "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, 1{ناشر} other{ناشرين}}",
+        "nEndorsedPublishers": "{NUMBER_FORMATED} مصدق {NUMBER, select, 1{ناشر} other{ناشرون}}",
+        "nDatasets": "{NUMBER_FORMATED} {NUMBER, select, 1{مجموعة بيانات} other{مجموعات بيانات}}",
+        "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, 1{ناشر} other{ناشرون}}",
         "nCountries": "{NUMBER_FORMATED} {NUMBER, select, 1{دولة} other{دول}}",
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select, 1{جهة اتصال} other{جهات اتصال}}",
         "pRecords": "{NUMBER, select, 1{سجل} other{سجلات}}",
         "pOccurrence": "{NUMBER, select,  1{تكرار}other{تكرارات}}",
         "pMaterialSamples": "",
         "pSpecies": "{NUMBER, select, 1{نوع} other{أنواع}}",
-        "pInfraspecies": "",
-        "pPublishers": "",
-        "contacts": "",
-        "nTreatments": ""
+        "pInfraspecies": "{NUMBER, select, 1{تحت نوع}other{تحت أنواع}}",
+        "pPublishers": "{NUMBER, select, 1{ناشر} other{ناشرون}}",
+        "contacts": "{NUMBER, select, 1{جهة اتصال} other{جهات اتصال}}",
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{معالجة} other{معاملات}}"
     }
 }
