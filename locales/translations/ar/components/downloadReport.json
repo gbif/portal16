@@ -27,7 +27,7 @@
     "estDLtimes": "عدد مرات التنزيل المقدرة:",
     "nMbitConn": "{NUMBER} ميغا بايت للاتصال",
     "onceDownloaded": "بمجرد تنزيل الملف، سوف تحتاج إلى {SIZE_FORMATTED} مساحة فارغة على القرص لفك ضغط البيانات.",
-    "datasetHasNumRows": "",
+    "datasetHasNumRows": "تحتوي مجموعة البيانات على {NUMBER_FORMATTED} صفوف بيانات.",
     "youWillNotBeAble": "",
     "difficultToAnalyse": "",
     "hours": "ساعات",
