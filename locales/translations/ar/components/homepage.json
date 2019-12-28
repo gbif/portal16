@@ -1,19 +1,19 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "سجلات الوقائع",
-            "datasets": "قواعد البيانات",
+            "occurrences": "سجلات التكرار",
+            "datasets": "مجموعات البيانات",
             "publishers": "مؤسسات النشر",
             "literature": "أبحاث علمية محكمة باستخدام بيانات"
         },
-        "aboutGbifCountry": "حول {GBIF {COUNTRY",
-        "summary": "بيانات تنوع حيوي مجانية ومفتوحة",
-        "whatIsGbif": "ما هو جيبف؟",
+        "aboutGbifCountry": "حول \"جبيف\" {COUNTRY}",
+        "summary": "بيانات تنوع حيوي متاحة مجاناً",
+        "whatIsGbif": "ما هو \"جيبف\"؟",
         "featureTypes": {
             "event": "حدث",
             "news": "أخبار",
             "resource": "مورد",
-            "dataUse": "البيانات المستخدمة",
+            "dataUse": "استعمال البيانات",
             "project": "مشروع",
             "programme": "برنامج",
             "document": "مستند",
