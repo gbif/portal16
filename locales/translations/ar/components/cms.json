@@ -2,7 +2,7 @@
   "cms": {
     "project": {
       "project": "مشروع",
-      "projectId": "تعريف المشروع",
+      "projectId": "معرف المشروع",
       "projectIdentifier": "معرف المشروع",
       "grantType": "نوع المنحة",
       "duration": "المدّة",
