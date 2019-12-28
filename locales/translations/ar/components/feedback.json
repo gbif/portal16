@@ -37,11 +37,11 @@
     },
     "placeholders": {
       "summary": "الملخص",
-      "description": "وصف مفصل. بالنسبة للمطالبات التصنيفية، يرجى تقديم مرجع. يرجى تقديم ملاحظاتك باللغة الإنجليزية، إن أمكن.",
-      "username": "بريدك الإلكتروني أو اسم مستخدم Github (عام)"
+      "description": "وصف مفصل. بالنسبة للادعاءات التصنيفية، يرجى تقديم مرجع. يرجى تقديم ملاحظاتك باللغة الإنجليزية، إن أمكن.",
+      "username": "بريدك الإلكتروني أو اسم المستخدم Github (عام)"
     },
     "markdownSupport": "دعم السعر المخفض",
-    "issueTracking": "جميع المشكلات هي عامة وهي متاحة من خلال [Github] (https://github.com/gbif/portal-feedback/issues)",
+    "issueTracking": "جميع المشكلات هي عامة وهي متاحة من خلال (Github] (https://github.com/gbif/portal-feedback/issues]",
     "failure": "هذا ليس جيداً - نظام تقديمالتعليقات لا يعمل. الرجاء إرسال بريد إلكتروني إلينا أو الانتقال مباشرةً إلى [Github] (https://github.com/gbif/portal-feedback/issues). نحن آسفون عن المتاعب.",
     "weRecommendX": "نوصي باستخدام [{NAME}]({LINK})",
     "tellGbif": "أخبر جيبف",
