@@ -2,14 +2,14 @@
   "countryKey": {
     "tabs": {
       "summary": "مُلخّص",
-      "dataPublishing": "ناشر البيانات",
+      "dataPublishing": "نشر البيانات",
       "dataAbout": "حول البيانات",
       "participartion": "مشاركة",
       "publicationsFrom": "منشورات من",
       "publicationsAbout": "حول المنشورات",
       "news": "أخبار",
       "invasives": "",
-      "more": "أكثر…",
+      "more": "المزيد…",
       "projects": "مشاريع"
     },
     "memberSince": "عضو مُنذُ",
