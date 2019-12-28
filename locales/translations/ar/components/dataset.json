@@ -4,7 +4,7 @@
     "longType": {
       "OCCURRENCE": "مجموعة بيانات التكرار",
       "CHECKLIST": "القائمة المرجعية لمجموعة بيانات",
-      "SAMPLING_EVENT": "واقعة أخذ العينات",
+      "SAMPLING_EVENT": "حدث أخذ العينات",
       "METADATA": "مجموعة البيانات الوصفية"
     },
     "metricHighlights": {
