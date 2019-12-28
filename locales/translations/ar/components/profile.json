@@ -81,8 +81,8 @@
     "accountCreated": "تم إنشاء الحساب",
     "accountInfoUpdated": "تم تحديث حسابك",
     "passwordChangeInvalid": "كلمة مرور غير صحيحة - إذا نسيت كلمة المرور، فقم بتسجيل الخروج واستخدم إعادة تعيين كلمة المرور",
-    "verficationLinkSent": "",
-    "resetPasswordRequest": "",
-    "resetPasswordMessage": ""
+    "verficationLinkSent": "تم إرسال رابط التحقق إلى بريدك الإلكتروني للتأكد من أنه بريدك العفلي. مرحباً بك في \"جيبف\"",
+    "resetPasswordRequest": "طلب إعادة تعيين كلمة المرور",
+    "resetPasswordMessage": "لقد قمنا بإرسال الرابط إلى بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك."
   }
 }
