@@ -23,19 +23,19 @@
     "nAbout": "{NUMBER_FORMATTED} حول",
     "viewAllN": "مشاهدة الكل {NUMBER_FORMATTED}",
     "noPublications": "لا يوجد منشورات",
-    "noProjects": "لا يوجد مشروع",
+    "noProjects": "لا يوجد مشاريع",
     "notParticipant": "ليس مشاركاً",
-    "notParticipantDescription": "هذا البلد ليس مشاركاً في جيبف",
-    "countryNamingDisclaimer": "تعتمد أسماء البلدان والمناطق على المقياس [ISO 3166-1 standard] والمتاح في الموقع (https://www.iso.org/obp/ui/#search)",
+    "notParticipantDescription": "هذه الدولة غير مشتركة في \"جيبف\"",
+    "countryNamingDisclaimer": "تعتمد أسماء الدول والمناطق على المعيار [ISO 3166-1 standard] والمتاح في الموقع (https://www.iso.org/obp/ui/#search)",
     "counts": {
-      "occurrences": "{NUMBER, plural,\n0 {التكرارات}\none {التكرارات}\nfew {التكرارات}\nmany {التكرارات}\nother {التكرارات}\n}",
-      "datasets": "قواعد البيانات",
+      "occurrences": "{NUMBER, plural,\n0 {تكرارات}\none {تكرار}\nfew {تكرارات}\nmany {تكرارات}\nother {تكرارات}\n}",
+      "datasets": "مجموعات البيانات",
       "publishers": "الناشرون",
-      "countriesAndAreasContributeData": "البلدان والمناطق التي تساهم في البيانات",
+      "countriesAndAreasContributeData": "الدول والمناطق التي تساهم في البيانات",
       "publishedOccurrences": "التكرارات المنشورة",
-      "publishedDatasets": "قواعد البيانات المنشورة",
-      "countriesAndAreasCoveredByDataFrom": "البلدان والمناطق التي تغطيها البيانات من {TRANSLATED_COUNTRY}",
-      "publishersFrom": "الناشرين من {TRANSLATED_COUNTRY}"
+      "publishedDatasets": "مجموعات البيانات المنشورة",
+      "countriesAndAreasCoveredByDataFrom": "الدول والمناطق التي تغطيها البيانات من {TRANSLATED_COUNTRY}",
+      "publishersFrom": "الناشرون من {TRANSLATED_COUNTRY}"
     },
     "activityReport": "تقرير النشاط"
   }
