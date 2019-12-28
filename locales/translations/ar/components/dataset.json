@@ -9,8 +9,8 @@
     },
     "metricHighlights": {
       "occurrences": "التكرارات",
-      "withTaxonMatch": "يماثل تصنيف تكسون",
-      "withCoordinates": "مع الإحداثيات",
+      "withTaxonMatch": "مع وحدة تصنيفية مماثة",
+      "withCoordinates": "مع إحداثيات",
       "withYear": "مع السنة",
       "acceptedNames": "الأسماء المقبولة",
       "synonyms": "مرادفات",
