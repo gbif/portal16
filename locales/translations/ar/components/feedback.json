@@ -42,12 +42,12 @@
     },
     "markdownSupport": "دعم السعر المخفض",
     "issueTracking": "جميع المشكلات هي عامة وهي متاحة من خلال (Github] (https://github.com/gbif/portal-feedback/issues]",
-    "failure": "هذا ليس جيداً - نظام تقديمالتعليقات لا يعمل. الرجاء إرسال بريد إلكتروني إلينا أو الانتقال مباشرةً إلى [Github] (https://github.com/gbif/portal-feedback/issues). نحن آسفون عن المتاعب.",
+    "failure": "هذا غير جيد - نظام تقديم التعليقات لا يعمل. الرجاء إرسال بريد إلكتروني إلينا أو انتقل مباشرةً إلى [Github] (https://github.com/gbif/portal-feedback/issues). نآسف على الازعاج.",
     "weRecommendX": "نوصي باستخدام [{NAME}]({LINK})",
-    "tellGbif": "أخبر جيبف",
+    "tellGbif": "أخبر \"جيبف\"",
     "submit": "أرسل",
     "seeAllComments": "مشاهدة الكل",
     "recommendMail": "نوصي بإرسال بريد إلى",
-    "pleaseLogin": "الرجاء تسجيل الدخول لتقديم التعليقات. بدلاً من ذلك ، يمكنك استخدام [Github](https://github.com/gbif/portal-feedback/issues).\nلماذا ا؟ للأسف نشاهد الكثير من الإعلانات البريد العشوائي في نظام التعليقات لدينا إذا لم نطلب من المستخدمين تسجيل الدخول."
+    "pleaseLogin": "الرجاء تسجيل الدخول لتقديم التعليقات. كبديل عن ذلك يمكن استخدام [Github](https://github.com/gbif/portal-feedback/issues).\nلماذا ا؟ للأسف فإننا نشاهد الكثير من الإعلانات العشوائية في نظام التعليقات لدينا إذا لم نطلب من المستخدمين تسجيل الدخول."
   }
 }
