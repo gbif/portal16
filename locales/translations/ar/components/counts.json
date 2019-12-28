@@ -23,6 +23,6 @@
         "pInfraspecies": "{NUMBER, select, 1{تحت نوع}other{تحت أنواع}}",
         "pPublishers": "{NUMBER, select, 1{ناشر} other{ناشرون}}",
         "contacts": "{NUMBER, select, 1{جهة اتصال} other{جهات اتصال}}",
-        "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{معالجة} other{معاملات}}"
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{معالجة} other{معالجات}}"
     }
 }
