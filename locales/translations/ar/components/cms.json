@@ -27,7 +27,7 @@
       "partners": "الشركاء"
     },
     "datause": {
-      "dataViaGbif": "موارد البيانات المستخدمة لدى جيبف"
+      "dataViaGbif": "موارد البيانات المستخدمة عن طريق \"جيبف\""
     },
     "literature": {
       "keywords": "الكلمات المفتاحية"
@@ -35,7 +35,7 @@
     "auxiliary": {
       "subject": "الموضوع",
       "citation": "اقتباس",
-      "organisingParticipants": "تنظيم المشاركين"
+      "organisingParticipants": "تنظيم المشاركون"
     }
   }
 }
