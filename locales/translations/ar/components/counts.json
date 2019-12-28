@@ -1,12 +1,12 @@
 {
     "counts": {
-        "nCitations": "شكل الرقم أختيار الرقم استشهاد استشهادات أخرى ",
-        "pCitations": "شكل الرقم أختيار الرقم استشهاد استشهادات أخرى",
-        "nRecords": "شكل الرقم أختيار الرقم السجل سجلات أخرى",
-        "nResults": "",
+        "nCitations": "{NUMBER_FORMATED}{NUMBER, select,1{استشهاد}other{استشهادات}}",
+        "pCitations": "{NUMBER, select,1{استشهاد}other{استشهادات}}",
+        "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{سجل} other{سجلات}}",
+        "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{نتيجة} other{نتائج}}",
         "nCollections": "",
         "nInstitutions": "",
-        "nEvents": "",
+        "nEvents": "{NUMBER_FORMATED} {NUMBER, select, 1{حدث} other{أحداث}}",
         "nInstallations": "",
         "nOccurrences": "",
         "nOccurrencesAbout": "",
