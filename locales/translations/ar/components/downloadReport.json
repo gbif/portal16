@@ -1,8 +1,8 @@
 {
   "downloadReport": {
-    "title": "تحميل التقرير",
+    "title": "تنزيل التقرير",
     "knownIssues": "مشاكل معروفة",
-    "knownIssuesDescription": "جزء من معالجة جيبف هو وضع علامة على التكرارات التي تحتوي على حقول مشبوهة",
+    "knownIssuesDescription": "جزء من معالجة المعلومات في \"جيبف\" هو اظهار التكرارات التي تحتوي على حقول مشكوك فيها",
     "FossilsIncluded": "أحافير",
     "FossilsIncludedDescription": "هناك أحافير بين نتائجك. هذا يعني أن التكرارات الأنواع في مواقع غير متوقعة",
     "livingSpecimensIncluded": "العينات الحية",
