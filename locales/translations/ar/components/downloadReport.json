@@ -29,7 +29,7 @@
     "onceDownloaded": "بمجرد تنزيل الملف، سوف تحتاج إلى مساحة فارغة {SIZE_FORMATTED} أخرى على القرص لفك ضغط البيانات.",
     "datasetHasNumRows": "تحتوي مجموعة البيانات على {NUMBER_FORMATTED} صفوف بيانات.",
     "youWillNotBeAble": "لن تتمكن من عرض أو تحليل البيانات في تطبيق Excel أو التطبيقات المشابهة. للعمل مع هذه البيانات، ستحتاج إلى معرفة تطبيقات أخرى على سبيل المثال قواعد بيانات R أو Python أو Relational.",
-    "difficultToAnalyse": "",
+    "difficultToAnalyse": "يصعب تحليل مجموعة البيانات بهذا الحجم على جهاز الحاسوب الشخصي العادي. ربما ستحتاج إستعمال نوع من خدمات الحوسبة التوزيعية.",
     "hours": "ساعات",
     "minute": "دقيقة",
     "minutes": "دقائق"
@@ -37,7 +37,7 @@
   "downloadOptions": {
     "title": "خيارات التحميل",
     "content": {
-      "rawData": "مسودة البيانات",
+      "rawData": "بيانات أصلية خام",
       "interpretedData": "",
       "images": "",
       "coordinates": "",
