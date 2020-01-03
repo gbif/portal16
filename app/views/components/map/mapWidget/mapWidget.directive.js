@@ -455,6 +455,15 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.clickedQuery.clickedGeometry = vm.clickedGeometry;
             vm.clickedQuery.has_geospatial_issue = false;
             vm.clickedQuery.has_coordinate = true;
+
+            // tracking
+            var trackingData = {
+                hitType: 'event',
+                eventCategory: 'map',
+                eventAction: 'exploreArea'
+            };
+            ga('send', trackingData);
+
             window.location.href = URL_PREFIX + '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
             // vm.activeControl = vm.controls.OCCURRENCES;
             // vm.mapMenu.isLoading = true;
