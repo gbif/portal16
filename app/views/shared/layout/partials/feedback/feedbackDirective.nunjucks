@@ -101,7 +101,7 @@
                                 <div>
                                     <span><strong>{{ vm.contentFeedback.contacts.firstContact.firstName }} {{ vm.contentFeedback.contacts.firstContact.lastName }}</strong></span><br>
                                     <span>{{ vm.contentFeedback.contacts.firstContact.organization }}</span><br>
-                                    <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">
+                                    <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?cc=helpdesk@gbif.org&subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">
                                         <span ng-click="vm.gaEvent('datasetContact', 'primarySuggestion')">{{ vm.contentFeedback.contacts.firstContact.email }}</span>
                                     </a>
                                 </div>
@@ -115,7 +115,7 @@
                     </div>
                     <div ng-if="vm.forceShowForm" class="feedback__comment">
                         <span translate="feedback.recommendMail"></span>
-                        <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">
+                        <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?cc=helpdesk@gbif.org&subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">
                             <span ng-click="vm.gaEvent('datasetContact', 'reminder')" >{{ vm.contentFeedback.contacts.firstContact.email }}</span>
                         </a>
                     </div>
