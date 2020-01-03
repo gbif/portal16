@@ -8,7 +8,7 @@
         "limitResultsTo": {
             "all": "Все",
             "scientificNames": "Латинские названия видов",
-            "vernacularNames": "Народные названия видов",
+            "vernacularNames": "Названия на национальном языке",
             "descriptions": "Описания"
         }
     }

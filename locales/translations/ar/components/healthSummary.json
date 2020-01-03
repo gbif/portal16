@@ -1,18 +1,18 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "صحة النظام",
+        "description": "ما هو وضع الخدمات المختلفة عند \"جيبف\"",
+        "updatedTimeAgo": "تم التحديث {TIME_AGO}",
         "statusSummary": {
             "OPERATIONAL": "جميع الأنظمة التشغيلية",
             "INFO": "جميع الأنظمة التشغيلية",
-            "WARNING": "نحن نعاني من عدم استقرار أو بطئ في النظام",
+            "WARNING": "نحن نعاني من نظام غير مستقر أو بطئ",
             "CRITICAL": "نحن نعاني من عطل جزئي"
         },
         "notifications": {
             "WARNING": {
-                "title": "الخدمات ليست مستقرة",
-                "summary": "نحن نعاني الآن من بطئ أو خدمات غير مستقرة."
+                "title": "الخدمات غير مستقرة",
+                "summary": "نحن نعاني الآن من خدمات بطيئة أو غير مستقرة."
             },
             "CRITICAL": {
                 "title": "الخدمات غير متاحة",

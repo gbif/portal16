@@ -2,7 +2,7 @@
   "cms": {
     "project": {
       "project": "مشروع",
-      "projectId": "تعريف المشروع",
+      "projectId": "معرف المشروع",
       "projectIdentifier": "معرف المشروع",
       "grantType": "نوع المنحة",
       "duration": "المدّة",
@@ -27,7 +27,7 @@
       "partners": "الشركاء"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "موارد البيانات المستخدمة عن طريق \"جيبف\""
     },
     "literature": {
       "keywords": "الكلمات المفتاحية"
@@ -35,7 +35,7 @@
     "auxiliary": {
       "subject": "الموضوع",
       "citation": "اقتباس",
-      "organisingParticipants": "تنظيم المشاركين"
+      "organisingParticipants": "تنظيم المشاركون"
     }
   }
 }

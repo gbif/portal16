@@ -1,32 +1,32 @@
 {
   "search": {
     "title": "بحث",
-    "placeholder": "أحداث، أنواع، أخبار ...",
+    "placeholder": "تكرارات، أنواع، أخبار ...",
     "noSearchTermsEntered": "لم يتم إدخال مصطلحات للبحث",
-    "notSureWhatYouAreLookingFor": "",
+    "notSureWhatYouAreLookingFor": "لست متأكداً مما تبحث عنه؟ ماذا لو نظرت في بعض صور تكرارات الأنواع",
     "cannotFindWhatYouAreLookingFor": "تعذر الحصول عن ما تبحث عنه؟",
     "trySpecifyingAType": "حاول تحديد الطراز",
     "everything": "كل شيء",
     "occurrences": "التكرارات",
     "species": "الأنواع",
     "datasets": "قواعد البيانات",
-    "resources": "المصادر",
+    "resources": "الموارد",
     "publishers": "الناشرون",
     "participants": "المشاركون",
     "search": "بحث",
     "clearFilters": "امسح المرشحات",
-    "filters": "عوامل التصفية",
+    "filters": "المُرشِّحات",
     "simple": "بسيط",
     "advanced": "متقدم",
     "allResultTypes": "الكل",
     "suggestions": "اقتراحات",
     "header": {
-      "searchDatasets": "البحث في قواعد البيانات",
+      "searchDatasets": "البحث في مجموعات البيانات",
       "searchPublishers": "البحث في الناشرين",
       "searchSpecies": "البحث في الأنواع",
-      "searchResources": "البحث في المصادر",
+      "searchResources": "البحث في الموارد",
       "searchOccurrences": "البحث في التكرارات"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{نتيجة} other{نتائج}}"
   }
 }
