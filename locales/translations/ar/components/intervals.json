@@ -4,19 +4,19 @@
         "elevation": {
             "equals": "هو {from} متر",
             "between": "بين {from} و{to} متر",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "lessThanOrEquals": "أدنى من {to} متر",
+            "greaterThanOrEquals": "أعلى من {from} متر",
             "invalid": "غير صحيح",
             "select": {
-                "equals": "",
-                "between": "ما بين",
+                "equals": "هو",
+                "between": "بين",
                 "lessThanOrEquals": "أقل",
                 "greaterThanOrEquals": "أعلى"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
+            "equals": "هو {from} متر",
+            "between": "بين {from} و{to} متر",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "غير صحيح",
