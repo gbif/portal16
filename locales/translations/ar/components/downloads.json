@@ -1,8 +1,8 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "",
-    "nRecordsDownloaded": "",
-    "nConstituentDatasets": "",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATED}{NUMBER, select, 1{تكرار} other{تكرارات}} تم تنزيلها",
+    "nRecordsDownloaded": "{NUMBER_FORMATED}{NUMBER, select, 1{سجل} other{سجلات}} تم تنزيلها",
+    "nConstituentDatasets": "يضم سجلات من {NUMBER_FORMATED} {NUMBER, select, 1{مجموعة بيانات} other{مجموعات بيانات}}",
     "fileNotAvailable": "",
     "downloadDeletionWarning": "",
     "occurrenceDownload": "",
