@@ -2,8 +2,8 @@
     "intervals": {
         "noFilter": "بدون تصفية",
         "elevation": {
-            "equals": "",
-            "between": "",
+            "equals": "هو {from} متر",
+            "between": "بين {from} و{to} متر",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "غير صحيح",
