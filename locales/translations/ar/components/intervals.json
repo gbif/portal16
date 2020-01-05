@@ -29,15 +29,15 @@
         },
         "year": {
             "equals": "هو {from}",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "between": "بين بداية من {from} وانتهاء بـ {to}",
+            "lessThanOrEquals": "قبل نهاية {to}",
+            "greaterThanOrEquals": "بعد البداية من {from}",
             "invalid": "غير صحيح",
             "select": {
-                "equals": "",
-                "between": "ما بين",
-                "lessThanOrEquals": "قبل النهاية",
-                "greaterThanOrEquals": "بعد البداية"
+                "equals": "هو",
+                "between": "بين",
+                "lessThanOrEquals": "قبل نهاية من",
+                "greaterThanOrEquals": "بعد البداية من"
             }
         }
     }
