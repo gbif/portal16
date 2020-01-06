@@ -52,17 +52,17 @@
     },
     "predicate": {
       "joinDescriptions": {
-        "and": "",
-        "or": "",
-        "not": ""
+        "and": "يجب تطبيق الكل",
+        "or": "يجب تطبيق طلب واحد على الأقل",
+        "not": "يجب أن لا نُدرج شيء"
       },
-      "and": "",
-      "or": "",
-      "not": "",
-      "isNotNull": ""
+      "and": "و",
+      "or": "أو",
+      "not": "لا",
+      "isNotNull": "مُعَرَّف"
     }
   },
   "myDownloads": {
-    "title": ""
+    "title": "تنزيلاتي"
   }
 }
