@@ -24,45 +24,45 @@
     "format": "صيغة",
     "nRecordsAtTime": "{NUMBER_FORMATED}{NUMBER, select, 1{سجل} other{سجلات}} في وقت التنزيل",
     "aboutDeletionPolicy": "إقرأ المزيد حول سياسة الحذف لدينا (/faq?question=for-how-long-will-does-gbif-store-downloads).",
-    "readDatauseAndTerms": "",
-    "filterApplied": "",
-    "rerunQuery": "",
-    "postpone": "",
-    "deleteDownload": "",
-    "tellUs": "",
-    "downloadKilled": "",
-    "downloadDeleted": "",
-    "storageDurationTeaser": "",
-    "predatesDoi": "",
-    "file": "",
-    "constituentDatasets": "",
-    "noFiltersApplied": "",
-    "apiUsageDescription": "",
-    "apiFilterView": "",
-    "humanFilterView": "",
-    "downloadStarted": "",
-    "downloadExpectTime": "",
-    "notificationEmailAddresses": "",
+    "readDatauseAndTerms": "تأكد من قراءة [موافقة مستخدم البيانات] (/terms/data-user) و [إرشادات الاقتباس] (/citation-guidelines).",
+    "filterApplied": "تم تطبيق المرشِّح {DATE}",
+    "rerunQuery": "أعد تشغيل الاستعلام",
+    "postpone": "أرجى الحذف",
+    "deleteDownload": "إحذف التنزيل",
+    "tellUs": "أخبرنا عن الاستعمال",
+    "downloadKilled": "فشل طلب التنزيل. يرجى المحاولة مرة أخرى أو الاتصال بنا.",
+    "downloadDeleted": "تم حذف هذا الملف. إذا كنت بحاجة إلى استعادته، فيرجى الاتصال بنا.",
+    "storageDurationTeaser": "إلى متى ستخزن \"جبيف\" هذه البيانات؟",
+    "predatesDoi": "هذا التنزيل يسبق استخدامنا لـ DOIs. يرجى الاتصال بنا إذا كنت ترغب في الاستشهاد بهذا التنزيل",
+    "file": "ملف",
+    "constituentDatasets": "مجموعات البيانات المعنية",
+    "noFiltersApplied": "لم يتم استعمال مرشِّحات",
+    "apiUsageDescription": "لتكرار التنزيل على بيانات اليوم باستخدام واجهة برمجة التطبيقات (API)، يمكن استخدام الاستعلام أدناه.",
+    "apiFilterView": "واجهة برمجة التطبيقات (API)",
+    "humanFilterView": "بشري",
+    "downloadStarted": "لقد بدأ التنزيل وهو قيد المعالجة حالياً.",
+    "downloadExpectTime": "يرجى توقع أن التنزيل سيكتمل خلال 3 ساعات. معظم التنزيلات تتم في غضون 15 دقيقة.",
+    "notificationEmailAddresses": "سيتم إرسال رسالة إعلام بالبريد الإلكتروني تحتوي على رابط لتنزيل النتائج بمجرد أن تصبح جاهزة إلى العنوان التالي: ",
     "status": {
-      "PREPARING": "",
-      "SUSPENDED": "",
-      "RUNNING": "",
-      "CANCELLED": "",
-      "KILLED": ""
+      "PREPARING": "إعداد",
+      "SUSPENDED": "معلق",
+      "RUNNING": "جاري التنفيذ",
+      "CANCELLED": "ملغى",
+      "KILLED": "قتل"
     },
     "predicate": {
       "joinDescriptions": {
-        "and": "",
-        "or": "",
-        "not": ""
+        "and": "يجب تطبيق الكل",
+        "or": "يجب تطبيق طلب واحد على الأقل",
+        "not": "يجب أن لا نُدرج شيء"
       },
-      "and": "",
-      "or": "",
-      "not": "",
-      "isNotNull": ""
+      "and": "و",
+      "or": "أو",
+      "not": "لا",
+      "isNotNull": "مُعَرَّف"
     }
   },
   "myDownloads": {
-    "title": ""
+    "title": "تنزيلاتي"
   }
 }
