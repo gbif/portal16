@@ -41,14 +41,14 @@
     "apiFilterView": "واجهة برمجة التطبيقات (API)",
     "humanFilterView": "بشري",
     "downloadStarted": "لقد بدأ التنزيل وهو قيد المعالجة حالياً.",
-    "downloadExpectTime": "",
-    "notificationEmailAddresses": "",
+    "downloadExpectTime": "يرجى توقع أن التنزيل سيكتمل خلال 3 ساعات. معظم التنزيلات تتم في غضون 15 دقيقة.",
+    "notificationEmailAddresses": "سيتم إرسال رسالة إعلام بالبريد الإلكتروني تحتوي على رابط لتنزيل النتائج بمجرد أن تصبح جاهزة إلى العنوان التالي: ",
     "status": {
-      "PREPARING": "",
-      "SUSPENDED": "",
-      "RUNNING": "",
-      "CANCELLED": "",
-      "KILLED": ""
+      "PREPARING": "إعداد",
+      "SUSPENDED": "معلق",
+      "RUNNING": "جاري التنفيذ",
+      "CANCELLED": "ملغى",
+      "KILLED": "قتل"
     },
     "predicate": {
       "joinDescriptions": {
