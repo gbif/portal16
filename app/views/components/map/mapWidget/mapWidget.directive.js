@@ -460,7 +460,10 @@ function mapWidgetDirective(BUILD_VERSION) {
             var trackingData = {
                 hitType: 'event',
                 eventCategory: 'map',
-                eventAction: 'exploreArea'
+                eventAction: 'exploreArea',
+                hitCallback: function() {
+                    window.location.href = URL_PREFIX + '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
+                }
             };
             ga('send', trackingData);
 
