@@ -2,42 +2,42 @@
     "intervals": {
         "noFilter": "بدون تصفية",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "هو {from} متر",
+            "between": "بين {from} و{to} متر",
+            "lessThanOrEquals": "أدنى من {to} متر",
+            "greaterThanOrEquals": "أعلى من {from} متر",
             "invalid": "غير صحيح",
             "select": {
-                "equals": "",
-                "between": "ما بين",
+                "equals": "هو",
+                "between": "بين",
                 "lessThanOrEquals": "أقل",
                 "greaterThanOrEquals": "أعلى"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "هو {from} متر",
+            "between": "بين {from} و{to} متر",
+            "lessThanOrEquals": "أعلى من {to} متر عمقاً",
+            "greaterThanOrEquals": "أعمق من {from} متر",
             "invalid": "غير صحيح",
             "select": {
-                "equals": "",
-                "between": "ما بين",
+                "equals": "هو",
+                "between": "بين",
                 "lessThanOrEquals": "أقل من",
                 "greaterThanOrEquals": "أعمق من"
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "هو {from}",
+            "between": "بين بداية من {from} وانتهاء بـ {to}",
+            "lessThanOrEquals": "قبل نهاية {to}",
+            "greaterThanOrEquals": "بعد البداية من {from}",
             "invalid": "غير صحيح",
             "select": {
-                "equals": "",
-                "between": "ما بين",
-                "lessThanOrEquals": "قبل النهاية",
-                "greaterThanOrEquals": "بعد البداية"
+                "equals": "هو",
+                "between": "بين",
+                "lessThanOrEquals": "قبل نهاية من",
+                "greaterThanOrEquals": "بعد البداية من"
             }
         }
     }

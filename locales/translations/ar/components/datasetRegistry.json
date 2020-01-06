@@ -1,11 +1,11 @@
 {
     "dataset": {
         "registry": {
-            "failedSinceSuccess": "",
-            "lastFailed": "",
-            "registrationDate": "",
-            "lastSuccess": "",
-            "lastWithChange": "",
+            "failedSinceSuccess": "محاولات فاشلة منذ آخر إدخال ناجح",
+            "lastFailed": "آخر محاولة فاشلة",
+            "registrationDate": "تاريخ التسجيل",
+            "lastSuccess": "آخر إدخال ناجح",
+            "lastWithChange": "آخر إدخال مع تغييرات",
             "noEntries": "",
             "lastWithDataChange": "",
             "occInLastIngestion": "",

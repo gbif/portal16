@@ -35,9 +35,9 @@
     "minutes": "دقائق"
   },
   "downloadOptions": {
-    "title": "خيارات التحميل",
+    "title": "خيارات التنزيل",
     "content": {
-      "rawData": "بيانات أصلية خام",
+      "rawData": "بيانات أولية",
       "interpretedData": "",
       "images": "",
       "coordinates": "",
