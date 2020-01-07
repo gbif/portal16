@@ -37,13 +37,13 @@
             "lastIngestionSuccess": "الادخال الأخير بنجاح",
             "lastIngestionFailed": "فشل الادخال الأخير",
             "outOfSync": "",
-            "becauseTrustedContact": ""
+            "becauseTrustedContact": "لأنك جهة اتصال موثوق بها"
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "عادي",
+                "ABORT": "انهاء",
+                "NOT_MODIFIED": "غير مُعدَّلة"
             }
         }
     }
