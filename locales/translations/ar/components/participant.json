@@ -1,6 +1,6 @@
 {
     "participant": {
-        "participant": "",
+        "participant": "مشارك",
         "participantSummary": "",
         "endorsedPublishers": "",
         "noEndorsedPublishers": "",
@@ -8,7 +8,7 @@
         "gbifParticipantSince": "",
         "headOfDelegation": "",
         "gbifRegion": "",
-        "countryOrArea": "",
+        "countryOrArea": "البلد أو المنطقة",
         "nodeName": "",
         "nodeEstablished": "",
         "website": "",
