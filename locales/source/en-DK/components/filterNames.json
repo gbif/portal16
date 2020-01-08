@@ -62,9 +62,9 @@
     "organismQuantityType" : "Organism quantity type",
     "sampleSizeValue" : "Sample size value",
     "sampleSizeUnit" : "Sample size unit",
-    "relativeOrganismQuantity": "Relative organism quantity"
-
-
+    "relativeOrganismQuantity": "Relative organism quantity",
+    "collectionKey" : "Collection",
+    "institutionKey" : "Institution"
 
   }
 }

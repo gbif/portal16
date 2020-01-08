@@ -14,7 +14,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
     var vm = this;
     $translate('occurrenceSearch.title').then(function(title) {
         Page.setTitle(title);
@@ -426,6 +426,50 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
             'min': [0, 1],
             '50%': [0.01, 1],
             'max': [1, 1]
+        }
+    };
+
+    vm.filters.collection_key = {
+        titleTranslation: 'filterNames.collectionKey',
+        queryKey: 'collection_key',
+        filter: OccurrenceFilter,
+        expand: {
+            resource: Collection,
+            expandedTitle: 'name'
+        },
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.collectionKey,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'name',
+            suggestShortName: 'name',
+            suggestKey: 'key'
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'COLLECTION_KEY'
+        }
+    };
+
+    vm.filters.institution_key = {
+        titleTranslation: 'filterNames.institutionKey',
+        queryKey: 'institution_key',
+        filter: OccurrenceFilter,
+        expand: {
+            resource: Institution,
+            expandedTitle: 'name'
+        },
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.institutionKey,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'name',
+            suggestShortName: 'name',
+            suggestKey: 'key'
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'INSTITUTION_KEY'
         }
     };
 

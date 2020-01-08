@@ -25,12 +25,15 @@ angular
         installationKey: env.dataApi + 'occurrence/search/installationKey',
         samplingProtocol: env.dataApi + 'occurrence/search/samplingProtocol',
         publisher: env.dataApi + 'organization/suggest',
+        // These does not exist yet
         programme: env.dataApi + 'occurrence/search/programme',
         projectId: env.dataApi + 'occurrence/search/projectId',
         verbatimScientificName: env.dataApi + 'occurrence/search/verbatimScientificName',
         taxonId: env.dataApi + 'occurrence/search/taxonId',
         organismQuantityType: env.dataApi + 'occurrence/search/organismQuantityType',
-        sampleSizeUnit: env.dataApi + 'occurrence/search/sampleSizeUnit'
+        sampleSizeUnit: env.dataApi + 'occurrence/search/sampleSizeUnit',
+        collectionKey: env.dataApi + 'grscicoll/collection/suggest',
+        institutionKey: env.dataApi + 'grscicoll/institution/suggest'
     }).constant('token', {
     }).constant('BUILD_VERSION',
         gb.buildVersion
