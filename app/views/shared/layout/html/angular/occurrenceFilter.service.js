@@ -35,9 +35,17 @@ angular
             network_key: undefined,
             event_id: undefined,
             parent_event_id: undefined,
-            sampling_protocol: undefined
+            sampling_protocol: undefined,
+            programme: undefined,
+            project_id: undefined,
+            verbatim_scientific_name: undefined,
+            taxon_id: undefined,
+            organism_quantity: undefined,
+            organism_quantity_type: undefined,
+            sample_size_unit: undefined,
+            sample_size_value: undefined,
+            relative_organism_quantity: undefined
         };
-
         // for fields where we want faceting and will always ask for all possible. This is the case for most enums
         var exhaustiveFacetsKeys = [
             'establishment_means',

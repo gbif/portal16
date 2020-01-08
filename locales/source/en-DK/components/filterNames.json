@@ -54,6 +54,17 @@
     "status": "Status",
     "nameType": "Name type",
     "origin": "Origin",
-    "networkKey": "GBIF network"
+    "networkKey": "GBIF network",
+    "programme": "Programme",
+    "verbatimScientificName": "Verbatim scientific name",
+    "taxonId": "Verbatim Taxon ID",
+    "organismQuantity" : "Organism quantity",
+    "organismQuantityType" : "Organism quantity type",
+    "sampleSizeValue" : "Sample size value",
+    "sampleSizeUnit" : "Sample size unit",
+    "relativeOrganismQuantity": "Relative organism quantity"
+
+
+
   }
 }

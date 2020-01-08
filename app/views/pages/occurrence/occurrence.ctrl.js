@@ -343,6 +343,94 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
         }
     };
 
+    // New es filters
+    vm.filters.programme = {
+        titleTranslation: 'filterNames.programme',
+        queryKey: 'programme',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.programme
+        }
+    };
+    vm.filters.project_id = {
+        titleTranslation: 'filterNames.projectId',
+        queryKey: 'projectId',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.projectId
+        }
+    };
+    vm.filters.verbatim_scientific_name = {
+        titleTranslation: 'filterNames.verbatimScientificName',
+        queryKey: 'verbatim_scientific_name',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.verbatim_scientific_name
+        }
+    };
+    vm.filters.taxon_id = {
+        titleTranslation: 'filterNames.taxonId',
+        queryKey: 'taxon_id',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.taxon_id
+        }
+    };
+    vm.filters.organism_quantity = {
+        titleTranslation: 'filterNames.organismQuantity',
+        queryKey: 'organism_quantity',
+        filter: OccurrenceFilter,
+        range: {
+            'min': [0, 1],
+            '50%': [2, 1],
+            'max': [100000, 1]
+        }
+    };
+    vm.filters.organism_quantity_type = {
+        titleTranslation: 'filterNames.organismQuantityType',
+        queryKey: 'organism_quantity_type',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.organism_quantity_type
+        }
+    };
+    vm.filters.sample_size_unit = {
+        titleTranslation: 'filterNames.sampleSizeUnit',
+        queryKey: 'sample_size_unit',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.sample_size_unit
+        }
+    };
+    vm.filters.sample_size_value = {
+        titleTranslation: 'filterNames.sampleSizeValue',
+        queryKey: 'sample_size_value',
+        filter: OccurrenceFilter,
+        range: {
+            'min': [0, 1],
+            '50%': [1000, 1],
+            'max': [1000000, 1]
+        }
+    };
+    vm.filters.relative_organism_quantity = {
+        titleTranslation: 'filterNames.relativeOrganismQuantity',
+        queryKey: 'relative_organism_quantity',
+        filter: OccurrenceFilter,
+        range: {
+            'min': [0, 1],
+            '50%': [0.01, 1],
+            'max': [1, 1]
+        }
+    };
+
+    // End new es filters
+
     vm.filters.installationKey = {
         titleTranslation: 'filterNames.installationKey',
         queryKey: 'installation_key',
