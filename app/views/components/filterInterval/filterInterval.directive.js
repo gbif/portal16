@@ -17,7 +17,8 @@ function filterIntervalDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/filterInterval/filterInterval.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
-            filterConfig: '='
+            filterConfig: '=',
+            filterType: '@'
         },
         replace: true,
         controller: filterInterval,
@@ -59,6 +60,8 @@ function filterIntervalDirective(BUILD_VERSION) {
                     },
                     remove: vm.remove,
                     range: vm.filterConfig.range,
+                    step: vm.filterConfig.step,
+                    numberType: vm.filterType ? vm.filterType : 'int', // expects 'float' or 'int'
                     intervalTranslation: vm.filterConfig.intervalTranslation
                 }
             );

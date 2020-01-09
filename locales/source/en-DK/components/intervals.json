@@ -39,6 +39,19 @@
                 "lessThanOrEquals": "Before end of",
                 "greaterThanOrEquals": "After start of"
             }
+        },
+        "default": {
+            "equals": "Is {from}",
+            "between": "Between {from} and {to}",
+            "lessThanOrEquals": "Less than or equal to {to}",
+            "greaterThanOrEquals": "Greater than or equal to {from}",
+            "invalid": "Invalid",
+            "select": {
+                "equals": "Is",
+                "between": "Between",
+                "lessThanOrEquals": "Less than or equal",
+                "greaterThanOrEquals": "Greater than or equal"
+            }
         }
     }
 }

@@ -17,9 +17,9 @@
     </div>
     <form class="filter-group__filter__interval__input" name="vm.form" dir="ltr">
         <input required type="text" ng-blur="vm.blurFrom()" ng-keyup="vm.changeFrom()" placeholder="{{vm.intervalOptions.range.min[0]}}"
-               ng-model="vm.from" ng-pattern="/^[0-9]{0,4}$/" name="from">
+               ng-model="vm.from" ng-pattern="/^\d+(\.\d+)?$/" name="from">
         <input required type="text" ng-blur="vm.blurTo()" ng-keyup="vm.changeTo()" placeholder="{{vm.intervalOptions.range.max[0]}}"
-               ng-if="vm.selected == 'between'" ng-model="vm.to" ng-pattern="/^[0-9]{0,4}$/" name="to"
+               ng-if="vm.selected == 'between'" ng-model="vm.to" ng-pattern="/^\d+(\.\d+)?$/" name="to"
                class="pull-right text-right">
         <div ya-no-ui-slider='vm.sliderOptions'
              ya-no-ui-slider-events='vm.eventHandlers'

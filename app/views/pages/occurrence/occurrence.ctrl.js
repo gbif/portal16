@@ -382,11 +382,13 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
     };
     vm.filters.organism_quantity = {
         titleTranslation: 'filterNames.organismQuantity',
+        intervalTranslation: 'intervals.default.',
         queryKey: 'organism_quantity',
         filter: OccurrenceFilter,
         range: {
             'min': [0, 1],
-            '50%': [2, 1],
+            '10%': [1, 1],
+            '50%': [10, 1],
             'max': [100000, 1]
         }
     };
@@ -410,6 +412,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
     };
     vm.filters.sample_size_value = {
         titleTranslation: 'filterNames.sampleSizeValue',
+        intervalTranslation: 'intervals.default.',
         queryKey: 'sample_size_value',
         filter: OccurrenceFilter,
         range: {
@@ -420,11 +423,16 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
     };
     vm.filters.relative_organism_quantity = {
         titleTranslation: 'filterNames.relativeOrganismQuantity',
+        intervalTranslation: 'intervals.default.',
         queryKey: 'relative_organism_quantity',
         filter: OccurrenceFilter,
+        step: 0.0001,
         range: {
             'min': [0, 1],
-            '50%': [0.01, 1],
+            '10%': [0.00001, 1],
+            '25%': [0.000025, 1],
+            '50%': [0.0001, 1],
+            '75%': [0.0002, 1],
             'max': [1, 1]
         }
     };
