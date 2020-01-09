@@ -40,7 +40,7 @@
       "description": "وصف مفصل. بالنسبة للادعاءات التصنيفية، يرجى تقديم مرجع. يرجى تقديم ملاحظاتك باللغة الإنجليزية، إن أمكن.",
       "username": "بريدك الإلكتروني أو اسم المستخدم Github (عام)"
     },
-    "markdownSupport": "دعم السعر المخفض",
+    "markdownSupport": "دعم توحيد نمط النص على محتويات الموقع",
     "issueTracking": "جميع المشكلات هي عامة وهي متاحة من خلال (Github] (https://github.com/gbif/portal-feedback/issues]",
     "failure": "هذا غير جيد - نظام تقديم التعليقات لا يعمل. الرجاء إرسال بريد إلكتروني إلينا أو انتقل مباشرةً إلى [Github] (https://github.com/gbif/portal-feedback/issues). نآسف على الازعاج.",
     "weRecommendX": "نوصي باستخدام [{NAME}]({LINK})",
