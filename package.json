@@ -132,7 +132,7 @@
     "lunr": "^2.1.6",
     "markdown-it": "^8.0.0",
     "markdown-it-imsize": "^2.0.1",
-    "markdown-it-video": "^0.4.0",
+    "markdown-it-video": "^0.6.3",
     "marked": "^0.3.16",
     "maxmind": "^2.1.0",
     "messageformat": "^1.0.2",

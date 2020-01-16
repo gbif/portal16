@@ -10923,9 +10923,9 @@
       "integrity": "sha1-zKBCeQXQUziiR8ucqdloxc3dUXA="
     },
     "markdown-it-video": {
-      "version": "0.4.0",
-      "resolved": "https://registry.npmjs.org/markdown-it-video/-/markdown-it-video-0.4.0.tgz",
-      "integrity": "sha1-H1GjRxRWolCaOCDc7ZrRzpYb22Q="
+      "version": "0.6.3",
+      "resolved": "https://registry.npmjs.org/markdown-it-video/-/markdown-it-video-0.6.3.tgz",
+      "integrity": "sha512-T4th1kwy0OcvyWSN4u3rqPGxvbDclpucnVSSaH3ZacbGsAts964dxokx9s/I3GYsrDCJs4ogtEeEeVP18DQj0Q=="
     },
     "marked": {
       "version": "0.3.16",
