@@ -1,7 +1,7 @@
 {
     "pagination": {
-        "previous": "",
-        "next": "",
-        "first": ""
+        "previous": "السابق",
+        "next": "التالي",
+        "first": "الأول"
     }
 }
