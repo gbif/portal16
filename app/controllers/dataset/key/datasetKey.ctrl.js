@@ -103,33 +103,21 @@ function getMetaSchema(dataset) {
         '@type': 'Dataset',
         '@id': 'https://doi.org/' + dataset.doi,
         'identifier': [
-            {
-                '@type': 'PropertyValue',
-                'propertyID': 'doi',
-                'value': 'https://doi.org/' + dataset.doi
-            },
-            {
-                '@type': 'PropertyValue',
-                'propertyID': 'UUID',
-                'value': dataset.key
-            }
+          {
+            '@type': 'PropertyValue',
+            'propertyID': 'doi',
+            'value': 'https://doi.org/' + dataset.doi
+          },
+          {
+            '@type': 'PropertyValue',
+            'propertyID': 'UUID',
+            'value': dataset.key
+          }
         ],
         'url': 'https://www.gbif.org/dataset/' + dataset.key,
         'name': dataset.title,
         'author': authors,
         'description': dataset.description,
-        'distribution': [
-            {
-                '@type': 'DataDownload',
-                'contentUrl': 'https://www.gbif.org/occurrence/download?dataset_key=' + dataset.key,
-                'encodingFormat': 'zip'
-            },
-            {
-                '@type': 'DataDownload',
-                'contentUrl': `https://api.gbif.org/v1/dataset/${dataset.key}/document`,
-                'encodingFormat': 'xml'
-            }
-        ],
         'license': dataset.license,
         'inLanguage': dataset.dataLanguage,
         'datePublished': dataset.created,
@@ -139,9 +127,9 @@ function getMetaSchema(dataset) {
             'name': dataset.publisher.title,
             'url': _.get(dataset, 'publisher.homepage[0]'),
             'logo': _.get(dataset, 'publisher.logo')
-        },
+          },
         'provider': {
-            '@type': 'Organization',
+          '@type': 'Organization',
             'name': 'GBIF',
             'url': 'https://www.gbif.org',
             'logo': 'https://www.gbif.org/img/logo/GBIF50.png',
