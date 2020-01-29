@@ -31,7 +31,7 @@
     "speciesForWhichRecordsAreAvailableForEachDayOfTheYear": "The number of species (see above) for which records are available for each day of the year.",
     "note": "Note",
     "theseChartsMayRevealPatternsThatRepresentBiasesInDataCollection": "These charts may reveal patterns that represent biases in data collection (seasonality, public holidays) or potential issues in data management (disproportionate numbers of records shown for the first or last days in the year or each month or week). Such issues may arise at various stages in data processing and require further investigation.",
-    "byGeneratingTheseChartsAnIssueWasDetected": "By generating these charts [an issue](http://dev.gbif.org/issues/browse/POR-2120) was detected in the GBIF processing which contributes to the spike seen on the first day of the year in several charts and will be addressed.",
+    "byGeneratingTheseChartsAnIssueWasDetected": "By generating these charts [an issue](https://github.com/gbif/gbif-api/issues/2) was detected in the GBIF processing which contributes to the spike seen on the first day of the year in several charts and will be addressed.",
     "completenessAndPrecision": "Completeness and precision",
     "theseChartsIllustrate4": "These charts illustrate changes in the completeness (see below) of available records and in the precision of these records with respect to time, geography and taxonomy.",
     "aRecordIsHereDefinedToBeCompleteIfItIncludes": "A record is here defined to be complete if it includes an identification at least to species rank, valid coordinates, a full date of occurrence and a given basis of record (e.g. Observation, specimen etc).",
