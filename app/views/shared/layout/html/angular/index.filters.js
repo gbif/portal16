@@ -193,7 +193,8 @@
                         'UUID',
                         'FTP',
                         'URI',
-                        'GRBIO_URI'
+                        'GRBIO_URI',
+                        'GRSCICOLL_URI'
                         ].indexOf(identifier.type) >= 0;
                 });
             };
