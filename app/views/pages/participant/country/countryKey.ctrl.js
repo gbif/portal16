@@ -16,7 +16,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page, $translate, env, PublisherSearch, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountDatasets, OccurrenceTableSearch, ResourceSearch) {
+function countryKeyCtrl($anchorScroll, $http, $stateParams, $state, constantKeys, Country, Page, $translate, env, PublisherSearch, MapCapabilities, DatasetSearch, OccurrenceSearch, OccurrenceCountDatasets, OccurrenceTableSearch, ResourceSearch) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;
@@ -116,7 +116,11 @@ function countryKeyCtrl($http, $stateParams, $state, constantKeys, Country, Page
         // TODO couldn't get the data
     });
 
-        vm.lightbox = new Lightbox();
+    vm.lightbox = new Lightbox();
+
+    vm.trendsLoaded = function() {
+        window.setTimeout($anchorScroll, 500);
+    };
 }
 
 module.exports = countryKeyCtrl;

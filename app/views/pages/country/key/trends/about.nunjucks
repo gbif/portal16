@@ -1,5 +1,6 @@
 {% import "./trends.macro.nunjucks" as trends %}
 
+<span class="relative-anchor-offset"><span id="trends"></span></span>
 <div class="page--analytics horizontal-stripe--paddingless ng-cloak">
     <div class="container--desktop">
         <div class="row">

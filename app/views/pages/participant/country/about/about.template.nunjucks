@@ -34,5 +34,5 @@
     <div class="container--desktop">
         <h4 class="card-header" translate="countryKey.trendsAboutCountry" translate-values="{TRANSLATED_COUNTRY: ('country.' + countryKey.countryCode | translate )}"></h4>
     </div>
-    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about?locale='+countryKey.locale" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
+    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about?locale='+countryKey.locale" class="countryKey__normalCards" onload="countryKey.lightbox.load(); countryKey.trendsLoaded();"></div>
 </section>

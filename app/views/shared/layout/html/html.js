@@ -342,6 +342,8 @@ require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 
 require('../../../pages/custom/machineVision/machineVision.ctrl');
 
+require('../../../pages/analytics/analytics.ctrl');
+
 require('../../../pages/participant/country/countryKey.ctrl');
 require('../../../pages/participant/participant/participantKey.ctrl');
 

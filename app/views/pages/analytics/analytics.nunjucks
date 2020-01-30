@@ -46,6 +46,12 @@
                             {% endif %}
                         </div>
                     </header>
+                    <div ng-cloak style="margin: auto; width: 200px; max-width: 100%;" ng-controller="analyticsCtrl as analytics">
+                        <select ng-if="analytics.show" class="form-control" ng-model="analytics.selectedCountry" ng-change="analytics.onChange(analytics.selectedCountry)" autocomplete="off">
+                            <option value="" selected translate="trends.exploreByCountry">Explore by country</option>
+                            <option ng-repeat="option in analytics.countries" value="{{option}}">{{("country." + option) | translate}}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </section>

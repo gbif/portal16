@@ -1,5 +1,5 @@
 {% import "./trends.macro.nunjucks" as trends %}
-<div class="page--analytics horizontal-stripe--paddingless ng-cloak">
+<div class="page--analytics horizontal-stripe--paddingless ng-cloak" id="trends">
     <div class="container--desktop">
         <div class="row">
             <div class="col-xs-12">
