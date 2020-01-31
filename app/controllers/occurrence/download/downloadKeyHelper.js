@@ -40,7 +40,6 @@ function addChildKeys(predicate) {
         keys = _.intersection(keys);
         if (keys.length == 1) {
             let keyValue = keys[0];
-            if (children.length > 1 && ['YEAR', 'DEPTH', 'ELEVATION', 'EVENT_DATE'].indexOf(keyValue) !== -1) keyValue = 'MIXED';
             predicate._childKeys = keyValue;
         } else {
             predicate._childKeys = 'MIXED';
@@ -134,7 +133,11 @@ function getSimpleQuery(predicate) {
     } else if (predicate.type === 'and') {
         // validate that elements have different childkeys and none of them are MIXED and have OR or leaf type
         let invalidPredicate = _.find(predicate.predicates, function(p) {
-            return p.type == 'and' || p.type == 'not' || p._childKeys == 'MIXED'; // only leafs and OR queries of a single TYPE allowed
+            if (p.type === 'and') return true;
+            if (p.type === 'not') return true;
+            if (p._childKeys === 'MIXED') return true;
+            return false;
+            // return p.type == 'and' || p.type == 'not' || p._childKeys == 'MIXED'; // only leafs and OR queries of a single TYPE allowed
         });
         if (invalidPredicate) {
             return false;
