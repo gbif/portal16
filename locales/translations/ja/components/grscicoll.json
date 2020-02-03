@@ -59,7 +59,7 @@
     "false": "いいえ"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "担当者",
     "search": {
       "title": "コレクションスタッフ",
       "description": "GRSciCollスタッフメンバーはコレクションに関わる全ての職種のスタッフが含まれます。機関と連携したり、あらゆる種類のコレクションと関連付けることができます。"
@@ -80,7 +80,7 @@
   "grscicoll": {
     "title": "",
     "tabs": {
-      "about": "",
+      "about": "この機関について",
       "institutions": "機関",
       "collections": "コレクション",
       "people": ""
