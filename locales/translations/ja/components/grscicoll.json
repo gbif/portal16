@@ -44,8 +44,8 @@
     "description": "説明",
     "homepage": "ホームページ",
     "foundingDate": "",
-    "geographicDescription": "",
-    "taxonomicDescription": "",
+    "geographicDescription": "地理的記載",
+    "taxonomicDescription": "分類学的記載",
     "citesPermitNumber": "",
     "disciplines": "機関の規律",
     "institutionalGovernance": "機関のガバナンス",
@@ -81,22 +81,22 @@
     "title": "",
     "tabs": {
       "about": "",
-      "institutions": "",
-      "collections": "",
+      "institutions": "機関",
+      "collections": "コレクション",
       "people": ""
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Eメール",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "住所",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "問い合わせ先",
+      "address": "住所",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "国"
     }
   }
 }
