@@ -46,7 +46,7 @@
     "foundingDate": "",
     "geographicDescription": "地理的記載",
     "taxonomicDescription": "分類学的記載",
-    "citesPermitNumber": "",
+    "citesPermitNumber": "CITES許可番号",
     "disciplines": "機関の規律",
     "institutionalGovernance": "機関のガバナンス",
     "type": "機関タイプ",
