@@ -1,6 +1,6 @@
 {
     "tools": {
-        "tools": "",
+        "tools": "ツール",
         "categoryFeatured": "特集",
         "suggestDataset": {
             "NOT_OPEN": "オープン ライセンスではないです。",
@@ -57,11 +57,11 @@
             "title": ""
         },
         "sequenceId": {
-            "title": ""
+            "title": "Sequence ID"
         },
         "machineVision": {
             "tabs": {
-                "demo": "",
+                "demo": "デモ",
                 "statement": ""
             }
         }
