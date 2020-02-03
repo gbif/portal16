@@ -163,7 +163,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead() $}
                         <tbody>
-                        {$ trowI(url="", resp="Installation List", respLink=apiBase+"installation", paging=true, params=["q","identifier","identifierType","installationType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all installations") $}
+                        {$ trowI(url="", resp="Installation List", respLink=apiBase+"installation", paging=true, params=["q","identifier","identifierType",{key: "installationType", value: "type"},"machineTagNamespace","machineTagName","machineTagValue"], description="Lists all installations") $}
                         {$ trowI(url="", method="POST", resp="UUID", auth=true, description="Creates a new installation") $}
                         {$ trowI(url="/{UUID}", resp="Installation", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed", description="Gets details for a single installation") $}
                         {$ trowI(url="/{UUID}", method="PUT", auth=true, description="Updates the installation") $}
@@ -468,6 +468,7 @@
             "type": "For datasets, filters by dataset type as given in our <a href='"+apiBase+"enumeration/basic/DatasetType'>DatasetType enum</a>. For metadata documents, filters by the metadata type as given in our <a href='"+apiBase+"enumeration/basic/MetadataType'>MetadataType enum</a>",
             "identifier": "The value for this parameter can be a simple string or integer, e.g. identifier=120",
             "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier type as given in our <a href='"+apiBase+"enumeration/basic/IdentifierType'>IdentifierType enum</a>",
+            "installationType": "Filters installations by their type. The possible types is defined in our <a href='"+apiBase+"enumeration/basic/InstallationType'>InstallationType enum</a>",
             "isEndorsed": "Filters organizations by whether they are endorsed or not.",
             "machineTagNamespace": "Filters for entities with a machine tag in the specified namespace.",
             "machineTagName": "Filters for entities with a machine tag with the specified name (use in combination with the machineTagNamespace parameter).",

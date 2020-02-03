@@ -40,7 +40,7 @@
         {% if showParams %}
             <td class="wordwrap">
                 {% set comma = joiner() %}
-                {% for p in params %}{$ comma() $} <a href='#p_{$ p $}'>{$ p $}</a>{% endfor %}
+                {% for p in params %}{$ comma() $} <a href='#p_{% if p.key %}{$ p.key $}{% else %}{$ p $}{% endif %}'>{% if p.value %}{$ p.value $}{% else %}{$ p $}{% endif %}</a>{% endfor %}
             </td>
         {% endif %}
     </tr>
