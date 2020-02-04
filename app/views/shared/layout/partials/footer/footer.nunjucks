@@ -11,6 +11,7 @@
                         <a href="{$ gb.locales.urlPrefix $}/terms/privacy-policy">{$ __('footer.privacy') $}</a>
                         <a href="{$ gb.locales.urlPrefix $}/terms">{$ __('footer.terms') $}</a>
                         <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">{$ __('footer.citation') $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/code-of-conduct">{$ __('footer.codeOfConduct') $}</a>
                         <a href="{$ gb.locales.urlPrefix $}/acknowledgements">{$ __('footer.acknowledgements') $}</a>
                     </div>
                     <div>
