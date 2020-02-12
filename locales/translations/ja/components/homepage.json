@@ -8,7 +8,7 @@
         },
         "aboutGbifCountry": "GBIF {COUNTRY} について",
         "summary": "誰でも自由に利用できる生物多様性情報",
-        "whatIsGbif": "",
+        "whatIsGbif": "GBIFとは",
         "featureTypes": {
             "event": "イベント",
             "news": "ニュース",
@@ -20,9 +20,9 @@
             "tool": "ツール",
             "literature": "文献",
             "treatment": "分類",
-            "blog": "",
+            "blog": "ブログ",
             "guidance": "ガイダンス",
-            "data": ""
+            "data": "データ"
         }
     }
 }

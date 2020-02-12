@@ -1,9 +1,9 @@
 {
   "publisher": {
-    "searchTitle": "",
+    "searchTitle": "出版者の検索",
     "tabs": {
       "aboutPublisher": "・・・について",
-      "metrics": "",
+      "metrics": "メトリクス",
       "publishersHomepage": "ホームページ"
     },
     "joinedAgo": "{TIME_AGO} に参加",

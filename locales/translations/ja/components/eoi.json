@@ -39,7 +39,7 @@
     "occurrenceOnlyData": "オカレンスのみのデータ",
     "samplingEventData": "サンプリングイベント データ",
     "expectedDataTitle": "",
-    "expectedDataContent": "",
+    "expectedDataContent": "GBIFで出版する予定のデータはどのようなGBIF関連データでしょうか？簡易にご説明ください。",
     "doYouHaveCapacity": "あなたは、元のデータセットを GBIF.org が利用可能となるように、ライブ サーバーの運営能力か、サーバへのアクセス権をもっていますか。",
     "yes": "はい",
     "no": "いいえ",

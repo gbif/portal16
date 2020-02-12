@@ -1,6 +1,6 @@
 {
     "speciesSearch": {
-        "title": "",
+        "title": "種の検索",
         "youAreCurrentlySearchingInGBIFtaxonomy": "GBIFタクソノミーに存在する種を検索します。",
         "SearchAcrossChecklists": "チェックリストを横断検索します。",
         "freeTextSearchFor": "'{QUERY}' のフリーテキスト検索を行います。",

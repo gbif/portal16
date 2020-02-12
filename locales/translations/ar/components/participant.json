@@ -1,8 +1,8 @@
 {
     "participant": {
         "participant": "مشارك",
-        "participantSummary": "",
-        "endorsedPublishers": "",
+        "participantSummary": "ملخص المشارك",
+        "endorsedPublishers": "الناشرون المعتمدون",
         "noEndorsedPublishers": "",
         "memberStatus": "حالة العضو",
         "gbifParticipantSince": "مشارك في \"جبيف\" منذ",

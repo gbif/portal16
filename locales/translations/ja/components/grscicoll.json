@@ -30,7 +30,7 @@
     }
   },
   "institution": {
-    "title": "",
+    "title": "機関",
     "search": {
       "title": "機関",
       "description": "**機関** は科学のコレクションを所有し管理するあらゆる機関や組織のことを指します。植物標本、博物館、動物園、植物園、バイオバンクなどが含まれます。機関は複数のコレクションを持つことがあるため、その際は **機関／プロジェクトのコレクション** の欄に個別の名称を記入し、大元の機関へのリンクを付けてください。\n\n古いデータセットを統合するため、また **機関コード** の重複を避けるために、全てのIndex Herbariorumの植物標本コードに<IH>を付け加える必要があります。"
@@ -44,9 +44,9 @@
     "description": "説明",
     "homepage": "ホームページ",
     "foundingDate": "",
-    "geographicDescription": "",
-    "taxonomicDescription": "",
-    "citesPermitNumber": "",
+    "geographicDescription": "地理的記載",
+    "taxonomicDescription": "分類学的記載",
+    "citesPermitNumber": "CITES許可番号",
     "disciplines": "機関の規律",
     "institutionalGovernance": "機関のガバナンス",
     "type": "機関タイプ",
@@ -59,7 +59,7 @@
     "false": "いいえ"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "担当者",
     "search": {
       "title": "コレクションスタッフ",
       "description": "GRSciCollスタッフメンバーはコレクションに関わる全ての職種のスタッフが含まれます。機関と連携したり、あらゆる種類のコレクションと関連付けることができます。"
@@ -80,23 +80,23 @@
   "grscicoll": {
     "title": "",
     "tabs": {
-      "about": "",
-      "institutions": "",
-      "collections": "",
+      "about": "この機関について",
+      "institutions": "機関",
+      "collections": "コレクション",
       "people": ""
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Eメール",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "住所",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "問い合わせ先",
+      "address": "住所",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "国"
     }
   }
 }
