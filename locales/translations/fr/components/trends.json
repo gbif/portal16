@@ -1,6 +1,6 @@
 {
   "trends": {
-    "exploreByCountry": "",
+    "exploreByCountry": "Explorer par pays",
     "theseChartsIllustrate1": "Ces graphiques illustrent les changements dans la disponibilité des occurrences espèces survenues au fil du temps.",
     "noOccRecords": "Nombre d’enregistrements d’occurrence",
     "occByKingdomChartText": "Le nombre d’enregistrements disponibles classées par Règne. « Inconnu » inclut les enregistrements avec des informations taxonomiques qui ne peuvent être liées aux listes taxonomiques disponibles.",
