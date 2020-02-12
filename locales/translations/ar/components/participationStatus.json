@@ -1,16 +1,16 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "مشارك التصويت",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "مشارك ذو حق التصويت",
+            "ASSOCIATE": "مشارك مساعد",
+            "OBSERVER": "مشارك مراقب",
+            "AFFILIATE": "منتسب",
+            "FORMER": "مشارك سابق",
+            "undefined": "غير محدد"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
+            "VOTING": "مشارك في \"جبيف\" ذو حق التصويت من{REGION}",
+            "ASSOCIATE": "مشارك مساعد من{REGION}",
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
