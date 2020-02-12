@@ -2,19 +2,19 @@
     "participant": {
         "participant": "مشارك",
         "participantSummary": "ملخص المشارك",
-        "endorsedPublishers": "الناشرون المعتمدون",
-        "noEndorsedPublishers": "",
+        "endorsedPublishers": "ناشرون معتمدون",
+        "noEndorsedPublishers": "لا يوجد ناشرون معتمدون",
         "memberStatus": "حالة العضو",
         "gbifParticipantSince": "مشارك في \"جبيف\" منذ",
-        "headOfDelegation": "",
+        "headOfDelegation": "رئيس الوفد",
         "gbifRegion": "منطقة \"جبيف\"",
         "countryOrArea": "البلد أو المنطقة",
-        "nodeName": "",
-        "nodeEstablished": "",
-        "website": "",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "nodeName": "اسم منطقة التقاطع",
+        "nodeEstablished": "منطقة تقاطع تم تأسيسها",
+        "website": "الموقع الالكتروني",
+        "participantNodeManager": "مدير منطقة التقاطع المشاركة",
+        "pending": "مُعلقّة",
+        "latestDatasetsPublished": "أخر مجموعات البيانات المنشورة",
+        "noDatasets": "لا توجد مجموعات بيانات منشورة"
     }
 }

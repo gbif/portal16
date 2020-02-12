@@ -1,6 +1,6 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "{NUMBER_FORMATED} {NUMBER, select, one{registo} other{registos}} transferidos",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registo} other{registos}} transferidos",
     "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registo} other{registos}} transferidos",
     "nConstituentDatasets": "Inclui registos de {NUMBER_FORMATTED} {NUMBER, select, one{conjunto de dados} other{conjuntos de dados}}",
     "fileNotAvailable": "Este ficheiro não está mais disponível para transferência",
