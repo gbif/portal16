@@ -14,8 +14,8 @@
       "GBIF_PARTICIPANT": "",
       "GRBIO_ID": "",
       "GRBIO_URI": "",
-      "GRSCICOLL_URI": "",
-      "GRSCICOLL_ID": ""
+      "GRSCICOLL_URI": "URI GRSCICOLL",
+      "GRSCICOLL_ID": "Identifiant GRSCICOLL"
     }
   }
 }
