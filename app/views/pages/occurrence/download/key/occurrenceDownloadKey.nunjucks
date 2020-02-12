@@ -137,7 +137,7 @@
                                             <div>
                                                 <dt>{$ __('downloadKey.citation') $}</dt>
                                                 <dd dir="ltr">
-                                                    GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download https://doi.org/{$ download.record.doi $}
+                                                    GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download {% if download.record.doi %} https://doi.org/{$ download.record.doi $}{% elif gb.locales.url %}{$ gb.locales.domain $}{$ gb.locales.url $}{% endif %}
                                                 </dd>
                                             </div>
                                             {% if download.record.license %}
