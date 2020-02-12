@@ -74,7 +74,7 @@
             <div class="card card--spaced m-b-1">
                 <div class="card__content">
                     <h3 translate="directory.group.{{ committee }}.title"></h3>
-                    <p translate="directory.group.{{ committee }}.description"></p>
+                    <div ng-bind-html="('directory.group.' + committee + '.description') | translate | md2html"></div>
                 </div>
                 <div class="scrollable-y">
                     <div>
