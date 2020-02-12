@@ -1,5 +1,6 @@
 {
   "trends": {
+    "exploreByCountry": "",
     "theseChartsIllustrate1": "此圖表顯示物種出現紀錄資料的可用性隨著時間變化。",
     "noOccRecords": "出現紀錄數",
     "occByKingdomChartText": "以界來分類的可用紀錄數。「未知」包括無法連結至可用分類群物種名錄的分類群資訊。",

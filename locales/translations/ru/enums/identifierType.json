@@ -13,7 +13,9 @@
       "GBIF_NODE": "",
       "GBIF_PARTICIPANT": "",
       "GRBIO_ID": "",
-      "GRBIO_URI": ""
+      "GRBIO_URI": "",
+      "GRSCICOLL_URI": "",
+      "GRSCICOLL_ID": ""
     }
   }
 }
