@@ -11,28 +11,28 @@
         "description": {
             "VOTING": "مشارك في \"جبيف\" ذو حق التصويت من{REGION}",
             "ASSOCIATE": "مشارك مساعد من{REGION}",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "OBSERVER": "بلد مراقب في \"جبيف\" من{REGION}",
+            "AFFILIATE": "منتسب من{REGION}",
+            "FORMER": "مشارك سابق في \"جبيف\" من{REGION}",
+            "undefined": "غير محدد"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "منظمة مشاركة في \"جبيف\" ذات حق التصويت من{REGION}",
+                    "ASSOCIATE": "منظمة مشاركة مساعدة من{REGION}",
+                    "OBSERVER": "منظمة مشاركة مراقبة من{REGION}",
+                    "AFFILIATE": "منظمة منتسبة من{REGION}",
+                    "FORMER": "منظمة مشاركة سابقاً من{REGION}",
+                    "undefined": "غير محدد"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "منظمة مشاركة ذات حق التصويت",
+                    "ASSOCIATE": "منظمة مشاركة مساعدة",
+                    "OBSERVER": "منظمة مشاركة مراقبة",
+                    "AFFILIATE": "منظمة منتسبة",
+                    "FORMER": "منظمة مشاركة سابقاً",
+                    "undefined": "غير محدد"
                 }
             }
         }
