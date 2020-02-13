@@ -1,6 +1,6 @@
 {
   "trends": {
-    "exploreByCountry": "",
+    "exploreByCountry": "按国家浏览",
     "theseChartsIllustrate1": "这些图表说明了物种发生记录随时间的变化。",
     "noOccRecords": "发生记录的数量",
     "occByKingdomChartText": "按领域分类的可用记录数。\"未知\" 包括具有分类信息的记录, 这些记录无法链接到可用的分类检查表。",
