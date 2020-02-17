@@ -99,7 +99,7 @@ let config = {
             name: 'portal - dev'
         },
         port: port || 80,
-        serverProtocol: 'http:',
+        serverProtocol: 'https:',
         apidocs: apidocs,
         managementToolsSite: '//registry.gbif-dev.org/',
         dataApiV2: dataApiV2 || '//api.gbif-dev.org/v2/',
@@ -270,7 +270,7 @@ let config = {
             name: 'portal - uat'
         },
         port: port || 80,
-        serverProtocol: 'http:',
+        serverProtocol: 'https:',
         apidocs: apidocs,
         managementToolsSite: '//registry.gbif-uat.org/',
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
@@ -395,7 +395,7 @@ let config = {
             name: 'portal - staging'
         },
         port: port || 80,
-        serverProtocol: 'http:',
+        serverProtocol: 'https:',
         apidocs: apidocs,
         managementToolsSite: '//registry.gbif.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
@@ -435,7 +435,7 @@ let config = {
             name: 'portal - prod'
         },
         port: port || 80,
-        serverProtocol: 'http:',
+        serverProtocol: 'https:',
         apidocs: apidocs,
         managementToolsSite: '//registry.gbif.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
@@ -555,7 +555,7 @@ let config = {
             name: 'portal - test'
         },
         port: port || 3000,
-        serverProtocol: 'http:',
+        serverProtocol: 'https:',
         apidocs: apidocs,
         managementToolsSite: '//registry.gbif-uat.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
