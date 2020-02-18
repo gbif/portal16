@@ -6,7 +6,7 @@ let doiRegex = require('doi-regex');
 let md = require('markdown-it')({
     html: true,
     linkify: true,
-    typographer: true
+    typographer: false
 });
 let linkTemplateTarget = '<a href="%s1" target="%s2">%s3</a>';
 let linkTemplate = '<a href="%s1">%s3</a>';

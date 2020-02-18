@@ -2,7 +2,7 @@
 let // resourceSearch = require('../../resource/key/resourceKey'),
     resourceSearch = require('../resource/search/resourceSearch'),
     resourceResultParser = require('../resource/search/resourceResultParser'),
-    md = require('markdown-it')({html: true, linkify: false, typographer: true}),
+    md = require('markdown-it')({html: true, linkify: false, typographer: false}),
     _ = require('lodash');
 
 async function getNotifications(__) {

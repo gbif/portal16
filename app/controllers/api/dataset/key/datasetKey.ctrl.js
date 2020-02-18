@@ -9,7 +9,7 @@ let express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
     auth = require('../../../auth/auth.service'),
-    md = require('markdown-it')({html: true, linkify: false, typographer: true, breaks: true}),
+    md = require('markdown-it')({html: true, linkify: false, typographer: false, breaks: true}),
     Dataset = require('../../../../models/gbifdata/gbifdata').Dataset;
 
 module.exports = function(app) {

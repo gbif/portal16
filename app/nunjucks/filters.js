@@ -4,7 +4,7 @@ let changeCase = require('change-case');
 let urlRegex = require('url-regex');
 let truncate = require('html-truncate');
 let url = require('url');
-let md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true});
+let md = require('markdown-it')({html: true, linkify: true, typographer: false, breaks: true});
     md.linkify.tlds('fuzzyLink', false);
 
     md.use(require('markdown-it-video'), {
