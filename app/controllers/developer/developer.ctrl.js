@@ -41,7 +41,7 @@ function renderPage(req, res, next, page) {
     try {
         res.render('pages/developer/' + page, {
             page: page,
-            apiBase: apiCfg.base.url,
+            apiBase: 'https:' + cfg.dataApi,
             apidocs: cfg.apidocs,
             _meta: {
                 title: title
