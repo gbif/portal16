@@ -6,7 +6,7 @@
             "OBSERVER": "مشارك مراقب",
             "AFFILIATE": "منتسب",
             "FORMER": "مشارك سابق",
-            "undefined": "غير محدد"
+            "undefined": "مجهول"
         },
         "description": {
             "VOTING": "مشارك في \"جبيف\" ذو حق التصويت من{REGION}",
