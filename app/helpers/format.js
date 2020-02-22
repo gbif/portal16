@@ -339,6 +339,20 @@ function sanitize(dirty, additionalAllowedTags) {
     return clean;
 }
 
+function sanitizeCustom(dirty, allowedTags, allowedAttributes) {
+    dirty = dirty || '';
+    allowedTags = allowedTags || [];
+    allowedAttributes = allowedAttributes || [];
+    let clean = sanitizeHtml(dirty, {
+        allowedTags: allowedTags,
+        allowedAttributes: {
+            '*': allowedAttributes
+        }
+    }
+    );
+    return clean;
+}
+
 function addPortalClasses(raw) {
     raw = raw || '';
     let clean;
@@ -371,6 +385,7 @@ module.exports = {
     removeHtml: removeHtml,
     sanitize: sanitize,
     sanitizeTrusted: sanitizeTrusted,
+    sanitizeCustom: sanitizeCustom,
     addPortalClasses: addPortalClasses,
     insertLinks: linkTools.insertLinks,
     linkify: linkTools.linkify,

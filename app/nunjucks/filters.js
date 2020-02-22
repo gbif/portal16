@@ -174,6 +174,16 @@ module.exports = function(nunjucksConfiguration) {
     })();
 
     (function() {
+        nunjucksConfiguration.addFilter('renderMarkdownCustom', function(markdownText, tags, attr) {
+            if (_.isString(markdownText)) {
+                return format.sanitizeCustom(md.render(markdownText), tags, attr);
+            } else {
+                return '';
+            }
+        });
+    })();
+
+    (function() {
         nunjucksConfiguration.addFilter('renderTrustedMarkdown', function(markdownText, urlPrefix) {
             if (_.isString(markdownText)) {
                 return format.addPortalClasses(format.localizeLinks(format.sanitizeTrusted(md.render(markdownText)), urlPrefix));

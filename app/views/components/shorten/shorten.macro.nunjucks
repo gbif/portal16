@@ -1,18 +1,18 @@
-{% macro shorten(text, linkLength = 40, textLenght = 200) %}
+{% macro shorten(text, linkLength = 40, textLenght = 400) %}
     {% if text | isLink %}
         <a href="{$ text $}">{$ text | truncateMiddle(linkLength) $}</a>
     {% elif text | asLink %}
         <a href="{$ text | asLink $}">{$ text | truncateMiddle(linkLength) $}</a>
     {% elif text.length > textLenght %}
         <span shorten class="shorten">
-            <span>{$ text | slice(0, textLenght-100 ) $}</span><span class="shorten__collapsable">{$ text | slice(textLenght - 100) $}</span>
+            <span class="shorten_first">{$ text | slice(0, textLenght-100 ) $}</span><span class="shorten__collapsable" ng-bind-html="'{$ text | renderMarkdownCustom(['a'], ['href']) $}'"></span>
         </span>
     {% else %}
-        {$ text $}
+        <span ng-bind-html="'{$ text | renderMarkdownCustom(['a'], ['href']) $}'"></span>
     {% endif %}
 {% endmacro %}
 
-{% macro compactTableCell(text, linkLength = 40, textLenght = 200) %}
+{% macro compactTableCell(text, linkLength = 40, textLenght = 400) %}
     <td style="min-width:{$ text | minTableWidth(1.4, 20) $}em">
         {$ shorten(text, linkLength, textLenght) $}
     </td>
