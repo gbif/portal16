@@ -1,6 +1,6 @@
 {
   "trends": {
-    "exploreByCountry": "Explore by country",
+    "exploreByCountry": "Explore by country or area",
     "theseChartsIllustrate1": "These charts illustrate the change in availability of the species occurrence records over time.",
     "noOccRecords": "Number of occurrence records",
     "occByKingdomChartText": "The number of available records categorized by kingdom. \"Unknown\" includes records with taxonomic information that cannot be linked to available taxonomic checklists.",
