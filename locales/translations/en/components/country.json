@@ -17,7 +17,7 @@
     "dataAboutCountry": "Data about {TRANSLATED_COUNTRY}",
     "publishingTrends": "Publishing trends",
     "noDataPublishingActivity": "No data publishing activity",
-    "noInstitutionsHavePublished": "No institutions from this country have published data through GBIF",
+    "noInstitutionsHavePublished": "No institutions from this country/area have published data through GBIF",
     "trendsAboutCountry": "Trends about {TRANSLATED_COUNTRY}",
     "nFrom": "{NUMBER_FORMATTED} from",
     "nAbout": "{NUMBER_FORMATTED} about",
