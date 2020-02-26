@@ -20,7 +20,7 @@ function termsDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function terms($cookies) {
+    function terms($cookies, $window) {
         var vm = this;
         vm.userAcceptance = $cookies.get('userAcceptance') === 'dec2018';
         vm.accept = function() {
@@ -32,6 +32,7 @@ function termsDirective(BUILD_VERSION) {
                 expires: exp
             });
             vm.userAcceptance = true;
+            if (!$window.ga) $window.attachGoogleAnalytics();
         };
     }
 }

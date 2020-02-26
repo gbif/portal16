@@ -1,5 +1,5 @@
 <aside id="termsOfUse" class="ng-cloak" ng-show="!vm.userAcceptance">
-    <div class="card termsPopup" ng-class="{'is-shown': !vm.userAcceptance}">
+    <div class="card card--spaced termsPopup" ng-class="{'is-shown': !vm.userAcceptance}">
         <div class="card__stripe">
             <div class="card__content">
                 <h4 translate="terms.headline"></h4>

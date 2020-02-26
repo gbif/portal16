@@ -1,7 +1,7 @@
 'use strict';
 
 var angular = require('angular');
-console.log('analytics ctrl registered');
+
 angular
     .module('portal')
     .controller('analyticsCtrl', analyticsCtrl);

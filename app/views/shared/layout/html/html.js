@@ -91,7 +91,7 @@ angular
     .config(mdConfig);
 
 /** @ngInject */
-function runBlock( $translate, $http, LOCALE, $rootScope, $location, $window) { // $log
+function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $window) { // $log
     $rootScope.$on('$stateChangeStart', function(e) {
         if (window.gb.state > 399) {
             e.preventDefault();
@@ -99,11 +99,14 @@ function runBlock( $translate, $http, LOCALE, $rootScope, $location, $window) { 
     });
 
     // ga('send', 'pageview');
+    var userAcceptance = $cookies.get('userAcceptance');
+    if (userAcceptance && !$window.ga) $window.attachGoogleAnalytics();
+
     $rootScope.$on('$stateChangeSuccess', function() {
         if (window.gbifHasSentGoogleAnalyticsForThisUrl === window.location.href) {
             window.gbifHasSentGoogleAnalyticsForThisUrl = undefined;
         } else {
-            $window.ga('send', 'pageview', $location.path());
+            if ($window.ga) $window.ga('send', 'pageview', $location.path());
         }
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
