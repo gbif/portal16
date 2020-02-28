@@ -175,11 +175,13 @@ module.exports = function(nunjucksConfiguration) {
 
     (function() {
         nunjucksConfiguration.addFilter('renderMarkdownCustom', function(markdownText, tags, attr) {
-            if (_.isString(markdownText)) {
-                return format.sanitizeCustom(md.render(markdownText), tags, attr);
-            } else {
+            if (typeof markdownText === 'undefined') return '';
+            try {
+                markdownText = markdownText.toString();
+            } catch (err) {
                 return '';
             }
+            return format.sanitizeCustom(md.render(markdownText), tags, attr);
         });
     })();
 
