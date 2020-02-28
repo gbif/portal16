@@ -6,6 +6,6 @@
                 <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
             </a>
         </div>
-        <a ng-click="portal.gaEvent('species', 'gallery', 'more')" ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand" ng-if="speciesKey2.images.count > speciesKey2.images.results.length" translate="galleryBar.seeAllImages"></a>
+        <a ng-click="portal.gaEvent('species', 'gallery', 'more')" ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand" ng-if="speciesKey2.images.count > 1" translate="galleryBar.seeAllImages"></a>
     </div>
 </div>
