@@ -35,9 +35,19 @@ angular
             network_key: undefined,
             event_id: undefined,
             parent_event_id: undefined,
-            sampling_protocol: undefined
+            sampling_protocol: undefined,
+            programme: undefined,
+            project_id: undefined,
+            verbatim_scientific_name: undefined,
+            taxon_id: undefined,
+            organism_quantity: undefined,
+            organism_quantity_type: undefined,
+            sample_size_unit: undefined,
+            sample_size_value: undefined,
+            relative_organism_quantity: undefined,
+            institution_key: undefined,
+            collection_key: undefined
         };
-
         // for fields where we want faceting and will always ask for all possible. This is the case for most enums
         var exhaustiveFacetsKeys = [
             'establishment_means',
@@ -54,7 +64,9 @@ angular
             'protocol',
             'event_id',
             'parent_event_id',
-            'publishing_org'];
+            'publishing_org',
+            'institution_key',
+            'collection_key'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function(facet) {
             exhaustiveFacets.push(facet);
@@ -72,7 +84,9 @@ angular
             'type_status',
             'issue',
             'license',
-            'publishing_org'];
+            'publishing_org',
+            'institution_key',
+            'collection_key'];
 
         function getOccurrenceState() {
             return state;
@@ -90,7 +104,7 @@ angular
             tableQuery = angular.copy(state.query);
             apiQuery = angular.copy(state.query);
             apiQuery.facet = exhaustiveFacets;
-            
+
             // set limits to a minimum of the nr of selected, else default value
             apiQuery.facet.forEach(function(key) {
                 if (_.isArray(tableQuery[key]) && tableQuery[key].length > 10) {
@@ -101,7 +115,6 @@ angular
             apiQuery['month.facetLimit'] = 12;
             apiQuery['type_status.facetLimit'] = 1000;
             apiQuery['issue.facetLimit'] = 1000;
-            
 
             // when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {

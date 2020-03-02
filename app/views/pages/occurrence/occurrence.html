@@ -138,6 +138,28 @@
         <div filter-taxon filter-config="occurrence.filters.networkKey" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
+     <div filter-suggest filter-config="occurrence.filters.programme" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+     <div filter-suggest filter-config="occurrence.filters.project_id" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+     <div filter-suggest filter-config="occurrence.filters.verbatim_scientific_name" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+     <div filter-suggest filter-config="occurrence.filters.taxon_id" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+     <div filter-interval filter-config="occurrence.filters.organism_quantity" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+     <div filter-suggest filter-config="occurrence.filters.organism_quantity_type" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+     <div filter-interval filter-config="occurrence.filters.sample_size_value" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+     <div filter-suggest filter-config="occurrence.filters.sample_size_unit" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+     <div filter-interval filter-config="occurrence.filters.relative_organism_quantity" filter-type="float" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>   
+     <div filter-taxon filter-config="occurrence.filters.collection_key" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div> 
+     <div filter-taxon filter-config="occurrence.filters.institution_key" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>                     
         <!--div filter-suggest filter-config="occurrence.filters.installationKey" filter-state="occurrence.occurrenceState"
              xng-if="occurrence.occurrenceState.query.advanced"></div-->
              

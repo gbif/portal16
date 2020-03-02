@@ -281,6 +281,9 @@ require('./angular/country.resource');
 require('./angular/node.resource');
 require('./angular/installation.resource');
 require('./angular/network.resource');
+require('./angular/collection.resource');
+require('./angular/institution.resource');
+
 require('./angular/resource.resource');
 require('./angular/resourceFilter.service');
 require('./angular/contentFulResource.resource');

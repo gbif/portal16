@@ -31,7 +31,7 @@ function intervalSliderDirective(BUILD_VERSION) {
         vm.form = {};
         vm.options = ['between', 'equals', 'lessThanOrEquals', 'greaterThanOrEquals'];
         vm.selected = vm.options[0];
-
+        vm.parseFn = vm.intervalOptions.numberType === 'float' ? parseFloat : parseInt;
         vm.intervalOptions.range = vm.intervalOptions.range || {
             'min': [1000, 1],
             '10%': [1700, 1],
@@ -42,15 +42,15 @@ function intervalSliderDirective(BUILD_VERSION) {
         vm.sliderOptions = {
             start: [vm.intervalOptions.range.min, vm.intervalOptions.range.max],
             range: vm.intervalOptions.range,
-            format: {
+            format: vm.intervalOptions.format || {
                 to: function(value) {
-                    return parseInt(value);
+                    return vm.parseFn(value);
                 },
                 from: function(value) {
-                    return parseInt(value);
+                    return vm.parseFn(value);
                 }
             },
-            step: 1,
+            step: vm.intervalOptions.step || 1,
             connect: true
         };
 
@@ -111,29 +111,29 @@ function intervalSliderDirective(BUILD_VERSION) {
                 case 'equals':
                     vm.sliderOptions.connect = false;
                     if (isFinite(vm.sliderOptions.start[1])) {
-                        vm.sliderOptions.start = [parseInt(vm.sliderOptions.start[1])];
+                        vm.sliderOptions.start = [vm.parseFn(vm.sliderOptions.start[1])];
                     } else if (isFinite(vm.sliderOptions.start[0])) {
-                        vm.sliderOptions.start = [parseInt(vm.sliderOptions.start[0])];
+                        vm.sliderOptions.start = [vm.parseFn(vm.sliderOptions.start[0])];
                     } else {
-                        vm.sliderOptions.start = [parseInt(vm.sliderOptions.range.min)];
+                        vm.sliderOptions.start = [vm.parseFn(vm.sliderOptions.range.min)];
                     }
                     break;
                 case 'lessThanOrEquals':
                     vm.sliderOptions.connect = 'lower';
                     if (isFinite(vm.sliderOptions.start[1])) {
-                        vm.sliderOptions.start = [parseInt(vm.sliderOptions.start[1])];
+                        vm.sliderOptions.start = [vm.parseFn(vm.sliderOptions.start[1])];
                     } else if (isFinite(vm.sliderOptions.start[0])) {
-                        vm.sliderOptions.start = [parseInt(vm.sliderOptions.start[0])];
+                        vm.sliderOptions.start = [vm.parseFn(vm.sliderOptions.start[0])];
                     } else {
-                        vm.sliderOptions.start = [parseInt(vm.sliderOptions.range.max)];
+                        vm.sliderOptions.start = [vm.parseFn(vm.sliderOptions.range.max)];
                     }
                     break;
                 case 'greaterThanOrEquals':
                     vm.sliderOptions.connect = 'upper';
                     if (isFinite(vm.sliderOptions.start[0])) {
-                        vm.sliderOptions.start = [parseInt(vm.sliderOptions.start[0])];
+                        vm.sliderOptions.start = [vm.parseFn(vm.sliderOptions.start[0])];
                     } else {
-                        vm.sliderOptions.start = [parseInt(vm.sliderOptions.range.min)];
+                        vm.sliderOptions.start = [vm.parseFn(vm.sliderOptions.range.min)];
                     }
                     break;
                 default:
@@ -159,14 +159,14 @@ function intervalSliderDirective(BUILD_VERSION) {
 
         vm.changeFrom = function() {
             if (vm.form.from && !vm.form.from.$valid) {
-                vm.sliderOptions.start[0] = parseInt(vm.sliderOptions.range.min);
+                vm.sliderOptions.start[0] = vm.parseFn(vm.sliderOptions.range.min);
             } else {
                 vm.sliderOptions.start[0] = vm.from;
             }
         };
         vm.changeTo = function() {
             if (vm.form.to && !vm.form.to.$valid) {
-                vm.sliderOptions.start[1] = parseInt(vm.sliderOptions.range.max);
+                vm.sliderOptions.start[1] = vm.parseFn(vm.sliderOptions.range.max);
             } else {
                 vm.sliderOptions.start[1] = vm.to;
             }

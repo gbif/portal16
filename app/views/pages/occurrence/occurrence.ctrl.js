@@ -14,7 +14,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
     var vm = this;
     $translate('occurrenceSearch.title').then(function(title) {
         Page.setTitle(title);
@@ -342,6 +342,146 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
             facetKey: 'NETWORK_KEY'
         }
     };
+
+    // New es filters
+    vm.filters.programme = {
+        titleTranslation: 'filterNames.programme',
+        queryKey: 'programme',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.programme
+        }
+    };
+    vm.filters.project_id = {
+        titleTranslation: 'filterNames.projectId',
+        queryKey: 'projectId',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.projectId
+        }
+    };
+    vm.filters.verbatim_scientific_name = {
+        titleTranslation: 'filterNames.verbatimScientificName',
+        queryKey: 'verbatim_scientific_name',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.verbatim_scientific_name
+        }
+    };
+    vm.filters.taxon_id = {
+        titleTranslation: 'filterNames.taxonId',
+        queryKey: 'taxon_id',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.taxon_id
+        }
+    };
+    vm.filters.organism_quantity = {
+        titleTranslation: 'filterNames.organismQuantity',
+        intervalTranslation: 'intervals.default.',
+        queryKey: 'organism_quantity',
+        filter: OccurrenceFilter,
+        range: {
+            'min': [0, 1],
+            '10%': [1, 1],
+            '50%': [10, 1],
+            'max': [100000, 1]
+        }
+    };
+    vm.filters.organism_quantity_type = {
+        titleTranslation: 'filterNames.organismQuantityType',
+        queryKey: 'organism_quantity_type',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.organism_quantity_type
+        }
+    };
+    vm.filters.sample_size_unit = {
+        titleTranslation: 'filterNames.sampleSizeUnit',
+        queryKey: 'sample_size_unit',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.sample_size_unit
+        }
+    };
+    vm.filters.sample_size_value = {
+        titleTranslation: 'filterNames.sampleSizeValue',
+        intervalTranslation: 'intervals.default.',
+        queryKey: 'sample_size_value',
+        filter: OccurrenceFilter,
+        range: {
+            'min': [0, 1],
+            '50%': [1000, 1],
+            'max': [1000000, 1]
+        }
+    };
+    vm.filters.relative_organism_quantity = {
+        titleTranslation: 'filterNames.relativeOrganismQuantity',
+        intervalTranslation: 'intervals.default.',
+        queryKey: 'relative_organism_quantity',
+        filter: OccurrenceFilter,
+        step: 0.0001,
+        range: {
+            'min': [0, 1],
+            '10%': [0.00001, 1],
+            '25%': [0.000025, 1],
+            '50%': [0.0001, 1],
+            '75%': [0.0002, 1],
+            'max': [1, 1]
+        }
+    };
+
+    vm.filters.collection_key = {
+        titleTranslation: 'filterNames.collectionKey',
+        queryKey: 'collection_key',
+        filter: OccurrenceFilter,
+        expand: {
+            resource: Collection,
+            expandedTitle: 'name'
+        },
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.collectionKey,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'name',
+            suggestShortName: 'name',
+            suggestKey: 'key'
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'COLLECTION_KEY'
+        }
+    };
+
+    vm.filters.institution_key = {
+        titleTranslation: 'filterNames.institutionKey',
+        queryKey: 'institution_key',
+        filter: OccurrenceFilter,
+        expand: {
+            resource: Institution,
+            expandedTitle: 'name'
+        },
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.institutionKey,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'name',
+            suggestShortName: 'name',
+            suggestKey: 'key'
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'INSTITUTION_KEY'
+        }
+    };
+
+    // End new es filters
 
     vm.filters.installationKey = {
         titleTranslation: 'filterNames.installationKey',
