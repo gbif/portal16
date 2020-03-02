@@ -41,16 +41,16 @@
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Is {from}",
+            "between": "Between {from} and {to}",
+            "lessThanOrEquals": "Less than or equal to {to}",
+            "greaterThanOrEquals": "Greater than or equal to {from}",
+            "invalid": "Invalid",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Is",
+                "between": "Between",
+                "lessThanOrEquals": "Less than or equal",
+                "greaterThanOrEquals": "Greater than or equal"
             }
         }
     }
