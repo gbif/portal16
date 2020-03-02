@@ -54,6 +54,16 @@
     "status": "Status",
     "nameType": "Name type",
     "origin": "Origin",
-    "networkKey": "Data network"
+    "networkKey": "Data network",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }
