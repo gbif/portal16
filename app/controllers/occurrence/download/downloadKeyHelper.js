@@ -135,6 +135,7 @@ function getSimpleQuery(predicate) {
         let invalidPredicate = _.find(predicate.predicates, function(p) {
             if (p.type === 'and') return true;
             if (p.type === 'not') return true;
+            if (p.type === 'isNotNull') return true;
             if (p._childKeys === 'MIXED') return true;
             return false;
             // return p.type == 'and' || p.type == 'not' || p._childKeys == 'MIXED'; // only leafs and OR queries of a single TYPE allowed
