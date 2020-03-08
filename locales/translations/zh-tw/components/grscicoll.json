@@ -46,7 +46,7 @@
     "foundingDate": "",
     "geographicDescription": "地理描述",
     "taxonomicDescription": "分類描述",
-    "citesPermitNumber": "",
+    "citesPermitNumber": "城市許可編號",
     "disciplines": "機構秩序",
     "institutionalGovernance": "機構治理",
     "type": "機構類型",
