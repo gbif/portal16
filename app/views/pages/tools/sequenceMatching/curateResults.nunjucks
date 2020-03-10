@@ -10,7 +10,7 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue', 'queryCoverage', 'queryLength', 'matchType', 'scientificName','', 'alignment','classification', 'sequence']">
+                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue', 'queryCoverage', 'queryLength', 'matchType', 'scientificName', 'alignment','classification', 'sequence']">
                             <a href="" 
                                ng-click="vm.state.sortType = col; vm.state.sortReverse = !vm.state.sortReverse">
                                
