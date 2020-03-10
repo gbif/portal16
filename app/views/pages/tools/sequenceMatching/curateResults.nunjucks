@@ -10,7 +10,7 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue','matchType', 'scientificName','', 'alignment','classification', 'sequence']">
+                            ng-repeat="col in ['occurrenceId', 'marker', 'identity', 'bitScore', 'expectValue', 'queryCoverage', 'queryLength', 'matchType', 'scientificName','', 'alignment','classification', 'sequence']">
                             <a href="" 
                                ng-click="vm.state.sortType = col; vm.state.sortReverse = !vm.state.sortReverse">
                                
@@ -46,6 +46,12 @@
                         </td>
                         <td class="table-cell--narrow">
                             <span>{{ species.expectValue }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span ng-if="species.queryCoverage">{{ species.queryCoverage }}%</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span>{{ species.queryLength }}</span>
                         </td>
                         <td class="table-cell">
                             <span ng-class="vm.getMatchTypeClass(species.matchType)">{{ species.matchType | prettifyEnum }}</span>

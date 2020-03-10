@@ -287,7 +287,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         fields.forEach(function(field) {
             item[field] = selected[field];
         });
-
+        item.queryCoverage = selected['qcovs'];
+        item.queryLength = item.sequence.length;
         if (
             selected.nubMatch &&
             selected.nubMatch.usage &&
@@ -483,6 +484,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             'The bit score is the required size of a sequence database in which the current match could be found just by chance. The bit score is a log2 scaled and normalized raw score. Each increase by one doubles the required database size  (2<sup>bit-score</sup>).',
         expectValue:
             'The expect value is a parameter that describes the number of hits one can "expect" to see by chance when searching a database of a particular size. It decreases exponentially as the score of the match increases. Hence, a low expect value is better.',
+        queryCoverage: 'How much of the query(input) sequence aligns with the match in the the reference database, in percent.',
+        queryLength: 'Length of the query(input) sequence. Short sequences may give unreliable results.',
         matchType: 'Badges representing different identity thresholds.',
         scientificName:
             'The OTU identifier, which can be used as scientificName when publishing occurrence or sample event data to GBIF',
