@@ -13,12 +13,12 @@
     "select": "اختيار",
     "custom": "عرف او عادة",
     "baseMap": "خريطة اساسية",
-    "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "binning": "وضع في صندوق",
+    "year": "سنة",
+    "chooseColors": "ألوان",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
+      "CLASSIC_HEX": "سداسي زوايا كلاسيكي",
+      "CLASSIC": "نقاط كلاسيكية",
       "STREETS": "",
       "GLACIER": "",
       "CUSTOM": ""
