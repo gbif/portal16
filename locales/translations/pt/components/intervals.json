@@ -39,6 +39,19 @@
                 "lessThanOrEquals": "Antes do final do",
                 "greaterThanOrEquals": "Após o início de"
             }
+        },
+        "default": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
         }
     }
 }
