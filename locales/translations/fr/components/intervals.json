@@ -41,8 +41,8 @@
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
+            "equals": "Est {from}",
+            "between": "Entre {from} et {to}",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "",
