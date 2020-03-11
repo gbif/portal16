@@ -60,10 +60,10 @@
     "taxonId": "Verbatim de l'ID du taxon",
     "organismQuantity": "Quantité de l’organisme",
     "organismQuantityType": "Type de quantité d’organisme",
-    "sampleSizeValue": "",
-    "sampleSizeUnit": "",
-    "relativeOrganismQuantity": "",
-    "collectionKey": "",
-    "institutionKey": ""
+    "sampleSizeValue": "Valeur de la taille de l'échantillon",
+    "sampleSizeUnit": "Unité de la taille de l'échantillon",
+    "relativeOrganismQuantity": "Quantité relative de l'organisme",
+    "collectionKey": "Collection",
+    "institutionKey": "Institution"
   }
 }
