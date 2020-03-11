@@ -54,6 +54,16 @@
     "status": "状況",
     "nameType": "名前の種類",
     "origin": "由来",
-    "networkKey": "GBIF ネットワーク"
+    "networkKey": "GBIF ネットワーク",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }
