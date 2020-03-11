@@ -54,6 +54,16 @@
     "status": "Estado",
     "nameType": "Nome tipo",
     "origin": "Origem",
-    "networkKey": "Rede GBIF"
+    "networkKey": "Rede GBIF",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }
