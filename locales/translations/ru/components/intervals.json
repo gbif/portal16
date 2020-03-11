@@ -39,6 +39,19 @@
                 "lessThanOrEquals": "До окончания",
                 "greaterThanOrEquals": "После начала"
             }
+        },
+        "default": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
         }
     }
 }
