@@ -54,6 +54,16 @@
     "status": "Status",
     "nameType": "Name type",
     "origin": "Origin",
-    "networkKey": "Data network"
+    "networkKey": "Data network",
+    "programme": "Programme",
+    "verbatimScientificName": "Verbatim scientific name",
+    "taxonId": "Verbatim taxon ID",
+    "organismQuantity": "Organism quantity",
+    "organismQuantityType": "Organism quantity type",
+    "sampleSizeValue": "Sample size value",
+    "sampleSizeUnit": "Sample size unit",
+    "relativeOrganismQuantity": "Relative organism quantity",
+    "collectionKey": "Collection",
+    "institutionKey": "Institution"
   }
 }
