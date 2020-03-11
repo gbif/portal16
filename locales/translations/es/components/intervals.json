@@ -41,8 +41,8 @@
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
+            "equals": "Es ",
+            "between": "Entre {from} y {to}",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "",
