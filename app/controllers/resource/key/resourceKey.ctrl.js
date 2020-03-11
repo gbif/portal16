@@ -6,6 +6,7 @@ let express = require('express'),
     router = express.Router(),
     auth = require('../../auth/auth.service'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
+    changeCase = require('change-case'),
     resource = require('./resourceKey');
 
 module.exports = function(app) {
@@ -27,6 +28,10 @@ router.get('/article/:id/:title?.:ext?', function(req, res, next) {
 
 router.get('/document/:id/:title?.:ext?', function(req, res, next) {
     prose(req, res, next, 'document', 'pages/resource/key/document/document');
+});
+
+router.get('/resource/:id/:title?.:ext?', function(req, res, next) {
+    prose(req, res, next, 'article', 'pages/resource/key/article/article');
 });
 
 router.get('/event/:id/:title?.:ext?', function(req, res, next) {
@@ -129,12 +134,14 @@ function prose(req, res, next, type, template, redirectToSlug) {
                 slugTitle = resource.getSlug(itemTitle);
             resource.mapLegacyData(contentItem);
             resource.removeUnresovable(contentItem.main.fields, contentItem.resolved);
+            let actualContentType = changeCase.paramCase(_.get(contentItem, 'main.sys.contentType.sys.id', type));
 
             let img = _.get(contentItem, 'resolved.Asset[' + _.get(contentItem, 'main.fields.primaryImage.sys.id') + '].fields.file.url');
             contentItem._meta = {
                 title: preview ? 'preview' : itemTitle,
                 description: _.get(contentItem, 'main.fields.summary'),
-                slugTitle: slugTitle
+                slugTitle: slugTitle,
+                contentType: actualContentType
             };
             if (type === 'event') {
                 contentItem._meta.calendarEventLink = apiConfig.newsroomWebcal.url + contentItem.main.sys.id;
@@ -145,8 +152,8 @@ function prose(req, res, next, type, template, redirectToSlug) {
 
             // if not a preview, then make sure the title is a part of the url by redirecting if necessary
             if (!preview && redirectToSlug) {
-                if (slugTitle !== '' && slugTitle != entryTitle) {
-                    res.redirect(302, res.locals.gb.locales.urlPrefix + '/' + type + '/' + entry + '/' + slugTitle);
+                if (type !== actualContentType || (slugTitle !== '' && slugTitle != entryTitle)) {
+                    res.redirect(302, res.locals.gb.locales.urlPrefix + '/' + actualContentType + '/' + entry + '/' + slugTitle);
                     return;
                 }
             } else {
