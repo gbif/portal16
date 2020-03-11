@@ -55,15 +55,15 @@
     "nameType": "Nombre tipo",
     "origin": "Origen",
     "networkKey": "Red de datos",
-    "programme": "",
-    "verbatimScientificName": "",
-    "taxonId": "",
-    "organismQuantity": "",
-    "organismQuantityType": "",
+    "programme": "Programa",
+    "verbatimScientificName": "Nombre científico textual",
+    "taxonId": "Identificación taxonómica textual\n",
+    "organismQuantity": "Cantidad de organismos",
+    "organismQuantityType": "Tipo de cantidad de organismos",
     "sampleSizeValue": "",
     "sampleSizeUnit": "",
-    "relativeOrganismQuantity": "",
-    "collectionKey": "",
-    "institutionKey": ""
+    "relativeOrganismQuantity": "Cantidad de organismos relativa",
+    "collectionKey": "Colección",
+    "institutionKey": "Institución"
   }
 }
