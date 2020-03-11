@@ -54,6 +54,16 @@
     "status": "Status",
     "nameType": "Navne type",
     "origin": "Oprindelse",
-    "networkKey": ""
+    "networkKey": "",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }
