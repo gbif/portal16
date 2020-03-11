@@ -54,6 +54,16 @@
     "status": "Estado",
     "nameType": "Nombre tipo",
     "origin": "Origen",
-    "networkKey": "Red de datos"
+    "networkKey": "Red de datos",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }
