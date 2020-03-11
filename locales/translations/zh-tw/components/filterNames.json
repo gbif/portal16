@@ -54,6 +54,16 @@
     "status": "狀態",
     "nameType": "名稱類型",
     "origin": "來源",
-    "networkKey": "資料網絡"
+    "networkKey": "資料網絡",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }
