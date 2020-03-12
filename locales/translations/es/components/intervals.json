@@ -45,12 +45,12 @@
             "between": "Entre {from} y {to}",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Inválido",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Ees",
+                "between": "Entre",
+                "lessThanOrEquals": "Menor o igual a",
+                "greaterThanOrEquals": "Mayor o igual a"
             }
         }
     }
