@@ -52,6 +52,14 @@
         <div ng-if="resource.state.query.contentType == 'literature'" filter-ternary filter-config="resource.filters.openAccess" filter-state="resource.state"></div>
 
         <div ng-if="resource.state.query.contentType == 'literature'" filter-suggest filter-config="resource.filters.gbifDownloadKey" filter-state="resource.state"></div>
+        
+        <div ng-if="resource.state.query.contentType == 'literature'"
+            filter-suggest filter-config="resource.filters.litSourceType"
+            filter-state="resource.state"></div>
+
+        <div ng-if="resource.state.query.contentType == 'literature'"
+            filter-suggest filter-config="resource.filters.litPublisher"
+            filter-state="resource.state"></div>
 
 <!--{{angular.equals({}, resource.state.data.facets.PURPOSES.count)}}-->
         <div ng-if="resource.state.query.purposes || resource.state.query.contentType == 'project'">

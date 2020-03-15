@@ -121,6 +121,32 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         }
     };
 
+    vm.filters.litSourceType = {
+        titleTranslation: 'resourceSearch.filters.litSourceType',
+        queryKey: 'sourceType',
+        filter: ResourceFilter,
+        facets: {
+            hasFacets: true,
+            facetKey: 'SOURCE_TYPE'
+        },
+        search: {
+            isSearchable: true
+        }
+    };
+
+    vm.filters.litPublisher = {
+        titleTranslation: 'resourceSearch.filters.litPublisher',
+        queryKey: 'publisher',
+        filter: ResourceFilter,
+        facets: {
+            hasFacets: true,
+            facetKey: 'PUBLISHER'
+        },
+        search: {
+            isSearchable: true
+        }
+    };
+
     vm.filters.publisher = {
         titleTranslation: 'resourceSearch.filters.publishingOrganizationKey',
         queryKey: 'publishingOrganizationKey',
