@@ -34,7 +34,7 @@
             "peerReview": "Peer-Reviewed",
             "openAccess": "Open access",
             "gbifDownloadKey": "Download key",
-            "litSourceType": "Journal",
+            "litSource": "Journal",
             "litPublisher": "Journal publisher"
         }
     }

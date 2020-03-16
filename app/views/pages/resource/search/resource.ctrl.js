@@ -121,13 +121,13 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         }
     };
 
-    vm.filters.litSourceType = {
-        titleTranslation: 'resourceSearch.filters.litSourceType',
-        queryKey: 'sourceType',
+    vm.filters.litSource = {
+        titleTranslation: 'resourceSearch.filters.litSource',
+        queryKey: 'source',
         filter: ResourceFilter,
         facets: {
             hasFacets: true,
-            facetKey: 'SOURCE_TYPE'
+            facetKey: 'SOURCE'
         },
         search: {
             isSearchable: true
