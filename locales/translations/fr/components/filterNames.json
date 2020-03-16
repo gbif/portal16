@@ -54,6 +54,16 @@
     "status": "Statut",
     "nameType": "Nom type",
     "origin": "Origine",
-    "networkKey": "Réseau GBIF"
+    "networkKey": "Réseau GBIF",
+    "programme": "Programme",
+    "verbatimScientificName": "Verbatim du nom scientifique",
+    "taxonId": "Verbatim de l'ID du taxon",
+    "organismQuantity": "Quantité de l’organisme",
+    "organismQuantityType": "Type de quantité d’organisme",
+    "sampleSizeValue": "Valeur de la taille de l'échantillon",
+    "sampleSizeUnit": "Unité de la taille de l'échantillon",
+    "relativeOrganismQuantity": "Quantité relative de l'organisme",
+    "collectionKey": "Collection",
+    "institutionKey": "Institution"
   }
 }

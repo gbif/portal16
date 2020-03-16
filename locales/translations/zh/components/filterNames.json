@@ -54,6 +54,16 @@
     "status": "状态",
     "nameType": "名称类型",
     "origin": "原始",
-    "networkKey": "数据网络"
+    "networkKey": "数据网络",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }

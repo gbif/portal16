@@ -39,6 +39,19 @@
                 "lessThanOrEquals": "結束前",
                 "greaterThanOrEquals": "開始後"
             }
+        },
+        "default": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
         }
     }
 }

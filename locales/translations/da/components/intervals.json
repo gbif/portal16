@@ -39,6 +39,19 @@
                 "lessThanOrEquals": "Før slutningen af",
                 "greaterThanOrEquals": "Efter starten på"
             }
+        },
+        "default": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
         }
     }
 }

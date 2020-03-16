@@ -54,6 +54,16 @@
     "status": "Estado",
     "nameType": "Nombre tipo",
     "origin": "Origen",
-    "networkKey": "Red de datos"
+    "networkKey": "Red de datos",
+    "programme": "Programa",
+    "verbatimScientificName": "Nombre científico textual",
+    "taxonId": "Identificación taxonómica textual\n",
+    "organismQuantity": "Cantidad de organismos",
+    "organismQuantityType": "Tipo de cantidad de organismos",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "Cantidad de organismos relativa",
+    "collectionKey": "Colección",
+    "institutionKey": "Institución"
   }
 }

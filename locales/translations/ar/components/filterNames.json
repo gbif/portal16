@@ -54,6 +54,16 @@
     "status": "",
     "nameType": "",
     "origin": "",
-    "networkKey": ""
+    "networkKey": "",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }

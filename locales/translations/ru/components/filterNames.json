@@ -54,6 +54,16 @@
     "status": "Статус названия таксона",
     "nameType": "Тип названия",
     "origin": "Происхождение названия таксона",
-    "networkKey": "Информационная сеть"
+    "networkKey": "Информационная сеть",
+    "programme": "",
+    "verbatimScientificName": "",
+    "taxonId": "",
+    "organismQuantity": "",
+    "organismQuantityType": "",
+    "sampleSizeValue": "",
+    "sampleSizeUnit": "",
+    "relativeOrganismQuantity": "",
+    "collectionKey": "",
+    "institutionKey": ""
   }
 }
