@@ -79,6 +79,7 @@
   },
   "grscicoll": {
     "title": "GRSciColl",
+    "suggestChange": "",
     "tabs": {
       "about": "About",
       "institutions": "Institutions",
