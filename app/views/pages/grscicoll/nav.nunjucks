@@ -15,7 +15,7 @@
             </li>
             <li class="tab">
                 <span>
-                    <a ng-click="portal.gaEvent('grscicoll', 'suggest', 'search')" ng-href="mailto:helpdesk@gbif.org?subject=GrSciColl%20suggestions&body=Thank you for your help. Please describe the changes you would like to see." class="gb-button--brand" translate="grscicoll.suggestChange">
+                    <a ng-click="portal.gaEvent('grscicoll', 'suggest', 'search')" ng-href="mailto:scientific-collections@gbif.org?subject=GrSciColl%20suggestions&body=Thank you for your help. Please describe the changes you would like to see." class="gb-button--brand" translate="grscicoll.suggestChange">
                         Suggest a change
                     </a>
                 </span>

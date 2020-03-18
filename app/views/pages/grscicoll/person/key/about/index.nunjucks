@@ -3,7 +3,7 @@
 				<div class="row">
 						<div class="col-xs-12">
 								<div class="p-b-05 text-right">
-									<a ng-click="portal.gaEvent('grscicoll', 'suggest', 'staff')" ng-href="mailto:helpdesk@gbif.org?subject=GrSciColl%20suggestions&body=Regarding%20%0D%0A{{grscicollPersonKey.person.firstName | encodeURIComponent}}%20{{grscicollPersonKey.person.lastName | encodeURIComponent}}%20%0D%0Ahttps://gbif.org/grscicoll/person/{{grscicollPersonKey.key}}%0D%0A%0D%0AThank you for your help. Please describe the changes you would like to see." class="gb-button--brand" translate="grscicoll.suggestChange">
+									<a ng-click="portal.gaEvent('grscicoll', 'suggest', 'staff')" ng-href="mailto:scientific-collections@gbif.org?subject=GrSciColl%20suggestions&body=Regarding%20%0D%0A{{grscicollPersonKey.person.firstName | encodeURIComponent}}%20{{grscicollPersonKey.person.lastName | encodeURIComponent}}%20%0D%0Ahttps://gbif.org/grscicoll/person/{{grscicollPersonKey.key}}%0D%0A%0D%0AThank you for your help. Please describe the changes you would like to see." class="gb-button--brand" translate="grscicoll.suggestChange">
 										Suggest a change
 									</a>
 								</div>
