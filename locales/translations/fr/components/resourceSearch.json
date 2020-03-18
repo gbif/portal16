@@ -33,7 +33,9 @@
             "publishingOrganizationKey": "Fournisseurs de données",
             "peerReview": "Examen par les pairs",
             "openAccess": "le libre accès",
-            "gbifDownloadKey": "Clé de téléchargement"
+            "gbifDownloadKey": "Clé de téléchargement",
+            "litSource": "",
+            "litPublisher": ""
         }
     }
 }

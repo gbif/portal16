@@ -33,7 +33,9 @@
             "publishingOrganizationKey": "出版者",
             "peerReview": "査読あり",
             "openAccess": "オープンアクセス",
-            "gbifDownloadKey": "ダウンロードキー"
+            "gbifDownloadKey": "ダウンロードキー",
+            "litSource": "",
+            "litPublisher": ""
         }
     }
 }
