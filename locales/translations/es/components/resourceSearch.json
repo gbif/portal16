@@ -33,7 +33,9 @@
             "publishingOrganizationKey": "Publicador",
             "peerReview": "Revisado por pares",
             "openAccess": "Acceso abierto",
-            "gbifDownloadKey": "Descargar clave"
+            "gbifDownloadKey": "Descargar clave",
+            "litSource": "",
+            "litPublisher": ""
         }
     }
 }

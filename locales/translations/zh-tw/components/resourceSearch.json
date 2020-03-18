@@ -33,7 +33,9 @@
             "publishingOrganizationKey": "發布者",
             "peerReview": "同儕審定",
             "openAccess": "開源",
-            "gbifDownloadKey": "下載序號"
+            "gbifDownloadKey": "下載序號",
+            "litSource": "",
+            "litPublisher": ""
         }
     }
 }

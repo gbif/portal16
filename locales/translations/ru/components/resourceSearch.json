@@ -33,7 +33,9 @@
             "publishingOrganizationKey": "Организация",
             "peerReview": "Рецензируемая публикация",
             "openAccess": "В открытом доступе",
-            "gbifDownloadKey": "Ключ для получения файла"
+            "gbifDownloadKey": "Ключ для получения файла",
+            "litSource": "",
+            "litPublisher": ""
         }
     }
 }
