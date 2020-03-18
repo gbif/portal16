@@ -130,7 +130,7 @@ let tests = [
         message: 'The Github status endpoint should should return "All Systems Operational"'
     },
     {
-        url: 'http://' + config.topDomain + '/api/resource/search?contentType=literature&cachebust={NOW}',
+        url: 'http://www.' + config.topDomain + '/api/resource/search?contentType=literature&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
@@ -138,7 +138,7 @@ let tests = [
         message: 'Resource search should return more than 7000 results for a search on content type = literature'
     },
     {
-        url: 'http://' + config.topDomain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',
+        url: 'http://www.' + config.topDomain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
