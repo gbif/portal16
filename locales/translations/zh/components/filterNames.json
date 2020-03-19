@@ -4,7 +4,7 @@
     "catalogNumber": "目录编号",
     "year": "年份",
     "country": "国家或地区",
-    "continent": "",
+    "continent": "洲",
     "taxonKey": "学名",
     "elevation": "海拔",
     "collectionCode": "保藏代码",
@@ -55,15 +55,15 @@
     "nameType": "名称类型",
     "origin": "原始",
     "networkKey": "数据网络",
-    "programme": "",
+    "programme": "项目",
     "verbatimScientificName": "",
     "taxonId": "",
-    "organismQuantity": "",
-    "organismQuantityType": "",
-    "sampleSizeValue": "",
-    "sampleSizeUnit": "",
-    "relativeOrganismQuantity": "",
-    "collectionKey": "",
-    "institutionKey": ""
+    "organismQuantity": "生物数量",
+    "organismQuantityType": "生物数量类别",
+    "sampleSizeValue": "样本大小值",
+    "sampleSizeUnit": "样本大小单位",
+    "relativeOrganismQuantity": "相对生物数量",
+    "collectionKey": "馆藏",
+    "institutionKey": "机构"
   }
 }
