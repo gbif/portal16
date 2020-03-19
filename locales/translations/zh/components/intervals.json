@@ -42,15 +42,15 @@
         },
         "default": {
             "equals": "来自 {from}",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "between": "在 {from} 和 {to} 之间",
+            "lessThanOrEquals": "小于或等于 {to}",
+            "greaterThanOrEquals": "大于或等于 {from}\n",
+            "invalid": "无效的",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "是",
+                "between": "介于",
+                "lessThanOrEquals": "小于或等于",
+                "greaterThanOrEquals": "大于或等于"
             }
         }
     }
