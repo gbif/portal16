@@ -15,12 +15,13 @@ if (env === 'local' || env === 'dev') {
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
     locales.push('ar-MOCK');
+    locales.push('da');
 }
 
 if (env === 'uat' || env === 'local') {
     locales.push('ar');
+    locales.push('uk');
   //  locales.push('zh-tw');
-    locales.push('da');
 }
 
 // specify rtl
@@ -38,6 +39,7 @@ contentfulLocaleMap['es'] = 'es';
 contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';
 contentfulLocaleMap['ru'] = 'ru';
+contentfulLocaleMap['uk'] = 'uk';
 contentfulLocaleMap['pt'] = 'pt';
 contentfulLocaleMap['zh'] = 'zh-Hans';
 contentfulLocaleMap['zh-tw'] = 'zh-Hant';
@@ -55,6 +57,7 @@ translationMap['ar'] = 'ara';
 translationMap['fr'] = 'fra';
 translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
+translationMap['uk'] = 'ukr';
 translationMap['pt'] = 'por';
 translationMap['da'] = 'dan';
 translationMap['zh'] = 'zh-hans';
