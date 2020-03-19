@@ -41,7 +41,7 @@
             }
         },
         "default": {
-            "equals": "",
+            "equals": "来自 {from}",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
