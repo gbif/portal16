@@ -1,0 +1,23 @@
+{
+    "healthSummary": {
+        "systemHealth": "",
+        "description": "",
+        "updatedTimeAgo": "",
+        "statusSummary": {
+            "OPERATIONAL": "",
+            "INFO": "",
+            "WARNING": "",
+            "CRITICAL": ""
+        },
+        "notifications": {
+            "WARNING": {
+                "title": "",
+                "summary": ""
+            },
+            "CRITICAL": {
+                "title": "",
+                "summary": ""
+            }
+        }
+    }
+}

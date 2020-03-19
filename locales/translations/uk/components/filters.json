@@ -1,0 +1,36 @@
+{
+    "filters": {
+        "searchPlaceholder": "",
+        "noPreference": "",
+        "invert": "",
+        "clear": "",
+        "add": "",
+        "repatriation": {
+            "description": ""
+        },
+        "ternary": {
+            "yes": "",
+            "no": "",
+            "all": ""
+        },
+        "location": {
+            "north": "",
+            "south": "",
+            "west": "",
+            "east": "",
+            "withCoordinates": "",
+            "withoutCoordinates": "",
+            "includeFlaggedAsSuspicious": "",
+            "onlyShowFlagged": "",
+            "past": "",
+            "geojson": "",
+            "range": "",
+            "noFiltersAdded": "",
+            "wktPlaceholder": "",
+            "invalidTextInput": "",
+            "tooLarge": "",
+            "tooLargeSuggestion": "",
+            "invalidRange": ""
+        }
+    }
+}
