@@ -26,7 +26,7 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
     vm.mediaExpand = {
         isExpanded: false
     };
-
+    vm.occurrence = occurrence;
     vm.mediaItems = {};
     vm.dataApi = env.dataApi;
 

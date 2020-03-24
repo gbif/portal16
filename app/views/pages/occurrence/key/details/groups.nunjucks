@@ -41,6 +41,22 @@
                                     {% else %}
                                         <span translate="typeStatus.{$ occurrence.record.typeStatus $}"></span>
                                     {% endif %}
+                                {% elif term.simpleName == "recordedByID" %}
+                                    <ul class="inline-bullet-list">
+                                    {% for id in occurrence.record.recordedByID %}
+                                        <li dir="ltr">
+                                            {$ shorten.shorten(id.value) $}
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
+                                {% elif term.simpleName == "identifiedByID" %}
+                                    <ul class="inline-bullet-list">
+                                    {% for id in occurrence.record.identifiedByID %}
+                                        <li dir="ltr">
+                                            {$ shorten.shorten(id.value) $}
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
                                 {% else %}
                                     {$ shorten.shorten(occurrence.record[term.simpleName]) $}
                                 {% endif %}
@@ -72,7 +88,11 @@
                                     <span class="badge badge--{$ issue.severity | lower $}">{$ __('occurrenceIssue.' + issue.type) $}</span>
                                 {% endfor %}
                                 {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
-                                <span class="small">{$  __('interpretationRemarks.comments.' + occurrence.fieldsWithDifferences[term.simpleName]) $}</span>
+                                    {% if term.simpleName == "recordedByID" or term.simpleName == "identifiedByID" %}
+                                        {# we change the format on this field #}
+                                    {% else %}
+                                        <span class="small">{$  __('interpretationRemarks.comments.' + occurrence.fieldsWithDifferences[term.simpleName]) $}</span>
+                                    {% endif %}
                             {% endif %}
                         </td>
                     </tr>

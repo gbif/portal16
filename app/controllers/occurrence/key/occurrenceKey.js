@@ -83,7 +83,9 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             depth: true,
             depthAccuracy: true,
             distanceAboveSurface: true,
-            distanceAboveSurfaceAccuracy: true
+            distanceAboveSurfaceAccuracy: true,
+            recordedByID: true,
+            identifiedByID: true
         };
     terms.forEach(function(e) {
         if (e.source !== 'DwcTerm' && e.source !== 'DcTerm' && typeof whiteList[e.simpleName] === 'undefined') {
@@ -145,6 +147,23 @@ function getOccurrenceModel(occurrenceKey, __) {
     ];
 
    return Q.all(promises).spread(function(occurrence, occurrenceMeta) {
+        //tmp
+        // occurrenceMeta.terms.push({
+        //     "simpleName": "identifiedByIDs",
+        //     "qualifiedName": "http://rs.gbif.org/terms/1.0/identifiedByID",
+        //     "group": "Identification",
+        //     "source": "GbifTerm"
+        //     });
+        // occurrenceMeta.terms.push({
+        //     "simpleName": "recordedByIDs",
+        //     "qualifiedName": "http://rs.gbif.org/terms/1.0/recordedByID",
+        //     "group": "Occurrence",
+        //     "source": "GbifTerm"
+        //     });
+        occurrence.record.recordedByID = occurrence.record.recordedByIDs;
+        occurrence.record.identifiedByID = occurrence.record.identifiedByIDs;
+        //tmp end
+       
         occurrence.highlights = highlight(occurrence);
         occurrence.computedFields = {};
         occurrence.annotation = getAnnotation(occurrence.record);

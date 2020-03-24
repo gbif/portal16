@@ -121,6 +121,24 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
         }
     };
 
+    vm.filters.recordedById = {
+        titleTranslation: 'filterNames.recordedById',
+        queryKey: 'recorded_by_id',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true
+        }
+    };
+
+    vm.filters.identifiedById = {
+        titleTranslation: 'filterNames.identifiedById',
+        queryKey: 'identified_by_id',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true
+        }
+    };
+
     vm.filters.occurrenceId = {
         titleTranslation: 'filterNames.occurrenceId',
         queryKey: 'occurrence_id',
@@ -218,7 +236,6 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
             facetKey: 'STATE_PROVINCE'
         }
     };
-
 
     vm.filters.institutionCode = {
         titleTranslation: 'filterNames.institutionCode',

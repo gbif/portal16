@@ -7,7 +7,8 @@ let _ = require('lodash'),
     moment = require('moment'),
     querystring = require('querystring'),
     contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
-    credentials = rootRequire('config/credentials').contentful.gbif;
+    credentials = rootRequire('config/credentials').contentful.gbif,
+    log = rootRequire('config/log');
 
 module.exports = {
     getSlug: getSlug,
@@ -100,6 +101,8 @@ async function getFirst(query, depth, isPreview, locale) {
     query.content_type = _.isString(query.content_type) ? query.content_type : 'article';
     let response = await searchContentful(query, depth, isPreview, locale);
     if (_.get(response, 'sys.type') == 'Error') {
+        // log.error();
+        console.log(JSON.stringify(response, null, 2));
         throw {
             statusCode: 500
         };
