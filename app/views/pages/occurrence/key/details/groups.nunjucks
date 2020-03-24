@@ -45,7 +45,12 @@
                                     <ul class="inline-bullet-list">
                                     {% for id in occurrence.record.recordedByID %}
                                         <li dir="ltr">
-                                            {$ shorten.shorten(id.value) $}
+                                            <a href="{$ id.value $}" class="breakAll">
+                                                {% if id.type == 'ORCID' %}
+                                                    <img src="/img/orcid_16x16.png" class="orcid-small">
+                                                {% endif %}
+                                                {$ id.value $}
+                                            </a>
                                         </li>
                                     {% endfor %}
                                     </ul>
@@ -53,7 +58,12 @@
                                     <ul class="inline-bullet-list">
                                     {% for id in occurrence.record.identifiedByID %}
                                         <li dir="ltr">
-                                            {$ shorten.shorten(id.value) $}
+                                            <a href="{$ id.value $}" class="breakAll">
+                                                {% if id.type == 'ORCID' %}
+                                                    <img src="/img/orcid_16x16.png" class="orcid-small">
+                                                {% endif %}
+                                                {$ id.value $}
+                                            </a>
                                         </li>
                                     {% endfor %}
                                     </ul>
