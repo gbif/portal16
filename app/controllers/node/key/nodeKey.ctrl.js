@@ -52,9 +52,12 @@ router.get('/participant/:key(\\d+).:ext?', function(req, res, next) {
         let participant = Participant.get(key);
 
         participant.then(function(p) {
-            if (p.participant.type == 'COUNTRY') {
+            if (p.participant.type === 'COUNTRY') {
                 res.redirect(302, res.locals.gb.locales.urlPrefix + '/country/' + p.participant.countryCode);
                 return;
+            }
+            if (!p.isActiveParticipant) {
+                return res.sendStatus(404);
             }
             p = participantView(p);
             p._meta = {
@@ -70,9 +73,11 @@ router.get('/participant/:key(\\d+).:ext?', function(req, res, next) {
 router.get('/api/participant/:key(\\d+)', function(req, res) {
     let key = req.params.key;
     let participant = Participant.get(key);
-
     participant
         .then(function(p) {
+            if (!p.isActiveParticipant) {
+                return res.sendStatus(404);
+            }
             p = participantView(p);
             res.json(p);
         })
