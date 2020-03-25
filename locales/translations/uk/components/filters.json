@@ -9,8 +9,8 @@
             "description": ""
         },
         "ternary": {
-            "yes": "",
-            "no": "",
+            "yes": "Так",
+            "no": "Ні",
             "all": ""
         },
         "location": {
