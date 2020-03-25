@@ -56,14 +56,14 @@ router.get('/participant/:key(\\d+).:ext?', function(req, res, next) {
                 res.redirect(302, res.locals.gb.locales.urlPrefix + '/country/' + p.participant.countryCode);
                 return;
             }
-            if (!p.isActiveParticipant) {
-                return next();
-            }
-            p = participantView(p);
             p._meta = {
                 title: p.participant.name,
                 description: res.__mf('participationStatus.type.OTHER.description.' + p.participant.participationStatus, {REGION: res.__('region.' + p.participant.gbifRegion)})
             };
+            p = participantView(p);
+            if (!p.isActiveParticipant) {
+                return next();
+            }
             helper.renderPage(req, res, next, p, 'pages/participant/participant/seo');
         }).catch(function(err) {
             next(err);
@@ -75,10 +75,10 @@ router.get('/api/participant/:key(\\d+)', function(req, res) {
     let participant = Participant.get(key);
     participant
         .then(function(p) {
+            p = participantView(p);
             if (!p.isActiveParticipant) {
                 return res.sendStatus(404);
             }
-            p = participantView(p);
             res.json(p);
         })
         .catch(function(err) {
