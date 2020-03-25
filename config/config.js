@@ -34,7 +34,11 @@ let path = require('path'),
             'OBIS_NODE_KEY': 'ba0670b9-4186-41e6-8e70-f9cb3065551a'
         },
         network: {
-            backboneNetwork: '029f9226-0d8a-4f28-97fe-13180e9eb0e5'
+            backboneNetwork: '029f9226-0d8a-4f28-97fe-13180e9eb0e5',
+            obisNetworkKey: '2b7c7b4f-4d4f-40d3-94de-c28b6fa054a6'
+        },
+        participant: {
+            obisKey: 304
         },
         publisher: {
             'GRIIS': 'cdef28b1-db4e-4c58-aa71-3c5238c2d0b5',

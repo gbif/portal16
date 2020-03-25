@@ -7,7 +7,7 @@ angular
     .controller('participantKeyCtrl', participantKeyCtrl);
 
 /** @ngInject */
-function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, $state, $stateParams) {
+function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, constantKeys, $state, $stateParams) {
     var vm = this;
     vm.limit = 5;
     vm.endorsed = {};
@@ -17,6 +17,11 @@ function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, $
     vm.key = $stateParams.key;
 
     vm.participant = Participant.get({id: vm.key});
+
+    // unpleasant client redirect in case we have client routing to the now removed obis participants
+    if (vm.key == constantKeys.participant.obisKey) {
+        $state.go('network', {key: constantKeys.network.obisNetworkKey});
+    }
 
     vm.getEndorsed = function() {
         vm.participant.$promise.then(function() {
