@@ -57,7 +57,7 @@ router.get('/participant/:key(\\d+).:ext?', function(req, res, next) {
                 return;
             }
             if (!p.isActiveParticipant) {
-                return res.sendStatus(404);
+                return next();
             }
             p = participantView(p);
             p._meta = {
