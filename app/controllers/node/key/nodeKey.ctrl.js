@@ -57,7 +57,7 @@ router.get('/participant/:key(\\d+).:ext?', function(req, res, next) {
                 return;
             }
             if (!p.isActiveParticipant) {
-                return next();
+                // return next();
             }
             p = participantView(p);
             p._meta = {
@@ -76,7 +76,7 @@ router.get('/api/participant/:key(\\d+)', function(req, res) {
     participant
         .then(function(p) {
             if (!p.isActiveParticipant) {
-                return res.sendStatus(404);
+                // return res.sendStatus(404);
             }
             p = participantView(p);
             res.json(p);

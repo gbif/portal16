@@ -45,6 +45,11 @@ async function query(participantName) {
     if (participants.statusCode > 299) {
         throw participants;
     }
+    // remove former participants from search and 404 for direct links. https://github.com/gbif/portal16/issues/1332 . Dead links are accepted
+    participants.results = participants.results.filter(function(e) {
+        return e.participationStatus !== 'FORMER';
+    });
+
     let fuse = new Fuse(participants.results, {
         keys: ['name', 'abbreviatedName'],
         threshold: 0.2,
