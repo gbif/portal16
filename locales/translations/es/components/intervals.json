@@ -43,8 +43,8 @@
         "default": {
             "equals": "Es ",
             "between": "Entre {from} y {to}",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "lessThanOrEquals": "Menor o igual a",
+            "greaterThanOrEquals": "Mayor o igual que {from}",
             "invalid": "Inválido",
             "select": {
                 "equals": "Ees",
