@@ -2,27 +2,27 @@
     "homepage": {
         "counts": {
             "occurrences": "",
-            "datasets": "",
+            "datasets": "Набори даних",
             "publishers": "",
             "literature": ""
         },
-        "aboutGbifCountry": "",
-        "summary": "",
-        "whatIsGbif": "",
+        "aboutGbifCountry": "Про GBIF {COUNTRY}",
+        "summary": "Вільний та відкритий доступ до даних біорізноманіття",
+        "whatIsGbif": "Що таке GBIF?",
         "featureTypes": {
             "event": "",
-            "news": "",
+            "news": "Новини",
             "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
+            "dataUse": "Використання даних",
+            "project": "Проект",
+            "programme": "Програма",
             "document": "",
             "tool": "",
             "literature": "",
-            "treatment": "",
-            "blog": "",
+            "treatment": "Таксономія",
+            "blog": "Блог",
             "guidance": "",
-            "data": ""
+            "data": "Дані"
         }
     }
 }
