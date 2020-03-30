@@ -27,7 +27,7 @@
             "range": "Діапазон",
             "noFiltersAdded": "Не додано жодних фільтрів щодо місця знахідки",
             "wktPlaceholder": "Мультиполігони WKT та GeoJSON не підтримуються",
-            "invalidTextInput": "Недозволений WKT або GeoJSON",
+            "invalidTextInput": "Неприпустимий WKT або GeoJSON",
             "tooLarge": "Занадто велика геометрія",
             "tooLargeSuggestion": "Спробуйте застосувати обмежувальну рамку та відфільтрувати дані географічно",
             "invalidRange": "Недозволена обмежувальна рамка "
