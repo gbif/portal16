@@ -2,7 +2,7 @@
     "filters": {
         "searchPlaceholder": "Пошук",
         "noPreference": "Налаштування відсутні",
-        "invert": "",
+        "invert": "Обернути",
         "clear": "Очистити",
         "add": "Додати",
         "repatriation": {
@@ -15,22 +15,22 @@
         },
         "location": {
             "north": "Північ",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
-            "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "south": "Південь",
+            "west": "Захід",
+            "east": "Схід",
+            "withCoordinates": "Містять координати",
+            "withoutCoordinates": "Без координат",
+            "includeFlaggedAsSuspicious": "Долучити записи, для яких координати позначені як сумнівні",
+            "onlyShowFlagged": "Відобразити лише записи, позначені як сумнівні",
+            "past": "Нещодавно використані",
+            "geojson": "GeoJSON",
+            "range": "Діапазон",
+            "noFiltersAdded": "Не додано жодних фільтрів щодо місця знахідки",
+            "wktPlaceholder": "Мультиполігони WKT та GeoJSON не підтримуються",
+            "invalidTextInput": "Недозволений WKT або GeoJSON",
+            "tooLarge": "Занадто велика геометрія",
+            "tooLargeSuggestion": "Спробуйте застосувати обмежувальну рамку та відфільтрувати дані географічно",
+            "invalidRange": "Недозволена обмежувальна рамка "
         }
     }
 }
