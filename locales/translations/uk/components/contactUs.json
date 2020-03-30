@@ -1,9 +1,9 @@
 {
   "contactUs": {
-    "title": "",
+    "title": "Зв'язатися з нами",
     "tabs": {
-      "main": "",
-      "directory": ""
+      "main": "Зв'язатися з нами",
+      "directory": "Каталог"
     }
   }
 }
