@@ -1,20 +1,20 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
+        "searchPlaceholder": "Пошук",
+        "noPreference": "Налаштування відсутні",
         "invert": "",
-        "clear": "",
-        "add": "",
+        "clear": "Очистити",
+        "add": "Додати",
         "repatriation": {
-            "description": ""
+            "description": "Дані називають репатрійованими, коли вони публікуються установою з однєї країни, але стосуються біорізноманіття іншої країни"
         },
         "ternary": {
             "yes": "Так",
             "no": "Ні",
-            "all": ""
+            "all": "Усі"
         },
         "location": {
-            "north": "",
+            "north": "Північ",
             "south": "",
             "west": "",
             "east": "",
