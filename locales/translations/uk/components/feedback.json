@@ -23,30 +23,30 @@
       "title": "Служба підтримки",
       "example": "Наприклад: Як будуть захищені дані щодо рідкісних видів? Чи можете ви допомогти мені знайти всі записи щодо знахідок цього виду в міжнародних водах?",
       "description": "На всі питання відповідає наша служба підтримки, електронна адреса якої helpdesk@gbif.org",
-      "comment": ""
+      "comment": "З приватними запитами і питаннями нетехнічного характеру ви можете звернутися за адресою   [info@gbif.org](mailto:info@gbif.org), щодо взаємодії зі ЗМІ надішліть листа на [communication@gbif.org](mailto:communication@gbif.org)."
     },
     "confirmation": {
-      "title": "",
+      "title": "Дякуємо",
       "example": "",
-      "seeIssue": ""
+      "seeIssue": "Переглянути відгук"
     },
     "issues": {
       "title": "",
       "description": "",
-      "create": ""
+      "create": "Залишити відгук"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "Підсумок",
+      "description": "Детальний опис. Вказуючи на таксономічну помилку, будь-ласка, надайте посилання на літературні джерела. Будь ласка, якщо можливо, надішліть відгук англійською мовою.",
+      "username": "Ваш email чи ім'я користувача (публічне) у Github"
     },
     "markdownSupport": "",
     "issueTracking": "",
     "failure": "",
     "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
+    "tellGbif": "Повідомити GBIF",
+    "submit": "Надіслати",
+    "seeAllComments": "Переглянути все",
     "recommendMail": "Ми рекомендуємо надіслати листа",
     "pleaseLogin": "Щоб залишити відгук, увійдіть в обліковий запис. Також ви можете використати [Github](https://github.com/gbif/portal-feedback/issues).\nЧому я маю авторизуватися? Це потрібно, аби завадити розсиланню спам-листів на нашу адресу для зворотнього зв'язку."
   }
