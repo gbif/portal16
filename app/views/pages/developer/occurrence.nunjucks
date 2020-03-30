@@ -107,7 +107,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
-                        {% call trowS(url="", respLink=apiBase+"occurrence/search?taxonKey=1", paging=true, params=["q","basisOfRecord","catalogNumber","collectionCode","continent","country","datasetKey","decimalLatitude","decimalLongitude","depth","elevation","eventDate","geometry","hasCoordinate","hasGeospatialIssue","institutionCode","issue","lastInterpreted","mediaType","month","occurrenceId","organismId","protocol","license","publishingCountry","publishingOrg","crawlId","recordedBy","recordNumber","scientificName","locality","stateProvince","waterBody","taxonKey","kingdomKey","phylumKey","classKey","orderKey","familyKey","genusKey","subGenusKey","speciesKey","year","establishmentMeans","repatriated","typeStatus","facet","facetMincount","facetMultiselect", "facet, paging"]) %}
+                        {% call trowS(url="", respLink=apiBase+"occurrence/search?taxonKey=1", paging=true, params=["q","basisOfRecord","catalogNumber","collectionCode","continent","country","datasetKey","decimalLatitude","decimalLongitude","depth","elevation","eventDate","geometry","hasCoordinate","hasGeospatialIssue","identifiedByID","institutionCode","issue","lastInterpreted","mediaType","month","occurrenceId","organismId","protocol","license","publishingCountry","publishingOrg","crawlId","recordedBy", "recordedByID","recordNumber","scientificName","locality","stateProvince","waterBody","taxonKey","kingdomKey","phylumKey","classKey","orderKey","familyKey","genusKey","subGenusKey","speciesKey","year","establishmentMeans","repatriated","typeStatus","facet","facetMincount","facetMultiselect", "facet, paging"]) %}
                         Full search across all occurrences.
                         Results are ordered by relevance.
                         {% endcall %}
@@ -317,6 +317,7 @@
             publisher.",
             "organismId": "An identifier for the Organism instance (as opposed to a particular digital record of the
             Organism). May be a globally unique identifier or an identifier specific to the data set.",
+            "identifiedByID": "Identifier (e.g. ORCID) for the person who provided the taxonomic identification of the occurrence.",
             "institutionCode" : "An identifier of any form assigned by the source to identify the institution the record
             belongs to. Not guaranteed to be unique.",
             "collectionCode": "An identifier of any form assigned by the source to identify the physical collection or
@@ -325,6 +326,7 @@
             dataset for the record which may not be unique, but should be fairly unique in combination with the
             institution and collection code.",
             "recordedBy": "The person who recorded the occurrence.",
+            "recordedByID": "Identifier (e.g. ORCID) for the person who recorded the occurrence.",
             "recordNumber": "An identifier given to the record at the time it was recorded in the field.",
             "basisOfRecord": "Basis of record, as defined in our <a href='"+apidocs+"/vocabulary/BasisOfRecord.html'
                                                                    >BasisOfRecord enum</a>",
