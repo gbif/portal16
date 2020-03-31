@@ -1,7 +1,7 @@
 {
   "occurrence": {
     "tabs": {
-      "details": ""
+      "details": "Details"
     },
     "typeOf": "{TYPE} of {NAME}",
     "coordinates": "Coordinates",
