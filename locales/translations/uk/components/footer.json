@@ -1,14 +1,14 @@
 {
   "footer": {
-    "whatIsGbif": "",
-    "api": "",
-    "faq": "",
-    "newsletter": "",
-    "privacy": "",
-    "terms": "",
-    "citation": "",
-    "codeOfConduct": "",
-    "acknowledgements": "",
-    "contact": ""
+    "whatIsGbif": "Що таке GBIF?",
+    "api": "API",
+    "faq": "Часті запитання",
+    "newsletter": "Новини",
+    "privacy": "Конфіденційність",
+    "terms": "Умови використання",
+    "citation": "Цитування",
+    "codeOfConduct": "Етичні норми",
+    "acknowledgements": "Подяки",
+    "contact": "Контакти"
   }
 }

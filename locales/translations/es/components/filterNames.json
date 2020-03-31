@@ -60,8 +60,8 @@
     "taxonId": "Identificación taxonómica textual\n",
     "organismQuantity": "Cantidad de organismos",
     "organismQuantityType": "Tipo de cantidad de organismos",
-    "sampleSizeValue": "",
-    "sampleSizeUnit": "",
+    "sampleSizeValue": "Valor del tamaño de la muestra",
+    "sampleSizeUnit": "Unidad del tamaño de la muestra",
     "relativeOrganismQuantity": "Cantidad de organismos relativa",
     "collectionKey": "Colección",
     "institutionKey": "Institución"
