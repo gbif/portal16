@@ -1,5 +1,8 @@
 {
   "occurrence": {
+    "tabs": {
+      "details": ""
+    },
     "typeOf": "{TYPE} из {NAME}",
     "coordinates": "Координаты",
     "unknownDate": "Неизвестная дата",
