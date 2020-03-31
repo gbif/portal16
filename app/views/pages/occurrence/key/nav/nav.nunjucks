@@ -1,0 +1,25 @@
+<section class="horizontal-stripe--paddingless white-background seperator--b">
+    <div class="container--normal">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="tabs__wrapper">
+                    <nav class="tabs tabs--noBorder">
+                        <ul>
+                            <li class="tab" ng-class="{isActive: occurrenceKey.$state.is('occurrenceKey')}">
+                                <a ui-sref="occurrenceKey({key:occurrenceKey.key})" translate="occurrence.tabs.details">
+                                    Details
+                                </a>
+                            </li>
+
+                            <li ng-if="occurrenceKey.isAllowedUser()" class="tab" ng-class="{isActive: occurrenceKey.$state.is('occurrenceKeyCluster')}">
+                                <a ui-sref="occurrenceKeyCluster({key:occurrenceKey.key})">
+                                    Cluster (Alpha)
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -51,6 +51,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('occurrenceKeyCluster', {
+            parent: 'occurrenceKey',
+            url: '/cluster',
+            templateUrl: '/templates/pages/occurrence/key/cluster/occurrenceKeyCluster.html?v=' + BUILD_VERSION,
+            controller: 'occurrenceKeyClusterCtrl',
+            controllerAs: 'occurrenceKeyCluster'
+        })
         .state('occurrenceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len

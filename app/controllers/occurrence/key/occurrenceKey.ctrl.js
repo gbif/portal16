@@ -11,7 +11,10 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/occurrence/:key(\\d+).:ext?', function(req, res, next) {
+router.get('/occurrence/:key(\\d+).:ext?', render);
+router.get('/occurrence/:key(\\d+)/cluster.:ext?', render);
+
+function render(req, res, next) {
     let key = req.params.key;
     occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
         renderPage(req, res, next, occurrence);
@@ -22,8 +25,7 @@ router.get('/occurrence/:key(\\d+).:ext?', function(req, res, next) {
             next(err);
         }
     });
-});
-
+}
 router.get('/api/template/occurrence/:key(\\d+)', function(req, res, next) {
     let key = req.params.key;
     occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {

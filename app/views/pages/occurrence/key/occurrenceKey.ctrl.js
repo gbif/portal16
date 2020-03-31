@@ -9,9 +9,10 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION, LOCALE_2_LETTER) {
+function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION, LOCALE_2_LETTER) {
     var vm = this;
     vm.gb = gb;
+    vm.$state = $state;
     vm.LOCALE_2_LETTER = LOCALE_2_LETTER;
     var globe;
     var globeCanvas;
@@ -20,6 +21,13 @@ function occurrenceKeyCtrl($stateParams, env, hotkeys, Page, occurrence, Species
         Page.setTitle(title + ' ' + vm.key);
     });
     Page.drawer(false);
+
+    vm.isAllowedUser = function() {
+        // this is for the cluster tab.
+        // only show to a few test users to begin with. But leave it for everyone to see if they get the direct link.
+        var userName = _.get($sessionStorage, 'user.userName', '');
+        return ['trobertson', 'mhoefft', 'thomasgbif'].indexOf(userName) > -1;
+    };
 
     vm.datasetProcessSummary = DatasetProcessSummary.get({key: occurrence.datasetKey});
 

@@ -1,8 +1,15 @@
 {% include('./header/header.nunjucks') %}
-{% include('./highlights/highlights.nunjucks') %}
-{% include('./location/location.nunjucks') %}
-{% include('./media/media.nunjucks') %}
-{% include('./details/details.nunjucks') %}
-{% include('./dataset/dataset.nunjucks') %}
-{% include('./extensions/extensions.nunjucks') %}
-{% include('./citation.nunjucks') %}
+{% include('./nav/nav.nunjucks') %}
+
+<div ui-view></div>
+
+<div ng-if="occurrenceKey.$state.is('occurrenceKey')">
+  {% include('./highlights/highlights.nunjucks') %}
+  {% include('./location/location.nunjucks') %}
+  {% include('./media/media.nunjucks') %}
+  {% include('./details/details.nunjucks') %}
+  {% include('./dataset/dataset.nunjucks') %}
+  {% include('./extensions/extensions.nunjucks') %}
+  {% include('./citation.nunjucks') %}
+</div>
+

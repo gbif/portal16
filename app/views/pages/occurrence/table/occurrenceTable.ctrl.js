@@ -106,7 +106,7 @@ function occurrenceTableCtrl($scope, $stateParams, $filter, hotkeys, OccurrenceF
 
     // ---- Popup to handle columns selection ----
     vm.columns = ['country', 'coordinates', 'eventDate', 'basisOfRecord', 'dataset', 'issues', 'typeStatus', 'individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordNumber', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy', 'publisher', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
-                                                                                                             'individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordNumber','recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy'   
+
     vm.translationKeyOverwrites = {
         coordinates: 'occurrence.coordinates',
         eventDate: 'occurrence.monthAndyear',
