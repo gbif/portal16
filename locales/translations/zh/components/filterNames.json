@@ -13,6 +13,8 @@
     "protocol": "协议",
     "mediaType": "媒体类型",
     "recordedBy": "记录者",
+    "recordedById": "",
+    "identifiedById": "",
     "eventDate": "事件日期",
     "eventID": "事件 ID",
     "samplingProtocol": "取样流程",
