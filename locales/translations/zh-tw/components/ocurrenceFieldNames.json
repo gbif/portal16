@@ -72,6 +72,8 @@
     "catalogNumber": "目錄編號",
     "recordNumber": "紀錄編號",
     "recordedBy": "紀錄者：",
+    "recordedByID": "",
+    "identifiedByID": "",
     "individualCount": "個體計數",
     "organismQuantity": "生物數量",
     "organismQuantityType": "生物數量類型",
