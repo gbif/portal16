@@ -72,6 +72,8 @@
     "catalogNumber": "",
     "recordNumber": "",
     "recordedBy": "",
+    "recordedByID": "",
+    "identifiedByID": "",
     "individualCount": "",
     "organismQuantity": "",
     "organismQuantityType": "",
