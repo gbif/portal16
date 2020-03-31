@@ -72,6 +72,8 @@
     "catalogNumber": "Номер по каталогу",
     "recordNumber": "Номер записи",
     "recordedBy": "Кем сделана запись",
+    "recordedByID": "",
+    "identifiedByID": "",
     "individualCount": "Количество индивидов",
     "organismQuantity": "Количество организмов",
     "organismQuantityType": "Тип количества организмов",
