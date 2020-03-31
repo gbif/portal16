@@ -13,9 +13,7 @@ function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, Collecti
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
     vm.q = $stateParams.q;
-    $translate('collection.institution.title').then(function(title) {
-        Page.setTitle(title);
-    });
+
     Page.drawer(false);
     vm.key = $stateParams.key;
     vm.$state = $state;
