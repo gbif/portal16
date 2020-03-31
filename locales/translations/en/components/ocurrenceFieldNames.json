@@ -72,6 +72,8 @@
     "catalogNumber": "Catalogue number",
     "recordNumber": "Record number",
     "recordedBy": "Recorded by",
+    "recordedByID": "Recorded by ID",
+    "identifiedByID": "Identified by ID",
     "individualCount": "Individual count",
     "organismQuantity": "Organism quantity",
     "organismQuantityType": "Organism quantity type",
