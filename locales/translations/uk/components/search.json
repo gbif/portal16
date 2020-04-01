@@ -12,13 +12,13 @@
     "datasets": "",
     "resources": "",
     "publishers": "",
-    "participants": "",
-    "search": "",
-    "clearFilters": "",
-    "filters": "",
-    "simple": "",
-    "advanced": "",
-    "allResultTypes": "",
+    "participants": "Учасники",
+    "search": "Пошук",
+    "clearFilters": "Скинути фільтри",
+    "filters": "Фільтри",
+    "simple": "Простий",
+    "advanced": "Розширений",
+    "allResultTypes": "Всі",
     "suggestions": "Підказки",
     "header": {
       "searchDatasets": "Пошук по наборах даних",
@@ -27,6 +27,6 @@
       "searchResources": "Пошук по ресурсах",
       "searchOccurrences": "Пошук по знахідкам"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0 {результатів} 1 {результат} 2 {результати} 3 {результати} 4 {результати} other {результатів}}"
   }
 }
