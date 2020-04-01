@@ -1,10 +1,10 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
+            "occurrences": "Записів про знахідки",
             "datasets": "Набори даних",
-            "publishers": "",
-            "literature": ""
+            "publishers": "Організацій, які опублікували дані",
+            "literature": "Рецензованих статей, у яких були використані дані"
         },
         "aboutGbifCountry": "Про GBIF {COUNTRY}",
         "summary": "Вільний та відкритий доступ до даних біорізноманіття",
