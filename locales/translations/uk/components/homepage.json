@@ -10,18 +10,18 @@
         "summary": "Вільний та відкритий доступ до даних біорізноманіття",
         "whatIsGbif": "Що таке GBIF?",
         "featureTypes": {
-            "event": "",
+            "event": "Заходи",
             "news": "Новини",
-            "resource": "",
+            "resource": "Ресурси",
             "dataUse": "Використання даних",
             "project": "Проект",
             "programme": "Програма",
-            "document": "",
-            "tool": "",
-            "literature": "",
+            "document": "Документи",
+            "tool": "Інструменти",
+            "literature": "Література",
             "treatment": "Таксономія",
             "blog": "Блог",
-            "guidance": "",
+            "guidance": "Посібник",
             "data": "Дані"
         }
     }
