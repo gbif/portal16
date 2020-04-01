@@ -1,8 +1,8 @@
 {
   "search": {
-    "title": "",
-    "placeholder": "",
-    "noSearchTermsEntered": "",
+    "title": "Пошук",
+    "placeholder": "Знахідки, види, новини...",
+    "noSearchTermsEntered": "Не введені ключові слова для пошуку",
     "notSureWhatYouAreLookingFor": "",
     "cannotFindWhatYouAreLookingFor": "",
     "trySpecifyingAType": "",
