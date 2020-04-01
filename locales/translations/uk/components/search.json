@@ -3,7 +3,7 @@
     "title": "Пошук",
     "placeholder": "Знахідки, види, новини...",
     "noSearchTermsEntered": "Не введені ключові слова для пошуку",
-    "notSureWhatYouAreLookingFor": "",
+    "notSureWhatYouAreLookingFor": "Не впевнені, за якими ключовими словами шукати? Спробуйте подивитися на фотографії знахідок видів.",
     "cannotFindWhatYouAreLookingFor": "",
     "trySpecifyingAType": "",
     "everything": "",
@@ -19,13 +19,13 @@
     "simple": "",
     "advanced": "",
     "allResultTypes": "",
-    "suggestions": "",
+    "suggestions": "Підказки",
     "header": {
-      "searchDatasets": "",
-      "searchPublishers": "",
-      "searchSpecies": "",
-      "searchResources": "",
-      "searchOccurrences": ""
+      "searchDatasets": "Пошук по наборах даних",
+      "searchPublishers": "Пошук по організаціях",
+      "searchSpecies": "Пошук по видах",
+      "searchResources": "Пошук по ресурсах",
+      "searchOccurrences": "Пошук по знахідкам"
     },
     "nResults": ""
   }
