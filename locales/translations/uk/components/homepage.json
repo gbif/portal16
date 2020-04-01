@@ -2,8 +2,8 @@
     "homepage": {
         "counts": {
             "occurrences": "Записів про знахідки",
-            "datasets": "Набори даних",
-            "publishers": "Організацій, які опублікували дані",
+            "datasets": "Наборів даних",
+            "publishers": "Організацій-видавців",
             "literature": "Рецензованих статей, у яких були використані дані"
         },
         "aboutGbifCountry": "Про GBIF {COUNTRY}",
