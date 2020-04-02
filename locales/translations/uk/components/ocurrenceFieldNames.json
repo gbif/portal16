@@ -72,6 +72,8 @@
     "catalogNumber": "",
     "recordNumber": "",
     "recordedBy": "",
+    "recordedByID": "Записано за ID",
+    "identifiedByID": "Визначено за ID",
     "individualCount": "",
     "organismQuantity": "",
     "organismQuantityType": "",

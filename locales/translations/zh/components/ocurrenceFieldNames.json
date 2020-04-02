@@ -72,6 +72,8 @@
     "catalogNumber": "目录编号",
     "recordNumber": "记录号",
     "recordedBy": "记录者",
+    "recordedByID": "",
+    "identifiedByID": "",
     "individualCount": "个体计数",
     "organismQuantity": "生物个体数量",
     "organismQuantityType": "生物个体数量类型",

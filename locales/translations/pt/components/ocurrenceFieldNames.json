@@ -72,6 +72,8 @@
     "catalogNumber": "Número de catálogo",
     "recordNumber": "Número de registo",
     "recordedBy": "Registado por",
+    "recordedByID": "Registado por ID",
+    "identifiedByID": "Identificado por ID",
     "individualCount": "Contagem de indivíduos",
     "organismQuantity": "Quantidade de organismos",
     "organismQuantityType": "Tipo de quantidade de organismos",

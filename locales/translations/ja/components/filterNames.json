@@ -13,6 +13,8 @@
     "protocol": "プロトコル",
     "mediaType": "メディアの種類",
     "recordedBy": "採集者・観察者",
+    "recordedById": "",
+    "identifiedById": "",
     "eventDate": "イベント日付",
     "eventID": "イベントID",
     "samplingProtocol": "サンプリング手順",

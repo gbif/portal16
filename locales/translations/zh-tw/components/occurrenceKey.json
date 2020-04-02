@@ -1,5 +1,8 @@
 {
   "occurrence": {
+    "tabs": {
+      "details": ""
+    },
     "typeOf": "{NAME} 的 {TYPE}",
     "coordinates": "座標",
     "unknownDate": "未知日期",

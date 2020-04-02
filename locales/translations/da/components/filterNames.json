@@ -13,6 +13,8 @@
     "protocol": "Protokol",
     "mediaType": "Medietype",
     "recordedBy": "Optegnet af",
+    "recordedById": "",
+    "identifiedById": "",
     "eventDate": "Begivenhedsdato",
     "eventID": "",
     "samplingProtocol": "",

@@ -13,6 +13,8 @@
     "protocol": "",
     "mediaType": "",
     "recordedBy": "",
+    "recordedById": "Записано за ID",
+    "identifiedById": "Визначено за ID",
     "eventDate": "",
     "eventID": "",
     "samplingProtocol": "",

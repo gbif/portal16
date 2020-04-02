@@ -1,9 +1,9 @@
 {
   "search": {
-    "title": "",
-    "placeholder": "",
-    "noSearchTermsEntered": "",
-    "notSureWhatYouAreLookingFor": "",
+    "title": "Пошук",
+    "placeholder": "Знахідки, види, новини...",
+    "noSearchTermsEntered": "Не введені ключові слова для пошуку",
+    "notSureWhatYouAreLookingFor": "Не впевнені, за якими ключовими словами шукати? Спробуйте подивитися на фотографії знахідок видів.",
     "cannotFindWhatYouAreLookingFor": "",
     "trySpecifyingAType": "",
     "everything": "",
@@ -12,21 +12,21 @@
     "datasets": "",
     "resources": "",
     "publishers": "",
-    "participants": "",
-    "search": "",
-    "clearFilters": "",
-    "filters": "",
-    "simple": "",
-    "advanced": "",
-    "allResultTypes": "",
-    "suggestions": "",
+    "participants": "Учасники",
+    "search": "Пошук",
+    "clearFilters": "Скинути фільтри",
+    "filters": "Фільтри",
+    "simple": "Простий",
+    "advanced": "Розширений",
+    "allResultTypes": "Всі",
+    "suggestions": "Підказки",
     "header": {
-      "searchDatasets": "",
-      "searchPublishers": "",
-      "searchSpecies": "",
-      "searchResources": "",
-      "searchOccurrences": ""
+      "searchDatasets": "Пошук по наборах даних",
+      "searchPublishers": "Пошук по організаціях",
+      "searchSpecies": "Пошук по видах",
+      "searchResources": "Пошук по ресурсах",
+      "searchOccurrences": "Пошук по знахідкам"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0 {результатів} 1 {результат} 2 {результати} 3 {результати} 4 {результати} other {результатів}}"
   }
 }

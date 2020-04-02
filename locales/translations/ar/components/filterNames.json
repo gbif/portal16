@@ -13,6 +13,8 @@
     "protocol": "",
     "mediaType": "",
     "recordedBy": "قام بالتسجيل",
+    "recordedById": "مسجلة بالمعرف",
+    "identifiedById": " تم تحديده بواسطة المعرف",
     "eventDate": "تاريخ الحدث",
     "eventID": "",
     "samplingProtocol": "",

@@ -13,6 +13,8 @@
     "protocol": "程序",
     "mediaType": "媒體類型",
     "recordedBy": "記錄者",
+    "recordedById": "",
+    "identifiedById": "",
     "eventDate": "事件日期",
     "eventID": "事件識別碼",
     "samplingProtocol": "取樣程序",

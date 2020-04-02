@@ -13,6 +13,8 @@
     "protocol": "Протокол публикации",
     "mediaType": "Тип медиа-файла",
     "recordedBy": "Автор находки",
+    "recordedById": "",
+    "identifiedById": "",
     "eventDate": "Дата",
     "eventID": "ID сбора или описания",
     "samplingProtocol": "Методика сбора данных",

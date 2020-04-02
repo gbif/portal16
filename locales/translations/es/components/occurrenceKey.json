@@ -1,5 +1,8 @@
 {
   "occurrence": {
+    "tabs": {
+      "details": "Detalles"
+    },
     "typeOf": "",
     "coordinates": "Coordenadas",
     "unknownDate": "Fecha desconocida",

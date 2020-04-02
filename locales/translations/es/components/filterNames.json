@@ -13,6 +13,8 @@
     "protocol": "Protocolo",
     "mediaType": "Tipo de medios",
     "recordedBy": "Registrado por",
+    "recordedById": "Registrado por",
+    "identifiedById": "Identificado por",
     "eventDate": "Fecha del Evento",
     "eventID": "ID del evento",
     "samplingProtocol": "Protocolo de muestreo",

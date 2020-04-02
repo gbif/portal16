@@ -1,5 +1,8 @@
 {
   "occurrence": {
+    "tabs": {
+      "details": ""
+    },
     "typeOf": "{NAME} の {TYPE}",
     "coordinates": "座標",
     "unknownDate": "不明な日付",
