@@ -1,6 +1,6 @@
 {% if form.title %}**{$ form.title | quoteLinks | striptags $}**{% endif %}
 
-{% if form.description %}{$ form.description | quoteLinks | safe $}{% endif %}
+{% if form.description %}{$ form.description | safe $}{% endif %}
 
 -----
 
