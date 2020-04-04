@@ -1,41 +1,41 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
-      "grantType": "",
-      "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
-      "fundsAllocated": "",
-      "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
-      "typeOfGrant": "",
-      "projectStart": "",
-      "status": "",
-      "programme": "",
-      "contractCountry": "",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "project": "Проект",
+      "projectId": "ID проєкту",
+      "projectIdentifier": "Ідентифікатор проєкту",
+      "grantType": "Тип гранту",
+      "duration": "Тривалість",
+      "title": "Назва",
+      "start": "Початок",
+      "end": "Кінець",
+      "fundsAllocated": "Виділені кошти",
+      "matchingFunds": "Очікуване спільне фінансування",
+      "funding": "Фінансування",
+      "coFunding": "Спільне фінансування",
+      "fundedBy": "Фінансується",
+      "coFundedBy": "Фінансується спільно",
+      "typeOfGrant": "Тип гранту",
+      "projectStart": "Початок проєкту",
+      "status": "Статус",
+      "programme": "Програма",
+      "contractCountry": "Країна або регіон",
+      "newsAndEvents": "Новини та заходи",
+      "call": "Конкурс заявок",
+      "projectLead": "Керівник проєкту",
+      "contactDetalils": "Контактна інформація",
+      "partners": "Партнери"
     },
     "datause": {
       "dataViaGbif": ""
     },
     "literature": {
-      "keywords": ""
+      "keywords": "Ключові слова"
     },
     "auxiliary": {
       "subject": "",
-      "citation": "",
-      "organisingParticipants": ""
+      "citation": "Цитування",
+      "organisingParticipants": "Організатори"
     }
   }
 }
