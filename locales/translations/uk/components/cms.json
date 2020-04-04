@@ -27,13 +27,13 @@
       "partners": "Партнери"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "Дані, отримані через GBIF"
     },
     "literature": {
       "keywords": "Ключові слова"
     },
     "auxiliary": {
-      "subject": "",
+      "subject": "Огляд",
       "citation": "Цитування",
       "organisingParticipants": "Організатори"
     }
