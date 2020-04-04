@@ -21,11 +21,11 @@
     "allResultTypes": "Всі",
     "suggestions": "Підказки",
     "header": {
-      "searchDatasets": "Пошук по наборах даних",
-      "searchPublishers": "Пошук по організаціях",
-      "searchSpecies": "Пошук по видах",
-      "searchResources": "Пошук по ресурсах",
-      "searchOccurrences": "Пошук по знахідкам"
+      "searchDatasets": "Пошук за наборами даних",
+      "searchPublishers": "Пошук за організаціми",
+      "searchSpecies": "Пошук за видами",
+      "searchResources": "Пошук за ресурсами",
+      "searchOccurrences": "Пошук за знахідками"
     },
     "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0 {результатів} 1 {результат} 2 {результати} 3 {результати} 4 {результати} other {результатів}}"
   }
