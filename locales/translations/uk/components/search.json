@@ -4,7 +4,7 @@
     "placeholder": "Знахідки, види, новини...",
     "noSearchTermsEntered": "Не введені ключові слова для пошуку",
     "notSureWhatYouAreLookingFor": "Не впевнені, за якими ключовими словами шукати? Спробуйте подивитися на фотографії знахідок видів.",
-    "cannotFindWhatYouAreLookingFor": "",
+    "cannotFindWhatYouAreLookingFor": "Не вдалося знайти те, що шукали?",
     "trySpecifyingAType": "Спробуйте обрати розділ для пошуку",
     "everything": "Всі розділи",
     "occurrences": "Знахідки",
