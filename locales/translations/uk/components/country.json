@@ -30,10 +30,10 @@
     "counts": {
       "occurrences": "{NUMBER, plural,\n0 {Знахідок}\none {Знахідка}\nfew {Знахідки}\nmany {Знахідок}\nother {Знахідок}\n}",
       "datasets": "{NUMBER, plural,\n0 {Наборів даних}\none {Набор даних}\nfew {Набори даних}\nmany {Наборів даних}\nother {Наборів даних}\n}",
-      "publishers": "",
-      "countriesAndAreasContributeData": "",
-      "publishedOccurrences": "",
-      "publishedDatasets": "",
+      "publishers": "{NUMBER, plural,\n0 {Видавців}\none {Видавець}\nfew {Видавці}\nmany {Видавців}\nother {Видавців}\n}",
+      "countriesAndAreasContributeData": "{NUMBER, plural,\n0 {Країн або регіонів, що опублікували дані}\none {Країна або регіон, що опублікували дані}\nfew {Країни або регіони, що опублікували дані}\nmany {Країн або регіонів, що опублікували дані}\nother {Країн або регіонів, що опублікували дані}\n} ",
+      "publishedOccurrences": "{NUMBER, plural,\n0 {Опубликованих знахідок}\none {Опубликована знахідка}\nfew {Опубликованих знахідки}\nmany {Опубликованих знахідок}\nother {Опубликованих знахідок}\n}",
+      "publishedDatasets": "{NUMBER, plural,\n0 {Опубликованих наборів даних}\none {Опубликований набір даних}\nfew {Опубликованих набора даних}\nmany {Опубликованих наборів даних}\nother {Опубликованих наборів даних}\n}",
       "countriesAndAreasCoveredByDataFrom": "",
       "publishersFrom": ""
     },
