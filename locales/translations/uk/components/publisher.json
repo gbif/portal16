@@ -1,9 +1,9 @@
 {
   "publisher": {
-    "searchTitle": "",
+    "searchTitle": "Пошук за видавцем даних",
     "tabs": {
-      "aboutPublisher": "",
-      "metrics": "",
+      "aboutPublisher": "Відомості про видавця даних",
+      "metrics": "Показники",
       "publishersHomepage": ""
     },
     "joinedAgo": "",
