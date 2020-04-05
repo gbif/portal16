@@ -62,10 +62,10 @@
     "taxonId": "Первинний ID таксону",
     "organismQuantity": "Чисельність організмів",
     "organismQuantityType": "Тип чисельності організмів (наприклад, особини, проективне покриття, тощо)",
-    "sampleSizeValue": "",
-    "sampleSizeUnit": "",
-    "relativeOrganismQuantity": "",
-    "collectionKey": "",
-    "institutionKey": ""
+    "sampleSizeValue": "Значення розміру збору",
+    "sampleSizeUnit": "Одиниці розміру збору",
+    "relativeOrganismQuantity": "Відносна кількість організмів",
+    "collectionKey": "Колекція",
+    "institutionKey": "Установа"
   }
 }
