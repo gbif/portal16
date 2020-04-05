@@ -1,6 +1,6 @@
 {
     "galleryBar": {
-        "seeAllImages": "",
-        "nOccWithImages": ""
+        "seeAllImages": "Переглянути галерею",
+        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, select,\n0 {знахідок}\none {знахідка}\nfew {знахідок}\nmany {знахідок}\nother {знахідок}\n} із зображеннями"
     }
 }
