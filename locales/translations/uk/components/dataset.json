@@ -3,19 +3,19 @@
     "datasetSearchTitle": "Пошук за наборами даних",
     "longType": {
       "OCCURRENCE": "Набір даних про знахідки",
-      "CHECKLIST": "",
+      "CHECKLIST": "Список таксонів",
       "SAMPLING_EVENT": "",
-      "METADATA": ""
+      "METADATA": "Набір метаданих"
     },
     "metricHighlights": {
-      "occurrences": "",
-      "withTaxonMatch": "",
-      "withCoordinates": "",
-      "withYear": "",
-      "acceptedNames": "",
-      "synonyms": "",
-      "overlapWithNub": "",
-      "overlapWithCol": ""
+      "occurrences": "Знахідки",
+      "withTaxonMatch": "Мають відповідник у таксономії GBIF",
+      "withCoordinates": "Мають координати",
+      "withYear": "Вказаний рік збору",
+      "acceptedNames": "Валідні назви",
+      "synonyms": "Синоніми",
+      "overlapWithNub": "Перекриття з таксономією GBIF",
+      "overlapWithCol": "Перекриття з Catalogue of Life"
     },
     "noStatsForMetadata": "",
     "viewArticle": "",
