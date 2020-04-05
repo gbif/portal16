@@ -4,7 +4,7 @@
     "longType": {
       "OCCURRENCE": "Набір даних про знахідки",
       "CHECKLIST": "Список таксонів",
-      "SAMPLING_EVENT": "",
+      "SAMPLING_EVENT": "Описи, обліки або збори",
       "METADATA": "Набір метаданих"
     },
     "metricHighlights": {
@@ -17,13 +17,13 @@
       "overlapWithNub": "Перекриття з таксономією GBIF",
       "overlapWithCol": "Перекриття з Catalogue of Life"
     },
-    "noStatsForMetadata": "",
-    "viewArticle": "",
-    "registeredDate": "",
+    "noStatsForMetadata": "Немає стаститики для наборів, що містять лише метадані",
+    "viewArticle": "Перегляд статті",
+    "registeredDate": "Дата реєстрації {DATE}",
     "constituentOf": "",
-    "dataset": "",
-    "taxonomy": "",
-    "project": "",
+    "dataset": "Набір даних",
+    "taxonomy": "Таксономія",
+    "project": "Проєкт",
     "metrics": "",
     "constituents": "",
     "download": "",
