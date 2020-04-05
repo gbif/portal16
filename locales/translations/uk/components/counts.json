@@ -22,7 +22,7 @@
         "pSpecies": "",
         "pInfraspecies": "",
         "pPublishers": "",
-        "contacts": "",
+        "contacts": "{NUMBER, select,\n0 {контактів}\n1 {контакт}\nfew {контакти}\nmany {контактів}\nother {контактів}\n}",
         "nTreatments": ""
     }
 }
