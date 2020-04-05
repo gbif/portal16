@@ -2,10 +2,10 @@
     "healthSummary": {
         "systemHealth": "",
         "description": "",
-        "updatedTimeAgo": "",
+        "updatedTimeAgo": "Оновлено {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
+            "OPERATIONAL": "Усі системи в нормі",
+            "INFO": "Усі системи в нормі",
             "WARNING": "",
             "CRITICAL": ""
         },
