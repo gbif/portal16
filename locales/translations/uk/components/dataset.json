@@ -77,11 +77,11 @@
     "pNetwork": "{NUMBER, select, 1{мережа} 2{мережі} 3{мережі} 4{мережі} few{мережі} many{мереж} other{мереж}}",
     "parentEvent": "Батьківська подія",
     "eventDescription": "Опис події",
-    "siblingEvents": "",
-    "childEvents": "",
+    "siblingEvents": "Споріднені події",
+    "childEvents": "Дочірні події",
     "events": "",
-    "occurrenceCount": "",
-    "inDataset": "",
-    "samplingArticleLink": ""
+    "occurrenceCount": "Кількість знахідок",
+    "inDataset": "В",
+    "samplingArticleLink": "Детальніше про події вибірок на GBIF.org"
   }
 }
