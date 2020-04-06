@@ -1,51 +1,51 @@
 {
   "collection": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Колекції",
+      "description": "**Колекції установ**  є офіційними підрозділами установ і отримують від них певну інституційну підтримку.\n\n** Колекції проєктів** створюються дослідниками, пов'язаними з організаціями, але ці колекції не завжди формально входять до складу колекцій організації. Кінець кінцем, колекції проєктів можуть вливатися у фонди организації, або залишатися під особистим контролем та управлінням окремих дослідників.\n\n** Особисті колекції** існують під особистим контролем окремого дослідника і навіть формально не пов'язані з організацією. Вони можуть знаходитися у приватній власності окремого колектора або бути недоступними з інших причин."
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
-    "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "headerTitle": "Колекція",
+    "description": "Опис",
+    "institutionName": "Назва установи",
+    "code": "Код",
+    "statusOfCollection": "Статус колекції",
+    "personalCollection": "Приватна колекція",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Так",
+      "false": "Ні"
     },
-    "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
-    "homepage": "",
-    "apiUrl": "",
-    "catalogUrl": "",
-    "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "accessionStatus": "Можливість доступу",
+    "contentTypes": "Вміст колекції",
+    "preservationTypes": "Типи зберігання",
+    "homepage": "Домашня сторінка",
+    "apiUrl": "Посилання на веб-сервіси колекції",
+    "catalogUrl": "Посилання на каталог зразків/базу даних колекції",
+    "identifiers": "Ідентифікатори",
+    "collectionMailingAddress": "Електронна адреса",
+    "status": "Статус",
+    "name": "Назва",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Діяльна",
+      "false": "Неактивна"
     }
   },
   "institution": {
-    "title": "",
+    "title": "Установа",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Установи",
+      "description": "**Установою** називається будь-який заклад або організація, яка володіє і керує науковими колекціями. Сюди входять гербарії, музеї, зоологічні парки, ботанічні сади, банки біологічних матеріалів та ін. Установа може включати декілька колекцій. У такому разі інформацію необхідно ввести окремо для кожної колекції, у графі **Колекції установ/проєктів**, і знову зв'язати з основною установою."
     },
-    "headerTitle": "",
-    "indexHerbariorumRecord": "",
+    "headerTitle": "Установа",
+    "indexHerbariorumRecord": "Запис у Index Herbariorum",
     "numberSpecimens": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "code": "Скорочена назва, акронім, або код установи",
+    "statusOfInstitution": "Статус установи",
+    "additionalNames": "Додаткові назви",
+    "description": "Опис",
+    "homepage": "Домашня сторінка",
     "foundingDate": "",
-    "geographicDescription": "",
-    "taxonomicDescription": "",
+    "geographicDescription": "Географічний опис",
+    "taxonomicDescription": "Таксономічний опис",
     "citesPermitNumber": "",
     "disciplines": "",
     "institutionalGovernance": "",
