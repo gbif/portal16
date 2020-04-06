@@ -10,8 +10,8 @@
     "style": "Відображення карти",
     "filters": "Фільтри",
     "projection": "Проєкція карти",
-    "select": "Передвстановлені",
-    "custom": "Користувальницьке",
+    "select": "Обрати",
+    "custom": "Налаштувати",
     "baseMap": "Базова карта",
     "binning": "Позначки",
     "year": "Рік",
@@ -21,37 +21,37 @@
       "CLASSIC": "Класичні точки",
       "STREETS": "Вулиці",
       "GLACIER": "Льодовик",
-      "CUSTOM": "Користувальницьке"
+      "CUSTOM": "Налаштувати"
     },
     "basemap": {
       "CLASSIC": "Пурпуровий",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "LIGHT": "Світлий (без підписів)",
+      "LIGHT_DETAILS": "Світлий",
+      "DARK": "Темний (без підписів)",
+      "DARK_DETAILS": "Темний",
+      "OSM": "Шляхи"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Точки",
+      "SMALL_HEX": "Маленькі шестикутники",
+      "LARGE_HEX": "Шестикутники",
+      "SMALL_SQUARE": "Маленькі квадрати",
+      "LARGE_SQUARE": "Квадрати"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "Класичні",
+      "FIRE": "Полум'яні",
+      "GLACIER": "Крижані",
+      "PURPLE_YELLOW": "Пурпурово-жовті",
+      "PURPLE_HEAT": "Пурпуровогарячі",
+      "BLUE_HEAT": "Відтінки синього",
+      "ORANGE_HEAT": "Помаранчеві",
+      "GREEN": "Зелені",
+      "BLUE_CLUSTER": "Сині скупчення",
+      "ORANGE_CLUSTER": "Помаранчеві скупчення"
     },
     "errors": {
-      "413": ""
+      "413": "Файл геометрії занадто великий для обробки даних через API."
     }
   }
 }
