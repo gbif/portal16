@@ -1,7 +1,7 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, \n0 {геоприв'язаних записів}\none {геоприв'язаний запис} \nfew {геоприв'язаних записів}\nmany {геоприв'язаних записів} \nother {геоприв'язані записи}\n}",
+    "noOccurrencesWithCoordinates": "Знахідки з координатами відсутні",
     "clickToSearchArea": "",
     "generatedDateAgo": "",
     "anyYear": "",
