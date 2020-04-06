@@ -43,14 +43,14 @@
         "default": {
             "equals": "Дорівнює {from}",
             "between": "Поміж {from} та {to}",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "lessThanOrEquals": "Менше або дорівнює {to}",
+            "greaterThanOrEquals": "Більше або дорівнює {from}",
+            "invalid": "Неприпустимий",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Дорівнює",
+                "between": "Між",
+                "lessThanOrEquals": "Менше або дорівнює",
+                "greaterThanOrEquals": "Менше або дорівнює"
             }
         }
     }
