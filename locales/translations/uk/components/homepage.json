@@ -3,7 +3,7 @@
         "counts": {
             "occurrences": "Записів про знахідки",
             "datasets": "Наборів даних",
-            "publishers": "Видавців",
+            "publishers": "Видавців даних",
             "literature": "Рецензованих статей, у яких були використані дані"
         },
         "aboutGbifCountry": "Про GBIF {COUNTRY}",
