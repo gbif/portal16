@@ -7,9 +7,9 @@
         "limitSearchTo": "Обмежити пошук до",
         "limitResultsTo": {
             "all": "Всі",
-            "scientificNames": "Наукова назва",
-            "vernacularNames": "Назва національною мовою",
-            "descriptions": ""
+            "scientificNames": "Наукові назви",
+            "vernacularNames": "Назви національною мовою",
+            "descriptions": "Описи"
         }
     }
 }
