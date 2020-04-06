@@ -46,58 +46,58 @@
     "foundingDate": "",
     "geographicDescription": "Географічний опис",
     "taxonomicDescription": "Таксономічний опис",
-    "citesPermitNumber": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "citesPermitNumber": "Номер дозволу Cites",
+    "disciplines": "Напрями досліджень установи",
+    "institutionalGovernance": "Підпорядкування установи",
+    "type": "Тип установи",
+    "identifiers": "Ідентифікатори",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Діяльна",
+      "false": "Неактивна"
     },
-    "true": "",
-    "false": ""
+    "true": "Так",
+    "false": "Ні"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "Особа",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Штат працівників колекції",
+      "description": "Штат колекцій GRSciColl - це будь-які працівники, які офіційно працюють в колекціях. Вони можуть бути співробітниками установи та/або колекції будь-якого типу."
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "headerTitle": "Штат працівників колекції",
+    "firstName": "Ім'я",
+    "lastName": "Прізвище",
+    "fullName": "Повне ім'я",
+    "position": "Посада",
+    "affiliations": "Приналежність до установ",
+    "areaResponsibility": "Обов'язки",
+    "researchPursuits": "Наукова спеціальність",
+    "primaryInstitution": "Назва основної установи",
+    "primaryCollection": "Назва основної колекції",
+    "affiliateInstitutions": "Інші установи, де працює особа",
     "affiliateCollections": ""
   },
   "grscicoll": {
     "title": "",
-    "suggestChange": "",
+    "suggestChange": "Запропонувати зміну",
     "tabs": {
-      "about": "",
-      "institutions": "",
-      "collections": "",
+      "about": "Загальні відомості",
+      "institutions": "Установи",
+      "collections": "Колекції",
       "people": ""
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Електронна пошта",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "Поштова адреса",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "Контакти",
+      "address": "Адреса",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "Країна"
     }
   }
 }
