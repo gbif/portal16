@@ -1,12 +1,12 @@
 {
     "resourceSearch": {
-        "title": "",
-        "upcoming": "",
-        "past": "",
-        "searchForNewsEventsDocuments": "",
-        "occurrenceSearch": "",
-        "subscribeToCalendar": "",
-        "citationExplainer": "",
+        "title": "Пошук за матеріалами",
+        "upcoming": "Незабаром",
+        "past": "Минулі",
+        "searchForNewsEventsDocuments": "Новини, заходи, документи та багато іншого. Для пошуку інформації про знахідки видів перейдіть до відповідного розділу",
+        "occurrenceSearch": "Пошук знахідок",
+        "subscribeToCalendar": "Підписатися на календар заходів",
+        "citationExplainer": "Детальніше про літературу, про те, як вона відкрита та пов'язана з даними з GBIF.",
         "types": {
             "events": "",
             "news": "",
