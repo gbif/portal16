@@ -23,16 +23,16 @@
                     "ASSOCIATE": "Асоційована організація-учасник з {REGION}",
                     "OBSERVER": "Організація-спостерігач з {REGION}",
                     "AFFILIATE": "Афілійована організація з {REGION}",
-                    "FORMER": "",
-                    "undefined": ""
+                    "FORMER": "Організація-колишній учасник з {REGION}",
+                    "undefined": "Невідомо"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Організація-учасник з правом голосу",
+                    "ASSOCIATE": "Асоційована організація-учасник",
+                    "OBSERVER": "Організація-спостерігач",
+                    "AFFILIATE": "Афілійована організація-учасник",
+                    "FORMER": "Організація-колишній учасник",
+                    "undefined": "Невідомо"
                 }
             }
         }
