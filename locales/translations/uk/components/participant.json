@@ -1,7 +1,7 @@
 {
     "participant": {
         "participant": "Учасник",
-        "participantSummary": "Відомості про учасника",
+        "participantSummary": "Відомості про країну-учасника",
         "endorsedPublishers": "Схвалені видавці даних",
         "noEndorsedPublishers": "Немає схвалених видавців даних",
         "memberStatus": "Статус учасника",
@@ -12,9 +12,9 @@
         "nodeName": "Назва осередку",
         "nodeEstablished": "Осередок засновано",
         "website": "Веб-сайт",
-        "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "participantNodeManager": "Керівник осередку країни-учасниці",
+        "pending": "В очікуванні",
+        "latestDatasetsPublished": "Останні опубліковані набори даних",
+        "noDatasets": "Немає опублікованих наборів даних"
     }
 }
