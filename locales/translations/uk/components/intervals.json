@@ -29,20 +29,20 @@
         },
         "year": {
             "equals": "Дорівнює {from}м",
-            "between": "Між початком {from} та кінцем {to}",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "between": "Між початком {from} та закінченням {to}",
+            "lessThanOrEquals": "До закінчення {to}",
+            "greaterThanOrEquals": "Після початку {from}",
+            "invalid": "Неприпустимий",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Дорівнює",
+                "between": "Між",
+                "lessThanOrEquals": "До закінчення",
+                "greaterThanOrEquals": "Після початку"
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
+            "equals": "Дорівнює {from}",
+            "between": "Поміж {from} та {to}",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "",
