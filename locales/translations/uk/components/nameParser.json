@@ -11,7 +11,7 @@
         "dropHere": "Перетягніть сюди",
         "excludeUnparsed": "Виключити необроблені",
         "generateCsv": "Генерувати csv",
-        "parsingNames": "Зачекайте, триває обробка",
+        "parsingNames": "Зачекайте, триває обробка назв",
         "nameParserDescription": "",
         "nameParserRequirements": ""
     }
