@@ -3,9 +3,9 @@
     "ACCEPTED": "",
     "DOUBTFUL": "",
     "SYNONYM": "",
-    "HETEROTYPIC_SYNONYM": "",
-    "HOMOTYPIC_SYNONYM": "",
-    "PROPARTE_SYNONYM": "",
+    "HETEROTYPIC_SYNONYM": "Гетеротипний синонім",
+    "HOMOTYPIC_SYNONYM": "Гомотипний синонім",
+    "PROPARTE_SYNONYM": "Синонім pro-parte",
     "MISAPPLIED": "",
     "INTERMEDIATE_RANK_SYNONYM": "",
     "DETERMINATION_SYNONYM": ""
