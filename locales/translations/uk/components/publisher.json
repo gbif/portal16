@@ -1,25 +1,25 @@
 {
   "publisher": {
-    "searchTitle": "",
+    "searchTitle": "Пошук за видавцем даних",
     "tabs": {
-      "aboutPublisher": "",
-      "metrics": "",
-      "publishersHomepage": ""
+      "aboutPublisher": "Відомості про видавця даних",
+      "metrics": "Показники",
+      "publishersHomepage": "Домашня сторінка"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
-    "technicalContact": "",
-    "country": "",
-    "hosting": "",
-    "description": "",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "joinedAgo": "Долучився",
+    "newPublisher": "Новий видавець даних",
+    "technicalContact": "Технічні питання",
+    "country": "Країна (територія)",
+    "hosting": "Хостинг",
+    "description": "Опис",
+    "endorsedBy": "Схвалено",
+    "pendingEndorsementBy": "Очікує на схвалення",
+    "installations": "Інстальовані сервери публікування даних",
+    "contacts": "Контакти",
+    "administrativeContact": "Адміністративні питання",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "{NUMBER, plural,\n0 {Видавців}\none {Видавець}\nfew {Видавці}\nmany {Видавців}\nother {Видавців}\n}",
+      "sinceDate": "у GBIF від {DATE}"
     }
   }
 }

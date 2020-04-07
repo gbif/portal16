@@ -1,56 +1,56 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "Всі результати",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Дорівнює {from}м",
+            "between": "Між {from} і {to}м",
+            "lessThanOrEquals": "Нижче {to}м",
+            "greaterThanOrEquals": "Вище {from}м",
+            "invalid": "Неприпустимий",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Дорівнює",
+                "between": "Між",
+                "lessThanOrEquals": "Нижче",
+                "greaterThanOrEquals": "Вище"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Дорівнює {from}м",
+            "between": "Між {from} і {to}м",
+            "lessThanOrEquals": "Вище {to}м глибини",
+            "greaterThanOrEquals": "Глибше за {from}м",
+            "invalid": "Неприпустимий",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Дорівнює",
+                "between": "Між",
+                "lessThanOrEquals": "Менше за",
+                "greaterThanOrEquals": "Глибше за"
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Дорівнює {from}м",
+            "between": "Між початком {from} та закінченням {to}",
+            "lessThanOrEquals": "До закінчення {to}",
+            "greaterThanOrEquals": "Після початку {from}",
+            "invalid": "Неприпустимий",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Дорівнює",
+                "between": "Між",
+                "lessThanOrEquals": "До закінчення",
+                "greaterThanOrEquals": "Після початку"
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Дорівнює {from}",
+            "between": "Поміж {from} та {to}",
+            "lessThanOrEquals": "Менше або дорівнює {to}",
+            "greaterThanOrEquals": "Більше або дорівнює {from}",
+            "invalid": "Неприпустимий",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Дорівнює",
+                "between": "Між",
+                "lessThanOrEquals": "Менше або дорівнює",
+                "greaterThanOrEquals": "Менше або дорівнює"
             }
         }
     }

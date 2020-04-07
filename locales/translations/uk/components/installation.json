@@ -1,11 +1,11 @@
 {
     "installation": {
-        "installation": "",
-        "about": "",
-        "homepage": "",
-        "installationType": "",
-        "hostedBy": "",
-        "registered": "",
-        "endpoints": ""
+        "installation": "Інстальований сервер публікування даних",
+        "about": "Докладніше",
+        "homepage": "Домашня сторінка",
+        "installationType": "Тип встановлення",
+        "hostedBy": "Обслуговується",
+        "registered": "Зареєстровано",
+        "endpoints": "Кінцеві точки"
     }
 }

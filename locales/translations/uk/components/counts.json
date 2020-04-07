@@ -1,7 +1,7 @@
 {
     "counts": {
-        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{цитата} other{цитати}}",
-        "pCitations": "",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, select,\n0 {# цитувань}\n1 {# цитування} \n2 {# цитування} \n3 {# цитування} \n4 {# цитування} \nmany {# цитувань}\nother {# цитувань}\n}",
+        "pCitations": "{NUMBER, select,\n0 {# цитувань}\n1 {# цитування} \n2 {# цитування} \n3 {# цитування} \n4 {# цитування} \nmany {# цитувань}\nother {# цитувань}\n}",
         "nRecords": "",
         "nResults": "",
         "nCollections": "",
@@ -22,7 +22,7 @@
         "pSpecies": "",
         "pInfraspecies": "",
         "pPublishers": "",
-        "contacts": "",
+        "contacts": "{NUMBER, select,\n0 {контактів}\n1 {контакт}\nfew {контакти}\nmany {контактів}\nother {контактів}\n}",
         "nTreatments": ""
     }
 }

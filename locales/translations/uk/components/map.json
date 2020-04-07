@@ -1,57 +1,57 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, \n0 {геоприв'язаних записів}\none {геоприв'язаний запис} \nfew {геоприв'язаних записів}\nmany {геоприв'язаних записів} \nother {геоприв'язані записи}\n}",
+    "noOccurrencesWithCoordinates": "Знахідки з координатами відсутні",
+    "clickToSearchArea": "Клікніть по карті для перегляду знахідок",
+    "generatedDateAgo": "Згенеровано {DATE_AGO}",
+    "anyYear": "Будь-який рік",
+    "exploreArea": "Переглянути знахідки з поточної області",
+    "explore": "Переглянути знахідки",
+    "style": "Відображення карти",
+    "filters": "Фільтри",
+    "projection": "Проєкція карти",
+    "select": "Обрати",
+    "custom": "Налаштувати",
+    "baseMap": "Стиль базової карти",
+    "binning": "Позначки",
+    "year": "Рік",
+    "chooseColors": "Кольори",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "Класичні шестикутники",
+      "CLASSIC": "Класичні точки",
+      "STREETS": "Вулиці",
+      "GLACIER": "Льодовик",
+      "CUSTOM": "Налаштувати"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "Пурпуровий",
+      "LIGHT": "Світлий (без підписів)",
+      "LIGHT_DETAILS": "Світлий",
+      "DARK": "Темний (без підписів)",
+      "DARK_DETAILS": "Темний",
+      "OSM": "Шляхи"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Точки",
+      "SMALL_HEX": "Маленькі шестикутники",
+      "LARGE_HEX": "Шестикутники",
+      "SMALL_SQUARE": "Маленькі квадрати",
+      "LARGE_SQUARE": "Квадрати"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "Класичні",
+      "FIRE": "Полум'яні",
+      "GLACIER": "Крижані",
+      "PURPLE_YELLOW": "Пурпурово-жовті",
+      "PURPLE_HEAT": "Пурпуровогарячі",
+      "BLUE_HEAT": "Відтінки синього",
+      "ORANGE_HEAT": "Помаранчеві",
+      "GREEN": "Зелені",
+      "BLUE_CLUSTER": "Сині скупчення",
+      "ORANGE_CLUSTER": "Помаранчеві скупчення"
     },
     "errors": {
-      "413": ""
+      "413": "Файл геометрії занадто великий для обробки даних через API."
     }
   }
 }

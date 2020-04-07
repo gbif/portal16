@@ -1,13 +1,13 @@
 {
   "network": {
-    "network": "",
+    "network": "Мережа",
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": "",
-      "datasets": ""
+      "summary": "Відомості",
+      "homepage": "Домашня сторінка",
+      "metrics": "Показники",
+      "datasets": "Мережа"
     },
-    "registeredDate": "",
-    "nParticipatingDatasets": ""
+    "registeredDate": "Зареєстровано {DATE}",
+    "nParticipatingDatasets": "{NUMBER_FORMATED} залучено в {NUMBER, select, 1{наборі даних} other{наборах даних}}"
   }
 }

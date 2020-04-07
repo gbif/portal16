@@ -1,15 +1,15 @@
 {
     "speciesSearch": {
-        "title": "",
-        "youAreCurrentlySearchingInGBIFtaxonomy": "",
-        "SearchAcrossChecklists": "",
-        "freeTextSearchFor": "",
-        "limitSearchTo": "",
+        "title": "Пошук за видами",
+        "youAreCurrentlySearchingInGBIFtaxonomy": "Ви шукаєте види в таксономії GBIF.",
+        "SearchAcrossChecklists": "Шукати у таксономічних списках",
+        "freeTextSearchFor": "Ви виконуєте вільний текстовий пошук '{QUERY}'",
+        "limitSearchTo": "Обмежити пошук до",
         "limitResultsTo": {
-            "all": "",
-            "scientificNames": "",
-            "vernacularNames": "",
-            "descriptions": ""
+            "all": "Всі",
+            "scientificNames": "Наукові назви",
+            "vernacularNames": "Назви національною мовою",
+            "descriptions": "Описи"
         }
     }
 }

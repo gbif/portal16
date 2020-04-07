@@ -1,38 +1,38 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Учасник з правом голосу",
+            "ASSOCIATE": "Асоційований учасник",
+            "OBSERVER": "Учасник-спостерігач",
+            "AFFILIATE": "Афілійований учасник",
+            "FORMER": "Колишній учасник",
+            "undefined": "Невідомо"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
-            "undefined": ""
+            "VOTING": "Учасник з правом голосу з {REGION}",
+            "ASSOCIATE": "Асоційований учасник з {REGION}",
+            "OBSERVER": "Країна-спостерігач з {REGION}",
+            "AFFILIATE": "Афілійований учасник з {REGION}",
+            "FORMER": "Колишній учасник GBIF з {REGION}",
+            "undefined": "Невідомо"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Організація-учасник з правом голосу з {REGION}",
+                    "ASSOCIATE": "Асоційована організація-учасник з {REGION}",
+                    "OBSERVER": "Організація-спостерігач з {REGION}",
+                    "AFFILIATE": "Афілійована організація з {REGION}",
+                    "FORMER": "Організація-колишній учасник з {REGION}",
+                    "undefined": "Невідомо"
                 },
                 "longForm": {
-                    "VOTING": "",
-                    "ASSOCIATE": "",
-                    "OBSERVER": "",
-                    "AFFILIATE": "",
-                    "FORMER": "",
-                    "undefined": ""
+                    "VOTING": "Організація-учасник з правом голосу",
+                    "ASSOCIATE": "Асоційована організація-учасник",
+                    "OBSERVER": "Організація-спостерігач",
+                    "AFFILIATE": "Афілійована організація-учасник",
+                    "FORMER": "Організація-колишній учасник",
+                    "undefined": "Невідомо"
                 }
             }
         }

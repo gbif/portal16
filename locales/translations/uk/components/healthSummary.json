@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "Стан системи",
+        "description": "Статус різних служб GBIF",
+        "updatedTimeAgo": "Оновлено {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "Усі системи в нормі",
+            "INFO": "Усі системи в нормі",
+            "WARNING": "Деякі системи наразі нестабільні або сповільнені",
+            "CRITICAL": "Часткове відключення систем"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "Служби нестабільні",
+                "summary": "Наразі деякі служби сповільнені або нестабільні"
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "Служби недоступні",
+                "summary": "Часткове відключення систем"
             }
         }
     }
