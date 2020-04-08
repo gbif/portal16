@@ -6,8 +6,8 @@
         "ENDANGERED": "У небезпеці",
         "VULNERABLE": "Уразливий",
         "NEAR_THREATENED": "Майже під загрозою",
-        "LEAST_CONCERN": "У найменшій загрозі",
-        "DATA_DEFICIENT": "Недостатньо даних",
-        "NOT_EVALUATED": "Не оцінений"
+        "LEAST_CONCERN": "Найменша осторога",
+        "DATA_DEFICIENT": "Відомостей недостатньо",
+        "NOT_EVALUATED": "Неоцінений"
     }
 }
