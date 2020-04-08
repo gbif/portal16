@@ -27,6 +27,6 @@
       "searchResources": "Пошук за ресурсами",
       "searchOccurrences": "Пошук за знахідками"
     },
-    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 0 {результатів} 1 {результат} 2 {результати} 3 {результати} 4 {результати} other {результатів}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, select, \n0 {результат}\none {результат}\nfew {результати}\nmany {результатів}\nother {результатів}\n}"
   }
 }
