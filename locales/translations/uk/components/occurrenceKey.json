@@ -13,7 +13,7 @@
     "modified": "Змінено",
     "monthAndyear": "Місяць та рік",
     "coordinateUncertainty": "Невизначеність координат",
-    "citation": "Цитування",
+    "citation": "Як цитувати:",
     "readFullDescription": "Детальніше",
     "showMoreInfo": "Детальніше",
     "noTaxonMatch": "немає",
@@ -34,35 +34,35 @@
       "Event": "Подія",
       "Identification": "Визначення",
       "Taxon": "Таксон",
-      "Location": "",
-      "Organism": "",
-      "MaterialSample": "",
-      "GeologicalContext": "",
-      "other": ""
+      "Location": "МІсце розташування",
+      "Organism": "Організм",
+      "MaterialSample": "Матеріальний зразок",
+      "GeologicalContext": "Геологічний контекст",
+      "other": "Інше"
     },
-    "term": "",
-    "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "term": "Термін",
+    "interpreted": "Інтерпретоване значення",
+    "original": "Оригінальний вміст",
+    "remarks": "Примітки",
     "highlights": {
-      "location": "",
-      "specimenType": "",
-      "publisher": "",
-      "reference": "",
-      "verbatimName": ""
+      "location": "МІсце розташування",
+      "specimenType": "Тип зразка",
+      "publisher": "Видавець даних",
+      "reference": "Посилання",
+      "verbatimName": "Назва відповідно до першоджерела"
     },
     "media": {
-      "noIdentifier": "",
-      "noPlaybackSupport": "",
-      "takeMeThere": "",
+      "noIdentifier": "Не надано ідентифікатор медіа",
+      "noPlaybackSupport": "Ваш браузер не підтримує формат, необхідний для відтворення цього медіафайлу.",
+      "takeMeThere": "Спробуйте версію, представлену на сайті видавця",
       "notWorkingTryPublishers": "",
-      "download": ""
+      "download": "Завантажити медіафайл"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
+        "PRESERVED_SPECIMEN": "Зібрана в {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Зібрана в {COUNTRY}",
+        "LIVING_SPECIMEN": "Зібрана в {COUNTRY}",
         "HUMAN_OBSERVATION": "",
         "MACHINE_OBSERVATION": "",
         "MATERIAL_SAMPLE": "",
@@ -72,7 +72,7 @@
         "UNKNOWN": ""
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
+        "PRESERVED_SPECIMEN": "Зібрана у невідомому місці розташування",
         "FOSSIL_SPECIMEN": "",
         "LIVING_SPECIMEN": "",
         "HUMAN_OBSERVATION": "",
@@ -85,12 +85,12 @@
       },
       "unknownSpecies": ""
     },
-    "occurrence": "",
-    "inLanguage": ""
+    "occurrence": "Знахідка",
+    "inLanguage": "Мовою {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
+      "EXCLUDED": "Виключено",
       "AUTHORED": "",
       "INFERED": ""
     }
