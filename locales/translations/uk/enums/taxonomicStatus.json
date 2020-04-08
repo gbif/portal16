@@ -1,6 +1,6 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "Прийнятий",
+    "ACCEPTED": "Валідний",
     "DOUBTFUL": "Сумнівний",
     "SYNONYM": "Синонім",
     "HETEROTYPIC_SYNONYM": "Гетеротипний синонім",
