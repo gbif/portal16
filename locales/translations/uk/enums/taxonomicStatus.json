@@ -1,13 +1,13 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "",
-    "DOUBTFUL": "",
-    "SYNONYM": "",
-    "HETEROTYPIC_SYNONYM": "",
-    "HOMOTYPIC_SYNONYM": "",
-    "PROPARTE_SYNONYM": "",
-    "MISAPPLIED": "",
-    "INTERMEDIATE_RANK_SYNONYM": "",
-    "DETERMINATION_SYNONYM": ""
+    "ACCEPTED": "Валідний",
+    "DOUBTFUL": "Сумнівний",
+    "SYNONYM": "Синонім",
+    "HETEROTYPIC_SYNONYM": "Гетеротипний синонім",
+    "HOMOTYPIC_SYNONYM": "Гомотипний синонім",
+    "PROPARTE_SYNONYM": "Синонім pro-parte",
+    "MISAPPLIED": "Неправильно застосований",
+    "INTERMEDIATE_RANK_SYNONYM": "Синонім проміжного ранга",
+    "DETERMINATION_SYNONYM": "Синонім визначення"
   }
 }

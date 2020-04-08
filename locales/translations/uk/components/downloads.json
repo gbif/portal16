@@ -1,6 +1,6 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "{NUMBER_FORMATED} {NUMBER, select,\n0 {знахідок}\none {знахідка}\nfew {знахідок}\nmany {знахідок}\nother {знахідок}\n} завантажено",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATED} {NUMBER, select,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n} завантажено",
     "nRecordsDownloaded": "{NUMBER_FORMATED} {NUMBER, select,\n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n} завантажено",
     "nConstituentDatasets": "Включає записи з {NUMBER_FORMATTED} {NUMBER, select, \n0 {наборів даних}\none {набору даних}\nfew {наборів даних}\nmany {наборів даних}\nother {наборів даних}\n}",
     "fileNotAvailable": "Цей файл більше не доступний для завантаження",
@@ -52,7 +52,7 @@
     },
     "predicate": {
       "joinDescriptions": {
-        "and": "Всі повинні бути застосовані",
+        "and": "Застосувати всі",
         "or": "Принаймні один повинен бути застосований",
         "not": "Жоден не повинен бути включеним"
       },

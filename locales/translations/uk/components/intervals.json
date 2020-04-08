@@ -28,7 +28,7 @@
             }
         },
         "year": {
-            "equals": "Дорівнює {from}м",
+            "equals": "Дорівнює {from}",
             "between": "Між початком {from} та закінченням {to}",
             "lessThanOrEquals": "До закінчення {to}",
             "greaterThanOrEquals": "Після початку {from}",
