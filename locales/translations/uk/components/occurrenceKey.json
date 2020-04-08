@@ -34,7 +34,7 @@
       "Event": "Подія",
       "Identification": "Визначення",
       "Taxon": "Таксон",
-      "Location": "МІсце розташування",
+      "Location": "МІсцезнаходження",
       "Organism": "Організм",
       "MaterialSample": "Матеріальний зразок",
       "GeologicalContext": "Геологічний контекст",
@@ -45,7 +45,7 @@
     "original": "Оригінальний вміст",
     "remarks": "Примітки",
     "highlights": {
-      "location": "МІсце розташування",
+      "location": "МІсцезнаходження",
       "specimenType": "Тип зразка",
       "publisher": "Видавець даних",
       "reference": "Посилання",
@@ -63,27 +63,27 @@
         "PRESERVED_SPECIMEN": "Зібрана в {COUNTRY}",
         "FOSSIL_SPECIMEN": "Зібрана в {COUNTRY}",
         "LIVING_SPECIMEN": "Зібрана в {COUNTRY}",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "HUMAN_OBSERVATION": "Спостереження в {COUNTRY}",
+        "MACHINE_OBSERVATION": "Спостереження в {COUNTRY}",
+        "MATERIAL_SAMPLE": "Зібрана в {COUNTRY}",
+        "OCCURRENCE": "Записана в {COUNTRY}",
+        "OBSERVATION": "Спостереження в {COUNTRY}",
+        "LITERATURE": "Записана в {COUNTRY}",
+        "UNKNOWN": "Записана в {COUNTRY}"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "Зібрана у невідомому місці розташування",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Зібрана у невідомому місці",
+        "FOSSIL_SPECIMEN": "Зібрана у невідомому місці",
+        "LIVING_SPECIMEN": "Зібрана у невідомому місці",
+        "HUMAN_OBSERVATION": "Спостереження в невідомому місці",
+        "MACHINE_OBSERVATION": "Спостереження в невідомому місці",
+        "MATERIAL_SAMPLE": "Зібрана у невідомому місці",
+        "OCCURRENCE": "Записана в невідомому місці",
+        "OBSERVATION": "Спостереження в невідомому місці",
+        "LITERATURE": "Записана в невідомому місці",
+        "UNKNOWN": "Записана в невідомому місці"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "Невідомий вид"
     },
     "occurrence": "Знахідка",
     "inLanguage": "Мовою {LANGUAGE_TRANSLATED}"
@@ -91,8 +91,8 @@
   "interpretationRemarks": {
     "comments": {
       "EXCLUDED": "Виключено",
-      "AUTHORED": "",
-      "INFERED": ""
+      "AUTHORED": "Змінено",
+      "INFERED": "Виведено за допомогою аналізу"
     }
   }
 }
