@@ -116,7 +116,7 @@
     "sampleSizeUnit": "Одиниця розміру вибірки",
     "fieldNotes": "Польові нотатки",
     "eventRemarks": "Примітки щодо події",
-    "locationID": "",
+    "locationID": "ID місцезнаходження",
     "higherGeographyID": "",
     "higherGeography": "",
     "continent": "",
