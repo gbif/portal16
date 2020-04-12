@@ -62,11 +62,7 @@ angular
             'media_type',
             'license',
             'protocol',
-            'event_id',
-            'parent_event_id',
-            'publishing_org',
-            'institution_key',
-            'collection_key'];
+            'publishing_org'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function(facet) {
             exhaustiveFacets.push(facet);
@@ -84,9 +80,7 @@ angular
             'type_status',
             'issue',
             'license',
-            'publishing_org',
-            'institution_key',
-            'collection_key'];
+            'publishing_org'];
 
         function getOccurrenceState() {
             return state;
