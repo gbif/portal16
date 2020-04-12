@@ -74,7 +74,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
        enums: enums.establishmentMeans,
        reversible: true,
        facets: {
-           hasFacets: true,
+           hasFacets: false,
            facetKey: 'ESTABLISHMENT_MEANS'
        }
     };
@@ -305,7 +305,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
             suggestEndpoint: suggestEndpoints.eventId
         },
         facets: {
-            hasFacets: true,
+            hasFacets: false,
             facetKey: 'EVENT_ID'
         }
     };
@@ -319,7 +319,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
             suggestEndpoint: suggestEndpoints.parentEventId
         },
         facets: {
-            hasFacets: true,
+            hasFacets: false,
             facetKey: 'PARENT_EVENT_ID'
         }
     };
