@@ -2,7 +2,7 @@
   "phrases": {
     "contactHelpdesk": "Звернутися до служби підтримки",
     "defaultPageTitle": "GBIF",
-    "defaultPageDescription": "",
+    "defaultPageDescription": "Глобальна інформаційна система з біорізноманіття. Безкоштовний та відкритий доступ до даних з біорізноманіття",
     "deletedOnDate": "Видалено {DATE}",
     "replacedBy": "Замінено на",
     "loading": "Завантаження",
