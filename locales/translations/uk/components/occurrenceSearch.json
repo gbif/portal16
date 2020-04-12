@@ -18,16 +18,16 @@
     "default": "За замовчанням",
     "custom": "Налаштовуваний пошук",
     "noOccurrencesWithCoordinates": "Знахідки з координатами відсутні",
-    "containsSuspicious": "",
-    "hideSuspiciousCoordinates": "",
+    "containsSuspicious": "Ця  мапа містить знахідки, позначені у GBIF як ті, що мають сумнівні координати.",
+    "hideSuspiciousCoordinates": "Приховати їх",
     "currentFilter": "Поточний фільтр",
-    "selectColumns": "",
-    "done": "",
-    "yesCorrectSuggestion": "",
-    "noWrongSuggestion": "",
-    "errorUserThrottled": "",
+    "selectColumns": "Обрати стовпці таблиці",
+    "done": "Виконано",
+    "yesCorrectSuggestion": "Так",
+    "noWrongSuggestion": "Ні",
+    "errorUserThrottled": "Ваш доступ був тимчасово обмежений.",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
-    "largeQueryLengthWarning": ""
+    "largeQueryLengthWarning": "URL вашого запиту перевищує 2000 символів, і може працювати некоректно у всіх браузерах. У разі великих і/або складних запитів розгляньте можливість завантаження через API."
   }
 }
