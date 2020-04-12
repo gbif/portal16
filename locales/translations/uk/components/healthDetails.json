@@ -1,48 +1,48 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "automatedMonitoring": "Автоматизований моніторинг",
+        "systemLoad": "Завантаженість системи",
+        "messages": "Повідомлення",
+        "version": "Версія",
+        "nInQueue": "{NUMBER} у черзі",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "Працює",
+            "WARNING": "Нестабільне",
+            "CRITICAL": "Непрацездатне",
+            "INFO": "Оновлення системи"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Знахідка",
+                "tooltip": "Наприклад, пошук та перегляд даних знахідок"
             },
             "SPECIES": {
-                "name": "",
-                "tooltip": ""
+                "name": "Види",
+                "tooltip": "Наприклад, пошук та перегляд даних про види, пропоновані таксони"
             },
             "REGISTRY": {
-                "name": "",
-                "tooltip": ""
+                "name": "Реєстр",
+                "tooltip": "Наприклад, набори даних, видавці даних, інсталяції серверів публікування, країни, учасники та мережі"
             },
             "IDENTITY": {
-                "name": "",
-                "tooltip": ""
+                "name": "Дані користувача",
+                "tooltip": "Для авторизації та виходу, під'єднані облікові записи тощо"
             },
             "MAPS": {
-                "name": "",
-                "tooltip": ""
+                "name": "Карти",
+                "tooltip": "Для відображення карт та отримання інформації про карти"
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "Система керування вмістом (зовнішня система)",
+                "tooltip": "Наприклад, новини та статті"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Кеш зображень",
+                "tooltip": "Відповідає за більшість зображень на сайті"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "GitHub (зовнішня система)",
+                "tooltip": "Зворотній зв'язок, пропозиції наборів даних"
             },
             "CRAWLER": {
                 "name": "",
