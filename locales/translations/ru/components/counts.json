@@ -2,7 +2,7 @@
     "counts": {
         "nCitations": "{NUMBER, plural,\n0 {# цитирований}\none {# цитирование}\nfew {# цитирования}\nmany {# цитирований}\nother {# цитирований}\n}",
         "pCitations": "{NUMBER, plural,\n0 {# цитирований}\none {# цитирование}\nfew {# цитирования}\nmany {# цитирований}\nother {# цитирований}\n}",
-        "nRecords": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {записей}\none {запись}\nfew {записи}\nmany {записей}\nother {записей}\n}",
+        "nRecords": "{NUMBER_FORMATED, plural,\n0 {# записей}\none {# запись}\nfew {# записи}\nmany {# записей}\nother {# записей}\n}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {результатов}\none {результат}\nfew {результата}\nmany {результатов}\nother {результатов}\n}",
         "nCollections": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {коллекций}\none {коллекция}\nfew {коллекции}\nmany {коллекций}\nother {коллекции}\n}",
         "nInstitutions": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {организаций}\none {организация}\nfew {организации}\nmany {организаций}\nother {организаций}\n}",
