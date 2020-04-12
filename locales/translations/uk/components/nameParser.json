@@ -7,7 +7,7 @@
         "pasteNamesToParse": "Вставте латинські назви для обробки сюди",
         "about": "Докладніше",
         "parser": "Автоматичний аналізатор (парсер)",
-        "nameParserTitle": "Парсер назв",
+        "nameParserTitle": "Парсер (аналізатор) назв",
         "dropHere": "Перетягніть сюди",
         "excludeUnparsed": "Виключити необроблені",
         "generateCsv": "Генерувати csv",
