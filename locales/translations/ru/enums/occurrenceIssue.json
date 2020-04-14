@@ -41,7 +41,7 @@
     "MODIFIED_DATE_UNLIKELY": "Дата изменений маловероятна",
     "IDENTIFIED_DATE_UNLIKELY": "Дата идентификации маловероятна",
     "IDENTIFIED_DATE_INVALID": "Дата идентификации неверная",
-    "BASIS_OF_RECORD_INVALID": "Источник записи недействителен",
+    "BASIS_OF_RECORD_INVALID": "Некорректная основа записи",
     "TYPE_STATUS_INVALID": "Статус типа недействителен",
     "MULTIMEDIA_DATE_INVALID": "Дата мультимедиа неверная",
     "MULTIMEDIA_URI_INVALID": "URI мультимедиа неверный",
