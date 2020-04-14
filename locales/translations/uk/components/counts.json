@@ -1,7 +1,7 @@
 {
     "counts": {
         "nCitations": "{NUMBER_FORMATED} {NUMBER, select, \n0 {цитувань}\none {цитування}\nfew {цитування}\nmany {цитувань}\nother {цитувань}\n}",
-        "pCitations": "{NUMBER_FORMATED} {NUMBER, select, \n0 {цитувань}\none {цитування}\nfew {цитування}\nmany {цитувань}\nother {цитувань}\n}",
+        "pCitations": "{NUMBER, select, \n0 {цитувань}\none {цитування}\nfew {цитування}\nmany {цитувань}\nother {цитувань}\n}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, \n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, \n0 {результатів}\none {результат}\nfew {результати}\nmany {результатів}\nother {результатів}\n}",
         "nCollections": "",
@@ -16,7 +16,7 @@
         "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, \n0 {видавців}\none {видавець}\nfew {видавці}\nmany {видавців}\nother {видавців}\n}",
         "nCountries": "{NUMBER_FORMATED} {NUMBER, select, \n0 {країн}\none {країна}\nfew {країни}\nmany {країн}\nother {країн}\n}",
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select, \n0 {контактів}\none {контакт}\nfew {контакти}\nmany {контактів}\nother {контактів}\n}",
-        "pRecords": "{NUMBER_FORMATED} {NUMBER, select, \n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n}",
+        "pRecords": "{NUMBER, select, \n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n}",
         "pOccurrence": "{NUMBER_FORMATED} {NUMBER, select,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n}",
         "pMaterialSamples": "",
         "pSpecies": "{NUMBER_FORMATED} {NUMBER, select, \n0 {видів}\none {вид}\nfew {види}\nmany {видів}\nother {видів}\n}",
