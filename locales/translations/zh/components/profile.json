@@ -65,7 +65,7 @@
     "passwordMaxLength": "密码长度不得超过128个字符。",
     "next": "下一步",
     "pleaseFillForm": "请填写表格",
-    "selectAllImages": "选择下面的像这张图的所有图像",
+    "selectAllImages": "选择下面的与这张图相似的所有图像",
     "signUp": "注册",
     "cancel": "取消",
     "resetPassword": "重置密码",
