@@ -11,7 +11,7 @@
       "failed": {
         "FACEBOOK": "无法登录 Facebook",
         "GITHUB": "无法登录 Github",
-        "GOOGLE": ""
+        "GOOGLE": "无法用Google账号登录"
       }
     },
     "error": {
