@@ -7,7 +7,7 @@
       "grantType": "经费类别",
       "duration": "周期",
       "title": "标题",
-      "start": "开始时间",
+      "start": "开始",
       "end": "结束",
       "fundsAllocated": "经费支出",
       "matchingFunds": "预期的共同资助方",
