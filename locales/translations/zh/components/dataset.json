@@ -30,7 +30,7 @@
     "datasetHomepage": "首页",
     "nConstituentDatasets": "{NUMBER_FORMATED} {NUMBER, select,1{组成数据集} other{组成数据集}}",
     "consistuentDatasets": "组成的数据集",
-    "noConstituentDatasets": "没有组成的数据集",
+    "noConstituentDatasets": "没有内容的数据集",
     "logs": "日志",
     "noDownloads": "还没有下载记录",
     "finished": "已完成",
