@@ -44,7 +44,7 @@
     "password": "Password",
     "continue": "Continue",
     "forgotPassword": "Forgot your password?",
-    "unknownUser": "Unable to log in. Unknown user or password or email not validated.",
+    "unknownUser": "Unable to log in. Invalid username/password combination -or- user email not validated.",
     "signIn": "Sign in",
     "or": "Or",
     "continueWithProvider": "Continue with {PROVIDER}",
