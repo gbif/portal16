@@ -11,9 +11,9 @@
       "occurrences": "出现记录",
       "withTaxonMatch": "与分类单元匹配",
       "withCoordinates": "带坐标",
-      "withYear": "与年",
+      "withYear": "带年份",
       "acceptedNames": "接受名",
-      "synonyms": "异名",
+      "synonyms": "同物异名",
       "overlapWithNub": "与 GBIF 物种主干(Backbone)重叠",
       "overlapWithCol": "与全球物种名录（Catalogue of Life）重叠"
     },
