@@ -22,9 +22,24 @@ router.get('/download', function(req, res, next) {
 });
 
 router.get('/confirm', function(req, res, next) {
-    // ask user service if this user and challenge is valid. If so then sets the token returned and shows success page. If no, then show failed validation page.
+    // ask the user to confirm. This is to avoid email crawlers to trigger the activation
     let challengeCode = req.query.code,
         userName = req.query.username;
+
+    helper.renderPage(req, res, next, {
+        _meta: {
+            bodyClass: 'hasTransparentMenu',
+            title: 'Welcome'
+        },
+        challengeCode: challengeCode,
+        userName: userName
+    }, 'pages/user/confirmUser/verifyUser');
+});
+
+router.post('/confirm', function(req, res, next) {
+    // ask user service if this user and challenge is valid. If so then sets the token returned and shows success page. If no, then show failed validation page.
+    let challengeCode = req.body.code,
+        userName = req.body.username;
 
     userModel.confirm(challengeCode, userName)
         .then(function(user) {

@@ -1,0 +1,28 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes confirmUser imageWithCaption">
+        <section class="horizontal-stripe article-header">
+            <div class="container--narrow">
+                <div class="card card--spaced">
+                    <div class="card__content">
+                        <div class="text-center">
+                            <div class="h3" translate="profile.welcome"></div>
+                            <p>{$ __('profile.emailVerification') $}</p>
+                            <form action="/user/confirm" method="post">
+                              <input hidden type="text" name="code" value="{$ challengeCode $}">
+                              <input hidden type="text" name="username" value="{$ userName $}">
+                              <button class="gb-button--brand">
+                                {$ __('profile.verifyAccount') $}
+                              </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="imageWithCaption__caption">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/1253299481">White leadtree (<em>Leucaena leucocephala</em>)</a>. Photo by Tony Iwane licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+        </div>
+    </article>
+{% endblock %}
