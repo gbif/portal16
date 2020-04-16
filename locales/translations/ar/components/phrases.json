@@ -1,9 +1,9 @@
 {
   "phrases": {
     "contactHelpdesk": "",
-    "defaultPageTitle": "",
-    "defaultPageDescription": "",
-    "deletedOnDate": "",
+    "defaultPageTitle": "\"جبيف\"",
+    "defaultPageDescription": "المرفق العالمي لمعلومات التنوع الحيوي، لإتاحة بيانات التنوع الحيوي بشكل حر ومجاني.",
+    "deletedOnDate": "تم الحذف بتاريخ {DATE}",
     "replacedBy": "",
     "loading": "",
     "failed": "",
