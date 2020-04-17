@@ -17,10 +17,10 @@
         "nCountries": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {країн}\none {країна}\nfew {країни}\nmany {країн}\nother {країн}\n}",
         "nContacts": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {контактів}\none {контакт}\nfew {контакти}\nmany {контактів}\nother {контактів}\n}",
         "pRecords": "{NUMBER, select, \n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n}",
-        "pOccurrence": "{NUMBER, select,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n}",
+        "pOccurrence": "{NUMBER, plural,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n}",
         "pMaterialSamples": "",
         "pSpecies": "{NUMBER, select, \n0 {видів}\none {вид}\nfew {види}\nmany {видів}\nother {видів}\n}",
-        "pInfraspecies": "{NUMBER, select, \n0 {підвидів}\none {підвид}\nfew {підвиди}\nmany {підвидів}\nother {підвидів}\n}",
+        "pInfraspecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {підвидів}\none {підвид}\nfew {підвиди}\nmany {підвидів}\nother {підвидів}\n}",
         "pPublishers": "{NUMBER, select, \n0 {видавців}\none {видавець}\nfew {видавці}\nmany {видавців}\nother {видавців}\n}",
         "contacts": "{NUMBER, select,\n0 {контактів}\none {контакт}\nfew {контакти}\nmany {контактів}\nother {контактів}\n}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {таксономічних описів}\none {таксономічний опис}\nfew {таксономічних описи}\nmany {таксономічних описів}\nother {таксономічних описів}\n}"
