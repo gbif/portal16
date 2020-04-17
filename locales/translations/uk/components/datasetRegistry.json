@@ -2,8 +2,8 @@
     "dataset": {
         "registry": {
             "failedSinceSuccess": "",
-            "lastFailed": "",
-            "registrationDate": "",
+            "lastFailed": "Остання невдала спроба",
+            "registrationDate": "Дата реєстрації",
             "lastSuccess": "",
             "lastWithChange": "",
             "noEntries": "",
@@ -41,9 +41,9 @@
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "Звичайно",
+                "ABORT": "Перервати",
+                "NOT_MODIFIED": "Не змінено"
             }
         }
     }
