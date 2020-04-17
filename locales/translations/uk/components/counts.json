@@ -1,9 +1,9 @@
 {
     "counts": {
-        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, \n0 {цитувань}\none {цитування}\nfew {цитування}\nmany {цитувань}\nother {цитувань}\n}",
-        "pCitations": "{NUMBER, select, \n0 {цитувань}\none {цитування}\nfew {цитування}\nmany {цитувань}\nother {цитувань}\n}",
-        "nRecords": "{NUMBER_FORMATED} {NUMBER, select, \n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n}",
-        "nResults": "{NUMBER_FORMATED} {NUMBER, select, \n0 {результатів}\none {результат}\nfew {результати}\nmany {результатів}\nother {результатів}\n}",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {цитувань}\none {цитування}\nfew {цитування}\nmany {цитувань}\nother {цитувань}\n}",
+        "pCitations": "{NUMBER, plural, \n0 {цитувань}\none {цитування}\nfew {цитування}\nmany {цитувань}\nother {цитувань}\n}",
+        "nRecords": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n}",
+        "nResults": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {результатів}\none {результат}\nfew {результати}\nmany {результатів}\nother {результатів}\n}",
         "nCollections": "",
         "nInstitutions": "",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select, \n0 {подій}\none {подія}\nfew {події}\nmany {подій}\nother {подій}\n}",
