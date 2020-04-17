@@ -1,52 +1,52 @@
 {
   "treatment": {
     "distribution": "Поширення",
-    "figures": "Ілюстрації"
+    "figures": "Зображення"
   },
   "species": {
     "distribution": {
       "presentIn": "",
       "presentInNonCountry": "",
-      "threatStatus": "",
-      "distributionPlural": ""
+      "threatStatus": "Охоронний статус: {status}",
+      "distributionPlural": "Поширення"
     },
     "tabs": {
-      "overview": "",
-      "treatment": "",
-      "metrics": "",
+      "overview": "Огляд",
+      "treatment": "Опис",
+      "metrics": "Показники",
       "referenceTaxon": "",
-      "verbatim": ""
+      "verbatim": "Відповідно до першоджерела"
     },
     "invasives": {
-      "nInvadedCountries": "",
-      "invasiveIn": "",
-      "accordingTo": "",
-      "occurrenceCount": "",
-      "seeAllCountries": "",
-      "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "nInvadedCountries": "Відмічений як інвазивний у {NUMBER_FORMATED} {NUMBER, select, 1{країні або острові} other{країнах або островах}}",
+      "invasiveIn": "Відмічений як інвазивний у",
+      "accordingTo": "Відповідно до",
+      "occurrenceCount": "Знахідки у GBIF",
+      "seeAllCountries": "Показати все",
+      "isInvasive": "Докази впливу",
+      "isInvasive_yes": "Так",
+      "isInvasive_no": "Ні"
     },
     "treatment": {
-      "distribution": "",
-      "figures": ""
+      "distribution": "Поширення",
+      "figures": "Зображення"
     },
-    "as": "",
-    "in": "",
-    "origin": "",
-    "issues": "",
-    "citation": "",
-    "remarks": "",
-    "term": "",
-    "value": "",
-    "classification": "",
-    "sourcePlural": "",
-    "nMoreDatasets": "",
-    "acceptedName": "",
-    "synonym": "",
-    "description": "",
-    "synonyms": "",
-    "synonymOf": "",
+    "as": "Як",
+    "in": "У",
+    "origin": "Походження",
+    "issues": "Проблеми",
+    "citation": "Цитування",
+    "remarks": "Примітки",
+    "term": "Термін",
+    "value": "Значення",
+    "classification": "Класифікація",
+    "sourcePlural": "{NUMBER, select, 1{джерело} other{джерела}}",
+    "nMoreDatasets": "{NUMBER} більше {NUMBER, select, 1{набір даних} other{набори даних}}",
+    "acceptedName": "Валідна назва",
+    "synonym": "Синонім",
+    "description": "Опис",
+    "synonyms": "Синоніми",
+    "synonymOf": "Синонім",
     "basionymOf": "",
     "homotypicSynonymOf": "",
     "immediateChildren": "",
