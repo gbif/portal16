@@ -18,7 +18,7 @@
       "verbatim": "Verbatim"
     },
     "invasives": {
-      "nInvadedCountries": "Recorded as introduced in {NUMBER_FORMATED} {NUMBER, select, 1{country or island} other{countries and islands}}",
+      "nInvadedCountries": "Recorded as introduced in {NUMBER_FORMATED} {NUMBER, plural, 1{country or island} other{countries and islands}}",
       "invasiveIn": "Recorded as introduced in",
       "accordingTo": "According to",
       "occurrenceCount": "Occurrences in GBIF",
@@ -40,7 +40,7 @@
     "term": "Term",
     "value": "Value",
     "classification": "Classification",
-    "sourcePlural": "{NUMBER, select, 1{source} other{sources}}",
+    "sourcePlural": "{NUMBER, plural, 1{source} other{sources}}",
     "nMoreDatasets": "{NUMBER} more {NUMBER, select, 1{dataset} other{datasets}}",
     "acceptedName": "Accepted name",
     "synonym": "Synonym",
@@ -65,7 +65,7 @@
     "basionym": "Basionym",
     "nVernacularNames": "{NUMBER, select, 1{vernacular name} other{vernacular names}}",
     "nameUsagesApplied": "Name usages applied to occurrences in GBIF",
-    "appearsIn": "Appears in {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{dataset} other{datasets}}:",
+    "appearsIn": "Appears in {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, plural, 1{dataset} other{datasets}}:",
     "viewOccurrences": "View occurrences",
     "seeAlso": "See also",
     "viewInGbifBackbone": "View in GBIF backbone",

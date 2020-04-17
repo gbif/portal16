@@ -31,7 +31,7 @@
     "passwordsNotIdentical": "The two passwords are not identical",
     "setPassword": "Set password",
     "newPassword": "New password",
-    "invalidLinkMessage": "Links in emails must be used within 30 minutes and only work once.",
+    "invalidLinkMessage": "The verification link is invalid or the account has already been activated.",
     "logout": "Logout",
     "profile": "Profile",
     "invalidLink": "Invalid link",
@@ -44,7 +44,7 @@
     "password": "Password",
     "continue": "Continue",
     "forgotPassword": "Forgot your password?",
-    "unknownUser": "Unable to log in. Unknown user or password.",
+    "unknownUser": "Unable to log in. Invalid username/password combination -or- user email not validated.",
     "signIn": "Sign in",
     "or": "Or",
     "continueWithProvider": "Continue with {PROVIDER}",
@@ -81,7 +81,7 @@
     "accountCreated": "Account created",
     "accountInfoUpdated": "Your account have been updated",
     "passwordChangeInvalid": "Invalid password - if you have forgotten your password, then log out and use the password reset",
-    "verficationLinkSent": "You have been sent an email with a verification link to ensure it is your mail. Welcome to GBIF",
+    "verficationLinkSent": "An email has been sent to the specified email address containing a link that must be clicked to activate your account.",
     "resetPasswordRequest": "Password reset request",
     "resetPasswordMessage": "We have sent you a mail with a link to reset your password."
   }

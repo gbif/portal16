@@ -4,9 +4,9 @@
     "SIMPLE_CSV": "Simple",
     "DWCA": "Darwin Core Archive",
     "SPECIES_LIST": "Species list",
-    "SIMPLE_WITH_VERBATIM_AVRO": "",
-    "MAP_OF_LIFE": "",
-    "IUCN": "",
-    "BLOODHOUND": ""
+    "SIMPLE_WITH_VERBATIM_AVRO": "Apache Avro",
+    "MAP_OF_LIFE": "Map of Life export",
+    "IUCN": "IUCN export",
+    "BLOODHOUND": "Bloodhound export"
   }
 }
