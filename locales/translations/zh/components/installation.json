@@ -6,6 +6,6 @@
         "installationType": "安装类型",
         "hostedBy": "持有机构",
         "registered": "已注册",
-        "endpoints": "终点"
+        "endpoints": "Endpoints"
     }
 }

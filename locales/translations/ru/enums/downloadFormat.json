@@ -3,6 +3,10 @@
     "SIMPLE_AVRO": "Apache Avro",
     "SIMPLE_CSV": "CSV",
     "DWCA": "Архив Darwin Core",
-    "SPECIES_LIST": "Список видов в формате CSV"
+    "SPECIES_LIST": "Список видов в формате CSV",
+    "SIMPLE_WITH_VERBATIM_AVRO": "",
+    "MAP_OF_LIFE": "",
+    "IUCN": "",
+    "BLOODHOUND": ""
   }
 }

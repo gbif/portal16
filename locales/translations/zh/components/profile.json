@@ -4,19 +4,19 @@
       "failed": {
         "FACEBOOK": "无法连接到Facebook",
         "GITHUB": "无法连接到Github",
-        "GOOGLE": ""
+        "GOOGLE": "无法连接到Google"
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "无法登录 Facebook",
         "GITHUB": "无法登录 Github",
-        "GOOGLE": ""
+        "GOOGLE": "无法用Google账号登录"
       }
     },
     "error": {
       "USERNAME_NOT_UNIQUE": "此用户名已经被使用",
-      "LOGIN_UNKNOWN": "这次登录没有关联任何账号。如果您已经有一个账号，请用用户名/邮箱和密码登录。或者，您可以注册一个新的账号。",
+      "LOGIN_UNKNOWN": "此次登录没有关联任何账号。如果您已经有一个账号，请用用户名/邮箱和密码登录。或者，您可以注册一个新的账号。",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "此配置文件已连接到另一个账号。",
       "USER_ALREADY_LOGGED_IN": "您已经登录。",
       "EMAIL_IN_USE": "电子邮箱已被使用。",
@@ -51,7 +51,7 @@
     "signUpWithProvider": "使用 {PROVIDER} 注册",
     "connectWithProvider": "与 {PROVIDER} 连接",
     "disconnectWithProvider": "断开与 {PROVIDER} 的连接",
-    "signInAgreement": "通过登录，表示您接受 GBIF的 [terms](/terms) 和 [privacy policy](/terms/privacy-policy).",
+    "signInAgreement": "通过登录，表示您接受 GBIF的 [条款](/terms) 和 [隐私政策](/terms/privacy-policy).",
     "country": "国家",
     "countryRequired": "国家必填",
     "email": "电子邮件",
@@ -59,13 +59,13 @@
     "invalidEmail": "请输入一个有效的电子邮件地址",
     "username": "用户名",
     "usernameRequired": "用户名必须填写",
-    "invalidUsername": "有效的用户名为 3-64 个字符，只包含小写字母（a-z） 和符号 . _",
-    "passwordRequired": "密码是必需的",
+    "invalidUsername": "有效的用户名为 3-64 个字符，只包含小写字母（a-z） 和符号 ._-",
+    "passwordRequired": "密码必填",
     "passwordLength": "密码必须是 6 个以上的字符",
     "passwordMaxLength": "密码长度不得超过128个字符。",
     "next": "下一步",
     "pleaseFillForm": "请填写表格",
-    "selectAllImages": "选择下面的像这张图的所有图像",
+    "selectAllImages": "选择下面的与这张图相似的所有图像",
     "signUp": "注册",
     "cancel": "取消",
     "resetPassword": "重置密码",

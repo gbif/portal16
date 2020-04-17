@@ -15,7 +15,7 @@
     "memberSince": "Официально участвует в GBIF с",
     "dataFrom": " {TRANSLATED_COUNTRY}: данные из страны",
     "dataAboutCountry": "{TRANSLATED_COUNTRY}: данные о стране ",
-    "publishingTrends": " Публикации данных: основные тенденции",
+    "publishingTrends": " Публикация данных: основные тенденции",
     "noDataPublishingActivity": "Нет данных о публикационной активности",
     "noInstitutionsHavePublished": "В этой стране нет организаций, которые опубликовали данные через GBIF.org",
     "trendsAboutCountry": "{TRANSLATED_COUNTRY}: тенденции",

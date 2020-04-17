@@ -1,7 +1,7 @@
 {
     "healthSummary": {
         "systemHealth": "系统情况",
-        "description": "GBIF各项服务的现状如何？",
+        "description": "各种GIBF服务的现状怎么样？",
         "updatedTimeAgo": "更新{TIME_AGO}",
         "statusSummary": {
             "OPERATIONAL": "所有运行的系统",
