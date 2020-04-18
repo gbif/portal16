@@ -21,15 +21,15 @@
     },
     "gbif_affiliate": {
       "one": "Філіал GBIF",
-      "other": ""
+      "other": "Філіали GBIF"
     },
-    "role": "",
+    "role": "Роль",
     "group": {},
-    "gbif_secretariat": "",
-    "membershipType": "",
-    "name": "",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
+    "gbif_secretariat": "Секретаріат GBIF",
+    "membershipType": "Членство",
+    "name": "Ім’я",
+    "endorsedDataPublisher": "Схвалив {NUMBER_FORMATTED} дані {NUMBER, plural, one{видавця} few{видавців} many{видавців} other{видавців}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, \none{учасник} \nfew{учасники} \nmany{учасників} \nother{учасників}\n}",
     "dataset": "",
     "datasets": "",
     "regionalRepresentative": "",
