@@ -1,26 +1,26 @@
 {
   "gbifNetwork": {
     "gbifNetwork": "",
-    "title": "",
-    "contact": "",
+    "title": "Директорія",
+    "contact": "Зв'язатися",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Учасник з правом голосу",
+      "other": "Учасники з правом голосу"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "Асоційована країна-учасниця",
+      "other": "Асоційовані країни-учасниці"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "Інший асоційований учасник",
+      "other": "Інші асоційовані учасники"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Колишній учасник",
+      "other": "Колишні учасники"
     },
     "gbif_affiliate": {
-      "one": "",
+      "one": "Філіал GBIF",
       "other": ""
     },
     "role": "",
