@@ -36,18 +36,18 @@
       },
       "associateParticipants": {
         "title": "Інші асоційовані учасники",
-        "description": ""
+        "description": "Міжурядові організації, міжнародні організації та інші організації з міжнародним масштабом та економікою, які підписали Меморандум порозуміння GBIF."
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "Роль",
+      "name": "Ім’я",
+      "participant": "Учасник",
+      "participationStatus": "Статус учасника"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "details": "Подробиці",
+    "roles": "Ролі",
+    "sinceDate": "З {DATE}",
+    "showAllContacts": "Усі"
   }
 }
