@@ -25,43 +25,43 @@
                 "yourContact": "Ваша контактна інформація",
                 "comments": "Коментарі",
                 "submit": "Надіслати",
-                "followDiscussionBelow": "",
-                "followIssue": "",
-                "suggestAnother": "",
-                "saveFailure": ""
+                "followDiscussionBelow": "Слідуйте або приєднайтеся до подальшого обговорення за посиланням нижче.",
+                "followIssue": "Переглянути пропозицію на github",
+                "suggestAnother": "Запропонувати інший набір даних",
+                "saveFailure": "На жаль, ми не змогли зберегти Вашу пропозицію. Будь ласка, спробуйте пізніше або ж перейдіть безпосередньо на [Github](https://github.com/gbif/data-mobilization/issues), де відбувається управління пропозиціями"
             }
         },
         "observationTrends": {
-            "drawerTitle": "",
-            "intro": "",
-            "aboutLink": "",
-            "selectSpecies": "",
-            "noData": "",
-            "selectHigherTaxa": "",
-            "selectArea": "",
-            "hexagon": "",
-            "draw": "",
-            "clear": "",
-            "resultIntro": "",
-            "embedIntro": ""
+            "drawerTitle": "Відносні тенденції спостереження",
+            "intro": "Пілотний проект, щоб дослідити, чи відносні тенденції спостереження для видів в межах GBIF надають корисну інформацію для дослідників",
+            "aboutLink": "Про цей інструмент",
+            "selectSpecies": "Обрати вид(и)",
+            "noData": "У нас немає геоінформаційних даних про обраний(і) вид(и) після 1900 року",
+            "selectHigherTaxa": "Оберіть вищий таксон",
+            "selectArea": "Оберіть територію",
+            "hexagon": "Шестикутник",
+            "draw": "Малювати",
+            "clear": "Очистити",
+            "resultIntro": "Зміни в відносній частоті спостереження для обраної території",
+            "embedIntro": "Всі дані опосередковані через {GBIF network}"
         },
         "speciesLookup": {
-            "description": "",
-            "title": ""
+            "description": "Стандартизувати назви видів з файлу CSV згідно GBIF таксономії. Необхідно, щоб в файлі був стовпець з назвою \"scientificName\" і опційно - стовпці \"kingdom\" та \"id\".",
+            "title": "Збіг назв видів"
         },
         "ipt": {
             "description": "",
-            "dontSeeYourIpt": ""
+            "dontSeeYourIpt": "Не бачите на мапі ваш IPT? Надішлість ваші координати у повідомленні [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\")."
         },
         "dataRepository": {
             "title": ""
         },
         "sequenceId": {
-            "title": ""
+            "title": "ID послідовності"
         },
         "machineVision": {
             "tabs": {
-                "demo": "",
+                "demo": "Демо",
                 "statement": ""
             }
         }
