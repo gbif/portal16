@@ -44,24 +44,24 @@
           "APPROVED": "Підтвержено",
           "CLOSED": "Завершено",
           "IN_PROGRESS": "В обробці",
-          "DISCONTINUED": "",
-          "undefined": ""
+          "DISCONTINUED": "Припинено",
+          "undefined": "Не вказано"
         },
         "relevance": {
-          "GBIF_USED": "",
-          "GBIF_CITED": "",
-          "GBIF_DISCUSSED": "",
-          "GBIF_PRIMARY": "",
-          "GBIF_ACKNOWLEDGED": "",
-          "GBIF_PUBLISHED": "",
-          "GBIF_AUTHOR": "",
-          "GBIF_MENTIONED": "",
-          "GBIF_FUNDED": ""
+          "GBIF_USED": "Дані GBIF використано",
+          "GBIF_CITED": "GBIF процитовано",
+          "GBIF_DISCUSSED": "GBIF обговорюється",
+          "GBIF_PRIMARY": "Дані GBIF використано як основні",
+          "GBIF_ACKNOWLEDGED": "Висловлено подяку GBIF",
+          "GBIF_PUBLISHED": "Обговорюються дані опубліковані в GBIF",
+          "GBIF_AUTHOR": "за авторства GBIF",
+          "GBIF_MENTIONED": "GBIF згадано",
+          "GBIF_FUNDED": "Профінансовані GBIF"
         },
         "topics": {
           "AGRICULTURE": "",
-          "BIODIVERSITY_SCIENCE": "",
-          "BIOGEOGRAPHY": "",
+          "BIODIVERSITY_SCIENCE": "Наука про біорізноманіття",
+          "BIOGEOGRAPHY": "Біогеографія",
           "CITIZEN_SCIENCE": "",
           "CLIMATE_CHANGE": "",
           "CONSERVATION": "",
