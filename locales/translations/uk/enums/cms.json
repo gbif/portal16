@@ -2,48 +2,48 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
-        "countriesOfResearcher": "",
-        "literatureType": "",
-        "contractCountry": "",
-        "topics": "",
-        "audiences": "",
-        "purposes": "",
-        "relevance": "",
-        "language": "",
-        "year": "",
-        "datasetKey": "",
-        "publishingOrg": "",
-        "peerReview": "",
-        "openAccess": "",
-        "gbifDownloadKey": ""
+        "countriesOfCoverage": "Країна або територія покриття",
+        "countriesOfResearcher": "Країна або територія дослідження",
+        "literatureType": "Тип літературного джерела",
+        "contractCountry": "Країна або територія",
+        "topics": "Тематика",
+        "audiences": "Аудиторія",
+        "purposes": "Призначення",
+        "relevance": "Релевантність",
+        "language": "Мова",
+        "year": "Рік",
+        "datasetKey": "Набір даних",
+        "publishingOrg": "Видавець даних",
+        "peerReview": "Рецензована публікація",
+        "openAccess": "Відкритий доступ",
+        "gbifDownloadKey": "Ключ завантаження"
       },
       "contentType": {
-        "event": "",
-        "news": "",
-        "resource": "",
-        "dataUse": "",
-        "project": "",
-        "participant": "",
-        "programme": "",
-        "document": "",
-        "tool": "",
-        "literature": ""
+        "event": "Подія",
+        "news": "Новини",
+        "resource": "Ресурс",
+        "dataUse": "Використання даних",
+        "project": "Проект",
+        "participant": "Учасник",
+        "programme": "Програма",
+        "document": "Документ",
+        "tool": "Інструмент",
+        "literature": "Література"
       },
       "vocabularyTerms": {
         "articleType": {
-          "Nodes guidance": ""
+          "Nodes guidance": "Інструкція для національних осередків"
         },
         "projectGrantType": {
-          "REGIONAL": "",
-          "SMALL": "",
-          "NATIONAL": "",
-          "undefined": ""
+          "REGIONAL": "Регіональна грант",
+          "SMALL": "Маленький грант",
+          "NATIONAL": "Національний грант",
+          "undefined": "Не вказано"
         },
         "projectStatus": {
-          "APPROVED": "",
-          "CLOSED": "",
-          "IN_PROGRESS": "",
+          "APPROVED": "Підтвержено",
+          "CLOSED": "Завершено",
+          "IN_PROGRESS": "В обробці",
           "DISCONTINUED": "",
           "undefined": ""
         },
