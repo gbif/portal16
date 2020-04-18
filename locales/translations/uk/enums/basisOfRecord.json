@@ -1,14 +1,14 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
-    "LIVING_SPECIMEN": "",
-    "OBSERVATION": "",
-    "HUMAN_OBSERVATION": "",
-    "MACHINE_OBSERVATION": "",
-    "MATERIAL_SAMPLE": "",
-    "LITERATURE": "",
-    "UNKNOWN": "",
-    "undefined": ""
+    "PRESERVED_SPECIMEN": "Зразок на збереженні",
+    "FOSSIL_SPECIMEN": "Викопний зразок",
+    "LIVING_SPECIMEN": "Живий зразок",
+    "OBSERVATION": "Спостереження",
+    "HUMAN_OBSERVATION": "Спостереження людиною",
+    "MACHINE_OBSERVATION": "Автоматизоване спостереження",
+    "MATERIAL_SAMPLE": "Проба матеріалу",
+    "LITERATURE": "Літературні дані",
+    "UNKNOWN": "Невідомо",
+    "undefined": "Невідомо"
   }
 }
