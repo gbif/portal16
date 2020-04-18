@@ -74,12 +74,12 @@
     "techContactDescription": "我们可以向谁提供技术信息，如发送密码以注册数据发布工具？",
     "submissionFailed": "提交失败",
     "forSomeReason": "出于某些原因，您的提交失败。",
-    "pleaseContactUs": "关于您的兴趣，请通过 helpdesk@gbif.org 联系我们。",
+    "pleaseContactUs": "请通过 helpdesk@gbif.org 联系我们告知我们您感兴趣的地方。",
     "weHaveRecieved": "我们已收到您表示有兴趣成为 GBIF 网络的数据发布者的信息。",
     "youWillRecieveConfEmail": "您收到确认信后，表示您的背书要求已批准。",
     "yourOrgDetailsAreHere": "您的机构详情在此。",
     "outage": "系统目前处于部分故障状态，暂时无法接受注册",
-    "eoiDescription": "为了准备通过 GBIF发布数据，我们请求潜在的新发布者们填写此在线表格。在 GBIF开始为您的数据集编制索引前，您的机构必须得到一个GBIF国家或机构成员通过其节点的认可，才能成为数据发布者。如果您的国家尚未加入 GBIF，我们将替您在 GBIF 社群中寻找认可。",
+    "eoiDescription": "为了准备通过 GBIF发布数据，我们请求潜在的新发布者们填写此在线表格。在 GBIF开始为您的数据集编制索引前，您的机构必须得到一个GBIF国家或机构成员通过其节点的认可，才能成为数据发布者。如果您的国家尚未加入 GBIF，我们将替您在 GBIF 社群中找到立足之地。",
     "eoiTitle": "成为一个发布者"
   }
 }
