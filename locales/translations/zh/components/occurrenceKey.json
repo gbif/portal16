@@ -30,9 +30,9 @@
     },
     "groups": {
       "Record": "记录",
-      "Occurrence": "出现",
+      "Occurrence": "出现记录",
       "Event": "活动",
-      "Identification": "识别",
+      "Identification": "标识",
       "Taxon": "分类群",
       "Location": "地理位置",
       "Organism": "生物",
