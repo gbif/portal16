@@ -66,7 +66,7 @@
         "HUMAN_OBSERVATION": "在 {COUNTRY} 观察到",
         "MACHINE_OBSERVATION": "在 {COUNTRY} 观察到",
         "MATERIAL_SAMPLE": "在 {COUNTRY} 采集",
-        "OCCURRENCE": "在 {COUNTRY} 记录",
+        "OCCURRENCE": "记录于 {COUNTRY}",
         "OBSERVATION": "在 {COUNTRY} 观察到",
         "LITERATURE": "记录于 {COUNTRY}",
         "UNKNOWN": "记录于 {COUNTRY}"
@@ -78,7 +78,7 @@
         "HUMAN_OBSERVATION": "在未知位置观察到",
         "MACHINE_OBSERVATION": "在未知位置观察到",
         "MATERIAL_SAMPLE": "在未知位置采集",
-        "OCCURRENCE": "在未知地点记录",
+        "OCCURRENCE": "记录于未知地点",
         "OBSERVATION": "在未知地点观察到",
         "LITERATURE": "记录于未知地点",
         "UNKNOWN": "记录于未知地点"
