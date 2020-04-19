@@ -54,15 +54,15 @@
     "media": {
       "noIdentifier": "没有提供媒体标识符",
       "noPlaybackSupport": "您的浏览器不支持播放此媒体所需的格式。",
-      "takeMeThere": "尝试连接到发布者网站版本",
+      "takeMeThere": "尝试发布者网站的版本",
       "notWorkingTryPublishers": "",
       "download": "下载媒体档案"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "按 {COUNTRY} 收集",
-        "FOSSIL_SPECIMEN": "按 {COUNTRY} 收集",
-        "LIVING_SPECIMEN": "按 {COUNTRY} 收集",
+        "PRESERVED_SPECIMEN": "收藏在 {COUNTRY} ",
+        "FOSSIL_SPECIMEN": "收藏在 {COUNTRY} ",
+        "LIVING_SPECIMEN": "收藏在 {COUNTRY} ",
         "HUMAN_OBSERVATION": "在 {COUNTRY} 观察到",
         "MACHINE_OBSERVATION": "在 {COUNTRY} 观察到",
         "MATERIAL_SAMPLE": "在 {COUNTRY} 采集",
