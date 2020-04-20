@@ -2,9 +2,9 @@
     "intervals": {
         "noFilter": "无筛选",
         "elevation": {
-            "equals": "是 {from}m",
-            "between": "{from} 和 {to}m之间",
-            "lessThanOrEquals": "低于 {to}m",
+            "equals": "是 {from}米",
+            "between": "{from} 和 {to}米之间",
+            "lessThanOrEquals": "低于 {to}米",
             "greaterThanOrEquals": "超过 {from}米",
             "invalid": "无效的",
             "select": {
@@ -15,10 +15,10 @@
             }
         },
         "depth": {
-            "equals": "是 {from}m",
-            "between": "{from} 和 {to}m之间",
+            "equals": "是 {from}米",
+            "between": "{from} 和 {to}米之间",
             "lessThanOrEquals": "超过 {to}m 深度",
-            "greaterThanOrEquals": "深度大于 {from}m",
+            "greaterThanOrEquals": "深度大于 {from}米",
             "invalid": "无效的",
             "select": {
                 "equals": "是",
@@ -36,12 +36,12 @@
             "select": {
                 "equals": "是",
                 "between": "介于",
-                "lessThanOrEquals": "在 {to} 结束前",
+                "lessThanOrEquals": "在结束前",
                 "greaterThanOrEquals": "开始后"
             }
         },
         "default": {
-            "equals": "来自 {from}",
+            "equals": "是 {from}",
             "between": "在 {from} 和 {to} 之间",
             "lessThanOrEquals": "小于或等于 {to}",
             "greaterThanOrEquals": "大于或等于 {from}\n",

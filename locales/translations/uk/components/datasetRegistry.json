@@ -8,10 +8,10 @@
             "lastWithChange": "Останнє влиття зі змінами",
             "noEntries": "Цей набір даних не містить записів для влиття",
             "lastWithDataChange": "Останнє влиття зі змінами в даних",
-            "occInLastIngestion": "Число знахідок під час останнього влиття:",
+            "occInLastIngestion": "Число знахідок під час останнього влиття",
             "completionReasons": "Результати влиття даних",
             "unfinished": "Незакінчені спроби влиття",
-            "total": "Загальна кількість спроб влиття:",
+            "total": "Загальна кількість спроб влиття",
             "endpoints": "Кінцеві результати",
             "installationContacts": "Контакти з технічних питань",
             "installation": "Інсталяція",
@@ -31,7 +31,7 @@
             "unableToStart": "Неможливо розпочати влиття",
             "ingestionChartExplainer": "Нещодавні влиття. Зверху зліва - найсвіжіше.",
             "ingestionStatus": "Статус влиття",
-            "itemInIngestionQueue": "У черзі на влиття:",
+            "itemInIngestionQueue": "У черзі на влиття",
             "datasetIngestionStatus": "Статус влиття набору даних до GBIF",
             "gbifIngestionStatus": "Статус влиття даних до GBIF",
             "lastIngestionSuccess": "Останнє влиття було успішним",
@@ -42,7 +42,7 @@
         "crawl": {
             "finishReason": {
                 "NORMAL": "Звичайно",
-                "ABORT": "Перервати",
+                "ABORT": "Перервано",
                 "NOT_MODIFIED": "Не змінено"
             }
         }

@@ -1,52 +1,52 @@
 {
   "gbifNetwork": {
     "gbifNetwork": "",
-    "title": "",
-    "contact": "",
+    "title": "Директорія",
+    "contact": "Зв'язатися",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Учасник з правом голосу",
+      "other": "Учасники з правом голосу"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "Асоційована країна-учасниця",
+      "other": "Асоційовані країни-учасниці"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "Інший асоційований учасник",
+      "other": "Інші асоційовані учасники"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Колишній учасник",
+      "other": "Колишні учасники"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "Філіал GBIF",
+      "other": "Філіали GBIF"
     },
-    "role": "",
+    "role": "Роль",
     "group": {},
-    "gbif_secretariat": "",
-    "membershipType": "",
-    "name": "",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
-    "datasets": "",
-    "regionalRepresentative": "",
+    "gbif_secretariat": "Секретаріат GBIF",
+    "membershipType": "Членство",
+    "name": "Ім’я",
+    "endorsedDataPublisher": "Схвалив {NUMBER_FORMATTED} дані {NUMBER, plural, \n0 {видавців}\none {видавця} \nfew {видавців} \nmany {видавців} \nother {видавців}\n}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, \n0 {учасників}\none {учасник} \nfew {учасники} \nmany {учасників} \nother {учасників}\n}",
+    "dataset": "{NUMBER, plural, \n0 {наборів даних}\none {набір даних} \nfew {набори даних} \nmany {наборів даних} \nother {наборів даних}\n}",
+    "datasets": "Набори даних",
+    "regionalRepresentative": "{NUMBER, plural, \n0 {представників}\none {представник} \nfew {представники} \nmany {представників} \nother {представників}\n}",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Організації-учасники",
+      "gbifAffiliates": "Філіали GBIF"
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "HEAD_OF_DELEGATION": "Голова делегації",
+      "NODE_MANAGER": "Керівник осередку"
     },
-    "publishers": "",
-    "memberSince": "",
-    "participant": "",
-    "pPublishers": "",
-    "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": ""
+    "publishers": "Видавці",
+    "memberSince": "Член з",
+    "participant": "Учасник",
+    "pPublishers": "{NUMBER, plural, \n0 {видавців}\none {видавець} \nfew {видавці} \nmany {видавців} \nother {видавців}\n}",
+    "pOccurrence": "{NUMBER, plural, \n0 {знахідок}\none {знахідка} \nfew {знахідки} \nmany {знахідок} \nother {знахідок}\n}",
+    "occurrenceDatasets": "Набори даних про знахідки",
+    "occurrences": "Знахідки"
   }
 }

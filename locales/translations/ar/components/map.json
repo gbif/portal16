@@ -19,28 +19,28 @@
     "predefined": {
       "CLASSIC_HEX": "سداسي زوايا كلاسيكي",
       "CLASSIC": "نقاط كلاسيكية",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "STREETS": "الشوارع",
+      "GLACIER": "نهر جليدي",
+      "CUSTOM": "عرف"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "صباغ ارجواني",
+      "LIGHT": "فاتح(لا ملصقات)",
+      "LIGHT_DETAILS": "فاتح",
+      "DARK": "داكن(لا ملصقات)",
+      "DARK_DETAILS": "داكن",
+      "OSM": "طرق"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "نقاط",
+      "SMALL_HEX": "شكل سداسي صغير",
+      "LARGE_HEX": "اشكال سداسية",
+      "SMALL_SQUARE": "مربعات صغيرة",
+      "LARGE_SQUARE": "مربعات"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
+      "CLASSIC": "تقليدي",
+      "FIRE": "النار",
       "GLACIER": "",
       "PURPLE_YELLOW": "",
       "PURPLE_HEAT": "",
