@@ -71,7 +71,7 @@
     "pleaseEnterProjectIdentifier": "الرجاء إدخال معرف المشروع - على سبيل المثال BID-CA2016-0000-NAC",
     "registerOrg": "تسجيل المنظمة",
     "technicalContact": "بيانات التواصل التقني",
-    "techContactDescription": "",
+    "techContactDescription": "بمن  يمكننا التواصل بخصوص المعلومات التقنية مثل إرسال كلمات السر لتسجيل أدوات نشر البيانات؟",
     "submissionFailed": "فشل التسليم",
     "forSomeReason": "لسبب ما، فشل إرسال الطلب الخاص بك.",
     "pleaseContactUs": "يرجى الاتصال بنا حول اهتماماتك على helpdesk@gbif.org.",
