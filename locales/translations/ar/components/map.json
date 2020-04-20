@@ -2,56 +2,56 @@
   "map": {
     "nGeoreferencedRecords": "Biodiversity",
     "noOccurrencesWithCoordinates": "لاتوجد اي احداث بالنسبة للاحداثيات",
-    "clickToSearchArea": "انقر  للبحث في المنطقة",
-    "generatedDateAgo": "نتجت(DATE-AGO)",
+    "clickToSearchArea": "انقر  للبحث عن منطقة",
+    "generatedDateAgo": "نتجت (DATE-AGO)",
     "anyYear": " اي سنة",
     "exploreArea": "استكشف المنطقة",
     "explore": "استكشف",
     "style": "نمط",
-    "filters": "مصفيات",
-    "projection": "بروز",
+    "filters": "مُرشِّحات",
+    "projection": "الإسقاط",
     "select": "اختيار",
-    "custom": "عرف او عادة",
+    "custom": "مُخصص",
     "baseMap": "خريطة اساسية",
-    "binning": "وضع في صندوق",
+    "binning": "تجميع بيانات",
     "year": "سنة",
     "chooseColors": "ألوان",
     "predefined": {
-      "CLASSIC_HEX": "سداسي زوايا كلاسيكي",
-      "CLASSIC": "نقاط كلاسيكية",
+      "CLASSIC_HEX": "مضلعات سداسية تقليدية",
+      "CLASSIC": "نقاط تقليدية",
       "STREETS": "الشوارع",
       "GLACIER": "نهر جليدي",
-      "CUSTOM": "عرف"
+      "CUSTOM": "مُخصص"
     },
     "basemap": {
-      "CLASSIC": "صباغ ارجواني",
-      "LIGHT": "فاتح(لا ملصقات)",
+      "CLASSIC": "أرجواني اللون",
+      "LIGHT": "فاتح (بدون ملصقات)",
       "LIGHT_DETAILS": "فاتح",
-      "DARK": "داكن(لا ملصقات)",
+      "DARK": "داكن (بدون ملصقات)",
       "DARK_DETAILS": "داكن",
       "OSM": "طرق"
     },
     "bin": {
       "PIXEL": "نقاط",
       "SMALL_HEX": "شكل سداسي صغير",
-      "LARGE_HEX": "اشكال سداسية",
+      "LARGE_HEX": "مضلعات سداسية",
       "SMALL_SQUARE": "مربعات صغيرة",
       "LARGE_SQUARE": "مربعات"
     },
     "colors": {
       "CLASSIC": "تقليدي",
       "FIRE": "النار",
-      "GLACIER": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "GLACIER": "نهر جليدي",
+      "PURPLE_YELLOW": "أرجواني أصفر",
+      "PURPLE_HEAT": "حرارة أرجوانية",
+      "BLUE_HEAT": "حرارة زرقاء",
+      "ORANGE_HEAT": "حرارة برتقالية",
+      "GREEN": "أخضر",
+      "BLUE_CLUSTER": "مجموعة زرقاء",
+      "ORANGE_CLUSTER": "مجموعة برتقالية"
     },
     "errors": {
-      "413": ""
+      "413": "الملف الهندسي كبير جدا على أن تتم معالجته بواسطة واجهة برمجة تطبيق البيانات."
     }
   }
 }
