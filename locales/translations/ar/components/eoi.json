@@ -1,8 +1,8 @@
 {
   "eoi": {
     "firstPleaseSeeIfYourOrg": "أولاً، يرجى التاكد ان مؤسستك مسجلة بالفعل كناشر GBIF.",
-    "ifYouAreAffiliatedWithTheSelectedOrganization": "",
-    "myOrgIsNotRegistered": "",
+    "ifYouAreAffiliatedWithTheSelectedOrganization": "إذا كنت منتسبًا إلى المؤسسة المختارة، يرجى الاتصال بمصلحة نشر البيانات.",
+    "myOrgIsNotRegistered": "منظمتي غير مسجلة بالفعل.",
     "searchOrganisations": "",
     "termsAndConditions": "",
     "iHaveReadAndUnderstood": "",
