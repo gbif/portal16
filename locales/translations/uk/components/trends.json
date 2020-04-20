@@ -42,10 +42,10 @@
     "specimenRecords": "Записи на підставі зразків",
     "observationRecords": "Записи на підставі спостережень",
     "taxonomicPrecision": "Таксономічна кучність",
-    "theseChartsIllustrate6": "",
-    "geographicPrecision": "",
-    "theseChartsIllustrate7": "",
-    "temporalPrecision": "",
+    "theseChartsIllustrate6": "Наведені графіки ілюструють зміни у кількості наявних записів, які містять визначення щонайменш до видового рівня. Також показана кількість записів, визначених до рівня підвиду або до роду.",
+    "geographicPrecision": "Географічна кучність",
+    "theseChartsIllustrate7": "Наведені графіки ілюструють зміни у кількості наявних записів, які містять координати, для яких не було виявлено жодних проблем. Записи без коректних, валідних координат входять до складу записів, для яких відома країна знахідки.",
+    "temporalPrecision": "Часова кучність",
     "theseChartsIllustrate8": "",
     "geographicCoverageForRecordedSpecies": "",
     "theseChartsIllustrate9": "",
@@ -69,6 +69,6 @@
       "publishedByDescription": ""
     },
     "analyticsGlobalDescription": "",
-    "analyticsTitle": ""
+    "analyticsTitle": "Тенденції в даних"
   }
 }
