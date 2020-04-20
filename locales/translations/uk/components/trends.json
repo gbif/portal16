@@ -46,13 +46,13 @@
     "geographicPrecision": "Географічна кучність",
     "theseChartsIllustrate7": "Наведені графіки ілюструють зміни у кількості наявних записів, які містять координати, для яких не було виявлено жодних проблем. Записи без коректних, валідних координат входять до складу записів, для яких відома країна знахідки.",
     "temporalPrecision": "Часова кучність",
-    "theseChartsIllustrate8": "",
-    "geographicCoverageForRecordedSpecies": "",
+    "theseChartsIllustrate8": "Ці графіки ілюструють зміни у кількості наявних записів, які супроводжуються повною датою, що включає рік, місяць і день. Також показане число записів, які містять тільки місяць та рік, або тільки рік.",
+    "geographicCoverageForRecordedSpecies": "Географічне покриття для записаних видів",
     "theseChartsIllustrate9": "",
-    "oneDegree": "",
-    "halfDegree": "",
-    "pointOneDegree": "",
-    "dataSharingWithCountryOfOrigin": "",
+    "oneDegree": "1.0 градус",
+    "halfDegree": "0.5 градуса",
+    "pointOneDegree": "0.1 градуса",
+    "dataSharingWithCountryOfOrigin": "Походження опублікованих даних",
     "thisChartShowsTheNumberOfRecordsAboutBiodiversityOccurringInCountry": "",
     "thisChartShowsTheNumberOfRecordsSharedByPublishersWithin": "",
     "thisChartShowsGlobalTrends": "",
@@ -68,7 +68,7 @@
       "fromDescription": "",
       "publishedByDescription": ""
     },
-    "analyticsGlobalDescription": "",
+    "analyticsGlobalDescription": "Тенденції щодо наявності даних у мережі GBIF, з 2008 по 2016",
     "analyticsTitle": "Тенденції в даних"
   }
 }
