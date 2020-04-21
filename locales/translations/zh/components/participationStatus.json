@@ -29,9 +29,9 @@
                 "longForm": {
                     "VOTING": "投票成员组织",
                     "ASSOCIATE": "合作机构",
-                    "OBSERVER": "观察组织成员",
-                    "AFFILIATE": "附属组织",
-                    "FORMER": "前组织成员",
+                    "OBSERVER": "观察成员组织",
+                    "AFFILIATE": "附属机构",
+                    "FORMER": "前会员机构",
                     "undefined": "未知的"
                 }
             }
