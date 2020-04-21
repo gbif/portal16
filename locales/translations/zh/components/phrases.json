@@ -16,12 +16,12 @@
     "noResultsMessage": "没有结果—请尝试放宽筛选条件",
     "noJavascriptEnabled": "很抱歉，如果没有启用 JavaScript，GBIF 无法正常运行。",
     "isSplashScreen": "我们的网站检测到您使用的是过时且不安全的浏览器，该浏览器将阻止您使用此网站。我们建议您升级到最新的浏览器。",
-    "404Text": "这个页面可能之前存在，但我们找不到。\n请尝试我们的 [搜索功能](/search) 来查找。\n欢迎随时通过 [helpdesk@gbif.org](mailto:helpdesk@gbif.org) 来联系我们。",
+    "404Text": "这个页面可能之前存在过，但现在我们找不到了。\n请尝试我们的 [搜索功能](/search) 来查找。\n欢迎随时通过 [helpdesk@gbif.org](mailto:helpdesk@gbif.org)来联系我们。",
     "changeLanguage": "更改语言",
     "noData": "没有数据",
     "payloadTooLarge": "",
     "readMore": "阅读更多",
     "share": "",
-    "loginRequiredDueToSpam": "请登录继续。"
+    "loginRequiredDueToSpam": "请登录以继续。"
   }
 }
