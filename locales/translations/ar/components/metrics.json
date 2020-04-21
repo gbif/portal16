@@ -2,7 +2,7 @@
   "datasetMetrics": {
     "countByKingdom": "",
     "countByRank": "",
-    "countNamesByLanguage": "",
+    "countNamesByLanguage": "تعداد الأسماء حسب اللغة",
     "countExtRecordsByExtension": "",
     "countByOrigin": "",
     "countByIssue": ""
