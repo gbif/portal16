@@ -61,7 +61,7 @@
     "logo": "Logo",
     "exampleImageUrl": "E.g. http://my.organization.org/images/logo.png",
     "invalidUrl": "Invalid url",
-    "brieflyDescribeScope": "Briefly describe the scope of your institution/organization in relation to GBIF's mission (e.g. collection holdings, research focus, biodiversity information management, etc.). This description will appear on your publisher page.",
+    "brieflyDescribeScope": "In *English*, please briefly describe the scope of your institution/organization in relation to GBIF's mission (e.g. collection holdings, research focus, biodiversity information management, etc.). This description will appear on your publisher page. You may also wish to include a version in another language, but English is required.",
     "clear": "Clear",
     "clickMapToAddOrg": "Click on the map to add your organization",
     "description": "Description",
