@@ -4,7 +4,7 @@
             "VOTING": "选举成员",
             "ASSOCIATE": "合作成员",
             "OBSERVER": "观察成员",
-            "AFFILIATE": "机构",
+            "AFFILIATE": "附属机构",
             "FORMER": "前成员",
             "undefined": "未知的"
         },
@@ -12,26 +12,26 @@
             "VOTING": "一个来自 {REGION} 的GBIF选举成员",
             "ASSOCIATE": "一个来自 {REGION} 的GBIF合作成员",
             "OBSERVER": "一个来自 {REGION} 的GBIF观察国",
-            "AFFILIATE": "来自 {REGION} 的机构",
-            "FORMER": "来自{REGION} 的 GBIF 前成员",
+            "AFFILIATE": "一个来自 {REGION} 的附属机构",
+            "FORMER": "一个来自{REGION} 的 GBIF 前成员",
             "undefined": "未知的"
         },
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "来自{REGION} 的 GBIF 投票组织成员",
-                    "ASSOCIATE": "來自{REGION} 的其他组织成员",
-                    "OBSERVER": "来自{REGION} 的观察组织成员",
-                    "AFFILIATE": "来自{REGION}的附属组织成员",
-                    "FORMER": "来自{REGION}的前组织成员",
+                    "VOTING": "一个来自{REGION} 的 GBIF 投票成员组织",
+                    "ASSOCIATE": "一个来自{REGION} 的合作成员组织",
+                    "OBSERVER": "一个来自{REGION} 的观察成员组织",
+                    "AFFILIATE": "一个来自{REGION}的附属组织",
+                    "FORMER": "一个来自{REGION}的前会员组织",
                     "undefined": "未知的"
                 },
                 "longForm": {
-                    "VOTING": "投票组织成员",
-                    "ASSOCIATE": "其他组织成员",
-                    "OBSERVER": "观察组织成员",
-                    "AFFILIATE": "附属组织",
-                    "FORMER": "前组织成员",
+                    "VOTING": "投票成员组织",
+                    "ASSOCIATE": "合作机构",
+                    "OBSERVER": "观察成员组织",
+                    "AFFILIATE": "附属机构",
+                    "FORMER": "前会员机构",
                     "undefined": "未知的"
                 }
             }

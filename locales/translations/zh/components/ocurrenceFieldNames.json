@@ -173,7 +173,7 @@
     "identificationID": "鉴定编号",
     "identificationQualifier": "鉴定合格者",
     "typeStatus": "类型状态",
-    "identifiedBy": "鉴定者",
+    "identifiedBy": "识别依据",
     "dateIdentified": "鉴定日期",
     "identificationReferences": "鉴定参考",
     "identificationVerificationStatus": "鉴定确认状态",
