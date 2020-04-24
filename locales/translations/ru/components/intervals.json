@@ -37,7 +37,7 @@
                 "equals": "Равняется",
                 "between": "Между",
                 "lessThanOrEquals": "До окончания",
-                "greaterThanOrEquals": "После начала"
+                "greaterThanOrEquals": "Начиная с"
             }
         },
         "default": {

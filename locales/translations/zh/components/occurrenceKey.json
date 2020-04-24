@@ -1,7 +1,7 @@
 {
   "occurrence": {
     "tabs": {
-      "details": ""
+      "details": "详细信息"
     },
     "typeOf": "{NAME} 的 {TYPE}",
     "coordinates": "坐标",
@@ -17,7 +17,7 @@
     "readFullDescription": "更多",
     "showMoreInfo": "更多",
     "noTaxonMatch": "没有",
-    "gbifTaxonInterpretation": "GBF分类解释",
+    "gbifTaxonInterpretation": "GBIF分类单元的解释",
     "aboutTheDataset": "关于数据集",
     "noLocationInformation": "没有发布此记录的位置信息",
     "subMenu": {
@@ -30,9 +30,9 @@
     },
     "groups": {
       "Record": "记录",
-      "Occurrence": "出现",
+      "Occurrence": "出现记录",
       "Event": "活动",
-      "Identification": "识别",
+      "Identification": "标识",
       "Taxon": "分类群",
       "Location": "地理位置",
       "Organism": "生物",
@@ -54,19 +54,19 @@
     "media": {
       "noIdentifier": "没有提供媒体标识符",
       "noPlaybackSupport": "您的浏览器不支持播放此媒体所需的格式。",
-      "takeMeThere": "尝试连接到发布者网站版本",
+      "takeMeThere": "尝试发布者网站的版本",
       "notWorkingTryPublishers": "",
       "download": "下载媒体档案"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "按 {COUNTRY} 收集",
-        "FOSSIL_SPECIMEN": "按 {COUNTRY} 收集",
-        "LIVING_SPECIMEN": "按 {COUNTRY} 收集",
+        "PRESERVED_SPECIMEN": "收藏在 {COUNTRY} ",
+        "FOSSIL_SPECIMEN": "收藏在 {COUNTRY} ",
+        "LIVING_SPECIMEN": "收藏在 {COUNTRY} ",
         "HUMAN_OBSERVATION": "在 {COUNTRY} 观察到",
         "MACHINE_OBSERVATION": "在 {COUNTRY} 观察到",
         "MATERIAL_SAMPLE": "在 {COUNTRY} 采集",
-        "OCCURRENCE": "在 {COUNTRY} 记录",
+        "OCCURRENCE": "记录于 {COUNTRY}",
         "OBSERVATION": "在 {COUNTRY} 观察到",
         "LITERATURE": "记录于 {COUNTRY}",
         "UNKNOWN": "记录于 {COUNTRY}"
@@ -78,7 +78,7 @@
         "HUMAN_OBSERVATION": "在未知位置观察到",
         "MACHINE_OBSERVATION": "在未知位置观察到",
         "MATERIAL_SAMPLE": "在未知位置采集",
-        "OCCURRENCE": "在未知地点记录",
+        "OCCURRENCE": "记录于未知地点",
         "OBSERVATION": "在未知地点观察到",
         "LITERATURE": "记录于未知地点",
         "UNKNOWN": "记录于未知地点"

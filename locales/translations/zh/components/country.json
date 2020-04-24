@@ -12,7 +12,7 @@
       "more": "更多…",
       "projects": "项目"
     },
-    "memberSince": "会员自",
+    "memberSince": "会员注册日期",
     "dataFrom": "来自 {TRANSLATED_COUNTRY} 的数据",
     "dataAboutCountry": "有关 {TRANSLATED_COUNTRY} 的数据",
     "publishingTrends": "发布趋势",
@@ -23,7 +23,7 @@
     "nAbout": "{NUMBER_FORMATTED} 关于",
     "viewAllN": "查看所有 {NUMBER_FORMATTED}",
     "noPublications": "没有任何出版物",
-    "noProjects": "没有项目",
+    "noProjects": "无项目",
     "notParticipant": "不是会员",
     "notParticipantDescription": "这个国家不是 GBIF 会员",
     "countryNamingDisclaimer": "国家和地区的名称是基于[ISO 3166-1 标准](https://www.iso.org/obp/ui/#search)",

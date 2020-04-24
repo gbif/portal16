@@ -5,7 +5,7 @@
     "nConstituentDatasets": "包含来自 {NUMBER_FORMATTED} 个{NUMBER, select, one {数据集} other{数据集}} 的记录",
     "fileNotAvailable": "此文件不再可供下载。",
     "downloadDeletionWarning": "此下载未被引用, 并有资格在 {DATE} 后删除。",
-    "occurrenceDownload": "发生下载",
+    "occurrenceDownload": "出现记录下载",
     "brokenDownload": "中断的下载",
     "contactHelpdesk": "联系服务台",
     "cancelled": "已取消",
@@ -15,7 +15,7 @@
     "occurrences": "出现记录",
     "largeQueryMessage": "非常大的过滤器。有关详细信息，请参阅下载。",
     "date": "日期",
-    "show": "显示:",
+    "show": "显示",
     "license": "授权条款",
     "readMore": "阅读更多",
     "titleMissing": "缺少数据集标题",
@@ -29,11 +29,11 @@
     "rerunQuery": "重新运行查询",
     "postpone": "推迟删除",
     "deleteDownload": "删除下载",
-    "tellUs": "告诉我们用途",
+    "tellUs": "告诉我们你的使用方法",
     "downloadKilled": "下载请求不成功。请再试一次或联系我们。",
-    "downloadDeleted": "此文件已被删除。如果您需要它恢复, 请与我们联系。",
-    "storageDurationTeaser": "GBIF 将存储此数据的时间是多久？",
-    "predatesDoi": "此下载早于我们使用 DOIs",
+    "downloadDeleted": "此文件已被删除。您仍然可以访问所有原始查询的元数据并在当前可用数据上重新运行相同的查询。",
+    "storageDurationTeaser": "GBIF 将存储此数据多长时间？",
+    "predatesDoi": "此下载早于我们使用 DOIs。如果您想引用这个下载的话，请联系我们。",
     "file": "文件",
     "constituentDatasets": "涉及的数据集",
     "noFiltersApplied": "没有设置筛选",
@@ -54,12 +54,12 @@
       "joinDescriptions": {
         "and": "需全部选用",
         "or": "至少选择一项",
-        "not": "不需包含任何项目"
+        "not": "未包含必选项"
       },
       "and": "与",
       "or": "或",
       "not": "不是",
-      "isNotNull": "定义"
+      "isNotNull": "已被定义"
     }
   },
   "myDownloads": {

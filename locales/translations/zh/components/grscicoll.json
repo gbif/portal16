@@ -1,7 +1,7 @@
 {
   "collection": {
     "search": {
-      "title": "集合",
+      "title": "馆藏",
       "description": "**机构馆藏** 是已正式被加入机构并获得相当程度支持的馆藏。\n\n**项目馆藏**是由机构内的研究员收集，但可能还未被正式纳入的馆藏。项目馆藏最终可能成为机构馆藏的一部分或仍由个别研究员管控。\n\n**私人馆藏**是由个别研究员管控，并没有正式加入相关机构的馆藏。它们可能是私人财产或不属于任何个人。"
     },
     "headerTitle": "馆藏",
@@ -71,7 +71,7 @@
     "position": "工作职位",
     "affiliations": "所属机构",
     "areaResponsibility": "负责领域",
-    "researchPursuits": "搜索特长",
+    "researchPursuits": "搜索专业范围",
     "primaryInstitution": "一级机构名称",
     "primaryCollection": "主要馆藏名称",
     "affiliateInstitutions": "其他附属机构",
@@ -79,7 +79,7 @@
   },
   "grscicoll": {
     "title": "",
-    "suggestChange": "",
+    "suggestChange": "建议更改",
     "tabs": {
       "about": "关于",
       "institutions": "机构",
@@ -91,11 +91,11 @@
       "email": "电子邮件",
       "fax": "",
       "mailingAddress": "邮寄地址",
-      "physicalAddress": "",
+      "physicalAddress": "住址",
       "contacts": "联系人",
       "address": "地址",
       "province": "",
-      "postalCode": "",
+      "postalCode": "邮政编码:",
       "city": "城市/乡镇",
       "country": "国家"
     }

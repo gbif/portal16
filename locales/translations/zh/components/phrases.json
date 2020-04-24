@@ -1,6 +1,6 @@
 {
   "phrases": {
-    "contactHelpdesk": "联系帮助台",
+    "contactHelpdesk": "联系服务台",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "全球生物多样性信息网络。自由且公开存取的生物多样性数据。",
     "deletedOnDate": "已于 {DATE} 删除",
@@ -9,19 +9,19 @@
     "failed": "失败",
     "errorNotAuthorized": "您好像没有被授权。请尝试刷新页面后登入。",
     "partialPage": "部分页面",
-    "noInformationFound": "未找到信息...",
+    "noInformationFound": "未找到信息",
     "noConnection": "没有找到网络连接",
-    "criticalErrorMsg": "系统当前无法执行您的要求。请尝试刷新页面，如果问题没有改善请回报此问题。",
+    "criticalErrorMsg": "系统当前无法执行您的要求。请尝试刷新页面，如果问题没有改善请报告此问题。",
     "nonCriticalErrorMsg": "当前无法获取所有数据。您正查看部分数据。请尝试刷新页面，若持续没有改变，请提交此问题。",
-    "noResultsMessage": "没有结果，请尝试放宽搜索条件。",
+    "noResultsMessage": "没有结果—请尝试放宽筛选条件",
     "noJavascriptEnabled": "很抱歉，如果没有启用 JavaScript，GBIF 无法正常运行。",
     "isSplashScreen": "我们的网站检测到您使用的是过时且不安全的浏览器，该浏览器将阻止您使用此网站。我们建议您升级到最新的浏览器。",
-    "404Text": "这个页面可能之前存在，但我们找不到。\n请尝试我们的 [搜索功能](/search) 来查找。\n欢迎随时通过 [helpdesk@gbif.org](mailto:helpdesk@gbif.org) 来联系我们。",
+    "404Text": "这个页面可能之前存在过，但现在我们找不到了。\n请尝试我们的 [搜索功能](/search) 来查找。\n欢迎随时通过 [helpdesk@gbif.org](mailto:helpdesk@gbif.org)来联系我们。",
     "changeLanguage": "更改语言",
     "noData": "没有数据",
     "payloadTooLarge": "",
     "readMore": "阅读更多",
     "share": "",
-    "loginRequiredDueToSpam": "请登录继续。"
+    "loginRequiredDueToSpam": "请登录以继续。"
   }
 }

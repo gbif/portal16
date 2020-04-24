@@ -21,7 +21,7 @@
     "containsSuspicious": "此地图包含被 GBIF标记为可疑位点的出现记录。",
     "hideSuspiciousCoordinates": "隐藏它们",
     "currentFilter": "当前筛选条件",
-    "selectColumns": "选择列",
+    "selectColumns": "选择图表的列",
     "done": "完成",
     "yesCorrectSuggestion": "是",
     "noWrongSuggestion": "否",

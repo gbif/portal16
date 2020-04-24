@@ -3,7 +3,7 @@
     "leaveFeedback": "留下您的意见",
     "intro": {
       "title": "反馈和问题",
-      "example": "请选择您将提供什么类型的反馈信息来帮忙我们。如果可能的话，请用英语提交您的反馈。我们会争取在2个工作日内答复您。"
+      "example": "请选择您将提供什么类型的反馈信息来帮助我们。如果可能的话，请用英语提交您的反馈。我们会争取在2个工作日内答复您。"
     },
     "data content": {
       "title": "内容",
@@ -20,7 +20,7 @@
       "example": "比如：我想要与之相关的基因序列数据的链接。显示所有开放访问的文章。"
     },
     "question": {
-      "title": "帮助台",
+      "title": "技术支持",
       "example": "例如：你如何保护稀有物种的数据？能否帮我找到这个物种在国际水域出现的所有数据？",
       "description": "所有问题都由我们的帮助台（helpdesk@gbif.org）解答。",
       "comment": "关于私人询问和非技术问题，您可以通过发送邮件到[info@gbaif.org](mailto:info@gbaif.org)或[communication@gbaif.org](mailto:communication@gbif.org) 了解新闻消息。"
@@ -40,7 +40,7 @@
       "description": "详细说明。对于分类学讨论，请提供参考文献。如有可能的话，请用英语提交您的反馈信息。",
       "username": "您的电子邮箱或Github用户名 (公开)"
     },
-    "markdownSupport": "Markdown支持",
+    "markdownSupport": "支持Markdown",
     "issueTracking": "所有问题均为公开问题, 可通过 [Github](https://github.com/gbif/portal-feedback/issues)访问",
     "failure": "看起来不妙——反馈系统没有响应。请您给我们发送电子邮件或直接转到 [Github](https://github.com/gbif/portal-feedback/issues)。很抱歉出现这样的问题。",
     "weRecommendX": "我们建议使用 [{NAME}]({LINK})",
