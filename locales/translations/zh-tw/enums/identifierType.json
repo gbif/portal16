@@ -14,7 +14,7 @@
       "GBIF_PARTICIPANT": "",
       "GRBIO_ID": "",
       "GRBIO_URI": "",
-      "GRSCICOLL_URI": "",
+      "GRSCICOLL_URI": "科學蒐藏統一資源標識符",
       "GRSCICOLL_ID": "科學蒐藏統一資源識別碼"
     }
   }
