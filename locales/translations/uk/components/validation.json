@@ -1,124 +1,124 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
-      "CLB_INTERPRETATION_BASED": ""
+      "RESOURCE_STRUCTURE": "Структура ресурсу",
+      "RESOURCE_INTEGRITY": "Цілісність ресурсу",
+      "RECORD_STRUCTURE": "Структура запису",
+      "OCC_INTERPRETATION_BASED": "Інтерпретація знахідки GBIF",
+      "METADATA_CONTENT": "Вміст метаданих",
+      "CLB_INTERPRETATION_BASED": "Інтерпретація таксона GBIF"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
-      "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
-      "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
-      "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "DWCA_UNREADABLE": "Архів Darwin Core не читається",
+      "DWCA_META_XML_NOT_FOUND": "Файл Meta.xml не знайдено",
+      "DWCA_META_XML_SCHEMA": "Помилка при валідації схеми Meta.xml",
+      "RECORD_IDENTIFIER_NOT_FOUND": "Ідентифікатор запису не знайдено у файлі",
+      "CORE_ROWTYPE_UNDETERMINED": "Не знайдено або не розпізнано rowType",
+      "EML_NOT_FOUND": "Документ EML не знайдено",
+      "EML_GBIF_SCHEMA": "Документ EML не проходить валідацію щодо схеми",
+      "UNKNOWN_ROWTYPE": "rowType, використаний для ядра/розширення невідомий",
+      "REQUIRED_TERM_MISSING": "Відсутній необхідний термін для ядра/розширення",
+      "COLUMN_MISMATCH": "Невідповідність стовпців",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Цілісність посилання(ь) запису порушено",
+      "UNKNOWN_TERM": "Невідома термін",
+      "DUPLICATED_TERM": "Дубльований термін",
+      "TITLE_MISSING_OR_TOO_SHORT": "Назва набору даних відсутня або занадто коротка",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "Творець ресурсу відсутній або його відомості неповні",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "Опис набору даних відсутній або занадто короткий",
+      "LICENSE_MISSING_OR_UNKNOWN": "Ліцензія не може бути проаналізована, не підтримується GBIF або ж просто відсутня",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Запис не ідентифіковано як унікальний",
+      "UNREADABLE_SECTION_ERROR": "Помилка зчитування розділу",
+      "NoIssuesFound": "Проблем не знайдено"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "Формат файлу",
+      "DWCA": "Архів Darwin Core",
+      "TABULAR": "Табульований файл (.csv, .tsv)",
+      "SPREADSHEET": "Електронна таблиця (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "Тип рядка",
       "CORE": {
-        "title": ""
+        "title": "Ядро"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "Розширення"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Метадані, що описують дані в EML (Ecological Metadata Language)",
+        "title": "Документ з метаданими"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "Семантична анотація, що описує структуру даних (файли, стовпці тощо)",
+        "title": "Мета-дескриптор"
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
-    "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "fileSizeLimit": "Максимальний розмір файлу: 100 МБ",
+    "receivedMediaType": "Тип медіа-файлу",
+    "uniqueIdentifier": "Унікальний ідентифікатор",
+    "reportLocation": "Даний звіт було записано до",
+    "reportDeletion": "І буде видалено через місяць. Протягом цього часу, якщо необхідно, ви можете переглядати цей звіт.",
+    "reportGenerated": "Був створений",
+    "summary": "Підсумок валідації",
+    "issues": "Проблеми валідації",
+    "fileHasIssues": "В результаті перевірки були виявлені деякі проблеми:",
+    "fileHasNoIssues": "У файлі не знайдено проблем",
+    "error": "Помилка",
     "errors": {
-      "400": "",
-      "404": "",
-      "413": "",
-      "415": ""
+      "400": "Файл не може бути опрацьований або ж він відсутній, якщо ви надали URL.",
+      "404": "Ідентифікатор завдання для перевірки не виявлено. Якщо ви вважаєте, що це помилка, будь ласка повідомте про це.",
+      "413": "Файл занадто великий і не може бути опрацьований валідатором даних.",
+      "415": "Непідтримуваний тип файлу. Файл не може бути опрацьований."
     },
-    "backToValidator": "",
+    "backToValidator": "Розпочати нову валідацію",
     "termsFrequency": {
-      "title": "",
-      "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "title": "Частота терміну",
+      "term": "Термін",
+      "count": "Кількість",
+      "percentage": "Відсоток",
+      "interpreted": "Проінтерпретовано"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "Кількість інтерпретованих дат",
+      "taxon": "Кількість рядків з інтерпретованим таксоном",
+      "location": "Кількість проінтерпретованих координат"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "Підрахунок проінтерпретованих значень"
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
-      "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "title": "Статус",
+      "SUBMITTED": "Надсилання файлу",
+      "FETCHING": "Отримання файлу",
+      "ACCEPTED": "Валідація розпочалася",
+      "RUNNING": "Валідація триває",
+      "FINISHED": "Валідацію завершено",
+      "FAILED": "Валідація не вдалася. Будь ласка, перевірте тип файлу або ж, якщо ви надали URL-адресу, перевірте чи файл існує за цією адресою.",
+      "CONTACTING_SERVER": "З’єднання з сервером..."
     },
-    "jobId": "",
-    "indexeable": "",
-    "notIndexeable": "",
-    "numberOfLines": "",
-    "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
-    "dataValidator": "",
-    "dataValidatorDescription": "",
-    "thisIsAnEarlyAccessVersion": "",
-    "here": "",
-    "coreRowType": "",
-    "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
-    "fetchFileFromLocation": "",
+    "jobId": "Ідентифікатор завдання",
+    "indexeable": "Цей файл може бути проіндексований GBIF",
+    "notIndexeable": "Цей файл не може бути проіндексований GBIF",
+    "numberOfLines": "Кількість рядків",
+    "reportProducedByGbifDataValidator": "Звіт наданий валідатором даних GBIF",
+    "validationReport": "Звіт про валідацію",
+    "dataValidator": "Валідатор даних",
+    "dataValidatorDescription": "Валідатор даних GBIF - це сервіс, що дозволяє будь-кому з GBIF-відповідним набором даних отримати звіт про синтаксичну коректність і валідність вмісту цього набору даних.",
+    "thisIsAnEarlyAccessVersion": "Це рання версія доступу. Будемо вдячні, якщо ви повідомте про виявлені проблеми і надішлете зауваження",
+    "here": "Тут.",
+    "coreRowType": "Тип рядка ядра",
+    "submit": "Надіслати",
+    "dropHere": "Перетягніть сюди",
+    "or": "або",
+    "selectFile": "Оберіть файл",
+    "fetchFileFromLocation": "Завантажити файл з локації",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
-      "about": "",
-      "darwinCoreExtensions": "",
-      "metaData": "",
-      "summary": ""
+      "newDataValidation": "Нова валідація даних",
+      "newValidation": "Нова валідація",
+      "about": "Опис",
+      "darwinCoreExtensions": "Розширення Darwin Core",
+      "metaData": "Мета-дані",
+      "summary": "Підсумок"
     }
   }
 }
