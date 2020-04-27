@@ -1,7 +1,7 @@
 {
   "occurrence": {
     "tabs": {
-      "details": ""
+      "details": "詳細資料"
     },
     "typeOf": "{NAME} 的 {TYPE}",
     "coordinates": "座標",
@@ -55,7 +55,7 @@
       "noIdentifier": "未提供媒體識別碼",
       "noPlaybackSupport": "您的瀏覽器不支援播放此媒體格式。",
       "takeMeThere": "連到原始網站",
-      "notWorkingTryPublishers": "",
+      "notWorkingTryPublishers": "播放問題？",
       "download": "下載媒體檔案"
     },
     "title": {
