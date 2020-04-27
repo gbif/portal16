@@ -256,11 +256,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
         queryKey: 'collection_code',
         filter: OccurrenceFilter,
         search: {
-            isSearchable: true,
-            suggestEndpoint: suggestEndpoints.collectionCode
-        },
-        facets: {
-            facetKey: 'COLLECTION_CODE'
+            isSearchable: true
         }
     };
 
