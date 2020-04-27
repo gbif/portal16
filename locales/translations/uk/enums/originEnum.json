@@ -1,16 +1,16 @@
 {
   "originEnum": {
-    "SOURCE": "",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
-    "PROPARTE": "",
-    "AUTONYM": "",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "SOURCE": "Джерело",
+    "DENORMED_CLASSIFICATION": "Ненормалізована класифікація",
+    "VERBATIM_PARENT": "Назва (відповідно до першоджерела) таксону вищого рангу",
+    "VERBATIM_ACCEPTED": "Прийнята назва (відповідно до першоджерела) таксону",
+    "VERBATIM_BASIONYM": "Назва (відповідно до першоджерела) базионіму",
+    "PROPARTE": "Proparte",
+    "AUTONYM": "Автонім",
+    "IMPLICIT_NAME": "Неявна назва",
+    "MISSING_ACCEPTED": "Не вказано прийняту назву",
+    "BASIONYM_PLACEHOLDER": "Замісник базионіма",
+    "EX_AUTHOR_SYNONYM": "Ex author синонім",
+    "OTHER": "Інше"
   }
 }
