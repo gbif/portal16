@@ -10,7 +10,7 @@ angular
 /** @ngInject */
 function faqCtrl($sce, $rootScope, NAV_EVENTS, Page, $state, $stateParams, ResourceSearch, ResourceItem, $location, $anchorScroll) {
     var vm = this;
-    vm.limit = 50;
+    vm.limit = 300;
     vm.maxSize = 5;
     vm.offset = 0;
     vm.question = $stateParams.question;
@@ -25,7 +25,7 @@ function faqCtrl($sce, $rootScope, NAV_EVENTS, Page, $state, $stateParams, Resou
             vm.linkToAnswer(vm.q.substr(9));
         } else {
             $location.hash('');
-            $state.go('.', {question: undefined, q: vm.q}, {inherit: true, notify: true, reload: false});
+            $state.go('.', {question: undefined, q: vm.q, offset: vm.offset}, {inherit: true, notify: true, reload: false});
         }
     };
     window.scrollTo(0, 0);

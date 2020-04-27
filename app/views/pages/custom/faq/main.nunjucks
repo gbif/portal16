@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <uib-pagination
+                    {# <uib-pagination
                             total-items="faq.answers.count"
                             ng-model="faq.currentPage"
                             max-size="faq.maxSize"
@@ -65,7 +65,7 @@
                             rotate="false"
                             ng-change="faq.pageChanged()"
                             ng-show="faq.answers.count > faq.limit">
-                    </uib-pagination>
+                    </uib-pagination> #}
                 </div>
             </div>
         </section>
