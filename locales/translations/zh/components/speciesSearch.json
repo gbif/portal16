@@ -2,9 +2,9 @@
     "speciesSearch": {
         "title": "物种搜索",
         "youAreCurrentlySearchingInGBIFtaxonomy": "您正在寻找基于 GBIF分类中的物种。",
-        "SearchAcrossChecklists": "跨名录检索",
-        "freeTextSearchFor": "您正在执行 \"{QUERY}\" 的自由文本搜索",
-        "limitSearchTo": "限制搜索到",
+        "SearchAcrossChecklists": "在核对列表中搜索",
+        "freeTextSearchFor": "您正在执行 \"{QUERY}\" 的免费文本搜索",
+        "limitSearchTo": "限定以下搜索",
         "limitResultsTo": {
             "all": "全部",
             "scientificNames": "学名",

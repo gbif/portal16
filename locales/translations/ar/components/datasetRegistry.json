@@ -36,7 +36,7 @@
             "gbifIngestionStatus": "حالة الادخال لـ \"جبيف\"",
             "lastIngestionSuccess": "الادخال الأخير بنجاح",
             "lastIngestionFailed": "فشل الادخال الأخير",
-            "outOfSync": "",
+            "outOfSync": "خارج التزامن",
             "becauseTrustedContact": "لأنك جهة اتصال موثوق بها"
         },
         "crawl": {

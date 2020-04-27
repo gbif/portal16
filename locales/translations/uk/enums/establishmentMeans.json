@@ -1,10 +1,10 @@
 {
   "establishmentMeans": {
-    "NATIVE": "",
-    "INTRODUCED": "",
-    "NATURALISED": "",
-    "INVASIVE": "",
-    "MANAGED": "",
-    "UNCERTAIN": ""
+    "NATIVE": "Природний",
+    "INTRODUCED": "Інтродукований",
+    "NATURALISED": "Натуралізований",
+    "INVASIVE": "Інвазійний",
+    "MANAGED": "Культивований / Одомашнений",
+    "UNCERTAIN": "Невизначено"
   }
 }

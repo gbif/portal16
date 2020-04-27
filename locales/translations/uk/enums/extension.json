@@ -1,12 +1,12 @@
 {
   "extensionEnum": {
-    "DESCRIPTION": "",
-    "DISTRIBUTION": "",
-    "IDENTIFIER": "",
-    "MULTIMEDIA": "",
-    "REFERENCE": "",
-    "SPECIES_PROFILE": "",
-    "TYPES_AND_SPECIMEN": "",
-    "VERNACULAR_NAME": ""
+    "DESCRIPTION": "Опис",
+    "DISTRIBUTION": "Поширення",
+    "IDENTIFIER": "Автор визначення",
+    "MULTIMEDIA": "Мультимедіа",
+    "REFERENCE": "Посилання",
+    "SPECIES_PROFILE": "Профіль виду",
+    "TYPES_AND_SPECIMEN": "Типи та зразки",
+    "VERNACULAR_NAME": "Назви національною мовою"
   }
 }

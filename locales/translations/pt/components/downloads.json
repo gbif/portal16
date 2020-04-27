@@ -1,68 +1,86 @@
 {
-  "downloadKey": {
-    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registo} other{registos}} transferidos",
-    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registo} other{registos}} transferidos",
-    "nConstituentDatasets": "Inclui registos de {NUMBER_FORMATTED} {NUMBER, select, one{conjunto de dados} other{conjuntos de dados}}",
-    "fileNotAvailable": "Este ficheiro não está mais disponível para transferência",
-    "downloadDeletionWarning": "Esta transferência não foi citada e é elegível para exclusão após {DATE}.",
-    "occurrenceDownload": "Transferência de ocorrência",
-    "brokenDownload": "Transferência interrompida",
-    "contactHelpdesk": "Contate o serviço de assistência técnica",
-    "cancelled": "Cancelada",
-    "cancel": "Cancelar",
-    "download": "Transferir",
-    "records": "",
-    "occurrences": "Ocorrências",
-    "largeQueryMessage": "Filtro muito grande. Consulte a transferência para obter mais detalhes.",
-    "date": "Data",
-    "show": "Mostrar",
-    "license": "Licença",
-    "readMore": "Obter mais informações",
-    "titleMissing": "Título do conjunto de dados ausente",
-    "underProcessing": "A processar",
-    "citation": "Citações",
-    "format": "Formato",
-    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, select, one{registo} other{registos}} no momento da transferência",
-    "aboutDeletionPolicy": "Leia mais sobre nossa [deletion policy](/faq?question=for-how-long-will-does-gbif-store-downloads).",
-    "readDatauseAndTerms": "Certifique-se de ler o [acordo de utilizadores de dados](/termos/utilizador-dados) e [guia para citação](/citação-guia).",
-    "filterApplied": "Filtro aplicado {DATE}",
-    "rerunQuery": "Refazer a consulta",
-    "postpone": "Adiar exclusão",
-    "deleteDownload": "Remover transferência",
-    "tellUs": "Diga-nos sobre o uso",
-    "downloadKilled": "A transferência solicitata não teve sucesso. Por favor tente outra vez, ou entre em contato.",
-    "downloadDeleted": "Este ficheiro foi apagado. Se precisar de restaurá-lo, por favor entre em contato.",
-    "storageDurationTeaser": "Durante quanto tempo o GBIF irá armazenar os dados?",
-    "predatesDoi": "Esta transferência é anterior ao nosso uso de DOIs",
-    "file": "Ficheiro",
-    "constituentDatasets": "Conjuntos de dados envolvidos",
-    "noFiltersApplied": "Filtros não utilizados",
-    "apiUsageDescription": "Para repetir a transferência com os dados de hoje utilizando o API pode usar a query abaixo.",
-    "apiFilterView": "API",
-    "humanFilterView": "Humano",
-    "downloadStarted": "A transferência foi iniciada e está atualemente em processamento.",
-    "downloadExpectTime": "Conte com até 3 horas para a transferência completar. A maioria das transferências irá completar nos primeiros 15 minutos.",
-    "notificationEmailAddresses": "Um email de notificação com um link do resultado da transferência será enviado para o seguinte endereço, assim que pronto: ",
-    "status": {
-      "PREPARING": "A preparar",
-      "SUSPENDED": "Suspenso",
-      "RUNNING": "Em execução",
-      "CANCELLED": "Cancelada",
-      "KILLED": "Apagado"
-    },
-    "predicate": {
-      "joinDescriptions": {
-        "and": "Devem aplicar-se todos",
-        "or": "Ao menos um deve aplicar-se",
-        "not": "Não deve aplicar-se nenhum"
-      },
-      "and": "E",
-      "or": "Ou",
-      "not": "Não",
-      "isNotNull": "Está definido"
-    }
-  },
-  "myDownloads": {
-    "title": "Minhas transferências"
-  }
+	"downloads.header.title": {
+		"message": "Pora pokazać innym twoje zainteresowania.",
+		"description": "Title"
+	},
+	"downloads.header.subtitle": {
+		"message": "Zacznij używać PreMiD i pokaż innym czego słuchasz lub co oglądasz, może znajdziesz kogoś z podobnymi zainteresowaniami.",
+		"description": "Subtitle for header"
+	},
+	"downloads.instructions.heading": {
+		"message": "Jak rozpocząć",
+		"description": "Displayed at Downloads page above steps"
+	},
+	"downloads.instructions.step_1": {
+		"message": "Pobierz PreMiD.",
+		"description": "Heading for installing the application"
+	},
+	"downloads.instructions.step_2": {
+		"message": "Pobierz aplikację.",
+		"description": "Heading for installing the application"
+	},
+	"downloads.instructions.step_3": {
+		"message": "Pobierz rozszerzenie dla twojej przeglądarki.",
+		"description": "Heading for installing the application"
+	},
+	"downloads.instructions.step_4": {
+		"message": "Odwiedź {0} i sprawdź czy rozszerzenie jest zainstalowane.",
+		"description": "{0} will be replaced by 'store' string translation"
+	},
+	"downloads.instructions.step_4_store": {
+		"message": "Sklep",
+		"description": "Be sure that you understand the context! This string will be included in `downloads.instructions.step_4` instead of {0}"
+	},
+	"downloads.appdownloading.header": {
+		"message": "Aplikacja",
+		"description": "Header above application download buttons."
+	},
+	"downloads.extdownloading.header": {
+		"message": "Rozszerzenie",
+		"description": "Header above extension download buttons."
+	},
+	"downloads.tooltips.os_not_supported.part1": {
+		"message": "Uwaga:",
+		"description": "First part of the message."
+	},
+	"downloads.tooltips.os_not_supported.part2": {
+		"message": "{0} Nie posiadamy instalatora dla tego systemu operacyjnego. To oznacza, że nie mamy pod to profesjonalnego wsparcia.",
+		"description": "Next part of the tooltip message. {0} are replaced with `downloads.tooltips.os_not_supported.part1`"
+	},
+	"downloads.mobile.errorMessage": {
+		"message": "Ostrzegamy że PreMiD nie jest obecnie dostępny na telefony.",
+		"description": "Downloads page warning when user is on mobile."
+	},
+	"downloads.mobile.showDownloads": {
+		"message": "Pokaż pliki do pobrania",
+		"description": "Little button on the downloads page for mobile users."
+	},
+	"downloads.mobile.hideDownloads": {
+		"message": "Ukryj pliki do pobrania",
+		"description": "Little button on the downloads page for mobile users."
+	},
+	"downloads.warning.differentVersion": {
+		"message": "Aktualna wersja tej platformy to {0} (ta wersja jest specyficzna dla Linuxa i nie dotyczy innych systemów).",
+		"description": "Tippy message of the Linux card."
+	},
+	"downloads.warning.differentVersion2": {
+		"message": "Ta wersja jest specyficzna dla Linuxa i nie ma zastosowania do innych systemów. Główna wersja aplikacji to {0}",
+		"description": "Tippy message of the version number when user is on Linux."
+	},
+	"downloads.error.login": {
+		"message": "Zaloguj się, aby zobaczyć pliki do pobrania.",
+		"description": "Error message if the user is not logged in."
+	},
+	"downloads.error.noaccess.title": {
+		"message": "O nie, wygląda na to, że nie masz dostępu do alfa/beta :(",
+		"description": "Error message if the user doesn't alpha/beta access."
+	},
+	"downloads.error.noaccess.description": {
+		"message": "Możesz dołączyć do naszego programu beta za darmo **tutaj**. Pospiesz się! Mamy tylko {0} dostępnych miejsc (z 200)",
+		"description": "More info if the user doesn't alpha/beta access."
+	},
+	"downloads.latest.header": {
+		"message": "Najnowsze wydania",
+		"description": "Header above alpha/beta download buttons."
+	}
 }

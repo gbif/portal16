@@ -1,12 +1,12 @@
 {
   "datasetType": {
-    "OCCURRENCE": "",
-    "CHECKLIST": "",
-    "SAMPLING_EVENT": "",
-    "METADATA": "",
-    "undefined": ""
+    "OCCURRENCE": "Знахідки",
+    "CHECKLIST": "Таксономічні списки",
+    "SAMPLING_EVENT": "Дані вибірок, описів та обліків",
+    "METADATA": "Метадані",
+    "undefined": "Невідомо"
   },
   "datasetSubtype": {
-    "TREATMENT_ARTICLE": ""
+    "TREATMENT_ARTICLE": "Публікація, що містить автоматично розпізнані повідомлення про знахідки"
   }
 }

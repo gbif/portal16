@@ -37,7 +37,7 @@
     },
     "headerTitle": "機構",
     "indexHerbariorumRecord": "植物標本館索引紀錄",
-    "numberSpecimens": "",
+    "numberSpecimens": "標本數量",
     "code": "機構代碼",
     "statusOfInstitution": "機構狀態",
     "additionalNames": "其他名稱",
@@ -75,28 +75,28 @@
     "primaryInstitution": "主要機構名稱",
     "primaryCollection": "主要典藏名稱",
     "affiliateInstitutions": "其他附屬機構",
-    "affiliateCollections": ""
+    "affiliateCollections": "其他附屬機構"
   },
   "grscicoll": {
     "title": "",
-    "suggestChange": "",
+    "suggestChange": "提供建議",
     "tabs": {
       "about": "關於",
       "institutions": "機構",
       "collections": "蒐藏",
-      "people": ""
+      "people": "工作人員"
     },
     "contact": {
-      "phone": "",
+      "phone": "電話號碼",
       "email": "電子郵址",
-      "fax": "",
+      "fax": "傳真號碼",
       "mailingAddress": "郵寄地址",
-      "physicalAddress": "",
+      "physicalAddress": "實體地址",
       "contacts": "聯絡資訊",
       "address": "地址",
-      "province": "",
-      "postalCode": "",
-      "city": "",
+      "province": "州/省",
+      "postalCode": "郵遞區號",
+      "city": "城市/城鎮",
       "country": "國家"
     }
   }
