@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
-    "HYBRID": "",
-    "INFORMAL": "",
-    "OTU": "",
-    "CULTIVAR": "",
-    "CANDIDATUS": "",
-    "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "SCIENTIFIC": "Наукова назва",
+    "DOUBTFUL": "Сумнівний",
+    "BLACKLISTED": "У чорному списку",
+    "VIRUS": "Вірус",
+    "HYBRID": "Гібридна формула",
+    "INFORMAL": "Неформальна",
+    "OTU": "Оперативна таксономічна одиниця (OTU)",
+    "CULTIVAR": "Культивар (сорт)",
+    "CANDIDATUS": "Кандидат",
+    "PLACEHOLDER": "Замісник",
+    "NO_NAME": "Без назви"
   }
 }
