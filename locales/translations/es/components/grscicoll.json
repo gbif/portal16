@@ -46,7 +46,7 @@
     "foundingDate": "",
     "geographicDescription": "Descripción geográfica",
     "taxonomicDescription": "Descripción taxonómica",
-    "citesPermitNumber": "",
+    "citesPermitNumber": "Número de permisos de citas",
     "disciplines": "Disciplinas institucionales",
     "institutionalGovernance": "Gobernanza institucional",
     "type": "Tipo de institución",
@@ -81,7 +81,7 @@
     "title": "",
     "suggestChange": "Sugiere un cambio",
     "tabs": {
-      "about": "",
+      "about": "Acerca De",
       "institutions": "Instituciones",
       "collections": "Colecciones",
       "people": ""
