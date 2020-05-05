@@ -25,9 +25,9 @@
     "done": "Hecho",
     "yesCorrectSuggestion": "Sí",
     "noWrongSuggestion": "No",
-    "errorUserThrottled": "Acceso temporalmente restringido.",
-    "polygonSimplifiedToFewerDecimals": "",
-    "polygonSimplifiedToFewerPoints": "",
-    "largeQueryLengthWarning": ""
+    "errorUserThrottled": "Su acceso ha sido temporalmente restringido.",
+    "polygonSimplifiedToFewerDecimals": "El polígono ha sido simplificado: el número de decimales se ha reducido",
+    "polygonSimplifiedToFewerPoints": "El polígono se ha simplificado: el número de puntos se ha reducido",
+    "largeQueryLengthWarning": "La URL de su consulta excede los 2.000 caracteres y puede que no funcione correctamente en todos los navegadores. Para consultas grandes y/o complicadas, por favor considere el uso de la API de descarga."
   }
 }
