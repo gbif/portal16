@@ -107,7 +107,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
-                        {% call trowS(url="", respLink=apiBase+"occurrence/search?taxonKey=1", paging=true, params=["q","basisOfRecord","catalogNumber","collectionCode","continent","country","datasetKey","decimalLatitude","decimalLongitude","depth","elevation","eventDate","geometry","hasCoordinate","hasGeospatialIssue","identifiedByID","institutionCode","issue","lastInterpreted","mediaType","month","occurrenceId","organismId","protocol","license","publishingCountry","publishingOrg","crawlId","recordedBy", "recordedByID","recordNumber","scientificName","locality","stateProvince","waterBody","taxonKey","kingdomKey","phylumKey","classKey","orderKey","familyKey","genusKey","subGenusKey","speciesKey","year","establishmentMeans","repatriated","typeStatus","facet","facetMincount","facetMultiselect", "facet, paging"]) %}
+                        {% call trowS(url="", respLink=apiBase+"occurrence/search?taxonKey=1", paging=true, params=["q","basisOfRecord","catalogNumber","collectionCode","continent","country","datasetKey","decimalLatitude","decimalLongitude","coordinateUncertaintyInMeters","depth","elevation","eventDate","geometry","hasCoordinate","hasGeospatialIssue","identifiedByID","institutionCode","issue","lastInterpreted","mediaType","month","occurrenceId","organismId","protocol","license","publishingCountry","publishingOrg","crawlId","recordedBy", "recordedByID","recordNumber","scientificName","locality","stateProvince","waterBody","taxonKey","kingdomKey","phylumKey","classKey","orderKey","familyKey","genusKey","subGenusKey","speciesKey","year","establishmentMeans","repatriated","typeStatus","facet","facetMincount","facetMultiselect", "facet, paging"]) %}
                         Full search across all occurrences.
                         Results are ordered by relevance.
                         {% endcall %}
@@ -296,6 +296,8 @@
             "decimalLatitude": "Latitude in decimals between -90 and 90 based on WGS 84.. Supports <a
                     href='/developer/summary#common'>range queries</a>.",
             "decimalLongitude": "Longitude in decimals between -180 and 180 based on WGS 84.. Supports <a
+                    href='/developer/summary#common'>range queries</a>.",
+            "coordinateUncertaintyInMeters": "The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Supports <a
                     href='/developer/summary#common'>range queries</a>.",
             "country": "The 2-letter country code (as per <a
                     href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'
