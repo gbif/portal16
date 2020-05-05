@@ -665,6 +665,19 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
         }
     };
 
+    vm.filters.coordinateUncertaintyInMeters = {
+        titleTranslation: 'filterNames.coordinateUncertaintyInMeters',
+        intervalTranslation: 'intervals.coordinateUncertaintyInMeters.',
+        queryKey: 'coordinateUncertaintyInMeters',
+        filter: OccurrenceFilter,
+        range: {
+            'min': [0, 1],
+            '10%': [100, 10],
+            '50%': [10000, 100],
+            'max': [1000000]
+        }
+    };
+
     // ternary "all, yes, no" aka optional boolean
     vm.filters.repatriated = {
         titleTranslation: 'filterNames.repatriated',
