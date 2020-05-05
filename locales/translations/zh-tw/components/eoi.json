@@ -61,7 +61,7 @@
     "logo": "標誌",
     "exampleImageUrl": "例如 http://my.organization.org/images/logo.png",
     "invalidUrl": "無效的 URL",
-    "brieflyDescribeScope": "簡要的描述您的機構（或組織）與 GBIF 任務相關的工作領域（例如蒐藏品、研究重點、生物多樣性資料管理等）。說明內容會顯示於發布者頁面。",
+    "brieflyDescribeScope": "請以英文簡要地描述您的機構（或組織）與 GBIF 任務相關的工作領域（例如蒐藏品、研究重點、生物多樣性資料管理等）。說明內容會顯示於發布者頁面。您可以加上任何其它語言的版本，但一定要有英文版。",
     "clear": "清除",
     "clickMapToAddOrg": "點擊地圖來新增您的組織",
     "description": "說明",
