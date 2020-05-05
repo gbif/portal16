@@ -1,7 +1,7 @@
 {
   "treatment": {
-    "distribution": "",
-    "figures": ""
+    "distribution": "Distribución",
+    "figures": "Figuras"
   },
   "species": {
     "distribution": {
@@ -12,7 +12,7 @@
     },
     "tabs": {
       "overview": "Información general",
-      "treatment": "",
+      "treatment": "Tratamiento",
       "metrics": "Estadísticas",
       "referenceTaxon": "Taxón de referencia",
       "verbatim": "Original"
@@ -23,13 +23,13 @@
       "accordingTo": "De acuerdo a",
       "occurrenceCount": "Registros de presencia en GBIF",
       "seeAllCountries": "Mostrar todo",
-      "isInvasive": "",
+      "isInvasive": "Evidencia del impacto",
       "isInvasive_yes": "Sí",
       "isInvasive_no": "No"
     },
     "treatment": {
-      "distribution": "",
-      "figures": ""
+      "distribution": "Distribución",
+      "figures": "Figuras"
     },
     "as": "Como",
     "in": "En",
@@ -48,7 +48,7 @@
     "synonyms": "Sinónimos",
     "synonymOf": "Sinónimo de",
     "basionymOf": "Basónimo de",
-    "homotypicSynonymOf": "",
+    "homotypicSynonymOf": "Sinónimo homotípico de",
     "immediateChildren": "Subordinado inmediato",
     "descendants": "Descendientes",
     "loadMore": "Más",
@@ -78,7 +78,7 @@
     "lastCrawled": "Último rastreo {DATE_FORMATTED}",
     "extensions": "Extensiones",
     "taxa": "Taxones",
-    "mediatedThrough": "",
+    "mediatedThrough": "Mediado a través",
     "taxonIdentifiers": "Identificadores de taxón",
     "whyDoubtful": ""
   }
