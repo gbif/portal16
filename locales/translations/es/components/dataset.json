@@ -1,6 +1,6 @@
 {
   "dataset": {
-    "datasetSearchTitle": "",
+    "datasetSearchTitle": "Búsqueda de datos",
     "longType": {
       "OCCURRENCE": "Juego de datos de registros de presencias",
       "CHECKLIST": "Conjunto de datos de listas de especies",
