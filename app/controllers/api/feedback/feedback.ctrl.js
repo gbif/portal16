@@ -54,11 +54,12 @@ router.post('/bug', auth.isAuthenticated(), function(req, res) {
         res.json({
             error: 'form data missing'
         });
-    } else if (isSpam(req, formData)) {
-        res.status(500);
-        res.json({
-            error: 'unable to post feedback'
-        });
+    // We haven't seen any spam for ages, but we have had one example where valid content was rejected. Disable until spam becomes an issue again.
+    // } else if (isSpam(req, formData)) {
+    //     res.status(500);
+    //     res.json({
+    //         error: 'unable to post feedback'
+    //     });
     } else {
         createIssue(req, req.body, function(err, data) {
             if (err) {
