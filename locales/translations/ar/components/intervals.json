@@ -41,10 +41,10 @@
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "هو(من)",
+            "between": "بين (من) و(الى)",
+            "lessThanOrEquals": "اقل من او يساوي(الى)",
+            "greaterThanOrEquals": "اكبر من او يساوي(من)",
             "invalid": "",
             "select": {
                 "equals": "",
