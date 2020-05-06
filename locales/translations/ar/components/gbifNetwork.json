@@ -1,14 +1,14 @@
 {
   "gbifNetwork": {
     "gbifNetwork": "",
-    "title": "",
-    "contact": "",
+    "title": "دليل",
+    "contact": "تماس",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "مشارك له حق التصويت",
+      "other": "مشاركون لهم حق التصويت"
     },
     "associate_country_participant": {
-      "one": "",
+      "one": "مشارك  من البلد المشاركة",
       "other": ""
     },
     "other_associate_participant": {
