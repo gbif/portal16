@@ -1,124 +1,124 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
-      "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
-      "CLB_INTERPRETATION_BASED": ""
+      "RESOURCE_STRUCTURE": "بنية الموارد",
+      "RESOURCE_INTEGRITY": "سلامة المورد",
+      "RECORD_STRUCTURE": "بنية السجل",
+      "OCC_INTERPRETATION_BASED": "تأويل التكرار ل GBIF",
+      "METADATA_CONTENT": "محتوي البيانات الوصفية",
+      "CLB_INTERPRETATION_BASED": "تأويل الاصنوفة لGBIF"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
-      "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
-      "COLUMN_MISMATCH": "",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
-      "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
-      "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
-      "NoIssuesFound": ""
+      "DWCA_UNREADABLE": "ارشيف داروين الاساسي غير المقروء",
+      "DWCA_META_XML_NOT_FOUND": "لم يتم العثور على ملفMeta-xml",
+      "DWCA_META_XML_SCHEMA": "فشل التحقق من مخطط Meya-xml",
+      "RECORD_IDENTIFIER_NOT_FOUND": "لم يتم العثور على معرف السجل",
+      "CORE_ROWTYPE_UNDETERMINED": "لم يتم العثور او تحديد نوع السطر",
+      "EML_NOT_FOUND": "لم يتم العثور على وثيقةEML",
+      "EML_GBIF_SCHEMA": "مستندEML  لايثبت صحة المخطط",
+      "UNKNOWN_ROWTYPE": "نوع السطر المستخدم ل المركز/الفرع مجهول",
+      "REQUIRED_TERM_MISSING": "المصطلح المطلوب للمركز/الفرع مفقود",
+      "COLUMN_MISMATCH": "عدم تطابق العمود",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "السجل المرجعي للمخالفات المتعلقة بالنزاهة",
+      "UNKNOWN_TERM": "مصطلح غير معروف",
+      "DUPLICATED_TERM": "مصطلح منسوخ او مكرر",
+      "TITLE_MISSING_OR_TOO_SHORT": "عنوان مجموعة البيانات مفقود او انه مختصر جدا",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "منشىء الموارد مفقود او انه غير كامل",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "توصيف مجموعة البيانات مفقود او مختصر جدا",
+      "LICENSE_MISSING_OR_UNKNOWN": "لايمكن تحليل الرخصة وليست مدعمة من قبل GBIFاو ببساطة مفقودة",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "السجل ليس معرفا بشكل مميز",
+      "UNREADABLE_SECTION_ERROR": "خطا غير مقروء في القسم",
+      "NoIssuesFound": "لا توجد مشاكل"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "title": "صيفة الملف",
+      "DWCA": "ارشيف داروين الاساسي",
+      "TABULAR": "ملف مجدول(csv,.tsv)",
+      "SPREADSHEET": "لوحة جدولية(xlsx.)"
     },
     "fileType": {
-      "title": "",
+      "title": "نوع الصف",
       "CORE": {
-        "title": ""
+        "title": "النواة"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "الملحقات"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "البيانات الوصفية التي تصف البيانات في EML(لغة بيانات بيئية)",
+        "title": "وثيقة بيانات وصفية"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "شروحات الدلالات اللفظية التي توصف كيف تم هيكلة(الملفات, الاعمدة,  الخ)",
+        "title": "واصف التعريف"
       }
     },
-    "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
-    "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "fileSizeLimit": "حدود حجم الملف:100 ملي بايت",
+    "receivedMediaType": "نوع وسائل التواصل",
+    "uniqueIdentifier": "معرف متميز",
+    "reportLocation": "تم كتابة التقرير الى",
+    "reportDeletion": "سوف يحذف بعد شهر. مالم تستطيع مراجعة التقريرفي الوقت المناسب لك ",
+    "reportGenerated": "تم انشاءوه",
+    "summary": "ملخص التحقق",
+    "issues": "مسائل التحقق",
+    "fileHasIssues": "بعض المشاكل تم تقصيها من قبل المصادق",
+    "fileHasNoIssues": "للم يتم العثور على مشاكل في الملف",
+    "error": "خطأ",
     "errors": {
-      "400": "",
-      "404": "",
-      "413": "",
-      "415": ""
+      "400": "تعذر معالجة الملف, او انه قد فقد عندما  وفرت URL",
+      "404": "لم يعثر عل معرف فاعليةالعمل. اذا كنت تعتقد ان هذا خطا, الرجاء الابلاغ عنه",
+      "413": "الملف كبير جدا, لايمكن ان  يعالج من قبل مدقق البيانات",
+      "415": "نوع الملف غير مسند, ومن غير المحتمل معالجته."
     },
-    "backToValidator": "",
+    "backToValidator": "إبدأ عملية تدقيق صحةجديدة",
     "termsFrequency": {
-      "title": "",
-      "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "title": "تردد الفترة  الزمنية",
+      "term": "امد",
+      "count": "احصاء",
+      "percentage": "النسبة المئوية",
+      "interpreted": "فسرت"
     },
     "interpretedCounts": {
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "date": "عدد  النواريخ التي تم تأويلها",
+      "taxon": "عدد السطور  مع الاصنوفة المفسرة",
+      "location": "عدد الاحداثيات المفسرة"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "عدد القيمة المفسرو"
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
-      "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "title": "الحالة",
+      "SUBMITTED": "الملف قيد الارسال",
+      "FETCHING": "إحضار الملف",
+      "ACCEPTED": "تم البدء بالتحقق",
+      "RUNNING": "التحقق جاري",
+      "FINISHED": " اكتمل التحقق",
+      "FAILED": "فشل التحقق. الرجاء التأكد من نوع الملف, او في حال سلمت عنوان url, الرجاء التأكد من وجود الملف في الموقع",
+      "CONTACTING_SERVER": "الاتصال بالمخدم"
     },
-    "jobId": "",
-    "indexeable": "",
-    "notIndexeable": "",
-    "numberOfLines": "",
-    "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
-    "dataValidator": "",
-    "dataValidatorDescription": "",
-    "thisIsAnEarlyAccessVersion": "",
-    "here": "",
-    "coreRowType": "",
-    "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
-    "fetchFileFromLocation": "",
+    "jobId": "معرف العمل",
+    "indexeable": "يمكن فهرسة الملف من قبل المرفق العالمي لمعلومات التنوع الحيوي",
+    "notIndexeable": "لايمكن فهرسة الملف من قبل المرفق الهالمي لمهلومات التنوع الحيوي",
+    "numberOfLines": "عدد السطور",
+    "reportProducedByGbifDataValidator": "تقرير أعده محقق بيانات المرفق العالمي لمعلومات التنوع الحيوي",
+    "validationReport": "تقرير تحق",
+    "dataValidator": "محقق البيانات",
+    "dataValidatorDescription": "محقق بيانات المرفق العالمي لمعلومات التنوع الحيوي عبارة عن خدمة تجيز لأي شخص لديه مجموعة بيانات  ذو صلة بموضوع بيانات ,المرفق العالمي لمعلومات التنوع الحيوي من تلقي تقرير  عن صحة قواعد النحو للغة  التقرير وصلاحيةالمحتوى المدرج ضمن مجموعة البيانات",
+    "thisIsAnEarlyAccessVersion": "هذا إصدار وصول مبكر. الرجاء الابلاغ عن المشكلات والاستجابة",
+    "here": "هنا",
+    "coreRowType": "نوع الصف الاساسي",
+    "submit": "إحالة",
+    "dropHere": "اسقط هنا",
+    "or": "أو",
+    "selectFile": "اختر ملف",
+    "fetchFileFromLocation": "جلب الملف من الموقع",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
-      "about": "",
-      "darwinCoreExtensions": "",
-      "metaData": "",
-      "summary": ""
+      "newDataValidation": "التحقق من البيانات الجديدة",
+      "newValidation": "فاعلية جديدة",
+      "about": "عن",
+      "darwinCoreExtensions": "ملحقات داروين الاساسية",
+      "metaData": "بيانات وصفية",
+      "summary": "موجز"
     }
   }
 }
