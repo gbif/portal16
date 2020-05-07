@@ -1,8 +1,8 @@
 {
   "role": {
-    "TECHNICAL_POINT_OF_CONTACT": "",
-    "ADMINISTRATIVE_POINT_OF_CONTACT": "",
-    "_PRIMARY_CONTACT": "",
+    "TECHNICAL_POINT_OF_CONTACT": "جهة الاتصال الفنية",
+    "ADMINISTRATIVE_POINT_OF_CONTACT": "جهة الاتصال الادارية",
+    "_PRIMARY_CONTACT": "اتصال رئيسي",
     "POINT_OF_CONTACT": "",
     "ORIGINATOR": "",
     "GBIFS_STAFF_MEMBER": "",
