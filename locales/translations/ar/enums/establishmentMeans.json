@@ -1,8 +1,8 @@
 {
   "establishmentMeans": {
-    "NATIVE": "",
-    "INTRODUCED": "",
-    "NATURALISED": "",
+    "NATIVE": "اصلي",
+    "INTRODUCED": "مدخلات",
+    "NATURALISED": "متجنس",
     "INVASIVE": "",
     "MANAGED": "",
     "UNCERTAIN": ""
