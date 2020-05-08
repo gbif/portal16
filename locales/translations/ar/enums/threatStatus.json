@@ -4,10 +4,10 @@
         "EXTINCT_IN_THE_WILD": "منقرض في البرية",
         "CRITICALLY_ENDANGERED": "معرض للانقراض بشكل خطير",
         "ENDANGERED": "عرضة للخطر",
-        "VULNERABLE": "",
-        "NEAR_THREATENED": "",
-        "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "",
-        "NOT_EVALUATED": ""
+        "VULNERABLE": "غير حصين",
+        "NEAR_THREATENED": "قريب من التهديد",
+        "LEAST_CONCERN": "اقل اهتمام",
+        "DATA_DEFICIENT": "نفص البيانات",
+        "NOT_EVALUATED": "غير مقيم"
     }
 }
