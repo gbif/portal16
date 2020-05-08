@@ -3,8 +3,8 @@
     "NATIVE": "اصلي",
     "INTRODUCED": "مدخلات",
     "NATURALISED": "متجنس",
-    "INVASIVE": "",
-    "MANAGED": "",
-    "UNCERTAIN": ""
+    "INVASIVE": "غازي",
+    "MANAGED": "ادار",
+    "UNCERTAIN": "غير مؤكد"
   }
 }
