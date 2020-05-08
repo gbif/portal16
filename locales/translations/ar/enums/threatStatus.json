@@ -1,9 +1,9 @@
 {
     "threatStatus": {
-        "EXTINCT": "",
-        "EXTINCT_IN_THE_WILD": "",
-        "CRITICALLY_ENDANGERED": "",
-        "ENDANGERED": "",
+        "EXTINCT": "منقرض",
+        "EXTINCT_IN_THE_WILD": "منقرض في البرية",
+        "CRITICALLY_ENDANGERED": "معرض للانقراض بشكل خطير",
+        "ENDANGERED": "عرضة للخطر",
         "VULNERABLE": "",
         "NEAR_THREATENED": "",
         "LEAST_CONCERN": "",
