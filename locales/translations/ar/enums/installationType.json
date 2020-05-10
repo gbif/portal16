@@ -1,11 +1,11 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "",
-    "DIGIR_INSTALLATION": "",
-    "TAPIR_INSTALLATION": "",
-    "BIOCASE_INSTALLATION": "",
-    "HTTP_INSTALLATION": "",
-    "SYMBIOTA_INSTALLATION": "",
+    "IPT_INSTALLATION": "تركيب IPT",
+    "DIGIR_INSTALLATION": "تركيبDiGIR",
+    "TAPIR_INSTALLATION": "تركيبTapir",
+    "BIOCASE_INSTALLATION": "انشاء الحالة الحيوية",
+    "HTTP_INSTALLATION": "تركيبHttp",
+    "SYMBIOTA_INSTALLATION": "تركيب الحالة التعايشية",
     "EARTHCAPE_INSTALLATION": "ر الارض"
   }
 }
