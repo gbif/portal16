@@ -1,7 +1,7 @@
 {
   "issueEnum": {
-    "PARENT_NAME_USAGE_ID_INVALID": "",
-    "ACCEPTED_NAME_USAGE_ID_INVALID": "",
+    "PARENT_NAME_USAGE_ID_INVALID": "معرف استخدام اسم الاساسي لاغي",
+    "ACCEPTED_NAME_USAGE_ID_INVALID": "معرف الاسم المقبول غير صالح",
     "ORIGINAL_NAME_USAGE_ID_INVALID": "",
     "RANK_INVALID": "",
     "NOMENCLATURAL_STATUS_INVALID": "",
