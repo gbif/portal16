@@ -64,8 +64,8 @@
     "organismQuantityType": "نوع كمية المتعضي",
     "sampleSizeValue": "قيمة حجم العينة",
     "sampleSizeUnit": "وحدة حجم العينة",
-    "relativeOrganismQuantity": "",
-    "collectionKey": "",
-    "institutionKey": ""
+    "relativeOrganismQuantity": "كمية المتعصي النسبية",
+    "collectionKey": "مجموعة",
+    "institutionKey": "مؤسسة"
   }
 }
