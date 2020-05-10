@@ -68,7 +68,7 @@
     "CHAINED_SYNOYM": "اذا كان المرادف يشير الى مرادف آ كأصنوفة مقبولة هذا يعني ان السلسلة  حلت",
     "ELEVATION_MIN_MAX_SWAPPED": "قم بعملية ضبط في حال تم توفير الحد الادنى< والحد  الاقصى للارتفاع",
     "MULTIMEDIA_DATE_INVALID": "تم اعطاءت تاريخ غير صالح  ل dc: انشىء من عنصر متعدد الوسائط",
-    "PARENT_NAME_USAGE_ID_INVALID": "",
+    "PARENT_NAME_USAGE_ID_INVALID": "( التوصيف مفقود)",
     "COORDINATE_REPROJECTION_SUSPICIOUS": "",
     "BASIONYM_AUTHOR_MISMATCH": "",
     "COUNTRY_DERIVED_FROM_COORDINATES": "",
