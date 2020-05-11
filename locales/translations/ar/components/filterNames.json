@@ -19,6 +19,7 @@
     "eventID": "معرف الحدث",
     "samplingProtocol": "بروتوكول اخذ العينات",
     "location": "الموقع",
+    "coordinateUncertaintyInMeters": "",
     "hasGeospatialIssue": "ذو مشكلة جغرافية فضائية",
     "basisOfRecord": "اساس السجل",
     "issue": "مسائل و رايات",
