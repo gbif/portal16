@@ -1,29 +1,29 @@
 {
   "collection": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "مجموعات",
+      "description": "المجموعات المؤسسية هي تلك التي تم ضمها بشكل رسمي الى المؤسسة وتلقت مستوي ما من الدعم المؤسساتي. \nمجوهات المشاريع هي تلك التي تم جمعها من قبل الباحث  المرتبط بالمؤسسة والتي ربما ضمت بشكل غير رسمي الى مجموعاتها. مجموعات المشاريع قد تصبحفي النهاية جزءا من المجموعات المؤسسية او تبقى تحت ادارة ومراقبة الباحثين. بشكل فردي.\nالمجموعات الشخصية تحت مراقبة الباحث بشكل فردي ولم يتم ربطها رسميا او ضمها الى المؤسسة.\nهذه المجموعات ملكية شخصية للجامع الخاص او انها\n"
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
-    "code": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "headerTitle": "مجموعة",
+    "description": "التوصيف",
+    "institutionName": "اسم المؤسسة",
+    "code": "الرمز",
+    "statusOfCollection": "حالة المجموعة",
+    "personalCollection": "مجموعة شخصية",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "نعم",
+      "false": "كلا"
     },
-    "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
-    "homepage": "",
-    "apiUrl": "",
-    "catalogUrl": "",
-    "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "accessionStatus": "حالة الادخال",
+    "contentTypes": "انواع المحتوى",
+    "preservationTypes": "انواع الحفظ",
+    "homepage": "الصفخة الرئيسية",
+    "apiUrl": "URL خدمات الشبكة للمجموعة ",
+    "catalogUrl": "URLلقاعدة بيانات دليل عينة المجموعة",
+    "identifiers": "معرفين",
+    "collectionMailingAddress": "العنوان البريدي",
+    "status": "الحالة",
+    "name": "الاسم",
     "isActive": {
       "true": "",
       "false": ""

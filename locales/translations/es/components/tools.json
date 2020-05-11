@@ -1,6 +1,6 @@
 {
     "tools": {
-        "tools": "",
+        "tools": "Herramientas",
         "categoryFeatured": "Destacado(s)",
         "suggestDataset": {
             "NOT_OPEN": "No es (tiene) una licencia abierta",
@@ -57,12 +57,12 @@
             "title": ""
         },
         "sequenceId": {
-            "title": ""
+            "title": "ID de secuencia"
         },
         "machineVision": {
             "tabs": {
-                "demo": "",
-                "statement": ""
+                "demo": "Versión demo",
+                "statement": "Acerca de"
             }
         }
     }

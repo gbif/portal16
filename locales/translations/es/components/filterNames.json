@@ -58,13 +58,13 @@
     "origin": "Origen",
     "networkKey": "Red de datos",
     "programme": "Programa",
-    "verbatimScientificName": "Nombre científico textual",
-    "taxonId": "Identificación taxonómica textual\n",
+    "verbatimScientificName": "Nombre científico original",
+    "taxonId": "Rango taxonómico original",
     "organismQuantity": "Cantidad de organismos",
     "organismQuantityType": "Tipo de cantidad de organismos",
     "sampleSizeValue": "Valor del tamaño de la muestra",
     "sampleSizeUnit": "Unidad del tamaño de la muestra",
-    "relativeOrganismQuantity": "Cantidad de organismos relativa",
+    "relativeOrganismQuantity": "Cantidad relativa del organismo",
     "collectionKey": "Colección",
     "institutionKey": "Institución"
   }

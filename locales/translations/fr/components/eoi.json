@@ -61,7 +61,7 @@
     "logo": "Logo",
     "exampleImageUrl": "Par exemple http://my.organization.org/images/logo.png",
     "invalidUrl": "Adresse URL invalide",
-    "brieflyDescribeScope": "Décrivez brièvement la portée de votre institution/organisation en relation avec la mission du GBIF (exploitation de collection, recherche, gestion de l’information sur la biodiversité, etc..). Cette description s’affichera sur votre page de fournisseur de données.",
+    "brieflyDescribeScope": "Décrivez brièvement, en *anglais*, la portée de votre institution/organisation en lien avec la mission du GBIF (exploitation de collection, recherche, gestion de l’information sur la biodiversité, etc.). Cette description s’affichera sur votre page de fournisseur de données.Vous pouvez également inclure une version dans une autre langue, mais la version anglaise est requise.",
     "clear": "Effacer",
     "clickMapToAddOrg": "Cliquez sur la carte pour ajouter votre organisation",
     "description": "Description",

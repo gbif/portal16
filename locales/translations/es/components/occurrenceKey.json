@@ -52,11 +52,11 @@
       "verbatimName": "Nombre textual"
     },
     "media": {
-      "noIdentifier": "",
-      "noPlaybackSupport": "",
-      "takeMeThere": "",
+      "noIdentifier": "No se ha proporcionado ningún identificador multimedia",
+      "noPlaybackSupport": "Su navegador no soporta el formato necesario para reproducir este medio.",
+      "takeMeThere": "Prueba la versión en el sitio del publicador",
       "notWorkingTryPublishers": "",
-      "download": ""
+      "download": "Descargar media"
     },
     "title": {
       "inCountry": {

@@ -1,14 +1,14 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
-    "LIVING_SPECIMEN": "",
-    "OBSERVATION": "",
-    "HUMAN_OBSERVATION": "",
-    "MACHINE_OBSERVATION": "",
-    "MATERIAL_SAMPLE": "",
-    "LITERATURE": "",
-    "UNKNOWN": "",
-    "undefined": ""
+    "PRESERVED_SPECIMEN": "عينة محفوظة",
+    "FOSSIL_SPECIMEN": "عينة احفورية",
+    "LIVING_SPECIMEN": "عينة حية",
+    "OBSERVATION": "ملاحظة",
+    "HUMAN_OBSERVATION": "ملاحظة بشرية",
+    "MACHINE_OBSERVATION": "مراقبة آلية",
+    "MATERIAL_SAMPLE": "عينة مادية",
+    "LITERATURE": "مراجع",
+    "UNKNOWN": "غير معروف",
+    "undefined": "غير معروف"
   }
 }

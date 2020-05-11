@@ -1,44 +1,44 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "automatedMonitoring": "الرصد الآلي",
+        "systemLoad": "تحميل النظام",
+        "messages": "رسائل",
+        "version": "إصدار",
+        "nInQueue": "(العدد) في قائمة الانتظار",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "تشغيلي",
+            "WARNING": "مزعزع",
+            "CRITICAL": "غير قابل للاستخدام",
+            "INFO": "تحديث النظام"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
-                "tooltip": ""
+                "name": "حدوث",
+                "tooltip": "على سبيل المثال. البحث ومعاينة الاحداث"
             },
             "SPECIES": {
-                "name": "",
-                "tooltip": ""
+                "name": "نوع, انواع",
+                "tooltip": "علىسبيل المثال البحث ومعاينة الانواع, مقترحات للانواع"
             },
             "REGISTRY": {
-                "name": "",
-                "tooltip": ""
+                "name": "السجل",
+                "tooltip": "على سبيل المثال. مجموعة البيانات, الناشرون,التركيبات,البلدان, المشاركون والسبكات"
             },
             "IDENTITY": {
-                "name": "",
-                "tooltip": ""
+                "name": "هوية",
+                "tooltip": "للتسجيل والخروج,ربط الحسابات الخ."
             },
             "MAPS": {
-                "name": "",
-                "tooltip": ""
+                "name": "الخرائط",
+                "tooltip": "لعرض صور الخرائط والحصول على معلومات عن الخارطة"
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "نظام ادارة المحتويات(النظام الخارجي)",
+                "tooltip": "على سبيل المثال . الاخبار والمقالات"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "ذاكرة التخزين للصور",
+                "tooltip": "مسؤول عن معظم الصور على  الموقع "
             },
             "GITHUB": {
                 "name": "",

@@ -1,12 +1,12 @@
 {
   "extensionEnum": {
-    "DESCRIPTION": "",
-    "DISTRIBUTION": "",
-    "IDENTIFIER": "",
-    "MULTIMEDIA": "",
-    "REFERENCE": "",
-    "SPECIES_PROFILE": "",
-    "TYPES_AND_SPECIMEN": "",
-    "VERNACULAR_NAME": ""
+    "DESCRIPTION": "التوصيف",
+    "DISTRIBUTION": "التوزيعع",
+    "IDENTIFIER": "المعرف",
+    "MULTIMEDIA": "وسائط متعددة",
+    "REFERENCE": "المرجع",
+    "SPECIES_PROFILE": "لمحة موجزة عن النوع",
+    "TYPES_AND_SPECIMEN": "الانواع والعينة",
+    "VERNACULAR_NAME": "الاسم العامي الدارج"
   }
 }

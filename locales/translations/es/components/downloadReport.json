@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "title": "",
+    "title": "Informe de descargas",
     "knownIssues": "Problemas conocidos",
     "knownIssuesDescription": "Una parte del proceso de GBIF es marcar los registros de presencia que contienen campos sospechosos",
     "FossilsIncluded": "Fósiles",
@@ -35,9 +35,9 @@
     "minutes": "Minutos"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "Opciones de descarga",
     "content": {
-      "rawData": "",
+      "rawData": "Datos sin procesar",
       "interpretedData": "",
       "images": "",
       "coordinates": "",

@@ -47,7 +47,7 @@
             "greaterThanOrEquals": "Mayor o igual que {from}",
             "invalid": "Inválido",
             "select": {
-                "equals": "Ees",
+                "equals": "Es",
                 "between": "Entre",
                 "lessThanOrEquals": "Menor o igual a",
                 "greaterThanOrEquals": "Mayor o igual a"

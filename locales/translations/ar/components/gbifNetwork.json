@@ -1,34 +1,34 @@
 {
   "gbifNetwork": {
     "gbifNetwork": "",
-    "title": "",
-    "contact": "",
+    "title": "دليل",
+    "contact": "تماس",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "مشارك له حق التصويت",
+      "other": "مشاركون لهم حق التصويت"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "مشارك  من البلد المشاركة",
+      "other": "مشاركين من البلد المشارك"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "مشار آخر مساعد",
+      "other": "مساركون مساعدون آخرون"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "مشارك سابق",
+      "other": "مشاركون سابقون"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "منتسب الى المرفق العالمي للتنوع الحيوي",
+      "other": "منتسبون الى المرفق العالمي للتنوع الحيوي"
     },
-    "role": "",
+    "role": "دور",
     "group": {},
-    "gbif_secretariat": "",
-    "membershipType": "",
-    "name": "",
-    "endorsedDataPublisher": "",
+    "gbif_secretariat": "امانة المرفق العالمي للتنوع الحيوي",
+    "membershipType": "العضوية",
+    "name": "الاسم",
+    "endorsedDataPublisher": "تمت الموافقة(NUMBER_FORMATTED)للبيانات\n(NUMBER,plural, one (الناشر(",
     "nParticipants": "",
     "dataset": "",
     "datasets": "",

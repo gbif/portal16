@@ -27,14 +27,14 @@
     "PARENT_NAME_NOT_UNIQUE": "Existe más de un nombre parental",
     "ORIGINAL_NAME_NOT_UNIQUE": "Existe más de un nombre original",
     "RELATIONSHIP_MISSING": "Relación no hallada",
-    "ORIGINAL_NAME_DERIVED": "",
+    "ORIGINAL_NAME_DERIVED": "Relación basionima derivada",
     "CONFLICTING_BASIONYM_COMBINATION": "Combinación del basónimo conflictiva",
     "NO_SPECIES": "Ninguna especie incluída",
-    "NAME_PARENT_MISMATCH": "",
+    "NAME_PARENT_MISMATCH": "Nombre parental no coincide",
     "ORTHOGRAPHIC_VARIANT": "Variante ortográfica",
     "HOMONYM": "Homónimo",
-    "PUBLISHED_BEFORE_GENUS": "",
-    "UNPARSABLE": "",
-    "PARTIALLY_PARSABLE": ""
+    "PUBLISHED_BEFORE_GENUS": "Publicado antes del nombre parental",
+    "UNPARSABLE": "Nombre no analizable",
+    "PARTIALLY_PARSABLE": "Nombre parcialmente analizado"
   }
 }
