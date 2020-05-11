@@ -26,9 +26,9 @@
             "geojson": "GeoJSON",
             "range": "المدى",
             "noFiltersAdded": "لاتوجد منطقة فلاتر مضافة",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
+            "wktPlaceholder": "WKT اوGeoJSON_مضلعات متعددة غير مسندة",
+            "invalidTextInput": "WKT لاغ او GeoJSON",
+            "tooLarge": "هندسة كبيرة جدا",
             "tooLargeSuggestion": "",
             "invalidRange": ""
         }
