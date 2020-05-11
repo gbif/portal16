@@ -28,16 +28,16 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Дорівнює {from}",
+            "between": "Між {from} і {to}",
+            "lessThanOrEquals": "Менше або дорівнює {to}",
+            "greaterThanOrEquals": "Більше або дорівнює {from}",
+            "invalid": "Неприпустимий",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Дорівнює",
+                "between": "Між",
+                "lessThanOrEquals": "Менше або дорівнює",
+                "greaterThanOrEquals": "Більше або дорівнює"
             }
         },
         "year": {
