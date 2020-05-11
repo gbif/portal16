@@ -27,6 +27,19 @@
                 "greaterThanOrEquals": "Mais profundo do que"
             }
         },
+        "coordinateUncertaintyInMeters": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
+        },
         "year": {
             "equals": "É {from}",
             "between": "Entre o início de {from} e o final de {to}",
