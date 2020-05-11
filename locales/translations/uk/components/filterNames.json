@@ -19,6 +19,7 @@
     "eventID": "ID події",
     "samplingProtocol": "Протокол збору",
     "location": "Місцезнаходження",
+    "coordinateUncertaintyInMeters": "",
     "hasGeospatialIssue": "Має проблеми з геопросторовою прив'язкою",
     "basisOfRecord": "Підстава для запису",
     "issue": "Проблеми та відмітки",
