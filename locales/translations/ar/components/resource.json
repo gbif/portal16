@@ -1,8 +1,8 @@
 {
   "resource": {
-    "resources": "",
-    "contactHelpdesk": "",
-    "addToCalendar": "",
+    "resources": "الموارد",
+    "contactHelpdesk": "اتصل بمكتب المساعدة",
+    "addToCalendar": "اضف الى التقويم",
     "venue": "",
     "location": "",
     "country": "",
