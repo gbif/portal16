@@ -18,12 +18,12 @@
     "contentTypes": "انواع المحتوى",
     "preservationTypes": "انواع الحفظ",
     "homepage": "الصفخة الرئيسية",
-    "apiUrl": "",
-    "catalogUrl": "",
-    "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "apiUrl": "URL خدمات الشبكة للمجموعة ",
+    "catalogUrl": "URLلقاعدة بيانات دليل عينة المجموعة",
+    "identifiers": "معرفين",
+    "collectionMailingAddress": "العنوان البريدي",
+    "status": "الحالة",
+    "name": "الاسم",
     "isActive": {
       "true": "",
       "false": ""
