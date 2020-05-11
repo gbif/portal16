@@ -28,10 +28,10 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "Es ",
+            "between": "Entre {from} y {to}",
+            "lessThanOrEquals": "Menor o igual a",
+            "greaterThanOrEquals": "Mayor o igual que {from}",
             "invalid": "",
             "select": {
                 "equals": "",
