@@ -32,12 +32,12 @@
             "between": "Entre {from} y {to}",
             "lessThanOrEquals": "Menor o igual a",
             "greaterThanOrEquals": "Mayor o igual que {from}",
-            "invalid": "",
+            "invalid": "Inválido",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Es",
+                "between": "Entre",
+                "lessThanOrEquals": "Menos que o igual",
+                "greaterThanOrEquals": "Más grande que o igual"
             }
         },
         "year": {
