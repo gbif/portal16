@@ -19,6 +19,7 @@
     "eventID": "",
     "samplingProtocol": "",
     "location": "Lokation",
+    "coordinateUncertaintyInMeters": "",
     "hasGeospatialIssue": "Har geospatiale problemer",
     "basisOfRecord": "Observationstype",
     "issue": "",
