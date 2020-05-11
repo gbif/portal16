@@ -29,8 +29,8 @@
             "wktPlaceholder": "WKT اوGeoJSON_مضلعات متعددة غير مسندة",
             "invalidTextInput": "WKT لاغ او GeoJSON",
             "tooLarge": "هندسة كبيرة جدا",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "tooLargeSuggestion": "حاول استخدام المربع المحيط وقم بفلترة محلية عوضا عن ذلك",
+            "invalidRange": "مربع محيط لاغ"
         }
     }
 }
