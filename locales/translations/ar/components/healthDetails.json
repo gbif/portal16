@@ -1,23 +1,23 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "nInQueue": "",
+        "automatedMonitoring": "الرصد الآلي",
+        "systemLoad": "تحميل النظام",
+        "messages": "رسائل",
+        "version": "إصدار",
+        "nInQueue": "(العدد) في قائمة الانتظار",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "تشغيلي",
+            "WARNING": "مزعزع",
+            "CRITICAL": "غير قابل للاستخدام",
+            "INFO": "تحديث النظام"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
-                "tooltip": ""
+                "name": "حدوث",
+                "tooltip": "على سبيل المثال. البحث ومعاينة الاحداث"
             },
             "SPECIES": {
-                "name": "",
+                "name": "نوع, انواع",
                 "tooltip": ""
             },
             "REGISTRY": {
