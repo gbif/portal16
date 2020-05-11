@@ -19,6 +19,7 @@
     "eventID": "ID do evento",
     "samplingProtocol": "Protocolo de amostragem",
     "location": "Localização",
+    "coordinateUncertaintyInMeters": "",
     "hasGeospatialIssue": "Tem problema de localização",
     "basisOfRecord": "Base do registo",
     "issue": "Questões e sinalizadores",
