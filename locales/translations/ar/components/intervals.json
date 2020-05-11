@@ -27,6 +27,19 @@
                 "greaterThanOrEquals": "أعمق من"
             }
         },
+        "coordinateUncertaintyInMeters": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
+        },
         "year": {
             "equals": "هو {from}",
             "between": "بين بداية من {from} وانتهاء بـ {to}",
