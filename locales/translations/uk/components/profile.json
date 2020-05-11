@@ -39,6 +39,8 @@
     "suggestToSearchOccurrences": "Ви можете спробувати [шукати знахідки](/знахідки/пошук)",
     "welcome": "Ласкаво просимо до GBIF",
     "accountConfirmed": "Ваш обліковий запис підтверджено, і ви увійшли в систему",
+    "emailVerification": "",
+    "verifyAccount": "",
     "userProfile": "Профіль користувача",
     "usernameEmail": "Ім'я користувача або електронна пошта",
     "password": "Пароль",
