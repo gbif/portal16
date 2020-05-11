@@ -45,9 +45,9 @@
     "original": "الاصلي",
     "remarks": "ملاحظات",
     "highlights": {
-      "location": "",
-      "specimenType": "",
-      "publisher": "",
+      "location": "الموقع",
+      "specimenType": "نوع العينة",
+      "publisher": "الناسر",
       "reference": "",
       "verbatimName": ""
     },
