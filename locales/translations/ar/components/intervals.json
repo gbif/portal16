@@ -28,16 +28,16 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "هو(من)",
+            "between": "بين(من)و(الى)",
+            "lessThanOrEquals": "اقل من او يساوي (الى)",
+            "greaterThanOrEquals": "اكبر من او يساوي(من)",
+            "invalid": "لاغ",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "يكون",
+                "between": "بين",
+                "lessThanOrEquals": "اقل من او يساوي",
+                "greaterThanOrEquals": "اكبر من او يساوي"
             }
         },
         "year": {
