@@ -6,20 +6,20 @@
         "clear": "واضح",
         "add": "اضف",
         "repatriation": {
-            "description": ""
+            "description": "يقال ان البيانات التي اعيدت الى الوطن عند نشرها من قبل المؤسسة في احد البلدان لكنها تتعلق بالتنوع الحيوي المتواجد في بلد آخر"
         },
         "ternary": {
-            "yes": "",
-            "no": "",
-            "all": ""
+            "yes": "نعم",
+            "no": "كلا",
+            "all": "الكل"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
+            "north": "الشمال",
+            "south": "الجنوب",
+            "west": "الغرب",
+            "east": "الشرق",
+            "withCoordinates": "متضمنا الاحدثيات",
+            "withoutCoordinates": "دون احداثيات",
             "includeFlaggedAsSuspicious": "",
             "onlyShowFlagged": "",
             "past": "",
