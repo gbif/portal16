@@ -27,6 +27,19 @@
                 "greaterThanOrEquals": "Глибше за"
             }
         },
+        "coordinateUncertaintyInMeters": {
+            "equals": "",
+            "between": "",
+            "lessThanOrEquals": "",
+            "greaterThanOrEquals": "",
+            "invalid": "",
+            "select": {
+                "equals": "",
+                "between": "",
+                "lessThanOrEquals": "",
+                "greaterThanOrEquals": ""
+            }
+        },
         "year": {
             "equals": "Дорівнює {from}",
             "between": "Між початком {from} та закінченням {to}",
