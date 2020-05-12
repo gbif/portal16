@@ -1,21 +1,21 @@
 {
   "treatment": {
-    "distribution": "",
-    "figures": ""
+    "distribution": "التوزيع",
+    "figures": "ارقام"
   },
   "species": {
     "distribution": {
-      "presentIn": "",
-      "presentInNonCountry": "",
-      "threatStatus": "",
-      "distributionPlural": ""
+      "presentIn": "موجود في (البلد)",
+      "presentInNonCountry": "موجود في (الموقع)",
+      "threatStatus": "حالة التهديد(الحالة)",
+      "distributionPlural": "التوزيع"
     },
     "tabs": {
-      "overview": "",
-      "treatment": "",
-      "metrics": "",
-      "referenceTaxon": "",
-      "verbatim": ""
+      "overview": "لمحة عامة",
+      "treatment": "معالجة",
+      "metrics": "قياسات",
+      "referenceTaxon": "اصنوفة مرجعية",
+      "verbatim": "حرفي"
     },
     "invasives": {
       "nInvadedCountries": "",
