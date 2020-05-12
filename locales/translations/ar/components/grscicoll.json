@@ -38,31 +38,31 @@
     "headerTitle": "مؤسسة",
     "indexHerbariorumRecord": "سجل دليل المعشبة النباتية",
     "numberSpecimens": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "code": "رمز المؤسسة",
+    "statusOfInstitution": "حالة المؤسسة",
+    "additionalNames": "اسماء اضافية",
+    "description": "توصيف",
+    "homepage": "الصفحة الرئيسية",
     "foundingDate": "",
     "geographicDescription": "الوصف الجغرافي",
     "taxonomicDescription": "الوصف التصنيفي",
-    "citesPermitNumber": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "citesPermitNumber": "اذكر عدد الرخصة",
+    "disciplines": "قواعد العمل المؤسساتية",
+    "institutionalGovernance": "الادارة المؤسساتية",
+    "type": "نوع المؤسسة",
+    "identifiers": "معرفين",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "فعال",
+      "false": "غير فعال"
     },
-    "true": "",
-    "false": ""
+    "true": "نعم",
+    "false": "لا"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "شخص",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "موظفي التحصيل",
+      "description": "اعضاء كادر GRSciColl هم اي  نوع من الموظفين المنخرطين في هذه المجموعات. ويمكن ربطهم بالمؤسسةو/او اي موع من المجموعات."
     },
     "headerTitle": "",
     "firstName": "",
