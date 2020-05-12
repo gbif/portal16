@@ -71,11 +71,11 @@
     "MORPHOVAR": "نوع شكلي",
     "PHAGOVAR": "فاغوفار",
     "SEROVAR": "سيروفار",
-    "CHEMOFORM": "",
-    "FORMA_SPECIALIS": "",
-    "CULTIVAR": "",
-    "STRAIN": "",
-    "OTHER": "",
-    "UNRANKED": ""
+    "CHEMOFORM": "تشكل كيميائي",
+    "FORMA_SPECIALIS": " فهرس خاص",
+    "CULTIVAR": "صنف زراعي",
+    "STRAIN": "سلالة, عترة",
+    "OTHER": "اخرى",
+    "UNRANKED": "غير مصنف"
   }
 }
