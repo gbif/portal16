@@ -5,9 +5,9 @@
     "SYNONYM": "مرادف",
     "HETEROTYPIC_SYNONYM": "مرادف غير نمطي",
     "HOMOTYPIC_SYNONYM": "مرداف مماثل نمطيا",
-    "PROPARTE_SYNONYM": "",
-    "MISAPPLIED": "",
-    "INTERMEDIATE_RANK_SYNONYM": "",
-    "DETERMINATION_SYNONYM": ""
+    "PROPARTE_SYNONYM": "مرادف ذو طرف واحد",
+    "MISAPPLIED": "اساء التطبيق",
+    "INTERMEDIATE_RANK_SYNONYM": "مرادف الرتبة المتوسطة",
+    "DETERMINATION_SYNONYM": "مرادف التحديد"
   }
 }
