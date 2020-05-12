@@ -1,10 +1,10 @@
 {
     "participationStatus": {
-        "VOTING": "",
-        "ASSOCIATE": "",
-        "OBSERVER": "",
-        "AFFILIATE": "",
-        "FORMER": "",
-        "undefined": ""
+        "VOTING": "تصويت",
+        "ASSOCIATE": "مساعد",
+        "OBSERVER": "مراقب",
+        "AFFILIATE": "ينتسب الى",
+        "FORMER": "السابق",
+        "undefined": "غير معروف"
     }
 }
