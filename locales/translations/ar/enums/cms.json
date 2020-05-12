@@ -71,18 +71,18 @@
           "ECOSYSTEM_SERVICES": "خدمات النظام البيئي",
           "EVOLUTION": "التطور",
           "FRESHWATER": "المياه العذبة",
-          "HUMAN_HEALTH": "",
-          "INVASIVES": "",
-          "MARINE": "",
-          "PHYLOGENETICS": "",
-          "SPECIES_DISTRIBUTIONS": "",
-          "TAXONOMY": ""
+          "HUMAN_HEALTH": "الصحة البشرية",
+          "INVASIVES": "انواع غازية",
+          "MARINE": "بحري",
+          "PHYLOGENETICS": "تطور السلالات",
+          "SPECIES_DISTRIBUTIONS": "توزيع الانواع",
+          "TAXONOMY": "التصنيف"
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "",
-          "DATA_ACCESS": "",
-          "DATA_ANALYSIS": "",
-          "DATA_CURATION_QUALITY": "",
+          "CAPACITY_ENHANCEMENT": "تعزيز القدرات",
+          "DATA_ACCESS": "الوصول الى البيانات",
+          "DATA_ANALYSIS": "تحليل البيانات",
+          "DATA_CURATION_QUALITY": "معالجة البيانات وجودتها",
           "DATA_DIGITIZATION": "",
           "DATA_PUBLISHING": ""
         },
