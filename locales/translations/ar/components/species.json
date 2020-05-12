@@ -75,11 +75,11 @@
     "inferredRecordMsg": "انشىء هذا السجل اثناء الفهرسة ولا يوجد بشكل صريح في مصدر البيانات بحد ذاته",
     "noChildren": "لا يوجد اطفال",
     "youAreBrowsing": "انت تتصفح",
-    "lastCrawled": "",
-    "extensions": "",
-    "taxa": "",
-    "mediatedThrough": "",
-    "taxonIdentifiers": "",
+    "lastCrawled": "آخر تقدم بطيء{ DATE_FORMATED}",
+    "extensions": "ملحقات",
+    "taxa": "وحدات تصنيفية, اصانيف",
+    "mediatedThrough": "تم التوسط من خلال",
+    "taxonIdentifiers": "معرفي الاصنوفة",
     "whyDoubtful": ""
   }
 }
