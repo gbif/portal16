@@ -1,12 +1,12 @@
 {
   "datasetType": {
-    "OCCURRENCE": "",
-    "CHECKLIST": "",
-    "SAMPLING_EVENT": "",
-    "METADATA": "",
-    "undefined": ""
+    "OCCURRENCE": "حدوث",
+    "CHECKLIST": "قائمة التدقيق",
+    "SAMPLING_EVENT": "حدث اخذ العينات",
+    "METADATA": "البيانات الوصفية",
+    "undefined": "غير معروف"
   },
   "datasetSubtype": {
-    "TREATMENT_ARTICLE": ""
+    "TREATMENT_ARTICLE": "بند المعالجة"
   }
 }

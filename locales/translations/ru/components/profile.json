@@ -39,6 +39,8 @@
     "suggestToSearchOccurrences": "Возможно Вы хотели выполнить [поиск находок видов](/occurrence/search)",
     "welcome": "Добро пожаловать в GBIF",
     "accountConfirmed": "Ваша учетная запись успешно подтверждена",
+    "emailVerification": "",
+    "verifyAccount": "",
     "userProfile": "Профиль пользователя",
     "usernameEmail": "Имя пользователя или email",
     "password": "Пароль",

@@ -1,45 +1,45 @@
 {
   "treatment": {
-    "distribution": "",
-    "figures": ""
+    "distribution": "التوزيع",
+    "figures": "ارقام"
   },
   "species": {
     "distribution": {
-      "presentIn": "",
-      "presentInNonCountry": "",
-      "threatStatus": "",
-      "distributionPlural": ""
+      "presentIn": "موجود في (البلد)",
+      "presentInNonCountry": "موجود في (الموقع)",
+      "threatStatus": "حالة التهديد(الحالة)",
+      "distributionPlural": "التوزيع"
     },
     "tabs": {
-      "overview": "",
-      "treatment": "",
-      "metrics": "",
-      "referenceTaxon": "",
-      "verbatim": ""
+      "overview": "لمحة عامة",
+      "treatment": "معالجة",
+      "metrics": "قياسات",
+      "referenceTaxon": "اصنوفة مرجعية",
+      "verbatim": "حرفي"
     },
     "invasives": {
-      "nInvadedCountries": "",
-      "invasiveIn": "",
-      "accordingTo": "",
-      "occurrenceCount": "",
-      "seeAllCountries": "",
-      "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "nInvadedCountries": "تم التسجيل كما تم الادخال في (العدد_ تم التصميم) ( العدد-الجمع,1{البلد او الجزيرة}{بلدان وجزر}اخرى",
+      "invasiveIn": "تم التسجيل حسب ما تم الإدخال ",
+      "accordingTo": "وفقا ل",
+      "occurrenceCount": "التكرار في المرفق العالمي لمعلومات التنوع الحيوي",
+      "seeAllCountries": "اظهر الكل",
+      "isInvasive": "دليل الاثر",
+      "isInvasive_yes": "نعم",
+      "isInvasive_no": "كلا"
     },
     "treatment": {
-      "distribution": "",
-      "figures": ""
+      "distribution": "التوزيع",
+      "figures": "ارقام"
     },
-    "as": "",
-    "in": "",
-    "origin": "",
-    "issues": "",
-    "citation": "",
-    "remarks": "",
-    "term": "",
-    "value": "",
-    "classification": "",
+    "as": "ك",
+    "in": "في",
+    "origin": "اصل",
+    "issues": "مشتكل",
+    "citation": "اقتباس",
+    "remarks": "ملاحظات",
+    "term": "مصطلح",
+    "value": "قبمة",
+    "classification": "تصنيف",
     "sourcePlural": "",
     "nMoreDatasets": "",
     "acceptedName": "",

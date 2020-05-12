@@ -19,6 +19,7 @@
     "eventID": "ID del evento",
     "samplingProtocol": "Protocolo de muestreo",
     "location": "Ubicación",
+    "coordinateUncertaintyInMeters": "Incertidumbre de las coordenadas en metros",
     "hasGeospatialIssue": "Presenta un problema geoespacial",
     "basisOfRecord": "Base del registro",
     "issue": "Problemas y banderas",

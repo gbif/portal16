@@ -19,6 +19,7 @@
     "eventID": "事件識別碼",
     "samplingProtocol": "取樣程序",
     "location": "地點",
+    "coordinateUncertaintyInMeters": "",
     "hasGeospatialIssue": "有地理空間資訊問題",
     "basisOfRecord": "紀錄類型",
     "issue": "問題和註記",

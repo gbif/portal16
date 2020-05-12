@@ -1,18 +1,18 @@
 {
     "nameParser": {
-        "loadTestNames": "",
-        "parse": "",
-        "or": "",
-        "selectFile": "",
-        "pasteNamesToParse": "",
-        "about": "",
-        "parser": "",
-        "nameParserTitle": "",
-        "dropHere": "",
-        "excludeUnparsed": "",
-        "generateCsv": "",
-        "parsingNames": "",
-        "nameParserDescription": "",
-        "nameParserRequirements": ""
+        "loadTestNames": "تحميل اسماء الاختبار",
+        "parse": "تحليل",
+        "or": "او",
+        "selectFile": "اختر ملف",
+        "pasteNamesToParse": "الصق الاسماء لتحليلها هنا",
+        "about": "عن",
+        "parser": "محلل لغوي",
+        "nameParserTitle": "محلل لغوي للاسماء",
+        "dropHere": "اسقط هنا",
+        "excludeUnparsed": "استبعد الذي بدون تحليل ",
+        "generateCsv": "انشىءcsv",
+        "parsingNames": "تحليل الاسماء - انتظار",
+        "nameParserDescription": "هذا  نموذجhtml بسيط لإستخدام محلل اللغوي للاسم للمرفق العالمي للتنوع الحيوي .المحلل اللغوي يدون بجافا ويعتمد على التعابير النظامية لتحليل سلاسل الاسم الى مكوناته. هو يحتفظ فقط بأجزاء الاسم المطلوب اعادة بناء التسك كامل من ثلاثة اجزاء مع اسم تحت جنس اختياري. لكن يتجاهل اجزا ء دون  المحددة إضافية مثل تحت الانواع المعطاة للاصناف. يرجى الاطلاع على [مستندات API](/ مظهر الصور/الانواع#المحلل اللغوي) للحصول على التفاصيل",
+        "nameParserRequirements": "يمكنك نسخ ولصق لائحة الاسماء, واحدة لكل صف او ان تقوم بتحميل ملف النص مع اسم لكل سطر. الملفات التي تم تحميلها يجب تشغيرها  كملفاتutfB!"
     }
 }

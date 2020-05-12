@@ -19,6 +19,7 @@
     "eventID": "イベントID",
     "samplingProtocol": "サンプリング手順",
     "location": "場所",
+    "coordinateUncertaintyInMeters": "",
     "hasGeospatialIssue": "地理空間情報の解釈に問題があります。",
     "basisOfRecord": "データレコードの種類",
     "issue": "問題とフラグ",

@@ -39,6 +39,8 @@
     "suggestToSearchOccurrences": "Pode querer [procurar ocorrências](/ocorrência/pesquisar)",
     "welcome": "Bem-vindo ao GBIF",
     "accountConfirmed": "A sua conta foi confirmada e agora tem a sessão iniciada",
+    "emailVerification": "",
+    "verifyAccount": "",
     "userProfile": "Perfil do utilizador",
     "usernameEmail": "Nome de utilizador ou Email",
     "password": "Palavra-passe",

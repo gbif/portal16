@@ -39,6 +39,8 @@
     "suggestToSearchOccurrences": "Måske leder du efter [observationer](/occurrence/search)",
     "welcome": "Velkommen til GBIF",
     "accountConfirmed": "Din konto er blevet bekræftet og du er nu logget ind",
+    "emailVerification": "",
+    "verifyAccount": "",
     "userProfile": "Brugerprofil",
     "usernameEmail": "Brugernavn eller e-mail",
     "password": "Adgangskode",
