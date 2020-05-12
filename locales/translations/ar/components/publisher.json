@@ -1,10 +1,10 @@
 {
   "publisher": {
-    "searchTitle": "",
+    "searchTitle": "بحث الناشر",
     "tabs": {
-      "aboutPublisher": "",
-      "metrics": "",
-      "publishersHomepage": ""
+      "aboutPublisher": "عن",
+      "metrics": "قياسات",
+      "publishersHomepage": "الصفحة الرئيسية"
     },
     "joinedAgo": "",
     "newPublisher": "",
