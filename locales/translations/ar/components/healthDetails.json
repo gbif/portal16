@@ -41,7 +41,7 @@
                 "tooltip": "مسؤول عن معظم الصور على  الموقع "
             },
             "GITHUB": {
-                "name": "",
+                "name": "Github (ظام خارجي)",
                 "tooltip": ""
             },
             "CRAWLER": {
