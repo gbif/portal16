@@ -6,20 +6,20 @@
       "metrics": "قياسات",
       "publishersHomepage": "الصفحة الرئيسية"
     },
-    "joinedAgo": "",
-    "newPublisher": "",
-    "technicalContact": "",
-    "country": "",
-    "hosting": "",
-    "description": "",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "installations": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "joinedAgo": "انضم الى(زمن_قبل)",
+    "newPublisher": "ناشر جديد",
+    "technicalContact": "اتصال فني",
+    "country": "البلد او المنطقة",
+    "hosting": "استضافة",
+    "description": "التوصيف",
+    "endorsedBy": "صادق عليه من قبل",
+    "pendingEndorsementBy": "انتظار المصادقة علية من قبل",
+    "installations": "تركيبات",
+    "contacts": "اتصالات",
+    "administrativeContact": "تواصل اداري",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "الناشر",
+      "sinceDate": "منذ(تاريخ)"
     }
   }
 }
