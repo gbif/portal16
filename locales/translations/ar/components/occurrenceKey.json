@@ -48,8 +48,8 @@
       "location": "الموقع",
       "specimenType": "نوع العينة",
       "publisher": "الناسر",
-      "reference": "",
-      "verbatimName": ""
+      "reference": "المرجععية",
+      "verbatimName": "الاسم الحرفي"
     },
     "media": {
       "noIdentifier": "",
