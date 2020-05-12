@@ -64,40 +64,40 @@
       "title": "موظفي التحصيل",
       "description": "اعضاء كادر GRSciColl هم اي  نوع من الموظفين المنخرطين في هذه المجموعات. ويمكن ربطهم بالمؤسسةو/او اي موع من المجموعات."
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "headerTitle": "موظفي المجموعة",
+    "firstName": "الاسم الاول",
+    "lastName": "اسم العائلة",
+    "fullName": "الاسم الكامل",
+    "position": "اللقب الوظيفي",
+    "affiliations": "الانتماءات",
+    "areaResponsibility": "نطاق المسؤولية",
+    "researchPursuits": "الاختصاص البحثي",
+    "primaryInstitution": "اسم المؤسسة الرئيسية",
+    "primaryCollection": "اسم المجموعة الرئيسية",
+    "affiliateInstitutions": "المؤسسات المنتسبة الاضافية",
     "affiliateCollections": ""
   },
   "grscicoll": {
     "title": "",
     "suggestChange": "اقترح تغييرا",
     "tabs": {
-      "about": "",
-      "institutions": "",
-      "collections": "",
+      "about": "حول",
+      "institutions": "مؤسسات",
+      "collections": "مجموعات",
       "people": ""
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "البريد الالكتروني",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "العنوان البريدي",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "الاتصالات",
+      "address": "العنوان",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "البلد"
     }
   }
 }
