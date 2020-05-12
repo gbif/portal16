@@ -1,9 +1,9 @@
 {
   "downloadFormat": {
-    "SIMPLE_AVRO": "",
-    "SIMPLE_CSV": "",
-    "DWCA": "",
-    "SPECIES_LIST": "",
+    "SIMPLE_AVRO": "Avroاباتشي",
+    "SIMPLE_CSV": "بسيط",
+    "DWCA": "لرشيف داروين الاساسي",
+    "SPECIES_LIST": "فائمة الانواع",
     "SIMPLE_WITH_VERBATIM_AVRO": "",
     "MAP_OF_LIFE": "",
     "IUCN": "",
