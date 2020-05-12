@@ -25,14 +25,14 @@
     "status": "الحالة",
     "name": "الاسم",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "نشط",
+      "false": "غير فعال"
     }
   },
   "institution": {
-    "title": "",
+    "title": "مؤسسة",
     "search": {
-      "title": "",
+      "title": "مؤسسات",
       "description": ""
     },
     "headerTitle": "",
