@@ -30,11 +30,11 @@
     "ORIGINAL_NAME_DERIVED": "علاقة الاسم الاساسي مستقة",
     "CONFLICTING_BASIONYM_COMBINATION": "تركيب متضارب للاسم الاساسي",
     "NO_SPECIES": "لا انواع مدرجة",
-    "NAME_PARENT_MISMATCH": "",
-    "ORTHOGRAPHIC_VARIANT": "",
-    "HOMONYM": "",
-    "PUBLISHED_BEFORE_GENUS": "",
-    "UNPARSABLE": "",
+    "NAME_PARENT_MISMATCH": "عدم تطابق الاسم الاساسي",
+    "ORTHOGRAPHIC_VARIANT": "المتغير الإملائي",
+    "HOMONYM": "جناس",
+    "PUBLISHED_BEFORE_GENUS": "نشر قبل الاسم الاساسي",
+    "UNPARSABLE": "اسم غير قابل للتحليل",
     "PARTIALLY_PARSABLE": ""
   }
 }
