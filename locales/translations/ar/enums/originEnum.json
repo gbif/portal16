@@ -1,10 +1,10 @@
 {
   "originEnum": {
-    "SOURCE": "",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
+    "SOURCE": "مصدر",
+    "DENORMED_CLASSIFICATION": "تصنيف غير معياري(مشوه)",
+    "VERBATIM_PARENT": "الاصل الحرفي",
+    "VERBATIM_ACCEPTED": "قبلت حرفيا",
+    "VERBATIM_BASIONYM": "الاسم الاساسي الحرفي",
     "PROPARTE": "",
     "AUTONYM": "",
     "IMPLICIT_NAME": "",
