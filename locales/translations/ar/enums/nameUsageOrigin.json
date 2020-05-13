@@ -7,8 +7,8 @@
     "VERBATIM_BASIONYM": "الاستخدام الصمني من الاسم الاصلي/الاساسي الحرفي",
     "PROPARTE": "استخدام مكر من سجل طرف واحد",
     "AUTONYM": "تم انساءوه, التسم الحقيقي مفقود",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
+    "IMPLICIT_NAME": "تم انشاءوه, الجنس او النوع المفقود ل الاسم الاسفل ",
+    "MISSING_ACCEPTED": "الاستخدام الصنعي المقبول للمرادف في حال فقدانه للمحافظة على التسلسلل الهرمي التصنيفي",
     "BASIONYM_PLACEHOLDER": "",
     "EX_AUTHOR_SYNONYM": "",
     "OTHER": ""
