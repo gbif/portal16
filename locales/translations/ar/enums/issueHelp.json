@@ -1,8 +1,8 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "",
-    "COORDINATE_REPROJECTION_FAILED": "",
-    "NO_SPECIES": "",
+    "BASIS_OF_RECORD_INVALID": "قيمة اساس السجل إما مفقودة او لاغية, او ان القيمة اللاغية يجب ان تتطابق مفردات نمط داروين الااساسي",
+    "COORDINATE_REPROJECTION_FAILED": "خط العرض العشري المعطى وخط الطول لايمكن إعادة اسقاطهما الى المجموعة العاملة مفتوحة العضوبة84 المستندة الى االمعطيات المتوفرة.",
+    "NO_SPECIES": "المجموعة(هي فقط الاجناس المختبرة حاليا)تفتقر الى اية انواع مقبولة.  مشكلة خاصة بالمرفق العالمي لمعلومات التنوع الحيوي",
     "RECORDED_DATE_INVALID": "",
     "PRESUMED_NEGATED_LATITUDE": "",
     "UNKNOWN_TERM": "",
