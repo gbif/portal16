@@ -5,12 +5,12 @@
     "VERBATIM_PARENT": "الاصل الحرفي",
     "VERBATIM_ACCEPTED": "قبلت حرفيا",
     "VERBATIM_BASIONYM": "الاسم الاساسي الحرفي",
-    "PROPARTE": "",
-    "AUTONYM": "",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "PROPARTE": "Proparte",
+    "AUTONYM": "الاسم الحقيقي",
+    "IMPLICIT_NAME": "اسم ضمني",
+    "MISSING_ACCEPTED": "فقدان مقبول",
+    "BASIONYM_PLACEHOLDER": " نائب الاسم الاساسي",
+    "EX_AUTHOR_SYNONYM": "مرادف المؤلف السابق",
+    "OTHER": "أخرى"
   }
 }
