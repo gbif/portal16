@@ -52,17 +52,17 @@
       "verbatimName": "الاسم الحرفي"
     },
     "media": {
-      "noIdentifier": "",
-      "noPlaybackSupport": "",
-      "takeMeThere": "",
+      "noIdentifier": "لم يتم  تبمعرف الوسائط",
+      "noPlaybackSupport": "المتصفح الخاص بك لا يدعم التنسيق المطلوب لتشغيل هذه الوسائط",
+      "takeMeThere": "جرب الاصدار في موقع الناشر",
       "notWorkingTryPublishers": "",
-      "download": ""
+      "download": "قم بتنزيل الوسائط"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
+        "PRESERVED_SPECIMEN": "تم جمعها في{البلد}",
+        "FOSSIL_SPECIMEN": "جمعت في{ البلد}",
+        "LIVING_SPECIMEN": "تم جمعها في{البلد}",
         "HUMAN_OBSERVATION": "",
         "MACHINE_OBSERVATION": "",
         "MATERIAL_SAMPLE": "",
