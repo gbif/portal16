@@ -37,9 +37,9 @@
     "PLASTOTYPE": "",
     "SECONDARYTYPE": "",
     "SUPPLEMENTARYTYPE": "",
-    "SYNTYPE": "",
-    "TOPOTYPE": "",
-    "ORIGINALMATERIAL": "",
-    "NOTATYPE": ""
+    "SYNTYPE": "Syntype",
+    "TOPOTYPE": "نوع موضعي",
+    "ORIGINALMATERIAL": "المواد الاصلية",
+    "NOTATYPE": "ليس نوع"
   }
 }
