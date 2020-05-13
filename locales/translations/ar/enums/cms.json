@@ -106,15 +106,15 @@
           "encyclopedia_article": "مقالة في موسوعة",
           "case": "قضية",
           "film": "فيلم",
-          "bill": ""
+          "bill": "فانورة"
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
-          "DATA_HOLDERS": "",
-          "DATA_USERS": "",
-          "DECISION_MAKERS": "",
-          "GBIF_NETWORK": "",
-          "PUBLIC_STAKEHOLDERS": ""
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "خبراء غي معارف التنوع الحيوي",
+          "DATA_HOLDERS": "حاملي البيانات",
+          "DATA_USERS": "مستخدمي البيانات",
+          "DECISION_MAKERS": "صانعي القرار",
+          "GBIF_NETWORK": "شبكة الرفق العالمي لمعلومات التنوع الحيوي",
+          "PUBLIC_STAKEHOLDERS": "اصحاب المصلحة العامون"
         }
       }
     }
