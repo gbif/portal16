@@ -91,10 +91,10 @@
     "NOMENCLATURAL_STATUS_INVALID": "Dwc:حالة مجموعة المصطلحات لايمكن ترجمتها",
     "COORDINATE_PRECISION_INVALID": "يؤشر الى دقة احداثيات لاغية او غير محتملة لحد كبير",
     "HOMONYM": "توجد حالة جناس ذات مرادفات للاسم في بعض المصادر الاساسية والتي تم تجاهلها في وقت الانشاء",
-    "ORTHOGRAPHIC_VARIANT": "",
-    "CONTINENT_INVALID": "",
-    "VERNACULAR_NAME_INVALID": "",
-    "DESCRIPTION_INVALID": "",
-    "REFERENCES_URI_INVALID": ""
+    "ORTHOGRAPHIC_VARIANT": "يوجد في العمود الفقري متغير املائي متعلق بكتابة الكلمات محتمل. العمود الفقري. مشكلة خاصة بالعمود الفقري للمرفق العالمي لمعلومات التنوع الحيوي.",
+    "CONTINENT_INVALID": "تك العثور على قيم قارة غير قابلة للتغسير",
+    "VERNACULAR_NAME_INVALID": "اسم عامي دارج واحد  على الاقل ذو سجل اضافي  ومرفق مع استخدام هذا الاسم غير صالح",
+    "DESCRIPTION_INVALID": "توصيف واح على الاقل ذو سجل ملحق ومرفق مع استخدام هذا الاسم غير صالح",
+    "REFERENCES_URI_INVALID": "uri ملغى ومعطى لمراجع .dc"
   }
 }
