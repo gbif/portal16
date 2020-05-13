@@ -1,9 +1,9 @@
 {
     "installation": {
-        "installation": "",
+        "installation": "تركيب",
         "about": "حول",
         "homepage": "الصفحة الرئيسية",
-        "installationType": "",
+        "installationType": "نوع التركيب",
         "hostedBy": "إستضافة من",
         "registered": "مُسجَّل",
         "endpoints": "نقاط الانتهاء"
