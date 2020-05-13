@@ -32,22 +32,22 @@
       },
       "associateCountries": {
         "title": "مشارك من البلدان المشاركة",
-        "description": ""
+        "description": "البلدان الموقعة على مذكرة التفاهم الخاصة بالمرفق العالمي لمعلومات التنوع الحيوي ولم تقدم اي مساهمة مالية الى اموال المرفق الاساسية ولم تصوت على مجلس ادارة المرفق."
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "المشاركون المساعدون الآخرون",
+        "description": "المنظمات الحكومية الدولية والمنظمات الدولية والمنظمات الاخرى ذات البعد الدولي والاقتصادات الموقعة على مذكرة التفاهم الخاصة بالمرفق الدولي لمعلومات التنوع الحيوي."
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "دور",
+      "name": "الاسم",
+      "participant": "مشترك",
+      "participationStatus": "حالة المشارك"
     },
-    "details": "",
-    "roles": "",
-    "sinceDate": "",
-    "showAllContacts": ""
+    "details": "تفاصيل",
+    "roles": "الادوار",
+    "sinceDate": "منذ[تاريخ]",
+    "showAllContacts": "الكل"
   }
 }
