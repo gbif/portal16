@@ -60,13 +60,13 @@
     "global": "عالمي",
     "changeOverTimeInDataAboutSpeciesFromCountry": "ان التغير الحاصل مع مرور الزمن على بيانات الانواع من{{TRANSLATED_COUNTRY}}والمتاحة من GBIF.org",
     "changeOverTimeInTheDataPublishedByInstitutionsWithin": "التغير الحاصل مع مرور الزمن في البيانات التي نشرت من قبل المؤسسات داخل{{TRANSLATED_COUNTRY}}ومتاحة من GBIF.org",
-    "trendsInDataAvailabilityOnTheGbifNetwork": "",
-    "globalDataTrends": "",
-    "countryDataTrends": "",
-    "countryPublishingTrends": "",
+    "trendsInDataAvailabilityOnTheGbifNetwork": "الانجاهات في توفر البيانات على شبكة المرفق العالمي لمعلومات التنوع الحيوي 2008 ل{{ السنة}}",
+    "globalDataTrends": "اتجاهات البيانات العالمية",
+    "countryDataTrends": "اتجاهات البيانات{{TRANSLATED_COUNTRY}}",
+    "countryPublishingTrends": "اتجاهات النشر{{ COUNTRY_TRANSLATED}}",
     "analyticsCountry": {
-      "fromDescription": "",
-      "publishedByDescription": ""
+      "fromDescription": "التغير الحاصل مع مرور الزمن في بيانات الانواع من {{country}} والمتوفرة من GBIF.org",
+      "publishedByDescription": "التغير الحاصل مع مرور الزمن في البيانات المنشورة من قبل المؤسسات داخل{{country}} والمتوفرة من GBIF.org"
     },
     "analyticsGlobalDescription": "",
     "analyticsTitle": ""
