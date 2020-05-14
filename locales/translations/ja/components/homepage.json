@@ -12,7 +12,7 @@
         "featureTypes": {
             "event": "イベント",
             "news": "ニュース",
-            "resource": "リソース",
+            "resource": "資料",
             "dataUse": "データの利用",
             "project": "プロジェクト",
             "programme": "プログラム",
