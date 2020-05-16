@@ -77,11 +77,11 @@
     "pNetwork": "{NUMBER, select,1{شبكة الاتصال} other{شبكات اتصال}}",
     "parentEvent": "الحادثة الرئيسية",
     "eventDescription": "وصف الحادثة",
-    "siblingEvents": "واقعة قريبة",
-    "childEvents": "واقعات تابعة",
+    "siblingEvents": "أحداث أقارب",
+    "childEvents": "أحداث تابعة",
     "events": "",
     "occurrenceCount": "عدد التكرار",
     "inDataset": "في",
-    "samplingArticleLink": "المزيد عن وقعات أخذ العينات في موقع GBIF.org"
+    "samplingArticleLink": "المزيد عن أحداث أخذ العينات في موقع GBIF.org"
   }
 }
