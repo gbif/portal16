@@ -6,7 +6,7 @@
             "registrationDate": "تاريخ التسجيل",
             "lastSuccess": "آخر إدخال ناجح",
             "lastWithChange": "آخر إدخال مع تغييرات",
-            "noEntries": "محموعة البيانات هذه ليس فيها مدخلات",
+            "noEntries": "هذه المجموعة من البيانات ليس فيها مدخلات",
             "lastWithDataChange": "آخر إدخال مع تغيير بيانات",
             "occInLastIngestion": "التكرارات في آخر إدخال",
             "completionReasons": "أسباب اكتمال الادخال",
