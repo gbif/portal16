@@ -28,16 +28,16 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "是 {from}",
+            "between": "在 {from} 與 {to} 之間",
+            "lessThanOrEquals": "小於或等於 {to}",
+            "greaterThanOrEquals": "大於或等於 {from}",
+            "invalid": "無效",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "是",
+                "between": "介於",
+                "lessThanOrEquals": "小於或等於",
+                "greaterThanOrEquals": "大於或等於"
             }
         },
         "year": {
