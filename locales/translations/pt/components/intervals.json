@@ -28,16 +28,16 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "É {from}",
+            "between": "Entre {from} e {to}",
+            "lessThanOrEquals": "Menor que ou igual a {to}",
+            "greaterThanOrEquals": "Maior que ou igual a {from}",
+            "invalid": "Inválido",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "É",
+                "between": "Entre",
+                "lessThanOrEquals": "Menor que ou igual",
+                "greaterThanOrEquals": "Maior que ou igual"
             }
         },
         "year": {
