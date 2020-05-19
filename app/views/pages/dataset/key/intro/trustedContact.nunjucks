@@ -18,10 +18,10 @@
                 </span>
             </a>
             <div class="pull-right" ng-if="datasetKey.crawlingState != 'FAILED'">
-                <a ng-href="{{ portal.env.managementToolsSite }}dataset/{{ datasetKey.key }}/process" class="gb-button--flat text-uppercase" translate="dataset.history"></a>
+                <a ng-href="{{ portal.env.managementToolsSite }}dataset/{{ datasetKey.key }}/ingestion-history" class="gb-button--flat text-uppercase" translate="dataset.history"></a>
                 <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="datasetKey.crawlingState == 'FINISHED'" translate="dataset.ingestNow"></a>
                 <a ng-href="{$ publicKibana $}app/kibana#/discover?_g=(time:(from:now-7d,mode:quick,to:now))&_a=(filters:!((meta:(alias:!n,disabled:!f,index:{$ kibanaIndex $},key:datasetKey,negate:!f,type:phrase,value:'{{datasetKey.key}}'),query:(match:(datasetKey:(query:'{{datasetKey.key}}',type:phrase))))),index:{$ kibanaIndex $})" class="gb-button--flat text-uppercase" translate="dataset.logs">Logs</a>
-                <a class="gb-button--discreet" href="https://crawler.gbif.org/" ng-if="datasetKey.crawlingState == 'IN_QUEUE'" translate="dataset.registry.inIngestionQueue"></a>
+                <a class="gb-button--discreet" href="{{ portal.env.managementToolsSite }}/monitoring/running-ingestions" ng-if="datasetKey.crawlingState == 'IN_QUEUE'" translate="dataset.registry.inIngestionQueue"></a>
                 <span class="gb-button--discreet" ng-if="datasetKey.crawlingState == 'STARTED'" translate="dataset.registry.addingToQueue"></span>
             </div>
             <div class="pull-right" ng-if="datasetKey.crawlingState == 'FAILED'">
