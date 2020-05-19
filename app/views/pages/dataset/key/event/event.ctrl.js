@@ -1,7 +1,8 @@
 'use strict';
 
 var angular = require('angular'),
-    utils = require('../../../../shared/layout/html/utils/utils');
+    utils = require('../../../../shared/layout/html/utils/utils'),
+    doiRegex = require('doi-regex');
 
 require('../../../../components/map/globe/globe.directive');
 require('../parentEvent/parentEvent.ctrl');
@@ -18,6 +19,9 @@ function datasetEventCtrl($stateParams, DatasetEvent, DatasetEventList, Occurren
     vm.eventKey = $stateParams.eventKey;
     // Get the core event
     vm.event = DatasetEvent.get({datasetKey: vm.datasetKey, eventKey: vm.eventKey});
+    vm.isDoi = function(str) {
+        return str.match(doiRegex());
+    };
 
     // Get first page of paginated events - currently from the proxy API that use occurrence facets to estimate it.  This is not ideal, but a fragile workaround
     vm.changeEventPage = function(offset) {

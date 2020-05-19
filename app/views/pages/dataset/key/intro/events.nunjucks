@@ -26,7 +26,8 @@
                                     <span ng-if="!event.eventDate" translate="phrases.noData" class="discreet"></span>
                                 </td>
                                 <td>
-                                    <span>{{ event.samplingProtocol }}</span>
+                                    <span ng-if="!datasetKey.isDoi(event.samplingProtocol)">{{ event.samplingProtocol }}</span>
+                                    <doi ng-if="datasetKey.isDoi(event.samplingProtocol)" link="{{ event.samplingProtocol }}"></doi>
                                 </td>
                                 <td>
                                     <span><a ui-sref="occurrenceSearchTable({dataset_key: datasetKey.key, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a></span>

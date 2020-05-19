@@ -37,9 +37,18 @@
                                             <a ui-sref="datasetParentEvent({parentEventKey: datasetEvent.event.parentEventID, datasetKey:datasetEvent.event.datasetKey })">{{ datasetEvent.event.parentEventID }}</a>
                                         </dd>
                                     </div>
-                                    <div ng-repeat="field in ['eventRemarks', 'samplingProtocol', 'samplingEffort']" ng-if="datasetEvent.event[field]">
+                                    <div ng-if="datasetEvent.event.samplingProtocol">
+                                        <dt translate="ocurrenceFieldNames.samplingProtocol">samplingProtocol</dt>
+                                        <dd ng-if="!datasetEvent.isDoi(datasetEvent.event.samplingProtocol)">
+                                            {{ datasetEvent.event.samplingProtocol }}
+                                        </dd>
+                                        <dd ng-if="datasetEvent.isDoi(datasetEvent.event.samplingProtocol)">
+                                            <doi link="{{ datasetEvent.event.samplingProtocol }}"></doi>
+                                        </dd>
+                                    </div>
+                                    <div ng-repeat="field in ['eventRemarks', 'samplingEffort']" ng-if="datasetEvent.event[field]">
                                         <dt translate="ocurrenceFieldNames.{{field}}">{{field}}</dt>
-                                        <dd>
+                                        <dd ng-if="field !== 'samplingProtocol'">
                                             {{ datasetEvent.event[field] }}
                                         </dd>
                                     </div>
@@ -103,7 +112,8 @@
                                                             <span ng-if="!event.eventDate" translate="phrases.noData" class="discreet"></span>
                                                         </td>
                                                         <td>
-                                                            <span>{{ event.samplingProtocol }}</span>
+                                                            <span ng-if="!datasetEvent.isDoi(event.samplingProtocol)">{{ event.samplingProtocol }}</span>
+                                                            <doi ng-if="datasetEvent.isDoi(event.samplingProtocol)" link="{{ event.samplingProtocol }}"></doi>
                                                         </td>
                                                         <td>
                                                             <span><a ui-sref="occurrenceSearchTable({dataset_key: datasetEvent.datasetKey, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a></span>

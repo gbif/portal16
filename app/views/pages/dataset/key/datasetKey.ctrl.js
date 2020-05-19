@@ -3,7 +3,8 @@
 var angular = require('angular'),
     _ = require('lodash'),
     utils = require('../../../shared/layout/html/utils/utils'),
-    fixedUtil = require('./main/submenu');
+    fixedUtil = require('./main/submenu'),
+    doiRegex = require('doi-regex');
 
 require('./project/datasetProject.ctrl');
 require('./stats/datasetStats.ctrl');
@@ -40,7 +41,9 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     vm.backboneNetworkKey = constantKeys.network.backboneNetwork;
     vm.dataApi = env.dataApi;
     vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
-
+    vm.isDoi = function(str) {
+        return str.match(doiRegex());
+    };
 
    // vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
     vm.isPartOfCOL = constantKeys.dataset.col === vm.key;
