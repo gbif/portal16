@@ -15,7 +15,7 @@ module.exports = function(app) {
 };
 
 router.get('/dataset/search', function(req, res) {
-    req.query.hl = true;
+    req.query.hl = false;// remove highlighting as the API behaviour have changed. see https://github.com/gbif/portal16/issues/1358
     datasetSearch(req.query).then(function(data) {
         DataSetOmniSearch.extractHighlights(data, req.query);
         let settings = {
