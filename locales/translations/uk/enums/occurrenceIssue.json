@@ -11,14 +11,14 @@
     "COORDINATE_REPROJECTION_SUSPICIOUS": "Перепроєціонування координат підозріле",
     "COORDINATE_ACCURACY_INVALID": "Точність координат вказано некоректно",
     "COORDINATE_PRECISION_INVALID": "Похибка координат вказана некоректно",
-    "COORDINATE_UNCERTAINTY_METERS_INVALID": "Невизначеність координат в метрах вказано некоректно",
+    "COORDINATE_UNCERTAINTY_METERS_INVALID": "Похибку координат в метрах вказано некоректно",
     "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "Невизначеність та похибка координат суперечать одна одній",
     "COUNTRY_COORDINATE_MISMATCH": "Країна та координати не співпадають",
     "COUNTRY_MISMATCH": "Країна не відповідає",
     "COUNTRY_INVALID": "Недійсна країна",
     "COUNTRY_DERIVED_FROM_COORDINATES": "Країну встановлено за координатами",
     "CONTINENT_COUNTRY_MISMATCH": "Розбіжність континенту і країни",
-    "CONTINENT_INVALID": "Невірний континент",
+    "CONTINENT_INVALID": "Некоректний континент",
     "CONTINENT_DERIVED_FROM_COORDINATES": "Континент встановлено за координатами",
     "PRESUMED_SWAPPED_COORDINATE": "Можливо, широта й довгота переплутані місцями",
     "PRESUMED_NEGATED_LONGITUDE": "Можливо, вказано помилковий знак довготи",
@@ -47,6 +47,6 @@
     "MULTIMEDIA_URI_INVALID": "URI мультимедіа недійсний",
     "REFERENCES_URI_INVALID": "URI посилання недійсний",
     "INTERPRETATION_ERROR": "Помилка інтерпретації",
-    "INDIVIDUAL_COUNT_INVALID": "Невірна кількість особин"
+    "INDIVIDUAL_COUNT_INVALID": "Некоректна кількість особин"
   }
 }
