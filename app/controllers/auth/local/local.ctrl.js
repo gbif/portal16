@@ -43,6 +43,7 @@ router.get('/basic', function(req, res, next) {
 });
 
 passport.use(new BasicStrategy(function(userid, password, done) {
+    //why URIdecode? https://github.com/jaredhanson/passport-http/issues/20
     let authData = 'Basic ' + Base64.encode(userid + ':' + decodeURIComponent(password));
     User.login(authData)
         .then(function(user) {
