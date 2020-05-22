@@ -43,7 +43,7 @@ router.get('/basic', function(req, res, next) {
 });
 
 passport.use(new BasicStrategy(function(userid, password, done) {
-    let authData = 'Basic ' + Base64.encode(userid + ':' + password);
+    let authData = 'Basic ' + Base64.encode(userid + ':' + decodeURIComponent(password));
     User.login(authData)
         .then(function(user) {
             done(null, user);

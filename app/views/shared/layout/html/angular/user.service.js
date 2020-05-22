@@ -108,7 +108,7 @@
                 };
 
                 that.login = function(username, password) {
-                    var authData = Base64.encode(username + ':' + password);
+                    var authData = Base64.encode(username + ':' + encodeURIComponent(password));
                     var userLogin = $http.get('/api/auth/basic', {
                         headers: {'Authorization': 'Basic ' + authData}
                     });
