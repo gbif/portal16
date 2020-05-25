@@ -1,7 +1,7 @@
 {
   "eoi": {
-    "firstPleaseSeeIfYourOrg": "أولاً، يرجى التاكد ان مؤسستك مسجلة بالفعل كناشر GBIF.",
-    "ifYouAreAffiliatedWithTheSelectedOrganization": "إذا كنت منتسبًا إلى المنظمة المختارة، يرجى الاتصال بمصلحة نشر البيانات.",
+    "firstPleaseSeeIfYourOrg": "أولاً، يرجى التأكد أن مؤسستك مسجلة بالفعل كناشر في المرفق العالمي لمعلومات التنوع الحيوي.",
+    "ifYouAreAffiliatedWithTheSelectedOrganization": "إذا كنت تابعاً إلى المنظمة المختارة، فيجب الاتصال للحصول على معرفة عملية عن نشر البيانات.",
     "myOrgIsNotRegistered": "منظمتي غير مسجلة بالفعل.",
     "searchOrganisations": "ابحث عن المنظمات",
     "termsAndConditions": "الأحكام والشروط",
