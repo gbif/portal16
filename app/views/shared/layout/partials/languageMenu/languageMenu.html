@@ -29,9 +29,7 @@
 							<div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}">
 								<span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}">{{vm.LOCALE_MAPPINGS.localNames[locale]}}</span>
 								<span class="discreet--very ltr-text" ng-if="locale !== 'en'">
-								(
-									<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}" translate-language="en"></span>
-								)
+								(<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}" translate-language="en"></span>)
 								</span>
 							</div>
 						</md-radio-button>
