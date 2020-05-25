@@ -26,11 +26,11 @@
             "geojson": "GeoJSON",
             "range": "المدى",
             "noFiltersAdded": "لم تتم إضافة مُرشِّحات للمنطقة",
-            "wktPlaceholder": "WKT اوGeoJSON_مضلعات متعددة غير مسندة",
-            "invalidTextInput": "WKT لاغ او GeoJSON",
-            "tooLarge": "هندسة كبيرة جدا",
-            "tooLargeSuggestion": "حاول استخدام المربع المحيط وقم بفلترة محلية عوضا عن ذلك",
-            "invalidRange": "مربع محيط لاغ"
+            "wktPlaceholder": "WKT أو GeoJSON - مضلعات متعددة غير مدعومة",
+            "invalidTextInput": "WKT او GeoJSON غير صالح",
+            "tooLarge": "هندسة كبيرة جداً",
+            "tooLargeSuggestion": "حاول استخدام صندوق الإحاطة وقم بالتصفية محلياً عوضاً عن ذلك",
+            "invalidRange": "صندوق إحاطة غير صالح"
         }
     }
 }
