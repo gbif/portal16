@@ -5,8 +5,8 @@
   },
   "species": {
     "distribution": {
-      "presentIn": "Знаходиться у {country}",
-      "presentInNonCountry": "Знаходиться у {location}",
+      "presentIn": "МІсцезнаходження: {country}",
+      "presentInNonCountry": "МІсцезнаходження: {location}",
       "threatStatus": "Охоронний статус: {status}",
       "distributionPlural": "Поширення"
     },
@@ -15,7 +15,7 @@
       "treatment": "Таксономічна картка",
       "metrics": "Показники",
       "referenceTaxon": "Референтний таксон",
-      "verbatim": "Відповідно до першоджерела"
+      "verbatim": "Першоджерело"
     },
     "invasives": {
       "nInvadedCountries": "Відмічений як інвазивний у {NUMBER_FORMATED} {NUMBER, select, 1{країні або острові} other{країнах або островах}}",
@@ -63,7 +63,7 @@
     "publishedIn": "Опубліковано у",
     "tradeRestrictions": "Обмеження на торгівлю",
     "basionym": "Базионім",
-    "nVernacularNames": "{NUMBER, select, 1{назва національною мовою} other{назв національною мовою}}",
+    "nVernacularNames": "{NUMBER, select, 1{назва національною мовою} other{назви національною мовою}}",
     "nameUsagesApplied": "Використання синонімічних назв у даних про знахідки видів у GBIF",
     "appearsIn": "З'являється у {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{наборі даних} other{наборах даних}}:",
     "viewOccurrences": "Переглянути знахідки",
