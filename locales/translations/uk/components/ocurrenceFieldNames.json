@@ -63,7 +63,7 @@
     "collectionCode": "Код колекції",
     "datasetName": "Назва набору даних",
     "ownerInstitutionCode": "Акронім або код установи-власника",
-    "basisOfRecord": "Підстава для запису",
+    "basisOfRecord": "Основа запису",
     "informationWithheld": "Замовчана інформація",
     "dataGeneralizations": "Узагальнення даних",
     "dynamicProperties": "Динамічні властивості",
