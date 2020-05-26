@@ -53,10 +53,10 @@
           "GBIF_DISCUSSED": "GBIF обговорено",
           "GBIF_PRIMARY": "Дані GBIF використано як основні",
           "GBIF_ACKNOWLEDGED": "Висловлено подяку GBIF",
-          "GBIF_PUBLISHED": "Обговорюються дані опубліковані в GBIF",
-          "GBIF_AUTHOR": "За авторства GBIF",
+          "GBIF_PUBLISHED": "Обговорені дані опубліковані в GBIF",
+          "GBIF_AUTHOR": "Автор з GBIF",
           "GBIF_MENTIONED": "GBIF згадано",
-          "GBIF_FUNDED": "Профінансовані GBIF"
+          "GBIF_FUNDED": "Профінансовано GBIF"
         },
         "topics": {
           "AGRICULTURE": "Сільське господарство",
