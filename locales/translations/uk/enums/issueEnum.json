@@ -28,7 +28,7 @@
     "ORIGINAL_NAME_NOT_UNIQUE": "Оригінальна назва не унікальна",
     "RELATIONSHIP_MISSING": "Зв'язок відсутній",
     "ORIGINAL_NAME_DERIVED": "Зв'язок з базионімом виведено",
-    "CONFLICTING_BASIONYM_COMBINATION": "Суперечлива комбінація базионімів",
+    "CONFLICTING_BASIONYM_COMBINATION": "Конфлікт у виборі базионіму",
     "NO_SPECIES": "Не містить видів",
     "NAME_PARENT_MISMATCH": "Розбіжність з назвою таксону вищого рангу",
     "ORTHOGRAPHIC_VARIANT": "Варіант написання",
