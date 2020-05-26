@@ -12,7 +12,7 @@
       "withTaxonMatch": "Відповідно до таксономії GBIF",
       "withCoordinates": "Мають координати",
       "withYear": "Вказаний рік збору",
-      "acceptedNames": "Валідні назви",
+      "acceptedNames": "Прийняті назви",
       "synonyms": "Синоніми",
       "overlapWithNub": "Збіг з таксономією GBIF",
       "overlapWithCol": "Збіг з Catalogue of Life"
@@ -55,7 +55,7 @@
     "nFromDataset": "{NUMBER_FORMATED} {NUMBER, select, 1{знахідка з цього набору даних} 2{знахідки з цього набору даних} 3{знахідки з цього набору даних} 4{знахідки з цього набору даних} few{знахідки з цього набору даних} many{знахідок з цього набору даних} other{знахідок з цього набору даних}}",
     "funding": "Фінансування",
     "contacts": "Контакти",
-    "registration": "Реєстрація GBIF",
+    "registration": "Реєстрація у GBIF",
     "dataDescription": "Опис даних",
     "bibliography": "Бібліографія",
     "citation": "Як цитувати:",
