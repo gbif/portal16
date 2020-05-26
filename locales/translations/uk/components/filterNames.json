@@ -21,7 +21,7 @@
     "location": "Місцезнаходження",
     "coordinateUncertaintyInMeters": "Похибка координат у метрах",
     "hasGeospatialIssue": "Має проблеми з геопросторовою прив'язкою",
-    "basisOfRecord": "Підстава для запису",
+    "basisOfRecord": "Основа запису",
     "issue": "Проблеми та відмітки",
     "locality": "Локація",
     "lastInterpreted": "Остання інтерпретація",
