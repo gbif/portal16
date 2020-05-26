@@ -41,9 +41,9 @@
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "Звичайно",
+                "NORMAL": "Нормально",
                 "ABORT": "Перервано",
-                "NOT_MODIFIED": "Не змінено"
+                "NOT_MODIFIED": "Без змін"
             }
         }
     }
