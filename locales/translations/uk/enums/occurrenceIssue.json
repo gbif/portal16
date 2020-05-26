@@ -5,7 +5,7 @@
     "COORDINATE_INVALID": "Неприпустима координата",
     "COORDINATE_ROUNDED": "Координата округлена",
     "GEODETIC_DATUM_INVALID": "Геодезичний датум недійсний",
-    "GEODETIC_DATUM_ASSUMED_WGS84": "Припускається використання геодезичного датуму WGS84",
+    "GEODETIC_DATUM_ASSUMED_WGS84": "Припускається використання WGS84",
     "COORDINATE_REPROJECTED": "Координата перепроєційована",
     "COORDINATE_REPROJECTION_FAILED": "Помилка перепроєціонування координат",
     "COORDINATE_REPROJECTION_SUSPICIOUS": "Перепроєціонування координат підозріле",
