@@ -42,7 +42,7 @@
     "classification": "Класифікація",
     "sourcePlural": "{NUMBER, select, 1{Джерело} other{Джерела}}",
     "nMoreDatasets": "{NUMBER} більше {NUMBER, select, 1{набір даних} other{набори даних}}",
-    "acceptedName": "Валідна назва",
+    "acceptedName": "Прийнята назва",
     "synonym": "Синонім",
     "description": "Опис",
     "synonyms": "Синоніми",
