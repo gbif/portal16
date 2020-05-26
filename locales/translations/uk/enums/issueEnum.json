@@ -1,6 +1,6 @@
 {
   "issueEnum": {
-    "PARENT_NAME_USAGE_ID_INVALID": "Некоректний ParentUsageID",
+    "PARENT_NAME_USAGE_ID_INVALID": "Некоректний ParentNameUsageID",
     "ACCEPTED_NAME_USAGE_ID_INVALID": "Некоректний AcceptedNameUsageID",
     "ORIGINAL_NAME_USAGE_ID_INVALID": "Некоректний OriginalNameUsageID",
     "RANK_INVALID": "Ранг невідомий",
@@ -8,7 +8,7 @@
     "TAXONOMIC_STATUS_INVALID": "Таксономічний статус невідомий",
     "SCIENTIFIC_NAME_ASSEMBLED": "ScientificName зібрано",
     "CHAINED_SYNOYM": "Зчеплений синонім",
-    "BASIONYM_AUTHOR_MISMATCH": "Невідповідність автора базионіму",
+    "BASIONYM_AUTHOR_MISMATCH": "Невідповідність з автором базионіму",
     "TAXONOMIC_STATUS_MISMATCH": "Невідповідність таксономічного статусу",
     "PARENT_CYCLE": "Зациклена ієрархічна класифікація",
     "CLASSIFICATION_RANK_ORDER_INVALID": "Некоректна послідовність рангів класифікації",
@@ -20,8 +20,8 @@
     "MULTIMEDIA_INVALID": "Помилка мультимедіа",
     "BIB_REFERENCE_INVALID": "Бібліографічні посилання недійсні",
     "ALT_IDENTIFIER_INVALID": "Альтернативні ідентифікатори недійсні",
-    "BACKBONE_MATCH_NONE": "Не може бути співвіднесено з опорною таксономічною системою GBIF",
-    "BACKBONE_MATCH_FUZZY": "Нечітка відповідність опорній таксономічній системі GBIF",
+    "BACKBONE_MATCH_NONE": "Не може бути співвіднесено з опорною таксономією GBIF",
+    "BACKBONE_MATCH_FUZZY": "Нечітка відповідність опорній таксономії GBIF",
     "ACCEPTED_NAME_MISSING": "Для синоніму відсутня прийнята назва",
     "ACCEPTED_NAME_NOT_UNIQUE": "Прийнята назва не унікальна",
     "PARENT_NAME_NOT_UNIQUE": "Назва таксону вищого рангу не унікальна",
