@@ -9,13 +9,13 @@
     },
     "metricHighlights": {
       "occurrences": "Знахідки",
-      "withTaxonMatch": "Мають відповідник у таксономії GBIF",
+      "withTaxonMatch": "Відповідно до таксономії GBIF",
       "withCoordinates": "Мають координати",
       "withYear": "Вказаний рік збору",
       "acceptedNames": "Валідні назви",
       "synonyms": "Синоніми",
-      "overlapWithNub": "Перекриття з таксономією GBIF",
-      "overlapWithCol": "Перекриття з Catalogue of Life"
+      "overlapWithNub": "Згідно з таксономією GBIF",
+      "overlapWithCol": "Згідно з Catalogue of Life"
     },
     "noStatsForMetadata": "Немає стаститики для наборів, що містять лише метадані",
     "viewArticle": "Перегляд статті",
