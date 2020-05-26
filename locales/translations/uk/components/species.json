@@ -59,7 +59,7 @@
     "iucnStatus": "Статус IUCN",
     "references": "Посилання",
     "source": "Джерело",
-    "inLanguage": "Мовою: {language}",
+    "inLanguage": "Мова: {language}",
     "publishedIn": "Опубліковано у",
     "tradeRestrictions": "Обмеження на торгівлю",
     "basionym": "Базионім",
