@@ -5,7 +5,7 @@
     "countNamesByLanguage": "Розподіл назв за мовами",
     "countExtRecordsByExtension": "Розподіл розширень за їх типами",
     "countByOrigin": "Розподіл за походженням",
-    "countByIssue": "Розподіл проблем за типами проблем"
+    "countByIssue": "Розподіл проблем за їх типами"
   },
   "metrics": {
     "issues": "Проблеми",
