@@ -19,7 +19,7 @@
     "custom": "Налаштовуваний пошук",
     "noOccurrencesWithCoordinates": "Знахідки з координатами відсутні",
     "containsSuspicious": "Ця  мапа містить знахідки, позначені у GBIF як ті, що мають сумнівні координати.",
-    "hideSuspiciousCoordinates": "Приховати їх",
+    "hideSuspiciousCoordinates": "Приховати",
     "currentFilter": "Поточний фільтр",
     "selectColumns": "Обрати стовпці таблиці",
     "done": "Виконано",
