@@ -14,8 +14,8 @@
       "withYear": "Вказаний рік збору",
       "acceptedNames": "Валідні назви",
       "synonyms": "Синоніми",
-      "overlapWithNub": "Згідно з таксономією GBIF",
-      "overlapWithCol": "Згідно з Catalogue of Life"
+      "overlapWithNub": "Збіг з таксономією GBIF",
+      "overlapWithCol": "Збіг з Catalogue of Life"
     },
     "noStatsForMetadata": "Немає стаститики для наборів, що містять лише метадані",
     "viewArticle": "Перегляд статті",
