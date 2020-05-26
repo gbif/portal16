@@ -48,13 +48,13 @@
           "undefined": "Не вказано"
         },
         "relevance": {
-          "GBIF_USED": "Дані GBIF використано",
+          "GBIF_USED": "GBIF використано ",
           "GBIF_CITED": "GBIF процитовано",
-          "GBIF_DISCUSSED": "GBIF обговорюється",
+          "GBIF_DISCUSSED": "GBIF обговорено",
           "GBIF_PRIMARY": "Дані GBIF використано як основні",
           "GBIF_ACKNOWLEDGED": "Висловлено подяку GBIF",
           "GBIF_PUBLISHED": "Обговорюються дані опубліковані в GBIF",
-          "GBIF_AUTHOR": "за авторства GBIF",
+          "GBIF_AUTHOR": "За авторства GBIF",
           "GBIF_MENTIONED": "GBIF згадано",
           "GBIF_FUNDED": "Профінансовані GBIF"
         },
