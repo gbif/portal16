@@ -27,7 +27,7 @@
     "PARENT_NAME_NOT_UNIQUE": "Назва таксону вищого рангу не унікальна",
     "ORIGINAL_NAME_NOT_UNIQUE": "Оригінальна назва не унікальна",
     "RELATIONSHIP_MISSING": "Зв'язок відсутній",
-    "ORIGINAL_NAME_DERIVED": "Зв'язок з базионімом виведено",
+    "ORIGINAL_NAME_DERIVED": "Похідний зв'язок з базионімом",
     "CONFLICTING_BASIONYM_COMBINATION": "Конфлікт у виборі базионіму",
     "NO_SPECIES": "Не містить жодного виду",
     "NAME_PARENT_MISMATCH": "Розбіжність з назвою таксону вищого рангу",
