@@ -9,7 +9,7 @@
     },
     "metricHighlights": {
       "occurrences": "Знахідки",
-      "withTaxonMatch": "Відповідно до таксономії GBIF",
+      "withTaxonMatch": "Мають збіг з таксонами",
       "withCoordinates": "Мають координати",
       "withYear": "Вказаний рік збору",
       "acceptedNames": "Прийняті назви",
