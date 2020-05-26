@@ -29,12 +29,12 @@
     "RELATIONSHIP_MISSING": "Зв'язок відсутній",
     "ORIGINAL_NAME_DERIVED": "Зв'язок з базионімом виведено",
     "CONFLICTING_BASIONYM_COMBINATION": "Конфлікт у виборі базионіму",
-    "NO_SPECIES": "Не містить видів",
+    "NO_SPECIES": "Не містить жодного виду",
     "NAME_PARENT_MISMATCH": "Розбіжність з назвою таксону вищого рангу",
     "ORTHOGRAPHIC_VARIANT": "Варіант написання",
     "HOMONYM": "Омонім",
     "PUBLISHED_BEFORE_GENUS": "Опубліковано раніше за назву таксону вищого рангу",
     "UNPARSABLE": "Назву не вдається розібрати на складники",
-    "PARTIALLY_PARSABLE": "Назву частково розібрано на складники"
+    "PARTIALLY_PARSABLE": "Назву лише частково розібрано на складники"
   }
 }
