@@ -19,7 +19,7 @@
     },
     "invasives": {
       "nInvadedCountries": "Відмічений як інвазивний у {NUMBER_FORMATED} {NUMBER, select, 1{країні або острові} other{країнах або островах}}",
-      "invasiveIn": "Відмічений як інвазивний у",
+      "invasiveIn": "Відмічений як інвазивний",
       "accordingTo": "Відповідно до",
       "occurrenceCount": "Знахідки у GBIF",
       "seeAllCountries": "Показати все",
@@ -63,7 +63,7 @@
     "publishedIn": "Опубліковано у",
     "tradeRestrictions": "Обмеження на торгівлю",
     "basionym": "Базионім",
-    "nVernacularNames": "{NUMBER, select, 1{назва національною мовою} other{назви національною мовою}}",
+    "nVernacularNames": "{NUMBER, select, 1{назва національною мовою} other{назви національними мовами}}",
     "nameUsagesApplied": "Використання синонімічних назв у даних про знахідки видів у GBIF",
     "appearsIn": "З'являється у {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{наборі даних} other{наборах даних}}:",
     "viewOccurrences": "Переглянути знахідки",
