@@ -18,7 +18,7 @@
       "verbatim": "Першоджерело"
     },
     "invasives": {
-      "nInvadedCountries": "Відмічений як інвазивний у {NUMBER_FORMATED} {NUMBER, select, 1{країні або острові} other{країнах або островах}}",
+      "nInvadedCountries": "Відмічений як інвазивний на території {NUMBER_FORMATED} {NUMBER, plural, 1{країни або острова} other{країн або островів}}",
       "invasiveIn": "Відмічений як інвазивний",
       "accordingTo": "Відповідно до",
       "occurrenceCount": "Знахідки у GBIF",
@@ -65,7 +65,7 @@
     "basionym": "Базионім",
     "nVernacularNames": "{NUMBER, select, 1{назва національною мовою} other{назви національними мовами}}",
     "nameUsagesApplied": "Використання синонімічних назв у даних про знахідки видів у GBIF",
-    "appearsIn": "З'являється у {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{наборі даних} other{наборах даних}}:",
+    "appearsIn": "{DATASET_TYPE_TRANSLATED}: з'являється у {NUMBER_FORMATTED} {NUMBER, plural, 1{наборі даних} other{наборах даних}}:",
     "viewOccurrences": "Переглянути знахідки",
     "seeAlso": "Дивіться також",
     "viewInGbifBackbone": "Переглянути в опорній таксономії GBIF",
