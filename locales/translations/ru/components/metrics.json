@@ -20,7 +20,7 @@
     "noChildren": "Нет непосредственных дочерних записей",
     "noOccurrences": "Нет находок",
     "nothingSelected": "нет категории",
-    "occurrences": "Число находок",
+    "occurrences": "{NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
     "citations": "Цитирования",
     "otherOrUknown": "для {NUMBER} находок значение другое или неизвестно",
     "occurrencesPerField": "Распределение находок по категории: {FIELD}",
