@@ -19,7 +19,7 @@
     "eventID": "ID сбора или описания",
     "samplingProtocol": "Методика сбора данных",
     "location": "Местоположение",
-    "coordinateUncertaintyInMeters": "",
+    "coordinateUncertaintyInMeters": "неточность координат в метрах",
     "hasGeospatialIssue": "С проблемами в географической привязке",
     "basisOfRecord": "Что является основой для записи",
     "issue": "Автоматически обнаруженные несоответствия",
