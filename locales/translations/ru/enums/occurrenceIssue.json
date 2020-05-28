@@ -21,8 +21,8 @@
     "CONTINENT_INVALID": "континент указан некорректно",
     "CONTINENT_DERIVED_FROM_COORDINATES": "континент установлен по координатам",
     "PRESUMED_SWAPPED_COORDINATE": "возможно широту и долготу поменяли местами",
-    "PRESUMED_NEGATED_LONGITUDE": "Вероятно указан неверный знак долготы",
-    "PRESUMED_NEGATED_LATITUDE": "Вероятно указан неверный знак широты",
+    "PRESUMED_NEGATED_LONGITUDE": "возможно неверный знак долготы",
+    "PRESUMED_NEGATED_LATITUDE": "возможно неверный знак широты",
     "RECORDED_DATE_MISMATCH": "Несовпадение записанных дат",
     "RECORDED_DATE_INVALID": "дата находки некорректна",
     "RECORDED_DATE_UNLIKELY": "дата находки маловероятна",
@@ -39,14 +39,14 @@
     "ELEVATION_NON_NUMERIC": "Величина высоты не является числом",
     "MODIFIED_DATE_INVALID": "Дата изменений неверная",
     "MODIFIED_DATE_UNLIKELY": "Дата изменений маловероятна",
-    "IDENTIFIED_DATE_UNLIKELY": "Дата идентификации маловероятна",
-    "IDENTIFIED_DATE_INVALID": "Дата идентификации неверная",
+    "IDENTIFIED_DATE_UNLIKELY": "дата определения маловероятна",
+    "IDENTIFIED_DATE_INVALID": "некорректная дата определения",
     "BASIS_OF_RECORD_INVALID": "некорректная основа записи",
     "TYPE_STATUS_INVALID": "Статус типа недействителен",
     "MULTIMEDIA_DATE_INVALID": "Дата мультимедиа неверная",
-    "MULTIMEDIA_URI_INVALID": "URI мультимедиа неверный",
+    "MULTIMEDIA_URI_INVALID": "URI мультимедиа недействительный",
     "REFERENCES_URI_INVALID": "URI ссылки неверный",
     "INTERPRETATION_ERROR": "Ошибка интерпретации",
-    "INDIVIDUAL_COUNT_INVALID": "Неверное число особей"
+    "INDIVIDUAL_COUNT_INVALID": "некорректное число особей"
   }
 }
