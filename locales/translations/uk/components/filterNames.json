@@ -1,7 +1,7 @@
 {
   "filterNames": {
     "month": "Місяць",
-    "catalogNumber": "Каталожний номер",
+    "catalogNumber": "Каталоговий номер",
     "year": "Рік",
     "country": "Країна або територія",
     "continent": "",
@@ -19,9 +19,9 @@
     "eventID": "ID події",
     "samplingProtocol": "Протокол збору",
     "location": "Місцезнаходження",
-    "coordinateUncertaintyInMeters": "Невизначеність координат у метрах",
+    "coordinateUncertaintyInMeters": "Похибка координат у метрах",
     "hasGeospatialIssue": "Має проблеми з геопросторовою прив'язкою",
-    "basisOfRecord": "Підстава для запису",
+    "basisOfRecord": "Основа запису",
     "issue": "Проблеми та відмітки",
     "locality": "Локація",
     "lastInterpreted": "Остання інтерпретація",

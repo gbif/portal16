@@ -1,7 +1,7 @@
 {
     "pagination": {
-        "previous": "Попередня",
-        "next": "Наступна",
+        "previous": "Назад",
+        "next": "Далі",
         "first": "Перша"
     }
 }

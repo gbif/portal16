@@ -23,7 +23,7 @@
     "largeDownload": "تنزيل كبير الحجم",
     "requestingFullDownload": "أنت تطلب تنزيل كامل بيانات التكرارت الموجودة في \"جيبف\".",
     "occFiltersExplainedHere": "هذا ممكن، لكن قد ترغب في ترشيح البيانات قبل تنزيلها. يمكن القيام بذلك باستخدام مرشحات التكرار الخاصة في الموقع. يتم توضيح ذلك هنا [here] (/news/3K5oLzZXi0yG0SEO8E6c88/top-tip-using-filters-and-facets-on-gbiforg)",
-    "estSizeIs": "الحجم المقدر للتنزيل هو {SIZE_FORMATTED}",
+    "estSizeIs": "الحجم التقديري للتحميل هو {SIZE_FORMATTED}",
     "estDLtimes": "عدد مرات التنزيل المقدرة:",
     "nMbitConn": "اتصال {NUMBER} ميغا بايت",
     "onceDownloaded": "بمجرد تنزيل الملف، سوف تحتاج إلى مساحة فارغة {SIZE_FORMATTED} أخرى على القرص لفك ضغط البيانات.",

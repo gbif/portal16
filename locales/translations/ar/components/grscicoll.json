@@ -25,79 +25,79 @@
     "status": "الحالة",
     "name": "الاسم",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "نشط",
+      "false": "غير فعال"
     }
   },
   "institution": {
-    "title": "",
+    "title": "مؤسسة",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "مؤسسات",
+      "description": " **مؤسسة** تشير الى اي مؤسسة او منظمة تمتلك وتدير مجموعات علمية. هذا يتضمن معشبات نباتية, متاحف, حدائق حيوان, حدائق نباتية, بنوك حيوية, ومن غيرها اي مؤسسة تشتمل على مجموعات متعددة, وفي هذه الحالة يجب ادخالها بشكل افرادي تحت مسمى **مجموعات مشاريع/موسساتية** وربطها  بالمؤسسة الام."
     },
-    "headerTitle": "",
-    "indexHerbariorumRecord": "",
+    "headerTitle": "مؤسسة",
+    "indexHerbariorumRecord": "سجل دليل المعشبة النباتية",
     "numberSpecimens": "",
-    "code": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "code": "رمز المؤسسة",
+    "statusOfInstitution": "حالة المؤسسة",
+    "additionalNames": "اسماء اضافية",
+    "description": "توصيف",
+    "homepage": "الصفحة الرئيسية",
     "foundingDate": "",
     "geographicDescription": "الوصف الجغرافي",
     "taxonomicDescription": "الوصف التصنيفي",
-    "citesPermitNumber": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "citesPermitNumber": "اذكر عدد الرخصة",
+    "disciplines": "قواعد العمل المؤسساتية",
+    "institutionalGovernance": "الادارة المؤسساتية",
+    "type": "نوع المؤسسة",
+    "identifiers": "معرفين",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "فعال",
+      "false": "غير فعال"
     },
-    "true": "",
-    "false": ""
+    "true": "نعم",
+    "false": "لا"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "شخص",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "موظفي التحصيل",
+      "description": "اعضاء كادر GRSciColl هم اي  نوع من الموظفين المنخرطين في هذه المجموعات. ويمكن ربطهم بالمؤسسةو/او اي موع من المجموعات."
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
+    "headerTitle": "موظفي المجموعة",
+    "firstName": "الاسم الاول",
+    "lastName": "اسم العائلة",
+    "fullName": "الاسم الكامل",
+    "position": "اللقب الوظيفي",
+    "affiliations": "الانتماءات",
+    "areaResponsibility": "نطاق المسؤولية",
+    "researchPursuits": "الاختصاص البحثي",
+    "primaryInstitution": "اسم المؤسسة الرئيسية",
+    "primaryCollection": "اسم المجموعة الرئيسية",
+    "affiliateInstitutions": "المؤسسات المنتسبة الاضافية",
     "affiliateCollections": ""
   },
   "grscicoll": {
     "title": "",
     "suggestChange": "اقترح تغييرا",
     "tabs": {
-      "about": "",
-      "institutions": "",
-      "collections": "",
+      "about": "حول",
+      "institutions": "مؤسسات",
+      "collections": "مجموعات",
       "people": ""
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "البريد الالكتروني",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "العنوان البريدي",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "الاتصالات",
+      "address": "العنوان",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "البلد"
     }
   }
 }

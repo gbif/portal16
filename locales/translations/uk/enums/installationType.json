@@ -1,6 +1,6 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "IPT",
+    "IPT_INSTALLATION": "Встановлення IPT",
     "DIGIR_INSTALLATION": "DiGIR",
     "TAPIR_INSTALLATION": "Tapir",
     "BIOCASE_INSTALLATION": "Biocase",

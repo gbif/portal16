@@ -43,7 +43,7 @@
     "additionalNames": "其他名稱",
     "description": "描述",
     "homepage": "首頁",
-    "foundingDate": "",
+    "foundingDate": "成立日期",
     "geographicDescription": "地理描述",
     "taxonomicDescription": "分類描述",
     "citesPermitNumber": "城市許可編號",
@@ -78,7 +78,7 @@
     "affiliateCollections": "其他附屬機構"
   },
   "grscicoll": {
-    "title": "",
+    "title": "科學典藏",
     "suggestChange": "提供建議",
     "tabs": {
       "about": "關於",

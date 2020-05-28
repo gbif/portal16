@@ -1,16 +1,16 @@
 {
     "filters": {
         "searchPlaceholder": "بحث",
-        "noPreference": "لا افضلية",
+        "noPreference": "لا يوجد تفضيل",
         "invert": "عكس",
         "clear": "واضح",
-        "add": "اضف",
+        "add": "أضف",
         "repatriation": {
-            "description": "يقال ان البيانات التي اعيدت الى الوطن عند نشرها من قبل المؤسسة في احد البلدان لكنها تتعلق بالتنوع الحيوي المتواجد في بلد آخر"
+            "description": "يقال أن البيانات قد أُعيدت إلى الوطن عند يتم نشرها من قبل المؤسسة في أحد البلدان لكنها تتعلق بالتنوع الحيوي الموجود في بلد آخر"
         },
         "ternary": {
             "yes": "نعم",
-            "no": "كلا",
+            "no": "لا",
             "all": "الكل"
         },
         "location": {
@@ -18,19 +18,19 @@
             "south": "الجنوب",
             "west": "الغرب",
             "east": "الشرق",
-            "withCoordinates": "متضمنا الاحدثيات",
-            "withoutCoordinates": "دون احداثيات",
-            "includeFlaggedAsSuspicious": "ادرج السجلات حيث الاحداثيات التي اشير اليها بعلامة  مشكوك فيها",
-            "onlyShowFlagged": "اظهر فقط السجلات التي عليها علامة مشكوك فيها",
+            "withCoordinates": "متضمناً الإحداثيات",
+            "withoutCoordinates": "بدون إحداثيات",
+            "includeFlaggedAsSuspicious": "أدرج السجلات حيث تمت الاشارة إلى الاحداثيات على أنه مشكوك فيها",
+            "onlyShowFlagged": "أظهر فقط السجلات التي أُشير إلى أنه مشكوك فيها",
             "past": "مستخدمة مؤخرا",
             "geojson": "GeoJSON",
             "range": "المدى",
-            "noFiltersAdded": "لاتوجد منطقة فلاتر مضافة",
-            "wktPlaceholder": "WKT اوGeoJSON_مضلعات متعددة غير مسندة",
-            "invalidTextInput": "WKT لاغ او GeoJSON",
-            "tooLarge": "هندسة كبيرة جدا",
-            "tooLargeSuggestion": "حاول استخدام المربع المحيط وقم بفلترة محلية عوضا عن ذلك",
-            "invalidRange": "مربع محيط لاغ"
+            "noFiltersAdded": "لم تتم إضافة مُرشِّحات للمنطقة",
+            "wktPlaceholder": "WKT أو GeoJSON - مضلعات متعددة غير مدعومة",
+            "invalidTextInput": "WKT او GeoJSON غير صالح",
+            "tooLarge": "هندسة كبيرة جداً",
+            "tooLargeSuggestion": "حاول استخدام صندوق الإحاطة وقم بالتصفية محلياً عوضاً عن ذلك",
+            "invalidRange": "صندوق إحاطة غير صالح"
         }
     }
 }

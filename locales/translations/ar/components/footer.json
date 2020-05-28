@@ -1,14 +1,14 @@
 {
   "footer": {
-    "whatIsGbif": "ما هو المرفق العالمي للتنوع الحيوي",
-    "api": "واجهة برمجة تطبيقات",
+    "whatIsGbif": "ما هو \"جيبف\"؟",
+    "api": "واجهة برمجة التطبيقات (API)",
     "faq": "اسئلة متكررة",
     "newsletter": "رسالة اخبارية",
     "privacy": "خصوصية",
     "terms": "شروط و اتفاقات",
     "citation": "اقتباس",
-    "codeOfConduct": "مدونة قواعد السلوك",
-    "acknowledgements": "شكر",
+    "codeOfConduct": "قواعد السلوك",
+    "acknowledgements": "شكر وتقدير",
     "contact": "اتصال"
   }
 }

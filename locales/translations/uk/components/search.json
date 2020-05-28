@@ -16,8 +16,8 @@
     "search": "Пошук",
     "clearFilters": "Скинути фільтри",
     "filters": "Фільтри",
-    "simple": "Простий",
-    "advanced": "Розширений",
+    "simple": "Простий пошук",
+    "advanced": "Розширений пошук",
     "allResultTypes": "Всі",
     "suggestions": "Підказки",
     "header": {

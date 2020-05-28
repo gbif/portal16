@@ -12,11 +12,11 @@
         "featureTypes": {
             "event": "イベント",
             "news": "ニュース",
-            "resource": "",
+            "resource": "資料",
             "dataUse": "データの利用",
             "project": "プロジェクト",
             "programme": "プログラム",
-            "document": "",
+            "document": "ドキュメント",
             "tool": "ツール",
             "literature": "文献",
             "treatment": "分類",

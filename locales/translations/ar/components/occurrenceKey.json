@@ -48,39 +48,39 @@
       "location": "الموقع",
       "specimenType": "نوع العينة",
       "publisher": "الناسر",
-      "reference": "",
-      "verbatimName": ""
+      "reference": "المرجععية",
+      "verbatimName": "الاسم الحرفي"
     },
     "media": {
-      "noIdentifier": "",
-      "noPlaybackSupport": "",
-      "takeMeThere": "",
+      "noIdentifier": "لم يتم  تبمعرف الوسائط",
+      "noPlaybackSupport": "المتصفح الخاص بك لا يدعم التنسيق المطلوب لتشغيل هذه الوسائط",
+      "takeMeThere": "جرب الاصدار في موقع الناشر",
       "notWorkingTryPublishers": "",
-      "download": ""
+      "download": "قم بتنزيل الوسائط"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "تم جمعها في{البلد}",
+        "FOSSIL_SPECIMEN": "جمعت في{ البلد}",
+        "LIVING_SPECIMEN": "تم جمعها في{البلد}",
+        "HUMAN_OBSERVATION": "تم رصده في{ البلد}",
+        "MACHINE_OBSERVATION": "تم رصده في {البلد}",
+        "MATERIAL_SAMPLE": "تم جمعها في{البلد}",
+        "OCCURRENCE": "تم تسجيلها في{البلد}",
+        "OBSERVATION": "تم رصدها في{البلد}",
+        "LITERATURE": "تم تسجيلها في{البلد}",
+        "UNKNOWN": "سجلت في {البلد}"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
+        "PRESERVED_SPECIMEN": "تم جمعها في موقع غير معروف",
+        "FOSSIL_SPECIMEN": "جمعت في موقع غير معروف",
+        "LIVING_SPECIMEN": "تم جمعها في موقع غير معروف",
+        "HUMAN_OBSERVATION": "رصدت في موقع غير معروف",
+        "MACHINE_OBSERVATION": "تم رصدها في موقع غير معروف",
+        "MATERIAL_SAMPLE": "جمعت في موقع غير معروف",
+        "OCCURRENCE": "سجلت في موقع غير معروف",
+        "OBSERVATION": "تم رصدها في موقع غير معروف",
+        "LITERATURE": "تم تسجيلها في موقع غير معروف",
         "UNKNOWN": ""
       },
       "unknownSpecies": ""

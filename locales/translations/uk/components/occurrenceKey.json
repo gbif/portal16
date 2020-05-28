@@ -12,7 +12,7 @@
     "synced": "Синхронізовано",
     "modified": "Змінено",
     "monthAndyear": "Місяць та рік",
-    "coordinateUncertainty": "Невизначеність координат",
+    "coordinateUncertainty": "Похибка координат",
     "citation": "Як цитувати:",
     "readFullDescription": "Детальніше",
     "showMoreInfo": "Детальніше",
@@ -63,11 +63,11 @@
         "PRESERVED_SPECIMEN": "Зібрана в {COUNTRY}",
         "FOSSIL_SPECIMEN": "Зібрана в {COUNTRY}",
         "LIVING_SPECIMEN": "Зібрана в {COUNTRY}",
-        "HUMAN_OBSERVATION": "Спостереження в {COUNTRY}",
-        "MACHINE_OBSERVATION": "Спостереження в {COUNTRY}",
+        "HUMAN_OBSERVATION": "МІсце спостереження: {COUNTRY}",
+        "MACHINE_OBSERVATION": "МІсце спостереження: {COUNTRY}",
         "MATERIAL_SAMPLE": "Зібрана в {COUNTRY}",
         "OCCURRENCE": "Записана в {COUNTRY}",
-        "OBSERVATION": "Спостереження в {COUNTRY}",
+        "OBSERVATION": "МІсце спостереження: {COUNTRY}",
         "LITERATURE": "Записана в {COUNTRY}",
         "UNKNOWN": "Записана в {COUNTRY}"
       },
@@ -86,7 +86,7 @@
       "unknownSpecies": "Невідомий вид"
     },
     "occurrence": "Знахідка",
-    "inLanguage": "Мовою {LANGUAGE_TRANSLATED}"
+    "inLanguage": "Мова: {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {

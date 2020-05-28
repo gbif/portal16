@@ -3,7 +3,7 @@
     "datasetSearchTitle": "بحث عن مجموعة بيانات",
     "longType": {
       "OCCURRENCE": "مجموعة بيانات التكرار",
-      "CHECKLIST": "القائمة المرجعية لمجموعة بيانات",
+      "CHECKLIST": "مجموعة بيانات القائمة المرجعية",
       "SAMPLING_EVENT": "حدث أخذ العينات",
       "METADATA": "مجموعة البيانات الوصفية"
     },
@@ -60,11 +60,11 @@
     "bibliography": "قائمة المراجع",
     "citation": "اقتباس",
     "temporalCoverages": "النطاق الزمني",
-    "history": "السجل",
+    "history": "تاريخ",
     "ingestNow": "استيعاب الآن",
     "readFullDescription": "المزيد",
     "howToCite": "كيفية الاقتباس",
-    "geographicCoverages": "النطاق الجغرافي",
+    "geographicCoverages": "المدى الجغرافي",
     "taxonomicCoverages": "المدى التصنيفي",
     "additionalInfo": "معلومات إضافية",
     "publishingCountriesAreas": "الدول والمناطق الناشرة",
@@ -75,13 +75,13 @@
     "processedOccurrences": "أرشيف شروح \"جيبف\"",
     "noDescriptionProvided": "لا يوجد وصف متاح",
     "pNetwork": "{NUMBER, select,1{شبكة الاتصال} other{شبكات اتصال}}",
-    "parentEvent": "الواقعة الرئيسية",
-    "eventDescription": "وصف الحدث",
-    "siblingEvents": "واقعة قريبة",
-    "childEvents": "واقعات تابعة",
+    "parentEvent": "الحادثة الرئيسية",
+    "eventDescription": "وصف الحادثة",
+    "siblingEvents": "أحداث أقارب",
+    "childEvents": "أحداث تابعة",
     "events": "",
     "occurrenceCount": "عدد التكرار",
     "inDataset": "في",
-    "samplingArticleLink": "المزيد عن وقعات أخذ العينات في موقع GBIF.org"
+    "samplingArticleLink": "المزيد عن أحداث أخذ العينات في موقع GBIF.org"
   }
 }

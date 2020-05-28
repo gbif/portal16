@@ -1,6 +1,6 @@
 {
     "galleryBar": {
-        "seeAllImages": "انظر الى استوديو الصور",
-        "nOccWithImages": "تكرار otherتكرارات مع الصور"
+        "seeAllImages": "شاهد المعرض",
+        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, plural,1{تكرار} other{تكرارات}} مع الصور"
     }
 }
