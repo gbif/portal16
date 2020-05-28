@@ -42,10 +42,10 @@
     "IDENTIFIED_DATE_UNLIKELY": "дата определения маловероятна",
     "IDENTIFIED_DATE_INVALID": "некорректная дата определения",
     "BASIS_OF_RECORD_INVALID": "некорректная основа записи",
-    "TYPE_STATUS_INVALID": "Статус типа недействителен",
+    "TYPE_STATUS_INVALID": "некорректный статус типа ",
     "MULTIMEDIA_DATE_INVALID": "Дата мультимедиа неверная",
     "MULTIMEDIA_URI_INVALID": "URI мультимедиа недействительный",
-    "REFERENCES_URI_INVALID": "URI ссылки неверный",
+    "REFERENCES_URI_INVALID": "URI ссылки недействительный",
     "INTERPRETATION_ERROR": "Ошибка интерпретации",
     "INDIVIDUAL_COUNT_INVALID": "некорректное число особей"
   }
