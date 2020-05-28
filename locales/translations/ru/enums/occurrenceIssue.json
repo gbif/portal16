@@ -1,6 +1,6 @@
 {
   "occurrenceIssue": {
-    "ZERO_COORDINATE": "Нулевая координата",
+    "ZERO_COORDINATE": "нулевые координаты",
     "COORDINATE_OUT_OF_RANGE": "Координата вне диапазона",
     "COORDINATE_INVALID": "Координата недействительна",
     "COORDINATE_ROUNDED": "Координата округлена",
@@ -17,9 +17,9 @@
     "COUNTRY_MISMATCH": "Несоответствие страны",
     "COUNTRY_INVALID": "Неверный выбор страны",
     "COUNTRY_DERIVED_FROM_COORDINATES": "Страна установлена по координатам",
-    "CONTINENT_COUNTRY_MISMATCH": "Несоответствие континента и страны",
+    "CONTINENT_COUNTRY_MISMATCH": "несоответствие континента и страны",
     "CONTINENT_INVALID": "Неверный выбор континента",
-    "CONTINENT_DERIVED_FROM_COORDINATES": "Континент установлен по координатам",
+    "CONTINENT_DERIVED_FROM_COORDINATES": "континент установлен по координатам",
     "PRESUMED_SWAPPED_COORDINATE": "Вероятно широта и долгота поменяны местами",
     "PRESUMED_NEGATED_LONGITUDE": "Вероятно указан неверный знак долготы",
     "PRESUMED_NEGATED_LATITUDE": "Вероятно указан неверный знак широты",
@@ -41,7 +41,7 @@
     "MODIFIED_DATE_UNLIKELY": "Дата изменений маловероятна",
     "IDENTIFIED_DATE_UNLIKELY": "Дата идентификации маловероятна",
     "IDENTIFIED_DATE_INVALID": "Дата идентификации неверная",
-    "BASIS_OF_RECORD_INVALID": "Некорректная основа записи",
+    "BASIS_OF_RECORD_INVALID": "некорректная основа записи",
     "TYPE_STATUS_INVALID": "Статус типа недействителен",
     "MULTIMEDIA_DATE_INVALID": "Дата мультимедиа неверная",
     "MULTIMEDIA_URI_INVALID": "URI мультимедиа неверный",
