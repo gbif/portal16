@@ -9,8 +9,8 @@
     "COORDINATE_REPROJECTED": "координаты перепроецированы",
     "COORDINATE_REPROJECTION_FAILED": "Сбой перепроецирования координат",
     "COORDINATE_REPROJECTION_SUSPICIOUS": "Перепроецирование координат сомнительно",
-    "COORDINATE_ACCURACY_INVALID": "Точность координат указана некорректно",
-    "COORDINATE_PRECISION_INVALID": "Погрешность (precision) координат указана некорректно",
+    "COORDINATE_ACCURACY_INVALID": "некорректная точность координат",
+    "COORDINATE_PRECISION_INVALID": "некорректная точность координат",
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "Неопределенность координат в метрах указана некорректно",
     "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "Указанные неопределенность и погрешность координат противоречат друг другу",
     "COUNTRY_COORDINATE_MISMATCH": "Страна и координаты не соответствуют друг другу",
@@ -37,8 +37,8 @@
     "ELEVATION_MIN_MAX_SWAPPED": "Минимальная и максимальная высоты переставлены местами",
     "ELEVATION_NOT_METRIC": "неметрическое значение высоты",
     "ELEVATION_NON_NUMERIC": "нечисловое значение высоты",
-    "MODIFIED_DATE_INVALID": "Дата изменений неверная",
-    "MODIFIED_DATE_UNLIKELY": "Дата изменений маловероятна",
+    "MODIFIED_DATE_INVALID": "дата изменения некорректна",
+    "MODIFIED_DATE_UNLIKELY": "дата изменения маловероятна",
     "IDENTIFIED_DATE_UNLIKELY": "дата определения маловероятна",
     "IDENTIFIED_DATE_INVALID": "некорректная дата определения",
     "BASIS_OF_RECORD_INVALID": "некорректная основа записи",
@@ -46,7 +46,7 @@
     "MULTIMEDIA_DATE_INVALID": "Дата мультимедиа неверная",
     "MULTIMEDIA_URI_INVALID": "URI мультимедиа недействительный",
     "REFERENCES_URI_INVALID": "URI ссылки недействительный",
-    "INTERPRETATION_ERROR": "Ошибка интерпретации",
+    "INTERPRETATION_ERROR": "ошибка интерпретации сведений о находке",
     "INDIVIDUAL_COUNT_INVALID": "некорректное число особей"
   }
 }
