@@ -11,7 +11,7 @@
     "COORDINATE_REPROJECTION_SUSPICIOUS": "Перепроецирование координат сомнительно",
     "COORDINATE_ACCURACY_INVALID": "некорректная точность координат",
     "COORDINATE_PRECISION_INVALID": "некорректная точность координат",
-    "COORDINATE_UNCERTAINTY_METERS_INVALID": "некорректная неточность координат",
+    "COORDINATE_UNCERTAINTY_METERS_INVALID": "неточность координат некорректна",
     "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "Указанные неопределенность и погрешность координат противоречат друг другу",
     "COUNTRY_COORDINATE_MISMATCH": "координаты не соответствуют стране",
     "COUNTRY_MISMATCH": "Несоответствие страны",
