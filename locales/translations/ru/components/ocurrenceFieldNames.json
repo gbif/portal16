@@ -63,7 +63,7 @@
     "collectionCode": "Код коллекции",
     "datasetName": "Имя набора данных",
     "ownerInstitutionCode": "Код учреждения-владельца",
-    "basisOfRecord": "Основание записи",
+    "basisOfRecord": "Основана записи",
     "informationWithheld": "Непредоставленная информация",
     "dataGeneralizations": "Генерализация данных",
     "dynamicProperties": "Динамические свойства",
