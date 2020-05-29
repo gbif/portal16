@@ -177,7 +177,7 @@
     "dateIdentified": "Дата определения",
     "identificationReferences": "Ссылки об идентификации",
     "identificationVerificationStatus": "Статус проверки идентификации",
-    "identificationRemarks": "Примечания об идентификации",
+    "identificationRemarks": "Комментарии к определению",
     "taxonID": "ID таксона",
     "scientificNameID": "ID научного названия вида",
     "acceptedNameUsageID": "ID использования валидного названия",
