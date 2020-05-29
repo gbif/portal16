@@ -1,7 +1,7 @@
 {
   "occurrence": {
     "tabs": {
-      "details": ""
+      "details": "Подробнее"
     },
     "typeOf": "{TYPE} из {NAME}",
     "coordinates": "Координаты",
@@ -45,7 +45,7 @@
     "original": "Исходное значение",
     "remarks": "Примечания",
     "highlights": {
-      "location": "Местоположение",
+      "location": "Страна или территория:",
       "specimenType": "Тип образца",
       "publisher": "Организация",
       "reference": "Ссылка",
@@ -63,11 +63,11 @@
         "PRESERVED_SPECIMEN": "Собранные в {COUNTRY}",
         "FOSSIL_SPECIMEN": "Собранные в {COUNTRY}",
         "LIVING_SPECIMEN": "Собранные в {COUNTRY}",
-        "HUMAN_OBSERVATION": "Обнаруженные в {COUNTRY}",
-        "MACHINE_OBSERVATION": "Обнаруженные в {COUNTRY}",
+        "HUMAN_OBSERVATION": "Где найдено: {COUNTRY}",
+        "MACHINE_OBSERVATION": "Где найдено: {COUNTRY}",
         "MATERIAL_SAMPLE": "Собранные в {COUNTRY}",
         "OCCURRENCE": "Записано в {COUNTRY}",
-        "OBSERVATION": "Обнаруженные в {COUNTRY}",
+        "OBSERVATION": "Где найдено: {COUNTRY}",
         "LITERATURE": "Записано в {COUNTRY}",
         "UNKNOWN": "Записано в {COUNTRY}"
       },
@@ -86,7 +86,7 @@
       "unknownSpecies": "Неизвестный вид"
     },
     "occurrence": "Находка",
-    "inLanguage": "На {LANGUAGE_TRANSLATED}"
+    "inLanguage": "({LANGUAGE_TRANSLATED} язык)"
   },
   "interpretationRemarks": {
     "comments": {
