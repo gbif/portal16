@@ -34,9 +34,9 @@
             "greaterThanOrEquals": "больше или равно {from}",
             "invalid": "",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
+                "equals": "равно",
+                "between": "между",
+                "lessThanOrEquals": "меньше или равно",
                 "greaterThanOrEquals": "больше или равно"
             }
         },
@@ -60,9 +60,9 @@
             "greaterThanOrEquals": "больше или равно {from}",
             "invalid": "",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
+                "equals": "равно",
+                "between": "между",
+                "lessThanOrEquals": "меньше или равно",
                 "greaterThanOrEquals": "больше или равно"
             }
         }
