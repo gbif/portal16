@@ -41,7 +41,7 @@
     "numAcceptedSpByHigher": "Число валидных видов внутри таксонов высшего ранга",
     "noRankedAbove": "Список видов не содержит таксонов, рангом выше вида.",
     "taxonomicOccDistribution": "Таксономическое распределение находок",
-    "groupByX": "Группы по {TYPE}",
+    "groupByX": "Группировка по рангу:  {TYPE}",
     "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{другой или неизвестный} other{других или неизвестных}}",
     "unknownRank": "Неизвестный {RANK}",
     "vernacularNames": "Названия на национальном языке",
