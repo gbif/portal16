@@ -54,8 +54,8 @@
     "media": {
       "noIdentifier": "идентификатор медиа-файла отсутствует",
       "noPlaybackSupport": "",
-      "takeMeThere": "",
-      "notWorkingTryPublishers": "",
+      "takeMeThere": "Попробуйте версию на сайте организации",
+      "notWorkingTryPublishers": "Воспроизведение не работает должным образом?",
       "download": ""
     },
     "title": {
