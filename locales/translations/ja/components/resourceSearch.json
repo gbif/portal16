@@ -34,8 +34,8 @@
             "peerReview": "査読あり",
             "openAccess": "オープンアクセス",
             "gbifDownloadKey": "ダウンロードキー",
-            "litSource": "",
-            "litPublisher": ""
+            "litSource": "ジャーナル",
+            "litPublisher": "ジャーナル出版社"
         }
     }
 }
