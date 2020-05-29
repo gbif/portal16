@@ -5,39 +5,39 @@
             "equals": "Составляет {from}м",
             "between": "Между {from} и {to}м",
             "lessThanOrEquals": "Ниже {to}м",
-            "greaterThanOrEquals": "Выше {from}м",
+            "greaterThanOrEquals": "выше {from} м",
             "invalid": "Ошибочный",
             "select": {
                 "equals": "Равняется",
                 "between": "Между",
                 "lessThanOrEquals": "Ниже",
-                "greaterThanOrEquals": "Выше"
+                "greaterThanOrEquals": "выше"
             }
         },
         "depth": {
             "equals": "Составляет {from}м",
             "between": "Между {from} и {to}м",
             "lessThanOrEquals": "Выше {to}м глубины",
-            "greaterThanOrEquals": "Глубже, чем {from}м",
+            "greaterThanOrEquals": "глубже, чем {from} м",
             "invalid": "Ошибочный",
             "select": {
                 "equals": "Равняется",
                 "between": "Между",
                 "lessThanOrEquals": "Менее чем",
-                "greaterThanOrEquals": "Глубже, чем"
+                "greaterThanOrEquals": "глубже, чем"
             }
         },
         "coordinateUncertaintyInMeters": {
             "equals": "",
             "between": "",
             "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "greaterThanOrEquals": "больше или равно {from}",
             "invalid": "",
             "select": {
                 "equals": "",
                 "between": "",
                 "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "greaterThanOrEquals": "больше или равно"
             }
         },
         "year": {
@@ -50,20 +50,20 @@
                 "equals": "Равняется",
                 "between": "Между",
                 "lessThanOrEquals": "До окончания",
-                "greaterThanOrEquals": "Начиная с"
+                "greaterThanOrEquals": "начиная с"
             }
         },
         "default": {
             "equals": "",
             "between": "",
             "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "greaterThanOrEquals": "больше или равно {from}",
             "invalid": "",
             "select": {
                 "equals": "",
                 "between": "",
                 "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "greaterThanOrEquals": "больше или равно"
             }
         }
     }
