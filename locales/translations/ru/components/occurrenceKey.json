@@ -17,7 +17,7 @@
     "readFullDescription": "подробнее",
     "showMoreInfo": "подробнее",
     "noTaxonMatch": "нет",
-    "gbifTaxonInterpretation": "Интерпретация таксона в GBIF",
+    "gbifTaxonInterpretation": "По таксономии GBIF",
     "aboutTheDataset": "О наборе данных",
     "noLocationInformation": "Для этой записи не опубликована информация о местонахождении",
     "subMenu": {
@@ -34,7 +34,7 @@
       "Event": "Событие",
       "Identification": "Определение",
       "Taxon": "Таксон",
-      "Location": "Местоположение",
+      "Location": "Местонахождение",
       "Organism": "Организм",
       "MaterialSample": "Материальный образец",
       "GeologicalContext": "Геологические контекст",
@@ -52,7 +52,7 @@
       "verbatimName": "Имя, указанное в первоисточнике"
     },
     "media": {
-      "noIdentifier": "",
+      "noIdentifier": "нет идентификатора медиа-файла",
       "noPlaybackSupport": "",
       "takeMeThere": "",
       "notWorkingTryPublishers": "",
@@ -60,12 +60,12 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "Собранные в {COUNTRY}",
-        "FOSSIL_SPECIMEN": "Собранные в {COUNTRY}",
-        "LIVING_SPECIMEN": "Собранные в {COUNTRY}",
+        "PRESERVED_SPECIMEN": "Где собрано: {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Где собрано: {COUNTRY}",
+        "LIVING_SPECIMEN": "Где собрано: {COUNTRY}",
         "HUMAN_OBSERVATION": "Где найдено: {COUNTRY}",
         "MACHINE_OBSERVATION": "Где найдено: {COUNTRY}",
-        "MATERIAL_SAMPLE": "Собранные в {COUNTRY}",
+        "MATERIAL_SAMPLE": "Где собрано: {COUNTRY}",
         "OCCURRENCE": "Записано в {COUNTRY}",
         "OBSERVATION": "Где найдено: {COUNTRY}",
         "LITERATURE": "Записано в {COUNTRY}",
