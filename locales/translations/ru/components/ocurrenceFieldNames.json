@@ -74,7 +74,7 @@
     "recordedBy": "Кем сделана запись",
     "recordedByID": "",
     "identifiedByID": "",
-    "individualCount": "Количество индивидов",
+    "individualCount": "Число экземпляров",
     "organismQuantity": "Количество организмов",
     "organismQuantityType": "Тип количества организмов",
     "sex": "Пол",
