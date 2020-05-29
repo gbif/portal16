@@ -25,7 +25,7 @@
       "menu": "Меню",
       "showDiagnostics": "Показать исходные значения",
       "hideDiagnostics": "Скрыть исходные значения",
-      "aboutDarwinCore": "О формате Darwin Core",
+      "aboutDarwinCore": "о стандарте Darwin Core",
       "raw": "Исходные данные"
     },
     "groups": {
@@ -40,7 +40,7 @@
       "GeologicalContext": "Геологические контекст",
       "other": "Прочее"
     },
-    "term": "Термин",
+    "term": "Термин Darwin Core",
     "interpreted": "Интерпретировано",
     "original": "Исходное значение",
     "remarks": "Примечания",
