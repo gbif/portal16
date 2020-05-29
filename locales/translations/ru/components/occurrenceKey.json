@@ -26,7 +26,7 @@
       "showDiagnostics": "Показать исходные значения",
       "hideDiagnostics": "Скрыть исходные значения",
       "aboutDarwinCore": "О формате Darwin Core",
-      "raw": "Исх. данные"
+      "raw": "Исходные данные"
     },
     "groups": {
       "Record": "Запись",
