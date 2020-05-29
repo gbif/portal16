@@ -32,17 +32,17 @@
       "Record": "Запись",
       "Occurrence": "Находка",
       "Event": "Событие",
-      "Identification": "Идентификация",
+      "Identification": "Определение",
       "Taxon": "Таксон",
       "Location": "Местоположение",
       "Organism": "Организм",
       "MaterialSample": "Материальный образец",
       "GeologicalContext": "Геологические контекст",
-      "other": "Другое"
+      "other": "Прочее"
     },
     "term": "Термин",
     "interpreted": "Интерпретировано",
-    "original": "Оригинал",
+    "original": "Исходное значение",
     "remarks": "Примечания",
     "highlights": {
       "location": "Местоположение",
