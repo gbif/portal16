@@ -6,7 +6,7 @@
       "RECORD_STRUCTURE": "Структура Записи",
       "OCC_INTERPRETATION_BASED": "Интерпретация Находки в GBIF",
       "METADATA_CONTENT": "Метаданные",
-      "CLB_INTERPRETATION_BASED": "Интерпретация Таксона в GBIF"
+      "CLB_INTERPRETATION_BASED": "По таксономии GBIF"
     },
     "issueType": {
       "DWCA_UNREADABLE": "Архив Darwin Core не читается",
