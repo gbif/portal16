@@ -90,7 +90,7 @@
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "Исключено",
+      "EXCLUDED": "не интерпретировано",
       "AUTHORED": "Изменено",
       "INFERED": "Выведены на основе анализа"
     }
