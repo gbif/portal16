@@ -59,7 +59,7 @@
     "iucnStatus": "Охранный статус",
     "references": "Ссылки",
     "source": "Источник",
-    "inLanguage": "На {language}",
+    "inLanguage": "{language} язык",
     "publishedIn": "Опубликовано в",
     "tradeRestrictions": "Торговые ограничения",
     "basionym": "Базионим",
