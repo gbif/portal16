@@ -36,7 +36,7 @@
       "Taxon": "Таксон",
       "Location": "Местонахождение",
       "Organism": "Организм",
-      "MaterialSample": "Материальный образец",
+      "MaterialSample": "Образец из коллекции",
       "GeologicalContext": "Геологические контекст",
       "other": "Прочее"
     },
@@ -52,7 +52,7 @@
       "verbatimName": "Имя, указанное в первоисточнике"
     },
     "media": {
-      "noIdentifier": "нет идентификатора медиа-файла",
+      "noIdentifier": "идентификатор медиа-файла отсутствует",
       "noPlaybackSupport": "",
       "takeMeThere": "",
       "notWorkingTryPublishers": "",
@@ -75,11 +75,11 @@
         "PRESERVED_SPECIMEN": "Собранные в неизвестном месте",
         "FOSSIL_SPECIMEN": "Собранные в неизвестном месте",
         "LIVING_SPECIMEN": "Собранные в неизвестном месте",
-        "HUMAN_OBSERVATION": "Собранные в неизвестном месте",
-        "MACHINE_OBSERVATION": "Собранные в неизвестном месте",
+        "HUMAN_OBSERVATION": "Найдено в неизвестном месте",
+        "MACHINE_OBSERVATION": "Найдено в неизвестном месте",
         "MATERIAL_SAMPLE": "Собранные в неизвестном месте",
         "OCCURRENCE": "Записан в неизвестном месте",
-        "OBSERVATION": "Обнаруженные в неизвестном месте",
+        "OBSERVATION": "Найдено в неизвестном месте",
         "LITERATURE": "Записан в неизвестном месте",
         "UNKNOWN": "Записан в неизвестном месте"
       },
