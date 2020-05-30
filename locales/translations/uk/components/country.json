@@ -14,7 +14,7 @@
     },
     "memberSince": "Офіційна участь у GBIF з",
     "dataFrom": "Дані з {TRANSLATED_COUNTRY}",
-    "dataAboutCountry": "Дані про {TRANSLATED_COUNTRY}",
+    "dataAboutCountry": "Дані про країну: {TRANSLATED_COUNTRY}",
     "publishingTrends": "Тренди у публікації даних",
     "noDataPublishingActivity": "Публікація даних не відбувається",
     "noInstitutionsHavePublished": "Жодна організація з цієї країни/регіону не опублікувала дані через GBIF",
