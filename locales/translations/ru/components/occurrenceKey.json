@@ -46,7 +46,7 @@
     "remarks": "Примечания",
     "highlights": {
       "location": "Страна или территория",
-      "specimenType": "Тип образца",
+      "specimenType": "Типовой образец",
       "publisher": "Организация",
       "reference": "Ссылка",
       "verbatimName": "Название по первоисточнику"
