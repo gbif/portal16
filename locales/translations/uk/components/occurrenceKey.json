@@ -60,7 +60,7 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "Зібрана в {COUNTRY}",
+        "PRESERVED_SPECIMEN": "Місце збору: {COUNTRY}",
         "FOSSIL_SPECIMEN": "Зібрана в {COUNTRY}",
         "LIVING_SPECIMEN": "Зібрана в {COUNTRY}",
         "HUMAN_OBSERVATION": "МІсце спостереження: {COUNTRY}",
