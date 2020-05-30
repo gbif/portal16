@@ -42,7 +42,7 @@
     },
     "markdownSupport": "Підтримка Markdown",
     "issueTracking": "Всі повідомлення про помилки є публічними і доступні через [Github](https://github.com/gbif/portal-feedback/issues)",
-    "failure": "На жаль, система зворотнього зв'язку зараз не працює. Будь ласка, надішліть нам листа на  електронну пошту або перейдіть безпосередньо на [Github](https://github. om/gbif/portal-feedback/issues). Перепрошуємо за незручності.",
+    "failure": "На жаль, система зворотнього зв'язку зараз не працює. Будь ласка, надішліть нам листа на  електронну пошту або перейдіть безпосередньо на [Github](https://github.com/gbif/portal-feedback/issues). Перепрошуємо за незручності.",
     "weRecommendX": "Рекомендуємо надати зворотній зв'язок через [{NAME}]({LINK})",
     "tellGbif": "Повідомити GBIF",
     "submit": "Надіслати",
