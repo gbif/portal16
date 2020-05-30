@@ -22,7 +22,7 @@
         "pSpecies": "{NUMBER, plural,\n0 {видів}\none {вид}\nfew {види}\nmany {видів}\nother {видів}\n}",
         "pInfraspecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {підвидів}\none {підвид}\nfew {підвиди}\nmany {підвидів}\nother {підвидів}\n}",
         "pPublishers": "{NUMBER, select, \n0 {видавців}\none {видавець}\nfew {видавці}\nmany {видавців}\nother {видавців}\n}",
-        "contacts": "{NUMBER, select,\n0 {контактів}\none {контакт}\nfew {контакти}\nmany {контактів}\nother {контактів}\n}",
+        "contacts": "контакти",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {таксономічних карток}\none {таксономічна картка}\nfew {таксономічних картки}\nmany {таксономічних карток}\nother {таксономічних карток}\n}"
     }
 }
