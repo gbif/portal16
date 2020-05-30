@@ -9,7 +9,7 @@
             "undefined": "Невідомо"
         },
         "description": {
-            "VOTING": "Учасник з правом голосу з {REGION}",
+            "VOTING": "Учасник з правом голосу з регіону: {REGION}",
             "ASSOCIATE": "Асоційований учасник з {REGION}",
             "OBSERVER": "Країна-спостерігач з {REGION}",
             "AFFILIATE": "Афілійований учасник з {REGION}",
@@ -19,7 +19,7 @@
         "type": {
             "OTHER": {
                 "description": {
-                    "VOTING": "Організація-учасник з правом голосу з {REGION}",
+                    "VOTING": "Організація-учасник з правом голосу з регіону: {REGION}",
                     "ASSOCIATE": "Асоційована організація-учасник з {REGION}",
                     "OBSERVER": "Організація-спостерігач з {REGION}",
                     "AFFILIATE": "Афілійована організація з {REGION}",
