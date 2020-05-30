@@ -190,7 +190,7 @@
     "acceptedNameUsage": "Использование валидного названия",
     "acceptedName": "Валидное название",
     "appliedName": "Название в наборе данных",
-    "parentNameUsage": "Использование названия вышестоящего таксона",
+    "parentNameUsage": "Указанный родительский таксон",
     "originalNameUsage": "Использование исходного названия",
     "nameAccordingTo": "Название согласно",
     "namePublishedIn": "Название опубликовано в",
