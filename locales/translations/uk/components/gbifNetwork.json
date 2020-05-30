@@ -28,7 +28,7 @@
     "gbif_secretariat": "Секретаріат GBIF",
     "membershipType": "Членство",
     "name": "Ім’я",
-    "endorsedDataPublisher": "Схвалив {NUMBER_FORMATTED} дані {NUMBER, plural, \n0 {видавців}\none {видавця} \nfew {видавців} \nmany {видавців} \nother {видавців}\n}",
+    "endorsedDataPublisher": "Схвалив {NUMBER_FORMATTED} {NUMBER, plural, \n0 {видавців даних}\none {видавця даних} \nfew {видавців даних} \nmany {видавців даних} \nother {видавців даних}\n}",
     "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, \n0 {учасників}\none {учасник} \nfew {учасники} \nmany {учасників} \nother {учасників}\n}",
     "dataset": "{NUMBER, plural, \n0 {наборів даних}\none {набір даних} \nfew {набори даних} \nmany {наборів даних} \nother {наборів даних}\n}",
     "datasets": "Набори даних",
