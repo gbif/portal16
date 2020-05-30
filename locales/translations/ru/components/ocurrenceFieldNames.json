@@ -189,7 +189,7 @@
     "scientificName": "Латинское название",
     "acceptedNameUsage": "Использование валидного названия",
     "acceptedName": "Валидное название",
-    "appliedName": "Указанное название",
+    "appliedName": "Название в наборе данных",
     "parentNameUsage": "Использование названия вышестоящего таксона",
     "originalNameUsage": "Использование исходного названия",
     "nameAccordingTo": "Название согласно",
