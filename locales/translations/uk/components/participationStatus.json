@@ -10,20 +10,20 @@
         },
         "description": {
             "VOTING": "Учасник з правом голосу з регіону: {REGION}",
-            "ASSOCIATE": "Асоційований учасник з {REGION}",
-            "OBSERVER": "Країна-спостерігач з {REGION}",
-            "AFFILIATE": "Афілійований учасник з {REGION}",
-            "FORMER": "Колишній учасник GBIF з {REGION}",
+            "ASSOCIATE": "Асоційований учасник з регіону: {REGION}",
+            "OBSERVER": "Країна-спостерігач з регіону: {REGION}",
+            "AFFILIATE": "Афілійований учасник з регіону: {REGION}",
+            "FORMER": "Колишній учасник GBIF з регіону: {REGION}",
             "undefined": "Невідомо"
         },
         "type": {
             "OTHER": {
                 "description": {
                     "VOTING": "Організація-учасник з правом голосу з регіону: {REGION}",
-                    "ASSOCIATE": "Асоційована організація-учасник з {REGION}",
-                    "OBSERVER": "Організація-спостерігач з {REGION}",
-                    "AFFILIATE": "Афілійована організація з {REGION}",
-                    "FORMER": "Організація-колишній учасник з {REGION}",
+                    "ASSOCIATE": "Асоційована організація-учасник з регіону: {REGION}",
+                    "OBSERVER": "Організація-спостерігач з регіону: {REGION}",
+                    "AFFILIATE": "Афілійована організація з регіону: {REGION}",
+                    "FORMER": "Організація-колишній учасник з регіону: {REGION}",
                     "undefined": "Невідомо"
                 },
                 "longForm": {
