@@ -1,6 +1,6 @@
 {
     "intervals": {
-        "noFilter": "Без фильтров",
+        "noFilter": "Фильтр не определен",
         "elevation": {
             "equals": "Составляет {from}м",
             "between": "Между {from} и {to}м",
@@ -8,8 +8,8 @@
             "greaterThanOrEquals": "выше {from} м",
             "invalid": "Ошибочный",
             "select": {
-                "equals": "Равняется",
-                "between": "Между",
+                "equals": "равняется",
+                "between": "между",
                 "lessThanOrEquals": "Ниже",
                 "greaterThanOrEquals": "выше"
             }
@@ -21,8 +21,8 @@
             "greaterThanOrEquals": "глубже, чем {from} м",
             "invalid": "Ошибочный",
             "select": {
-                "equals": "Равняется",
-                "between": "Между",
+                "equals": "равняется",
+                "between": "между",
                 "lessThanOrEquals": "Менее чем",
                 "greaterThanOrEquals": "глубже, чем"
             }
@@ -43,13 +43,13 @@
         "year": {
             "equals": "Составляет {from}",
             "between": "Между началом {from} и окончанием {to}",
-            "lessThanOrEquals": "До окончания {to}",
+            "lessThanOrEquals": "до окончания {to}",
             "greaterThanOrEquals": "После начала {from}",
             "invalid": "Ошибочный",
             "select": {
-                "equals": "Равняется",
-                "between": "Между",
-                "lessThanOrEquals": "До окончания",
+                "equals": "равняется",
+                "between": "между",
+                "lessThanOrEquals": "до окончания",
                 "greaterThanOrEquals": "начиная с"
             }
         },
