@@ -65,7 +65,7 @@
     "ownerInstitutionCode": "Код организации-владельца",
     "basisOfRecord": "Основа записи",
     "informationWithheld": "Непредоставленная информация",
-    "dataGeneralizations": "Генерализация данных",
+    "dataGeneralizations": "Обобщение данных",
     "dynamicProperties": "Динамические свойства",
     "occurrenceID": "ID находки",
     "occurrenceId": "ID находки",
