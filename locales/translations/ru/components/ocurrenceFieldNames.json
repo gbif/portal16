@@ -111,7 +111,7 @@
     "verbatimEventDate": "Дата по первоисточнику",
     "habitat": "Местообитание",
     "samplingProtocol": "Методика сбора (описания)",
-    "samplingEffort": "Усилие по сбору образцов",
+    "samplingEffort": "Объём проделанной работы",
     "sampleSizeValue": "Объём (размер) описания, учёта или сбора",
     "sampleSizeUnit": "Единица объёма описания, учёта или сбора",
     "fieldNotes": "Полевые записи",
@@ -250,7 +250,7 @@
     "verbatimCoordinates": "Координаты по первоисточнику",
     "verbatimLatitude": "Широта по первоисточнику",
     "verbatimLongitude": "Долгота по первоисточнику",
-    "scientificNameAuthorship": "Автор научного названия",
+    "scientificNameAuthorship": "Автор латинского названия",
     "undefined": "Неизвестное поле",
     "coordinatesTextual": "Эта запись опубликована без координат, но она содержит текстовое описание местонахождения.",
     "coordinatesMissing": "Координаты отсутствуют"
