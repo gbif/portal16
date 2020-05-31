@@ -63,8 +63,8 @@
     "taxonId": "ID таксона по первоисточнику",
     "organismQuantity": "Обилие вида",
     "organismQuantityType": "Единицы обилия вида",
-    "sampleSizeValue": "",
-    "sampleSizeUnit": "",
+    "sampleSizeValue": "Объём (размер) описания, учёта или сбора",
+    "sampleSizeUnit": "Единица объёма (размера) описания, учёта или сбора",
     "relativeOrganismQuantity": "Относительное обилие вида",
     "collectionKey": "",
     "institutionKey": "Организация"
