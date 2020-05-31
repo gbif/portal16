@@ -8,9 +8,9 @@
             "greaterThanOrEquals": "выше {from} м",
             "invalid": "Ошибочный",
             "select": {
-                "equals": "равняется",
+                "equals": "равно",
                 "between": "между",
-                "lessThanOrEquals": "Ниже",
+                "lessThanOrEquals": "ниже",
                 "greaterThanOrEquals": "выше"
             }
         },
@@ -21,9 +21,9 @@
             "greaterThanOrEquals": "глубже, чем {from} м",
             "invalid": "Ошибочный",
             "select": {
-                "equals": "равняется",
+                "equals": "равно",
                 "between": "между",
-                "lessThanOrEquals": "Менее чем",
+                "lessThanOrEquals": "менее чем",
                 "greaterThanOrEquals": "глубже, чем"
             }
         },
@@ -47,7 +47,7 @@
             "greaterThanOrEquals": "После начала {from}",
             "invalid": "Ошибочный",
             "select": {
-                "equals": "равняется",
+                "equals": "равно",
                 "between": "между",
                 "lessThanOrEquals": "до окончания",
                 "greaterThanOrEquals": "начиная с"
