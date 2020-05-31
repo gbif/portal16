@@ -38,7 +38,7 @@
     "ELEVATION_NOT_METRIC": "неметрическое значение высоты",
     "ELEVATION_NON_NUMERIC": "нечисловое значение высоты",
     "MODIFIED_DATE_INVALID": "дата изменения некорректна",
-    "MODIFIED_DATE_UNLIKELY": "дата изменения маловероятна",
+    "MODIFIED_DATE_UNLIKELY": "дата обновления маловероятна",
     "IDENTIFIED_DATE_UNLIKELY": "дата определения маловероятна",
     "IDENTIFIED_DATE_INVALID": "дата определения некорректна",
     "BASIS_OF_RECORD_INVALID": "некорректная основа записи",
