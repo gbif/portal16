@@ -12,7 +12,7 @@
     "COORDINATE_ACCURACY_INVALID": "undefined",
     "COORDINATE_PRECISION_INVALID": "некорректная точность координат",
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "неточность координат некорректна",
-    "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "Нессответствие погрешностей определения координат",
+    "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "несоответствие точности и неопределенности",
     "COUNTRY_COORDINATE_MISMATCH": "координаты не соответствуют стране",
     "COUNTRY_MISMATCH": "Несоответствие страны",
     "COUNTRY_INVALID": "страна указана некорректно",
