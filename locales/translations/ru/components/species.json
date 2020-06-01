@@ -45,7 +45,7 @@
     "acceptedName": "Валидное название",
     "synonym": "Синоним",
     "description": "Описание",
-    "synonyms": "Синонимы",
+    "synonyms": "{NUMBER, plural,\n0 {Синонимов}\none {Синоним}\nfew {Синонима}\nmany {Синонимов}\nother {Синонимов}\n}",
     "synonymOf": "Синоним",
     "basionymOf": "Базионим",
     "homotypicSynonymOf": "",
