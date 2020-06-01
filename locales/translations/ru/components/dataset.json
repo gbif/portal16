@@ -13,7 +13,7 @@
       "withCoordinates": "С координатами",
       "withYear": "С указанием года",
       "acceptedNames": "Валидные названия",
-      "synonyms": "Синонимы",
+      "synonyms": "{NUMBER, plural,\n0 {Синонимов}\none {Синоним}\nfew {Синонима}\nmany {Синонимов}\nother {Синонимов}\n}",
       "overlapWithNub": "Согласно таксономии GBIF",
       "overlapWithCol": "Согласно Catalogue of Life"
     },
