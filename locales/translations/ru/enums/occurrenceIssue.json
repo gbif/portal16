@@ -14,7 +14,7 @@
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "неопределенность координат некорректна",
     "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "несоответствие точности и неопределенности координат",
     "COUNTRY_COORDINATE_MISMATCH": "координаты не соответствуют стране",
-    "COUNTRY_MISMATCH": "Несоответствие страны",
+    "COUNTRY_MISMATCH": "несоответствие кода и названия страны",
     "COUNTRY_INVALID": "страна указана некорректно",
     "COUNTRY_DERIVED_FROM_COORDINATES": "страна установлена по координатам",
     "CONTINENT_COUNTRY_MISMATCH": "несоответствие континента и страны",
