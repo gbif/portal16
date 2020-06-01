@@ -63,7 +63,7 @@
     "publishedIn": "Опубликовано в",
     "tradeRestrictions": "Торговые ограничения",
     "basionym": "Базионим",
-    "nVernacularNames": "{NUMBER, select, 1{название на национальном языке} other{названий на национальном языке}}",
+    "nVernacularNames": "названия на национальных языках",
     "nameUsagesApplied": "Использование названия в информации о находках видов в GBIF",
     "appearsIn": "Появляется в {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{наборе данных} other{наборах данных}}:",
     "viewOccurrences": "Просмотр находок видов",
