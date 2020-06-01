@@ -139,7 +139,7 @@
     "decimalLatitude": "Широта в десятичных градусах",
     "decimalLongitude": "Долгота в десятичных градусах",
     "coordinateUncertaintyInMeters": "Неточность координат в метрах",
-    "coordinatePrecision": "точность определения координат",
+    "coordinatePrecision": "Точность определения координат в градусах",
     "pointRadiusSpatialFit": "Радиус точки",
     "verbatimCoordinateSystem": "Система координат по первоисточнику",
     "verbatimSRS": "Система координат по первоисточнику",
