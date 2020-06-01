@@ -32,7 +32,7 @@
     "speciesForWhichRecordsAreAvailableForEachDayOfTheYear": "各年の通日ごとに利用できる種数（上を参照）",
     "note": "注記",
     "theseChartsMayRevealPatternsThatRepresentBiasesInDataCollection": "これらのチャートは、データ取得におけるバイアス（季節や祝日など）あるいはデータ管理における潜在的な問題（年各や各月の最初または最後の日のレコード数における不均衡なレコード数など）を示す場合があります。このような問題はデータ処理のさまざまな段階で発生することがあり、さらに調査を必要とします。",
-    "byGeneratingTheseChartsAnIssueWasDetected": "これらのチャートの生成によって、数個のグラフにおいて年の最初に出現するスパイクの原因となるGBIFのデータ処理における課題（http://dev.gbif.org/issues/browse/POR-2120）が見出されましたが、これは解決される見込みです。",
+    "byGeneratingTheseChartsAnIssueWasDetected": "これらのチャートの生成によって、数個のグラフにおいて年の最初に出現するスパイクの原因となるGBIFのデータ処理における[課題](https://github.com/gbif/gbif-api/issues/2) が見出されましたが、これは解決される見込みです。",
     "completenessAndPrecision": "完全性と精度",
     "theseChartsIllustrate4": "これらのグラフは、使用可能なレコードの完全性（下記参照）と、時間、地理的情報および分類に関するこれらのレコードの精度の変化を示しています。",
     "aRecordIsHereDefinedToBeCompleteIfItIncludes": "ここで完全なレコードというのは、少なくとも種レベルが同定され、有効な経緯度、完全な確認日、オカレンスの根拠（観察、標本など）が与えられているものを指します。",
