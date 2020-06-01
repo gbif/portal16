@@ -8,7 +8,7 @@
     "GEODETIC_DATUM_ASSUMED_WGS84": "предположительно WGS84",
     "COORDINATE_REPROJECTED": "координаты перепроецированы",
     "COORDINATE_REPROJECTION_FAILED": "неудачное перепроецирование координат",
-    "COORDINATE_REPROJECTION_SUSPICIOUS": "Перепроецирование координат сомнительно",
+    "COORDINATE_REPROJECTION_SUSPICIOUS": "сомнительное перепроецирование координат",
     "COORDINATE_ACCURACY_INVALID": "undefined",
     "COORDINATE_PRECISION_INVALID": "некорректная точность координат",
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "неопределенность координат некорректна",
