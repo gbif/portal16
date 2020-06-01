@@ -26,7 +26,7 @@
     "occurrencesPerField": "Распределение находок по категории: {FIELD}",
     "occurrencesBreakdownPerField": "Разбивка находок по полям",
     "occurrencesPerFieldx2": "Число находок категории: {FIELD} по категории: {FIELD2}",
-    "customFilters": "Эта диаграмма содержит пользовательские фильтры",
+    "customFilters": "Включены пользовательские фильтры",
     "linear": "Линейная шкала",
     "count": "Число записей",
     "intervalSize": "Размер интервала",
