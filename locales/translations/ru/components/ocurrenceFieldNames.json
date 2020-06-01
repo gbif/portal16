@@ -138,7 +138,7 @@
     "locationRemarks": "Примечания к местонахождению",
     "decimalLatitude": "Широта в десятичных градусах",
     "decimalLongitude": "Долгота в десятичных градусах",
-    "coordinateUncertaintyInMeters": "Неточность координат в метрах",
+    "coordinateUncertaintyInMeters": "Неопределенность координат в метрах",
     "coordinatePrecision": "Точность определения координат в градусах",
     "pointRadiusSpatialFit": "Радиус точки",
     "verbatimCoordinateSystem": "Система координат по первоисточнику",
