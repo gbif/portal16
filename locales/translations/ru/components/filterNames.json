@@ -1,7 +1,7 @@
 {
   "filterNames": {
     "month": "Месяц",
-    "catalogNumber": "Номер по каталогу",
+    "catalogNumber": "Номер в каталоге",
     "year": "Год",
     "country": "Страна или территория",
     "continent": "Континент",
