@@ -15,7 +15,7 @@
       "treatment": "",
       "metrics": "Показатели",
       "referenceTaxon": "Референсный таксон",
-      "verbatim": "Дословно"
+      "verbatim": "По первоисточнику"
     },
     "invasives": {
       "nInvadedCountries": "Отмечен как инвазивный в {NUMBER_FORMATED} {NUMBER, select, 1{стране или острове} other{странах или островах}}",
@@ -52,7 +52,7 @@
     "immediateChildren": "Нижестоящий таксон",
     "descendants": "Потомки",
     "loadMore": "Еще",
-    "selectRoot": "Выберите корневой элемент",
+    "selectRoot": "Выберите раздел",
     "selectSpecies": "Выбрать вид",
     "searchMsg": "Поиск 900 + миллионов записей данных о видах",
     "noOccurencesInGbif": "Нет данных о находках вида в GBIF",
@@ -68,7 +68,7 @@
     "appearsIn": "Появляется в {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{наборе данных} other{наборах данных}}:",
     "viewOccurrences": "Просмотр находок видов",
     "seeAlso": "Смотрите также",
-    "viewInGbifBackbone": "Просмотр в базовой таксономии GBIF",
+    "viewInGbifBackbone": "Показать в базовой таксономии GBIF",
     "verbatimListingMsg": "Эти списки содержат информацию в том виде, как она была получена GBIF от публикатора данных без дальнейшей интерпретации и обработки.",
     "interpretationMsg": "Интерпретация вида согласно источнику: {DATASET}.",
     "viewGbifSpeciesMsg": "Для просмотра интерпретации данного вида в GBIF см. [версию базовой таксономии GBIF](/species/{NUBKEY})",
