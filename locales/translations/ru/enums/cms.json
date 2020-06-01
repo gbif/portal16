@@ -48,15 +48,15 @@
           "undefined": "Не указано"
         },
         "relevance": {
-          "GBIF_USED": "количественный анализ данных GBIF",
-          "GBIF_CITED": "Ссылка на GBIF в списке литературы",
-          "GBIF_DISCUSSED": "обсуждается портал GBIF",
+          "GBIF_USED": "Количественный анализ данных GBIF",
+          "GBIF_CITED": "Упомянуты данные GBIF",
+          "GBIF_DISCUSSED": "Обсуждение портала GBIF",
           "GBIF_PRIMARY": "GBIF - основной источник данных",
           "GBIF_ACKNOWLEDGED": "Выражена благодарность GBIF",
-          "GBIF_PUBLISHED": "обсуждаются опубликованные данные",
-          "GBIF_AUTHOR": "сотрудники GBIF среди соавторов",
-          "GBIF_MENTIONED": "прочее упоминание GBIF",
-          "GBIF_FUNDED": "Исследование поддержано GBIF"
+          "GBIF_PUBLISHED": "Обсуждение опубликованных данных",
+          "GBIF_AUTHOR": "Сотрудники GBIF среди соавторов",
+          "GBIF_MENTIONED": "Прочие упоминания GBIF",
+          "GBIF_FUNDED": "Исследование финансировано GBIF"
         },
         "topics": {
           "AGRICULTURE": "Сельское хозяйство",
