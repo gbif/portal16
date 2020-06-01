@@ -48,14 +48,14 @@
           "undefined": "Не указано"
         },
         "relevance": {
-          "GBIF_USED": "Использованы материалы портала GBIF",
+          "GBIF_USED": "количественный анализ данных GBIF",
           "GBIF_CITED": "Ссылка на GBIF в списке литературы",
-          "GBIF_DISCUSSED": "GBIF является предметом обсуждения",
-          "GBIF_PRIMARY": "GBIF - основной источник данных в исследовании",
+          "GBIF_DISCUSSED": "обсуждается портал GBIF",
+          "GBIF_PRIMARY": "GBIF - основной источник данных",
           "GBIF_ACKNOWLEDGED": "Выражена благодарность GBIF",
-          "GBIF_PUBLISHED": "Статьи о данных, опубликованных в GBIF",
-          "GBIF_AUTHOR": "Автор является сотрудником GBIF",
-          "GBIF_MENTIONED": "GBIF упоминается в публикации",
+          "GBIF_PUBLISHED": "обсуждаются опубликованные данные",
+          "GBIF_AUTHOR": "сотрудники GBIF среди соавторов",
+          "GBIF_MENTIONED": "прочее упоминание GBIF",
           "GBIF_FUNDED": "Исследование поддержано GBIF"
         },
         "topics": {
