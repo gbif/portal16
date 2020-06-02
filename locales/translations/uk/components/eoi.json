@@ -44,7 +44,7 @@
     "yes": "Так",
     "no": "Ні",
     "pleaseSelectAValue": "Будь ласка, оберіть значення",
-    "reuseTrustedIPThosting": "У цьому випадку рекомендується спочатку спробувати використати вже існуючий надійний [IPT центр хостингу даних](https://github.com/gbif/ipt/wiki/dataHostingCentre)",
+    "reuseTrustedIPThosting": "У цьому випадку рекомендується спочатку спробувати використати вже існуючий надійний [IPT центр хостингу даних](https://github.com/gbif/ipt/wiki/dataHostingCentres#data-hosting-centres)",
     "doYouNeedHelpPublishing": "Чи вам потрібна допомога з публікацією даних?",
     "areYouPlanningToInstallAndRun": "Чи ви плануєте встановити і запустити видавниче програмне забезпечення (наприклад, [Integrated Publishing Toolkit – IPT](/ipt), щоб опублікувати свої дані безпосередньо на GBIF.org?",
     "orgDetails": "Інформація про організацію",
