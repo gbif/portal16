@@ -357,7 +357,7 @@
                     <h3>Collections</h3>
                     <p>                        
                         The collections API provides CRUD services for collections, institutions and person entities. 
-                        The data was originally migrated from GRSciColl and adapted to follow the same conventions as other registry services. Therefore, the deletion of 
+                        The data was originally migrated from GrSciColl and adapted to follow the same conventions as other registry services. Therefore, the deletion of 
                         collections, institutions and persons is logical, meaning these entries remain registered forever
                         and only get a deleted timestamp. On the other hand, the deletion of tags and identifiers is physical, meaning the entries are permanently removed.                                                                        
                     </p>
@@ -486,9 +486,9 @@
             "institution":"Filters collections by the institution key specified.",
             "primaryInstitution":"Filters persons by the primary institution key specified.",
             "primaryCollection":"Filters persons by the primary collection key specified.",
-            "code":"Code of a GRSciColl insitution or collection.",
-            "name":"Name of a GRSciColl insitution or collection",
-            "alternativeCode":"Alternative code of a GRSciColl insitution or collection"
+            "code":"Code of a GrSciColl institution or collection.",
+            "name":"Name of a GrSciColl institution or collection",
+            "alternativeCode":"Alternative code of a GrSciColl institution or collection"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
