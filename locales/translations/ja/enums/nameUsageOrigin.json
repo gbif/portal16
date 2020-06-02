@@ -10,7 +10,7 @@
     "IMPLICIT_NAME": "下位学名がオーファンのため、属あるいは種を生成",
     "MISSING_ACCEPTED": "分類階級を保存できない場合に使用される人工的に受け入れられたシノニムです",
     "BASIONYM_PLACEHOLDER": "欠落または非正規のバシオニムのためのプレースホルダの使用",
-    "EX_AUTHOR_SYNONYM": "正式ではない学名責任者に基づいた非正規のシノニム。ICNの文書を参照：http://www.iapt-taxon.org/nomen/main.php?page=art46",
+    "EX_AUTHOR_SYNONYM": "正式ではない学名責任者に基づいた非正規のシノニム。ICNの文書を参照：https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
     "OTHER": "その他の起源"
   }
 }
