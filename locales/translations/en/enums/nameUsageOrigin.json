@@ -10,7 +10,7 @@
     "IMPLICIT_NAME": "Generated, missing genus or species for ‘orphaned’ lower name.",
     "MISSING_ACCEPTED": "Artificial accepted usage for a synonym if its missing to preserve the taxonomic hierarchy.",
     "BASIONYM_PLACEHOLDER": "Placeholder usage for a missing or implicit basionym.",
-    "EX_AUTHOR_SYNONYM": "Implicit synonym based on the illegitimate ex author. See ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
+    "EX_AUTHOR_SYNONYM": "Implicit synonym based on the illegitimate ex author. See ICN article 46: https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
     "OTHER": "Other origin"
   }
 }
