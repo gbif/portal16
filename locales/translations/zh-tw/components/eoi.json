@@ -44,7 +44,7 @@
     "yes": "是",
     "no": "否",
     "pleaseSelectAValue": "請選擇一個值。",
-    "reuseTrustedIPThosting": "在這種情況下， 建議您先試著再使用目前受信任的 [IPT 資料託管中心](https://github.com/gbif/ipt/wiki/dataHostingCentre)",
+    "reuseTrustedIPThosting": "在這種情況下， 建議您先試著再使用目前受信任的 [IPT 資料託管中心](https://github.com/gbif/ipt/wiki/dataHostingCentres#data-hosting-centres)",
     "doYouNeedHelpPublishing": "您需要協助發布資料嗎？",
     "areYouPlanningToInstallAndRun": "您是否計畫安裝並執行發布軟體（例如[整合式發布工具—IPT](/ipt)），並將資料直接發布至 GBIF.org？",
     "orgDetails": "組織詳情",
