@@ -27,7 +27,7 @@
     "PARENT_NAME_NOT_UNIQUE": "上位階層の名前が一意ではありません。",
     "ORIGINAL_NAME_NOT_UNIQUE": "元の名前が一意ではありません。",
     "RELATIONSHIP_MISSING": "関係性が見つかりません。",
-    "ORIGINAL_NAME_DERIVED": "バソニムの関係性を検出",
+    "ORIGINAL_NAME_DERIVED": "バシオニムの関係性を検出",
     "CONFLICTING_BASIONYM_COMBINATION": "バソニムの組み合わせが競合しています。",
     "NO_SPECIES": "種の情報が含まれません。",
     "NAME_PARENT_MISMATCH": "上位階層の名前が一致しません。",
