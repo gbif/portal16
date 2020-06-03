@@ -13,7 +13,7 @@ localeConfig.locales.forEach(function(e) {
     localNameMap[e] = translations[e].language[localeConfig.localeMappings.translation[e]];
 });
 
-let unLanguages = ['en', 'ar', 'zh', 'fr', 'ru', 'es'];
+let unLanguages = ['en', /* 'ar', */ 'zh', 'fr', 'ru', 'es'];
 let environment = {
     managementToolsSite: config.managementToolsSite,
     dataApiV2: config.dataApiV2,
