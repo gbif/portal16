@@ -28,6 +28,7 @@
     "errorUserThrottled": "一時的にアクセスが制限されています。",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
-    "largeQueryLengthWarning": "クエリのURLが2,000文字を超えているため対応していないブラウザがあるかもしれません。長く複雑なクエリにはダウンロードAPIのご利用をご検討ください。"
+    "largeQueryLengthWarning": "クエリのURLが2,000文字を超えているため対応していないブラウザがあるかもしれません。長く複雑なクエリにはダウンロードAPIのご利用をご検討ください。",
+    "didYouMean": ""
   }
 }
