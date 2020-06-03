@@ -17,8 +17,8 @@
     "readFullDescription": "المزيد",
     "showMoreInfo": "المزيد",
     "noTaxonMatch": "لا شيء",
-    "gbifTaxonInterpretation": "تأويل اصنوفة المرفق العالمي لمعلومات التنوع الحيوي",
-    "aboutTheDataset": "حول مجموعةالبيانات",
+    "gbifTaxonInterpretation": "تأويل الوحدة التصنيفية في المرفق العالمي لمعلومات التنوع الحيوي",
+    "aboutTheDataset": "حول مجموعة البيانات",
     "noLocationInformation": "لا تتوفر معلومات عن الموقع منشورة لهذا السجل",
     "subMenu": {
       "diagnostics": "التشخيصات",
@@ -30,25 +30,25 @@
     },
     "groups": {
       "Record": "سجل",
-      "Occurrence": "حدوث",
-      "Event": "الحدث",
+      "Occurrence": "تكرار",
+      "Event": "حدث",
       "Identification": "التعريف",
-      "Taxon": "الاصنوفة",
+      "Taxon": "الوحدة التصنيفية",
       "Location": "الموقع",
       "Organism": "المتعضي",
       "MaterialSample": "عينة مادية",
       "GeologicalContext": "السياق الجيولوجي",
-      "other": "اخرىر"
+      "other": "أخرى"
     },
     "term": "مصطلح",
     "interpreted": "تم تأويلها",
-    "original": "الاصلي",
+    "original": "أصلي",
     "remarks": "ملاحظات",
     "highlights": {
       "location": "الموقع",
       "specimenType": "نوع العينة",
-      "publisher": "الناسر",
-      "reference": "المرجععية",
+      "publisher": "الناشر",
+      "reference": "المرجع",
       "verbatimName": "الاسم الحرفي"
     },
     "media": {
