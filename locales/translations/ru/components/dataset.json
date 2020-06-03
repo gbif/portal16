@@ -12,8 +12,8 @@
       "withTaxonMatch": "Согласно таксономии GBIF",
       "withCoordinates": "С координатами",
       "withYear": "С указанием года",
-      "acceptedNames": "Валидные названия",
-      "synonyms": "Синонимы",
+      "acceptedNames": "{NUMBER, plural,\n0 {Валидных названий}\none {Валидное название}\nfew {Валидных названия}\nmany {Валидных названий}\nother {Валидных названий}\n}",
+      "synonyms": "{NUMBER, plural,\n0 {Синонимов}\none {Синоним}\nfew {Синонима}\nmany {Синонимов}\nother {Синонимов}\n}",
       "overlapWithNub": "Согласно таксономии GBIF",
       "overlapWithCol": "Согласно Catalogue of Life"
     },
@@ -77,11 +77,11 @@
     "pNetwork": "{NUMBER, plural,\n0 {записей}\none {запись}\nfew {записи}\nmany {записей}\nother {записей}\n}",
     "parentEvent": "Родительское описание, учет или сбор",
     "eventDescription": "Характеристика описания, учета или сбора",
-    "siblingEvents": "Одноуровневые события сбора данных (мониторинга) на пробных площадях",
+    "siblingEvents": "Прочие описания, учёты или сборы набора данных",
     "childEvents": "Дочерние описания, учеты или сборы",
     "events": "",
     "occurrenceCount": "Число находок",
     "inDataset": "В",
-    "samplingArticleLink": "Больше сведений о мониторинге на пробных площадях на GBIF.org"
+    "samplingArticleLink": "Подробнее об описаниях, учётах и сборах в GBIF.org"
   }
 }

@@ -10,7 +10,7 @@
     "IMPLICIT_NAME": "Généré, genre ou espèce manquant pour le nom inférieur de \"l'orphelin\".",
     "MISSING_ACCEPTED": "Utilisation acceptée artificielle pour un synonyme si il es manquant, afin de maintenir la hiérarchie taxonomique.",
     "BASIONYM_PLACEHOLDER": "Utilisation d'un substitut pour un basionyme implicite.",
-    "EX_AUTHOR_SYNONYM": "Synonyme implicite basé sur l'ancien auteur non-légitime. Voir ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
+    "EX_AUTHOR_SYNONYM": "Synonyme implicite basé sur l'ancien auteur non-légitime. Voir ICN article 46: https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
     "OTHER": "Autre origine"
   }
 }

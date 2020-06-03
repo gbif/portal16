@@ -10,7 +10,7 @@
     "IMPLICIT_NAME": "已產生，缺少屬或種為孤立的下層名。",
     "MISSING_ACCEPTED": "如缺少同種異名，則接受虛擬用法，以維持分類的階級。",
     "BASIONYM_PLACEHOLDER": "缺失或隱晦基礎名的預留位置用法。",
-    "EX_AUTHOR_SYNONYM": "基於未受認可前作者的隱晦同種異名。請見 ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
+    "EX_AUTHOR_SYNONYM": "基於未受認可前作者的隱晦同種異名。請見 ICN article 46: https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
     "OTHER": "其他來源"
   }
 }

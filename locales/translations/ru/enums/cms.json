@@ -48,15 +48,15 @@
           "undefined": "Не указано"
         },
         "relevance": {
-          "GBIF_USED": "Использованы материалы портала GBIF",
-          "GBIF_CITED": "Ссылка на GBIF в списке литературы",
-          "GBIF_DISCUSSED": "GBIF является предметом обсуждения",
-          "GBIF_PRIMARY": "GBIF - основной источник данных в исследовании",
+          "GBIF_USED": "Количественный анализ данных GBIF",
+          "GBIF_CITED": "Упомянуты данные GBIF",
+          "GBIF_DISCUSSED": "Обсуждение портала GBIF",
+          "GBIF_PRIMARY": "GBIF - основной источник данных",
           "GBIF_ACKNOWLEDGED": "Выражена благодарность GBIF",
-          "GBIF_PUBLISHED": "Статьи о данных, опубликованных в GBIF",
-          "GBIF_AUTHOR": "Автор является сотрудником GBIF",
-          "GBIF_MENTIONED": "GBIF упоминается в публикации",
-          "GBIF_FUNDED": "Исследование поддержано GBIF"
+          "GBIF_PUBLISHED": "Обсуждение опубликованных данных",
+          "GBIF_AUTHOR": "Сотрудники GBIF среди соавторов",
+          "GBIF_MENTIONED": "Прочие упоминания GBIF",
+          "GBIF_FUNDED": "Исследование финансировано GBIF"
         },
         "topics": {
           "AGRICULTURE": "Сельское хозяйство",
@@ -92,7 +92,7 @@
           "generic": "Прочее",
           "book_section": "Раздел монографии",
           "conference_proceedings": "Материалы конференции",
-          "working_paper": "Рукописи и препринты",
+          "working_paper": "Рукопись или препринт",
           "report": "Отчет",
           "web_page": "Веб-страница",
           "thesis": "Диссертация (квалификационная работа)",

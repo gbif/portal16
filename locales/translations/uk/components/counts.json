@@ -15,14 +15,14 @@
         "nDatasets": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {наборів даних}\none {набір даних}\nfew {набори даних}\nmany {наборів даних}\nother {наборів даних}\n}",
         "nPublishers": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {видавців}\none {видавець}\nfew {видавці}\nmany {видавців}\nother {видавців}\n}",
         "nCountries": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {країн}\none {країна}\nfew {країни}\nmany {країн}\nother {країн}\n}",
-        "nContacts": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {контактів}\none {контакт}\nfew {контакти}\nmany {контактів}\nother {контактів}\n}",
+        "nContacts": "контакти",
         "pRecords": "{NUMBER, select, \n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n}",
         "pOccurrence": "{NUMBER, plural,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n}",
         "pMaterialSamples": "",
         "pSpecies": "{NUMBER, plural,\n0 {видів}\none {вид}\nfew {види}\nmany {видів}\nother {видів}\n}",
         "pInfraspecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {підвидів}\none {підвид}\nfew {підвиди}\nmany {підвидів}\nother {підвидів}\n}",
         "pPublishers": "{NUMBER, select, \n0 {видавців}\none {видавець}\nfew {видавці}\nmany {видавців}\nother {видавців}\n}",
-        "contacts": "{NUMBER, select,\n0 {контактів}\none {контакт}\nfew {контакти}\nmany {контактів}\nother {контактів}\n}",
+        "contacts": "контакти",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {таксономічних карток}\none {таксономічна картка}\nfew {таксономічних картки}\nmany {таксономічних карток}\nother {таксономічних карток}\n}"
     }
 }

@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "title": "",
+    "title": "ダウンロードレポート",
     "knownIssues": "既知の課題",
     "knownIssuesDescription": "GBIF による処理の一つは疑わしいオカレンスを指摘することです。",
     "FossilsIncluded": "化石",
@@ -35,9 +35,9 @@
     "minutes": "分"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "ダウンロードのオプション",
     "content": {
-      "rawData": "",
+      "rawData": "生データ",
       "interpretedData": "",
       "images": "",
       "coordinates": "",

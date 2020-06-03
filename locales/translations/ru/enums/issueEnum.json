@@ -27,7 +27,7 @@
     "PARENT_NAME_NOT_UNIQUE": "Не уникальное название вышестоящего таксона",
     "ORIGINAL_NAME_NOT_UNIQUE": "Оригинальное название не уникально",
     "RELATIONSHIP_MISSING": "Отсутствует связь",
-    "ORIGINAL_NAME_DERIVED": "Название является производным от базинонима",
+    "ORIGINAL_NAME_DERIVED": "Название производное от базионима",
     "CONFLICTING_BASIONYM_COMBINATION": "Противоречивая базинонимная комбинация",
     "NO_SPECIES": "Не включает видов",
     "NAME_PARENT_MISMATCH": "Несовпадение с названием вышестоящего таксона",

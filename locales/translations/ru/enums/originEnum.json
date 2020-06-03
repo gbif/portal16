@@ -2,7 +2,7 @@
   "originEnum": {
     "SOURCE": "Источник",
     "DENORMED_CLASSIFICATION": "Ненормализованная классификация",
-    "VERBATIM_PARENT": "Дословное указание вышестоящего таксона",
+    "VERBATIM_PARENT": "Родительский таксон по первоисточнику",
     "VERBATIM_ACCEPTED": "Дословное указание на валидное название",
     "VERBATIM_BASIONYM": "Дословное указание базинонима",
     "PROPARTE": "Proparte",

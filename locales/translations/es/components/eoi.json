@@ -44,7 +44,7 @@
     "yes": "Sí",
     "no": "No",
     "pleaseSelectAValue": "Por favor, selecciona un valor",
-    "reuseTrustedIPThosting": "En este caso, es recomendable que primero intentes reutilizar un [centro de almacenamiento de de datos del IPT] existente de confianza (https://github.com/gbif/ipt/wiki/dataHostingCentre)",
+    "reuseTrustedIPThosting": "En este caso, es recomendable que primero intentes reutilizar un [centro de almacenamiento de de datos del IPT](https://github.com/gbif/ipt/wiki/dataHostingCentres#data-hosting-centres) existente de confianza ",
     "doYouNeedHelpPublishing": "¿Necesitas ayuda para publicar tus datos?",
     "areYouPlanningToInstallAndRun": "¿Tienes pensado instalar y ejecutar aplicaciones de publicación (como la [Herramienta de Publicación Integrada - IPT](/ipt) para publicar tus datos directamente en GBIF.org?",
     "orgDetails": "Detalles de la organización",

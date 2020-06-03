@@ -28,16 +28,16 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "{from}",
+            "between": "{from} から{to}まで",
+            "lessThanOrEquals": " {to}以下",
+            "greaterThanOrEquals": " {from}以上",
+            "invalid": "無効な値です",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "等しい",
+                "between": "指定の範囲内",
+                "lessThanOrEquals": "以下",
+                "greaterThanOrEquals": "以上"
             }
         },
         "year": {
@@ -54,16 +54,16 @@
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "{from}",
+            "between": "{from} から{to}まで",
+            "lessThanOrEquals": " {to}以下",
+            "greaterThanOrEquals": " {from}以上",
+            "invalid": "無効な値です",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "等しい",
+                "between": "指定の範囲内",
+                "lessThanOrEquals": "以下",
+                "greaterThanOrEquals": "以上"
             }
         }
     }

@@ -1,13 +1,13 @@
 {
   "occurrenceSearch": {
-    "title": "",
+    "title": "Поиск находок",
     "table": "Таблица",
     "gallery": "Галерея",
     "map": "Карта",
     "taxonomy": "Таксономия",
     "charts": "Показатели",
     "download": "Загрузить",
-    "searchAllFields": "Искать по всем полям",
+    "searchAllFields": "Поиск по всем полям",
     "description": "Поиск находок в Глобальной информационной системе о биологическом разнообразии. Свободный и открытый доступ к данным о биоразнообразии.",
     "nWithCoordinates": "{NUMBER_FORMATED} с координатами",
     "nWithImages": "{NUMBER_FORMATED} с {NUMBER, select, 1{изображением} other{изоражениями}}",

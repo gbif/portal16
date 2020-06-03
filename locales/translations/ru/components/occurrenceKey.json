@@ -1,13 +1,13 @@
 {
   "occurrence": {
     "tabs": {
-      "details": ""
+      "details": "Подробнее"
     },
     "typeOf": "{TYPE} из {NAME}",
     "coordinates": "Координаты",
     "unknownDate": "Неизвестная дата",
     "absent": "Отсутствует",
-    "issues": "Ошибки",
+    "issues": "Выявленные ошибки и несоответствия",
     "dataset": "Набор данных",
     "synced": "Синхронизировано",
     "modified": "Изменено",
@@ -17,57 +17,57 @@
     "readFullDescription": "подробнее",
     "showMoreInfo": "подробнее",
     "noTaxonMatch": "нет",
-    "gbifTaxonInterpretation": "Интерпретация таксона в GBIF",
+    "gbifTaxonInterpretation": "По таксономии GBIF",
     "aboutTheDataset": "О наборе данных",
     "noLocationInformation": "Для этой записи не опубликована информация о местонахождении",
     "subMenu": {
-      "diagnostics": "Диагностика",
+      "diagnostics": "Исходные значения",
       "menu": "Меню",
-      "showDiagnostics": "Показать диагностику",
-      "hideDiagnostics": "Скрыть диагностику",
-      "aboutDarwinCore": "О формате Darwin Core",
-      "raw": "Исх. данные"
+      "showDiagnostics": "Показать исходные значения",
+      "hideDiagnostics": "Скрыть исходные значения",
+      "aboutDarwinCore": "о стандарте Darwin Core",
+      "raw": "Исходные данные"
     },
     "groups": {
       "Record": "Запись",
       "Occurrence": "Находка",
-      "Event": "Событие",
-      "Identification": "Идентификация",
+      "Event": "Событие (сбора, наблюдения или описания)",
+      "Identification": "Определение",
       "Taxon": "Таксон",
-      "Location": "Местоположение",
+      "Location": "Местонахождение",
       "Organism": "Организм",
-      "MaterialSample": "Материальный образец",
+      "MaterialSample": "Образец из коллекции",
       "GeologicalContext": "Геологические контекст",
-      "other": "Другое"
+      "other": "Прочее"
     },
-    "term": "Термин",
+    "term": "Термин Darwin Core",
     "interpreted": "Интерпретировано",
-    "original": "Оригинал",
+    "original": "Исходное значение",
     "remarks": "Примечания",
     "highlights": {
-      "location": "Местоположение",
-      "specimenType": "Тип образца",
-      "publisher": "Публикатор данных",
+      "location": "Страна или территория",
+      "specimenType": "Типовой экземпляр",
+      "publisher": "Организация",
       "reference": "Ссылка",
-      "verbatimName": "Имя, указанное в первоисточнике"
+      "verbatimName": "Название по первоисточнику"
     },
     "media": {
-      "noIdentifier": "",
+      "noIdentifier": "идентификатор медиа-файла отсутствует",
       "noPlaybackSupport": "",
-      "takeMeThere": "",
-      "notWorkingTryPublishers": "",
+      "takeMeThere": "Перейдите на сайт организации",
+      "notWorkingTryPublishers": "Воспроизведение не работает?",
       "download": ""
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "Собранные в {COUNTRY}",
-        "FOSSIL_SPECIMEN": "Собранные в {COUNTRY}",
-        "LIVING_SPECIMEN": "Собранные в {COUNTRY}",
-        "HUMAN_OBSERVATION": "Обнаруженные в {COUNTRY}",
-        "MACHINE_OBSERVATION": "Обнаруженные в {COUNTRY}",
-        "MATERIAL_SAMPLE": "Собранные в {COUNTRY}",
+        "PRESERVED_SPECIMEN": "Где собрано: {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Где собрано: {COUNTRY}",
+        "LIVING_SPECIMEN": "Где собрано: {COUNTRY}",
+        "HUMAN_OBSERVATION": "Где найдено: {COUNTRY}",
+        "MACHINE_OBSERVATION": "Где найдено: {COUNTRY}",
+        "MATERIAL_SAMPLE": "Где собрано: {COUNTRY}",
         "OCCURRENCE": "Записано в {COUNTRY}",
-        "OBSERVATION": "Обнаруженные в {COUNTRY}",
+        "OBSERVATION": "Где найдено: {COUNTRY}",
         "LITERATURE": "Записано в {COUNTRY}",
         "UNKNOWN": "Записано в {COUNTRY}"
       },
@@ -75,24 +75,24 @@
         "PRESERVED_SPECIMEN": "Собранные в неизвестном месте",
         "FOSSIL_SPECIMEN": "Собранные в неизвестном месте",
         "LIVING_SPECIMEN": "Собранные в неизвестном месте",
-        "HUMAN_OBSERVATION": "Собранные в неизвестном месте",
-        "MACHINE_OBSERVATION": "Собранные в неизвестном месте",
+        "HUMAN_OBSERVATION": "Найдено в неизвестном месте",
+        "MACHINE_OBSERVATION": "Найдено в неизвестном месте",
         "MATERIAL_SAMPLE": "Собранные в неизвестном месте",
         "OCCURRENCE": "Записан в неизвестном месте",
-        "OBSERVATION": "Обнаруженные в неизвестном месте",
+        "OBSERVATION": "Найдено в неизвестном месте",
         "LITERATURE": "Записан в неизвестном месте",
         "UNKNOWN": "Записан в неизвестном месте"
       },
       "unknownSpecies": "Неизвестный вид"
     },
     "occurrence": "Находка",
-    "inLanguage": "На {LANGUAGE_TRANSLATED}"
+    "inLanguage": "({LANGUAGE_TRANSLATED} язык)"
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "Исключено",
-      "AUTHORED": "Изменено",
-      "INFERED": "Выведены на основе анализа"
+      "EXCLUDED": "не интерпретировано",
+      "AUTHORED": "изменено",
+      "INFERED": "получено из других значений"
     }
   }
 }

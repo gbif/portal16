@@ -29,7 +29,7 @@
             "inIngestionQueue": "У черзі на влиття",
             "addingToQueue": "Додається у чергу на влиття",
             "unableToStart": "Неможливо розпочати влиття",
-            "ingestionChartExplainer": "Нещодавні влиття. Зверху зліва - найсвіжіше.",
+            "ingestionChartExplainer": "Нещодавні влиття. Зверху зліва – найсвіжіше.",
             "ingestionStatus": "Статус влиття",
             "itemInIngestionQueue": "У черзі на влиття",
             "datasetIngestionStatus": "Статус влиття набору даних до GBIF",

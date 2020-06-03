@@ -60,16 +60,16 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "Зібрана в {COUNTRY}",
-        "FOSSIL_SPECIMEN": "Зібрана в {COUNTRY}",
-        "LIVING_SPECIMEN": "Зібрана в {COUNTRY}",
+        "PRESERVED_SPECIMEN": "Місце збору: {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Місце збору: {COUNTRY}",
+        "LIVING_SPECIMEN": "Місце збору: {COUNTRY}",
         "HUMAN_OBSERVATION": "МІсце спостереження: {COUNTRY}",
         "MACHINE_OBSERVATION": "МІсце спостереження: {COUNTRY}",
-        "MATERIAL_SAMPLE": "Зібрана в {COUNTRY}",
-        "OCCURRENCE": "Записана в {COUNTRY}",
-        "OBSERVATION": "МІсце спостереження: {COUNTRY}",
-        "LITERATURE": "Записана в {COUNTRY}",
-        "UNKNOWN": "Записана в {COUNTRY}"
+        "MATERIAL_SAMPLE": "Місце збору: {COUNTRY}",
+        "OCCURRENCE": "Місце спостереження: {COUNTRY}",
+        "OBSERVATION": "Місце спостереження: {COUNTRY}",
+        "LITERATURE": "Місце спостереження: {COUNTRY}",
+        "UNKNOWN": "Місце спостереження: {COUNTRY}"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "Зібрана у невідомому місці",

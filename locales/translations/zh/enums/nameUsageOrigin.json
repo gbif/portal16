@@ -10,7 +10,7 @@
     "IMPLICIT_NAME": "生成、缺失属或物种为孤立的较低名称。",
     "MISSING_ACCEPTED": "如果同义词缺少, 则人为接受用法以保留分类层次结构。",
     "BASIONYM_PLACEHOLDER": "缺失或隐式基词的占位符用法。",
-    "EX_AUTHOR_SYNONYM": "基于非法前作者的隐含同义词。 见ICN第46条：http：//www.iapt-taxon.org/nomen/main.php？page = art46",
+    "EX_AUTHOR_SYNONYM": "基于非法前作者的隐含同义词。 见ICN第46条：https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
     "OTHER": "其它来源"
   }
 }

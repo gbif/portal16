@@ -4,7 +4,7 @@
     "catalogNumber": "Каталоговий номер",
     "year": "Рік",
     "country": "Країна або територія",
-    "continent": "",
+    "continent": "Континент",
     "taxonKey": "Наукова назва",
     "elevation": "Висотність",
     "collectionCode": "Код колекції",

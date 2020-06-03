@@ -48,7 +48,7 @@
     "synonyms": "シノニム",
     "synonymOf": "～のシノニム",
     "basionymOf": "～のバソニム",
-    "homotypicSynonymOf": "",
+    "homotypicSynonymOf": "同タイプシノニムの",
     "immediateChildren": "ツリー直下の子階層",
     "descendants": "末裔",
     "loadMore": "もっと読み込む",
@@ -78,8 +78,8 @@
     "lastCrawled": "最終クロール日 {DATE_FORMATTED}",
     "extensions": "拡張モジュール",
     "taxa": "分類群",
-    "mediatedThrough": "",
-    "taxonIdentifiers": "",
+    "mediatedThrough": "次を介して：",
+    "taxonIdentifiers": "分類群ID",
     "whyDoubtful": ""
   }
 }
