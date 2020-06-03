@@ -3,12 +3,12 @@
     "tabs": {
       "details": "تفاصيل"
     },
-    "typeOf": ")نوع) من (اسم)",
+    "typeOf": "{TYPE} من {NAME}",
     "coordinates": "احداثيات",
     "unknownDate": "تاريخ غير معروف",
     "absent": "غائب",
     "issues": "مشاكل",
-    "dataset": "مجموعة البيانات",
+    "dataset": "مجموعة بيانات",
     "synced": "تمت المزامنة",
     "modified": "تم تعديله",
     "monthAndyear": "الشهر و السنة",
