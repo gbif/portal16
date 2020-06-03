@@ -20,11 +20,8 @@
         <div class="seperator--b"
              ng-if="occurrence.showFreeTextSpeciesSuggestion && occurrence.freeTextSpeciesSuggestion">
             <div class="m-05">
-                <span>Did you mean</span>
-                <p>
-                    {{occurrence.freeTextSpeciesSuggestion.scientificName}} the <span
-                        translate="taxonRank.{{occurrence.freeTextSpeciesSuggestion.rank}}"></span>?
-                </p>
+                <p  translate="occurrenceSearch.didYouMean" 
+                    translate-values="{FREE_TEXT: occurrence.freeTextQuery, NAME: occurrence.freeTextSpeciesSuggestion.scientificName, RANK: (('taxonRank.' + occurrence.freeTextSpeciesSuggestion.rank) | translate) }">Did you mean</p>
             </div>
             <div class="site-drawer__bar">
                 <a href="" class="site-drawer__bar__action"
