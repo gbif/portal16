@@ -18,7 +18,7 @@
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select, 1{جهة اتصال} other{جهات اتصال}}",
         "pRecords": "{NUMBER, select, 1{سجل} other{سجلات}}",
         "pOccurrence": "{NUMBER, select,  1{تكرار}other{تكرارات}}",
-        "pMaterialSamples": "",
+        "pMaterialSamples": "{NUMBER, select,  1{مادة تم فحصها}other{مواد تم فحصها}}",
         "pSpecies": "{NUMBER, select, 1{نوع} other{أنواع}}",
         "pInfraspecies": "{NUMBER, select, 1{تحت نوع}other{تحت أنواع}}",
         "pPublishers": "{NUMBER, select, 1{ناشر} other{ناشرون}}",
