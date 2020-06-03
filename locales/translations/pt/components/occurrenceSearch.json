@@ -29,6 +29,6 @@
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "A URL da sua consulta excede 2.000 caracteres e pode não funcionar corretamente em todos os navegadores. Para consultas grandes e/ou complicadas, por favor considere usar a API de download.",
-    "didYouMean": ""
+    "didYouMean": "Sua busca corresponde a {RANK}: '{NAME}'. Gostaria de limitá-la a apenas esse táxon?"
   }
 }
