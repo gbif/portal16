@@ -6,7 +6,7 @@
                 </div>
             </div>
             <div>
-                <h4 class="card-header m-t-1" translate="species.lastCrawled" translate-values="{DATE_FORMATTED: (speciesKey2.verbatim.lastCrawled | date : 'longDate')}"> </h4>
+                <h4 class="card-header m-t-1" translate="species.lastCrawled" translate-values="{DATE_FORMATTED: (speciesKey2.verbatim.lastCrawled | momentFormat:'LL')}"> </h4>
                 <div class="card m-b-05 searchCard">
                     <div class="card__stripe">
                         <div class="card__content card__content--warning">
