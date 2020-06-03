@@ -34,7 +34,8 @@ router.get('/omniSearch', function(req, res) {
 
 async function search(query, preferedLocale, __) {
     query = _.isString(query) ? query.toLowerCase() : query;
-    let datasets = Dataset.query({q: query, limit: 3, hl: true});
+    // removing highlights as a temporary measure as the implementation to show them doesn't work. See also https://github.com/gbif/portal16/issues/1358
+    let datasets = Dataset.query({q: query, limit: 3, hl: false});
     let publishers = Publisher.query({q: query, limit: 3});
     let participants = Participant.query(query);
     let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3, hl: true});
