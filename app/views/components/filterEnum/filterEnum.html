@@ -18,7 +18,6 @@
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
                              ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
                         <span dir="auto"
-                              ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}"
                               translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
                         <span class="filter-group__filter__name__count"
                               ng-if="vm.showFacetCount() && vm.filterState.data.facets">
@@ -50,7 +49,7 @@
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key"
                            ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
-                        <span dir="auto" class="filter-group__filter__name__title"
+                        <span dir="auto"
                               translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{facet.title}}</span>
                         <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
                     </span>
@@ -69,7 +68,7 @@
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
                              ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
-                        <span dir="auto" class="filter-group__filter__name__title"
+                        <span dir="auto"
                               translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
                         <span class="filter-group__filter__name__count"
                               ng-if="vm.showFacetCount() && !vm.hideFacetCounts">
