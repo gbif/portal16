@@ -6,8 +6,8 @@
                 <div class="card__content container--narrow p-b-1">
                     <span ng-if="datasetKey.dataset.project.identifier" class="pull-right discreet--very small">
                         <span translate="dataset.projectId"></span>
-                        <a ng-href="{{portal.urlPrefix}}{{ datasetKey.projects.results[0]._url }}" ng-if="datasetKey.projects.count == 1">{{ datasetKey.dataset.project.identifier }}</a>
-                        <span ng-if="datasetKey.projects.count != 1">{{ datasetKey.dataset.project.identifier }}</span>
+                        <a ng-href="{{portal.urlPrefix}}{{ datasetKey.projects.results[0]._url }}"            ng-if="datasetKey.projects.count === 1">{{ datasetKey.dataset.project.identifier }}</a>
+                        <a ui-sref="datasetSearchTable({project_id: datasetKey.dataset.project.identifier})"  ng-if="datasetKey.projects.count !== 1">{{ datasetKey.dataset.project.identifier }}</a>
                     </span>
                     <h3>
                         {{ datasetKey.dataset.project.title }}
