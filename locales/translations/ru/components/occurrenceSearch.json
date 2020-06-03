@@ -28,6 +28,7 @@
     "errorUserThrottled": "",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
-    "largeQueryLengthWarning": ""
+    "largeQueryLengthWarning": "",
+    "didYouMean": ""
   }
 }
