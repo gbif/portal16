@@ -14,7 +14,7 @@
             "OBSERVER": "بلد مراقب في \"جبيف\" من{REGION}",
             "AFFILIATE": "منتسب من{REGION}",
             "FORMER": "مشارك سابق في \"جبيف\" من{REGION}",
-            "undefined": "غير محدد"
+            "undefined": "غير معروف"
         },
         "type": {
             "OTHER": {
@@ -24,7 +24,7 @@
                     "OBSERVER": "منظمة مشاركة مراقبة من{REGION}",
                     "AFFILIATE": "منظمة منتسبة من{REGION}",
                     "FORMER": "منظمة مشاركة سابقاً من{REGION}",
-                    "undefined": "غير محدد"
+                    "undefined": "غير معروف"
                 },
                 "longForm": {
                     "VOTING": "منظمة مشاركة ذات حق التصويت",
@@ -32,7 +32,7 @@
                     "OBSERVER": "منظمة مشاركة مراقبة",
                     "AFFILIATE": "منظمة منتسبة",
                     "FORMER": "منظمة مشاركة سابقاً",
-                    "undefined": "غير محدد"
+                    "undefined": "غير معروف"
                 }
             }
         }
