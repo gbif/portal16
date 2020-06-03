@@ -1,6 +1,7 @@
 'use strict';
 
 let express = require('express'),
+    _ = require('lodash'),
     router = express.Router(),
     config = rootRequire('config/config'),
     localeConfig = rootRequire('config/locales');
@@ -12,6 +13,7 @@ localeConfig.locales.forEach(function(e) {
     localNameMap[e] = translations[e].language[localeConfig.localeMappings.translation[e]];
 });
 
+let unLanguages = ['en', 'ar', 'zh', 'fr', 'ru', 'es'];
 let environment = {
     managementToolsSite: config.managementToolsSite,
     dataApiV2: config.dataApiV2,
@@ -23,6 +25,8 @@ let environment = {
     mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json',
     domain: config.domain,
     locales: localeConfig.locales,
+    unLanguages: unLanguages,
+    otherLanguages: _.difference(localeConfig.locales, unLanguages),
     localeMappings: {
         moment: localeConfig.localeMappings.moment,
         jsLocale: localeConfig.localeMappings.jsLocale,

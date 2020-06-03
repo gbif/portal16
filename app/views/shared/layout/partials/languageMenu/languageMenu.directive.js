@@ -26,6 +26,8 @@ function languageMenuDirective(BUILD_VERSION) {
     function languageMenu($http, $cookies, $localStorage, $scope, NAV_EVENTS, AUTH_EVENTS, IS_RTL, LOCALE, LOCALE_MAPPINGS, env) {
         var vm = this;
         vm.locales = env.locales;
+        vm.unLanguages = env.unLanguages;
+        vm.otherLanguages = env.otherLanguages;
         vm.LOCALE_MAPPINGS = LOCALE_MAPPINGS;
         vm.IS_RTL = IS_RTL;
         vm.chosenLocale = LOCALE;

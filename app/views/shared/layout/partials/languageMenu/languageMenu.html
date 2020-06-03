@@ -23,16 +23,25 @@
 						<md-radio-button 
 							ng-value="locale" 
 							class="md-primary" 
-							ng-repeat="locale in vm.locales"
+							ng-repeat="locale in vm.unLanguages"
 							ng-class="{'m-b-0': $last}"
 							>
 							<div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}">
 								<span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}">{{vm.LOCALE_MAPPINGS.localNames[locale]}}</span>
-								<span class="discreet--very ltr-text" ng-if="locale !== 'en'">
-								(<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}" translate-language="en"></span>)
-								</span>
 							</div>
 						</md-radio-button>
+            <div class="seperator m-t-1 m-b-1"></div>
+            <md-radio-button 
+							ng-value="locale" 
+							class="md-primary" 
+							ng-repeat="locale in vm.otherLanguages"
+							ng-class="{'m-b-0': $last}"
+							>
+							<div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}">
+								<span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}">{{vm.LOCALE_MAPPINGS.localNames[locale]}}</span>
+							</div>
+						</md-radio-button>
+
 					</md-radio-group>
 				</div>
 			</div>
