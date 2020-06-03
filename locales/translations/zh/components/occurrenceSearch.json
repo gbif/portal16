@@ -28,6 +28,7 @@
     "errorUserThrottled": "您的访问权限暂时被限制。",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
-    "largeQueryLengthWarning": "您查询的 URL 超过 2 000 个字符，可能无法在所有浏览器中正常使用。对于较大和/或复杂的查询，请考虑使用下载API。"
+    "largeQueryLengthWarning": "您查询的 URL 超过 2 000 个字符，可能无法在所有浏览器中正常使用。对于较大和/或复杂的查询，请考虑使用下载API。",
+    "didYouMean": ""
   }
 }
