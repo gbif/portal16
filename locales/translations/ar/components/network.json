@@ -4,10 +4,10 @@
     "tabs": {
       "summary": "مُلخّص",
       "homepage": "الصفحة الرئيسية",
-      "metrics": "قياسات",
+      "metrics": "مقاييس",
       "datasets": "شبكة"
     },
     "registeredDate": "مُسجَّل {DATE}",
-    "nParticipatingDatasets": ""
+    "nParticipatingDatasets": "{NUMBER_FORMATED} مشاركة {NUMBER, plural, 1 {مجموعة بيانات} other{مجموعات بيانات}}"
   }
 }
