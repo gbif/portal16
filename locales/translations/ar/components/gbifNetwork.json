@@ -32,21 +32,21 @@
     "nParticipants": "{NUMBER_FORMATED}{NUMBER, plural,1{مشارك}other{مشاركون}}",
     "dataset": "{NUMBER, plural,one{مجموعة البيانات}other{مجموعات البيانات}} ",
     "datasets": "مجموعات البيانات",
-    "regionalRepresentative": "",
+    "regionalRepresentative": "{NUMBER, plural,one{ممثل}other{ممثلون}} ",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "منظمات مشاركة",
+      "gbifAffiliates": "منتسبون إلى المرفق العالمي لمعلومات التنوع الحيوي"
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "HEAD_OF_DELEGATION": "رئيس الوفد",
+      "NODE_MANAGER": "مدير عقدة الربط"
     },
-    "publishers": "",
-    "memberSince": "",
-    "participant": "",
-    "pPublishers": "",
-    "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": ""
+    "publishers": "الناشرون",
+    "memberSince": "عضو مُنذُ",
+    "participant": "مشارك",
+    "pPublishers": "{NUMBER, plural,1{ناشر}other{ناشرون}} ",
+    "pOccurrence": "{NUMBER, plural, 1{تكرار}other{تكرارات}}",
+    "occurrenceDatasets": "مجموعات بيانات التكرار",
+    "occurrences": "التكرارات"
   }
 }
