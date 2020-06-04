@@ -1,13 +1,13 @@
 {
   "treatment": {
-    "distribution": "التوزيع",
+    "distribution": "التوزع",
     "figures": "ارقام"
   },
   "species": {
     "distribution": {
-      "presentIn": "موجود في (البلد)",
-      "presentInNonCountry": "موجود في (الموقع)",
-      "threatStatus": "حالة التهديد(الحالة)",
+      "presentIn": "موجود في {country}",
+      "presentInNonCountry": "موجود في {location}",
+      "threatStatus": "حالة التهديد: {status}",
       "distributionPlural": "التوزيع"
     },
     "tabs": {
