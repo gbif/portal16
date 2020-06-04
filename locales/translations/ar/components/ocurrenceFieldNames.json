@@ -1,6 +1,6 @@
 {
   "ocurrenceFieldNames": {
-    "gbifID": "معرف المرفق العالمي للتنوع الحيوي",
+    "gbifID": "معرف المرفق العالمي لمعلومات التنوع الحيوي",
     "abstract": "ملخص",
     "accessRights": "حقوق الدخول",
     "accrualMethod": "طريقة الاستحقاق",
