@@ -6,7 +6,7 @@
     "notSureWhatYouAreLookingFor": "何を検索すればよいかわからないですか？オカレンスデータの種の画像を閲覧してみましょう。",
     "cannotFindWhatYouAreLookingFor": "お探しのものが見つかりませんか？",
     "trySpecifyingAType": "タイプを指定してください。",
-    "everything": "全て",
+    "everything": "すべて",
     "occurrences": "オカレンス",
     "species": "種情報",
     "datasets": "データセット",
@@ -18,7 +18,7 @@
     "filters": "フィルター",
     "simple": "基本",
     "advanced": "詳細",
-    "allResultTypes": "全て",
+    "allResultTypes": "すべて",
     "suggestions": "候補",
     "header": {
       "searchDatasets": "データセットの検索",
