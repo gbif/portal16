@@ -4,8 +4,8 @@
         "description": "各種GBIFサービスの状態はどうなっていますか。",
         "updatedTimeAgo": "{TIME_AGO} 更新",
         "statusSummary": {
-            "OPERATIONAL": "全てのシステムが動作しています。",
-            "INFO": "全てのシステムが動作しています。",
+            "OPERATIONAL": "すべてのシステムが動作しています。",
+            "INFO": "すべてのシステムが動作しています。",
             "WARNING": "システムが不安定もしくは動作が遅くなっています。",
             "CRITICAL": "部分的な停電が発生しています。"
         },
