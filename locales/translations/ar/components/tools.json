@@ -1,11 +1,11 @@
 {
     "tools": {
-        "tools": "ادوات",
+        "tools": "أدوات",
         "categoryFeatured": "متميز",
         "suggestDataset": {
             "NOT_OPEN": "رخصة غير متاحة للجميع",
             "title": "اقترح مجموعة البيانات",
-            "pleaseDescribeTheDataset": "الرجاء صف مجموعة البيانات",
+            "pleaseDescribeTheDataset": "يرجى وصف مجموعة البيانات",
             "thankYou": "شكرا لك",
             "form": {
                 "title": "لقب",
