@@ -27,6 +27,6 @@
       "searchResources": "البحث في المصادر",
       "searchOccurrences": "البحث في التكرارات"
     },
-    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{نتيجة} other{نتائج}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, plural, 1{نتيجة} other{نتائج}}"
   }
 }
