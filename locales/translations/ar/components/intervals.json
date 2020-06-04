@@ -28,16 +28,16 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "هو(من)",
-            "between": "بين(من)و(الى)",
-            "lessThanOrEquals": "اقل من او يساوي (الى)",
-            "greaterThanOrEquals": "اكبر من او يساوي(من)",
-            "invalid": "لاغ",
+            "equals": "هو {from}",
+            "between": "بين {from} و {to}",
+            "lessThanOrEquals": "أقل من أو يساوي {to}",
+            "greaterThanOrEquals": "أكبر من أو يساوي {from}",
+            "invalid": "غير صالح",
             "select": {
-                "equals": "يكون",
+                "equals": "هو",
                 "between": "بين",
-                "lessThanOrEquals": "اقل من او يساوي",
-                "greaterThanOrEquals": "اكبر من او يساوي"
+                "lessThanOrEquals": "أقل من أو يساوي",
+                "greaterThanOrEquals": "أكبر من أو يساوي"
             }
         },
         "year": {
@@ -45,7 +45,7 @@
             "between": "بين بداية من {from} وانتهاء بـ {to}",
             "lessThanOrEquals": "قبل نهاية {to}",
             "greaterThanOrEquals": "بعد البداية من {from}",
-            "invalid": "غير صحيح",
+            "invalid": "غير صالح",
             "select": {
                 "equals": "هو",
                 "between": "بين",
@@ -54,16 +54,16 @@
             }
         },
         "default": {
-            "equals": "هو(من)",
-            "between": "بين (من) و(الى)",
-            "lessThanOrEquals": "اقل من او يساوي(الى)",
-            "greaterThanOrEquals": "اكبر من او يساوي(من)",
-            "invalid": "باطل",
+            "equals": "هو {from}",
+            "between": "بين {from} و {to}",
+            "lessThanOrEquals": "أقل من أو يساوي {to}",
+            "greaterThanOrEquals": "أكبر من أو يساوي {from}",
+            "invalid": "غير صالح",
             "select": {
-                "equals": "يكون",
+                "equals": "هو",
                 "between": "بين",
-                "lessThanOrEquals": "اقل من او يساوي",
-                "greaterThanOrEquals": "اكبر من او يساوي"
+                "lessThanOrEquals": "أقل من أو يساوي",
+                "greaterThanOrEquals": "أكبر من أو يساوي"
             }
         }
     }
