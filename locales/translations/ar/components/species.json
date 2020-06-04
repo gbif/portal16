@@ -40,7 +40,7 @@
     "term": "مصطلح",
     "value": "قبمة",
     "classification": "تصنيف",
-    "sourcePlural": "{العدد, جمع, 1}مصدر{اخر {مصادر}}",
+    "sourcePlural": "{NUMBER, plural,1{مصدر}other{مصادر}}",
     "nMoreDatasets": "{العدد{اكثر}العدد, اختر, 1{ مجموعة بيانات}اخرى{مجموعات البيانات}}",
     "acceptedName": "الاسم المقبول",
     "synonym": "مرادف",
