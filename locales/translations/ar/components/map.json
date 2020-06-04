@@ -1,7 +1,7 @@
 {
   "map": {
-    "nGeoreferencedRecords": "Biodiversity",
-    "noOccurrencesWithCoordinates": "لاتوجد اي احداث بالنسبة للاحداثيات",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED}{NUMBER, plural,1{سجل ذو مرجعية جغرافية}other{سجلات ذات مرجعية جغرافية}}",
+    "noOccurrencesWithCoordinates": "لا توجد تكرارات ذات إحداثيات",
     "clickToSearchArea": "انقر  للبحث عن منطقة",
     "generatedDateAgo": "نتجت (DATE-AGO)",
     "anyYear": " اي سنة",
@@ -29,11 +29,11 @@
       "LIGHT_DETAILS": "فاتح",
       "DARK": "داكن (بدون ملصقات)",
       "DARK_DETAILS": "داكن",
-      "OSM": "طرق"
+      "OSM": "طرقات"
     },
     "bin": {
       "PIXEL": "نقاط",
-      "SMALL_HEX": "شكل سداسي صغير",
+      "SMALL_HEX": "أشكال سداسية صغيرة",
       "LARGE_HEX": "مضلعات سداسية",
       "SMALL_SQUARE": "مربعات صغيرة",
       "LARGE_SQUARE": "مربعات"
