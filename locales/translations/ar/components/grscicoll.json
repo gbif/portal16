@@ -50,7 +50,7 @@
     "disciplines": "قواعد العمل المؤسساتية",
     "institutionalGovernance": "الادارة المؤسساتية",
     "type": "نوع المؤسسة",
-    "identifiers": "معرفين",
+    "identifiers": "مُعَرّفون",
     "isActive": {
       "true": "فعال",
       "false": "غير فعال"
@@ -61,16 +61,16 @@
   "grscicollPerson": {
     "title": "شخص",
     "search": {
-      "title": "موظفي التحصيل",
-      "description": "اعضاء كادر GRSciColl هم اي  نوع من الموظفين المنخرطين في هذه المجموعات. ويمكن ربطهم بالمؤسسةو/او اي موع من المجموعات."
+      "title": "موظفو المجموعة",
+      "description": "أعضاء كادر GRSciColl هم أي نوع من الموظفين المشاركين في المجموعات. ويمكن ربطهم بالمؤسسة و/أو أي نوع من المجموعات."
     },
-    "headerTitle": "موظفي المجموعة",
+    "headerTitle": "موظفو المجموعة",
     "firstName": "الاسم الاول",
     "lastName": "اسم العائلة",
     "fullName": "الاسم الكامل",
     "position": "اللقب الوظيفي",
     "affiliations": "الانتماءات",
-    "areaResponsibility": "نطاق المسؤولية",
+    "areaResponsibility": "مجال المسؤولية",
     "researchPursuits": "الاختصاص البحثي",
     "primaryInstitution": "اسم المؤسسة الرئيسية",
     "primaryCollection": "اسم المجموعة الرئيسية",
@@ -79,7 +79,7 @@
   },
   "grscicoll": {
     "title": "",
-    "suggestChange": "اقترح تغييرا",
+    "suggestChange": "اقترح تغييراً",
     "tabs": {
       "about": "حول",
       "institutions": "مؤسسات",
@@ -92,7 +92,7 @@
       "fax": "",
       "mailingAddress": "العنوان البريدي",
       "physicalAddress": "",
-      "contacts": "الاتصالات",
+      "contacts": "جهات الإتصال",
       "address": "العنوان",
       "province": "",
       "postalCode": "",
