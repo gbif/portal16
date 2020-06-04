@@ -8,33 +8,33 @@
       "presentIn": "موجود في {country}",
       "presentInNonCountry": "موجود في {location}",
       "threatStatus": "حالة التهديد: {status}",
-      "distributionPlural": "التوزيع"
+      "distributionPlural": "التوزعات"
     },
     "tabs": {
       "overview": "لمحة عامة",
       "treatment": "معالجة",
-      "metrics": "قياسات",
-      "referenceTaxon": "اصنوفة مرجعية",
+      "metrics": "مقاييس",
+      "referenceTaxon": "وحدة تصنيفية مرجعية",
       "verbatim": "حرفي"
     },
     "invasives": {
-      "nInvadedCountries": "تم التسجيل كما تم الادخال في (العدد_ تم التصميم) ( العدد-الجمع,1{البلد او الجزيرة}{بلدان وجزر}اخرى",
-      "invasiveIn": "تم التسجيل حسب ما تم الإدخال ",
-      "accordingTo": "وفقا ل",
-      "occurrenceCount": "التكرار في المرفق العالمي لمعلومات التنوع الحيوي",
-      "seeAllCountries": "اظهر الكل",
-      "isInvasive": "دليل الاثر",
+      "nInvadedCountries": "تم التسجيل على أنه مُدخل في {NUMBER_FORMATED} {NUMBER, plural,1{بلد أو جزيرة}other{بلدان وجزر}}",
+      "invasiveIn": "تم التسجيل أنه مُدخل في",
+      "accordingTo": "وفقاً لـ",
+      "occurrenceCount": "التكرارات في المرفق العالمي لمعلومات التنوع الحيوي",
+      "seeAllCountries": "أظهر الكل",
+      "isInvasive": "دليل الأثر",
       "isInvasive_yes": "نعم",
-      "isInvasive_no": "كلا"
+      "isInvasive_no": "لا"
     },
     "treatment": {
-      "distribution": "التوزيع",
+      "distribution": "التوزع",
       "figures": "ارقام"
     },
-    "as": "ك",
+    "as": "مثل",
     "in": "في",
-    "origin": "اصل",
-    "issues": "مشتكل",
+    "origin": "أصل",
+    "issues": "مشاكل",
     "citation": "اقتباس",
     "remarks": "ملاحظات",
     "term": "مصطلح",
