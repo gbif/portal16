@@ -1,15 +1,15 @@
 {
     "speciesSearch": {
-        "title": "بحث عن الانواع",
+        "title": "البحث عن الأنواع",
         "youAreCurrentlySearchingInGBIFtaxonomy": "انت تبحث عن انواع ضمن تصنيف المرفق العالمي لمعلومات التنوع الحيوي",
         "SearchAcrossChecklists": "البحث في قوائم التحقق",
-        "freeTextSearchFor": "انت تقوم ببحث عن نص بالمجان ل (QUREY)",
+        "freeTextSearchFor": "انت تقوم ببحث مجاني عن نص حول (QUREY)",
         "limitSearchTo": "الحد من البحث ل",
         "limitResultsTo": {
-            "all": "المل",
-            "scientificNames": "الاسماء العلمية",
-            "vernacularNames": "الاسماء العامية الدارجة",
-            "descriptions": "اوصاف"
+            "all": "الكل",
+            "scientificNames": "الأسماء العلمية",
+            "vernacularNames": "الأسماء العامية الدارجة",
+            "descriptions": "أوصاف"
         }
     }
 }
