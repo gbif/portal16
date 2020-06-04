@@ -52,10 +52,10 @@
     "continueWithProvider": "تابع مع {PROVIDER}",
     "signUpWithProvider": "سجل مع {PROVIDER}",
     "connectWithProvider": "أتصل مع {PROVIDER}",
-    "disconnectWithProvider": "إنقطاع {PROVIDER}",
-    "signInAgreement": "من خلال تسجيل الدخول، فإنك تقبل (شروط) \"جيبف\" [terms] و (سياسة الخصوصية) فيها [privacy policy].",
-    "country": "الدولة",
-    "countryRequired": "الدولة مطلوبة",
+    "disconnectWithProvider": "اِفصل {PROVIDER}",
+    "signInAgreement": "من خلال تسجيل الدخول، فإنك تقبل (شروط) \"جيبف\" [terms] و (سياسة الخصوصية) فيها [terms/privacy-policy].",
+    "country": "بلد",
+    "countryRequired": "البلد مطلوب",
     "email": "البريد الإلكتروني",
     "emailRequired": "البريد الإلكتروني مطلوب",
     "invalidEmail": "الرجاء إدخال بريد إلكتروني صحيح",
@@ -75,7 +75,7 @@
     "startEditing": "البدء في التحرير",
     "stopEditing": "إيقاف التحرير",
     "firstName": "الاسم الأول",
-    "lastName": "الأسم الأخير (الكنية)",
+    "lastName": "الاسم الأخير (الكنية)",
     "save": "حفظ",
     "currentPassword": "كلمة السر الحالية",
     "invalidProfileUpdate": "تحديث الملف الشخصي غير صحيح",
@@ -83,8 +83,8 @@
     "accountCreated": "تم إنشاء الحساب",
     "accountInfoUpdated": "تم تحديث حسابك",
     "passwordChangeInvalid": "كلمة سر غير صحيحة - إذا نسيت كلمة السر، فقم بتسجيل الخروج واستخدم إعادة تعيين كلمة السر",
-    "verficationLinkSent": "تم إرسال رابط التحقق إلى بريدك الإلكتروني للتأكد فعلاً من أنه بريدك الالكتروني. مرحباً بك في \"جيبف\"",
+    "verficationLinkSent": "تم إرسال رسالة إلكترونية إلى البريد الإلكتروني المحدد تحتوي على رابط يجب النقر عليه لتفعيل حسابك.",
     "resetPasswordRequest": "طلب إعادة تعيين كلمة السر",
-    "resetPasswordMessage": "لقد قمنا بإرسال الرابط إلى بريدك الإلكتروني لإعادة تعيين كلمة السر الخاصة بك."
+    "resetPasswordMessage": "لقد قمنا بإرسال بريد إلكتروني مع رابط لإعادة تعيين كلمة السر الخاصة بك."
   }
 }
