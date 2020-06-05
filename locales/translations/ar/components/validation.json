@@ -1,21 +1,21 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "بنية الموارد",
-      "RESOURCE_INTEGRITY": "سلامة المورد",
+      "RESOURCE_STRUCTURE": "بنية المورد",
+      "RESOURCE_INTEGRITY": "تكامل المورد",
       "RECORD_STRUCTURE": "بنية السجل",
       "OCC_INTERPRETATION_BASED": "تأويل التكرار ل GBIF",
       "METADATA_CONTENT": "محتوي البيانات الوصفية",
-      "CLB_INTERPRETATION_BASED": "تأويل الاصنوفة لGBIF"
+      "CLB_INTERPRETATION_BASED": "تأويل الوحدة التصنيفية في المرفق العالمي لمعلومات التنوع الحيوي"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "ارشيف داروين الاساسي غير المقروء",
-      "DWCA_META_XML_NOT_FOUND": "لم يتم العثور على ملفMeta-xml",
-      "DWCA_META_XML_SCHEMA": "فشل التحقق من مخطط Meya-xml",
-      "RECORD_IDENTIFIER_NOT_FOUND": "لم يتم العثور على معرف السجل",
+      "DWCA_UNREADABLE": "أرشيف داروين الأساسي غير قابل للقراءة",
+      "DWCA_META_XML_NOT_FOUND": "لم يتم العثور على ملف Meta-xml",
+      "DWCA_META_XML_SCHEMA": "فشل التحقق من مخطط Meta-xml",
+      "RECORD_IDENTIFIER_NOT_FOUND": "لم يتم العثور على معرف السجل ضمن الملف",
       "CORE_ROWTYPE_UNDETERMINED": "لم يتم العثور او تحديد نوع السطر",
-      "EML_NOT_FOUND": "لم يتم العثور على وثيقةEML",
-      "EML_GBIF_SCHEMA": "مستندEML  لايثبت صحة المخطط",
+      "EML_NOT_FOUND": "لم يتم العثور على وثيقة EML",
+      "EML_GBIF_SCHEMA": "مستند EML  لا يثبت صحة المخطط",
       "UNKNOWN_ROWTYPE": "نوع السطر المستخدم ل المركز/الفرع مجهول",
       "REQUIRED_TERM_MISSING": "المصطلح المطلوب للمركز/الفرع مفقود",
       "COLUMN_MISMATCH": "عدم تطابق العمود",
