@@ -25,7 +25,7 @@
             "orphaned": "オーファンデータセット",
             "rescued": "レスキューされたオーファンデータセット",
             "adopted": "適用されたデータセット",
-            "neverIngested": "取込は未実施",
+            "neverIngested": "取り込みは未実施",
             "inIngestionQueue": "データ取り込みキューに載せました。",
             "addingToQueue": "キューへ追加",
             "unableToStart": "取り込みを開始できません。",
