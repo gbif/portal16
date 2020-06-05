@@ -18,7 +18,7 @@
         "nContacts": "контакти",
         "pRecords": "{NUMBER, select, \n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n}",
         "pOccurrence": "{NUMBER, plural,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n}",
-        "pMaterialSamples": "",
+        "pMaterialSamples": "{NUMBER, select, 1{досліджений матеріал} other{досліджених матеріалів}}",
         "pSpecies": "{NUMBER, plural,\n0 {видів}\none {вид}\nfew {види}\nmany {видів}\nother {видів}\n}",
         "pInfraspecies": "{NUMBER, plural,\n0 {підвидів}\none {підвид}\nfew {підвиди}\nmany {підвидів}\nother {підвидів}\n}",
         "pPublishers": "{NUMBER, select, \n0 {видавців}\none {видавець}\nfew {видавці}\nmany {видавців}\nother {видавців}\n}",
