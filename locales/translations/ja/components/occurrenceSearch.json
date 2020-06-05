@@ -29,6 +29,6 @@
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "クエリのURLが2,000文字を超えているため対応していないブラウザがあるかもしれません。長く複雑なクエリにはダウンロードAPIのご利用をご検討ください。",
-    "didYouMean": ""
+    "didYouMean": "検索結果は {RANK}: '{NAME}' に一致します。この分類群のみに限定して検索しますか？"
   }
 }
