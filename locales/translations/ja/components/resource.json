@@ -1,7 +1,7 @@
 {
   "resource": {
     "resources": "ナレッジベース",
-    "contactHelpdesk": "ヘルプデスクにお問い合わせください。",
+    "contactHelpdesk": "ヘルプデスクに連絡",
     "addToCalendar": "カレンダーに追加",
     "venue": "会場",
     "location": "場所",
@@ -17,6 +17,6 @@
     "datasets": "データセット",
     "gbifWillAttend": "GBIF 事務局が出席",
     "dataUsedInStudy": "研究で使用されたデータ",
-    "resourceDescription": "GBIF（地球規模生物多様性情報機構）のリソースを検索します。生物多様性情報は誰でも自由に利用できます。"
+    "resourceDescription": "GBIF（地球規模生物多様性情報機構）の資料を検索します。生物多様性情報は誰でも自由に利用できます。"
   }
 }
