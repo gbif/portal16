@@ -111,7 +111,7 @@
     "dropHere": "ここにドロップ",
     "or": "または",
     "selectFile": "ファイルを選択",
-    "fetchFileFromLocation": "場所からファイルを取得します。",
+    "fetchFileFromLocation": "ファイルのURLを指定",
     "tabs": {
       "newDataValidation": "新規のデータ検証",
       "newValidation": "新規の検証",
