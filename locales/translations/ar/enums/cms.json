@@ -83,18 +83,18 @@
           "DATA_ACCESS": "الوصول الى البيانات",
           "DATA_ANALYSIS": "تحليل البيانات",
           "DATA_CURATION_QUALITY": "معالجة البيانات وجودتها",
-          "DATA_DIGITIZATION": "رقمنة الليانات",
+          "DATA_DIGITIZATION": "رقمنة البيانات",
           "DATA_PUBLISHING": "نشر البيانات"
         },
         "literatureType": {
-          "journal": "مقال صحفي",
+          "journal": "مقالة في مجلة علمية",
           "book": "كتاب",
           "generic": "عام",
           "book_section": "قسم الكتب",
           "conference_proceedings": "وقائع المؤتمر",
           "working_paper": "ورقة عمل",
           "report": "تقرير",
-          "web_page": "صفحة على اشبكة",
+          "web_page": "صفحة على الشبكة",
           "thesis": "اطروحة",
           "magazine_article": "مقالة في المجلة",
           "statute": "النظام الاساسي",
@@ -104,16 +104,16 @@
           "hearing": " استماع",
           "television_broadcast": "بث تلفزيوني",
           "encyclopedia_article": "مقالة في موسوعة",
-          "case": "قضية",
+          "case": "حالة",
           "film": "فيلم",
-          "bill": "فانورة"
+          "bill": "قانون"
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "خبراء غي معارف التنوع الحيوي",
-          "DATA_HOLDERS": "حاملي البيانات",
-          "DATA_USERS": "مستخدمي البيانات",
+          "DATA_HOLDERS": "حاملو البيانات",
+          "DATA_USERS": "مستخدمو البيانات",
           "DECISION_MAKERS": "صانعي القرار",
-          "GBIF_NETWORK": "شبكة الرفق العالمي لمعلومات التنوع الحيوي",
+          "GBIF_NETWORK": "شبكة المرفق العالمي لمعلومات التنوع الحيوي",
           "PUBLIC_STAKEHOLDERS": "اصحاب المصلحة العامون"
         }
       }
