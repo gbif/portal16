@@ -25,16 +25,16 @@
       "TITLE_MISSING_OR_TOO_SHORT": "عنوان مجموعة البيانات مفقود أو مختصر جداً",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "منشىء المورد مفقود أو غير مكتمل",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "توصيف مجموعة البيانات مفقود او مختصر جدا",
-      "LICENSE_MISSING_OR_UNKNOWN": "لايمكن تحليل الرخصة وليست مدعمة من قبل GBIFاو ببساطة مفقودة",
+      "LICENSE_MISSING_OR_UNKNOWN": "لا يمكن تحليل الرخصة، أو أنها غير مدعومة من قبل المرفق العالمي لمعلومات التنوع الحيوي أو أنها ببساطة مفقودة",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "السجل ليس معرفا بشكل مميز",
-      "UNREADABLE_SECTION_ERROR": "خطا غير مقروء في القسم",
+      "UNREADABLE_SECTION_ERROR": "خطأ في القسم غير مقروء",
       "NoIssuesFound": "لا توجد مشاكل"
     },
     "fileFormat": {
       "title": "صيفة الملف",
       "DWCA": "ارشيف داروين الاساسي",
-      "TABULAR": "ملف مجدول(csv,.tsv)",
-      "SPREADSHEET": "لوحة جدولية(xlsx.)"
+      "TABULAR": "ملف جدولي (csv, .tsv.)",
+      "SPREADSHEET": "صفحة بيانات (xlsx.)"
     },
     "fileType": {
       "title": "نوع الصف",
@@ -42,19 +42,19 @@
         "title": "النواة"
       },
       "EXTENSION": {
-        "title": "الملحقات"
+        "title": "اللاحقات"
       },
       "METADATA": {
-        "description": "البيانات الوصفية التي تصف البيانات في EML(لغة بيانات بيئية)",
+        "description": "البيانات الوصفية التي تصف البيانات في EML (لغة بيانات وصفية بيئية)",
         "title": "وثيقة بيانات وصفية"
       },
       "META_DESCRIPTOR": {
-        "description": "شروحات الدلالات اللفظية التي توصف كيف تم هيكلة(الملفات, الاعمدة,  الخ)",
+        "description": "شروحات الدلالات اللفظية التي تصف كيف تمت هيكلة البيانات (الملفات، الأعمدة،  الخ)",
         "title": "واصف التعريف"
       }
     },
-    "fileSizeLimit": "حدود حجم الملف:100 ملي بايت",
-    "receivedMediaType": "نوع وسائل التواصل",
+    "fileSizeLimit": "حدود حجم الملف: 100 ميغابايت",
+    "receivedMediaType": "نوع الوسائط",
     "uniqueIdentifier": "معرف متميز",
     "reportLocation": "تم كتابة التقرير الى",
     "reportDeletion": "سوف يحذف بعد شهر. مالم تستطيع مراجعة التقريرفي الوقت المناسب لك ",
