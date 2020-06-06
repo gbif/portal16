@@ -51,22 +51,22 @@
           "GBIF_USED": "مستخدم من GBIF",
           "GBIF_CITED": "اقتباس من GBIF",
           "GBIF_DISCUSSED": "تم مناقشة GBIF",
-          "GBIF_PRIMARY": "GBIFالاساسي",
-          "GBIF_ACKNOWLEDGED": "تم الاعتراف بGBIF",
-          "GBIF_PUBLISHED": "تم نشر GBIF",
-          "GBIF_AUTHOR": "مؤلفGBIF",
+          "GBIF_PRIMARY": "أساسي GBIF",
+          "GBIF_ACKNOWLEDGED": "تم الاعتراف بـ GBIF",
+          "GBIF_PUBLISHED": "تم النشر في GBIF",
+          "GBIF_AUTHOR": "مؤلف GBIF",
           "GBIF_MENTIONED": "تم ذكر GBIF",
-          "GBIF_FUNDED": "مويل من GBIF"
+          "GBIF_FUNDED": "ممول من GBIF"
         },
         "topics": {
           "AGRICULTURE": "الزراعة",
           "BIODIVERSITY_SCIENCE": "علوم التنوع الحيوي",
           "BIOGEOGRAPHY": "الحغرافية الحيوية",
-          "CITIZEN_SCIENCE": "علم المواطن",
+          "CITIZEN_SCIENCE": "إشراك المواطن في العلم",
           "CLIMATE_CHANGE": "التغير المناخي",
           "CONSERVATION": "الحفظ",
           "DATA_MANAGEMENT": "ادارة البيانات",
-          "DATA_PAPER": "مستندات البيانات",
+          "DATA_PAPER": "ورقة بيانات",
           "ECOLOGY": "علم البيئة",
           "ECOSYSTEM_SERVICES": "خدمات النظام البيئي",
           "EVOLUTION": "التطور",
@@ -75,7 +75,7 @@
           "INVASIVES": "انواع غازية",
           "MARINE": "بحري",
           "PHYLOGENETICS": "تطور السلالات",
-          "SPECIES_DISTRIBUTIONS": "توزيع الانواع",
+          "SPECIES_DISTRIBUTIONS": "توزعات الأنواع",
           "TAXONOMY": "التصنيف"
         },
         "purposes": {
