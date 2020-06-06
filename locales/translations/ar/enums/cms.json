@@ -13,14 +13,14 @@
         "language": "اللّغة",
         "year": "السنة",
         "datasetKey": "مجموعة بيانات",
-        "publishingOrg": "الناسر",
-        "peerReview": "تم استعراضها من قبل القرين",
-        "openAccess": "وصول مفتوح",
+        "publishingOrg": "الناشر",
+        "peerReview": "مُحَكّم",
+        "openAccess": "مُتاح للجميع",
         "gbifDownloadKey": "مفتاح التنزيل"
       },
       "contentType": {
         "event": "الحدث",
-        "news": "انباء",
+        "news": "أخبار",
         "resource": "مورد",
         "dataUse": "استعمال البيانات",
         "project": "المشروع",
@@ -49,7 +49,7 @@
         },
         "relevance": {
           "GBIF_USED": "مستخدم من GBIF",
-          "GBIF_CITED": "اقتباس منGBIF",
+          "GBIF_CITED": "اقتباس من GBIF",
           "GBIF_DISCUSSED": "تم مناقشة GBIF",
           "GBIF_PRIMARY": "GBIFالاساسي",
           "GBIF_ACKNOWLEDGED": "تم الاعتراف بGBIF",
