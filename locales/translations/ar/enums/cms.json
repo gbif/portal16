@@ -2,15 +2,15 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "بلد ومنطقة التغطية",
-        "countriesOfResearcher": "بلد ومنطقة الباحث",
+        "countriesOfCoverage": "بلد أو منطقة التغطية",
+        "countriesOfResearcher": "بلد أو منطقة الباحث",
         "literatureType": "نمط المراجع",
         "contractCountry": "البلد او المنطقة",
         "topics": "موضوع",
         "audiences": "الجمهور",
         "purposes": "الغاية",
         "relevance": "الصلة بالموضوع",
-        "language": "الغة",
+        "language": "اللّغة",
         "year": "السنة",
         "datasetKey": "مجموعة بيانات",
         "publishingOrg": "الناسر",
