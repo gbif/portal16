@@ -97,8 +97,8 @@
       "CONTACTING_SERVER": "サーバに接続中"
     },
     "jobId": "ジョブID",
-    "indexeable": "このファイルではGBIFのインデックスを作成できます。",
-    "notIndexeable": "このファイルではGBIFのインデックスを作成できません。",
+    "indexeable": "このファイルはGBIFのインデックスを作成できます。",
+    "notIndexeable": "このファイルはGBIFのインデックスを作成できません。",
     "numberOfLines": "行数",
     "reportProducedByGbifDataValidator": "GBIFデータ検証ツールによるレポート",
     "validationReport": "検証レポート",
