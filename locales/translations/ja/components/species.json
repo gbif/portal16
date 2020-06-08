@@ -40,7 +40,7 @@
     "term": "用語",
     "value": "値",
     "classification": "分類",
-    "sourcePlural": "{NUMBER, select, 1{供給源} other{供給源}}",
+    "sourcePlural": "{NUMBER, plural, 1{データソース} other{データソース}}",
     "nMoreDatasets": "{NUMBER} さらに {NUMBER, select, 1{データセット} other{データセット}}",
     "acceptedName": "受け入れられている名前",
     "synonym": "シノニム",
