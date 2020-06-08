@@ -21,11 +21,11 @@
     "allResultTypes": "すべて",
     "suggestions": "候補",
     "header": {
-      "searchDatasets": "データセットの検索",
-      "searchPublishers": "出版者の検索",
-      "searchSpecies": "種を検索する",
-      "searchResources": "資料を検索する",
-      "searchOccurrences": "オカレンスレコードを検索する"
+      "searchDatasets": "データセットを検索",
+      "searchPublishers": "出版者を検索",
+      "searchSpecies": "種情報を検索",
+      "searchResources": "資料を検索",
+      "searchOccurrences": "オカレンスを検索"
     },
     "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{結果} other{結果}}"
   }
