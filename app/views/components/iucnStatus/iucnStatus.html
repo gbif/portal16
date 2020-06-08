@@ -6,7 +6,7 @@
     <div class="card">
         <div class="iucn__status">
             <div class="iucn__status__img">
-                <img ng-src="/img/iucnStatus/{{vm.category}}.png">
+                <img ng-src="/img/iucnStatus/{{vm.category}}.png?cacheBust=2020-06-08">
             </div>
             <div class="iucn__status__desc {{vm.category}}">
                 <span ng-if="!vm.loading" translate="threatStatus.{{vm.category}}"></span>
