@@ -2,7 +2,7 @@
   "nameUsageOrigin": {
     "SOURCE": "レコードはソースレコードから直接得られました",
     "DENORMED_CLASSIFICATION": "非正規分類による非正規の使用法",
-    "VERBATIM_PARENT": "非正規の親オリジナルの学名による非正規の使用法",
+    "VERBATIM_PARENT": "Implicit usage from a verbatim parent name usage.",
     "VERBATIM_ACCEPTED": "正規のオリジナルの学名による非正規の使用法",
     "VERBATIM_BASIONYM": "オリジナルの学名･バシオニムによる非正規の使用法",
     "PROPARTE": "単一のレコードの部分を使用した重複使用",
