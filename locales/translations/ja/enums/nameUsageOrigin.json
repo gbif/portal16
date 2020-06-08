@@ -8,7 +8,7 @@
     "PROPARTE": "単一のレコードの部分を使用した重複使用",
     "AUTONYM": "オートニムなしにつき、生成",
     "IMPLICIT_NAME": "下位学名がオーファンのため、属あるいは種を生成",
-    "MISSING_ACCEPTED": "分類階級を保存できない場合に使用される人工的に受け入れられたシノニムです",
+    "MISSING_ACCEPTED": "Artificial accepted usage for a synonym if its missing to preserve the taxonomic hierarchy.",
     "BASIONYM_PLACEHOLDER": "欠落または非正規のバシオニムのためのプレースホルダの使用",
     "EX_AUTHOR_SYNONYM": "正式ではない学名責任者に基づいた非正規のシノニム。ICNの文書を参照：https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
     "OTHER": "その他の起源"
