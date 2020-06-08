@@ -1,9 +1,9 @@
 {
   "downloadFormat": {
     "SIMPLE_AVRO": "Apache Avro",
-    "SIMPLE_CSV": "CSV",
-    "DWCA": "Darwin Core Archive",
-    "SPECIES_LIST": "CSV形式の種リスト",
+    "SIMPLE_CSV": "シンプルなオカレンスデータ（タブ区切りCSV形式）",
+    "DWCA": "ダーウィンコアアーカイブ形式",
+    "SPECIES_LIST": "種情報の一覧（タブ区切りCSV形式）",
     "SIMPLE_WITH_VERBATIM_AVRO": "",
     "MAP_OF_LIFE": "",
     "IUCN": "",
