@@ -5,7 +5,7 @@
     "knownIssuesDescription": "GBIF による処理の一つは疑わしいオカレンスを指摘することです。",
     "FossilsIncluded": "化石",
     "FossilsIncludedDescription": "結果の中でには化石のレコードが含まれています。そのため、予期しない場所にオカレンスが記録されている場合があります。",
-    "livingSpecimensIncluded": "生きた試料",
+    "livingSpecimensIncluded": "生体標本",
     "livingSpecimensIncludedDescription": "検索結果には、植物園や動物園など、生きた試料のオカレンスが含まれています。",
     "yearRange": "記録年のレンジ",
     "total": "合計",
