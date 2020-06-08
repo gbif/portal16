@@ -17,7 +17,7 @@
     "explore": "調べる",
     "majorGroups": "主要なグループ",
     "failedToLoad": "ツリーの読み込みに失敗しました",
-    "noChildren": "ツリーの階層がありません",
+    "noChildren": "直下の子階層がありません。",
     "noOccurrences": "オカレンスデータがありません",
     "nothingSelected": "なし",
     "occurrences": "オカレンス",

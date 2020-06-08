@@ -86,7 +86,7 @@
       "unknownSpecies": "不明な種"
     },
     "occurrence": "オカレンス",
-    "inLanguage": "{LANGUAGE_TRANSLATED} で"
+    "inLanguage": "（{LANGUAGE_TRANSLATED}）"
   },
   "interpretationRemarks": {
     "comments": {

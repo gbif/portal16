@@ -23,7 +23,7 @@
             "select": {
                 "equals": "等しい",
                 "between": "間隔",
-                "lessThanOrEquals": "以下",
+                "lessThanOrEquals": "未満",
                 "greaterThanOrEquals": "以上"
             }
         },

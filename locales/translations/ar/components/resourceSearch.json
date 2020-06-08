@@ -1,28 +1,28 @@
 {
     "resourceSearch": {
-        "title": "البحث عن الموارد",
+        "title": "البحث عن المصادر",
         "upcoming": "القادم",
-        "past": "منصرم",
-        "searchForNewsEventsDocuments": "البحث عن الاخبار والاحداث والوثائلق واكثر من ذلك. اذا كنت تبحث عن تكرار الانواع جرب البحث عن الاحداث الخاص بنا",
+        "past": "الماضي",
+        "searchForNewsEventsDocuments": "البحث عن الأخبار والأحداث والوثائق وأكثر من ذلك. اذا كنت تبحث عن تكرارات الأنواع جرب البحث عن تكرارنا",
         "occurrenceSearch": "البحث عن التكرار",
-        "subscribeToCalendar": "اشترك في  الروزنامة",
-        "citationExplainer": "اقرأ المزيد عن الادبيات وكيف تم تقصيها  واربطها مع بيانات  المتاحة من قبل المرفق العالمي لمعلومات التنوع الحيوي",
+        "subscribeToCalendar": "اشترك في التقويم",
+        "citationExplainer": "اقرأ المزيد عن الدراسات السابقة وكيف تم كشفها وربطها مع البيانات المتاحة من قبل المرفق العالمي لمعلومات التنوع الحيوي",
         "types": {
-            "events": "احداث",
-            "news": "اخبار",
-            "resources": "الموارد",
+            "events": "أحداث",
+            "news": "أخبار",
+            "resources": "المصادر",
             "projects": "المشاريع",
             "programmes": "البرامج",
             "documents": "وثائق",
-            "tools": "ادوات",
-            "dataUse": "استعال الادوات",
+            "tools": "أدوات",
+            "dataUse": "استعمال البيانات",
             "literature": "مراجع"
         },
         "filters": {
-            "countriesOfCoverage": "بلد او منطقة التغطية",
-            "countriesOfResearcher": "بلد او منطقة الباحث",
+            "countriesOfCoverage": "بلد أو منطقة التغطية",
+            "countriesOfResearcher": "بلد أو منطقة الباحث",
             "literatureType": "نمط  المراجع",
-            "contractCountry": "بلد او منطقة",
+            "contractCountry": "بلد أو منطقة",
             "topics": "موضوع",
             "audiences": "الجمهور",
             "purposes": "الغاية",
@@ -31,11 +31,11 @@
             "year": "السنة",
             "gbifDatasetKey": "مجموعة بيانات",
             "publishingOrganizationKey": "الناشر",
-            "peerReview": "استعرضها النظير",
-            "openAccess": "وصول مفتوح",
+            "peerReview": "مُحَكّم",
+            "openAccess": "مُتاح للجميع",
             "gbifDownloadKey": "مفتاح التنزيل",
-            "litSource": "",
-            "litPublisher": ""
+            "litSource": "مجلة",
+            "litPublisher": "ناشر المجلة"
         }
     }
 }

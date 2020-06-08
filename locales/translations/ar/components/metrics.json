@@ -39,20 +39,20 @@
     "clickToZoom": "انقر  واسحب في منطقة الرسم لأجل التكبير",
     "pinchToZoom": "اضغط على الرسم البياني لأجل التكبير",
     "numAcceptedSpByHigher": "عدد الانواع المقبولة حسب وحدة تصنيفية عليا",
-    "noRankedAbove": "قائمة التحقق ليس لها اصانيف مرتبة فوق الانواع",
+    "noRankedAbove": "قائمة التحقق ليس فيها وحدات تصنيفية أعلى من الانواع",
     "taxonomicOccDistribution": "التوزيع التصنيفي لتكرارات الحدوث",
-    "groupByX": " قم بالتصنيف وفق (النوع)",
-    "pOtherOrUknown": "",
-    "unknownRank": "",
-    "vernacularNames": "",
+    "groupByX": " تم التجميع وفق {TYPE}",
+    "pOtherOrUknown": "{NUMBER_FORMATED}{NUMBER, plural,1{أخر أو غير معروف}other{أخرى أو غير معروفة}}",
+    "unknownRank": " غير معروف {RANK}",
+    "vernacularNames": "الاسماء العامية الدارجة",
     "majorRanksPlural": {
-      "KINGDOM": "",
-      "PHYLUM": "",
-      "CLASS": "",
-      "ORDER": "",
-      "FAMILY": "",
-      "GENUS": "",
-      "SPECIES": ""
+      "KINGDOM": "الممالك",
+      "PHYLUM": "الشُعَب",
+      "CLASS": "الصفوف",
+      "ORDER": "الرُتَب",
+      "FAMILY": "الفصائل",
+      "GENUS": "الأجناس",
+      "SPECIES": "الأنواع"
     }
   }
 }

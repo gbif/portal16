@@ -2,7 +2,7 @@
   "extensionEnum": {
     "DESCRIPTION": "説明",
     "DISTRIBUTION": "分布",
-    "IDENTIFIER": "識別子",
+    "IDENTIFIER": "ID",
     "MULTIMEDIA": "マルチメディア",
     "REFERENCE": "参考資料",
     "SPECIES_PROFILE": "種のプロフィール",

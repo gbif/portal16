@@ -17,12 +17,12 @@
     },
     "idea": {
       "title": "アイディア・提案",
-      "example": "例：塩基配列データへのリンクを張りたいです。オープンアクセスの記事を全て表示してください。"
+      "example": "例：塩基配列データへのリンクを張りたいです。オープンアクセスの記事をすべて表示してください。"
     },
     "question": {
       "title": "ヘルプデスク",
-      "example": "例：どのように希少種のデータを保護していますか。この種について公海でのオカレンスレコードを全て探すにはどうすればよいですか。",
-      "description": "問い合わせは全てヘルプデスク（helpdesk@gbif.org）が回答します。",
+      "example": "例：どのように希少種のデータを保護していますか。この種について公海でのオカレンスレコードをすべて探すにはどうすればよいですか。",
+      "description": "問い合わせはすべてヘルプデスク（helpdesk@gbif.org）が回答します。",
       "comment": "個人的な質問や技術的な質問は[info@gbif.org](mailto:info@gbif.org)まで、報道関係は[communication@gbif.org](mailto:communication@gbif.org)までご連絡ください。"
     },
     "confirmation": {

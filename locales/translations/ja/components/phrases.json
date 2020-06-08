@@ -1,6 +1,6 @@
 {
   "phrases": {
-    "contactHelpdesk": "ヘルプデスクにお問い合わせください。",
+    "contactHelpdesk": "ヘルプデスクに連絡",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "GBIF（地球規模生物多様性情報機構）。生物多様性情報は誰でも自由に利用できます。",
     "deletedOnDate": "{DATE} に削除",
@@ -16,7 +16,7 @@
     "noResultsMessage": "該当データがありません – フィルターの条件を減らしてからお試しください。",
     "noJavascriptEnabled": "申し訳ございませんが、GBIFはJavaScriptを有効にしないと正常に動作しません。",
     "isSplashScreen": "ご使用しているブラウザは古く安全でないことが検出されたためこのウェブサイトを利用できません。最新のブラウザにアップグレードすることをお勧めします。",
-    "404Text": "このページは以前に存在したかもしれませんが、探すことができません。[search](/search) メニューで探してみてください。お気軽に [helpdesk@gbif.org](mailto:helpdesk@gbif.org) までお問い合わせください。",
+    "404Text": "このページは以前に存在したかもしれませんが、探すことができません。[検索](/search) メニューで探してみてください。お気軽に [helpdesk@gbif.org](mailto:helpdesk@gbif.org) までお問い合わせください。",
     "changeLanguage": "言語を変更",
     "noData": "データなし",
     "payloadTooLarge": "リクエストが許容範囲を超えています。減らしてから再び試してください。お困りの際はhelpdesk@gbif.orgまでご連絡ください。",

@@ -3,12 +3,12 @@
     "tabs": {
       "details": "تفاصيل"
     },
-    "typeOf": ")نوع) من (اسم)",
+    "typeOf": "{TYPE} من {NAME}",
     "coordinates": "احداثيات",
     "unknownDate": "تاريخ غير معروف",
     "absent": "غائب",
     "issues": "مشاكل",
-    "dataset": "مجموعة البيانات",
+    "dataset": "مجموعة بيانات",
     "synced": "تمت المزامنة",
     "modified": "تم تعديله",
     "monthAndyear": "الشهر و السنة",
@@ -17,8 +17,8 @@
     "readFullDescription": "المزيد",
     "showMoreInfo": "المزيد",
     "noTaxonMatch": "لا شيء",
-    "gbifTaxonInterpretation": "تأويل اصنوفة المرفق العالمي لمعلومات التنوع الحيوي",
-    "aboutTheDataset": "حول مجموعةالبيانات",
+    "gbifTaxonInterpretation": "تأويل الوحدة التصنيفية في المرفق العالمي لمعلومات التنوع الحيوي",
+    "aboutTheDataset": "حول مجموعة البيانات",
     "noLocationInformation": "لا تتوفر معلومات عن الموقع منشورة لهذا السجل",
     "subMenu": {
       "diagnostics": "التشخيصات",
@@ -30,29 +30,29 @@
     },
     "groups": {
       "Record": "سجل",
-      "Occurrence": "حدوث",
-      "Event": "الحدث",
+      "Occurrence": "تكرار",
+      "Event": "حدث",
       "Identification": "التعريف",
-      "Taxon": "الاصنوفة",
+      "Taxon": "الوحدة التصنيفية",
       "Location": "الموقع",
       "Organism": "المتعضي",
       "MaterialSample": "عينة مادية",
       "GeologicalContext": "السياق الجيولوجي",
-      "other": "اخرىر"
+      "other": "أخرى"
     },
     "term": "مصطلح",
     "interpreted": "تم تأويلها",
-    "original": "الاصلي",
+    "original": "أصلي",
     "remarks": "ملاحظات",
     "highlights": {
       "location": "الموقع",
-      "specimenType": "نوع العينة",
-      "publisher": "الناسر",
-      "reference": "المرجععية",
+      "specimenType": "نمط العينة",
+      "publisher": "الناشر",
+      "reference": "المرجع",
       "verbatimName": "الاسم الحرفي"
     },
     "media": {
-      "noIdentifier": "لم يتم  تبمعرف الوسائط",
+      "noIdentifier": "لم يتم توفير معرف الوسائط",
       "noPlaybackSupport": "المتصفح الخاص بك لا يدعم التنسيق المطلوب لتشغيل هذه الوسائط",
       "takeMeThere": "جرب الاصدار في موقع الناشر",
       "notWorkingTryPublishers": "",
@@ -60,39 +60,39 @@
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "تم جمعها في{البلد}",
-        "FOSSIL_SPECIMEN": "جمعت في{ البلد}",
-        "LIVING_SPECIMEN": "تم جمعها في{البلد}",
-        "HUMAN_OBSERVATION": "تم رصده في{ البلد}",
-        "MACHINE_OBSERVATION": "تم رصده في {البلد}",
-        "MATERIAL_SAMPLE": "تم جمعها في{البلد}",
-        "OCCURRENCE": "تم تسجيلها في{البلد}",
-        "OBSERVATION": "تم رصدها في{البلد}",
-        "LITERATURE": "تم تسجيلها في{البلد}",
-        "UNKNOWN": "سجلت في {البلد}"
+        "PRESERVED_SPECIMEN": "تم جمعها في {COUNTRY}",
+        "FOSSIL_SPECIMEN": "تم جمعها في {COUNTRY}",
+        "LIVING_SPECIMEN": "تم جمعها في {COUNTRY}",
+        "HUMAN_OBSERVATION": "تم رصدها في {COUNTRY}",
+        "MACHINE_OBSERVATION": "تم رصدها في {COUNTRY}",
+        "MATERIAL_SAMPLE": "تم جمعها في {COUNTRY}",
+        "OCCURRENCE": "تم تسجيلها في {COUNTRY}",
+        "OBSERVATION": "تم رصدها في {COUNTRY}",
+        "LITERATURE": "تم تسجيلها في {COUNTRY}",
+        "UNKNOWN": "تم تسجيلها في {COUNTRY}"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "تم جمعها في موقع غير معروف",
-        "FOSSIL_SPECIMEN": "جمعت في موقع غير معروف",
+        "FOSSIL_SPECIMEN": "تم جمعها في موقع غير معروف",
         "LIVING_SPECIMEN": "تم جمعها في موقع غير معروف",
         "HUMAN_OBSERVATION": "رصدت في موقع غير معروف",
         "MACHINE_OBSERVATION": "تم رصدها في موقع غير معروف",
-        "MATERIAL_SAMPLE": "جمعت في موقع غير معروف",
-        "OCCURRENCE": "سجلت في موقع غير معروف",
+        "MATERIAL_SAMPLE": "تم جمعها في موقع غير معروف",
+        "OCCURRENCE": "تم تسجيلها في موقع غير معروف",
         "OBSERVATION": "تم رصدها في موقع غير معروف",
         "LITERATURE": "تم تسجيلها في موقع غير معروف",
-        "UNKNOWN": ""
+        "UNKNOWN": "تم تسجيلها في موقع غير معروف"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "نوع غير محدد"
     },
-    "occurrence": "",
-    "inLanguage": ""
+    "occurrence": "تكرار",
+    "inLanguage": "في {LANGUAGE_TRANSLATED}"
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "استُبعِدت",
+      "AUTHORED": "تغييرها",
+      "INFERED": "أُشير لها"
     }
   }
 }

@@ -1,40 +1,40 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "بنية الموارد",
-      "RESOURCE_INTEGRITY": "سلامة المورد",
+      "RESOURCE_STRUCTURE": "بنية المورد",
+      "RESOURCE_INTEGRITY": "تكامل المورد",
       "RECORD_STRUCTURE": "بنية السجل",
       "OCC_INTERPRETATION_BASED": "تأويل التكرار ل GBIF",
       "METADATA_CONTENT": "محتوي البيانات الوصفية",
-      "CLB_INTERPRETATION_BASED": "تأويل الاصنوفة لGBIF"
+      "CLB_INTERPRETATION_BASED": "تأويل الوحدة التصنيفية في المرفق العالمي لمعلومات التنوع الحيوي"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "ارشيف داروين الاساسي غير المقروء",
-      "DWCA_META_XML_NOT_FOUND": "لم يتم العثور على ملفMeta-xml",
-      "DWCA_META_XML_SCHEMA": "فشل التحقق من مخطط Meya-xml",
-      "RECORD_IDENTIFIER_NOT_FOUND": "لم يتم العثور على معرف السجل",
+      "DWCA_UNREADABLE": "أرشيف داروين الأساسي غير قابل للقراءة",
+      "DWCA_META_XML_NOT_FOUND": "لم يتم العثور على ملف Meta-xml",
+      "DWCA_META_XML_SCHEMA": "فشل التحقق من مخطط Meta-xml",
+      "RECORD_IDENTIFIER_NOT_FOUND": "لم يتم العثور على معرف السجل ضمن الملف",
       "CORE_ROWTYPE_UNDETERMINED": "لم يتم العثور او تحديد نوع السطر",
-      "EML_NOT_FOUND": "لم يتم العثور على وثيقةEML",
-      "EML_GBIF_SCHEMA": "مستندEML  لايثبت صحة المخطط",
+      "EML_NOT_FOUND": "لم يتم العثور على وثيقة EML",
+      "EML_GBIF_SCHEMA": "مستند EML  لا يثبت صحة المخطط",
       "UNKNOWN_ROWTYPE": "نوع السطر المستخدم ل المركز/الفرع مجهول",
       "REQUIRED_TERM_MISSING": "المصطلح المطلوب للمركز/الفرع مفقود",
       "COLUMN_MISMATCH": "عدم تطابق العمود",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "السجل المرجعي للمخالفات المتعلقة بالنزاهة",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "مخالفة السلامة المرجعية للسجل",
       "UNKNOWN_TERM": "مصطلح غير معروف",
-      "DUPLICATED_TERM": "مصطلح منسوخ او مكرر",
-      "TITLE_MISSING_OR_TOO_SHORT": "عنوان مجموعة البيانات مفقود او انه مختصر جدا",
-      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "منشىء الموارد مفقود او انه غير كامل",
+      "DUPLICATED_TERM": "مصطلح مكرر",
+      "TITLE_MISSING_OR_TOO_SHORT": "عنوان مجموعة البيانات مفقود أو مختصر جداً",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "منشىء المورد مفقود أو غير مكتمل",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "توصيف مجموعة البيانات مفقود او مختصر جدا",
-      "LICENSE_MISSING_OR_UNKNOWN": "لايمكن تحليل الرخصة وليست مدعمة من قبل GBIFاو ببساطة مفقودة",
+      "LICENSE_MISSING_OR_UNKNOWN": "لا يمكن تحليل الرخصة، أو أنها غير مدعومة من قبل المرفق العالمي لمعلومات التنوع الحيوي أو أنها ببساطة مفقودة",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "السجل ليس معرفا بشكل مميز",
-      "UNREADABLE_SECTION_ERROR": "خطا غير مقروء في القسم",
+      "UNREADABLE_SECTION_ERROR": "خطأ في القسم غير مقروء",
       "NoIssuesFound": "لا توجد مشاكل"
     },
     "fileFormat": {
       "title": "صيفة الملف",
       "DWCA": "ارشيف داروين الاساسي",
-      "TABULAR": "ملف مجدول(csv,.tsv)",
-      "SPREADSHEET": "لوحة جدولية(xlsx.)"
+      "TABULAR": "ملف جدولي (csv, .tsv.)",
+      "SPREADSHEET": "صفحة بيانات (xlsx.)"
     },
     "fileType": {
       "title": "نوع الصف",
@@ -42,83 +42,83 @@
         "title": "النواة"
       },
       "EXTENSION": {
-        "title": "الملحقات"
+        "title": "اللاحقات"
       },
       "METADATA": {
-        "description": "البيانات الوصفية التي تصف البيانات في EML(لغة بيانات بيئية)",
+        "description": "البيانات الوصفية التي تصف البيانات في EML (لغة بيانات وصفية بيئية)",
         "title": "وثيقة بيانات وصفية"
       },
       "META_DESCRIPTOR": {
-        "description": "شروحات الدلالات اللفظية التي توصف كيف تم هيكلة(الملفات, الاعمدة,  الخ)",
+        "description": "شروحات الدلالات اللفظية التي تصف كيف تمت هيكلة البيانات (الملفات، الأعمدة،  الخ)",
         "title": "واصف التعريف"
       }
     },
-    "fileSizeLimit": "حدود حجم الملف:100 ملي بايت",
-    "receivedMediaType": "نوع وسائل التواصل",
+    "fileSizeLimit": "حدود حجم الملف: 100 ميغابايت",
+    "receivedMediaType": "نوع الوسائط",
     "uniqueIdentifier": "معرف متميز",
     "reportLocation": "تم كتابة التقرير الى",
-    "reportDeletion": "سوف يحذف بعد شهر. مالم تستطيع مراجعة التقريرفي الوقت المناسب لك ",
+    "reportDeletion": "وسوف يحذف بعد شهر واحد. حتى ذلك الحين يمكنك مراجعة التقرير في الوقت المناسب لك.",
     "reportGenerated": "تم انشاءوه",
     "summary": "ملخص التحقق",
-    "issues": "مسائل التحقق",
-    "fileHasIssues": "بعض المشاكل تم تقصيها من قبل المصادق",
-    "fileHasNoIssues": "للم يتم العثور على مشاكل في الملف",
+    "issues": "مشاكل التحقق",
+    "fileHasIssues": "بعض المشاكل تم كشفها من قبل المُتحقق:",
+    "fileHasNoIssues": "لم يتم العثور على مشاكل في الملف",
     "error": "خطأ",
     "errors": {
-      "400": "تعذر معالجة الملف, او انه قد فقد عندما  وفرت URL",
-      "404": "لم يعثر عل معرف فاعليةالعمل. اذا كنت تعتقد ان هذا خطا, الرجاء الابلاغ عنه",
+      "400": "تعذرت معالجة الملف، أو قد يكون مفقوداً إذا قمت بتوفير عنوان URL.",
+      "404": "لم يعثر على معرف التحقق من العمل. اذا كنت تعتقد أن هذا خطأ، الرجاء الابلاغ عنه",
       "413": "الملف كبير جدا, لايمكن ان  يعالج من قبل مدقق البيانات",
-      "415": "نوع الملف غير مسند, ومن غير المحتمل معالجته."
+      "415": "نوع الملف غير مدعوم. لم يكن بالامكان معالجة الملف."
     },
-    "backToValidator": "إبدأ عملية تدقيق صحةجديدة",
+    "backToValidator": "إبدأ عملية تدقيق صحة جديدة",
     "termsFrequency": {
       "title": "تردد الفترة  الزمنية",
-      "term": "امد",
+      "term": "مصطلح",
       "count": "احصاء",
       "percentage": "النسبة المئوية",
       "interpreted": "فسرت"
     },
     "interpretedCounts": {
       "date": "عدد  النواريخ التي تم تأويلها",
-      "taxon": "عدد السطور  مع الاصنوفة المفسرة",
+      "taxon": "عدد السطور  مع الوحدات التصنيفية المفسرة",
       "location": "عدد الاحداثيات المفسرة"
     },
     "interpretedValueCounts": {
-      "title": "عدد القيمة المفسرو"
+      "title": "أعداد القيم المفسرة"
     },
     "status": {
       "title": "الحالة",
-      "SUBMITTED": "الملف قيد الارسال",
+      "SUBMITTED": "إرسال ملف",
       "FETCHING": "إحضار الملف",
       "ACCEPTED": "تم البدء بالتحقق",
       "RUNNING": "التحقق جاري",
       "FINISHED": " اكتمل التحقق",
-      "FAILED": "فشل التحقق. الرجاء التأكد من نوع الملف, او في حال سلمت عنوان url, الرجاء التأكد من وجود الملف في الموقع",
+      "FAILED": "فشلت عملية التحقق. الرجاء التأكد من نوع الملف، أو إذا قمت بإرسال عنوان url، الرجاء التأكد من وجود الملف في الموقع.",
       "CONTACTING_SERVER": "الاتصال بالمخدم"
     },
     "jobId": "معرف العمل",
     "indexeable": "يمكن فهرسة الملف من قبل المرفق العالمي لمعلومات التنوع الحيوي",
-    "notIndexeable": "لايمكن فهرسة الملف من قبل المرفق الهالمي لمهلومات التنوع الحيوي",
+    "notIndexeable": "لا يمكن فهرسة الملف من قبل المرفق العالمي لمعلومات التنوع الحيوي",
     "numberOfLines": "عدد السطور",
     "reportProducedByGbifDataValidator": "تقرير أعده محقق بيانات المرفق العالمي لمعلومات التنوع الحيوي",
-    "validationReport": "تقرير تحق",
-    "dataValidator": "محقق البيانات",
-    "dataValidatorDescription": "محقق بيانات المرفق العالمي لمعلومات التنوع الحيوي عبارة عن خدمة تجيز لأي شخص لديه مجموعة بيانات  ذو صلة بموضوع بيانات ,المرفق العالمي لمعلومات التنوع الحيوي من تلقي تقرير  عن صحة قواعد النحو للغة  التقرير وصلاحيةالمحتوى المدرج ضمن مجموعة البيانات",
-    "thisIsAnEarlyAccessVersion": "هذا إصدار وصول مبكر. الرجاء الابلاغ عن المشكلات والاستجابة",
+    "validationReport": "تقرير تحقق",
+    "dataValidator": "متحقق من البيانات",
+    "dataValidatorDescription": "محقق بيانات المرفق العالمي لمعلومات التنوع الحيوي عبارة عن خدمة تجيز لأي شخص لديه مجموعة بيانات ذات صلة بالمرفق العالمي لمعلومات التنوع الحيوي من تلقي تقرير عن صحة قواعد النحو في اللغة وتقرير صلاحية المحتوى المدرج ضمن مجموعة البيانات.",
+    "thisIsAnEarlyAccessVersion": "هذا هو الإصدار الأولي للدخول. يرجى الإبلاغ عن المشكلات والملاحظات",
     "here": "هنا",
     "coreRowType": "نوع الصف الاساسي",
-    "submit": "إحالة",
+    "submit": "إرسال / تقديم",
     "dropHere": "اسقط هنا",
     "or": "أو",
     "selectFile": "اختر ملف",
     "fetchFileFromLocation": "جلب الملف من الموقع",
     "tabs": {
       "newDataValidation": "التحقق من البيانات الجديدة",
-      "newValidation": "فاعلية جديدة",
-      "about": "عن",
+      "newValidation": "تحقق جديد",
+      "about": "حول",
       "darwinCoreExtensions": "ملحقات داروين الاساسية",
       "metaData": "بيانات وصفية",
-      "summary": "موجز"
+      "summary": "مُلخّص"
     }
   }
 }

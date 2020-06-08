@@ -4,7 +4,7 @@
         "categoryFeatured": "特集",
         "suggestDataset": {
             "NOT_OPEN": "オープン ライセンスではないです。",
-            "title": "データセットを探す",
+            "title": "掲載してほしいデータセットを提案する",
             "pleaseDescribeTheDataset": "データセットの概要を記載してください。",
             "thankYou": "ありがとうございます。",
             "form": {
@@ -57,7 +57,7 @@
             "title": ""
         },
         "sequenceId": {
-            "title": "Sequence ID"
+            "title": "配列ID"
         },
         "machineVision": {
             "tabs": {

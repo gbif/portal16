@@ -5,10 +5,10 @@
     "LIVING_SPECIMEN": "عينة حية",
     "OBSERVATION": "ملاحظة",
     "HUMAN_OBSERVATION": "ملاحظة بشرية",
-    "MACHINE_OBSERVATION": "مراقبة آلية",
+    "MACHINE_OBSERVATION": "ملاحظة آلية",
     "MATERIAL_SAMPLE": "عينة مادية",
     "LITERATURE": "مراجع",
     "UNKNOWN": "غير معروف",
-    "undefined": "غير معروف"
+    "undefined": "غير محدد"
   }
 }

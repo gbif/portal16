@@ -6,7 +6,7 @@
     "notSureWhatYouAreLookingFor": "何を検索すればよいかわからないですか？オカレンスデータの種の画像を閲覧してみましょう。",
     "cannotFindWhatYouAreLookingFor": "お探しのものが見つかりませんか？",
     "trySpecifyingAType": "タイプを指定してください。",
-    "everything": "全て",
+    "everything": "すべて",
     "occurrences": "オカレンス",
     "species": "種情報",
     "datasets": "データセット",
@@ -18,14 +18,14 @@
     "filters": "フィルター",
     "simple": "基本",
     "advanced": "詳細",
-    "allResultTypes": "全て",
+    "allResultTypes": "すべて",
     "suggestions": "候補",
     "header": {
-      "searchDatasets": "データセットの検索",
-      "searchPublishers": "出版者の検索",
-      "searchSpecies": "種を検索する",
-      "searchResources": "資料を検索する",
-      "searchOccurrences": "オカレンスレコードを検索する"
+      "searchDatasets": "データセットを検索",
+      "searchPublishers": "出版者を検索",
+      "searchSpecies": "種情報を検索",
+      "searchResources": "資料を検索",
+      "searchOccurrences": "オカレンスを検索"
     },
     "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{結果} other{結果}}"
   }
