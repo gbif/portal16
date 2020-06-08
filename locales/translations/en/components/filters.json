@@ -26,7 +26,7 @@
             "geojson": "GeoJSON",
             "range": "Range",
             "noFiltersAdded": "No area filters added",
-            "wktPlaceholder": "WKT or GeoJSON — multipolygons are not supported",
+            "wktPlaceholder": "WKT or GeoJSON",
             "invalidTextInput": "Invalid WKT or GeoJSON",
             "tooLarge": "Geometry too large",
             "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
