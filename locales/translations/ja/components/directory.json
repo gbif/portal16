@@ -12,7 +12,7 @@
       },
       "budgetCommittee": {
         "title": "予算委員会",
-        "description": "予算委員会は、GBIF の資金の管理に関連するさまざまな問題を扱う諮問委員会です。また、理事会に提出された年次決算を監査し、GBIF の監査会社の選択を指導します。予算委員会は、理事会、執行委員会、事務局に対して提言を行います。権限範囲については[こちら (/document/80669/terms-of-reference-for-the-gbif-budget-committee)]をご参照ください。"
+        "description": "予算委員会は、GBIF の資金の管理に関連するさまざまな問題を扱う諮問委員会です。また、理事会に提出された年次決算を監査し、GBIF の監査会社の選択を指導します。予算委員会は、理事会、執行委員会、事務局に対して提言を行います。権限範囲については[こちら] (/document/80669/terms-of-reference-for-the-gbif-budget-committee)をご参照ください。"
       },
       "nsg": {
         "title": "ノード運営グループ",
