@@ -9,7 +9,7 @@
     "AUTONYM": "الاسم الحقيقي",
     "IMPLICIT_NAME": "اسم ضمني",
     "MISSING_ACCEPTED": "فقدان مقبول",
-    "BASIONYM_PLACEHOLDER": " نائب الاسم الاساسي",
+    "BASIONYM_PLACEHOLDER": "عنصر بديل الاسم الاساسي",
     "EX_AUTHOR_SYNONYM": "مرادف المؤلف السابق",
     "OTHER": "أخرى"
   }
