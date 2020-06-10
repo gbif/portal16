@@ -5,7 +5,7 @@ let User = require('../api/user/user.model');
 let atob = require('atob');
 let auth = require('./auth.service');
 let crypto = require('crypto');
-
+const log = require('../../../config/log');
 module.exports = {
     genRandomString: genRandomString,
     validateRegistration: validateRegistration,
@@ -45,10 +45,12 @@ function authCallback(req, res, next, err, profile, info, setProviderValues, pro
                 next(new Error('Invalid callback state'));
             }
         } catch (err) {
+            log.error(err);
             // something went wrong - probably while trying to parse the base 64 encoded state
             next(err);
         }
     } else {
+        log.error(err);
         next(err);
         return;
     }
