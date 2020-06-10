@@ -110,6 +110,9 @@ async function getUserFromProvider(profile, identificationKey) {
 function login(req, res, next, state, profile, providerEnum, identificationKey) {
     getUserFromProvider(profile, identificationKey)
         .then(function(user) {
+            if (user && typeof user === 'object' && !_.get(user, 'userName')) {
+                log.error('User has no userName. User keys: ' + Object.keys(user).join(', '));
+            }
             // the user was found - log in
             auth.logUserIn(res, user);
             res.redirect(302, state.target);
