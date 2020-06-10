@@ -83,6 +83,9 @@ async function getUserFromProvider(profile, identificationKey) {
         let findQuery = {};
         findQuery[identificationKey] = profile.id;
         let user = await User.find(findQuery);
+        if (!user) {
+            log.error('User was ' + user + ' for Profile' + JSON.stringify(profile));
+        }
         return user;
     } catch (err) {
         if (err.statusCode == 204) {
@@ -94,6 +97,7 @@ async function getUserFromProvider(profile, identificationKey) {
             }
             return User.getByUserName(profileEmail.value);
         } else {
+            log.error(err)
             throw err;
         }
     }
