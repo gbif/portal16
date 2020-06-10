@@ -84,7 +84,7 @@ async function getUserFromProvider(profile, identificationKey) {
         findQuery[identificationKey] = profile.id;
         let user = await User.find(findQuery);
         if (!user) {
-            log.error('User was ' + user + ' for Profile' + JSON.stringify(profile));
+            throw new Error('Recieved empty response from API');
         }
         return user;
     } catch (err) {
@@ -97,7 +97,7 @@ async function getUserFromProvider(profile, identificationKey) {
             }
             return User.getByUserName(profileEmail.value);
         } else {
-            log.error(err)
+            log.error(err);
             throw err;
         }
     }

@@ -13,8 +13,6 @@ let express = require('express'),
     clientId = credentials.clientId,
     clientSecret = credentials.clientSecret,
     callbackURL = domain + '/auth/google/callback';
-const log = require('../../../../config/log');
-
 
 module.exports = function(app) {
     app.use('/auth', router);
