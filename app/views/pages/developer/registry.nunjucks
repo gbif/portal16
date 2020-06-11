@@ -389,11 +389,14 @@
                             {$ trowCol(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a collection") $}
                             {$ trowCol(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the collection") $}
                             {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the collection the tag with ID {ID}") $}
-                            {$ trowD(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/machineTag", description="Lists all machine tags for a collection") $}
-                            {$ trowD(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a collection machine tag") $}
-                            {$ trowD(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the collection machine tag with machine tag identifier {ID}") $}
+                            {$ trowCol(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/machineTag", description="Lists all machine tags for a collection") $}
+                            {$ trowCol(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a collection machine tag") $}
+                            {$ trowCol(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the collection machine tag with machine tag identifier {ID}") $}
                             {$ trowCol(url="/deleted", resp="Deleted Collections List", respLink=apiBase+"grscicoll/collection/deleted", paging=true, description="Lists the deleted collections") $}
                             {$ trowCol(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/collection/suggest?q=col", paging=false, description="Search that returns up to 20 matching collections. Results are ordered by relevance") $} 
+                            {$ trowCol(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/comment", description="Lists all comments for a collection") $}
+                            {$ trowCol(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add a collection comment") $}
+                            {$ trowCol(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the collection comment with comment identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
@@ -421,11 +424,14 @@
                             {$ trowInst(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a institution") $}
                             {$ trowInst(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the institution") $}
                             {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the institution the tag with ID {ID}") $}
-                            {$ trowD(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/machineTag", description="Lists all machine tags for a institution") $}
-                            {$ trowD(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a institution machine tag") $}
-                            {$ trowD(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the institution machine tag with machine tag identifier {ID}") $}
+                            {$ trowInst(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/machineTag", description="Lists all machine tags for a institution") $}
+                            {$ trowInst(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a institution machine tag") $}
+                            {$ trowInst(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the institution machine tag with machine tag identifier {ID}") $}
                             {$ trowInst(url="/deleted", resp="Deleted Institutions List", respLink=apiBase+"grscicoll/institution/deleted", paging=true, description="Lists the deleted institutions") $}
                             {$ trowInst(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/institution/suggest?q=bio", paging=false, description="Search that returns up to 20 matching institutions. Results are ordered by relevance") $} 
+                            {$ trowInst(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/comment", description="Lists all comments for an institution") $}
+                            {$ trowInst(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add an institution comment") $}
+                            {$ trowInst(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the institution comment with comment identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
@@ -444,17 +450,20 @@
                             {$ trowPerson(url="/{UUID}", resp="Person", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a", description="Gets details for the person") $}
                             {$ trowPerson(url="/{UUID}", method="PUT", auth=true, description="Updates the person") $}
                             {$ trowPerson(url="/{UUID}", method="DELETE", auth=true, description="Deletes the person. The person entry gets a deleted timestamp but remains registered.") $}         
-                            {$ trowInst(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/identifier", description="Lists the identifiers of the person") $}
-                            {$ trowInst(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new person identifier") $}
-                            {$ trowInst(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the person the identifier with ID {ID}") $}
-                            {$ trowInst(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a person") $}
-                            {$ trowInst(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the person") $}
-                            {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the person the tag with ID {ID}") $}
-                            {$ trowD(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/machineTag", description="Lists all machine tags for a person") $}
-                            {$ trowD(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a person machine tag") $}
-                            {$ trowD(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the person machine tag with machine tag identifier {ID}") $}   
+                            {$ trowPerson(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/identifier", description="Lists the identifiers of the person") $}
+                            {$ trowPerson(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new person identifier") $}
+                            {$ trowPerson(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the person the identifier with ID {ID}") $}
+                            {$ trowPerson(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a person") $}
+                            {$ trowPerson(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the person") $}
+                            {$ trowPerson(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the person the tag with ID {ID}") $}
+                            {$ trowPerson(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/machineTag", description="Lists all machine tags for a person") $}
+                            {$ trowPerson(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a person machine tag") $}
+                            {$ trowPerson(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the person machine tag with machine tag identifier {ID}") $}   
                             {$ trowPerson(url="/deleted", resp="Deleted Persons List", respLink=apiBase+"grscicoll/person/deleted", paging=true, description="Lists the deleted persons") $}
                             {$ trowPerson(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/person/suggest?q=ste", paging=false, description="Search that returns up to 20 matching persons. Results are ordered by relevance") $} 
+                            {$ trowPerson(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/comment", description="Lists all comments for a person") $}
+                            {$ trowPerson(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add a person comment") $}
+                            {$ trowPerson(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the person comment with comment identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
