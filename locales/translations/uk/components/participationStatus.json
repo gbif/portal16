@@ -11,7 +11,7 @@
         "description": {
             "VOTING": "Учасник з правом голосу з регіону: {REGION}",
             "ASSOCIATE": "Асоційований учасник з регіону: {REGION}",
-            "OBSERVER": "Країна-спостерігач з регіону: {REGION}",
+            "OBSERVER": "Країна-спостерігачка з регіону: {REGION}",
             "AFFILIATE": "Афілійований учасник з регіону: {REGION}",
             "FORMER": "Колишній учасник GBIF з регіону: {REGION}",
             "undefined": "Невідомо"
