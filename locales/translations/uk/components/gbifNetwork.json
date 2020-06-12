@@ -34,7 +34,7 @@
     "datasets": "Набори даних",
     "regionalRepresentative": "{NUMBER, plural, \n0 {представників}\none {представник} \nfew {представники} \nmany {представників} \nother {представників}\n}",
     "participation": {
-      "nonCountryParticipants": "Організації-учасники",
+      "nonCountryParticipants": "Організації-Учасниці",
       "gbifAffiliates": "Філіали GBIF"
     },
     "roles": {
