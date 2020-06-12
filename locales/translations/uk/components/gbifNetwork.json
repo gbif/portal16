@@ -12,12 +12,12 @@
       "other": "Асоційовані країни-учасниці"
     },
     "other_associate_participant": {
-      "one": "Інший асоційований Учасник",
-      "other": "Інші асоційовані Учасники"
+      "one": "Інший асоційований учасник",
+      "other": "Інші асоційовані учасники"
     },
     "former_participant": {
-      "one": "Колишній Учасник",
-      "other": "Колишні Учасники"
+      "one": "Колишній учасник",
+      "other": "Колишні учасники"
     },
     "gbif_affiliate": {
       "one": "Філіал GBIF",
@@ -29,12 +29,12 @@
     "membershipType": "Членство",
     "name": "Ім’я",
     "endorsedDataPublisher": "Схвалив {NUMBER_FORMATTED} {NUMBER, plural, \n0 {видавців даних}\none {видавця даних} \nfew {видавців даних} \nmany {видавців даних} \nother {видавців даних}\n}",
-    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, \n0 {Учасників}\none {Учасник} \nfew {Учасники} \nmany {Учасників} \nother {Учасників}\n}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, \none{учасник} \nfew{учасники} \nmany{учасників} \nother{учасників}\n}",
     "dataset": "{NUMBER, plural, \n0 {наборів даних}\none {набір даних} \nfew {набори даних} \nmany {наборів даних} \nother {наборів даних}\n}",
     "datasets": "Набори даних",
     "regionalRepresentative": "{NUMBER, plural, \n0 {представників}\none {представник} \nfew {представники} \nmany {представників} \nother {представників}\n}",
     "participation": {
-      "nonCountryParticipants": "Організації-Учасниці",
+      "nonCountryParticipants": "Організації-учасниці",
       "gbifAffiliates": "Філіали GBIF"
     },
     "roles": {
