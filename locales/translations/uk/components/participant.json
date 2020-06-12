@@ -1,10 +1,10 @@
 {
     "participant": {
         "participant": "Учасник",
-        "participantSummary": "Відомості про країну-Учасника",
+        "participantSummary": "Відомості про країну-учасницю",
         "endorsedPublishers": "Схвалені видавці даних",
         "noEndorsedPublishers": "Немає схвалених видавців даних",
-        "memberStatus": "Статус Учасника",
+        "memberStatus": "Статус учасника",
         "gbifParticipantSince": "Учасник GBIF з",
         "headOfDelegation": "Голова делегацій",
         "gbifRegion": "Регіон GBIF",
