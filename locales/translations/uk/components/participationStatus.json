@@ -2,18 +2,18 @@
     "participationStatus": {
         "longForm": {
             "VOTING": "Учасник з правом голосу",
-            "ASSOCIATE": "Асоційований учасник",
+            "ASSOCIATE": "Асоційований Учасник",
             "OBSERVER": "Учасник-спостерігач",
-            "AFFILIATE": "Афілійований учасник",
-            "FORMER": "Колишній учасник",
+            "AFFILIATE": "Афілійований Учасник",
+            "FORMER": "Колишній Учасник",
             "undefined": "Невідомо"
         },
         "description": {
             "VOTING": "Учасник з правом голосу з регіону: {REGION}",
-            "ASSOCIATE": "Асоційований учасник з регіону: {REGION}",
+            "ASSOCIATE": "Асоційований Учасник з регіону: {REGION}",
             "OBSERVER": "Країна-спостерігач з регіону: {REGION}",
             "AFFILIATE": "Афілійований учасник з регіону: {REGION}",
-            "FORMER": "Колишній учасник GBIF з регіону: {REGION}",
+            "FORMER": "Колишній Учасник GBIF з регіону: {REGION}",
             "undefined": "Невідомо"
         },
         "type": {
