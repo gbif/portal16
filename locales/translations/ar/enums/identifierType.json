@@ -8,14 +8,14 @@
       "UUID": "",
       "FTP": "",
       "URI": "",
-      "UNKNOWN": "مجهول",
+      "UNKNOWN": "غير معروف",
       "GBIF_PORTAL": "",
       "GBIF_NODE": "",
       "GBIF_PARTICIPANT": "",
       "GRBIO_ID": "",
       "GRBIO_URI": "",
       "GRSCICOLL_URI": " GRSCICOLL URI",
-      "GRSCICOLL_ID": "معرفGRSCICOLL"
+      "GRSCICOLL_ID": "GRSCICOLL ID"
     }
   }
 }

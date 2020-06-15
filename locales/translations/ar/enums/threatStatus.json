@@ -2,12 +2,12 @@
     "threatStatus": {
         "EXTINCT": "منقرض",
         "EXTINCT_IN_THE_WILD": "منقرض في البرية",
-        "CRITICALLY_ENDANGERED": "معرض للانقراض بشكل خطير",
-        "ENDANGERED": "عرضة للخطر",
-        "VULNERABLE": "غير حصين",
+        "CRITICALLY_ENDANGERED": "مهدد بالانقراض بشكل حرج",
+        "ENDANGERED": "مهدد بالانقراض",
+        "VULNERABLE": "معرض للانقراض",
         "NEAR_THREATENED": "قريب من التهديد",
-        "LEAST_CONCERN": "اقل اهتمام",
-        "DATA_DEFICIENT": "نفص البيانات",
-        "NOT_EVALUATED": "غير مقيم"
+        "LEAST_CONCERN": "اقل تهديداً",
+        "DATA_DEFICIENT": "نقص في البيانات",
+        "NOT_EVALUATED": "لم يتم تقييمه"
     }
 }

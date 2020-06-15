@@ -12,11 +12,11 @@
       },
       "budgetCommittee": {
         "title": "予算委員会",
-        "description": "予算委員会は、GBIF の資金の管理に関連するさまざまな問題を扱う諮問委員会です。また、理事会に提出された年次決算を監査し、GBIF の監査会社の選択を指導します。予算委員会は、理事会、執行委員会、事務局に対して提言を行います。権限範囲については[こちら (/document/80669/terms-of-reference-for-the-gbif-budget-committee)]をご参照ください。"
+        "description": "予算委員会は、GBIF の資金の管理に関連するさまざまな問題を扱う諮問委員会です。また、理事会に提出された年次決算を監査し、GBIF の監査会社の選択を指導します。予算委員会は、理事会、執行委員会、事務局に対して提言を行います。権限範囲については[こちら] (/document/80669/terms-of-reference-for-the-gbif-budget-committee)をご参照ください。"
       },
       "nsg": {
         "title": "ノード運営グループ",
-        "description": "ノード運営グループ（Nodes Steering Group (NSG) ）は、2011 年に設置され、議長、副議長、次のGBIF の6つの地域を代表する[参加者ノード マネージャー 委員会](/contact-us/directory?group=nodesCommittee) からなります。[アフリカ](/the-gbif-network/africa)、[アジア](/the-gbif-network/asia)、[ヨーロッパ](/the-gbif-network/europe)、[ラテンアメリカおよびカリブ] (/the-gbif-network/latin-america) 、[北アメリカ](/the-gbif-network/north-america) 、 [オセアニア](/the-gbif-network/oceania)。NSGの目的は、参加者ノードからのフィードバックに基づいて、関連する GBIF 内の部署・委員会に提言すること。 GBIF ノードの努力に関係してGBIF の年間作業計画に関する助言を行うことです。"
+        "description": "ノード運営グループ（Nodes Steering Group (NSG) ）は、2011 年に設置され、議長、副議長、次のGBIF の6つの地域を代表する[参加者ノード マネージャー 委員会](/contact-us/directory?group=nodesCommittee) からなります。[アフリカ](/the-gbif-network/africa)、[アジア](/the-gbif-network/asia)、[ヨーロッパ](/the-gbif-network/europe)、[ラテンアメリカおよびカリブ](/the-gbif-network/latin-america) 、[北アメリカ](/the-gbif-network/north-america) 、 [オセアニア](/the-gbif-network/oceania)。NSGの目的は、参加者ノードからのフィードバックに基づいて、関連する GBIF 内の部署・委員会に提言すること。 GBIF ノードの努力に関係してGBIF の年間作業計画に関する助言を行うことです。"
       },
       "nodesCommittee": {
         "title": "ノード マネージャー委員会",

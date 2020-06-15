@@ -29,6 +29,6 @@
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "您查詢條件的網址超過 2000 個字元，可能無法在所有瀏覽器中正常運作。針對大量或複雜的查詢，請考慮使用下載 API。",
-    "didYouMean": ""
+    "didYouMean": "你的搜尋範圍與{RANK}:'{NAME}'相符。你想只在此分類群的範圍內搜索嗎"
   }
 }

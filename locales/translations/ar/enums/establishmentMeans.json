@@ -1,10 +1,10 @@
 {
   "establishmentMeans": {
-    "NATIVE": "اصلي",
-    "INTRODUCED": "مدخلات",
-    "NATURALISED": "متجنس",
+    "NATIVE": "أصلي",
+    "INTRODUCED": "مُدخَل",
+    "NATURALISED": "أصبح طبيعي",
     "INVASIVE": "غازي",
-    "MANAGED": "ادار",
+    "MANAGED": "مُدار",
     "UNCERTAIN": "غير مؤكد"
   }
 }

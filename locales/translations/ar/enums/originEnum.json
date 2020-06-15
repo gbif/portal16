@@ -1,15 +1,15 @@
 {
   "originEnum": {
     "SOURCE": "مصدر",
-    "DENORMED_CLASSIFICATION": "تصنيف غير معياري(مشوه)",
+    "DENORMED_CLASSIFICATION": "تصنيف غير معياري (مشوه)",
     "VERBATIM_PARENT": "الاصل الحرفي",
     "VERBATIM_ACCEPTED": "قبلت حرفيا",
     "VERBATIM_BASIONYM": "الاسم الاساسي الحرفي",
-    "PROPARTE": "Proparte",
+    "PROPARTE": "أكثر من طرف",
     "AUTONYM": "الاسم الحقيقي",
     "IMPLICIT_NAME": "اسم ضمني",
     "MISSING_ACCEPTED": "فقدان مقبول",
-    "BASIONYM_PLACEHOLDER": " نائب الاسم الاساسي",
+    "BASIONYM_PLACEHOLDER": "عنصر بديل الاسم الاساسي",
     "EX_AUTHOR_SYNONYM": "مرادف المؤلف السابق",
     "OTHER": "أخرى"
   }

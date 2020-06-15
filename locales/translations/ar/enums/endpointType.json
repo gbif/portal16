@@ -6,13 +6,13 @@
     "WMS": "WMS",
     "TCS_RDF": "TSF RDF",
     "TCS_XML": "TCS XML",
-    "DWC_ARCHIVE": "ارشيف داروين الاساسي",
+    "DWC_ARCHIVE": "أرشيف داروين الأساسي",
     "DIGIR": "DiGIR",
     "DIGIR_MANIS": "DiGIR MANIS",
     "TAPIR": "TAPIR",
-    "BIOCASE": "CASe الحيوي",
-    "BIOCASE_XML_ARCHIVE": "ارشيفCAS الحيوي XML",
+    "BIOCASE": "BioCASe",
+    "BIOCASE_XML_ARCHIVE": "أرشيف XML BioCASe",
     "OAI_PMH": "OAI PMH",
-    "OTHER": "أخر"
+    "OTHER": "أخرى"
   }
 }

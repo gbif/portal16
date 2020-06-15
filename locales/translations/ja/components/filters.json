@@ -26,7 +26,7 @@
             "geojson": "GeoJSON",
             "range": "範囲",
             "noFiltersAdded": "地域フィルターは追加されていない",
-            "wktPlaceholder": "WKT または GeoJSON-マルチポリゴンはサポートされていません",
+            "wktPlaceholder": "WKT または GeoJSON",
             "invalidTextInput": "無効な WKT または GeoJSON",
             "tooLarge": "ジオメトリが大きすぎます。",
             "tooLargeSuggestion": "代わりに範囲ボックスを使用して場所を指定してください。",
