@@ -3,7 +3,7 @@
     "tabs": {
       "summary": "サマリー",
       "dataPublishing": "データの出版",
-      "dataAbout": "に関するデータ",
+      "dataAbout": "該当国に関するデータ",
       "participartion": "参加",
       "publicationsFrom": "該当国からの出版物",
       "publicationsAbout": "該当国についての出版物",
@@ -34,7 +34,7 @@
       "countriesAndAreasContributeData": "データに貢献した国や地域",
       "publishedOccurrences": "公開されたオカレンス",
       "publishedDatasets": "公開されているデータセット",
-      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} からデータでカバーされる国や地域",
+      "countriesAndAreasCoveredByDataFrom": "{TRANSLATED_COUNTRY} からのデータでカバーされる国や地域",
       "publishersFrom": "{TRANSLATED_COUNTRY} のデータ出版者"
     },
     "activityReport": "活動報告"
