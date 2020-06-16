@@ -1,6 +1,6 @@
 {#checklist stats#}
 <div class="row summaryStats" ng-if="datasetKey.taxa.count > 0">
-    <a  ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: 'ACCEPTED'})"
+    <a  ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced: true, status: 'ACCEPTED', origin: 'SOURCE'})"
         ng-if="datasetKey.dataset.subtype !== 'NOMENCLATOR_AUTHORITY'"
         class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
         <div>
