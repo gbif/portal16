@@ -81,7 +81,7 @@
     "invalidProfileUpdate": "Invalid profile update",
     "changePassword": "Change password",
     "accountCreated": "Account created",
-    "accountInfoUpdated": "Your account have been updated",
+    "accountInfoUpdated": "Your account has been updated",
     "passwordChangeInvalid": "Invalid password - if you have forgotten your password, then log out and use the password reset",
     "verficationLinkSent": "An email has been sent to the specified email address containing a link that must be clicked to activate your account.",
     "resetPasswordRequest": "Password reset request",
