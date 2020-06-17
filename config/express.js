@@ -48,7 +48,8 @@ module.exports = function(app, config) {
     app.use(express.static(config.root + '/public', {
         cacheControl: true,
         maxAge: '3d',
-        etag: false
+        etag: false,
+        redirect: false
     }));
     app.use(methodOverride());
     app.use(passport.initialize());
