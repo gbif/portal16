@@ -8,7 +8,9 @@
       "presentIn": "موجود في {country}",
       "presentInNonCountry": "موجود في {location}",
       "threatStatus": "حالة التهديد: {status}",
-      "distributionPlural": "التوزعات"
+      "distributionPlural": "التوزعات",
+      "PRESENT": "",
+      "ABSENT": ""
     },
     "tabs": {
       "overview": "لمحة عامة",
