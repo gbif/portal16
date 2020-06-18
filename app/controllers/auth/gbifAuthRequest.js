@@ -27,7 +27,7 @@ async function authenticatedRequest(options) {
     requestOptions.method = options.method;
     requestOptions.url = options.url;
     requestOptions.json = options.body;
-    
+
     let expectJSON = typeof options.json === 'undefined' || options.json;
     if (requestOptions.method == 'GET' && expectJSON) {
         requestOptions.json = true;
