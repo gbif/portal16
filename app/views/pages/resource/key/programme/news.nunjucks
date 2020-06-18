@@ -3,7 +3,17 @@
         <div class="row">
             <div class="col-xs-12">
                 <div ng-repeat="result in programmeKey.news.results">
-                    <ng-include src="'/api/template/search/newsResult.html?v=' + portal.BUILD_VERSION+'&locale='+programmeKey.locale"></ng-include>
+                    {# <ng-include src="'/api/template/search/newsResult.html?v=' + portal.BUILD_VERSION+'&locale='+programmeKey.locale"></ng-include> #}
+                    <ng-include src="'/api/template/search/articleResult.html?v='+      portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'article'"></ng-include>
+                    <ng-include src="'/api/template/search/eventResult.html?v=' +       portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'event'"></ng-include>
+                    <ng-include src="'/api/template/search/datauseResult.html?v=' +     portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'dataUse'"></ng-include>
+                    <ng-include src="'/api/template/search/newsResult.html?v=' +        portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'news'"></ng-include>
+                    <ng-include src="'/api/template/search/projectResult.html?v=' +     portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'project'"></ng-include>
+                    <ng-include src="'/api/template/search/programmeResult.html?v=' +   portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'programme'"></ng-include>
+                    <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'literature'"></ng-include>
+                    <ng-include src="'/api/template/search/toolResult.html?v=' +        portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'tool'"></ng-include>
+                    <ng-include src="'/api/template/search/documentResult.html?v=' +    portal.BUILD_VERSION+'&locale='+programmeKey.locale" ng-if="result.contentType == 'document'"></ng-include>
+                </div>
                 </div>
             </div>
         </div>

@@ -30,7 +30,7 @@ e.call = _.get(e.call, 'title');
         vm.projects = data;
     });
 
-    ResourceSearch.query({contentType: 'news', programmeTag: vm.key, limit: 500}, function(data) {
+    ResourceSearch.query({contentType: ['news', 'article'], programmeTag: vm.key, limit: 500}, function(data) {
         vm.news = data;
     }, function(err) {
         // TODO inform user if query fails
