@@ -64,6 +64,9 @@
                 "demo": "展示",
                 "statement": "意圖聲明"
             }
+        },
+        "nameParser": {
+            "title": ""
         }
     }
 }
