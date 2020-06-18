@@ -13,7 +13,6 @@ function grscicollPersonKeyCtrl(Page, $state, $stateParams, PersonKey, Instituti
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
     vm.q = $stateParams.q;
-   
     Page.drawer(false);
     vm.key = $stateParams.key;
     vm.$state = $state;
