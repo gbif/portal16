@@ -64,6 +64,9 @@
                 "demo": "Versión demo",
                 "statement": "Acerca de"
             }
+        },
+        "nameParser": {
+            "title": ""
         }
     }
 }

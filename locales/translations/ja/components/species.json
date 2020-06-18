@@ -8,7 +8,9 @@
       "presentIn": "{country} に存在",
       "presentInNonCountry": "{location} に存在",
       "threatStatus": "脅威の状況: {status}",
-      "distributionPlural": "分布"
+      "distributionPlural": "分布",
+      "PRESENT": "",
+      "ABSENT": ""
     },
     "tabs": {
       "overview": "概要",

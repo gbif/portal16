@@ -8,7 +8,9 @@
       "presentIn": "Presente em {country}",
       "presentInNonCountry": "Presente em {location}",
       "threatStatus": "Estatuto de ameaça: {status}",
-      "distributionPlural": "Distribuição"
+      "distributionPlural": "Distribuição",
+      "PRESENT": "Presente",
+      "ABSENT": "Ausente"
     },
     "tabs": {
       "overview": "Visão geral",
