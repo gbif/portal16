@@ -9,8 +9,8 @@
       "presentInNonCountry": "МІсцезнаходження: {location}",
       "threatStatus": "Охоронний статус: {status}",
       "distributionPlural": "Поширення",
-      "PRESENT": "",
-      "ABSENT": ""
+      "PRESENT": "Присутній",
+      "ABSENT": "Відсутній"
     },
     "tabs": {
       "overview": "Огляд",
