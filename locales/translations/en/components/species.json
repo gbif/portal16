@@ -5,12 +5,12 @@
   },
   "species": {
     "distribution": {
-      "presentIn": "",
-      "presentInNonCountry": "",
+      "presentIn": "{status} in {country}",
+      "presentInNonCountry": "{status} in {location}",
       "threatStatus": "Threat status: {status}",
       "distributionPlural": "Distributions",
-      "PRESENT": "",
-      "ABSENT": ""
+      "PRESENT": "Present",
+      "ABSENT": "Absent"
     },
     "tabs": {
       "overview": "Overview",
