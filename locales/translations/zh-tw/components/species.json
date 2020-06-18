@@ -8,7 +8,9 @@
       "presentIn": "出現於 {country}",
       "presentInNonCountry": "出現於 {location}",
       "threatStatus": "威脅狀態： {status}",
-      "distributionPlural": "分布"
+      "distributionPlural": "分布",
+      "PRESENT": "",
+      "ABSENT": ""
     },
     "tabs": {
       "overview": "概覽",
