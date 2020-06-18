@@ -64,6 +64,9 @@
                 "demo": "عرض توضيحي ",
                 "statement": ""
             }
+        },
+        "nameParser": {
+            "title": ""
         }
     }
 }
