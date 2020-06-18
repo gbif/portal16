@@ -1,8 +1,6 @@
-{% extends "../../../shared/layout/html/html.nunjucks" %}
 
-{% block page %}
 
-{#     <article class="wrapper-horizontal-stripes speciesLookup page--data"
+    <article class="wrapper-horizontal-stripes speciesLookup page--data"
              >
 
 
@@ -14,7 +12,7 @@
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
                         <span class="article-header__category__upper" translate="tools.tools">Tools</span>
-                        <span class="article-header__category__lower" translate="vm.nameParserTitle">Name Parser</span>
+                        <span class="article-header__category__lower" translate="tools.nameParser.title">Name Parser</span>
                     </nav>
                 </div>
             </div>
@@ -32,8 +30,7 @@
         {% include "./curateResults.nunjucks" %}
         </div>
 
-    </article> #}
-{% endblock %}
+    </article>
 
 
 {# {% block scripts %}

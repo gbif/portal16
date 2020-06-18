@@ -380,6 +380,8 @@ require('../../../pages/tools/dataValidator/document/dataValidatorDocument.ctrl'
 require('../../../pages/tools/dataValidator/about/dataValidatorAbout.ctrl');
 require('../../../pages/tools/dataValidator/extensions/dwcExtensions.ctrl');
 
+require('../../../pages/tools/nameParser/nameParser.ctrl');
+
 
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');
