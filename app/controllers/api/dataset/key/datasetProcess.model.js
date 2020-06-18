@@ -21,9 +21,47 @@ async function getProcess(key, query) {
     return process;
 }
 
+// async function getIngestionHistory(key, query) {
+//   let baseRequest = {
+//       url: apiConfig.base.url + 'ingestion/history/' + key + '?' + querystring.stringify(query),
+//       method: 'GET',
+//       json: true,
+//       fullResponse: true
+//   };
+
+//   let response = await request(baseRequest);
+//   if (response.statusCode > 299) {
+//       throw response;
+//   }
+//   let process = response.body;
+//   return process;
+// }
+
+// function getFirstStepWith_veb2int(steps) {
+//   // VERBATIM_TO_INTERPRETED
+//   steps = steps || [];
+//   return _.find(steps, (x) => x.type === 'VERBATIM_TO_INTERPRETED');
+// }
+
+// function getVerbatim2interpretedData(steps) {
+//   // VERBATIM_TO_INTERPRETED
+//   steps = steps || [];
+//   _.find(steps, (x) => x.type === 'VERBATIM_TO_INTERPRETED');
+// }
+
+// function extractUsefulPiplineDates(history) {
+//   // Most recent date of a verbatim→interpreted step from the ingestion history
+//   let results = _.get(history.results, []);
+//   let mostRecentVerbatim2InterpretedDate = _.find(results, function(item) {
+//     // for each pipelineExecutions check if there is such a step
+//     item.pipelineExecutions.find
+//   });
+// }
+
 async function getProcessSummary(key) {
     let limit = 2000;
     let attempts = await getProcess(key, {limit: limit});
+    // let pipelineHistory = await getIngestionHistory(key, {limit: limit});
     let summary = {
         lastAttempt: undefined,
         lastSuccess: undefined,
