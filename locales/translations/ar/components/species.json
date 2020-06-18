@@ -9,7 +9,7 @@
       "presentInNonCountry": "موجود في {location}",
       "threatStatus": "حالة التهديد: {status}",
       "distributionPlural": "التوزعات",
-      "PRESENT": "هدية",
+      "PRESENT": "هدية, حاضر",
       "ABSENT": "غائب"
     },
     "tabs": {
