@@ -64,6 +64,9 @@
                 "demo": "Демо",
                 "statement": ""
             }
+        },
+        "nameParser": {
+            "title": ""
         }
     }
 }
