@@ -8,6 +8,7 @@
       "presentIn": "Обитает в {country}",
       "presentInNonCountry": "Обитает в {location}",
       "threatStatus": "Статус охраны: {status}",
+      "establishmentMeans": "",
       "distributionPlural": "Распространение",
       "PRESENT": "",
       "ABSENT": ""
