@@ -9,6 +9,8 @@ require('./directives/vernacularNames.directive.js');
 require('./directives/nameUsages.directive.js');
 require('./directives/treatment.directive.js');
 require('./directives/wikidataIdentifiers.directive.js');
+require('./directives/distributions.directive.js');
+
 
 // require('./directives/typeSpecimen.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
@@ -33,7 +35,7 @@ function speciesKey2Ctrl(
     SpeciesVerbatim,
     Dataset,
     SpeciesCombinations,
-    SpeciesDistributions,
+    // SpeciesDistributions,
     CitesApi,
     TaxonomySynonyms,
     suggestEndpoints,
@@ -169,7 +171,7 @@ function speciesKey2Ctrl(
     vm.occurrenceQuery = {taxon_key: vm.key};
     vm.descriptions = SpeciesDescriptions.get({id: vm.key, limit: 100});
     vm.combinations = SpeciesCombinations.query({id: vm.key});
-    vm.distributions = SpeciesDistributions.query({id: vm.key});
+  //  vm.distributions = SpeciesDistributions.query({id: vm.key, limit: 200});
 
     vm.species.$promise.then(function(resp) {
         if (!resp.synonym) {
@@ -272,7 +274,7 @@ function speciesKey2Ctrl(
     vm.images.$promise.catch(vm.nonCriticalErrorHandler);
     vm.descriptions.$promise.catch(vm.nonCriticalErrorHandler);
     vm.combinations.$promise.catch(vm.nonCriticalErrorHandler);
-    vm.distributions.$promise.catch(vm.nonCriticalErrorHandler);
+   // vm.distributions.$promise.catch(vm.nonCriticalErrorHandler);
     // vm.cites.$promise.catch(vm.nonCriticalErrorHandler); //broken cites isn't worth mentioning
     // vm.sourceTaxon.$promise.catch(vm.nonCriticalErrorHandler); //this is often failing when the ref taxon has been deleted
 }

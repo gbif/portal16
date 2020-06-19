@@ -1,0 +1,33 @@
+<div class="m-t-1" ng-if="vm.distributions.results.length > 0">
+                <h4 class="card-header" translate="species.distribution.distributionPlural"></h4>
+                    <section  class="card--references card">
+        <div class="tableList discreet" >
+            <ul>
+                <li ng-repeat="distribution in vm.distributions.results"  class="card--references__item">
+                    <div  >
+                                                <h5 ng-if="distribution.country" class="text-muted small text-uppercase" >
+                                <span translate="species.distribution.presentIn" translate-values="{country: (('country.'+ distribution.country) | translate), status: (('species.distribution.'+ distribution.status) | translate)}"></span><span ng-if="distribution.locationId" ng-bind="', '+ distribution.locationId"></span><span ng-if="distribution.locality && distribution.locality !== distribution.locationId" ng-bind="', '+ distribution.locality"></span>
+                            </h5>
+                            <h5 ng-if="distribution.locality && !distribution.country" class="text-muted small text-uppercase" translate="species.distribution.presentInNonCountry" translate-values="{location: distribution.locality, status: (('species.distribution.'+ distribution.status) | translate)}"></h5>
+                            <h5 ng-if="!distribution.locality && !distribution.country && distribution.locationId" class="text-muted small text-uppercase" ng-bind="distribution.locationId"></h5>
+                            <span ng-if="distribution.threatStatus" translate="species.distribution.threatStatus" translate-values="{status: (('threatStatus.'+ distribution.threatStatus) | translate)}"></span>
+                            <br ng-if="distribution.threatStatus && distribution.establishmentMeans"/>
+                            <span ng-if="distribution.establishmentMeans" translate="species.distribution.establishmentMeans" translate-values="{status: (('establishmentMeans.'+ distribution.establishmentMeans) | translate)}"></span>
+                           <div ng-if="distribution.source" class="small">
+                           <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>: <span dir="auto" class="source" ng-bind-html="distribution.source | linky">{{ result.type}} – </span>
+                            
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+</div>
+
+
+
+
+
+            

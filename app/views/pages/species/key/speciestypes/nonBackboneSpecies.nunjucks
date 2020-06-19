@@ -41,22 +41,8 @@
                 </div>
             </div>
              </div>
+            <distributions key="{{ speciesKey2.key }}" ></distributions>
 
-            <div class="m-t-1" ng-if="speciesKey2.distributions.results.length > 0">
-                <h4 class="card-header" translate="species.distribution.distributionPlural"></h4>
-                <div class="card">
-                    <div class="card__content">
-                        <div ng-repeat="distribution in speciesKey2.distributions.results" class="m-b-1">
-                            <h5 ng-if="distribution.country" class="text-muted small text-uppercase" >
-                                <span translate="species.distribution.presentIn" translate-values="{country: (('country.'+ distribution.country) | translate), status: (('species.distribution.'+ distribution.status) | translate)}"></span><span ng-if="distribution.locationId" ng-bind="', '+ distribution.locationId"></span><span ng-if="distribution.locality && distribution.locality !== distribution.locationId" ng-bind="', '+ distribution.locality"></span>
-                            </h5>
-                            <h5 ng-if="distribution.locality && !distribution.country" class="text-muted small text-uppercase" translate="species.distribution.presentInNonCountry" translate-values="{location: distribution.locality, status: (('species.distribution.'+ distribution.status) | translate)}"></h5>
-                            <h5 ng-if="!distribution.locality && !distribution.country && distribution.locationId" class="text-muted small text-uppercase" ng-bind="distribution.locationId"></h5>
-                            <p ng-if="distribution.threatStatus" translate="species.distribution.threatStatus" translate-values="{status: (('threatStatus.'+ distribution.threatStatus) | translate)}"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <vernacular-names key="{{ speciesKey2.key }}" is-nub="{{ speciesKey2.isNub }}"></vernacular-names>
 
