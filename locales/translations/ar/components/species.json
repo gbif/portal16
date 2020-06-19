@@ -1,16 +1,16 @@
 {
   "treatment": {
     "distribution": "التوزع",
-    "figures": "ارقام"
+    "figures": "أرقام"
   },
   "species": {
     "distribution": {
-      "presentIn": "موجود في {country}",
-      "presentInNonCountry": "موجود في {location}",
+      "presentIn": "{status} في {country}",
+      "presentInNonCountry": "{status} في {location}",
       "threatStatus": "حالة التهديد: {status}",
       "establishmentMeans": "",
       "distributionPlural": "التوزعات",
-      "PRESENT": "هدية, حاضر",
+      "PRESENT": "حاضر",
       "ABSENT": "غائب"
     },
     "tabs": {
