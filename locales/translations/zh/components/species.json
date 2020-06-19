@@ -8,6 +8,7 @@
       "presentIn": "出现在 {country}",
       "presentInNonCountry": "出现在 {location}",
       "threatStatus": "受威胁状态： {status}",
+      "establishmentMeans": "",
       "distributionPlural": "分布",
       "PRESENT": "",
       "ABSENT": ""
