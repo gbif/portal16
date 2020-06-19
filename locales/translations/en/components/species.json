@@ -8,7 +8,7 @@
       "presentIn": "{status} in {country}",
       "presentInNonCountry": "{status} in {location}",
       "threatStatus": "Threat status: {status}",
-      "establishmentMeans": "",
+      "establishmentMeans": "Establishment means: {status}",
       "distributionPlural": "Distributions",
       "PRESENT": "Present",
       "ABSENT": "Absent"
