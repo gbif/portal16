@@ -8,10 +8,10 @@
       "presentIn": "出现在 {country}",
       "presentInNonCountry": "出现在 {location}",
       "threatStatus": "受威胁状态： {status}",
-      "establishmentMeans": "",
+      "establishmentMeans": "建立是指: {status}",
       "distributionPlural": "分布",
-      "PRESENT": "现在的",
-      "ABSENT": ""
+      "PRESENT": "存在的",
+      "ABSENT": "不存在"
     },
     "tabs": {
       "overview": "总览",
