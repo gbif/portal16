@@ -89,21 +89,23 @@ const getIdentifiers = async (req, res) => {
     };
 };
 
-const decorateWithPropertyDescriptions = (properties, req) => {
+const decorateWithPropertyDescriptions = async (properties, req) => {
     if (properties.length === 0) {
         return '';
     }
     const locale = _.get(req, 'query.locale');
-    const url = wdk.getEntities(
+    const urls = wdk.getManyEntities(
         properties.map((k) => _.get(k, `mainsnak.property`))
     );
-    return request({
+
+  const responses = await Promise.all(urls.map((url) => request({
         url: url,
         json: true,
         headers: {
             'User-Agent': req.header('User-Agent')
         }
-    }).then((res) => {
+    })));
+    const res = _.merge({}, ...responses);
         return properties.map((p) => ({
             id: _.get(p, 'mainsnak.datavalue.value'),
             url: _.get(
@@ -135,7 +137,6 @@ const decorateWithPropertyDescriptions = (properties, req) => {
                   )
                 : _.get(res, `entities.${p.mainsnak.property}.descriptions.en`)
         }));
-    });
 };
 
 const getIUCNThreatStatus = async (properties, req) => {

@@ -35,7 +35,7 @@
                 </div>
             </div>
                 
-            <iucn-status key="{{speciesKey2.key}}" ></iucn-status>
+            <iucn-status ng-if="speciesKey2.isSpeciesOrBelow" key="{{speciesKey2.key}}" ></iucn-status>
            
             <div class="m-t-1" ng-show="speciesKey2.references.hasResults">
                 <h4 class="card-header">{{'species.references' | translate}}</h4>
