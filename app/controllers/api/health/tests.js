@@ -146,13 +146,13 @@ let tests = [
         message: 'Resource search should return more than 100 results for a search on content type = data use'
     },
     {
-        url: 'http:' + apiConfig.publicKibana.url + 'q=HOSTNAME:"' + crawlHostName + '"%20AND%20service:"crawler-coordinator-cleanup"%20AND%20@timestamp:%3E{SECONDS_AGO}&index=' + publicCrawlIndexName,
+        url: 'http:' + apiConfig.publicKibana.url + 'q=service:"crawler-coordinator-cleanup"%20AND%20@timestamp:%3E{SECONDS_AGO}&index=' + publicCrawlIndexName,
         component: 'CRAWLER',
         secondsAgo: 180,
         type: 'NUMBER_ABOVE',
         key: 'hits.total',
         val: 0,
-        message: 'There should be a log entry from the crawler within the last 150 seconds'
+        message: 'There should be a log entry from the crawler within the last 180 seconds'
     },
     {
         url: apiConfig.crawlingDatasetProcessRunning.url + '?cachebust={NOW}',
