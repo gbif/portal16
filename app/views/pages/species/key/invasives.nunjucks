@@ -1,4 +1,4 @@
-<div class="container--desktop m-t-1 ng-cloak" ng-if="speciesKey2.invadedCountries.count > 0">
+<div class="m-t-1 ng-cloak" ng-if="speciesKey2.invadedCountries.count > 0">
     <h4 class="card-header text--error" tx="species.invasives.nInvadedCountries" tx-nr="speciesKey2.invadedCountries.count"></h4>
     <div class="card card--spaced m-b-1">
         <div class="card__stripe card__stripe--light">

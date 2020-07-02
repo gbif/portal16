@@ -21,7 +21,7 @@
         <div class="container--desktop">
                     <iucn-status ng-if="speciesKey2.isSpeciesOrBelow" key="{{speciesKey2.key}}" ></iucn-status>
 
-            <wikipedia-summary ng-if="speciesKey2.species" species="speciesKey2.species"/>
+            <wikipedia-summary ng-if="speciesKey2.species" species="speciesKey2.species"></wikipedia-summary>
 
             <name-usages species="speciesKey2.species" synonyms="speciesKey2.synonyms" ng-if="speciesKey2.synonyms.$resolved && speciesKey2.synonyms.results.length > 0 && speciesKey2.isSpeciesOrBelow && speciesKey2.occurrences.$resolved && speciesKey2.occurrences.count > 0"></name-usages>
          <!--   <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow" ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'} | limitTo: 1">
@@ -38,7 +38,8 @@
                     </div>
                 </div>
             </div> -->
-                
+                                   {% include "../invasives.nunjucks" %}
+
 
             <div class="m-t-1" ng-show="speciesKey2.references.hasResults">
                 <h4 class="card-header">{{'species.references' | translate}}</h4>
@@ -71,7 +72,6 @@
            {# {% include "../partners/partners.nunjucks" %} #}
         </div>
     </div>
-                   {% include "../invasives.nunjucks" %}
 
 </div>
 
