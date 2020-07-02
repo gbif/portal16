@@ -7,7 +7,8 @@ require('./directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 require('./directives/speciesDatasets.directive.js');
 require('./directives/vernacularNames.directive.js');
 require('./directives/nameUsages.directive.js');
-require('./directives/treatment.directive.js');
+// require('./directives/treatment.directive.js');
+require('./directives/wikipediaSummary.directive.js');
 require('./directives/wikidataIdentifiers.directive.js');
 require('./directives/distributions.directive.js');
 
@@ -39,8 +40,8 @@ function speciesKey2Ctrl(
     CitesApi,
     TaxonomySynonyms,
     suggestEndpoints,
-    SpeciesTreatment,
-    SpeciesTreatments,
+/*     SpeciesTreatment,
+    SpeciesTreatments, */
     constantKeys,
     Page,
     PublisherExtended,
@@ -124,14 +125,18 @@ function speciesKey2Ctrl(
                         ];
                 }
             });
+            // Get the publishers own species descriptions
+            vm.descriptions = SpeciesDescriptions.get({id: vm.key, limit: 100});
+            vm.descriptions.$promise.catch(vm.nonCriticalErrorHandler);
+
             // Treatments
-            vm.speciesTreatment = SpeciesTreatment.get({id: vm.key});
+/*             vm.speciesTreatment = SpeciesTreatment.get({id: vm.key});
             vm.speciesTreatment.$promise.then(function() {
                 vm.hasTreatment = true;
             });
             vm.speciesTreatment.$promise.catch(function() {
                 vm.hasTreatment = false;
-            });
+            }); */
             vm.verbatim.$promise.catch(vm.nonCriticalErrorHandler);
 
             vm.dwcextensions = DwcExtension.get();
@@ -156,8 +161,8 @@ function speciesKey2Ctrl(
                     });
             }
             // treatments if any
-            vm.treatments = SpeciesTreatments.query({id: vm.key});
-        }
+/*             vm.treatments = SpeciesTreatments.query({id: vm.key});
+ */ }
         vm.isSynonym =
             typeof vm.species.taxonomicStatus !== 'undefined' &&
             vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 &&
@@ -169,7 +174,6 @@ function speciesKey2Ctrl(
     });
 
     vm.occurrenceQuery = {taxon_key: vm.key};
-    vm.descriptions = SpeciesDescriptions.get({id: vm.key, limit: 100});
     vm.combinations = SpeciesCombinations.query({id: vm.key});
   //  vm.distributions = SpeciesDistributions.query({id: vm.key, limit: 200});
 
@@ -272,7 +276,6 @@ function speciesKey2Ctrl(
     vm.vernacularName.$promise.catch(vm.nonCriticalErrorHandler);
    // vm.speciesImages.$promise.catch(vm.nonCriticalErrorHandler);
     vm.images.$promise.catch(vm.nonCriticalErrorHandler);
-    vm.descriptions.$promise.catch(vm.nonCriticalErrorHandler);
     vm.combinations.$promise.catch(vm.nonCriticalErrorHandler);
    // vm.distributions.$promise.catch(vm.nonCriticalErrorHandler);
     // vm.cites.$promise.catch(vm.nonCriticalErrorHandler); //broken cites isn't worth mentioning

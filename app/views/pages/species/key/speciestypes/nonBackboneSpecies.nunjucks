@@ -5,11 +5,11 @@
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--desktop">
-            <section class="card card--spaced--very m-b-1" ng-if="speciesKey2.speciesTreatment.description">
+{#             <section class="card card--spaced--very m-b-1" ng-if="speciesKey2.speciesTreatment.description">
                 <div class="card__content" >
                     <treatment treatment="speciesKey2.speciesTreatment.description" figures="speciesKey2.speciesTreatment.images" species="speciesKey2.speciesTreatment.species" ></treatment>
                 </div>
-            </section>
+            </section> #}
             {% include "../warnings/warnings.nunjucks" %}
 
             

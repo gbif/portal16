@@ -117,7 +117,7 @@ router.get('/species/:key/occurencedatasets', function(req, res) {
         });
 });
 
-async function getTreatment(key) {
+/* async function getTreatment(key) {
     let species = await getSpecies(key);
     let verbatimSpecies = await getVerbatim(key);
     let images = await getSpeciesMedia(key);
@@ -204,8 +204,8 @@ router.get('/species/:key/treatments', function(req, res) {
             let status = err.statusCode || 500;
             res.sendStatus(status);
         });
-});
-router.get('/species/:key/treatment', function(req, res) {
+}); */
+/* router.get('/species/:key/treatment', function(req, res) {
     getTreatment(req.params.key)
         .then(function(treatment) {
             if (treatment) {
@@ -218,7 +218,7 @@ router.get('/species/:key/treatment', function(req, res) {
             let status = err.statusCode || 500;
             res.sendStatus(status);
         });
-});
+}); */
 
 router.get('/species/:key/checklistdatasets', function(req, res) {
     let limit = parseInt(req.query.limit) || 20;

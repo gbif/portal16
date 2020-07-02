@@ -106,7 +106,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesTreatment', function($resource, env) {
+/*         .factory('SpeciesTreatment', function($resource, env) {
             return $resource('/api/species/:id/treatment', null, {
                     'query': {
                         method: 'GET',
@@ -114,7 +114,7 @@ var angular = require('angular');
                     }
                 }
             );
-        })
+        }) 
         .factory('SpeciesTreatments', function($resource, env) {
             return $resource('/api/species/:id/treatments', null, {
                     'query': {
@@ -123,7 +123,17 @@ var angular = require('angular');
                     }
                 }
             );
-        })
+        })*/
+
+        .factory('SpeciesWikipediaSummary', function($resource, env) {
+            return $resource('/api/wikipedia/:name/summary', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        }) 
         .factory('SpeciesVernacularName', function($resource) {
             return $resource('/api/species/:id/vernacularName', null, {
                     'query': {

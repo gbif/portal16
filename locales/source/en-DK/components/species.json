@@ -4,6 +4,7 @@
     "figures": "Figures"
   },
   "species": {
+    "summary": "Summary",
     "distribution": {
       "presentIn": "{status} in {country}",
       "presentInNonCountry": "{status} in {location}",
