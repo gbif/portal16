@@ -1,0 +1,45 @@
+{
+    "HOMONYMS": {
+        "Oenanthe": {
+            "Animalia": "Oenanthe_(bird)",
+            "Plantae": "Oenanthe_(plant)"
+        },
+        "Agathis": {
+            "Plantae": "Agathis",
+            "Animalia": "Agathis_(wasp)"
+        },
+        "Asterina": {
+            "Fungi": "Asterina_(fungus)",
+            "Animalia": "Asterina_(starfish)"
+        },
+        "Asterina_gibbosa": {
+            "Animalia": "Asterina_gibbosa"
+        },
+        "Baileya": {
+            "Animalia": "Baileya_(moth)",
+            "Plantae": "Baileya_(plant)"
+        },
+        "Baileya_australis": {
+            "Animalia": "Baileya_australis",
+            "Plantae": "Baileya_multiradiata"
+        },
+        "Centropogon": {
+            "Animalia": "Centropogon_(fish)",
+            "Plantae": "Centropogon"
+        },
+        "Orestias_elegans": {
+            "Animalia": "Orestias_elegans_(fish)",
+            "Plantae": "Orestias_elegans_(plant)"
+        },
+        "Tritonia": {
+            "Animalia": "Tritonia_(gastropod)",
+            "Plantae": "Tritonia_(plant)"
+        },
+        "Tritonia_pallida": {
+            "Animalia": "Tritonia_pallida"
+        },
+        "Holopedium": {
+            "Animalia": "Holopedium"
+        }
+    }
+}

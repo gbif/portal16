@@ -16,7 +16,7 @@ function wikipediaSummaryDirective() {
         controller: wikipediaSummaryCtrl,
         controllerAs: 'vm',
         bindToController: {
-            species: '='
+            key: '@'
         }
     };
     return directive;
@@ -27,7 +27,7 @@ function wikipediaSummaryDirective() {
 
         $http({
             method: 'get',
-            url: '/api/wikipedia/page/' + vm.species.canonicalName.replace(/\s/g, '_') + '/summary' + '?locale=' + gb.locale
+            url: '/api/wikipedia/page/' + vm.key + '/summary' + '?locale=' + gb.locale
         }).then(function(res) {
             vm.localeNotFound = !res.data[gb.locale];
             vm.summary = vm.localeNotFound ? _.get(res, 'data.en') : res.data[gb.locale];

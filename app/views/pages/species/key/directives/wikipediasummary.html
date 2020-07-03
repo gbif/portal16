@@ -1,4 +1,4 @@
-<div ng-if="vm.species && vm.species.$resolved && !vm.species.synonym && vm.summary" class="m-t-1"> 
+<div ng-if="vm.summary" class="m-t-1"> 
 <h4 class="card-header" translate="species.summary" >Summary</h4>
 
     <div class="card" dir="ltr">
@@ -6,16 +6,17 @@
         
         <div layout="row">
         <div class="m-r-1">
-        <h4 class="m-t-0 m-b-0" ng-bind-html="vm.summary.displaytitle" >{{vm.summary.title}}</h4>
+            <h4 class="m-t-0 m-b-0" ng-bind-html="vm.summary.displaytitle" >{{vm.summary.title}}</h4>
         
-            <div  ng-bind-html="vm.summary.extract_html">
-                {{vm.summary.extract}}
+                <div  ng-bind-html="vm.summary.extract_html">
+                    {{vm.summary.extract}}
                 </div>
-                </div>
-                <img ng-if="vm.summary.thumbnail.source" ng-src="{{ vm.summary.thumbnail.source | imgCache:200 }}" >
+            </div>
+            
+        <img ng-if="vm.summary.thumbnail.source" ng-src="{{ vm.summary.thumbnail.source | imgCache:200 }}" >
                 
         </div>
-                <div class="small " >
+                <div class="small m-t-1" >
                             <span translate="species.sourcePlural" translate-values="{NUMBER: 1}"></span>:
                             <a dir="auto" class=""  href="{{vm.summary.link}}">
                                  Wikipedia
