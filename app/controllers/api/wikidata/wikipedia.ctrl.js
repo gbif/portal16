@@ -55,7 +55,7 @@ const getWikipediaSummary = async (req, res) => {
             json: true
         });
         if (response.type === 'disambiguation') {
-            throw new Error('disambiguation');
+            throw new Error('not found');
         }
         return {
             [locale]: _.merge(_.pick(response, ['extract', 'extract_html', 'thumbnail', 'title', 'displaytitle']), {link: `https://${locale}.wikipedia.org/wiki/${name}`})
@@ -70,28 +70,6 @@ const getWikipediaSummary = async (req, res) => {
              return {
                 [locale]: null,
                 en: _.merge(_.pick(response, ['extract', 'extract_html', 'thumbnail', 'title', 'displaytitle']), {link: `https://en.wikipedia.org/wiki/${name}`})
-            };
-        } else if (err.message === 'disambiguation') {
-            const response = await request({
-                url: `https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${name}`,
-                json: true
-            });
-            const taxonomySection = _.find(response.remaining.sections, function(s) {
-                return s.line === 'Taxonomy';
-            });
-            if (!taxonomySection) {
-                throw new Error('not found');
-            }
-            const taxonmyTextWithReplacedLinks = taxonomySection.text.replace(/\/wiki\//g, 'https://en.wikipedia.org/wiki/');
-            const extractHtml = _.get(response, 'lead.sections[0].text') ? _.get(response, 'lead.sections[0].text') + taxonmyTextWithReplacedLinks : taxonmyTextWithReplacedLinks;
-
-            return {
-                en: {
-                    type: 'disambiguation',
-                    extract_html: extractHtml,
-                    displaytitle: response.title,
-                    title: response.title
-                }
             };
         } else {
             throw err;

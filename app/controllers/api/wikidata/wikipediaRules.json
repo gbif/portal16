@@ -40,6 +40,10 @@
         },
         "Holopedium": {
             "Animalia": "Holopedium"
+        },
+        "Edwardsiella": {
+            "Animalia": "Edwardsiella_(sea_anemone)",
+            "Bacteria": "Edwardsiella_(bacterium)"
         }
     }
 }
