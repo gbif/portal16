@@ -1,87 +1,57 @@
-<div class="wrapper-horizontal-stripes">
+<!--div class="wrapper-horizontal-stripes">
     <div class="container--fluid">
         <div style="background: tomato; color: white; padding: 20px;">
             This is an experimental page to test if automatic detection of similar record is something GBIF could/should explore further
         </div>
     </div>
-</div>
+</div-->
 
 <div class="wrapper-horizontal-stripes occurrence-search__table">
-    <section class="horizontal-stripe--paddingless lighter-background">
-        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occurrenceKeyCluster.hasData() && !occurrenceKeyCluster.occurrenceState.failedRequest"></ng-include>
+  <section class="horizontal-stripe--paddingless">
+    <div class="container--narrow m-t-1">
+      <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occurrenceKeyCluster.hasData()"></ng-include>
 
-        <div class="occurrence-search__table__area rtl-bootstrap" ng-show="occurrenceKeyCluster.hasData()">
-            <div class="scrollable-y">
-                <div class="table-container">
-                    <table class="table search-table smaller">
-                        <thead>
-                        <tr>
-                            <th translate="ocurrenceFieldNames.scientificName"></th>
-                            <th ng-repeat="col in occurrenceKeyCluster.columns" 
-                                translate="{{ occurrenceKeyCluster.translationKeyOverwrites[col] || 'ocurrenceFieldNames.' + col }}"
-                                ng-if="occurrenceKeyCluster.showCol(col)"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="result in occurrenceKeyCluster.similarRecords.results" class="lastCellFlexible rtl-supported">
-                                <td dir="auto" class="table-cell--wide" >
-                                    <a ui-sref="occurrenceKey({key:result.key})" class="issue-bullet__no-indent" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</a>
-                                    <a ui-sref="occurrenceKey({key:result.key})" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1) || !result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']" ng-bind-html="result._parsedName || result.scientificName"></a>
-                                </td>
-                                <td dir="auto" class="table-cell--normal" ng-if="occurrenceKeyCluster.showCol('country')">
-                                    <a ui-sref="occurrenceKey({key:result.key})" translate="country.{{result.countryCode}}" ng-if="result.countryCode && result.countryCode != 'ZZ'">{{result.country}}</a>
-                                </td>
-                                <td dir="auto" class="table-cell--normal" ng-if="occurrenceKeyCluster.showCol('coordinates')">
-                                    <a ui-sref="occurrenceKey({key:result.key})">
-                                        {{occurrenceKeyCluster.formatCoordinates(result.decimalLatitude, result.decimalLongitude)}}
-                                    </a>
-                                </td>
-                                <td dir="auto" class="table-cell--normal" ng-if="occurrenceKeyCluster.showCol('eventDate')">
-                                    <a ui-sref="occurrenceKey({key:result.key})" ng-if="result.eventDate">
-                                        {{result.eventDate | momentFormat:'YYYY MMMM'}}
-                                    </a>
-                                </td>
-                                <td dir="auto" class="table-cell--normal" ng-if="occurrenceKeyCluster.showCol('basisOfRecord')">
-                                    <a ui-sref="occurrenceKey({key:result.key})" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
-                                </td>
-                                <td dir="auto" class="table-cell--wide" ng-if="occurrenceKeyCluster.showCol('dataset')">
-                                    <a ui-sref="datasetKey({key:result.datasetKey})" class="underline">{{result._datasetKey.title}}</a>
-                                </td>
-                                <td dir="auto" class="table-cell--narrow" ng-if="occurrenceKeyCluster.showCol('issues')">
-                                    <a ui-sref="occurrenceKey({key:result.key})">{{result.issues.length}}</a>
-                                </td>
-                                <td dir="auto" ng-if="occurrenceKeyCluster.showCol('typeStatus')">
-                                    <a ng-if="result.typeStatus" ui-sref="occurrenceKey({key:result.key})" translate="typeStatus.{{result.typeStatus}}">{{result.typeStatus}}</a>
-                                </td>
+      <div class="emptyInfo" ng-if="occurrenceKeyCluster.hasData() && occurrenceKeyCluster.similarRecords.occurrences.length === 0">
+       <h3>No known relations</h3>
+      </div>
 
-                                <td dir="auto" ng-repeat="col in ['individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordNumber', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy']"
-                                    ng-if="occurrenceKeyCluster.showCol(col)">
-                                    <a ui-sref="occurrenceKey({key:result.key})">{{result[col]}}</a>
-                                </td>
+      <div ng-repeat="match in occurrenceKeyCluster.similarRecords.occurrences">
+        <article class="card m-b-05 searchCard rtl-supported rtl-bootstrap">
+          <div class="card__stripe">
+              <div class="card__content">
+                  <span ng-if="match.occurrence.typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox">Holotype</span>
+                  <span ng-if="match.occurrence.typeStatus && match.occurrence.typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox">Holotype</span>
+                  <h3 class="searchCard__headline" dir="auto">
+                      <a ui-sref="occurrenceKey({occurrenceKey:match.occurrence.gbifId})">{{match.occurrence.scientificName}}</a>
+                  </h3>
+              </div>
+          </div>
+          <div class="card__stripe">
+              <div class="card__content searchCard__content clearfix">
+                  <div style="float: right" ng-if="match.occurrence._image.identifier">
+                    <img width="128" ng-src="{{match.occurrence._image.identifier | imgCache:128}}">
+                  </div>
 
-                                <td dir="auto" class="table-cell--wide" ng-if="occurrenceKeyCluster.showCol('publisher')">
-                                    <a class="inherit" ui-sref="occurrenceKey({key:result.key})">{{result._publishingOrgKey.title}}</a>
-                                </td>
+                  <div class="searchCard__meta" ng-if="match.occurrence.eventDate">
+                      <span translate="ocurrenceFieldNames.eventDate"></span>: {{ match.occurrence.eventDate | momentFormat:'LL' }}</span>
+                  </div>
 
-                                <td dir="auto" class="table-cell--narrow" ng-if="occurrenceKeyCluster.showCol('taxonRank')">
-                                    <a ui-sref="occurrenceKey({key:result.key})" translate="taxonRank.{{result.taxonRank}}" ng-if="result.taxonRank && result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1">{{result.taxonRank}}</a>
-                                    <a ui-sref="occurrenceKey({key:result.key})" translate="taxonRank.UNKNOWN" ng-if="!result.taxonRank || result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1"></a>
-                                </td>
+                  <p class="discreet classification-list" ng-if="result.rank != 'KINGDOM'">
+                      {{ 'species.classification' | translate }} : <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                            ng-if="match.occurrence[taxa] && taxa != match.occurrence.rank.toLowerCase()"><span dir="ltr" ng-bind-html="match.occurrence[taxa]"></span></span>
+                  </p>
 
-                                <td dir="auto" class="table-cell--narrow"
-                                    ng-repeat="col in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']"
-                                    ng-if="occurrenceKeyCluster.showCol(col)">
-                                    <a ui-sref="occurrenceKey({key:result.key})">{{result[col]}}</a>
-                                </td>
-
-                                <td dir="auto" class="table-cell--wide" ng-if="occurrenceKeyCluster.showCol('species')">
-                                    <a ui-sref="occurrenceKey({key:result.key})">{{result.species}}</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
+                  <div class="small" ng-if="match.occurrence.eventDate">
+                      <span translate="ocurrenceFieldNames.country"></span>: <span translate="country.{{match.occurrence.countryCode}}"></span></span>
+                  </div>
+                  <div class="small" ng-if="match.occurrence.eventDate">
+                      <span>Relation</span>: {{ match.relationshipType | prettifyEnum }}
+                  </div>
+                  
+              </div>
+          </div>
+        </article>
+      </div>
+    <div>
+  </section>
 </div>

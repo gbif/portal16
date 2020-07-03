@@ -23,6 +23,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('OccurrenceRelated', function($resource, env) {
+          return $resource(env.dataApi + 'occurrence/:id/experimental/related', null, {
+                  'query': {
+                      method: 'GET',
+                      isArray: false
+                  }
+              }
+          );
+      })
         .factory('OccurrenceSearch', function($resource, env) {
             return $resource(env.dataApi + 'occurrence/search', null, {
                     'query': {

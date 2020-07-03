@@ -9,7 +9,7 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, Page, occurrence, SpeciesVernacularName, DatasetProcessSummary, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION, LOCALE_2_LETTER) {
+function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, Page, OccurrenceRelated, occurrence, SpeciesVernacularName, DatasetProcessSummary, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION, LOCALE_2_LETTER) {
     var vm = this;
     vm.gb = gb;
     vm.$state = $state;
@@ -17,6 +17,7 @@ function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, 
     var globe;
     var globeCanvas;
     vm.key = $stateParams.key;
+    vm.similarRecords = OccurrenceRelated.get({id: vm.key});
     $translate('occurrence.occurrence').then(function(title) {
         Page.setTitle(title + ' ' + vm.key);
     });
