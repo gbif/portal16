@@ -19,10 +19,10 @@
         <article class="card m-b-05 searchCard rtl-supported rtl-bootstrap">
           <div class="card__stripe">
               <div class="card__content">
-                  <span ng-if="match.occurrence.typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox">Holotype</span>
-                  <span ng-if="match.occurrence.typeStatus && match.occurrence.typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox">Holotype</span>
+                  <span ng-if="match.occurrence.typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}"></span>
+                  <span ng-if="match.occurrence.typeStatus && match.occurrence.typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}">Holotype</span>
                   <h3 class="searchCard__headline" dir="auto">
-                      <a ui-sref="occurrenceKey({occurrenceKey:match.occurrence.gbifId})">{{match.occurrence.scientificName}}</a>
+                      <a ui-sref="occurrenceKey({key:match.occurrence.gbifId})">{{match.occurrence.scientificName}}</a>
                   </h3>
               </div>
           </div>
