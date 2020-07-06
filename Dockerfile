@@ -17,7 +17,7 @@ COPY .docker-npmrc /root/.npmrc
 # Install app and dependencies
 COPY . /usr/src/app
 RUN npm install --registry http://repository.gbif.org/content/repositories/npmjs/
-RUN node node_modules/gulp/bin/gulp.js --prod
+RUN node --stack_size=1000000  node_modules/gulp/bin/gulp.js --prod
 
 EXPOSE 80
 CMD [ "npm", "start" ]
