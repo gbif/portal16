@@ -23,6 +23,7 @@
         "pInfraspecies": "{NUMBER, plural, 1{infraspecies} other{infraspecies}}",
         "pPublishers": "{NUMBER, plural, 1{publisher} other{publishers}}",
         "contacts": "{NUMBER, plural, 1{contact} other{contacts}}",
-        "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, 1{treatment} other{treatments}}"
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, 1{treatment} other{treatments}}",
+        "nImages": ""
     }
 }
