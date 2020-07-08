@@ -1,0 +1,19 @@
+<div class="card-head" style="margin-top: -20px">
+    <h4 class="card-header--bold" translate="dataset.registry.becauseTrustedContact"></h4>
+</div>
+<div class="card m-b-1 trusted-contact rtl-supported rtl-bootstrap">
+    <div class="card__stripe">
+        <div class="card__content clearfix">
+            <a ng-href="{{ portal.env.managementToolsSite }}dataset/{{ datasetKey.key }}/ingestion-history" class="gb-button--brand text-uppercase" translate="dataset.history"></a>
+            <div class="pull-right" ng-if="datasetKey.crawlingState != 'FAILED'">
+                <a ng-click="datasetKey.startCrawling()" href="" class="gb-button--flat text-uppercase" ng-if="datasetKey.crawlingState == 'FINISHED'" translate="dataset.ingestNow"></a>
+                <a ng-href="https:{$ publicKibana $}app/kibana#/discover?_g=(time:(from:now-7d,mode:quick,to:now))&_a=(filters:!((meta:(alias:!n,disabled:!f,index:{$ kibanaIndex $},key:datasetKey,negate:!f,type:phrase,value:'{{datasetKey.key}}'),query:(match:(datasetKey:(query:'{{datasetKey.key}}',type:phrase))))),index:{$ kibanaIndex $})" class="gb-button--flat text-uppercase" translate="dataset.logs">Logs</a>
+                <a class="gb-button--discreet" href="{{ portal.env.managementToolsSite }}/monitoring/running-ingestions" ng-if="datasetKey.crawlingState == 'IN_QUEUE'" translate="dataset.registry.inIngestionQueue"></a>
+                <span class="gb-button--discreet" ng-if="datasetKey.crawlingState == 'STARTED'" translate="dataset.registry.addingToQueue"></span>
+            </div>
+            <div class="pull-right" ng-if="datasetKey.crawlingState == 'FAILED'">
+                <span class="text-error text-uppercase" translate="dataset.registry.unableToStart"></span>
+            </div>
+        </div>
+    </div>
+</div>

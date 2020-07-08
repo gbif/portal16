@@ -3,7 +3,7 @@
         <div class="container--desktop">
             <div class="row">
                 <div class="col-xs-12" ng-if="datasetKey.isTrustedContact && datasetKey.currentCrawlingStatus.$resolved">
-                    {% include('./trustedContact.nunjucks') %}
+                    {% include('./trustedContactSimple.nunjucks') %}
                 </div>
 
                 <div class="col-xs-12">
