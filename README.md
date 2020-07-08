@@ -5,7 +5,7 @@ The GBIF.org website.
 
 ### Requirements
 
-* Node version v7.10.0 installed.
+* Node version v8.12.0 installed.
 * Working gyp command line tools. On Mac that means that either xcode or the Command Line Tools needs to installed: `xcode-select --install`
 
 ### Install
