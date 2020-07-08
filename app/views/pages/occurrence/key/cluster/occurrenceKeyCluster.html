@@ -32,39 +32,58 @@
                     <img width="128" ng-src="{{match.occurrence._image.identifier | imgCache:128}}" onerror="this.style.display='none'">
                   </div>
 
-                  <div class="searchCard__meta" ng-if="match.occurrence.eventDate">
-                      <span translate="ocurrenceFieldNames.datasetName"></span>: <a class="inherit" ui-sref="datasetKey({key: match.occurrence.datasetKey})">{{ match.occurrence.datasetName }}</a>
-                  </div>
-                  <div class="searchCard__meta" ng-if="match.occurrence.eventDate">
-                      <span translate="ocurrenceFieldNames.publisher"></span>: <a class="inherit" ui-sref="publisherKey({key: match.occurrence.publishingOrgKey})">{{ match.occurrence.publishingOrgName }}</a>
-                  </div>
-
-                  <p class="discreet classification-list m-t-05" ng-if="result.rank != 'KINGDOM'">
+                  <p class="discreet classification-list" style="font-size: 13px" ng-if="result.rank != 'KINGDOM'">
                       {{ 'species.classification' | translate }} : <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                             ng-if="match.occurrence[taxa] && taxa != match.occurrence.rank.toLowerCase()"><span dir="ltr" ng-bind-html="match.occurrence[taxa]"></span></span>
                   </p>
-
-                  <div class="small" ng-if="match.occurrence.eventDate">
-                      <span translate="ocurrenceFieldNames.eventDate"></span>: <span>{{ match.occurrence.eventDate | momentFormat:'LL' }}</span>
-                  </div>
-                  <!--div class="small" ng-if="match.occurrence.countryCode">
-                      <span translate="ocurrenceFieldNames.country"></span>: <span translate="country.{{match.occurrence.countryCode}}"></span></span>
-                  </div-->
-                  <div class="small" ng-if="match.occurrence.decimalLatitude">
-                      <span>Has coordinates</span>
-                  </div>
-                  <div class="small" ng-if="occurrenceKeyCluster.isSequenced(match.occurrence.fragment)">
-                      <span>Is sequenced</span>
-                  </div>
                   <div class="small" ng-if="match.occurrence.preparations">
                       <span>Preparations</span>: {{ match.occurrence.preparations }}
                   </div>
 
-                  <div class="small m-t-1">
-                      <span>Similar because:</span> <span ng-repeat="reason in match.reasons">{{ reason | prettifyEnum }}<span ng-if="!$last">, </span></span>
+                  <div class="searchCard__meta">
+                      <span translate="filterNames.datasetKey"></span>: <a class="inherit" ui-sref="datasetKey({key: match.occurrence.datasetKey})">{{ match.occurrence.datasetName }}</a>
+                  </div>
+                  <div class="searchCard__meta">
+                      <span translate="ocurrenceFieldNames.publisher"></span>: <a class="inherit" ui-sref="publisherKey({key: match.occurrence.publishingOrgKey})">{{ match.occurrence.publishingOrgName }}</a>
+                  </div>
+
+                  <!-- highlighted occurrence features -->
+                  <div class="searchCard__features clearfix m-t-1">
+                    <div ng-if="match.occurrence.decimalLatitude">
+                      <span class="gb-icon-marker searchCard__features__icon"></span>{{occurrenceKeyCluster.formatCoordinates(match.occurrence.decimalLatitude, match.occurrence.decimalLongitude)}}
+                    </div>
+                    <div ng-if="match.occurrence.eventDate">
+                      <span class="gb-icon-calendar searchCard__features__icon"></span><span>{{ match.occurrence.eventDate | momentFormat:'LL' }}</span>
+                    </div>
+                    <div ng-if="match.occurrence.media.length > 0">
+                      <span class="gb-icon-images searchCard__features__icon"></span><span tx-nr="match.occurrence.media.length" tx="counts.nImages"></span>
+                    </div>
+                    <div ng-if="occurrenceKeyCluster.isSequenced(match.occurrence.fragment.extensions)">
+                      <span class="gb-icon-dna searchCard__features__icon"></span><span>Sequenced</span>
+                    </div>
                   </div>
               </div>
           </div>
+          <div class="card__stripe card__stripe--light">
+            <div class="p-05">
+              <span>Similar because:</span> 
+              <ul class="list-chips" dir="auto">
+                <li ng-repeat="reason in match.reasons">
+                  <span>{{ reason | prettifyEnum }}</span>
+                </li>
+                <li>
+                  <div style="display: inline">
+                    <a class="small">Compare</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--div class="card__stripe card__stripe--light">
+            <div class="searchCard__expand">
+              <a>Compare</a>
+            </div>
+          </div-->
         </article>
       </div>
     <div>
