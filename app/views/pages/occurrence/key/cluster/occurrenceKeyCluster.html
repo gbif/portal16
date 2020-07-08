@@ -15,7 +15,7 @@
        <h3>No known relations</h3>
       </div>
 
-      <div ng-repeat="match in occurrenceKeyCluster.similarRecords.occurrences">
+      <div ng-repeat="match in occurrenceKeyCluster.similarRecords.relatedOccurrences">
         <article class="card m-b-05 searchCard rtl-supported rtl-bootstrap">
           <div class="card__stripe">
               <div class="card__content">
@@ -47,16 +47,22 @@
                   <div class="small" ng-if="match.occurrence.eventDate">
                       <span translate="ocurrenceFieldNames.eventDate"></span>: <span>{{ match.occurrence.eventDate | momentFormat:'LL' }}</span>
                   </div>
-                  <div class="small" ng-if="match.occurrence.countryCode">
+                  <!--div class="small" ng-if="match.occurrence.countryCode">
                       <span translate="ocurrenceFieldNames.country"></span>: <span translate="country.{{match.occurrence.countryCode}}"></span></span>
+                  </div-->
+                  <div class="small" ng-if="match.occurrence.decimalLatitude">
+                      <span>Has coordinates</span>
                   </div>
-                  <div class="small">
-                      <span>Relation</span>: {{ match.relationshipType | prettifyEnum }}
+                  <div class="small" ng-if="occurrenceKeyCluster.isSequenced(match.occurrence.fragment)">
+                      <span>Is sequenced</span>
                   </div>
                   <div class="small" ng-if="match.occurrence.preparations">
                       <span>Preparations</span>: {{ match.occurrence.preparations }}
                   </div>
-                  
+
+                  <div class="small m-t-1">
+                      <span>Similar because:</span> <span ng-repeat="reason in match.reasons">{{ reason | prettifyEnum }}<span ng-if="!$last">, </span></span>
+                  </div>
               </div>
           </div>
         </article>
