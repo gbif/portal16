@@ -16,7 +16,7 @@
       </div>
 
       <div ng-repeat="match in occurrenceKeyCluster.similarRecords.relatedOccurrences">
-        <article class="card m-b-05 searchCard rtl-supported rtl-bootstrap">
+        <article class="card m-b-2 searchCard rtl-supported rtl-bootstrap">
           <div class="card__stripe">
               <div class="card__content">
                   <span ng-if="match.occurrence.typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}"></span>
@@ -33,7 +33,7 @@
                   </div>
 
                   <p class="discreet classification-list" style="font-size: 13px" ng-if="result.rank != 'KINGDOM'">
-                      {{ 'species.classification' | translate }} : <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                      <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                             ng-if="match.occurrence[taxa] && taxa != match.occurrence.rank.toLowerCase()"><span dir="ltr" ng-bind-html="match.occurrence[taxa]"></span></span>
                   </p>
                   <div class="small" ng-if="match.occurrence.preparations">
@@ -46,9 +46,12 @@
                   <div class="searchCard__meta">
                       <span translate="ocurrenceFieldNames.publisher"></span>: <a class="inherit" ui-sref="publisherKey({key: match.occurrence.publishingOrgKey})">{{ match.occurrence.publishingOrgName }}</a>
                   </div>
+                  <div class="searchCard__meta">
+                      <span translate="ocurrenceFieldNames.basisOfRecord"></span>: <span translate="basisOfRecord.{{match.occurrence.basisOfRecord}}"></span>
+                  </div>
 
                   <!-- highlighted occurrence features -->
-                  <div class="searchCard__features clearfix m-t-1">
+                  <div class="searchCard__features clearfix m-t-05">
                     <div ng-if="match.occurrence.decimalLatitude">
                       <span class="gb-icon-marker searchCard__features__icon"></span>{{occurrenceKeyCluster.formatCoordinates(match.occurrence.decimalLatitude, match.occurrence.decimalLongitude)}}
                     </div>
@@ -64,26 +67,45 @@
                   </div>
               </div>
           </div>
-          <div class="card__stripe card__stripe--light">
-            <div class="p-05">
+          <div class="card__stripe card__stripe--light2 p-b-05">
+            <div class="card__content">
               <span>Similar because:</span> 
               <ul class="list-chips" dir="auto">
                 <li ng-repeat="reason in match.reasons">
                   <span>{{ reason | prettifyEnum }}</span>
                 </li>
-                <li>
-                  <div style="display: inline">
-                    <a class="small">Compare</a>
-                  </div>
-                </li>
               </ul>
             </div>
-          </div>
-          <!--div class="card__stripe card__stripe--light">
-            <div class="searchCard__expand">
-              <a>Compare</a>
+            <div class="card__content term-block__terms" ng-if="match._showDetails">
+              <table class="table table--compact">
+                  <thead>
+                  <tr>
+                      <th translate="occurrence.term"></th>
+                      <th xtranslate="occurrence.interpreted">Current</th>
+                      <th xtranslate="occurrence.original">Matched record</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="clusterCompare" ng-class="{'clusterCompare--isDifferent': field.isDifferent}" ng-repeat="field in match._compare">
+                      <td class="clusterCompare_tableKey">
+                        {{field.key}}
+                      </td>
+                      <td>
+                        {{field.current}}
+                      </td>
+                      <td>
+                        {{field.other}}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
             </div>
-          </div-->
+            <div class="searchCard__expand">
+              <a href="" class="inherit noUnderline" ng-click="match._showDetails = !match._showDetails">
+                Details
+              </a>
+            </div>
+          </div>
         </article>
       </div>
     <div>

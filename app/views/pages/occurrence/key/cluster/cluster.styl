@@ -1,6 +1,7 @@
 .searchCard__features {
   display flex
   flex-wrap nowrap
+  width: 100%;
   margin 0 -16px;
   > div {
     flex 0 0 auto;
@@ -14,15 +15,26 @@
   margin auto
   text-align center
   position relative
+  height: 0;
   a {
     display inline-block
     padding: 3px 8px
     border-radius 50px
     border 1px solid #dbe3e7
     position relative
-    bottom -15px
+    top: 0;
     background white
     font-size 12px
     width: 80px;
   }
+}
+
+.clusterCompare {
+  color: #aaa
+}
+.clusterCompare--isDifferent {
+  color: #555
+}
+.clusterCompare_tableKey {
+  white-space nowrap
 }
