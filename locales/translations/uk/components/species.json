@@ -8,6 +8,7 @@
       "presentIn": "МІсцезнаходження: {country}",
       "presentInNonCountry": "МІсцезнаходження: {location}",
       "threatStatus": "Охоронний статус: {status}",
+      "establishmentMeans": "Інвазійний статус: {status}",
       "distributionPlural": "Поширення",
       "PRESENT": "Присутній",
       "ABSENT": "Відсутній"

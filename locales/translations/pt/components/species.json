@@ -8,6 +8,7 @@
       "presentIn": "Presente em {country}",
       "presentInNonCountry": "Presente em {location}",
       "threatStatus": "Estatuto de ameaça: {status}",
+      "establishmentMeans": "Forma de estabelecimento: {status}",
       "distributionPlural": "Distribuição",
       "PRESENT": "Presente",
       "ABSENT": "Ausente"

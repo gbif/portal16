@@ -8,6 +8,7 @@
       "presentIn": "Forekommer i {country}",
       "presentInNonCountry": "Forekommer i {location}",
       "threatStatus": "Trusselsstatus: {status}",
+      "establishmentMeans": "",
       "distributionPlural": "Udbredelse",
       "PRESENT": "",
       "ABSENT": ""
