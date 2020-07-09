@@ -12,9 +12,9 @@
 <div class="wrapper-horizontal-stripes occurrence-search__table">
   <section class="horizontal-stripe--paddingless">
     <div class="container--narrow m-t-1">
-      <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occurrenceKeyCluster.hasData()"></ng-include>
+      <ng-include src="'/templates/components/loader/loader.html'" ng-if="occurrenceKeyCluster.isLoading()"></ng-include>
 
-      <div class="emptyInfo" ng-if="occurrenceKeyCluster.hasData() && occurrenceKeyCluster.similarRecords.occurrences.length === 0">
+      <div class="emptyInfo" ng-if="!occurrenceKeyCluster.isLoading() && occurrenceKeyCluster.similarRecords.relatedOccurrences.length === 0">
         <h3 translate="occurrence.cluster.noMatches"></h3>
       </div>
 
@@ -75,99 +75,101 @@
         </article>
       </div>
 
-      <h4 class="card-header" translate="occurrence.cluster.relatedOccurrences"></h4>
-      <div ng-repeat="match in occurrenceKeyCluster.similarRecords.relatedOccurrences">
-        <article class="card m-b-2 searchCard rtl-supported rtl-bootstrap">
-          <div class="card__stripe">
+      <div ng-if="!occurrenceKeyCluster.isLoading() && occurrenceKeyCluster.similarRecords.relatedOccurrences.length > 0">
+        <h4 class="card-header" translate="occurrence.cluster.relatedOccurrences"></h4>
+        <div ng-repeat="match in occurrenceKeyCluster.similarRecords.relatedOccurrences">
+          <article class="card m-b-2 searchCard rtl-supported rtl-bootstrap">
+            <div class="card__stripe">
+                <div class="card__content">
+                    <span ng-if="match.occurrence.typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}"></span>
+                    <span ng-if="match.occurrence.typeStatus && match.occurrence.typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}"></span>
+                    <h3 class="searchCard__headline" dir="auto">
+                        <a ui-sref="occurrenceKey({key:match.occurrence.gbifId})">{{match.occurrence.scientificName}}</a>
+                    </h3>
+                </div>
+            </div>
+            <div class="card__stripe">
+                <div class="card__content searchCard__content clearfix">
+                    <div style="float: right" ng-if="match.occurrence._image.identifier">
+                      <img width="128" ng-src="{{match.occurrence._image.identifier | imgCache:128}}" onerror="this.style.display='none'">
+                    </div>
+
+                    <p class="discreet classification-list" style="font-size: 13px" ng-if="result.rank != 'KINGDOM'">
+                        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                              ng-if="match.occurrence[taxa] && taxa != match.occurrence.rank.toLowerCase()"><span dir="ltr" ng-bind-html="match.occurrence[taxa]"></span></span>
+                    </p>
+                    <div class="small" ng-if="match.occurrence.preparations">
+                        <span translate="ocurrenceFieldNames.preparations"></span>: {{ match.occurrence.preparations }}
+                    </div>
+
+                    <div class="searchCard__meta">
+                        <span translate="filterNames.datasetKey"></span>: <a class="inherit" ui-sref="datasetKey({key: match.occurrence.datasetKey})">{{ match.occurrence.datasetName }}</a>
+                    </div>
+                    <div class="searchCard__meta">
+                        <span translate="ocurrenceFieldNames.publisher"></span>: <a class="inherit" ui-sref="publisherKey({key: match.occurrence.publishingOrgKey})">{{ match.occurrence.publishingOrgName }}</a>
+                    </div>
+                    <div class="searchCard__meta">
+                        <span translate="ocurrenceFieldNames.basisOfRecord"></span>: <span translate="basisOfRecord.{{match.occurrence.basisOfRecord}}"></span>
+                    </div>
+
+                    <!-- highlighted occurrence features -->
+                    <div class="searchCard__features clearfix m-t-05">
+                      <div ng-if="match.occurrence.decimalLatitude">
+                        <span class="gb-icon-marker searchCard__features__icon"></span>{{occurrenceKeyCluster.formatCoordinates(match.occurrence.decimalLatitude, match.occurrence.decimalLongitude)}}
+                      </div>
+                      <div ng-if="match.occurrence.eventDate">
+                        <span class="gb-icon-calendar searchCard__features__icon"></span><span>{{ match.occurrence.eventDate | momentFormat:'LL' }}</span>
+                      </div>
+                      <div ng-if="match.occurrence.media.length > 0">
+                        <span class="gb-icon-images searchCard__features__icon"></span><span tx-nr="match.occurrence.media.length" tx="counts.nImages"></span>
+                      </div>
+                      <div ng-if="occurrenceKeyCluster.isSequenced(match.occurrence.fragment.extensions)">
+                        <span class="gb-icon-dna searchCard__features__icon"></span><span translate="occurrence.sequenced"></span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card__stripe card__stripe--light2 p-b-05">
               <div class="card__content">
-                  <span ng-if="match.occurrence.typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}"></span>
-                  <span ng-if="match.occurrence.typeStatus && match.occurrence.typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}"></span>
-                  <h3 class="searchCard__headline" dir="auto">
-                      <a ui-sref="occurrenceKey({key:match.occurrence.gbifId})">{{match.occurrence.scientificName}}</a>
-                  </h3>
+                <span translate="occurrence.cluster.similarBecause"></span>
+                <ul class="list-chips" dir="auto">
+                  <li ng-repeat="reason in match.reasons">
+                    <span>{{ reason | prettifyEnum }}</span>
+                  </li>
+                </ul>
               </div>
-          </div>
-          <div class="card__stripe">
-              <div class="card__content searchCard__content clearfix">
-                  <div style="float: right" ng-if="match.occurrence._image.identifier">
-                    <img width="128" ng-src="{{match.occurrence._image.identifier | imgCache:128}}" onerror="this.style.display='none'">
-                  </div>
-
-                  <p class="discreet classification-list" style="font-size: 13px" ng-if="result.rank != 'KINGDOM'">
-                      <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
-                            ng-if="match.occurrence[taxa] && taxa != match.occurrence.rank.toLowerCase()"><span dir="ltr" ng-bind-html="match.occurrence[taxa]"></span></span>
-                  </p>
-                  <div class="small" ng-if="match.occurrence.preparations">
-                      <span translate="ocurrenceFieldNames.preparations"></span>: {{ match.occurrence.preparations }}
-                  </div>
-
-                  <div class="searchCard__meta">
-                      <span translate="filterNames.datasetKey"></span>: <a class="inherit" ui-sref="datasetKey({key: match.occurrence.datasetKey})">{{ match.occurrence.datasetName }}</a>
-                  </div>
-                  <div class="searchCard__meta">
-                      <span translate="ocurrenceFieldNames.publisher"></span>: <a class="inherit" ui-sref="publisherKey({key: match.occurrence.publishingOrgKey})">{{ match.occurrence.publishingOrgName }}</a>
-                  </div>
-                  <div class="searchCard__meta">
-                      <span translate="ocurrenceFieldNames.basisOfRecord"></span>: <span translate="basisOfRecord.{{match.occurrence.basisOfRecord}}"></span>
-                  </div>
-
-                  <!-- highlighted occurrence features -->
-                  <div class="searchCard__features clearfix m-t-05">
-                    <div ng-if="match.occurrence.decimalLatitude">
-                      <span class="gb-icon-marker searchCard__features__icon"></span>{{occurrenceKeyCluster.formatCoordinates(match.occurrence.decimalLatitude, match.occurrence.decimalLongitude)}}
-                    </div>
-                    <div ng-if="match.occurrence.eventDate">
-                      <span class="gb-icon-calendar searchCard__features__icon"></span><span>{{ match.occurrence.eventDate | momentFormat:'LL' }}</span>
-                    </div>
-                    <div ng-if="match.occurrence.media.length > 0">
-                      <span class="gb-icon-images searchCard__features__icon"></span><span tx-nr="match.occurrence.media.length" tx="counts.nImages"></span>
-                    </div>
-                    <div ng-if="occurrenceKeyCluster.isSequenced(match.occurrence.fragment.extensions)">
-                      <span class="gb-icon-dna searchCard__features__icon"></span><span translate="occurrence.sequenced"></span>
-                    </div>
-                  </div>
-              </div>
-          </div>
-          <div class="card__stripe card__stripe--light2 p-b-05">
-            <div class="card__content">
-              <span translate="occurrence.cluster.similarBecause"></span>
-              <ul class="list-chips" dir="auto">
-                <li ng-repeat="reason in match.reasons">
-                  <span>{{ reason | prettifyEnum }}</span>
-                </li>
-              </ul>
-            </div>
-            <div class="card__content term-block__terms" ng-if="match._showDetails">
-              <table class="table table--compact">
-                  <thead>
-                  <tr>
-                      <th translate="occurrence.term"></th>
-                      <th translate="occurrence.cluster.current"></th>
-                      <th translate="occurrence.cluster.matchedRecord"></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="clusterCompare" ng-class="{'clusterCompare--isDifferent': field.isDifferent}" ng-repeat="field in match._compare">
-                      <td class="clusterCompare_tableKey">
-                        {{field.key}}
-                      </td>
-                      <td>
-                        {{field.current}}
-                      </td>
-                      <td>
-                        {{field.other}}
-                      </td>
+              <div class="card__content term-block__terms" ng-if="match._showDetails">
+                <table class="table table--compact">
+                    <thead>
+                    <tr>
+                        <th translate="occurrence.term"></th>
+                        <th translate="occurrence.cluster.current"></th>
+                        <th translate="occurrence.cluster.matchedRecord"></th>
                     </tr>
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      <tr class="clusterCompare" ng-class="{'clusterCompare--isDifferent': field.isDifferent}" ng-repeat="field in match._compare">
+                        <td class="clusterCompare_tableKey">
+                          {{field.key}}
+                        </td>
+                        <td class="clusterCompare_tableCurrent">
+                          {{field.current}}
+                        </td>
+                        <td class="clusterCompare_tableOther">
+                          {{field.other}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div class="searchCard__expand">
+                <a href="" class="inherit noUnderline" ng-click="match._showDetails = !match._showDetails">
+                  Details
+                </a>
+              </div>
             </div>
-            <div class="searchCard__expand">
-              <a href="" class="inherit noUnderline" ng-click="match._showDetails = !match._showDetails">
-                Details
-              </a>
-            </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
     <div>
   </section>

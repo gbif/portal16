@@ -54,6 +54,10 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, Occurrence,
     return vm.similarRecords.relatedOccurrences && vm.similarRecords.relatedOccurrences.length > 0;
   };
 
+  vm.isLoading = function() {
+    return !vm.similarRecords.relatedOccurrences;
+  };
+
   vm.formatCoordinates = function(lat, lng) {
     if (angular.isUndefined(lat) || angular.isUndefined(lng)) {
         return '';
