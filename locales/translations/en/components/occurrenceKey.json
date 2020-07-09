@@ -86,7 +86,16 @@
       "unknownSpecies": "Unknown Species"
     },
     "occurrence": "Occurrence",
-    "inLanguage": "In {LANGUAGE_TRANSLATED}"
+    "inLanguage": "In {LANGUAGE_TRANSLATED}",
+    "sequenced": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
   },
   "interpretationRemarks": {
     "comments": {
