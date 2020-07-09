@@ -126,6 +126,9 @@
                       <div ng-if="occurrenceKeyCluster.isSequenced(match.occurrence.fragment.extensions)">
                         <span class="gb-icon-dna searchCard__features__icon"></span><span translate="occurrence.sequenced"></span>
                       </div>
+                      <div ng-if="occurrenceKeyCluster.isTreatment(match.occurrence)">
+                        <span class="gb-icon-file searchCard__features__icon"></span><span translate="occurrence.treatment"></span>
+                      </div>
                     </div>
                 </div>
             </div>

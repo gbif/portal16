@@ -99,6 +99,13 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, Occurrence,
     }
     return false;
   };
+
+  // we do not model treatments, but we know this publisher is all about treatments
+  var treatmentPublishers = ['7ce8aef0-9e92-11dc-8738-b8a03c50a862'];
+
+  vm.isTreatment = function(occurrence) {
+    return treatmentPublishers.indexOf(occurrence.publishingOrgKey) > -1;
+  };
 }
 
 module.exports = occurrenceKeyClusterCtrl;

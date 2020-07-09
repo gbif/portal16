@@ -88,6 +88,7 @@
     "occurrence": "Occurrence",
     "inLanguage": "In {LANGUAGE_TRANSLATED}",
     "sequenced": "Sequenced",
+    "treatment": "Treatment",
     "cluster": {
       "current": "Current",
       "relatedOccurrences": "Related occurrences",
