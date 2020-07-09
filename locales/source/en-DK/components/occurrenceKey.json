@@ -86,7 +86,16 @@
       "unknownSpecies": "Unknown Species"
     },
     "occurrence": "Occurrence",
-    "inLanguage": "In {LANGUAGE_TRANSLATED}"
+    "inLanguage": "In {LANGUAGE_TRANSLATED}",
+    "sequenced": "Sequenced",
+    "cluster": {
+      "current": "Current",
+      "relatedOccurrences": "Related occurrences",
+      "similarBecause": "Similar because",
+      "matchedRecord": "Mached record",
+      "noMatches": "No candidate relations",
+      "explainer": "This is an experimental feature, that highlights possibly duplicates and related occurrences."
+    }
   },
   "interpretationRemarks": {
     "comments": {

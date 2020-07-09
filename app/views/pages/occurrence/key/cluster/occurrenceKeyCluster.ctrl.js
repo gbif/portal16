@@ -35,10 +35,23 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, Occurrence,
         }
       }
     });
+
+    if (res.similarRecords.currentOccurrence) {
+      res.similarRecords.currentOccurrence.fragment = OccurrenceFragment.get({id: res.similarRecords.currentOccurrence.gbifId});
+      if (res.similarRecords.currentOccurrence.media) {
+        // select first image
+        for (var i = 0; i < res.similarRecords.currentOccurrence.media.length; i++) {
+          if (res.similarRecords.currentOccurrence.media[i].type == 'StillImage') {
+            res.similarRecords.currentOccurrence._image = res.similarRecords.currentOccurrence.media[i];
+            return;
+          }
+        }
+      }
+    }
   });
 
   vm.hasData = function() {
-    return !!vm.similarRecords.relatedOccurrences;
+    return vm.similarRecords.relatedOccurrences && vm.similarRecords.relatedOccurrences.length > 0;
   };
 
   vm.formatCoordinates = function(lat, lng) {
