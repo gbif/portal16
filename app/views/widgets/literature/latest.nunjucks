@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="not_ie" ng-app="portal"  >
+<head ng-controller="headCtrl as head">
+  <meta charset="UTF-8">
+  <!-- If IE use the latest rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Set the page to the width of the device and set the zoom level -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: "Helvetica Neue",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica","Arial",sans-serif;
+      font-size: 14px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .feed {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+    }
+    header {
+      flex: 0 0 auto;
+      border-bottom: 1px solid #ddd;
+      padding: 8px 12px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: #3c3c44;
+    }
+    header h1 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    header h1 a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      flex: 0 0 auto;
+      border-top: 1px solid #ddd;
+      padding: 8px 12px;
+      text-align: right;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    footer a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    main {
+      flex: 1 1 auto;
+      overflow: auto;
+      padding: 8px 12px;
+      background: #fcfcfd;
+    }
+    main h3 {
+      font-weight: 500;
+      font-size: 15px;
+      color: #212229;
+      margin: 0 0 8px 0;
+    }
+    main h3 a {
+      text-decoration: none;
+      color: inherit;
+    }
+    main h3 a:hover {
+      text-decoration: underline;
+    }
+    
+    .svg {
+      width: 20px;
+      margin-right: 8px;
+    }
+
+    .item {
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+    .meta {
+      font-size: 12px;
+      color: #509e2f;
+    }
+    .abstract {
+      font-size: 13px;
+      color: #3c3e4a;
+      line-height: 1.3;
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+    .more {
+      text-align: center;
+      margin: 24px;
+    }
+    .more a {
+      text-decoration: none;
+      color: white;
+      background: #519e31;
+      padding: 3px 5px;
+    }
+    .button {
+      background: #509e2f;
+      color: white;
+      display: inline-block;
+      padding: 3px 5px;
+      border-radius: 4px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .empty {
+      color: #ccc;
+      margin: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="feed">
+    <header>
+      <h1>
+        <a class="button" href="https://www.gbif.org/resource/search?{$ query $}" target="_blank">{$ data.count $} citations</a>
+      </h1>
+    </header>
+    <main>
+      {% for result in data.results %}
+        <div class="item">
+          <h3 class="searchCard__headline" dir="auto">
+            {% if result.identifiers.doi %}
+            <a href="https://doi.org/{$ result.identifiers.doi $}">
+                {$ result.title $}
+                <span class="gb-icon-link"></span>
+            </a>
+            {% elif result.websites[0] %}
+            <a href="{$ result.websites[0] $}">
+                {$ result.title $}
+                <span class="gb-icon-link"></span>
+            </a>
+            {% else %}
+            <span>
+                {$ result.title $}
+            </span>
+            {% endif %}
+          </h3>
+
+          <div class="meta" dir="auto">
+            {% for author in result.authors.slice(0, 5) %}
+              <span ng-repeat="author in result.authors | limitTo:6 ">{$ author.lastName $}
+              {% if result.firstName %}, {$ author.firstName.slice(0,1) $}{% endif %}. </span>
+            {% endfor %}
+            {% if result.authors[6] %}
+              <span>... - </span>
+            {% endif %}
+            ({$ result.year $})
+            {$ result.source $}
+            
+            {% if not result.identifiers.doi and not result.websites[0] %}
+              <span>
+              {$ result.volume $}
+                {% if result.issue %}
+                ({$ result.issue $})
+                {% endif %}
+                {$ result.pages $}
+              </span>
+            {% endif %}
+          </div>
+          {% if result.abstract %}
+            <p class="abstract" dir="auto">
+                {$ result.abstract $}
+            </p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      {% if data.count > data.limit %}
+      <div class="more">
+        <a href="https://www.gbif.org/resource/search?{$ query $}" target="_blank">See all</a>
+      </div>
+      {% endif %}
+      {% if data.count == 0 %}
+        <h3 class="empty">No citations found</h3>
+      {% endif %}
+    </main>
+    <footer>
+      <a href="https://www.gbif.org/resource/search?{$ query $}" target="_blank">
+      <svg class="svg" viewBox="90 239.1 539.7 523.9" xmlns="http://www.w3.org/2000/svg">
+        <path class="gbif-logo-svg" d="M325.5,495.4c0-89.7,43.8-167.4,174.2-167.4C499.6,417.9,440.5,495.4,325.5,495.4"></path>
+        <path class="gbif-logo-svg" d="M534.3,731c24.4,0,43.2-3.5,62.4-10.5c0-71-42.4-121.8-117.2-158.4c-57.2-28.7-127.7-43.6-192.1-43.6
+c28.2-84.6,7.6-189.7-19.7-247.4c-30.3,60.4-49.2,164-20.1,248.3c-57.1,4.2-102.4,29.1-121.6,61.9c-1.4,2.5-4.4,7.8-2.6,8.8
+c1.4,0.7,3.6-1.5,4.9-2.7c20.6-19.1,47.9-28.4,74.2-28.4c60.7,0,103.4,50.3,133.7,80.5C401.3,704.3,464.8,731.2,534.3,731"></path>
+      </svg>
+      Powered by GBIF
+      </a>
+    </footer>
+  </div>
+
+</body>
+</html>
