@@ -1,7 +1,8 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "Details"
+      "details": "Details",
+      "cluster": ""
     },
     "typeOf": "{TYPE} of {NAME}",
     "coordinates": "Coordinates",
