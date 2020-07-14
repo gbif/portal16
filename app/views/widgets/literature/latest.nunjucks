@@ -92,7 +92,7 @@
     }
     
     .svg {
-      width: 20px;
+      width: 16px;
       margin-right: 8px;
     }
 

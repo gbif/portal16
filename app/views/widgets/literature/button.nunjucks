@@ -38,7 +38,7 @@
       justify-content: center;
     }
     .svg {
-      width: 20px;
+      width: 16px;
       fill: white;
       margin-right: 8px;
     }
