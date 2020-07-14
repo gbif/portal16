@@ -1,7 +1,8 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "Details"
+      "details": "Details",
+      "cluster": "Cluster"
     },
     "typeOf": "{TYPE} of {NAME}",
     "coordinates": "Coordinates",
@@ -93,7 +94,7 @@
       "current": "Current",
       "relatedOccurrences": "Related occurrences",
       "similarBecause": "Similar because",
-      "matchedRecord": "Mached record",
+      "matchedRecord": "Matched record",
       "noMatches": "No candidate relations",
       "explainer": "This is an experimental feature, that highlights possible duplicates and related occurrences."
     }

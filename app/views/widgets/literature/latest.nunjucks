@@ -170,8 +170,7 @@
 
           <div class="meta" dir="auto">
             {% for author in result.authors.slice(0, 5) %}
-              <span ng-repeat="author in result.authors | limitTo:6 ">{$ author.lastName $}
-              {% if result.firstName %}, {$ author.firstName.slice(0,1) $}{% endif %}. </span>
+              <span ng-repeat="author in result.authors | limitTo:6 ">{% if author.firstName %} {$ author.firstName $} {% endif %}{% if author.lastName %}{$ author.lastName $}{% endif %}, </span>
             {% endfor %}
             {% if result.authors[6] %}
               <span>... - </span>
