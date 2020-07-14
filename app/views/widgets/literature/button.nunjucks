@@ -20,6 +20,9 @@
       height: 100%;
       overflow: hidden;
     }
+    * {
+      box-sizing: border-box;
+    }
     .button {
       background: #509e2f;
       color: white;

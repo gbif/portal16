@@ -20,6 +20,9 @@
       overflow: hidden;
       background-color: transparent;
     }
+    * {
+      box-sizing: border-box;
+    }
 
     .feed {
       height: 100%;
