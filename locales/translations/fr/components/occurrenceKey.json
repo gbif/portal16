@@ -1,7 +1,8 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "Détails"
+      "details": "Détails",
+      "cluster": ""
     },
     "typeOf": "{TYPE} de {NAME}",
     "coordinates": "Coordonnées",
@@ -86,7 +87,17 @@
       "unknownSpecies": "Espèce inconnue"
     },
     "occurrence": "Une occurrence",
-    "inLanguage": "En {LANGUAGE_TRANSLATED}"
+    "inLanguage": "En {LANGUAGE_TRANSLATED}",
+    "sequenced": "",
+    "treatment": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
   },
   "interpretationRemarks": {
     "comments": {
