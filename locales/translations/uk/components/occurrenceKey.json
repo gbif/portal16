@@ -1,7 +1,8 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "Детальна інформація"
+      "details": "Детальна інформація",
+      "cluster": ""
     },
     "typeOf": "{TYPE} з {NAME}",
     "coordinates": "Координати",
@@ -86,7 +87,17 @@
       "unknownSpecies": "Невідомий вид"
     },
     "occurrence": "Знахідка",
-    "inLanguage": "Мова: {LANGUAGE_TRANSLATED}"
+    "inLanguage": "Мова: {LANGUAGE_TRANSLATED}",
+    "sequenced": "",
+    "treatment": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
   },
   "interpretationRemarks": {
     "comments": {
