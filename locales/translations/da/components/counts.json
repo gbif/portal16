@@ -23,6 +23,7 @@
         "pInfraspecies": "{NUMBER, select, 1{infraart} other{infraarter}}",
         "pPublishers": "{NUMBER, select, 1{forlægger} other{forlæggere}}",
         "contacts": "{NUMBER, select, 1{kontakt} other{kontakter}}",
-        "nTreatments": ""
+        "nTreatments": "",
+        "nImages": ""
     }
 }
