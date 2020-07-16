@@ -1,7 +1,8 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "詳細資料"
+      "details": "詳細資料",
+      "cluster": ""
     },
     "typeOf": "{NAME} 的 {TYPE}",
     "coordinates": "座標",
@@ -86,7 +87,17 @@
       "unknownSpecies": "未知的物種"
     },
     "occurrence": "出現紀錄",
-    "inLanguage": "於 {LANGUAGE_TRANSLATED}"
+    "inLanguage": "於 {LANGUAGE_TRANSLATED}",
+    "sequenced": "",
+    "treatment": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
   },
   "interpretationRemarks": {
     "comments": {
