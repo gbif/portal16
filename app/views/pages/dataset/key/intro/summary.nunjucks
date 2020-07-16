@@ -28,12 +28,12 @@
                     </dd>
                 </div>
 
-                <div ng-if="datasetKey.processSummary.lastDataChange">
+                {# <div ng-if="datasetKey.processSummary.lastDataChange">
                     <dt translate="dataset.registry.dataLastChanged"></dt>
                     <dd>
                         {{ datasetKey.processSummary.lastDataChange.finishedCrawling | momentFormat:'LL' }}
                     </dd>
-                </div>
+                </div> #}
                 <div>
                     <dt translate="dataset.registry.hostedBy">Host</dt>
                     <dd dir="auto"><a ng-href="/publisher/{{ datasetKey.host.key }}">{{ datasetKey.host.title }}</a></dd>

@@ -93,10 +93,11 @@
                         </dd>
                     </div>
                 </dl>
-                <div ng-if="!datasetKey.isBackbone">
+                <p>See details in the <a ng-href="{{ portal.env.managementToolsSite }}dataset/{{ datasetKey.key }}/ingestion-history">GBIF Registry</a></p>
+                {# <div ng-if="!datasetKey.isBackbone">
                     {% include('./crawlInfo.nunjucks') %}
-                </div>
-                <p ng-if="datasetKey.currentCrawlingStatus.crawlInProcess"><span translate="dataset.registry.inIngestionQueue"></span> <span gb-help="time-to-index-dataset"></span></p>
+                </div> #}
+                {# <p ng-if="datasetKey.currentCrawlingStatus.crawlInProcess"><span translate="dataset.registry.inIngestionQueue"></span> <span gb-help="time-to-index-dataset"></span></p> #}
             </div>
         </div>
     </div>
