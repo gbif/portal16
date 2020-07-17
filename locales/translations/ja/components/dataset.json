@@ -12,10 +12,10 @@
       "withTaxonMatch": "一致する分類群",
       "withCoordinates": "経緯度",
       "withYear": "年",
-      "acceptedNames": "受理名前",
+      "acceptedNames": "現在の学名",
       "synonyms": "シノニム",
-      "overlapWithNub": "GBIF バックボーンと重複します。",
-      "overlapWithCol": "COLカタログオブライフと重複します。"
+      "overlapWithNub": "GBIF バックボーンに収載されています。",
+      "overlapWithCol": "COLカタログオブライフに収載されています。"
     },
     "noStatsForMetadata": "メタデータのみのデータセットにつき、統計情報なし",
     "viewArticle": "記事を見る",
