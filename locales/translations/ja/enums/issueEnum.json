@@ -6,7 +6,7 @@
     "RANK_INVALID": "ランク不明",
     "NOMENCLATURAL_STATUS_INVALID": "学名命名の状況が不明",
     "TAXONOMIC_STATUS_INVALID": "分類学的地位が不明",
-    "SCIENTIFIC_NAME_ASSEMBLED": "組み立てられた学名",
+    "SCIENTIFIC_NAME_ASSEMBLED": "既存にない学名",
     "CHAINED_SYNOYM": "シノニムの連鎖",
     "BASIONYM_AUTHOR_MISMATCH": "バシオニムの著者の不一致",
     "TAXONOMIC_STATUS_MISMATCH": "分類学的地位の不一致",
