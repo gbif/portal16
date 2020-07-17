@@ -1,16 +1,16 @@
 {
   "nameUsageOrigin": {
     "SOURCE": "レコードはソースレコードから直接得られました",
-    "DENORMED_CLASSIFICATION": "非正規分類による非正規の使用法",
-    "VERBATIM_PARENT": "Implicit usage from a verbatim parent name usage.",
-    "VERBATIM_ACCEPTED": "正規のオリジナルの学名による非正規の使用法",
-    "VERBATIM_BASIONYM": "オリジナルの学名･バシオニムによる非正規の使用法",
+    "DENORMED_CLASSIFICATION": "非正規表現による既定の使用法",
+    "VERBATIM_PARENT": "非正規の親オリジナルの学名による既定の使用法",
+    "VERBATIM_ACCEPTED": "正規のオリジナルの学名による既定の使用法",
+    "VERBATIM_BASIONYM": "オリジナルの学名･バシオニムによる既定の使用法",
     "PROPARTE": "単一のレコードの部分を使用した重複使用",
     "AUTONYM": "オートニムなしにつき、生成",
     "IMPLICIT_NAME": "下位学名がオーファンのため、属あるいは種を生成",
     "MISSING_ACCEPTED": "Artificial accepted usage for a synonym if its missing to preserve the taxonomic hierarchy.",
-    "BASIONYM_PLACEHOLDER": "欠落または非正規のバシオニムのためのプレースホルダの使用",
-    "EX_AUTHOR_SYNONYM": "非正規の前著者に基づいた非正規のシノニム。ICN46条参照：https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
+    "BASIONYM_PLACEHOLDER": "欠落または既定のバシオニムのためのプレースホルダの使用",
+    "EX_AUTHOR_SYNONYM": "非正規の前著者に基づいた既定のシノニム。ICN46条参照：https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
     "OTHER": "その他の起源"
   }
 }
