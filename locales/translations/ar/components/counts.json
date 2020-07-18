@@ -1,6 +1,6 @@
 {
     "counts": {
-        "nCitations": "{NUMBER_FORMATED}{NUMBER, select,1{اقتباس}other{اقتباسات}}",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, plural, 1، {اقتباس} other{اقتباسات}}",
         "pCitations": "{NUMBER, select,1{اقتباس}other{اقتباسات}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{سجل} other{سجلات}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{نتيجة} other{نتائج}}",
@@ -24,6 +24,6 @@
         "pPublishers": "{NUMBER, select, 1{ناشر} other{ناشرون}}",
         "contacts": "{NUMBER, select, 1{جهة اتصال} other{جهات اتصال}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{معالجة} other{معالجات}}",
-        "nImages": ""
+        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1، {صورة} other{صور}}"
     }
 }
