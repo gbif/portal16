@@ -2,7 +2,7 @@
   "occurrence": {
     "tabs": {
       "details": "Details",
-      "cluster": ""
+      "cluster": "Cluster"
     },
     "typeOf": "{TYPE} of {NAME}",
     "coordinates": "Coordinates",
@@ -94,7 +94,7 @@
       "current": "",
       "relatedOccurrences": "",
       "similarBecause": "",
-      "matchedRecord": "",
+      "matchedRecord": "Matched record",
       "noMatches": "",
       "explainer": ""
     }
