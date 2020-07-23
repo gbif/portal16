@@ -74,7 +74,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
        enums: enums.establishmentMeans,
        reversible: true,
        facets: {
-           hasFacets: false,
+           hasFacets: true,
            facetKey: 'ESTABLISHMENT_MEANS'
        }
     };
