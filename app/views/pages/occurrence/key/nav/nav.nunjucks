@@ -11,7 +11,7 @@
                                 </a>
                             </li>
 
-                            <li ng-if="occurrenceKey.isAllowedUser() && occurrenceKey.similarRecords.relatedOccurrences.length > 0" class="tab" ng-class="{isActive: occurrenceKey.$state.is('occurrenceKeyCluster')}">
+                            <li ng-if="occurrenceKey.similarRecords.relatedOccurrences.length > 0" class="tab" ng-class="{isActive: occurrenceKey.$state.is('occurrenceKeyCluster')}">
                                 <a ui-sref="occurrenceKeyCluster({key:occurrenceKey.key})" translate="occurrence.tabs.cluster">
                                     Cluster
                                 </a>

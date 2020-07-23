@@ -23,13 +23,6 @@ function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, 
     });
     Page.drawer(false);
 
-    vm.isAllowedUser = function() {
-        // this is for the cluster tab.
-        // only show to a few test users to begin with. But leave it for everyone to see if they get the direct link.
-        var userName = _.get($sessionStorage, 'user.userName', '');
-        return ['trobertson', 'mhoefft', 'thomasgbif'].indexOf(userName) > -1;
-    };
-
     vm.datasetProcessSummary = DatasetProcessSummary.get({key: occurrence.datasetKey});
 
     vm.mediaExpand = {
