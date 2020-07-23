@@ -1,20 +1,19 @@
-
+{# 
 <div>
     <article >
-
-
         <div class="horizontal-stripe white-background">
             <div class="container--narrow nameParser__tabs-container">
                 {% include "../../../resource/key/body.nunjucks" %}
-
                 <div class="article-secondary">
                     {% include "../../../resource/key/documentsLinks.nunjucks" %}
                 </div>
-
                 {% include "../../../resource/key/auxiliary.nunjucks" %}
             </div>
         </div>
-
     </article>
 </div>
+ #}
 
+<div class="horizontal-stripe white-background">
+    <ng-include src="portal.urlPrefix + '/api/resource/tool?content_type=Tool&fields.machineIdentifier=name_parser'" ></ng-include>
+</div>

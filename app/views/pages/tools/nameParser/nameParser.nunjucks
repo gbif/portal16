@@ -23,7 +23,7 @@
             {% include "./nav.nunjucks" %}
         </div>
 
-        <ng-include src="'/templates/name-parser/about.html?locale='+nameParser.locale" ng-if="nameParser.$location.path().indexOf('/about') > -1"></ng-include>
+        <ng-include src="'/templates/name-parser/about.html'" ng-if="nameParser.$location.path().indexOf('/about') > -1"></ng-include>
 
         <div ng-if="nameParser.$location.path().indexOf('/about') === -1">
         {% include "./upload.nunjucks" %}
