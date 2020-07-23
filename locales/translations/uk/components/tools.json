@@ -64,9 +64,6 @@
                 "demo": "Демо",
                 "statement": ""
             }
-        },
-        "nameParser": {
-            "title": "Аналізатор назв"
         }
     }
 }
