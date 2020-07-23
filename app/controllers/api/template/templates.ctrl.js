@@ -277,11 +277,3 @@ router.get('/tools/dataRepository/key.html', function(req, res, next) {
 router.get('/search/sequenceResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/sequenceMatching/sequenceSearchResult');
 });
-
-router.get('/tools/nameParser.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/tools/nameParser/nameParser.template.nunjucks');
-});
-
-router.get('/tools/nameParserAbout.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/tools/nameParser/about/nameParserAbout.template.nunjucks');
-});

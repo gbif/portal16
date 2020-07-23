@@ -46,9 +46,9 @@ gulp.task('speciesLookup', function() {
     return build('./app/views/pages/tools/speciesLookup/speciesLookup.entry.js', 'pages/speciesLookup.js');
 });
 
-/* gulp.task('nameParser', function() {
+gulp.task('nameParser', function() {
     return build('./app/views/pages/tools/nameParser/nameParser.entry.js', 'pages/nameParser.js');
-}); */
+});
 
 gulp.task('sequenceMatching', function() {
     return build('./app/views/pages/tools/sequenceMatching/sequenceMatching.entry.js', 'pages/sequenceMatching.js');

@@ -6,9 +6,8 @@ angular
     .controller('nameParserCtrl', nameParserCtrl);
 
 /** @ngInject */
-function nameParserCtrl($http, $state, $scope, hotkeys, $location) {
+function nameParserCtrl($http, $scope, hotkeys, $location) {
     var vm = this;
-    vm.$state = $state;
     vm.state = {};
     vm.pagination = {
         currentPage: 1,

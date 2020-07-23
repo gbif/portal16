@@ -632,28 +632,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
-        .state('nameParser', {
-            parent: 'localization',
-            url: '/tools/name-parser',
-            views: {
-                main: {
-                    templateUrl: '/api/template/tools/nameParser.html?v=' + BUILD_VERSION,
-                    controller: 'nameParserCtrl',
-                    controllerAs: 'vm'
-                }
-            }
-        })
-        .state('nameParserAbout', {
-            parent: 'nameParser',
-            url: '/about',
-            views: {
-                main: {
-                    templateUrl: '/api/template/tools/nameParserAbout.html?v=' + BUILD_VERSION,
-                    controller: 'nameParserCtrl',
-                    controllerAs: 'vm'
-                }
-            }
-        })
         .state('dataValidator', {
             parent: 'localization',
             url: '/tools/data-validator',
