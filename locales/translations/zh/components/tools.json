@@ -64,9 +64,6 @@
                 "demo": "演示",
                 "statement": "意向说明"
             }
-        },
-        "nameParser": {
-            "title": "名称解析器"
         }
     }
 }
