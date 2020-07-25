@@ -67,7 +67,7 @@
     "tradeRestrictions": "贸易限制",
     "basionym": "基础名",
     "nVernacularNames": "{NUMBER, select, 1{俗名} other{俗名}}",
-    "nameUsagesApplied": "应用于 GBIF 的出现记录的名称用法",
+    "nameUsagesApplied": "在 GBIF中使用的出现记录名称",
     "appearsIn": "出现在 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{dataset} other{datasets}}:",
     "viewOccurrences": "查看出现记录",
     "seeAlso": "请参见",
