@@ -4,8 +4,8 @@
     "title": "通讯录",
     "contact": "联系人",
     "voting_participant": {
-      "one": "选举成员",
-      "other": "选举成员"
+      "one": "有选举权的成员",
+      "other": "有选举权的成员"
     },
     "associate_country_participant": {
       "one": "合作国家成员",
@@ -26,13 +26,13 @@
     "role": "角色",
     "group": {},
     "gbif_secretariat": "GBIF 秘书处",
-    "membershipType": "会员资格",
+    "membershipType": "会员",
     "name": "名字",
     "endorsedDataPublisher": "已认可 {NUMBER_FORMATTED} 数据{NUMBER, select, one{发布者} other{发布者}}",
     "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{成员} other{成员}}",
-    "dataset": "{NUMBER, select, one{数据集}other{数据集}}",
+    "dataset": "{NUMBER, plural, one{数据集} other{数据集}}",
     "datasets": "数据集",
-    "regionalRepresentative": "{NUMBER, select,one{代表} other{代表}}",
+    "regionalRepresentative": "{NUMBER, plural, one{代表} other{代表}}",
     "participation": {
       "nonCountryParticipants": "参与组织",
       "gbifAffiliates": "GBIF 附属机构"
@@ -44,8 +44,8 @@
     "publishers": "发布者",
     "memberSince": "成员自",
     "participant": "成员",
-    "pPublishers": "{NUMBER, select, 1{发布者} other{发布者}}",
-    "pOccurrence": "{NUMBER, select, 1{出现记录} other{出现记录}}",
+    "pPublishers": "{NUMBER, plural, 1{发布者} other{发布者}}",
+    "pOccurrence": "{NUMBER, plural, 1{出现记录} other{出现记录}}",
     "occurrenceDatasets": "出现记录数据集",
     "occurrences": "出现记录"
   }
