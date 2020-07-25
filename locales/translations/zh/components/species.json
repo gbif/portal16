@@ -5,12 +5,12 @@
   },
   "species": {
     "distribution": {
-      "presentIn": "出现在 {country}",
-      "presentInNonCountry": "出现在 {location}",
+      "presentIn": "{status} 在 {country}",
+      "presentInNonCountry": "{status} 在 {location}",
       "threatStatus": "受威胁状态： {status}",
       "establishmentMeans": "建立是指: {status}",
       "distributionPlural": "分布",
-      "PRESENT": "存在的",
+      "PRESENT": "现在的",
       "ABSENT": "不存在"
     },
     "tabs": {
@@ -49,8 +49,8 @@
     "synonym": "异名",
     "description": "描述",
     "synonyms": "异名",
-    "synonymOf": "异名",
-    "basionymOf": "基本名称",
+    "synonymOf": "的同物异名",
+    "basionymOf": "的基本名称",
     "homotypicSynonymOf": "的同模式异名",
     "immediateChildren": "直系亲属",
     "descendants": "降序",
@@ -65,7 +65,7 @@
     "inLanguage": "在 {language} 中",
     "publishedIn": "已发布",
     "tradeRestrictions": "贸易限制",
-    "basionym": "基名",
+    "basionym": "基础名",
     "nVernacularNames": "{NUMBER, select, 1{俗名} other{俗名}}",
     "nameUsagesApplied": "应用于 GBIF 的出现记录的名称用法",
     "appearsIn": "出现在 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{dataset} other{datasets}}:",
