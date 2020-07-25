@@ -16,7 +16,7 @@
         "nPublishers": "{NUMBER_FORMATED} {NUMBER, select, 1{p发布者} other{发布者}}",
         "nCountries": "{NUMBER_FORMATED} {NUMBER, select, 1{国家} other{国家}}",
         "nContacts": "{NUMBER_FORMATED} {NUMBER, select, 1{联系人} other{联系人}}",
-        "pRecords": "{NUMBER, select,1{记录}other{记录}}",
+        "pRecords": "{NUMBER, plural, 1{记录} other{记录}}",
         "pOccurrence": "{NUMBER, select, 1{出现记录} other{出现记录}}",
         "pMaterialSamples": "{NUMBER, select, 1 {已检查的材料} other{已检查的材料}}",
         "pSpecies": "{NUMBER, select,1{物种} other{物种}}",
