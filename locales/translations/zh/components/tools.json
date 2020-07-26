@@ -28,7 +28,7 @@
                 "followDiscussionBelow": "通过以下链接关注或加入进一步的讨论。",
                 "followIssue": "在Github上查看建议。",
                 "suggestAnother": "建议另外一个数据集",
-                "saveFailure": "不好，我们无法保存您的建议。请稍后再试，或者您直接到我们管理建议使用的[Github](https://github.com/gbif/data-mobilization/issues)。"
+                "saveFailure": "抱歉，我们无法保存您的建议。请稍后再试，或者您直接到我们管理建议使用的[Github](https://github.com/gbif/data-mobilization/issues)。"
             }
         },
         "observationTrends": {
@@ -46,12 +46,12 @@
             "embedIntro": "经由 {GBIF network} 的所有数据"
         },
         "speciesLookup": {
-            "description": "针对 GBIF 主干对 CSV 文件中的物种名称进行规范化。该文件预计将有一个名为 \"科学名称\" 的列和一个可选的列 \"王国\" 和 \"id\"。",
+            "description": "根据GBIF 主干中的物种名称对 CSV 文件中的物种名称进行比对。该文件预计将有一个名为 \"学名\" 的列和一个可选的列 \"界\" 和 \"ID\"。",
             "title": "物种名称匹配"
         },
         "ipt": {
-            "description": "综合发布工具包 (IPT) 是用 Java 编写的免费开源软件工具, 用于通过 GBIF 网络发布和共享生物多样性数据集。IPT 还可以使用 DataCite 或 EZID 帐户进行配置, 以便将 Doi 数据集分配给将其转换为数据存储库。",
-            "dontSeeYourIpt": "没有看到您的综合发布工具包（IPT）？发送邮件到helpdesk@gbif.org（ [GBIF] 帮助台，请求 \"将 IPT 添加到地图\") 您的坐标。"
+            "description": "综合发布工具包 (IPT) 是用 Java 编写的免费开源软件工具, 用于通过 GBIF 网络发布和共享生物多样性数据集。IPT 还可以使用 DataCite 或 EZID 帐户进行配置, 以便将 DOI 数据集分配给将其转换为数据存储库。",
+            "dontSeeYourIpt": "没有看到您的IPT？发送邮件到helpdesk@gbif.org（ [GBIF] 帮助台，请求 \"将 IPT 添加到地图\") 您的坐标。"
         },
         "dataRepository": {
             "title": ""
