@@ -2,9 +2,9 @@
   "trends": {
     "exploreByCountry": "按国家或地区浏览",
     "theseChartsIllustrate1": "这些图表展示了物种出现记录的可用性随时间的变化。",
-    "noOccRecords": "发生记录的数量",
-    "occByKingdomChartText": "按领域分类的可用记录数。\"未知\" 包括具有分类信息的记录, 这些记录无法链接到可用的分类检查表。",
-    "recordsByKingdom": "按领域分列的记录",
+    "noOccRecords": "出现记录数",
+    "occByKingdomChartText": "按界分类的可用记录数。\"未知\" 包括有分类信息却无法链接到物种分类名录的记录。",
+    "recordsByKingdom": "按界来分的记录",
     "animaliaByBasisOfRecordText": "按记录基础分类的动物记录数量。\"未知\" 包括没有定义的记录基础或记录基础的未确认值的记录。",
     "recordsForAnimalia": "动物记录",
     "plantaeByBasisOfRecordText": "按记录分类的植物记录数。 “未知”包括没有明确记录基础的记录或具有未记录的记录基础值的记录。",
