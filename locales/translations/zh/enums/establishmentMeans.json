@@ -2,8 +2,8 @@
   "establishmentMeans": {
     "NATIVE": "本土的",
     "INTRODUCED": "引进的",
-    "NATURALISED": "归化",
-    "INVASIVE": "侵入的",
+    "NATURALISED": "驯化的",
+    "INVASIVE": "入侵的",
     "MANAGED": "管理",
     "UNCERTAIN": "不确定"
   }
