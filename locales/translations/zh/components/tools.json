@@ -3,7 +3,7 @@
         "tools": "工具",
         "categoryFeatured": "精选",
         "suggestDataset": {
-            "NOT_OPEN": "不是可打开的许可",
+            "NOT_OPEN": "不是公开授权",
             "title": "建议一个数据集",
             "pleaseDescribeTheDataset": "请描述这个数据集",
             "thankYou": "谢谢！",
@@ -17,7 +17,7 @@
                 "high": "必要的——GBIF在这一领域没有数据",
                 "medium": "重要的——GBIF在这一领域只有少量数据",
                 "low": "这将是对现有数据一个很好的补充",
-                "bibliographicRef": "参考书目",
+                "bibliographicRef": "参考文献",
                 "type": "数据集类型",
                 "license": "授权信息",
                 "dataHolderContact": "数据拥有者的联系信息",
