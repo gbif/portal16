@@ -88,15 +88,15 @@
     },
     "occurrence": "Occurrence",
     "inLanguage": "In {LANGUAGE_TRANSLATED}",
-    "sequenced": "",
-    "treatment": "",
+    "sequenced": "Sequenced",
+    "treatment": "Treatment",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
+      "current": "Current",
+      "relatedOccurrences": "Related occurrences",
+      "similarBecause": "Similar because",
       "matchedRecord": "Matched record",
-      "noMatches": "",
-      "explainer": ""
+      "noMatches": "No candidate relations",
+      "explainer": "This is an experimental feature that highlights possible duplicate and/or related occurrences."
     }
   },
   "interpretationRemarks": {
