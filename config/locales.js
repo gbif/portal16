@@ -14,6 +14,7 @@ let locales = ['en', 'ar', 'zh', 'zh-tw', 'fr', 'ja', 'pt', 'ru', 'uk', 'es'];
 if (env === 'local' || env === 'dev') {
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
+    locales.push('ar-MOCK');
     locales.push('da');
 }
 
