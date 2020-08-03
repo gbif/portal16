@@ -10,16 +10,14 @@ let env = process.env.NODE_ENV || 'local';
 let defaultLocale = 'en';
 
 // locales = ['en' , 'es', 'da', 'en-IN', 'zh-Hant-TW'],
-let locales = ['en', 'zh', 'zh-tw', 'fr', 'ja', 'pt', 'ru', 'uk', 'es'];
+let locales = ['en', 'ar', 'zh', 'zh-tw', 'fr', 'ja', 'pt', 'ru', 'uk', 'es'];
 if (env === 'local' || env === 'dev') {
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
-    locales.push('ar-MOCK');
     locales.push('da');
 }
 
 if (env === 'uat' || env === 'local') {
-    locales.push('ar');
   //  locales.push('zh-tw');
 }
 
