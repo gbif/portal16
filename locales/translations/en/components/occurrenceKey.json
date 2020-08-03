@@ -2,7 +2,7 @@
   "occurrence": {
     "tabs": {
       "details": "Details",
-      "cluster": ""
+      "cluster": "Cluster"
     },
     "typeOf": "{TYPE} of {NAME}",
     "coordinates": "Coordinates",
@@ -88,15 +88,15 @@
     },
     "occurrence": "Occurrence",
     "inLanguage": "In {LANGUAGE_TRANSLATED}",
-    "sequenced": "",
-    "treatment": "",
+    "sequenced": "Sequenced",
+    "treatment": "Treatment",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "Current",
+      "relatedOccurrences": "Related occurrences",
+      "similarBecause": "Similar because",
+      "matchedRecord": "Matched record",
+      "noMatches": "No candidate relations",
+      "explainer": "This is an experimental feature that highlights possible duplicate and/or related occurrences."
     }
   },
   "interpretationRemarks": {
