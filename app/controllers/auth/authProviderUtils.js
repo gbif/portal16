@@ -64,7 +64,7 @@ function getFirstVerifiedEmail(profile) {
         // Trust the email if:
         // 1) the claim is that it has been verified
         // 2) exception for facebook as they do not expose the verified claim, but does so according to tests and the wisdom of the internet.
-        return email.value && (email.verified === true || profile.provider === 'facebook'); // NB special exception for facebook as it has been validated that facebook only expose verified emails
+        return email.value && (email.verified === true || profile.provider === 'facebook' || profile.provider === 'github'); // NB special exception for facebook as it has been validated that facebook only expose verified emails
     });
     return profileEmail;
 }
@@ -278,8 +278,6 @@ function createAccount(req, res, next, state, profile, regState, setProviderValu
             auth.logUserIn(res, user);// might make better sense to user the returned user from the API, but currently it only returns a fraction of the user object
             res.redirect(302, state.target || '/');
         }).catch(function(err) {
-            log.error("OAUTH error")
-            log.error(err);
             next(err);
         });
 }
@@ -335,6 +333,7 @@ async function validateRegistration(loggedInUser, state, profile, identification
         let profileEmail = getFirstVerifiedEmail(profile);
 
         if (!profileEmail) {
+            log.error
             return {
                 status: 'NO_EMAIL_PROVIDED'
             };
