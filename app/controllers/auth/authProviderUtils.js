@@ -326,6 +326,12 @@ async function validateRegistration(loggedInUser, state, profile, identification
             user: loggedInUser
         };
     }
+    if (!profile) {
+        log.error('OAUTH: No profile returned');
+    } else if (!_.get(profile, 'emails')) {
+        log.error('OAUTH: No profile emails.');
+        log.error('OAUTH: available fields ' + Object.keys(profile));
+    }
     try {
         // check to see if the user is already registered - if so then just login
         let profileId = _.get(profile, 'id');
