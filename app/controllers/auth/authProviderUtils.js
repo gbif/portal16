@@ -333,7 +333,7 @@ async function validateRegistration(loggedInUser, state, profile, identification
         let profileEmail = getFirstVerifiedEmail(profile);
 
         if (!profileEmail) {
-            log.error
+            log.error('validateRegistration: NO_EMAIL_PROVIDED');
             return {
                 status: 'NO_EMAIL_PROVIDED'
             };
