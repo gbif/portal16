@@ -332,7 +332,7 @@ async function validateRegistration(loggedInUser, state, profile, identification
         log.error('OAUTH: No profile emails.');
         log.error('OAUTH: available fields ' + Object.keys(profile).join(' '));
     } else {
-        log.error('OAUTH: available fields ' + Object.keys(profile).join(' '));
+        log.error('OAUTH: available: ' + JSON.stringify(_.get(profile, 'emails[0]')));
     }
     try {
         // check to see if the user is already registered - if so then just login
