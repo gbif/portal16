@@ -64,7 +64,9 @@ function getFirstVerifiedEmail(profile) {
         // Trust the email if:
         // 1) the claim is that it has been verified
         // 2) exception for facebook as they do not expose the verified claim, but does so according to tests and the wisdom of the internet.
-        return email.value && (email.verified === true || profile.provider === 'facebook' || profile.provider === 'github'); // NB special exception for facebook as it has been validated that facebook only expose verified emails
+        return email.value && (email.verified === true || profile.provider === 'facebook' || profile.provider === 'github'); 
+        // NB special exception for facebook as it has been validated that facebook only expose verified emails
+        // NB also exception for gihub as the falg is missing and otherwise will prevent account creation using GitHub
     });
     return profileEmail;
 }
@@ -333,7 +335,6 @@ async function validateRegistration(loggedInUser, state, profile, identification
         let profileEmail = getFirstVerifiedEmail(profile);
 
         if (!profileEmail) {
-            log.error('validateRegistration: NO_EMAIL_PROVIDED');
             return {
                 status: 'NO_EMAIL_PROVIDED'
             };
