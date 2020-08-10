@@ -278,6 +278,8 @@ function createAccount(req, res, next, state, profile, regState, setProviderValu
             auth.logUserIn(res, user);// might make better sense to user the returned user from the API, but currently it only returns a fraction of the user object
             res.redirect(302, state.target || '/');
         }).catch(function(err) {
+            log.error("OAUTH error")
+            log.error(err);
             next(err);
         });
 }
