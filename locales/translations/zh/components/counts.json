@@ -20,10 +20,10 @@
         "pOccurrence": "{NUMBER, select, 1{出现记录} other{出现记录}}",
         "pMaterialSamples": "{NUMBER, select, 1 {已检查的材料} other{已检查的材料}}",
         "pSpecies": "{NUMBER, plural, 1{物种} other{物种}}",
-        "pInfraspecies": "{NUMBER, select, 1{次物种} other{次物种}}",
-        "pPublishers": "{NUMBER, select, 1{发布者} other{发布者}}",
-        "contacts": "{NUMBER, select, 1{联系人} other{联系人}}",
-        "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{处理} other{处理}}",
+        "pInfraspecies": "{NUMBER, plural, 1{种内单元} other{种内单元}}",
+        "pPublishers": "{NUMBER, plural, 1{发布者} other{发布者}}",
+        "contacts": "{NUMBER, plural, 1{联系人} other{联系人}}",
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, 1{处理} other{处理}}",
         "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{图片} other{图片}}"
     }
 }
