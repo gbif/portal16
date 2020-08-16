@@ -16,7 +16,7 @@
       },
       "nsg": {
         "title": "节点工作组",
-        "description": "节点指导小组 (Nodes Steering Group，NSG) 成立于2011年，其成员为 GBIF 六大区域代表 ([Africa](/the-gbif-network/africa)，[Asia](/the-gbif-network/asia)，[Europe](/the-gbif-network/europe)，[Latin America/Caribbean](/the-gbif-network/latin-america)，[North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)) 成员节点管理委员会 (/contact-us/directory?group=nodesCommittee) 的主席及副主席。NSG 的目标是根据成员节点提供的反馈，向相关GBIF机构提出具体建议，NSG 与 GBIF 节点的工作息息相关，也会提出关于GBIF年度工作计划的建议。"
+        "description": "节点工作组 (Nodes Steering Group，NSG) 成立于2011年，其成员为 GBIF 六大区域代表 ([非洲](/the-gbif-network/africa)，[亚洲](/the-gbif-network/asia)，[欧洲](/the-gbif-network/europe)，[拉丁美洲/加勒比海地区](/the-gbif-network/latin-america)，[北美洲](/the-gbif-network/north-america) and [大洋洲](/the-gbif-network/oceania)) 成员节点管理委员会 (/contact-us/directory?group=nodesCommittee) 的主席及副主席。NSG 的目标是根据成员节点提供的反馈，向相关GBIF机构提出具体建议，NSG 与 GBIF 节点的工作息息相关，也会提出关于GBIF年度工作计划的建议。"
       },
       "nodesCommittee": {
         "title": "节点管理员委员会",
