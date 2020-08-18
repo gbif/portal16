@@ -42,7 +42,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     vm.dataApi = env.dataApi;
     vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
     vm.isDoi = function(str) {
-        return str.match(doiRegex());
+      return typeof str === 'string' && str.match(doiRegex());
     };
 
    // vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
