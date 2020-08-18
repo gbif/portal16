@@ -1,10 +1,10 @@
 {
   "directory": {
-    "title": "目录",
+    "title": "通讯录",
     "group": {
       "executiveCommittee": {
         "title": "执行委员会",
-        "description": "执行委员会在理事会闭会期间并在理事会委托的责任范围内代表理事会运作。其职能之一是监测秘书处在执行理事会所作决定方面的业绩, 包括《战略计划》和《工作方案》的执行情况以及预算的管理。"
+        "description": "在理事会闭会期间，执行委员会在其委托的责任范围内代表理事会运作。其职能之一是监督秘书处在执行理事会所作决定方面的业绩, 包括《战略计划》和《工作方案》的执行情况以及预算的管理。"
       },
       "scienceCommittee": {
         "title": "科学委员会",
@@ -12,11 +12,11 @@
       },
       "budgetCommittee": {
         "title": "预算委员会",
-        "description": "预算委员会是一个咨询委员会，处理各种与GBIF 经费管理有关的金融问题。另外也监督提交给董事会的年度账目审计并向GBIF选定的审计公司提供指导。委员会向执行委员会和秘书处提供建议。它的职责范围可在这里找到 [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee) 找到。"
+        "description": "预算委员会是一个咨询委员会，处理各种与GBIF 经费管理有关的财务问题。另外也监督提交给董事会的年度账目审计并向GBIF选定的审计公司提供指导。委员会向执行委员会和秘书处提供建议。它的职责范围可在这里找到 [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee) 找到。"
       },
       "nsg": {
         "title": "节点工作组",
-        "description": "节点指导小组 (Nodes Steering Group，NSG) 成立于2011年，其成员为 GBIF 六大区域代表 ([Africa](/the-gbif-network/africa)，[Asia](/the-gbif-network/asia)，[Europe](/the-gbif-network/europe)，[Latin America/Caribbean](/the-gbif-network/latin-america)，[North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)) 成员节点管理委员会 (/contact-us/directory?group=nodesCommittee) 的主席及副主席。NSG 的目标是根据成员节点提供的反馈，向相关GBIF机构提出具体建议，NSG 与 GBIF 节点的工作息息相关，也会提出关于GBIF年度工作计划的建议。"
+        "description": "节点工作组 (Nodes Steering Group，NSG) 成立于2011年，其成员为 GBIF 六大区域代表 ([非洲](/the-gbif-network/africa)，[亚洲](/the-gbif-network/asia)，[欧洲](/the-gbif-network/europe)，[拉丁美洲/加勒比海地区](/the-gbif-network/latin-america)，[北美洲](/the-gbif-network/north-america) and [大洋洲](/the-gbif-network/oceania)) 成员节点管理委员会 (/contact-us/directory?group=nodesCommittee) 的主席及副主席。NSG 的目标是根据成员节点提供的反馈，向相关GBIF机构提出具体建议，NSG 与 GBIF 节点的工作息息相关，也会提出关于GBIF年度工作计划的建议。"
       },
       "nodesCommittee": {
         "title": "节点管理员委员会",

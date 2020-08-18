@@ -10,7 +10,7 @@
             "lastWithDataChange": "最后一次接收数据更改",
             "occInLastIngestion": "上次抓取的出现记录情况",
             "completionReasons": "接收完成的原因",
-            "unfinished": "未完成的 ingestions",
+            "unfinished": "未完成的接收",
             "total": "全部接收",
             "endpoints": "终点",
             "installationContacts": "安装联系人",

@@ -1,7 +1,8 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "Detalles"
+      "details": "Detalles",
+      "cluster": ""
     },
     "typeOf": "",
     "coordinates": "Coordenadas",
@@ -86,7 +87,17 @@
       "unknownSpecies": "Especie deconocida"
     },
     "occurrence": "Registro",
-    "inLanguage": "En "
+    "inLanguage": "En ",
+    "sequenced": "",
+    "treatment": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
   },
   "interpretationRemarks": {
     "comments": {

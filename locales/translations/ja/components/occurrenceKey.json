@@ -1,7 +1,8 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "詳細"
+      "details": "詳細",
+      "cluster": ""
     },
     "typeOf": "{NAME} の {TYPE}",
     "coordinates": "座標",
@@ -86,7 +87,17 @@
       "unknownSpecies": "不明な種"
     },
     "occurrence": "オカレンス",
-    "inLanguage": "（{LANGUAGE_TRANSLATED}）"
+    "inLanguage": "（{LANGUAGE_TRANSLATED}）",
+    "sequenced": "",
+    "treatment": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
   },
   "interpretationRemarks": {
     "comments": {

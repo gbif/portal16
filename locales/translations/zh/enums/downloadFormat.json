@@ -3,7 +3,7 @@
     "SIMPLE_AVRO": "Apache Avro",
     "SIMPLE_CSV": "CSV",
     "DWCA": "达尔文核心（Darwin Core Archive）",
-    "SPECIES_LIST": "CSV格式的物种列表",
+    "SPECIES_LIST": "物种列表",
     "SIMPLE_WITH_VERBATIM_AVRO": "",
     "MAP_OF_LIFE": "",
     "IUCN": "",

@@ -96,7 +96,7 @@
     "GW": "Guinée-Bissau",
     "GY": "Guyane",
     "HT": "Haïti",
-    "HM": "Île Heard et Îles Mcdonald",
+    "HM": "Îles Heard-et-MacDonald",
     "VA": "Saint-Siège",
     "HN": "Honduras",
     "HK": "Hong Kong",
@@ -158,7 +158,6 @@
     "NR": "Nauru",
     "NP": "Népal",
     "NL": "Pays-Bas",
-    "AN": "Antilles néerlandaises",
     "NC": "Nouvelle Calédonie",
     "NZ": "Nouvelle-Zélande",
     "NI": "Nicaragua",
@@ -219,7 +218,7 @@
     "SE": "Suède",
     "CH": "Suisse",
     "SY": "République arabe syrienne",
-    "TW": "Taïwan",
+    "TW": "Taïwan, Province de Chine",
     "TJ": "Tadjikistan",
     "TZ": "Tanzanie, République-Unie de",
     "TH": "Thaïlande",
@@ -252,7 +251,6 @@
     "ZM": "Zambie",
     "XZ": "Eaux internationales",
     "ZW": "Zimbabwe",
-    "QO": "Océanie",
     "ZZ": "Pays inconnu"
   }
 }

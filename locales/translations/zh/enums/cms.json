@@ -5,7 +5,7 @@
         "countriesOfCoverage": "覆盖的国家或地区",
         "countriesOfResearcher": "研究人员的国家或地区",
         "literatureType": "文献类型",
-        "contractCountry": "国家",
+        "contractCountry": "国家或地区",
         "topics": "主题",
         "audiences": "受众",
         "purposes": "目的",
@@ -15,7 +15,7 @@
         "datasetKey": "数据集",
         "publishingOrg": "发布者",
         "peerReview": "同行评审",
-        "openAccess": "开源的",
+        "openAccess": "开放访问的",
         "gbifDownloadKey": "下载密钥"
       },
       "contentType": {
@@ -25,7 +25,7 @@
         "dataUse": "数据使用",
         "project": "项目",
         "participant": "成员",
-        "programme": "计划",
+        "programme": "项目",
         "document": "文档",
         "tool": "工具",
         "literature": "文献"
@@ -38,10 +38,10 @@
           "REGIONAL": "区域性基金",
           "SMALL": "小额经费",
           "NATIONAL": "国家基金",
-          "undefined": "未标明"
+          "undefined": "未指定的"
         },
         "projectStatus": {
-          "APPROVED": "已批准",
+          "APPROVED": "已通过",
           "CLOSED": "关闭",
           "IN_PROGRESS": "进行中",
           "DISCONTINUED": "停止",
@@ -51,11 +51,11 @@
           "GBIF_USED": "GBIF使用的",
           "GBIF_CITED": "GBIF引用的",
           "GBIF_DISCUSSED": "GBIF讨论",
-          "GBIF_PRIMARY": "GBIF 主要",
+          "GBIF_PRIMARY": "GBIF 主要的",
           "GBIF_ACKNOWLEDGED": "GBIF感谢的",
           "GBIF_PUBLISHED": "GBIF发布",
           "GBIF_AUTHOR": "GBIF作者",
-          "GBIF_MENTIONED": "GBIF提到",
+          "GBIF_MENTIONED": "GBIF提到的",
           "GBIF_FUNDED": "GBIF资助的"
         },
         "topics": {
@@ -103,9 +103,9 @@
           "computer_program": "计算机程序",
           "hearing": "听觉",
           "television_broadcast": "电视广播",
-          "encyclopedia_article": "生物百科文章",
+          "encyclopedia_article": "百科文章",
           "case": "案例",
-          "film": "影片",
+          "film": "电影",
           "bill": "帐单"
         },
         "audiences": {

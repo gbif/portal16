@@ -77,7 +77,7 @@
     "pNetwork": "{NUMBER, select,1{شبكة الاتصال} other{شبكات اتصال}}",
     "parentEvent": "الحادثة الرئيسية",
     "eventDescription": "وصف الحادثة",
-    "siblingEvents": "أحداث أقارب",
+    "siblingEvents": "أحداث فرعية",
     "childEvents": "أحداث تابعة",
     "events": "",
     "occurrenceCount": "عدد التكرار",

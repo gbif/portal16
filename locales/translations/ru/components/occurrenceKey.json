@@ -1,7 +1,8 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "Подробнее"
+      "details": "Подробнее",
+      "cluster": ""
     },
     "typeOf": "{TYPE} из {NAME}",
     "coordinates": "Координаты",
@@ -86,7 +87,17 @@
       "unknownSpecies": "Неизвестный вид"
     },
     "occurrence": "Находка",
-    "inLanguage": "({LANGUAGE_TRANSLATED} язык)"
+    "inLanguage": "({LANGUAGE_TRANSLATED} язык)",
+    "sequenced": "",
+    "treatment": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
   },
   "interpretationRemarks": {
     "comments": {

@@ -64,9 +64,6 @@
                 "demo": "Demo",
                 "statement": "Declaração de intenções"
             }
-        },
-        "nameParser": {
-            "title": "Analisador de nomes"
         }
     }
 }

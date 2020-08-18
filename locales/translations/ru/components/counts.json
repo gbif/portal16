@@ -23,6 +23,7 @@
         "pInfraspecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {подвидовых таксонов}\none {подвидовой таксон}\nfew {подвидовых таксона}\nmany {подвидовых таксонов}\nother {подвидовых таксонов}\n}",
         "pPublishers": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {организаций}\none {организация}\nfew {организации}\nmany {организаций}\nother {организаций}\n}",
         "contacts": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {контактов}\none {контакт}\nfew {контакта}\nmany {контактов}\nother {контактов}\n}",
-        "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {подвидов}\none {подвид}\nfew {подвида}\nmany {подвидов}\nother {подвидов}\n}"
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {подвидов}\none {подвид}\nfew {подвида}\nmany {подвидов}\nother {подвидов}\n}",
+        "nImages": ""
     }
 }
