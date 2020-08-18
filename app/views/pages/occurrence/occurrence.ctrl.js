@@ -192,7 +192,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
         facets: {
             hasFacets: false,
             facetKey: 'CATALOG_NUMBER'
-        }
+        },
+        focusFirst: false
     };
 
     vm.filters.locality = {

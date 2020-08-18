@@ -37,7 +37,7 @@
                    placeholder="{{ 'filters.searchPlaceholder' | translate }}"
                    uib-typeahead="suggestion for suggestion in vm.getSuggestions($viewValue)"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
-                   typeahead-focus-first="true"
+                   typeahead-focus-first="vm.filterConfig.focusFirst"
                    typeahead-template-url="dropdown.html" 
                    ng-keyup="vm.searchOnEnter($event)">
         </div>
