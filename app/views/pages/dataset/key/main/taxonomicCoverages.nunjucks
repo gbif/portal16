@@ -13,7 +13,7 @@
                         <div class="dataset-key__taxonomicCoverages__columns">
                             <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey.dataset.type == 'CHECKLIST'">
                                 <a ui-sref="speciesSearchList({advanced:true,dataset_key: datasetKey.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa">
-                                    <span dir="ltr">{{ name.scientificName }}</span><span dir="auto" ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
+                                    <span dir="ltr">{{ name.scientificName }}</span> <span dir="auto" ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
                                 </a>
                             </span>
                             <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey.dataset.type != 'CHECKLIST'">
