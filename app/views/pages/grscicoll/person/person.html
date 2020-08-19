@@ -11,7 +11,7 @@
         <section class="col-xs-12">
             <div class="m-b-05">
                 <div class="search-box">
-                    <form ng-submit="grscicollPerson.pageChanged()">
+                    <form ng-submit="grscicollPerson.doSearch()">
                         <input type="text" placeholder="{{ 'search.search' | translate }}" autocomplete="off"
                                 ng-model="grscicollPerson.q">
                         <a href="" class="search-box__submit gb-icon-search2 inherit noUnderline" type="submit" ng-click="grscicollPerson.pageChanged()">

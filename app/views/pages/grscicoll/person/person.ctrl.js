@@ -42,10 +42,15 @@ function grscicollPersonCtrl(Page, $state, $stateParams, PersonSearch) {
     vm.pageChanged = function() {
         vm.offset = (vm.currentPage - 1) * vm.limit;
         var query = {q: vm.q, offset: vm.offset};
-        $state.go('.', query, {inherit: false, notify: false, reload: false});
+        $state.go('.', query, {inherit: true, notify: false, reload: false});
         updatePaginationCounts();
         vm.query();
         window.scrollTo(0, 0);
+    };
+
+    vm.doSearch = function() {
+      vm.offset = 0;
+      vm.pageChanged();
     };
 }
 
