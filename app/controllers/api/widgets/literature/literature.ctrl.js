@@ -13,6 +13,8 @@ router.get('/widgets/literature/button', async function (req, res) {
   const searchQuery = req.query;
   searchQuery.contentType = 'literature';
   const query = querystring.stringify(searchQuery);
+    // Allow this widget in iframes
+  res.removeHeader('X-Frame-Options');
   resourceSearch.search(searchQuery, req.__)
     .then(function (result) {
       // res.json(result);
@@ -37,6 +39,8 @@ router.get('/widgets/literature/latest', async function (req, res) {
   searchQuery.limit = limit;
   searchQuery.offset = 0;
   const query = querystring.stringify(searchQuery);
+  // Allow this widget in iframes
+  res.removeHeader('X-Frame-Options');
   resourceSearch.search(searchQuery, req.__)
     .then(function (result) {
       // res.json(result);

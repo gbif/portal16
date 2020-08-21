@@ -16,12 +16,15 @@ module.exports = function(app, config) {
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
 
+    // based on https://github.com/OWASP/CheatSheetSeries/issues/376 helmet disables browsers' buggy cross-site scripting filter
+
     app.use(helmet({
         contentSecurityPolicy: {
             directives: {
-                defaultSrc: [`'self'`, `*.gbif.org`, `*.${config.topDomain}`, '*.google-analytics.com', 'fonts.gstatic.com', 'stats.g.doubleclick.net/'],
-                scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`, '*.google-analytics.com'],
-                styleSrc: [`'self'`, `'unsafe-inline'`, '*.googleapis.com'],
+                defaultSrc: [`'self'`, `*.gbif.org`, `*.${config.topDomain}`, '*.google-analytics.com', 'fonts.gstatic.com', 'stats.g.doubleclick.net/', 'data:', 'api.mapbox.com', '*.tiles.mapbox.com'],
+                scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`, '*.google-analytics.com', 'api.mapbox.com'],
+                styleSrc: [`'self'`, `'unsafe-inline'`, '*.googleapis.com', 'api.mapbox.com'],
+                workerSrc: ['blob:'],
                 upgradeInsecureRequests: []
               }
         }
