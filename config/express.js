@@ -21,14 +21,19 @@ module.exports = function(app, config) {
     app.use(helmet({
         contentSecurityPolicy: {
             directives: {
-                defaultSrc: [`'self'`, `*.gbif.org`, `*.${config.topDomain}`, '*.google-analytics.com', 'fonts.gstatic.com', 'stats.g.doubleclick.net/', 'data:', 'api.mapbox.com', '*.tiles.mapbox.com'],
+                defaultSrc: [`'self'`, `*.gbif.org`, `*.${config.topDomain}`, '*.google-analytics.com', 'fonts.gstatic.com', 'stats.g.doubleclick.net/', 'data:', 'api.mapbox.com', '*.tiles.mapbox.com', 'zenodo.org'],
                 scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`, '*.google-analytics.com', 'api.mapbox.com'],
                 styleSrc: [`'self'`, `'unsafe-inline'`, '*.googleapis.com', 'api.mapbox.com'],
                 workerSrc: ['blob:'],
                 upgradeInsecureRequests: []
               }
-        }
-      }));
+
+      },
+      hsts: {
+        maxAge: 600,
+        includeSubDomains: true
+      }
+}));
     /**
      * add middleware to add ip address to request.
      */
