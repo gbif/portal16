@@ -10,6 +10,7 @@ redirectList.forEach(function(e) {
 });
 
 function handleRedirects(req, res, next) {
+    console.log("TEST")
     let redirectTo = redirectTable[req.url];
     if (!redirectTo && ignoreTrailingSlashes ) {
         redirectTo = redirectTable[addTrailingSlash(req.url)];

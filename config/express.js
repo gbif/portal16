@@ -1,4 +1,5 @@
 let express = require('express'),
+    helmet = require('helmet'),
     glob = require('glob'),
     passport = require('passport'),
 // favicon = require('serve-favicon'),
@@ -15,6 +16,16 @@ module.exports = function(app, config) {
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
 
+    app.use(helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: [`'self'`, `*.gbif.org`, `*.${config.topDomain}`, '*.google-analytics.com', 'fonts.gstatic.com', 'stats.g.doubleclick.net/'],
+                scriptSrc: [`'self'`, `'unsafe-inline'`, `'unsafe-eval'`, '*.google-analytics.com'],
+                styleSrc: [`'self'`, `'unsafe-inline'`, '*.googleapis.com'],
+                upgradeInsecureRequests: []
+              }
+        }
+      }));
     /**
      * add middleware to add ip address to request.
      */
