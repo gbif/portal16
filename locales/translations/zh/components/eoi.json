@@ -61,7 +61,7 @@
     "logo": "标识logo",
     "exampleImageUrl": "例如 http://my.organization.org/images/logo.png",
     "invalidUrl": "无效网址",
-    "brieflyDescribeScope": "请简要描述您所在的机构/组织与GBIF任务相关的工作领域（如标本收藏、研究重点、生物多样性信息管理等）。这些内容将显示在您作为数据发布者的发布者页面。",
+    "brieflyDescribeScope": "请用 *英文*简要描述您所在的机构/组织与GBIF任务相关的工作领域（如标本收藏、研究重点、生物多样性信息管理等）。这些内容将显示在您作为数据发布者的发布者页面。您可能还希望包括其他语言的版本，但英语是必需的。",
     "clear": "清除",
     "clickMapToAddOrg": "点击地图来添加您的组织",
     "description": "描述",
