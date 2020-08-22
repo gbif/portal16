@@ -4,7 +4,7 @@
     "nRecordsDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{记录} other{记录}}",
     "nConstituentDatasets": "包含来自 {NUMBER_FORMATTED} 个{NUMBER, select, one {数据集} other{数据集}} 的记录",
     "fileNotAvailable": "此文件不再可供下载。",
-    "downloadDeletionWarning": "此下载未被引用, 并有资格在 {DATE} 后删除。",
+    "downloadDeletionWarning": "除非此次下载被 [GBIF发现有引用](/literature-tracking), 这个数据文件可以在 {DATE} 后删除。",
     "occurrenceDownload": "出现记录下载",
     "brokenDownload": "中断的下载",
     "contactHelpdesk": "联系服务台",
