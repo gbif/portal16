@@ -36,6 +36,10 @@
       "subject": "Subject",
       "citation": "Citation",
       "organisingParticipants": "Organising Participants"
+    },
+    "document": {
+      "download": "Download",
+      "readDocument": "Go to document"
     }
   }
 }
