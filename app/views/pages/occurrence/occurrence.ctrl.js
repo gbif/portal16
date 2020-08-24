@@ -121,6 +121,16 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceFilte
         }
     };
 
+    vm.filters.identifiedBy = {
+      titleTranslation: 'filterNames.identifiedBy',
+      queryKey: 'identified_by',
+      filter: OccurrenceFilter,
+      search: {
+          isSearchable: true,
+          suggestEndpoint: suggestEndpoints.identifiedBy
+      }
+  };
+
     vm.filters.recordedById = {
         titleTranslation: 'filterNames.recordedById',
         queryKey: 'recorded_by_id',

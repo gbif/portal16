@@ -23,6 +23,7 @@ angular
             locality: undefined,
             water_body: undefined,
             recorded_by: undefined,
+            identified_by: undefined,
             establishment_means: undefined,
             state_province: undefined,
             protocol: undefined,
