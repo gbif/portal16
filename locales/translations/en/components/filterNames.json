@@ -14,6 +14,7 @@
     "mediaType": "Media type",
     "recordedBy": "Recorded by",
     "recordedById": "Recorded by ID",
+    "identifiedBy": "",
     "identifiedById": "Identified by ID",
     "eventDate": "Event date",
     "eventID": "Event ID",
