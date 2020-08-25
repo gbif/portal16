@@ -4,10 +4,9 @@ let router = express.Router({caseSensitive: true});
 let helper = rootRequire('app/models/util/util');
 let _ = require('lodash');
 let resource = rootRequire('app/controllers/resource/key/resourceKey');
-let resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch');
-let acceptLanguageParser = require('accept-language-parser');
 let auth = require('./auth/auth.service');
-let availableLanguagesForHomePage = ['en', 'zh', 'fr', 'ru', 'es', 'pt'];
+// let acceptLanguageParser = require('accept-language-parser');
+// let availableLanguagesForHomePage = ['en', 'ar', 'zh', 'fr', 'ru', 'es', 'pt'];
 
 
 module.exports = function(app) {
@@ -24,8 +23,9 @@ router.get('/', function(req, res, next) {
         res.redirect(302, res.locals.gb.locales.urlPrefix + '/search?q=' + req.query.q);
     } else {
         // if no language defined in url, then select language for home page content based on accept language in header
-        let matchedLanguage = acceptLanguageParser.pick(availableLanguagesForHomePage, req.headers['accept-language']);
-        let homePageLanguage = !res.locals.gb.locales.urlPrefix ? matchedLanguage : res.locals.gb.locales.current;
+        // let matchedLanguage = acceptLanguageParser.pick(availableLanguagesForHomePage, req.headers['accept-language']);
+        // let homePageLanguage = !res.locals.gb.locales.urlPrefix ? matchedLanguage : res.locals.gb.locales.current;
+        let homePageLanguage = res.locals.gb.locales.current;
 
         // TODO shouldn't events be visible on the home page ? they are all hidden per default
         resource.getHomePage(isPreview, homePageLanguage).then(function(homepage) {
