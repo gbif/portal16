@@ -14,6 +14,7 @@
     "mediaType": "媒体类型",
     "recordedBy": "记录方式",
     "recordedById": "由ID记录",
+    "identifiedBy": "",
     "identifiedById": "由ID标识",
     "eventDate": "事件日期",
     "eventID": "事件 ID",
