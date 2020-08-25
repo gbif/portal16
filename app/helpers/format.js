@@ -12,6 +12,7 @@ let URLSearchParams = require('url').URLSearchParams;
 let linkTools = require('./links/links');
 let defaultLanguage = require('../../config/config').defaultLocale;
 let localeConfig = require('../../config/locales');
+let getLocaleFromUrl = require('../middleware/i18n/localeFromQuery').getLocaleFromUrl;
 
 let defaultAllowedTags = [
     'h3',
@@ -223,7 +224,9 @@ function prefixLinkUrl(str, urlPrefix) {
         str = str.replace(/^http(s)?:\/\/www\.gbif((-dev)|(-uat))?\.org/, '');
     }
     if (!isUrl(str) && _.startsWith(str, '/')) {
-        str = urlPrefix + '/' + str.replace(/^\//, '');
+        let relativeLinkLocale = getLocaleFromUrl(str, localeConfig.locales);
+        let prefix = relativeLinkLocale ? '' : urlPrefix;
+        str = prefix + '/' + str.replace(/^\//, '');
     }
     return str;
 }
