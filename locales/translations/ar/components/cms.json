@@ -36,6 +36,10 @@
       "subject": "الموضوع",
       "citation": "اقتباس",
       "organisingParticipants": "تنظيم المشاركون"
+    },
+    "document": {
+      "download": "",
+      "readDocument": ""
     }
   }
 }
