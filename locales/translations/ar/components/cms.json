@@ -38,8 +38,8 @@
       "organisingParticipants": "تنظيم المشاركون"
     },
     "document": {
-      "download": "",
-      "readDocument": ""
+      "download": "تنزيل",
+      "readDocument": "الرجوع إلى المستند"
     }
   }
 }
