@@ -99,6 +99,8 @@ router.get('/country/:iso/publications/:relation.:ext?', renderCountry);
 router.get('/country/:iso/projects.:ext?', renderCountry);
 
 function renderCountry(req, res, next) {
+    // Allow this widget in iframes
+    res.removeHeader('X-Frame-Options');
     let isoCode = req.params.iso.toUpperCase();
     if (!countryMap[isoCode]) {
         next();
