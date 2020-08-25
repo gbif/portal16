@@ -36,6 +36,10 @@
       "subject": "主題",
       "citation": "引用書目",
       "organisingParticipants": "合辦會員"
+    },
+    "document": {
+      "download": "",
+      "readDocument": ""
     }
   }
 }
