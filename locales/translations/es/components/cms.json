@@ -36,6 +36,10 @@
       "subject": "Asunto",
       "citation": "Cita",
       "organisingParticipants": "Participantes organizadores"
+    },
+    "document": {
+      "download": "",
+      "readDocument": ""
     }
   }
 }
