@@ -38,8 +38,8 @@
       "organisingParticipants": "Participantes organizadores"
     },
     "document": {
-      "download": "",
-      "readDocument": ""
+      "download": "Descargar",
+      "readDocument": "Ir al documento"
     }
   }
 }
