@@ -36,6 +36,10 @@
       "subject": "タイトル",
       "citation": "引用",
       "organisingParticipants": "主催団体"
+    },
+    "document": {
+      "download": "",
+      "readDocument": ""
     }
   }
 }
