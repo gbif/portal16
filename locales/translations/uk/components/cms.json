@@ -38,8 +38,8 @@
       "organisingParticipants": "Організатори"
     },
     "document": {
-      "download": "",
-      "readDocument": ""
+      "download": "Завантажити",
+      "readDocument": "Перейти до документа"
     }
   }
 }
