@@ -32,6 +32,8 @@ module.exports = function(app, config) {
                     'api.mapbox.com',
                     '*.tiles.mapbox.com',
                     'player.vimeo.com',
+                    'eepurl.com',
+                    'gbif.us18.list-manage.com',
                     'zenodo.org'],
                 scriptSrc: [
                     `'self'`,
