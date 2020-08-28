@@ -85,9 +85,7 @@
                                     {% else  %}
                                         <dd>
                                             {$ main.fields.start | dateRange(main.fields.end, true, gb.locales.current) $}
-                                            {% if main.fields.showTimeZone %}
                                                 <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
-                                            {% endif %}
                                         </dd>
                                     {% endif %}
                                 </div>
