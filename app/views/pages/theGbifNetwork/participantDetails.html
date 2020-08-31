@@ -3,7 +3,7 @@
     <div class="menubox__header">
         <a href=""  ng-click="vm.showParticipantDetails = false" class="inherit noUnderline menubox__close gb-icon-close"></a>
         <div class="menubox__header__title text-center">
-            <a ng-href="/country/{{vm.currentParticipantProps.countryCode}}" >
+            <a ng-href="{{portal.urlPrefix}}/country/{{vm.currentParticipantProps.countryCode}}" >
 
 
                 <h3   translate="country.{{vm.currentParticipantProps.countryCode}}" ></h3>
