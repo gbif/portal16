@@ -74,6 +74,14 @@ function date(date, locale, format) {
     return day.format(format);
 }
 
+function utcOffset(dateString) {
+    console.log(dateString);
+    if (!dateString || dateString.length !== 22) {
+        return '';
+    }
+    return dateString.substring(16, 22);
+}
+
 function getSlug(str) {
     return slug(str.toLowerCase());
 }
@@ -382,6 +390,7 @@ function sanitizeArrayField(array, field) {
 
 module.exports = {
     date: date,
+    utcOffset: utcOffset,
     prettifyEnum: prettifyEnum,
     formatBytes: formatBytes,
     prettifyLicense: prettifyLicense,

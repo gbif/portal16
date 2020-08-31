@@ -34,7 +34,7 @@
                         <span>{{ result.start | momentFormat:'LL' }}</span>
                         {# <span ng-if="!result.allDayEvent">{{ result.start | momentFormat:'HH:mm Z' }}</span> #}
                         <span ng-if="(result.start | momentFormat:'LL') !== (result.end | momentFormat:'LL')"> - {{ result.end | momentFormat:'LL' }}</span>
-                        <span ng-if="(result.start | momentFormat:'LL') === (result.end | momentFormat:'LL') && !result.allDayEvent">{{ result.start | momentFormat:'HH:mm Z' }}</span>
+                        <span ng-if="(result.start | momentFormat:'LL') === (result.end | momentFormat:'LL') && !result.allDayEvent">{{ result.start | momentFormat:'HH:mm' }}</span>
                     </div>
                     <div ng-if="result.gbifsAttendee">
                         <span class="gb-icon-logo"></span>

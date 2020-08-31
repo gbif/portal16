@@ -26,15 +26,13 @@
                                 <div><span class="gb-icon-calendar"></span>
                                     {$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}
                                 </div>
-                                {% if main.fields.__singleDay and not main.fields.allDayEvent %}
+                                {% if not main.fields.allDayEvent %}
                                 <div>
                                     <span class="gb-icon-clock"></span>{$ main.fields.start | timeRange(main.fields.end, gb.locales.current) $}
-                                    {% if main.fields.showTimeZone %}
-                                    <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
-                                    {% endif %}
+                                    <span> UTC {$ main.fields.start | utcOffset() $}</span>
                                 </div>
                                 {% endif %}
-
+                                
                                 {% if main.fields.country %}
                                 <div><a href="#where" class="inherit"><span class="gb-icon-marker"></span>{$ __('country.' + main.fields.country.sys.id) $}</a></div>
                                 {% endif %}
@@ -85,7 +83,7 @@
                                     {% else  %}
                                         <dd>
                                             {$ main.fields.start | dateRange(main.fields.end, true, gb.locales.current) $}
-                                                <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
+                                                <span> UTC {$ main.fields.start | utcOffset() $}</span>
                                         </dd>
                                     {% endif %}
                                 </div>
