@@ -52,7 +52,7 @@ function testSpam(message) {
         userName = _.get(message, 'req.user.userName');
 
     // test that sensible referer
-    if (spamUtils.isSpamReferer(referer)) {
+/*     if (spamUtils.isSpamReferer(referer)) {
         log.warn({
             module: 'spam',
             username: userName,
@@ -62,7 +62,7 @@ function testSpam(message) {
             reason: 'invalid referer'
         });
         return true;
-    }
+    } */
 
     // test that there isn't duplicated links. Spam tend to have that
     if (spamUtils.isSpammingLinks(message.text)) {
