@@ -1,11 +1,11 @@
 {
     "installation": {
         "installation": "",
-        "about": "",
+        "about": "درباره",
         "homepage": "",
         "installationType": "",
         "hostedBy": "",
-        "registered": "",
+        "registered": "ثبت نام شده",
         "endpoints": ""
     }
 }
