@@ -1,6 +1,6 @@
 {
   "treatment": {
-    "distribution": "",
+    "distribution": "توزیع",
     "figures": ""
   },
   "species": {
@@ -14,7 +14,7 @@
       "ABSENT": ""
     },
     "tabs": {
-      "overview": "",
+      "overview": "خلاصه",
       "treatment": "",
       "metrics": "",
       "referenceTaxon": "",
@@ -27,18 +27,18 @@
       "occurrenceCount": "",
       "seeAllCountries": "",
       "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive_yes": "بلی",
+      "isInvasive_no": "خیر"
     },
     "treatment": {
-      "distribution": "",
+      "distribution": "توزیع",
       "figures": ""
     },
     "as": "",
     "in": "",
     "origin": "",
     "issues": "",
-    "citation": "",
+    "citation": "نحوه ارجاع",
     "remarks": "",
     "term": "",
     "value": "",
@@ -47,20 +47,20 @@
     "nMoreDatasets": "",
     "acceptedName": "",
     "synonym": "",
-    "description": "",
+    "description": "توضیحات",
     "synonyms": "",
     "synonymOf": "",
     "basionymOf": "",
     "homotypicSynonymOf": "",
     "immediateChildren": "",
     "descendants": "",
-    "loadMore": "",
+    "loadMore": "بیشتر",
     "selectRoot": "",
     "selectSpecies": "",
     "searchMsg": "",
     "noOccurencesInGbif": "",
     "iucnStatus": "",
-    "references": "",
+    "references": "مرجع",
     "source": "",
     "inLanguage": "",
     "publishedIn": "",
@@ -70,7 +70,7 @@
     "nameUsagesApplied": "",
     "appearsIn": "",
     "viewOccurrences": "",
-    "seeAlso": "",
+    "seeAlso": "همچنین ببینید",
     "viewInGbifBackbone": "",
     "verbatimListingMsg": "",
     "interpretationMsg": "",
@@ -79,7 +79,7 @@
     "noChildren": "",
     "youAreBrowsing": "",
     "lastCrawled": "",
-    "extensions": "",
+    "extensions": "افزونه‌ها",
     "taxa": "",
     "mediatedThrough": "",
     "taxonIdentifiers": "",
