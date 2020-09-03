@@ -1,8 +1,8 @@
 {
   "extensionEnum": {
-    "DESCRIPTION": "",
-    "DISTRIBUTION": "",
-    "IDENTIFIER": "",
+    "DESCRIPTION": "توضیحات",
+    "DISTRIBUTION": "توزیع",
+    "IDENTIFIER": "شناسه",
     "MULTIMEDIA": "",
     "REFERENCE": "",
     "SPECIES_PROFILE": "",
