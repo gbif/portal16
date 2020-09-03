@@ -3,7 +3,7 @@
         "automatedMonitoring": "",
         "systemLoad": "",
         "messages": "",
-        "version": "",
+        "version": "نسخه",
         "nInQueue": "",
         "status": {
             "OPERATIONAL": "",
@@ -57,7 +57,7 @@
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
+                "name": "دانلودها",
                 "tooltip": ""
             }
         }
