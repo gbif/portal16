@@ -1,12 +1,12 @@
 {
   "endpointType": {
-    "EML": "",
+    "EML": "EML",
     "FEED": "",
     "WFS": "",
     "WMS": "",
     "TCS_RDF": "",
     "TCS_XML": "",
-    "DWC_ARCHIVE": "",
+    "DWC_ARCHIVE": "آرشیو هسته داروین",
     "DIGIR": "",
     "DIGIR_MANIS": "",
     "TAPIR": "",
