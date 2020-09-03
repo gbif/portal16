@@ -1,18 +1,18 @@
 {
   "collection": {
     "search": {
-      "title": "",
+      "title": "مجموعه ها",
       "description": ""
     },
-    "headerTitle": "",
-    "description": "",
+    "headerTitle": "مجموعه",
+    "description": "توضیحات",
     "institutionName": "",
     "code": "",
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "بلی",
+      "false": "خیر"
     },
     "accessionStatus": "",
     "contentTypes": "",
@@ -23,7 +23,7 @@
     "identifiers": "",
     "collectionMailingAddress": "",
     "status": "",
-    "name": "",
+    "name": "نام",
     "isActive": {
       "true": "",
       "false": ""
@@ -41,7 +41,7 @@
     "code": "",
     "statusOfInstitution": "",
     "additionalNames": "",
-    "description": "",
+    "description": "توضیحات",
     "homepage": "",
     "foundingDate": "",
     "geographicDescription": "",
@@ -55,8 +55,8 @@
       "true": "",
       "false": ""
     },
-    "true": "",
-    "false": ""
+    "true": "بلی",
+    "false": "خیر"
   },
   "grscicollPerson": {
     "title": "",
@@ -81,23 +81,23 @@
     "title": "",
     "suggestChange": "",
     "tabs": {
-      "about": "",
+      "about": "درباره",
       "institutions": "",
-      "collections": "",
+      "collections": "مجموعه ها",
       "people": ""
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "ایمیل",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "مخاطب‌ ها",
+      "address": "نشانی",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "کشور"
     }
   }
 }
