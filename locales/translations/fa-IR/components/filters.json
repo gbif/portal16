@@ -3,21 +3,21 @@
         "searchPlaceholder": "",
         "noPreference": "",
         "invert": "",
-        "clear": "",
-        "add": "",
+        "clear": "پاکسازی",
+        "add": "افزودن",
         "repatriation": {
             "description": ""
         },
         "ternary": {
-            "yes": "",
-            "no": "",
+            "yes": "بلی",
+            "no": "خیر",
             "all": ""
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
+            "north": "شمال",
+            "south": "جنوبی",
+            "west": "غرب",
+            "east": "شرق",
             "withCoordinates": "",
             "withoutCoordinates": "",
             "includeFlaggedAsSuspicious": "",
