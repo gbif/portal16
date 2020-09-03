@@ -8,7 +8,7 @@
             "pleaseDescribeTheDataset": "",
             "thankYou": "",
             "form": {
-                "title": "",
+                "title": "عنوان",
                 "link": "",
                 "region": "",
                 "taxon": "",
@@ -41,7 +41,7 @@
             "selectArea": "",
             "hexagon": "",
             "draw": "",
-            "clear": "",
+            "clear": "پاکسازی",
             "resultIntro": "",
             "embedIntro": ""
         },
