@@ -2,7 +2,7 @@
   "gbifNetwork": {
     "gbifNetwork": "",
     "title": "",
-    "contact": "",
+    "contact": "تماس",
     "voting_participant": {
       "one": "",
       "other": ""
@@ -23,15 +23,15 @@
       "one": "",
       "other": ""
     },
-    "role": "",
+    "role": "نقش",
     "group": {},
     "gbif_secretariat": "",
     "membershipType": "",
-    "name": "",
+    "name": "نام",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
-    "datasets": "",
+    "datasets": "مجموعه اطلاعات",
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",
