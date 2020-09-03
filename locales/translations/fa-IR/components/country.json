@@ -1,7 +1,7 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
+      "summary": "خلاصه",
       "dataPublishing": "",
       "dataAbout": "",
       "participartion": "",
@@ -29,7 +29,7 @@
     "countryNamingDisclaimer": "",
     "counts": {
       "occurrences": "",
-      "datasets": "",
+      "datasets": "مجموعه اطلاعات",
       "publishers": "",
       "countriesAndAreasContributeData": "",
       "publishedOccurrences": "",
