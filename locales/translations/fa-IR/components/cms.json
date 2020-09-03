@@ -6,12 +6,12 @@
       "projectIdentifier": "",
       "grantType": "",
       "duration": "",
-      "title": "",
+      "title": "عنوان",
       "start": "",
       "end": "",
       "fundsAllocated": "",
       "matchingFunds": "",
-      "funding": "",
+      "funding": "سرمایه گذار",
       "coFunding": "",
       "fundedBy": "",
       "coFundedBy": "",
@@ -30,15 +30,15 @@
       "dataViaGbif": ""
     },
     "literature": {
-      "keywords": ""
+      "keywords": "کلمات کلیدی"
     },
     "auxiliary": {
       "subject": "",
-      "citation": "",
+      "citation": "نحوه ارجاع",
       "organisingParticipants": ""
     },
     "document": {
-      "download": "",
+      "download": "دانلود",
       "readDocument": ""
     }
   }
