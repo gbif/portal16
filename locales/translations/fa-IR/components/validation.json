@@ -32,17 +32,17 @@
     },
     "fileFormat": {
       "title": "",
-      "DWCA": "",
+      "DWCA": "آرشیو هسته داروین",
       "TABULAR": "",
       "SPREADSHEET": ""
     },
     "fileType": {
       "title": "",
       "CORE": {
-        "title": ""
+        "title": "هسته"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "افزونه‌ها"
       },
       "METADATA": {
         "description": "",
@@ -74,7 +74,7 @@
     "termsFrequency": {
       "title": "",
       "term": "",
-      "count": "",
+      "count": "تعداد",
       "percentage": "",
       "interpreted": ""
     },
@@ -115,10 +115,10 @@
     "tabs": {
       "newDataValidation": "",
       "newValidation": "",
-      "about": "",
+      "about": "درباره",
       "darwinCoreExtensions": "",
       "metaData": "",
-      "summary": ""
+      "summary": "خلاصه"
     }
   }
 }
