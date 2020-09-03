@@ -19,6 +19,7 @@ module.exports = function(app, config) {
     // based on https://github.com/OWASP/CheatSheetSeries/issues/376 helmet disables browsers' buggy cross-site scripting filter
 
     app.use(helmet({
+        referrerPolicy: false,
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: [
