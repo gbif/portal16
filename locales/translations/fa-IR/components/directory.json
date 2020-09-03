@@ -40,8 +40,8 @@
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
+      "role": "نقش",
+      "name": "نام",
       "participant": "",
       "participationStatus": ""
     },
