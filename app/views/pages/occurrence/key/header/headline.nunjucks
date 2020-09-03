@@ -25,7 +25,7 @@
     {% if occurrence.record.individualCount > 1 %}
         <span class="badge">{$ occurrence.record.individualCount $}</span>
     {% endif %}
-    {% if occurrence.record.individualCount == 0 and occurrence.record.occurrenceStatus == 'absent' %}
+    {% if occurrence.record.occurrenceStatus == 'absent' %}
         <span class="text-error" translate="occurrence.absent"></span>
     {% elif occurrence.record.countryCode | isNotEmpty %}
         <span translate="occurrence.title.inCountry.{$ occurrence.record.basisOfRecord $}" translate-values="{COUNTRY: '{$ __('country.' + occurrence.record.countryCode) $}' }"></span>

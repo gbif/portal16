@@ -46,7 +46,12 @@ function searchDrawerDirective(BUILD_VERSION) {
         };
 
         vm.clear = function() {
-            $state.go('.', {contentType: vm.filter.query.contentType, locale: vm.filter.query.locale}, {inherit: false, notify: true, reload: true});
+            $state.go('.', {
+              advanced: vm.filter.query.advanced,
+              occurrence_status: vm.filter.query.occurrence_status,
+              contentType: vm.filter.query.contentType,
+              locale: vm.filter.query.locale
+            }, {inherit: false, notify: true, reload: true});
         };
     }
 }

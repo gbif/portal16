@@ -25,6 +25,9 @@ module.exports = function(app, config) {
                 defaultSrc: [
                     `'self'`,
                     `*.gbif.org`,
+                    `*.gbif-uat.org`,
+                    `*.gbif-dev.org`,
+                    `*.gbif-staging.org`,
                     `*.${config.topDomain}`,
                     '*.google-analytics.com',
                     'fonts.gstatic.com',
