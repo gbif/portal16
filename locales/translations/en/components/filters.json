@@ -9,11 +9,11 @@
             "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
         },
         "occurrenceStatus": {
-            "description": "",
+            "description": "Some event-based occurrence records are labelled as absences, meaning that the observer looked for an organism but didn't find it.",
             "options": {
-                "yes": "",
-                "no": "",
-                "all": ""
+                "yes": "Present",
+                "no": "Absent",
+                "all": "Everything"
             }
         },
         "ternary": {
