@@ -6,7 +6,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": ""
+            "undefined": "ناشناس"
         },
         "description": {
             "VOTING": "",
@@ -14,7 +14,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": ""
+            "undefined": "ناشناس"
         },
         "type": {
             "OTHER": {
@@ -24,7 +24,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "ناشناس"
                 },
                 "longForm": {
                     "VOTING": "",
@@ -32,7 +32,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "ناشناس"
                 }
             }
         }
