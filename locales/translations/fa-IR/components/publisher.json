@@ -2,7 +2,7 @@
   "publisher": {
     "searchTitle": "",
     "tabs": {
-      "aboutPublisher": "",
+      "aboutPublisher": "درباره",
       "metrics": "",
       "publishersHomepage": ""
     },
@@ -11,11 +11,11 @@
     "technicalContact": "",
     "country": "",
     "hosting": "",
-    "description": "",
+    "description": "توضیحات",
     "endorsedBy": "",
     "pendingEndorsementBy": "",
     "installations": "",
-    "contacts": "",
+    "contacts": "مخاطب‌ ها",
     "administrativeContact": "",
     "header": {
       "publisher": "",
