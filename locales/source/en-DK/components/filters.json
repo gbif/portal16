@@ -9,7 +9,7 @@
             "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
         },
         "occurrenceStatus": {
-          "description": "Some records are labeled as being absent - meaning someome looked for it but didn't find anything.",
+          "description": "Some records are labelled as being absent - meaning someone looked for it but didn't find anything.",
           "options": {
             "yes": "Present",
             "no": "Absent",
