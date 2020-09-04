@@ -8,7 +8,6 @@ let auth = require('./auth/auth.service');
 // let acceptLanguageParser = require('accept-language-parser');
 // let availableLanguagesForHomePage = ['en', 'ar', 'zh', 'fr', 'ru', 'es', 'pt'];
 
-
 module.exports = function(app) {
     app.use('/', router);
 };

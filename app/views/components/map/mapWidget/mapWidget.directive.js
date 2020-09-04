@@ -331,6 +331,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             q = _.mapKeys(q, function(value, key) {
                 return _.snakeCase(key);
             });
+            q.occurrence_status = 'present';
             return $httpParamSerializer(q);
         };
 
@@ -339,6 +340,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             q.geometry = vm.clickedGeometry;
             q.has_coordinate = true;
             q.has_geospatial_issue = false;
+            q.occurrence_status = 'present';
             q = _.mapKeys(q, function(value, key) {
                 return _.snakeCase(key);
             });

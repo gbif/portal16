@@ -418,6 +418,7 @@ require('../../../components/taxonImg/taxonOccImg.directive');
 
 require('../../../components/filterEnum/filterEnum.directive');
 require('../../../components/filterTernary/filterTernary.directive');
+require('../../../components/filterTernaryCustom/filterTernaryCustom.directive');
 require('../../../components/filterDate/filterDate.directive');
 
 require('../../../components/focusMe/focusMe.directive');

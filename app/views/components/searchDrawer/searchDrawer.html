@@ -37,7 +37,7 @@
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'occurrences'">
-                                    <a ui-sref="occurrenceSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
+                                    <a ui-sref="occurrenceSearchTable({q: vm.filter.query.q, occurrence_status: 'present', locale: vm.filter.query.locale})"
                                        ui-sref-opts="{inherit: false}" translate="search.occurrences">
                                         Occurrences
                                     </a>

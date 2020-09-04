@@ -13,7 +13,7 @@
                             {$ main.fields.summary $}
                         </h1>
                         <div class="home__searchFilters">
-                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ home.freeTextQuery }}">{$ __('search.occurrences') $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?occurrence_status=present" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?occurrence_status=present&q={{ home.freeTextQuery }}">{$ __('search.occurrences') $}</a>
                             <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ home.freeTextQuery }}">{$ __('search.species') $}</a>
                             <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ home.freeTextQuery }}">{$ __('search.datasets') $}</a>
                             <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ home.freeTextQuery }}">{$ __('search.publishers') $}</a>
