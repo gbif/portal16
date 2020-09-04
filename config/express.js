@@ -35,7 +35,8 @@ module.exports = function(app, config) {
                     'player.vimeo.com',
                     'eepurl.com',
                     'gbif.us18.list-manage.com',
-                    'zenodo.org'],
+                    'zenodo.org',
+                    'youtube.com'],
                 scriptSrc: [
                     `'self'`,
                     `'unsafe-inline'`,
