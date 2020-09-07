@@ -5,8 +5,8 @@
   },
   "species": {
     "distribution": {
-      "presentIn": "{country} に存在",
-      "presentInNonCountry": "{location} に存在",
+      "presentIn": "{country} に{status}",
+      "presentInNonCountry": "{location} に{status}",
       "threatStatus": "脅威の状況: {status}",
       "establishmentMeans": "",
       "distributionPlural": "分布",
