@@ -36,6 +36,10 @@
       "subject": "Тема",
       "citation": "Цитирование",
       "organisingParticipants": "Организаторы"
+    },
+    "document": {
+      "download": "",
+      "readDocument": ""
     }
   }
 }

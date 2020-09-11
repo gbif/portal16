@@ -1,0 +1,40 @@
+{
+    "participationStatus": {
+        "longForm": {
+            "VOTING": "",
+            "ASSOCIATE": "",
+            "OBSERVER": "",
+            "AFFILIATE": "",
+            "FORMER": "",
+            "undefined": "ناشناس"
+        },
+        "description": {
+            "VOTING": "",
+            "ASSOCIATE": "",
+            "OBSERVER": "",
+            "AFFILIATE": "",
+            "FORMER": "",
+            "undefined": "ناشناس"
+        },
+        "type": {
+            "OTHER": {
+                "description": {
+                    "VOTING": "",
+                    "ASSOCIATE": "",
+                    "OBSERVER": "",
+                    "AFFILIATE": "",
+                    "FORMER": "",
+                    "undefined": "ناشناس"
+                },
+                "longForm": {
+                    "VOTING": "",
+                    "ASSOCIATE": "",
+                    "OBSERVER": "",
+                    "AFFILIATE": "",
+                    "FORMER": "",
+                    "undefined": "ناشناس"
+                }
+            }
+        }
+    }
+}

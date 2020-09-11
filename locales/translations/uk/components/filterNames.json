@@ -14,6 +14,7 @@
     "mediaType": "Тип медіа",
     "recordedBy": "Записано",
     "recordedById": "Записано за ID",
+    "identifiedBy": "Ким визначено",
     "identifiedById": "Визначено за ID",
     "eventDate": "Дата події",
     "eventID": "ID події",

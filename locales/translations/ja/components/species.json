@@ -5,13 +5,13 @@
   },
   "species": {
     "distribution": {
-      "presentIn": "{country} に存在",
-      "presentInNonCountry": "{location} に存在",
+      "presentIn": "{country} に{status}",
+      "presentInNonCountry": "{location} に{status}",
       "threatStatus": "脅威の状況: {status}",
-      "establishmentMeans": "",
+      "establishmentMeans": "対象生物の由来: {status}",
       "distributionPlural": "分布",
-      "PRESENT": "",
-      "ABSENT": ""
+      "PRESENT": "存在",
+      "ABSENT": "不在"
     },
     "tabs": {
       "overview": "概要",
