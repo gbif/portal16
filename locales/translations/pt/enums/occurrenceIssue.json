@@ -47,6 +47,9 @@
     "MULTIMEDIA_URI_INVALID": "Multimídia uri inválido",
     "REFERENCES_URI_INVALID": "Referências uri inválida",
     "INTERPRETATION_ERROR": "Erro de interpretação",
-    "INDIVIDUAL_COUNT_INVALID": "Contagem individual inválida"
+    "INDIVIDUAL_COUNT_INVALID": "Contagem individual inválida",
+    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "",
+    "OCCURRENCE_STATUS_UNPARSABLE": "",
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": ""
   }
 }
