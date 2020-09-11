@@ -8,6 +8,14 @@
         "repatriation": {
             "description": "Se dice que los datos son repatriados cuando son publicados por una institución en un país pero están relacionados con la biodiversidad en otro país"
         },
+        "occurrenceStatus": {
+            "description": "",
+            "options": {
+                "yes": "",
+                "no": "",
+                "all": ""
+            }
+        },
         "ternary": {
             "yes": "Sí",
             "no": "No",
