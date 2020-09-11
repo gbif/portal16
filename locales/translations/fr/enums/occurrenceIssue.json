@@ -47,6 +47,9 @@
     "MULTIMEDIA_URI_INVALID": "URI de multimédia non valide",
     "REFERENCES_URI_INVALID": "URI de références non valide",
     "INTERPRETATION_ERROR": "Erreur d’interprétation",
-    "INDIVIDUAL_COUNT_INVALID": "Comptage individuel non valide"
+    "INDIVIDUAL_COUNT_INVALID": "Comptage individuel non valide",
+    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "",
+    "OCCURRENCE_STATUS_UNPARSABLE": "",
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": ""
   }
 }
