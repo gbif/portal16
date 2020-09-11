@@ -8,6 +8,14 @@
         "repatriation": {
             "description": "Les données sont considérées comme rapatriées lorsqu’elles sont publiées par une institution d'un pays, mais font partie de la biodiversité d'un autre pays"
         },
+        "occurrenceStatus": {
+            "description": "",
+            "options": {
+                "yes": "",
+                "no": "",
+                "all": ""
+            }
+        },
         "ternary": {
             "yes": "Oui",
             "no": "Non",
