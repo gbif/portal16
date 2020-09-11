@@ -14,6 +14,7 @@
     "mediaType": "نوع وسائل التواصل",
     "recordedBy": "قام بالتسجيل",
     "recordedById": "تم تسجيله بواسطة المعرف ID",
+    "identifiedBy": "تم تحديده بواسطة",
     "identifiedById": " تم تحديده بواسطة المعرف",
     "eventDate": "تاريخ الحدث",
     "eventID": "معرف الحدث",

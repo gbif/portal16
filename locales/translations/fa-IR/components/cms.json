@@ -1,0 +1,45 @@
+{
+  "cms": {
+    "project": {
+      "project": "",
+      "projectId": "",
+      "projectIdentifier": "",
+      "grantType": "",
+      "duration": "",
+      "title": "عنوان",
+      "start": "",
+      "end": "",
+      "fundsAllocated": "",
+      "matchingFunds": "",
+      "funding": "سرمایه گذار",
+      "coFunding": "",
+      "fundedBy": "",
+      "coFundedBy": "",
+      "typeOfGrant": "",
+      "projectStart": "",
+      "status": "",
+      "programme": "",
+      "contractCountry": "",
+      "newsAndEvents": "",
+      "call": "",
+      "projectLead": "",
+      "contactDetalils": "",
+      "partners": ""
+    },
+    "datause": {
+      "dataViaGbif": ""
+    },
+    "literature": {
+      "keywords": "کلمات کلیدی"
+    },
+    "auxiliary": {
+      "subject": "",
+      "citation": "نحوه ارجاع",
+      "organisingParticipants": ""
+    },
+    "document": {
+      "download": "دانلود",
+      "readDocument": ""
+    }
+  }
+}

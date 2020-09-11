@@ -36,6 +36,10 @@
       "subject": "主题",
       "citation": "引用",
       "organisingParticipants": "组织参与者"
+    },
+    "document": {
+      "download": "下载",
+      "readDocument": "前往文档"
     }
   }
 }

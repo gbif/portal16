@@ -1,7 +1,7 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "{NUMBER_FORMATED} {NUMBER, select, 1{オカレンス} other{オカレンス}} ダウンロード済み",
-    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{レコード} other{レコード}} ダウンロード済み",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{オカレンス} other{オカレンス}} ダウンロード済み",
+    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{レコード} other{レコード}} ダウンロード済み",
     "nConstituentDatasets": "{NUMBER_FORMATTED} {NUMBER, select, one{データセット} other{データセット}} からのレコードを含む",
     "fileNotAvailable": "このファイルはもうダウンロード可能ではありません。",
     "downloadDeletionWarning": "このダウンロードは引用されていないので、 {DATE} より後に削除の対象となります。",

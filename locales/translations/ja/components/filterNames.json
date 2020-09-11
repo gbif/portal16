@@ -14,6 +14,7 @@
     "mediaType": "メディアの種類",
     "recordedBy": "採集者・観察者",
     "recordedById": "採集者・観察者ID",
+    "identifiedBy": "",
     "identifiedById": "同定者ID",
     "eventDate": "イベント日付",
     "eventID": "イベントID",

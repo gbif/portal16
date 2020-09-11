@@ -1,0 +1,69 @@
+{
+    "tools": {
+        "tools": "",
+        "categoryFeatured": "",
+        "suggestDataset": {
+            "NOT_OPEN": "",
+            "title": "",
+            "pleaseDescribeTheDataset": "",
+            "thankYou": "",
+            "form": {
+                "title": "عنوان",
+                "link": "",
+                "region": "",
+                "taxon": "",
+                "whyImportant": "",
+                "howWouldYouRateIt": "",
+                "high": "",
+                "medium": "",
+                "low": "",
+                "bibliographicRef": "",
+                "type": "",
+                "license": "",
+                "dataHolderContact": "",
+                "publicAlert": "",
+                "yourContact": "",
+                "comments": "",
+                "submit": "",
+                "followDiscussionBelow": "",
+                "followIssue": "",
+                "suggestAnother": "",
+                "saveFailure": ""
+            }
+        },
+        "observationTrends": {
+            "drawerTitle": "",
+            "intro": "",
+            "aboutLink": "",
+            "selectSpecies": "",
+            "noData": "",
+            "selectHigherTaxa": "",
+            "selectArea": "",
+            "hexagon": "",
+            "draw": "",
+            "clear": "پاکسازی",
+            "resultIntro": "",
+            "embedIntro": ""
+        },
+        "speciesLookup": {
+            "description": "",
+            "title": ""
+        },
+        "ipt": {
+            "description": "",
+            "dontSeeYourIpt": ""
+        },
+        "dataRepository": {
+            "title": ""
+        },
+        "sequenceId": {
+            "title": ""
+        },
+        "machineVision": {
+            "tabs": {
+                "demo": "",
+                "statement": ""
+            }
+        }
+    }
+}

@@ -14,6 +14,7 @@
     "mediaType": "媒體類型",
     "recordedBy": "記錄者",
     "recordedById": "依ID紀錄",
+    "identifiedBy": "",
     "identifiedById": "依ID辨識",
     "eventDate": "事件日期",
     "eventID": "事件識別碼",
