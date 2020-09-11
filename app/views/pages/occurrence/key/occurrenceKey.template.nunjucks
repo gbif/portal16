@@ -8,7 +8,7 @@
   {% include('./location/location.nunjucks') %}
   {% include('./media/media.nunjucks') %}
   {% include('./details/details.nunjucks') %}
-  {% include('./dataset/dataset.nunjucks') %}
+  {# {% include('./dataset/dataset.nunjucks') %} #}
   {% include('./extensions/extensions.nunjucks') %}
   {% include('./citation.nunjucks') %}
 </div>

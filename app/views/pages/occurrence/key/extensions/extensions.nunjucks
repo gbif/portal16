@@ -1,7 +1,7 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
 {% if occurrence.fragment.extensions | isNotEmpty and occurrence.usedExtensionFields | isNotEmpty %}
-    <section class="horizontal-stripe bare-background extensions">
+    <section class="horizontal-stripe light-background seperator extensions">
         <div class="container--normal">
             <div class="row">
                 <div class="col-xs-12">
