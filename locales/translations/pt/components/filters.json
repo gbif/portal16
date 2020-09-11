@@ -8,6 +8,14 @@
         "repatriation": {
             "description": "Diz-se que os dados são repatriados quando são publicados por uma instituição de um país, mas estão relacionados com registos que ocorrem noutro país"
         },
+        "occurrenceStatus": {
+            "description": "",
+            "options": {
+                "yes": "",
+                "no": "",
+                "all": ""
+            }
+        },
         "ternary": {
             "yes": "Sim",
             "no": "Não",
