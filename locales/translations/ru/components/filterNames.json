@@ -1,5 +1,6 @@
 {
   "filterNames": {
+    "occurrenceStatus": "",
     "month": "Месяц",
     "catalogNumber": "Номер в каталоге",
     "year": "Год",
