@@ -50,6 +50,6 @@
     "INDIVIDUAL_COUNT_INVALID": "Conteo de individuos inválido",
     "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "El conteo individual entra en conflicto con el estado del registro",
     "OCCURRENCE_STATUS_UNPARSABLE": "Estado del registro incomprensible",
-    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": ""
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Estado de registro inferido del conteo individual"
   }
 }
