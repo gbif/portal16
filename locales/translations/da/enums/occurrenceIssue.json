@@ -47,6 +47,9 @@
     "MULTIMEDIA_URI_INVALID": "Multimedie-uri ugyldig",
     "REFERENCES_URI_INVALID": "Reference-uri ugyldig",
     "INTERPRETATION_ERROR": "Fortolkningsfejl",
-    "INDIVIDUAL_COUNT_INVALID": "Individantal ugyldigt"
+    "INDIVIDUAL_COUNT_INVALID": "Individantal ugyldigt",
+    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "",
+    "OCCURRENCE_STATUS_UNPARSABLE": "",
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": ""
   }
 }
