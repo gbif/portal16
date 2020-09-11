@@ -1,6 +1,6 @@
 {
   "filterNames": {
-    "occurrenceStatus": "Estado da ocorrência (presença/ausência)",
+    "occurrenceStatus": "Estado da ocorrência",
     "month": "Mês",
     "catalogNumber": "Número de catálogo",
     "year": "Ano",
