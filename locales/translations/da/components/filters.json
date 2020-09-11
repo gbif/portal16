@@ -8,6 +8,14 @@
         "repatriation": {
             "description": "Data siges at være repatrieret når det er publiseret af en institution i et land, men handler om biodiversitet i et andet land"
         },
+        "occurrenceStatus": {
+            "description": "",
+            "options": {
+                "yes": "",
+                "no": "",
+                "all": ""
+            }
+        },
         "ternary": {
             "yes": "Ja",
             "no": "Nej",
