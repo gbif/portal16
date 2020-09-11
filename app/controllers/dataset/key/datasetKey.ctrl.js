@@ -16,7 +16,10 @@ router.get('/dataset/doi/:prefix/:suffix', async function(req, res, next) {
   let doi = req.params.prefix + '/' + req.params.suffix;
   try {
     let response = await getData(apiConfig.datasetDoi.url, doi);
-    if (response.results.length === 1) {
+    if (response.results.length > 1) {
+      // multiple datasets with the same DOI
+      res.redirect(302, '../../search?q=' + doi);
+    } else if (response.results.length === 1) {
       let key = response.results[0].key;
       res.redirect(302, '../../' + key);
       return;
