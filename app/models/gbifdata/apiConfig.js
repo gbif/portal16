@@ -28,6 +28,9 @@ let apiConfig = {
         url: baseUrl + 'dataset/',
         canonical: 'dataset'
     },
+    datasetDoi: {
+      url: baseUrl + 'dataset/doi/'
+  },
     datasetSearch: {
         url: baseUrl + 'dataset/search/'
     },

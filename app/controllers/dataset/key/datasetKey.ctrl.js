@@ -12,6 +12,22 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
+router.get('/dataset/doi/:prefix/:suffix', async function(req, res, next) {
+  let doi = req.params.prefix + '/' + req.params.suffix;
+  try {
+    let response = await getData(apiConfig.datasetDoi.url, doi);
+    if (response.results.length === 1) {
+      let key = response.results[0].key;
+      res.redirect(302, '../../' + key);
+      return;
+    } else {
+      next();
+    }
+  } catch (err) {
+    next();
+  }
+});
+
 router.get('/dataset/:key', render);
 // router.get('/dataset/:key/taxonomy', render);
 router.get('/dataset/:key/activity', render);
