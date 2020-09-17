@@ -48,8 +48,8 @@
     "REFERENCES_URI_INVALID": "uri المراجع غير صالح",
     "INTERPRETATION_ERROR": "خطأ في التأويل",
     "INDIVIDUAL_COUNT_INVALID": "العد الافرادي غير صالح",
-    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "",
-    "OCCURRENCE_STATUS_UNPARSABLE": "",
-    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": ""
+    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "التعداد الافرادي يتعارض مع حالة التكرار",
+    "OCCURRENCE_STATUS_UNPARSABLE": "حالة التكرار غير قابلة للتحليل",
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "حالة التكرار مستقاة من تعداد الأفراد"
   }
 }
