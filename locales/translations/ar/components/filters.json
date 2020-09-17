@@ -11,9 +11,9 @@
         "occurrenceStatus": {
             "description": "",
             "options": {
-                "yes": "",
-                "no": "",
-                "all": ""
+                "yes": "موجود",
+                "no": "غير موجود",
+                "all": "كل شيء"
             }
         },
         "ternary": {
