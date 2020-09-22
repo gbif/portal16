@@ -125,7 +125,7 @@ let config = {
         registry: registry || 'https://registry.gbif-dev.org',
         oozie: oozie || '//c3master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c3master2-vh.gbif.org:8088/ws/v1/',
-        elk: elk || '//private-logs.gbif.org:5601/',
+        elk: elk || '//privatelogs2-vh.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
         kibanaIndex: kibanaIndex || 'AWyLbDVrHCKcR6PFXvWA',
         locales: localeConfig.locales,
