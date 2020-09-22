@@ -159,16 +159,16 @@ let tests = [
         component: 'CRAWLER',
         message: 'The crawl queue should be available'
     },
-    {
-        url: apiConfig.elkSearch.url + varnishIndexName + '/_search?q=response:>499%20AND%20request:("//api.gbif.org/v1/occurrence/search*")%20AND%20@timestamp:>{SECONDS_AGO}',
-        component: 'OCCURRENCE',
-        secondsAgo: 180,
-        type: 'NUMBER_BELOW',
-        key: 'hits.total',
-        val: 50,
-        severity: severity.WARNING,
-        message: 'There has been more than 50 errors on occurrence search in the last 5 minutes'
-    },
+    // {
+    //     url: apiConfig.elkSearch.url + varnishIndexName + '/_search?q=response:>499%20AND%20request:("//api.gbif.org/v1/occurrence/search*")%20AND%20@timestamp:>{SECONDS_AGO}',
+    //     component: 'OCCURRENCE',
+    //     secondsAgo: 180,
+    //     type: 'NUMBER_BELOW',
+    //     key: 'hits.total',
+    //     val: 50,
+    //     severity: severity.WARNING,
+    //     message: 'There has been more than 50 errors on occurrence search in the last 5 minutes'
+    // },
     {
         url: config.serverProtocol + apiConfig.image.url + encodeURIComponent('http://www.gbif.org/img/logo/GBIF-2015.png') + '?cachebust={NOW}',
         component: 'IMAGE_CACHE',
