@@ -380,7 +380,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
   };
   vm.filters.project_id = {
     titleTranslation: 'filterNames.projectId',
-    queryKey: 'projectId',
+    queryKey: 'project_id',
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
