@@ -8,6 +8,14 @@
         "repatriation": {
             "description": ""
         },
+        "occurrenceStatus": {
+            "description": "",
+            "options": {
+                "yes": "",
+                "no": "",
+                "all": ""
+            }
+        },
         "ternary": {
             "yes": "بلی",
             "no": "خیر",

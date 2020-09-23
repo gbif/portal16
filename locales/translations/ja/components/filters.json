@@ -8,6 +8,14 @@
         "repatriation": {
             "description": "このデータはある国の組織によって出版されましたが、他国で観察された生物多様性情報であるためデータが返還されたようです。"
         },
+        "occurrenceStatus": {
+            "description": "",
+            "options": {
+                "yes": "",
+                "no": "",
+                "all": ""
+            }
+        },
         "ternary": {
             "yes": "はい",
             "no": "いいえ",

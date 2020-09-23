@@ -1,5 +1,6 @@
 {
   "filterNames": {
+    "occurrenceStatus": "发生状态",
     "month": "月份",
     "catalogNumber": "目录编号",
     "year": "年份",

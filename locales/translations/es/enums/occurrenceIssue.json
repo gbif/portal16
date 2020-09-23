@@ -47,6 +47,9 @@
     "MULTIMEDIA_URI_INVALID": "URI de multimedia inválido",
     "REFERENCES_URI_INVALID": "URI de referencias inválido",
     "INTERPRETATION_ERROR": "Error de interpretación",
-    "INDIVIDUAL_COUNT_INVALID": "Conteo de individuos inválido"
+    "INDIVIDUAL_COUNT_INVALID": "Conteo de individuos inválido",
+    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "El número de individuos entra en conflicto con el estado del registro biológico",
+    "OCCURRENCE_STATUS_UNPARSABLE": "El estado del registro biológico es incomprensible",
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "El estado de registro biológico inferido del numero de individuos"
   }
 }

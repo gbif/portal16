@@ -47,6 +47,9 @@
     "MULTIMEDIA_URI_INVALID": "URI мультимедиа недействительный",
     "REFERENCES_URI_INVALID": "URI ссылки недействительный",
     "INTERPRETATION_ERROR": "ошибка интерпретации сведений о находке",
-    "INDIVIDUAL_COUNT_INVALID": "некорректное число особей"
+    "INDIVIDUAL_COUNT_INVALID": "некорректное число особей",
+    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "",
+    "OCCURRENCE_STATUS_UNPARSABLE": "",
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": ""
   }
 }

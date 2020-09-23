@@ -47,6 +47,9 @@
     "MULTIMEDIA_URI_INVALID": "URI мультимедіа недійсний",
     "REFERENCES_URI_INVALID": "URI посилання недійсний",
     "INTERPRETATION_ERROR": "Помилка інтерпретації",
-    "INDIVIDUAL_COUNT_INVALID": "Некоректна кількість особин"
+    "INDIVIDUAL_COUNT_INVALID": "Некоректна кількість особин",
+    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "Інформація про кількість особин конфліктує зі статусом знахідки",
+    "OCCURRENCE_STATUS_UNPARSABLE": "Статус знахідки неможливо інтерпретувати",
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Статус знахідки виведений з даних про кількість особин"
   }
 }

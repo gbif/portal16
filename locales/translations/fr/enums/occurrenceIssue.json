@@ -47,6 +47,9 @@
     "MULTIMEDIA_URI_INVALID": "URI de multimédia non valide",
     "REFERENCES_URI_INVALID": "URI de références non valide",
     "INTERPRETATION_ERROR": "Erreur d’interprétation",
-    "INDIVIDUAL_COUNT_INVALID": "Comptage individuel non valide"
+    "INDIVIDUAL_COUNT_INVALID": "Comptage individuel non valide",
+    "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "Le nombre d'individus ne correspond pas avec le statut de l'occurrence",
+    "OCCURRENCE_STATUS_UNPARSABLE": "Le statut de l'occurrence ne peut être interprété",
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Statut de l'occurrence déduit du nombre d'individus"
   }
 }
