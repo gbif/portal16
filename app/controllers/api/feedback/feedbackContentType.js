@@ -53,8 +53,12 @@ async function parseOccurrence(path) {
     contentType.annotation = getAnnotations(occurrence.record);
 
     if (contentType.annotation && contentType.annotation.commentsUrl) {
-        let comments = await getComments(contentType.annotation);
-        contentType.comments = comments;
+        try {
+          let comments = await getComments(contentType.annotation);
+          contentType.comments = comments;
+        } catch (err) {
+          // ignore failed attempt to fetch comments - fail silently
+        }
     }
 
     // get administrative contacts
