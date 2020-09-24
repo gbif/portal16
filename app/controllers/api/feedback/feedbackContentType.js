@@ -52,14 +52,14 @@ async function parseOccurrence(path) {
     occurrence.record._installationKey = occurrence.dataset.installationKey;
     contentType.annotation = getAnnotations(occurrence.record);
 
-    if (contentType.annotation && contentType.annotation.commentsUrl) {
-        try {
-          let comments = await getComments(contentType.annotation);
-          contentType.comments = comments;
-        } catch (err) {
-          // ignore failed attempt to fetch comments - fail silently
-        }
-    }
+    // if (contentType.annotation && contentType.annotation.commentsUrl) {
+    //     try {
+    //       let comments = await getComments(contentType.annotation);
+    //       contentType.comments = comments;
+    //     } catch (err) {
+    //       // ignore failed attempt to fetch comments - fail silently
+    //     }
+    // }
 
     // get administrative contacts
     contentType.contacts = getContacts(_.get(occurrence, 'dataset.contacts', []));

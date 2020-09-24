@@ -2,7 +2,7 @@
 let dataApi = rootRequire('app/models/gbifdata/apiConfig').base.url;
 let env = rootRequire('config/config').env;
 
-// the annosys test env do not wotk - and the links on their website lead to dead pages. 
+// the annosys test env do not wotk - and the links on their website lead to dead pages.
 // the techincal documentation mostly consist of dead links: https://wiki.bgbm.org/annosys/index.php?title=TechnicalDocumentation
 let AnnosysBaseUrl = env === 'prod' ? 'http://annosys.bgbm.fu-berlin.de/AnnoSys/' : 'http://annosys.bgbm.fu-berlin.de/AnnoSysTest/';
 
