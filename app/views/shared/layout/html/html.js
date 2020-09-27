@@ -328,6 +328,7 @@ require('../../../pages/user/downloads/userDownloads.ctrl');
 require('../../../pages/user/settings/userSettings.ctrl');
 require('../../../pages/user/user.ctrl');
 require('../../../pages/user/confirmUser/confirmUser.ctrl');
+require('../../../pages/user/updateEmail/updateEmail.ctrl');
 
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 require('../../../pages/species/key/speciesKey.ctrl');

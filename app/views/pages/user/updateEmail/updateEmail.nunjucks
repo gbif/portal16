@@ -1,0 +1,26 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes user" ng-controller="updateEmailCtrl as updateEmailCtrl">
+        <section class="horizontal-stripe">
+            <div class="container--narrow">
+                <div class="card">
+                    <div class="userLogin" ng-init="updateEmailCtrl.challengeCode = '{$ challengeCode $}'; updateEmailCtrl.userName = '{$ userName $}'; updateEmailCtrl.email = '{$ email $}'">
+                        <form class="gb-form" name="updateEmailCtrl.updateEmailForm" ng-submit="updateEmailCtrl.update()" autocomplete="off">
+                            <div class="gb-form__group">
+                                <label>
+                                    <span>{$ __('profile.newEmail') $}</span>
+                                    <input type="email" required disabled value="{$ email $}" name="email" ng-model="updateEmailCtrl.email" focus-me="true" autocomplete="off">
+                                </label>
+                            </div>
+                            <input type="hidden" value="{$ challengeCode $}" required name="challengeCode" ng-model="updateEmailCtrl.challengeCode">
+                            <p class="m-t-1">
+                                <button type="submit" class="gb-button--brand">{$ __('profile.updateEmail') $}</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+{% endblock %}

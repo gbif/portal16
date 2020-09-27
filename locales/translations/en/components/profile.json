@@ -26,6 +26,8 @@
     "loginText": "Login",
     "register": "Register",
     "downloads": "Downloads",
+    "newEmail": "New email",
+    "updateEmail": "Change email",
     "repeatPassword": "Repeat password",
     "repeatNewPassword": "Repeat new password",
     "passwordsNotIdentical": "The two passwords are not identical",
