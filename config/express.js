@@ -51,6 +51,7 @@ module.exports = function(app, config) {
                     `'unsafe-inline'`,
                     '*.googleapis.com',
                     'api.mapbox.com'],
+                mediaSrc: ['*'],
                 workerSrc: [
                     'blob:'
                 ],
