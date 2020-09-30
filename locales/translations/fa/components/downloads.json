@@ -1,0 +1,68 @@
+{
+  "downloadKey": {
+    "nOccurrencesDownloaded": "",
+    "nRecordsDownloaded": "",
+    "nConstituentDatasets": "",
+    "fileNotAvailable": "",
+    "downloadDeletionWarning": "",
+    "occurrenceDownload": "",
+    "brokenDownload": "",
+    "contactHelpdesk": "",
+    "cancelled": "",
+    "cancel": "لغو",
+    "download": "دانلود",
+    "records": "",
+    "occurrences": "",
+    "largeQueryMessage": "",
+    "date": "",
+    "show": "نمایش",
+    "license": "",
+    "readMore": "",
+    "titleMissing": "",
+    "underProcessing": "",
+    "citation": "نحوه ارجاع",
+    "format": "",
+    "nRecordsAtTime": "",
+    "aboutDeletionPolicy": "",
+    "readDatauseAndTerms": "",
+    "filterApplied": "",
+    "rerunQuery": "",
+    "postpone": "",
+    "deleteDownload": "",
+    "tellUs": "",
+    "downloadKilled": "",
+    "downloadDeleted": "",
+    "storageDurationTeaser": "",
+    "predatesDoi": "",
+    "file": "فایل",
+    "constituentDatasets": "",
+    "noFiltersApplied": "",
+    "apiUsageDescription": "",
+    "apiFilterView": "",
+    "humanFilterView": "",
+    "downloadStarted": "",
+    "downloadExpectTime": "",
+    "notificationEmailAddresses": "",
+    "status": {
+      "PREPARING": "",
+      "SUSPENDED": "",
+      "RUNNING": "",
+      "CANCELLED": "",
+      "KILLED": ""
+    },
+    "predicate": {
+      "joinDescriptions": {
+        "and": "",
+        "or": "",
+        "not": ""
+      },
+      "and": "",
+      "or": "",
+      "not": "",
+      "isNotNull": ""
+    }
+  },
+  "myDownloads": {
+    "title": ""
+  }
+}

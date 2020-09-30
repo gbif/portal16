@@ -1,0 +1,103 @@
+{
+  "collection": {
+    "search": {
+      "title": "مجموعه ها",
+      "description": ""
+    },
+    "headerTitle": "مجموعه",
+    "description": "توضیحات",
+    "institutionName": "",
+    "code": "",
+    "statusOfCollection": "",
+    "personalCollection": "",
+    "isPersonalCollection": {
+      "true": "بلی",
+      "false": "خیر"
+    },
+    "accessionStatus": "",
+    "contentTypes": "",
+    "preservationTypes": "",
+    "homepage": "",
+    "apiUrl": "",
+    "catalogUrl": "",
+    "identifiers": "",
+    "collectionMailingAddress": "",
+    "status": "",
+    "name": "نام",
+    "isActive": {
+      "true": "",
+      "false": ""
+    }
+  },
+  "institution": {
+    "title": "",
+    "search": {
+      "title": "",
+      "description": ""
+    },
+    "headerTitle": "",
+    "indexHerbariorumRecord": "",
+    "numberSpecimens": "",
+    "code": "",
+    "statusOfInstitution": "",
+    "additionalNames": "",
+    "description": "توضیحات",
+    "homepage": "",
+    "foundingDate": "",
+    "geographicDescription": "",
+    "taxonomicDescription": "",
+    "citesPermitNumber": "",
+    "disciplines": "",
+    "institutionalGovernance": "",
+    "type": "",
+    "identifiers": "",
+    "isActive": {
+      "true": "",
+      "false": ""
+    },
+    "true": "بلی",
+    "false": "خیر"
+  },
+  "grscicollPerson": {
+    "title": "",
+    "search": {
+      "title": "",
+      "description": ""
+    },
+    "headerTitle": "",
+    "firstName": "",
+    "lastName": "",
+    "fullName": "",
+    "position": "",
+    "affiliations": "",
+    "areaResponsibility": "",
+    "researchPursuits": "",
+    "primaryInstitution": "",
+    "primaryCollection": "",
+    "affiliateInstitutions": "",
+    "affiliateCollections": ""
+  },
+  "grscicoll": {
+    "title": "",
+    "suggestChange": "",
+    "tabs": {
+      "about": "درباره",
+      "institutions": "",
+      "collections": "مجموعه ها",
+      "people": ""
+    },
+    "contact": {
+      "phone": "",
+      "email": "ایمیل",
+      "fax": "",
+      "mailingAddress": "",
+      "physicalAddress": "",
+      "contacts": "مخاطب‌ ها",
+      "address": "نشانی",
+      "province": "",
+      "postalCode": "",
+      "city": "",
+      "country": "کشور"
+    }
+  }
+}

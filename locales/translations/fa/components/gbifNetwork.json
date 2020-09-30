@@ -1,0 +1,52 @@
+{
+  "gbifNetwork": {
+    "gbifNetwork": "",
+    "title": "",
+    "contact": "تماس",
+    "voting_participant": {
+      "one": "",
+      "other": ""
+    },
+    "associate_country_participant": {
+      "one": "",
+      "other": ""
+    },
+    "other_associate_participant": {
+      "one": "",
+      "other": ""
+    },
+    "former_participant": {
+      "one": "",
+      "other": ""
+    },
+    "gbif_affiliate": {
+      "one": "",
+      "other": ""
+    },
+    "role": "نقش",
+    "group": {},
+    "gbif_secretariat": "",
+    "membershipType": "",
+    "name": "نام",
+    "endorsedDataPublisher": "",
+    "nParticipants": "",
+    "dataset": "",
+    "datasets": "مجموعه اطلاعات",
+    "regionalRepresentative": "",
+    "participation": {
+      "nonCountryParticipants": "",
+      "gbifAffiliates": ""
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "",
+      "NODE_MANAGER": ""
+    },
+    "publishers": "",
+    "memberSince": "",
+    "participant": "",
+    "pPublishers": "",
+    "pOccurrence": "",
+    "occurrenceDatasets": "",
+    "occurrences": ""
+  }
+}
