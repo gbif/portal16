@@ -69,6 +69,7 @@
     "sampleSizeUnit": "Sample size unit",
     "relativeOrganismQuantity": "Relative organism quantity",
     "collectionKey": "Collection",
-    "institutionKey": "Institution"
+    "institutionKey": "Institution",
+    "gadmGid": ""
   }
 }
