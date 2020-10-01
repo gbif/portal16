@@ -32,18 +32,19 @@ function filterTaxonDirective(BUILD_VERSION) {
         vm.filterConfig.titleTranslation;
         vm.queryKey = vm.filterConfig.queryKey;
         vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
+        vm.suggestKey = vm.filterConfig.search.suggestKey || 'key';
 
         vm.listTemplate = vm.filterConfig.listTemplate;
 
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
-        vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);
+        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
 
         vm.usedKeys = {};
 
         $scope.$watch(function() {
             return vm.filterState.query[vm.queryKey];
         }, function(newQuery) {
-            vm.query = $filter('uniqueLower')(newQuery);
+            vm.query = $filter('unique')(newQuery);
             resolveAllKeys();
         });
 
@@ -57,7 +58,11 @@ function filterTaxonDirective(BUILD_VERSION) {
 
         function getFullResource(key) {
             vm.filterConfig.expand.resource.get({id: key}, function(data) {
+              if (typeof vm.filterConfig.search.suggestTitle === 'function') {
+                vm.usedKeys[key] = vm.filterConfig.search.suggestTitle(data);
+              } else {
                 vm.usedKeys[key] = data[vm.filterConfig.search.suggestTitle];
+              }
             });
         }
 
@@ -94,12 +99,16 @@ function filterTaxonDirective(BUILD_VERSION) {
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
                     params: _.assign({}, vm.filterConfig.search.defaultParams, {
-                        q: val.toLowerCase(),
+                        q: val, // .toLowerCase(),
                         limit: 10
                     })
                 }).then(function(response) {
-                    return _.filter(response.data, function(e) {
-                        return !vm.usedKeys[e.key];
+                    var resultsArray = response.data;
+                    if (typeof response.data.results !== 'undefined') {
+                      resultsArray = response.data.results;
+                    }
+                    return _.filter(resultsArray, function(e) {
+                        return !vm.usedKeys[e[vm.suggestKey]];
                     });
                 });
             }
@@ -140,14 +149,14 @@ function filterTaxonDirective(BUILD_VERSION) {
         };
 
         vm.typeaheadSelect = function(item) { //  model, label, event
-            if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
-            var searchString = item.key.toString().toLowerCase();
+            if (angular.isUndefined(item) || angular.isUndefined(item[vm.suggestKey])) return;
+            var searchString = item[vm.suggestKey].toString();// .toLowerCase();
             if (vm.query.indexOf(searchString) < 0) {
                 vm.usedKeys[item.key] = item[vm.filterConfig.search.suggestTitle];
                 vm.query.push(searchString);
                 vm.selected = '';
                 if (vm.filterConfig.expand) {
-                    getFullResource(item.key);
+                    getFullResource(item[vm.suggestKey]);
                 }
                 vm.apply();
             }

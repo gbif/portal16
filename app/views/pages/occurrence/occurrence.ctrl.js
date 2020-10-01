@@ -15,7 +15,7 @@ angular
   .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, $translate) {
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
   var vm = this;
   $translate('occurrenceSearch.title').then(function (title) {
     Page.setTitle(title);
@@ -636,6 +636,30 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
       suggestTitle: 'title',
       suggestShortName: 'title',
       suggestKey: 'key'
+    }
+  };
+
+  vm.filters.gadmGid = {
+    titleTranslation: 'filterNames.gadmGid',
+    queryKey: 'gadm_gid',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: Gadm,
+      expandedTitle: 'name'
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'GADM_GID'
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.gadm,
+      suggestTemplate: '/templates/components/filterTaxon/suggestGadmTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: function(item) {
+        return item.name + ' - ' + item.id;
+      },
+      suggestShortName: 'name',
+      suggestKey: 'id'
     }
   };
 

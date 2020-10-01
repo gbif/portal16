@@ -39,6 +39,7 @@
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"
                    typeahead-template-url="{{vm.filterConfig.search.suggestTemplate}}"
+                   typeahead-wait-ms="150"
                    ng-keyup="vm.searchOnEnter($event)">
         </div>
 
