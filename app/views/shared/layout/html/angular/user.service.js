@@ -156,6 +156,22 @@
                     return updatePassword;
                 };
 
+                that.updateEmail = function(body) {
+                    var updateEmail = $http.put('/api/user/changeEmail', body);
+                    updateEmail.then(function() {
+                        that.loadActiveUser()
+                            .then(function() {
+                                window.location = '/user/profile';
+                            })
+                            .catch(function() {
+                                window.location = '/user/profile';
+                            });
+                    }, function() {
+                        // TODO inform user of failed update. toast?
+                    });
+                    return updateEmail;
+                };
+
                 that.changePassword = function(userName, oldPassword, newPassword) {
                     var authData = Base64.encode(userName + ':' + oldPassword);
                     var config = {

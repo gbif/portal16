@@ -18,7 +18,8 @@ module.exports = {
     getDownloads: getDownloads,
     createSimpleDownload: testForDuplicateThenCreateSimpleDownload,
     changePassword: changePassword,
-    cancelDownload: cancelDownload
+    cancelDownload: cancelDownload,
+    changeEmail: changeEmail
 };
 
 /**
@@ -131,6 +132,18 @@ function changePassword(req, res) {
         .then(function() {
             res.status(204);
             res.json({type: 'PASSWORD_CHANGED'});
+        })
+        .catch(handleError(res, 422));
+}
+
+/**
+ * Confirm user email change from mail link
+ */
+function changeEmail(req, res) {
+    userModel.changeEmail(req.body)
+        .then(function(user) {
+            res.status(204);
+            res.json({type: 'EMAIL_CHANGED'});
         })
         .catch(handleError(res, 422));
 }

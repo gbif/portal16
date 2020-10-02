@@ -197,6 +197,10 @@ let apiConfig = {
         url: identityBaseUrl + 'user/changePassword',
         canonical: 'user/changePassword'
     },
+    userChangeEmail: {
+        url: identityBaseUrl + 'admin/user/changeEmail',
+        canonical: 'admin/user/changeEmail'
+    },
     userFind: {
         url: identityBaseUrl + 'admin/user/find',
         canonical: 'admin/user/find'

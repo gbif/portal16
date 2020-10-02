@@ -84,3 +84,23 @@ router.get('/update-password', function(req, res, next) {
         });
 });
 
+router.get('/change-email', function(req, res, next) {
+    let challengeCode = req.query.code,
+        email = req.query.email,
+        userName = req.query.username;
+
+    userModel.isValidChallengeEmail(userName, email, challengeCode)
+        .then(function() {
+            let context = {
+                challengeCode: challengeCode,
+                userName: userName,
+                email: email
+            };
+            auth.setNoCache(res);
+            helper.renderPage(req, res, next, context, 'pages/user/updateEmail/updateEmail');
+        })
+        .catch(function() {
+            // not a valid token
+            helper.renderPage(req, res, next, {}, 'pages/user/updateEmail/invalidToken');
+        });
+});

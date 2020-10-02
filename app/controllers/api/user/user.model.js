@@ -18,12 +18,14 @@ module.exports = {
     resetPassword: resetPassword,
     updateForgottenPassword: updateForgottenPassword,
     isValidChallenge: isValidChallenge,
+    isValidChallengeEmail: isValidChallengeEmail,
     getClientUser: getClientUser,
     sanitizeUpdatedUser: sanitizeUpdatedUser,
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
     changePassword: changePassword,
-    cancelDownload: cancelDownload
+    cancelDownload: cancelDownload,
+    changeEmail: changeEmail
 };
 
 async function create(body) {
@@ -53,6 +55,24 @@ async function confirm(challengeCode, userName) {
     };
     let response = await authOperations.authenticatedRequest(options);
     if (response.statusCode !== 201) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function changeEmail(body) {
+    let options = {
+        method: 'PUT',
+        body: {
+            challengeCode: body.challengeCode,
+            email: body.email
+        },
+        url: apiConfig.userChangeEmail.url,
+        canonicalPath: apiConfig.userChangeEmail.canonical,
+        userName: body.userName
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 204) {
         throw response;
     }
     return response.body;
@@ -115,6 +135,20 @@ async function isValidChallenge(userName, challengeCode) {
     let options = {
         method: 'GET',
         url: apiConfig.userChallengeCodeValid.url + '?confirmationKey=' + challengeCode,
+        userName: userName
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 204) {
+        throw response;
+    }
+    return response;
+}
+
+async function isValidChallengeEmail(userName, email, challengeCode) {
+    let options = {
+        method: 'GET',
+        url: apiConfig.userChallengeCodeValid.url + '?confirmationKey=' + challengeCode
+            + '&email=' + encodeURIComponent(email),
         userName: userName
     };
     let response = await authOperations.authenticatedRequest(options);

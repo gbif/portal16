@@ -1,0 +1,13 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes">
+        <section class="horizontal-stripe">
+            <div class="container--narrow">
+                <div class="emptyInfo">
+                    <h3>{$ __('profile.invalidLink') $}</h3>
+                </div>
+            </div>
+        </section>
+    </article>
+{% endblock %}
