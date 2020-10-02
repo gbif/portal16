@@ -148,7 +148,7 @@ async function isValidChallengeEmail(userName, email, challengeCode) {
     let options = {
         method: 'GET',
         url: apiConfig.userChallengeCodeValid.url + '?confirmationKey=' + challengeCode
-            + '&email=' + email,
+            + '&email=' + encodeURIComponent(email),
         userName: userName
     };
     let response = await authOperations.authenticatedRequest(options);
