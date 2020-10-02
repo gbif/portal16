@@ -26,6 +26,8 @@
     "loginText": "ВХОД",
     "register": "РЕГИСТРАЦИЯ",
     "downloads": "Загрузки",
+    "newEmail": "",
+    "updateEmail": "",
     "repeatPassword": "Повторите пароль",
     "repeatNewPassword": "Повторите новый пароль",
     "passwordsNotIdentical": "Введенные пароли не совпадают",
