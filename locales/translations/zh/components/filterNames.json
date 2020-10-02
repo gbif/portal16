@@ -69,6 +69,7 @@
     "sampleSizeUnit": "样本大小单位",
     "relativeOrganismQuantity": "相对生物数量",
     "collectionKey": "馆藏",
-    "institutionKey": "机构"
+    "institutionKey": "机构",
+    "gadmGid": ""
   }
 }
