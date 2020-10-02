@@ -1,7 +1,9 @@
 <a ng-href="" class="seperator species-list seperator text-left" dir="auto">
     <span ng-bind-html="match.model.name | uibTypeaheadHighlight:query"></span>
-    <span class="small discreet" dir="auto">{{match.model.englishType[0]}}</span>
-    <div class="small discreet">
-         <span class="small discreet" dir="auto">{{match.model.id}}</span>
+    <span class="small discreet" dir="auto">{{match.model.englishType[0]}} - {{match.model.id}}</span>
+    <div class="small discreet classification-list">
+        <span ng-repeat="area in match.model.higherRegions">
+            {{area.name}}
+        </span>
     </div>
 </a>
