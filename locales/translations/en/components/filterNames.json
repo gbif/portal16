@@ -70,6 +70,6 @@
     "relativeOrganismQuantity": "Relative organism quantity",
     "collectionKey": "Collection",
     "institutionKey": "Institution",
-    "gadmGid": ""
+    "gadmGid": "GADM GID"
   }
 }
