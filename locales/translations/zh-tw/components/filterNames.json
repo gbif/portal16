@@ -69,6 +69,7 @@
     "sampleSizeUnit": "取樣大小單位",
     "relativeOrganismQuantity": "相對生物體數量",
     "collectionKey": "採集",
-    "institutionKey": "機構"
+    "institutionKey": "機構",
+    "gadmGid": ""
   }
 }

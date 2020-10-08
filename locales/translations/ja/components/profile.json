@@ -26,6 +26,8 @@
     "loginText": "ログイン",
     "register": "登録",
     "downloads": "ダウンロード数",
+    "newEmail": "",
+    "updateEmail": "",
     "repeatPassword": "パスワードを再入力してください。",
     "repeatNewPassword": "新しいパスワードを再入力してください。",
     "passwordsNotIdentical": "入力した２つのパスワードが一致しません。",

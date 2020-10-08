@@ -69,6 +69,7 @@
     "sampleSizeUnit": "وحدة حجم العينة",
     "relativeOrganismQuantity": "كمية الكائن النسبية",
     "collectionKey": "مجموعة",
-    "institutionKey": "مؤسسة"
+    "institutionKey": "مؤسسة",
+    "gadmGid": "GADM GID"
   }
 }
