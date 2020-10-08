@@ -69,6 +69,7 @@
     "sampleSizeUnit": "サンプルサイズの単位",
     "relativeOrganismQuantity": "相対生物数",
     "collectionKey": "コレクション",
-    "institutionKey": "機関"
+    "institutionKey": "機関",
+    "gadmGid": ""
   }
 }

@@ -69,6 +69,7 @@
     "sampleSizeUnit": "Unidad del tamaño de la muestra",
     "relativeOrganismQuantity": "Cantidad relativa del organismo",
     "collectionKey": "Colección",
-    "institutionKey": "Institución"
+    "institutionKey": "Institución",
+    "gadmGid": "GID GADM "
   }
 }

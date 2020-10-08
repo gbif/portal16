@@ -69,6 +69,7 @@
     "sampleSizeUnit": "Единица измерения объёма (размера) описания, учёта или сбора",
     "relativeOrganismQuantity": "Относительное обилие вида",
     "collectionKey": "",
-    "institutionKey": "Организация"
+    "institutionKey": "Организация",
+    "gadmGid": ""
   }
 }

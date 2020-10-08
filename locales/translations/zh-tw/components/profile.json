@@ -26,6 +26,8 @@
     "loginText": "登入",
     "register": "註冊",
     "downloads": "下載",
+    "newEmail": "",
+    "updateEmail": "",
     "repeatPassword": "重複輸入密碼",
     "repeatNewPassword": "重複輸入新密碼",
     "passwordsNotIdentical": "密碼不一致",

@@ -69,6 +69,7 @@
     "sampleSizeUnit": "Одиниці розміру збору",
     "relativeOrganismQuantity": "Відносна кількість організмів",
     "collectionKey": "Колекція",
-    "institutionKey": "Установа"
+    "institutionKey": "Установа",
+    "gadmGid": ""
   }
 }

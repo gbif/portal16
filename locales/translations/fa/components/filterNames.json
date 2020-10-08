@@ -69,6 +69,7 @@
     "sampleSizeUnit": "",
     "relativeOrganismQuantity": "",
     "collectionKey": "مجموعه",
-    "institutionKey": ""
+    "institutionKey": "",
+    "gadmGid": ""
   }
 }
