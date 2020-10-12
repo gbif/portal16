@@ -35,7 +35,7 @@ function normalize(result, offset, limit) {
             offset: offset || 0,
             limit: limit || 20,
             endOfRecords: false,
-            count: _.get(result, 'hits.total', 0),
+            count: _.get(result, 'hits.total.value', 0),
             results: _.get(result, 'hits.hits', []),
             facets: []
         };

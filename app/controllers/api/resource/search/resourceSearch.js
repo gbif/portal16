@@ -89,6 +89,7 @@ function buildQuery(query) {
         showPastEvents = query._showPastEvents === '' || query._showPastEvents === 'true',
         facetMultiselect = query.facetMultiselect === 'true' || query.facetMultiselect === true,
         body = {
+            track_total_hits: true,
             query: {
                 bool: {
                     must: []
