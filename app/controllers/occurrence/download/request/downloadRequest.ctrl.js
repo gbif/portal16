@@ -2,7 +2,7 @@
 
 let express = require('express'),
     router = express.Router(),
-    validatePredicate = require('../download/validatePredicate').validatePredicate;
+    validatePredicate = require('../validatePredicate').validatePredicate;
 
 module.exports = function(app) {
     app.use('/occurrence', router);

@@ -6,8 +6,7 @@
  * enum list, multiselect
  */
 'use strict';
-var angular = require('angular'),
-  _ = require('lodash');
+var angular = require('angular');
 
 require('../downloadSpeed.service');
 
@@ -108,44 +107,33 @@ function occurrenceDownloadCustomCtrl($state, $scope, AUTH_EVENTS, $httpParamSer
   };
 
   vm.startDownload = function (format, username, password, email) {
-    var data = {predicate: gb.predicate};
-    data.format = format;
-    data.notification_address = email;
-    var downloadUrl = endpoints.download + '/predicate';
-    $http.post(downloadUrl, data).then(function (response) {
-      window.location.href = 'download/' + response.data.downloadKey;
-    }, function (err) {
-      // TODO alert user of failure
-      if (err.status === 401) {
-        // unauthorized
-        toastService.error({translate: 'phrases.errorNotAuthorized'});
-      } else if (err.status === 413) {
-        // Query too large for the API
-        toastService.error({translate: 'phrases.payloadTooLarge'});
-      } else if (err.status === 420) {
-        // User throttled
-        toastService.error({translate: 'occurrenceSearch.errorUserThrottled', readMore: URL_PREFIX + '/restricted'});
-      } else {
-        toastService.error({translate: 'phrases.criticalErrorMsg'});
-      }
-    });
+    try {
+      var jsonPredicate = JSON.parse(vm.input);
+      var data = {predicate: jsonPredicate};
+      data.format = format;
+      data.notification_address = email;
+      var downloadUrl = endpoints.download + '/predicate';
+      $http.post(downloadUrl, data).then(function (response) {
+        window.location.href = response.data.downloadKey;
+      }, function (err) {
+        // TODO alert user of failure
+        if (err.status === 401) {
+          // unauthorized
+          toastService.error({translate: 'phrases.errorNotAuthorized'});
+        } else if (err.status === 413) {
+          // Query too large for the API
+          toastService.error({translate: 'phrases.payloadTooLarge'});
+        } else if (err.status === 420) {
+          // User throttled
+          toastService.error({translate: 'occurrenceSearch.errorUserThrottled', readMore: URL_PREFIX + '/restricted'});
+        } else {
+          toastService.error({translate: 'phrases.criticalErrorMsg'});
+        }
+      });
+    } catch (err) {
+      toastService.error({translate: 'phrases.criticalErrorMsg'});
+    }
   };
-
-  // keep track of whether the user is logged in or not
-  function setLoginState() {
-    vm.hasUser = !!$sessionStorage.user;
-  }
-  $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
-    setLoginState();
-  });
-  $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
-    setLoginState();
-  });
-  $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
-    setLoginState();
-  });
-  User.loadActiveUser();
-  setLoginState();
 }
 
 angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInstance, options) {
