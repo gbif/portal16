@@ -115,6 +115,7 @@
     "istanbul": "^0.4.2",
     "jasmine-reporters": "^2.1.1",
     "jasmine-spec-reporter": "^2.4.0",
+    "joi": "^17.2.1",
     "js-base64": "^2.4.3",
     "json2md": "^1.5.8",
     "jsonwebtoken": "^7.4.0",

@@ -23,6 +23,7 @@ module.exports = {
     sanitizeUpdatedUser: sanitizeUpdatedUser,
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
+    createPredicateDownload: createPredicateDownload,
     changePassword: changePassword,
     cancelDownload: cancelDownload,
     changeEmail: changeEmail
@@ -219,6 +220,33 @@ async function createSimpleDownload(user, query) {
         throw response;
     }
     return response.body;
+}
+
+async function createPredicateDownload(user, query) {
+  query = query || {};
+  expect(query, 'download query').to.be.an('object');
+  expect(user.userName, 'user name').to.be.a('string');
+
+  let email = user.email;
+
+  let options = {
+      url: apiConfig.occurrenceSearchDownload.url,
+      canonicalPath: apiConfig.occurrenceSearchDownload.canonical,
+      body: {
+          creator: user.userName,
+          notificationAddresses: email ? [email] : undefined,
+          sendNotification: true,
+          format: query.format || 'SIMPLE_CSV',
+          predicate: query.predicate
+      },
+      userName: user.userName,
+      method: 'POST'
+  };
+  let response = await authOperations.authenticatedRequest(options);
+  if (response.statusCode !== 201) {
+      throw response;
+  }
+  return response.body;
 }
 
 async function cancelDownload(user, key) {

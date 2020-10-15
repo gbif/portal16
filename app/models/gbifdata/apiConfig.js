@@ -84,7 +84,8 @@ let apiConfig = {
         url: baseUrl + 'occurrence/download/user/'
     },
     occurrenceSearchDownload: {
-        url: baseUrl + 'occurrence/download/request/'
+        url: baseUrl + 'occurrence/download/request/',
+        canonical: 'occurrence/download/request/'
     },
     occurrenceCancelDownload: {
         url: baseUrl + 'occurrence/download/request/'

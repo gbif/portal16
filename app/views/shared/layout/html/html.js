@@ -332,6 +332,7 @@ require('../../../pages/user/confirmUser/confirmUser.ctrl');
 require('../../../pages/user/updateEmail/updateEmail.ctrl');
 
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
+require('../../../pages/occurrence/download/custom/occurrenceDownloadCustom.ctrl');
 require('../../../pages/species/key/speciesKey.ctrl');
 require('../../../pages/species/key/metrics/speciesKeyMetrics.ctrl');
 

@@ -17,6 +17,7 @@ module.exports = {
     logout: logout,
     getDownloads: getDownloads,
     createSimpleDownload: testForDuplicateThenCreateSimpleDownload,
+    createPredicateDownload: testForDuplicateThenCreatePredicateDownload,
     changePassword: changePassword,
     cancelDownload: cancelDownload,
     changeEmail: changeEmail
@@ -172,6 +173,19 @@ function createSimpleDownload(req, res) {
 }
 
 /**
+ * Initiate a predicate download based on query parameters.
+ */
+function createPredicateDownload(req, res) {
+  userModel.createPredicateDownload(req.user, req.body)
+      .then(function(download) {
+        res.status(201);
+        auth.setNoCache(res);
+        res.json({downloadKey: download});
+      })
+      .catch(handleError(res, 422));
+}
+
+/**
  * Cancel a download the user has initiated
  */
 function cancelDownload(req, res) {
@@ -211,16 +225,39 @@ function testForDuplicateThenCreateSimpleDownload(req, res) {
         .catch(handleError(res, 422));
 }
 
+/**
+ * Initiate a simple download based on query parameters.
+ * UPDATE: Hack on behalf of the API where it probably ought to be done.
+ * Due to many downloads without any filters it has been decided to redirect such queries to an older pregenerated version.
+ * So first check if there exists any such, if so redirect to that. Else create new download.
+ */
+function testForDuplicateThenCreatePredicateDownload(req, res) {
+  let body = req.body;
+  getPregeneratedDownloadVersion(body)
+      .then(function(match) {
+          if (match) {
+              res.send(match.key);
+          } else {
+            createPredicateDownload(req, res);
+          }
+      })
+      .catch(handleError(res, 422));
+}
+
 async function getPregeneratedVersion(query) {
     let predicate = await getPredicate(query);
-    let pQuery = _.get(predicate, 'predicate');
-    let pregeneratedDownloads = await userModel.getDownloads('download.gbif.org', {limit: 100, offset: 0});
+    return getPregeneratedDownloadVersion(predicate);
+}
 
-    let match = _.find(pregeneratedDownloads.results, function(e) {
-        let pOther = _.get(e, 'request.predicate');
-        return e.status === 'SUCCEEDED' && _.isEqual(pQuery, pOther) && _.get(e, 'request.format') === predicate.format;
-    });
-    return match;
+async function getPregeneratedDownloadVersion(request) {
+  let pQuery = _.get(request, 'predicate');
+  let pregeneratedDownloads = await userModel.getDownloads('download.gbif.org', {limit: 100, offset: 0});
+
+  let match = _.find(pregeneratedDownloads.results, function(e) {
+      let pOther = _.get(e, 'request.predicate');
+      return e.status === 'SUCCEEDED' && _.isEqual(pQuery, pOther) && _.get(e, 'request.format') === request.format;
+  });
+  return match;
 }
 
 /*
