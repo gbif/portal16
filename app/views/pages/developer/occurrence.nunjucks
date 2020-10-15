@@ -17,6 +17,10 @@
     {$ api.trow(url=url, resp=resp, httpMethod="GET", respLink=respLink, paging=undefined, authRequired=undefined, params=params, description=caller()) $}
 {% endmacro %}
 
+{% macro trowG(url, method="GET", resp="GadmRegion", respLink=undefined, paging=false, params=[]) %}
+    {$ api.trow(url="/geocode"+url, httpMethod=method, resp=resp, respLink=respLink, authRequired=undefined, params=params, paging=paging, description=caller()) $}
+{% endmacro %}
+
 {% block page %}
 
     <article dir="ltr" class="wrapper-horizontal-stripes page--developer">
@@ -378,6 +382,7 @@
             "eventId": "An identifier for the information associated with a sampling event.",
             "familyKey": "Family classification key.",
             "gadmGid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at any level, for example AGO, AGO.1_1, AGO.1.1_1 or AGO.1.1.1_1",
+            "gadmLevel": "A <a href='https://gadm.org/'>GADM</a>  region level, valid values range from 0 to 3",
             "gadmLevel0Gid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at the zero level, for example AGO",
             "gadmLevel1Gid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at the first level, for example AGO.1_1",
             "gadmLevel2Gid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at the second level, for example AFG.1.1_1",
@@ -743,6 +748,47 @@
                     </ul>
                     <p>The number of user downloads currently in progress can be seen on the <a href="../../health">System Health</a> page.
                         Your own downloads can be seen on your <a href="../../user/download">My Downloads</a> page.</p>
+                </div>
+            </section>
+
+            <section id="gadm" class="white-background page--developer__anchor">
+                <div class="container--narrow">
+                    <h3>GADM regions search and browsing</h3>
+                    <p>Database of Global Administrative Areas, is a high-resolution database of country administrative areas.</p>
+                    <p>This API provides services to search and browse regions and sub-regions down to three levels of sub-regions.</p>
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead(auth=false, paging=true, params=true) $}
+                        <tbody>
+                        {% call trowG(url="/gadm/search", respLink=apiBase+"geocode/gadm/search?q=Peru&gadmLevel=2&gadmGid=SLV.4_1", paging=true,params=["q","gadmLevel","gadmGid"]) %}
+                        Search for GADM regions.
+                        When paramters are used the results are narrowed to results at the <code>gadmLevel</code> parameter and that are sub-regions <code>gadmGid</code>
+                        {% endcall %}
+                        {% call trowG(url="/gadm/{gid}", respLink=apiBase+"geocode/gadm/DNK")%}
+                        Gets details for GADM region
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/{gid}/subdivisions", respLink=apiBase+"geocode/gadm/DNK/subdivisions", params=["q"]) %}
+                        Gets sub-regions or divisions of region
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/browse", respLink=apiBase+"geocode/gadm/browse", params=[q]) %}
+                        Lists GADM regions at the highest level.
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/browse/DNK/{gid}", respLink=apiBase+"geocode/gadm/browse/DNK", params=[q]) %}
+                        Lists sub-regions of a region at the first level.
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/browse/DNK/{gid0}/{gid1}", respLink=apiBase+"geocode/gadm/browse/DNK/DNK.1_1", params=["q"]) %}
+                        Lists sub-regions of a region at the second level.
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/browse/DNK/{gid0}/{gid1}/{gid2}", respLink=apiBase+"geocode/gadm/browse/DNK/DNK.1_1/DNK.1.25_1", params=["q"]) %}
+                        Lists sub-regions of a region at the third level.
+                        {% endcall %}
+                        </tbody>
+
+                    </table>
                 </div>
             </section>
 
