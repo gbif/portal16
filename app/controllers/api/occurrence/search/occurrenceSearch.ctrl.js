@@ -16,6 +16,9 @@ module.exports = function(app) {
 let requestCounter = 0;
 let requestCancellationCounter = 0;
 router.get('/occurrence/search/cancellation', function(req, res) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Pragma', 'no-cache');
+  res.header('Expires', '0');
   res.json({requests: requestCounter, cancellations: requestCancellationCounter, frequency: requestCancellationCounter / requestCounter});
 });
 
