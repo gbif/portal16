@@ -1,6 +1,6 @@
 {
   "filterNames": {
-    "occurrenceStatus": "",
+    "occurrenceStatus": "オカレンスステータス",
     "month": "月",
     "catalogNumber": "カタログ番号",
     "year": "年",
@@ -15,7 +15,7 @@
     "mediaType": "メディアの種類",
     "recordedBy": "採集者・観察者",
     "recordedById": "採集者・観察者ID",
-    "identifiedBy": "",
+    "identifiedBy": "同定者",
     "identifiedById": "同定者ID",
     "eventDate": "イベント日付",
     "eventID": "イベントID",
@@ -70,6 +70,6 @@
     "relativeOrganismQuantity": "相対生物数",
     "collectionKey": "コレクション",
     "institutionKey": "機関",
-    "gadmGid": ""
+    "gadmGid": "行政区域 (gadm.org)"
   }
 }
