@@ -48,7 +48,7 @@
           "undefined": "Non spécifié"
         },
         "relevance": {
-          "GBIF_USED": "Utilisé par le GBIF",
+          "GBIF_USED": "Utilisant le GBIF",
           "GBIF_CITED": "Citant le GBIF",
           "GBIF_DISCUSSED": "Traitant du GBIF",
           "GBIF_PRIMARY": "GBIF source primaire de données",
