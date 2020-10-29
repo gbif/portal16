@@ -13,8 +13,12 @@ $mobileGalleryHeight = 100px
         flex 1 1 auto
         position relative
         width $mobileGalleryHeight //asummed square
-        &[data-width="thinner"] {
-            width $mobileGalleryHeight* 0.6
+        for level in (1..30){
+          ratio = '"ratio_' + level/10 + '"'
+          cleanRatio = replace('\.', '_', ratio)
+          &[data-width={cleanRatio}] {
+            width $mobileGalleryHeight* (level/10)
+          }
         }
         &[data-width="thin"] {
             width $mobileGalleryHeight* 0.75
@@ -30,7 +34,7 @@ $mobileGalleryHeight = 100px
         }
         height $mobileGalleryHeight
         overflow hidden
-        background-size cover
+        background-size contain
         background-position center
         background-repeat no-repeat
         img {
@@ -98,6 +102,13 @@ $laptopGalleryHeight = 180px
     .imageGallery {
         > div, a {
             width $laptopGalleryHeight //asummed square
+            for level in (1..30){
+              ratio = '"ratio_' + level/10 + '"'
+              cleanRatio = replace('\.', '_', ratio)
+              &[data-width={cleanRatio}] {
+                width $laptopGalleryHeight* (level/10)
+              }
+            }
             &[data-width="thinner"] {
                 width $laptopGalleryHeight* 0.6
             }
