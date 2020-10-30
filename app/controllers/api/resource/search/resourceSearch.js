@@ -11,7 +11,7 @@ const _ = require('lodash'),
 let knownFilters =
     ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher',
      'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey',
-     'gbifDownloadKey', 'publisher', 'source', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId', 'programmeTag', 'contractCountry', 'networkKey', 'urlAlias'];
+     'gbifDownloadKey', 'publisher', 'source', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 'projectId', 'programmeId', 'programmeTag', 'contractCountry', 'networkKey', 'urlAlias'];
 let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 let client = new elasticsearch.Client({
@@ -319,6 +319,10 @@ function getFilter(field, value) {
     let isRange = false;
     if (['year', 'start', 'end'].indexOf(field) != -1) {
         isRange = true;
+    }
+    if (field === 'programmeId') {
+      // nested field
+      return filterHelper.getNestedFilter('id', value, 'programme');
     }
     return filterHelper.getFilter(field, value, isRange);
     // //Create the term filter
