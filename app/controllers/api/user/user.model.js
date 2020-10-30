@@ -284,6 +284,7 @@ function getClientUser(user) {
         roles: user.roles,
         settings: {
             country: user.settings.country,
+            locale: user.settings.locale,
             has_read_gdpr_terms: user.settings.has_read_gdpr_terms
         },
         connectedAcounts: {
