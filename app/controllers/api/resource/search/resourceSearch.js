@@ -103,23 +103,8 @@ function buildQuery(query) {
 
     if (query.q) {
         query.q = escapedSearchQuery(query.q);
-        _.set(body, 'query.bool.must[0].bool.should[0].match_phrase._all.query', query.q);
-        _.set(body, 'query.bool.must[0].bool.should[0].match_phrase._all.boost', 100);
-
-        if (query.q.indexOf('"') === -1) {
-            // _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
-            // _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', 'and');
-            // _.set(body, 'query.bool.must[0].bool.should[2].match._all.boost', 50);
-            // _.set(body, 'query.bool.must[0].bool.should[2].match._all.lenient', true);
-
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.query', query.q);
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.operator', 'and');
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.boost', 10);
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.fuzziness', 'AUTO');
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.prefix_length', 3);
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.lenient', true);
-            _.set(body, 'query.bool.must[0].bool.should[2].match._all.zero_terms_query', 'all');
-        }
+        _.set(body, 'query.bool.must[0].bool.should[0].simple_query_string.query', query.q);
+        _.set(body, 'query.bool.must[0].bool.should[0].simple_query_string.default_operator', 'and');
     } else {
         _.set(body, 'query.bool.must[0].match_all', {});
     }
