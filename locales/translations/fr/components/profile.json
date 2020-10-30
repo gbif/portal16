@@ -26,8 +26,6 @@
     "loginText": "Connexion",
     "register": "Enregistrement",
     "downloads": "Téléchargements",
-    "newEmail": "",
-    "updateEmail": "",
     "repeatPassword": "Répéter le mot de passe",
     "repeatNewPassword": "Répétez le nouveau mot de passe",
     "passwordsNotIdentical": "Les deux mots de passes ne sont pas identiques",
