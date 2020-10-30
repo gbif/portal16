@@ -36,7 +36,7 @@
       "description": "**Institution** se réfère à toute institution ou organisation qui possède et gère des collections scientifiques. Ceci inclut les herbiers, les muséums, les parcs zoologiques, les jardins botaniques, les banques de données biologiques, entre autres. Une institution peut contenir plusieurs collections, auquel cas elles doivent être saisies individuellement sous  **Collections Institutionnelles/Projet** et liées à l'institution mère.\n\nEn raison de l'intégration de plusieurs jeux de données anciens, et pour éviter la duplication de  **Code Institutionnel**, <IH> a été apposé à tous les codes de l'Index Herbarorium Herbarium."
     },
     "headerTitle": "Institution",
-    "indexHerbariorumRecord": "Enregistrement d'Index Herbariorum",
+    "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "Code de l'institution",
     "statusOfInstitution": "Statut de l'institution",
