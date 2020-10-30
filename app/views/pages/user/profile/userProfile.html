@@ -76,6 +76,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span translate="profile.language"></span>
+                                            <input type="text" name="locale" ng-model="userProfile.profile.settings.locale"
+                                                   ng-disabled="!userProfile.inEditMode">
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </fieldset>
                         <div class="clearfix" ng-if="userProfile.inEditMode">
