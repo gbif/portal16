@@ -8,7 +8,7 @@ angular
     .controller('userProfileCtrl', userProfileCtrl);
 
 /** @ngInject */
-function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService, $translate) {
+function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService, $translate, LOCALE_MAPPINGS, env) {
     var vm = this;
     $translate('profile.profile').then(function(title) {
         Page.setTitle(title);
@@ -16,6 +16,8 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
     Page.drawer(false);
     vm.disableEditing = false;
     vm.emailPattern = regexPatterns.email;
+    vm.localeMappings = LOCALE_MAPPINGS;
+    vm.locales = env.locales;
 
     vm.getUser = function() {
         var activeUser = User.loadActiveUser();

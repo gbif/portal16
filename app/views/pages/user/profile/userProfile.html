@@ -80,8 +80,10 @@
                                     <div class="gb-form__group">
                                         <label>
                                             <span translate="profile.language"></span>
-                                            <input type="text" name="locale" ng-model="userProfile.profile.settings.locale"
-                                                   ng-disabled="!userProfile.inEditMode">
+                                            <select name="locale" ng-model="userProfile.profile.settings.locale"
+                                                    ng-disabled="!userProfile.inEditMode">
+                                                <option value="{{locale}}" ng-repeat="locale in userProfile.locales">{{userProfile.localeMappings.localNames[locale]}}</option>
+                                            </select>
                                         </label>
                                     </div>
                                 </div>
