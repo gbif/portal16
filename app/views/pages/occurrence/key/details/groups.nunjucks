@@ -71,6 +71,34 @@
                                     {$ shorten.shorten(occurrence.record[term.simpleName]) $}
                                 {% endif %}
 
+                                {% if term.simpleName == "institutionCode" and occurrence.institution %}
+                                    <span class="chip">
+                                        <a ui-sref="institutionKey({key: '{$ occurrence.institution.key $}'})">
+                                            {$ occurrence.institution.name $}
+                                        </a>
+                                    </span>
+                                {% endif %}
+                                {% if term.simpleName == "institutionID" and occurrence.institution %}
+                                    <span class="chip">
+                                        <a ui-sref="institutionKey({key: '{$ occurrence.institution.key $}'})">
+                                            {$ occurrence.institution.name $}
+                                        </a>
+                                    </span>
+                                {% endif %}
+                                {% if term.simpleName == "collectionCode" and occurrence.collection %}
+                                    <span class="chip">
+                                        <a ui-sref="collectionKey({key: '{$ occurrence.collection.key $}'})">
+                                            {$ occurrence.collection.name $}
+                                        </a>
+                                    </span>
+                                {% endif %}
+                                {% if term.simpleName == "collectionID" and occurrence.collection %}
+                                    <span class="chip">
+                                        <a ui-sref="collectionKey({key: '{$ occurrence.collection.key $}'})">
+                                            {$ occurrence.collection.name $}
+                                        </a>
+                                    </span>
+                                {% endif %}
                                 {% if term.simpleName == "organismID" %}
                                     <span class="chip">
                                         <a ui-sref="occurrenceSearchTable({dataset_key: '{$ occurrence.record.datasetKey $}', organism_id: '{$ occurrence.record.organismID $}' })">

@@ -61,6 +61,19 @@ Occurrence.prototype.expand = function(fieldNames) {
             extendToField: 'taxonName'
         };
     }
+    if (!_.isUndefined(this.record.institutionKey)) {
+      resourceLookup.institution = {
+        resource: api.institution.url + this.record.institutionKey,
+        extendToField: 'institution'
+      };
+    }
+    if (!_.isUndefined(this.record.collectionKey)) {
+      resourceLookup.collection = {
+        resource: api.collection.url + this.record.collectionKey,
+        extendToField: 'collection'
+      };
+    }
+
     fieldNames.forEach(function(e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
