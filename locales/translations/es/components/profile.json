@@ -76,6 +76,7 @@
     "stopEditing": "Dejar de editar",
     "firstName": "Nombre",
     "lastName": "Apellido(s)",
+    "language": "",
     "save": "Guardar",
     "currentPassword": "Contraseña actual",
     "invalidProfileUpdate": "Actualización de perfil no válida",
