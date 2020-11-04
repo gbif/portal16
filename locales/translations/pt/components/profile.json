@@ -76,6 +76,7 @@
     "stopEditing": "Interromper a edição",
     "firstName": "Primeiro nome",
     "lastName": "Último nome",
+    "language": "",
     "save": "Guardar",
     "currentPassword": "Palavra-passe atual",
     "invalidProfileUpdate": "Atualização do perfil inválido",
