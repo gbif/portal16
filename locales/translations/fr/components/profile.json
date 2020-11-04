@@ -76,6 +76,7 @@
     "stopEditing": "Arrêter la modification",
     "firstName": "Prénom",
     "lastName": "Nom de famille ",
+    "language": "",
     "save": "Sauvegarder",
     "currentPassword": "Mot de passe actuel",
     "invalidProfileUpdate": "Mis à jour du profil non valide",
