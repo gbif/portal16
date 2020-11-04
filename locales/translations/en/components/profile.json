@@ -76,6 +76,7 @@
     "stopEditing": "Stop editing",
     "firstName": "First name",
     "lastName": "Last name",
+    "language": "Language",
     "save": "Save",
     "currentPassword": "Current password",
     "invalidProfileUpdate": "Invalid profile update",

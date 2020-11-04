@@ -188,7 +188,8 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
                     challenge: {},
                     user: {
                         settings: {
-                            country: vm.country
+                            country: vm.country,
+                            locale: LOCALE
                         },
                         userName: vm.username,
                         email: vm.email,
