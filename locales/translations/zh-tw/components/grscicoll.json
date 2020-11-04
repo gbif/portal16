@@ -36,7 +36,7 @@
       "description": "**機構** 是指擁有與管理科學典藏的任何機構或組織。包括草本植物、博物館、動物園、植物園、生物庫等。一個機構可以包含多種典藏，也就是說這些典藏應在 **機構／計畫典藏** 中單獨輸入，並與其上層機構連結。\n\n由於整合數個較舊的資料集，並為避免 **機構代碼** 重複，所有植物標本館索引代碼會附加 <IH> 。"
     },
     "headerTitle": "機構",
-    "indexHerbariorumRecord": "植物標本館索引紀錄",
+    "indexHerbariorumIdentifier": "",
     "numberSpecimens": "標本數量",
     "code": "機構代碼",
     "statusOfInstitution": "機構狀態",
