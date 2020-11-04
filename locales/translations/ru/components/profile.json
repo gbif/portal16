@@ -76,6 +76,7 @@
     "stopEditing": "Закончить редактирование",
     "firstName": "Имя",
     "lastName": "Фамилия",
+    "language": "",
     "save": "Сохранить",
     "currentPassword": "Старый пароль",
     "invalidProfileUpdate": "Недопустимое обновление профиля",
