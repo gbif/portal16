@@ -76,6 +76,7 @@
     "stopEditing": "Stop redigering",
     "firstName": "Fornavn",
     "lastName": "Efternavn",
+    "language": "",
     "save": "Gem",
     "currentPassword": "Nuværende adgangskode",
     "invalidProfileUpdate": "Ugyldig profilopdatering",
