@@ -76,6 +76,7 @@
     "stopEditing": "結束編輯",
     "firstName": "名",
     "lastName": "姓",
+    "language": "",
     "save": "儲存",
     "currentPassword": "目前密碼",
     "invalidProfileUpdate": "檔案更新無效",
