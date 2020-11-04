@@ -76,6 +76,7 @@
     "stopEditing": "編集を終了する",
     "firstName": "名",
     "lastName": "姓",
+    "language": "",
     "save": "保存",
     "currentPassword": "現在のパスワード",
     "invalidProfileUpdate": "無効なプロフィール更新",
