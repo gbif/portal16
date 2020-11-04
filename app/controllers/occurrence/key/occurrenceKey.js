@@ -138,7 +138,7 @@ function getUsedExtensionTerms(fragment) {
 
 function getOccurrenceModel(occurrenceKey, __) {
     let getOptions = {
-        expand: ['publisher', 'dataset', 'datasetProcess', 'verbatim', 'taxonName', 'species', 'fragment']
+        expand: ['publisher', 'dataset', 'datasetProcess', 'verbatim', 'taxonName', 'species', 'fragment', 'institution', 'collection']
     };
 
     let promises = [

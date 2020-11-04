@@ -50,6 +50,17 @@
     "INDIVIDUAL_COUNT_INVALID": "Individual count invalid",
     "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "Individual count conflicts with occurrence status",
     "OCCURRENCE_STATUS_UNPARSABLE": "Occurrence status unparsable",
-    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Occurrence status inferred from individual count"
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Occurrence status inferred from individual count",
+    "OCCURRENCE_STATUS_INFERRED_FROM_BASIS_OF_RECORD": "Occurrence status inferred from basis of record",
+    "GEOREFERENCED_DATE_UNLIKELY": "Georeferenced date unlikely",
+    "GEOREFERENCED_DATE_INVALID": "Georeferenced date invalid",
+    "AMBIGUOUS_INSTITUTION": "Ambiguous institution",
+    "AMBIGUOUS_COLLECTION": "Ambiguous collection",
+    "INSTITUTION_MATCH_NONE": "Institution match none",
+    "COLLECTION_MATCH_NONE": "Collection match none",
+    "INSTITUTION_MATCH_FUZZY": "Institution match fuzzy",
+    "COLLECTION_MATCH_FUZZY": "Collection match fuzzy",
+    "INSTITUTION_COLLECTION_MISMATCH": "Institution collection mismatch",
+    "POSSIBLY_ON_LOAN": "Possibly on loan"
   }
 }

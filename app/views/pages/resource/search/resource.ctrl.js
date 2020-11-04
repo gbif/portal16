@@ -174,13 +174,27 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         filter: ResourceFilter,
         search: {
             isSearchable: true,
-            placeholder: 'filters.gbifDownloadKey'
+            placeholder: 'filters.searchPlaceholder'
         },
         facets: {
             hasFacets: false,
             facetKey: 'GBIF_DOWNLOAD_KEY'
         }
     };
+
+    vm.filters.doi = {
+      titleTranslation: 'resourceSearch.filters.paperDoi',
+      queryKey: 'doi',
+      filter: ResourceFilter,
+      search: {
+          isSearchable: true,
+          placeholder: 'filters.searchPlaceholder'
+      },
+      facets: {
+          hasFacets: false,
+          facetKey: 'GBIF_DOWNLOAD_KEY'
+      }
+  };
 
     vm.filters.peerReview = {
         titleTranslation: 'resourceSearch.filters.peerReview',

@@ -8,7 +8,7 @@ angular
     .controller('userProfileCtrl', userProfileCtrl);
 
 /** @ngInject */
-function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService, $translate) {
+function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService, $translate, LOCALE_MAPPINGS, env) {
     var vm = this;
     $translate('profile.profile').then(function(title) {
         Page.setTitle(title);
@@ -16,6 +16,9 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
     Page.drawer(false);
     vm.disableEditing = false;
     vm.emailPattern = regexPatterns.email;
+    vm.localeMappings = LOCALE_MAPPINGS;
+    vm.locales = env.locales;
+    vm.chosenLocale = LOCALE;
 
     vm.getUser = function() {
         var activeUser = User.loadActiveUser();
@@ -23,6 +26,7 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
         activeUser.then(function(response) {
             vm.profile = response.data;
             vm.original = JSON.parse(JSON.stringify(vm.profile));
+            vm.userLanguageBeforeUpdate = vm.profile.settings.locale;
 
             // read flash cookie and remove it
             var profileFlashInfo = $cookies.get('profileFlashInfo') || '{}';
@@ -82,6 +86,16 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
                         toastService.error({translate: 'phrases.criticalErrorMsg'});
                     }
                 });
+
+            // change interface language
+            if (vm.userLanguageBeforeUpdate !== vm.profile.settings.locale) {
+                var pathname = location.pathname;
+                var localePrefix = vm.profile.settings.locale === 'en' ? '' : '/' + vm.profile.settings.locale;
+                if (_.startsWith(pathname, '/' + LOCALE + '/')) {
+                    pathname = pathname.substr(LOCALE.length + 1);
+                }
+                window.location.href = localePrefix + pathname + location.search + location.hash;
+            }
         } else {
             vm.profileFormInvalid = true;
         }
