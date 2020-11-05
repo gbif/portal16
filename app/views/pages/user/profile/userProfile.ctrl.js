@@ -88,7 +88,7 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
                 });
 
             // change interface language
-            if (vm.userLanguageBeforeUpdate !== vm.profile.settings.locale) {
+            if (vm.profile.settings.locale && vm.userLanguageBeforeUpdate !== vm.profile.settings.locale) {
                 var pathname = location.pathname;
                 var localePrefix = vm.profile.settings.locale === 'en' ? '' : '/' + vm.profile.settings.locale;
                 if (_.startsWith(pathname, '/' + LOCALE + '/')) {
