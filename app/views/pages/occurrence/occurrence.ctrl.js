@@ -473,8 +473,11 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
       search: {
           isSearchable: true,
           suggestEndpoint: suggestEndpoints.collectionKey,
-          suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
-          suggestTitle: 'name',
+          suggestTemplate: '/templates/components/filterTaxon/suggestGrSciCollTemplate.html?v=' + BUILD_VERSION,
+          suggestTitle: function(item) {
+            if (item.code) return item.name + ' (' + item.code + ')';
+            return item.name;
+          },
           suggestShortName: 'name',
           suggestKey: 'key'
       },
@@ -495,8 +498,11 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
       search: {
           isSearchable: true,
           suggestEndpoint: suggestEndpoints.institutionKey,
-          suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
-          suggestTitle: 'name',
+          suggestTemplate: '/templates/components/filterTaxon/suggestGrSciCollTemplate.html?v=' + BUILD_VERSION,
+          suggestTitle: function(item) {
+            if (item.code) return item.name + ' (' + item.code + ')';
+            return item.name;
+          },
           suggestShortName: 'name',
           suggestKey: 'key'
       },
