@@ -86,9 +86,13 @@
 
         <div filter-suggest filter-config="occurrence.filters.institutionCode"
              filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.institution_key" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-suggest filter-config="occurrence.filters.collectionCode"
              filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.collection_key" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div> 
 
         <div filter-suggest filter-config="occurrence.filters.catalogNumber"
              filter-state="occurrence.occurrenceState"></div>
@@ -166,10 +170,6 @@
              ng-if="occurrence.occurrenceState.query.advanced"></div>
      <div filter-interval filter-config="occurrence.filters.relative_organism_quantity" filter-type="float" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>   
-     <!--div filter-taxon filter-config="occurrence.filters.collection_key" filter-state="occurrence.occurrenceState"
-             ng-if="occurrence.occurrenceState.query.advanced"></div> 
-     <div filter-taxon filter-config="occurrence.filters.institution_key" filter-state="occurrence.occurrenceState"
-             ng-if="occurrence.occurrenceState.query.advanced"></div-->
         <!--div filter-suggest filter-config="occurrence.filters.installationKey" filter-state="occurrence.occurrenceState"
              xng-if="occurrence.occurrenceState.query.advanced"></div-->
              

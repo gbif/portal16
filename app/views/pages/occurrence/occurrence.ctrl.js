@@ -462,49 +462,49 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
     }
   };
 
-  // vm.filters.collection_key = {
-  //     titleTranslation: 'filterNames.collectionKey',
-  //     queryKey: 'collection_key',
-  //     filter: OccurrenceFilter,
-  //     expand: {
-  //         resource: Collection,
-  //         expandedTitle: 'name'
-  //     },
-  //     search: {
-  //         isSearchable: true,
-  //         suggestEndpoint: suggestEndpoints.collectionKey,
-  //         suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
-  //         suggestTitle: 'name',
-  //         suggestShortName: 'name',
-  //         suggestKey: 'key'
-  //     },
-  //     facets: {
-  //         hasFacets: false,
-  //         facetKey: 'COLLECTION_KEY'
-  //     }
-  // };
+  vm.filters.collection_key = {
+      titleTranslation: 'filterNames.collectionKey',
+      queryKey: 'collection_key',
+      filter: OccurrenceFilter,
+      expand: {
+          resource: Collection,
+          expandedTitle: 'name'
+      },
+      search: {
+          isSearchable: true,
+          suggestEndpoint: suggestEndpoints.collectionKey,
+          suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
+          suggestTitle: 'name',
+          suggestShortName: 'name',
+          suggestKey: 'key'
+      },
+      facets: {
+          hasFacets: false,
+          facetKey: 'COLLECTION_KEY'
+      }
+  };
 
-  // vm.filters.institution_key = {
-  //     titleTranslation: 'filterNames.institutionKey',
-  //     queryKey: 'institution_key',
-  //     filter: OccurrenceFilter,
-  //     expand: {
-  //         resource: Institution,
-  //         expandedTitle: 'name'
-  //     },
-  //     search: {
-  //         isSearchable: true,
-  //         suggestEndpoint: suggestEndpoints.institutionKey,
-  //         suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
-  //         suggestTitle: 'name',
-  //         suggestShortName: 'name',
-  //         suggestKey: 'key'
-  //     },
-  //     facets: {
-  //         hasFacets: false,
-  //         facetKey: 'INSTITUTION_KEY'
-  //     }
-  // };
+  vm.filters.institution_key = {
+      titleTranslation: 'filterNames.institutionKey',
+      queryKey: 'institution_key',
+      filter: OccurrenceFilter,
+      expand: {
+          resource: Institution,
+          expandedTitle: 'name'
+      },
+      search: {
+          isSearchable: true,
+          suggestEndpoint: suggestEndpoints.institutionKey,
+          suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
+          suggestTitle: 'name',
+          suggestShortName: 'name',
+          suggestKey: 'key'
+      },
+      facets: {
+          hasFacets: false,
+          facetKey: 'INSTITUTION_KEY'
+      }
+  };
 
   // End new es filters
 

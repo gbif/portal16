@@ -385,6 +385,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('collectionKeyMetrics', {
+          parent: 'collectionKey',
+          url: '/metrics',
+          templateUrl: '/templates/pages/grscicoll/collection/key/metrics/collectionKeyMetrics.html?v=' + BUILD_VERSION,
+          controller: 'collectionKeyMetricsCtrl',
+          controllerAs: 'collectionKeyMetrics'
+      })
         .state('grscicollInstitutionSearch', {
             parent: 'grscicoll',
             url: '/institution/search?q&offset',
@@ -402,6 +409,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                     controllerAs: 'institutionKey'
                 }
             }
+        })
+        .state('institutionKeyMetrics', {
+            parent: 'institutionKey',
+            url: '/metrics',
+            templateUrl: '/templates/pages/grscicoll/institution/key/metrics/institutionKeyMetrics.html?v=' + BUILD_VERSION,
+            controller: 'institutionKeyMetricsCtrl',
+            controllerAs: 'institutionKeyMetrics'
         })
         .state('grscicollPersonSearch', {
             parent: 'grscicoll',
