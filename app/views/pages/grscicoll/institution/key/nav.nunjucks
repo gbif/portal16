@@ -22,7 +22,7 @@
                             <li class="tab" ng-class="{isActive: institutionKey.$state.is('institutionKey')}">
                                 <a ui-sref="institutionKey({key:institutionKey.key})" translate="institution.tabs.summary"></a>
                             </li>
-                            <li class="tab" ng-class="{isActive: institutionKey.$state.is('institutionKeyMetrics')}">
+                            <li class="tab" ng-if="institutionKey.occurrences.count > 0" ng-class="{isActive: institutionKey.$state.is('institutionKeyMetrics')}">
                                 <a ui-sref="institutionKeyMetrics({key: institutionKey.key})" translate="institution.tabs.metrics"></a>
                             </li>
                             <li class="tab" ng-if="institutionKey.institution.homepage">
