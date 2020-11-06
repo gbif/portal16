@@ -494,7 +494,7 @@
                                 </tr>
                                 <tr>
                                     <td><a id="p_ownerInstitutionCode"></a>ownerInstitutionCode</td>
-                                    <td>The code of the owner institution. This parameter is only used to detect the cases when the instution and the owner institution are different. If that happens the match is not considered accepted</td>
+                                    <td>The code of the owner institution. This parameter is only used to detect the cases when the instution and the owner institution are different. If that happens, the match is not considered accepted</td>
                                 </tr>
                                 <tr>
                                     <td><a id="p_institutionId"></a>institutionId</td>
