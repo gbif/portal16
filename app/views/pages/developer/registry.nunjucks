@@ -50,7 +50,7 @@
 
             <div class="col-md-2">
             {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'collections':'Collections', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
-            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person'} %}
+            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person', 'lookup':'Lookup'} %}
             {$ api.submenu(sections, colSections) $}
             </div>
             <div class="col-md-10">
@@ -467,98 +467,97 @@
                             </tbody>
                         </table>
                     </section>
-                    <section id="grscicoll_lookup" class="white-background page--developer__anchor">                    
+                    <section id="lookup" class="white-background page--developer__anchor">                    
                         <h4>Lookup</h4>
                         <p>
-                            This API provides a service to lookup institutions and collections.
+                            This API provides a service to lookup institutions and collections. It can be used to lookup for institutions, collections or both at the same time. 
+                            Besides the matches, the response also provides information to help understand how the match was done.
                         </p>
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
                                 {$ api.trow(url="/grscicoll/lookup", httpMethod="GET", authRequired=false, resp="Matches found", respLink=apiBase+"grscicoll/lookup?institutionCode=C", paging=false, params=["institutionCode","ownerInstitutionCode","institutionId","collectionCode","collectionId","datasetKey","country","verbose"], description="Lists all the matches found") $}
                             </tbody>
+                        </table>       
+                        <p>Explanation of the lookup parameters:</p>                        
+                        <table class='table table-bordered table-striped table-params'>
+                            <thead>
+                            <tr>
+                                <th width="25%" class='total'>Parameter</th>
+                                <th width="75%">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a id="p_institutionCode"></a>institutionCode</td>
+                                    <td>The code of an institution</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_ownerInstitutionCode"></a>ownerInstitutionCode</td>
+                                    <td>The code of the owner institution. This parameter is only used to detect the cases when the instution and the owner institution are different. If that happens the match is not considered accepted</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_institutionId"></a>institutionId</td>
+                                    <td>The identifier of an institution</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_collectionCode"></a>collectionCode</td>
+                                    <td>The code of a collection</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_collectionId"></a>collectionId</td>
+                                    <td>The identifier of a collection</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_datasetKey"></a>datasetKey</td>
+                                    <td>Datasets may have some institutions and/or collections linked manually through machine tags. If this parameter is set and the dataset contains these machine tags,
+                                        the service returns the institutions and/or collections specified in the tags and stops the lookup </td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_country"></a>country</td>
+                                    <td>ISO 639-1 (2 letter) country code. This parameter is only used as a discriminator when more than 1 candidate is found</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_verbose"></a>verbose</td>
+                                    <td>Boolean parameter(true or false). If set to true, it returns the accepted matches and other alternatives that were also found. Otherwise, it only returns the accepted ones</td>
+                                </tr>
+                            </tbody>
                         </table>
-                        <div class="container--narrow">                           
-                            <h5>Lookup parameters explained</h5>                        
-                            <table class='table table-bordered table-striped table-params'>
-                                <thead>
+                        <p>Explanation of the match status in the response:</>                        
+                        <table class='table table-bordered table-striped table-params'>
+                            <thead>
+                            <tr>
+                                <th width="25%" class='total'>Status</th>
+                                <th width="75%">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
                                 <tr>
-                                    <th width="25%" class='total'>Parameter</th>
-                                    <th width="75%">Description</th>
+                                    <td>ACCEPTED</td>
+                                    <td>The match is considered accepted because both the code and the identifier matched and only 1 candidate was found</td>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a id="p_institutionCode"></a>institutionCode</td>
-                                        <td>The code of an institution</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a id="p_ownerInstitutionCode"></a>ownerInstitutionCode</td>
-                                        <td>The code of the owner institution. This parameter is only used to detect the cases when the instution and the owner institution are different. If that happens the match is not considered accepted</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a id="p_institutionId"></a>institutionId</td>
-                                        <td>The identifier of an institution</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a id="p_collectionCode"></a>collectionCode</td>
-                                        <td>The code of a collection</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a id="p_collectionId"></a>collectionId</td>
-                                        <td>The identifier of a collection</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a id="p_datasetKey"></a>datasetKey</td>
-                                        <td>Datasets may have some institutions and/or collections linked manually through machine tags. If this parameter is set the service retrieves these machine tags 
-                                            and if found returns the institutions and/or collections specified and stops the lookup </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a id="p_country"></a>country</td>
-                                        <td>ISO 639-1 (2 letter) country code. This parameter is only used as a discriminator when more than 1 candidate is found</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a id="p_verbose"></a>verbose</td>
-                                        <td>Boolean parameter(true or false). If set to true it returns all the matches found. Otherwise, it only returns the accepted ones</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <h5>Status response explained</h5>                        
-                            <table class='table table-bordered table-striped table-params'>
-                                <thead>
                                 <tr>
-                                    <th width="25%" class='total'>Status</th>
-                                    <th width="75%">Description</th>
+                                    <td>AMBIGUOUS</td>
+                                    <td>Multiple candidates were found with the same level of confidence and it can't be determined which one should be the accepted</td>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>ACCEPTED</td>
-                                        <td>The match is considered accepted because both the code and the identifier matched and only 1 candidate was found</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AMBIGUOUS</td>
-                                        <td>Multiple candidates were found with the same level of confidence and it can't be determined which one should be the accepted</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AMBIGUOUS_MACHINE_TAGS</td>
-                                        <td>Same as above but when using machine tags in the dataset. This should only happen if a dataset has more than 1 institution or collection linked</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AMBIGUOUS_OWNER</td>
-                                        <td>At least 1 possible institution match was found but they don't match with the owner institution</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AMBIGUOUS_INSTITUTION_MISMATCH</td>
-                                        <td>At least 1 possible collection match was found but none of the matches belong to the institution matched</td>
-                                    </tr>
-                                    <tr>
-                                        <td>DOUBTFUL</td>
-                                        <td>A match was found but it was matched fuzzily. To know more about why this happened see the "reasons" returned in the response. A common case is when the name is used instead of the code or the identifier</td>
-                                    </tr>                                    
-                                </tbody>
-                            </table>
-                        </div>
+                                <tr>
+                                    <td>AMBIGUOUS_MACHINE_TAGS</td>
+                                    <td>Same as above but when using machine tags in the dataset. This only happens if a dataset has more than 1 institution or collection linked through machine tags</td>
+                                </tr>
+                                <tr>
+                                    <td>AMBIGUOUS_OWNER</td>
+                                    <td>At least 1 possible institution match was found but none of them matches with the owner institution specified</td>
+                                </tr>
+                                <tr>
+                                    <td>AMBIGUOUS_INSTITUTION_MISMATCH</td>
+                                    <td>At least 1 possible collection match was found but none of them belongs to the institution matched</td>
+                                </tr>
+                                <tr>
+                                    <td>DOUBTFUL</td>
+                                    <td>A match was found but it was matched fuzzily. To know more about why this has happened see the "reasons" returned in the response. A common case is when the name is used instead of the code or the identifier</td>
+                                </tr>                                    
+                            </tbody>
+                        </table>                    
                     </section>
                 </div>
             </section>
