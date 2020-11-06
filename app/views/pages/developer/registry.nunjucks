@@ -375,7 +375,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode"], description="Lists all collections")$}
+                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all collections")$}
                             {$ trowCol(url="", method="POST", resp="UUID", auth=true, description="Creates a new collection") $}
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
@@ -410,7 +410,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode"], description="Lists all institutions")$}
+                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all institutions")$}
                             {$ trowInst(url="", method="POST", resp="UUID", auth=true, description="Creates a new institution") $}
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
@@ -466,6 +466,99 @@
                             {$ trowPerson(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the person comment with comment identifier {ID}") $}
                             </tbody>
                         </table>
+                    </section>
+                    <section id="grscicoll_lookup" class="white-background page--developer__anchor">                    
+                        <h4>Lookup</h4>
+                        <p>
+                            This API provides a service to lookup institutions and collections.
+                        </p>
+                        <table class='api table table-bordered table-striped table-params'>
+                            {$ api.apiTableHead() $}
+                            <tbody>
+                                {$ api.trow(url="/grscicoll/lookup, httpMethod="GET", authRequired=false, resp="Matches found", respLink="apiBase+"grscicoll/lookup?institutionCode=C", paging=false, params=["institutionCode","ownerInstitutionCode","institutionId","collectionCode","collectionId","datasetKey","country","verbose"], description="Lists all the matches found") $}
+                            </tbody>
+                        </table>
+                        <div class="container--narrow">                           
+                            <h5>Lookup parameters explained</h5>                        
+                            <table class='table table-bordered table-striped table-params'>
+                                <thead>
+                                <tr>
+                                    <th width="25%" class='total'>Parameter</th>
+                                    <th width="75%">Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a id="p_institutionCode"></a>institutionCode</td>
+                                        <td>The code of an institution</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a id="p_ownerInstitutionCode"></a>ownerInstitutionCode</td>
+                                        <td>The code of the owner institution. This parameter is only used to detect the cases when the instution and the owner institution are different. If that happens the match is not considered accepted</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a id="p_institutionId"></a>institutionId</td>
+                                        <td>The identifier of an institution</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a id="p_collectionCode"></a>collectionCode</td>
+                                        <td>The code of a collection</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a id="p_collectionId"></a>collectionId</td>
+                                        <td>The identifier of a collection</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a id="p_datasetKey"></a>datasetKey</td>
+                                        <td>Datasets may have some institutions and/or collections linked manually through machine tags. If this parameter is set the service retrieves these machine tags 
+                                            and if found returns the institutions and/or collections specified and stops the lookup </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a id="p_country"></a>country</td>
+                                        <td>ISO 639-1 (2 letter) country code. This parameter is only used as a discriminator when more than 1 candidate is found</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a id="p_verbose"></a>verbose</td>
+                                        <td>Boolean parameter(true or false). If set to true it returns all the matches found. Otherwise, it only returns the accepted ones</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h5>Status response explained</h5>                        
+                            <table class='table table-bordered table-striped table-params'>
+                                <thead>
+                                <tr>
+                                    <th width="25%" class='total'>Status</th>
+                                    <th width="75%">Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ACCEPTED</td>
+                                        <td>The match is considered accepted because both the code and the identifier matched and only 1 candidate was found</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AMBIGUOUS</td>
+                                        <td>Multiple candidates were found with the same level of confidence and it can't be determined which one should be the accepted</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AMBIGUOUS_MACHINE_TAGS</td>
+                                        <td>Same as above but when using machine tags in the dataset. This should only happen if a dataset has more than 1 institution or collection linked</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AMBIGUOUS_OWNER</td>
+                                        <td>At least 1 possible institution match was found but they don't match with the owner institution</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AMBIGUOUS_INSTITUTION_MISMATCH</td>
+                                        <td>At least 1 possible collection match was found but none of the matches belong to the institution matched</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DOUBTFUL</td>
+                                        <td>A match was found but it was matched fuzzily. To know more about why this happened see the "reasons" returned in the response. A common case is when the name is used instead of the code or the identifier</td>
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
                     </section>
                 </div>
             </section>
