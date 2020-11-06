@@ -475,7 +475,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                                {$ api.trow(url="/grscicoll/lookup, httpMethod="GET", authRequired=false, resp="Matches found", respLink="apiBase+"grscicoll/lookup?institutionCode=C", paging=false, params=["institutionCode","ownerInstitutionCode","institutionId","collectionCode","collectionId","datasetKey","country","verbose"], description="Lists all the matches found") $}
+                                {$ api.trow(url="/grscicoll/lookup", httpMethod="GET", authRequired=false, resp="Matches found", respLink="apiBase+"grscicoll/lookup?institutionCode=C", paging=false, params=["institutionCode","ownerInstitutionCode","institutionId","collectionCode","collectionId","datasetKey","country","verbose"], description="Lists all the matches found") $}
                             </tbody>
                         </table>
                         <div class="container--narrow">                           
