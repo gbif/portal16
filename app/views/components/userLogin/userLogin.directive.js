@@ -251,8 +251,18 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
             if ($sessionStorage.user) {
                 vm.changeState('LOGGEDIN', true);
                 vm.user = $sessionStorage.user;
+
+                // change interface language
+                if (vm.user.settings.locale) {
+                    var pathname = location.pathname;
+                    var localePrefix = vm.user.settings.locale === 'en' ? '' : '/' + vm.user.settings.locale;
+                    if (_.startsWith(pathname, '/' + LOCALE + '/')) {
+                        pathname = pathname.substr(LOCALE.length + 1);
+                    }
+                    window.location.href = localePrefix + pathname + location.search + location.hash;
+                }
             } else {
-                if (state == 'REGISTER') {
+                if (state === 'REGISTER') {
                     if (vm.authProvider) {
                         vm.changeState('EXTERNAL_AUTH_STATE', true);
                     } else {
