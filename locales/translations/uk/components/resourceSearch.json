@@ -34,7 +34,7 @@
             "peerReview": "Рецензовано",
             "openAccess": "Відкритий доступ",
             "gbifDownloadKey": "Ключ завантаження",
-            "paperDoi": "",
+            "paperDoi": "DOI",
             "litSource": "Журнал",
             "litPublisher": "Видавець журналу"
         }
