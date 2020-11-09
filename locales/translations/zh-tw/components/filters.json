@@ -11,9 +11,9 @@
         "occurrenceStatus": {
             "description": "",
             "options": {
-                "yes": "",
-                "no": "",
-                "all": ""
+                "yes": "出現",
+                "no": "未出現",
+                "all": "全部"
             }
         },
         "ternary": {
