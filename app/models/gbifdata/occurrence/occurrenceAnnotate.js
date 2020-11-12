@@ -76,6 +76,9 @@ function getAnnotationUrl(occurrence) {
             allCommentsUrl = allCommentsUrl.replace('{{' + key + '}}', encodeURIComponent(val));
         }
     }
+    if (url === '') {
+      return undefined;
+    }
     return {
         url: url,
         abbrivation: configTemplate.abbrivation,
