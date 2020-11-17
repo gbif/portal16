@@ -116,15 +116,16 @@ async function getUserFromProvider(profile, identificationKey) {
 function login(req, res, next, state, profile, providerEnum, identificationKey) {
     getUserFromProvider(profile, identificationKey)
         .then(function(user) {
+            var targetWithLocale = localizeRedirectTarget(state.target, user.settings.locale);
             if (user && typeof user === 'object' && !_.get(user, 'userName')) {
                 log.error('User has no userName. User keys: ' + Object.keys(user).join(', '));
             }
             // the user was found - log in
             auth.logUserIn(res, user);
-            res.redirect(302, state.target);
+            res.redirect(302, targetWithLocale);
         })
         .catch(function(err) {
-            if (err.statusCode == 204) {
+            if (err.statusCode === 204) {
                 // the profile isn't known to us
                 // tell the user to login and connect
                 res.cookie('loginFlashInfo', JSON.stringify({authProvider: providerEnum, error: 'LOGIN_UNKNOWN'}),
@@ -141,6 +142,20 @@ function login(req, res, next, state, profile, providerEnum, identificationKey) 
                 next(err);
             }
         });
+}
+
+function localizeRedirectTarget(target, locale) {
+    var targetWithLocale = target;
+    if (locale && locale !== 'en') {
+        // local auth
+        if (targetWithLocale.indexOf(":7000") !== -1) {
+            targetWithLocale = targetWithLocale.replace(':7000/', ':7000/' + locale + '/');
+        } else {
+            targetWithLocale = targetWithLocale.replace('.org/', '.org/' + locale + '/');
+        }
+    }
+
+    return targetWithLocale;
 }
 
 /**
