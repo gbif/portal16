@@ -5,6 +5,8 @@ let User = require('../api/user/user.model');
 let atob = require('atob');
 let auth = require('./auth.service');
 let crypto = require('crypto');
+let URL = require('url');
+let locales = rootRequire('config/locales');
 const log = require('../../../config/log');
 module.exports = {
     genRandomString: genRandomString,
@@ -116,13 +118,13 @@ async function getUserFromProvider(profile, identificationKey) {
 function login(req, res, next, state, profile, providerEnum, identificationKey) {
     getUserFromProvider(profile, identificationKey)
         .then(function(user) {
-            var targetWithLocale = localizeRedirectTarget(state.target, user.settings.locale);
+            let pathWithLocale = localizeRedirectPath(state.target, user.settings.locale);
             if (user && typeof user === 'object' && !_.get(user, 'userName')) {
                 log.error('User has no userName. User keys: ' + Object.keys(user).join(', '));
             }
             // the user was found - log in
             auth.logUserIn(res, user);
-            res.redirect(302, targetWithLocale);
+            res.redirect(302, pathWithLocale);
         })
         .catch(function(err) {
             if (err.statusCode === 204) {
@@ -144,18 +146,26 @@ function login(req, res, next, state, profile, providerEnum, identificationKey) 
         });
 }
 
-function localizeRedirectTarget(target, locale) {
-    var targetWithLocale = target;
-    if (locale && locale !== 'en') {
-        // local auth
-        if (targetWithLocale.indexOf(":7000") !== -1) {
-            targetWithLocale = targetWithLocale.replace(':7000/', ':7000/' + locale + '/');
-        } else {
-            targetWithLocale = targetWithLocale.replace('.org/', '.org/' + locale + '/');
+function localizeRedirectPath(target, locale) {
+    let targetUrl = URL.parse(target);
+    let pathWithLocale = targetUrl.pathname;
+    let localePrefix = locale && locale !== 'en' ? '/' + locale : '';
+    let pathItems = pathWithLocale.split("/");
+    let localeAlreadySet = false;
+
+    // check if path already has a locale
+    locales.locales.forEach(function (item) {
+        if (pathItems.length > 1 && pathItems[1] === item) {
+            localeAlreadySet = true;
         }
+    })
+
+    // append locale only if it's not already set
+    if (!localeAlreadySet) {
+        pathWithLocale = localePrefix + pathWithLocale;
     }
 
-    return targetWithLocale;
+    return pathWithLocale;
 }
 
 /**
