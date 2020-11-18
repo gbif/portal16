@@ -23,7 +23,7 @@ function languageMenuDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function languageMenu($http, $cookies, $localStorage, $scope, NAV_EVENTS, AUTH_EVENTS, IS_RTL, LOCALE, LOCALE_MAPPINGS, env) {
+    function languageMenu($http, $cookies, $sessionStorage, $scope, NAV_EVENTS, AUTH_EVENTS, IS_RTL, LOCALE, LOCALE_MAPPINGS, env) {
         var vm = this;
         vm.locales = env.locales;
         vm.unLanguages = env.unLanguages;
@@ -42,14 +42,14 @@ function languageMenuDirective(BUILD_VERSION) {
         });
 
         // has accepted cookies - to avoid 2 popups at the same time
-        var userAcceptedCookies = $cookies.get('userAcceptance') === 'true';
-        if (!$localStorage.hasSuggestedLanguage && userAcceptedCookies) {
+        var userAcceptedCookies = typeof $cookies.get('userAcceptance') !== 'undefined';
+        if (!$sessionStorage.hasSuggestedLanguage && userAcceptedCookies) {
             $http.get('/api/translation/suggested')
                 .then(function(response) {
                     vm.suggestedLanguage = response.data;
                     if (vm.suggestedLanguage.matched !== vm.chosenLocale) {
                         vm.isActive = true;
-                        $localStorage.hasSuggestedLanguage = true;
+                        $sessionStorage.hasSuggestedLanguage = true;
                     }
                 })
                 .catch(function(err) {
