@@ -148,9 +148,9 @@ function login(req, res, next, state, profile, providerEnum, identificationKey) 
 
 function localizeRedirectPath(target, locale) {
     let targetUrl = URL.parse(target);
-    let pathWithLocale = targetUrl.pathname;
+    let pathWithLocale = targetUrl.path;
     let localePrefix = locale && locale !== 'en' ? '/' + locale : '';
-    let pathItems = pathWithLocale.split("/");
+    let pathItems = targetUrl.pathname.split('/');
     let localeAlreadySet = false;
 
     // check if path already has a locale
