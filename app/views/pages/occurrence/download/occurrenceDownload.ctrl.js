@@ -28,9 +28,17 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
     vm.issueLimit = 1000;
     vm.largeDownloadOffset = 1048576; // above this size, it is not possible to handle it in excel
     vm.veryLargeDownloadOffset = 50000000; // above this size data wrangling is not trivial, i.e. ordinary databases like access, filemaker etc. will not longer suffice
-    vm.unzipFactor = 6.8; // based on a 47 mb file being 316 mb unzipped
-    vm.estKbDwcA = 0.165617009; // based on 111GB for 702777671 occurrences in “DWCA"
-    vm.estKbCsv = 0.065414979; // based on 44GB for 705302432 occurrences in CSV
+    // Value based on average compression rate of recent downloads
+    // (for i in ...lots of recent download archives...; do
+    //    zipinfo -t $i.zip | grep %; done) | \
+    //    tr -d % | \
+    //    awk '{print $9; sum+=$9} END {print "Average compression rate: " sum/NR; print "Unzip Factor: " 1/(1-sum/NR/100.0)}'
+    vm.unzipFactor = 4.52617;
+    // Values based on average recent download sizes:
+    // SELECT format, COUNT(*), AVG(size/total_records)/1000.0 AS kB_per_record, MIN(size/total_records)/1000.0, MAX(size/total_records)/1000.0, STDDEV_SAMP(size/total_records)/1000.0
+    // FROM occurrence_download WHERE status = 'SUCCEEDED' AND size > 1e9 AND total_records > 1e6 AND created > '2020-09-01' GROUP BY format ORDER BY format;
+    vm.estKbDwcA = 0.35535033259423503330;
+    vm.estKbCsv = 0.11619487179487179490;
 
     vm.adhocTileApi = env.dataApiV2;
 
