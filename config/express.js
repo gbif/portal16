@@ -28,6 +28,7 @@ module.exports = function(app, config) {
                         `*.gbif-dev.org`,
                         `*.gbif-staging.org`,
                         `*.${config.topDomain}`,
+                        '*.google.com',
                         '*.google-analytics.com',
                         'fonts.gstatic.com',
                         'images.ctfassets.net',
