@@ -5,6 +5,8 @@ let User = require('../api/user/user.model');
 let atob = require('atob');
 let auth = require('./auth.service');
 let crypto = require('crypto');
+let URL = require('url');
+let locales = rootRequire('config/locales');
 const log = require('../../../config/log');
 module.exports = {
     genRandomString: genRandomString,
@@ -116,15 +118,16 @@ async function getUserFromProvider(profile, identificationKey) {
 function login(req, res, next, state, profile, providerEnum, identificationKey) {
     getUserFromProvider(profile, identificationKey)
         .then(function(user) {
+            let pathWithLocale = localizeRedirectPath(state.target, user.settings.locale);
             if (user && typeof user === 'object' && !_.get(user, 'userName')) {
                 log.error('User has no userName. User keys: ' + Object.keys(user).join(', '));
             }
             // the user was found - log in
             auth.logUserIn(res, user);
-            res.redirect(302, state.target);
+            res.redirect(302, pathWithLocale);
         })
         .catch(function(err) {
-            if (err.statusCode == 204) {
+            if (err.statusCode === 204) {
                 // the profile isn't known to us
                 // tell the user to login and connect
                 res.cookie('loginFlashInfo', JSON.stringify({authProvider: providerEnum, error: 'LOGIN_UNKNOWN'}),
@@ -141,6 +144,28 @@ function login(req, res, next, state, profile, providerEnum, identificationKey) 
                 next(err);
             }
         });
+}
+
+function localizeRedirectPath(target, locale) {
+    let targetUrl = URL.parse(target);
+    let pathWithLocale = targetUrl.path;
+    let localePrefix = locale && locale !== 'en' ? '/' + locale : '';
+    let pathItems = targetUrl.pathname.split('/');
+    let localeAlreadySet = false;
+
+    // check if path already has a locale
+    locales.locales.forEach(function (item) {
+        if (pathItems.length > 1 && pathItems[1] === item) {
+            localeAlreadySet = true;
+        }
+    })
+
+    // append locale only if it's not already set
+    if (!localeAlreadySet) {
+        pathWithLocale = localePrefix + pathWithLocale;
+    }
+
+    return pathWithLocale;
 }
 
 /**
