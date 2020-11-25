@@ -23,7 +23,7 @@
     "largeDownload": "Large download",
     "requestingFullDownload": "You are requesting a full download of all occurrence data in GBIF.",
     "occFiltersExplainedHere": "This is possible, but you may want to filter the data before downloading. This can be done using our occurrence filters. These are explained [here](/news/3K5oLzZXi0yG0SEO8E6c88/top-tip-using-filters-and-facets-on-gbiforg)",
-    "estSizeIs": "The estimated size of the download is {SIZE_FORMATTED}. On a {CONNECTION_SPEED} Mb/s internet connection, this would take {DOWNLOAD_TIME, select, 1{DOWNLOAD_TIME hour} other{DOWNLOAD_TIME hours}} to download.",
+    "estSizeIs": "The estimated size of the download is {SIZE_FORMATTED}. On a {CONNECTION_SPEED} Mb/s internet connection, this would take {DOWNLOAD_TIME_FORMATTED} {DOWNLOAD_TIME, plural, 1{hour} other{hours}} to download.",
     "estDLtimes": "Estimated download times:",
     "nMbitConn": "{NUMBER} Mbit connection",
     "onceDownloaded": "Once you have downloaded the file, you will need approximately {SIZE_FORMATTED} of free disk space to unzip the data.",
