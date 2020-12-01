@@ -2,6 +2,7 @@
 let express = require('express'),
     router = express.Router(),
     request = require('request-promise'),
+    cors = require('cors'),
     _ = require('lodash'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../config/log');
@@ -15,7 +16,7 @@ module.exports = function(app) {
  * @param canonicalName the name to match in Open Tree of Life
  * @param nubKey the nubKey of the name we are after - both nubKey and canonicalName must match
  */
-router.get('/otl/ottid', function(req, res) {
+router.get('/otl/ottid', cors(), function(req, res) {
     let canonicalName = req.query.canonicalName;
     let nubKey = req.query.nubKey;
 
@@ -58,12 +59,12 @@ router.get('/otl/ottid', function(req, res) {
  * Takes an Open Tree of Life Taxon ID, retreives an OTL node ID, and retrieves a Newick tree
  * @param ottid the Open Tree of Life Taxon ID.
  */
-router.get('/otl/newick/:ottid', function (req, res) {
+router.get('/otl/newick/:ottid', cors(), function (req, res) {
     let ottid = req.params.ott_id;
 
     let baseRequest = {
         url: apiConfig.openTreeOfLife.url + '/tree_of_life/node_info',
-        timeout: 30000,
+        timeout: 90000,
         method: 'POST',
         json: {'ott_id': ottid, 'include_lineage': true},
         fullResponse: true
