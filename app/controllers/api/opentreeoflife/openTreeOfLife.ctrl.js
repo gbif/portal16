@@ -59,9 +59,9 @@ router.get('/otl/ottid', cors(), function(req, res) {
  * Takes an Open Tree of Life Taxon ID, retreives an OTL node ID, and retrieves a Newick tree
  * @param ottid the Open Tree of Life Taxon ID.
  */
-router.get('/otl/newick/:ottid', cors(), function (req, res) {
-    let ottid = req.params.ottid;
-
+router.get('/otl/newick', cors(), async function (req, res) {
+    let ottid = req.query.ott_id;
+    let nodeid = req.query.node_id;
     let baseRequest = {
         url: apiConfig.openTreeOfLife.url + '/tree_of_life/node_info',
         timeout: 90000,
@@ -69,23 +69,22 @@ router.get('/otl/newick/:ottid', cors(), function (req, res) {
         json: {'ott_id': ottid, 'include_lineage': true},
         fullResponse: true
     };
-    return request(baseRequest)
-        .then(function(response) {
-            return request({
-                method: 'POST',
-                url: apiConfig.openTreeOfLife.url + '/tree_of_life/subtree',
-                json: {'node_id': response.node_id}
-            });
-        })
-        .then(function(response) {
-            return res.status(200).json(response);
-        })
-        .catch(function(err) {
-            if (err.statusCode !== 200) {
-
-                throw err;
-            }
+    try {
+        if (!nodeid) {
+            const response = await request(baseRequest);
+            nodeid = response.node_id;
+        }
+        const treeResponse = await request({
+            method: 'POST',
+            url: apiConfig.openTreeOfLife.url + '/tree_of_life/subtree',
+            json: {'node_id': nodeid}
         });
+        return res.status(200).json(treeResponse);
+    } catch (err) {
+        if (err.statusCode !== 200) {
+            throw err;
+        }
+    }
 });
 
 
