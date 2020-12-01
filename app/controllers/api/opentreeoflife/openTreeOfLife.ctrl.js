@@ -60,7 +60,7 @@ router.get('/otl/ottid', cors(), function(req, res) {
  * @param ottid the Open Tree of Life Taxon ID.
  */
 router.get('/otl/newick/:ottid', cors(), function (req, res) {
-    let ottid = req.params.ott_id;
+    let ottid = req.params.ottid;
 
     let baseRequest = {
         url: apiConfig.openTreeOfLife.url + '/tree_of_life/node_info',
@@ -82,6 +82,7 @@ router.get('/otl/newick/:ottid', cors(), function (req, res) {
         })
         .catch(function(err) {
             if (err.statusCode !== 200) {
+
                 throw err;
             }
         });
