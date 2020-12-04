@@ -218,7 +218,7 @@ let apiConfig = {
         url: 'http://gbrds.gbif.org/registry/extensions.json'
     },
     openTreeOfLife: {
-        url: 'http://api.opentreeoflife.org/v3/'
+        url: 'https://api.opentreeoflife.org/v3/'
     },
     elkSearch: {
         url: elk + 'elasticsearch/'

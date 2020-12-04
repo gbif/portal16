@@ -108,7 +108,7 @@
                 };
 
                 that.login = function(username, password) {
-                    //why URIencode? https://github.com/jaredhanson/passport-http/issues/20
+                    // why URIencode? https://github.com/jaredhanson/passport-http/issues/20
                     var authData = Base64.encode(username + ':' + encodeURIComponent(password));
                     var userLogin = $http.get('/api/auth/basic', {
                         headers: {'Authorization': 'Basic ' + authData}
