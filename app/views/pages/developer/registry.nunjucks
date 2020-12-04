@@ -396,10 +396,7 @@
                             {$ trowCol(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/collection/suggest?q=col", paging=false, description="Search that returns up to 20 matching collections. Results are ordered by relevance") $} 
                             {$ trowCol(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/comment", description="Lists all comments for a collection") $}
                             {$ trowCol(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add a collection comment") $}
-                            {$ trowCol(url="/{UUID}/comment/{ID}", method="DELETE", auth=true, description="Deletes the collection comment with comment identifier {ID}") $}
-                            {$ trowCol(url="/{UUID}/occurrenceMapping", method="GET", resp="Occurrence Mapping List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/occurrenceMapping", description="Lists all occurrence mappings for a collection") $}
-                            {$ trowCol(url="/{UUID}/occurrenceMapping", method="POST", resp="ID", auth=true, description="Create and add an occurrence mapping") $}
-                            {$ trowCol(url="/{UUID}/occurrenceMapping/{ID}", method="DELETE", auth=true, description="Deletes the collection occurrence mapping with identifier {ID}") $}
+                            {$ trowCol(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the collection comment with comment identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
@@ -434,10 +431,7 @@
                             {$ trowInst(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/institution/suggest?q=bio", paging=false, description="Search that returns up to 20 matching institutions. Results are ordered by relevance") $} 
                             {$ trowInst(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/comment", description="Lists all comments for an institution") $}
                             {$ trowInst(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add an institution comment") $}
-                            {$ trowInst(url="/{UUID}/comment/{ID}", method="DELETE", auth=true, description="Deletes the institution comment with comment identifier {ID}") $}
-                            {$ trowInst(url="/{UUID}/occurrenceMapping", method="GET", resp="Occurrence Mapping List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/occurrenceMapping", description="Lists all occurrence mappings for an institution") $}
-                            {$ trowInst(url="/{UUID}/occurrenceMapping", method="POST", resp="ID", auth=true, description="Create and add an institution occurrence mapping") $}
-                            {$ trowInst(url="/{UUID}/occurrenceMapping/{ID}", method="DELETE", auth=true, description="Deletes the institution occurrence mapping with identifier {ID}") $}
+                            {$ trowInst(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the institution comment with comment identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
@@ -473,7 +467,7 @@
                             </tbody>
                         </table>
                     </section>
-                    <section id="lookup">                    
+                    <section id="lookup" class="white-background page--developer__anchor">                    
                         <h4>Lookup</h4>
                         <p>
                             This API provides a service to lookup institutions and collections. It can be used to lookup for institutions, collections or both at the same time. 
@@ -516,8 +510,8 @@
                                 </tr>
                                 <tr>
                                     <td><a id="p_datasetKey"></a>datasetKey</td>
-                                    <td>Institutions and collections can be linked manually to datasets by using occurrence mappings. If the dataset key parameter is set it will be used to try to match 
-                                    an occurrence mapping that contains that dataset. This manual mapping only happens if no exact matches were found</td>
+                                    <td>Datasets may have some institutions and/or collections linked manually through machine tags. If this parameter is set and the dataset contains these machine tags,
+                                        the service returns the institutions and/or collections specified in the tags and stops the lookup </td>
                                 </tr>
                                 <tr>
                                     <td><a id="p_country"></a>country</td>
@@ -544,19 +538,19 @@
                                 </tr>
                                 <tr>
                                     <td>AMBIGUOUS</td>
-                                    <td>Multiple candidates were found with the same level of confidence and it can't be determined which one should be accepted</td>
+                                    <td>Multiple candidates were found with the same level of confidence and it can't be determined which one should be the accepted</td>
                                 </tr>
                                 <tr>
-                                    <td>AMBIGUOUS_EXPLICIT_MAPPINGS</td>
-                                    <td>Multiple candidates were found in the occurrence mappings with the same level of confidence and it can't be determined which one should be accepted</td>
+                                    <td>AMBIGUOUS_MACHINE_TAGS</td>
+                                    <td>Same as above but when using machine tags in the dataset. This only happens if a dataset has more than 1 institution or collection linked through machine tags</td>
                                 </tr>
                                 <tr>
                                     <td>AMBIGUOUS_OWNER</td>
-                                    <td>At least 1 possible institution match was found but none of them match with the owner institution specified</td>
+                                    <td>At least 1 possible institution match was found but none of them matches with the owner institution specified</td>
                                 </tr>
                                 <tr>
                                     <td>AMBIGUOUS_INSTITUTION_MISMATCH</td>
-                                    <td>At least 1 possible collection match was found but none of them belong to the institution matched</td>
+                                    <td>At least 1 possible collection match was found but none of them belongs to the institution matched</td>
                                 </tr>
                                 <tr>
                                     <td>DOUBTFUL</td>

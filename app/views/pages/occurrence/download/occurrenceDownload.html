@@ -310,16 +310,10 @@
                    <strong dir="auto" translate="downloadReport.requestingFullDownload"></strong>
                    <div dir="auto" ng-bind-html="'downloadReport.occFiltersExplainedHere' | translate | md2html"></div>
                 </div>
-                <p dir="auto" translate="downloadReport.estSizeIs" translate-values="{SIZE_FORMATTED: ($ctrl.options.downloadSize | formatBytes:0:occDownload.state.query.locale)}"></p>
-                <p dir="auto" translate="downloadReport.estDLtimes"></p>
-                <ul>
-                    <li ng-repeat="(key, val) in $ctrl.options.downloadSpeed">
-                        <span dir="auto" translate="downloadReport.nMbitConn" translate-values="{NUMBER: key}"></span> : <strong>{{val}}</strong>
-                    </li>
-                </ul>
+                <p dir="auto" translate="downloadReport.estSizeIs" translate-values="{SIZE_FORMATTED: ($ctrl.options.downloadSize | formatBytes:0:occDownload.state.query.locale), CONNECTION_SPEED: (50 | localNumber:occDownload.state.query.locale),DOWNLOAD_TIME: $ctrl.options.downloadSpeed,  DOWNLOAD_TIME_FORMATTED: ($ctrl.options.downloadSpeed | localNumber:occDownload.state.query.locale) }"></p>
                 <p dir="auto" translate="downloadReport.onceDownloaded" translate-values="{SIZE_FORMATTED: ($ctrl.options.spaceRequiredForUnzip | formatBytes:0:occDownload.state.query.locale) }"></p>
                 <p dir="auto" translate="downloadReport.datasetHasNumRows" translate-values="{NUMBER_FORMATTED: ($ctrl.options.rowCount | localNumber:occDownload.state.query.locale)}"></p>
-                <p dir="auto" ng-if="$ctrl.options.fileSizeType ==='LARGE' || $ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadReport.youWillNotBeAble"></p>
+                <p dir="auto" ng-if="$ctrl.options.fileSizeType ==='LARGE' " translate="downloadReport.youWillNotBeAble"></p>
                 <p dir="auto" ng-if="$ctrl.options.fileSizeType ==='VERY_LARGE' " translate="downloadReport.difficultToAnalyse"></p>
             </div>
         </div>
