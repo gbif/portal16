@@ -68,6 +68,11 @@ function confirm(req, res, next) {
     let key = req.query.key;
     let code = req.query.code;
 
+    let getOrganizationRequest = {
+        url: apiConfig.publisherCreate.url + key,
+        method: 'GET'
+    };
+
     let opts = {
         method: 'POST',
         body: {'confirmationKey': code},
@@ -75,14 +80,30 @@ function confirm(req, res, next) {
         canonicalPath: apiConfig.publisherCreate.canonical + key + '/endorsement'
     };
 
-    return authOperations.authenticatedRequest(opts)
-        .then(function(response) {
-            if (response.statusCode !== 204) {
-                throw response;
+    return authOperations.authenticatedRequest(getOrganizationRequest)
+        .then(function(getOrgResp) {
+            if (!getOrgResp.body.endorsementApproved) {
+                return authOperations.authenticatedRequest(opts)
+                    .then(function (response) {
+                        if (response.statusCode !== 204) {
+                            throw response;
+                        }
+                        return helper.renderPage(req, res, next, {
+                            publisherKey: key
+                        }, 'pages/custom/confirmEndorsement/confirmEndorsement');
+                    })
+                    .catch(function (err) {
+                        log.error('Failed to confirm endorsement for organization[' + key + '] : ' + err.body);
+                        return helper.renderPage(req, res, next, {
+                            publisherKey: key
+                        }, 'pages/custom/confirmEndorsement/invalidToken');
+                    });
+            } else {
+                log.error('Organization[' + key + '] already endorsed');
+                return helper.renderPage(req, res, next, {
+                    publisherKey: key
+                }, 'pages/custom/confirmEndorsement/alreadyEndorsed');
             }
-          return helper.renderPage(req, res, next, {
-                publisherKey: key
-            }, 'pages/custom/confirmEndorsement/confirmEndorsement');
         })
         .catch(function(err) {
             log.error('Failed to confirm endorsement for organization[' + key + '] : ' + err.body);
