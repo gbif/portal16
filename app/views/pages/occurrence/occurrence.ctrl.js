@@ -617,6 +617,27 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
     }
   };
 
+  vm.filters.hostingOrganizationKey = {
+    titleTranslation: 'filterNames.hostingOrganizationKey',
+    queryKey: 'hosting_organization_key',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: Publisher,
+      expandedTitle: 'title'
+    },
+    facets: {
+      hasFacets: false
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.publisher,
+      suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: 'title',
+      suggestShortName: 'title',
+      suggestKey: 'key'
+    }
+  };
+
   vm.filters.publisher = {
     titleTranslation: 'filterNames.publishingOrg',
     queryKey: 'publishing_org',

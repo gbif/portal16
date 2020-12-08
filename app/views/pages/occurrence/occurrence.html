@@ -83,6 +83,11 @@
         <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-taxon filter-config="occurrence.filters.publisher" filter-state="occurrence.occurrenceState"></div>
+        
+        <div filter-taxon 
+             filter-config="occurrence.filters.hostingOrganizationKey" 
+             filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-suggest filter-config="occurrence.filters.institutionCode"
              filter-state="occurrence.occurrenceState"></div>
