@@ -42,6 +42,7 @@
     "decimalLatitude": "Decimal latitude",
     "decimalLongitude": "Decimal longitude",
     "publishingOrg": "Publisher",
+    "hostingOrganizationKey": "",
     "kingdomKey": "Kingdom",
     "phylumKey": "Phylum",
     "classKey": "Class",
