@@ -71,6 +71,7 @@
     "relativeOrganismQuantity": "Relative organism quantity",
     "collectionKey": "Collection",
     "institutionKey": "Institution",
-    "gadmGid": "Administrative areas (gadm.org)"
+    "gadmGid": "Administrative areas (gadm.org)",
+    "lifeStage": ""
   }
 }
