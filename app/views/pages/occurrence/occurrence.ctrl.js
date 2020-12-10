@@ -613,7 +613,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
         return $filter('vocabularyLabel')(item);
       },
       suggestShortName: 'name',
-      suggestKey: 'name'
+      suggestKey: 'name',
+      defaultParams: {limit: 20}
     }
   };
 

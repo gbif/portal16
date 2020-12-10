@@ -98,9 +98,8 @@ function filterTaxonDirective(BUILD_VERSION) {
             // if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
-                    params: _.assign({}, vm.filterConfig.search.defaultParams, {
-                        q: val, // .toLowerCase(),
-                        limit: 10
+                    params: _.assign({limit: 10}, vm.filterConfig.search.defaultParams, {
+                        q: val // .toLowerCase(),
                     })
                 }).then(function(response) {
                     var resultsArray = response.data;
