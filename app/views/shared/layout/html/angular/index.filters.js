@@ -46,7 +46,7 @@
                   return 'Unknown';
               }
               var vocabLocale = LOCALE_MAPPINGS.vocabulary[LOCALE] || 'en';
-              return concept.label[vocabLocale] || concept.name;
+              return concept.label ? concept.label[vocabLocale] || concept.label.en || concept.name : concept.name;
           };
       })
         .filter('startsWith', function() {
