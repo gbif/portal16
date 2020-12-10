@@ -26,6 +26,7 @@ angular
         samplingProtocol: env.dataApi + 'occurrence/search/samplingProtocol',
         publisher: env.dataApi + 'organization/suggest',
         gadm: env.dataApi + 'geocode/gadm/search',
+        lifeStage: env.dataApi + 'vocabularies/LifeStage/concepts',
         // These does not exist yet
         programme: env.dataApi + 'occurrence/search/programme',
         projectId: env.dataApi + 'occurrence/search/projectId',

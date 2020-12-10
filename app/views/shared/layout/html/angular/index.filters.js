@@ -40,6 +40,15 @@
                 return text.charAt(0) + text.slice(1).toLowerCase().replace(/_/g, ' ');
             };
         })
+        .filter('vocabularyLabel', function(LOCALE_MAPPINGS, LOCALE) {
+          return function(concept) {
+              if (typeof concept === 'undefined') {
+                  return 'Unknown';
+              }
+              var vocabLocale = LOCALE_MAPPINGS.vocabulary[LOCALE] || 'en';
+              return concept.label[vocabLocale] || concept.name;
+          };
+      })
         .filter('startsWith', function() {
             return function(text, match) {
                 if (typeof text === 'undefined') {

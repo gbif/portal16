@@ -15,7 +15,8 @@ angular
   .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
+// eslint-disable-next-line max-len
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
   var vm = this;
   $translate('occurrenceSearch.title').then(function (title) {
     Page.setTitle(title);
@@ -589,6 +590,30 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
       suggestTitle: 'title',
       suggestShortName: 'title',
       suggestKey: 'key'
+    }
+  };
+
+  vm.filters.lifeStage = {
+    titleTranslation: 'filterNames.lifeStage',
+    queryKey: 'life_stage',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: LifeStage,
+      expandedTitle: 'name'
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'LIFE_STAGE'
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.lifeStage,
+      suggestTemplate: '/templates/components/filterTaxon/suggetVocabularyTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: function(item) {
+        return $filter('vocabularyLabel')(item);
+      },
+      suggestShortName: 'name',
+      suggestKey: 'name'
     }
   };
 

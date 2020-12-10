@@ -104,8 +104,8 @@ function filterTaxonDirective(BUILD_VERSION) {
                     })
                 }).then(function(response) {
                     var resultsArray = response.data;
-                    if (typeof response.data.results !== 'undefined') {
-                      resultsArray = response.data.results;
+                    if (!angular.isArray(response.data)) {
+                      resultsArray = response.data.results || [];
                     }
                     return _.filter(resultsArray, function(e) {
                         return !vm.usedKeys[e[vm.suggestKey]];
