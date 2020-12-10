@@ -72,6 +72,6 @@
     "collectionKey": "Collection",
     "institutionKey": "Institution",
     "gadmGid": "Administrative areas (gadm.org)",
-    "lifeStage": ""
+    "lifeStage": "Life stage"
   }
 }
