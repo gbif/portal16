@@ -83,6 +83,11 @@
         <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-taxon filter-config="occurrence.filters.publisher" filter-state="occurrence.occurrenceState"></div>
+        
+        <div filter-taxon 
+             filter-config="occurrence.filters.hostingOrganizationKey" 
+             filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-suggest filter-config="occurrence.filters.institutionCode"
              filter-state="occurrence.occurrenceState"></div>
@@ -165,7 +170,10 @@
      <div filter-suggest filter-config="occurrence.filters.sample_size_unit" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
      <div filter-interval filter-config="occurrence.filters.relative_organism_quantity" filter-type="float" filter-state="occurrence.occurrenceState"
-             ng-if="occurrence.occurrenceState.query.advanced"></div>   
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+      <div filter-taxon filter-config="occurrence.filters.lifeStage" 
+          filter-state="occurrence.occurrenceState"
+          ng-if="occurrence.occurrenceState.query.advanced"></div>
      <!--div filter-taxon filter-config="occurrence.filters.collection_key" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div> 
      <div filter-taxon filter-config="occurrence.filters.institution_key" filter-state="occurrence.occurrenceState"

@@ -34,6 +34,7 @@
             "peerReview": "同行评审",
             "openAccess": "开放访问",
             "gbifDownloadKey": "下载密钥",
+            "paperDoi": "",
             "litSource": "期刊",
             "litPublisher": "期刊发布者"
         }

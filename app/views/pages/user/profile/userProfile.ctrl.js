@@ -8,7 +8,7 @@ angular
     .controller('userProfileCtrl', userProfileCtrl);
 
 /** @ngInject */
-function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService, $translate) {
+function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $http, Page, toastService, $translate, LOCALE_MAPPINGS, env) {
     var vm = this;
     $translate('profile.profile').then(function(title) {
         Page.setTitle(title);
@@ -16,13 +16,18 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
     Page.drawer(false);
     vm.disableEditing = false;
     vm.emailPattern = regexPatterns.email;
+    vm.localeMappings = LOCALE_MAPPINGS;
+    vm.locales = env.locales;
+    vm.chosenLocale = LOCALE;
 
     vm.getUser = function() {
+        var redirectedFromLogin = $cookies.get('isRedirectedFromLogin');
         var activeUser = User.loadActiveUser();
         vm.profile = {};
         activeUser.then(function(response) {
             vm.profile = response.data;
             vm.original = JSON.parse(JSON.stringify(vm.profile));
+            vm.userLanguageBeforeUpdate = vm.profile.settings.locale;
 
             // read flash cookie and remove it
             var profileFlashInfo = $cookies.get('profileFlashInfo') || '{}';
@@ -30,6 +35,19 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
             var profileInfo = JSON.parse(profileFlashInfo);
             vm.errorMessage = profileInfo.error;
             vm.provider = profileInfo.authProvider;
+
+            // change interface language (if was redirected from login page)
+            var pathname = location.pathname;
+            if (redirectedFromLogin && vm.profile.settings.locale && LOCALE !== vm.profile.settings.locale) {
+                var localePrefix = vm.profile.settings.locale === 'en' ? '' : '/' + vm.profile.settings.locale;
+                if (_.startsWith(pathname, '/' + LOCALE + '/')) {
+                    pathname = pathname.substr(LOCALE.length + 1);
+                }
+                window.location.href = localePrefix + pathname + location.search + location.hash;
+            }
+
+            // remove cookie
+            $cookies.remove('isRedirectedFromLogin', {path: '/'});
         }, function() {
             vm.loadingActiveUserFailed = true;
             // TODO handle errors - log out or inform user that the user cannot be loaded
@@ -82,6 +100,16 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
                         toastService.error({translate: 'phrases.criticalErrorMsg'});
                     }
                 });
+
+            // change interface language
+            if (vm.profile.settings.locale && vm.userLanguageBeforeUpdate !== vm.profile.settings.locale) {
+                var pathname = location.pathname;
+                var localePrefix = vm.profile.settings.locale === 'en' ? '' : '/' + vm.profile.settings.locale;
+                if (_.startsWith(pathname, '/' + LOCALE + '/')) {
+                    pathname = pathname.substr(LOCALE.length + 1);
+                }
+                window.location.href = localePrefix + pathname + location.search + location.hash;
+            }
         } else {
             vm.profileFormInvalid = true;
         }

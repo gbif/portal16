@@ -13,7 +13,28 @@ module.exports = function(app) {
     app.use('/api', router);
 };
 
+let requestCounter = 0;
+let requestCancellationCounter = 0;
+router.get('/occurrence/search/cancellation', function(req, res) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Pragma', 'no-cache');
+  res.header('Expires', '0');
+  res.json({requests: requestCounter, cancellations: requestCancellationCounter, frequency: requestCancellationCounter / requestCounter});
+});
+
 router.get('/occurrence/search', function(req, res) {
+    // START: track request cancellation frequency
+    requestCounter++;
+    let cancelRequest = false;
+    req.on('aborted', function (err) {
+      cancelRequest = true;
+    });
+
+    req.on('close', function (err) {
+      cancelRequest = true;
+    });
+    // END: tracking cancellation
+
     delete req.query.locale;
     delete req.query.advanced;
     occurrenceSearch(req.query).then(function(data) {
@@ -40,9 +61,17 @@ router.get('/occurrence/search', function(req, res) {
                     type: expandConfig.VERBATIM_RECORD
                 }
             ],
-            expandConfig: expandConfig
+            expandConfig: expandConfig,
+            currentLocale: res.locals.gb.locales.current,
+            vocabularyMapping: res.locals.gb.locales.vocabularyMapping
         };
         gbifData.expand.expand(data, settings, res.__, function(err) {
+            // START: track request cancellation frequency
+            if (cancelRequest) {
+              requestCancellationCounter++;
+            }
+            // END: tracking cancellation
+
             if (err) {
                 // TODO handle expansion errors
                 res.json(data);

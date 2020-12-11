@@ -34,7 +34,8 @@ function create(req, res) {
         firstName: req.body.user.firstName,
         lastName: req.body.user.lastName,
         settings: {
-            country: req.body.user.settings.country
+            country: req.body.user.settings.country,
+            locale: req.body.user.settings.locale
         }
     };
     userModel.create(user)

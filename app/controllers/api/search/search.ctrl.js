@@ -40,14 +40,14 @@ async function search(query, preferedLocale, __) {
     let participants = Participant.query(query);
     let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3, hl: true});
     let speciesMatches = SpeciesMatch.query({name: query, verbose: true, hl: true});
-    let resources = resourceSearch.search({q: query, searchable: true, local: preferedLocale, limit: 10}, __);
-    let faq = resourceSearch.search({q: query, searchable: true, contentType: ['help'], local: preferedLocale, limit: 5}, __);
+    let resources = resourceSearch.search({q: query, searchable: true, locale: preferedLocale, limit: 10}, __);
+    let faq = resourceSearch.search({q: query, searchable: true, contentType: ['help'], locale: preferedLocale, limit: 5}, __);
     let sequences = SequenceMatch.query(query);
     let resourceHighlights = resourceSearch.search(
         {
             keywords: query,
             contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'],
-            local: preferedLocale, limit: 2, searchable: true
+            locale: preferedLocale, limit: 2, searchable: true
             }, __);
     let country = Country.query(query, preferedLocale);
 

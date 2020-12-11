@@ -15,6 +15,13 @@ let config = {
             name: 'iNaturalist',
             abbrivation: 'iN'
         },
+        // issue on https://github.com/gbif/portal-feedback/issues/3088
+        'da86174a-a605-43a4-a5e8-53d484152cd3': {
+          url: '{{references}}',
+          keys: ['references'],
+          name: 'Pl@ntNet',
+          abbrivation: 'PN'
+      },
         '57254bd0-8256-11d8-b7ed-b8a03c50a862': {
             url: AnnosysBaseUrl + 'AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
             commentsUrl: AnnosysBaseUrl + 'services/records/{{institutionCode}}/{{collectionCode}}/{{catalogNumber}}/annotations',
@@ -68,6 +75,9 @@ function getAnnotationUrl(occurrence) {
         if (allCommentsUrl) {
             allCommentsUrl = allCommentsUrl.replace('{{' + key + '}}', encodeURIComponent(val));
         }
+    }
+    if (url === '') {
+      return undefined;
     }
     return {
         url: url,

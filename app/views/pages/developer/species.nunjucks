@@ -5,6 +5,10 @@
     {$ api.trow(url="/species"+url, httpMethod=httpMethod, resp=resp, respLink=respLink, params=params, paging=paging, authRequired=undefined, description=caller()) $}
 {% endmacro %}
 
+{% macro trowNoBase(url, resp, httpMethod="GET", respLink, paging=undefined, params=[]) %}
+    {$ api.trow(url=url, httpMethod=httpMethod, resp=resp, respLink=respLink, params=params, paging=paging, authRequired=undefined, description=caller()) $}
+{% endmacro %}
+
 {% block page %}
 
     <article dir="ltr" class="wrapper-horizontal-stripes page--developer">
@@ -190,13 +194,13 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
-                        {% call trow(url="/parser/name", httpMethod="GET", resp="ParsedName List", respLink=apiBase+"parser/name?name=Abies%20alba%20Mill.%20sec.%20Markus%20D.&name=Abies%20pinsapo%20var.%20marocana%20(Trab.)%20Ceballos%20%26%20Bolaño%201928", paging=false, params=["name"], authRequired="") %}
+                        {% call trowNoBase(url="/parser/name", httpMethod="GET", resp="ParsedName List", respLink=apiBase+"parser/name?name=Abies%20alba%20Mill.%20sec.%20Markus%20D.&name=Abies%20pinsapo%20var.%20marocana%20(Trab.)%20Ceballos%20%26%20Bolaño%201928", paging=false, params=["name"], authRequired="") %}
                         Parses a scientific name string and returns the ParsedName version of it.
                         Accepts multiple parameters each with a single name. Make sure you url encode the names
                         properly.
                         {% endcall %}
 
-                        {% call trow(url="/parser/name", httpMethod="POST", resp="ParsedName List", paging=false, params=["name"], authRequired="") %}
+                        {% call trowNoBase(url="/parser/name", httpMethod="POST", resp="ParsedName List", paging=false, params=["name"], authRequired="") %}
                         Parse list of name strings supplied via one of the following media type encodings:
                         <ul>
                             <li><em>json</em> array of name strings</li>

@@ -36,7 +36,7 @@
       "description": "**機関** は科学のコレクションを所有し管理するあらゆる機関や組織のことを指します。植物標本、博物館、動物園、植物園、バイオバンクなどが含まれます。機関は複数のコレクションを持つことがあるため、その際は **機関／プロジェクトのコレクション** の欄に個別の名称を記入し、大元の機関へのリンクを付けてください。\n\n古いデータセットを統合するため、また **機関コード** の重複を避けるために、すべてのIndex Herbariorumの植物標本コードに<IH>を付け加える必要があります。"
     },
     "headerTitle": "機関",
-    "indexHerbariorumRecord": "Index Herbariorum Record（植物標本レコードの索引）",
+    "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "機関コード",
     "statusOfInstitution": "機関の状態",

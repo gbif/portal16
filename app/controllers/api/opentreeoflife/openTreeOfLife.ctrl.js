@@ -1,7 +1,8 @@
 'use strict';
 let express = require('express'),
     router = express.Router(),
-    request = rootRequire('app/helpers/request'),
+    request = require('request-promise'),
+    cors = require('cors'),
     _ = require('lodash'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../config/log');
@@ -11,10 +12,11 @@ module.exports = function(app) {
     app.use('/api', router);
 };
 
-
-// router.get('/species/:key/combinations', getCombinations);
-
-router.get('/otl/ottid', function(req, res) {
+/**
+ * @param canonicalName the name to match in Open Tree of Life
+ * @param nubKey the nubKey of the name we are after - both nubKey and canonicalName must match
+ */
+router.get('/otl/ottid', cors(), function(req, res) {
     let canonicalName = req.query.canonicalName;
     let nubKey = req.query.nubKey;
 
@@ -27,8 +29,7 @@ router.get('/otl/ottid', function(req, res) {
     };
     return request(baseRequest)
         .then(function(response) {
-           // _.each(response.body.results,)
-            let match = _.find(response.body.results, function(r) {
+            let match = _.find(response.results, function(r) {
                 return r.name === canonicalName;
             });
 
@@ -54,49 +55,36 @@ router.get('/otl/ottid', function(req, res) {
         });
 });
 
-
-// router.get('/otl/newick/:ott_id', function (req, res) {
-//
-//
-//     let ott_id = req.params.ott_id;
-//
-//     let baseRequest = {
-//         url: apiConfig.openTreeOfLife.url +"/tree_of_life/node_info",
-//         timeout: 30000,
-//         method: 'POST',
-//         json: {"ott_id": ott_id, "include_lineage": true},
-//         fullResponse: true
-//     };
-//     return request(baseRequest)
-//         .then(function(response){
-//
-//
-//
-//             let lineage = response.body.lineage;
-//
-//             let taxon = response.body.taxon;
-//
-//
-//
-//             let ott_ids = _.map( _.filter(lineage, function(a){
-//                 return typeof a.taxon !== 'undefined';
-//             }), function(t){
-//
-//                 return t.taxon.ott_id;
-//             });
-//
-//             console.log(response.body.taxon);
-//             ott_ids.push(taxon.ott_id)
-//
-//             return res.status(200).json({ "ott_ids": ott_ids});
-//
-//         })
-//         .catch(function(err){
-//             if (err.statusCode !== 200) {
-//                 throw err;
-//             }
-//         });
-//
-// });
+/**
+ * Takes an Open Tree of Life Taxon ID, retreives an OTL node ID, and retrieves a Newick tree
+ * @param ottid the Open Tree of Life Taxon ID.
+ */
+router.get('/otl/newick', cors(), async function (req, res) {
+    let ottid = req.query.ott_id;
+    let nodeid = req.query.node_id;
+    let baseRequest = {
+        url: apiConfig.openTreeOfLife.url + '/tree_of_life/node_info',
+        timeout: 90000,
+        method: 'POST',
+        json: {'ott_id': ottid, 'include_lineage': true},
+        fullResponse: true
+    };
+    try {
+        if (!nodeid) {
+            const response = await request(baseRequest);
+            nodeid = response.node_id;
+        }
+        const treeResponse = await request({
+            method: 'POST',
+            url: apiConfig.openTreeOfLife.url + '/tree_of_life/subtree',
+            json: {'node_id': nodeid}
+        });
+        return res.status(200).json(treeResponse);
+    } catch (err) {
+        if (err.statusCode !== 200) {
+            throw err;
+        }
+    }
+});
 
 

@@ -312,6 +312,7 @@ function getClientUser(user) {
         roles: user.roles,
         settings: {
             country: user.settings.country,
+            locale: user.settings.locale,
             has_read_gdpr_terms: user.settings.has_read_gdpr_terms
         },
         connectedAcounts: {
@@ -334,6 +335,7 @@ function sanitizeUpdatedUser(user) {
         email: user.email,
         settings: {
             country: user.settings.country,
+            locale: user.settings.locale,
             has_read_gdpr_terms: user.settings.has_read_gdpr_terms
         }
     };

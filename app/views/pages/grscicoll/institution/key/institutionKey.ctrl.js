@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var _ = require('lodash');
 require('../../../../components/grscicollPerson/grscicollPerson.directive');
 
 angular
@@ -19,14 +20,20 @@ function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, Collecti
     vm.$state = $state;
     vm.institution = InstitutionKey.get({key: vm.key});
     vm.collections = CollectionSearch.query({institution: vm.key});
-    // vm.institution.$promise
-    //     .then(function(data) {
-    //         Page.setTitle('Institution');
-    //         vm.institution = InstitutionKey.get({key: data.institutionKey});
-    //     })
-    //     .catch(function(err) {
 
-    //     });
+    vm.institution.$promise
+        .then(function(data) {
+          Page.setTitle(data.name);
+          var irnIdentifier = _.find(data.identifiers, function(x) {
+            return x.type === 'IH_IRN';
+          });
+          if (irnIdentifier) {
+            vm.irn = irnIdentifier.identifier.substr(12);
+          }
+        })
+        .catch(function() {
+          // ignore failures
+        });
 }
 
 module.exports = institutionKeyCtrl;

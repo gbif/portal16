@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var _ = require('lodash');
 require('../../../../components/grscicollPerson/grscicollPerson.directive');
 
 angular
@@ -24,6 +25,14 @@ function collectionKeyCtrl(Page, $state, $stateParams, CollectionKey, Institutio
         .then(function(data) {
             Page.setTitle(vm.collection.title);
             vm.institution = InstitutionKey.get({key: data.institutionKey});
+            
+            // get Index Herbariorum IRN
+            var irnIdentifier = _.find(data.identifiers, function(x) {
+              return x.type === 'IH_IRN';
+            });
+            if (irnIdentifier) {
+              vm.irn = irnIdentifier.identifier.substr(12);
+            }
         })
         .catch(function(err) {
 

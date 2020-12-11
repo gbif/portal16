@@ -36,7 +36,7 @@
       "description": "**Institution** refers to any institution or organization that owns and manages scientific collections. This includes herbaria, museums, zoos, botanical gardens, biobanks, among others. An institution may contain multiple collections, in which case those should be entered individually under  **Institutional/Project Collections**  and linked back to the parent institution."
     },
     "headerTitle": "Institution",
-    "indexHerbariorumRecord": "Index Herbariorum Record",
+    "indexHerbariorumIdentifier": "Index Herbariorum ID",
     "numberSpecimens": "Number of specimens",
     "code": "Institution code",
     "statusOfInstitution": "Status of Institution",

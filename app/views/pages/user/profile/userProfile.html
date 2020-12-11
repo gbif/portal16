@@ -76,6 +76,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="gb-form__group">
+                                        <label>
+                                            <span translate="profile.language"></span>
+                                            <input type="text" name="locale-input" ng-model="userProfile.localeMappings.localNames[userProfile.profile.settings.locale]"
+                                                   ng-if="!userProfile.inEditMode" disabled>
+                                            <select name="locale" ng-model="userProfile.profile.settings.locale"
+                                                    ng-if="userProfile.inEditMode">
+                                                <option value="{{locale}}" ng-repeat="locale in userProfile.locales">{{userProfile.localeMappings.localNames[locale]}}</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </fieldset>
                         <div class="clearfix" ng-if="userProfile.inEditMode">

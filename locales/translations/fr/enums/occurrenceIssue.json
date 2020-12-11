@@ -50,6 +50,17 @@
     "INDIVIDUAL_COUNT_INVALID": "Comptage individuel non valide",
     "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "Le nombre d'individus ne correspond pas avec le statut de l'occurrence",
     "OCCURRENCE_STATUS_UNPARSABLE": "Le statut de l'occurrence ne peut être interprété",
-    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Statut de l'occurrence déduit du nombre d'individus"
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Statut de l'occurrence déduit du nombre d'individus",
+    "OCCURRENCE_STATUS_INFERRED_FROM_BASIS_OF_RECORD": "",
+    "GEOREFERENCED_DATE_UNLIKELY": "",
+    "GEOREFERENCED_DATE_INVALID": "",
+    "AMBIGUOUS_INSTITUTION": "",
+    "AMBIGUOUS_COLLECTION": "",
+    "INSTITUTION_MATCH_NONE": "",
+    "COLLECTION_MATCH_NONE": "",
+    "INSTITUTION_MATCH_FUZZY": "",
+    "COLLECTION_MATCH_FUZZY": "",
+    "INSTITUTION_COLLECTION_MISMATCH": "",
+    "POSSIBLY_ON_LOAN": ""
   }
 }
