@@ -608,7 +608,7 @@
             "code":"Code of a GrSciColl institution or collection.",
             "name":"Name of a GrSciColl institution or collection",
             "alternativeCode":"Alternative code of a GrSciColl institution or collection",
-            "highlight":"Highlights the matching fields in a search",
+            "highlight":"Highlights the matching fields in a search"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
