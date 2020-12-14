@@ -229,6 +229,9 @@ let apiConfig = {
     },
     blast: {
         url: baseConfig.blastApi
+    },
+    graphQL: {
+      url: baseConfig.graphQL
     }
 };
 

@@ -94,6 +94,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://localhost:9000',
+        graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: 240000
     },
 
@@ -135,6 +136,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-dev.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -179,6 +181,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -220,6 +223,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-uat.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -261,6 +265,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -302,6 +307,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -343,6 +349,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-dev.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     }
 };
