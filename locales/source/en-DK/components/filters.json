@@ -8,7 +8,7 @@
         "repatriation": {
             "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
         },
-        "isInCluster": {
+        "isClustered": {
           "description": "This is an experimental feature that highlights possible duplicate and/or related occurrences."
         },
         "occurrenceStatus": {
