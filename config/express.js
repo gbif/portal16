@@ -16,7 +16,7 @@ module.exports = function(app, config) {
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
     // based on https://github.com/OWASP/CheatSheetSeries/issues/376 helmet disables browsers' buggy cross-site scripting filter
-    if (env !== 'dev') {
+    if (env !== 'devXXX') {
         app.use(helmet({
             referrerPolicy: false,
             contentSecurityPolicy: {
@@ -39,17 +39,23 @@ module.exports = function(app, config) {
                         'eepurl.com',
                         'gbif.us18.list-manage.com',
                         'zenodo.org',
-                        '*.youtube.com'],
+                        '*.youtube.com'
+                      ],
                     scriptSrc: [
                         `'self'`,
                         `'unsafe-inline'`,
                         `'unsafe-eval'`,
                         '*.google-analytics.com',
-                        'api.mapbox.com'],
+                        'api.mapbox.com',
+                        'unpkg.com/react@17/umd/react.production.min.js',
+                        'unpkg.com/react-dom@17/umd/react-dom.production.min.js',
+                        'cdn.jsdelivr.net/gh/gbif/gbif-web@latest/packages/react-components/dist/gbif-react-components.js'
+                      ],
                     styleSrc: [
                         `'self'`,
                         `'unsafe-inline'`,
                         '*.googleapis.com',
+                        'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.12.0/mapbox-gl.min.css',
                         'api.mapbox.com'],
                     mediaSrc: ['*'],
                     workerSrc: [
