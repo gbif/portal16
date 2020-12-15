@@ -54,6 +54,20 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     }
   };
 
+  vm.filters.dwcaExtension = {
+    titleTranslation: 'filterNames.dwcaExtension',
+    queryKey: 'dwca_extension',
+    filter: OccurrenceFilter,
+    enumTranslationPath: 'dwcaExtension.',
+    showAll: true,
+    enums: enums.dwcaExtension,
+    reversible: false,
+    facets: {
+      hasFacets: true,
+      facetKey: 'DWCA_EXTENSION'
+    }
+  };
+
   vm.filters.mediaType = {
     titleTranslation: 'filterNames.mediaType',
     queryKey: 'media_type',
@@ -789,6 +803,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
         })
         .catch(reject);
     }
+  };
+
+  // ternary "all, yes, no" aka optional boolean
+  vm.filters.isClustered = {
+    titleTranslation: 'filterNames.isClustered',
+    descriptionTranslation: 'filters.isClustered.description',
+    queryKey: 'is_in_cluster',
+    filter: OccurrenceFilter
   };
 
   // dates

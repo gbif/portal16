@@ -1,0 +1,14 @@
+{
+  "dwcaExtension": {
+    "http://rs.gbif.org/terms/1.0/Multimedia": "Multimedia",
+    "http://rs.tdwg.org/dwc/terms/Identification": "Identification",
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "ResourceRelationship",
+    "http://rs.gbif.org/terms/1.0/Image": "Image",
+    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "MeasurementOrFact",
+    "http://rs.tdwg.org/ac/terms/Multimedia": "Multimedia",
+    "http://rs.gbif.org/terms/1.0/Identifier": "Identifier",
+    "http://rs.gbif.org/terms/1.0/Reference": "Reference",
+    "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "ExtendedMeasurementOrFact",
+    "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "Amplification"
+  }
+}

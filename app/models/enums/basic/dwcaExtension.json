@@ -1,0 +1,12 @@
+[
+    "http://rs.gbif.org/terms/1.0/Multimedia",
+    "http://rs.tdwg.org/dwc/terms/Identification",
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship",
+    "http://rs.gbif.org/terms/1.0/Image",
+    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact",
+    "http://rs.tdwg.org/ac/terms/Multimedia",
+    "http://rs.gbif.org/terms/1.0/Identifier",
+    "http://rs.gbif.org/terms/1.0/Reference",
+    "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact",
+    "http://data.ggbn.org/schemas/ggbn/terms/Amplification"
+]
