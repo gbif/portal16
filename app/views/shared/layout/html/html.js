@@ -314,6 +314,7 @@ require('../../../pages/search/search.ctrl');
 require('../../../pages/occurrence/key/occurrenceKey.ctrl');
 require('../../../pages/occurrence/key/cluster/occurrenceKeyCluster.ctrl');
 require('../../../pages/occurrence/occurrence.ctrl');
+require('../../../pages/occurrence/beta/betaSearch.ctrl');
 
 require('../../../pages/node/key/nodeKey.ctrl');
 require('../../../pages/installation/key/installationKey.ctrl');

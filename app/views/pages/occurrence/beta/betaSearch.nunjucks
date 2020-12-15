@@ -1,0 +1,20 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block head %}
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.12.0/mapbox-gl.min.css"
+    integrity="sha512-KxWh2zhfqjqLf8V6nej7w8PbXiZuqrQq+PA1EE+73+7dpYbMocKIXKPlq50ZaWPDY5iQcyaX3I4xLUuOWBCCug=="
+    crossorigin="anonymous"
+/>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/gh/gbif/gbif-web@latest/packages/react-components/dist/gbif-react-components.js"
+></script>
+{% endblock %}

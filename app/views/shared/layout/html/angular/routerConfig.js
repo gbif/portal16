@@ -29,6 +29,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('betaSearch', {
+          parent: 'localization',
+          url: '/occurrence-search/beta',
+          views: {
+              main: {
+                templateUrl: '/templates/pages/occurrence/beta/betaSearch.html?v=' + BUILD_VERSION,
+                  controller: 'betaSearchCtrl',
+                  controllerAs: 'betaSearch'
+              }
+          }
+      })
         .state('occurrenceKey', {
             parent: 'localization',
             url: '/occurrence/{key:[0-9]+}',
