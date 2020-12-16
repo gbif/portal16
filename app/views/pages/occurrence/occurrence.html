@@ -79,7 +79,6 @@
 
 
         <div filter-enum filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
-        <div filter-enum filter-config="occurrence.filters.dwcaExtension" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
 
@@ -141,6 +140,9 @@
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-ternary filter-config="occurrence.filters.isClustered" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-enum filter-config="occurrence.filters.dwcaExtension" filter-state="occurrence.occurrenceState" 
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"
