@@ -1,0 +1,91 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+{% import "./developer.macros.nunjucks" as api %}
+
+{% macro trow(url, resp, httpMethod="GET", respLink, paging=undefined, params=[]) %}
+    {$ api.trow(url="/literature"+url, httpMethod=httpMethod, resp=resp, respLink=respLink, params=params, paging=paging, authRequired=auth, description=caller()) $}
+{% endmacro %}
+
+
+{% block page %}
+
+    <article dir="ltr" class="wrapper-horizontal-stripes page--developer">
+        <section class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">Developer</span>
+                            <span class="article-header__category__lower">API Docs</span>
+                        </nav>
+                        <h1>Literature API</h1>
+                        <div class="article-header__intro">
+                            <p>{$ apiBase $}</p>
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </section>
+
+        {$ api.apiDocTabs('literature', __) $}
+
+        <section id="overview" class="horizontal-stripe light-background">
+            <div class="container">
+                <p>
+                    This API is used to retrieve literature.
+                </p>
+            </div>
+        </section>
+
+        <div class="submenu-wrapper horizontal-stripe white-background" id="submenuWrapper">
+            <div class="row">
+
+            <div class="col-md-2">
+
+            {% set sections = {'searching':'Searching', 'parameters':'Query Parameters'} %}
+            {$ api.submenu(sections) $}
+            </div>
+            <div class="col-md-10">
+            <section id="searching" class="white-background page--developer__anchor">
+                <div class="container--narrow">
+                    <h3>Literature search</h3>
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead(auth=false) $}
+                        <tbody>
+                        {% call trow(url="/search", paging=true, resp="LiteratureSearchResult", respLink=apiBase+"literature/search", auth=false, params=["q","countriesOfResearcher","countriesOfCoverage","literatureType","relevance","year","topics","gbifDatasetKey","publishingOrganizationKey","peerReview","openAccess","gbifDownloadKey","doi","source","publisher"]) %}
+                        Full text search across all literature.
+                        {% endcall %}
+                        {% call trow(url="/{id}", paging=false, resp="Literature", auth=false, respLink=apiBase+"literature/0a8e8ab3-e00c-32a6-b5a6-a2cf0bf6092a") %}
+                        Gets details for the single literature.
+                        {% endcall %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {$ api.paramArticle(apiName="Literature", addSearchParams=true, apiBase=apiBase, params={
+            "q": "Simple full text search parameter. The value for this parameter can be a simple word or a phrase.
+            Wildcards are not supported",
+            "countriesOfResearcher": "Country of institution with which author is affiliated, e.g. DK (for Denmark). Country codes are listed in our <a href='"+apiBase+"enumeration/country'>Country enum</a>.",
+            "countriesOfCoverage": "Country of focus of study, e.g. BR (for Brazil). Country codes are listed in our <a href='"+apiBase+"enumeration/country'>Country enum</a>.",
+            "literatureType": "Type of literature, e.g. journal article",
+            "relevance": "Relevance to GBIF community, see <a href='https://www.gbif.org/faq?question=literature-relevance'>literature relevance</a>.",
+            "year": "Year of publication",
+            "topics": "Topic of publication",
+            "gbifDatasetKey": "GBIF dataset referenced in publication",
+            "publishingOrganizationKey": "Publisher whose dataset is referenced in publication",
+            "peerReview": "Has publication undergone peer-review?",
+            "openAccess": "Is publication Open Access?",
+            "gbifDownloadKey": "Download referenced in publication",
+            "doi": "Digital Object Identifier (DOI)",
+            "source": "Journal of publication",
+            "publisher": "Publisher of journal"
+            })
+            $}
+        </div>
+        </div>
+        </div>
+
+        </div>
+    </article>
+
+{% endblock %}
