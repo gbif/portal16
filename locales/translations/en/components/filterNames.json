@@ -73,7 +73,7 @@
     "institutionKey": "Institution",
     "gadmGid": "Administrative areas (gadm.org)",
     "lifeStage": "Life stage",
-    "dwcaExtension": "",
+    "dwcaExtension": "DWCA extension",
     "isClustered": ""
   }
 }
