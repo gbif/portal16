@@ -9,7 +9,7 @@
             "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
         },
         "isClustered": {
-            "description": ""
+            "description": "This experimental feature highlights possible duplicate and/or related occurrences."
         },
         "occurrenceStatus": {
             "description": "'Absent' is applied to an occurrence record when a survey of a taxon at a specific time and place encounters no specimens",
