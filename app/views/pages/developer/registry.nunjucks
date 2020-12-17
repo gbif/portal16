@@ -50,7 +50,7 @@
 
             <div class="col-md-2">
             {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'collections':'Collections', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
-            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person'} %}
+            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person', 'lookup':'Lookup', 'search':'Search'} %}
             {$ api.submenu(sections, colSections) $}
             </div>
             <div class="col-md-10">
@@ -355,27 +355,27 @@
             <section id="collections">
                 <div class="container--narrow">
                     <h3>Collections</h3>
-                    <p>                        
-                        The collections API provides CRUD services for collections, institutions and person entities. 
-                        The data was originally migrated from GrSciColl and adapted to follow the same conventions as other registry services. Therefore, the deletion of 
+                    <p>
+                        The collections API provides CRUD services for collections, institutions and person entities.
+                        The data was originally migrated from GrSciColl and adapted to follow the same conventions as other registry services. Therefore, the deletion of
                         collections, institutions and persons is logical, meaning these entries remain registered forever
-                        and only get a deleted timestamp. On the other hand, the deletion of tags and identifiers is physical, meaning the entries are permanently removed.                                                                        
+                        and only get a deleted timestamp. On the other hand, the deletion of tags and identifiers is physical, meaning the entries are permanently removed.
                     </p>
-                    <p> 
+                    <p>
                         <i>Please note that this part of the API is still under development, and may change in the future.</i>
                     </p>
 
-                    <section id="collection" class="white-background page--developer__anchor">                    
+                    <section id="collection" class="white-background page--developer__anchor">
                         <h4>Collection</h4>
                         <p>
-                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Collection.java">collection</a> entity. 
-                            A collection can be associated with an <a href="#institution">institution</a> and can have a list of contacts, which are represented by the <a href="#person">person</a> entity. 
+                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Collection.java">collection</a> entity.
+                            A collection can be associated with an <a href="#institution">institution</a> and can have a list of contacts, which are represented by the <a href="#person">person</a> entity.
                             It can also have tags and identifiers.
                         </p>
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode"], description="Lists all collections")$}
+                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all collections")$}
                             {$ trowCol(url="", method="POST", resp="UUID", auth=true, description="Creates a new collection") $}
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
@@ -385,7 +385,7 @@
                             {$ trowCol(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the collection the contact with key {UUID}") $}
                             {$ trowCol(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/identifier", description="Lists the identifiers of the collection") $}
                             {$ trowCol(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new collection identifier") $}
-                            {$ trowCol(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the collection the identifier with ID {ID}") $}                            
+                            {$ trowCol(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the collection the identifier with ID {ID}") $}
                             {$ trowCol(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a collection") $}
                             {$ trowCol(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the collection") $}
                             {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the collection the tag with ID {ID}") $}
@@ -393,24 +393,27 @@
                             {$ trowCol(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a collection machine tag") $}
                             {$ trowCol(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the collection machine tag with machine tag identifier {ID}") $}
                             {$ trowCol(url="/deleted", resp="Deleted Collections List", respLink=apiBase+"grscicoll/collection/deleted", paging=true, description="Lists the deleted collections") $}
-                            {$ trowCol(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/collection/suggest?q=col", paging=false, description="Search that returns up to 20 matching collections. Results are ordered by relevance") $} 
+                            {$ trowCol(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/collection/suggest?q=col", paging=false, description="Search that returns up to 20 matching collections. Results are ordered by relevance") $}
                             {$ trowCol(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/comment", description="Lists all comments for a collection") $}
                             {$ trowCol(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add a collection comment") $}
-                            {$ trowCol(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the collection comment with comment identifier {ID}") $}
+                            {$ trowCol(url="/{UUID}/comment/{ID}", method="DELETE", auth=true, description="Deletes the collection comment with comment identifier {ID}") $}
+                            {$ trowCol(url="/{UUID}/occurrenceMapping", method="GET", resp="Occurrence Mapping List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/occurrenceMapping", description="Lists all occurrence mappings for a collection") $}
+                            {$ trowCol(url="/{UUID}/occurrenceMapping", method="POST", resp="ID", auth=true, description="Create and add an occurrence mapping") $}
+                            {$ trowCol(url="/{UUID}/occurrenceMapping/{ID}", method="DELETE", auth=true, description="Deletes the collection occurrence mapping with identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
-                    <section id="institution">                    
+                    <section id="institution">
                         <h4>Institution</h4>
                         <p>
-                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Institution.java">institution</a> entity. 
+                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Institution.java">institution</a> entity.
                             An institution can have a list of contacts, which are represented by the <a href="#person">person</a> entity.
                             They can also have tags and identifiers.
                         </p>
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode"], description="Lists all institutions")$}
+                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all institutions")$}
                             {$ trowInst(url="", method="POST", resp="UUID", auth=true, description="Creates a new institution") $}
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
@@ -428,17 +431,20 @@
                             {$ trowInst(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a institution machine tag") $}
                             {$ trowInst(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the institution machine tag with machine tag identifier {ID}") $}
                             {$ trowInst(url="/deleted", resp="Deleted Institutions List", respLink=apiBase+"grscicoll/institution/deleted", paging=true, description="Lists the deleted institutions") $}
-                            {$ trowInst(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/institution/suggest?q=bio", paging=false, description="Search that returns up to 20 matching institutions. Results are ordered by relevance") $} 
+                            {$ trowInst(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/institution/suggest?q=bio", paging=false, description="Search that returns up to 20 matching institutions. Results are ordered by relevance") $}
                             {$ trowInst(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/comment", description="Lists all comments for an institution") $}
                             {$ trowInst(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add an institution comment") $}
-                            {$ trowInst(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the institution comment with comment identifier {ID}") $}
+                            {$ trowInst(url="/{UUID}/comment/{ID}", method="DELETE", auth=true, description="Deletes the institution comment with comment identifier {ID}") $}
+                            {$ trowInst(url="/{UUID}/occurrenceMapping", method="GET", resp="Occurrence Mapping List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/occurrenceMapping", description="Lists all occurrence mappings for an institution") $}
+                            {$ trowInst(url="/{UUID}/occurrenceMapping", method="POST", resp="ID", auth=true, description="Create and add an institution occurrence mapping") $}
+                            {$ trowInst(url="/{UUID}/occurrenceMapping/{ID}", method="DELETE", auth=true, description="Deletes the institution occurrence mapping with identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
-                    <section id="person" class="white-background page--developer__anchor">                    
+                    <section id="person" class="white-background page--developer__anchor">
                         <h4>Person</h4>
                         <p>
-                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Person.java">person</a> entity. 
+                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Person.java">person</a> entity.
                             A person can be associated with a primary <a href="#collection">collection</a> and a primary <a href="#institution">institution</a>.
                             As mentioned before, a person can also be a contact in the <a href="#collection">collection</a> and <a href="#institution">institution</a> entities.
                         </p>
@@ -449,7 +455,7 @@
                             {$ trowPerson(url="", method="POST", resp="UUID", auth=true, description="Creates a new person") $}
                             {$ trowPerson(url="/{UUID}", resp="Person", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a", description="Gets details for the person") $}
                             {$ trowPerson(url="/{UUID}", method="PUT", auth=true, description="Updates the person") $}
-                            {$ trowPerson(url="/{UUID}", method="DELETE", auth=true, description="Deletes the person. The person entry gets a deleted timestamp but remains registered.") $}         
+                            {$ trowPerson(url="/{UUID}", method="DELETE", auth=true, description="Deletes the person. The person entry gets a deleted timestamp but remains registered.") $}
                             {$ trowPerson(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/identifier", description="Lists the identifiers of the person") $}
                             {$ trowPerson(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new person identifier") $}
                             {$ trowPerson(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the person the identifier with ID {ID}") $}
@@ -458,15 +464,119 @@
                             {$ trowPerson(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the person the tag with ID {ID}") $}
                             {$ trowPerson(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/machineTag", description="Lists all machine tags for a person") $}
                             {$ trowPerson(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a person machine tag") $}
-                            {$ trowPerson(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the person machine tag with machine tag identifier {ID}") $}   
+                            {$ trowPerson(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the person machine tag with machine tag identifier {ID}") $}
                             {$ trowPerson(url="/deleted", resp="Deleted Persons List", respLink=apiBase+"grscicoll/person/deleted", paging=true, description="Lists the deleted persons") $}
-                            {$ trowPerson(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/person/suggest?q=ste", paging=false, description="Search that returns up to 20 matching persons. Results are ordered by relevance") $} 
+                            {$ trowPerson(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/person/suggest?q=ste", paging=false, description="Search that returns up to 20 matching persons. Results are ordered by relevance") $}
                             {$ trowPerson(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/comment", description="Lists all comments for a person") $}
                             {$ trowPerson(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add a person comment") $}
                             {$ trowPerson(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the person comment with comment identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
+                    <section id="lookup">
+                        <h4>Lookup</h4>
+                        <p>
+                            This API provides a service to lookup institutions and collections. It can be used to lookup for institutions, collections or both at the same time.
+                            Besides the matches, the response also provides information to help understand how the match was done.
+                        </p>
+                        <table class='api table table-bordered table-striped table-params'>
+                            {$ api.apiTableHead() $}
+                            <tbody>
+                                {$ api.trow(url="/grscicoll/lookup", httpMethod="GET", authRequired=false, resp="Matches found", respLink=apiBase+"grscicoll/lookup?institutionCode=C", paging=false, params=["institutionCode","ownerInstitutionCode","institutionId","collectionCode","collectionId","datasetKey","country","verbose"], description="Lists all the matches found") $}
+                            </tbody>
+                        </table>
+                        <p>Explanation of the lookup parameters:</p>
+                        <table class='table table-bordered table-striped table-params'>
+                            <thead>
+                            <tr>
+                                <th width="25%" class='total'>Parameter</th>
+                                <th width="75%">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a id="p_institutionCode"></a>institutionCode</td>
+                                    <td>The code of an institution</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_ownerInstitutionCode"></a>ownerInstitutionCode</td>
+                                    <td>The code of the owner institution. This parameter is only used to detect the cases when the instution and the owner institution are different. If that happens, the match is not considered accepted</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_institutionId"></a>institutionId</td>
+                                    <td>The identifier of an institution</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_collectionCode"></a>collectionCode</td>
+                                    <td>The code of a collection</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_collectionId"></a>collectionId</td>
+                                    <td>The identifier of a collection</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_datasetKey"></a>datasetKey</td>
+                                    <td>Institutions and collections can be linked manually to datasets by using occurrence mappings. If the dataset key parameter is set it will be used to try to match
+                                    an occurrence mapping that contains that dataset. This manual mapping only happens if no exact matches were found</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_country"></a>country</td>
+                                    <td>ISO 639-1 (2 letter) country code. This parameter is only used as a discriminator when more than 1 candidate is found</td>
+                                </tr>
+                                <tr>
+                                    <td><a id="p_verbose"></a>verbose</td>
+                                    <td>Boolean parameter(true or false). If set to true, it returns the accepted matches and other alternatives that were also found. Otherwise, it only returns the accepted ones</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Explanation of the match status in the response:</>
+                        <table class='table table-bordered table-striped table-params'>
+                            <thead>
+                            <tr>
+                                <th width="25%" class='total'>Status</th>
+                                <th width="75%">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ACCEPTED</td>
+                                    <td>The match is considered accepted because both the code and the identifier matched and only 1 candidate was found</td>
+                                </tr>
+                                <tr>
+                                    <td>AMBIGUOUS</td>
+                                    <td>Multiple candidates were found with the same level of confidence and it can't be determined which one should be accepted</td>
+                                </tr>
+                                <tr>
+                                    <td>AMBIGUOUS_EXPLICIT_MAPPINGS</td>
+                                    <td>Multiple candidates were found in the occurrence mappings with the same level of confidence and it can't be determined which one should be accepted</td>
+                                </tr>
+                                <tr>
+                                    <td>AMBIGUOUS_OWNER</td>
+                                    <td>At least 1 possible institution match was found but none of them match with the owner institution specified</td>
+                                </tr>
+                                <tr>
+                                    <td>AMBIGUOUS_INSTITUTION_MISMATCH</td>
+                                    <td>At least 1 possible collection match was found but none of them belong to the institution matched</td>
+                                </tr>
+                                <tr>
+                                    <td>DOUBTFUL</td>
+                                    <td>A match was found but it was matched fuzzily. To know more about why this has happened see the "reasons" returned in the response. A common case is when the name is used instead of the code or the identifier</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section id="search">
+                    <h4>Search</h4>
+                    <p>
+                        This API provides a service to search institutions and collections. It searches in both institutions and collections and it highlights the matching fields (optional).
+                    </p>
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead() $}
+                        <tbody>
+                            {$ api.trow(url="/grscicoll/search", httpMethod="GET", authRequired=false, resp="Results found", respLink=apiBase+"grscicoll/search?q=smi&highlight=true", paging=false, params=["q","highlight"], description="Searches for institutions and collections") $}
+                        </tbody>
+                    </table>
+                </section>
                 </div>
             </section>
 
@@ -491,13 +601,14 @@
             "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2 letter) country code",
             "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
             "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them.",
-            "contact": "Filters collections and institutions whose contacts contain the person key specified.",            
+            "contact": "Filters collections and institutions whose contacts contain the person key specified.",
             "institution":"Filters collections by the institution key specified.",
             "primaryInstitution":"Filters persons by the primary institution key specified.",
             "primaryCollection":"Filters persons by the primary collection key specified.",
             "code":"Code of a GrSciColl institution or collection.",
             "name":"Name of a GrSciColl institution or collection",
-            "alternativeCode":"Alternative code of a GrSciColl institution or collection"
+            "alternativeCode":"Alternative code of a GrSciColl institution or collection",
+            "highlight":"Highlights the matching fields in a search"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">

@@ -50,6 +50,17 @@
     "INDIVIDUAL_COUNT_INVALID": "Conteo de individuos inválido",
     "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "El número de individuos entra en conflicto con el estado del registro biológico",
     "OCCURRENCE_STATUS_UNPARSABLE": "El estado del registro biológico es incomprensible",
-    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "El estado de registro biológico inferido del numero de individuos"
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "El estado de registro biológico inferido del numero de individuos",
+    "OCCURRENCE_STATUS_INFERRED_FROM_BASIS_OF_RECORD": "",
+    "GEOREFERENCED_DATE_UNLIKELY": "",
+    "GEOREFERENCED_DATE_INVALID": "",
+    "AMBIGUOUS_INSTITUTION": "",
+    "AMBIGUOUS_COLLECTION": "",
+    "INSTITUTION_MATCH_NONE": "",
+    "COLLECTION_MATCH_NONE": "",
+    "INSTITUTION_MATCH_FUZZY": "",
+    "COLLECTION_MATCH_FUZZY": "",
+    "INSTITUTION_COLLECTION_MISMATCH": "",
+    "POSSIBLY_ON_LOAN": ""
   }
 }

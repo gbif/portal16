@@ -15,55 +15,63 @@ module.exports = function(app, config) {
     let env = config.env || 'dev';
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
-
     // based on https://github.com/OWASP/CheatSheetSeries/issues/376 helmet disables browsers' buggy cross-site scripting filter
+    if (env !== 'devXXX') {
+        app.use(helmet({
+            referrerPolicy: false,
+            contentSecurityPolicy: {
+                directives: {
+                    defaultSrc: [
+                        `'self'`,
+                        `*.gbif.org`,
+                        `*.gbif-uat.org`,
+                        `*.gbif-dev.org`,
+                        `*.gbif-staging.org`,
+                        `*.${config.topDomain}`,
+                        '*.google.com',
+                        '*.google-analytics.com',
+                        'fonts.gstatic.com',
+                        'images.ctfassets.net',
+                        'data:',
+                        'api.mapbox.com',
+                        '*.tiles.mapbox.com',
+                        'player.vimeo.com',
+                        'eepurl.com',
+                        'gbif.us18.list-manage.com',
+                        'zenodo.org',
+                        '*.youtube.com'
+                      ],
+                    scriptSrc: [
+                        `'self'`,
+                        `'unsafe-inline'`,
+                        `'unsafe-eval'`,
+                        '*.google-analytics.com',
+                        'api.mapbox.com',
+                        'unpkg.com/react@17/umd/react.production.min.js',
+                        'unpkg.com/react-dom@17/umd/react-dom.production.min.js',
+                        'cdn.jsdelivr.net/gh/gbif/gbif-web@latest/packages/react-components/dist/gbif-react-components.js'
+                      ],
+                    styleSrc: [
+                        `'self'`,
+                        `'unsafe-inline'`,
+                        '*.googleapis.com',
+                        'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.12.0/mapbox-gl.min.css',
+                        'api.mapbox.com'],
+                    mediaSrc: ['*'],
+                    workerSrc: [
+                        'blob:'
+                    ],
+                    upgradeInsecureRequests: []
+                  }
 
-    app.use(helmet({
-        referrerPolicy: false,
-        contentSecurityPolicy: {
-            directives: {
-                defaultSrc: [
-                    `'self'`,
-                    `*.gbif.org`,
-                    `*.gbif-uat.org`,
-                    `*.gbif-dev.org`,
-                    `*.gbif-staging.org`,
-                    `*.${config.topDomain}`,
-                    '*.google-analytics.com',
-                    'fonts.gstatic.com',
-                    'images.ctfassets.net',
-                    'data:',
-                    'api.mapbox.com',
-                    '*.tiles.mapbox.com',
-                    'player.vimeo.com',
-                    'eepurl.com',
-                    'gbif.us18.list-manage.com',
-                    'zenodo.org',
-                    '*.youtube.com'],
-                scriptSrc: [
-                    `'self'`,
-                    `'unsafe-inline'`,
-                    `'unsafe-eval'`,
-                    '*.google-analytics.com',
-                    'api.mapbox.com'],
-                styleSrc: [
-                    `'self'`,
-                    `'unsafe-inline'`,
-                    '*.googleapis.com',
-                    'api.mapbox.com'],
-                mediaSrc: ['*'],
-                workerSrc: [
-                    'blob:'
-                ],
-                upgradeInsecureRequests: []
-              }
+          },
+          hsts: {
+            maxAge: 600,
+            includeSubDomains: true
+          }
+    }));
+    }
 
-      },
-      hsts: {
-        maxAge: 600,
-        includeSubDomains: true
-      }
-}));
     /**
      * add middleware to add ip address to request.
      */

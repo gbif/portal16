@@ -21,6 +21,7 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
     vm.chosenLocale = LOCALE;
 
     vm.getUser = function() {
+        var redirectedFromLogin = $cookies.get('isRedirectedFromLogin');
         var activeUser = User.loadActiveUser();
         vm.profile = {};
         activeUser.then(function(response) {
@@ -34,6 +35,19 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
             var profileInfo = JSON.parse(profileFlashInfo);
             vm.errorMessage = profileInfo.error;
             vm.provider = profileInfo.authProvider;
+
+            // change interface language (if was redirected from login page)
+            var pathname = location.pathname;
+            if (redirectedFromLogin && vm.profile.settings.locale && LOCALE !== vm.profile.settings.locale) {
+                var localePrefix = vm.profile.settings.locale === 'en' ? '' : '/' + vm.profile.settings.locale;
+                if (_.startsWith(pathname, '/' + LOCALE + '/')) {
+                    pathname = pathname.substr(LOCALE.length + 1);
+                }
+                window.location.href = localePrefix + pathname + location.search + location.hash;
+            }
+
+            // remove cookie
+            $cookies.remove('isRedirectedFromLogin', {path: '/'});
         }, function() {
             vm.loadingActiveUserFailed = true;
             // TODO handle errors - log out or inform user that the user cannot be loaded
@@ -88,7 +102,7 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
                 });
 
             // change interface language
-            if (vm.userLanguageBeforeUpdate !== vm.profile.settings.locale) {
+            if (vm.profile.settings.locale && vm.userLanguageBeforeUpdate !== vm.profile.settings.locale) {
                 var pathname = location.pathname;
                 var localePrefix = vm.profile.settings.locale === 'en' ? '' : '/' + vm.profile.settings.locale;
                 if (_.startsWith(pathname, '/' + LOCALE + '/')) {

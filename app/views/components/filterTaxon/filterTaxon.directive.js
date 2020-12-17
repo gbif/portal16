@@ -98,14 +98,13 @@ function filterTaxonDirective(BUILD_VERSION) {
             // if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
-                    params: _.assign({}, vm.filterConfig.search.defaultParams, {
-                        q: val, // .toLowerCase(),
-                        limit: 10
+                    params: _.assign({limit: 10}, vm.filterConfig.search.defaultParams, {
+                        q: val // .toLowerCase(),
                     })
                 }).then(function(response) {
                     var resultsArray = response.data;
-                    if (typeof response.data.results !== 'undefined') {
-                      resultsArray = response.data.results;
+                    if (!angular.isArray(response.data)) {
+                      resultsArray = response.data.results || [];
                     }
                     return _.filter(resultsArray, function(e) {
                         return !vm.usedKeys[e[vm.suggestKey]];

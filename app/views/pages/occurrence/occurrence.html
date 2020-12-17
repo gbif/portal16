@@ -83,6 +83,11 @@
         <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-taxon filter-config="occurrence.filters.publisher" filter-state="occurrence.occurrenceState"></div>
+        
+        <div filter-taxon 
+             filter-config="occurrence.filters.hostingOrganizationKey" 
+             filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-suggest filter-config="occurrence.filters.institutionCode"
              filter-state="occurrence.occurrenceState"></div>
@@ -138,6 +143,12 @@
         <div filter-ternary filter-config="occurrence.filters.repatriated" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
+        <div filter-ternary filter-config="occurrence.filters.isClustered" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-enum filter-config="occurrence.filters.dwcaExtension" filter-state="occurrence.occurrenceState" 
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
         <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
@@ -170,6 +181,9 @@
              ng-if="occurrence.occurrenceState.query.advanced"></div>
      <div filter-interval filter-config="occurrence.filters.relative_organism_quantity" filter-type="float" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>   
+      <div filter-taxon filter-config="occurrence.filters.lifeStage" 
+          filter-state="occurrence.occurrenceState"
+          ng-if="occurrence.occurrenceState.query.advanced"></div>
         <!--div filter-suggest filter-config="occurrence.filters.installationKey" filter-state="occurrence.occurrenceState"
              xng-if="occurrence.occurrenceState.query.advanced"></div-->
              

@@ -50,6 +50,17 @@
     "INDIVIDUAL_COUNT_INVALID": "Некоректна кількість особин",
     "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "Інформація про кількість особин конфліктує зі статусом знахідки",
     "OCCURRENCE_STATUS_UNPARSABLE": "Статус знахідки неможливо інтерпретувати",
-    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Статус знахідки виведений з даних про кількість особин"
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Статус знахідки виведений з даних про кількість особин",
+    "OCCURRENCE_STATUS_INFERRED_FROM_BASIS_OF_RECORD": "",
+    "GEOREFERENCED_DATE_UNLIKELY": "",
+    "GEOREFERENCED_DATE_INVALID": "",
+    "AMBIGUOUS_INSTITUTION": "",
+    "AMBIGUOUS_COLLECTION": "",
+    "INSTITUTION_MATCH_NONE": "",
+    "COLLECTION_MATCH_NONE": "",
+    "INSTITUTION_MATCH_FUZZY": "",
+    "COLLECTION_MATCH_FUZZY": "",
+    "INSTITUTION_COLLECTION_MISMATCH": "",
+    "POSSIBLY_ON_LOAN": ""
   }
 }

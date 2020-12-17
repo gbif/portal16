@@ -50,6 +50,17 @@
     "INDIVIDUAL_COUNT_INVALID": "Contagem individual inválida",
     "INDIVIDUAL_COUNT_CONFLICTS_WITH_OCCURRENCE_STATUS": "Contagem individual de conflitos com o estado da ocorrência",
     "OCCURRENCE_STATUS_UNPARSABLE": "Estado da ocorrência não interpretável",
-    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Estado de ocorrência inferido da contagem individual"
+    "OCCURRENCE_STATUS_INFERRED_FROM_INDIVIDUAL_COUNT": "Estado de ocorrência inferido da contagem individual",
+    "OCCURRENCE_STATUS_INFERRED_FROM_BASIS_OF_RECORD": "",
+    "GEOREFERENCED_DATE_UNLIKELY": "",
+    "GEOREFERENCED_DATE_INVALID": "",
+    "AMBIGUOUS_INSTITUTION": "",
+    "AMBIGUOUS_COLLECTION": "",
+    "INSTITUTION_MATCH_NONE": "",
+    "COLLECTION_MATCH_NONE": "",
+    "INSTITUTION_MATCH_FUZZY": "",
+    "COLLECTION_MATCH_FUZZY": "",
+    "INSTITUTION_COLLECTION_MISMATCH": "",
+    "POSSIBLY_ON_LOAN": ""
   }
 }
