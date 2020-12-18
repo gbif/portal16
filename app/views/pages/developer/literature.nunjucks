@@ -31,7 +31,7 @@
         <section id="overview" class="horizontal-stripe light-background">
             <div class="container">
                 <p>
-                    This API is used to retrieve literature.
+                    This API enables you to search for literature indexed by GBIF, including peer-reviewed papers, citing GBIF datasets and downloads. It powers the <a href="/resource/search?contentType=literature">Literature search</a> on GBIF.org.
                 </p>
             </div>
         </section>
@@ -68,7 +68,7 @@
             "countriesOfResearcher": "Country of institution with which author is affiliated, e.g. DK (for Denmark). Country codes are listed in our <a href='"+apiBase+"enumeration/country'>Country enum</a>.",
             "countriesOfCoverage": "Country of focus of study, e.g. BR (for Brazil). Country codes are listed in our <a href='"+apiBase+"enumeration/country'>Country enum</a>.",
             "literatureType": "Type of literature, e.g. journal article",
-            "relevance": "Relevance to GBIF community, see <a href='https://www.gbif.org/faq?question=literature-relevance'>literature relevance</a>.",
+            "relevance": "Relevance to GBIF community, see <a href='/faq?question=literature-relevance'>literature relevance</a>.",
             "year": "Year of publication",
             "topics": "Topic of publication",
             "gbifDatasetKey": "GBIF dataset referenced in publication",
