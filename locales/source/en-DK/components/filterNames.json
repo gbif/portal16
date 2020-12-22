@@ -71,6 +71,9 @@
     "relativeOrganismQuantity": "Relative organism quantity",
     "collectionKey" : "Collection",
     "institutionKey" : "Institution",
-    "gadmGid" : "GADM"
+    "gadmGid" : "GADM",
+    "lifeStage" : "Life stage",
+    "dwcaExtension" : "DWCA extension",
+    "isClustered" : "Is in cluster"
   }
 }

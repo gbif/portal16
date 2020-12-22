@@ -10,6 +10,7 @@ module.exports = {
     'mediaType': require('./basic/mediaType.json'),
     'rank': require('./basic/rank.json'),
     'occurrenceIssue': require('./basic/occurrenceIssue.json'),
+    'dwcaExtension': require('./basic/dwcaExtension.json'),
     'license': require('./basic/license.json'),
     'datasetType': require('./basic/datasetType.json'),
     'downloadFormats': require('./basic/downloadFormats.json'),

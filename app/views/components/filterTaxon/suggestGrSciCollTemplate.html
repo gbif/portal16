@@ -1,0 +1,6 @@
+<a ng-href="" class="seperator species-list seperator text-left" dir="auto">
+    <span ng-bind-html="match.model.name | uibTypeaheadHighlight:query"></span>
+    <div class="small discreet" ng-if="match.model.code">
+        Code: {{match.model.code}}
+    </div>
+</a>

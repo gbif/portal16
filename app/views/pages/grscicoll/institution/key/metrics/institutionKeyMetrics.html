@@ -1,0 +1,35 @@
+<div class="horizontal-stripe light-background seperator p-t-0">
+    <!--section class="container--desktop ng-cloak" ng-if="institutionKeyMetrics.capabilities.total > 0">
+        <h4 class="card-header">{{ institutionKeyMetrics.withCoordinates.count | localNumber }}  georeferenced records</h4>
+        <div class="card">
+            <div>
+                <map-widget filter="{institution_key:institutionKey.key}" style="{suggested: 'DOTS'}" class="fixedSizes"></map-widget>
+            </div>
+        </div>
+    </section-->
+
+    <div class="container--desktop">
+        <section class="networkMetrics-col m-t-1">
+            <div class="ng-cloak" ng-if="institutionKeyMetrics.withCoordinates.count > 0">
+                <h4 class="card-header">{{ institutionKeyMetrics.withCoordinates.count | localNumber }}  georeferenced records</h4>
+                <div class="card">
+                    <div>
+                        <adhoc-map no-drawing="true" filter="{institution_key: institutionKey.key}" map-style="{suggested: 'SPOTTY'}" class="fitSize fitSize--noBar"></adhoc-map>
+                        <!--map-widget filter="{institution_key:institutionKey.key}" style="{suggested: 'DOTS'}" class="fixedSizes"></map-widget-->
+                    </div>
+                </div>
+            </div>
+            <div>
+              <h4 class="card-header text-center inline-block" translate="metrics.taxonomicOccDistribution"></h4>
+              <div class="card m-b-1" style="padding:12px">
+                  <occurrence-taxonomy-tree filter="{institution_key: institutionKey.key}" options="{limit:10, showFrequenyTree: true}"></occurrence-taxonomy-tree>
+              </div>
+            </div>
+            <!--occurrence-taxonomy-stats filter="{institution_key: institutionKey.key}" chart-type="'treemap'"></occurrence-taxonomy-stats-->
+            <div ng-repeat="chart in institutionKeyMetrics.defaultCharts">
+                <occurrence-breakdown-card api="chart.api" config="chart.config" filter="chart.filter" chart-change="networkMetrics.chartChange" custom-filter="chart.customFilter"></occurrence-breakdown-card>
+            </div>
+        </section>
+    </div>
+
+</div>

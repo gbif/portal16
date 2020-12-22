@@ -61,7 +61,9 @@ router.get('/occurrence/search', function(req, res) {
                     type: expandConfig.VERBATIM_RECORD
                 }
             ],
-            expandConfig: expandConfig
+            expandConfig: expandConfig,
+            currentLocale: res.locals.gb.locales.current,
+            vocabularyMapping: res.locals.gb.locales.vocabularyMapping
         };
         gbifData.expand.expand(data, settings, res.__, function(err) {
             // START: track request cancellation frequency

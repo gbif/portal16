@@ -20,6 +20,9 @@ router.get('/download/:key/card.:ext?', function(req, res, next) {
 });
 
 router.get('/download/:key.:ext?', function(req, res, next) {
+    if (req.params.key === 'request') {
+      return next();
+    }
     renderDownload(req, res, next, 'pages/occurrence/download/key/occurrenceDownloadKey');
 });
 

@@ -265,6 +265,7 @@ require('./angular/routerConfig');
 require('./angular/index.filters');
 require('./angular/occurrence.resource');
 require('./angular/dataset.resource');
+require('./angular/lifeStage.resource');
 require('./angular/gadm.resource');
 require('./angular/redlist.resource');
 require('./angular/cites.resource');
@@ -313,6 +314,7 @@ require('../../../pages/search/search.ctrl');
 require('../../../pages/occurrence/key/occurrenceKey.ctrl');
 require('../../../pages/occurrence/key/cluster/occurrenceKeyCluster.ctrl');
 require('../../../pages/occurrence/occurrence.ctrl');
+require('../../../pages/occurrence/beta/betaSearch.ctrl');
 
 require('../../../pages/node/key/nodeKey.ctrl');
 require('../../../pages/installation/key/installationKey.ctrl');
@@ -332,6 +334,7 @@ require('../../../pages/user/confirmUser/confirmUser.ctrl');
 require('../../../pages/user/updateEmail/updateEmail.ctrl');
 
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
+require('../../../pages/occurrence/download/custom/occurrenceDownloadCustom.ctrl');
 require('../../../pages/species/key/speciesKey.ctrl');
 require('../../../pages/species/key/metrics/speciesKeyMetrics.ctrl');
 

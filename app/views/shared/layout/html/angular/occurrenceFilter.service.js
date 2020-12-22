@@ -56,6 +56,7 @@ angular
             'month',
             'type_status',
             'issue',
+            'dwca_extension',
             'dataset_key',
             'institution_code',
             'country',
@@ -80,6 +81,7 @@ angular
             'media_type',
             'type_status',
             'issue',
+            'dwca_extension',
             'license',
             'publishing_org'];
 

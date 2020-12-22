@@ -4,6 +4,11 @@
       "title": "Collections",
       "description": "**Institutional Collections** are those collections that have been formally accessioned into the Institution and receive some level of institutional support.\n\n**Project Collections** are those that were collected by a researcher associated with an institution but have not been formally accessioned into the institution's collections. **Project Collections** may eventually become part of the **Institutional Collections** or remain under the management and control of the individual researchers.\n\n**Personal Collections** are under the control of an individual researcher and are not formally associated with or accessioned into an institution. They may be the personal property of a private collector or otherwise orphaned."
     },
+    "tabs": {
+      "summary": "Summary",
+      "homepage": "Home page",
+      "metrics": "Metrics"
+    },
     "headerTitle": "Collection",
     "description": "Description",
     "institutionName": "Institution name",
@@ -34,6 +39,11 @@
     "search": {
       "title": "Institutions",
       "description": "**Institution**  refers to any institution or organization that owns and manages scientific collections. This includes herbaria, museums, zoos, botanical gardens, biobanks, and others. An institution may contain multiple collections, in which case those should be entered individually under  **Institutional/Project Collections**  and linked back to the parent institution.\n\nDue to the integration of several older datasets, and to avoid duplication of  **InstitutionCode**, <IH> has been appended to all Index Herbariorum Herbarium codes."
+    },
+    "tabs": {
+      "summary": "Summary",
+      "homepage": "Home page",
+      "metrics": "Metrics"
     },
     "headerTitle": "Institution",
     "indexHerbariorumIdentifier": "Index Herbariorum ID",
