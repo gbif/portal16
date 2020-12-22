@@ -33,6 +33,7 @@ let environment = {
         translation: localeConfig.localeMappings.translation,
         numbers: localeConfig.localeMappings.numbers,
         rtl: localeConfig.localeMappings.rtl,
+        vocabulary: localeConfig.localeMappings.vocabulary,
         localNames: localNameMap
     }
 };

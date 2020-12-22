@@ -59,7 +59,11 @@
                         <td class="table-cell--widder" >
                             <div style="width: 30em" layout="row" layout-align="space-between center">
                             <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
-                            <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('its') > -1" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('coi') > -1 || species.marker.toLowerCase().indexOf('co1') > -1" ng-href="http://bins.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri={{species.scientificName}}" target="_blank"></a> <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
+                            <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} 
+                            <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('its') > -1" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> 
+                            <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('coi') > -1 || species.marker.toLowerCase().indexOf('co1') > -1" ng-href="http://bins.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri={{species.scientificName}}" target="_blank"></a> 
+                            <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('16s') > -1" ng-href="https://gtdb.ecogenomic.org/tree?r=s__{{species.scientificName}}" target="_blank"></a>
+                            <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
 
                             <div  ng-if="species.nubMatch && species.nubMatch.usage" class="hideInvalid" taxon-occ-img="{{ species.nubMatch.usage.key }}" ></div>
                             </div>

@@ -2,6 +2,7 @@
 
 var angular = require('angular');
 var _ = require('lodash');
+require('./metrics/institutionKeyMetrics.ctrl');
 require('../../../../components/grscicollPerson/grscicollPerson.directive');
 
 angular
@@ -9,7 +10,7 @@ angular
     .controller('institutionKeyCtrl', institutionKeyCtrl);
 
 /** @ngInject */
-function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, CollectionSearch, $translate) {
+function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, CollectionSearch, OccurrenceSearch, $translate) {
     var vm = this;
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
@@ -20,6 +21,7 @@ function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, Collecti
     vm.$state = $state;
     vm.institution = InstitutionKey.get({key: vm.key});
     vm.collections = CollectionSearch.query({institution: vm.key});
+    vm.occurrences = OccurrenceSearch.query({institution_key: vm.key, limit: 0});
 
     vm.institution.$promise
         .then(function(data) {

@@ -4,7 +4,7 @@
             <div class="wrapper-horizontal-stripes" ng-if="institutionKey.institution.$resolved">
 
                 {% include "./header.nunjucks" %}
-                {# {% include "./nav.nunjucks" %} #}
+                {% include "./nav.nunjucks" %}
                 <div ng-if="institutionKey.$state.is('institutionKey')">
                     {% include "./about/index.nunjucks" %}
                 </div>

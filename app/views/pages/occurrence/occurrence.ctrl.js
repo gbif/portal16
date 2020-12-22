@@ -15,7 +15,8 @@ angular
   .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
+// eslint-disable-next-line max-len
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
   var vm = this;
   $translate('occurrenceSearch.title').then(function (title) {
     Page.setTitle(title);
@@ -50,6 +51,20 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
     facets: {
       hasFacets: true,
       facetKey: 'ISSUE'
+    }
+  };
+
+  vm.filters.dwcaExtension = {
+    titleTranslation: 'filterNames.dwcaExtension',
+    queryKey: 'dwca_extension',
+    filter: OccurrenceFilter,
+    enumTranslationPath: 'dwcaExtension.',
+    showAll: true,
+    enums: enums.dwcaExtension,
+    reversible: false,
+    facets: {
+      hasFacets: true,
+      facetKey: 'DWCA_EXTENSION'
     }
   };
 
@@ -462,49 +477,55 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
     }
   };
 
-  // vm.filters.collection_key = {
-  //     titleTranslation: 'filterNames.collectionKey',
-  //     queryKey: 'collection_key',
-  //     filter: OccurrenceFilter,
-  //     expand: {
-  //         resource: Collection,
-  //         expandedTitle: 'name'
-  //     },
-  //     search: {
-  //         isSearchable: true,
-  //         suggestEndpoint: suggestEndpoints.collectionKey,
-  //         suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
-  //         suggestTitle: 'name',
-  //         suggestShortName: 'name',
-  //         suggestKey: 'key'
-  //     },
-  //     facets: {
-  //         hasFacets: false,
-  //         facetKey: 'COLLECTION_KEY'
-  //     }
-  // };
+  vm.filters.collection_key = {
+      titleTranslation: 'filterNames.collectionKey',
+      queryKey: 'collection_key',
+      filter: OccurrenceFilter,
+      expand: {
+          resource: Collection,
+          expandedTitle: 'name'
+      },
+      search: {
+          isSearchable: true,
+          suggestEndpoint: suggestEndpoints.collectionKey,
+          suggestTemplate: '/templates/components/filterTaxon/suggestGrSciCollTemplate.html?v=' + BUILD_VERSION,
+          suggestTitle: function(item) {
+            if (item.code) return item.name + ' (' + item.code + ')';
+            return item.name;
+          },
+          suggestShortName: 'name',
+          suggestKey: 'key'
+      },
+      facets: {
+          hasFacets: false,
+          facetKey: 'COLLECTION_KEY'
+      }
+  };
 
-  // vm.filters.institution_key = {
-  //     titleTranslation: 'filterNames.institutionKey',
-  //     queryKey: 'institution_key',
-  //     filter: OccurrenceFilter,
-  //     expand: {
-  //         resource: Institution,
-  //         expandedTitle: 'name'
-  //     },
-  //     search: {
-  //         isSearchable: true,
-  //         suggestEndpoint: suggestEndpoints.institutionKey,
-  //         suggestTemplate: '/templates/components/filterTaxon/suggestBasicNameTemplate.html?v=' + BUILD_VERSION,
-  //         suggestTitle: 'name',
-  //         suggestShortName: 'name',
-  //         suggestKey: 'key'
-  //     },
-  //     facets: {
-  //         hasFacets: false,
-  //         facetKey: 'INSTITUTION_KEY'
-  //     }
-  // };
+  vm.filters.institution_key = {
+      titleTranslation: 'filterNames.institutionKey',
+      queryKey: 'institution_key',
+      filter: OccurrenceFilter,
+      expand: {
+          resource: Institution,
+          expandedTitle: 'name'
+      },
+      search: {
+          isSearchable: true,
+          suggestEndpoint: suggestEndpoints.institutionKey,
+          suggestTemplate: '/templates/components/filterTaxon/suggestGrSciCollTemplate.html?v=' + BUILD_VERSION,
+          suggestTitle: function(item) {
+            if (item.code) return item.name + ' (' + item.code + ')';
+            return item.name;
+          },
+          suggestShortName: 'name',
+          suggestKey: 'key'
+      },
+      facets: {
+          hasFacets: false,
+          facetKey: 'INSTITUTION_KEY'
+      }
+  };
 
   // End new es filters
 
@@ -592,6 +613,31 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
     }
   };
 
+  vm.filters.lifeStage = {
+    titleTranslation: 'filterNames.lifeStage',
+    queryKey: 'life_stage',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: LifeStage,
+      expandedTitle: 'name'
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'LIFE_STAGE'
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.lifeStage,
+      suggestTemplate: '/templates/components/filterTaxon/suggetVocabularyTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: function(item) {
+        return $filter('vocabularyLabel')(item);
+      },
+      suggestShortName: 'name',
+      suggestKey: 'name',
+      defaultParams: {limit: 20}
+    }
+  };
+
   vm.filters.taxonKey = {
     titleTranslation: 'filterNames.taxonKey',
     queryKey: 'taxon_key',
@@ -612,6 +658,27 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
       },
       suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
       suggestTitle: 'scientificName',
+      suggestShortName: 'title',
+      suggestKey: 'key'
+    }
+  };
+
+  vm.filters.hostingOrganizationKey = {
+    titleTranslation: 'filterNames.hostingOrganizationKey',
+    queryKey: 'hosting_organization_key',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: Publisher,
+      expandedTitle: 'title'
+    },
+    facets: {
+      hasFacets: false
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.publisher,
+      suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: 'title',
       suggestShortName: 'title',
       suggestKey: 'key'
     }
@@ -742,6 +809,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, OccurrenceSearc
         })
         .catch(reject);
     }
+  };
+
+  // ternary "all, yes, no" aka optional boolean
+  vm.filters.isClustered = {
+    titleTranslation: 'filterNames.isClustered',
+    descriptionTranslation: 'filters.isClustered.description',
+    queryKey: 'is_in_cluster',
+    filter: OccurrenceFilter
   };
 
   // dates

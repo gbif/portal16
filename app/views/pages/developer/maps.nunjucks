@@ -168,24 +168,24 @@
                     </p>
 
                     <p>
-                        <em>One</em> primary search parameter is permitted, from these: <code>taxonKey</code>, <code>datasetKey</code>, <code>country</code>, <code>networkKey</code>, <code>publishingOrg</code>, <code>publishingCountry</code>.
+                        <em>One</em> primary search parameter is permitted, from these: <code><a href="./occurrence#p_taxonKey">taxonKey</a></code>, <code><a href="./occurrence#p_datasetKey">datasetKey</a></code>, <code><a href="./occurrence#p_country">country</a></code>, <code><a href="./occurrence#p_networkKey">networkKey</a></code>, <code><a href="./occurrence#p_publishingOrg">publishingOrg</a></code>, <code><a href="./occurrence#p_publishingCountry">publishingCountry</a></code>.
                     </p>
 
                     <p>
-                        This can be combined with the parameter <code>country</code>, this limits the primary search to occurrences in that country.
+                        This can be combined with the parameter <code><a href="./occurrence#p_country">country</a></code>, this limits the primary search to occurrences in that country.
                     </p>
 
                     <p>
-                        An additional parameter <code>year</code> limits the occurrences within a range of years, for example <code>2000,2010</code>.
+                        An additional parameter <code><a href="./occurrence#p_year">year</a></code> limits the occurrences within a range of years, for example <code>2000,2010</code>.
                     </p>
 
                     <p>
-                        The final parameter <code>basisOfRecord</code> can be given multiple times to include records with that <a href="http://rs.tdwg.org/dwc/terms/#basisOfRecord">basis of record</a>.
+                        The final parameter <code><code><a href="./occurrence#p_basisOfRecord">basisOfRecord</a></code></code> can be given multiple times to include records with that <a href="http://rs.tdwg.org/dwc/terms/#basisOfRecord">basis of record</a>.
                         The full list is: <code>OBSERVATION</code>, <code>HUMAN_OBSERVATION</code>, <code>MACHINE_OBSERVATION</code>, <code>MATERIAL_SAMPLE</code>, <code>PRESERVED_SPECIMEN</code>, <code>FOSSIL_SPECIMEN</code>, <code>LIVING_SPECIMEN</code>, <code>LITERATURE</code>, <code>UNKNOWN</code>.
                     </p>
 
                     <p>
-                        Ad-hoc queried tiles can have any query supported by the occurrence search API, but are much slower to retrieve, and are limited to WGS84 projection (see below).  Prefer density tiles whenever possible.
+                        Ad-hoc queried tiles can have any query supported by the occurrence search API, but are much slower to retrieve, and are limited to WGS84 projection (see below). Prefer density tiles whenever possible.
                     </p>
 
                     <p>Examples:
