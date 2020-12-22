@@ -8,11 +8,11 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 let log = require('../../../../config/log');
 let router = express.Router({caseSensitive: true});
 
-module.exports = function(app) {
+module.exports = function (app) {
     app.use('/', router);
 };
 
-module.exports = function(app) {
+module.exports = function (app) {
     app.use('/', router);
 };
 
@@ -20,51 +20,66 @@ router.get('/publisher/confirm', confirm);
 router.get('/publisher/:key.:ext?', render);
 router.get('/publisher/:key/metrics', render);
 
-
 function render(req, res, next) {
     let key = req.params.key;
     if (!utils.isGuid(key)) {
         next();
     } else {
-        Publisher.get(key).then(function(publisher) {
-            try {
-                publisher._computedValues = {};
-                let contacts = publisher.record.contacts;
-                let organizationContact = {
-                    organization: publisher.record.title,
-                    city: publisher.record.city,
-                    country: publisher.record.country,
-                    address: publisher.record.address,
-                    province: publisher.record.province,
-                    email: publisher.record.email,
-                    postalCode: publisher.record.postalCode
-                };
-                if (organizationContact.address || organizationContact.email) {
-                    contacts.push(organizationContact);
-                }
-                publisher._computedValues.contributors = contributors.getContributors(contacts);
-                helper.renderPage(req, res, next, {
-                    publisher: publisher,
-                    _meta: {
-                        title: publisher.record.endorsementApproved ? publisher.record.title : 'New publisher',
-                        description: publisher.record.endorsementApproved ? publisher.record.description : '',
-                        noIndex: !publisher.record.endorsementApproved
+        Publisher.get(key).then(
+            function (publisher) {
+                try {
+                    publisher._computedValues = {};
+                    let contacts = publisher.record.contacts;
+                    let organizationContact = {
+                        organization: publisher.record.title,
+                        city: publisher.record.city,
+                        country: publisher.record.country,
+                        address: publisher.record.address,
+                        province: publisher.record.province,
+                        email: publisher.record.email,
+                        postalCode: publisher.record.postalCode
+                    };
+                    if (
+                        organizationContact.address ||
+                        organizationContact.email
+                    ) {
+                        contacts.push(organizationContact);
                     }
-                }, 'pages/publisher/key/seo');
-            } catch (error) {
-                next(error);
+                    publisher._computedValues.contributors = contributors.getContributors(
+                        contacts
+                    );
+                    helper.renderPage(req, res, next,
+                        {
+                            publisher: publisher,
+                            _meta: {
+                                title: publisher.record.endorsementApproved
+                                    ? publisher.record.title
+                                    : 'New publisher',
+                                description: publisher.record
+                                    .endorsementApproved
+                                    ? publisher.record.description
+                                    : '',
+                                noIndex: !publisher.record.endorsementApproved
+                            }
+                        },
+                        'pages/publisher/key/seo'
+                    );
+                } catch (error) {
+                    next(error);
+                }
+            },
+            function (err) {
+                if (err.type == 'NOT_FOUND') {
+                    next();
+                } else {
+                    next(err);
+                }
             }
-        }, function(err) {
-            if (err.type == 'NOT_FOUND') {
-                next();
-            } else {
-                next(err);
-            }
-        });
+        );
     }
 }
 
-function confirm(req, res, next) {
+async function confirm(req, res, next) {
     let key = req.query.key;
     let code = req.query.code;
 
@@ -75,40 +90,44 @@ function confirm(req, res, next) {
 
     let opts = {
         method: 'POST',
-        body: {'confirmationKey': code},
+        body: {confirmationKey: code},
         url: apiConfig.publisherCreate.url + key + '/endorsement',
         canonicalPath: apiConfig.publisherCreate.canonical + key + '/endorsement'
     };
-
-    return authOperations.authenticatedRequest(getOrganizationRequest)
-        .then(function(getOrgResp) {
-            if (!getOrgResp.body.endorsementApproved) {
-                return authOperations.authenticatedRequest(opts)
-                    .then(function (response) {
-                        if (response.statusCode !== 204) {
-                            throw response;
-                        }
-                        return helper.renderPage(req, res, next, {
-                            publisherKey: key
-                        }, 'pages/custom/confirmEndorsement/confirmEndorsement');
-                    })
-                    .catch(function (err) {
-                        log.error('Failed to confirm endorsement for organization[' + key + '] : ' + err.body);
-                        return helper.renderPage(req, res, next, {
-                            publisherKey: key
-                        }, 'pages/custom/confirmEndorsement/invalidToken');
-                    });
-            } else {
-                log.error('Organization[' + key + '] already endorsed');
-                return helper.renderPage(req, res, next, {
-                    publisherKey: key
-                }, 'pages/custom/confirmEndorsement/alreadyEndorsed');
+    try {
+        const getOrgResp = await authOperations.authenticatedRequest(getOrganizationRequest);
+        if (!getOrgResp.body.endorsementApproved) {
+            const response = await authOperations.authenticatedRequest(opts);
+            if (response.statusCode !== 204) {
+                throw response;
             }
-        })
-        .catch(function(err) {
-            log.error('Failed to confirm endorsement for organization[' + key + '] : ' + err.body);
-            return helper.renderPage(req, res, next, {
+            return helper.renderPage(req, res, next,
+                {
+                    publisherKey: key
+                },
+                'pages/custom/confirmEndorsement/confirmEndorsement'
+            );
+        } else {
+            log.error('Organization[' + key + '] already endorsed');
+            return helper.renderPage(req, res, next,
+                {
+                    publisherKey: key
+                },
+                'pages/custom/confirmEndorsement/alreadyEndorsed'
+            );
+        }
+    } catch (err) {
+        log.error(
+            'Failed to confirm endorsement for organization[' +
+            key +
+            '] : ' +
+            err.body
+        );
+        return helper.renderPage(req, res, next,
+            {
                 publisherKey: key
-            }, 'pages/custom/confirmEndorsement/invalidToken');
-        });
+            },
+            'pages/custom/confirmEndorsement/invalidToken'
+        );
+    }
 }
