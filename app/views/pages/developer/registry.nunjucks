@@ -375,7 +375,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all collections")$}
+                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country"], description="Lists all collections")$}
                             {$ trowCol(url="", method="POST", resp="UUID", auth=true, description="Creates a new collection") $}
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
@@ -413,7 +413,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all institutions")$}
+                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country"], description="Lists all institutions")$}
                             {$ trowInst(url="", method="POST", resp="UUID", auth=true, description="Creates a new institution") $}
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
