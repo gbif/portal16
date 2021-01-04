@@ -93,7 +93,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://localhost:9000',
+        blastApi: 'http://blast.gbif-dev.org', // 'http://localhost:9000',
         graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: 240000
     },

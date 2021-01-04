@@ -3,10 +3,11 @@
 
     <div layout="row" layout-align="center start" ng-cloak>
         <div class="nameParser__prose" >
-          <p>This tool will query taxonomy reference databases for Fungi and Animals</p>
+          <p>This tool will query taxonomy reference databases for Fungi, Animals, Bacteria and Archaea</p>
           <p>ITS sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a> (a reference database for DNA barcoding of Fungi)</p>
-        <p>COI sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">International Barcode of Life project (iBOL)</a> public data (COI-5P sequences)</p>
-            <p >Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
+          <p>COI sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">International Barcode of Life project (iBOL)</a> public data (COI-5P sequences)</p>
+          <p>16S sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database</a> 16S rRNA gene sequences identified within the set of representative genomes</p>
+          <p>Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
 
         </div>
     </div>
@@ -18,6 +19,7 @@
 
       <md-radio-button class="md-primary" value="ITS" >ITS</md-radio-button>
       <md-radio-button class="md-primary" value="COI"> COI </md-radio-button>
+      <md-radio-button class="md-primary" value="16S"> 16S </md-radio-button>
 
     </md-radio-group>
         <md-input-container class="md-block ">
@@ -117,6 +119,37 @@
                             Palmer JM, Jusino MA, Banik MT, Lindner DL. 2018. Non-biological synthetic spike-in controls and the AMPtk software pipeline improve mycobiome data. PeerJ 6:e4925;
                         </div>
                         <doi link="https://doi.org/10.7717/peerj.4925"></doi>
+
+            </div>
+
+            
+
+        </div>
+         <div layout="row" class="m-t-1 m-b-1" >
+            <div class="small p-r-1" flex="33">
+                
+                        <div>
+                            Parks DH., Chuvochina M, Chaumeil P, Rinke C, Mussig AJ, Hugenholtz P (2020). A complete domain-to-species taxonomy for Bacteria and Archaea. Nature Biotechnology volume 38, pages 1079–1086
+                        </div>
+                        <doi link="https://doi.org/10.1038/s41587-020-0501-8"></doi>
+                     
+
+
+            </div>
+
+            
+            <div class="small p-r-1" flex="33">
+                
+                        <div>
+                            Parks DH, Chuvochina M, Waite DW, Rinke C, Skarshewski A, Chaumeil P, Hugenholtz P (2018). A standardized bacterial taxonomy based on genome phylogeny substantially revises the tree of life. Nature Biotechnology volume 36, pages 996–1004
+                        </div>
+                        <doi link="https://doi.org/10.1038/nbt.4229"></doi>
+
+            </div>
+
+            <div class="small p-r-1" flex="33">
+                
+                      
 
             </div>
 
