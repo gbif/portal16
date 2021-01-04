@@ -41,8 +41,9 @@ function languageMenuDirective(BUILD_VERSION) {
             }
         });
 
+        // Let the user open the menu manually if they want another language, see https://github.com/gbif/portal16/issues/1455
         // has accepted cookies - to avoid 2 popups at the same time
-        var userAcceptedCookies = typeof $cookies.get('userAcceptance') !== 'undefined';
+/*         var userAcceptedCookies = typeof $cookies.get('userAcceptance') !== 'undefined';
         if (!$sessionStorage.hasSuggestedLanguage && userAcceptedCookies) {
             $http.get('/api/translation/suggested')
                 .then(function(response) {
@@ -55,7 +56,7 @@ function languageMenuDirective(BUILD_VERSION) {
                 .catch(function(err) {
                     // ignore errors
                 });
-        }
+        } */
 
         vm.close = function() {
             vm.isActive = false;
