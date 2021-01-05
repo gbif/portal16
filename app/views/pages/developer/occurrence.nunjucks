@@ -674,8 +674,8 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"cat1"<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"key":"DATASET_KEY",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"4fa7b334-ce0d-4e88-aaae-2e0c138d049e"<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }
