@@ -64,7 +64,7 @@
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
                             <h3 class="discreet">{$ __('homepage.counts.publishers') $}</h3>
-                            <div count="{{ portal.urlPrefix }}api/publisher/count" >1,300</div>
+                            <div count="/api/publisher/count" >1,300</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
