@@ -1,6 +1,6 @@
 {
   "filterNames": {
-    "occurrenceStatus": "",
+    "occurrenceStatus": "出現狀態",
     "month": "月",
     "catalogNumber": "目錄編號",
     "year": "年",
@@ -15,7 +15,7 @@
     "mediaType": "媒體類型",
     "recordedBy": "記錄者",
     "recordedById": "依ID紀錄",
-    "identifiedBy": "",
+    "identifiedBy": "鑑定者：",
     "identifiedById": "依ID辨識",
     "eventDate": "事件日期",
     "eventID": "事件識別碼",
@@ -70,6 +70,6 @@
     "relativeOrganismQuantity": "相對生物體數量",
     "collectionKey": "採集",
     "institutionKey": "機構",
-    "gadmGid": ""
+    "gadmGid": "行政區域"
   }
 }

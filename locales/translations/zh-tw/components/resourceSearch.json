@@ -34,7 +34,7 @@
             "peerReview": "同儕審定",
             "openAccess": "開源",
             "gbifDownloadKey": "下載序號",
-            "paperDoi": "",
+            "paperDoi": "DOI",
             "litSource": "期刊",
             "litPublisher": "期刊發布者"
         }

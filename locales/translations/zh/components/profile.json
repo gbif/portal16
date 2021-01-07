@@ -76,7 +76,7 @@
     "stopEditing": "停止编辑",
     "firstName": "名",
     "lastName": "姓",
-    "language": "",
+    "language": "语言",
     "save": "保存",
     "currentPassword": "当前密码",
     "invalidProfileUpdate": "个人信息更新无效",

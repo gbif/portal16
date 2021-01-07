@@ -24,6 +24,6 @@
         "pPublishers": "{NUMBER, select,1{發布者} other{發布者}}",
         "contacts": "{NUMBER, select, 1{聯絡人} other{聯絡人}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{分類處理} other{分類處理}}",
-        "nImages": ""
+        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{圖片} other{圖片}}"
     }
 }

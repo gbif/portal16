@@ -1,8 +1,8 @@
 {
     "counts": {
-        "nCitations": "",
-        "pCitations": "",
-        "nRecords": "",
+        "nCitations": "منبع",
+        "pCitations": "منابع",
+        "nRecords": "ثبت",
         "nResults": "",
         "nCollections": "",
         "nInstitutions": "",
