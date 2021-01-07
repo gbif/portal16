@@ -9,7 +9,7 @@
             "description": "Diz-se que os dados são repatriados quando são publicados por uma instituição de um país, mas estão relacionados com registos que ocorrem noutro país"
         },
         "isClustered": {
-            "description": ""
+            "description": "Este recurso experimental destaca possíveis duplicadas e/ou ocorrências relacionadas."
         },
         "occurrenceStatus": {
             "description": "\"Ausente\" é aplicado a um registo de ocorrência quando uma pesquisa de um táxon, em um momento e localidade específicos, não encontra nenhum espécime",
