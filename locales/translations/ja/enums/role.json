@@ -55,6 +55,7 @@
     "SCIENCE_COMMITTEE_CHAIR": "科学委員会委員長",
     "SCIENCE_COMMITTEE_MEMBER": "科学委員会委員",
     "TEMPORARY_DELEGATE": "一時的代表",
-    "TEMPORARY_HEAD_OF_DELEGATION": "一時的国家代表"
+    "TEMPORARY_HEAD_OF_DELEGATION": "一時的国家代表",
+    "ALTERNATE_HEAD_OF_DELEGATION": ""
   }
 }
