@@ -42,6 +42,7 @@
     "decimalLatitude": "Latitude decimal",
     "decimalLongitude": "Longitude decimal",
     "publishingOrg": "Publicador",
+    "hostingOrganizationKey": "",
     "kingdomKey": "Reino",
     "phylumKey": "Filo",
     "classKey": "Classe",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "Quantidade relativa do organismo",
     "collectionKey": "Coleção",
     "institutionKey": "Instituição",
-    "gadmGid": "Áreas administrativas (gadm.org)"
+    "gadmGid": "Áreas administrativas (gadm.org)",
+    "lifeStage": "",
+    "dwcaExtension": "",
+    "isClustered": ""
   }
 }
