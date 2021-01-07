@@ -26,6 +26,8 @@
     "loginText": "تسجيل الدخول",
     "register": "تسجيل",
     "downloads": "التنزيلات",
+    "newEmail": "",
+    "updateEmail": "",
     "repeatPassword": "كرر كلمة السر",
     "repeatNewPassword": "كرر كلمة السر الجديدة",
     "passwordsNotIdentical": "كلمتي السر غير متطابقتين",
