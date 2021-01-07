@@ -8,6 +8,9 @@
         "repatriation": {
             "description": "据了解, 当一个国家的机构所发布的生物多样性数据与另一个国家有关，则该数据将被回归给后者。"
         },
+        "isClustered": {
+            "description": ""
+        },
         "occurrenceStatus": {
             "description": "“缺席”指在某一特定时间和地点对一个分类群进行调查时没有发现标本的出现记录",
             "options": {
