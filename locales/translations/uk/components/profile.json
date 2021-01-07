@@ -26,6 +26,8 @@
     "loginText": "Увійти",
     "register": "Зареєструватися",
     "downloads": "Завантаження",
+    "newEmail": "",
+    "updateEmail": "",
     "repeatPassword": "Повторіть пароль",
     "repeatNewPassword": "Повторіть новий пароль",
     "passwordsNotIdentical": "Два паролі не співпадають",
