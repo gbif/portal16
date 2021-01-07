@@ -55,6 +55,7 @@
     "SCIENCE_COMMITTEE_CHAIR": "Presidente do Comité Científico",
     "SCIENCE_COMMITTEE_MEMBER": "Membro do Comité Científico",
     "TEMPORARY_DELEGATE": "Delegado temporário",
-    "TEMPORARY_HEAD_OF_DELEGATION": "Chefe de delegação temporário"
+    "TEMPORARY_HEAD_OF_DELEGATION": "Chefe de delegação temporário",
+    "ALTERNATE_HEAD_OF_DELEGATION": ""
   }
 }
