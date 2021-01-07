@@ -42,7 +42,7 @@
     "decimalLatitude": "خط العرض العشري",
     "decimalLongitude": "خط الطول العشري",
     "publishingOrg": "الناشر",
-    "hostingOrganizationKey": "",
+    "hostingOrganizationKey": "المنظمة المضيفة",
     "kingdomKey": "المملكة",
     "phylumKey": "الشعبة",
     "classKey": "الصف",
@@ -72,8 +72,8 @@
     "collectionKey": "مجموعة",
     "institutionKey": "مؤسسة",
     "gadmGid": "قاعدة البيانات العالمية للمناطق الادارية والخرائط (gadm.org) ",
-    "lifeStage": "",
-    "dwcaExtension": "",
+    "lifeStage": "مرحلة الحياة",
+    "dwcaExtension": "تمديد DWCA",
     "isClustered": ""
   }
 }
