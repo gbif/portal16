@@ -42,6 +42,7 @@
     "decimalLatitude": "Широта в десятковому форматі",
     "decimalLongitude": "Довгота в десятковому форматі",
     "publishingOrg": "Видавець",
+    "hostingOrganizationKey": "",
     "kingdomKey": "Царство",
     "phylumKey": "Відділ",
     "classKey": "Клас",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "Відносна кількість організмів",
     "collectionKey": "Колекція",
     "institutionKey": "Установа",
-    "gadmGid": "Адміністративний поділ (gadm.org)"
+    "gadmGid": "Адміністративний поділ (gadm.org)",
+    "lifeStage": "",
+    "dwcaExtension": "",
+    "isClustered": ""
   }
 }
