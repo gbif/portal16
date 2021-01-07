@@ -8,6 +8,9 @@
         "repatriation": {
             "description": "このデータはある国の組織によって出版されましたが、他国で観察された生物多様性情報であるためデータが返還されたようです。"
         },
+        "isClustered": {
+            "description": ""
+        },
         "occurrenceStatus": {
             "description": "「不在」には、特定の時間と場所における種の調査で対象が見つからなかった場合のオカレンスレコードが当てはまります。",
             "options": {
