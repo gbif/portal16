@@ -42,7 +42,7 @@
     "decimalLatitude": "十进制纬度",
     "decimalLongitude": "十进制经度",
     "publishingOrg": "发布者",
-    "hostingOrganizationKey": "",
+    "hostingOrganizationKey": "主办机构",
     "kingdomKey": "界",
     "phylumKey": "门",
     "classKey": "纲",
