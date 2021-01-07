@@ -19,10 +19,10 @@
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "جيرمبلازم: اختبار  القياس",
     "http://rs.tdwg.org/dwc/terms/Identification": "التعريف",
     "http://rs.gbif.org/terms/1.0/Identifier": "المعرف",
-    "http://rs.gbif.org/terms/1.0/Image": "",
-    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "",
-    "http://rs.gbif.org/terms/1.0/Multimedia": "",
-    "http://rs.gbif.org/terms/1.0/Reference": "",
-    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": ""
+    "http://rs.gbif.org/terms/1.0/Image": "صورة",
+    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "القياس او الحقيقة",
+    "http://rs.gbif.org/terms/1.0/Multimedia": "وسائط متعددة",
+    "http://rs.gbif.org/terms/1.0/Reference": "مرجعية",
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "علاقة الموارد"
   }
 }
