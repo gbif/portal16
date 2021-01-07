@@ -42,6 +42,7 @@
     "decimalLatitude": "Latitude décimale",
     "decimalLongitude": "Longitude décimale",
     "publishingOrg": "Fournisseur de données",
+    "hostingOrganizationKey": "",
     "kingdomKey": "Règne",
     "phylumKey": "Phylum",
     "classKey": "Classe",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "Quantité relative de l'organisme",
     "collectionKey": "Collection",
     "institutionKey": "Institution",
-    "gadmGid": ""
+    "gadmGid": "",
+    "lifeStage": "",
+    "dwcaExtension": "",
+    "isClustered": ""
   }
 }
