@@ -236,7 +236,7 @@ function addEndpointTask(predicate, config, tasks) {
             predicate.values = _.map(values, config.field);
         })
         .catch(function() {
-            predicate.values = [predicate.value];
+            predicate.values = predicate.values;
         });
         tasks.push(listPromise);
     } else {

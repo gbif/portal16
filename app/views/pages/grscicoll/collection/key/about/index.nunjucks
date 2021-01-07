@@ -3,10 +3,10 @@
 				<div class="row">
 						<div class="col-xs-12">
 								<div class="p-b-05 text-right">
-									<a ng-if="!collectionKey.irn" ng-click="portal.gaEvent('grscicoll', 'suggest', 'collection')" ng-href="mailto:scientific-collections@gbif.org?subject=GrSciColl%20suggestions&body=Regarding%20%0D%0A{{collectionKey.collection.name | encodeURIComponent}}%20%0D%0Ahttps://gbif.org/grscicoll/collection/{{collectionKey.key}}%0D%0A%0D%0AThank you for your help. Please describe the changes you would like to see." class="gb-button--brand" translate="grscicoll.suggestChange">
+									<a ng-if="!collectionKey.irn" ng-click="portal.gaEvent('grscicoll', 'suggest', 'collection')" ng-href="mailto:scientific-collections@gbif.org?subject=GrSciColl%20suggestions&body=Regarding%20%0D%0A{{collectionKey.collection.name | encodeURIComponent}}%20%0D%0Ahttps://gbif.org/grscicoll/collection/{{collectionKey.key}}%0D%0A%0D%0AThank you for your help. Please describe the changes you would like to see." translate="grscicoll.suggestChange">
 										Suggest a change
 									</a>
-                  <a ng-if="collectionKey.irn" ng-href="http://sweetgum.nybg.org/science/ih/ihh-edit/?irn={{collectionKey.irn}}" class="gb-button--brand" translate="grscicoll.suggestChange">
+                  <a ng-if="collectionKey.irn"  ng-click="portal.gaEvent('grscicoll', 'suggest', 'collection')" ng-href="http://sweetgum.nybg.org/science/ih/ihh-edit/?irn={{collectionKey.irn}}" translate="grscicoll.suggestChange" target="_blank" rel="noopener noreferrer">
                     Suggest a change
                   </a>
 								</div>

@@ -24,6 +24,6 @@
         "pPublishers": "{NUMBER, select, \n0 {видавців}\none {видавець}\nfew {видавці}\nmany {видавців}\nother {видавців}\n}",
         "contacts": "контакти",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {таксономічних карток}\none {таксономічна картка}\nfew {таксономічних картки}\nmany {таксономічних карток}\nother {таксономічних карток}\n}",
-        "nImages": ""
+        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{зображення} other{зображень}}"
     }
 }

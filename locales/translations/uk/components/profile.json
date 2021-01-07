@@ -76,7 +76,7 @@
     "stopEditing": "Завершити редагування",
     "firstName": "Ім'я",
     "lastName": "Прізвище",
-    "language": "",
+    "language": "Мова",
     "save": "Зберегти",
     "currentPassword": "Поточний пароль",
     "invalidProfileUpdate": "Неприпустиме оновлення профілю",

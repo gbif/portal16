@@ -85,7 +85,7 @@
             <div class="row">
                 <nav class="tabs">
                     <ul>
-                        {% set pages = ["summary", "registry", "species", "occurrence", "maps", "news"] %}
+                        {% set pages = ["summary", "registry", "species", "occurrence", "maps", "news", "literature"] %}
                         {% for page in pages %}
                             <li class="tab {% if active == page %}isActive{% endif %}">
                                 <a href="{$ gb.locales.urlPrefix $}/developer/{$ page $}">{$ page $}</a>

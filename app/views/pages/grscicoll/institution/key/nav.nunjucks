@@ -1,0 +1,40 @@
+<section class="horizontal-stripe--paddingless white-background">
+    <div class="container--normal">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="tabs__wrapper">
+                    <div class="tabs__actions" ng-if="institutionKey.occurrences.count > 0">
+                        <ul>
+                            <li class="tab tab-right ng-cloak">
+                                <span>
+                                    <a ui-sref="occurrenceSearchTable({institution_key: institutionKey.key, advanced: true})" class="gb-button--brand">
+                                        {{ institutionKey.occurrences.count | localNumber }}
+                                        <span class="gb-button--brand__label">
+                                            Occurrences
+                                        </span>
+                                    </a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <nav class="tabs" ng-class="{'tabs--noBorder': !institutionKey.$state.is('institutionKey')}">
+                        <ul>
+                            <li class="tab" ng-class="{isActive: institutionKey.$state.is('institutionKey')}">
+                                <a ui-sref="institutionKey({key:institutionKey.key})" translate="institution.tabs.summary"></a>
+                            </li>
+                            <li class="tab" ng-if="institutionKey.occurrences.count > 0" ng-class="{isActive: institutionKey.$state.is('institutionKeyMetrics')}">
+                                <a ui-sref="institutionKeyMetrics({key: institutionKey.key})" translate="institution.tabs.metrics"></a>
+                            </li>
+                            <li class="tab" ng-if="institutionKey.institution.homepage">
+                                <a ng-href="{{ institutionKey.institution.homepage }}">
+                                    <span class="gb-icon-link"></span>
+                                    <span translate="institution.tabs.homepage"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

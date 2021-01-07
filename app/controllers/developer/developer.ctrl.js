@@ -36,6 +36,10 @@ router.get('/news', function(req, res, next) {
     renderPage(req, res, next, 'news');
 });
 
+router.get('/literature', function(req, res, next) {
+    renderPage(req, res, next, 'literature');
+});
+
 function renderPage(req, res, next, page) {
     let title = (page === 'summary') ? 'GBIF REST API' : 'GBIF ' + _.camelCase(page) + ' API';
     try {
