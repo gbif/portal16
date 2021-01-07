@@ -4,6 +4,11 @@
       "title": "Collections",
       "description": "** Les Collections institutionnelles ** sont celles qui ont été officiellement répertoriées dans une institution et bénéficient d'un support institutionnel.\n\n** Les Collections liées à un projet ** sont celles recueillies par un chercheur associé à une institution, qui peuvent ne pas avoir été officiellement répertoriées dans les collections de l'institution. Les Collections liées à un projet peuvent éventuellement faire partie des Collections institutionnelles ou rester sous la gestion et le contrôle des chercheurs eux-mêmes.\n\n** Les Collections personnelles ** sont sous le contrôle d’un chercheur et ne sont pas formellement associées ou répertoriées dans une institution. Elles peuvent appartenir à un collectionneur privé ou, dans le cas contraire, être orphelines."
     },
+    "tabs": {
+      "summary": "",
+      "homepage": "",
+      "metrics": ""
+    },
     "headerTitle": "Collection",
     "description": "Description",
     "institutionName": "Nom de l'institution",
@@ -34,6 +39,11 @@
     "search": {
       "title": "Institutions",
       "description": "**Institution** se réfère à toute institution ou organisation qui possède et gère des collections scientifiques. Ceci inclut les herbiers, les muséums, les parcs zoologiques, les jardins botaniques, les banques de données biologiques, entre autres. Une institution peut contenir plusieurs collections, auquel cas elles doivent être saisies individuellement sous  **Collections Institutionnelles/Projet** et liées à l'institution mère.\n\nEn raison de l'intégration de plusieurs jeux de données anciens, et pour éviter la duplication de  **Code Institutionnel**, <IH> a été apposé à tous les codes de l'Index Herbarorium Herbarium."
+    },
+    "tabs": {
+      "summary": "",
+      "homepage": "",
+      "metrics": ""
     },
     "headerTitle": "Institution",
     "indexHerbariorumIdentifier": "",
