@@ -25,6 +25,6 @@
         "pPublishers": "{NUMBER, select, 1{éditeur de données} other{éditeurs de données}}",
         "contacts": "{NUMBER, select, 1{contact} other{contacts}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{traitement taxonomique} other{traitements taxonomiques}}",
-        "nImages": ""
+        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{image} other{images}}"
     }
 }
