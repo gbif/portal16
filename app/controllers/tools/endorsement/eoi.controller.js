@@ -10,6 +10,9 @@ module.exports = {
 };
 
 function isSpam(req, formData) {
+    // We haven't seen any spam for ages, but we have had one example where valid content was rejected. Disable until spam becomes an issue again.
+    return false;
+    /*
     let message = {
         req: req,
         text: formData.description || '',
@@ -19,6 +22,7 @@ function isSpam(req, formData) {
         return true;
     }
     return false;
+    */
 }
 
 /**
