@@ -9,6 +9,7 @@
         "nEvents": "{NUMBER_FORMATED} {NUMBER, plural, 1{event} other{events}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, plural, 1{installation} other{installations}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, 1{occurrence} other{occurrences}}",
+        "nOccurrencesHosted": "{NUMBER_FORMATED} {NUMBER, select, 1{hosted occurrence} other{hosted occurrences}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, plural, 1{occurrence} other{occurrences}} about",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, plural, 1{occurrence} other{occurrences}} published",
         "nEndorsedPublishers": "{NUMBER_FORMATED} endorsed {NUMBER, plural, 1{publisher} other{publishers}}",

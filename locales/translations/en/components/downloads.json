@@ -37,7 +37,7 @@
     "file": "File",
     "constituentDatasets": "Involved datasets",
     "noFiltersApplied": "No filters used",
-    "apiUsageDescription": "To repeat the download on todays data using the API you can use below query.",
+    "apiUsageDescription": "To repeat the download on current data, you can use below query with the API.",
     "apiFilterView": "API",
     "humanFilterView": "Human",
     "downloadStarted": "The download has been started and is currently being processed.",
