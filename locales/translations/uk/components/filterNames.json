@@ -42,7 +42,7 @@
     "decimalLatitude": "Широта в десятковому форматі",
     "decimalLongitude": "Довгота в десятковому форматі",
     "publishingOrg": "Видавець",
-    "hostingOrganizationKey": "",
+    "hostingOrganizationKey": "Організація хостингу",
     "kingdomKey": "Царство",
     "phylumKey": "Відділ",
     "classKey": "Клас",
@@ -72,8 +72,8 @@
     "collectionKey": "Колекція",
     "institutionKey": "Установа",
     "gadmGid": "Адміністративний поділ (gadm.org)",
-    "lifeStage": "",
-    "dwcaExtension": "",
-    "isClustered": ""
+    "lifeStage": "Життєва стадія",
+    "dwcaExtension": "Розширення DWCA",
+    "isClustered": "В кластері"
   }
 }
