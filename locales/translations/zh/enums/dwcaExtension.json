@@ -15,14 +15,14 @@
     "http://zooarchnet.org/dwc/terms/ChronometricDate": "按精密时计的日期",
     "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "种质资源：种质登录",
     "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "种质资源：测量分数",
-    "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "",
-    "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "",
-    "http://rs.tdwg.org/dwc/terms/Identification": "",
-    "http://rs.gbif.org/terms/1.0/Identifier": "",
-    "http://rs.gbif.org/terms/1.0/Image": "",
-    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "",
-    "http://rs.gbif.org/terms/1.0/Multimedia": "",
-    "http://rs.gbif.org/terms/1.0/Reference": "",
-    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": ""
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "种质资源：测量特征",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "种质资源：测量试验",
+    "http://rs.tdwg.org/dwc/terms/Identification": "识别",
+    "http://rs.gbif.org/terms/1.0/Identifier": "标识符",
+    "http://rs.gbif.org/terms/1.0/Image": "图像",
+    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "测量或事实",
+    "http://rs.gbif.org/terms/1.0/Multimedia": "多媒体",
+    "http://rs.gbif.org/terms/1.0/Reference": "参考",
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "资源关系"
   }
 }
