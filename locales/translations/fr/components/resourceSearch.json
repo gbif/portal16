@@ -35,8 +35,8 @@
             "openAccess": "le libre accès",
             "gbifDownloadKey": "Clé de téléchargement",
             "paperDoi": "DOI",
-            "litSource": "",
-            "litPublisher": ""
+            "litSource": "Journal",
+            "litPublisher": "Éditeur de journaux"
         }
     }
 }

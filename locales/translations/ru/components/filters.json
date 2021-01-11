@@ -8,6 +8,9 @@
         "repatriation": {
             "description": "Данные называют репатриированными, когда они публикуются организациями в одной стране, но относятся к биоразнообразию другой страны"
         },
+        "isClustered": {
+            "description": ""
+        },
         "occurrenceStatus": {
             "description": "",
             "options": {

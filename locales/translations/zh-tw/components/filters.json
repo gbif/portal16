@@ -8,6 +8,9 @@
         "repatriation": {
             "description": "當一個國家的機構所發布的生物多樣性資料與另一個國家有關，則該資料將返回至後者。"
         },
+        "isClustered": {
+            "description": ""
+        },
         "occurrenceStatus": {
             "description": "\"未出現\"適用於紀錄在特定時間及地點執行分類群調查且未發現任何標本出現。",
             "options": {

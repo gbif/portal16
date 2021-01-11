@@ -26,6 +26,8 @@
     "loginText": "Iniciar sessão",
     "register": "Registar",
     "downloads": "Transferências",
+    "newEmail": "Novo endereço de e-mail",
+    "updateEmail": "Alterar endereço de e-mail",
     "repeatPassword": "Repetir a palavra-passe",
     "repeatNewPassword": "Repetir a nova palavra-passe",
     "passwordsNotIdentical": "As duas palavras-passe não são idênticas",
