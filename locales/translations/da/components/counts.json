@@ -9,6 +9,7 @@
         "nEvents": "",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 1{installation} other{installationer}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 1{observation} other{observationer}}",
+        "nOccurrencesHosted": "",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, select, 1{observation} other{observationer}} om",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, select, 1{observation} other{observationer}} udgivet",
         "nEndorsedPublishers": "{NUMBER_FORMATED} {NUMBER, select, 1{godkendt forlægger} other{godkendte forlæggere}}",

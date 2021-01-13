@@ -26,6 +26,8 @@
     "loginText": "Iniciar sesión",
     "register": "Registrarse",
     "downloads": "Descargas",
+    "newEmail": "Nueva dirección de correo electrónico",
+    "updateEmail": "Modificar la dirección de correo electrónico",
     "repeatPassword": "Repita la contraseña",
     "repeatNewPassword": "Repite de nuevo la contraseña",
     "passwordsNotIdentical": "Las dos contraseñas no coinciden",

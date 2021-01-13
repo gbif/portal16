@@ -8,6 +8,9 @@
         "repatriation": {
             "description": "Se dice que los datos son repatriados cuando son publicados por una institución en un país pero están relacionados con la biodiversidad en otro país"
         },
+        "isClustered": {
+            "description": ""
+        },
         "occurrenceStatus": {
             "description": "'Ausente' se aplica a un registro biológico cuando una consulta de un taxón, en un momento y lugar específico, no encuentra especímenes",
             "options": {

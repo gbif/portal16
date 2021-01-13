@@ -9,6 +9,7 @@
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select,1{活動}other{活動}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{裝置}other{裝置}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}",
+        "nOccurrencesHosted": "",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}關於",
         "nOccurrencesPublished": "已發布 {NUMBER_FORMATED} {NUMBER, select,1{出現記錄}other{出現記錄}}",
         "nEndorsedPublishers": "已認可 {NUMBER_FORMATED} {NUMBER, select,1{發布者}other{發布者}}",

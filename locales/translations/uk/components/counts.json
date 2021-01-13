@@ -9,6 +9,7 @@
         "nEvents": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {подій}\none {подія}\nfew {події}\nmany {подій}\nother {подій}\n}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {інсталяцій}\none {інсталяція}\nfew {інсталяції}\nmany {інсталяцій}\nother {інсталяцій}\n}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n}",
+        "nOccurrencesHosted": "{NUMBER_FORMATED} {NUMBER, select, 1{знахідка} other{знахідок}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n} про",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {опублікованих знахідок}\none {опублікована знахідка}\nfew {опублікованих знахідки}\nmany {опублікованих знахідок}\nother {опублікованих знахідок}\n}",
         "nEndorsedPublishers": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {апробованих видавців}\none {апробований видавець}\nfew {апробованих видавці}\nmany {апробованих видавців}\nother {апробованих видавців}\n}",

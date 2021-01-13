@@ -8,6 +8,9 @@
         "repatriation": {
             "description": "Les données sont considérées comme rapatriées lorsqu’elles sont publiées par une institution d'un pays, mais font partie de la biodiversité d'un autre pays"
         },
+        "isClustered": {
+            "description": "Cette fonctionnalité expérimentale met en évidence la possibilité de doublons et/ou d'occurrences connexes."
+        },
         "occurrenceStatus": {
             "description": "La valeur 'Absent' est appliquée à un enregistrement d'occurrence lorsque aucun individu n'a été rencontré au cours d'une étude de terrain sur un taxon, à une date et lieu spécifiques.",
             "options": {
