@@ -42,7 +42,7 @@
     "decimalLatitude": "十進位緯度",
     "decimalLongitude": "十進位經度",
     "publishingOrg": "發布者",
-    "hostingOrganizationKey": "",
+    "hostingOrganizationKey": "維運機構",
     "kingdomKey": "界",
     "phylumKey": "門",
     "classKey": "綱",
@@ -72,8 +72,8 @@
     "collectionKey": "採集",
     "institutionKey": "機構",
     "gadmGid": "行政區域",
-    "lifeStage": "",
-    "dwcaExtension": "",
-    "isClustered": ""
+    "lifeStage": "生活史階段",
+    "dwcaExtension": "達爾文延伸集",
+    "isClustered": "在（資料）叢集上"
   }
 }
