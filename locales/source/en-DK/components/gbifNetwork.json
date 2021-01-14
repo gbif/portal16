@@ -30,11 +30,11 @@
     "gbif_secretariat": "GBIF Secretariat",
     "membershipType": "Membership",
     "name": "Name",
-    "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, select, one{publisher} other{publishers}}",
-    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participant} other{participants}}",
-    "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
+    "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, plural, one{publisher} other{publishers}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, one{participant} other{participants}}",
+    "dataset": "{NUMBER, plural, one{dataset} other{datasets}}",
     "datasets": "Datasets",
-    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}",
+    "regionalRepresentative": "{NUMBER, plural, one{representative} other{representatives}}",
     "participation": {
       "nonCountryParticipants": "Participant organisations",
       "gbifAffiliates": "GBIF affiliates"
@@ -46,8 +46,8 @@
     "publishers": "Publishers",
     "memberSince": "Member since",
     "participant": "Participant",
-    "pPublishers": "{NUMBER, select, 1{publisher} other{publishers}}",
-    "pOccurrence": "{NUMBER, select, 1{occurrence} other{occurrences}}",
+    "pPublishers": "{NUMBER, plural, one{publisher} other{publishers}}",
+    "pOccurrence": "{NUMBER, plural, one{occurrence} other{occurrences}}",
     "occurrenceDatasets": "Occurrence datasets",
     "occurrences": "Occurrences"
   }
