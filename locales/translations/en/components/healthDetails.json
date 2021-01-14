@@ -4,6 +4,7 @@
         "systemLoad": "System load",
         "messages": "Messages",
         "version": "Version",
+        "releaseNotes": "",
         "nInQueue": "{NUMBER} in queue",
         "status": {
             "OPERATIONAL": "Operational",
