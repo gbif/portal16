@@ -4,6 +4,7 @@
         "systemLoad": "تحميل النظام",
         "messages": "رسائل",
         "version": "إصدار",
+        "releaseNotes": "",
         "nInQueue": "{NUMBER} في قائمة الانتظار",
         "status": {
             "OPERATIONAL": "تشغيلي",
