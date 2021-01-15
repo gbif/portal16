@@ -28,11 +28,11 @@
     "gbif_secretariat": "GBIF Secretariat",
     "membershipType": "Membership",
     "name": "Name",
-    "endorsedDataPublisher": "Has endorsed {NUMBER_FORMATTED} data {NUMBER, plural, one{publisher} other{publishers}}",
-    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, one{participant} other{participants}}",
-    "dataset": "{NUMBER, plural, one{dataset} other{datasets}}",
+    "endorsedDataPublisher": "",
+    "nParticipants": "",
+    "dataset": "",
     "datasets": "Datasets",
-    "regionalRepresentative": "{NUMBER, plural, one{representative} other{representatives}}",
+    "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "Participant organisations",
       "gbifAffiliates": "GBIF affiliates"
@@ -44,8 +44,8 @@
     "publishers": "Publishers",
     "memberSince": "Member since",
     "participant": "Participant",
-    "pPublishers": "{NUMBER, plural, 1{publisher} other{publishers}}",
-    "pOccurrence": "{NUMBER, plural, 1{occurrence} other{occurrences}}",
+    "pPublishers": "",
+    "pOccurrence": "",
     "occurrenceDatasets": "Occurrence datasets",
     "occurrences": "Occurrences"
   }
