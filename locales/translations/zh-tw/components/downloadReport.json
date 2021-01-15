@@ -29,7 +29,7 @@
     "onceDownloaded": "當您下載完成後，需要有 {SIZE_FORMATTED} 的磁碟空間來解壓縮資料。",
     "datasetHasNumRows": "資料集內含 {NUMBER_FORMATTED} 資料列。",
     "youWillNotBeAble": "您將無法在 Excel 及類似應用程式中查看或分析資料。為了使用這些資料，您需要瞭解 R、Python 或關連式資料庫等工具。",
-    "difficultToAnalyse": "普通桌上型電腦難以分析此容量的資料集，您可能需要尋求分散式運算服務。",
+    "difficultToAnalyse": "您將無法以 Excel 或相似的應用程式瀏覽或分析此資料；一般的桌上型電腦難以分析此容量的資料集。您可能需要尋求分散式運算服務或所謂的「大數據」工具。",
     "hours": "小時",
     "minute": "分鐘",
     "minutes": "分鐘"
