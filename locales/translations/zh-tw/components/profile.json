@@ -4,14 +4,14 @@
       "failed": {
         "FACEBOOK": "無法連結至 Facebook",
         "GITHUB": "無法連結至 Github",
-        "GOOGLE": ""
+        "GOOGLE": "無法連線到 Google"
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "無法以 Facebook 登入",
         "GITHUB": "無法以 Github 登入",
-        "GOOGLE": ""
+        "GOOGLE": "無法以 Google 登入"
       }
     },
     "error": {
@@ -26,8 +26,8 @@
     "loginText": "登入",
     "register": "註冊",
     "downloads": "下載",
-    "newEmail": "",
-    "updateEmail": "",
+    "newEmail": "新的電子郵件地址",
+    "updateEmail": "更改電子郵件地址",
     "repeatPassword": "重複輸入密碼",
     "repeatNewPassword": "重複輸入新密碼",
     "passwordsNotIdentical": "密碼不一致",

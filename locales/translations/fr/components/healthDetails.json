@@ -4,6 +4,7 @@
         "systemLoad": "Charge du système",
         "messages": "Messages",
         "version": "Version",
+        "releaseNotes": "Informations sur les mises à jours",
         "nInQueue": "{NUMBER} dans la file d’attente",
         "status": {
             "OPERATIONAL": "Opérationnel",
