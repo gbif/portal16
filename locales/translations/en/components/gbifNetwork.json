@@ -45,7 +45,7 @@
     "memberSince": "Member since",
     "participant": "Participant",
     "pPublishers": "{NUMBER, plural, one{publisher} other{publishers}}",
-    "pOccurrence": "",
+    "pOccurrence": "{NUMBER, plural, one{occurrence} other{occurrences}}",
     "occurrenceDatasets": "Occurrence datasets",
     "occurrences": "Occurrences"
   }
