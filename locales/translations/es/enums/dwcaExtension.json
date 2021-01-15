@@ -1,10 +1,10 @@
 {
   "dwcaExtension": {
-    "http://rs.tdwg.org/dwc/terms/Occurrence": "",
-    "http://rs.tdwg.org/ac/terms/Multimedia": "",
+    "http://rs.tdwg.org/dwc/terms/Occurrence": "Registro Biológico",
+    "http://rs.tdwg.org/ac/terms/Multimedia": "Audubon multimedia",
     "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "Amplificación",
     "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "Clonación",
-    "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "",
+    "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "Imagen del Gel",
     "http://data.ggbn.org/schemas/ggbn/terms/Loan": "Préstamo",
     "http://data.ggbn.org/schemas/ggbn/terms/MaterialSample": "Muestra de material",
     "http://data.ggbn.org/schemas/ggbn/terms/Permit": "Permiso",
