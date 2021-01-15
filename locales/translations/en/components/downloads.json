@@ -1,8 +1,8 @@
 {
   "downloadKey": {
-    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{occurrence} other{occurrences}} downloaded",
-    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{record} other{records}} downloaded",
-    "nConstituentDatasets": "Includes records from {NUMBER_FORMATTED} {NUMBER, plural, one{dataset} other{datasets}}",
+    "nOccurrencesDownloaded": "",
+    "nRecordsDownloaded": "",
+    "nConstituentDatasets": "",
     "fileNotAvailable": "This file is no longer available for download",
     "downloadDeletionWarning": "Unless [GBIF discovers citations](/literature-tracking) of this download, the data file is eligible for deletion after {DATE}.",
     "occurrenceDownload": "Occurrence download",
@@ -22,7 +22,7 @@
     "underProcessing": "Under processing",
     "citation": "Citation",
     "format": "Format",
-    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{record} other{records}} at time of download",
+    "nRecordsAtTime": "",
     "aboutDeletionPolicy": "Read more about our [deletion policy](/faq?question=for-how-long-will-does-gbif-store-downloads).",
     "readDatauseAndTerms": "Make sure to read the [data user agreement](/terms/data-user) and [citation guidelines](/citation-guidelines).",
     "filterApplied": "Filter applied {DATE}",
