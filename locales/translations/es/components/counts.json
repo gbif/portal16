@@ -9,7 +9,7 @@
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select, 1{evento} other{eventos}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 1{instalación} other{instalaciones}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 1{registro} other{registros}}",
-        "nOccurrencesHosted": "",
+        "nOccurrencesHosted": "¡{NUMBER_FORMATED} {NUMBER, select, 1{registro biológico alojado} other{registros biológicos alojados}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, select, 1{registro} other{registros}} sobre",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, select, 1{registro} other{registros}} publicados",
         "nEndorsedPublishers": "{NUMBER_FORMATED} adherido{NUMBER, select, 1{publicador} other{publicadores}} ",
