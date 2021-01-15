@@ -10,8 +10,8 @@
       "threatStatus": "威脅狀態： {status}",
       "establishmentMeans": "建立方法：",
       "distributionPlural": "分布",
-      "PRESENT": "出現",
-      "ABSENT": "未出現"
+      "PRESENT": "存在",
+      "ABSENT": "缺如"
     },
     "tabs": {
       "overview": "概覽",
