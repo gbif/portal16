@@ -62,6 +62,6 @@
     "COLLECTION_MATCH_FUZZY": "Collection match fuzzy",
     "INSTITUTION_COLLECTION_MISMATCH": "Institution collection mismatch",
     "POSSIBLY_ON_LOAN": "Possibly on loan",
-    "DIFFERENT_OWNER_INSTITUTION": ""
+    "DIFFERENT_OWNER_INSTITUTION": "Different owner institution"
   }
 }
