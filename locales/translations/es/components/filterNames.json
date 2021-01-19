@@ -72,8 +72,8 @@
     "collectionKey": "Colección",
     "institutionKey": "Institución",
     "gadmGid": "GID GADM ",
-    "lifeStage": "Estadio biológico",
+    "lifeStage": "Etapa de vida",
     "dwcaExtension": "Extensión DWCA",
-    "isClustered": ""
+    "isClustered": "Está en cluster"
   }
 }
