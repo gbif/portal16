@@ -57,7 +57,13 @@ async function getDataset(key) {
    let response = await Dataset.get(key, {expand: ['network']});
 
    let dataset = response.record;
-    dataset.network = response.network;
+   if (response.network && response.network.length > 0) {
+    dataset.network = response.network.filter(function(n) {
+        return n.machineTags && n.machineTags.filter(function(m) {
+            return m.name === 'visibleOnDatasetPage' && (m.value === 'true' || m.value === true);
+        }).length > 0;
+    });
+   }
     dataset._computedValues = {};
     dataset._computedValues.contributors = contributors.getContributors(dataset.contacts);
 
