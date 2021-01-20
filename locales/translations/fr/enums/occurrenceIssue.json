@@ -62,6 +62,6 @@
     "COLLECTION_MATCH_FUZZY": "",
     "INSTITUTION_COLLECTION_MISMATCH": "",
     "POSSIBLY_ON_LOAN": "",
-    "DIFFERENT_OWNER_INSTITUTION": ""
+    "DIFFERENT_OWNER_INSTITUTION": "Institution propriétaire différente"
   }
 }
