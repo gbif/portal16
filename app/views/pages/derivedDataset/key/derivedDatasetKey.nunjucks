@@ -19,9 +19,18 @@
                             <span class="article-header__category__lower">{$ derivedDataset.created | formatDate(gb.locales.current) $}</span>
                         </nav>
 
-                        <h1 class="text-center" dir="auto">
-                            Records from {$ derivedDataset.datasets.count $} datasets downloaded
+                        {% if derivedDataset.totalRecords %}
+                        <h1 class="text-center" dir="auto"
+                            tx="derivedDatasetKey.headlineOccurrences" tx-nr="{$ derivedDataset.totalRecords $}">
+                            {$ derivedDataset.totalRecords $} occurrences included in derived dataset
                         </h1>
+                        {% else %}
+                        <h1 class="text-center" dir="auto"
+                            tx="derivedDatasetKey.headlineDatasets" tx-nr="{$ derivedDataset.datasets.count $}">
+                            Records from {$ derivedDataset.datasets.count $} in derived dataset
+                        </h1>
+                        {% endif %}
+
                         <div class="m-t-1" dir="ltr">
                             <a href="{$ derivedDataset.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ derivedDataset.doi | readableDOI $}</span></a>
                         </div>
@@ -39,9 +48,10 @@
                                 <ul>
                                     {% if derivedDataset.sourceUrl %}
                                     <li class="tab tab-right">
-                                        <span>
-                                            <a href="{$ derivedDataset.sourceUrl $}" class="gb-button--brand">{$ __('derivedDatasetKey.sourceUrl') $}</a>
-                                        </span>
+                                        <a href="{$ derivedDataset.sourceUrl $}" class="gb-button--brand">
+                                          <span class="gb-icon-link"></span>
+                                          {$ __('derivedDatasetKey.sourceUrl') $}
+                                        </a>
                                     </li>
                                     {% endif %}
                                     {% if derivedDataset._citationCount %}
@@ -73,14 +83,14 @@
                             <div class="card__content">
                                 <dl class="inline">
                                     <div>
-                                        <dt>Title</dt>
+                                        <dt>{$ __('derivedDatasetKey.title') $}</dt>
                                         <dd dir="ltr">
                                             {$ derivedDataset.title $}
                                         </dd>
                                     </div>
                                     {% if derivedDataset.description %}
                                     <div>
-                                        <dt>Description</dt>
+                                        <dt>{$ __('derivedDatasetKey.description') $}</dt>
                                         <dd dir="ltr">
                                             {$ derivedDataset.description $}
                                         </dd>
@@ -123,7 +133,7 @@
                                                         <span class="numberBadge {% if dataset.numberRecords >= 1000000 %}numberBadge--millions{% elif dataset.numberRecords >= 1000 %}numberBadge--thousands{% endif %}">{$ dataset.numberRecords | compactInteger $}</span>
                                                     </div>
                                                     {% endif %}
-                                                    <div class="title"  dir="auto">
+                                                    <div class="title" dir="auto">
                                                         {$ dataset.datasetTitle or '[' + __('downloadKey.titleMissing')+ ']' $}
                                                     </div>
                                                     <span dir="ltr" class="meta meta--hoverOnly">{$ dataset.datasetDoi $}</span>
