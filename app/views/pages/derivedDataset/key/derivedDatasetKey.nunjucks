@@ -18,7 +18,7 @@
                             <span class="article-header__category__upper">{$ __('derivedDatasetKey.derivedDataset') $}</span>
                             <span class="article-header__category__lower">{$ derivedDataset.created | formatDate(gb.locales.current) $}</span>
                         </nav>
-                        
+
                         {% if derivedDataset.totalRecords %}
                         <h1 class="text-center" dir="auto"
                             tx="derivedDatasetKey.headlineOccurrences" tx-nr="{$ derivedDataset.totalRecords $}">
@@ -93,6 +93,14 @@
                                         <dt>{$ __('derivedDatasetKey.description') $}</dt>
                                         <dd dir="ltr">
                                             {$ derivedDataset.description $}
+                                        </dd>
+                                    </div>
+                                    {% endif %}
+                                    {% if derivedDataset.originalDownloadDOI %}
+                                    <div>
+                                        <dt>{$ __('derivedDatasetKey.originalDownloadDOI') $}</dt>
+                                        <dd dir="ltr">
+                                            <a href="{$ derivedDataset.originalDownloadDOI | getDOILink $}" class="doi"><span>DOI</span><span>{$ derivedDataset.originalDownloadDOI | readableDOI $}</span></a>
                                         </dd>
                                     </div>
                                     {% endif %}
