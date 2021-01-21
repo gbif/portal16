@@ -1,4 +1,9 @@
 {
+  "derivedDatasetKey": {
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{record} other{records}} from this dataset",
+    "derivedDataset": "Derived dataset",
+    "sourceUrl": "See source"
+  },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{occurrence} other{occurrences}} downloaded",
     "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{record} other{records}} downloaded",

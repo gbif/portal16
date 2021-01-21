@@ -333,6 +333,8 @@ require('../../../pages/user/user.ctrl');
 require('../../../pages/user/confirmUser/confirmUser.ctrl');
 require('../../../pages/user/updateEmail/updateEmail.ctrl');
 
+require('../../../pages/derivedDataset/key/derivedDatasetKey.ctrl');
+
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 require('../../../pages/occurrence/download/custom/occurrenceDownloadCustom.ctrl');
 require('../../../pages/species/key/speciesKey.ctrl');

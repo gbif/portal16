@@ -28,6 +28,10 @@ let apiConfig = {
         url: baseUrl + 'dataset/',
         canonical: 'dataset'
     },
+    derivedDataset: {
+        url: baseUrl + 'derivedDataset/',
+        canonical: 'derivedDataset'
+    },
     datasetDoi: {
       url: baseUrl + 'dataset/doi/'
   },
