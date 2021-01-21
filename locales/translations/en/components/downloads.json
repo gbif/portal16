@@ -6,7 +6,8 @@
     "headlineDatasets": "Records from {NUMBER_FORMATED} {NUMBER, plural, one{dataset} other{datasets}} in derived dataset",
     "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{occurrence} other{occurrences}} in derived dataset",
     "title": "Title",
-    "description": "Description"
+    "description": "Description",
+    "originalDownloadDOI": ""
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{occurrence} other{occurrences}} included in download",
