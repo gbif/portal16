@@ -3,10 +3,10 @@
     "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{record} other{records}} from this dataset",
     "derivedDataset": "Derived dataset",
     "sourceUrl": "Download derived dataset",
-    "headlineDatasets": "",
-    "headlineOccurrences": "",
-    "title": "",
-    "description": ""
+    "headlineDatasets": "Records from {NUMBER_FORMATED} {NUMBER, plural, one{dataset} other{datasets}} in derived dataset",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{occurrence} other{occurrences}} in derived dataset",
+    "title": "Title",
+    "description": "Description"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{occurrence} other{occurrences}} included in download",
