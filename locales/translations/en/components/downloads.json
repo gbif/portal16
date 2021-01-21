@@ -1,6 +1,6 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{record} other{records}} from this dataset",
     "derivedDataset": "Derived dataset",
     "sourceUrl": ""
   },
