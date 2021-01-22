@@ -5,9 +5,11 @@
       "summary": "Краткое описание",
       "homepage": "Главная",
       "metrics": "Показатели",
-      "datasets": "Сеть"
+      "datasets": "Сеть",
+      "publishers": ""
     },
     "registeredDate": "Зарегистрировано {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} участвующих {NUMBER, select, 1{набор данных} other{наборов данных}}"
+    "nParticipatingDatasets": "{NUMBER_FORMATED} участвующих {NUMBER, select, 1{набор данных} other{наборов данных}}",
+    "nParticipatingPublishers": ""
   }
 }
