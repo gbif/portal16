@@ -5,9 +5,11 @@
       "summary": "Resumen",
       "homepage": "Página de inicio",
       "metrics": "Estadísticas",
-      "datasets": "Red"
+      "datasets": "Red",
+      "publishers": ""
     },
     "registeredDate": "Registrado {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} participando {NUMBER, select, 1{conjunto de datos} other{conjuntos de datos}}"
+    "nParticipatingDatasets": "{NUMBER_FORMATED} participando {NUMBER, select, 1{conjunto de datos} other{conjuntos de datos}}",
+    "nParticipatingPublishers": ""
   }
 }
