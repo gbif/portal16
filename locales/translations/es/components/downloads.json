@@ -1,12 +1,12 @@
 {
   "derivedDatasetKey": {
     "nRecordsAtTime": "",
-    "derivedDataset": "",
-    "sourceUrl": "",
+    "derivedDataset": "Dataset derivado",
+    "sourceUrl": "Descargar conjunto de datos derivado",
     "headlineDatasets": "",
     "headlineOccurrences": "",
-    "title": "",
-    "description": "",
+    "title": "Título",
+    "description": "Descripción",
     "originalDownloadDOI": ""
   },
   "downloadKey": {
