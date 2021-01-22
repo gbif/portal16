@@ -1,4 +1,14 @@
 {
+  "derivedDatasetKey": {
+    "nRecordsAtTime": "",
+    "derivedDataset": "",
+    "sourceUrl": "",
+    "headlineDatasets": "",
+    "headlineOccurrences": "",
+    "title": "",
+    "description": "",
+    "originalDownloadDOI": ""
+  },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{occurrence} other{occurrences}} téléchargée",
     "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{enregistrement} other{enregistrements}} au moment du téléchargement",
