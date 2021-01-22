@@ -3,8 +3,8 @@
     "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{enregistrement} other{enregistrements}} de ce jeu de données",
     "derivedDataset": "Jeu de données dérivé",
     "sourceUrl": "Télécharger le jeu de données dérivé",
-    "headlineDatasets": "",
-    "headlineOccurrences": "",
+    "headlineDatasets": "Enregistrement provenant de {NUMBER_FORMATED} {NUMBER, plural, one{jeu de données} other{jeux de données}} dans le jeu de données dérivé",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{occurrence} other{occurrences}} dans un jeu de données dérivé",
     "title": "Titre",
     "description": "Description",
     "originalDownloadDOI": ""
