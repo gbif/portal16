@@ -5,9 +5,11 @@
       "summary": "Відомості",
       "homepage": "Домашня сторінка",
       "metrics": "Показники",
-      "datasets": "Мережа"
+      "datasets": "Мережа",
+      "publishers": ""
     },
     "registeredDate": "Зареєстровано {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} залучено в {NUMBER, select, 1{наборі даних} other{наборах даних}}"
+    "nParticipatingDatasets": "{NUMBER_FORMATED} залучено в {NUMBER, select, 1{наборі даних} other{наборах даних}}",
+    "nParticipatingPublishers": ""
   }
 }
