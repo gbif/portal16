@@ -1,4 +1,14 @@
 {
+  "derivedDatasetKey": {
+    "nRecordsAtTime": "",
+    "derivedDataset": "",
+    "sourceUrl": "",
+    "headlineDatasets": "",
+    "headlineOccurrences": "",
+    "title": "",
+    "description": "",
+    "originalDownloadDOI": ""
+  },
   "downloadKey": {
     "nOccurrencesDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{出现记录} other{出现记录}}",
     "nRecordsDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{记录} other{记录}}",
