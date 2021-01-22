@@ -112,6 +112,7 @@ angular
             apiQuery['month.facetLimit'] = 12;
             apiQuery['type_status.facetLimit'] = 1000;
             apiQuery['issue.facetLimit'] = 1000;
+            apiQuery['dwca_extension.facetLimit'] = 1000;
 
             // when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {
