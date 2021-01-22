@@ -1,12 +1,12 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "",
-    "derivedDataset": "",
-    "sourceUrl": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{enregistrement} other{enregistrements}} de ce jeu de données",
+    "derivedDataset": "Jeu de données dérivé",
+    "sourceUrl": "Télécharger le jeu de données dérivé",
     "headlineDatasets": "",
     "headlineOccurrences": "",
-    "title": "",
-    "description": "",
+    "title": "Titre",
+    "description": "Description",
     "originalDownloadDOI": ""
   },
   "downloadKey": {
