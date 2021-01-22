@@ -3,10 +3,10 @@
     "nRecordsAtTime": " NUMBER, plural, {NUMBER_FORMATED}\nواحد(سجل)   (سجلات)اخرى من مجموعة البيانات هذه",
     "derivedDataset": "مجموعة البيانات المشتقة",
     "sourceUrl": "تحميل مجموعة البيانات المشتقة",
-    "headlineDatasets": "",
-    "headlineOccurrences": "",
-    "title": "",
-    "description": "",
+    "headlineDatasets": "سجلات من {NUMBER_FORMATED} {NUMBER, plural, zero {} one{مجموعة البيانات} two {مجموعات البيانات} few {مجموعات البيانات} many {مجموعات البيانات} other{مجموعات البيانات}} في مجموعة البيانات المشتقة",
+    "headlineOccurrences": " NUMBER, plural, {NUMBER_FORMATED}\nواحد(سجل)   (سجلات)اخرى من مجموعة البيانات هذه",
+    "title": "لقب",
+    "description": "توصيف",
     "originalDownloadDOI": ""
   },
   "downloadKey": {
