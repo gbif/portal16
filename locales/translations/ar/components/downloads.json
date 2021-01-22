@@ -1,8 +1,8 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "",
-    "derivedDataset": "",
-    "sourceUrl": "",
+    "nRecordsAtTime": " NUMBER, plural, {NUMBER_FORMATED}\nواحد(سجل)   (سجلات)اخرى من مجموعة البيانات هذه",
+    "derivedDataset": "مجموعة البيانات المشتقة",
+    "sourceUrl": "تحميل مجموعة البيانات المشتقة",
     "headlineDatasets": "",
     "headlineOccurrences": "",
     "title": "",
