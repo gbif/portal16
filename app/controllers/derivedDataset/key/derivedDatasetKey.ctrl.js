@@ -66,7 +66,7 @@ function renderPage(req, res, next, derivedDataset, template) {
             res.render(template, {
                 derivedDataset: derivedDataset,
                 _meta: {
-                    title: res.__('downloadKey.download')
+                    title: res.__('derivedDatasetKey.derivedDataset')
                 }
             });
         }
