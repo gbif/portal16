@@ -1,12 +1,12 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "",
-    "derivedDataset": "",
-    "sourceUrl": "",
-    "headlineDatasets": "",
-    "headlineOccurrences": "",
-    "title": "",
-    "description": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{紀錄} other{紀錄}}來自此資料集",
+    "derivedDataset": "衍生的資料集",
+    "sourceUrl": "下載衍生的資料集",
+    "headlineDatasets": "衍生資料集中 {NUMBER_FORMATED} 個{NUMBER, plural, one{資料集} other{資料集}}的紀錄",
+    "headlineOccurrences": "{NUMBER_FORMATED} 筆{NUMBER, plural, one{出現紀錄} other{出現紀錄}}在衍生資料集中",
+    "title": "衍生資料集標題",
+    "description": "描述",
     "originalDownloadDOI": ""
   },
   "downloadKey": {
