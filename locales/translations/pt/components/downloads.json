@@ -1,8 +1,8 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "",
-    "derivedDataset": "",
-    "sourceUrl": "",
+    "nRecordsAtTime": "{NUMBER_FORMATTED} {NUMBER, plural, one{registo} other{registos}} deste conjunto de dados",
+    "derivedDataset": "Conjunto de dados derivado",
+    "sourceUrl": "Descarregar conjunto de dados derivado",
     "headlineDatasets": "",
     "headlineOccurrences": "",
     "title": "",
