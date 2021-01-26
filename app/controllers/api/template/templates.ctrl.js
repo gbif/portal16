@@ -68,7 +68,8 @@ router.get('/search/articleResult.html', function(req, res, next) {
 });
 
 router.get('/search/datasetResult.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/datasetSearchResult');
+    let excludeCounts = req.query.excludeCounts === 'true';
+    helper.renderPage(req, res, next, {excludeCounts: excludeCounts}, 'pages/dataset/datasetSearchResult');
 });
 
 router.get('/collection/key.html', function(req, res, next) {
@@ -88,7 +89,8 @@ router.get('/search/speciesResult.html', function(req, res, next) {
 });
 
 router.get('/search/publisherResult.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/publisher/publisherSearchResult');
+    let excludeCounts = req.query.excludeCounts === 'true';
+    helper.renderPage(req, res, next, {excludeCounts: excludeCounts}, 'pages/publisher/publisherSearchResult');
 });
 
 router.get('/publisher/key.html', function(req, res, next) {

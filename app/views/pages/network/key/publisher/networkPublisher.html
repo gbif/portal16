@@ -6,7 +6,7 @@
             <div>
                 <div ng-show="networkPublisher.publishers.count > 0">
                     <div ng-repeat="result in networkPublisher.publishers.results">
-                        <ng-include src="'/api/template/search/publisherResult.html?v=' + portal.BUILD_VERSION"></ng-include>
+                        <ng-include src="'/api/template/search/publisherResult.html?excludeCounts=true&v=' + portal.BUILD_VERSION"></ng-include>
                     </div>
                 </div>
                 <div ng-if="networkPublisher.publishers.count > networkPublisher.limit">
