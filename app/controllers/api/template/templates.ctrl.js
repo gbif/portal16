@@ -121,6 +121,10 @@ router.get('/network.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/network/key/networkKey.template.nunjucks');
 });
 
+router.get('/search/networkResult.html', function(req, res, next) {
+  helper.renderPage(req, res, next, {}, 'pages/network/networkSearchResult');
+});
+
 router.get('/machineVision.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/custom/machineVision/machineVision.template.nunjucks');
 });
