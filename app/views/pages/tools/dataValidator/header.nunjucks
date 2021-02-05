@@ -8,7 +8,7 @@
                 </nav>
                 <nav class="article-header__category article-header__category--deep" ng-if="vm.jobid">
                     <span class="article-header__category__upper" translate="validation.validationReport">Validation report</span>
-                    <span class="article-header__category__lower">{{  vm.generatedDate.toISOString() | momentFormat:'LL'}}</span>
+                    <span class="article-header__category__lower">{{  vm.generatedDate }}</span>
                 </nav>
                 <h1 class="text-center" ng-if="vm.jobid">
                     <span >{{ vm.validationResults.summary.fileName }}</span>

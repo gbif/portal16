@@ -16,7 +16,7 @@
                     </dd>
                 </div>
                 <div>
-                    <dt >started</dt>
+                    <dt translate="validation.started">started</dt>
                     <dd >{{ vm.startTimestamp }}
 
                     </dd>

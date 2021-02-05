@@ -14,7 +14,7 @@ angular
     .controller('dataValidatorKeyCtrl', dataValidatorKeyCtrl);
 
 /** @ngInject */
-function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env) {
+function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env, LOCALE_MAPPINGS, LOCALE) {
     var vm = this;
     vm.moment = moment;
     vm.dataApi = env.dataApi;
@@ -50,9 +50,9 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
             vm.dataApi + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
 
         ).success(function(data) {
-            vm.startTimestamp = moment(data.startTimestamp).local().fromNow();
-            vm.generatedDateFormatted = moment(data.startTimestamp).local().format('MMMM Do YYYY, h:mm a');
-            vm.generatedDate = moment(data.startTimestamp).local();
+            vm.startTimestamp = moment(data.startTimestamp).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().fromNow();
+            vm.generatedDateFormatted = moment(data.startTimestamp).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('MMMM Do YYYY, h:mm a');
+            vm.generatedDate = moment(data.startTimestamp).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('LL');
            handleValidationSubmitResponse(data);
         }).error(function(err, status) { // data, status, headers, config
             if ((err && err.statusCode === 404) || status === 404) {
