@@ -50,23 +50,9 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
             vm.dataApi + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
 
         ).success(function(data) {
-            // server gives timestamp in millsec. But it seems to be in Copenhagen time. So we subtract the copenhagen UTC offset from the date
-            vm.startTimestamp = moment.utc(data.startTimestamp).subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes').fromNow();
-            vm.generatedDate = moment.utc(data.startTimestamp).subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes');
-/*
-console.log(moment.duration(moment()
-.diff(moment.utc(data.startTimestamp).subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes'), 'minutes')).humanize());
-
-console.log(moment.utc().tz('Europe/Copenhagen')
-.diff(moment.utc(data.startTimestamp), 'minutes'))
-
-            if (data.status === 'RUNNING' && moment.utc().subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes')
-                .diff(moment.utc(data.startTimestamp).subtract(moment().tz('Europe/Copenhagen').utcOffset(), 'minutes'), 'hours') > MAX_RUNNING_HOURS) {
-                handleWSError(new Error('Backend spend more than ' + MAX_RUNNING_HOURS + ' running'), 500);
-            } else {
-                handleValidationSubmitResponse(data);
-            }
-            */
+            vm.startTimestamp = moment(data.startTimestamp).local().fromNow();
+            vm.generatedDateFormatted = moment(data.startTimestamp).local().format('MMMM Do YYYY, h:mm a');
+            vm.generatedDate = moment(data.startTimestamp).local();
            handleValidationSubmitResponse(data);
         }).error(function(err, status) { // data, status, headers, config
             if ((err && err.statusCode === 404) || status === 404) {

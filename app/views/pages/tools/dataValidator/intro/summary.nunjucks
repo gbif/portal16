@@ -151,5 +151,5 @@
         </div>
     </div>
     <p  ng-if="vm.jobStatus==='FINISHED'" class="discreet--very smaller dataValidator__fileLocationText"><span translate="validation.reportLocation"></span> <span ng-bind-html="vm.jobUrl | linky"></span>
-        <span translate="validation.reportGenerated"></span> <span>{{ vm.startTimestamp }}</span> <span translate="validation.reportDeletion"></span></p>
+        <span translate="validation.reportGenerated"></span> <span>{{ vm.generatedDateFormatted }}</span> <span translate="validation.reportDeletion"></span></p>
 </div>
