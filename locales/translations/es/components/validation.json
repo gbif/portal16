@@ -112,6 +112,7 @@
     "or": "o",
     "selectFile": "Seleccionar un archivo",
     "fetchFileFromLocation": "Descargar archivo desde ubicación",
+    "started": "",
     "tabs": {
       "newDataValidation": "Nueva validación de datos",
       "newValidation": "Nueva validación",
