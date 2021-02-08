@@ -112,6 +112,7 @@
     "or": "或",
     "selectFile": "选择文件",
     "fetchFileFromLocation": "从位置获取文件",
+    "started": "",
     "tabs": {
       "newDataValidation": "新的数据验证",
       "newValidation": "新验证",
