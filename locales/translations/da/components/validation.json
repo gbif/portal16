@@ -112,6 +112,7 @@
     "or": "eller",
     "selectFile": "Vælg fil",
     "fetchFileFromLocation": "Hent fil fra url",
+    "started": "",
     "tabs": {
       "newDataValidation": "",
       "newValidation": "",

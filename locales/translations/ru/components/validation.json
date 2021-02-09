@@ -112,6 +112,7 @@
     "or": "или",
     "selectFile": "Выбрать файл",
     "fetchFileFromLocation": "Извлечь файл из местоположения",
+    "started": "",
     "tabs": {
       "newDataValidation": "Новая проверка данных",
       "newValidation": "Новая проверка",

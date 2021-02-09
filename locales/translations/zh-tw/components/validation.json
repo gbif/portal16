@@ -112,6 +112,7 @@
     "or": "或",
     "selectFile": "選擇檔案",
     "fetchFileFromLocation": "從位址獲取檔案",
+    "started": "",
     "tabs": {
       "newDataValidation": "新資料驗證",
       "newValidation": "新驗證",
