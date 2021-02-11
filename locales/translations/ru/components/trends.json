@@ -68,7 +68,7 @@
       "fromDescription": "Изменения со временем в данных о видах с территории {{country}} доступны на GBIF.org",
       "publishedByDescription": "Изменения с течением времени в данных, опубликованных организациями с территории {{country}}, доступных на GBIF.org"
     },
-    "analyticsGlobalDescription": "Тренды в доступности данных в сети GBIF, c 2008 по 2016",
+    "analyticsGlobalDescription": "Тренды в доступности данных в сети GBIF, c 2008 по 2021",
     "analyticsTitle": "Тренды в данных"
   }
 }

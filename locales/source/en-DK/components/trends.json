@@ -1,7 +1,7 @@
 {
   "trends": {
     "exploreGlobalTrends": "Explore global trends",
-    "exploreByCountry": "Explore by country",
+    "exploreByCountry": "Explore by country or area",
     "exploreByGbifRegion": "Explore by region",
     "theseChartsIllustrate1": "These charts illustrate the change in availability of the species occurrence records over time.",
     "noOccRecords": "Number of occurrence records",
@@ -71,7 +71,7 @@
       "fromDescription": "Change over time in data about species from {{country}} available from GBIF.org",
       "publishedByDescription": "Change over time in the data published by institutions within {{country}} available from GBIF.org"
     },
-    "analyticsGlobalDescription": "Trends in data availability on the GBIF network, 2008 to 2016",
+    "analyticsGlobalDescription": "Trends in data availability on the GBIF network, 2008 to 2021",
     "analyticsTitle": "Data trends"
   }
 }

@@ -68,7 +68,7 @@
       "fromDescription": "從 GBIF.org 可取得的物種資料在 {{country}} 範圍內隨著時間的變化。",
       "publishedByDescription": "從 GBIF.org 可取得的各機構發布資料在 {{country}} 範圍內隨著時間的變化。"
     },
-    "analyticsGlobalDescription": "GBIF 網絡資料可用性趨勢，2008 年至 2016",
+    "analyticsGlobalDescription": "GBIF 網絡資料可用性趨勢，2008 年至 2021",
     "analyticsTitle": "資料趨勢"
   }
 }

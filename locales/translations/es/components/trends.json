@@ -68,7 +68,7 @@
       "fromDescription": "Cambio a lo largo del tiempo sobre especies de {{country}} disponible desde GBIF.org",
       "publishedByDescription": "Cambio a lo largo del tiempo en los datos publicados por instituciones en {{country}} disponibles desde GBIF.org"
     },
-    "analyticsGlobalDescription": "Tendencias en disponibilidad de datos en la red de GBIF, de 2008 a 2016",
+    "analyticsGlobalDescription": "Tendencias en disponibilidad de datos en la red de GBIF, de 2008 a 2021",
     "analyticsTitle": "Tendencias de datos"
   }
 }
