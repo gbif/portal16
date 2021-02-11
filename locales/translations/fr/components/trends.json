@@ -1,8 +1,8 @@
 {
   "trends": {
-    "exploreGlobalTrends": "",
+    "exploreGlobalTrends": "Explorez les tendances mondiales",
     "exploreByCountry": "Explorer par pays",
-    "exploreByGbifRegion": "",
+    "exploreByGbifRegion": "Explorer par région",
     "theseChartsIllustrate1": "Ces graphiques illustrent les changements dans la disponibilité des occurrences espèces survenues au fil du temps.",
     "noOccRecords": "Nombre d’enregistrements d’occurrence",
     "occByKingdomChartText": "Le nombre d’enregistrements disponibles classées par Règne. « Inconnu » inclut les enregistrements avec des informations taxonomiques qui ne peuvent être liées aux listes taxonomiques disponibles.",
@@ -65,7 +65,7 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "Tendances de la disponibilité des données sur le réseau GBIF, de 2008 à {{YEAR}}",
     "globalDataTrends": "Tendances globale des données",
     "countryDataTrends": "Tendances des données de {{TRANSLATED_COUNTRY}}",
-    "regionDataTrends": "",
+    "regionDataTrends": "Tendances des données pour {{TRANSLATED_REGION}}",
     "countryPublishingTrends": "Tendances de publication de {{TRANSLATED_COUNTRY}}",
     "analyticsCountry": {
       "fromDescription": "Changement au fil du temps dans les données sur les espèces de {{country}} disponible sur GBIF.org",
