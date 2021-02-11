@@ -9,7 +9,7 @@
                     <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
                             <span class="article-header__category__upper" translate="trends.analytics">Analytics</span>
-                            <span class="article-header__category__lower">{% if country %}{$ __('country.'+country) $}{% else %}{$ __('trends.global') $}{% endif %}</span>
+                            <span class="article-header__category__lower">{% if country %}{$ __('country.'+country) $}{% elif region %}{$ __('region.'+region) $}{% else %}{$ __('trends.global') $}{% endif %}</span>
                         </nav>
                         <h1 dir="auto">
                             {% if country and about %}
@@ -17,6 +17,8 @@
                                
                                 {% elif country %}
                             {$ __('trends.countryPublishingTrends', {TRANSLATED_COUNTRY:__('country.'+ country ) }) $}
+                                {% elif region %}
+                            {$ __('trends.regionDataTrends', {TRANSLATED_REGION:__('region.'+region) }) $}
                             {% else %}
                             {$ __('trends.globalDataTrends') $}
                                 
@@ -33,10 +35,19 @@
                             {% endif %}
                         </div>
                     </header>
-                    <div ng-cloak style="margin: auto; width: 200px; max-width: 100%;" ng-controller="analyticsCtrl as analytics">
-                        <select ng-if="analytics.show" class="form-control" ng-model="analytics.selectedCountry" ng-change="analytics.onChange(analytics.selectedCountry)" autocomplete="off">
-                            <option value="" selected translate="trends.exploreByCountry">Explore by country</option>
+                    <div ng-cloak style="margin: auto; width: 300px; max-width: 100%;" ng-controller="analyticsCtrl as analytics">
+                        <select ng-if="analytics.show" class="form-control" ng-model="analytics.selectedRegion" ng-change="analytics.onChange(analytics.selectedRegion)" autocomplete="off">
+                        <option value="GLOBAL" ng-selected="{{analytics.selectedRegion === 'GLOBAL'}}" translate="trends.exploreGlobalTrends">Global data trends</option>
+                           <optgroup label="{{'trends.exploreByGbifRegion' | translate}}">
+                             <option 
+                                ng-repeat="option in analytics.gbifRegions"
+                                ng-selected="{{option === '{$ region $}' }}" 
+                                value="{{option}}">{{("region." + option) | translate}}
+                                </option>
+                           </optgroup>
+                            <optgroup label="{{'trends.exploreByCountry' | translate}}">
                             <option ng-repeat="option in analytics.countries" value="{{option}}">{{("country." + option) | translate}}</option>
+                            </optgroup>
                         </select>
                     </div>
                 </div>

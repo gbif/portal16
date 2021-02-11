@@ -11,6 +11,11 @@ router.get('/global', function(req, res, next) {
     renderPage(req, res, next, 'global');
 });
 
+// https://analytics-files.gbif.org/gbifRegion/AFRICA/
+router.get('/region/:region', function(req, res, next) {
+    renderPage(req, res, next, 'gbifRegion/' + req.params.region + '/about', null, false, req.params.region);
+});
+
 router.get('/country/:country/about', function(req, res, next) {
     // TODO: make sure iso country exists
     renderPage(req, res, next, 'country/' + req.params.country + '/about', req.params.country, true);
@@ -22,7 +27,7 @@ router.get('/country/:country/published', function(req, res, next) {
 });
 
 
-function renderPage(req, res, next, path, country, about) {
+function renderPage(req, res, next, path, country, about, region) {
     let description;
 
     if (about && country) {
@@ -36,6 +41,7 @@ function renderPage(req, res, next, path, country, about) {
 
     try {
         res.render('pages/analytics/analytics', {
+            region: region,
             country: country,
             about: about,
             year: new Date().getFullYear(),
