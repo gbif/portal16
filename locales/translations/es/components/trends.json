@@ -1,6 +1,8 @@
 {
   "trends": {
+    "exploreGlobalTrends": "",
     "exploreByCountry": "Explorar por país o área",
+    "exploreByGbifRegion": "",
     "theseChartsIllustrate1": "Estos gráficos muestran el cambio en la disponibilidad de los registros (de presencia) de especies a lo largo del tiempo.",
     "noOccRecords": "Número de registros (de presencia)",
     "occByKingdomChartText": "El número de registros disponibles categorizados bajo reino. \"Desconocido\" incluye registros con información taxonómica que no puede ser vinculada a las listas taxonómicas disponibles.",
@@ -63,6 +65,7 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "Tendencias en disponibilidad de datos en la red de GBIF, de 2008 a {{YEAR}}",
     "globalDataTrends": "Tendencias globales",
     "countryDataTrends": "{{TRANSLATED_COUNTRY}} tendencia de datos",
+    "regionDataTrends": "",
     "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} tendencias de publicación",
     "analyticsCountry": {
       "fromDescription": "Cambio a lo largo del tiempo sobre especies de {{country}} disponible desde GBIF.org",
