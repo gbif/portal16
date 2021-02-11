@@ -1,6 +1,8 @@
 {
   "trends": {
+    "exploreGlobalTrends": "",
     "exploreByCountry": "",
+    "exploreByGbifRegion": "",
     "theseChartsIllustrate1": "",
     "noOccRecords": "",
     "occByKingdomChartText": "",
@@ -63,6 +65,7 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "",
     "globalDataTrends": "",
     "countryDataTrends": "",
+    "regionDataTrends": "",
     "countryPublishingTrends": "",
     "analyticsCountry": {
       "fromDescription": "",
