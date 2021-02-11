@@ -1,8 +1,8 @@
 {
   "trends": {
-    "exploreGlobalTrends": "",
+    "exploreGlobalTrends": "استكشاف الاتجاهات العالمية",
     "exploreByCountry": "استكشاف حسب البلد أو المنطقة",
-    "exploreByGbifRegion": "",
+    "exploreByGbifRegion": "استكشاف  وفق المنطقة",
     "theseChartsIllustrate1": "توضح هذه الرسوم البيانية التغير في توفر سجلات تكرار الأنواع على مر الزمن.",
     "noOccRecords": "رقم سجلات التكرار",
     "occByKingdomChartText": "رقم السجلات المتاحة والمصنفة بمملكة. \"غير معروف\"تتصمن سجلات لمعلومات تصنيفية لا يمكن ربطها مع فوائم التحقق التصنيفية المتاحة.",
@@ -65,7 +65,7 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "الانجاهات في توفر البيانات على شبكة المرفق العالمي لمعلومات التنوع الحيوي من 2008 لـ {{YEAR}}",
     "globalDataTrends": "اتجاهات البيانات العالمية",
     "countryDataTrends": "اتجاهات البيانات{{TRANSLATED_COUNTRY}}",
-    "regionDataTrends": "",
+    "regionDataTrends": "اتجاهات البيانات  عن(TRANSLATED_REGION)",
     "countryPublishingTrends": "اتجاهات النشر{{ COUNTRY_TRANSLATED}}",
     "analyticsCountry": {
       "fromDescription": "التغير الحاصل مع مرور الزمن في بيانات الانواع من {{country}} متوفرة من موقع GBIF.org",
