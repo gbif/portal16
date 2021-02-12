@@ -1,6 +1,8 @@
 {
   "trends": {
+    "exploreGlobalTrends": "",
     "exploreByCountry": "Перегляд за країною або регіоном",
+    "exploreByGbifRegion": "",
     "theseChartsIllustrate1": "Графіки ілюструють часову динаміку кількості записів про знахідки.",
     "noOccRecords": "Кількість записів про знахідки",
     "occByKingdomChartText": "Кількість наявних записів про знахідки, розподілених за царствами. У категорії \"Невідомо\" знаходяться ті записи, які, за наведеною у них таксономічною інформацією, неможливо співставити з прийнятними таксономічними списками.",
@@ -63,12 +65,13 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "Тренди щодо наявності даних у мережі GBIF, з 2008 по {{YEAR}}",
     "globalDataTrends": "Тренди у світових даних",
     "countryDataTrends": "Тренди у даних з {{TRANSLATED_COUNTRY}}",
+    "regionDataTrends": "",
     "countryPublishingTrends": "Тренди у публікації даних з {{TRANSLATED_COUNTRY}}",
     "analyticsCountry": {
       "fromDescription": "Часова динаміка даних GBIF.org про види з наступної країни: {{country}}",
       "publishedByDescription": "Часова динаміка даних GBIF.org, опублікованих організаціями з наступної країни: {{country}}"
     },
-    "analyticsGlobalDescription": "Тренди щодо наявності даних у мережі GBIF, з 2008 по 2016",
+    "analyticsGlobalDescription": "Тренди щодо наявності даних у мережі GBIF, з 2008 по 2021",
     "analyticsTitle": "Тренди у даних"
   }
 }
