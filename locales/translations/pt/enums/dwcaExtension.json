@@ -10,19 +10,19 @@
     "http://data.ggbn.org/schemas/ggbn/terms/Permit": "Autorização",
     "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "Preparação",
     "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "Preservação",
-    "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "",
+    "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "Medição ou facto extendido",
     "http://zooarchnet.org/dwc/terms/ChronometricAge": "",
     "http://zooarchnet.org/dwc/terms/ChronometricDate": "",
     "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "",
     "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "",
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "",
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "",
-    "http://rs.tdwg.org/dwc/terms/Identification": "",
-    "http://rs.gbif.org/terms/1.0/Identifier": "",
-    "http://rs.gbif.org/terms/1.0/Image": "",
-    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "",
-    "http://rs.gbif.org/terms/1.0/Multimedia": "",
-    "http://rs.gbif.org/terms/1.0/Reference": "",
-    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": ""
+    "http://rs.tdwg.org/dwc/terms/Identification": "Identificação",
+    "http://rs.gbif.org/terms/1.0/Identifier": "Identificador",
+    "http://rs.gbif.org/terms/1.0/Image": "Imagem",
+    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "Medição ou facto",
+    "http://rs.gbif.org/terms/1.0/Multimedia": "Multimédia",
+    "http://rs.gbif.org/terms/1.0/Reference": "Referência",
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "Relação de recursos"
   }
 }
