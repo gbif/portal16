@@ -13,7 +13,7 @@
     "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "Medição ou facto extendido",
     "http://zooarchnet.org/dwc/terms/ChronometricAge": "Idade cronométrica",
     "http://zooarchnet.org/dwc/terms/ChronometricDate": "Data cronométrica",
-    "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "",
+    "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "Germoplasma: acessão germoplasma",
     "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "",
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "",
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "",
