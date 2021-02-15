@@ -71,7 +71,7 @@
       "fromDescription": "Часова динаміка даних GBIF.org про види з наступної країни: {{country}}",
       "publishedByDescription": "Часова динаміка даних GBIF.org, опублікованих організаціями з наступної країни: {{country}}"
     },
-    "analyticsGlobalDescription": "Тренди щодо наявності даних у мережі GBIF, з 2008 по 2021",
+    "analyticsGlobalDescription": "Тренди щодо наявності даних у мережі GBIF, з 2008 по 2016",
     "analyticsTitle": "Тренди у даних"
   }
 }
