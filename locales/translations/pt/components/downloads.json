@@ -3,10 +3,10 @@
     "nRecordsAtTime": "{NUMBER_FORMATTED} {NUMBER, plural, one{registo} other{registos}} deste conjunto de dados",
     "derivedDataset": "Conjunto de dados derivado",
     "sourceUrl": "Descarregar conjunto de dados derivado",
-    "headlineDatasets": "",
-    "headlineOccurrences": "",
-    "title": "",
-    "description": "",
+    "headlineDatasets": "Registos de {NUMBER_FORMATED} {NUMBER, plural, one{dataset} other{datasets}} no conjunto de dados derivado",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{occurrence} other{occurrences}} no conjunto de dados derivado",
+    "title": "Título",
+    "description": "Descrição",
     "originalDownloadDOI": ""
   },
   "downloadKey": {

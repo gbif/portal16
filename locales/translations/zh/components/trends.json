@@ -1,6 +1,8 @@
 {
   "trends": {
+    "exploreGlobalTrends": "探索全球趋势",
     "exploreByCountry": "按国家或地区浏览",
+    "exploreByGbifRegion": "按地区探索",
     "theseChartsIllustrate1": "这些图表展示了物种出现记录的可用性随时间的变化。",
     "noOccRecords": "出现记录数",
     "occByKingdomChartText": "按界分类的可用记录数。\"未知\" 包括有分类信息却无法链接到物种分类名录的记录。",
@@ -63,6 +65,7 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "GBIF网络数据可用性趋势，2008年至{{YEAR}}",
     "globalDataTrends": "全球数据趋势",
     "countryDataTrends": "{{TRANSLATED_COUNTRY}}数据趋势",
+    "regionDataTrends": "{{TRANSLATED_REGION}}的数据趋势",
     "countryPublishingTrends": "{{TRANSLATED_COUNTRY}}发布趋势",
     "analyticsCountry": {
       "fromDescription": "从GBIF.org提供的{{country}}中的物种数据随时间的变化",

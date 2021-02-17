@@ -1,6 +1,8 @@
 {
   "trends": {
+    "exploreGlobalTrends": "探索全球的趨勢",
     "exploreByCountry": "依國家或地區來探索",
+    "exploreByGbifRegion": "按區域探索",
     "theseChartsIllustrate1": "此圖表顯示物種出現紀錄資料的可用性隨著時間變化。",
     "noOccRecords": "出現紀錄數",
     "occByKingdomChartText": "以界來分類的可用紀錄數。「未知」包括無法連結至可用分類群物種名錄的分類群資訊。",
@@ -63,12 +65,13 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "GBIF 網絡資料可用性趨勢，2008 年至 {{YEAR}}",
     "globalDataTrends": "全球資料趨勢",
     "countryDataTrends": "{{TRANSLATED_COUNTRY}} 資料趨勢",
+    "regionDataTrends": "{{TRANSLATED_REGION}}的資料趨勢",
     "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} 發布趨勢",
     "analyticsCountry": {
       "fromDescription": "從 GBIF.org 可取得的物種資料在 {{country}} 範圍內隨著時間的變化。",
       "publishedByDescription": "從 GBIF.org 可取得的各機構發布資料在 {{country}} 範圍內隨著時間的變化。"
     },
-    "analyticsGlobalDescription": "GBIF 網絡資料可用性趨勢，2008 年至 2021",
+    "analyticsGlobalDescription": "GBIF 網絡資料可用性趨勢，2008 年至 2016",
     "analyticsTitle": "資料趨勢"
   }
 }
