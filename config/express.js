@@ -17,7 +17,7 @@ module.exports = function(app, config) {
     app.locals.ENV_DEVELOPMENT = env == 'dev';
     // based on https://github.com/OWASP/CheatSheetSeries/issues/376 helmet disables browsers' buggy cross-site scripting filter
     if (env !== 'devXXX') {
-        app.use(helmet({
+        let helmetConfig = {
             referrerPolicy: false,
             contentSecurityPolicy: {
                 directives: {
@@ -61,8 +61,7 @@ module.exports = function(app, config) {
                     imgSrc: ['*'],
                     workerSrc: [
                         'blob:'
-                    ],
-                    upgradeInsecureRequests: []
+                    ]
                   }
 
           },
@@ -70,7 +69,11 @@ module.exports = function(app, config) {
             maxAge: 600,
             includeSubDomains: true
           }
-    }));
+    };
+    if (config.domain !== 'http://portal.gbif.org') {
+        helmetConfig.contentSecurityPolicy.directives.upgradeInsecureRequests = [];
+    }
+        app.use(helmet(helmetConfig));
     }
 
     /**
