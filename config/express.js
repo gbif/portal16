@@ -75,7 +75,7 @@ module.exports = function(app, config) {
     }
 
     app.use(function(req, res, next) {
-        if (req.get('host') === 'portal.gbif.org' && req.get('protocol') === 'http') {
+        if (req.get('host') === 'portal.gbif.org') {
             const header = res.get('Content-Security-Policy');
             if (typeof header === 'string') {
                 res.set('Content-Security-Policy', header.replace(/upgrade-insecure-requests/g, ''));
