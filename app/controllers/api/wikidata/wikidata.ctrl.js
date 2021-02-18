@@ -26,13 +26,15 @@ router.get('/wikidata/species/:key', function(req, res) {
             return res.status(200).json(response);
         })
         .catch(function(err) {
-            log.error(err);
             let status =
                 err.message === 'not found'
                     ? 404
                     : err.statusCode
                     ? err.statusCode
                     : 500;
+            if (status !== 404) {
+                log.error(err);
+            }
             res.sendStatus(status);
         });
 });
