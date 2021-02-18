@@ -61,7 +61,8 @@ module.exports = function(app, config) {
                     imgSrc: ['*'],
                     workerSrc: [
                         'blob:'
-                    ]
+                    ],
+                    upgradeInsecureRequests: []
                   }
 
           },
@@ -70,11 +71,16 @@ module.exports = function(app, config) {
             includeSubDomains: true
           }
     };
-    if (config.domain !== 'http://portal.gbif.org') {
-        helmetConfig.contentSecurityPolicy.directives.upgradeInsecureRequests = [];
+    app.use(helmet(helmetConfig));
     }
-        app.use(helmet(helmetConfig));
-    }
+
+    app.use(function(req, res, next) {
+        if (req.get('host') === 'portal.gbif.org' && req.get('protocol') === 'http') {
+            const header = res.get('Content-Security-Policy').replace(/upgrade-insecure-requests/g, '');
+            res.set('Content-Security-Policy', header );
+        }
+        next();
+    });
 
     /**
      * add middleware to add ip address to request.

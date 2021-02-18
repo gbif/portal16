@@ -4,10 +4,10 @@
             <div class="wrapper-horizontal-stripes">
                 {% include "./header.nunjucks" %}
                 {% include "./nav.nunjucks" %}
-                <div ng-show="machineVision.$state.is('machineVision')">
+{#                 <div ng-show="machineVision.$state.is('machineVision')">
                     {% include "./demo.nunjucks" %}
-                </div>
-                <div ng-show="machineVision.$state.is('machineVisionAbout')" class="p-t-1">
+                </div> #}
+                <div class="p-t-1">
                     <ng-include src="'/api/machine-vision/about.html'"></ng-include>
                 </div>
             </div>
