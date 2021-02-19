@@ -4,6 +4,7 @@ let express = require('express'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     ranks = require('../../../models/enums/allEnums').rank,
     request = rootRequire('app/helpers/request'),
+    cors = require('cors'),
     Q = require('q');
 
 const FAMILY_RANK_INDEX = ranks.indexOf('FAMILY'); // 15;
@@ -88,7 +89,7 @@ module.exports = function(app) {
     app.use('/api', router);
 };
 
-router.get('/species/names', function(req, res) {
+router.get('/species/names', cors(), function(req, res) {
     if (typeof req.query.q === 'undefined') {
         res.status(400);
         res.send();
@@ -119,7 +120,7 @@ router.get('/species/names', function(req, res) {
     }
 });
 
-router.get('/species/:key/name', function(req, res) {
+router.get('/species/:key/name', cors(), function(req, res) {
     let namePromise = getParsedName(req.params.key);
     namePromise.then(function(name) {
         if (name) {

@@ -42,6 +42,7 @@
     "decimalLatitude": "１０進法の緯度",
     "decimalLongitude": "１０進法の経度",
     "publishingOrg": "出版者",
+    "hostingOrganizationKey": "",
     "kingdomKey": "界",
     "phylumKey": "門",
     "classKey": "綱",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "相対生物数",
     "collectionKey": "コレクション",
     "institutionKey": "機関",
-    "gadmGid": "行政区域 (gadm.org)"
+    "gadmGid": "行政区域 (gadm.org)",
+    "lifeStage": "",
+    "dwcaExtension": "",
+    "isClustered": ""
   }
 }

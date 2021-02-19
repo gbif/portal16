@@ -1,0 +1,28 @@
+{
+  "dwcaExtension": {
+    "http://rs.tdwg.org/dwc/terms/Occurrence": "物種出現紀錄",
+    "http://rs.tdwg.org/ac/terms/Multimedia": "奧杜邦多媒體",
+    "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "DNA 擴增",
+    "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "克隆",
+    "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "凝膠成像",
+    "http://data.ggbn.org/schemas/ggbn/terms/Loan": "租借",
+    "http://data.ggbn.org/schemas/ggbn/terms/MaterialSample": "材料樣品",
+    "http://data.ggbn.org/schemas/ggbn/terms/Permit": "許可",
+    "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "準備",
+    "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "保存",
+    "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "延伸測量或事實",
+    "http://zooarchnet.org/dwc/terms/ChronometricAge": "時距年齡",
+    "http://zooarchnet.org/dwc/terms/ChronometricDate": "時距日期",
+    "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "種源：種源品種",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "種源：測量分數",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "種源：測量特徵",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "種源：測量試驗",
+    "http://rs.tdwg.org/dwc/terms/Identification": "鑑定",
+    "http://rs.gbif.org/terms/1.0/Identifier": "識別碼",
+    "http://rs.gbif.org/terms/1.0/Image": "圖像",
+    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "測量或事實",
+    "http://rs.gbif.org/terms/1.0/Multimedia": "多媒體",
+    "http://rs.gbif.org/terms/1.0/Reference": "參考文獻",
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "資源關係"
+  }
+}

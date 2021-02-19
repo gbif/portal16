@@ -4,6 +4,11 @@
       "title": "Colecciones",
       "description": "**Colecciones Institucionales** son aquellas que han sido formalmente ingresadas a una institución y reciben algún nivel de apoyo institucional.\n\n**Colecciones de Proyecto** son las generadas por un investigador asociado a una institución que puede no haber sido previamente ingresadas en sus colecciones. Las Colecciones de proyectos pueden convertirse en parte de las Colecciones Institucionales o permanecer bajo la gestión y control de cada investigador.\n\n**Colecciones Personales** están bajo el control de un investigador individual y no están formalmente asociadas o ingresadas a una institución. Pueden ser propiedad personal de un coleccionista privado o de otro modo, huérfanas."
     },
+    "tabs": {
+      "summary": "",
+      "homepage": "",
+      "metrics": ""
+    },
     "headerTitle": "Colección",
     "description": "Descripción",
     "institutionName": "Nombre de la Institución",
@@ -34,6 +39,11 @@
     "search": {
       "title": "Instituciones",
       "description": "**La institución** se refiere a cualquier institución o organización que posea y administre colecciones científicas. Esto incluye herbarios, museos, zoológicos, jardines botánicos, biobancos, entre otros. Una institución puede contener múltiples colecciones, en cuyo caso las deben ser ingresadas individualmente bajo  **Colecciones Institucionales/Proyecto**  y vinculadas a la institución padre.\n\nDebido a la integración de varios conjuntos de datos antiguos, y evitar la duplicación de  **InstitutionCode**, <IH> se ha anexado a todos los códigos Herbariorum Herbarium Index."
+    },
+    "tabs": {
+      "summary": "",
+      "homepage": "",
+      "metrics": ""
     },
     "headerTitle": "Institución",
     "indexHerbariorumIdentifier": "",

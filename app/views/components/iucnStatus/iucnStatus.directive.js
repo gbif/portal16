@@ -19,7 +19,7 @@ function iucnStatusDirective() {
         controllerAs: 'vm',
         bindToController: true
     };
-
+/*
     var categoriesMap = {
         'LR/lc': 'LEAST_CONCERN', // Legacy
         'LR/cd': 'LEAST_CONCERN', // Legacy
@@ -33,7 +33,7 @@ function iucnStatusDirective() {
         'EX': 'EXTINCT',
         'DD': 'DATA_DEFICIENT',
         'NE': 'NOT_EVALUATED'
-    };
+    }; */
 
     return directive;
 
@@ -43,17 +43,12 @@ function iucnStatusDirective() {
         vm.loading = true;
         $http({
             method: 'get',
-            url: '/api/wikidata/species/' + vm.key + '?locale=' + gb.locale
+            url: '/api/species/' + vm.key + '/iucnstatus'
         }).then(function(res) {
             vm.loading = false;
             vm.iucnTaxonid = _.get(res, 'data.iucnIdentifier[0].id');
-            if (_.get(res, 'data.iucnThreatStatus.abbrevation.value')) {
-                vm.category = categoriesMap.hasOwnProperty(_.get(res, 'data.iucnThreatStatus.abbrevation.value')) ?
-                categoriesMap[_.get(res, 'data.iucnThreatStatus.abbrevation.value')] : 'NOT_EVALUATED';
-            } else {
-                vm.category = 'NOT_EVALUATED';
-            }
-            vm.sourceLink = _.get(res, 'data.iucnIdentifier[0].url');
+            vm.category = _.get(res, 'data.distribution.threatStatus') || 'NOT_EVALUATED';
+            vm.sourceLink = _.get(res, 'data.references');
         }).catch(function(err) {
             vm.loading = false;
         });

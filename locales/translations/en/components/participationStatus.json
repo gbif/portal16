@@ -29,7 +29,7 @@
                 "longForm": {
                     "VOTING": "Voting participant organization",
                     "ASSOCIATE": "Associate participant organization",
-                    "OBSERVER": "Observing participant organization",
+                    "OBSERVER": "Observer organization",
                     "AFFILIATE": "Affiliate organization",
                     "FORMER": "Former participant organization",
                     "undefined": "Unknown"

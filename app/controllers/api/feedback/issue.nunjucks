@@ -9,8 +9,8 @@
 {% if __agent %}System: {$ __agent $}{% endif %}
 {% if __referer %}Referer: {$ __referer | safe $}{% endif %}
 {% if width %}Window size: width {$ width $} - height {$ height $}{% endif %}
-[API log](http://elk.gbif.org:5601/app/kibana?#/discover?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'{$ __timestamp.before $}',mode:absolute,to:'{$ __timestamp.after $}'))&_a=(columns:!(_source),index:'prod-varnish-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'response:%3E499')),sort:!('@timestamp',desc)))
-[Site log](http://elk.gbif.org:5601/app/kibana?#/discover?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'{$ __timestamp.before $}',mode:absolute,to:'{$ __timestamp.after $}'))&_a=(columns:!(_source),index:'prod-portal-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'response:%3E499')),sort:!('@timestamp',desc)))
+[API log](https://private-logs.gbif.org/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'{$ __timestamp.before $}',to:'{$ __timestamp.after $}'))&_a=(columns:!(_source),filters:!(),index:'3390a910-fcda-11ea-a9ab-4375f2a9d11c',interval:auto,query:(language:kuery,query:''),sort:!()))
+[Site log](https://private-logs.gbif.org/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'{$ __timestamp.before $}',to:'{$ __timestamp.after $}'))&_a=(columns:!(_source),filters:!(),index:'5c73f360-fce3-11ea-a9ab-4375f2a9d11c',interval:auto,query:(language:kuery,query:''),sort:!()))
 {% if _health %}System health at time of feedback: {$ _health $}{% endif %}
 {% if datasetKey %}datasetKey: {$ datasetKey $}{% endif %}
 {% if publishingOrgKey %}publishingOrgKey: {$ publishingOrgKey $}{% endif %}

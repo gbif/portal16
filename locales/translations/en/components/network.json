@@ -5,9 +5,11 @@
       "summary": "Summary",
       "homepage": "Home page",
       "metrics": "Metrics",
-      "datasets": "Network"
+      "datasets": "Datasets",
+      "publishers": "Publishers"
     },
     "registeredDate": "Registered {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} participating {NUMBER, plural, 1{dataset} other{datasets}}"
+    "nParticipatingDatasets": "{NUMBER_FORMATED} participating {NUMBER, plural, one{dataset} other{datasets}}",
+    "nParticipatingPublishers": "{NUMBER_FORMATED} participating {NUMBER, plural, one{publisher} other{publishers}}"
   }
 }

@@ -17,7 +17,7 @@ module.exports = function(app, config) {
     app.locals.ENV_DEVELOPMENT = env == 'dev';
     // based on https://github.com/OWASP/CheatSheetSeries/issues/376 helmet disables browsers' buggy cross-site scripting filter
     if (env !== 'devXXX') {
-        app.use(helmet({
+        let helmetConfig = {
             referrerPolicy: false,
             contentSecurityPolicy: {
                 directives: {
@@ -58,6 +58,7 @@ module.exports = function(app, config) {
                         'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.12.0/mapbox-gl.min.css',
                         'api.mapbox.com'],
                     mediaSrc: ['*'],
+                    imgSrc: ['*'],
                     workerSrc: [
                         'blob:'
                     ],
@@ -69,8 +70,19 @@ module.exports = function(app, config) {
             maxAge: 600,
             includeSubDomains: true
           }
-    }));
+    };
+    app.use(helmet(helmetConfig));
     }
+
+    app.use(function(req, res, next) {
+        if (req.get('host') === 'portal.gbif.org') {
+            const header = res.get('Content-Security-Policy');
+            if (typeof header === 'string') {
+                res.set('Content-Security-Policy', header.replace(/upgrade-insecure-requests/g, ''));
+            }
+        }
+        next();
+    });
 
     /**
      * add middleware to add ip address to request.

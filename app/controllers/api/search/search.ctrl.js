@@ -46,7 +46,7 @@ async function search(query, preferedLocale, __) {
     let resourceHighlights = resourceSearch.search(
         {
             keywords: query,
-            contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'],
+            contentType: ['network', 'dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'],
             locale: preferedLocale, limit: 2, searchable: true
             }, __);
     let country = Country.query(query, preferedLocale);

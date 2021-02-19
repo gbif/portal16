@@ -1,14 +1,15 @@
 {
     "counts": {
-        "nCitations": "",
-        "pCitations": "",
-        "nRecords": "",
+        "nCitations": "منبع",
+        "pCitations": "منابع",
+        "nRecords": "ثبت",
         "nResults": "",
         "nCollections": "",
         "nInstitutions": "",
         "nEvents": "",
         "nInstallations": "",
         "nOccurrences": "",
+        "nOccurrencesHosted": "",
         "nOccurrencesAbout": "",
         "nOccurrencesPublished": "",
         "nEndorsedPublishers": "",

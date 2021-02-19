@@ -14,9 +14,9 @@
     "protocol": "Protocole ",
     "mediaType": "Type de média",
     "recordedBy": "Enregistré par",
-    "recordedById": "",
+    "recordedById": "ID de Enregistré par",
     "identifiedBy": "Identifié par",
-    "identifiedById": "",
+    "identifiedById": "ID de Identifié par",
     "eventDate": "Date de l'événement",
     "eventID": "ID de l'événement",
     "samplingProtocol": "Protocole d'échantillonnage",
@@ -42,6 +42,7 @@
     "decimalLatitude": "Latitude décimale",
     "decimalLongitude": "Longitude décimale",
     "publishingOrg": "Fournisseur de données",
+    "hostingOrganizationKey": "Organisation hôte",
     "kingdomKey": "Règne",
     "phylumKey": "Phylum",
     "classKey": "Classe",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "Quantité relative de l'organisme",
     "collectionKey": "Collection",
     "institutionKey": "Institution",
-    "gadmGid": ""
+    "gadmGid": "Zones administratives (gadm.org)",
+    "lifeStage": "Stade de vie",
+    "dwcaExtension": "Extension DWCA",
+    "isClustered": "Est dans le regroupement"
   }
 }

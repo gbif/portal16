@@ -1,0 +1,28 @@
+{
+  "dwcaExtension": {
+    "http://rs.tdwg.org/dwc/terms/Occurrence": "Знахідка",
+    "http://rs.tdwg.org/ac/terms/Multimedia": "Одюбон-мультимедія",
+    "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "Ампліфікація",
+    "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "Клонування",
+    "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "Зображення на гелі",
+    "http://data.ggbn.org/schemas/ggbn/terms/Loan": "Запозичення",
+    "http://data.ggbn.org/schemas/ggbn/terms/MaterialSample": "Проба матеріалу",
+    "http://data.ggbn.org/schemas/ggbn/terms/Permit": "Дозвіл",
+    "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "Підготовка",
+    "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "Консервація",
+    "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "Розширене вимірювання або факт",
+    "http://zooarchnet.org/dwc/terms/ChronometricAge": "Хронометричний вік",
+    "http://zooarchnet.org/dwc/terms/ChronometricDate": "Хронометрична дата",
+    "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "",
+    "http://rs.tdwg.org/dwc/terms/Identification": "Визначення",
+    "http://rs.gbif.org/terms/1.0/Identifier": "Автор визначення",
+    "http://rs.gbif.org/terms/1.0/Image": "Зображення",
+    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "Вимірювання або факт",
+    "http://rs.gbif.org/terms/1.0/Multimedia": "Мультимедіа",
+    "http://rs.gbif.org/terms/1.0/Reference": "Посилання",
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "Зв'язок ресурсу"
+  }
+}

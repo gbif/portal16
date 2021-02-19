@@ -4,6 +4,7 @@
         "systemLoad": "系统负载",
         "messages": "消息",
         "version": "版本",
+        "releaseNotes": "发行说明",
         "nInQueue": "{NUMBER} 等待中",
         "status": {
             "OPERATIONAL": "运行中",

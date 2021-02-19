@@ -8,10 +8,10 @@
       "presentIn": "出現於 {country}",
       "presentInNonCountry": "出現於 {location}",
       "threatStatus": "威脅狀態： {status}",
-      "establishmentMeans": "",
+      "establishmentMeans": "建立方法：",
       "distributionPlural": "分布",
-      "PRESENT": "",
-      "ABSENT": ""
+      "PRESENT": "存在",
+      "ABSENT": "缺如"
     },
     "tabs": {
       "overview": "概覽",

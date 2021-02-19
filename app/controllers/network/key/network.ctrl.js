@@ -10,6 +10,7 @@ module.exports = function(app) {
 
 router.get('/network/:key', networkPage);
 router.get('/network/:key/dataset', networkPage);
+router.get('/network/:key/publisher', networkPage);
 router.get('/network/:key/metrics', networkPage);
 
 function networkPage(req, res, next) {

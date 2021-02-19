@@ -1,0 +1,181 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <script>
+        var gb = gb || {};
+        gb.derivedDataset = {
+            doi: '{$ derivedDataset.doi $}'
+        };
+    </script>
+    <article  class="wrapper-horizontal-stripes derivedDatasetKey"
+              ng-controller="derivedDatasetKeyCtrl as derivedDatasetKey"
+              ng-init="derivedDatasetKey.setInitials({$ derivedDataset.datasets.offset $},{$ derivedDataset.datasets.limit $})">
+        <div class="horizontal-stripe article-header article-header--tabbed white-background">
+            <div class="container--desktop">
+                <div class="row">
+                    <header class="col-xs-12 text-center">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">{$ __('derivedDatasetKey.derivedDataset') $}</span>
+                            <span class="article-header__category__lower">{$ derivedDataset.created | formatDate(gb.locales.current) $}</span>
+                        </nav>
+
+                        {% if derivedDataset.totalRecords %}
+                        <h1 class="text-center" dir="auto"
+                            tx="derivedDatasetKey.headlineOccurrences" tx-nr="{$ derivedDataset.totalRecords $}">
+                            {$ derivedDataset.totalRecords $} occurrences included in derived dataset
+                        </h1>
+                        {% else %}
+                        <h1 class="text-center" dir="auto"
+                            tx="derivedDatasetKey.headlineDatasets" tx-nr="{$ derivedDataset.datasets.count $}">
+                            Records from {$ derivedDataset.datasets.count $} datasets in derived dataset
+                        </h1>
+                        {% endif %}
+
+                        <div class="m-t-1" dir="ltr">
+                            <a href="{$ derivedDataset.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ derivedDataset.doi | readableDOI $}</span></a>
+                        </div>
+                    </header>
+                </div>
+            </div>
+
+
+            {% if derivedDataset.sourceUrl or derivedDataset._citationCount > 0 %}
+            <div class="container--normal">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="tabs__wrapper">
+                            <div class="tabs__actions">
+                                <ul>
+                                    {% if derivedDataset.sourceUrl %}
+                                    <li class="tab tab-right">
+                                        <a href="{$ derivedDataset.sourceUrl $}" class="gb-button--brand">
+                                          <span class="gb-icon-link"></span>
+                                          {$ __('derivedDatasetKey.sourceUrl') $}
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                    {% if derivedDataset._citationCount %}
+                                    <li class="tab tab-right ng-cloak">
+                                        <span>
+                                            <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&derivedDatasetDoi={$ derivedDataset.doi | encodeURI $}' class="gb-button--dark" translate="counts.nCitations" translate-values="{ NUMBER_FORMATED: ({$ derivedDataset._citationCount $} | localNumber), NUMBER: {$ derivedDataset._citationCount $} }"></a>
+                                        </span>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <nav class="tabs tabs--noBorder"></nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            
+        </div>
+
+
+
+        <div class="horizontal-stripe light-background">
+            <div class="container--normal">
+                <section>
+                    <div class="card card--spaced">
+                        <div class="card__stripe">
+                            <div class="card__content">
+                                <dl class="inline">
+                                    <div>
+                                        <dt>{$ __('derivedDatasetKey.title') $}</dt>
+                                        <dd dir="ltr">
+                                            {$ derivedDataset.title $}
+                                        </dd>
+                                    </div>
+                                    {% if derivedDataset.description %}
+                                    <div>
+                                        <dt>{$ __('derivedDatasetKey.description') $}</dt>
+                                        <dd dir="ltr">
+                                            {$ derivedDataset.description $}
+                                        </dd>
+                                    </div>
+                                    {% endif %}
+                                    {% if derivedDataset.originalDownloadDOI %}
+                                    <div>
+                                        <dt>{$ __('derivedDatasetKey.originalDownloadDOI') $}</dt>
+                                        <dd dir="ltr">
+                                            <a href="{$ derivedDataset.originalDownloadDOI | getDOILink $}" class="doi"><span>DOI</span><span>{$ derivedDataset.originalDownloadDOI | readableDOI $}</span></a>
+                                        </dd>
+                                    </div>
+                                    {% endif %}
+                                    <div>
+                                        <dt>{$ __('downloadKey.citation') $}</dt>
+                                        <dd dir="ltr">
+                                            {$ derivedDataset.citation $}
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>{$ __('downloadKey.constituentDatasets') $}</dt>
+                                        <dd class="ng-cloak">
+                                            <a href="#datasets">{{ {$ derivedDataset.datasets.count $} | localNumber}}</a>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <div dir="auto" ng-bind-html="'downloadKey.readDatauseAndTerms' | translate | md2html"></div>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {% if derivedDataset.datasets.count > 0 %}
+                    <section class="m-t-2 rtl-bootstrap">
+                        <span class="relative-anchor-offset"><a id="datasets"></a></span>
+                        <h3 class="card-header"><span translate="downloadKey.nConstituentDatasets" translate-values="{NUMBER: {$ derivedDataset.datasets.count $}, NUMBER_FORMATTED: ({$ derivedDataset.datasets.count $} | localNumber) }"></span></h3>
+                        <div class="card">
+                            <div class="card__stripe">
+                                <div class="stripeList">
+                                    <ul>
+                                        {% for dataset in derivedDataset.datasets.results %}
+                                            <li>
+                                                <a href="/dataset/{$ dataset.datasetKey $}">
+                                                    {% if dataset.numberRecords > 0 %}
+                                                    <div dir="ltr" class="pull-right">
+                                                        <span class="numberBadge {% if dataset.numberRecords >= 1000000 %}numberBadge--millions{% elif dataset.numberRecords >= 1000 %}numberBadge--thousands{% endif %}">{$ dataset.numberRecords | compactInteger $}</span>
+                                                    </div>
+                                                    {% endif %}
+                                                    <div class="title" dir="auto">
+                                                        {$ dataset.datasetTitle or '[' + __('downloadKey.titleMissing')+ ']' $}
+                                                    </div>
+                                                    <span dir="ltr" class="meta meta--hoverOnly">{$ dataset.datasetDoi $}</span>
+                                                    <span class="meta--right meta--hoverOnly" tx="derivedDatasetKey.nRecordsAtTime" tx-nr="{$ dataset.numberRecords $}"></span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% if derivedDataset.datasets.count > derivedDataset.datasets.limit %}
+                                    <div class="card__content">
+                                        <uib-pagination
+                                                total-items="{$ derivedDataset.datasets.count $}"
+                                                ng-model="derivedDatasetKey.currentPage"
+                                                max-size="derivedDatasetKey.maxSize"
+                                                items-per-page="{$ derivedDataset.datasets.limit $}"
+                                                class="pagination-sm"
+                                                boundary-link-numbers="false"
+                                                first-text="{$ __('pagination.first') $}"
+                                                next-text="{$ __('pagination.next') $}"
+                                                previous-text="{$ __('pagination.previous') $}"
+                                                rotate="false"
+                                                ng-change="derivedDatasetKey.pageChanged()">
+                                        </uib-pagination>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </section>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </article>
+
+{% endblock %}

@@ -1,6 +1,8 @@
 {
   "trends": {
+    "exploreGlobalTrends": "Explore global trends",
     "exploreByCountry": "Explore by country or area",
+    "exploreByGbifRegion": "Explore by region",
     "theseChartsIllustrate1": "These charts illustrate the change in availability of the species occurrence records over time.",
     "noOccRecords": "Number of occurrence records",
     "occByKingdomChartText": "The number of available records categorized by kingdom. \"Unknown\" includes records with taxonomic information that cannot be linked to available taxonomic checklists.",
@@ -63,12 +65,13 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "Trends in data availability on the GBIF network, 2008 to {{YEAR}}",
     "globalDataTrends": "Global data trends",
     "countryDataTrends": "{{TRANSLATED_COUNTRY}} data trends",
+    "regionDataTrends": "Data trends for {{TRANSLATED_REGION}}",
     "countryPublishingTrends": "{{TRANSLATED_COUNTRY}} publishing trends",
     "analyticsCountry": {
       "fromDescription": "Change over time in data about species from {{country}} available from GBIF.org",
       "publishedByDescription": "Change over time in the data published by institutions within {{country}} available from GBIF.org"
     },
-    "analyticsGlobalDescription": "Trends in data availability on the GBIF network, 2008 to 2016",
+    "analyticsGlobalDescription": "Trends in GBIF data availability—from 2008 to 2021",
     "analyticsTitle": "Data trends"
   }
 }

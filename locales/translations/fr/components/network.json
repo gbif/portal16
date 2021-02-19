@@ -5,9 +5,11 @@
       "summary": "Résumé",
       "homepage": "Page d'accueil",
       "metrics": "Statistiques",
-      "datasets": "Réseau"
+      "datasets": "Réseau",
+      "publishers": ""
     },
     "registeredDate": "Enregistré le {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} {NUMBER, select, 1{jeu de données} other{jeux de données}} participant"
+    "nParticipatingDatasets": "{NUMBER_FORMATED} {NUMBER, select, 1{jeu de données} other{jeux de données}} participant",
+    "nParticipatingPublishers": ""
   }
 }

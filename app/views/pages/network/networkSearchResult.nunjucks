@@ -1,0 +1,22 @@
+<div class="card m-b-05 searchCard rtl-supported">
+    <div class="card__stripe">
+        <div class="card__content">
+            <span class="searchCard__type" translate="network.network">Network</span>
+            <h3 class="searchCard__headline" dir="auto">
+                <a href="{{ portal.urlPrefix }}/network/{{result.networkKey}}">
+                    {{result.title}}
+                </a>
+            </h3>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content searchCard__content clearfix">
+            <a href="{{ portal.urlPrefix }}/network/{{result.networkKey}}">
+                <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
+            </a>
+            <p dir="auto">
+                {{result._summary}}
+            </p>
+        </div>
+    </div>
+</div>

@@ -112,6 +112,7 @@
     "or": "または",
     "selectFile": "ファイルを選択",
     "fetchFileFromLocation": "ファイルのURLを指定",
+    "started": "",
     "tabs": {
       "newDataValidation": "新規のデータ検証",
       "newValidation": "新規の検証",

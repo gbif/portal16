@@ -558,6 +558,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'networkDatasetCtrl',
             controllerAs: 'networkDataset'
         })
+        .state('networkPublisher', {
+          parent: 'network',
+          url: '/publisher?offset',
+          templateUrl: '/templates/pages/network/key/publisher/networkPublisher.html?v=' + BUILD_VERSION,
+          controller: 'networkPublisherCtrl',
+          controllerAs: 'networkPublisher'
+      })
         .state('networkMetrics', {
             parent: 'network',
             url: '/metrics',

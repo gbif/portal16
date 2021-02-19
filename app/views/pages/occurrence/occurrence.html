@@ -58,6 +58,9 @@
         <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-taxon filter-config="occurrence.filters.taxonKey" filter-state="occurrence.occurrenceState"></div>
+        
+        <div filter-suggest filter-config="occurrence.filters.verbatim_scientific_name" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-enum filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>
 
@@ -166,8 +169,6 @@
      <div filter-suggest filter-config="occurrence.filters.programme" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
      <div filter-suggest filter-config="occurrence.filters.project_id" filter-state="occurrence.occurrenceState"
-             ng-if="occurrence.occurrenceState.query.advanced"></div>
-     <div filter-suggest filter-config="occurrence.filters.verbatim_scientific_name" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
      <div filter-suggest filter-config="occurrence.filters.taxon_id" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>

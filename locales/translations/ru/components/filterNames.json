@@ -42,6 +42,7 @@
     "decimalLatitude": "Широта в десятичных градусах",
     "decimalLongitude": "Долгота в десятичных градусах",
     "publishingOrg": "Организация",
+    "hostingOrganizationKey": "",
     "kingdomKey": "Царство",
     "phylumKey": "Тип / Отдел",
     "classKey": "Класс",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "Относительное обилие вида",
     "collectionKey": "",
     "institutionKey": "Организация",
-    "gadmGid": ""
+    "gadmGid": "",
+    "lifeStage": "",
+    "dwcaExtension": "",
+    "isClustered": ""
   }
 }

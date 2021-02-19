@@ -55,6 +55,7 @@
     "SCIENCE_COMMITTEE_CHAIR": "Председатель Научного комитета",
     "SCIENCE_COMMITTEE_MEMBER": "Член Научного комитета",
     "TEMPORARY_DELEGATE": "Временный делегат",
-    "TEMPORARY_HEAD_OF_DELEGATION": "Временный глава делегации"
+    "TEMPORARY_HEAD_OF_DELEGATION": "Временный глава делегации",
+    "ALTERNATE_HEAD_OF_DELEGATION": ""
   }
 }
