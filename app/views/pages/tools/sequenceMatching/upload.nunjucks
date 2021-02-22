@@ -4,11 +4,12 @@
     <div layout="row" layout-align="center start" ng-cloak>
         <div class="nameParser__prose" >
           <p>This tool will query taxonomy reference databases for Fungi, Animals, Bacteria and Archaea</p>
-          <p>ITS sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a> (a reference database for DNA barcoding of Fungi)</p>
-          <p>COI sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">International Barcode of Life project (iBOL)</a> public data (COI-5P sequences)</p>
-          <p>16S sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database</a> 16S rRNA gene sequences identified within the set of representative genomes</p>
-          <p>Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
-
+          <ul class="sequenceMatcher__list m-b-05">
+          <li><strong>ITS</strong> sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a> (a reference database for DNA barcoding of Fungi)</li>
+          <li><strong>COI</strong> sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">International Barcode of Life project (iBOL)</a> public data (COI-5P sequences)</li>
+          <li><strong>16S</strong> sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database</a> 16S rRNA gene sequences identified within the set of representative genomes</li>
+        </ul>
+        <p>Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
         </div>
     </div>
     <div layout="row" layout-align="center start" layout-padding ng-cloak>
@@ -64,7 +65,7 @@
             <div class="small p-r-1" flex="33">
                 
                         <div>
-                            UNITE Community (2019): UNITE general FASTA release for Fungi 2. Version 18.11.2018. UNITE Community. 
+                            UNITE Community (2019): UNITE general FASTA release for Fungi 2. Version 2020-02-04. UNITE Community. 
                         </div>
                         <doi link="https://doi.org/10.15156/BIO/786353"></doi>
                             
@@ -73,9 +74,9 @@
             <div class="small p-r-1" flex="33">
                 
                         <div>
-                            The International Barcode of Life Consortium (2016). International Barcode of Life project (iBOL). Occurrence dataset accessed via GBIF.org on 2019-09-26.
+                            Nilsson, R.H. et.al. (2019). The UNITE database for molecular identification of fungi: handling dark taxa and parallel taxonomic classifications. Nucleic Acids Research. Volume 47, Issue D1, Pages D259–D264
                         </div>
-                        <doi link="https://doi.org/10.15468/inygc6"></doi>
+                        <doi link="https://doi.org/10.1093/nar/gky1022"></doi>
                             
 
             </div>
@@ -104,12 +105,13 @@
             </div>
 
             
-            <div class="small p-r-1" flex="33">
+             <div class="small p-r-1" flex="33">
                 
                         <div>
-                            Altschul, S., Gish, W., Miller, W., Myers, E., Lipman, D. (1990). Basic local alignment search tool. Journal of Molecular Biology. 215 (3): 403–410.
+                            The International Barcode of Life Consortium (2016). International Barcode of Life project (iBOL). Occurrence dataset accessed via GBIF.org on 2021-02-15.
                         </div>
-                        <doi link="https://doi.org/10.1016/S0022-2836(05)80360-2"></doi>
+                        <doi link="https://doi.org/10.15468/inygc6"></doi>
+                            
 
             </div>
 
@@ -147,9 +149,12 @@
 
             </div>
 
-            <div class="small p-r-1" flex="33">
+             <div class="small p-r-1" flex="33">
                 
-                      
+                        <div>
+                            Altschul, S., Gish, W., Miller, W., Myers, E., Lipman, D. (1990). Basic local alignment search tool. Journal of Molecular Biology. 215 (3): 403–410.
+                        </div>
+                        <doi link="https://doi.org/10.1016/S0022-2836(05)80360-2"></doi>
 
             </div>
 
