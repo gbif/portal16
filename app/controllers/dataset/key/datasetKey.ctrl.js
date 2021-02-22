@@ -91,31 +91,51 @@ async function getData(url, key) {
 
 function getMetaSchema(dataset) {
     let authors = _.filter(dataset.contacts, {type: 'ORIGINATOR'}).map(function(contact) {
+      if (contact.firstName || contact.lastName) {
         let c = {
-            '@type': 'Person',
-            'name': `${contact.firstName} ${contact.lastName}`,
-            'email': contact.email[0],
-            'telephone': contact.phone[0],
-            'jobTitle': contact.position,
-            'identifier': contact.userId[0],
-            'address': {
-                '@type': 'PostalAddress',
-                'streetAddress': contact.address,
-                'addressLocality': contact.city,
-                'postalCode': contact.postalCode,
-                'addressRegion': contact.province,
-                'addressCountry': contact.country
-            }
-        };
+          '@type': 'Person',
+          'name': `${contact.firstName ? contact.firstName + ' ' : ''}${contact.lastName}`,
+          'email': contact.email[0],
+          'telephone': contact.phone[0],
+          'jobTitle': contact.position,
+          'identifier': contact.userId[0],
+          'address': {
+              '@type': 'PostalAddress',
+              'streetAddress': contact.address,
+              'addressLocality': contact.city,
+              'postalCode': contact.postalCode,
+              'addressRegion': contact.province,
+              'addressCountry': contact.country
+          }
+      };
 
-        if (contact.organization) {
-            c.affiliation = {
-                '@type': 'Organization',
-                'name': contact.organization
-            };
-        }
-        return c;
-    });
+      if (contact.organization) {
+          c.affiliation = {
+              '@type': 'Organization',
+              'name': contact.organization
+          };
+      }
+      return c;
+      } else if (contact.organization) {
+        // The contact has neither first nor last name, but it has organization
+        return {
+          '@type': 'Organization',
+          'name': contact.organization,
+          'email': contact.email[0],
+          'telephone': contact.phone[0],
+          'address': {
+              '@type': 'PostalAddress',
+              'streetAddress': contact.address,
+              'addressLocality': contact.city,
+              'postalCode': contact.postalCode,
+              'addressRegion': contact.province,
+              'addressCountry': contact.country
+          }
+      };
+      } else {
+        return undefined;
+      }
+    }).filter((c) => !!c);
 
     let schema = {
         '@context': 'http://schema.org',
@@ -156,5 +176,24 @@ function getMetaSchema(dataset) {
             'telephone': '+45 35 32 14 70'
         }
     };
+    if (dataset.temporalCoverages &&
+      dataset.temporalCoverages.length > 0 &&
+      _.get(dataset, 'temporalCoverages[0].end') &&
+      _.get(dataset, 'temporalCoverages[0].start')
+      ) {
+        schema.temporalCoverage = `${_.get(dataset, 'temporalCoverages[0].start')}/${_.get(dataset, 'temporalCoverages[0].end')}`;
+    }
+
+    if (_.get(dataset, 'geographicCoverages[0].boundingBox')) {
+      const box = _.get(dataset, 'geographicCoverages[0].boundingBox');
+      schema.spatialCoverage = {
+          '@type': 'Place',
+          'geo': {
+              '@type': 'GeoShape',
+              'box': `${box.minLatitude} ${box.maxLatitude} ${box.minLongitude} ${box.maxLongitude}`
+          }
+      };
+    }
+
     return schema;
 }
