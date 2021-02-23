@@ -8,7 +8,8 @@ let express = require('express'),
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
     querystring = require('querystring'),
     request = rootRequire('app/helpers/request'),
-    router = express.Router({caseSensitive: true});
+    router = express.Router({caseSensitive: true}),
+    _ = require('lodash');
 
 module.exports = function(app) {
     app.use('/', router);
@@ -38,7 +39,7 @@ router.get('/species/:key(\\d+)/:ignore', function render(req, res) {
 function renderSpeciesPage(req, res, next) {
     let speciesKey = req.params.key;
     let options = {
-        expand: ['descriptions', 'dataset', 'synonyms', 'combinations', 'media', 'references', 'homonyms', 'vernacular', 'occurrenceImages']
+        expand: ['descriptions', 'dataset', 'synonyms', 'combinations', 'media', 'references', 'homonyms', 'vernacular', 'occurrenceImages', 'parents']
     };
 
     Taxon.get(speciesKey, options).then(function(taxon) {
@@ -49,6 +50,13 @@ function renderSpeciesPage(req, res, next) {
                 imageCacheUrl: imageCacheUrl
             }
         };
+        if (shouldAddSchemaMetaData(taxon.record)) {
+            try {
+                contentItem._meta.schema = getMetaSchema(taxon);
+            } catch (err) {
+                // ignore
+            }
+        }
         helper.renderPage(req, res, next, contentItem, 'pages/species/key/seo');
     }).catch(function(err) {
         if (err.type === 'NOT_FOUND') {
@@ -116,4 +124,86 @@ async function speciesBySourceId(query) {
         throw response;
     }
     return response.body;
+}
+
+function shouldAddSchemaMetaData(taxon) {
+    return taxon.key === taxon.nubKey && ['ACCEPTED', 'DOUBTFUL'].includes(taxon.taxonomicStatus);
+}
+
+function getSchemaTaxonName(taxon) {
+    return {
+        '@type': 'TaxonName',
+        'name': taxon.canonicalName,
+        'author': taxon.authorship,
+        'taxonRank': taxon.rank
+    };
+}
+
+function getMetaSchema(tx) {
+    const taxon = tx.record;
+    let schema = {
+        '@context': [
+            'http://schema.org',
+            {
+                'dwc': 'http://rs.tdwg.org/dwc/terms/',
+                'dwc:vernacularName': {'@container': '@language'}
+            }
+        ],
+        '@type': 'Taxon',
+        'additionalType': ['dwc:Taxon', 'http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept'],
+        'identifier': [
+            {
+                '@type': 'PropertyValue',
+                'name': 'GBIF taxonKey',
+                'propertyID': 'http://www.wikidata.org/prop/direct/P846',
+                'value': taxon.key
+            },
+            {
+                '@type': 'PropertyValue',
+                'name': 'dwc:taxonID',
+                'propertyID': 'http://rs.tdwg.org/dwc/terms/taxonID',
+                'value': taxon.key
+            }
+
+        ],
+        'name': taxon.scientificName,
+        'scientificName': getSchemaTaxonName(taxon),
+
+        'taxonRank': [
+            `http://rs.gbif.org/vocabulary/gbif/rank/${taxon.rank.toLowerCase()}`, taxon.rank.toLowerCase()
+        ]
+    };
+     if (_.get(tx, 'synonyms.results[0]')) {
+        schema.alternateName = tx.synonyms.results.map((s) => s.scientificName);
+        schema.alternateScientificName = tx.synonyms.results.map(getSchemaTaxonName);
+    }
+    if (_.get(tx, 'vernacular.results[0]')) {
+        schema['dwc:vernacularName'] = tx.vernacular.results.map((v) => ({'@language': v.language, '@value': v.vernacularName}));
+    }
+    if (tx.parents && tx.parents.length > 0) {
+        const parent = tx.parents[tx.parents.length - 1];
+        schema.parentTaxon = {
+            '@type': 'Taxon',
+            'name': parent.scientificName,
+            'scientificName': getSchemaTaxonName(parent),
+            'identifier': [
+                {
+                    '@type': 'PropertyValue',
+                    'name': 'GBIF taxonKey',
+                    'propertyID': 'http://www.wikidata.org/prop/direct/P846',
+                    'value': parent.key
+                },
+                {
+                    '@type': 'PropertyValue',
+                    'name': 'dwc:taxonID',
+                    'propertyID': 'http://rs.tdwg.org/dwc/terms/taxonID',
+                    'value': parent.key
+                }
+            ],
+            'taxonRank': [
+                `http://rs.gbif.org/vocabulary/gbif/rank/${parent.rank.toLowerCase()}`, parent.rank.toLowerCase()
+            ]
+        };
+    }
+    return schema;
 }
