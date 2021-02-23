@@ -127,7 +127,7 @@ async function speciesBySourceId(query) {
 }
 
 function shouldAddSchemaMetaData(taxon) {
-    return taxon.key === taxon.nubKey && ['ACCEPTED', 'DOUBTFUL'].includes(taxon.taxonomicStatus);
+    return taxon.datasetKey = backboneKey && ['ACCEPTED', 'DOUBTFUL'].includes(taxon.taxonomicStatus);
 }
 
 function getSchemaTaxonName(taxon) {
