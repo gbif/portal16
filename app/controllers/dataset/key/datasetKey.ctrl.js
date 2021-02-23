@@ -156,6 +156,7 @@ function getMetaSchema(dataset) {
         'url': 'https://www.gbif.org/dataset/' + dataset.key,
         'name': dataset.title,
         'author': authors,
+        'creator': authors,
         'description': dataset.description,
         'license': dataset.license,
         'inLanguage': dataset.dataLanguage,
