@@ -131,12 +131,19 @@ function shouldAddSchemaMetaData(taxon) {
 }
 
 function getSchemaTaxonName(taxon) {
-    return {
+    let name = {
         '@type': 'TaxonName',
         'name': taxon.canonicalName,
         'author': taxon.authorship,
         'taxonRank': taxon.rank
     };
+    if (taxon.publishedIn) {
+        name.isBasedOn = {
+            '@type': 'ScholarlyArticle',
+            'name': taxon.publishedIn
+        };
+    }
+    return name;
 }
 
 function getMetaSchema(tx) {
