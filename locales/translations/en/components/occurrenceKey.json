@@ -57,7 +57,10 @@
       "noPlaybackSupport": "Your browser does not support the format required to play this media.",
       "takeMeThere": "Try version at publisher's site",
       "notWorkingTryPublishers": "Media playback not working as expected?",
-      "download": "Download media"
+      "download": "Download media",
+      "byRightsHolder": "",
+      "licensedUnder": "",
+      "suggestedCitation": ""
     },
     "title": {
       "inCountry": {
