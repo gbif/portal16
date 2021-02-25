@@ -82,6 +82,14 @@
                                                 </div>
                                             {% endif %}
                                         {% endfor %}
+                                        {% if media.license | isValidMediaLicense %}
+                                            <div>
+                                                <dt translate="occurrence.media.suggestedCitation">Suggested citation</dt>
+                                                <dd dir="auto">
+                                                    {% include('./citation.nunjucks') %}
+                                                </dd>
+                                            </div>
+                                        {% endif %}
                                     </dl>
                                 </figcaption>
                             </figure>
