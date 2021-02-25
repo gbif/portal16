@@ -58,9 +58,9 @@
       "takeMeThere": "Try version at publisher's site",
       "notWorkingTryPublishers": "Media playback not working as expected?",
       "download": "Download media",
-      "byRightsHolder": "",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "byRightsHolder": "by {RIGHTSHOLDER}",
+      "licensedUnder": "licensed under {{LICENSE}}",
+      "suggestedCitation": "Suggested attribution"
     },
     "title": {
       "inCountry": {
