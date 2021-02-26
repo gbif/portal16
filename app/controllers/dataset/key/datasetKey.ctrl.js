@@ -138,7 +138,7 @@ function getMetaSchema(dataset) {
     }).filter((c) => !!c);
 
     let schema = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org/',
         '@type': 'Dataset',
         '@id': 'https://doi.org/' + dataset.doi,
         'identifier': [

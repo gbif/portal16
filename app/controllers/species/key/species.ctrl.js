@@ -150,7 +150,7 @@ function getMetaSchema(tx) {
     const taxon = tx.record;
     let schema = {
         '@context': [
-            'http://schema.org',
+            'https://schema.org/',
             {
                 'dwc': 'http://rs.tdwg.org/dwc/terms/',
                 'dwc:vernacularName': {'@container': '@language'}
