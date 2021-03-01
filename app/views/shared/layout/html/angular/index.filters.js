@@ -318,5 +318,10 @@
             return function(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
             };
+        })
+        .filter('deCapitalizeFirstLetter', function() {
+            return function(string) {
+                return string.charAt(0).toLowerCase() + string.slice(1);
+            };
         });
 })();
