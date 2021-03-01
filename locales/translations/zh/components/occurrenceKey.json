@@ -57,7 +57,10 @@
       "noPlaybackSupport": "您的浏览器不支持播放此媒体所需的格式。",
       "takeMeThere": "尝试发布者网站的版本",
       "notWorkingTryPublishers": "",
-      "download": "下载媒体档案"
+      "download": "下载媒体档案",
+      "byRightsHolder": "",
+      "licensedUnder": "",
+      "suggestedCitation": ""
     },
     "title": {
       "inCountry": {

@@ -57,7 +57,10 @@
       "noPlaybackSupport": "お使いのブラウザではこのメディアを再生するために必要なフォーマットをサポートしていません。",
       "takeMeThere": "出版者のサイトのバージョンを見てみる",
       "notWorkingTryPublishers": "",
-      "download": "メディアをダウンロードする"
+      "download": "メディアをダウンロードする",
+      "byRightsHolder": "",
+      "licensedUnder": "",
+      "suggestedCitation": ""
     },
     "title": {
       "inCountry": {
