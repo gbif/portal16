@@ -59,7 +59,7 @@
       "notWorkingTryPublishers": "",
       "download": "Descargar media",
       "byRightsHolder": "por {RIGHTSHOLDER}",
-      "licensedUnder": "bajo licencia {{LICENSE}}",
+      "licensedUnder": "bajo una licencia {{LICENSE}}",
       "suggestedCitation": "Atribución sugerida"
     },
     "title": {
