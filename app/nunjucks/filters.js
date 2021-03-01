@@ -410,4 +410,19 @@ module.exports = function(nunjucksConfiguration) {
             }
         });
     })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('isValidMediaLicense', function(license) {
+            if (!license) {
+                return false;
+            }
+            if (license.toLowerCase().indexOf('creativecommons') > -1 || license.toLowerCase().indexOf('creative commons') > -1 ) {
+                return true;
+            }
+            if (license.toLowerCase().startsWith('cc-') || license.toLowerCase().startsWith('cc_')) {
+                return true;
+            }
+            return false;
+        });
+    })();
 };

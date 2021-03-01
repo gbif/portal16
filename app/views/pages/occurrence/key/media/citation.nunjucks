@@ -1,0 +1,23 @@
+{% import "../../../../components/common.macros.nunjucks" as commonMacros %}
+
+{% if media.title %}
+    "{$ media.title $}" - 
+    {% endif %}
+<a ui-sref="occurrenceKey({ speciesKey:{$ occurrence.record.key $} })">
+     <span scientific-name key="{$ occurrence.record.taxonKey $}">{$ commonMacros.parsedTaxonName(occurrence.taxonName) $}</span>
+     </a>
+      {% if occurrence.record.countryCode | isNotEmpty %}
+        <span>
+       {{ 'occurrence.title.inCountry.{$ occurrence.record.basisOfRecord $}' | translate:{COUNTRY: '{$ __('country.' + occurrence.record.countryCode) $}' } | deCapitalizeFirstLetter }}
+        </span>
+    {% endif %}
+    {% if media.rightsHolder%}
+        <span translate="occurrence.media.byRightsHolder" translate-values="{RIGHTSHOLDER: '{$ media.rightsHolder $}' }">by {$ media.rightsHolder $}</span>
+    {% endif %}
+    ({$ __('occurrence.media.licensedUnder', { LICENSE: media.license }) | linkify | safe $})
+
+
+
+
+
+                                                    

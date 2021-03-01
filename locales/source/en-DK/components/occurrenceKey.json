@@ -57,7 +57,10 @@
       "noPlaybackSupport": "Your browser does not support playing the published format.",
       "takeMeThere": "Take me there",
       "notWorkingTryPublishers": "Not working as expected? Try the publisher's version.",
-      "download": "Download"
+      "download": "Download",
+      "byRightsHolder": "by {RIGHTSHOLDER}",
+      "licensedUnder": "licensed under {{LICENSE}}",
+      "suggestedCitation": "Suggested citation"
     },
     "title": {
       "inCountry": {

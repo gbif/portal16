@@ -55,7 +55,7 @@ let path = require('path'),
 let config = {
     local: {
         env: 'dev',
-        healthEnv: 'prod',
+        healthEnv: 'uat',
         root: rootPath,
         app: {
             name: 'portal - local'
@@ -63,12 +63,12 @@ let config = {
         port: port || 3000,
         serverProtocol: 'http:',
         apidocs: apidocs,
-        managementToolsSite: '//registry.gbif.org/',
+        managementToolsSite: '//registry.gbif-uat.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
-        dataApi: dataApi || '//api.gbif.org/v1/',
-        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
+        dataApi: dataApi || '//api.gbif-uat.org/v1/',
+        tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',
         basemapTileApi: basemapTileApi || '//tile.gbif.org',
-        identityApi: identityApi || '//api.gbif.org/v1/',
+        identityApi: identityApi || '//api.gbif-uat.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         // domain: 'http://www.gbif.org:7000',
         domain: 'http://localhost:3000',

@@ -143,8 +143,7 @@ async function getParsedName(speciesKey) {
 
     if (name.type == 'OTU' ) {
         let species = await getSpecies(speciesKey);
-
-        if (species.taxonomicStatus === 'SYNONYM') {
+        if (species.taxonomicStatus === 'SYNONYM' || species.rank !== 'UNRANKED') {
             return name.scientificName;
         } else {
                 let parent = await getSpecies(species.parentKey);
