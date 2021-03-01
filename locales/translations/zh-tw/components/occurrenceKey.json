@@ -57,7 +57,10 @@
       "noPlaybackSupport": "您的瀏覽器不支援播放此媒體格式。",
       "takeMeThere": "連到原始網站",
       "notWorkingTryPublishers": "播放問題？",
-      "download": "下載媒體檔案"
+      "download": "下載媒體檔案",
+      "byRightsHolder": "",
+      "licensedUnder": "",
+      "suggestedCitation": ""
     },
     "title": {
       "inCountry": {
