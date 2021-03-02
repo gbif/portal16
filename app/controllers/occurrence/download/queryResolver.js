@@ -36,6 +36,10 @@ let queryResolver = {
         type: 'ENUM',
         valueTranslation: 'basisOfRecord.'
     },
+    iucnRedListCategory: {
+      type: 'ENUM',
+      valueTranslation: 'iucnRedListCategory.'
+  },
     country: {
         type: 'ENUM',
         valueTranslation: 'country.'
