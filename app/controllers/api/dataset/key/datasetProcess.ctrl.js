@@ -32,7 +32,7 @@ router.get('/dataset/:key/crawling', function(req, res, next) {
         next();
         return;
     } else {
-        res.setHeader('Cache-Control', 'public, max-age=1'); // 1 seconds
+        res.setHeader('Cache-Control', 'public, max-age=5'); // 5 seconds
         processModel.crawlStatus(datasetKey)
             .then(function(currentCrawl) {
                 if (currentCrawl) {
