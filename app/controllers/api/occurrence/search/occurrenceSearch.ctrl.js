@@ -117,6 +117,10 @@ const expandConfig = {
         type: 'ENUM',
         translationPath: 'basisOfRecord.'
     },
+    IUCN_RED_LIST_CATEGORY: {
+      type: 'ENUM',
+      translationPath: 'iucnRedListCategory.'
+  },
     KINGDOM_KEY: {
         type: 'KEY',
         endpoint: apiConfig.taxon.url,
