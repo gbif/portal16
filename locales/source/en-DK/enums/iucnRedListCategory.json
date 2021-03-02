@@ -1,0 +1,12 @@
+{
+  "iucnRedListCategory": {
+    "LEAST_CONCERN": "Least concern",
+    "VULNERABLE": "Vulnerable",
+    "NEAR_THREATENED": "Near threatened",
+    "DATA_DEFICIENT": "Data deficient",
+    "ENDANGERED": "Endangered",
+    "CRITICALLY_ENDANGERED": "Critically endangered",
+    "EXTINCT": "Extinct",
+    "EXTINCT_IN_THE_WILD": "Extinct in the wild"
+  }
+}

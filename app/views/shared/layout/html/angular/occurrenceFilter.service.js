@@ -53,6 +53,7 @@ angular
         var exhaustiveFacetsKeys = [
             'establishment_means',
             'basis_of_record',
+            'iucnRedListCategory',
             'month',
             'type_status',
             'issue',
@@ -75,6 +76,7 @@ angular
             'dataset_key',
             'institution_code',
             'basis_of_record',
+            'iucnRedListCategory',
             'country',
             'continent',
             'month',

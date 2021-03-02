@@ -557,6 +557,20 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     }
   };
 
+  vm.filters.iucnRedListCategory = {
+    titleTranslation: 'filterNames.iucnRedListCategory',
+    queryKey: 'iucn_red_list_category',
+    filter: OccurrenceFilter,
+    enumTranslationPath: 'iucnRedListCategory.',
+    showAll: true,
+    enums: enums.iucnRedListCategory,
+    reversible: true,
+    facets: {
+      hasFacets: true,
+      facetKey: 'IUCN_RED_LIST_CATEGORY'
+    }
+  };
+
   vm.filters.protocol = {
     titleTranslation: 'filterNames.protocol',
     queryKey: 'protocol',

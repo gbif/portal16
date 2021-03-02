@@ -40,6 +40,7 @@ function builder(locale, folder, keepEmptyStrings) {
         getFile(locale, `./${folder}/${locale}/enums/integerEnums`),
         getFile(locale, `./${folder}/${locale}/enums/issueEnum`),
         getFile(locale, `./${folder}/${locale}/enums/issueHelp`),
+        getFile(locale, `./${folder}/${locale}/enums/iucnRedListCategory`),
         getFile(locale, `./${folder}/${locale}/enums/threatStatus`),
         getFile(locale, `./${folder}/${locale}/enums/language`),
         getFile(locale, `./${folder}/${locale}/enums/license`),

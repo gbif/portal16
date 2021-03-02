@@ -17,6 +17,7 @@ module.exports = {
     'downloadFormats': require('./basic/downloadFormats.json'),
     'speciesOrigin': require('./basic/speciesOrigin.json'),
     'kingdomKey': require('./basic/kingdomKey.json'),
+    'iucnRedListCategory': require('./basic/iucnRedListCategory.json'),
     'cms': {
         'topics': require('./cms/topics.json'),
         'purposes': require('./cms/purpose.json'),
