@@ -123,8 +123,8 @@ const expandConfig = {
         fromKey: 'scientificName'
     },
     VERBATIM_RECORD: {
-    type: 'TEMPLATE',
-    templatedEndpoint: apiConfig.occurrence.url + '{{key}}/verbatim',
-    fromKey: 'key'
+        type: 'TEMPLATE',
+        templatedEndpoint: apiConfig.occurrence.url + '{{key}}/verbatim',
+        fromKey: 'key'
     }
 };
