@@ -36,6 +36,7 @@
                 {{ speciesLookup.itemToEdit.match.scientificName }}
                 <span class="small discreet"
                       translate="taxonRank.{{ speciesLookup.itemToEdit.match.rank }}">{{ speciesLookup.itemToEdit.match.rank }}</span>
+                <span class="small discreet">(<span translate="taxonomicStatus.{{ speciesLookup.itemToEdit.match.status }}">{{ speciesLookup.itemToEdit.match.status }}</span>)</span>
                 <div class="small discreet classification-list">
 			        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                           ng-if="speciesLookup.itemToEdit.match[taxa] && taxa != speciesLookup.itemToEdit.match.rank.toLowerCase()">
@@ -49,6 +50,7 @@
                 {{ alternative.scientificName }}
                 <span class="small discreet"
                       translate="taxonRank.{{ alternative.rank }}">{{ alternative.rank }}</span>
+                <span class="small discreet">(<span translate="taxonomicStatus.{{ alternative.status }}">{{ alternative.status }}</span>)</span>
                 <div class="small discreet classification-list">
 			        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                           ng-if="alternative[taxa] && taxa != alternative.rank.toLowerCase()">
