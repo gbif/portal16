@@ -58,8 +58,8 @@
       "takeMeThere": "جرب الاصدار في موقع الناشر",
       "notWorkingTryPublishers": "",
       "download": "قم بتنزيل الوسائط",
-      "byRightsHolder": "",
-      "licensedUnder": "",
+      "byRightsHolder": "بواسطة {RIGHTSHOLDER}",
+      "licensedUnder": "مرخص تحت{{LICENSE}}",
       "suggestedCitation": ""
     },
     "title": {
