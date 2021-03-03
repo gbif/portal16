@@ -59,7 +59,7 @@
       "notWorkingTryPublishers": "",
       "download": "قم بتنزيل الوسائط",
       "byRightsHolder": "بواسطة {RIGHTSHOLDER}",
-      "licensedUnder": "مرخص تحت{{LICENSE}}",
+      "licensedUnder": "مُرخص تحت {{LICENSE}}",
       "suggestedCitation": "اسناد مقترح"
     },
     "title": {

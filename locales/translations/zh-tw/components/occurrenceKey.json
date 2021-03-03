@@ -58,9 +58,9 @@
       "takeMeThere": "連到原始網站",
       "notWorkingTryPublishers": "播放問題？",
       "download": "下載媒體檔案",
-      "byRightsHolder": "",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "byRightsHolder": "權利人：{RIGHTSHOLDER}",
+      "licensedUnder": "使用{{LICENSE}}授權",
+      "suggestedCitation": "引用建議"
     },
     "title": {
       "inCountry": {
