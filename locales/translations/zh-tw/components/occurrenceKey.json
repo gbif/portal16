@@ -59,8 +59,8 @@
       "notWorkingTryPublishers": "播放問題？",
       "download": "下載媒體檔案",
       "byRightsHolder": "權利人：{RIGHTSHOLDER}",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "licensedUnder": "使用{{LICENSE}}授權",
+      "suggestedCitation": "引用建議"
     },
     "title": {
       "inCountry": {
