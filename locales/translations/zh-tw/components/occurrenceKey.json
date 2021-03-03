@@ -58,7 +58,7 @@
       "takeMeThere": "連到原始網站",
       "notWorkingTryPublishers": "播放問題？",
       "download": "下載媒體檔案",
-      "byRightsHolder": "",
+      "byRightsHolder": "權利人：{RIGHTSHOLDER}",
       "licensedUnder": "",
       "suggestedCitation": ""
     },
