@@ -400,6 +400,8 @@
                             {$ trowCol(url="/{UUID}/occurrenceMapping", method="GET", resp="Occurrence Mapping List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/occurrenceMapping", description="Lists all occurrence mappings for a collection") $}
                             {$ trowCol(url="/{UUID}/occurrenceMapping", method="POST", resp="ID", auth=true, description="Create and add an occurrence mapping") $}
                             {$ trowCol(url="/{UUID}/occurrenceMapping/{ID}", method="DELETE", auth=true, description="Deletes the collection occurrence mapping with identifier {ID}") $}
+                            {$ trowCol(url="/possibleDuplicates", resp="Collections Possible Duplicates List", respLink=apiBase+"grscicoll/collection/possibleDuplicates?sameCity=true&sameName=true&inCountries=FI", params=["sameName","sameFuzzyName","sameCode","sameCountry","sameCity","sameInstitution","inCountries","notInCountries","excludeKeys","inInstitutions","notInInstitutions"], description="Lists possible duplicates") $}
+                            {$ trowCol(url="/{UUID}/merge", method="POST", auth=true, description="Merges a collection with another collection. This is only used by the registry management tools and not intended for external use") $}
                             </tbody>
                         </table>
                     </section>
@@ -438,6 +440,9 @@
                             {$ trowInst(url="/{UUID}/occurrenceMapping", method="GET", resp="Occurrence Mapping List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/occurrenceMapping", description="Lists all occurrence mappings for an institution") $}
                             {$ trowInst(url="/{UUID}/occurrenceMapping", method="POST", resp="ID", auth=true, description="Create and add an institution occurrence mapping") $}
                             {$ trowInst(url="/{UUID}/occurrenceMapping/{ID}", method="DELETE", auth=true, description="Deletes the institution occurrence mapping with identifier {ID}") $}
+                            {$ trowInst(url="/possibleDuplicates", resp="Institutions Possible Duplicates List", respLink=apiBase+"grscicoll/institution/possibleDuplicates?sameCity=true&sameName=true&inCountries=FI", params=["sameName","sameFuzzyName","sameCode","sameCountry","sameCity","inCountries","notInCountries","excludeKeys"], description="Lists possible duplicates") $}
+                            {$ trowInst(url="/{UUID}/merge", method="POST", auth=true, description="Merges an institution with another institution. This is only used by the registry management tools and not intended for external use") $}
+                            {$ trowInst(url="/{UUID}/convertToCollection", method="POST", auth=true, description="Converts an institution into a collection. This is only used by the registry management tools and not intended for external use") $}
                             </tbody>
                         </table>
                     </section>
@@ -598,7 +603,7 @@
             "publishingOrg": "Filters datasets by their publishing organization UUID key",
             "hostingOrg": "Filters datasets by their hosting organization UUID key",
             "decade": "Filters datasets by their temporal coverage broken down to decades. Decades are given as a full year, e.g. 1880, 1960, 2000, etc, and will return datasets wholly contained in the decade as well as those that cover the entire decade or more. Facet by decade to get the break down, e.g. <a href='"+apiBase+"dataset/search?facet=DECADE&amp;limit=0'>/search?facet=DECADE&amp;limit=0</a>",
-            "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2 letter) country code",
+            "publishingCountry": "Filters datasets by their owning organization's country given as a ISO 639-1 (2 letter) country code",
             "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
             "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them.",
             "contact": "Filters collections and institutions whose contacts contain the person key specified.",
@@ -608,7 +613,18 @@
             "code":"Code of a GrSciColl institution or collection.",
             "name":"Name of a GrSciColl institution or collection",
             "alternativeCode":"Alternative code of a GrSciColl institution or collection",
-            "highlight":"Highlights the matching fields in a search"
+            "highlight":"Highlights the matching fields in a search",
+            "sameName":"Looks for collections/institutions with the same name if true or with different name if false. Ignored if not sent.",
+            "sameFuzzyName":"Looks for collections/institutions with the same fuzzy name if true or with different fuzzy name if false. Ignored if not sent.",
+            "sameCode":"Looks for collections/institutions with the same code if true or with different code if false. Ignored if not sent.",
+            "sameCountry":"Looks for collections/institutions with the same country if true or with different country if false. Ignored if not sent.",
+            "sameCity":"Looks for collections/institutions with the same city if true or with different city if false. Ignored if not sent.",
+            "sameInstitution":"Looks for collections with the same institution if true or with different institution if false. Ignored if not sent.",
+            "inCountries":"Filters duplicates to return only the ones that contain one of the countries specified. For multiple values separate them by commas(inCountries=FI,DE) or send it multiple times(inCountries=FI&inCountries=DE)",
+            "notInCountries":"Discards duplicates from any of the countries specified. For multiple values separate them by commas(notInCountries=FI,DE) or send it multiple times(notInCountries=FI&notInCountries=DE)",
+            "excludeKeys":"Discards entities with any of the keys specified. For multiple values separate them by commas(excludeKeys=7e730f02-2129-45b0-a76e-7e5ff43fda3f,0403ac88-682b-44d8-91bb-6d76f155e519) or send it multiple times(excludeKeys=7e730f02-2129-45b0-a76e-7e5ff43fda3f&excludeKeys=0403ac88-682b-44d8-91bb-6d76f155e519)",
+            "inInstitutions":"Filters duplicates to return only the ones that belong to any of the institutions specified. For multiple values separate them by commas(inInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f,0403ac88-682b-44d8-91bb-6d76f155e519) or send it multiple times(inInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f&inInstitutions=0403ac88-682b-44d8-91bb-6d76f155e519)",
+            "notInInstitutions":"Filters duplicates to return only the ones that don't belong to any of the institutions specified. For multiple values separate them by commas(notInInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f,0403ac88-682b-44d8-91bb-6d76f155e519) or send it multiple times(notInInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f&notInInstitutions=0403ac88-682b-44d8-91bb-6d76f155e519)"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
