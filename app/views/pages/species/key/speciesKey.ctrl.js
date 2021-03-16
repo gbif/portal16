@@ -187,7 +187,7 @@ function speciesKey2Ctrl(
                 .then(function(sourceTx) {
                     vm.sourceTaxonExists = true;
                     vm.sourceTaxonDataset = Dataset.get({
-                        id: vm.sourceTaxon.datasetKey
+                        id: ( vm.sourceTaxon.constituentKey || vm.sourceTaxon.datasetKey)
                     });
                     if (sourceTx.references) {
                         vm.sourceTaxonLink = sourceTx.references;
