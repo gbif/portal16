@@ -11,7 +11,6 @@ require('./directives/treatment.directive.js');
 require('./directives/wikidataIdentifiers.directive.js');
 require('./directives/distributions.directive.js');
 
-
 // require('./directives/typeSpecimen.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
@@ -78,22 +77,24 @@ function speciesKey2Ctrl(
         id: vm.key,
         media_type: 'stillImage',
         limit: 50
-    }).$promise.then(function(data) {
-        if (data.results) {
-            data.results = data.results .filter(function(img) {
-                return img.identifier.indexOf('zenodo.org') === -1;
+    })
+        .$promise.then(function (data) {
+            if (data.results) {
+                data.results = data.results.filter(function (img) {
+                    return img.identifier.indexOf('zenodo.org') === -1;
                 });
-        }
-        vm.speciesImages = data;
-    }).catch(vm.nonCriticalErrorHandler);
+            }
+            vm.speciesImages = data;
+        })
+        .catch(vm.nonCriticalErrorHandler);
 
-    vm.images.$promise.then(function(resp) {
+    vm.images.$promise.then(function (resp) {
         utils.attachImages(resp.results);
     });
 
     vm.isNub = false;
 
-    vm.species.$promise.then(function(resp) {
+    vm.species.$promise.then(function (resp) {
         vm.criticalErrorHandler();
         Page.setTitle(vm.species.scientificName);
         vm.isSpeciesOrBelow = !!resp.speciesKey;
@@ -110,7 +111,7 @@ function speciesKey2Ctrl(
         vm.isNub = vm.species.datasetKey === vm.backboneKey;
         if (!vm.isNub) {
             vm.verbatim = SpeciesVerbatim.get({id: vm.key});
-            vm.verbatim.$promise.then(function() {
+            vm.verbatim.$promise.then(function () {
                 vm.verbatimHasExtensions =
                     Object.keys(vm.verbatim.extensions).length > 0;
                 if (
@@ -126,10 +127,10 @@ function speciesKey2Ctrl(
             });
             // Treatments
             vm.speciesTreatment = SpeciesTreatment.get({id: vm.key});
-            vm.speciesTreatment.$promise.then(function() {
+            vm.speciesTreatment.$promise.then(function () {
                 vm.hasTreatment = true;
             });
-            vm.speciesTreatment.$promise.catch(function() {
+            vm.speciesTreatment.$promise.catch(function () {
                 vm.hasTreatment = false;
             });
             vm.verbatim.$promise.catch(vm.nonCriticalErrorHandler);
@@ -137,7 +138,7 @@ function speciesKey2Ctrl(
             vm.dwcextensions = DwcExtension.get();
             vm.dwcextensions.$promise.catch(vm.nonCriticalErrorHandler);
 
-            angular.element(document).ready(function() {
+            angular.element(document).ready(function () {
                 vm.lightbox = new Lightbox();
                 vm.lightbox.load();
             });
@@ -148,10 +149,10 @@ function speciesKey2Ctrl(
                 vm.invadedListLength = 3;
                 $http
                     .get('/api/species/' + vm.key + '/invadedCountries')
-                    .then(function(response) {
+                    .then(function (response) {
                         vm.invadedCountries = response.data;
                     })
-                    .catch(function(response) {
+                    .catch(function (response) {
                         // ignore error
                     });
             }
@@ -171,9 +172,9 @@ function speciesKey2Ctrl(
     vm.occurrenceQuery = {taxon_key: vm.key};
     vm.descriptions = SpeciesDescriptions.get({id: vm.key, limit: 100});
     vm.combinations = SpeciesCombinations.query({id: vm.key});
-  //  vm.distributions = SpeciesDistributions.query({id: vm.key, limit: 200});
+    //  vm.distributions = SpeciesDistributions.query({id: vm.key, limit: 200});
 
-    vm.species.$promise.then(function(resp) {
+    vm.species.$promise.then(function (resp) {
         if (!resp.synonym) {
             vm.synonyms = TaxonomySynonyms.query({
                 datasetKey: resp.datasetKey,
@@ -184,17 +185,19 @@ function speciesKey2Ctrl(
         if (vm.species.sourceTaxonKey) {
             vm.sourceTaxon = Species.get({id: vm.species.sourceTaxonKey});
             vm.sourceTaxon.$promise
-                .then(function(sourceTx) {
+                .then(function (sourceTx) {
                     vm.sourceTaxonExists = true;
                     vm.sourceTaxonDataset = Dataset.get({
-                        id: ( vm.sourceTaxon.constituentKey || vm.sourceTaxon.datasetKey)
+                        id:
+                            vm.sourceTaxon.constituentKey ||
+                            vm.sourceTaxon.datasetKey
                     });
                     if (sourceTx.references) {
                         vm.sourceTaxonLink = sourceTx.references;
                     } else if (vm.species.nameType === 'OTU') {
                         SpeciesVerbatim.get({
                             id: vm.species.sourceTaxonKey
-                        }).$promise.then(function(sourceTaxonVerbatim) {
+                        }).$promise.then(function (sourceTaxonVerbatim) {
                             var references =
                                 sourceTaxonVerbatim[
                                     'http://purl.org/dc/terms/references'
@@ -207,9 +210,13 @@ function speciesKey2Ctrl(
                         });
                     }
                 })
-                .catch(function() {
+                .catch(function () {
                     vm.sourceTaxonExists = false;
                 });
+        } else if (vm.species.constituentKey) {
+            vm.sourceTaxonDataset = Dataset.get({
+                id: vm.species.constituentKey
+            });
         }
     });
     // Disable Open Tree Of Life
@@ -231,7 +238,7 @@ function speciesKey2Ctrl(
         });
     }
 
-    vm.getSuggestions = function(val) {
+    vm.getSuggestions = function (val) {
         return $http
             .get(suggestEndpoints.taxon, {
                 params: {
@@ -240,12 +247,12 @@ function speciesKey2Ctrl(
                     limit: 10
                 }
             })
-            .then(function(response) {
+            .then(function (response) {
                 return response.data;
             });
     };
 
-    vm.typeaheadSelect = function(item) {
+    vm.typeaheadSelect = function (item) {
         //  model, label, event
         $state.go(
             $state.current,
@@ -255,11 +262,11 @@ function speciesKey2Ctrl(
     };
 
     vm.hasCriticalError;
-    vm.criticalErrorHandler = function() {
+    vm.criticalErrorHandler = function () {
         vm.hasCriticalError = true;
     };
     vm.hasNonCriticalError;
-    vm.nonCriticalErrorHandler = function(err) {
+    vm.nonCriticalErrorHandler = function (err) {
         if (err.status >= 500) {
             vm.hasNonCriticalError = true;
         }
@@ -270,11 +277,11 @@ function speciesKey2Ctrl(
     vm.capabilities.$promise.catch(vm.criticalErrorHandler);
 
     vm.vernacularName.$promise.catch(vm.nonCriticalErrorHandler);
-   // vm.speciesImages.$promise.catch(vm.nonCriticalErrorHandler);
+    // vm.speciesImages.$promise.catch(vm.nonCriticalErrorHandler);
     vm.images.$promise.catch(vm.nonCriticalErrorHandler);
     vm.descriptions.$promise.catch(vm.nonCriticalErrorHandler);
     vm.combinations.$promise.catch(vm.nonCriticalErrorHandler);
-   // vm.distributions.$promise.catch(vm.nonCriticalErrorHandler);
+    // vm.distributions.$promise.catch(vm.nonCriticalErrorHandler);
     // vm.cites.$promise.catch(vm.nonCriticalErrorHandler); //broken cites isn't worth mentioning
     // vm.sourceTaxon.$promise.catch(vm.nonCriticalErrorHandler); //this is often failing when the ref taxon has been deleted
 }
