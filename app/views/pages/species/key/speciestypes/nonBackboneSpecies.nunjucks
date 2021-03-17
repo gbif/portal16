@@ -51,7 +51,7 @@
                 <div class="card">
                     <div class="card__content">
                         <div class="m-b-1 m-t-1"   ng-if="speciesKey2.isNub || (speciesKey2.verbatim && speciesKey2.verbatim.$resolved && !speciesKey2.species.bibliographicCitation)">
-                           <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> in <span ng-bind-html="speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'"></span>
+                           <span scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}"></span> in <span ng-bind-html="( speciesKey2.sourceTaxonDataset ? speciesKey2.sourceTaxonDataset.citation.text : speciesKey2.dataset.citation.text) | parseUrlFilter:'_blank': 'source'"></span>
                         </div>
                         <div class="m-b-1 m-t-1" ng-bind-html="speciesKey2.species.bibliographicCitation | parseUrlFilter:'_blank': 'source'"  ng-if="!speciesKey2.isNub && (speciesKey2.verbatim && speciesKey2.verbatim.$resolved && speciesKey2.species.bibliographicCitation)">
                         </div>
