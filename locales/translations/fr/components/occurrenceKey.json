@@ -58,9 +58,9 @@
       "takeMeThere": "Essayez la version sur le site de l'éditeur",
       "notWorkingTryPublishers": "",
       "download": "Télécharger le média",
-      "byRightsHolder": "",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "byRightsHolder": "par {RIGHTSHOLDER}",
+      "licensedUnder": "sous licence {{LICENSE}}",
+      "suggestedCitation": "Suggestion de citation"
     },
     "title": {
       "inCountry": {

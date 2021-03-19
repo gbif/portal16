@@ -2,8 +2,8 @@
     <li ng-repeat="item in item.children">
         <div class="pipe"></div>
         <div class="title">
-            <a dir="auto" ng-if="item._resolved.rank !== 'SPECIES'" ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item._resolved.canonicalName}}</a>
-            <span dir="auto" ng-if="item._resolved.rank === 'SPECIES'">{{item._resolved.canonicalName}}</span>
+            <a dir="auto" ng-if="item._resolved.rank !== 'SPECIES'" ng-click="vm.toggleTaxa(item)" href="" class="inherit noUnderline">{{item._resolved.canonicalName || item._resolved.scientificName}}</a>
+            <span dir="auto" ng-if="item._resolved.rank === 'SPECIES'">{{item._resolved.canonicalName || item._resolved.scientificName}}</span>
             <a dir="auto" href="" ng-click="vm.search(item._resolved.key)" class="discreet--very occurrenceTaxonomyTree__filter inherit noUnderline">{{item.count | localNumber }}</a>
         </div>
         <div ng-include="'/templates/components/occurrenceTaxonomyTree/partialExplorerTree.html'"></div>
