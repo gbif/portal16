@@ -1,6 +1,17 @@
 {# Root HTML template for all pages #}
 <!DOCTYPE html>
 
+<!--
+All GBIF mediated data is freely available through our APIs. 
+https://www.gbif.org/developer/summary
+
+All GBIF source code is open source.
+https://github.com/gbif
+
+If your interest is the rendered HTML, then you might be developing a plugin. Let us know if you need custom markup, we would love to know what you are building.
+helpdesk@gbif.org
+-->
+
 <!--[if !IE]> -->
 <html lang="{$ gb.locales.current $}" class="not_ie" ng-app="portal" {% if gb.locales.rtl %} dir="rtl" {% endif %} >
 <!-- <![endif]-->
