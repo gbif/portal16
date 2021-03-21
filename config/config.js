@@ -65,7 +65,7 @@ let config = {
         apidocs: apidocs,
         managementToolsSite: '//registry.gbif-uat.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
-        dataApi: dataApi || '//api.gbif-uat.org/v1/',
+        dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',
         basemapTileApi: basemapTileApi || '//tile.gbif.org',
         identityApi: identityApi || '//api.gbif-uat.org/v1/',
@@ -94,7 +94,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org', // 'http://localhost:9000',
+        blastApi: 'http://localhost:9000', // 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: 240000
     },
