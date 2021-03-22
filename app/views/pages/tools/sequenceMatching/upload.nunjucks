@@ -5,9 +5,9 @@
         <div class="nameParser__prose" >
           <p>This tool will query taxonomy reference databases for Fungi, Animals, Bacteria and Archaea</p>
           <ul class="sequenceMatcher__list m-b-05">
-          <li><strong>ITS</strong> sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release</a> (a reference database for DNA barcoding of Fungi)</li>
-          <li><strong>COI</strong> sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">International Barcode of Life project (iBOL)</a> public data (COI-5P sequences)</li>
-          <li><strong>16S</strong> sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database</a> 16S rRNA gene sequences identified within the set of representative genomes</li>
+          <li><strong>ITS</strong> sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release v8.2</a> (a reference database for DNA barcoding of Fungi)</li>
+          <li><strong>COI</strong> sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">International Barcode of Life project v2021-02-08</a> public data (COI-5P sequences)</li>
+          <li><strong>16S</strong> sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database r95</a> 16S rRNA gene sequences identified within the set of representative genomes</li>
         </ul>
         <p>Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
         </div>
