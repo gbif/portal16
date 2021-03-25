@@ -17,7 +17,11 @@
                                         <thead>
                                         <tr>
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                <th dir="auto">{$ term | prettifyEnum $}</th>
+                                                {% if term.indexOf('/MIXS:') > -1 %}
+                                                    <th translate="mixs.{$ term.substr(term.lastIndexOf('/') + 1) $}" dir="auto"> {$ term.substr(term.lastIndexOf('/') + 1) $} </th>
+                                                {% else %}
+                                                    <th dir="auto">{$ term | prettifyEnum $}</th>
+                                                {% endif %}
                                             {% endfor %}
                                         </tr>
                                         </thead>
