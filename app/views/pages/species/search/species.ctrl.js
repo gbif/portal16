@@ -6,7 +6,7 @@ angular
     .controller('speciesCtrl', speciesCtrl);
 
 /** @ngInject */
-function speciesCtrl($scope, $state, SpeciesFilter, $translate, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
+function speciesCtrl($scope, $state, SpeciesFilter, Species, $translate, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
     var vm = this;
     $translate('speciesSearch.title').then(function(title) {
         Page.setTitle(title);
@@ -77,6 +77,53 @@ function speciesCtrl($scope, $state, SpeciesFilter, $translate, Page, suggestEnd
         translationPrefix: 'filterNames',
         filter: SpeciesFilter
     };
+
+    vm.filters.highertaxonKeyBackbone = {
+      titleTranslation: 'filterNames.higherTaxonKey',
+      queryKey: 'highertaxon_key',
+      filter: SpeciesFilter,
+      expand: {
+        resource: Species,
+        expandedTitle: 'scientificName'
+      },
+      facets: {
+        hasFacets: true,
+        facetKey: 'HIGHERTAXON_KEY'
+      },
+      search: {
+        isSearchable: true,
+        suggestEndpoint: suggestEndpoints.taxon,
+        defaultParams: {
+          datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+        },
+        suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
+        suggestTitle: 'scientificName',
+        suggestShortName: 'title',
+        suggestKey: 'key'
+      }
+    };
+
+    // vm.filters.highertaxonKey = {
+    //   titleTranslation: 'filterNames.higherTaxonKey',
+    //   queryKey: 'highertaxon_key',
+    //   filter: SpeciesFilter,
+    //   expand: {
+    //     resource: Species,
+    //     expandedTitle: 'scientificName'
+    //   },
+    //   facets: {
+    //     hasFacets: true,
+    //     facetKey: 'HIGHERTAXON_KEY'
+    //   },
+    //   search: {
+    //     isSearchable: true,
+    //     suggestEndpoint: suggestEndpoints.taxon,
+    //     suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
+    //     suggestTitle: 'scientificName',
+    //     suggestShortName: 'title',
+    //     suggestKey: 'key'
+    //   }
+    // };
 
     vm.filters.status = {
         queryKey: 'status',

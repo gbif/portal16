@@ -30,7 +30,9 @@
 
         <div filter-facet filter-config="species.filters.status" filter-state="species.state"></div>
 
-        <div filter-facet filter-config="species.filters.highertaxonKey" filter-state="species.state"></div>
+        <div filter-facet filter-config="species.filters.highertaxonKey" ng-if="species.state.query.advanced" filter-state="species.state"></div>
+        <div filter-taxon filter-config="species.filters.highertaxonKeyBackbone" ng-if="!species.state.query.advanced" filter-state="species.state"></div>
+        <!--div filter-taxon filter-config="species.filters.highertaxonKey" ng-if="species.state.query.advanced" filter-state="species.state"></div-->
 
         <div filter-facet filter-config="species.filters.issue" filter-state="species.state"></div>
 
