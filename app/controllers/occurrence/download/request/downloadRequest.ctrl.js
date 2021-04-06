@@ -122,7 +122,6 @@ function convertLikePredicates(obj) {
   } else if (obj.predicates && Array.isArray(obj.predicates)) {
     obj.predicates = obj.predicates.map(convertLikePredicates);
   } else if (obj.type === 'like') {
-    console.log(obj.value);
     obj.value = obj.value.replace(/[*?]/g, '%');
   }
   return obj;
