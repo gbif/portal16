@@ -49,7 +49,7 @@ const schema = Joi.alternatives().try(
   }),
   Joi.object({
     type: Joi.string().valid('isNotNull').required(),
-    key: Joi.string().required()
+    parameter: Joi.string().required()
   }),
   Joi.object({
     type: Joi.string().valid('like').required(),

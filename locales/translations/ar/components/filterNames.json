@@ -18,7 +18,7 @@
     "identifiedBy": "تم تحديده بواسطة",
     "identifiedById": " تم تحديده بواسطة المعرف",
     "eventDate": "تاريخ الحدث",
-    "eventId": "",
+    "eventId": "معرف الحدث",
     "samplingProtocol": "بروتوكول اخذ العينات",
     "location": "الموقع",
     "coordinateUncertaintyInMeters": " الإرتياب في الاحداثيات بالأمتار",
