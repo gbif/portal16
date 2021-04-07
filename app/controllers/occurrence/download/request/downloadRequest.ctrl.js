@@ -80,6 +80,9 @@ function uppercaseKeys(predicate) {
   if (predicate.predicates) {
     predicate.predicates = predicate.predicates.map(uppercaseKeys);
   }
+  if (predicate.predicate) {
+    predicate.predicate = uppercaseKeys(predicate.predicate);
+  }
   return predicate;
 }
 
