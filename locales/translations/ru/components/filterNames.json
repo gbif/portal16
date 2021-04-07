@@ -18,7 +18,7 @@
     "identifiedBy": "",
     "identifiedById": "",
     "eventDate": "Дата",
-    "eventID": "ID сбора или описания (Event)",
+    "eventId": "",
     "samplingProtocol": "Методика сбора данных",
     "location": "Местоположение",
     "coordinateUncertaintyInMeters": "Неопределенность координат в метрах",
