@@ -18,7 +18,7 @@
     "identifiedBy": "同定者",
     "identifiedById": "同定者ID",
     "eventDate": "イベント日付",
-    "eventId": "イベントID",
+    "eventId": "",
     "samplingProtocol": "サンプリング手順",
     "location": "場所",
     "coordinateUncertaintyInMeters": "座標の不確実性（m）",
