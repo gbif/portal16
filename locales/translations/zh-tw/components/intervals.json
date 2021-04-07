@@ -34,7 +34,7 @@
             "greaterThanOrEquals": "大於或等於 {from}",
             "invalid": "無效",
             "select": {
-                "equals": "是",
+                "equals": "等於",
                 "between": "介於",
                 "lessThanOrEquals": "小於或等於",
                 "greaterThanOrEquals": "大於或等於"
@@ -54,7 +54,7 @@
             }
         },
         "default": {
-            "equals": "{from}",
+            "equals": "等於 {from}",
             "between": "在 {from} 與 {to} 之間",
             "lessThanOrEquals": "小於或等於 {to}",
             "greaterThanOrEquals": "大於或等於 {from}",
