@@ -5,10 +5,10 @@
   },
   "species": {
     "distribution": {
-      "presentIn": "出現於 {country}",
-      "presentInNonCountry": "出現於 {location}",
+      "presentIn": "出現於 {country} 的 {status}",
+      "presentInNonCountry": "出現於 {location} 的 {status}",
       "threatStatus": "威脅狀態： {status}",
-      "establishmentMeans": "建立方法：",
+      "establishmentMeans": "建立方法：{status}",
       "distributionPlural": "分布",
       "PRESENT": "存在",
       "ABSENT": "缺如"
