@@ -74,6 +74,6 @@
     "gadmGid": "قاعدة البيانات العالمية للمناطق الادارية والخرائط (gadm.org) ",
     "lifeStage": "مرحلة الحياة",
     "dwcaExtension": "لاحقة DWCA",
-    "isClustered": "ضمن المجموعة"
+    "isInCluster": "ضمن المجموعة"
   }
 }

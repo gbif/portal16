@@ -74,6 +74,6 @@
     "gadmGid": "Zones administratives (gadm.org)",
     "lifeStage": "Stade de vie",
     "dwcaExtension": "Extension DWCA",
-    "isClustered": "Est dans le regroupement"
+    "isInCluster": "Est dans le regroupement"
   }
 }

@@ -74,6 +74,6 @@
     "gadmGid" : "GADM",
     "lifeStage" : "Life stage",
     "dwcaExtension" : "DWCA extension",
-    "isClustered" : "Is in cluster"
+    "isInCluster" : "Is in cluster"
   }
 }
