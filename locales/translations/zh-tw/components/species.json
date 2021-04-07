@@ -21,7 +21,7 @@
       "verbatim": "字面的"
     },
     "invasives": {
-      "nInvadedCountries": "如 {NUMBER_FORMATED} {NUMBER, select, 1{國家或島嶼} other{國家或島嶼}}所記錄",
+      "nInvadedCountries": "在 {NUMBER_FORMATED} {NUMBER, plural, one{國家或島嶼} other{國家或島嶼}}中記錄為入侵種",
       "invasiveIn": "如介紹內容所記錄",
       "accordingTo": "根據",
       "occurrenceCount": "在 GBIF 的出現紀錄",
@@ -44,7 +44,7 @@
     "value": "數值",
     "classification": "分類",
     "sourcePlural": "{NUMBER, select,1{來源} other{來源}}",
-    "nMoreDatasets": "{NUMBER} 更多{NUMBER, select,1{資料集} other {資料集}}",
+    "nMoreDatasets": "更多的 {NUMBER} 個{NUMBER, plural, one{資料集} other{資料集}}",
     "acceptedName": "有效名稱",
     "synonym": "同種異名",
     "description": "描述",
@@ -66,7 +66,7 @@
     "publishedIn": "發布於",
     "tradeRestrictions": "貿易限制",
     "basionym": "基礎名",
-    "nVernacularNames": "{NUMBER, select, 1{俗名} other{俗名}}",
+    "nVernacularNames": "{NUMBER, select,1{普通名} other {普通名}}",
     "nameUsagesApplied": "名稱使用應用於 GBIF 的出現紀錄資料",
     "appearsIn": "出現於 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{資料集} other{資料集}}：",
     "viewOccurrences": "查看出現紀錄",
