@@ -18,7 +18,7 @@
     "identifiedBy": "Identifié par",
     "identifiedById": "ID de Identifié par",
     "eventDate": "Date de l'événement",
-    "eventID": "ID de l'événement",
+    "eventId": "",
     "samplingProtocol": "Protocole d'échantillonnage",
     "location": "Lieu",
     "coordinateUncertaintyInMeters": "Incertitude des coordonnées en mètres",
