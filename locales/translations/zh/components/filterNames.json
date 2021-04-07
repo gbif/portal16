@@ -18,7 +18,7 @@
     "identifiedBy": "由......识别",
     "identifiedById": "由ID标识",
     "eventDate": "事件日期",
-    "eventID": "事件 ID",
+    "eventId": "事件 ID",
     "samplingProtocol": "取样流程",
     "location": "位置",
     "coordinateUncertaintyInMeters": "坐标不确定度（以米为单位）",
