@@ -18,7 +18,7 @@
     "identifiedBy": "Identified by",
     "identifiedById": "Identified by ID",
     "eventDate": "Event date",
-    "eventID": "Event ID",
+    "eventId": "",
     "samplingProtocol": "Sampling protocol",
     "location": "Location",
     "coordinateUncertaintyInMeters": "Coordinate uncertainty in meters",
