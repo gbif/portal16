@@ -18,7 +18,7 @@
     "identifiedBy": "Ким визначено",
     "identifiedById": "Визначено за ID",
     "eventDate": "Дата події",
-    "eventID": "ID події",
+    "eventId": "",
     "samplingProtocol": "Протокол збору",
     "location": "Місцезнаходження",
     "coordinateUncertaintyInMeters": "Похибка координат у метрах",
