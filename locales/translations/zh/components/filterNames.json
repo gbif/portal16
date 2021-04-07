@@ -74,6 +74,6 @@
     "gadmGid": "全球行政区划数据库 GID",
     "lifeStage": "生活期",
     "dwcaExtension": "DWCA 扩展",
-    "isClustered": "在集群中"
+    "isInCluster": "在集群中"
   }
 }
