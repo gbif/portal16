@@ -74,6 +74,6 @@
     "gadmGid": "Administrative areas (gadm.org)",
     "lifeStage": "Life stage",
     "dwcaExtension": "DWCA extension",
-    "isInCluster": ""
+    "isInCluster": "Is in cluster"
   }
 }

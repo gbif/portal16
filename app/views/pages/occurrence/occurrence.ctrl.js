@@ -813,7 +813,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
 
   // ternary "all, yes, no" aka optional boolean
   vm.filters.isClustered = {
-    titleTranslation: 'filterNames.isClustered',
+    titleTranslation: 'filterNames.isInCluster',
     descriptionTranslation: 'filters.isClustered.description',
     queryKey: 'is_in_cluster',
     filter: OccurrenceFilter

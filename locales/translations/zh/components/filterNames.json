@@ -18,7 +18,7 @@
     "identifiedBy": "由......识别",
     "identifiedById": "由ID标识",
     "eventDate": "事件日期",
-    "eventID": "事件 ID",
+    "eventId": "事件 ID",
     "samplingProtocol": "取样流程",
     "location": "位置",
     "coordinateUncertaintyInMeters": "坐标不确定度（以米为单位）",
@@ -74,6 +74,6 @@
     "gadmGid": "全球行政区划数据库 GID",
     "lifeStage": "生活期",
     "dwcaExtension": "DWCA 扩展",
-    "isClustered": "在集群中"
+    "isInCluster": "在集群中"
   }
 }
