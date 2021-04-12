@@ -18,7 +18,7 @@
     "identifiedBy": "",
     "identifiedById": "",
     "eventDate": "Begivenhedsdato",
-    "eventID": "",
+    "eventId": "",
     "samplingProtocol": "",
     "location": "Lokation",
     "coordinateUncertaintyInMeters": "",
@@ -74,6 +74,6 @@
     "gadmGid": "",
     "lifeStage": "",
     "dwcaExtension": "",
-    "isClustered": ""
+    "isInCluster": ""
   }
 }

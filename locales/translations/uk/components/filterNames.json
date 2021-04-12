@@ -18,7 +18,7 @@
     "identifiedBy": "Ким визначено",
     "identifiedById": "Визначено за ID",
     "eventDate": "Дата події",
-    "eventID": "ID події",
+    "eventId": "",
     "samplingProtocol": "Протокол збору",
     "location": "Місцезнаходження",
     "coordinateUncertaintyInMeters": "Похибка координат у метрах",
@@ -74,6 +74,6 @@
     "gadmGid": "Адміністративний поділ (gadm.org)",
     "lifeStage": "Життєва стадія",
     "dwcaExtension": "Розширення DWCA",
-    "isClustered": "В кластері"
+    "isInCluster": ""
   }
 }

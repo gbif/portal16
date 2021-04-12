@@ -1,0 +1,148 @@
+<div ng-if="!occCustomDownload.hash || occCustomDownload.hash === 'create'">
+  <div class="horizontal-stripe light-background p-t-0">
+    
+    <div class="container--normal ng-cloak" ng-if="!occCustomDownload.hasUser">
+      <div class="m-t-1 text-center">
+        It looks like you you have been directed here from another site. To download you need to login or register first.
+      </div>
+    </div>
+    <div class="container--normal ng-cloak">
+      <div class="card card--login m-t-1" ng-if="!occCustomDownload.hasUser">
+          <div user-login></div>
+      </div>
+      <section ng-if="occCustomDownload.hasUser">
+        <div class="card-header-flex">
+          <h3 class="card-header-flex__item">
+            <span xtranslate="downloadKey.filterApplied">Filter</span>
+          </h3>
+          <div class="card-header-flex__spacer"></div>
+          <div class="switch-group card-header-flex__item">
+            <p class="small" ng-if="!occCustomDownload.inEditMode" translate="profile.startEditing"></p>
+            <p class="small" ng-if="occCustomDownload.inEditMode" translate="profile.stopEditing"></p>
+            <input id="downloadEditMode" type="checkbox" ng-model="occCustomDownload.inEditMode"
+                  aria-label="Edit" ng-change="occCustomDownload.editModeChanged()"/>
+            <label for="downloadEditMode" class="switch"></label>
+          </div>
+        </div>
+        <div class="card card--spaced">
+          <div class="card__stripe rtl-supported">
+            <div class="card__content" ng-if="!occCustomDownload.inEditMode">
+              <div class="predicates">
+                <div ng-if="!occCustomDownload.predicateLoaded && !occCustomDownload.invalidInput">
+                  <div class="emptyInfo">
+                      <h3 translate="phrases.loading"></h3>
+                  </div>
+                </div>
+                <div ng-if="!occCustomDownload.invalidInput">
+                  <ng-include src="'/api/occurrence/downloadRequest.html?locale=' + portal.LOCALE + '&' + occCustomDownload.getSerializedQuery()" onload="occCustomDownload.predicateLoaded = true"></ng-include>
+                </div>
+                <div ng-if="occCustomDownload.invalidInput">
+                  <div class="text-error">Invalid filter</div>
+                  <pre>
+{{ occCustomDownload.input }}</pre>
+                </div>
+              </div>
+            </div>
+            <div ng-if="occCustomDownload.inEditMode">
+              <div>
+                <div class="clearfix seperator--b">
+                  <a href="" ng-click="occCustomDownload.prettify()" class="pull-right gb-button--flat text-uppercase" xtranslate="filters.add">Reformat</a>
+                </div>
+                <div style="position: relative;">
+                  <span ng-if="occCustomDownload.invalidInput" class="badge--error badge" style="position: absolute; right: 1rem; top: 1rem;">Invalid JSON</span>
+                  <textarea ng-change="occCustomDownload.invalidInput = false" placeholder="Enter your filter predicate" class="textarea--noBorder--vertical" ng-model="occCustomDownload.input"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a  ng-if="occCustomDownload.inEditMode" 
+            ng-href="{{portal.urlPrefix}}/developer/occurrence#download" 
+            class="gb-button gb-button--brand m-t-1">Read the documentation</a>
+      </section>
+
+      <section class="m-t-1 ng-cloak" ng-if="!occCustomDownload.inEditMode && occCustomDownload.hasUser && !occCustomDownload.invalidInput">
+        <h3 class="card-header" translate="downloadOptions.title">Download options</h3>
+        <div class="card card--spaced">
+            <div class="card__content">
+                <div class="scrollable-y">
+                    <div class="table-container rtl-bootstrap">
+                        <table class="table search-table smaller">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th translate="downloadOptions.content.rawData">Raw data</th>
+                                <th translate="downloadOptions.content.interpretedData">Interpreted data</th>
+                                <th translate="downloadOptions.content.images">Images</th>
+                                <th translate="downloadOptions.content.coordinates">Coordinates</th>
+                                <th translate="downloadOptions.content.fileFormat">Format</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <a href="" class="center-block gb-button--brand" ng-click="occCustomDownload.open('SIMPLE_CSV')">
+                                                <span class="gb-icon-file-download"></span>
+                                                <span translate="downloadFormat.SIMPLE_CSV"></span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td translate="downloadOptions.tableValues.no"></td>
+                                    <td translate="downloadOptions.tableValues.yes">✓</td>
+                                    <td translate="downloadOptions.tableValues.no"></td>
+                                    <td translate="downloadOptions.tableValues.yesIfAvailable">✓ (if available)</td>
+                                    <td>
+                                        <span gb-help="opening-gbif-csv-in-excel">
+                                          <span translate="downloadOptions.fileFormats.tabCsv">Tab-delimited CSV</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <a href="" class="center-block gb-button--brand" ng-click="occCustomDownload.open('DWCA')">
+                                                <span class="gb-icon-file-download"></span>
+                                                <span translate="downloadFormat.DWCA"></span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td translate="downloadOptions.tableValues.yes"></td>
+                                    <td translate="downloadOptions.tableValues.yes">✓</td>
+                                    <td translate="downloadOptions.tableValues.yesLinks"></td>
+                                    <td translate="downloadOptions.tableValues.yesIfAvailable">✓ (if available)</td>
+                                    <td>
+                                        <span gb-help="opening-gbif-csv-in-excel">
+                                          <span translate="downloadOptions.fileFormats.tabCsv">Tab-delimited CSV</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <a href="" class="center-block gb-button--brand" ng-click="occCustomDownload.open('SPECIES_LIST')">
+                                                <span class="gb-icon-file-download"></span>
+                                                <span translate="downloadFormat.SPECIES_LIST"></span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td translate="downloadOptions.tableValues.no"></td>
+                                    <td translate="downloadOptions.tableValues.yes">✓</td>
+                                    <td translate="downloadOptions.tableValues.no"></td>
+                                    <td translate="downloadOptions.tableValues.no">No</td>
+                                    <td>
+                                        <span gb-help="opening-gbif-csv-in-excel">
+                                          <span translate="downloadOptions.fileFormats.tabCsv">Tab-delimited CSV</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

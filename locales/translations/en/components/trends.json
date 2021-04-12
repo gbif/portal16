@@ -1,7 +1,7 @@
 {
   "trends": {
     "exploreGlobalTrends": "Explore global trends",
-    "exploreByCountry": "",
+    "exploreByCountry": "Explore by country or area",
     "exploreByGbifRegion": "Explore by region",
     "theseChartsIllustrate1": "These charts illustrate the change in availability of the species occurrence records over time.",
     "noOccRecords": "Number of occurrence records",

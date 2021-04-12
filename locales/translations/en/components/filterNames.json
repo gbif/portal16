@@ -18,7 +18,7 @@
     "identifiedBy": "Identified by",
     "identifiedById": "Identified by ID",
     "eventDate": "Event date",
-    "eventID": "Event ID",
+    "eventId": "Event ID",
     "samplingProtocol": "Sampling protocol",
     "location": "Location",
     "coordinateUncertaintyInMeters": "Coordinate uncertainty in meters",
@@ -74,6 +74,6 @@
     "gadmGid": "Administrative areas (gadm.org)",
     "lifeStage": "Life stage",
     "dwcaExtension": "DWCA extension",
-    "isClustered": "Is in cluster"
+    "isInCluster": "Is in cluster"
   }
 }

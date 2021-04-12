@@ -58,9 +58,9 @@
       "takeMeThere": "尝试发布者网站的版本",
       "notWorkingTryPublishers": "",
       "download": "下载媒体档案",
-      "byRightsHolder": "",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "byRightsHolder": "由 {RIGHTSHOLDER}",
+      "licensedUnder": "根据{{LICENSE}}的许可",
+      "suggestedCitation": "建议的属性"
     },
     "title": {
       "inCountry": {

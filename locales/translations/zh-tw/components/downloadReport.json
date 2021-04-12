@@ -23,7 +23,7 @@
     "largeDownload": "大量下載",
     "requestingFullDownload": "您要求完整下載 GBIF 中的所有出現紀錄資料。",
     "occFiltersExplainedHere": "若您希望在下載前先篩選資料，可以使用出現紀錄篩選器。[點此](/news/3K5oLzZXi0yG0SEO8E6c88/top-tip-using-filters-and-facets-on-gbiforg)看更多解釋",
-    "estSizeIs": "預估下載的容量大小為 {SIZE_FORMATTED}",
+    "estSizeIs": "預估下載的容量大小為 {SIZE_FORMATTED}。頻寬為 {CONNECTION_SPEED} Mb/s 時，下載需要約  {DOWNLOAD_TIME_FORMATTED} {DOWNLOAD_TIME, plural, one{小時} other{小時}}。",
     "estDLtimes": "預估下載時間：",
     "nMbitConn": "{NUMBER} Mbit 連線頻寬",
     "onceDownloaded": "當您下載完成後，需要有 {SIZE_FORMATTED} 的磁碟空間來解壓縮資料。",
