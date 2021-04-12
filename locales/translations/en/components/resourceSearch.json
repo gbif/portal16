@@ -34,6 +34,7 @@
             "peerReview": "Peer-reviewed",
             "openAccess": "Open access",
             "gbifDownloadKey": "Download key",
+            "gbifDerivedDatasetDoi": "Derived dataset DOI",
             "paperDoi": "DOI",
             "litSource": "Journal",
             "litPublisher": "Journal publisher"
