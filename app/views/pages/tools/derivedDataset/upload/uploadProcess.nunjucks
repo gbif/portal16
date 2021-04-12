@@ -1,0 +1,71 @@
+<section ng-if="derivedDatasetUpload.state != derivedDatasetUpload.states.FILL_FORM">
+    <div class="card card--spaced card--small card--upload">
+
+        <div ng-if="derivedDatasetUpload.state == derivedDatasetUpload.states.UPLOADING">
+            <div class="card__stripe card__content emptyInfo" ng-if="derivedDatasetUpload.progress < 100">
+                <h3 class="">Uploading in progress</h3>
+                <div ng-if="derivedDatasetUpload.progress < 100">
+                    <md-progress-linear md-mode="determinate" value="{{derivedDatasetUpload.progress}}"></md-progress-linear>
+                    <p class="m-t-1">
+                        Hang on while your local files are being uploaded. This may take a while if you are on a slow or unstable internet connection.
+                    </p>
+                </div>
+            </div>
+            <div class="card__stripe card__content emptyInfo" ng-if="derivedDatasetUpload.fileUrls.length > 0 && derivedDatasetUpload.progress == 100">
+                <h3 class="">Uploading external files</h3>
+                <div>
+                    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                    <p class="m-t-1">
+                        Files from URLs are being uploaded. You can leave this page without aborting, but upload errors will only be shown here. Once the upload is ready you can find it in your uploads.
+                    </p>
+                </div>
+            </div>
+            <div class="card__stripe card__content emptyInfo" ng-if="derivedDatasetUpload.progress == 100">
+                <h3 class="">DOI</h3>
+                <div>
+                    <md-progress-linear md-mode="determinate" value="100"></md-progress-linear>
+                    <p class="m-t-1" translate="tools.derivedDataset.mintingDoi">
+                        Minting DOI - this shouldn't take long.
+                    </p>
+                </div>
+            </div>
+            <div class="card__stripe card__content clearfix" ng-if="derivedDatasetUpload.progress == 100">
+                <a href="" class="gb-button--flat text-uppercase" ng-click="derivedDatasetUpload.initForm()" translate="tools.derivedDataset.newRegistration">New registration</a>
+                <a href="" class="gb-button--brand pull-right" translate="tools.derivedDataset.yourDerivedDatasets">Your derived datasets</a>
+            </div>
+        </div>
+
+        <div ng-if="derivedDatasetUpload.state == derivedDatasetUpload.states.FAILED_UPLOAD">
+            <div class="card__stripe card__content emptyInfo">
+                <h3 class="" ng-if="!derivedDatasetUpload.isEdit" translate="tools.derivedDataset.registrationFailed">Registration failed</h3>
+                <h3 class="" ng-if="derivedDatasetUpload.isEdit" translate="tools.derivedDataset.registrationFailed">Edit failed</h3>
+                <div>
+                    <md-progress-linear class="md-warn" md-mode="determinate" value="100"></md-progress-linear>
+                    <p class="m-t-1">
+                        <span translate="tools.derivedDataset.registrationFailed">The registration failed </span> <br>
+                        <code>{{ derivedDatasetUpload.errorMsg }}</code>
+                    </p>
+                </div>
+            </div>
+            <div class="card__stripe card__content clearfix">
+                <a href="" class="gb-button--flat text-uppercase" ng-click="derivedDatasetUpload.state = derivedDatasetUpload.states.FILL_FORM" translate="tools.derivedDataset.backToEdit">Back to edit</a>
+            </div>
+        </div>
+
+        <div ng-if="derivedDatasetUpload.state == derivedDatasetUpload.states.UPLOADED">
+            <div class="card__stripe card__content emptyInfo">
+                <h3 class="" ng-if="!derivedDatasetUpload.isEdit" translate="tools.derivedDataset.registrationCompleted">Registration completed</h3>
+                <h3 class="" ng-if="derivedDatasetUpload.isEdit" translate="tools.derivedDataset.editCompleted">Edit completed</h3>
+                <div>
+                    <md-progress-linear md-mode="determinate" value="100"></md-progress-linear>
+                    
+
+                </div>
+            </div>
+            <div class="card__stripe card__content clearfix">
+                <a href="" class="gb-button--flat" ng-click="derivedDatasetUpload.reload()" translate="tools.derivedDataset.newRegistration">New registration</a>
+                <a href="" ui-sref="derivedDatasetKey({prefix: derivedDatasetUpload.result.prefix, suffix: derivedDatasetUpload.result.suffix})" class="gb-button--brand pull-right" translate="tools.derivedDataset.goToDataset">Go to dataset</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -64,6 +64,33 @@
                 "demo": "Demo",
                 "statement": "About"
             }
+        },
+        "derivedDataset": {
+            "title": "Derived dataset",
+            "titleField": "Title",
+            "sourceUrl": "Source url",
+            "originalDownloadDOI": "Original Download DOI",
+            "registrationDate": "Registration Date",
+            "datasetKey": "Dataset key",
+            "occurrenceCount": "Occurrence count",
+            "submit": "Submit",
+            "pleaseFill": "Please fill the form to submit",
+            "loginToCreate": "Log in to create a derived dataset",
+            "myDatasets": "My datasets",
+            "register": "register",
+            "about": "about",
+            "optionalDescription": "Optional description",
+            "registerNew": "Register new derived dataset",
+            "editDataset": "Edit derived dataset",
+            "editFailed": "Edit failed",
+            "registrationFailed": "Registration failed",
+            "registrationCompleted": "Registration completed",
+            "editCompleted": "Edit completed",
+            "newRegistration": "New registration",
+            "goToDataset": "Go to dataset",
+            "yourDerivedDatasets": "Your derived datasets",
+            "backToEdit": "Back to edit",
+            "mintingDoi": "Minting DOI - this shouldn't take long."
         }
     }
 }

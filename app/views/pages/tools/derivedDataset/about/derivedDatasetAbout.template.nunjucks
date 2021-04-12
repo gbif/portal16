@@ -1,0 +1,3 @@
+<div class="horizontal-stripe white-background">
+    <ng-include src="portal.urlPrefix + '/api/resource/tool?content_type=Tool&fields.machineIdentifier=derived_dataset'" ></ng-include>
+</div>

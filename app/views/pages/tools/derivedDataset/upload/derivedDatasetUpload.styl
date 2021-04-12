@@ -1,0 +1,56 @@
+
+.datasetList {
+    margin 0
+    padding 0
+    &__valueLabel {
+        margin-right: 10px
+        margin-left: 10px
+        }
+    &__keyLabel {
+        margin-right: 10px
+        }
+    &__item {
+        display flex
+        flex-wrap nowrap
+        border-bottom 1px solid $stripeBorderColor
+        &__field {
+            flex 0 0 auto
+            padding 15px
+            &--main {
+                flex 1 1 auto
+                line-height 26px
+            }
+        }
+        &__action, &__icon {
+            font-size 18px
+        }
+        &__action {
+            &:hover, &:focus {
+                color $navBar_background_color
+            }
+            color inherit
+        }
+        input {
+            border none
+            border-bottom 1px solid $stripeBorderColor
+            &:focus {
+                outline none
+                border-bottom-color $navBar_background_color
+            }
+            &::placeholder {
+                color $stripeBorderColor
+            }
+            &.ng-invalid {
+                border-bottom-color tomato
+            }
+        }
+        &:last-child {
+            border none
+        }
+    }
+    .warning {
+        background $orangePeel
+        padding 3px
+        color white
+    }
+}

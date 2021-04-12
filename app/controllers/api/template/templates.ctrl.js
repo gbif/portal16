@@ -280,6 +280,22 @@ router.get('/tools/dataRepository/key.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/upload/key/dataRepositoryKey.template.nunjucks');
 });
 
+router.get('/tools/derivedDataset.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/derivedDataset/derivedDataset.template.nunjucks');
+});
+
+router.get('/tools/derivedDataset/upload.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/derivedDataset/upload/derivedDatasetUpload.template.nunjucks');
+});
+
+router.get('/tools/derivedDataset/about.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/derivedDataset/about/derivedDatasetAbout.template.nunjucks');
+});
+
+router.get('/derivedDataset/key.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/derivedDataset/key/derivedDatasetKey.nunjucks');
+});
+
 router.get('/search/sequenceResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/sequenceMatching/sequenceSearchResult');
 });

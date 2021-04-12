@@ -759,6 +759,45 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('derivedDataset', {
+            parent: 'localization',
+            url: '/derived-dataset',
+            views: {
+                main: {
+                    templateUrl: '/api/template/tools/derivedDataset.html?v=' + BUILD_VERSION,
+                    controller: 'derivedDatasetCtrl',
+                    controllerAs: 'derivedDataset'
+                }
+            }
+        })
+        .state('derivedDatasetUpload', {
+            parent: 'derivedDataset',
+            url: '/register',
+            params: {
+                record: null
+            },
+            templateUrl: '/api/template/tools/derivedDataset/upload.html?v=' + BUILD_VERSION,
+            controller: 'derivedDatasetUploadCtrl',
+            controllerAs: 'derivedDatasetUpload'
+        })
+        .state('derivedDatasetAbout', {
+            parent: 'derivedDataset',
+            url: '/about',
+            templateUrl: '/api/template/tools/derivedDataset/about.html?v=' + BUILD_VERSION,
+            controller: 'derivedDatasetAboutCtrl',
+            controllerAs: 'derivedDatasetAbout'
+        })
+        .state('derivedDatasetKey', {
+            parent: 'localization',
+            url: '/derivedDataset/:prefix/:suffix',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/derivedDataset/derivedDataset.html?v=' + BUILD_VERSION,
+                    controller: 'derivedDatasetKeyCtrl',
+                    controllerAs: 'derivedDatasetKey'
+                }
+            }
+        })
     ;
 
     // if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');

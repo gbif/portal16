@@ -1,0 +1,14 @@
+<div class="horizontal-stripe article-header white-background p-b-0">
+    <div class="container--desktop">
+        <div class="row">
+            <header class="col-xs-12 text-center">
+                <nav class="article-header__category">
+                    <span class="article-header__category__upper" translate="tools.tools">Tools</span>
+                </nav>
+                <h1 class="text-center">
+                    <span translate="tools.derivedDataset.title">Derived dataset</span>
+                </h1>
+            </header>
+        </div>
+    </div>
+</div>

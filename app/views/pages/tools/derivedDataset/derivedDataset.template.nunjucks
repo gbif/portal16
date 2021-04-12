@@ -1,0 +1,15 @@
+<div class="site-content">
+    <div class="site-content__page light-background">
+        <div>
+            <article class="wrapper-horizontal-stripes countryKey">
+                {% include "./header.nunjucks" %}
+                {% include "./nav.nunjucks" %}
+                <div>
+                    <div ui-view>
+                        {% include "./search.nunjucks" %}
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

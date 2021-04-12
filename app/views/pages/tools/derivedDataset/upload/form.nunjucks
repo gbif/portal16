@@ -1,0 +1,230 @@
+{% include "./uploadProcess.nunjucks" %}
+<form name="derivedDatasetUpload.uploadForm"
+      ng-submit="derivedDatasetUpload.uploadForm.$valid" ng-show="derivedDatasetUpload.state == derivedDatasetUpload.states.FILL_FORM">
+<!--
+    <h4 class="card-header">Files</h4>
+    <div class="card card--spaced">
+        <div class="card__stripe">
+            <div class="card__content">
+                <div>
+                    <div ngf-drop
+                         ngf-select
+                         name="files"
+                         ng-model="derivedDatasetUpload.files"
+                         type="file"
+                         ngf-model-options="{updateOn: 'change click drop dropUrl paste', allowInvalid: false, debounce: 0}"
+                         ngf-keep="'distinct'"
+                         ngf-multiple="true"
+                         multiple=""
+                         class="drop-box dropArea" ng-class="{'dropArea--hasFiles': derivedDatasetUpload.files.length > 0}">Drop or select files</div>
+                </div>
+            </div>
+        </div>
+        <div class="card__stripe card__stripe--light">
+            <div class="card__content">
+                <div ng-if="derivedDatasetUpload.files.length > 0">
+                    <h4 class="card-header">Local</h4>
+                    <div class="card">
+                        <ul class="datasetList">
+                            <li class="datasetList__item" ng-repeat="file in derivedDatasetUpload.files">
+                                <div class="datasetList__item__field datasetList__item__icon gb-icon-file"></div>
+                                <div class="datasetList__item__field datasetList__item__field--main">
+                                    {{ file.name }} <span class="discreet--very">{{ file.size | formatBytes}}</span> <span class="warning" ng-if="file.size > 100000000"><md-tooltip md-direction="top">Be aware that large files can take a long time to upload</md-tooltip>Large file</span>
+                                </div>
+                                <a href="" class="datasetList__item__field datasetList__item__action gb-icon-trash noUnderline" ng-click="derivedDatasetUpload.removeFromArray(file, derivedDatasetUpload.files)"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h4 class="card-header m-t-1">URLs</h4>
+                <div class="card">
+                    <ul class="datasetList">
+                        <li class="datasetList__item" ng-repeat="fileUrl in derivedDatasetUpload.relatedDatasets">
+                            <div class="datasetList__item__field datasetList__item__icon gb-icon-link"></div>
+                            <div class="datasetList__item__field datasetList__item__field--main">
+                                <input type="url" ng-model="fileUrl.val" placeholder="e.g. http://myServer.org/file/g68sz8"/>
+                            </div>
+                            <a ng-if="!$last" class="datasetList__item__field datasetList__item__action gb-icon-trash inherit noUnderline" href="" ng-click="derivedDatasetUpload.removeFromArray(fileUrl, derivedDatasetUpload.relatedDatasets)"></a>
+                            <span ng-if="$last && !fileUrl.val" class="discreet--very datasetList__item__field datasetList__item__icon gb-icon-add"></span>
+                            <a ng-if="$last && fileUrl.val" class="datasetList__item__field datasetList__item__action gb-icon-add inherit noUnderline" href="" ng-click="derivedDatasetUpload.relatedDatasets.push({})"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emptyInfo" ng-if="!derivedDatasetUpload.files.length && !derivedDatasetUpload.countNonEmptyItems(derivedDatasetUpload.relatedDatasets)">
+        <h3>Select your files. Fill metadata. Upload</h3>
+    </div>
+-->
+    <section >
+        <h4 class="card-header m-t-1" ng-if="!derivedDatasetUpload.isEdit" translate="tools.derivedDataset.registerNew">Register new derived dataset</h4>
+        <h4 class="card-header m-t-1" ng-if="derivedDatasetUpload.isEdit" translate="tools.derivedDataset.editDataset">Edit derived dataset</h4>
+        <div class="card card--spaced">
+            <div class="card__stripe">
+                <div class="card__content">
+                    <div>
+                        <div layout="row" ng-if="derivedDatasetUpload.form.doi">
+                            <md-input-container flex="100">
+                                <label >Doi</label>
+                                <input disabled ng-model="derivedDatasetUpload.form.doi">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex="100">
+                                <label translate="tools.derivedDataset.titleField">Title</label>
+                                <input required ng-model="derivedDatasetUpload.form.title">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex="100">
+                                <label translate="tools.derivedDataset.sourceUrl" >Source url</label>
+                                <input required type="url" ng-model="derivedDatasetUpload.form.sourceUrl">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex="100">
+                                <label translate="tools.derivedDataset.originalDownloadDOI">Original Download DOI</label>
+                                <input ng-model="derivedDatasetUpload.form.originalDownloadDOI">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex="100">
+                                <label translate="tools.derivedDataset.registrationDate" >Registration Date</label>
+                                <input type="date" ng-model="derivedDatasetUpload.form.registrationDate">
+                            </md-input-container>
+                        </div>
+                        <div class="card m-b-1">
+                            <ul class="datasetList">
+                                <li class="datasetList__item" ng-repeat="dataset in derivedDatasetUpload.relatedDatasets">
+                                    <div class="datasetList__item__field datasetList__item__field--main">
+                                    <span class="datasetList__keyLabel" translate="tools.derivedDataset.datasetKey">Dataset key:</span> <input ng-model="dataset.key" placeholder="e.g. 10.21373/1llmgl"/> <span class="datasetList__valueLabel" translate="tools.derivedDataset.occurrenceCount">Occurrence count:</span> <input type="number" required="dataset.key"  ng-model="dataset.val" />
+                                    </div>
+                                    <a ng-if="!$last" class="datasetList__item__field datasetList__item__action gb-icon-trash inherit noUnderline" href="" ng-click="derivedDatasetUpload.removeFromArray(dataset, derivedDatasetUpload.relatedDatasets)"></a>
+                                    <span ng-if="$last && !dataset.key" class="discreet--very datasetList__item__field datasetList__item__icon gb-icon-add"></span>
+                                    <a ng-if="$last && dataset.key" class="datasetList__item__field datasetList__item__action gb-icon-add inherit noUnderline" href="" ng-click="derivedDatasetUpload.relatedDatasets.push({})"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <textarea markdown-editor on-mde-change="derivedDatasetUpload.updateDescription" ng-model="derivedDatasetUpload.form.description"  rows="5" placeholder="Optional description"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emptyInfo" ng-if="!derivedDatasetUpload.uploadForm.$valid && !derivedDatasetUpload.form.doi">
+                            <h3 translate="tools.derivedDataset.pleaseFill">Please fill the form to submit</h3>
+                        </div>
+                        <div class="card__content" ng-if="derivedDatasetUpload.uploadForm.$valid || derivedDatasetUpload.form.doi" layout="row" layout-align="end" flex>
+                            <md-button type="submit" class="md-raised md-primary" ng-click="derivedDatasetUpload.upload()" translate="tools.derivedDataset.submit">Submit</md-button>
+                        </div>
+            </div>
+
+  {#          <div class="card__stripe card__stripe--light">
+                <div class="card__content">
+                    <h4 class="card-header">Authors</h4>
+                    <div class="card card--compact m-t-05 dataRepo-author" ng-repeat="creator in derivedDatasetUpload.form.creators">
+                        <div class="card__content" layout-sm="column" layout="row" layout-wrap >
+                            <md-input-container flex-gt-sm="33" flex="100" flex="grow">
+                                <label>Name</label>
+                                <input required ng-model="creator.name">
+                            </md-input-container>
+                            <md-input-container flex-gt-sm="33" flex="100" flex="grow">
+                                <label>Affiliation</label>
+                                <input ng-model="creator.affiliation">
+                            </md-input-container>
+                            <md-input-container flex-gt-sm="33" flex="100" flex="grow">
+                                <label>ORCID</label>
+                                <input ng-model="creator.identifier" type="text" ng-pattern="derivedDatasetUpload.orcidPattern">
+                            </md-input-container>
+                            <div flex="100" class="text-right">
+                                <a ng-if="derivedDatasetUpload.form.creators.length > 1" href="" style="font-size:18px" class="gb-icon-trash inherit noUnderline" ng-click="derivedDatasetUpload.removeFromArray(creator, derivedDatasetUpload.form.creators)"></a>
+                                <a href="" style="font-size:18px" class="gb-icon-add inherit noUnderline" ng-click="derivedDatasetUpload.insertItemInArray($index + 1, derivedDatasetUpload.form.creators)"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="card__stripe">
+                <div class="card__content">
+                    <div layout="row">
+                        <md-input-container flex="100">
+                            <label>License</label>
+                            <md-select ng-model="derivedDatasetUpload.form.license">
+                                <md-option ng-repeat="license in derivedDatasetUpload.config.license" ng-value="license">
+                                    {{ 'license.' + license | translate }}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div> #}
+        </div>
+
+      <!--  <div>
+            <h4 class="card-header m-t-1">Related identifiers</h4>
+            <div class="card card--spaced">
+                {#<div class="card__stripe">#}
+                    {#<div class="card__content">#}
+                        {#<md-checkbox ng-model="derivedDatasetUpload.hasRelatedIdentifiers" class="md-primary m-b-0">This upload is derived from other sources</md-checkbox>#}
+                    {#</div>#}
+                {#</div>#}
+                <div class="card__stripe">
+                    <div class="card__content seperator--b">
+                        Upload a file describing this datasets relation to other data. See <a href="/tools/datarepo/example.csv">example file</a>. Supported relations are those <a href="http://schema.datacite.org/meta/kernel-3/doc/DataCite-MetadataKernel_v3.1.pdf">supported by Datacite</a>
+                    </div>
+                    <div class="card__content">
+                        <div ngf-drop
+                             ngf-select
+                             name="derivedFile"
+                             ng-model="derivedDatasetUpload.relatedIdentifiersFile"
+                             type="file"
+                             ngf-model-options="{updateOn: 'change click drop dropUrl paste', allowInvalid: false, debounce: 0}"
+                             ngf-multiple="false"
+                             ngf-pattern="'.csv,.txt'"
+                             class="drop-box dropArea--small">Drop or select a .csv file</div>
+                    </div>
+                    <ul class="datasetList">
+                        <li class="datasetList__item" ng-if="derivedDatasetUpload.relatedIdentifiersFile">
+                            <div class="datasetList__item__field datasetList__item__icon gb-icon-file"></div>
+                            <div class="datasetList__item__field datasetList__item__field--main">
+                                {{ derivedDatasetUpload.relatedIdentifiersFile.name }} <span class="discreet--very">{{ derivedDatasetUpload.relatedIdentifiersFile.size | formatBytes}}</span>
+                            </div>
+                            <a href="" class="datasetList__item__field datasetList__item__action gb-icon-trash noUnderline" ng-click="derivedDatasetUpload.relatedIdentifiersFile = undefined"></a>
+                        </li>
+                        <li class="datasetList__item">
+                            <div class="datasetList__item__field datasetList__item__icon gb-icon-link"></div>
+                            <div class="datasetList__item__field datasetList__item__field--main">
+                                <input type="url" ng-model="derivedDatasetUpload.relatedIdentifiersUrl" placeholder="e.g. http://myserver.org/files/related.csv"/>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="card-header m-t-1">Citation</h4>
+            <div class="card card--spaced">
+                <div class="card__stripe">
+                    <div class="card__content">
+                        <div>
+                            <p>The citation is generated from input fields and cannot be changed</p>
+                            <blockquote>
+                                <code>{authors} ({pubDate})<br/>{title}. [Version {version}]. GBIF.<br/>Dataset package {doi}, accessed via GBIF.org on {YYYY-MM-DD}.</code>
+                                {#<span ng-repeat="creator in derivedDatasetUpload.form.creators">{{ derivedDatasetUpload.getCitationName(creator.name) }}{{ $last ? '' : ', '}}</span> (2017):#}
+                                {#<span ng-if="derivedDatasetUpload.form.title">{{ derivedDatasetUpload.form.title }}</span><span ng-if="!derivedDatasetUpload.form.title">[Your dataset title]</span>. <span>GBIF</span>. <span>[Generated DOI]</span>#}
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+-->
+        
+
+
+
+    </section>
+</form>

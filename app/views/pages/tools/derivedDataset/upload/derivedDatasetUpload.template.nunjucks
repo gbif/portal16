@@ -1,0 +1,14 @@
+<div class="horizontal-stripe light-background ng-cloak">
+    <div class="container--narrow">
+        <div ng-if="derivedDataset.isLoggedIn">
+            {% include "./form.nunjucks" %}
+        </div>
+        <div ng-if="!derivedDataset.isLoggedIn" class="emptyInfo--large">
+            <h3 translate="tools.derivedDataset.loginToCreate">Log in to create a derived dataset</h3>
+        </div>
+    </div>
+    <div class="container--narrow" ng-if="eoi.state.submissionComplete">
+        {#{% include "./postform/failedSubmit.nunjucks" %}#}
+        {#{% include "./postform/submitted.nunjucks" %}#}
+    </div>
+</div>

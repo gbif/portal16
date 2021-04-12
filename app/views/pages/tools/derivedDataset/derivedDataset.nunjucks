@@ -1,0 +1,25 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{#{% block page %}#}
+    {#<article class="wrapper-horizontal-stripes page--data"#}
+             {#ng-controller="dataRepoCtrl as dataRepo">#}
+
+        {#<div class="container-fluid white-background search-header">#}
+            {#<div class="row">#}
+                {#<div class="col-xs-12">#}
+                    {#<nav class="article-header__category article-header__category--deep">#}
+                        {#<span class="article-header__category__upper">Tools</span>#}
+                        {#<span class="article-header__category__lower">Data repository</span>#}
+                    {#</nav>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+
+        {#{{ dataRepo.greeting }}#}
+    {#</article>#}
+{#{% endblock %}#}
+
+
+{% block scripts %}
+    <script src="/js/base/pages/derivedDataset.js?v={$ BUILD_VERSION $}"></script>
+{% endblock %}

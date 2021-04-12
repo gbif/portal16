@@ -39,6 +39,9 @@ function buildScripts() {
 }
 
 // update byild so that all files names entry will be build automatically.
+gulp.task('derivedDataset', function() {
+    return build('./app/views/pages/tools/derivedDataset/derivedDataset.entry.js', 'pages/derivedDataset.js');
+});
 gulp.task('dataRepo', function() {
     return build('./app/views/pages/tools/dataRepository/dataRepository.entry.js', 'pages/dataRepository.js');
 });
