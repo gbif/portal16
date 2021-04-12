@@ -34,6 +34,7 @@
             "peerReview": "Examen par les pairs",
             "openAccess": "le libre accès",
             "gbifDownloadKey": "Clé de téléchargement",
+            "gbifDerivedDatasetDoi": "DOI du jeu de données dérivé",
             "paperDoi": "DOI",
             "litSource": "Journal",
             "litPublisher": "Éditeur de journaux"
