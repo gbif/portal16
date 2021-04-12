@@ -34,7 +34,7 @@
             "peerReview": "Revisado por pares",
             "openAccess": "Acceso abierto",
             "gbifDownloadKey": "Descargar clave",
-            "gbifDerivedDatasetDoi": "",
+            "gbifDerivedDatasetDoi": "DOI del conjunto de datos derivado",
             "paperDoi": "DOI",
             "litSource": "",
             "litPublisher": ""
