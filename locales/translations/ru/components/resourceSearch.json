@@ -34,6 +34,7 @@
             "peerReview": "Рецензируемая публикация",
             "openAccess": "В открытом доступе",
             "gbifDownloadKey": "Ключ для получения файла",
+            "gbifDerivedDatasetDoi": "",
             "paperDoi": "",
             "litSource": "Журнал",
             "litPublisher": "Издательство"
