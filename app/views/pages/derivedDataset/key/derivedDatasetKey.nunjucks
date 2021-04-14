@@ -57,7 +57,7 @@
                                     {% if derivedDataset._citationCount %}
                                     <li class="tab tab-right ng-cloak">
                                         <span>
-                                            <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&derivedDatasetDoi={$ derivedDataset.doi | encodeURI $}' class="gb-button--dark" translate="counts.nCitations" translate-values="{ NUMBER_FORMATED: ({$ derivedDataset._citationCount $} | localNumber), NUMBER: {$ derivedDataset._citationCount $} }"></a>
+                                            <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&gbifDerivedDatasetDoi={$ derivedDataset.doi | encodeURI $}' class="gb-button--dark" translate="counts.nCitations" translate-values="{ NUMBER_FORMATED: ({$ derivedDataset._citationCount $} | localNumber), NUMBER: {$ derivedDataset._citationCount $} }"></a>
                                         </span>
                                     </li>
                                     {% endif %}

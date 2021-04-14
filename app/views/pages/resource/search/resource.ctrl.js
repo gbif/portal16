@@ -194,7 +194,21 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
           hasFacets: false,
           facetKey: 'GBIF_DOWNLOAD_KEY'
       }
-  };
+    };
+
+    vm.filters.gbifDerivedDatasetDoi = {
+      titleTranslation: 'resourceSearch.filters.gbifDerivedDatasetDoi',
+      queryKey: 'gbifDerivedDatasetDoi',
+      filter: ResourceFilter,
+      search: {
+          isSearchable: true,
+          placeholder: 'filters.searchPlaceholder'
+      },
+      facets: {
+          hasFacets: false,
+          facetKey: 'GBIF_DOWNLOAD_KEY'
+      }
+    };
 
     vm.filters.peerReview = {
         titleTranslation: 'resourceSearch.filters.peerReview',
