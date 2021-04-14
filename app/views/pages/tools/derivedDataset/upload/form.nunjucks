@@ -1,63 +1,7 @@
 {% include "./uploadProcess.nunjucks" %}
 <form name="derivedDatasetUpload.uploadForm"
       ng-submit="derivedDatasetUpload.uploadForm.$valid" ng-show="derivedDatasetUpload.state == derivedDatasetUpload.states.FILL_FORM">
-<!--
-    <h4 class="card-header">Files</h4>
-    <div class="card card--spaced">
-        <div class="card__stripe">
-            <div class="card__content">
-                <div>
-                    <div ngf-drop
-                         ngf-select
-                         name="files"
-                         ng-model="derivedDatasetUpload.files"
-                         type="file"
-                         ngf-model-options="{updateOn: 'change click drop dropUrl paste', allowInvalid: false, debounce: 0}"
-                         ngf-keep="'distinct'"
-                         ngf-multiple="true"
-                         multiple=""
-                         class="drop-box dropArea" ng-class="{'dropArea--hasFiles': derivedDatasetUpload.files.length > 0}">Drop or select files</div>
-                </div>
-            </div>
-        </div>
-        <div class="card__stripe card__stripe--light">
-            <div class="card__content">
-                <div ng-if="derivedDatasetUpload.files.length > 0">
-                    <h4 class="card-header">Local</h4>
-                    <div class="card">
-                        <ul class="datasetList">
-                            <li class="datasetList__item" ng-repeat="file in derivedDatasetUpload.files">
-                                <div class="datasetList__item__field datasetList__item__icon gb-icon-file"></div>
-                                <div class="datasetList__item__field datasetList__item__field--main">
-                                    {{ file.name }} <span class="discreet--very">{{ file.size | formatBytes}}</span> <span class="warning" ng-if="file.size > 100000000"><md-tooltip md-direction="top">Be aware that large files can take a long time to upload</md-tooltip>Large file</span>
-                                </div>
-                                <a href="" class="datasetList__item__field datasetList__item__action gb-icon-trash noUnderline" ng-click="derivedDatasetUpload.removeFromArray(file, derivedDatasetUpload.files)"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <h4 class="card-header m-t-1">URLs</h4>
-                <div class="card">
-                    <ul class="datasetList">
-                        <li class="datasetList__item" ng-repeat="fileUrl in derivedDatasetUpload.relatedDatasets">
-                            <div class="datasetList__item__field datasetList__item__icon gb-icon-link"></div>
-                            <div class="datasetList__item__field datasetList__item__field--main">
-                                <input type="url" ng-model="fileUrl.val" placeholder="e.g. http://myServer.org/file/g68sz8"/>
-                            </div>
-                            <a ng-if="!$last" class="datasetList__item__field datasetList__item__action gb-icon-trash inherit noUnderline" href="" ng-click="derivedDatasetUpload.removeFromArray(fileUrl, derivedDatasetUpload.relatedDatasets)"></a>
-                            <span ng-if="$last && !fileUrl.val" class="discreet--very datasetList__item__field datasetList__item__icon gb-icon-add"></span>
-                            <a ng-if="$last && fileUrl.val" class="datasetList__item__field datasetList__item__action gb-icon-add inherit noUnderline" href="" ng-click="derivedDatasetUpload.relatedDatasets.push({})"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="emptyInfo" ng-if="!derivedDatasetUpload.files.length && !derivedDatasetUpload.countNonEmptyItems(derivedDatasetUpload.relatedDatasets)">
-        <h3>Select your files. Fill metadata. Upload</h3>
-    </div>
--->
     <section >
         <h4 class="card-header m-t-1" ng-if="!derivedDatasetUpload.isEdit" translate="tools.derivedDataset.registerNew">Register new derived dataset</h4>
         <h4 class="card-header m-t-1" ng-if="derivedDatasetUpload.isEdit" translate="tools.derivedDataset.editDataset">Edit derived dataset</h4>
