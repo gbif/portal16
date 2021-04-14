@@ -95,7 +95,26 @@
                                 <input type="date" ng-model="derivedDatasetUpload.form.registrationDate">
                             </md-input-container>
                         </div>
-                        <div class="card m-b-1">
+
+
+                <div class="m-b-1" ng-show="!derivedDatasetUpload.form.doi && derivedDatasetUpload.relatedDatasets.length < 2">
+                <span translate="tools.derivedDataset.attachCsvLabel">Attach csv with dataset keys and occurrence counts</span>
+                    <input 
+                         ngf-select
+                         name="attachment"
+                         ngf-max-files="1"
+                         ng-model="derivedDatasetUpload.attachment"
+                         type="file"
+                         ngf-model-options="{updateOn: 'change click drop dropUrl paste', allowInvalid: false, debounce: 0}"
+                          >
+                          
+                </div>
+
+
+
+                        <span ng-show="!derivedDatasetUpload.form.doi && !derivedDatasetUpload.attachment" translate="tools.derivedDataset.orEnterLabel">Or enter datasets and occurrence counts here</span>
+
+                        <div class="card m-b-1" ng-if="!derivedDatasetUpload.attachment">
                             <ul class="datasetList">
                                 <li class="datasetList__item" ng-repeat="dataset in derivedDatasetUpload.relatedDatasets">
                                     <div class="datasetList__item__field datasetList__item__field--main">

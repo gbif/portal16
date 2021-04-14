@@ -90,7 +90,9 @@
             "goToDataset": "Go to dataset",
             "yourDerivedDatasets": "Your derived datasets",
             "backToEdit": "Back to edit",
-            "mintingDoi": "Minting DOI - this shouldn't take long."
+            "mintingDoi": "Minting DOI - this shouldn't take long.",
+            "attachCsvLabel": "Attach csv with dataset keys and occurrence counts",
+            "orEnterLabel": "Or enter datasets and occurrence counts here"
         }
     }
 }

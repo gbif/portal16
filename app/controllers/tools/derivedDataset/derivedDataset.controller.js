@@ -4,13 +4,14 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     authOperations = require('../../auth/gbifAuthRequest');
 
 module.exports = {
-    createDerivedDatasetAsJson: createDerivedDatasetAsJson,
-    updateDerivedDatasetAsJson: updateDerivedDatasetAsJson
+    createDerivedDataset: createDerivedDataset,
+    updateDerivedDataset: updateDerivedDataset
 };
 
 
-async function createDerivedDatasetAsJson(data, user) {
+async function createDerivedDataset(data, user, headers) {
     let options = {
+        headers: headers,
         url: apiConfig.derivedDataset.url,
         canonicalPath: apiConfig.derivedDataset.canonical,
         body: data,
@@ -25,7 +26,7 @@ async function createDerivedDatasetAsJson(data, user) {
     return response.body;
 }
 
-async function updateDerivedDatasetAsJson(data, user) {
+async function updateDerivedDataset(data, user) {
     let options = {
         url: apiConfig.derivedDataset.url + data.doi,
         canonicalPath: apiConfig.derivedDataset.canonical,

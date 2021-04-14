@@ -9,6 +9,7 @@ angular
 /** @ngInject */
 function userCtrl(User, Page, $sessionStorage, $scope, AUTH_EVENTS, $state, $translate) {
     var vm = this;
+    vm.derivedDatasetLink = (gb.urlPrefix || '') + '/derived-dataset';
     vm.$state = $state;
     $translate('profile.profile').then(function(title) {
         Page.setTitle(title);

@@ -4,6 +4,7 @@ var _ = require('lodash');
 
 require('../../dataRepository/markdownEditor.directive');
 require('../derivedDataset.resource');
+var Converter = require('csvtojson').Converter;
 
 angular
     .module('portal')
@@ -11,14 +12,13 @@ angular
 
 /** @ngInject */
 function derivedDatasetUploadCtrl(
+    $scope,
     $state,
     $window,
     User,
-    Upload,
     $timeout,
     $http,
     $stateParams,
-    env,
     DerivedDatasetDatasets
 ) {
     var vm = this;
@@ -35,7 +35,6 @@ function derivedDatasetUploadCtrl(
         return DerivedDatasetDatasets.query(
             {prefix: splitDoi[0], suffix: splitDoi[1]},
             function (res) {
-                console.log(res);
                 return _.get(res, 'results[0]')
                     ? res.results.map(function (dataset) {
                           return {
@@ -47,15 +46,19 @@ function derivedDatasetUploadCtrl(
             },
             function (err) {
                 vm.errorMsg = err.message;
-                console.log(err);
+                // console.log(err);
             }
         );
     }
     vm.initForm = function () {
         vm.form = $stateParams.record
-            ? _.omit($stateParams.record, 'relatedDatasets')
+            ? _.omit($stateParams.record, ['relatedDatasets', 'registrationDate'])
             : {};
+        if (_.get($stateParams, 'record.registrationDate')) {
+            vm.form.registrationDate = new Date($stateParams.record.registrationDate);
+        }
         vm.relatedDatasets = [{}];
+        vm.relatedDatasetsFromFile = [];
         if ($stateParams.record) {
             vm.derivedDatasetDatasets = getDerivedDatasetDatasets(
                 $stateParams.record.doi
@@ -72,13 +75,21 @@ function derivedDatasetUploadCtrl(
             });
         }
 
-        // vm.files = [];
+
         vm.state = vm.states.FILL_FORM;
         vm.result = vm.errorMsg = undefined;
-
-        console.log(vm.relatedDatasets);
     };
     vm.initForm();
+    vm.attachment;
+    $scope.$watch(angular.bind(this, function() {
+        return this.attachment;
+    }), function(newVal, oldVal) {
+        if (newVal) {
+        vm.parseFile(newVal);
+        } else {
+            vm.relatedDatasetsFromFile = [];
+        }
+    });
 
     vm.addItemToArray = function (items) {
         items.push({});
@@ -106,28 +117,66 @@ function derivedDatasetUploadCtrl(
     vm.reload = function () {
         $state.reload();
     };
+    var isValidFile = function(file) {
+        return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1);
+    };
+    vm.parseFile = function(file) {
+        vm.invalidFileFormat = false;
+        if (!isValidFile(file)) {
+            vm.invalidFileFormat = true;
+            vm.error = 'Invalid file format - the file must be a csv file and all rows must have a scientificName column';
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function() {
+            var converter = new Converter({
+                noheader: true,
+                delimiter: [',', ';', '$', '|', '\t']
+            });
+            var csvString = reader.result;
+            vm.error = undefined;
+            converter.fromString(csvString, function(err, result) {
+                if (_.get(err, 'message')) {
+                    vm.errorMsg = err.message;
+                } else if (result.length == 0) {
+                    vm.errorMsg = 'There are no rows in the data.';
+                } else if (result.length > 6000) {
+                    vm.errorMsg = 'Too many rows (maximum 6.000) - try using our APIs instead';
+                } else {
+                vm.relatedDatasetsFromFile = result.map(function (elm) {
+                    return {key: elm.field1, val: elm.field2};
+                });
+                }
+                $scope.$apply();
+            });
+        };
+        reader.readAsText(file);
+    };
 
     vm.upload = function () {
         // check that the upload isn't already started
         if (vm.state == vm.states.UPLOADING) return; // to avoid duplicate uploads
-
         // extract data to send
         var data = vm.form;
-        if (
-            _.get(vm.relatedDatasets, '[0].key') &&
-            _.get(vm.relatedDatasets, '[0].val')
-        ) {
-            data.relatedDatasets = vm.relatedDatasets
-                .filter(function (dataset) {
-                    return _.get(dataset, 'key') && _.get(dataset, 'val');
-                })
-                .reduce(function (acc, cur) {
-                    acc[cur.key] = cur.val;
-                    return acc;
-                }, {});
-        }
+        var relatedDatasets;
+            if (
+                vm.relatedDatasetsFromFile.length === 0 &&
+                _.get(vm.relatedDatasets, '[0].key') &&
+                _.get(vm.relatedDatasets, '[0].val')
+            ) {
+                relatedDatasets = vm.relatedDatasets;
+            } else {
+                relatedDatasets = vm.relatedDatasetsFromFile;
+            }
+            data.relatedDatasets = relatedDatasets
+                    .filter(function (dataset) {
+                        return _.get(dataset, 'key') && _.get(dataset, 'val');
+                    })
+                    .reduce(function (acc, cur) {
+                        acc[cur.key] = cur.val;
+                        return acc;
+                    }, {});
 
-        console.log(data);
         // reset upload info
         vm.state = vm.states.UPLOADING;
         vm.errorMsg = undefined;
@@ -162,41 +211,7 @@ function derivedDatasetUploadCtrl(
         );
 
         $window.scrollTo(0, 0);
-        /*
-         vm.uploadProcess = Upload.upload({
-            url: env.dataApi + 'derivedDataset/',
-            headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
-            data: {
-                dataPackage: JSON.stringify(dataPackage),
-                file: vm.files,
-                fileUrl: fileUrls,
-                identifiersFileUrl: vm.relatedIdentifiersUrl,
-                identifiersFile: vm.relatedIdentifiersFile
-            },
-            arrayKey: ''
-        });
-
-        $window.scrollTo(0, 0);
-        vm.uploadProcess.then(function(response) {
-            $timeout(function() {
-                vm.state = vm.states.UPLOADED;
-                vm.result = response.data;
-            });
-        }, function(response) {
-            $timeout(function() {
-                vm.state = vm.states.FAILED_UPLOAD;
-                if (response.status > 0) {
-                    vm.errorMsg = response.data.code + ': ' + response.data.message;
-                } else {
-                    vm.errorMsg = 'Unknown error occurred';
-                }
-            });
-        }, function(evt) {
-            vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-        }); */
     };
-
-    // Load the current user and use to prefill the first creator
 }
 
 module.exports = derivedDatasetUploadCtrl;

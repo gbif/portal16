@@ -24,7 +24,7 @@ function renderTemplate(req, res, next) {
 
 async function create(req, res, next) {
    try {
-       let response = await controller.createDerivedDatasetAsJson(req.body, req.user);
+       let response = await controller.createDerivedDataset(req.body, req.user, req.headers);
         return res.send(response);
    } catch (error) {
     res.status(error.statusCode || 500);
@@ -34,7 +34,7 @@ async function create(req, res, next) {
 
 async function update(req, res, next) {
     try {
-        let response = await controller.updateDerivedDatasetAsJson(req.body, req.user);
+        let response = await controller.updateDerivedDataset(req.body, req.user);
          return res.send(response);
     } catch (error) {
      res.status(error.statusCode || 500);
