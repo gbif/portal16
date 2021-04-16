@@ -27,8 +27,10 @@ async function create(req, res, next) {
        let response = await controller.createDerivedDataset(req.body, req.user, req.headers);
         return res.send(response);
    } catch (error) {
-    res.status(error.statusCode || 500);
-    res.send();
+    const code = error.statusCode || 500;
+    const message = error.body || 'Unknown error';
+    res.status(code);
+    res.send({message, code});
    }
 }
 
@@ -37,8 +39,10 @@ async function update(req, res, next) {
         let response = await controller.updateDerivedDataset(req.body, req.user);
          return res.send(response);
     } catch (error) {
-     res.status(error.statusCode || 500);
-     res.send();
+     const code = error.statusCode || 500;
+     const message = error.body || 'Unknown error';
+     res.status(code);
+     res.send({message, code});
     }
  }
 
