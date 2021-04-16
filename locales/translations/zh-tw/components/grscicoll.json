@@ -30,7 +30,7 @@
     "status": "狀態",
     "name": "名稱",
     "isActive": {
-      "true": "上線",
+      "true": "在線",
       "false": "離線"
     }
   },
@@ -62,7 +62,7 @@
     "type": "機構類型",
     "identifiers": "識別碼",
     "isActive": {
-      "true": "上線",
+      "true": "在線",
       "false": "離線"
     },
     "true": "是",
