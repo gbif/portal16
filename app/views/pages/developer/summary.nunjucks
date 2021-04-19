@@ -50,7 +50,7 @@
                 </div>
             <div class="col-md-10">
             <section id="sections" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>API Sections</h3>
                     <p>The API is split into logical sections to ease understanding:</p>
                     <ul class="indent">
@@ -84,7 +84,7 @@
             </section>
 
             <section id="communication" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Communication</h3>
                     <p>
                         You can sign up to the <a href="https://lists.gbif.org/mailman/listinfo/api-users"
@@ -107,7 +107,7 @@
             </section>
 
             <section id="common" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Common operations</h3>
                     <p>The following details common cross-cutting parameters used in the API
                     <p>
@@ -152,7 +152,7 @@
             </section>
 
             <section id="authentication" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Authentication</h3>
                     <p>POST, PUT, and DELETE requests require authentication.
                         The GBIF API uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic
@@ -170,7 +170,7 @@
             </section>
 
             <section id="enumerations" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Enumerations</h3>
                     <p>Many parts of the GBIF API make use of enumerations, i.e. controlled vocabularies for specific
                         topics.
@@ -206,7 +206,7 @@
             </section>
 
             <section id="roadmap" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Roadmap to v2</h3>
                     <p>The GBIF API is currently at v1 which means:
                     <p>

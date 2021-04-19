@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-10">
             <section id="features" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Feature overview</h3>
 
                     <p style="text-align: center">
@@ -71,7 +71,7 @@
             </section>
 
             <section id="format" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Tile formats</h3>
                     <p>Two tile formats are available: <strong>vector tiles</strong> and <strong>raster tiles</strong>.
                         The raster tiles are generated from the vector tiles.</p>
@@ -85,7 +85,7 @@
             </section>
 
             <section id="spec" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>The tile URL format</h3>
                     <p>
                         The format of the URL is as follows:
@@ -161,7 +161,7 @@
             </section>
 
             <section id="layers" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Search parameters</h3>
                     <p>
                         Without any additional parameters, all occurrences will be returned.
@@ -233,7 +233,7 @@
             </section>
 
             <section id="projections" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Projections</h3>
                     <p>The projection declares how coordinates on Earth are transformed to a two dimensional surface.</p>
 
@@ -245,7 +245,7 @@
             </section>
 
             <section id="colors" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Map styling</h3>
                     <p>
                         Vector styles must be coloured by the client &mdash; you decide!
@@ -341,7 +341,7 @@
             </section>
 
             <section id="capabilities" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <div class="row">
                         <h3>Capabilities endpoint</h3>
                         <p>A summary of the data available for a <code>density</code> search is available using the capabilities endpoint.  The URL format is</p>
@@ -366,7 +366,7 @@
             </section>
 
             <section id="preview" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <div class="row">
                         <h3>Preview</h3>
                         <p>A preview tool is in development.  Meanwhile, look at the <a href="https://tile.gbif.org/ui/">base map examples</a>,

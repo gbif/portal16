@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-md-10">
             <section id="occurrence" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrences</h3>
                     <p>This API provides services related to the retrieval of single occurrence records.</p>
                     <table class='api table table-bordered table-striped table-params'>
@@ -89,7 +89,7 @@
             </section>
 
             <section id="search" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Searching</h3>
                     <p>This API provides services for searching occurrence records that have been indexed by GBIF.
                         In order to retrieve all results for a given search filter you need to issue individual requests
@@ -228,7 +228,7 @@
             </section>
 
             <section id="download" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Downloads</h3>
                     <p>This API provides services to download occurrence records and retrieve information about those
                         downloads.</p>
@@ -299,7 +299,7 @@
             </section>
 
             <section id="metrics" class="white-background page--developer__anchor">
-                <div class="container--narrow ">
+                <div class="container--fluid ">
                     <h3>Occurrence Metrics</h3>
                     <p>This API provides services to retrieve various counts and metrics provided about occurrence
                         records.
@@ -328,7 +328,7 @@
             </section>
 
             <section id="inventories" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Inventories</h3>
                     <p>This API provides services that list all distinct values together with their occurrence count for
                         a given occurrence property.
@@ -441,7 +441,7 @@
             }) $}
 
             <section id="predicates" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Download Predicates</h3>
                     <p>A download predicate is an query expression to retrieve occurrence record downloads. A working example using <em>curl</em>: Put this in a file called query.json:
                         {% set downloadExampleQuery = {"creator":"userName","notificationAddresses":["userEmail@example.org"],"sendNotification": true,"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"PRESERVED_SPECIMEN"},{"type":"in","key":"COUNTRY","values":["KW","IQ","IR"]}]}} %}
@@ -729,7 +729,7 @@
             </section>
 
             <section id="download_limits" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Download Limits</h3>
                     <p>Occurrence downloads are a very resource demanding service which needs to be monitored and limited
                         according to the GBIF platform load.
@@ -752,7 +752,7 @@
             </section>
 
             <section id="gadm" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>GADM regions search and browsing</h3>
                     <p>Database of Global Administrative Areas, is a high-resolution database of country administrative areas.</p>
                     <p>This API provides services to search and browse regions and sub-regions down to three levels of sub-regions.</p>

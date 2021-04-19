@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-10">
             <section id="nameUsages" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Working with Name Usages</h3>
                     <p>A name usage is the usage of a scientific name according to one
                         particular Checklist including the <a href="/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">GBIF
@@ -146,7 +146,7 @@
             </section>
 
             <section id="searching" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <div class="page--developer__anchor" id="temporalCoverages">
                         <h3>Searching Names</h3>
                         <p>GBIF provides 4 different ways of finding name usages.
@@ -185,7 +185,7 @@
             </section>
 
             <section id="parser" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Name Parser</h3>
                     <p>GBIF exposes its java based name parser library through our API.
                         The service takes one or a list of simple scientific name strings, parses each and returns a
