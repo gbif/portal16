@@ -27,18 +27,7 @@
                                 <input required type="url" ng-model="derivedDatasetUpload.form.sourceUrl">
                             </md-input-container>
                         </div>
-                        <div layout="row">
-                            <md-input-container flex="100">
-                                <label translate="tools.derivedDataset.originalDownloadDOI">Original Download DOI</label>
-                                <input ng-model="derivedDatasetUpload.form.originalDownloadDOI">
-                            </md-input-container>
-                        </div>
-                        <div layout="row">
-                            <md-input-container flex="100">
-                                <label translate="tools.derivedDataset.registrationDate" >Registration Date</label>
-                                <input type="date" ng-model="derivedDatasetUpload.form.registrationDate">
-                            </md-input-container>
-                        </div>
+
 
 
                 <div class="m-b-1" ng-show="!derivedDatasetUpload.form.doi && derivedDatasetUpload.relatedDatasets.length < 2">
@@ -74,6 +63,21 @@
                             <textarea markdown-editor on-mde-change="derivedDatasetUpload.updateDescription" ng-model="derivedDatasetUpload.form.description"  rows="5" placeholder="Optional description"></textarea>
                         </div>
                     </div>
+
+                    		<div class="card__content">
+                        <div layout="row">
+                            <md-input-container flex="100">
+                                <label translate="tools.derivedDataset.originalDownloadDOI">Original Download DOI</label>
+                                <input ng-model="derivedDatasetUpload.form.originalDownloadDOI">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex="100">
+                                <label translate="tools.derivedDataset.registrationDate" >Registration Date</label>
+                                <input type="date" ng-model="derivedDatasetUpload.form.registrationDate">
+                            </md-input-container>
+                        </div>
+		</div>
                 </div>
 
                 <div class="emptyInfo" ng-if="!derivedDatasetUpload.uploadForm.$valid && !derivedDatasetUpload.form.doi">
