@@ -64,7 +64,7 @@
                         </div>
                     </div>
 
-                    		<div class="card__content">
+                    <div class="card__content">
                         <div layout="row">
                             <md-input-container flex="100">
                                 <label translate="tools.derivedDataset.originalDownloadDOI">Original Download DOI</label>
