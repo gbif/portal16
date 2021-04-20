@@ -5,7 +5,7 @@
             <p dir="auto">{$ info $}</p>
         </div>
         <div class="figure">
-            <img src="{$ thumbBase $}{$ imgfile $}.png" data-jslghtbx="{$ imgBase $}{$ imgfile $}.png"
+            <img src="{$ analyticsFigureUrl $}{$ imgfile $}.svg" data-jslghtbx="{$ analyticsFigureUrl $}{$ imgfile $}.svg"
                  class="img-thumbnail">
         </div>
     </div>
@@ -142,8 +142,8 @@
                 <div class="info">
                 </div>
                 <div class="figure">
-                    <img src="{$ thumbBase $}occ_repatriation.png"
-                          data-jslghtbx="{$ imgBase $}occ_repatriation.png" class="img-thumbnail">
+                    <img src="{$ analyticsFigureUrl $}occ_repatriation.svg"
+                          data-jslghtbx="{$ analyticsFigureUrl $}occ_repatriation.svg" class="img-thumbnail">
                 </div>
             </div>
         </div>
