@@ -37,7 +37,7 @@
         <div class="chart-flex-columns">
               {$ chart(__('trends.speciesCountByKingdom'), 'spe_kingdom', __('trends.numOccSpeciesByKingdom')) $}
             {$ chart(__('trends.speciesCountsForSpecimenRecords'), 'spe_kingdom_specimen', __('trends.numSpeciesFromSpecimens')) $}
-            {$ chart(__('trends.speciesCountForObservationRecords'), 'spe_kingdom_observation', 'trends.numSpeciesAssociatedWithObsRecords') $}
+            {$ chart(__('trends.speciesCountForObservationRecords'), 'spe_kingdom_observation', __('trends.numSpeciesAssociatedWithObsRecords')) $}
         </div>
     </div>
 </section>
