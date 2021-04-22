@@ -320,7 +320,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
   };
 
   vm.filters.eventId = {
-    titleTranslation: 'filterNames.eventID',
+    titleTranslation: 'filterNames.eventId',
     queryKey: 'event_id',
     filter: OccurrenceFilter,
     search: {
