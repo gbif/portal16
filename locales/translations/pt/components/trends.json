@@ -34,7 +34,7 @@
     "speciesForWhichRecordsAreAvailableForEachDayOfTheYear": "O número de espécies (ver acima) para os quais estão disponíveis registos para cada dia do ano.",
     "note": "Nota",
     "theseChartsMayRevealPatternsThatRepresentBiasesInDataCollection": "Estes gráficos podem revelar padrões que representam enviesamentos na colheita de dados (sazonalidade, feriados) ou possíveis problemas na gestão dos dados (número não proporcional de registos mostrados para os primeiros ou últimos dias no ano ou a cada mês ou semana). Tais problemas podem surgir em vários estágios de processamento de dados e exigem mais investigação.",
-    "byGeneratingTheseChartsAnIssueWasDetected": "Ao gerar esses gráficos [um tema] (http://dev.gbif.org/issues/browse/POR-2120) foi detectado no processamento do GBIF que contribui para o pico observado no primeiro dia do ano em diversos gráficos e serão abordadas.",
+    "byGeneratingTheseChartsAnIssueWasDetected": "Ao gerar esses gráficos [um problema] (https://github.com/gbif/gbif-api/issues/2) foi detectado no processamento do GBIF que contribui para o pico observado no primeiro dia do ano em diversos gráficos e serão abordadas.",
     "completenessAndPrecision": "Completude e precisão",
     "theseChartsIllustrate4": "Estes gráficos ilustram alterações na completude (ver abaixo) de regístos disponíveis e na precisão destes registos no que se refere à data, geografia e taxonomia.",
     "aRecordIsHereDefinedToBeCompleteIfItIncludes": "Um registo é aqui referido como estando completo se incluir a identificação ao menos ao nível da espécie, coordenadas válidas, data de ocorrência completa e base do registo atribuido (e.g. observação, espécime, ect.).",
@@ -71,7 +71,7 @@
       "fromDescription": "Alteração ao longo do tempo nos dados sobre espécies de {{country}} disponíveis através do GBIF.org",
       "publishedByDescription": "Alteração ao longo do tempo dos dados publicados pelas instituições de {{country}} disponíveis através do GBIF.org"
     },
-    "analyticsGlobalDescription": "Tendências na disponibilidade de dados disponível na rede GBIF de 2008 a 2016",
+    "analyticsGlobalDescription": "Tendências na disponibilidade de dados disponível na rede GBIF—2008 a 2021",
     "analyticsTitle": "Tendências de dados"
   }
 }
