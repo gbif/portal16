@@ -58,7 +58,7 @@ module.exports = function(app, config) {
                         'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.12.0/mapbox-gl.min.css',
                         'api.mapbox.com'],
                     mediaSrc: ['*'],
-                    imgSrc: ['*'],
+                    imgSrc: ['*', 'data:'],
                     workerSrc: [
                         'blob:'
                     ],
