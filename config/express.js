@@ -61,7 +61,7 @@ module.exports = function(app, config) {
                         'api.mapbox.com',
                         'maxcdn.bootstrapcdn.com'],
                     mediaSrc: ['*'],
-                    imgSrc: ['*'],
+                    imgSrc: ['*', 'data:'],
                     workerSrc: [
                         'blob:'
                     ],
