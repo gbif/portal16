@@ -60,7 +60,7 @@
                             </ul>
                         </div>
                         <div>
-                            <textarea markdown-editor on-mde-change="derivedDatasetUpload.updateDescription" ng-model="derivedDatasetUpload.form.description"  rows="5" placeholder="Optional description"></textarea>
+                            <textarea required markdown-editor on-mde-change="derivedDatasetUpload.updateDescription" ng-model="derivedDatasetUpload.form.description"  rows="5" placeholder="Description (required)"></textarea>
                         </div>
                     </div>
 
