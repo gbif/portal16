@@ -88,6 +88,7 @@
     "passwordChangeInvalid": "Palavra-passe inválida - se esqueceu a sua palavra-passe, encerrar a sessão e use a redefinição de palavra-passe",
     "verficationLinkSent": "Foi-lhe enviado um e-mail com um link de verificação para confirmar que este é o seu endereço de email. Bem-vindo ao GBIF",
     "resetPasswordRequest": "Pedido de reposição da palavra-passe",
-    "resetPasswordMessage": "Enviamos-lhe um e-mail para redefinir a sua palavra-passe."
+    "resetPasswordMessage": "Enviamos-lhe um e-mail para redefinir a sua palavra-passe.",
+    "derivedDatasets": ""
   }
 }
