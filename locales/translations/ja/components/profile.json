@@ -88,6 +88,7 @@
     "passwordChangeInvalid": "無効なパスワード - もしパスワードを忘れた場合はログアウトし、パスワードをリセットしてください。",
     "verficationLinkSent": "メールアドレスを確認するため、確認用のリンクを記載したメールを送信しました。GBIFへようこそ",
     "resetPasswordRequest": "パスワードリセットのリクエスト",
-    "resetPasswordMessage": "パスワードリセット用のリンクを記載したメールを送信しました。"
+    "resetPasswordMessage": "パスワードリセット用のリンクを記載したメールを送信しました。",
+    "derivedDatasets": ""
   }
 }
