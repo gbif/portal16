@@ -88,6 +88,7 @@
     "passwordChangeInvalid": "Mot de passe non valide - si vous avez oublié votre mot de passe, déconnectez-vous et réinitialisez votre mot de passe",
     "verficationLinkSent": "Nous vous avons envoyé un courriel avec un lien de vérification afin de s'assurer que c'est bien votre courriel. Bienvenue à GBIF",
     "resetPasswordRequest": "Demande de réinitialisation de mot de passe",
-    "resetPasswordMessage": "Nous vous avons envoyé un courriel avec un lien pour réinitialiser votre mot de passe."
+    "resetPasswordMessage": "Nous vous avons envoyé un courriel avec un lien pour réinitialiser votre mot de passe.",
+    "derivedDatasets": ""
   }
 }
