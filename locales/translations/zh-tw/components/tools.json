@@ -62,8 +62,37 @@
         "machineVision": {
             "tabs": {
                 "demo": "展示",
-                "statement": "意圖聲明"
+                "statement": "聲明"
             }
+        },
+        "derivedDataset": {
+            "title": "",
+            "titleField": "",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "",
+            "occurrenceCount": "",
+            "submit": "",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
         }
     }
 }
