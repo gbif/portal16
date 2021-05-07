@@ -92,7 +92,7 @@
             "backToEdit": "Back to edit",
             "mintingDoi": "Minting DOI - this shouldn't take long.",
             "attachCsvLabel": "Attach CSV file with dataset keys and occurrence counts",
-            "orEnterLabel": ""
+            "orEnterLabel": "Or enter dataset keys/DOIs and occurrence counts here"
         }
     }
 }
