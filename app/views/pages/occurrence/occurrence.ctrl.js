@@ -657,7 +657,16 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
         datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
       },
       suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
-      suggestTitle: 'scientificName',
+      suggestTitle: function(data) {
+        return {
+          scientificName: _.get(data, 'scientificName'),
+          key: _.get(data, 'key'),
+          accepted: _.get(data, 'accepted'),
+          acceptedKey: _.get(data, 'acceptedKey'),
+          synonym: _.get(data, 'synonym')
+        };
+      }, // 'scientificName',
+      suggestTitleTemplate: '/templates/components/filterTaxon/suggestTaxonTitleTemplate.html?v=' + BUILD_VERSION,
       suggestShortName: 'title',
       suggestKey: 'key'
     }
