@@ -89,6 +89,6 @@
     "verficationLinkSent": "An email has been sent to the specified email address containing a link that must be clicked to activate your account.",
     "resetPasswordRequest": "Password reset request",
     "resetPasswordMessage": "We have sent you a mail with a link to reset your password.",
-    "derivedDatasets": ""
+    "derivedDatasets": "Derived datasets"
   }
 }
