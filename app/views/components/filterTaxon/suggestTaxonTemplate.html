@@ -1,5 +1,6 @@
 <a ng-href="" class="seperator species-list seperator text-left" dir="auto">
-    <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+    <span tooltip-placement="top" uib-tooltip="{{ 'species.synonym' | translate }}" ng-if="match.model.synonym" class="issue-bullet__warn">● </span>
+    <span ng-bind-html="match.model.scientificName | uibTypeaheadHighlight:query"></span>
     <span class="small discreet" translate="taxonRank.{{match.model.rank}}" dir="auto">{{match.model.rank}}</span>
     <div class="small discreet classification-list">
         <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"

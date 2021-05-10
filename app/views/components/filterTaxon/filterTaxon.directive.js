@@ -114,7 +114,14 @@ function filterTaxonDirective(BUILD_VERSION) {
         };
 
         vm.getSuggestionLabel = function(suggestion) {
-            return suggestion && vm.filterConfig.search.suggestTitle ? suggestion[vm.filterConfig.search.suggestTitle] : suggestion;
+            if (vm.filterConfig.search.suggestTitle && typeof vm.filterConfig.search.suggestTitle === 'function') {
+                return vm.filterConfig.search.suggestTitle(suggestion);
+            } else if (vm.filterConfig.search.suggestTitle) {
+                return suggestion[vm.filterConfig.search.suggestTitle];
+            } else {
+                return suggestion || false;
+            }
+           // return suggestion && vm.filterConfig.search.suggestTitle ? suggestion[vm.filterConfig.search.suggestTitle] : suggestion;
         };
 
         vm.inQuery = function(name) {
@@ -173,6 +180,14 @@ function filterTaxonDirective(BUILD_VERSION) {
            delete vm.usedKeys[key];
             vm.apply();
         };
+
+        vm.useAcceptedTaxon = function(taxon) {
+           vm.query.splice(vm.query.indexOf(taxon.key), 1);
+           delete vm.usedKeys[taxon.key];
+           vm.query.push(taxon.acceptedKey);
+           getFullResource(taxon.acceptedKey);
+           vm.apply();
+        }
 
         vm.uncheckAll = function() {
             vm.query = [];
