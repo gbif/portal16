@@ -29,6 +29,7 @@
     "polygonSimplifiedToFewerDecimals": "The polygon has been simplified: number of decimals reduced",
     "polygonSimplifiedToFewerPoints": "The polygon has been simplified: number of points reduced",
     "largeQueryLengthWarning": "The URL of your query exceeds 2,000 characters and may not work properly in all browsers. For large and/or complicated queries, please consider using the download API.",
-    "didYouMean": "Your search matches a {RANK}: '{NAME}'. Do you wish to limit your search to this taxon only?"
+    "didYouMean": "Your search matches a {RANK}: '{NAME}'. Do you wish to limit your search to this taxon only?",
+    "clickToUseAcceptedTaxon": "Click to search by the accepted name of the taxon. You will likely see more data as this includes data for all synonym usages."
   }
 }
