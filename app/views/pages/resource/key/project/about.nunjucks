@@ -69,8 +69,24 @@
 
             <section>
                 <dl class="inline">
-
-                    {% if main.fields.fundsAllocated and resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations | isNotEmpty %}
+                    {% if main.fields.fundsAllocated and main.fields.overrideProgrammeFunding | isNotEmpty %}
+                        <div>
+                            <dt translate="cms.project.fundedBy">Funded by</dt>
+                            <dd>
+                                <ul class="inline-bullet-list">
+                                    {% for funder in main.fields.overrideProgrammeFunding %}
+                                        <li>
+                                        {% if resolved.Entry[funder.sys.id].fields.url %}
+                                            <a dir="auto" href="{$ resolved.Entry[funder.sys.id].fields.url $}">{$ resolved.Entry[funder.sys.id].fields.title $}</a>
+                                        {% else %}
+                                            <span dir="auto">{$ resolved.Entry[funder.sys.id].fields.title $}</span>
+                                        {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </dd>
+                        </div>
+                    {% elif main.fields.fundsAllocated and resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations | isNotEmpty %}
                         <div>
                             <dt translate="cms.project.fundedBy">Funded by</dt>
                             <dd>
