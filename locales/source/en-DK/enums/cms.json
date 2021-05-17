@@ -38,6 +38,7 @@
           "REGIONAL": "Regional grant",
           "SMALL": "Small grant",
           "NATIONAL": "National grant",
+          "DATA_USE": "Data-use grant",
           "undefined": "Not specified"
         },
         "projectStatus": {
