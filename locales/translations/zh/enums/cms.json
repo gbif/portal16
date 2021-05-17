@@ -38,6 +38,7 @@
           "REGIONAL": "区域性基金",
           "SMALL": "小额经费",
           "NATIONAL": "国家基金",
+          "DATA_USE": "",
           "undefined": "未指定的"
         },
         "projectStatus": {
