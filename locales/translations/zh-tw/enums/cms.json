@@ -38,6 +38,7 @@
           "REGIONAL": "區域補助經費",
           "SMALL": "小型補助經費",
           "NATIONAL": "國家補助經費",
+          "DATA_USE": "",
           "undefined": "未指定"
         },
         "projectStatus": {

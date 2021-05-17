@@ -38,6 +38,7 @@
           "REGIONAL": "Регіональна грант",
           "SMALL": "Маленький грант",
           "NATIONAL": "Національний грант",
+          "DATA_USE": "",
           "undefined": "Не вказано"
         },
         "projectStatus": {
