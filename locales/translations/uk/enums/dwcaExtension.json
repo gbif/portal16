@@ -11,7 +11,7 @@
     "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "Підготовка",
     "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "Консервація",
     "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "Розширене вимірювання або факт",
-    "http://zooarchnet.org/dwc/terms/ChronometricAge": "Хронометричний вік",
+    "http://rs.tdwg.org/chrono/terms/ChronometricAge": "",
     "http://zooarchnet.org/dwc/terms/ChronometricDate": "Хронометрична дата",
     "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "",
     "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "",
