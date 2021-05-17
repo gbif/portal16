@@ -29,6 +29,7 @@
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "",
-    "didYouMean": ""
+    "didYouMean": "",
+    "clickToUseAcceptedTaxon": ""
   }
 }
