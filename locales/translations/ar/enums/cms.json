@@ -38,6 +38,7 @@
           "REGIONAL": "منحة اقليمية",
           "SMALL": "منحة صغيرة",
           "NATIONAL": "منحة وطنية",
+          "DATA_USE": "",
           "undefined": "غيرمخصص"
         },
         "projectStatus": {

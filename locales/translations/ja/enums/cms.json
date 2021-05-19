@@ -38,6 +38,7 @@
           "REGIONAL": "地域の助成金",
           "SMALL": "小規模の助成金",
           "NATIONAL": "国の助成金",
+          "DATA_USE": "",
           "undefined": "情報なし"
         },
         "projectStatus": {
