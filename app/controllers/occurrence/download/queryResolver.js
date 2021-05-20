@@ -16,6 +16,11 @@ let queryResolver = {
         url: apiConfig.publisher.url,
         field: 'title'
     },
+    networkKey: {
+      type: 'ENDPOINT',
+      url: apiConfig.network.url,
+      field: 'title'
+  },
     year: {
         type: 'ENUM',
         valueTranslation: 'intervals.year.'
