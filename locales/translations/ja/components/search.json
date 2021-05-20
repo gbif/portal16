@@ -18,6 +18,8 @@
     "filters": "フィルター",
     "simple": "基本",
     "advanced": "詳細",
+    "backbone": "",
+    "allChecklists": "",
     "allResultTypes": "すべて",
     "suggestions": "候補",
     "header": {

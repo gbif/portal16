@@ -18,6 +18,8 @@
     "filters": "Фільтри",
     "simple": "Простий пошук",
     "advanced": "Розширений пошук",
+    "backbone": "",
+    "allChecklists": "",
     "allResultTypes": "Всі",
     "suggestions": "Підказки",
     "header": {
