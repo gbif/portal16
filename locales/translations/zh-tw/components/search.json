@@ -18,6 +18,8 @@
     "filters": "篩選",
     "simple": "簡單搜尋",
     "advanced": "進階選項",
+    "backbone": "",
+    "allChecklists": "",
     "allResultTypes": "全選",
     "suggestions": "建議選項",
     "header": {
