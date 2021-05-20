@@ -103,6 +103,37 @@ function speciesCtrl($scope, $state, SpeciesFilter, Species, $translate, Page, s
       }
     };
 
+    vm.isSingleDatasetQuery = function() {
+      return typeof vm.state.query.dataset_key === 'string';
+    };
+
+    vm.filters.highertaxonKeyForSingleDataset = {
+      titleTranslation: 'filterNames.higherTaxonKey',
+      queryKey: 'highertaxon_key',
+      filter: SpeciesFilter,
+      expand: {
+        resource: Species,
+        expandedTitle: 'scientificName'
+      },
+      facets: {
+        hasFacets: true,
+        facetKey: 'HIGHERTAXON_KEY'
+      },
+      search: {
+        isSearchable: true,
+        suggestEndpoint: suggestEndpoints.taxon,
+        defaultParams: function() {
+          return {
+            datasetKey: vm.state.query.dataset_key
+          };
+        },
+        suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
+        suggestTitle: 'scientificName',
+        suggestShortName: 'title',
+        suggestKey: 'key'
+      }
+    };
+
     // vm.filters.highertaxonKey = {
     //   titleTranslation: 'filterNames.higherTaxonKey',
     //   queryKey: 'highertaxon_key',
