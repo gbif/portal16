@@ -706,6 +706,23 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>isNull</td>
+                            <td>has an empty value</td>
+                            <td>
+                                <code class="block">
+                                    {<br/>
+                                    &nbsp;&nbsp;"creator":"userName",<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"predicate":<br/>
+                                    &nbsp;&nbsp;{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"type":"isNull",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"parameter":"CONTINENT"<br/>
+                                    &nbsp;&nbsp;}<br/>
+                                    }
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>isNotNull</td>
                             <td>has a non-empty value</td>
                             <td>
