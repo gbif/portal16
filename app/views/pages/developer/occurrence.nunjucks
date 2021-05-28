@@ -72,6 +72,10 @@
                         Gets details for a single, interpreted occurrence
                         {% endcall %}
 
+                        {% call trowO(url="/{datasetKey}/{occurrenceId}", respLink=apiBase+"occurrence/0001480b-76ca-4f30-86bc-f4292481554b/651D49B2-FF77-7F3F-E053-2614A8C050DE") %}
+                        Gets details for a single, interpreted occurrence by its dataset key and its occurrenceId in that dataset.
+                        {% endcall %}
+
                         {% call trowO(url="/{key}/fragment", respLink=apiBase+"occurrence/1258202889/fragment") %}
                         Get a single occurrence fragment in its raw form (xml or json)
                         {% endcall %}
@@ -282,6 +286,10 @@
                         Lists all the datasets of an occurrence download.
                         {% endcall %}
 
+                        {% call trowD(url="/{key}/datasets/export", method="GET", authRequired=false, paging=true, resp="Datasets", params=["format"], respLink=apiBase+"occurrence/download/0000251-150304104939900/datasets/export") %}
+                        Export all the datasets data of an occurrence download into CSV or TSV file.
+                        {% endcall %}
+
                         {% call trowD(url="/user/{user}", method="GET", resp="Download Page", authRequired=true, paging=true) %}
                         Lists the downloads created by a user. Only role ADMIN can list downloads of other users.
                         {% endcall %}
@@ -432,7 +440,8 @@
             "facet": "A facet name used to retrieve the most frequent values for a field. Facets are allowed for all the parameters except for: eventDate, geometry, lastInterpreted, locality, organismId, stateProvince, waterBody.  This parameter may by repeated to request multiple facets, as in this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&facet=basisOfRecord&limit=0'>/occurrence/search?facet=datasetKey&amp;facet=basisOfRecord&amp;limit=0</a>",
             "facetMincount": "",
             "facetMultiselect": "",
-            "facetOffset, facetLimit": "Facet parameters allow paging requests using the parameters <em>facetOffset</em> and <em>facetLimit</em> as this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>/occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>"
+            "facetOffset, facetLimit": "Facet parameters allow paging requests using the parameters <em>facetOffset</em> and <em>facetLimit</em> as this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>/occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>",
+            "format": "Export format, accepts TSV(default) and CSV"
             }) $}
 
             <section id="predicates" class="white-background page--developer__anchor">

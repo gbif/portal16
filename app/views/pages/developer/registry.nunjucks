@@ -126,7 +126,8 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
-                        {$ trowS(url="/search", respLink=apiBase+"dataset/search?q=plant&amp;publishingCountry=AR", paging=true, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","hl","facet","facetMincount","facetMultiselect"], description="Full text search across all datasets. Results are ordered by relevance.") $}
+                        {$ trowS(url="/search", respLink=apiBase+"dataset/search?q=plant&amp;publishingCountry=AR", paging=true, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","endorsingNodeKey","decade","publishingCountry","hostingCountry","continent","networkKey","hl","facet","facetMincount","facetMultiselect"], description="Full text search across all datasets. Results are ordered by relevance.") $}
+                        {$ trowS(url="/search/export", respLink=apiBase+"dataset/search/export?q=plant&amp;publishingCountry=CR", paging=false, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","endorsingNodeKey","decade","publishingCountry","hostingCountry","continent","networkKey","facet"], description="Export the entire search results to TSV or CSV file") $}
                         {$ trowS(url="/suggest", respLink=apiBase+"dataset/suggest?q=Amazon&amp;type=OCCURRENCE", params=["q","country","type","subtype","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","project_id"], description="Search that returns up to 20 matching datasets. Results are ordered by relevance.")
                         $}
                         </tbody>
@@ -489,6 +490,9 @@
             "hostingOrg": "Filters datasets by their hosting organization UUID key",
             "decade": "Filters datasets by their temporal coverage broken down to decades. Decades are given as a full year, e.g. 1880, 1960, 2000, etc, and will return datasets wholly contained in the decade as well as those that cover the entire decade or more. Facet by decade to get the break down, e.g. <a href='"+apiBase+"dataset/search?facet=DECADE&amp;limit=0'>/search?facet=DECADE&amp;limit=0</a>",
             "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2 letter) country code",
+            "hostingCountry": "Filters datasets by their hosting organization's country given as a ISO 639-1 (2 letter) country code",
+            "networkKey": "Network associated to a dataset",
+            "endorsingNodeKey": "Node key that endorsed this dataset's publisher",
             "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
             "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them.",
             "contact": "Filters collections and institutions whose contacts contain the person key specified.",            
@@ -497,7 +501,8 @@
             "primaryCollection":"Filters persons by the primary collection key specified.",
             "code":"Code of a GrSciColl institution or collection.",
             "name":"Name of a GrSciColl institution or collection",
-            "alternativeCode":"Alternative code of a GrSciColl institution or collection"
+            "alternativeCode":"Alternative code of a GrSciColl institution or collection",
+            "format": "Export format, accepts TSV(default) and CSV"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
