@@ -127,7 +127,7 @@
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
                         {$ trowS(url="/search", respLink=apiBase+"dataset/search?q=plant&amp;publishingCountry=AR", paging=true, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","endorsingNodeKey","decade","publishingCountry","hostingCountry","continent","networkKey","hl","facet","facetMincount","facetMultiselect"], description="Full text search across all datasets. Results are ordered by relevance.") $}
-                        {$ trowS(url="/search/export", respLink=apiBase+"dataset/search/export?q=plant&amp;publishingCountry=CR", paging=false, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","endorsingNodeKey","decade","publishingCountry","hostingCountry","continent","networkKey","facet"], description="Export the entire search results to TSV or CSV file") $}
+                        {$ trowS(url="/search/export", respLink=apiBase+"dataset/search/export?q=plant&amp;publishingCountry=CR", paging=false, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","endorsingNodeKey","decade","publishingCountry","hostingCountry","continent","networkKey","format"], description="Export the entire search results to TSV or CSV file") $}
                         {$ trowS(url="/suggest", respLink=apiBase+"dataset/suggest?q=Amazon&amp;type=OCCURRENCE", params=["q","country","type","subtype","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","project_id"], description="Search that returns up to 20 matching datasets. Results are ordered by relevance.")
                         $}
                         </tbody>
