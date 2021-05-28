@@ -16,6 +16,17 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     Page.drawer(true);
     vm.filters = {};
 
+    vm.hasFilters = function() {
+      var hasContentType = vm.state.query.contentType;
+      var hasFilters = Object.keys(vm.state.query)
+        .filter(function(key) {
+          return key !== 'locale' && key !== 'contentType' && typeof vm.state.query[key] !== 'undefined';
+        }).length > 0;
+        return {
+          hasContentType: hasContentType, hasFilters: hasFilters
+        };
+    };
+
     vm.filters.countriesOfCoverage = {
         titleTranslation: 'resourceSearch.filters.countriesOfCoverage',
         queryKey: 'countriesOfCoverage',

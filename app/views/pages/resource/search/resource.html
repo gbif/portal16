@@ -204,6 +204,10 @@
                 <div class="horizontal-stripe light-background">
                     <ng-include src="'/templates/components/loader/loader.html'" ng-if="!resource.hasData() && !resource.state.failedRequest"></ng-include>
                     <div ng-if="resource.hasData()">
+                        <div class="container--narrow">
+                          <ng-include ng-if="!resource.hasFilters().hasFilters && resource.state.query.contentType === 'news'" src="portal.urlPrefix + '/api/resource/content/features?fields.machineIdentifier=news_header&content_type=features'" ></ng-include>
+                        </div>
+                        
                         <div ui-view ng-if="resource.state.data.count > 0">
 
                         </div>

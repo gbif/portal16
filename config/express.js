@@ -16,7 +16,7 @@ module.exports = function(app, config) {
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
     // based on https://github.com/OWASP/CheatSheetSeries/issues/376 helmet disables browsers' buggy cross-site scripting filter
-    if (env !== 'devXXX') {
+    if (env !== 'dev') {
         let helmetConfig = {
             referrerPolicy: false,
             contentSecurityPolicy: {

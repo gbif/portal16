@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=prod node app.js",
-    "local": "node locales/build.js; node locales/createMock.js; NODE_ENV=local node node_modules/gulp/bin/gulp.js --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials --redirects=/etc/portal16/redirects",
+    "local": "node locales/build.js; node locales/createMock.js; NODE_ENV=local node node_modules/gulp/bin/gulp.js --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials-dev --redirects=/etc/portal16/redirects",
     "install": "mkdir -p reports;",
     "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;",
     "test": "node node_modules/gulp/bin/gulp.js test;"
