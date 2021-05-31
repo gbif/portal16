@@ -29,13 +29,12 @@
                         <span dir="auto" translate="dataset.constituentOf"></span> <a dir="auto" class="source underline" ui-sref="datasetKey({key:datasetKey.parentDataset.key})">{{ datasetKey.parentDataset.title }}</a>
                     </span>
                 </p>
-                <div ng-if="datasetKey.dataset._computedValues.contributors.highlighted.length > 0">
+                <div ng-if="datasetKey.dataset.contactsCitation.length > 0">
                     <ol class="inline-bullet-list">
-                        <li ng-repeat="contributor in datasetKey.dataset._computedValues.contributors.highlighted">
+                        <li ng-repeat="contributor in datasetKey.dataset.contactsCitation">
                             <a dir="auto" ng-href="{{ portal.urlPrefix }}/dataset/{{ datasetKey.key }}#contacts"
                                class="inherit">
-                                    <i class="gb-icon-mail" ng-if="contributor._primaryContact"></i>
-                                {{ contributor.firstName }} {{ contributor.lastName }}
+                                {{ contributor.abbreviatedName }}
                             </a>
                         </li>
                     </ol>
