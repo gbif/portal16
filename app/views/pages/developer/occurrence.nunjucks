@@ -311,23 +311,23 @@
                         {$ api.apiTableHead(auth=false, paging=true) $}
                         <tbody>
 
-                        {% call trowD(url="occurrence/download/statistics", resp="DownloadStatistics", paging=true, respLink=apiBase+"occurrence/download/statistics?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
+                        {% call trowS(url="occurrence/download/statistics", resp="DownloadStatistics", paging=true, respLink=apiBase+"occurrence/download/statistics?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
                         Lists download statistics (datasetKey, number of records, number of downloads) grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
                         {% endcall %}
 
-                        {% call trowD(url="occurrence/download/statistics/export", resp="TSV or CSV", paging=false, respLink=apiBase+"occurrence/download/statistics/export?publishingCountry=CR&fromDate=2015-12&toDate=2019-11", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey","format"]) %}
+                        {% call trowS(url="occurrence/download/statistics/export", resp="TSV or CSV", paging=false, respLink=apiBase+"occurrence/download/statistics/export?publishingCountry=CR&fromDate=2015-12&toDate=2019-11", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey","format"]) %}
                         Exports download statistics to a TSV or CSV file, data can be filtered by: publishing organization, publishing country, a date range  and a dataset key.
                         {% endcall %}
 
-                        {% call trowD(url="occurrence/download/statistics/downloadsByUserCountry", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsByUserCountry?userCountry=CR&fromDate=2015-12&toDate=2019-11", params=["userCountry","fromDate","toDate"]) %}
+                        {% call trowS(url="occurrence/download/statistics/downloadsByUserCountry", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsByUserCountry?userCountry=CR&fromDate=2015-12&toDate=2019-11", params=["userCountry","fromDate","toDate"]) %}
                         Lists download counts grouped by year and month and filtered by the country of the user who requested the download and a date range.
                         {% endcall %}
 
-                        {% call trowD(url="occurrence/download/statistics/downloadedRecordsByDataset", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadedRecordsByDataset?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e&", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
+                        {% call trowS(url="occurrence/download/statistics/downloadedRecordsByDataset", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadedRecordsByDataset?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e&", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
                         Lists downloaded occurrence records counts grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
                         {% endcall %}
 
-                        {% call trowD(url="occurrence/download/statistics/downloadsByDataset", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsByDataset?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e&", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
+                        {% call trowS(url="occurrence/download/statistics/downloadsByDataset", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsByDataset?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e&", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
                         Lists download counts grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
                         {% endcall %}
 
