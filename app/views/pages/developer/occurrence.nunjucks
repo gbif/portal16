@@ -17,7 +17,7 @@
     {$ api.trow(url=url, resp=resp, httpMethod="GET", respLink=respLink, paging=undefined, authRequired=undefined, params=params, description=caller()) $}
 {% endmacro %}
 
-{% macro trowDS(url, resp="", method="GET", respLink=undefined, paging=true, authRequired=false) %}
+{% macro trowDS(url, resp="", method="GET", respLink=undefined, paging=true, authRequired=false, params=[]) %}
     {$ api.trow(url="/occurrence/download/statistics"+url, resp=resp, httpMethod=method, respLink=respLink, paging=paging, authRequired=authRequired, showParams=true, description=caller()) $}
 {% endmacro %}
 
