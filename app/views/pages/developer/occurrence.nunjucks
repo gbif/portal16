@@ -312,7 +312,7 @@
                     <p>This API provides statistics data about Occurrence Downloads
                     </p>
                     <table class='api table table-bordered table-striped table-params'>
-                        {$ api.apiTableHead(auth=false, paging=true) $}
+                        {$ api.apiTableHead(auth=false, paging=true, params=true) $}
                         <tbody>
 
                         {% call trowDS(url="", resp="DownloadStatistics", paging=true, respLink=apiBase+"occurrence/download/statistics?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
