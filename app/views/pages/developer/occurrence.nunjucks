@@ -306,7 +306,7 @@
                 </div>
             </section>
 
-            <section id="inventories" class="white-background page--developer__anchor">
+            <section id="download_stats" class="white-background page--developer__anchor">
                 <div class="container--narrow">
                     <h3>Occurrence Download Statistics</h3>
                     <p>This API provides statistics data about Occurrence Downloads
