@@ -17,8 +17,8 @@
     {$ api.trow(url=url, resp=resp, httpMethod="GET", respLink=respLink, paging=undefined, authRequired=undefined, params=params, description=caller()) $}
 {% endmacro %}
 
-{% macro trowDS(url, resp="", method="GET", respLink=undefined, paging=true, authRequired=false, params=[]) %}
-    {$ api.trow(url="/occurrence/download/statistics"+url, resp=resp, httpMethod=method, respLink=respLink, paging=paging, authRequired=authRequired, showParams=true, description=caller()) $}
+{% macro trowDS(url, resp="", method="GET", respLink=undefined, paging=false, params=[]) %}
+    {$ api.trow(url="/occurrence/download/statistics"+url, resp=resp, httpMethod=method, respLink=respLink, paging=paging, authRequired=undefined, params=params, description=caller()) $}
 {% endmacro %}
 
 {% block page %}
@@ -309,7 +309,7 @@
             <section id="download_stats" class="white-background page--developer__anchor">
                 <div class="container--narrow">
                     <h3>Occurrence Download Statistics</h3>
-                    <p>This API provides statistics data about Occurrence Downloads
+                    <p>This API provides statistics about Occurrence Downloads.
                     </p>
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false, paging=true, params=true) $}
