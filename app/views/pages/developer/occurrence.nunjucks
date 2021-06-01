@@ -77,16 +77,25 @@
                         {% endcall %}
 
                         {% call trowO(url="/{datasetKey}/{occurrenceId}", respLink=apiBase+"occurrence/0001480b-76ca-4f30-86bc-f4292481554b/651D49B2-FF77-7F3F-E053-2614A8C050DE") %}
-                        Gets details for a single, interpreted occurrence by its dataset key and its occurrenceId in that dataset.
+                        Gets details for a single, interpreted occurrence by its dataset key and occurrenceId in that dataset.
                         {% endcall %}
 
                         {% call trowO(url="/{key}/fragment", respLink=apiBase+"occurrence/1258202889/fragment") %}
                         Get a single occurrence fragment in its raw form (xml or json)
                         {% endcall %}
 
+                        {% call trowO(url="/{datasetKey}/{occurrenceId}/fragment", respLink=apiBase+"occurrence/0001480b-76ca-4f30-86bc-f4292481554b/651D49B2-FF77-7F3F-E053-2614A8C050DE/fragment") %}
+                        Gets a single occurrence fragment in its raw form (xml or json) by its dataset key and occurrenceId in that dataset.
+                        {% endcall %}
+
                         {% call trowO(url="/{key}/verbatim", resp="VerbatimOccurrence", respLink=apiBase+"occurrence/1258202889/verbatim") %}
                         Gets the verbatim occurrence record without any interpretation
                         {% endcall %}
+
+                        {% call trowO(url="/{datasetKey}/{occurrenceId}/verbatim", respLink=apiBase+"occurrence/0001480b-76ca-4f30-86bc-f4292481554b/651D49B2-FF77-7F3F-E053-2614A8C050DE/verbatim") %}
+                        Gets the verbatim occurrence record without any interpretation by its dataset key and occurrenceId in that dataset.
+                        {% endcall %}
+
                         </tbody>
                     </table>
                 </div>
