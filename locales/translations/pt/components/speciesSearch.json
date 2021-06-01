@@ -1,6 +1,6 @@
 {
     "speciesSearch": {
-        "title": "Procurar Espécies",
+        "title": "Pesquisa de espécies",
         "youAreCurrentlySearchingInGBIFtaxonomy": "Está a pesquisar espécies na taxonomia do GBIF.",
         "SearchAcrossChecklists": "Pesquisar em várias checklists",
         "freeTextSearchFor": "Está a fazer uma pesquisa de texto livre por '{QUERY} '",

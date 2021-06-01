@@ -36,12 +36,13 @@ function occurrenceTaxonomyTreeDirective(BUILD_VERSION) {
     /** @ngInject */
     function occurrenceTaxonomyTree($q, Species, $scope, $state, OccurrenceFrequentTaxa, OccurrenceFilter, OccurrenceBreakdown) {
         var vm = this;
-        vm.showFrequenyTree = false;
+        vm.showFrequenyTree = vm.options.showFrequenyTree;
 
         function updateTree() {
             if (_.get(vm.frequent, '$cancelRequest')) {
                 vm.frequent.$cancelRequest();
             }
+            
             var filter = vm.filter || {};
             var q = _.merge({}, filter, vm.options);
             vm.frequent = OccurrenceFrequentTaxa.query(q);

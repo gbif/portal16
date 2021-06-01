@@ -1,0 +1,221 @@
+.featuresBlockList + .featuresBlockList {
+  padding-top: 0;
+  margin-top: -(vrBlock(2))
+}
+.featuresBlock {
+  margin-top: -15px;
+}
+
+
+.featureCard {
+  position: relative;
+  max-width: 100%;
+  margin: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background: #fff;
+  &__details {
+    background white
+    padding 10px 0
+  }
+  &__type {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.33);
+    padding: 0 3px;
+    border-radius: 3px;
+    color: white;
+    display: none;
+  }
+  &__contentType {
+    color: #6f6f6f;
+    font-size: 13px;
+  }
+  // &__comment {
+  //   display: none;
+  // }
+  &__image {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    background: #00000022;
+  }
+  &__title {
+    p {
+        margin: 0 !important
+    }
+    font-weight 500
+    font-size 17px
+    line-height $lineHeightRatio
+    margin 0
+    color #555
+  }
+  &__footer {
+    margin-top 10px
+    font-size 14px
+    font-weight normal
+    color #777
+  }
+  &--stats {
+    h3 {
+        margin 0
+    }
+    div {
+        font-size 30px
+    }
+    
+    p {
+        //font-size 12px
+        color #aaa
+        margin-top 5px
+    }
+  }
+}
+
++isBelow(600px) {
+  .featuresBlock {
+    display: block;
+  }
+  .featureCard {
+    width: 100%;
+    display: block;
+    &__image {
+      display: none;
+    }
+  }
+}
+
++isBelow(800px) {
+  .featuresBlock {
+    display: block;
+  }
+  .featureCard {
+    width: 100%;
+    margin: 12px 0;
+    display: block;
+    &__image {
+      width: 150px;
+      padding-bottom: 0;
+      height: 75px;
+      float: right;
+      margin: 8px;
+    }
+    &__title {
+      font-size: 15px;
+    }
+    &__footer {
+      font-size: 13px;
+    }
+  }
+}
+// +isAbove(400px) {
+//   .featuresBlock {
+//     margin-left: (-($halfGutter / 2))
+//     margin-right: (-($halfGutter / 2))
+//     display flex
+//     flex-wrap wrap
+//     justify-content space-between
+//     .featureCard {
+//       margin $halfGutter ($halfGutter/ 2)
+//       flex 0 1 auto
+//       width "calc(100% / 2 - %s)" % ($halfGutter)
+//     }
+//   }
+// }
+
++isAbove(800px) {
+  .featuresBlock {
+    margin-left: (-($halfGutter / 2))
+    margin-right: (-($halfGutter / 2))
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+    .featureCard {
+      width: "calc(100% / 4 - %s)" % ($halfGutter);
+      flex: 0 1 auto;
+      margin: $halfGutter ($halfGutter/ 2);
+      &__contentType {
+        display: none;
+      }
+      &__type {
+        display: block;
+      }
+    }
+  }
+  .featuresBlock-length-4 {
+    .featureCard {
+      width: "calc(100% / 2 - %s)" % ($halfGutter);
+    }
+  }
+  .featuresBlock-length-3 {
+    .featureCard {
+      width "calc(100% / 3 - %s)" % ($halfGutter)
+      flex 0 1 auto
+    }
+  }
+  .featuresBlock-length-2 {
+    .featureCard {
+      width "calc(100% / 2 - %s)" % ($halfGutter)
+      flex 0 1 auto
+      .card__content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: #00000055;
+        right: 0;
+      }
+      &__title, &__footer {
+        color: white;
+      }
+      &__type {
+        top: 5px;
+        bottom: auto;
+      }
+    }
+  }
+  .featuresBlock-length-1 {
+    .featureCard {
+      width 100%;
+      flex 0 1 auto
+      &__image {
+        padding-bottom: 35%;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+      &__title {
+        font-size 2em;
+      }
+      .card__content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: #00000055;
+        width: 50%;
+        top: 0;
+      }
+      &__title, &__footer {
+        color: white;
+      }
+      &__type {
+        top: 5px;
+        bottom: auto;
+      }
+    }
+  }
+}
+
++isAbove(1000px) {
+  .featuresBlock-length-4 {
+    .featureCard {
+      width: "calc(100% / 4 - %s)" % ($halfGutter);
+    }
+  }
+}
+
+// .headerBlock + .light-background {
+//   padding-bottom: vrBlock(1.5);
+// }

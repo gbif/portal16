@@ -1,0 +1,28 @@
+{
+  "enum": {
+    "collectionPreservationType": {
+      "STORAGE_OUTDOORS": "",
+      "STORAGE_INDOORS": "",
+      "STORAGE_CONTROLLED_ATMOSPHERE": "",
+      "STORAGE_FROZEN_MINUS_20": "",
+      "STORAGE_FROZEN_MINUS_80": "",
+      "STORAGE_FROZEN_BETWEEN_MINUS_132_AND_MINUS_196": "",
+      "STORAGE_OTHER": "",
+      "STORAGE_REFRIGERATED": "",
+      "STORAGE_RECORDED": "",
+      "STORAGE_VACUUM": "",
+      "SAMPLE_CRYOPRESERVED": "",
+      "SAMPLE_DRIED": "",
+      "SAMPLE_EMBEDDED": "",
+      "SAMPLE_FLUID_PRESERVED": "",
+      "SAMPLE_PINNED": "",
+      "SAMPLE_PRESSED": "",
+      "SAMPLE_SKELETONIZED": "",
+      "SAMPLE_SLIDE_MOUNT": "",
+      "SAMPLE_SURFACE_COATING": "",
+      "SAMPLE_TANNED": "",
+      "SAMPLE_WAX_BLOCK": "",
+      "SAMPLE_OTHER": ""
+    }
+  }
+}

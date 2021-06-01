@@ -24,14 +24,16 @@
                 {{result.description | truncate:200 }}
             </p>
             <ul class="list-chips">
+                {% if not excludeCounts %}
                 <li ng-if="result.numPublishedDatasets">
                     <a href="" ui-sref="datasetSearchTable({publishing_org:result.key})"><span tx="counts.nDatasets" tx-nr="result.numPublishedDatasets"></span></a>
                 </li>
-                <li ng-if="result.country">
-                    <a href="" ui-sref=".({country:result.country})" translate="country.{{ result.country }}">{{ result.country }}</a>
-                </li>
                 <li class="asyncIf--isHidden" async-if="/api/resource/search?contentType=literature&publishingOrganizationKey={{ result.key }}">
                     <a ui-sref="resourceSearchList({publishingOrganizationKey:result.key, contentType:'literature'})"><span count="/api/resource/search?contentType=literature&publishingOrganizationKey={{ result.key }}" count-translation="counts.nCitations">&nbsp;</span></a>
+                </li>
+                {% endif %}
+                <li ng-if="result.country">
+                    <a href="" ui-sref=".({country:result.country})" translate="country.{{ result.country }}">{{ result.country }}</a>
                 </li>
             </ul>
 

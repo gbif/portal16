@@ -1,6 +1,8 @@
 'use strict';
 
 var angular = require('angular');
+var _ = require('lodash');
+require('./metrics/institutionKeyMetrics.ctrl');
 require('../../../../components/grscicollPerson/grscicollPerson.directive');
 
 angular
@@ -8,7 +10,7 @@ angular
     .controller('institutionKeyCtrl', institutionKeyCtrl);
 
 /** @ngInject */
-function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, CollectionSearch, $translate) {
+function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, CollectionSearch, OccurrenceSearch, $translate) {
     var vm = this;
     vm.limit = 20;
     vm.offset = parseInt($stateParams.offset);
@@ -19,14 +21,21 @@ function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, Collecti
     vm.$state = $state;
     vm.institution = InstitutionKey.get({key: vm.key});
     vm.collections = CollectionSearch.query({institution: vm.key});
-    // vm.institution.$promise
-    //     .then(function(data) {
-    //         Page.setTitle('Institution');
-    //         vm.institution = InstitutionKey.get({key: data.institutionKey});
-    //     })
-    //     .catch(function(err) {
+    vm.occurrences = OccurrenceSearch.query({institution_key: vm.key, limit: 0});
 
-    //     });
+    vm.institution.$promise
+        .then(function(data) {
+          Page.setTitle(data.name);
+          var irnIdentifier = _.find(data.identifiers, function(x) {
+            return x.type === 'IH_IRN';
+          });
+          if (irnIdentifier) {
+            vm.irn = irnIdentifier.identifier.substr(12);
+          }
+        })
+        .catch(function() {
+          // ignore failures
+        });
 }
 
 module.exports = institutionKeyCtrl;

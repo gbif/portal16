@@ -3,7 +3,7 @@
     <div class="container--desktop">
         <div class="row">
             <div class="col-xs-12">
-                {$ trends.stats(country, false, imgUrls.from.thumbBase, imgUrls.from.imgBase, __) $}
+                {$ trends.stats(country, false, imgUrls.from.analyticsFigureUrl, imgUrls.from.imgBase, __) $}
             </div>
         </div>
     </div>

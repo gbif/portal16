@@ -21,6 +21,10 @@
     {$ api.trow(url="/occurrence/download/statistics"+url, resp=resp, httpMethod=method, respLink=respLink, paging=paging, authRequired=undefined, params=params, description=caller()) $}
 {% endmacro %}
 
+{% macro trowG(url, method="GET", resp="GadmRegion", respLink=undefined, paging=false, params=[]) %}
+    {$ api.trow(url="/geocode"+url, httpMethod=method, resp=resp, respLink=respLink, authRequired=undefined, params=params, paging=paging, description=caller()) $}
+{% endmacro %}
+
 {% block page %}
 
     <article dir="ltr" class="wrapper-horizontal-stripes page--developer">
@@ -66,7 +70,7 @@
                 </div>
                 <div class="col-md-10">
             <section id="occurrence" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrences</h3>
                     <p>This API provides services related to the retrieval of single occurrence records.</p>
                     <table class='api table table-bordered table-striped table-params'>
@@ -102,7 +106,7 @@
             </section>
 
             <section id="search" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Searching</h3>
                     <p>This API provides services for searching occurrence records that have been indexed by GBIF.
                         In order to retrieve all results for a given search filter you need to issue individual requests
@@ -241,7 +245,7 @@
             </section>
 
             <section id="download" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Downloads</h3>
                     <p>This API provides services to download occurrence records and retrieve information about those
                         downloads.</p>
@@ -316,7 +320,7 @@
             </section>
 
             <section id="download_stats" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Download Statistics</h3>
                     <p>This API provides statistics about Occurrence Downloads.
                     </p>
@@ -350,7 +354,7 @@
             </section>
 
             <section id="metrics" class="white-background page--developer__anchor">
-                <div class="container--narrow ">
+                <div class="container--fluid ">
                     <h3>Occurrence Metrics</h3>
                     <p>This API provides services to retrieve various counts and metrics provided about occurrence
                         records.
@@ -379,7 +383,7 @@
             </section>
 
             <section id="inventories" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Inventories</h3>
                     <p>This API provides services that list all distinct values together with their occurrence count for
                         a given occurrence property.
@@ -433,12 +437,13 @@
             "eventId": "An identifier for the information associated with a sampling event.",
             "familyKey": "Family classification key.",
             "gadmGid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at any level, for example AGO, AGO.1_1, AGO.1.1_1 or AGO.1.1.1_1",
+            "gadmLevel": "A <a href='https://gadm.org/'>GADM</a>  region level, valid values range from 0 to 3",
             "gadmLevel0Gid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at the zero level, for example AGO",
             "gadmLevel1Gid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at the first level, for example AGO.1_1",
             "gadmLevel2Gid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at the second level, for example AFG.1.1_1",
             "gadmLevel3Gid": "A <a href='https://gadm.org/'>GADM</a> geographic identifier at the third level, for example AFG.1.1.1_1",
             "genusKey": "Genus classification key.",
-            "geometry": "Searches for occurrences inside a polygon described in Well Known Text (WKT) format. Only POINT, LINESTRING, LINEARRING, POLYGON and MULTIPOLYGON are accepted WKT types. For example, a shape written as POLYGON ((30.1 10.1, 40 40, 20 40, 10 20, 30.1 10.1)) would be queried as is, i.e. <a href='"+apiBase+"/occurrence/search?geometry=POLYGON((30.1 10.1, 40 40, 20 40, 10 20, 30.1 10.1))'>/occurrence/search?geometry=POLYGON((30.1 10.1, 40 40, 20 40, 10 20, 30.1 10.1))</a>. <em>Polygons must have <strong>anticlockwise</strong> ordering of points</em>, or will give unpredictable results. (A clockwise polygon represents the opposite area: the Earth's surface with a 'hole' in it. Such queries are not supported.)",
+            "geometry": "Searches for occurrences inside a polygon described in Well Known Text (WKT) format. Only POINT, LINESTRING, LINEARRING, POLYGON and MULTIPOLYGON are accepted WKT types. For example, a shape written as POLYGON ((30.1 10.1, 40 40, 20 40, 10 20, 30.1 10.1)) would be queried as is, i.e. <a href='"+apiBase+"occurrence/search?geometry=POLYGON((30.1 10.1, 40 40, 20 40, 10 20, 30.1 10.1))'>/occurrence/search?geometry=POLYGON((30.1 10.1, 40 40, 20 40, 10 20, 30.1 10.1))</a>. <em>Polygons must have <strong>anticlockwise</strong> ordering of points</em>, or will give unpredictable results. (A clockwise polygon represents the opposite area: the Earth's surface with a 'hole' in it. Such queries are not supported.)",
             "hasCoordinate": "Limits searches to occurrence records which contain a value in both latitude and longitude (i.e. hasCoordinate=true limits to occurrence records with coordinate values and hasCoordinate=false limits to occurrence records without coordinate values).",
             "hasGeospatialIssue": "Includes/excludes occurrence records which contain spatial issues (as determined in our record interpretation), i.e. hasGeospatialIssue=true returns only those records with spatial issues while hasGeospatialIssue=false includes only records without spatial issues. The absence of this parameter returns any record with or without spatial issues.",
             "identifiedBy": "The person who provided the taxonomic identification of the occurrence.",
@@ -497,7 +502,7 @@
             }) $}
 
             <section id="predicates" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Download Predicates</h3>
                     <p>A download predicate is an query expression to retrieve occurrence record downloads. A working example using <em>curl</em>: Put this in a file called query.json:
                         {% set downloadExampleQuery = {"creator":"userName","notificationAddresses":["userEmail@example.org"],"sendNotification": true,"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"PRESERVED_SPECIMEN"},{"type":"in","key":"COUNTRY","values":["KW","IQ","IR"]}]}} %}
@@ -762,6 +767,23 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>isNull</td>
+                            <td>has an empty value</td>
+                            <td>
+                                <code class="block">
+                                    {<br/>
+                                    &nbsp;&nbsp;"creator":"userName",<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"predicate":<br/>
+                                    &nbsp;&nbsp;{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"type":"isNull",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"parameter":"CONTINENT"<br/>
+                                    &nbsp;&nbsp;}<br/>
+                                    }
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>isNotNull</td>
                             <td>has a non-empty value</td>
                             <td>
@@ -785,7 +807,7 @@
             </section>
 
             <section id="download_limits" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Download Limits</h3>
                     <p>Occurrence downloads are a very resource demanding service which needs to be monitored and limited
                         according to the GBIF platform load.
@@ -804,6 +826,47 @@
                     </ul>
                     <p>The number of user downloads currently in progress can be seen on the <a href="../../health">System Health</a> page.
                         Your own downloads can be seen on your <a href="../../user/download">My Downloads</a> page.</p>
+                </div>
+            </section>
+
+            <section id="gadm" class="white-background page--developer__anchor">
+                <div class="container--fluid">
+                    <h3>GADM regions search and browsing</h3>
+                    <p>Database of Global Administrative Areas, is a high-resolution database of country administrative areas.</p>
+                    <p>This API provides services to search and browse regions and sub-regions down to three levels of sub-regions.</p>
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead(auth=false, paging=true, params=true) $}
+                        <tbody>
+                        {% call trowG(url="/gadm/search", respLink=apiBase+"geocode/gadm/search?q=Peru&gadmLevel=2&gadmGid=SLV.4_1", paging=true,params=["q","gadmLevel","gadmGid"]) %}
+                        Search for GADM regions.
+                        When paramters are used the results are narrowed to results at the <code>gadmLevel</code> parameter and that are sub-regions <code>gadmGid</code>
+                        {% endcall %}
+                        {% call trowG(url="/gadm/{gid}", respLink=apiBase+"geocode/gadm/DNK")%}
+                        Gets details for GADM region
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/{gid}/subdivisions", respLink=apiBase+"geocode/gadm/DNK/subdivisions", params=["q"]) %}
+                        Gets sub-regions or divisions of region
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/browse", respLink=apiBase+"geocode/gadm/browse", params=[q]) %}
+                        Lists GADM regions at the highest level.
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/browse/DNK/{gid}", respLink=apiBase+"geocode/gadm/browse/DNK", params=[q]) %}
+                        Lists sub-regions of a region at the first level.
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/browse/DNK/{gid0}/{gid1}", respLink=apiBase+"geocode/gadm/browse/DNK/DNK.1_1", params=["q"]) %}
+                        Lists sub-regions of a region at the second level.
+                        {% endcall %}
+
+                        {% call trowG(url="/gadm/browse/DNK/{gid0}/{gid1}/{gid2}", respLink=apiBase+"geocode/gadm/browse/DNK/DNK.1_1/DNK.1.25_1", params=["q"]) %}
+                        Lists sub-regions of a region at the third level.
+                        {% endcall %}
+                        </tbody>
+
+                    </table>
                 </div>
             </section>
 

@@ -18,7 +18,7 @@
     "identifiedBy": "",
     "identifiedById": "",
     "eventDate": "Begivenhedsdato",
-    "eventID": "",
+    "eventId": "",
     "samplingProtocol": "",
     "location": "Lokation",
     "coordinateUncertaintyInMeters": "",
@@ -42,6 +42,7 @@
     "decimalLatitude": "Længdegrad",
     "decimalLongitude": "Bredegrad",
     "publishingOrg": "Forlægger",
+    "hostingOrganizationKey": "",
     "kingdomKey": "Rige",
     "phylumKey": "Række",
     "classKey": "Klasse",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "",
     "collectionKey": "",
     "institutionKey": "",
-    "gadmGid": ""
+    "gadmGid": "",
+    "lifeStage": "",
+    "dwcaExtension": "",
+    "isInCluster": ""
   }
 }

@@ -55,6 +55,7 @@
     "SCIENCE_COMMITTEE_CHAIR": "رئيس لجنة العلوم",
     "SCIENCE_COMMITTEE_MEMBER": "عضو لجنة العلوم",
     "TEMPORARY_DELEGATE": "مندوب مؤقت",
-    "TEMPORARY_HEAD_OF_DELEGATION": "رئيس الوفد المؤقت"
+    "TEMPORARY_HEAD_OF_DELEGATION": "رئيس الوفد المؤقت",
+    "ALTERNATE_HEAD_OF_DELEGATION": "الرئيس البديل للوفد"
   }
 }

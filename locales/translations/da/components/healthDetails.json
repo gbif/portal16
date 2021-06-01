@@ -4,6 +4,7 @@
         "systemLoad": "Systemets belastning",
         "messages": "Beskeder",
         "version": "Version",
+        "releaseNotes": "",
         "nInQueue": "{NUMBER} i kø",
         "status": {
             "OPERATIONAL": "Operationel",

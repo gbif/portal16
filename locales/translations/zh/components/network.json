@@ -5,9 +5,11 @@
       "summary": "总结",
       "homepage": "首页",
       "metrics": "指标",
-      "datasets": "网络"
+      "datasets": "网络",
+      "publishers": ""
     },
     "registeredDate": "注册于 {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} 参与 {NUMBER, select, 1{dataset} other{datasets}}"
+    "nParticipatingDatasets": "{NUMBER_FORMATED} 参与 {NUMBER, select, 1{dataset} other{datasets}}",
+    "nParticipatingPublishers": ""
   }
 }

@@ -97,15 +97,18 @@ function filterTaxonDirective(BUILD_VERSION) {
         vm.getSuggestions = function(val) {
             // if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
+                var defaultParams = vm.filterConfig.search.defaultParams;
+                if (typeof defaultParams === 'function') {
+                  defaultParams = defaultParams();
+                }
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
-                    params: _.assign({}, vm.filterConfig.search.defaultParams, {
-                        q: val, // .toLowerCase(),
-                        limit: 10
+                    params: _.assign({limit: 10}, defaultParams, {
+                        q: val // .toLowerCase(),
                     })
                 }).then(function(response) {
                     var resultsArray = response.data;
-                    if (typeof response.data.results !== 'undefined') {
-                      resultsArray = response.data.results;
+                    if (!angular.isArray(response.data)) {
+                      resultsArray = response.data.results || [];
                     }
                     return _.filter(resultsArray, function(e) {
                         return !vm.usedKeys[e[vm.suggestKey]];
@@ -115,7 +118,14 @@ function filterTaxonDirective(BUILD_VERSION) {
         };
 
         vm.getSuggestionLabel = function(suggestion) {
-            return suggestion && vm.filterConfig.search.suggestTitle ? suggestion[vm.filterConfig.search.suggestTitle] : suggestion;
+            if (vm.filterConfig.search.suggestTitle && typeof vm.filterConfig.search.suggestTitle === 'function') {
+                return vm.filterConfig.search.suggestTitle(suggestion);
+            } else if (vm.filterConfig.search.suggestTitle) {
+                return suggestion[vm.filterConfig.search.suggestTitle];
+            } else {
+                return suggestion || false;
+            }
+           // return suggestion && vm.filterConfig.search.suggestTitle ? suggestion[vm.filterConfig.search.suggestTitle] : suggestion;
         };
 
         vm.inQuery = function(name) {
@@ -174,6 +184,14 @@ function filterTaxonDirective(BUILD_VERSION) {
            delete vm.usedKeys[key];
             vm.apply();
         };
+
+        vm.useAcceptedTaxon = function(taxon) {
+           vm.query.splice(vm.query.indexOf(taxon.key), 1);
+           delete vm.usedKeys[taxon.key];
+           vm.query.push(taxon.acceptedKey);
+           getFullResource(taxon.acceptedKey);
+           vm.apply();
+        }
 
         vm.uncheckAll = function() {
             vm.query = [];

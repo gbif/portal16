@@ -56,6 +56,7 @@ angular
             'month',
             'type_status',
             'issue',
+            'dwca_extension',
             'dataset_key',
             'institution_code',
             'country',
@@ -80,6 +81,7 @@ angular
             'media_type',
             'type_status',
             'issue',
+            'dwca_extension',
             'license',
             'publishing_org'];
 
@@ -89,7 +91,9 @@ angular
 
         $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams) {
-                refreshData(toParams);
+                if (toState.parent === 'occurrenceSearch') {
+                    refreshData(toParams);
+                }
             }
         );
 
@@ -110,6 +114,7 @@ angular
             apiQuery['month.facetLimit'] = 12;
             apiQuery['type_status.facetLimit'] = 1000;
             apiQuery['issue.facetLimit'] = 1000;
+            apiQuery['dwca_extension.facetLimit'] = 1000;
 
             // when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {
@@ -169,8 +174,10 @@ angular
         }
 
         function updateParam(key, values) {
-            state.query[key] = values;
-            refresh();
+            if (state.query[key] !== values) {
+                state.query[key] = values;
+                refresh();
+            }
         }
 
         function updateParams(params) {

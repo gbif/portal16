@@ -64,6 +64,35 @@
                 "demo": "Demo",
                 "statement": "About"
             }
+        },
+        "derivedDataset": {
+            "title": "Derived dataset",
+            "titleField": "Title",
+            "sourceUrl": "URL of where derived dataset can be accessed",
+            "originalDownloadDOI": "Original Download DOI",
+            "registrationDate": "Registration Date",
+            "datasetKey": "Dataset key",
+            "occurrenceCount": "Occurrence count",
+            "submit": "Submit",
+            "pleaseFill": "Please complete all mandatory fields in order to submit form",
+            "loginToCreate": "Log in to create a derived dataset",
+            "myDatasets": "My derived datasets",
+            "register": "register",
+            "about": "about",
+            "optionalDescription": "Optional description",
+            "registerNew": "Register new derived dataset",
+            "editDataset": "Edit derived dataset",
+            "editFailed": "Edit failed",
+            "registrationFailed": "Registration failed",
+            "registrationCompleted": "Registration completed",
+            "editCompleted": "Edit completed",
+            "newRegistration": "New registration",
+            "goToDataset": "Go to dataset",
+            "yourDerivedDatasets": "Your derived datasets",
+            "backToEdit": "Back to edit",
+            "mintingDoi": "Minting DOI - this shouldn't take long.",
+            "attachCsvLabel": "Attach CSV file with dataset keys and occurrence counts",
+            "orEnterLabel": "Or enter dataset keys/DOIs and occurrence counts here"
         }
     }
 }

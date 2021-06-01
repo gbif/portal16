@@ -1,4 +1,14 @@
 {
+  "derivedDatasetKey": {
+    "nRecordsAtTime": "",
+    "derivedDataset": "",
+    "sourceUrl": "",
+    "headlineDatasets": "",
+    "headlineOccurrences": "",
+    "title": "",
+    "description": "",
+    "originalDownloadDOI": ""
+  },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n} завантажено",
     "nRecordsDownloaded": "{NUMBER_FORMATED} {NUMBER, select,\n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n} завантажено",

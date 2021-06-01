@@ -18,6 +18,8 @@
     "filters": "Filtros",
     "simple": "Simples",
     "advanced": "Avançado",
+    "backbone": "",
+    "allChecklists": "",
     "allResultTypes": "Todos",
     "suggestions": "Sugestões",
     "header": {
@@ -27,6 +29,6 @@
       "searchResources": "Pesquisar recursos",
       "searchOccurrences": "Pesquisar ocorrências"
     },
-    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultado} other{resultados}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, plural, 1{resultado} other{resultados}}"
   }
 }

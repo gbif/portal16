@@ -30,28 +30,34 @@ let tests = [
         component: 'OCCURRENCE'
     },
     {
-        url: apiConfig.occurrenceSearch.url + '?basisOfRecord=NONSENSE&cachebust={NOW}',
+        url:
+            apiConfig.occurrenceSearch.url +
+            '?basisOfRecord=NONSENSE&cachebust={NOW}',
         component: 'OCCURRENCE',
         type: 'STATUS',
         val: 400,
         message: 'Should fail for nonsensical queries'
     },
     {
-        url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
+        url:
+            apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
         val: 20000,
         severity: severity.WARNING,
-        message: 'Should respond with free text query within 20 seconds - else warn'
+        message:
+            'Should respond with free text query within 20 seconds - else warn'
     },
     {
-        url: apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
+        url:
+            apiConfig.occurrenceSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
         component: 'OCCURRENCE',
         randomWord: true,
         type: 'MAX_RESPONSE_TIME',
         val: 40000,
-        message: 'Should respond with free text query within 40 seconds - else the performance is considered critical'
+        message:
+            'Should respond with free text query within 40 seconds - else the performance is considered critical'
     },
     {
         url: apiConfig.taxonSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
@@ -60,7 +66,8 @@ let tests = [
         type: 'MAX_RESPONSE_TIME',
         val: 8000,
         severity: severity.WARNING,
-        message: 'Should respond with free text query within 8 seconds - else warn'
+        message:
+            'Should respond with free text query within 8 seconds - else warn'
     },
     {
         url: apiConfig.taxon.url + '196?cachebust={NOW}',
@@ -68,14 +75,19 @@ let tests = [
         message: 'A specific species key (196) should resolve'
     },
     {
-        url: apiConfig.taxon.url + 'suggest?datasetKey=' + backboneKey + '&limit=10&q=puma+concolor+(Linnaeus,+1771)&cachebust={NOW}',
+        url:
+            apiConfig.taxon.url +
+            'suggest?datasetKey=' +
+            backboneKey +
+            '&limit=10&q=puma+concolor+(Linnaeus,+1771)&cachebust={NOW}',
         component: 'SPECIES',
         randomWord: true,
         type: 'HAVE_VALUE',
         key: '[0].scientificName',
         val: 'Puma concolor (Linnaeus, 1771)',
         severity: severity.WARNING,
-        message: 'Species suggest should always show the species first when searching for the exact name'
+        message:
+            'Species suggest should always show the species first when searching for the exact name'
     },
     {
         url: apiConfig.datasetSearch.url + '?q={RANDOM_WORD}&cachebust={NOW}',
@@ -103,20 +115,26 @@ let tests = [
         type: 'NUMBER_ABOVE',
         key: 'total',
         val: 100,
-        message: 'Map capabilities for taxonKey 196 should return a json with a total above 100'
+        message:
+            'Map capabilities for taxonKey 196 should return a json with a total above 100'
     },
     {
-        url: apiConfig.mapOccurrenceDensity.url + '0/0/0@1x.png?cachebust={NOW}',
+        url:
+            apiConfig.mapOccurrenceDensity.url + '0/0/0@1x.png?cachebust={NOW}',
         component: 'MAPS',
         message: 'Map occurrence density requests should return 200'
     },
     {
-        url: config.serverProtocol + config.basemapTileApi + '/4326/omt/2/3/1@1x.png?cachebust={NOW}',
+        url:
+            config.serverProtocol +
+            config.basemapTileApi +
+            '/4326/omt/2/3/1@1x.png?cachebust={NOW}',
         component: 'MAPS',
         message: 'Basemap requests should return 200'
     },
     {
-        url: apiConfig.occurrenceDownload.url + downloadKey + '?cachebust={NOW}',
+        url:
+            apiConfig.occurrenceDownload.url + downloadKey + '?cachebust={NOW}',
         component: 'DOWNLOAD',
         message: 'download key ' + downloadKey + ' should return 200'
     },
@@ -127,25 +145,34 @@ let tests = [
         key: 'status.description',
         val: 'All Systems Operational',
         severity: severity.WARNING,
-        message: 'The Github status endpoint should should return "All Systems Operational"'
+        message:
+            'The Github status endpoint should should return "All Systems Operational"'
     },
     {
-        url: 'http://www.' + config.topDomain + '/api/resource/search?contentType=literature&cachebust={NOW}',
+        url:
+            'http://www.' +
+            config.topDomain +
+            '/api/resource/search?contentType=literature&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
         val: 7000,
-        message: 'Resource search should return more than 7000 results for a search on content type = literature'
+        message:
+            'Resource search should return more than 7000 results for a search on content type = literature'
     },
     {
-        url: 'http://www.' + config.topDomain + '/api/resource/search?contentType=dataUse&cachebust={NOW}',
+        url:
+            'http://www.' +
+            config.topDomain +
+            '/api/resource/search?contentType=dataUse&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
         val: 100,
-        message: 'Resource search should return more than 100 results for a search on content type = data use'
+        message:
+            'Resource search should return more than 100 results for a search on content type = data use'
     },
-    {
+    /*     {
         url: 'http:' + apiConfig.publicKibana.url + 'q=service:"crawler-coordinator-cleanup"%20AND%20@timestamp:%3E{SECONDS_AGO}&index=' + publicCrawlIndexName,
         component: 'CRAWLER',
         secondsAgo: 180,
@@ -153,7 +180,7 @@ let tests = [
         key: 'hits.total',
         val: 0,
         message: 'There should be a log entry from the crawler within the last 180 seconds'
-    },
+    }, */
     {
         url: apiConfig.crawlingDatasetProcessRunning.url + '?cachebust={NOW}',
         component: 'CRAWLER',
@@ -170,7 +197,11 @@ let tests = [
     //     message: 'There has been more than 50 errors on occurrence search in the last 5 minutes'
     // },
     {
-        url: config.serverProtocol + apiConfig.image.url + encodeURIComponent('http://www.gbif.org/img/logo/GBIF-2015.png') + '?cachebust={NOW}',
+        url:
+            config.serverProtocol +
+            apiConfig.image.url +
+            encodeURIComponent('http://www.gbif.org/img/logo/GBIF-2015.png') +
+            '?cachebust={NOW}',
         component: 'IMAGE_CACHE',
         severity: severity.WARNING,
         message: 'Image cache should return 200 for an image'

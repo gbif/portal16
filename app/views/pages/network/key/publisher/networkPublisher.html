@@ -1,0 +1,30 @@
+<div class="horizontal-stripe light-background seperator">
+    <div class="container--narrow">
+        <div class="ng-cloak" ng-if="networkPublisher.publishers.count > 0">
+            <span class="relative-anchor-offset"><a id="publishers"></a></span>
+            <h4 class="card-header" tx="network.nParticipatingPublishers" tx-nr="networkPublisher.publishers.count"></h4>
+            <div>
+                <div ng-show="networkPublisher.publishers.count > 0">
+                    <div ng-repeat="result in networkPublisher.publishers.results">
+                        <ng-include src="'/api/template/search/publisherResult.html?excludeCounts=true&v=' + portal.BUILD_VERSION"></ng-include>
+                    </div>
+                </div>
+                <div ng-if="networkPublisher.publishers.count > networkPublisher.limit">
+                    <uib-pagination
+                            total-items="networkPublisher.publishers.count"
+                            ng-model="networkPublisher.currentPage"
+                            max-size="networkPublisher.maxSize"
+                            items-per-page="networkPublisher.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            first-text="{{'pagination.first' | translate}}"
+                            next-text="{{'pagination.next' | translate}}"
+                            previous-text="{{'pagination.previous' | translate}}"
+                            rotate="false"
+                            ng-change="networkPublisher.pageChanged()">
+                    </uib-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

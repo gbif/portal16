@@ -38,6 +38,7 @@
           "REGIONAL": "Prémio regional",
           "SMALL": "Pequeno prémio",
           "NATIONAL": "Prémio nacional",
+          "DATA_USE": "",
           "undefined": "Não especificado"
         },
         "projectStatus": {

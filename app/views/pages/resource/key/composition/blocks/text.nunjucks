@@ -1,0 +1,6 @@
+<div class="horizontal-stripe white-background">
+    <div class="container--narrow">
+        <h2>{$ main.fields.title $}</h2>
+        {% include "../../body.nunjucks" %}
+    </div>
+</div>

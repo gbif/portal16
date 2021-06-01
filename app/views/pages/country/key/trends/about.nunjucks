@@ -5,7 +5,7 @@
     <div class="container--desktop">
         <div class="row">
             <div class="col-xs-12">
-                {$ trends.stats(country, true, imgUrls.about.thumbBase, imgUrls.about.imgBase, __) $}
+                {$ trends.stats(country, true, imgUrls.about.analyticsFigureUrl, imgUrls.about.imgBase, __) $}
             </div>
         </div>
     </div>

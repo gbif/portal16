@@ -1,4 +1,14 @@
 {
+  "derivedDatasetKey": {
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{记录} other{记录}} from this 数据集",
+    "derivedDataset": "派生的数据集",
+    "sourceUrl": "下载派生的数据集",
+    "headlineDatasets": "记录 from {NUMBER_FORMATED} {NUMBER, plural, one{数据集} other{数据集}} in derived 数据集",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{发生} other{发生}} in derived 数据集",
+    "title": "标题",
+    "description": "描述",
+    "originalDownloadDOI": ""
+  },
   "downloadKey": {
     "nOccurrencesDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{出现记录} other{出现记录}}",
     "nRecordsDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{记录} other{记录}}",

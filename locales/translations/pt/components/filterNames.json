@@ -18,7 +18,7 @@
     "identifiedBy": "Identificado por",
     "identifiedById": "Identificado por ID",
     "eventDate": "Data do evento",
-    "eventID": "ID do evento",
+    "eventId": "ID do Evento",
     "samplingProtocol": "Protocolo de amostragem",
     "location": "Localização",
     "coordinateUncertaintyInMeters": "Incerteza da coordenada em metros",
@@ -42,6 +42,7 @@
     "decimalLatitude": "Latitude decimal",
     "decimalLongitude": "Longitude decimal",
     "publishingOrg": "Publicador",
+    "hostingOrganizationKey": "Organização de hospedagem",
     "kingdomKey": "Reino",
     "phylumKey": "Filo",
     "classKey": "Classe",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "Quantidade relativa do organismo",
     "collectionKey": "Coleção",
     "institutionKey": "Instituição",
-    "gadmGid": "GADM GID"
+    "gadmGid": "Áreas administrativas (gadm.org)",
+    "lifeStage": "Estágio de desenvolvimento",
+    "dwcaExtension": "Extensão DWCA",
+    "isInCluster": "Está em cluster"
   }
 }

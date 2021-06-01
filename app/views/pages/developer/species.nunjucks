@@ -5,6 +5,10 @@
     {$ api.trow(url="/species"+url, httpMethod=httpMethod, resp=resp, respLink=respLink, params=params, paging=paging, authRequired=undefined, description=caller()) $}
 {% endmacro %}
 
+{% macro trowNoBase(url, resp, httpMethod="GET", respLink, paging=undefined, params=[]) %}
+    {$ api.trow(url=url, httpMethod=httpMethod, resp=resp, respLink=respLink, params=params, paging=paging, authRequired=undefined, description=caller()) $}
+{% endmacro %}
+
 {% block page %}
 
     <article dir="ltr" class="wrapper-horizontal-stripes page--developer">
@@ -57,7 +61,7 @@
             </div>
             <div class="col-md-10">
             <section id="nameUsages" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Working with Name Usages</h3>
                     <p>A name usage is the usage of a scientific name according to one
                         particular Checklist including the <a href="/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">GBIF
@@ -142,7 +146,7 @@
             </section>
 
             <section id="searching" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <div class="page--developer__anchor" id="temporalCoverages">
                         <h3>Searching Names</h3>
                         <p>GBIF provides 4 different ways of finding name usages.
@@ -181,7 +185,7 @@
             </section>
 
             <section id="parser" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Name Parser</h3>
                     <p>GBIF exposes its java based name parser library through our API.
                         The service takes one or a list of simple scientific name strings, parses each and returns a
@@ -190,13 +194,13 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
-                        {% call trow(url="/parser/name", httpMethod="GET", resp="ParsedName List", respLink=apiBase+"parser/name?name=Abies%20alba%20Mill.%20sec.%20Markus%20D.&name=Abies%20pinsapo%20var.%20marocana%20(Trab.)%20Ceballos%20%26%20Bolaño%201928", paging=false, params=["name"], authRequired="") %}
+                        {% call trowNoBase(url="/parser/name", httpMethod="GET", resp="ParsedName List", respLink=apiBase+"parser/name?name=Abies%20alba%20Mill.%20sec.%20Markus%20D.&name=Abies%20pinsapo%20var.%20marocana%20(Trab.)%20Ceballos%20%26%20Bolaño%201928", paging=false, params=["name"], authRequired="") %}
                         Parses a scientific name string and returns the ParsedName version of it.
                         Accepts multiple parameters each with a single name. Make sure you url encode the names
                         properly.
                         {% endcall %}
 
-                        {% call trow(url="/parser/name", httpMethod="POST", resp="ParsedName List", paging=false, params=["name"], authRequired="") %}
+                        {% call trowNoBase(url="/parser/name", httpMethod="POST", resp="ParsedName List", paging=false, params=["name"], authRequired="") %}
                         Parse list of name strings supplied via one of the following media type encodings:
                         <ul>
                             <li><em>json</em> array of name strings</li>

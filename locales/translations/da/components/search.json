@@ -18,6 +18,8 @@
     "filters": "Filtre",
     "simple": "Simple",
     "advanced": "Avanceret",
+    "backbone": "",
+    "allChecklists": "",
     "allResultTypes": "Alle",
     "suggestions": "Forslag",
     "header": {

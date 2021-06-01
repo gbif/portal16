@@ -1,0 +1,48 @@
+<div class="horizontal-stripe light-background">
+    <div class="container--narrow">
+        <section>
+            <div>
+                <div>
+                    <div ng-repeat="result in derivedDataset.uploads.results">
+                        <div class="card m-b-05 searchCard">
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                    <h3 class="searchCard__headline derivedDataset__cardHeader">
+                                        <a href="" ui-sref="derivedDatasetKey({prefix: result.doi.split('/')[0], suffix: result.doi.split('/')[1]})">{{result.title}}</a>
+                                    </h3>
+                                    
+                                    <a class="searchCard__headline derivedDataset__editlink" ui-sref="derivedDatasetUpload({record: result})" >edit</a>
+                                </div>
+                            </div>
+                            <div class="card__stripe">
+                                <div class="card__content clearfix">
+                                    <p>
+                                        {{result.description | md2html | stripTags | truncate:300 }}
+                                    </p>
+                                    <p class="small discreet--very">
+                                        {{ result.created | momentFormat:'LL' }} 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <uib-pagination
+                            total-items="derivedDataset.uploads.count"
+                            ng-model="derivedDataset.currentPage"
+                            max-size="derivedDataset.maxSize"
+                            items-per-page="derivedDataset.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="derivedDataset.pageChanged()"
+                            ng-show="derivedDataset.uploads.count > derivedDataset.limit">
+                    </uib-pagination>
+                </div>
+                <div class="emptyInfo" ng-if="derivedDataset.uploads.count == 0">
+                    <h3>No results</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

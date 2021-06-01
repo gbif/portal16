@@ -4,6 +4,7 @@ let express = require('express'),
     _ = require('lodash'),
     Q = require('q'),
     griisPublisherKey = rootRequire('config/config').publicConstantKeys.publisher.GRIIS,
+    iucnDatasetKey = rootRequire('config/config').publicConstantKeys.dataset.iucn,
     request = rootRequire('app/helpers/request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../../config/log');
@@ -366,6 +367,50 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
     } else {
         return undefined; // TODO ask thomas why he returns this above - i don't see how this would ever be the case
     }
+}
+router.get('/species/:key/iucnstatus', function(req, res) {
+    return getIUCNStatus(req.params.key)
+            .then((species) => res.send(species))
+            .catch((err) => {
+                if (err === 'Not found') {
+                    return res.sendStatus(404);
+                } else {
+                    return res.send(err);
+                }
+            });
+});
+
+async function getIUCNStatus(taxonKey) {
+    let response = await request({
+        url: apiConfig.taxon.url + taxonKey + '/related?datasetKey=' + iucnDatasetKey,
+        timeout: 30000,
+        method: 'GET',
+        json: true
+        });
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    const iucnTaxon = _.get(response, 'body.results[0]');
+    if (!iucnTaxon) {
+        throw 'Not found';
+    }
+    const distributionResponse = await request({
+        url: apiConfig.taxon.url + iucnTaxon.key + '/distributions',
+        timeout: 30000,
+        method: 'GET',
+        json: true
+        });
+    if (distributionResponse.statusCode !== 200) {
+            throw distributionResponse;
+    }
+    if (_.get(distributionResponse, 'body.results.length') === 0) {
+        throw 'Not found';
+    }
+    const globalDistribution = distributionResponse.body.results.find((e) => e.locality ? e.locality.toLowerCase() === 'global' : false);
+    if (!globalDistribution) {
+        throw 'Not found';
+    }
+    return {distribution: globalDistribution, references: iucnTaxon.references};
 }
 
 async function getVerbatim(taxonKey) {

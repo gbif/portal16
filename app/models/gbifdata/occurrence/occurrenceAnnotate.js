@@ -15,6 +15,13 @@ let config = {
             name: 'iNaturalist',
             abbrivation: 'iN'
         },
+        // issue on https://github.com/gbif/portal-feedback/issues/3088
+        'da86174a-a605-43a4-a5e8-53d484152cd3': {
+          url: '{{references}}',
+          keys: ['references'],
+          name: 'Pl@ntNet',
+          abbrivation: 'PN'
+      },
         '57254bd0-8256-11d8-b7ed-b8a03c50a862': {
             url: AnnosysBaseUrl + 'AnnoSys?recordURL=' + dataApi + 'occurrence/annosys/{{key}}',
             commentsUrl: AnnosysBaseUrl + 'services/records/{{institutionCode}}/{{collectionCode}}/{{catalogNumber}}/annotations',
@@ -33,6 +40,13 @@ let config = {
             keys: ['occurrenceID'],
             name: 'Danish Mycological Society',
             abbrivation: 'DMS'
+        },
+        // issue on https://github.com/gbif/portal16/issues/1471
+        '7ce8aef0-9e92-11dc-8738-b8a03c50a862': {
+          url: 'https://github.com/plazi/community/issues/new?body=Please%20leave%20your%20comment%20here...%0A%0A**Context**%0A%5BGBIF%20occurrence%5D(https%3A%2F%2Fwww.gbif.org%2Foccurrence%2F{{key}})%0A%5BPlazi%20reference%5D({{references}})',
+          keys: ['references', 'key'],
+          name: 'Plazi',
+          abbrivation: 'Pz'
         }
     },
     installation: {
@@ -68,6 +82,9 @@ function getAnnotationUrl(occurrence) {
         if (allCommentsUrl) {
             allCommentsUrl = allCommentsUrl.replace('{{' + key + '}}', encodeURIComponent(val));
         }
+    }
+    if (url === '') {
+      return undefined;
     }
     return {
         url: url,

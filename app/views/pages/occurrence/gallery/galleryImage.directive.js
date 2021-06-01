@@ -10,23 +10,21 @@ angular
                 onImgError: '='
             },
             link: function(scope, element, attrs) {
-                var thinner = 0.6,
-                    thin = 0.8,
-                    wide = 1.4,
-                    wider = 1.8,
-                    widest = 2.0;
-
                 element.on('load', function() {
                     element.parent().css({
                         'background-image': 'url("' + attrs.src + '")'
                     });
 
                     var ratio = (element[0].naturalWidth) / element[0].naturalHeight;
-                    if (ratio > widest) element.parent().attr('data-width', 'widest');
-                    else if (ratio > wider && ratio <= widest) element.parent().attr('data-width', 'wider');
-                    else if (ratio > wide && ratio <= wider) element.parent().attr('data-width', 'wide');
-                    else if (ratio > thinner && ratio <= thin) element.parent().attr('data-width', 'thin');
-                    else if (ratio <= thinner) element.parent().attr('data-width', 'thinner');
+                    ratio = Math.min(2.9, ratio);
+                    ratio = Math.max(.1, ratio);
+                    for (var r = .1; r < 3; r += .1) {
+                      if (ratio < r + .1) {
+                        // element.parent().attr('data-width', 'ratio_' + (Math.floor(r * 10) / 10).toString().replace('.', '_'));
+                        element.parent().attr('data-width', 'ratio_' + ratio.toFixed(1).replace('.', '_'));
+                        break;
+                      }
+                    }
                     element.parent().addClass('isValid');
                 });
 

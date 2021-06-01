@@ -1,0 +1,17 @@
+<label>
+<input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.remove(key, checked)">
+    <span class="filter-group__filter__name">
+        <span dir="auto" ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}">
+            <span ng-if="vm.usedKeys[key].acceptedKey"  class="issue-bullet__warn" tooltip-placement="top" uib-tooltip="{{ 'species.synonym' | translate }}">● </span>
+                {{vm.usedKeys[key].scientificName}}
+            </span>
+        </span>
+</label>
+<span ng-if="vm.usedKeys[key].acceptedKey" class="filter-group__filter__name" tooltip-placement="top" uib-tooltip="{{ 'occurrenceSearch.clickToUseAcceptedTaxon' | translate }}">
+        <span  dir="auto" class="filter-group__accepted filter-group__filter__name__title"  >
+        = <a href="" ng-click="vm.useAcceptedTaxon(vm.usedKeys[key])"> 
+        <span  dir="auto"  >
+        {{vm.usedKeys[key].accepted}}
+        </span></a>
+ </span>   
+</span>

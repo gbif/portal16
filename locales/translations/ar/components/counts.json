@@ -9,6 +9,7 @@
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select, 1{حدث} other{أحداث}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 1{إنشاء} other{إنشاءات}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 1{تكرار} other{تكرارات}}",
+        "nOccurrencesHosted": "{NUMBER_FORMATED} {NUMBER, select, 1{تكرار مستضيف} other{تكرارات مستضيفة}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED}{NUMBER, select, 1{تكرار} other{تكرارات}} حول",
         "nOccurrencesPublished": "{NUMBER_FORMATED}{NUMBER, select, 1{تكرار} other{تكرارات}} نشرت",
         "nEndorsedPublishers": "{NUMBER_FORMATED} مصدق {NUMBER, select, 1{ناشر} other{ناشرون}}",

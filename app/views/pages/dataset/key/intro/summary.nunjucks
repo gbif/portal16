@@ -21,6 +21,11 @@
                     </dd>
                 </div>
 
+                <div ng-if="datasetKey.dataset.pubDate">
+                    <dt translate="dataset.registry.pubDate"></dt>
+                    <dd>{{ datasetKey.dataset.pubDate | momentFormat:'LL' }}</dd>
+                </div>
+
                 <div>
                     <dt translate="dataset.registry.metdataLastModified"></dt>
                     <dd>

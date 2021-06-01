@@ -26,8 +26,8 @@
     "loginText": "Login",
     "register": "Register",
     "downloads": "Downloads",
-    "newEmail": "New email",
-    "updateEmail": "Change email",
+    "newEmail": "New email address",
+    "updateEmail": "Change email address",
     "repeatPassword": "Repeat password",
     "repeatNewPassword": "Repeat new password",
     "passwordsNotIdentical": "The two passwords are not identical",
@@ -78,6 +78,7 @@
     "stopEditing": "Stop editing",
     "firstName": "First name",
     "lastName": "Last name",
+    "language": "Language",
     "save": "Save",
     "currentPassword": "Current password",
     "invalidProfileUpdate": "Invalid profile update",
@@ -87,6 +88,7 @@
     "passwordChangeInvalid": "Invalid password - if you have forgotten your password, then log out and use the password reset",
     "verficationLinkSent": "An email has been sent to the specified email address containing a link that must be clicked to activate your account.",
     "resetPasswordRequest": "Password reset request",
-    "resetPasswordMessage": "We have sent you a mail with a link to reset your password."
+    "resetPasswordMessage": "We have sent you a mail with a link to reset your password.",
+    "derivedDatasets": "Derived datasets"
   }
 }

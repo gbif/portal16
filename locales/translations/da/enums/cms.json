@@ -38,6 +38,7 @@
           "REGIONAL": "Regionale tilskud",
           "SMALL": "Småt tilskud",
           "NATIONAL": "Nationalt tilskud",
+          "DATA_USE": "",
           "undefined": "Ikke specificeret"
         },
         "projectStatus": {

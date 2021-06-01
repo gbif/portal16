@@ -1,4 +1,14 @@
 {
+  "derivedDatasetKey": {
+    "nRecordsAtTime": " NUMBER, plural, {NUMBER_FORMATED}\nواحد(سجل)   (سجلات)اخرى من مجموعة البيانات هذه",
+    "derivedDataset": "مجموعة البيانات المشتقة",
+    "sourceUrl": "تنزيل مجموعة البيانات المشتقة",
+    "headlineDatasets": "سجلات من {NUMBER_FORMATED} {NUMBER, plural, one{مجموعة البيانات} other{مجموعات البيانات}} في مجموعة البيانات المشتقة",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{تكرار} other{تكرارات}} في مجموعة البيانات المشتقة",
+    "title": "لقب",
+    "description": "توصيف",
+    "originalDownloadDOI": ""
+  },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATED}{NUMBER, select, 1{تكرار} other{تكرارات}} تم تنزيلها",
     "nRecordsDownloaded": "{NUMBER_FORMATED}{NUMBER, select, 1{سجل} other{سجلات}} تم تنزيلها",

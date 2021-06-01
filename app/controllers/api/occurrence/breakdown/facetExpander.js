@@ -4,7 +4,8 @@ let i18n = require('../../../../../config/i18n'),
     _ = require('lodash'),
     config = require('./config'),
     changeCase = require('change-case'),
-    request = rootRequire('app/helpers/request');
+    request = rootRequire('app/helpers/request'),
+    log = require('../../../../../config/log');
 
 module.exports = {
     expandFacets: expandFacets,
@@ -78,7 +79,8 @@ async function addResolveUrl(item, conf, includeFullObject) {
     };
     let response = await request(options);
     if (response.statusCode !== 200) {
-        throw 'failed to get key';
+        log.error({statusCode: response.statusCode, module: 'Dataset', url: options.url}, response.body);
+        throw 'failed to get key from url: ' + url;
     }
     item.displayName = _.get(response, 'body.' + conf.field, 'Unknown');
     if (includeFullObject) {

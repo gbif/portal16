@@ -54,6 +54,10 @@ router.get('/project/:id/:title?.:ext?', function(req, res, next) {
     prose(req, res, next, 'project', 'pages/resource/key/project/project');
 });
 
+router.get('/composition/:id/:title?.:ext?', function(req, res, next) {
+  prose(req, res, next, 'composition', 'pages/resource/key/composition/composition');
+});
+
 router.get('/api/resource/tool', function(req, res, next) {
     let query = req.query;
     resource.getFirst(query, 2, false, query.locale)
@@ -76,6 +80,9 @@ router.get('/api/resource/content/:type', function(req, res, next) {
             break;
         case 'network':
             template = 'pages/network/key/prose';
+            break;
+        case 'features':
+            template = 'pages/resource/blocks/features';
             break;
         default:
             template = 'pages/resource/key/article/articleContent';

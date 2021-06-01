@@ -6,7 +6,7 @@
                     <span class="article-header__category__upper">
                         <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=document">{$ __('enums.cms.contentType.document') $}</a>
                     </span>
-                    <span class="article-header__category__lower">{$ main.sys.createdAt | formatDate(gb.locales.current) $}</span>
+                    <span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>
                 </nav>
             </div>
         </div>
