@@ -7,6 +7,7 @@
     "SIMPLE_WITH_VERBATIM_AVRO": "",
     "MAP_OF_LIFE": "",
     "IUCN": "",
-    "BIONOMIA": "تصدير البيونوميا (علم العلاقات بين الانسان والبيئة)"
+    "BIONOMIA": "تصدير البيونوميا (علم العلاقات بين الانسان والبيئة)",
+    "SIMPLE_PARQUET": ""
   }
 }

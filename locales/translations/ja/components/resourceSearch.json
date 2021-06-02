@@ -6,6 +6,7 @@
         "searchForNewsEventsDocuments": "ニュース、イベント、ドキュメントなどを検索します。種のオカレンスを探している場合は、オカレンス検索をお試しください。",
         "occurrenceSearch": "オカレンス検索",
         "subscribeToCalendar": "カレンダーに登録する",
+        "suggestEvent": "",
         "citationExplainer": "文献がどのようにして発見され、GBIF媒介データとしてリンクされたかについてもっと読む",
         "types": {
             "events": "イベント",
