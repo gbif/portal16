@@ -84,7 +84,7 @@
                 </section>
 
 
-                <div class="horizontal-stripe light-background">
+                <div class="horizontal-stripe light-background p-t-05">
                     <ng-include src="'/templates/components/loader/loader.html'" ng-if="!dataset.hasData() && !dataset.state.failedRequest"></ng-include>
                     <div ng-if="dataset.hasData()">
                         <div ui-view ng-if="dataset.state.data.count > 0">

@@ -7,13 +7,14 @@
  */
 'use strict';
 var angular = require('angular');
+var _ = require('lodash');
 
 angular
     .module('portal')
     .controller('datasetTableCtrl', datasetTableCtrl);
 
 /** @ngInject */
-function datasetTableCtrl(hotkeys, DatasetFilter, env, BUILD_VERSION) {
+function datasetTableCtrl(hotkeys, DatasetFilter, env, $httpParamSerializer, BUILD_VERSION) {
     var vm = this, offset;
     vm.state = DatasetFilter.getState();
     vm.tileApi = env.tileApi;
@@ -38,6 +39,16 @@ function datasetTableCtrl(hotkeys, DatasetFilter, env, BUILD_VERSION) {
         DatasetFilter.update(vm.state.query);
         window.scrollTo(0, 0);
     };
+
+    vm.getSerializedQuery = function() {
+      var query = angular.copy(vm.state.query);
+      delete query.locale;
+      delete query.advanced;
+      delete query.limit;
+      delete query.offset;
+      query = _.omitBy(query, angular.isUndefined);
+      return $httpParamSerializer(query);
+  };
 
     // $scope.$watch(function(){return vm.state.query.offset}, updatePaginationCounts);
 
