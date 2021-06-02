@@ -172,7 +172,7 @@
     "require-dir": "^1.0.0",
     "rewire": "^2.5.1",
     "run-sequence": "^1.1.5",
-    "sanitize-html": "^1.13.0",
+    "sanitize-html": "^2.3.2",
     "simplemde": "^1.11.2",
     "slug": "^0.9.1",
     "topojson": "^1.6.27",
