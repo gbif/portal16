@@ -237,7 +237,12 @@
                 {% if download.datasets.count > 0 %}
                     <section class="m-t-2 rtl-bootstrap">
                         <span class="relative-anchor-offset"><a id="datasets"></a></span>
-                        <h3 class="card-header"><span translate="downloadKey.nConstituentDatasets" translate-values="{NUMBER: {$ download.datasets.count $}, NUMBER_FORMATTED: ({$ download.datasets.count $} | localNumber) }"></span></h3>
+                        <h3 class="card-header">
+                          <span translate="downloadKey.nConstituentDatasets" translate-values="{NUMBER: {$ download.datasets.count $}, NUMBER_FORMATTED: ({$ download.datasets.count $} | localNumber) }"></span>
+                          <a ng-href="https://api.gbif.org/v1/occurrence/download/{$ download.record.key $}/datasets/export?format=TSV" class="pull-right">
+                            Download as TSV
+                          </a>
+                        </h3>
                         <div class="card">
                             <div class="card__stripe">
                                 <div class="stripeList">
