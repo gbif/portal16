@@ -7,6 +7,7 @@
     "SIMPLE_WITH_VERBATIM_AVRO": "",
     "MAP_OF_LIFE": "",
     "IUCN": "",
-    "BIONOMIA": "Bionomia 輸出格式"
+    "BIONOMIA": "Bionomia 輸出格式",
+    "SIMPLE_PARQUET": ""
   }
 }
