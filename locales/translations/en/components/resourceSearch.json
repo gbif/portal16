@@ -6,7 +6,7 @@
         "searchForNewsEventsDocuments": "Search for news, events, documents and much more. If you are looking for species occurrences then try our occurrence search.",
         "occurrenceSearch": "Occurrence search",
         "subscribeToCalendar": "Subscribe to calendar",
-        "suggestEvent": "",
+        "suggestEvent": "Suggest event",
         "citationExplainer": "Read more about literature, how it’s discovered and linked to GBIF-mediated data.",
         "types": {
             "events": "Events",
