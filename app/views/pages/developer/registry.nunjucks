@@ -405,7 +405,7 @@
                             {$ trowCol(url="/{UUID}/merge", method="POST", auth=true, description="Merges a collection with another collection") $}
                             {$ trowCol(url="/changeSuggestion", resp="Change Suggestions List", respLink=apiBase+"grscicoll/collection/changeSuggestion", paging=true, params=["status","type","proposerEmail","entityKey"], description="Lists all change suggestions for collections")$}
                             {$ trowCol(url="/changeSuggestion", method="POST", auth=false, description="Creates a collection change suggestion. The possible types are CREATE, UPDATE, DELETE and MERGE.") $}
-                            {$ trowCol(url="/changeSuggestion/{ID}", method="GET", auth=false, respLink=apiBase+"grscicoll/collection/changeSuggestion/1", description="Gets details of a collection change suggestion") $}
+                            {$ trowCol(url="/changeSuggestion/{ID}", method="GET", auth=false, resp="Change Suggestion", respLink=apiBase+"grscicoll/collection/changeSuggestion/1", description="Gets details of a collection change suggestion") $}
                             {$ trowCol(url="/changeSuggestion/{ID}", method="PUT", auth=true, description="Updates a collection change suggestion") $}
                             {$ trowCol(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies a collection change suggestion") $}
                             {$ trowCol(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards a collection change suggestion") $}
@@ -452,7 +452,7 @@
                             {$ trowInst(url="/{UUID}/convertToCollection", method="POST", auth=true, description="Converts an institution into a collection") $}
                             {$ trowInst(url="/changeSuggestion", resp="Change Suggestions List", respLink=apiBase+"grscicoll/institution/changeSuggestion", paging=true, params=["status","type","proposerEmail","entityKey"], description="Lists all change suggestions for institutions")$}
                             {$ trowInst(url="/changeSuggestion", method="POST", auth=false, description="Creates an institution change suggestion. The possible types are CREATE, UPDATE, DELETE, MERGE and CONVERSION_TO_COLLECTION.") $}
-                            {$ trowInst(url="/changeSuggestion/{ID}", method="GET", auth=false, respLink=apiBase+"grscicoll/institution/changeSuggestion/1", description="Gets details of an institution change suggestion") $}
+                            {$ trowInst(url="/changeSuggestion/{ID}", method="GET", auth=false, resp="Change Suggestion", respLink=apiBase+"grscicoll/institution/changeSuggestion/1", description="Gets details of an institution change suggestion") $}
                             {$ trowInst(url="/changeSuggestion/{ID}", method="PUT", auth=true, description="Updates an institution change suggestion") $}
                             {$ trowInst(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies an institution change suggestion") $}
                             {$ trowInst(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards an institution change suggestion") $}
@@ -598,7 +598,7 @@
                     <section id="auditLog">
                         <h4>Audit Log</h4>
                         <p>
-                            This services provides an audit log that contains all the changes made to GRSciColl entities. Its usage is reserved for admins.
+                            This services provides an audit log that tracks all the changes made to GRSciColl entities. Its usage is reserved for admins.
                         </p>
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
@@ -664,8 +664,8 @@
             "operation" : "Operation of a GRSciColl audit log: CREATE, UPDATE, DELETE, LINK, UNLINK, REPLACE, CONVERSION_TO_COLLECTION, APPLY_SUGGESTION, DISCARD_SUGGESTION",
             "collectionEntityKey": "Key of the institution, collection or person being modified",
             "createdBy": "User who did the change in a GRSciColl audit log",
-            "dateFrom": "Filter GRSciColl audit logs after a specific date (format yyyy-MM-dd)",
-            "dateTo": "Filter GRSciColl audit logs until a specific date (format yyyy-MM-dd)"
+            "dateFrom": "Filters GRSciColl audit logs after a specific date (format yyyy-MM-dd)",
+            "dateTo": "Filters GRSciColl audit logs until a specific date (format yyyy-MM-dd)"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
