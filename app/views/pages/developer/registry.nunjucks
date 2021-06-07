@@ -660,7 +660,7 @@
             "entityKey": "The key of the entity of a change suggestion in GRSciColl",
             "traceId": "Trace ID of a GRSciColl audit log",
             "collectionEntityType": "Entity type used in the GRSciColl audit log: INSTITUTION, COLLECTION, PERSON)",
-            "subEntityType": "Subentity type used in the GRSciColl audit log: Identifier, MachineTag, Comment, Tag, OccurrenceMapping, Person, ChangeSuggestionDto",,
+            "subEntityType": "Subentity type used in the GRSciColl audit log: Identifier, MachineTag, Comment, Tag, OccurrenceMapping, Person, ChangeSuggestionDto",
             "operation" : "Operation of a GRSciColl audit log: CREATE, UPDATE, DELETE, LINK, UNLINK, REPLACE, CONVERSION_TO_COLLECTION, APPLY_SUGGESTION, DISCARD_SUGGESTION",
             "collectionEntityKey": "Key of the institution, collection or person being modified",
             "createdBy": "User who did the change in a GRSciColl audit log",
