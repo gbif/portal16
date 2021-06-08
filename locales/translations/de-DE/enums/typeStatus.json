@@ -1,8 +1,8 @@
 {
   "typeStatus": {
-    "TYPE": "",
-    "TYPE_SPECIES": "",
-    "TYPE_GENUS": "",
+    "TYPE": "Typus",
+    "TYPE_SPECIES": "Typusart",
+    "TYPE_GENUS": "Typusgattung",
     "ALLOLECTOTYPE": "",
     "ALLONEOTYPE": "",
     "ALLOTYPE": "",
