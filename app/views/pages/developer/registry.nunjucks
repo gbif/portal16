@@ -50,7 +50,7 @@
 
             <div class="col-md-2">
             {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'collections':'Collections', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
-            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person', 'lookup':'Lookup', 'search':'Search'} %}
+            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person', 'lookup':'Lookup', 'search':'Search', 'auditLog':'Audit Log'} %}
             {$ api.submenu(sections, colSections) $}
             </div>
             <div class="col-md-10">
@@ -402,7 +402,13 @@
                             {$ trowCol(url="/{UUID}/occurrenceMapping", method="POST", resp="ID", auth=true, description="Create and add an occurrence mapping") $}
                             {$ trowCol(url="/{UUID}/occurrenceMapping/{ID}", method="DELETE", auth=true, description="Deletes the collection occurrence mapping with identifier {ID}") $}
                             {$ trowCol(url="/possibleDuplicates", resp="Collections Possible Duplicates List", respLink=apiBase+"grscicoll/collection/possibleDuplicates?sameCity=true&sameName=true&inCountries=FI", params=["sameName","sameFuzzyName","sameCode","sameCountry","sameCity","sameInstitution","inCountries","notInCountries","excludeKeys","inInstitutions","notInInstitutions"], description="Lists possible duplicates") $}
-                            {$ trowCol(url="/{UUID}/merge", method="POST", auth=true, description="Merges a collection with another collection. This is only used by the registry management tools and not intended for external use") $}
+                            {$ trowCol(url="/{UUID}/merge", method="POST", auth=true, description="Merges a collection with another collection") $}
+                            {$ trowCol(url="/changeSuggestion", resp="Change Suggestions List", respLink=apiBase+"grscicoll/collection/changeSuggestion", paging=true, params=["status","type","proposerEmail","entityKey"], description="Lists all change suggestions for collections")$}
+                            {$ trowCol(url="/changeSuggestion", method="POST", auth=false, description="Creates a collection change suggestion. The possible types are CREATE, UPDATE, DELETE and MERGE.") $}
+                            {$ trowCol(url="/changeSuggestion/{ID}", method="GET", auth=false, resp="Change Suggestion", respLink=apiBase+"grscicoll/collection/changeSuggestion/1", description="Gets details of a collection change suggestion") $}
+                            {$ trowCol(url="/changeSuggestion/{ID}", method="PUT", auth=true, description="Updates a collection change suggestion") $}
+                            {$ trowCol(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies a collection change suggestion") $}
+                            {$ trowCol(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards a collection change suggestion") $}
                             </tbody>
                         </table>
                     </section>
@@ -442,8 +448,14 @@
                             {$ trowInst(url="/{UUID}/occurrenceMapping", method="POST", resp="ID", auth=true, description="Create and add an institution occurrence mapping") $}
                             {$ trowInst(url="/{UUID}/occurrenceMapping/{ID}", method="DELETE", auth=true, description="Deletes the institution occurrence mapping with identifier {ID}") $}
                             {$ trowInst(url="/possibleDuplicates", resp="Institutions Possible Duplicates List", respLink=apiBase+"grscicoll/institution/possibleDuplicates?sameCity=true&sameName=true&inCountries=FI", params=["sameName","sameFuzzyName","sameCode","sameCountry","sameCity","inCountries","notInCountries","excludeKeys"], description="Lists possible duplicates") $}
-                            {$ trowInst(url="/{UUID}/merge", method="POST", auth=true, description="Merges an institution with another institution. This is only used by the registry management tools and not intended for external use") $}
-                            {$ trowInst(url="/{UUID}/convertToCollection", method="POST", auth=true, description="Converts an institution into a collection. This is only used by the registry management tools and not intended for external use") $}
+                            {$ trowInst(url="/{UUID}/merge", method="POST", auth=true, description="Merges an institution with another institution") $}
+                            {$ trowInst(url="/{UUID}/convertToCollection", method="POST", auth=true, description="Converts an institution into a collection") $}
+                            {$ trowInst(url="/changeSuggestion", resp="Change Suggestions List", respLink=apiBase+"grscicoll/institution/changeSuggestion", paging=true, params=["status","type","proposerEmail","entityKey"], description="Lists all change suggestions for institutions")$}
+                            {$ trowInst(url="/changeSuggestion", method="POST", auth=false, description="Creates an institution change suggestion. The possible types are CREATE, UPDATE, DELETE, MERGE and CONVERSION_TO_COLLECTION.") $}
+                            {$ trowInst(url="/changeSuggestion/{ID}", method="GET", auth=false, resp="Change Suggestion", respLink=apiBase+"grscicoll/institution/changeSuggestion/1", description="Gets details of an institution change suggestion") $}
+                            {$ trowInst(url="/changeSuggestion/{ID}", method="PUT", auth=true, description="Updates an institution change suggestion") $}
+                            {$ trowInst(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies an institution change suggestion") $}
+                            {$ trowInst(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards an institution change suggestion") $}
                             </tbody>
                         </table>
                     </section>
@@ -457,7 +469,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowPerson(url="", resp="Person List", respLink=apiBase+"grscicoll/person", paging=true, params=["q","primaryInstitution","primaryCollection"], description="Lists all persons")$}
+                            {$ trowPerson(url="", resp="Person List", respLink=apiBase+"grscicoll/person", paging=true, params=["q","primaryInstitution","primaryCollection","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all persons")$}
                             {$ trowPerson(url="", method="POST", resp="UUID", auth=true, description="Creates a new person") $}
                             {$ trowPerson(url="/{UUID}", resp="Person", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a", description="Gets details for the person") $}
                             {$ trowPerson(url="/{UUID}", method="PUT", auth=true, description="Updates the person") $}
@@ -572,17 +584,29 @@
                         </table>
                     </section>
                     <section id="search">
-                    <h4>Search</h4>
-                    <p>
-                        This API provides a service to search institutions and collections. It searches in both institutions and collections and it highlights the matching fields (optional).
-                    </p>
-                    <table class='api table table-bordered table-striped table-params'>
-                        {$ api.apiTableHead() $}
-                        <tbody>
-                            {$ api.trow(url="/grscicoll/search", httpMethod="GET", authRequired=false, resp="Results found", respLink=apiBase+"grscicoll/search?q=smi&highlight=true", paging=false, params=["q","highlight"], description="Searches for institutions and collections") $}
-                        </tbody>
-                    </table>
-                </section>
+                        <h4>Search</h4>
+                        <p>
+                            This API provides a service to search institutions and collections. It searches in both institutions and collections and it highlights the matching fields (optional).
+                        </p>
+                        <table class='api table table-bordered table-striped table-params'>
+                            {$ api.apiTableHead() $}
+                            <tbody>
+                                {$ api.trow(url="/grscicoll/search", httpMethod="GET", authRequired=false, resp="Results found", respLink=apiBase+"grscicoll/search?q=smi&highlight=true", paging=false, params=["q","highlight"], description="Searches for institutions and collections") $}
+                            </tbody>
+                        </table>
+                    </section>
+                    <section id="auditLog">
+                        <h4>Audit Log</h4>
+                        <p>
+                            This services provides an audit log that tracks all the changes made to GRSciColl entities. Its usage is reserved for admins.
+                        </p>
+                        <table class='api table table-bordered table-striped table-params'>
+                            {$ api.apiTableHead() $}
+                            <tbody>
+                                {$ api.trow(url="/grscicoll/auditLog", httpMethod="GET", authRequired=true, resp="Results found", respLink=apiBase+"grscicoll/auditLog", paging=true, params=["traceId", "collectionEntityType", "subEntityType", "operation", "collectionEntityKey", "createdBy", "dateFrom", "dateTo"], description="Lists the GRSciColl Audit Log") $}
+                            </tbody>
+                        </table>
+                    </section>
                 </div>
             </section>
 
@@ -629,7 +653,19 @@
             "notInCountries":"Discards duplicates from any of the countries specified. For multiple values separate them by commas(notInCountries=FI,DE) or send it multiple times(notInCountries=FI&amp;notInCountries=DE)",
             "excludeKeys":"Discards entities with any of the keys specified. For multiple values separate them by commas(excludeKeys=7e730f02-2129-45b0-a76e-7e5ff43fda3f,0403ac88-682b-44d8-91bb-6d76f155e519) or send it multiple times(excludeKeys=7e730f02-2129-45b0-a76e-7e5ff43fda3f&amp;excludeKeys=0403ac88-682b-44d8-91bb-6d76f155e519)",
             "inInstitutions":"Filters duplicates to return only the ones that belong to any of the institutions specified. For multiple values separate them by commas(inInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f,0403ac88-682b-44d8-91bb-6d76f155e519) or send it multiple times(inInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f&amp;inInstitutions=0403ac88-682b-44d8-91bb-6d76f155e519)",
-            "notInInstitutions":"Filters duplicates to return only the ones that don't belong to any of the institutions specified. For multiple values separate them by commas(notInInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f,0403ac88-682b-44d8-91bb-6d76f155e519) or send it multiple times(notInInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f&amp;notInInstitutions=0403ac88-682b-44d8-91bb-6d76f155e519)"
+            "notInInstitutions":"Filters duplicates to return only the ones that don't belong to any of the institutions specified. For multiple values separate them by commas(notInInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f,0403ac88-682b-44d8-91bb-6d76f155e519) or send it multiple times(notInInstitutions=7e730f02-2129-45b0-a76e-7e5ff43fda3f&amp;notInInstitutions=0403ac88-682b-44d8-91bb-6d76f155e519)",
+            "status": "Status of a change suggestion: PENDING, APPLIED, DISCARDED)",
+            "type": "Type of a change suggestion: CREATE, UPDATE, DELETE, MERGE, CONVERSION_TO_COLLECTION",
+            "proposerEmail": "The email of the person who suggested a change in GRSciColl",
+            "entityKey": "The key of the entity of a change suggestion in GRSciColl",
+            "traceId": "Trace ID of a GRSciColl audit log",
+            "collectionEntityType": "Entity type used in the GRSciColl audit log: INSTITUTION, COLLECTION, PERSON)",
+            "subEntityType": "Subentity type used in the GRSciColl audit log: Identifier, MachineTag, Comment, Tag, OccurrenceMapping, Person, ChangeSuggestionDto",
+            "operation" : "Operation of a GRSciColl audit log: CREATE, UPDATE, DELETE, LINK, UNLINK, REPLACE, CONVERSION_TO_COLLECTION, APPLY_SUGGESTION, DISCARD_SUGGESTION",
+            "collectionEntityKey": "Key of the institution, collection or person being modified",
+            "createdBy": "User who did the change in a GRSciColl audit log",
+            "dateFrom": "Filters GRSciColl audit logs after a specific date (format yyyy-MM-dd)",
+            "dateTo": "Filters GRSciColl audit logs until a specific date (format yyyy-MM-dd)"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
