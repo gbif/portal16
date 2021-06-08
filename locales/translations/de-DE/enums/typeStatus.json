@@ -37,10 +37,10 @@
     "PLASTOSYNTYPE": "Plastosyntypus",
     "PLASTOTYPE": "Plastotypus",
     "SECONDARYTYPE": "Sekundärtypus",
-    "SUPPLEMENTARYTYPE": "",
-    "SYNTYPE": "",
-    "TOPOTYPE": "",
-    "ORIGINALMATERIAL": "",
-    "NOTATYPE": ""
+    "SUPPLEMENTARYTYPE": "Supplementärtypus",
+    "SYNTYPE": "Syntypus",
+    "TOPOTYPE": "Topotypus",
+    "ORIGINALMATERIAL": "Originalmaterial",
+    "NOTATYPE": "Kein Typ"
   }
 }
