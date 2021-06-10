@@ -90,6 +90,8 @@
   "grscicoll": {
     "title": "GRSciColl",
     "suggestChange": "Suggest a change",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
       "about": "About",
       "institutions": "Institutions",
