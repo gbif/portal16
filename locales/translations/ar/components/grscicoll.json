@@ -90,6 +90,8 @@
   "grscicoll": {
     "title": "",
     "suggestChange": "اقترح تغييراً",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
       "about": "حول",
       "institutions": "مؤسسات",
