@@ -90,6 +90,8 @@
   "grscicoll": {
     "title": "科學典藏",
     "suggestChange": "提供建議",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
       "about": "關於",
       "institutions": "機構",
