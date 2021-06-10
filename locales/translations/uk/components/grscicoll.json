@@ -90,6 +90,8 @@
   "grscicoll": {
     "title": "",
     "suggestChange": "Запропонувати зміну",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
       "about": "Загальні відомості",
       "institutions": "Установи",
