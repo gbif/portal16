@@ -10,7 +10,7 @@ angular
 function grscicollPersonCtrl(Page, $state, $stateParams, PersonSearch) {
     var vm = this;
     vm.limit = 20;
-    vm.offset = parseInt($stateParams.offset);
+    vm.offset = parseInt($stateParams.offset) || 0;
     vm.q = $stateParams.q;
     Page.drawer(false);
     vm.$state = $state;
@@ -19,7 +19,7 @@ function grscicollPersonCtrl(Page, $state, $stateParams, PersonSearch) {
     vm.query = function() {
         vm.loading = true;
         vm.error = false;
-        vm.data = PersonSearch.query({q: vm.q, limit: vm.limit, offset: vm.offset || ''}, function(data) {
+        vm.data = PersonSearch.query({q: vm.q, limit: vm.limit, offset: vm.offset}, function(data) {
             vm.error = false;
             vm.loading = false;
             vm.offset = data.offset;
