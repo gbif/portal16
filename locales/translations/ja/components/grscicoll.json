@@ -90,6 +90,8 @@
   "grscicoll": {
     "title": "",
     "suggestChange": "変更を連絡する",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
       "about": "GRSciCollについて",
       "institutions": "機関",

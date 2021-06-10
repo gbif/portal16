@@ -90,6 +90,8 @@
   "grscicoll": {
     "title": "",
     "suggestChange": "建议更改",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
       "about": "关于",
       "institutions": "机构",
