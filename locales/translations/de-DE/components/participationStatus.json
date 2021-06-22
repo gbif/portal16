@@ -6,7 +6,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": ""
+            "undefined": "Unbekannt"
         },
         "description": {
             "VOTING": "",
@@ -14,7 +14,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": ""
+            "undefined": "Unbekannt"
         },
         "type": {
             "OTHER": {
@@ -24,7 +24,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "Unbekannt"
                 },
                 "longForm": {
                     "VOTING": "",
@@ -32,7 +32,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "Unbekannt"
                 }
             }
         }
