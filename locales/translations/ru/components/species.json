@@ -1,6 +1,6 @@
 {
   "treatment": {
-    "distribution": "",
+    "distribution": "Распространение",
     "figures": ""
   },
   "species": {
@@ -11,7 +11,7 @@
       "establishmentMeans": "",
       "distributionPlural": "Распространение",
       "PRESENT": "",
-      "ABSENT": ""
+      "ABSENT": "Отсутствует"
     },
     "tabs": {
       "overview": "Обзор",
@@ -27,11 +27,11 @@
       "occurrenceCount": "Находки вида в GBIF",
       "seeAllCountries": "Показать все",
       "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive_yes": "Да",
+      "isInvasive_no": "Нет"
     },
     "treatment": {
-      "distribution": "",
+      "distribution": "Распространение",
       "figures": ""
     },
     "as": "В качестве",
