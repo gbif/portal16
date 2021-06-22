@@ -79,7 +79,7 @@
     "eventDescription": "イベントの説明",
     "siblingEvents": "同胞イベント",
     "childEvents": "子イベント",
-    "events": "",
+    "events": "イベント",
     "occurrenceCount": "オカレンスのカウント",
     "inDataset": "In",
     "samplingArticleLink": "GBIF.orgにおけるサンプリングイベントをもっと表示"
