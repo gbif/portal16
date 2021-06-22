@@ -6,6 +6,7 @@
         "searchForNewsEventsDocuments": "",
         "occurrenceSearch": "",
         "subscribeToCalendar": "",
+        "suggestEvent": "",
         "citationExplainer": "",
         "types": {
             "events": "",
@@ -34,6 +35,8 @@
             "peerReview": "",
             "openAccess": "",
             "gbifDownloadKey": "",
+            "gbifDerivedDatasetDoi": "",
+            "paperDoi": "",
             "litSource": "",
             "litPublisher": ""
         }
