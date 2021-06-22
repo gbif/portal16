@@ -62,18 +62,18 @@
         "machineVision": {
             "tabs": {
                 "demo": "",
-                "statement": ""
+                "statement": "Об организациии"
             }
         },
         "derivedDataset": {
             "title": "",
-            "titleField": "",
+            "titleField": "Название",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",
-            "datasetKey": "",
-            "occurrenceCount": "",
-            "submit": "",
+            "datasetKey": "Ключ набора данных",
+            "occurrenceCount": "Число находок",
+            "submit": "Отправить",
             "pleaseFill": "",
             "loginToCreate": "",
             "myDatasets": "",

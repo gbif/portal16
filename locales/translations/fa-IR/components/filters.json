@@ -8,6 +8,9 @@
         "repatriation": {
             "description": ""
         },
+        "isClustered": {
+            "description": ""
+        },
         "occurrenceStatus": {
             "description": "",
             "options": {

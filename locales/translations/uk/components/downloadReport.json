@@ -39,9 +39,9 @@
     "content": {
       "rawData": "Первинні дані",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
+      "images": "Мультимедіа",
+      "coordinates": "Координати",
+      "fileFormat": "Формат",
       "estimatedSize": ""
     },
     "fileFormats": {

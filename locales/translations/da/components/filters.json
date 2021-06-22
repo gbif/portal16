@@ -15,8 +15,8 @@
             "description": "",
             "options": {
                 "yes": "",
-                "no": "",
-                "all": ""
+                "no": "Fraværende",
+                "all": "Alt"
             }
         },
         "ternary": {

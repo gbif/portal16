@@ -1,6 +1,6 @@
 {
     "tools": {
-        "tools": "",
+        "tools": "Værktøjer",
         "categoryFeatured": "",
         "suggestDataset": {
             "NOT_OPEN": "",
@@ -62,17 +62,17 @@
         "machineVision": {
             "tabs": {
                 "demo": "",
-                "statement": ""
+                "statement": "Om"
             }
         },
         "derivedDataset": {
             "title": "",
-            "titleField": "",
+            "titleField": "Titel",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",
             "datasetKey": "",
-            "occurrenceCount": "",
+            "occurrenceCount": "Antal observationer",
             "submit": "",
             "pleaseFill": "",
             "loginToCreate": "",

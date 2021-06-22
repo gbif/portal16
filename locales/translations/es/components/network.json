@@ -6,7 +6,7 @@
       "homepage": "Página de inicio",
       "metrics": "Estadísticas",
       "datasets": "Red",
-      "publishers": ""
+      "publishers": "Publicadores"
     },
     "registeredDate": "Registrado {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} participando {NUMBER, select, 1{conjunto de datos} other{conjuntos de datos}}",

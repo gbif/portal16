@@ -79,7 +79,7 @@
     "eventDescription": "事件描述",
     "siblingEvents": "姐妹事件（Sibling events）",
     "childEvents": "子事件",
-    "events": "",
+    "events": "事件",
     "occurrenceCount": "物种出现记录计数",
     "inDataset": "在",
     "samplingArticleLink": "关于GBIF.org上的更多取样事件"

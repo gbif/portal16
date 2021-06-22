@@ -28,14 +28,14 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
+            "equals": "Er {from}",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Ugyldig",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Er",
+                "between": "Mellem",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
@@ -54,14 +54,14 @@
             }
         },
         "default": {
-            "equals": "",
+            "equals": "Er {from}",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Ugyldig",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Er",
+                "between": "Mellem",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }

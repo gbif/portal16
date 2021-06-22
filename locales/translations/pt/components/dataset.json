@@ -79,7 +79,7 @@
     "eventDescription": "Descrição do evento",
     "siblingEvents": "Evento irmão",
     "childEvents": "Evento filho",
-    "events": "",
+    "events": "Eventos",
     "occurrenceCount": "Número (quantidade) de registos",
     "inDataset": "Em",
     "samplingArticleLink": "Mais sobre eventos de colheita em GBIF.org"
