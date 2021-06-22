@@ -9,12 +9,12 @@
     "unknownDate": "",
     "absent": "",
     "issues": "",
-    "dataset": "",
+    "dataset": "Dataset",
     "synced": "",
     "modified": "",
     "monthAndyear": "",
     "coordinateUncertainty": "",
-    "citation": "",
+    "citation": "Bronvermelding",
     "readFullDescription": "",
     "showMoreInfo": "",
     "noTaxonMatch": "",
@@ -30,7 +30,7 @@
       "raw": ""
     },
     "groups": {
-      "Record": "",
+      "Record": "Record",
       "Occurrence": "",
       "Event": "",
       "Identification": "",
