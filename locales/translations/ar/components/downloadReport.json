@@ -39,9 +39,9 @@
     "content": {
       "rawData": "بيانات أولية",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
+      "images": "وسائط متعددة",
+      "coordinates": "احداثيات",
+      "fileFormat": "صيغة",
       "estimatedSize": ""
     },
     "fileFormats": {
