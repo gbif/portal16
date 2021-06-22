@@ -79,7 +79,7 @@
     "eventDescription": "Характеристика описания, учета или сбора",
     "siblingEvents": "Прочие описания, учёты или сборы набора данных",
     "childEvents": "Дочерние описания, учеты или сборы",
-    "events": "",
+    "events": "Мероприятия",
     "occurrenceCount": "Число находок",
     "inDataset": "В",
     "samplingArticleLink": "Подробнее об описаниях, учётах и сборах в GBIF.org"
