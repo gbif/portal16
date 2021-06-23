@@ -2,13 +2,16 @@
 
 {% import "./predicate.macro.nunjucks" as predicate %}
 
+{% set citationString %}GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download {% if download.record.doi %} https://doi.org/{$ download.record.doi $}{% elif gb.locales.url %}{$ gb.locales.domain $}{$ gb.locales.url $}{% endif %}{% endset %}
+
 {% block page %}
     <script>
         var gb = gb || {};
         gb.downloadKey = {
             key: '{$ download.record.key $}',
             doi: '{$ download.record.doi $}',
-            status: '{$ download.record.status $}'
+            status: '{$ download.record.status $}',
+            citationString: "{$ citationString $}"
         };
     </script>
     <article class="wrapper-horizontal-stripes downloadKey"
@@ -100,6 +103,33 @@
             <div class="container--normal">
                 <section>
                     <h3 class="card-header">
+                        <span translate="phrases.pleaseCiteAs">Please cite as</span>
+                    </h3>
+                    <div class="card card--spaced">
+                      <div class="card__stripe">
+                        <div class="card__content">
+                          <div style="font-family: monospace;">
+                            {$ citationString $}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card__stripe">
+                        <div class="card__content">
+                          <a href="" role="button" class="gb-button"
+                                    ng-if="downloadKey.hasClipboard" 
+                                    ng-click="downloadKey.toClipboard()">Copy</a>
+                          <a href="https://data.crosscite.org/application/x-bibtex/{$ download.record.doi $}" class="gb-button">
+                            <span class="gb-icon-file-download"></span>
+                            BibTex
+                          </a>
+                          <a href="https://data.crosscite.org/application/x-research-info-systems/{$ download.record.doi $}" class="gb-button">
+                            <span class="gb-icon-file-download"></span>
+                            RIS
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <h3 class="card-header">
                         <span translate="downloadKey.filterApplied" translate-values="{DATE: '{$ download.record.created | formatDate(gb.locales.current) $}' }">&nbsp;</span>
                         {% if download.isSimple %}
                             <a href="/occurrence/search?{$ download.isSimple $}"
@@ -137,8 +167,14 @@
                                             <div>
                                                 <dt>{$ __('downloadKey.citation') $}</dt>
                                                 <dd dir="ltr">
-                                                    GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download {% if download.record.doi %} https://doi.org/{$ download.record.doi $}{% elif gb.locales.url %}{$ gb.locales.domain $}{$ gb.locales.url $}{% endif %}
+                                                    {$ citationString $}
                                                 </dd>
+                                                <button class="gb-button" 
+                                                        ng-if="downloadKey.hasClipboard" 
+                                                        ng-click="downloadKey.toClipboard()">Copy</button>
+                                                <a href="https://data.crosscite.org/application/x-bibtex/{$ download.record.doi $}" class="gb-button">BibTex</a>
+                                                <a href="https://data.crosscite.org/application/x-research-info-systems/{$ download.record.doi $}" class="gb-button">RIS</a>
+
                                             </div>
                                             {% if download.record.license %}
                                             <div>
