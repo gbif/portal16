@@ -99,7 +99,7 @@
             {% endif %}
         </div>
 
-        <div class="horizontal-stripe light-background">
+        <div class="horizontal-stripe light-background p-t-05">
             <div class="container--normal">
                 <section>
                     <h3 class="card-header">
@@ -131,14 +131,14 @@
                         </div>
                       </div>
                     </div>
-                    <h3 class="card-header">
+                    <h3 class="card-header m-t-1">
                         <span translate="downloadKey.filterApplied" translate-values="{DATE: '{$ download.record.created | formatDate(gb.locales.current) $}' }">&nbsp;</span>
                         {% if download.isSimple %}
                             <a href="/occurrence/search?{$ download.isSimple $}"
                                class="pull-right inherit discreet p-r-1">{$ __('downloadKey.rerunQuery') $}</a>
                         {% endif %}
                     </h3>
-                    <div class="card  card--spaced">
+                    <div class="card card--spaced">
                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                         <div class="card__stripe rtl-supported">
                             <div class="card__content card__content--warning--large">
