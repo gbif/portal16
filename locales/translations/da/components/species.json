@@ -1,6 +1,6 @@
 {
   "treatment": {
-    "distribution": "",
+    "distribution": "Distribution",
     "figures": ""
   },
   "species": {
@@ -11,7 +11,7 @@
       "establishmentMeans": "",
       "distributionPlural": "Udbredelse",
       "PRESENT": "",
-      "ABSENT": ""
+      "ABSENT": "Fraværende"
     },
     "tabs": {
       "overview": "Oversigt",
@@ -31,7 +31,7 @@
       "isInvasive_no": ""
     },
     "treatment": {
-      "distribution": "",
+      "distribution": "Distribution",
       "figures": ""
     },
     "as": "Som",

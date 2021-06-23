@@ -22,7 +22,8 @@
             "treatment": "Taxonomy",
             "blog": "Blog",
             "guidance": "Guidance",
-            "data": "Data"
+            "data": "Data",
+            "video": "Video"
         }
     }
 }

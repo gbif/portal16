@@ -39,9 +39,9 @@
     "content": {
       "rawData": "Datos sin procesar",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
+      "images": "Multimedia",
+      "coordinates": "Coordenadas",
+      "fileFormat": "Formato",
       "estimatedSize": ""
     },
     "fileFormats": {

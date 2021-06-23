@@ -1,4 +1,14 @@
 {
+  "derivedDatasetKey": {
+    "nRecordsAtTime": "",
+    "derivedDataset": "",
+    "sourceUrl": "",
+    "headlineDatasets": "",
+    "headlineOccurrences": "",
+    "title": "عنوان",
+    "description": "توضیحات",
+    "originalDownloadDOI": ""
+  },
   "downloadKey": {
     "nOccurrencesDownloaded": "",
     "nRecordsDownloaded": "",

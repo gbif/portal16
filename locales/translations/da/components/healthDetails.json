@@ -18,7 +18,7 @@
                 "tooltip": "F.eks. søgning og visning af observationer."
             },
             "SPECIES": {
-                "name": "",
+                "name": "Art",
                 "tooltip": "F.eks. søgning og visning af arter"
             },
             "REGISTRY": {
@@ -58,7 +58,7 @@
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
+                "name": "Downloads",
                 "tooltip": "Er nødvendig for at downloade mm"
             }
         }

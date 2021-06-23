@@ -6,7 +6,7 @@
       "homepage": "ホームページ",
       "metrics": "メトリクス",
       "datasets": "ネットワーク",
-      "publishers": ""
+      "publishers": "出版者"
     },
     "registeredDate": "登録日 {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} 参加している {NUMBER, select, 1{データセット} other{データセット}}",

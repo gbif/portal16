@@ -42,6 +42,7 @@
     "decimalLatitude": "",
     "decimalLongitude": "",
     "publishingOrg": "",
+    "hostingOrganizationKey": "",
     "kingdomKey": "پادشاهی",
     "phylumKey": "شاخه",
     "classKey": "کلاس",
@@ -69,6 +70,10 @@
     "sampleSizeUnit": "",
     "relativeOrganismQuantity": "",
     "collectionKey": "مجموعه",
-    "institutionKey": ""
+    "institutionKey": "",
+    "gadmGid": "",
+    "lifeStage": "",
+    "dwcaExtension": "",
+    "isInCluster": ""
   }
 }
