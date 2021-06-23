@@ -117,7 +117,8 @@
                         <div class="card__content">
                           <a href="" role="button" class="gb-button"
                                     ng-if="downloadKey.hasClipboard" 
-                                    ng-click="downloadKey.toClipboard()">Copy</a>
+                                    ng-click="downloadKey.toClipboard()"
+                                    translate="phrases.copy">Copy</a>
                           {% if download.record.doi %}
                           <a href="https://data.crosscite.org/application/x-bibtex/{$ download.record.doi $}" class="gb-button">
                             <span class="gb-icon-file-download"></span>
