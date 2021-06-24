@@ -172,12 +172,6 @@
                                                 <dd dir="ltr">
                                                     {$ citationString $}
                                                 </dd>
-                                                <button class="gb-button" 
-                                                        ng-if="downloadKey.hasClipboard" 
-                                                        ng-click="downloadKey.toClipboard()">Copy</button>
-                                                <a href="https://data.crosscite.org/application/x-bibtex/{$ download.record.doi $}" class="gb-button">BibTex</a>
-                                                <a href="https://data.crosscite.org/application/x-research-info-systems/{$ download.record.doi $}" class="gb-button">RIS</a>
-
                                             </div>
                                             {% if download.record.license %}
                                             <div>
