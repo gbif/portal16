@@ -167,12 +167,6 @@
                                 <div class="card__stripe">
                                     <div class="card__content">
                                         <dl class="inline">
-                                            <div>
-                                                <dt>{$ __('downloadKey.citation') $}</dt>
-                                                <dd dir="ltr">
-                                                    {$ citationString $}
-                                                </dd>
-                                            </div>
                                             {% if download.record.license %}
                                             <div>
                                                 <dt>{$ __('downloadKey.license') $}</dt>
