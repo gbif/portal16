@@ -77,6 +77,17 @@ function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, 
 
     vm.data = occurrence;
     vm.vernacularName = SpeciesVernacularName.get({id: vm.data.taxonKey});
+    if (_.get(occurrence, 'dynamicProperties')) {
+        try {
+           // TODO adapt to work with iiifManifestUri given in extensions
+           var dynProps = JSON.parse(_.get(occurrence, 'dynamicProperties'));
+           if (dynProps['iiifManifestUri']) {
+            vm.iiifManifestUri = 'https://gbif.org?manifest=' + dynProps['iiifManifestUri'];
+           }
+        } catch (err) {
+            // unparsable JSON
+        }
+    }
     vm.center = {
         point: [vm.data.decimalLongitude, vm.data.decimalLatitude]
     };
