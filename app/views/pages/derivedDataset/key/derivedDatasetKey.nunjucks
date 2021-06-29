@@ -92,7 +92,7 @@
                                     <div>
                                         <dt>{$ __('derivedDatasetKey.description') $}</dt>
                                         <dd dir="ltr">
-                                            {$ derivedDataset.description $}
+                                            {$ derivedDataset.description | renderMarkdown | sanitize | safe $}
                                         </dd>
                                     </div>
                                     {% endif %}
