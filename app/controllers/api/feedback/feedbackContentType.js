@@ -5,6 +5,7 @@ let Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence,
     getAnnotations = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     localeFromQuery = require('../../../middleware/i18n/localeFromQuery'),
     locales = require('../../../../config/config').locales,
+    user = require('../user/user.model'),
     _ = require('lodash');
 
 function getFeedbackContentType(path, cb) {
@@ -36,7 +37,7 @@ async function parseOccurrence(path) {
     let occurrenceKey,
         contentType = {};
 
-    occurrenceKey = path.match(/[0-9]+$/)[0];
+        occurrenceKey = path.match(/[0-9]+$/)[0];
 
     // get occurrence, dataset and pubisher based on occurrence key
     let occurrence = await Occurrence.get(occurrenceKey,
@@ -48,6 +49,10 @@ async function parseOccurrence(path) {
     // get endorsing node as node managers want to be cc'ed
     let node = await Node.get(occurrence.publisher.endorsingNodeKey, {});
     contentType.ccContacts = getContacts(_.get(node, 'record.contacts', []));
+    const mention = await getGithubHandlesToMention({node});
+    if (mention.length > 0) {
+      contentType.mention = mention;
+    }
     // has custom annotation system?
     occurrence.record._installationKey = occurrence.dataset.installationKey;
     contentType.annotation = getAnnotations(occurrence.record);
@@ -74,6 +79,7 @@ async function parseOccurrence(path) {
     // add related keys to allow data providers to search for issues related to them
     contentType.datasetKey = occurrence.record.datasetKey;
     contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
+    contentType.publishingCountry = occurrence.record.publishingCountry;
 
     return contentType;
 }
@@ -142,6 +148,32 @@ function getContacts(contacts) {
     } else {
         return;
     }
+}
+
+async function getGithubHandlesToMention({node}) {
+  const nodeStaffEmails = _.get(node, 'record.contacts', [])
+      .filter(function(contact) {
+        return (contact.type === 'NODE_MANAGER' || contact.type === 'NODE_STAFF') && !_.isEmpty(contact.email);
+      })
+      .map(function(contact) {
+        return contact.email[0];
+      });
+  const githubHandles = await Promise.all(nodeStaffEmails.map(getGithubHandleFromEmail));
+  const mention = githubHandles.filter(function(name) {
+    return name;
+  });
+  return mention;
+}
+
+async function getGithubHandleFromEmail(email) {
+  try {
+    const gbifUser = await user.getByUserName(email);
+    const clientUser = user.getClientUser(gbifUser);
+    return clientUser.githubUserName;
+  } catch (err) {
+    // ignore errors - user just won't be mentioned.
+    return;
+  }
 }
 
 module.exports = {
