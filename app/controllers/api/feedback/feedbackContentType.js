@@ -81,6 +81,10 @@ async function parseOccurrence(path) {
     contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
     contentType.publishingCountry = occurrence.record.publishingCountry;
 
+    if (occurrence.record.networkKeys && occurrence.record.networkKeys.length > 0) {
+      contentType.networkKeys = occurrence.record.networkKeys;
+    }
+
     return contentType;
 }
 
