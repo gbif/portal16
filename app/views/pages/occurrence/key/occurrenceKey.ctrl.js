@@ -88,14 +88,14 @@ function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, 
            return e['http://rs.tdwg.org/ac/terms/accessURI'];
        });
        if (iiifUris.length > 0) {
-        vm.iiifManifestUri = 'http://labs.gbif.org/mirador/?manifest=' + iiifUris[0];
+        vm.iiifManifestUri = 'https://labs.gbif.org/mirador/?manifest=' + iiifUris[0];
        }
    }
     if (!vm.iiifManifestUri && _.get(occurrence, 'dynamicProperties')) {
         try {
            var dynProps = JSON.parse(_.get(occurrence, 'dynamicProperties'));
            if (dynProps['iiifManifestUri']) {
-            vm.iiifManifestUri = 'http://labs.gbif.org/mirador/?manifest=' + dynProps['iiifManifestUri'];
+            vm.iiifManifestUri = 'https://labs.gbif.org/mirador/?manifest=' + dynProps['iiifManifestUri'];
            }
         } catch (err) {
             // unparsable JSON
