@@ -115,7 +115,7 @@
                         <a ng-href="#occurrencePage_media" class="btn-circle-md"><i class="gb-icon-audio"></i><div class="btn-circle-md__count">{$ occurrence.media.sound.length $}</div></a>
                     {% endif %}
                 </div>
-                <a ng-if="occurrenceKey.iiifManifestUri" href="{{occurrenceKey.iiifManifestUri}}"> 
+                <a ng-if="occurrenceKey.iiifManifestUri" target="_blank" href="{{occurrenceKey.iiifManifestUri}}"> 
                         <img height="32px" src="/img/iiif.png">
                     </a>
                 {% endif %}
