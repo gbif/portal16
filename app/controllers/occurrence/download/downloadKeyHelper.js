@@ -172,6 +172,15 @@ function attachPredicatesAsParams(predicate) {
             queryList.push(predicate.key.toLowerCase() + '=' + encodeURIComponent(val));
         } else if (!_.isUndefined(predicate.geometry)) {
             queryList.push('geometry=' + encodeURIComponent(predicate.geometry));
+        } else if (!_.isUndefined(predicate.key) && !_.isUndefined(predicate.values)) {
+            predicate.values.forEach(function(value) {
+                if (_.isObjectLike(value)) {
+                  throw new Error('failed to parse predicate');
+                }
+                queryList.push(predicate.key.toLowerCase() + '=' + encodeURIComponent(value));
+            });
+        } else {
+            throw new Error('failed to parse predicate');
         }
     }
     return queryList;
