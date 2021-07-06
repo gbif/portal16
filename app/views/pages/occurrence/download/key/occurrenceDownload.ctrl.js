@@ -1,7 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
-moment = require('moment'),
+    moment = require('moment'),
     _ = require('lodash');
 
 angular
