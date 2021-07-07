@@ -12,7 +12,7 @@ function derivedDatasetCtrl(User, $scope, AUTH_EVENTS, USER_ROLES, $sessionStora
     var vm = this;
     vm.$state = $state;
     vm.uploads;
-
+    vm.localePrefix = gb.locale === 'en' ? '/' : gb.locale + '/';
 
     vm.search = function() {
         // TODO: replace this mock dataset key with userName

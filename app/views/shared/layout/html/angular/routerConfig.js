@@ -787,17 +787,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'derivedDatasetAboutCtrl',
             controllerAs: 'derivedDatasetAbout'
         })
-        .state('derivedDatasetKey', {
-            parent: 'localization',
-            url: '/derivedDataset/:prefix/:suffix',
-            views: {
-                main: {
-                    templateUrl: '/templates/pages/derivedDataset/derivedDataset.html?v=' + BUILD_VERSION,
-                    controller: 'derivedDatasetKeyCtrl',
-                    controllerAs: 'derivedDatasetKey'
-                }
-            }
-        })
     ;
 
     // if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');
