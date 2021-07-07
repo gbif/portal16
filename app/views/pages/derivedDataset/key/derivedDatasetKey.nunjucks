@@ -170,7 +170,9 @@
                                                         {$ dataset.datasetTitle or '[' + __('downloadKey.titleMissing')+ ']' $}
                                                     </div>
                                                     <span dir="ltr" class="meta meta--hoverOnly">{$ dataset.datasetDoi $}</span>
+                                                    {% if dataset.numberRecords > 0 %}
                                                     <span class="meta--right meta--hoverOnly" tx="derivedDatasetKey.nRecordsAtTime" tx-nr="{$ dataset.numberRecords $}"></span>
+                                                    {% endif %}
                                                 </a>
                                             </li>
                                         {% endfor %}
