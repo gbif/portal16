@@ -576,7 +576,7 @@
                         </tr>
                         <tr>
                             <td>and</td>
-                            <td>logical AND(conjuction)</td>
+                            <td>logical AND (conjuction)</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -597,7 +597,7 @@
                         </tr>
                         <tr>
                             <td>or</td>
-                            <td>logical OR(disjunction)</td>
+                            <td>logical OR (disjunction)</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -752,7 +752,7 @@
                         </tr>
                         <tr>
                             <td>like</td>
-                            <td>search for a pattern</td>
+                            <td>search for a pattern, <code>?</code> matches one character, <code>*</code> matches zero or more characters</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -762,7 +762,7 @@
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"like",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;"value":"PAPS5-560%"<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"value":"PAPS5-560*"<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }
                                 </code>
