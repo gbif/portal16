@@ -35,8 +35,8 @@
           "Nodes guidance": "ノードガイダンス"
         },
         "projectGrantType": {
-          "REGIONAL": "地域の助成金",
-          "SMALL": "小規模の助成金",
+          "REGIONAL": "地域の生物多様性データ収集のための助成金",
+          "SMALL": "小規模の生物多様性データ収集のための助成金",
           "NATIONAL": "国の助成金",
           "DATA_USE": "",
           "undefined": "情報なし"
