@@ -10,7 +10,7 @@
     "searchAllFields": "全フィールドを検索",
     "description": "GBIF（地球規模生物多様性情報機構）のオカレンスを検索します。生物多様性情報は誰でも自由に利用できます。",
     "nWithCoordinates": "座標あり {NUMBER_FORMATED}",
-    "nWithImages": "{NUMBER_FORMATED} with {NUMBER, select, 1{画像} other{画像}}",
+    "nWithImages": "{NUMBER_FORMATED} with {NUMBER, plural, one{画像} other{画像}}",
     "failedSearch": "フィルターが不正か、サーバに問題がある可能性があります。もう一度試してみて問題が続くようであればご報告ください。",
     "noImages": "画像付きのオカレンスデータはありません。",
     "imageLicenseInfo": "画像に適用されているライセンスはオカレンスデータに適用されているライセンスと異なる可能性がありますので、ご注意ください。",
