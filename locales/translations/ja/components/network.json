@@ -9,7 +9,7 @@
       "publishers": "出版者"
     },
     "registeredDate": "登録日 {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} 参加している {NUMBER, select, 1{データセット} other{データセット}}",
+    "nParticipatingDatasets": "{NUMBER_FORMATED} 参加している {NUMBER, plural, one{データセット} other{データセット}}",
     "nParticipatingPublishers": ""
   }
 }
