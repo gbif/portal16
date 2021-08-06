@@ -36,7 +36,7 @@
             "openAccess": "オープンアクセス",
             "gbifDownloadKey": "ダウンロードキー",
             "gbifDerivedDatasetDoi": "",
-            "paperDoi": "",
+            "paperDoi": "DOI",
             "litSource": "ジャーナル",
             "litPublisher": "ジャーナル出版社"
         }
