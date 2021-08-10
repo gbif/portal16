@@ -14,6 +14,7 @@
     "description": "Description",
     "endorsedBy": "Endorsed by",
     "pendingEndorsementBy": "Pending endorsement by",
+    "endorsementWithheld": "Endorsement withheld",
     "installations": "Installations",
     "contacts": "Contacts",
     "administrativeContact": "Administrative contact",

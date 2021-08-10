@@ -18,7 +18,8 @@
                         </dd>
                     </div>
                     <div ng-if="publisherKey.publisher.endorsementApproved === false">
-                        <dt translate="publisher.pendingEndorsementBy"></dt>
+                        <dt translate="publisher.endorsementWithheld" ng-if="publisherKey.publisher.endorsementStatus === 'REJECTED'"></dt>
+                        <dt translate="publisher.pendingEndorsementBy" ng-if="publisherKey.publisher.endorsementStatus !== 'REJECTED'"></dt>
                         <dd dir="auto">
                             <a ng-href="/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
