@@ -14,6 +14,7 @@
     "description": "描述",
     "endorsedBy": "認可者：",
     "pendingEndorsementBy": "待認可",
+    "endorsementWithheld": "",
     "installations": "安裝",
     "contacts": "聯絡人",
     "administrativeContact": "行政聯繫",

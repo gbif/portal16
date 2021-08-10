@@ -12,7 +12,6 @@
     "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "Konservierung",
     "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "Extended Measurement or Fact",
     "http://rs.tdwg.org/chrono/terms/ChronometricAge": "(leer)",
-    "http://zooarchnet.org/dwc/terms/ChronometricDate": "Chronometrisches Datum",
     "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "Keimplasma: Keimplasma-Akzession",
     "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "Keimplasma: Measurement score",
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "Keimplasma: Measurement trait",
