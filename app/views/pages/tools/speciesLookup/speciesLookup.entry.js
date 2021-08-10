@@ -211,7 +211,9 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
                 return;
             }
             fields.forEach(function(field, index) {
-                csvContent += e[field] ? '"' + e[field] + '"' : '';
+                var val = e[field];
+                if (typeof val === 'string') val = e[field].replace(/"/gi, '""');
+                csvContent += e[field] ? '"' + val + '"' : '';
                 if (index < fields.length - 1) {
                     csvContent += ',';
                 }
