@@ -14,6 +14,7 @@
     "description": "Опис",
     "endorsedBy": "Схвалено",
     "pendingEndorsementBy": "Очікує на схвалення",
+    "endorsementWithheld": "",
     "installations": "Інстальовані сервери публікування даних",
     "contacts": "Контакти",
     "administrativeContact": "Адміністративні питання",
