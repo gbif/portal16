@@ -54,7 +54,7 @@
                 <type-specimen key="{{ speciesKey2.key }}" rank="{{ speciesKey2.species.rank }}"></type-specimen>
             </div>
             <div class="m-t-1" >
-                <h4 class="card-header" translate="species.citation"></h4>
+                <h4 class="card-header" ng-bind-html="'species.citation' | translate | md2html"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div class="m-b-1 m-t-1" >
