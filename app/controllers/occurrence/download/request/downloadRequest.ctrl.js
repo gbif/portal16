@@ -49,7 +49,7 @@ function predicateRequestHandler({req, res, next, predicate}) {
     let originalPredicate = JSON.parse(predicate);
     originalPredicate = uppercaseKeys(originalPredicate);
     originalPredicate = convertRangeType(originalPredicate);
-    originalPredicate = convertLikePredicates(originalPredicate);
+    // originalPredicate = convertLikePredicates(originalPredicate);
     let parsedResponse = validatePredicate(originalPredicate);
     if (parsedResponse.error) {
       return res.render('pages/occurrence/download/custom/custom.nunjucks', {
@@ -119,13 +119,14 @@ function convertRangeType(obj) {
   return obj;
 }
 
-function convertLikePredicates(obj) {
-  if (obj.predicate) {
-    convertLikePredicates(obj.predicate);
-  } else if (obj.predicates && Array.isArray(obj.predicates)) {
-    obj.predicates = obj.predicates.map(convertLikePredicates);
-  } else if (obj.type === 'like') {
-    obj.value = obj.value.replace(/[*?]/g, '%');
-  }
-  return obj;
-}
+// this has since been changed in the API https://github.com/gbif/portal16/commit/2abffa472736e3b648e8486e07404ad259ca4345
+// function convertLikePredicates(obj) {
+//   if (obj.predicate) {
+//     convertLikePredicates(obj.predicate);
+//   } else if (obj.predicates && Array.isArray(obj.predicates)) {
+//     obj.predicates = obj.predicates.map(convertLikePredicates);
+//   } else if (obj.type === 'like') {
+//     obj.value = obj.value.replace(/[*?]/g, '%');
+//   }
+//   return obj;
+// }
