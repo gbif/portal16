@@ -26,6 +26,9 @@ function addChildKeys(predicate) {
         if (predicate.type == 'isNotNull') {
             predicate.key = predicate.parameter;
         }
+        if (predicate.type == 'isNull') {
+          predicate.key = predicate.parameter;
+      }
         predicate._childKeys = predicate.key;
     } else if (predicate.predicate) {
         let child = addChildKeys(predicate.predicate);
@@ -136,6 +139,7 @@ function getSimpleQuery(predicate) {
             if (p.type === 'and') return true;
             if (p.type === 'not') return true;
             if (p.type === 'isNotNull') return true;
+            if (p.type === 'isNull') return true;
             if (p._childKeys === 'MIXED') return true;
             return false;
             // return p.type == 'and' || p.type == 'not' || p._childKeys == 'MIXED'; // only leafs and OR queries of a single TYPE allowed
@@ -228,6 +232,8 @@ function resolveEnum(predicate, config, __mf) {
         }
     } else if (predicate.type == 'isNotNull') {
         predicate.value = 'isNotNull';
+    } else if (predicate.type == 'isNull') {
+        predicate.value = 'isNull';
     } else if (predicate.type == 'in') {
         predicate.values = predicate.values.map(function(e) {
             return __mf(config.valueTranslation + e);

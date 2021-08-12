@@ -40,6 +40,11 @@
             <span dir="auto" class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
             <span dir="auto" class="node-value discreet--very">{$ __('downloadKey.predicate.isNotNull') $}</span>
         </div>
+    {% elseif p.type == 'isNull' %}
+        <div class="leaf">
+            <span dir="auto" class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
+            <span dir="auto" class="node-value discreet--very">{$ __('downloadKey.predicate.isNull') $}</span>
+        </div>
     {% elseif p.type == 'within' %}
         <div class="leaf">
             <span dir="auto" class="node">{$ __('filterNames.' + (p.key | toCamelCase)) $}</span>
