@@ -47,7 +47,7 @@
             <vernacular-names key="{{ speciesKey2.key }}" is-nub="{{ speciesKey2.isNub }}"></vernacular-names>
 
             <div class="m-t-1" >
-                <h4 class="card-header" translate="species.citation"></h4>
+                <h4 class="card-header" ng-bind-html="'species.citation' | translate | md2html"></h4>
                 <div class="card">
                     <div class="card__content">
                         <div class="m-b-1 m-t-1"   ng-if="speciesKey2.isNub || (speciesKey2.verbatim && speciesKey2.verbatim.$resolved && !speciesKey2.species.bibliographicCitation)">
