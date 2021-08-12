@@ -88,9 +88,9 @@ async function getParticipant(directoryId, depth, isPreview, locale) {
     return first;
 }
 
-async function getByAlias(urlAlias, depth, isPreview, locale) {
+async function getByAlias(urlAlias, depth, isPreview, locale, type) {
     let query = {
-        'content_type': 'article',
+        'content_type': type ? type : 'article',
         'fields.urlAlias': urlAlias
     };
     return getFirst(query, depth, isPreview, locale);
