@@ -27,10 +27,13 @@ router.get('/*.:ext?', function(req, res, next) {
                     next(err);
                 }
             });
+        } else {
+          next();
         }
       })
       .catch(function(err) {
         console.log(err);
+        next(err);
       });
     
 });
