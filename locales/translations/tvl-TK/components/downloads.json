@@ -69,7 +69,8 @@
       "and": "",
       "or": "",
       "not": "",
-      "isNotNull": ""
+      "isNotNull": "",
+      "isNull": ""
     }
   },
   "myDownloads": {
