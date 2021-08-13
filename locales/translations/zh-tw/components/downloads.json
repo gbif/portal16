@@ -70,7 +70,7 @@
       "or": "或",
       "not": "非",
       "isNotNull": "已定義",
-      "isNull": ""
+      "isNull": "未定義"
     }
   },
   "myDownloads": {
