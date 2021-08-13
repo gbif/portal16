@@ -69,7 +69,8 @@
       "and": "",
       "or": "Eller",
       "not": "",
-      "isNotNull": ""
+      "isNotNull": "",
+      "isNull": ""
     }
   },
   "myDownloads": {
