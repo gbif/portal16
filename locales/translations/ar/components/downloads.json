@@ -69,7 +69,8 @@
       "and": "و",
       "or": "أو",
       "not": "ليس",
-      "isNotNull": "مُعَرَّف"
+      "isNotNull": "مُعَرَّف",
+      "isNull": ""
     }
   },
   "myDownloads": {
