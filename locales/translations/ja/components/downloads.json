@@ -69,7 +69,8 @@
       "and": "および",
       "or": "または",
       "not": "ない",
-      "isNotNull": "定義済み"
+      "isNotNull": "定義済み",
+      "isNull": ""
     }
   },
   "myDownloads": {
