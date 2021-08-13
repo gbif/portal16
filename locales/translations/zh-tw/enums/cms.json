@@ -35,9 +35,9 @@
           "Nodes guidance": "節點方針"
         },
         "projectGrantType": {
-          "REGIONAL": "區域補助經費",
-          "SMALL": "小型補助經費",
-          "NATIONAL": "國家補助經費",
+          "REGIONAL": "區域生物多樣性資料流通獎助",
+          "SMALL": "機構生物多樣性資料流通獎助",
+          "NATIONAL": "國家生物多樣性資料流通獎助",
           "DATA_USE": "",
           "undefined": "未指定"
         },
