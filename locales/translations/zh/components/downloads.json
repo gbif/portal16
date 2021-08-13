@@ -69,7 +69,8 @@
       "and": "与",
       "or": "或",
       "not": "不是",
-      "isNotNull": "已被定义"
+      "isNotNull": "已被定义",
+      "isNull": ""
     }
   },
   "myDownloads": {

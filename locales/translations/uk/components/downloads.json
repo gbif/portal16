@@ -69,7 +69,8 @@
       "and": "Та",
       "or": "Або",
       "not": "Не",
-      "isNotNull": "Є визначеним"
+      "isNotNull": "Є визначеним",
+      "isNull": ""
     }
   },
   "myDownloads": {

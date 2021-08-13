@@ -69,7 +69,8 @@
       "and": "И",
       "or": "ИЛИ",
       "not": "НЕ",
-      "isNotNull": "Не пустой"
+      "isNotNull": "Не пустой",
+      "isNull": ""
     }
   },
   "myDownloads": {

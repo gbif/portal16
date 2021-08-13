@@ -69,7 +69,8 @@
       "and": "Y",
       "or": "O",
       "not": "No",
-      "isNotNull": "Está definido"
+      "isNotNull": "Está definido",
+      "isNull": ""
     }
   },
   "myDownloads": {
