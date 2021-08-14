@@ -30,7 +30,7 @@
     "RECORDED_DATE_UNLIKELY": "紀錄的日期不合理",
     "TAXON_MATCH_FUZZY": "模糊的分類群配對",
     "TAXON_MATCH_HIGHERRANK": "分類配對到高階分類位階",
-    "TAXON_MATCH_AGGREGATE": "",
+    "TAXON_MATCH_AGGREGATE": "分類群複合種對應",
     "TAXON_MATCH_NONE": "無吻合的分類群",
     "DEPTH_NOT_METRIC": "深度不是公制",
     "DEPTH_UNLIKELY": "深度不合理",
