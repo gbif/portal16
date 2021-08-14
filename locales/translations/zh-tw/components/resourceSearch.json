@@ -38,7 +38,7 @@
             "gbifDerivedDatasetDoi": "衍生資料集的數位物件識別碼",
             "paperDoi": "DOI",
             "litSource": "期刊",
-            "litPublisher": "期刊發布者"
+            "litPublisher": "期刊出版者"
         }
     }
 }
