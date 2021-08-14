@@ -8,6 +8,6 @@
     "MAP_OF_LIFE": "",
     "IUCN": "",
     "BIONOMIA": "Bionomia 輸出格式",
-    "SIMPLE_PARQUET": "簡單 Parquet"
+    "SIMPLE_PARQUET": "Simple Parquet（一種 Hadoop 生態圈相容的資料格式）"
   }
 }
