@@ -109,7 +109,10 @@ function resetPassword(req, res) {
         .then(function() {
             res.json({message: 'MAIL_CONFIRMATION'});
         })
-        .catch(handleError(res, 422));
+        .catch(function() {
+          // just send a confirmation either way
+          res.json({message: 'MAIL_CONFIRMATION'});
+        });
 }
 
 /**
