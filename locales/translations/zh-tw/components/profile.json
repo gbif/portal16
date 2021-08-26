@@ -89,6 +89,6 @@
     "verficationLinkSent": "電子郵件已寄出至指定信箱，其中含有必須點擊的連結，以啟用您的帳號。",
     "resetPasswordRequest": "密碼重設請求",
     "resetPasswordMessage": "我們已經把重設密碼連結寄到您的電子信箱",
-    "derivedDatasets": ""
+    "derivedDatasets": "衍生的資料集"
   }
 }
