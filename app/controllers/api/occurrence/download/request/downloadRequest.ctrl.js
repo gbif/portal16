@@ -21,7 +21,7 @@ router.get('/downloadRequest.html', function(req, res) {
     }
     // large queries will just be displayed as JSON
     let stringPredicate = JSON.stringify(predicate, null, 2);
-    if (stringPredicate.length > 1200) {
+    if (stringPredicate.length > 3500) {
       return res.send('<pre>' + stringPredicate + '</pre');
     }
     // smaller queries will show nicely formated
