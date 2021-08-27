@@ -5,13 +5,25 @@ files:
     languages_mapping:
       locale:
         ar: ar
-        zh-CN: zh
-        zh-TW: zh-tw
         da: da
+        de-DE: de
+        es-ES: es
+        fa-IR: fa
+        fj-FJ: fj
         fr: fr
         ja: ja
+        la-LA: la
+        niu-NU: niu
+        nl-NL: nl
+        pis-SB: pis
         pt-PT: pt
         ru: ru
-        es-ES: es
-        en: en-GB-oxendict
+        sm-WS: sm
+        sw-KE: sw
+        tkl-TK: tkl
+        to-TO: to
+        tvl-TV: tvl
         uk: uk
+        zh-CN: zh
+        zh-TW: zh-tw
+        en: en-GB-oxendict
