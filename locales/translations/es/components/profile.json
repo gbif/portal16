@@ -88,7 +88,7 @@
     "passwordChangeInvalid": "Contraseña inválida - si ha olvidado su contraseña, cierre la sesión y restablezca la contraseña",
     "verficationLinkSent": "Se ha enviado un correo electrónico a la dirección indicada que contiene un enlace que debe ser cliqueado para activar su cuenta.",
     "resetPasswordRequest": "Solicitar el restablecimiento de contraseña",
-    "resetPasswordMessage": "Te hemos enviado un correo electrónico con un enlace para reestablecer tu contraseña.",
+    "resetPasswordMessage": "",
     "derivedDatasets": "Conjuntos de datos relacionados"
   }
 }
