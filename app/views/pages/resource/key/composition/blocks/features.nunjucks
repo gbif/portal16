@@ -11,7 +11,7 @@
               {% include "./features/news.nunjucks" %}
             {% endif %}
             {% if featureType == "DataUse" %}
-              {% include "./features/news.nunjucks" %}
+              {% include "./features/dataUse.nunjucks" %}
             {% endif %}
             {% if featureType == "Event" %}
               {% include "./features/event.nunjucks" %}
