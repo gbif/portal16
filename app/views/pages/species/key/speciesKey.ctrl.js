@@ -124,6 +124,23 @@ function speciesKey2Ctrl(
                             'http://purl.org/dc/terms/bibliographicCitation'
                         ];
                 }
+                if (vm.verbatim[
+                    'http://rs.tdwg.org/dwc/terms/datasetName'
+                ]) {
+                    // see https://github.com/gbif/portal-feedback/issues/3560
+                    vm.species.datasetName =
+                        vm.verbatim[
+                            'http://rs.tdwg.org/dwc/terms/datasetName'
+                        ];
+                }
+                if (vm.verbatim[
+                    'http://rs.tdwg.org/dwc/terms/datasetID'
+                ]) {
+                    vm.species.datasetID =
+                        vm.verbatim[
+                            'http://rs.tdwg.org/dwc/terms/datasetID'
+                        ];
+                }
             });
             // Treatments
             vm.speciesTreatment = SpeciesTreatment.get({id: vm.key});
