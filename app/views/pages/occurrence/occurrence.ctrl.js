@@ -857,14 +857,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
 
   vm.search = function () {
     vm.occurrenceState.query.q = vm.freeTextQuery;
-    $state.go('.', vm.occurrenceState.query, { inherit: false, notify: true, reload: true });
+    $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
   };
 
   vm.updateSearch = function () {
     vm.occurrenceState.query.offset = undefined;
     vm.occurrenceState.query.limit = undefined;
     vm.occurrenceState.query.q = vm.freeTextQuery;
-    $state.go($state.current, vm.occurrenceState.query, { inherit: false, notify: false, reload: false });
+    $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: false, reload: false});
   };
   vm.searchOnEnter = function (event) {
     if (event.which === 13) {
@@ -919,7 +919,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
     vm.occurrenceState.query.offset = undefined;
     vm.occurrenceState.query.limit = undefined;
-    $state.go($state.current, vm.occurrenceState.query, { inherit: false, notify: true, reload: true });
+    $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
   };
 
   vm.getUrlSize = function () {
@@ -930,6 +930,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     return vm.occurrenceState.query.q;
   }, function () {
     vm.freeTextQuery = vm.occurrenceState.query.q;
+  });
+
+  $scope.$watch(function () {
+    return vm.freeTextQuery;
+  }, function (newVal, oldVal) {
+    if (newVal !== oldVal) {
+       vm.occurrenceState.query.q = vm.freeTextQuery;
+    }
   });
 }
 
