@@ -33,12 +33,6 @@ function termsDirective(BUILD_VERSION) {
           if (cookieVersion === termsVersion) {
             vm.hasDecided = true;
           }
-
-          // extract the users choice (accepted | rejected)
-          // var userDecision = cookieParts[1];
-          // if (!userDecision) {
-          //   userDecision = 'accepted'; // to accomodate the previous format where we didn't store the users choice
-          // }
         }
 
         vm.accept = function() {
