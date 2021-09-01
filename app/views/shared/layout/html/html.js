@@ -92,7 +92,7 @@ angular
     .config(mdConfig);
 
 /** @ngInject */
-function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $window) { // $log
+function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $window, termsVersion) { // $log
     $rootScope.$on('$stateChangeStart', function(e) {
         if (window.gb.state > 399) {
             e.preventDefault();
@@ -100,8 +100,35 @@ function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $
     });
 
     // ga('send', 'pageview');
-    var userAcceptance = $cookies.get('userAcceptance');
-    if (userAcceptance && !$window.ga) $window.attachGoogleAnalytics();
+    var termsValue = $cookies.get('userAcceptance');
+    var attachAnalytics = false;
+    var hasAcceptedTerms = false;
+    var termsIsLatest = false;
+
+    // Test that the user has read the latest terms and accepted them
+    if (termsValue) {
+      // the cookie looks like: version__choice e.g. dec2018__accepted
+      var cookieParts = termsValue.split('__');
+      var cookieVersion = cookieParts[0];
+
+      // if the version in the cookie match the current version of the terms, then we might be able to attach analytics
+      if (cookieVersion === termsVersion) {
+        termsIsLatest = true;
+      }
+
+      // extract the users choice (accepted | rejected)
+      var userDecision = cookieParts[1];
+      if (userDecision) {
+        hasAcceptedTerms = userDecision === 'accepted';
+      } else {
+        hasAcceptedTerms = true; // if nothing is stored in the cookie, then assume accepted as this was the previous cookie format
+      }
+
+      if (termsIsLatest && hasAcceptedTerms) {
+        attachAnalytics = true;
+      }
+    }
+    if (attachAnalytics && !$window.ga) $window.attachGoogleAnalytics();
 
     $rootScope.$on('$stateChangeSuccess', function() {
         if (window.gbifHasSentGoogleAnalyticsForThisUrl === window.location.href) {

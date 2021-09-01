@@ -104,3 +104,13 @@ router.get('/change-email', function(req, res, next) {
             helper.renderPage(req, res, next, {}, 'pages/user/updateEmail/invalidToken');
         });
 });
+
+router.get('/withdraw-consent', function(req, res) {
+    let options = {
+        maxAge: 1,
+        secure: false,
+        httpOnly: false
+    };
+    res.cookie('userAcceptance', '', options);
+    res.redirect(302, res.locals.gb.locales.urlPrefix + '/terms/privacy-policy');
+});

@@ -20,20 +20,47 @@ function termsDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function terms($cookies, $window) {
+    function terms($cookies, $window, termsVersion) {
         var vm = this;
-        vm.userAcceptance = $cookies.get('userAcceptance') === 'dec2018';
+        vm.hasDecided = false;
+        var termsValue = $cookies.get('userAcceptance');
+
+        if (termsValue) {
+          // the cookie looks like: version__choice e.g. dec2018__accepted
+          var cookieParts = termsValue.split('__');
+          var cookieVersion = cookieParts[0];
+          // if the version in the cookie match the current version of the terms, then do not show anything.
+          if (cookieVersion === termsVersion) {
+            vm.hasDecided = true;
+          }
+        }
+
         vm.accept = function() {
             // this will set the expiration to 12 months
             var now = new Date(),
                 exp = new Date(now.getFullYear() + 1, now.getMonth(), now.getDate());
-            $cookies.put('userAcceptance', 'dec2018', {
+            $cookies.put('userAcceptance', termsVersion + '__accepted', {
                 path: '/',
                 expires: exp
             });
-            vm.userAcceptance = true;
+            vm.hasDecided = true;
             if (!$window.ga) $window.attachGoogleAnalytics();
         };
+
+        vm.reject = function() {
+          // this will set the expiration to 12 months
+          var now = new Date(),
+              exp = new Date(now.getFullYear() + 1, now.getMonth(), now.getDate());
+          $cookies.put('userAcceptance', termsVersion + '__rejected', {
+              path: '/',
+              expires: exp
+          });
+          vm.hasDecided = true;
+      };
+
+      if (termsValue === 'dec2018') {
+        vm.accept();
+      }
     }
 }
 

@@ -7,6 +7,7 @@ env.gitCommit = gitCommit.gitCommit;
 angular
     .module('portal')
     .constant('env', env)
+    .constant('termsVersion', 'dec2018')
     .constant('suggestEndpoints', {
         recordedBy: env.dataApi + 'occurrence/search/recordedBy',
         recordNumber: env.dataApi + 'occurrence/search/recordNumber',
