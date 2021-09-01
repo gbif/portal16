@@ -1,8 +1,9 @@
 {
   "terms": {
     "headline": "",
-    "description": "",
+    "description": "Du vil få en e-mail med et link til at nulstille din adgangskode.",
     "readTerms": "",
-    "accept": ""
+    "accept": "",
+    "reject": "Du vil få en e-mail med et link til at nulstille din adgangskode."
   }
 }
