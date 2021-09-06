@@ -1,9 +1,9 @@
 {
   "terms": {
     "headline": "Use of cookies on GBIF",
-    "description": "",
+    "description": "GBIF uses cookies and similar technologies for the purposes of statistical analysis, improving the friendliness and usability of our website, tailoring content to your interests and engaging with social media. You may decline non-essential cookies by selecting “Reject”.",
     "readTerms": "Read terms",
     "accept": "Accept",
-    "reject": ""
+    "reject": "Reject"
   }
 }
