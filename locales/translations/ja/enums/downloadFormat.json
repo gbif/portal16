@@ -4,10 +4,10 @@
     "SIMPLE_CSV": "シンプルなオカレンスデータ（タブ区切りCSV形式）",
     "DWCA": "ダーウィンコアアーカイブ形式",
     "SPECIES_LIST": "種情報の一覧（タブ区切りCSV形式）",
-    "SIMPLE_WITH_VERBATIM_AVRO": "",
-    "MAP_OF_LIFE": "",
-    "IUCN": "",
+    "SIMPLE_WITH_VERBATIM_AVRO": "共通解釈されたフィールドとすべての元データフィールドを持つApache Avro",
+    "MAP_OF_LIFE": "マップオブライフのエクスポート",
+    "IUCN": "IUCNのエクスポート",
     "BIONOMIA": "Bionomiaへエクスポート",
-    "SIMPLE_PARQUET": ""
+    "SIMPLE_PARQUET": "シンプルなパケット"
   }
 }

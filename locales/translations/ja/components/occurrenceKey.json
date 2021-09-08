@@ -2,7 +2,7 @@
   "occurrence": {
     "tabs": {
       "details": "詳細",
-      "cluster": ""
+      "cluster": "クラスター"
     },
     "typeOf": "{NAME} の {TYPE}",
     "coordinates": "座標",
@@ -56,11 +56,11 @@
       "noIdentifier": "メディア識別子なし",
       "noPlaybackSupport": "お使いのブラウザではこのメディアを再生するために必要なフォーマットをサポートしていません。",
       "takeMeThere": "出版者のサイトのバージョンを見てみる",
-      "notWorkingTryPublishers": "",
+      "notWorkingTryPublishers": "期待通りにメディアが再生されないですか？",
       "download": "メディアをダウンロードする",
-      "byRightsHolder": "",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "byRightsHolder": "{RIGHTSHOLDER} により",
+      "licensedUnder": "{{LICENSE}} でライセンスされています",
+      "suggestedCitation": "推奨される帰属"
     },
     "title": {
       "inCountry": {
@@ -95,11 +95,11 @@
     "treatment": "処理",
     "cluster": {
       "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
+      "relatedOccurrences": "関連付けされたオカレンス",
+      "similarBecause": "次の理由により類似している",
+      "matchedRecord": "一致するレコード",
       "noMatches": "",
-      "explainer": ""
+      "explainer": "この試験的な機能では、重複や関連するオカレンスの可能性があればハイライトします。"
     }
   },
   "interpretationRemarks": {

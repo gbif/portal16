@@ -1,7 +1,7 @@
 {
   "phrases": {
-    "pleaseCiteAs": "",
-    "copy": "",
+    "pleaseCiteAs": "出版物ではこの引用を使用してください",
+    "copy": "コピー",
     "contactHelpdesk": "ヘルプデスクに連絡",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "GBIF（地球規模生物多様性情報機構）。生物多様性情報は誰でも自由に利用できます。",
@@ -23,7 +23,7 @@
     "noData": "データなし",
     "payloadTooLarge": "リクエストが許容範囲を超えています。減らしてから再び試してください。お困りの際はhelpdesk@gbif.orgまでご連絡ください。",
     "readMore": "もっと読む",
-    "share": "",
+    "share": "共有",
     "loginRequiredDueToSpam": "続行するにはログインしてください。"
   }
 }

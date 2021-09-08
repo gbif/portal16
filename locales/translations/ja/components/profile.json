@@ -4,14 +4,14 @@
       "failed": {
         "FACEBOOK": "Facebook に接続できません",
         "GITHUB": "Githubに接続できません",
-        "GOOGLE": ""
+        "GOOGLE": "Google に接続できません"
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "Facebook にログインできません。",
         "GITHUB": "Githubにログインできません。",
-        "GOOGLE": ""
+        "GOOGLE": "Googleにログインできません"
       }
     },
     "error": {
@@ -71,7 +71,7 @@
     "pleaseFillForm": "フォームに入力してください。",
     "selectAllImages": "これに似た画像をすべて選択してくだい。",
     "signUp": "新規登録する",
-    "cancel": "中止",
+    "cancel": "キャンセル",
     "resetPassword": "パスワードをリセットする",
     "back": "戻る",
     "startEditing": "編集を開始する",
@@ -88,7 +88,7 @@
     "passwordChangeInvalid": "無効なパスワード - もしパスワードを忘れた場合はログアウトし、パスワードをリセットしてください。",
     "verficationLinkSent": "メールアドレスを確認するため、確認用のリンクを記載したメールを送信しました。GBIFへようこそ",
     "resetPasswordRequest": "パスワードリセットのリクエスト",
-    "resetPasswordMessage": "",
-    "derivedDatasets": ""
+    "resetPasswordMessage": "パスワードリセット用のリンクを記載したメールを送信しました。",
+    "derivedDatasets": "得られたデータセット"
   }
 }
