@@ -62,12 +62,12 @@
         "machineVision": {
             "tabs": {
                 "demo": "",
-                "statement": ""
+                "statement": "درباره"
             }
         },
         "derivedDataset": {
             "title": "",
-            "titleField": "",
+            "titleField": "عنوان",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",

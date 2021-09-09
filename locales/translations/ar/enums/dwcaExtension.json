@@ -11,7 +11,7 @@
     "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "الاستعداد",
     "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "حفظ",
     "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "قياس او حقيقة موسعة",
-    "http://rs.tdwg.org/chrono/terms/ChronometricAge": "لقد قمنا بإرسال بريد إلكتروني مع رابط لإعادة تعيين كلمة السر الخاصة بك.",
+    "http://rs.tdwg.org/chrono/terms/ChronometricAge": "",
     "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "جيرموبلازم, مُدخَل جيرموبلازمي",
     "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "جيرموبلازم:  درجة القياس",
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "جيرموبلازم: سمة القياس",
