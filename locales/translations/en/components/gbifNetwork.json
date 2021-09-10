@@ -34,7 +34,7 @@
     "datasets": "Datasets",
     "regionalRepresentative": "{NUMBER, plural, one{representative} other{representatives}}",
     "participation": {
-      "nonCountryParticipants": "Participant organisations",
+      "nonCountryParticipants": "Participant organizations",
       "gbifAffiliates": "GBIF affiliates"
     },
     "roles": {
