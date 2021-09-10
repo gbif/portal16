@@ -3,7 +3,7 @@
         "tools": "Tools",
         "categoryFeatured": "Featured",
         "suggestDataset": {
-            "NOT_OPEN": "Not an open license",
+            "NOT_OPEN": "Not an open licence",
             "title": "Suggest a dataset",
             "pleaseDescribeTheDataset": "Please describe the dataset",
             "thankYou": "Thank you",
@@ -19,7 +19,7 @@
                 "low": "It would be a nice supplement to the existing data",
                 "bibliographicRef": "Bibliographic reference",
                 "type": "Dataset type",
-                "license": "License information",
+                "license": "Licence information",
                 "dataHolderContact": "Dataholders contact information",
                 "publicAlert": "These details will be public",
                 "yourContact": "Your contact information",
