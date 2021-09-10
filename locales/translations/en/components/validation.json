@@ -25,7 +25,7 @@
       "TITLE_MISSING_OR_TOO_SHORT": "The title of the dataset is missing or too short",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "The resource creator is missing or is incomplete",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "The description of the dataset is missing or too short",
-      "LICENSE_MISSING_OR_UNKNOWN": "The license can not be parsed, is not supported by GBIF or is simply missing",
+      "LICENSE_MISSING_OR_UNKNOWN": "The licence can not be parsed, is not supported by GBIF or is simply missing",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Record not uniquely identified",
       "UNREADABLE_SECTION_ERROR": "Unreadable section error",
       "NoIssuesFound": "No issues found"
