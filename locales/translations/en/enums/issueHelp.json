@@ -55,7 +55,7 @@
     "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "The record in an extension does not link to an existing core record",
     "COLUMN_MISMATCH": "The number of column used on the line does not match the expected number",
     "MULTIMEDIA_URI_INVALID": "An invalid uri is given for a multimedia object.",
-    "LICENSE_MISSING_OR_UNKNOWN": "The license can not be parsed, is not supported by GBIF or is simply missing",
+    "LICENSE_MISSING_OR_UNKNOWN": "The licence can not be parsed, is not supported by GBIF or is simply missing",
     "PARENT_CYCLE": "The child parent classification resulted into a cycle that needed to be resolved/cut.",
     "TAXONOMIC_STATUS_INVALID": "Dwc:taxonomicStatus could not be interpreted",
     "ML_NOT_FOUND": "No EML document was found",
