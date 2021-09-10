@@ -13,7 +13,7 @@
     "nWithImages": "{NUMBER_FORMATED} with {NUMBER, plural, one{image} other{images}}",
     "failedSearch": "Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues",
     "noImages": "No occurrences with images",
-    "imageLicenseInfo": "Be aware that licenses applied to images may differ from those applied to occurrence records",
+    "imageLicenseInfo": "Be aware that licences applied to images may differ from those applied to occurrence records",
     "showMoreImages": "More",
     "default": "Default",
     "custom": "Custom",
