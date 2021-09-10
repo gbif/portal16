@@ -59,7 +59,7 @@
       "notWorkingTryPublishers": "Media playback not working as expected?",
       "download": "Download media",
       "byRightsHolder": "by {RIGHTSHOLDER}",
-      "licensedUnder": "licensed under {{LICENCE}}",
+      "licensedUnder": "licensed under {{LICENSE}}",
       "suggestedCitation": "Suggested attribution"
     },
     "title": {
