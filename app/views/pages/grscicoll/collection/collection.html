@@ -24,7 +24,15 @@
         <section class="col-xs-12">
             <ng-include src="'/templates/components/loader/loader.html'" ng-if="grscicollCollection.loading"></ng-include>
             <div ng-if="!grscicollCollection.loading">
-                <h3 class="card-header--bold" tx="counts.nResults" tx-nr="grscicollCollection.data.count"></h3>
+                <div class="clearfix">
+                  <h3 class="card-header inline-block" tx="counts.nResults" tx-nr="grscicollCollection.data.count"></h3>
+                  <a  ng-click="portal.gaEvent('grscicoll', 'suggest', 'search')" 
+                      ng-href="{{ portal.env.registry }}/collection/create" 
+                      class="pull-right inline-block gb-button--brand" 
+                      translate="grscicoll.suggestNewCollection">
+                    Suggest a new collection
+                  </a>
+                </div>
                 <div class="card card--spaced m-b-1">
                     <div class="scrollable-y">
                         <div>

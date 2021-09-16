@@ -6,6 +6,7 @@
         "searchForNewsEventsDocuments": "Søg efter nyheder, arrangementer, dokumenter og meget mere. Hvis du er på udkig efter arts-observationer så prøv vores observations-søgning.",
         "occurrenceSearch": "Søg i observationer",
         "subscribeToCalendar": "Abonnere på kalenderen",
+        "suggestEvent": "",
         "citationExplainer": "Læs mere om litteratur, hvordan det er opdaget og knyttet til GBIF-medieret data.",
         "types": {
             "events": "Arrangementer",
@@ -34,6 +35,7 @@
             "peerReview": "Peer-reviewed",
             "openAccess": "Open access",
             "gbifDownloadKey": "Download key",
+            "gbifDerivedDatasetDoi": "",
             "paperDoi": "",
             "litSource": "",
             "litPublisher": ""

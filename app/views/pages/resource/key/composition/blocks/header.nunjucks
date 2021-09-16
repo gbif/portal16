@@ -1,0 +1,13 @@
+<div class="horizontal-stripe article-header white-background headerBlock">
+  <div class="article-header">
+    <header class="text-center">
+      {% if not main.fields.hideTitle %}
+      <h1 dir="auto">{$ main.fields.title $}</h1>
+      {% endif %}
+      <div class="article-header__intro m-b-2" dir="auto">
+          {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+      </div>
+    </header>
+  </div>
+  {% include "../../primaryImage.nunjucks" %}
+</div>

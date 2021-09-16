@@ -93,7 +93,9 @@ angular
 
         $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams) {
-                refreshData(toParams);
+                if (toState.parent === 'occurrenceSearch') {
+                    refreshData(toParams);
+                }
             }
         );
 
@@ -174,8 +176,10 @@ angular
         }
 
         function updateParam(key, values) {
-            state.query[key] = values;
-            refresh();
+            if (state.query[key] !== values) {
+                state.query[key] = values;
+                refresh();
+            }
         }
 
         function updateParams(params) {

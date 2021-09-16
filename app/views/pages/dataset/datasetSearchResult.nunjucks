@@ -15,8 +15,7 @@
                     <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=DATASET&resolution=4">
                 </div>
             </div>
-            <p ng-if="result.description" dir="auto">
-                {{result.description | stripTags | truncate:200 }}
+            <p ng-if="result.description" dir="auto" ng-bind-html="result.description | truncate:200">
             </p>
             <p ng-if="!result.description" class="discreet" translate="dataset.noDescriptionProvided" dir="auto">
             </p>

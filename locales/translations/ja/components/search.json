@@ -18,6 +18,8 @@
     "filters": "フィルター",
     "simple": "基本",
     "advanced": "詳細",
+    "backbone": "",
+    "allChecklists": "",
     "allResultTypes": "すべて",
     "suggestions": "候補",
     "header": {
@@ -27,6 +29,6 @@
       "searchResources": "資料を検索",
       "searchOccurrences": "オカレンスを検索"
     },
-    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{結果} other{結果}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, plural, one{結果} other{結果}}"
   }
 }

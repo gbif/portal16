@@ -1,5 +1,7 @@
 {
   "phrases": {
+    "pleaseCiteAs": "",
+    "copy": "",
     "contactHelpdesk": "Kontakt helpdesk",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Global Biodiversity Information Facility. Gratis og åben adgang til biodiversitetsdata.",
@@ -20,7 +22,7 @@
     "changeLanguage": "Skift sprog",
     "noData": "Ingen data",
     "payloadTooLarge": "",
-    "readMore": "",
+    "readMore": "Læs mere",
     "share": "",
     "loginRequiredDueToSpam": ""
   }

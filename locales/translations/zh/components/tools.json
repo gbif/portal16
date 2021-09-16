@@ -64,6 +64,35 @@
                 "demo": "演示",
                 "statement": "意向说明"
             }
+        },
+        "derivedDataset": {
+            "title": "派生的数据集",
+            "titleField": "标题",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "数据集编号",
+            "occurrenceCount": "物种出现记录计数",
+            "submit": "提交",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
         }
     }
 }

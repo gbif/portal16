@@ -27,8 +27,7 @@ async function renderDerived(req, res, next, template) {
 
     let citations;
     try {
-      // it isn't possible to filter on derivedDatasets yet: https://github.com/gbif/portal16/issues/1444#issuecomment-764618632
-      // citations = await resourceSearch.search({contentType: 'literature', derivedDatasetDoi: doi, limit: 0}, req.__);
+      citations = await resourceSearch.search({contentType: 'literature', gbifDerivedDatasetDoi: doi, limit: 0}, req.__);
     } catch (err) {
       // ignore failure to get citations
     }

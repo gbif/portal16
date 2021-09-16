@@ -630,8 +630,13 @@ function Lightbox() {
          */
         currImage.img.onload = function() {
             // store original width here
+            var isSVG = currImage.img.currentSrc.endsWith('.svg') || currImage.img.currentSrc.endsWith('.SVG');
             currImage.originalWidth = this.naturalWidth || this.width;
             currImage.originalHeight = this.naturalHeight || this.height;
+            if(isSVG && currImage.originalWidth < 201){
+                currImage.originalWidth = currImage.originalWidth * 4;
+                currImage.originalHeight = currImage.originalHeight * 4;
+            }
             // use dummyimage for correct dimension calculating in older IE
             if (isIE8 || isIE9) {
                 var dummyImg = new Image();

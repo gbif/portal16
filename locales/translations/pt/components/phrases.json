@@ -1,5 +1,7 @@
 {
   "phrases": {
+    "pleaseCiteAs": "",
+    "copy": "",
     "contactHelpdesk": "Contate o suporte técnico",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Global Biodiversity Information Facility. Acesso Livre e Aberto a Dados de Biodiversidade.",
@@ -20,7 +22,7 @@
     "changeLanguage": "Alterar a língua",
     "noData": "Sem dados",
     "payloadTooLarge": "",
-    "readMore": "Lê mais",
+    "readMore": "Ler mais",
     "share": "",
     "loginRequiredDueToSpam": "Por favor, inicie a sua sessão para prosseguir."
   }

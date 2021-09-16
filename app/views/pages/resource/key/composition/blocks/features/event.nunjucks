@@ -1,0 +1,20 @@
+{% set image = resolved.Asset[feature.fields.primaryImage.sys.id].fields %}
+<article class="feature card card--spaced card--flexible featureCard hoverBox">
+    {% if feature.fields.primaryImage %}
+        <a href="{$ gb.locales.urlPrefix + '/event/' + feature.sys.id $}" class="card__stripe featureCard__image">
+            <img src="{$ _meta.imageCache $}600x300/http:{$ image.file.url | encodeURI $}"
+                  alt="" class="article-thumb">
+            <span class="featureCard__type">{$ __("homepage.featureTypes.event" ) $}</span>
+        </a>
+    {% endif %}
+    <div class="card__stripe--expandable inherit">
+        <div class="card__content">
+            <span class="featureCard__contentType">{$ __("homepage.featureTypes.event" ) $}</span>
+            <h4 class="featureCard__title">
+                <a href="{$ gb.locales.urlPrefix + '/event/' + feature.sys.id $}" class="inherit">{$ feature.fields.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
+            </h4>
+            <div class="featureCard__footer">{$ feature.fields.start | formatDate(gb.locales.current, 'DD MMM YYYY') $}</div>
+            <div class="featureCard__footer featureCard__comment">{$ feature.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
+        </div>
+    </div>
+</article>

@@ -14,3 +14,5 @@
 {% if _health %}System health at time of feedback: {$ _health $}{% endif %}
 {% if datasetKey %}datasetKey: {$ datasetKey $}{% endif %}
 {% if publishingOrgKey %}publishingOrgKey: {$ publishingOrgKey $}{% endif %}
+{% if networkKeys %}Network keys: {% for key in networkKeys %}{$ key $} {% endfor %}{% endif %}
+{% if mention %}Node handles: {% for handle in mention %}@{$ handle $} {% endfor %}{% endif %}

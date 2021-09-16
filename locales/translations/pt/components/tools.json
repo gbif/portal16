@@ -64,6 +64,35 @@
                 "demo": "Demo",
                 "statement": "Declaração de intenções"
             }
+        },
+        "derivedDataset": {
+            "title": "Conjunto de dados derivado",
+            "titleField": "Título",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "Chave do conjunto de dados",
+            "occurrenceCount": "Número (quantidade) de registos",
+            "submit": "Enviar",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
         }
     }
 }

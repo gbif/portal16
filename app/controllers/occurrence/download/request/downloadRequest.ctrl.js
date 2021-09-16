@@ -48,6 +48,8 @@ function predicateRequestHandler({req, res, next, predicate}) {
   try {
     let originalPredicate = JSON.parse(predicate);
     originalPredicate = uppercaseKeys(originalPredicate);
+    originalPredicate = convertRangeType(originalPredicate);
+    // originalPredicate = convertLikePredicates(originalPredicate);
     let parsedResponse = validatePredicate(originalPredicate);
     if (parsedResponse.error) {
       return res.render('pages/occurrence/download/custom/custom.nunjucks', {
@@ -78,5 +80,53 @@ function uppercaseKeys(predicate) {
   if (predicate.predicates) {
     predicate.predicates = predicate.predicates.map(uppercaseKeys);
   }
+  if (predicate.predicate) {
+    predicate.predicate = uppercaseKeys(predicate.predicate);
+  }
   return predicate;
 }
+
+const types = [
+  {short: 'gte', long: 'greaterThanOrEquals'},
+  {short: 'gt', long: 'greaterThan'},
+  {short: 'lte', long: 'lessThanOrEquals'},
+  {short: 'lt', long: 'lessThan'}
+];
+
+function convertRangeType(obj) {
+  if (obj.predicate) {
+    convertRangeType(obj.predicate);
+  } else if (obj.predicates && Array.isArray(obj.predicates)) {
+    obj.predicates = obj.predicates.map(convertRangeType);
+  } else if (obj.type === 'range') {
+    let ps = [];
+
+    types.forEach(function(type) {
+      const value = obj.value[type.short];
+      if ( typeof value !== 'undefined') {
+        ps.push({
+          type: type.long,
+          key: obj.key,
+          value: value
+        });
+      }
+    });
+
+    return {
+      type: 'and', predicates: ps
+    };
+  }
+  return obj;
+}
+
+// this has since been changed in the API https://github.com/gbif/portal16/commit/2abffa472736e3b648e8486e07404ad259ca4345
+// function convertLikePredicates(obj) {
+//   if (obj.predicate) {
+//     convertLikePredicates(obj.predicate);
+//   } else if (obj.predicates && Array.isArray(obj.predicates)) {
+//     obj.predicates = obj.predicates.map(convertLikePredicates);
+//   } else if (obj.type === 'like') {
+//     obj.value = obj.value.replace(/[*?]/g, '%');
+//   }
+//   return obj;
+// }

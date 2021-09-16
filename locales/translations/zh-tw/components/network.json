@@ -5,8 +5,8 @@
       "summary": "總結",
       "homepage": "首頁",
       "metrics": "公制",
-      "datasets": "網絡",
-      "publishers": ""
+      "datasets": "資料集",
+      "publishers": "發布者"
     },
     "registeredDate": "已註冊 {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} 參與{NUMBER, select,1{資料集} other{資料集}}",

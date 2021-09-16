@@ -5,8 +5,8 @@
     "sourceUrl": "",
     "headlineDatasets": "",
     "headlineOccurrences": "",
-    "title": "",
-    "description": "",
+    "title": "Название",
+    "description": "Описание",
     "originalDownloadDOI": ""
   },
   "downloadKey": {
@@ -31,7 +31,7 @@
     "titleMissing": "Отсутствует название набора данных",
     "underProcessing": "В обработке",
     "citation": "Цитата",
-    "format": "",
+    "format": "Формат",
     "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, select, one{запись} other{записи}} во время загрузки",
     "aboutDeletionPolicy": "Узнайте больше о нашей [политике удаления](/faq?question=for-how-long-will-does-gbif-store-downloads).",
     "readDatauseAndTerms": "Обязательно ознакомьтесь с [пользовательским соглашением об использовании данных](/terms/data-user) and [правилами цитирования](/citation-guidelines).",
@@ -69,7 +69,8 @@
       "and": "И",
       "or": "ИЛИ",
       "not": "НЕ",
-      "isNotNull": "Не пустой"
+      "isNotNull": "Не пустой",
+      "isNull": ""
     }
   },
   "myDownloads": {

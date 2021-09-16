@@ -6,6 +6,7 @@
         "searchForNewsEventsDocuments": "Chercher pour des nouvelles, évènements, documents et plus encore. Si vous souhaitez chercher des occurrences d'espèces, essayez notre outil de recherche d'occurrences.",
         "occurrenceSearch": "Recherche d'occurrence",
         "subscribeToCalendar": "S'abonner au calendrier",
+        "suggestEvent": "Suggérer un événement",
         "citationExplainer": "En savoir plus sur la littérature, comment elle est découverte et liée au données sur GBIF.",
         "types": {
             "events": "Évènements",
@@ -34,6 +35,7 @@
             "peerReview": "Examen par les pairs",
             "openAccess": "le libre accès",
             "gbifDownloadKey": "Clé de téléchargement",
+            "gbifDerivedDatasetDoi": "DOI du jeu de données dérivé",
             "paperDoi": "DOI",
             "litSource": "Journal",
             "litPublisher": "Éditeur de journaux"

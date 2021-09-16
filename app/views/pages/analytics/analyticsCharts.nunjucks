@@ -5,7 +5,7 @@
             <p dir="auto">{$ info $}</p>
         </div>
         <div class="figure">
-            <img src="{$ thumbBase $}{$ imgfile $}.png" data-jslghtbx="{$ imgBase $}{$ imgfile $}.png"
+            <img src="{$ analyticsFigureUrl $}{$ imgfile $}.svg" data-jslghtbx="{$ analyticsFigureUrl $}{$ imgfile $}.svg"
                  class="img-thumbnail">
         </div>
     </div>
@@ -37,7 +37,7 @@
         <div class="chart-flex-columns">
               {$ chart(__('trends.speciesCountByKingdom'), 'spe_kingdom', __('trends.numOccSpeciesByKingdom')) $}
             {$ chart(__('trends.speciesCountsForSpecimenRecords'), 'spe_kingdom_specimen', __('trends.numSpeciesFromSpecimens')) $}
-            {$ chart(__('trends.speciesCountForObservationRecords'), 'spe_kingdom_observation', 'trends.numSpeciesAssociatedWithObsRecords') $}
+            {$ chart(__('trends.speciesCountForObservationRecords'), 'spe_kingdom_observation', __('trends.numSpeciesAssociatedWithObsRecords')) $}
         </div>
     </div>
 </section>
@@ -142,8 +142,8 @@
                 <div class="info">
                 </div>
                 <div class="figure">
-                    <img src="{$ thumbBase $}occ_repatriation.png"
-                          data-jslghtbx="{$ imgBase $}occ_repatriation.png" class="img-thumbnail">
+                    <img src="{$ analyticsFigureUrl $}occ_repatriation.svg"
+                          data-jslghtbx="{$ analyticsFigureUrl $}occ_repatriation.svg" class="img-thumbnail">
                 </div>
             </div>
         </div>

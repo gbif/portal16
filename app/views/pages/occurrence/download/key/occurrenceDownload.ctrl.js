@@ -1,7 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
-moment = require('moment'),
+    moment = require('moment'),
     _ = require('lodash');
 
 angular
@@ -9,9 +9,11 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
+function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
     var vm = this;
     vm.HUMAN = true;
+    vm.hasClipboard = _.get(navigator, 'clipboard.writeText');
+    vm.citationString = gb.downloadKey.citationString;
     vm.maxSize = 5;
     vm.doi = _.get(gb, 'downloadKey.doi', '').replace(/^.*(10\.)/, '10.');
     vm.key = gb.downloadKey.key;
@@ -48,6 +50,16 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootSc
         }, function(err) {
             // TODO tell user the download failed to be cancelled
         });
+    };
+
+    vm.toClipboard = function() {
+      navigator.clipboard.writeText(vm.citationString).then(function() {
+        /* clipboard successfully set */
+        toastService.info({message: 'Copied'});
+      }, function() {
+        /* clipboard write failed */
+        toastService.error({message: 'Failed - please select the text manually instead'});
+      });
     };
 
     function getDownload() {

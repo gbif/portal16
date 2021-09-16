@@ -10,7 +10,7 @@
     "searchAllFields": "搜尋所有領域",
     "description": "於全球生物多樣性資訊機構搜尋物種出現紀錄資料。自由且公開存取的生物多樣性資料。",
     "nWithCoordinates": "{NUMBER_FORMATED} 含座標",
-    "nWithImages": "{NUMBER_FORMATED} 含{NUMBER, select, 1{圖片} other{圖片}}",
+    "nWithImages": "{NUMBER_FORMATED} 筆含 {NUMBER, plural, one{圖片} other{圖片}}",
     "failedSearch": "您的篩選可能無效或伺服器出現問題。請再嘗試，若問題仍持續請回報。",
     "noImages": "沒有含圖片的出現紀錄資料",
     "imageLicenseInfo": "請注意，此圖片的授權可能與應用在出現紀錄的授權不同。",
@@ -29,6 +29,7 @@
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "您查詢條件的網址超過 2000 個字元，可能無法在所有瀏覽器中正常運作。針對大量或複雜的查詢，請考慮使用下載 API。",
-    "didYouMean": "你的搜尋範圍與{RANK}:'{NAME}'相符。你想只在此分類群的範圍內搜索嗎"
+    "didYouMean": "您的查詢範圍與 {RANK}：'{NAME}' 相符。您想將查詢範圍限制在此分類群嗎？",
+    "clickToUseAcceptedTaxon": "點擊以分類群有效名搜尋。結果將因包含同物異名而有更多資料。"
   }
 }

@@ -6,6 +6,7 @@
         "searchForNewsEventsDocuments": "ニュース、イベント、ドキュメントなどを検索します。種のオカレンスを探している場合は、オカレンス検索をお試しください。",
         "occurrenceSearch": "オカレンス検索",
         "subscribeToCalendar": "カレンダーに登録する",
+        "suggestEvent": "イベントを提案する",
         "citationExplainer": "文献がどのようにして発見され、GBIF媒介データとしてリンクされたかについてもっと読む",
         "types": {
             "events": "イベント",
@@ -34,7 +35,8 @@
             "peerReview": "査読あり",
             "openAccess": "オープンアクセス",
             "gbifDownloadKey": "ダウンロードキー",
-            "paperDoi": "",
+            "gbifDerivedDatasetDoi": "得られたデータセットのDOI",
+            "paperDoi": "DOI",
             "litSource": "ジャーナル",
             "litPublisher": "ジャーナル出版社"
         }

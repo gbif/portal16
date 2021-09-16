@@ -62,8 +62,37 @@
         "machineVision": {
             "tabs": {
                 "demo": "عرض توضيحي ",
-                "statement": ""
+                "statement": "حول"
             }
+        },
+        "derivedDataset": {
+            "title": "مجموعة البيانات المشتقة",
+            "titleField": "عنوان",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "مفتاح مجموعة البيانات",
+            "occurrenceCount": "عدد التكرار",
+            "submit": "تسليم",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
         }
     }
 }

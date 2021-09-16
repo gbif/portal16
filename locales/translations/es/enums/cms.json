@@ -38,6 +38,7 @@
           "REGIONAL": "Subvención regional",
           "SMALL": "Subvención pequeña",
           "NATIONAL": "Subvención nacional",
+          "DATA_USE": "",
           "undefined": "Sin especificar"
         },
         "projectStatus": {

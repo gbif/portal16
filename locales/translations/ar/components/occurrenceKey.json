@@ -59,8 +59,8 @@
       "notWorkingTryPublishers": "",
       "download": "قم بتنزيل الوسائط",
       "byRightsHolder": "بواسطة {RIGHTSHOLDER}",
-      "licensedUnder": "مرخص تحت{{LICENSE}}",
-      "suggestedCitation": ""
+      "licensedUnder": "مُرخص تحت {{LICENSE}}",
+      "suggestedCitation": "اسناد مقترح"
     },
     "title": {
       "inCountry": {
@@ -92,7 +92,7 @@
     "occurrence": "تكرار",
     "inLanguage": "في {LANGUAGE_TRANSLATED}",
     "sequenced": "",
-    "treatment": "",
+    "treatment": "معالجة",
     "cluster": {
       "current": "",
       "relatedOccurrences": "",

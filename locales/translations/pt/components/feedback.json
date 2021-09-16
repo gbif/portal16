@@ -3,7 +3,7 @@
     "leaveFeedback": "Deixe um comentário",
     "intro": {
       "title": "Comentários e questões",
-      "example": "Ajude-nos a resolver quaisquer problemas escolhendo que tipo de comentário está a fazer"
+      "example": "Ajude-nos a resolver quaisquer problemas escolhendo o tipo de feedback que está fornecendo. Por favor, envie seu feedback em inglês, se possível. Se possível, o nosso objetivo é responder dentro de 2 dias úteis."
     },
     "data content": {
       "title": "Conteúdo",
@@ -27,7 +27,7 @@
     },
     "confirmation": {
       "title": "Obrigado",
-      "example": "Seu comentário foi registado como um problema no Github. Se necessário, e se os detalhes do contato forem fornecidos, poderemos lhe contatar para obter mais informações. Podes acompanhar o progresso directamente na página do problema.",
+      "example": "Seu comentário foi registado como um problema no Github. Se necessário, e se os detalhes do contato forem fornecidos, poderemos contactá-lo para obter mais informações. Pode acompanhar o progresso directamente na página do problema.",
       "seeIssue": "Ver problema"
     },
     "issues": {

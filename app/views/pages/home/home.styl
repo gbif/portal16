@@ -90,7 +90,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
     }
 }
 
-.articles, .home__counts {
+.articles, .home__counts, .featureBlock {
     .article-box {
         width 300px
         max-width 100%
@@ -161,7 +161,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 +isAbove(1000px) {
     .articles, .home__counts {
         .article-box {
-            width "calc(100% / 4 - %s)" % ($halfGutter* 2)
+            width 280px;//"calc(100% / 4 - %s)" % ($halfGutter* 2)
             flex 1 1 auto
         }
     }

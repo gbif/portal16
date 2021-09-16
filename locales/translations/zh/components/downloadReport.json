@@ -39,9 +39,9 @@
     "content": {
       "rawData": "原始数据",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
+      "images": "多媒体",
+      "coordinates": "坐标",
+      "fileFormat": "格式",
       "estimatedSize": ""
     },
     "fileFormats": {

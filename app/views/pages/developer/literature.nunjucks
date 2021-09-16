@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-10">
             <section id="searching" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Literature search</h3>
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}

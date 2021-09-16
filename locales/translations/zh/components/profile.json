@@ -88,6 +88,7 @@
     "passwordChangeInvalid": "密码无效 - 如果您忘记密码，请退出当前登录，再进行密码重置。",
     "verficationLinkSent": "我们已向您的电子邮箱发送了含有确认链接的邮件。欢迎加入GBIF。",
     "resetPasswordRequest": "密码重置请求",
-    "resetPasswordMessage": "我们已经给您发送了一封含有重置密码链接的电子邮件。"
+    "resetPasswordMessage": "我们已经给您发送了一封含有重置密码链接的电子邮件。",
+    "derivedDatasets": ""
   }
 }

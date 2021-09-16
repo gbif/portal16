@@ -24,7 +24,7 @@
     "preservationTypes": "Preservation types",
     "homepage": "Homepage",
     "apiUrl": "URL for Collection's Web Services",
-    "catalogUrl": "URL for Collection's Specimen Catalog/Database",
+    "catalogUrl": "URL for Collection's Specimen Catalogue/Database",
     "identifiers": "Identifiers",
     "collectionMailingAddress": "Mailing address",
     "status": "Status",
@@ -90,6 +90,8 @@
   "grscicoll": {
     "title": "GRSciColl",
     "suggestChange": "Suggest a change",
+    "suggestNewCollection": "Suggest a new collection",
+    "suggestNewInstitution": "Suggest a new institution",
     "tabs": {
       "about": "About",
       "institutions": "Institutions",

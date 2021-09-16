@@ -17,6 +17,10 @@
     {$ api.trow(url=url, resp=resp, httpMethod="GET", respLink=respLink, paging=undefined, authRequired=undefined, params=params, description=caller()) $}
 {% endmacro %}
 
+{% macro trowDS(url, resp="", method="GET", respLink=undefined, paging=false, params=[]) %}
+    {$ api.trow(url="/occurrence/download/statistics"+url, resp=resp, httpMethod=method, respLink=respLink, paging=paging, authRequired=undefined, params=params, description=caller()) $}
+{% endmacro %}
+
 {% macro trowG(url, method="GET", resp="GadmRegion", respLink=undefined, paging=false, params=[]) %}
     {$ api.trow(url="/geocode"+url, httpMethod=method, resp=resp, respLink=respLink, authRequired=undefined, params=params, paging=paging, description=caller()) $}
 {% endmacro %}
@@ -66,7 +70,7 @@
                 </div>
                 <div class="col-md-10">
             <section id="occurrence" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrences</h3>
                     <p>This API provides services related to the retrieval of single occurrence records.</p>
                     <table class='api table table-bordered table-striped table-params'>
@@ -76,20 +80,33 @@
                         Gets details for a single, interpreted occurrence
                         {% endcall %}
 
+                        {% call trowO(url="/{datasetKey}/{occurrenceId}", respLink=apiBase+"occurrence/0001480b-76ca-4f30-86bc-f4292481554b/651D49B2-FF77-7F3F-E053-2614A8C050DE") %}
+                        Gets details for a single, interpreted occurrence by its dataset key and occurrenceId in that dataset.
+                        {% endcall %}
+
                         {% call trowO(url="/{key}/fragment", respLink=apiBase+"occurrence/1258202889/fragment") %}
                         Get a single occurrence fragment in its raw form (xml or json)
+                        {% endcall %}
+
+                        {% call trowO(url="/{datasetKey}/{occurrenceId}/fragment", respLink=apiBase+"occurrence/0001480b-76ca-4f30-86bc-f4292481554b/651D49B2-FF77-7F3F-E053-2614A8C050DE/fragment") %}
+                        Gets a single occurrence fragment in its raw form (xml or json) by its dataset key and occurrenceId in that dataset.
                         {% endcall %}
 
                         {% call trowO(url="/{key}/verbatim", resp="VerbatimOccurrence", respLink=apiBase+"occurrence/1258202889/verbatim") %}
                         Gets the verbatim occurrence record without any interpretation
                         {% endcall %}
+
+                        {% call trowO(url="/{datasetKey}/{occurrenceId}/verbatim", respLink=apiBase+"occurrence/0001480b-76ca-4f30-86bc-f4292481554b/651D49B2-FF77-7F3F-E053-2614A8C050DE/verbatim") %}
+                        Gets the verbatim occurrence record without any interpretation by its dataset key and occurrenceId in that dataset.
+                        {% endcall %}
+
                         </tbody>
                     </table>
                 </div>
             </section>
 
             <section id="search" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Searching</h3>
                     <p>This API provides services for searching occurrence records that have been indexed by GBIF.
                         In order to retrieve all results for a given search filter you need to issue individual requests
@@ -149,6 +166,7 @@
                         "license",
                         "locality",
                         "mediaType",
+                        "modified",
                         "month",
                         "networkKey",
                         "occurrenceId",
@@ -228,7 +246,7 @@
             </section>
 
             <section id="download" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Downloads</h3>
                     <p>This API provides services to download occurrence records and retrieve information about those
                         downloads.</p>
@@ -286,6 +304,10 @@
                         Lists all the datasets of an occurrence download.
                         {% endcall %}
 
+                        {% call trowD(url="/{key}/datasets/export", method="GET", authRequired=false, paging=true, resp="Datasets", params=["format"], respLink=apiBase+"occurrence/download/0000251-150304104939900/datasets/export") %}
+                        Export all the datasets data of an occurrence download into CSV or TSV file.
+                        {% endcall %}
+
                         {% call trowD(url="/user/{user}", method="GET", resp="Download Page", authRequired=true, paging=true) %}
                         Lists the downloads created by a user. Only role ADMIN can list downloads of other users.
                         {% endcall %}
@@ -298,8 +320,42 @@
                 </div>
             </section>
 
+            <section id="download_stats" class="white-background page--developer__anchor">
+                <div class="container--fluid">
+                    <h3>Occurrence Download Statistics</h3>
+                    <p>This API provides statistics about Occurrence Downloads.
+                    </p>
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead(auth=false, paging=true, params=true) $}
+                        <tbody>
+
+                        {% call trowDS(url="", resp="DownloadStatistics", paging=true, respLink=apiBase+"occurrence/download/statistics?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
+                        Lists download statistics (datasetKey, number of records, number of downloads) grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
+                        {% endcall %}
+
+                        {% call trowDS(url="/export", resp="TSV or CSV", paging=false, respLink=apiBase+"occurrence/download/statistics/export?publishingCountry=CR&fromDate=2015-12&toDate=2019-11", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey","format"]) %}
+                        Exports download statistics to a TSV or CSV file, data can be filtered by: publishing organization, publishing country, a date range  and a dataset key.
+                        {% endcall %}
+
+                        {% call trowDS(url="/downloadsByUserCountry", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsByUserCountry?userCountry=CR&fromDate=2015-12&toDate=2019-11", params=["userCountry","fromDate","toDate"]) %}
+                        Lists download counts grouped by year and month and filtered by the country of the user who requested the download and a date range.
+                        {% endcall %}
+
+                        {% call trowDS(url="/downloadedRecordsByDataset", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadedRecordsByDataset?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e&", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
+                        Lists downloaded occurrence records counts grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
+                        {% endcall %}
+
+                        {% call trowDS(url="/downloadsByDataset", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsByDataset?publishingCountry=US&fromDate=2015-12&toDate=2019-11&datasetKey=4fa7b334-ce0d-4e88-aaae-2e0c138d049e&", params=["publishingCountry","fromDate","toDate","datasetKey","publishingOrgKey"]) %}
+                        Lists download counts grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
+                        {% endcall %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
             <section id="metrics" class="white-background page--developer__anchor">
-                <div class="container--narrow ">
+                <div class="container--fluid ">
                     <h3>Occurrence Metrics</h3>
                     <p>This API provides services to retrieve various counts and metrics provided about occurrence
                         records.
@@ -328,7 +384,7 @@
             </section>
 
             <section id="inventories" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Inventories</h3>
                     <p>This API provides services that list all distinct values together with their occurrence count for
                         a given occurrence property.
@@ -400,6 +456,7 @@
             "license": "The type license applied to the dataset or record.",
             "locality": "The specific description of the place.",
             "mediaType": "The kind of multimedia associated with an occurrence as defined in our <a href='"+apidocs+"/vocabulary/MediaType.html'>MediaType enum</a>",
+            "modified": "The most recent date-time on which the resource was changed, according to the publisher",
             "month": "The month of the year, starting with 1 for January. Supports <a href='/developer/summary#common'>range queries</a>.",
             "networkKey": "The GBIF Network to which the occurrence belongs.",
             "occurrenceId": "A single globally unique identifier for the occurrence record as provided by the publisher.",
@@ -437,11 +494,17 @@
             "facet": "A facet name used to retrieve the most frequent values for a field. Facets are allowed for all the parameters except for: eventDate, geometry, lastInterpreted, locality, organismId, stateProvince, waterBody.  This parameter may by repeated to request multiple facets, as in this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&facet=basisOfRecord&limit=0'>/occurrence/search?facet=datasetKey&amp;facet=basisOfRecord&amp;limit=0</a>",
             "facetMincount": "",
             "facetMultiselect": "",
-            "facetOffset, facetLimit": "Facet parameters allow paging requests using the parameters <em>facetOffset</em> and <em>facetLimit</em> as this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>/occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>"
+            "facetOffset, facetLimit": "Facet parameters allow paging requests using the parameters <em>facetOffset</em> and <em>facetLimit</em> as this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>/occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>",
+            "format": "Export format, accepts TSV(default) and CSV",
+            "fromDate": "Start partial date of a date range, accepts the format yyyy-MM, for example: 2015-11",
+            "toDate": "End partial date of a date range, accepts the format yyyy-MM, for example: 2019-12",
+            "userCountry": "Country country of the user who made the requested",
+            "publishingOrgKey": "The publishing organization key (a uuid)."
+
             }) $}
 
             <section id="predicates" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Download Predicates</h3>
                     <p>A download predicate is an query expression to retrieve occurrence record downloads. A working example using <em>curl</em>: Put this in a file called query.json:
                         {% set downloadExampleQuery = {"creator":"userName","notificationAddresses":["userEmail@example.org"],"sendNotification": true,"format":"SIMPLE_CSV","predicate":{"type":"and","predicates":[{"type":"equals","key":"BASIS_OF_RECORD","value":"PRESERVED_SPECIMEN"},{"type":"in","key":"COUNTRY","values":["KW","IQ","IR"]}]}} %}
@@ -513,7 +576,7 @@
                         </tr>
                         <tr>
                             <td>and</td>
-                            <td>logical AND(conjuction)</td>
+                            <td>logical AND (conjuction)</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -534,7 +597,7 @@
                         </tr>
                         <tr>
                             <td>or</td>
-                            <td>logical OR(disjunction)</td>
+                            <td>logical OR (disjunction)</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -679,8 +742,8 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"cat1"<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"key":"DATASET_KEY",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"4fa7b334-ce0d-4e88-aaae-2e0c138d049e"<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }
@@ -689,7 +752,7 @@
                         </tr>
                         <tr>
                             <td>like</td>
-                            <td>search for a pattern</td>
+                            <td>search for a pattern, <code>?</code> matches one character, <code>*</code> matches zero or more characters</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -699,7 +762,24 @@
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"like",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;"value":"PAPS5-560%"<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"value":"PAPS5-560*"<br/>
+                                    &nbsp;&nbsp;}<br/>
+                                    }
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isNull</td>
+                            <td>has an empty value</td>
+                            <td>
+                                <code class="block">
+                                    {<br/>
+                                    &nbsp;&nbsp;"creator":"userName",<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"predicate":<br/>
+                                    &nbsp;&nbsp;{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"type":"isNull",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"parameter":"CONTINENT"<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }
                                 </code>
@@ -729,7 +809,7 @@
             </section>
 
             <section id="download_limits" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Occurrence Download Limits</h3>
                     <p>Occurrence downloads are a very resource demanding service which needs to be monitored and limited
                         according to the GBIF platform load.
@@ -752,7 +832,7 @@
             </section>
 
             <section id="gadm" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>GADM regions search and browsing</h3>
                     <p>Database of Global Administrative Areas, is a high-resolution database of country administrative areas.</p>
                     <p>This API provides services to search and browse regions and sub-regions down to three levels of sub-regions.</p>

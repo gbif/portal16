@@ -2,13 +2,16 @@
 
 {% import "./predicate.macro.nunjucks" as predicate %}
 
+{% set citationString %}GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download {% if download.record.doi %} https://doi.org/{$ download.record.doi $}{% elif gb.locales.url %}{$ gb.locales.domain $}{$ gb.locales.url $}{% endif %}{% endset %}
+
 {% block page %}
     <script>
         var gb = gb || {};
         gb.downloadKey = {
             key: '{$ download.record.key $}',
             doi: '{$ download.record.doi $}',
-            status: '{$ download.record.status $}'
+            status: '{$ download.record.status $}',
+            citationString: "{$ citationString $}"
         };
     </script>
     <article class="wrapper-horizontal-stripes downloadKey"
@@ -96,17 +99,49 @@
             {% endif %}
         </div>
 
-        <div class="horizontal-stripe light-background">
+        <div class="horizontal-stripe light-background p-t-05">
             <div class="container--normal">
                 <section>
                     <h3 class="card-header">
+                        <span translate="phrases.pleaseCiteAs">Please cite as</span>
+                    </h3>
+                    <div class="card card--spaced">
+                      <div class="card__stripe">
+                        <div class="card__content">
+                          <div style="font-family: monospace;">
+                            {$ citationString $}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card__stripe">
+                        <div class="card__content">
+                          <a href="" role="button" class="gb-button"
+                                    ng-if="downloadKey.hasClipboard" 
+                                    ng-click="downloadKey.toClipboard()"
+                                    translate="phrases.copy">Copy</a>
+                          {% if download.record.doi %}
+                            {% if download.record.status === 'FILE_ERASED' or download.record.status === 'SUCCEEDED' %}
+                              <a href="https://data.crosscite.org/application/x-bibtex/{$ download.record.doi $}" class="gb-button">
+                                <span class="gb-icon-file-download"></span>
+                                BibTex
+                              </a>
+                              <a href="https://data.crosscite.org/application/x-research-info-systems/{$ download.record.doi $}" class="gb-button">
+                                <span class="gb-icon-file-download"></span>
+                                RIS
+                              </a>
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <h3 class="card-header m-t-1">
                         <span translate="downloadKey.filterApplied" translate-values="{DATE: '{$ download.record.created | formatDate(gb.locales.current) $}' }">&nbsp;</span>
                         {% if download.isSimple %}
                             <a href="/occurrence/search?{$ download.isSimple $}"
                                class="pull-right inherit discreet p-r-1">{$ __('downloadKey.rerunQuery') $}</a>
                         {% endif %}
                     </h3>
-                    <div class="card  card--spaced">
+                    <div class="card card--spaced">
                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                         <div class="card__stripe rtl-supported">
                             <div class="card__content card__content--warning--large">
@@ -134,12 +169,6 @@
                                 <div class="card__stripe">
                                     <div class="card__content">
                                         <dl class="inline">
-                                            <div>
-                                                <dt>{$ __('downloadKey.citation') $}</dt>
-                                                <dd dir="ltr">
-                                                    GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download {% if download.record.doi %} https://doi.org/{$ download.record.doi $}{% elif gb.locales.url %}{$ gb.locales.domain $}{$ gb.locales.url $}{% endif %}
-                                                </dd>
-                                            </div>
                                             {% if download.record.license %}
                                             <div>
                                                 <dt>{$ __('downloadKey.license') $}</dt>
@@ -237,7 +266,12 @@
                 {% if download.datasets.count > 0 %}
                     <section class="m-t-2 rtl-bootstrap">
                         <span class="relative-anchor-offset"><a id="datasets"></a></span>
-                        <h3 class="card-header"><span translate="downloadKey.nConstituentDatasets" translate-values="{NUMBER: {$ download.datasets.count $}, NUMBER_FORMATTED: ({$ download.datasets.count $} | localNumber) }"></span></h3>
+                        <h3 class="card-header">
+                          <span translate="downloadKey.nConstituentDatasets" translate-values="{NUMBER: {$ download.datasets.count $}, NUMBER_FORMATTED: ({$ download.datasets.count $} | localNumber) }"></span>
+                          <a ng-href="https://api.gbif.org/v1/occurrence/download/{$ download.record.key $}/datasets/export?format=TSV" class="pull-right">
+                            Download as TSV
+                          </a>
+                        </h3>
                         <div class="card">
                             <div class="card__stripe">
                                 <div class="stripeList">

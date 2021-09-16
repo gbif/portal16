@@ -320,7 +320,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
   };
 
   vm.filters.eventId = {
-    titleTranslation: 'filterNames.eventID',
+    titleTranslation: 'filterNames.eventId',
     queryKey: 'event_id',
     filter: OccurrenceFilter,
     search: {
@@ -671,7 +671,16 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
         datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
       },
       suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
-      suggestTitle: 'scientificName',
+      suggestTitle: function(data) {
+        return {
+          scientificName: _.get(data, 'scientificName'),
+          key: _.get(data, 'key'),
+          accepted: _.get(data, 'accepted'),
+          acceptedKey: _.get(data, 'acceptedKey'),
+          synonym: _.get(data, 'synonym')
+        };
+      }, // 'scientificName',
+      suggestTitleTemplate: '/templates/components/filterTaxon/suggestTaxonTitleTemplate.html?v=' + BUILD_VERSION,
       suggestShortName: 'title',
       suggestKey: 'key'
     }
@@ -862,14 +871,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
 
   vm.search = function () {
     vm.occurrenceState.query.q = vm.freeTextQuery;
-    $state.go('.', vm.occurrenceState.query, { inherit: false, notify: true, reload: true });
+    $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
   };
 
   vm.updateSearch = function () {
     vm.occurrenceState.query.offset = undefined;
     vm.occurrenceState.query.limit = undefined;
     vm.occurrenceState.query.q = vm.freeTextQuery;
-    $state.go($state.current, vm.occurrenceState.query, { inherit: false, notify: false, reload: false });
+    $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: false, reload: false});
   };
   vm.searchOnEnter = function (event) {
     if (event.which === 13) {
@@ -924,7 +933,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
     vm.occurrenceState.query.offset = undefined;
     vm.occurrenceState.query.limit = undefined;
-    $state.go($state.current, vm.occurrenceState.query, { inherit: false, notify: true, reload: true });
+    $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
   };
 
   vm.getUrlSize = function () {
@@ -935,6 +944,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     return vm.occurrenceState.query.q;
   }, function () {
     vm.freeTextQuery = vm.occurrenceState.query.q;
+  });
+
+  $scope.$watch(function () {
+    return vm.freeTextQuery;
+  }, function (newVal, oldVal) {
+    if (newVal !== oldVal) {
+       vm.occurrenceState.query.q = vm.freeTextQuery;
+    }
   });
 }
 

@@ -62,8 +62,37 @@
         "machineVision": {
             "tabs": {
                 "demo": "",
-                "statement": ""
+                "statement": "Об организациии"
             }
+        },
+        "derivedDataset": {
+            "title": "",
+            "titleField": "Название",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "Ключ набора данных",
+            "occurrenceCount": "Число находок",
+            "submit": "Отправить",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
         }
     }
 }

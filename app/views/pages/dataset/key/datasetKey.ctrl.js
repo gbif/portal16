@@ -35,7 +35,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     vm.dataset = DatasetExtended.get({key: vm.key});
     vm.metrics = DatasetMetrics.get({key: vm.key});
     vm.processSummary = DatasetProcessSummary.get({key: vm.key});
-    vm.currentCrawlingStatus = DatasetCurrentCrawlingStatus.get({key: vm.key});
+    vm.currentCrawlingStatus;// do not check up front as this is an expensive query. Wait until the user is a trusted user
     vm.backboneKey = constantKeys.dataset.backbone;
     vm.ebirdKey = constantKeys.dataset.eod;
     vm.backboneNetworkKey = constantKeys.network.backboneNetwork;
@@ -278,6 +278,10 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
                 vm.processSummary = DatasetProcessSummary.get({key: vm.key, _cacheBust: Date.now()});
                 // prepareTrustedBrakdown();
                 vm.isTrustedContact = response.data.isTrustedContact;
+                if (vm.isTrustedContact) {
+                  // if the user is trusted then get the current cralwing status, not that it is secret, but it is costly to generate
+                  vm.currentCrawlingStatus = DatasetCurrentCrawlingStatus.get({key: vm.key});
+                }
             }, function() {
                 // ignore error and simply don't show the user
             });

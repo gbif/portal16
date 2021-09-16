@@ -1,6 +1,6 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{紀錄} other{紀錄}}來自此資料集",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{筆紀錄} other{筆紀錄}}來自此資料集",
     "derivedDataset": "衍生的資料集",
     "sourceUrl": "下載衍生的資料集",
     "headlineDatasets": "衍生資料集中 {NUMBER_FORMATED} 個{NUMBER, plural, one{資料集} other{資料集}}的紀錄",
@@ -32,7 +32,7 @@
     "underProcessing": "正在處理中",
     "citation": "引用",
     "format": "格式",
-    "nRecordsAtTime": "於 {NUMBER_FORMATED} {NUMBER, select, one{記錄} other{記錄}}下載時",
+    "nRecordsAtTime": "下載時有 {NUMBER_FORMATED} {NUMBER, select, one{記錄} other{記錄}}",
     "aboutDeletionPolicy": "更多關於我們[刪除政策](/faq?question=for-how-long-will-does-gbif-store-downloads)的說明。",
     "readDatauseAndTerms": "請確認已詳閱[資料使用者協議](/terms/data-user) 與 [引用指南](/citation-guidelines)。",
     "filterApplied": "篩選於 {DATE}",
@@ -69,7 +69,8 @@
       "and": "和",
       "or": "或",
       "not": "非",
-      "isNotNull": "已定義"
+      "isNotNull": "已定義",
+      "isNull": "未定義"
     }
   },
   "myDownloads": {

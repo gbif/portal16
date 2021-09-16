@@ -62,8 +62,37 @@
         "machineVision": {
             "tabs": {
                 "demo": "展示",
-                "statement": "意圖聲明"
+                "statement": "聲明"
             }
+        },
+        "derivedDataset": {
+            "title": "衍生的資料集",
+            "titleField": "標題",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "資料集檢索",
+            "occurrenceCount": "出現記錄計數",
+            "submit": "送出",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "我的衍生的資料集",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
         }
     }
 }

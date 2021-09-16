@@ -14,6 +14,7 @@
     "description": "التوصيف",
     "endorsedBy": "صادق عليه من قبل",
     "pendingEndorsementBy": "انتظار المصادقة عليه من قبل",
+    "endorsementWithheld": "",
     "installations": "تركيبات",
     "contacts": "جهات الإتصال",
     "administrativeContact": "جهة الاتصال الادارية",

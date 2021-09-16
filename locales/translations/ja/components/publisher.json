@@ -14,6 +14,7 @@
     "description": "説明",
     "endorsedBy": "承認",
     "pendingEndorsementBy": "～による承認が保留中",
+    "endorsementWithheld": "",
     "installations": "インストール",
     "contacts": "問い合わせ先",
     "administrativeContact": "管理者の連絡先",

@@ -18,7 +18,7 @@
     "identifiedBy": "Identificado por",
     "identifiedById": "Identificado por ID",
     "eventDate": "Fecha del Evento",
-    "eventID": "ID del evento",
+    "eventId": "ID del evento",
     "samplingProtocol": "Protocolo de muestreo",
     "location": "Ubicación",
     "coordinateUncertaintyInMeters": "Incertidumbre de las coordenadas en metros",
@@ -74,6 +74,6 @@
     "gadmGid": "GID GADM ",
     "lifeStage": "Etapa de vida",
     "dwcaExtension": "Extensión DWCA",
-    "isClustered": "Está en cluster"
+    "isInCluster": "Está en cluster"
   }
 }

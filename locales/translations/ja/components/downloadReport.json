@@ -39,9 +39,9 @@
     "content": {
       "rawData": "生データ",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
+      "images": "マルチメディア",
+      "coordinates": "座標",
+      "fileFormat": "フォーマット",
       "estimatedSize": ""
     },
     "fileFormats": {

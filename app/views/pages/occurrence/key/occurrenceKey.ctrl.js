@@ -77,6 +77,30 @@ function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, 
 
     vm.data = occurrence;
     vm.vernacularName = SpeciesVernacularName.get({id: vm.data.taxonKey});
+
+   if (_.get(occurrence, 'extensions["http://rs.tdwg.org/ac/terms/Multimedia"]')) {
+       var iiifUris = _.get(occurrence, 'extensions["http://rs.tdwg.org/ac/terms/Multimedia"]')
+       .filter(function(e) {
+        return e['http://purl.org/dc/elements/1.1/format'] === 'application/ld+json' &&
+        (e['http://rs.tdwg.org/ac/terms/serviceExpectation'] &&
+        e['http://rs.tdwg.org/ac/terms/serviceExpectation'].toLowerCase() === 'iiif');
+       }).map(function(e) {
+           return e['http://rs.tdwg.org/ac/terms/accessURI'];
+       });
+       if (iiifUris.length > 0) {
+        vm.iiifManifestUri = iiifUris[0].split('://')[0] + '://labs.gbif.org/mirador/?manifest=' + iiifUris[0];
+       }
+   }
+    if (!vm.iiifManifestUri && _.get(occurrence, 'dynamicProperties')) {
+        try {
+           var dynProps = JSON.parse(_.get(occurrence, 'dynamicProperties'));
+           if (dynProps['iiifManifestUri']) {
+            vm.iiifManifestUri = dynProps['iiifManifestUri'].split('://')[0] + '://labs.gbif.org/mirador/?manifest=' + dynProps['iiifManifestUri'];
+           }
+        } catch (err) {
+            // unparsable JSON
+        }
+    }
     vm.center = {
         point: [vm.data.decimalLongitude, vm.data.decimalLatitude]
     };

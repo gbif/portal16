@@ -1,0 +1,44 @@
+{
+    "resourceSearch": {
+        "title": "",
+        "upcoming": "",
+        "past": "",
+        "searchForNewsEventsDocuments": "",
+        "occurrenceSearch": "",
+        "subscribeToCalendar": "",
+        "suggestEvent": "",
+        "citationExplainer": "",
+        "types": {
+            "events": "",
+            "news": "",
+            "resources": "",
+            "projects": "",
+            "programmes": "",
+            "documents": "",
+            "tools": "",
+            "dataUse": "",
+            "literature": ""
+        },
+        "filters": {
+            "countriesOfCoverage": "",
+            "countriesOfResearcher": "",
+            "literatureType": "",
+            "contractCountry": "",
+            "topics": "",
+            "audiences": "",
+            "purposes": "",
+            "relevance": "",
+            "language": "",
+            "year": "",
+            "gbifDatasetKey": "Dataset",
+            "publishingOrganizationKey": "",
+            "peerReview": "",
+            "openAccess": "Openaccess",
+            "gbifDownloadKey": "",
+            "gbifDerivedDatasetDoi": "",
+            "paperDoi": "",
+            "litSource": "",
+            "litPublisher": ""
+        }
+    }
+}

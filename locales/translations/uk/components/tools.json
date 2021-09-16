@@ -62,8 +62,37 @@
         "machineVision": {
             "tabs": {
                 "demo": "Демо",
-                "statement": ""
+                "statement": "Відомості про видавця даних"
             }
+        },
+        "derivedDataset": {
+            "title": "",
+            "titleField": "Назва",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "Ключ набору даних",
+            "occurrenceCount": "Кількість знахідок",
+            "submit": "Надіслати",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
         }
     }
 }

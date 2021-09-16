@@ -3,7 +3,8 @@
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     _ = require('lodash'),
-    request = rootRequire('app/helpers/request');
+    request = rootRequire('app/helpers/request'),
+    format = rootRequire('app/helpers/format');
 
 async function query(query, options) {
     options = options || {};
@@ -20,7 +21,7 @@ async function query(query, options) {
     if (datasets.statusCode > 299) {
         throw datasets;
     }
-    extractHighlights(datasets.body, query);
+   // extractHighlights(datasets.body, query);
     return datasets.body;
 }
 
@@ -30,7 +31,9 @@ function extractHighlights(data, query) {
 
     _.each(data.results, function(item) {
         let highlights = {};
+
         if (item.description) {
+                item.description = format.sanitizeCustom(format.decodeHtml(item.description), ['em'], ['class']);
                 let match = re.exec(item.description);
                 if (match) {
                     highlights.description = (match[0]);

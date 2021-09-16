@@ -6,6 +6,7 @@
         "searchForNewsEventsDocuments": "البحث عن الأخبار والأحداث والوثائق وأكثر من ذلك. اذا كنت تبحث عن تكرارات الأنواع جرب البحث عن تكرارنا",
         "occurrenceSearch": "البحث عن التكرار",
         "subscribeToCalendar": "اشترك في التقويم",
+        "suggestEvent": "",
         "citationExplainer": "اقرأ المزيد عن الدراسات السابقة وكيف تم كشفها وربطها مع البيانات المتاحة من قبل المرفق العالمي لمعلومات التنوع الحيوي",
         "types": {
             "events": "أحداث",
@@ -34,6 +35,7 @@
             "peerReview": "مُحَكّم",
             "openAccess": "مُتاح للجميع",
             "gbifDownloadKey": "مفتاح التنزيل",
+            "gbifDerivedDatasetDoi": "",
             "paperDoi": "مُعرِّف رقمي",
             "litSource": "مجلة",
             "litPublisher": "ناشر المجلة"

@@ -62,8 +62,37 @@
         "machineVision": {
             "tabs": {
                 "demo": "デモ",
-                "statement": ""
+                "statement": "・・・について"
             }
+        },
+        "derivedDataset": {
+            "title": "得られたデータセット",
+            "titleField": "タイトル",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "データセットキー",
+            "occurrenceCount": "オカレンスのカウント",
+            "submit": "送信",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
         }
     }
 }

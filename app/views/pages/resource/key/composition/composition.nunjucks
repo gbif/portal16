@@ -1,0 +1,5 @@
+{% extends "../sharable.nunjucks" %}
+
+{% block page %}
+    {% include "./compositionContent.nunjucks" %}
+{% endblock %}

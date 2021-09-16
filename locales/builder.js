@@ -21,6 +21,7 @@ function builder(locale, folder, keepEmptyStrings) {
     locale = locale || 'en';
     let translations = _.merge(
         {},
+        getFile(locale, `./${folder}/${locale}/enums/mixs`),
         getFile(locale, `./${folder}/${locale}/enums/basisOfRecord`),
         getFile(locale, `./${folder}/${locale}/enums/cms`),
         getFile(locale, `./${folder}/${locale}/enums/collectionPreservationType`),

@@ -351,7 +351,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         .state('resourceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
-            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&relevance&countriesOfResearcher&countriesOfCoverage&_showPastEvents&gbifDatasetKey&publishingOrganizationKey&gbifDownloadKey&peerReview&openAccess&projectId&contractCountry&publisher&source&doi',
+            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&relevance&countriesOfResearcher&countriesOfCoverage&_showPastEvents&gbifDatasetKey&publishingOrganizationKey&gbifDownloadKey&peerReview&openAccess&projectId&contractCountry&publisher&source&doi&gbifDerivedDatasetDoi',
             views: {
                 main: {
                     templateUrl: '/templates/pages/resource/search/resource.html?v=' + BUILD_VERSION,
@@ -758,6 +758,34 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                     controllerAs: 'dataRepositoryKey'
                 }
             }
+        })
+        .state('derivedDataset', {
+            parent: 'localization',
+            url: '/derived-dataset',
+            views: {
+                main: {
+                    templateUrl: '/api/template/tools/derivedDataset.html?v=' + BUILD_VERSION,
+                    controller: 'derivedDatasetCtrl',
+                    controllerAs: 'derivedDataset'
+                }
+            }
+        })
+        .state('derivedDatasetUpload', {
+            parent: 'derivedDataset',
+            url: '/register',
+            params: {
+                record: null
+            },
+            templateUrl: '/api/template/tools/derivedDataset/upload.html?v=' + BUILD_VERSION,
+            controller: 'derivedDatasetUploadCtrl',
+            controllerAs: 'derivedDatasetUpload'
+        })
+        .state('derivedDatasetAbout', {
+            parent: 'derivedDataset',
+            url: '/about',
+            templateUrl: '/api/template/tools/derivedDataset/about.html?v=' + BUILD_VERSION,
+            controller: 'derivedDatasetAboutCtrl',
+            controllerAs: 'derivedDatasetAbout'
         })
     ;
 

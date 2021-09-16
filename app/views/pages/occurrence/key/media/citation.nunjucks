@@ -3,13 +3,12 @@
 {% if media.title %}
     "{$ media.title $}" - 
     {% endif %}
-<a ui-sref="occurrenceKey({ speciesKey:{$ occurrence.record.key $} })">
+<a class="mediaItems__inlineText" ui-sref="occurrenceKey({ speciesKey:{$ occurrence.record.key $} })">
      <span scientific-name key="{$ occurrence.record.taxonKey $}">{$ commonMacros.parsedTaxonName(occurrence.taxonName) $}</span>
      </a>
       {% if occurrence.record.countryCode | isNotEmpty %}
-        <span>
-       {{ 'occurrence.title.inCountry.{$ occurrence.record.basisOfRecord $}' | translate:{COUNTRY: '{$ __('country.' + occurrence.record.countryCode) $}' } | deCapitalizeFirstLetter }}
-        </span>
+       <div class="mediaItems__inlineText"> <div class="mediaItems__collectedIn" translate="occurrence.title.inCountry.{$ occurrence.record.basisOfRecord $}" translate-values="{COUNTRY: (('country.{$ occurrence.record.countryCode $}') | translate) }">
+        </div></div>
     {% endif %}
     {% if media.rightsHolder%}
         <span translate="occurrence.media.byRightsHolder" translate-values="{RIGHTSHOLDER: '{$ media.rightsHolder $}' }">by {$ media.rightsHolder $}</span>

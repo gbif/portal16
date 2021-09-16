@@ -78,7 +78,7 @@
     "stopEditing": "",
     "firstName": "",
     "lastName": "",
-    "language": "",
+    "language": "زبان",
     "save": "ذخیره",
     "currentPassword": "",
     "invalidProfileUpdate": "",
@@ -88,6 +88,7 @@
     "passwordChangeInvalid": "",
     "verficationLinkSent": "",
     "resetPasswordRequest": "",
-    "resetPasswordMessage": ""
+    "resetPasswordMessage": "",
+    "derivedDatasets": ""
   }
 }

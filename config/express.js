@@ -16,12 +16,14 @@ module.exports = function(app, config) {
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
     // based on https://github.com/OWASP/CheatSheetSeries/issues/376 helmet disables browsers' buggy cross-site scripting filter
-    if (env !== 'devXXX') {
+    if (env !== 'dev') {
         let helmetConfig = {
             referrerPolicy: false,
             contentSecurityPolicy: {
                 directives: {
                     defaultSrc: [
+                        'maxcdn.bootstrapcdn.com',
+                        'cdn.jsdelivr.net/codemirror.spell-checker/',
                         `'self'`,
                         `*.gbif.org`,
                         `*.gbif-uat.org`,
@@ -56,9 +58,10 @@ module.exports = function(app, config) {
                         `'unsafe-inline'`,
                         '*.googleapis.com',
                         'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.12.0/mapbox-gl.min.css',
-                        'api.mapbox.com'],
+                        'api.mapbox.com',
+                        'maxcdn.bootstrapcdn.com'],
                     mediaSrc: ['*'],
-                    imgSrc: ['*'],
+                    imgSrc: ['*', 'data:'],
                     workerSrc: [
                         'blob:'
                     ],
@@ -130,7 +133,8 @@ module.exports = function(app, config) {
     app.use(function(req, res, next) {
         if (req.path.substr(-1) == '/' && req.path.length > 1) {
             let query = req.url.slice(req.path.length);
-            res.redirect(302, res.locals.gb.locales.urlPrefix + req.path.slice(0, -1) + query);
+            let redirectPath = res.locals.gb.locales.urlPrefix + req.path.slice(0, -1) + query;
+            res.redirect(302, config.domain + redirectPath);
         } else {
             next();
         }

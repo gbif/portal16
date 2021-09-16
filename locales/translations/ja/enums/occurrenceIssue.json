@@ -13,6 +13,8 @@
     "COORDINATE_PRECISION_INVALID": "座標の精度が無効",
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "座標の不確実性を示す距離（メートル）が無効",
     "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "座標の精度の不確実性が不一致",
+    "FOOTPRINT_SRS_INVALID": "フットプリントSRSが無効",
+    "FOOTPRINT_WKT_INVALID": "フットプリントWKTが無効",
     "COUNTRY_COORDINATE_MISMATCH": "国の座標が不一致",
     "COUNTRY_MISMATCH": "国が不一致",
     "COUNTRY_INVALID": "国が無効",
@@ -28,6 +30,7 @@
     "RECORDED_DATE_UNLIKELY": "記録日がありえない日付の可能性あり",
     "TAXON_MATCH_FUZZY": "分類があいまい検索で一致",
     "TAXON_MATCH_HIGHERRANK": "高次分類群で一致",
+    "TAXON_MATCH_AGGREGATE": "分類群マッチで対象データが種の集合である",
     "TAXON_MATCH_NONE": "分類群が照合不能",
     "DEPTH_NOT_METRIC": "深度がメートルではない",
     "DEPTH_UNLIKELY": "深度がありえない値の可能性あり",
@@ -62,6 +65,6 @@
     "COLLECTION_MATCH_FUZZY": "",
     "INSTITUTION_COLLECTION_MISMATCH": "",
     "POSSIBLY_ON_LOAN": "",
-    "DIFFERENT_OWNER_INSTITUTION": ""
+    "DIFFERENT_OWNER_INSTITUTION": "所有者の組織が異なる"
   }
 }

@@ -11,7 +11,6 @@ let express = require('express'),
     useragent = require('useragent'),
     feedbackContentType = require('./feedbackContentType'),
     _ = require('lodash'),
-    getGeoIp = rootRequire('app/helpers/utils').getGeoIp,
     log = rootRequire('config/log'),
     moment = require('moment'),
     router = express.Router(),
@@ -97,8 +96,6 @@ function isSpam(req, formData) {
 function createIssue(req, data, cb) {
     let agent = useragent.parse(req.headers['user-agent']),
         referer = req.headers.referer,
-        ip,
-        country,
         description = '',
         title,
         labels = [];
@@ -110,14 +107,12 @@ function createIssue(req, data, cb) {
     let githubUserName = _.get(req.user, 'systemSettings["auth.github.username"]');
 
     try {
-        ip = req.clientIp;
-        country = _.get(getGeoIp(ip), 'country.iso_code');
         if (typeof getStatus == 'function') {
             data._health = _.get(getStatus(), 'severity');
         }
         description = getDescription(data, agent, referer, user, githubUserName);
         title = getTitle(data.form.title, data.type, referer);
-        labels = getLabels(data, country);
+        labels = getLabels(data);
     } catch (err) {
         cb(err);
         return;
@@ -148,10 +143,10 @@ function getTitle(title) {
     return title;
 }
 
-function getLabels(data, country) {
+function getLabels(data) {
     let labels = _.union(['Under review'], _.intersection(['bug', 'idea', 'content', 'data content', 'question'], [data.type]));
-    if ( (data.type == 'question' || data.type == 'content') && country) {
-        labels.push(country);
+    if (data.publishingCountry) {
+        labels.push(data.publishingCountry);
     }
     return _.uniq(labels);
 }

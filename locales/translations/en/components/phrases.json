@@ -1,5 +1,7 @@
 {
   "phrases": {
+    "pleaseCiteAs": "Please use this citation in publications",
+    "copy": "Copy",
     "contactHelpdesk": "Contact helpdesk",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",

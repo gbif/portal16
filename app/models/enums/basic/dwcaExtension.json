@@ -20,6 +20,5 @@
     "http://rs.gbif.org/terms/1.0/Identifier",
     "http://rs.gbif.org/terms/1.0/Reference",
     "http://rs.tdwg.org/dwc/terms/ResourceRelationship",
-    "http://zooarchnet.org/dwc/terms/ChronometricAge",
-    "http://zooarchnet.org/dwc/terms/ChronometricDate"
+    "http://rs.tdwg.org/chrono/terms/ChronometricAge"
 ]

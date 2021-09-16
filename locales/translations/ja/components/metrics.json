@@ -42,7 +42,7 @@
     "noRankedAbove": "このチェックリストには種より上位の分類群ランクがありません。",
     "taxonomicOccDistribution": "オカレンスの分類学的分布",
     "groupByX": "{TYPE} 別のグループ",
-    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{その他または不明} other{その他または不明}}",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, plural, one{その他または不明} other{その他または不明}}",
     "unknownRank": "{RANK} 不明",
     "vernacularNames": "コモンネームまたは和名",
     "majorRanksPlural": {

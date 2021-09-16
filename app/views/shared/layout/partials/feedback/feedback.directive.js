@@ -86,7 +86,10 @@ function feedbackDirective(BUILD_VERSION) {
                 type: vm.selected,
                 form: formData,
                 datasetKey: vm.associatedDatasetKey,
-                publishingOrgKey: vm.associatedPublishingOrgKey
+                publishingOrgKey: vm.associatedPublishingOrgKey,
+                publishingCountry: vm.associatedPublishingCountry,
+                networkKeys: vm.associatedNetworkKeys,
+                mention: vm.associatedMention
             };
             $http.post('/api/feedback/bug', issue, {}).then(function(response) {
                 vm.referenceId = response.data.referenceId;
@@ -109,6 +112,9 @@ function feedbackDirective(BUILD_VERSION) {
                     vm.contentFeedback = response.data;
                     vm.associatedDatasetKey = response.data.datasetKey;
                     vm.associatedPublishingOrgKey = response.data.publishingOrgKey;
+                    vm.associatedPublishingCountry = response.data.publishingCountry;
+                    vm.associatedNetworkKeys = response.data.networkKeys;
+                    vm.associatedMention = response.data.mention;
                     vm.comments = vm.contentFeedback.comments;
                     if (_.get(vm, 'comments.count') > 0) {
                         vm.selected = vm.ISSUES;

@@ -16,7 +16,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceDownloadCustomCtrl($state, $scope, AUTH_EVENTS, $httpParamSerializer, $http, OccurrenceFilter, endpoints, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX) {
+function occurrenceDownloadCustomCtrl($state, $scope, AUTH_EVENTS, $httpParamSerializer, $http, OccurrenceFilter, endpoints, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX, $location, $rootScope) {
   var vm = this;
   vm.stateParams = $state;
   vm.downloadFormats = enums.downloadFormats;
@@ -30,6 +30,7 @@ function occurrenceDownloadCustomCtrl($state, $scope, AUTH_EVENTS, $httpParamSer
   vm.invalidInput = false;
   vm.predicateLoaded = false;
   vm.inEditMode = vm.input.length < 4;
+  var tabs = ['create', 'about'];
 
   $scope.$on('$includeContentError', function(event, args) {
     vm.invalidInput = true;
@@ -134,6 +135,15 @@ function occurrenceDownloadCustomCtrl($state, $scope, AUTH_EVENTS, $httpParamSer
       toastService.error({translate: 'phrases.criticalErrorMsg'});
     }
   };
+
+  function updateTab() {
+    vm.hash = tabs.indexOf($location.hash()) > -1 ? $location.hash() : 'create';
+  }
+  updateTab();
+
+  $rootScope.$on('$locationChangeSuccess', function() {
+      updateTab();
+  });
 }
 
 angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInstance, options) {

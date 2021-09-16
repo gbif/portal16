@@ -1,0 +1,26 @@
+<section class="horizontal-stripe light-background featuresBlockList">
+    <div class="container--desktop">
+      {% if main.fields.title and not main.fields.hideTitle %}
+        <h4 class="card-header--bold m-b-05">{$ main.fields.title $}</h2>
+      {% endif %}
+      <div class="featuresBlock featuresBlock-length-{$ main.fields.features.length $}">
+          {% for featureId in main.fields.features %}
+            {% set feature = resolved.Entry[featureId.sys.id] %}
+            {% set featureType = resolved.Entry[featureId.sys.id].sys.contentType.sys.id %}
+            {% if featureType == "News" %}
+              {% include "./features/news.nunjucks" %}
+            {% endif %}
+            {% if featureType == "DataUse" %}
+              {% include "./features/dataUse.nunjucks" %}
+            {% endif %}
+            {% if featureType == "Event" %}
+              {% include "./features/event.nunjucks" %}
+            {% endif %}
+            {% if featureType == "feature" %}
+              {% include "./features/feature.nunjucks" %}
+            {% endif %}
+
+          {% endfor %}
+      </div>
+    </div>
+</section>

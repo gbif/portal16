@@ -6,6 +6,7 @@
         "searchForNewsEventsDocuments": "搜索新闻, 事件, 文件和更多。 如果你在找物种出现记录，那么试试我们的物种记录搜索。",
         "occurrenceSearch": "出现记录搜索",
         "subscribeToCalendar": "订阅日历",
+        "suggestEvent": "建议事件",
         "citationExplainer": "阅读更多相关文献，其是如何被发现并与由GBIF介导的数据联系起来。",
         "types": {
             "events": "事件",
@@ -34,6 +35,7 @@
             "peerReview": "同行评审",
             "openAccess": "开放访问",
             "gbifDownloadKey": "下载密钥",
+            "gbifDerivedDatasetDoi": "派生的数据集DOI",
             "paperDoi": "数字对象标识符",
             "litSource": "期刊",
             "litPublisher": "期刊发布者"

@@ -11,11 +11,26 @@ let queryResolver = {
         url: apiConfig.dataset.url,
         field: 'title'
     },
+    institutionKey: {
+      type: 'ENDPOINT',
+      url: apiConfig.institution.url,
+      field: 'name'
+    },
+    collectionKey: {
+      type: 'ENDPOINT',
+      url: apiConfig.collection.url,
+      field: 'name'
+    },
     publishingOrg: {
         type: 'ENDPOINT',
         url: apiConfig.publisher.url,
         field: 'title'
     },
+    networkKey: {
+      type: 'ENDPOINT',
+      url: apiConfig.network.url,
+      field: 'title'
+  },
     year: {
         type: 'ENUM',
         valueTranslation: 'intervals.year.'

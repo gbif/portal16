@@ -1,11 +1,12 @@
 {
     "resourceSearch": {
-        "title": "",
+        "title": "Поиск материалов",
         "upcoming": "Предстоящие",
         "past": "Прошедшие",
         "searchForNewsEventsDocuments": "Здесь Вы можете найти новости, информацию о мероприятиях, разнообразные документы и многое другое. Для поиска информации о находках видов перейдите в соответствующий раздел.",
         "occurrenceSearch": "Поиск находок",
         "subscribeToCalendar": "Подписаться на календарь мероприятий",
+        "suggestEvent": "",
         "citationExplainer": "Узнайте больше о том, как  отслеживается использование данных GBIF в публикациях",
         "types": {
             "events": "Мероприятия",
@@ -34,6 +35,7 @@
             "peerReview": "Рецензируемая публикация",
             "openAccess": "В открытом доступе",
             "gbifDownloadKey": "Ключ для получения файла",
+            "gbifDerivedDatasetDoi": "",
             "paperDoi": "",
             "litSource": "Журнал",
             "litPublisher": "Издательство"

@@ -1,5 +1,7 @@
 {
   "phrases": {
+    "pleaseCiteAs": "",
+    "copy": "复制",
     "contactHelpdesk": "联系服务台",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "全球生物多样性信息网络。自由且公开存取的生物多样性数据。",

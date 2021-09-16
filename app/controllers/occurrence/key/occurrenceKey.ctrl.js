@@ -5,11 +5,25 @@ let express = require('express'),
     request = rootRequire('app/helpers/request'),
     querystring = require('querystring'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
+    utils = rootRequire('app/helpers/utils'),
     router = express.Router({caseSensitive: true});
 
 module.exports = function(app) {
     app.use('/', router);
 };
+
+router.get('/occurrence/:datasetKey/:occurrenceId', function(req, res, next) {
+  let datasetKey = req.params.datasetKey;
+  if (!utils.isGuid(datasetKey)) {
+      next();
+      return;
+  }
+  getByDatasetOccurrenceId(datasetKey, req.params.occurrenceId)
+    .then(function(body) {
+      res.redirect(302, res.locals.gb.locales.urlPrefix + '/occurrence/' + body.key);
+    })
+    .catch(next);
+});
 
 router.get('/occurrence/:key(\\d+).:ext?', render);
 router.get('/occurrence/:key(\\d+)/cluster.:ext?', render);
@@ -112,4 +126,18 @@ async function occurrenceSearchFirst(query) {
         throw response;
     }
     return response.body;
+}
+
+async function getByDatasetOccurrenceId(datasetKey, occurrenceId) {
+  let baseRequest = {
+      url: apiConfig.occurrence.url + datasetKey + '/' + occurrenceId,
+      method: 'GET',
+      json: true,
+      fullResponse: true
+  };
+  let response = await request(baseRequest);
+  if (response.statusCode != 200) {
+      throw response;
+  }
+  return response.body;
 }

@@ -1,0 +1,26 @@
+.featureBlock {
+  margin-top: -15px;
+}
++isAbove(400px) {
+    .featureBlock {
+        margin-left: (-($halfGutter / 2))
+        margin-right: (-($halfGutter / 2))
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        .article-box {
+            margin $halfGutter ($halfGutter/ 2)
+            flex 0 1 auto
+            width "calc(100% / 2 - %s)" % ($halfGutter)
+        }
+    }
+}
+
++isAbove(550px) {
+    .featureBlock {
+        .article-box {
+            width "calc(100% / 3 - %s)" % ($halfGutter)
+            flex 0 1 auto
+        }
+    }
+}

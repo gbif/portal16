@@ -11,7 +11,8 @@
 
         <div ng-if="vm.query.length > 0" class="is-padded">
             <div class="checkbox" ng-repeat="key in vm.query">
-                <label>
+            <ng-include ng-if="vm.filterConfig.search.suggestTitleTemplate" src="vm.filterConfig.search.suggestTitleTemplate"></ng-include>
+                <label ng-if="!vm.filterConfig.search.suggestTitleTemplate">
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key"
                            ng-change="vm.remove(key, checked)">
                     <span class="filter-group__filter__name">

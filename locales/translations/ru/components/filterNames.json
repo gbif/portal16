@@ -1,6 +1,6 @@
 {
   "filterNames": {
-    "occurrenceStatus": "",
+    "occurrenceStatus": "Статус находки",
     "month": "Месяц",
     "catalogNumber": "Номер в каталоге",
     "year": "Год",
@@ -15,10 +15,10 @@
     "mediaType": "Тип медиа-файла",
     "recordedBy": "Автор находки",
     "recordedById": "",
-    "identifiedBy": "",
+    "identifiedBy": "Кем определено",
     "identifiedById": "",
     "eventDate": "Дата",
-    "eventID": "ID сбора или описания (Event)",
+    "eventId": "ID описания, учёта или сбора",
     "samplingProtocol": "Методика сбора данных",
     "location": "Местоположение",
     "coordinateUncertaintyInMeters": "Неопределенность координат в метрах",
@@ -69,11 +69,11 @@
     "sampleSizeValue": "Объём (размер) описания, учёта или сбора",
     "sampleSizeUnit": "Единица измерения объёма (размера) описания, учёта или сбора",
     "relativeOrganismQuantity": "Относительное обилие вида",
-    "collectionKey": "",
+    "collectionKey": "Коллекция",
     "institutionKey": "Организация",
     "gadmGid": "",
-    "lifeStage": "",
+    "lifeStage": "Стадия жизненного цикла",
     "dwcaExtension": "",
-    "isClustered": ""
+    "isInCluster": ""
   }
 }

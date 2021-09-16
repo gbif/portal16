@@ -20,7 +20,8 @@ const schema = Joi.alternatives().try(
   Joi.object({
     type: Joi.string().valid('equals').required(),
     key: Joi.string().required(),
-    value: Joi.alternatives().try(Joi.string(), Joi.number(), Joi.bool()).required()
+    value: Joi.alternatives().try(Joi.string(), Joi.number(), Joi.bool()).required(),
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
   }),
   Joi.object({
     type: Joi.string().valid('greaterThan').required(),
@@ -49,17 +50,23 @@ const schema = Joi.alternatives().try(
   }),
   Joi.object({
     type: Joi.string().valid('isNotNull').required(),
-    key: Joi.string().required()
+    parameter: Joi.string().required()
+  }),
+  Joi.object({
+    type: Joi.string().valid('isNull').required(),
+    parameter: Joi.string().required()
   }),
   Joi.object({
     type: Joi.string().valid('like').required(),
     key: Joi.string().required(),
-    value: Joi.string().required()
+    value: Joi.string().required(),
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
   }),
   Joi.object({
     type: Joi.string().valid('in').required(),
     key: Joi.string().required(),
-    values: Joi.array().required().items(Joi.alternatives().try(Joi.string(), Joi.number(), Joi.bool()))
+    values: Joi.array().required().items(Joi.alternatives().try(Joi.string(), Joi.number(), Joi.bool())),
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
   })
 ).id('predicateItem');
 
@@ -111,6 +118,7 @@ let allowedKeys = [
   'CATALOG_NUMBER',
   'CLASS_KEY',
   'COLLECTION_CODE',
+  'COLLECTION_KEY',
   'CONTINENT',
   'COORDINATE_UNCERTAINTY_IN_METERS',
   'COUNTRY',
@@ -136,6 +144,7 @@ let allowedKeys = [
   'IDENTIFIED_BY',
   'IDENTIFIED_BY_ID',
   'INSTITUTION_CODE',
+  'INSTITUTION_KEY',
   'ISSUE',
   'KINGDOM_KEY',
   'LAST_INTERPRETED',
@@ -173,6 +182,8 @@ let allowedKeys = [
   'VERBATIM_SCIENTIFIC_NAME',
   'VERBATIM_TAXON_ID',
   'WATER_BODY',
-  'YEAR'
+  'YEAR',
+  'HOSTING_ORGANIZATION_KEY',
+  'IS_IN_CLUSTER'
 ];
 

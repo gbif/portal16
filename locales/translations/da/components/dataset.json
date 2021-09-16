@@ -79,9 +79,9 @@
     "eventDescription": "Event beskrivelse",
     "siblingEvents": "Søskende events",
     "childEvents": "Underordnede events",
-    "events": "",
+    "events": "Arrangementer",
     "occurrenceCount": "Antal observationer",
-    "inDataset": "",
+    "inDataset": "I",
     "samplingArticleLink": ""
   }
 }

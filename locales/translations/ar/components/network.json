@@ -6,7 +6,7 @@
       "homepage": "الصفحة الرئيسية",
       "metrics": "مقاييس",
       "datasets": "شبكة",
-      "publishers": ""
+      "publishers": "الناشرون"
     },
     "registeredDate": "مُسجَّل {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} مشاركة {NUMBER, plural, 1 {مجموعة بيانات} other{مجموعات بيانات}}",

@@ -1,6 +1,6 @@
 {
   "search": {
-    "title": "",
+    "title": "Søg",
     "placeholder": "Observationer, arter, nyheder ...",
     "noSearchTermsEntered": "Intet søgeord indtastet",
     "notSureWhatYouAreLookingFor": "Ikke sikker på hvad du leder efter? Hvad med nogle billeder fra observationer",
@@ -18,6 +18,8 @@
     "filters": "Filtre",
     "simple": "Simple",
     "advanced": "Avanceret",
+    "backbone": "",
+    "allChecklists": "",
     "allResultTypes": "Alle",
     "suggestions": "Forslag",
     "header": {

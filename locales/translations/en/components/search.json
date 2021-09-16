@@ -18,6 +18,8 @@
     "filters": "Filters",
     "simple": "Simple",
     "advanced": "Advanced",
+    "backbone": "Backbone",
+    "allChecklists": "All Checklists",
     "allResultTypes": "All",
     "suggestions": "Suggestions",
     "header": {
