@@ -794,7 +794,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
   vm.filters.coordinateUncertaintyInMeters = {
     titleTranslation: 'filterNames.coordinateUncertaintyInMeters',
     intervalTranslation: 'intervals.coordinateUncertaintyInMeters.',
-    queryKey: 'coordinateUncertaintyInMeters',
+    queryKey: 'coordinate_uncertainty_in_meters',
     filter: OccurrenceFilter,
     range: {
       'min': [0, 1],
