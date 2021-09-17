@@ -107,7 +107,7 @@
 
         <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
 
-        <div filter-enum filter-config="occurrence.filters.iucnRedListCategory" filter-state="occurrence.occurrenceState"></div>
+        <div ng-if="portal.isSecretariatUser()" filter-enum filter-config="occurrence.filters.iucnRedListCategory" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-suggest filter-config="occurrence.filters.recordedBy" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
