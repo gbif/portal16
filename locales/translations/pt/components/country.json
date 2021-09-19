@@ -28,7 +28,7 @@
     "notParticipantDescription": "Este país não é um participante do GBIF",
     "countryNamingDisclaimer": "Nomes de países e regiões são baseados em [norma ISO 3166-1](https://www.iso.org/obp/ui/#search)",
     "counts": {
-      "occurrences": "Ocorrências",
+      "occurrences": "{NUMBER, plural,\n0 {Ocorrências}\none {Ocorrência}\nfew {Ocorrências}\nmany {Ocorrências}\nother {Ocorrências}\n}",
       "datasets": "Conjuntos de dados",
       "publishers": "Publicadores",
       "countriesAndAreasContributeData": "Países e áreas que contribuem com dados",
