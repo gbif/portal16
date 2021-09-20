@@ -35,9 +35,9 @@
           "Nodes guidance": "Guia para Nós"
         },
         "projectGrantType": {
-          "REGIONAL": "Prémio regional",
-          "SMALL": "Pequeno prémio",
-          "NATIONAL": "Prémio nacional",
+          "REGIONAL": "Subvenção regional de mobilização de dados de biodiversidade",
+          "SMALL": "Subvenção institucional de mobilização de dados de biodiversidade",
+          "NATIONAL": "Subvenção nacional de mobilização de dados de biodiversidade",
           "DATA_USE": "",
           "undefined": "Não especificado"
         },

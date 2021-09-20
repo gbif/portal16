@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{registo georreferenciado} other{registos georeferenciados}}",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, plural, 1{registo georreferenciado} other{registos georeferenciados}}",
     "noOccurrencesWithCoordinates": "Nenhuma ocorrência com coordenadas",
     "clickToSearchArea": "Clique para pesquisar uma área",
     "generatedDateAgo": "Gerada {DATE_AGO}",

@@ -2,7 +2,7 @@
   "derivedDatasetKey": {
     "nRecordsAtTime": "{NUMBER_FORMATTED} {NUMBER, plural, one{registo} other{registos}} deste conjunto de dados",
     "derivedDataset": "Conjunto de dados derivado",
-    "sourceUrl": "Descarregar conjunto de dados derivado",
+    "sourceUrl": "Aceder a conjunto de dados derivado",
     "headlineDatasets": "Registos de {NUMBER_FORMATED} {NUMBER, plural, one{dataset} other{datasets}} no conjunto de dados derivado",
     "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{occurrence} other{occurrences}} no conjunto de dados derivado",
     "title": "Título",
@@ -10,11 +10,11 @@
     "originalDownloadDOI": ""
   },
   "downloadKey": {
-    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registo} other{registos}} transferidos",
-    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registo} other{registos}} transferidos",
-    "nConstituentDatasets": "Inclui registos de {NUMBER_FORMATTED} {NUMBER, select, one{conjunto de dados} other{conjuntos de dados}}",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{ocorrência incluída} other{ocorrências incluídas}} na transferência",
+    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{registo incluido} other{registos incluidos}} na transferência",
+    "nConstituentDatasets": "Inclui registos de {NUMBER_FORMATTED} {NUMBER, plural, one{conjunto de dados} other{conjuntos de dados}}",
     "fileNotAvailable": "Este ficheiro não está mais disponível para transferência",
-    "downloadDeletionWarning": "Esta transferência não foi citada e é elegível para exclusão após {DATE}.",
+    "downloadDeletionWarning": "A menos que [o GBIF descubra citações](/literature-tracking) deste download, o arquivo de dados é elegível para exclusão após {DATE}.",
     "occurrenceDownload": "Transferência de ocorrência",
     "brokenDownload": "Transferência interrompida",
     "contactHelpdesk": "Contate o serviço de assistência técnica",
@@ -32,7 +32,7 @@
     "underProcessing": "A processar",
     "citation": "Citações",
     "format": "Formato",
-    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, select, one{registo} other{registos}} no momento da transferência",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{registo} other{registos}} no momento da transferência",
     "aboutDeletionPolicy": "Leia mais sobre nossa [deletion policy](/faq?question=for-how-long-will-does-gbif-store-downloads).",
     "readDatauseAndTerms": "Certifique-se de ler o [acordo de utilizadores de dados](/termos/utilizador-dados) e [guia para citação](/citação-guia).",
     "filterApplied": "Filtro aplicado {DATE}",
@@ -41,13 +41,13 @@
     "deleteDownload": "Remover transferência",
     "tellUs": "Diga-nos sobre o uso",
     "downloadKilled": "A transferência solicitata não teve sucesso. Por favor tente outra vez, ou entre em contato.",
-    "downloadDeleted": "Este ficheiro foi apagado. Se precisar de restaurá-lo, por favor entre em contato.",
+    "downloadDeleted": "Este ficheiro foi apagado. Pode ainda aceder aos metadados da pesquisa original e voltar a corrê-la para obter os dados actualmente disponíveis.",
     "storageDurationTeaser": "Durante quanto tempo o GBIF irá armazenar os dados?",
-    "predatesDoi": "Esta transferência é anterior ao nosso uso de DOIs",
+    "predatesDoi": "Esta transferência é anterior ao nosso uso de DOIs. Por favor contacte-nos se deseja citar esta transferência",
     "file": "Ficheiro",
     "constituentDatasets": "Conjuntos de dados envolvidos",
     "noFiltersApplied": "Filtros não utilizados",
-    "apiUsageDescription": "Para repetir a transferência com os dados de hoje utilizando o API pode usar a query abaixo.",
+    "apiUsageDescription": "Para repetir a transferência com os dados atuais, pode usar a pesquisa abaixo com o API.",
     "apiFilterView": "API",
     "humanFilterView": "Humano",
     "downloadStarted": "A transferência foi iniciada e está atualemente em processamento.",
@@ -70,7 +70,7 @@
       "or": "Ou",
       "not": "Não",
       "isNotNull": "Está definido",
-      "isNull": ""
+      "isNull": "Não está definido"
     }
   },
   "myDownloads": {

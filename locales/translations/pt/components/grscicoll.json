@@ -19,7 +19,7 @@
       "true": "Sim",
       "false": "Não"
     },
-    "accessionStatus": "Status de ingestão",
+    "accessionStatus": "Status de acessão",
     "contentTypes": "Tipos de conteúdo",
     "preservationTypes": "Tipos de Preservação",
     "homepage": "Página inicial",
@@ -37,8 +37,8 @@
   "institution": {
     "title": "Instituição",
     "search": {
-      "title": "Instituição",
-      "description": "**Instituição** refere-se a qualquer instituição ou organização que possui e gere coleções científicas. Isso inclui herbaria, museus, zoos, jardins botânicos, bio bancos, entre outros. Uma instituição pode conter múltiplas coleções, caso em que essas devem ser inseridas individualmente através de **Coleções institucionais/projectos**  e ligadas à instituição-mãe.\n\nDevido à integração de vários conjuntos de dados antigos, e para evitar duplicações de *CódigoInstitucional**, <IH> foi anexado a todos os códigos do Index Herbariorum Herbarium."
+      "title": "Instituições",
+      "description": "**Instituição** refere-se a qualquer instituição ou organização que possui e gere coleções científicas. Isso inclui herbaria, museus, zoos, jardins botânicos, biobancos, entre outros. Uma instituição pode conter múltiplas coleções, e nesse caso essas devem ser inseridas individualmente através de **Coleções institucionais/projectos**  e ligadas à instituição-mãe."
     },
     "tabs": {
       "summary": "Sumário",

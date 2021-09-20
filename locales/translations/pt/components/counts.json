@@ -1,11 +1,11 @@
 {
     "counts": {
-        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{citação} other{citações}}",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, plural, one{citação} other{citações}}",
         "pCitations": "{NUMBER, plural, one{citação} other{citações}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, plural, 1{registo} other{registos}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultado} other{resultados}}",
-        "nCollections": "",
-        "nInstitutions": "",
+        "nCollections": "{NUMBER_FORMATED} {NUMBER, plural, one{coleção} other{coleções}}",
+        "nInstitutions": "{NUMBER_FORMATED} {NUMBER, plural, one{Instituição} other{Instituições}}",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select, 1{evento} other{eventos}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 1{instalação} other{instalações}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 1{ocorrência} other{ocorrências}}",
@@ -24,7 +24,7 @@
         "pInfraspecies": "{NUMBER, select, 1{infraespécies} other{infraespécies}}",
         "pPublishers": "{NUMBER, select, 1{publicador} other{publicadores}}",
         "contacts": "{NUMBER, select, 1{contato} other{contatos}}",
-        "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{tratamento} other{tratamento}}",
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, one{tratamento} other{tratamentos}}",
         "nImages": "{NUMBER_FORMATED} com {NUMBER, select, 1{imagem} other{imagens}}"
     }
 }
