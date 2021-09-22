@@ -749,7 +749,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
         return item.name + ' - ' + item.id;
       },
       suggestShortName: 'name',
-      suggestKey: 'id'
+      suggestKey: 'id',
+      defaultParams: {limit: 100}
     }
   };
 
