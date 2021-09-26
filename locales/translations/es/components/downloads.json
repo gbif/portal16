@@ -1,7 +1,7 @@
 {
   "derivedDatasetKey": {
     "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{registro biológico} other{registros biológicos}} en este conjunto de datos",
-    "derivedDataset": "Dataset derivado",
+    "derivedDataset": "Conjunto de datos derivado",
     "sourceUrl": "Descargar conjunto de datos derivado",
     "headlineDatasets": "Registros biológicos de {NUMBER_FORMATED} {NUMBER, plural, one{conjunto de datos} other{conjuntos de datos}} en el conjunto de datos derivado",
     "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{registro biológico} other{registros biológicos}} en el conjunto de datos derivado",
