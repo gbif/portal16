@@ -1,21 +1,21 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{registro biológico} other{registros biológicos}} en este conjunto de datos",
     "derivedDataset": "Dataset derivado",
     "sourceUrl": "Descargar conjunto de datos derivado",
-    "headlineDatasets": "",
-    "headlineOccurrences": "",
+    "headlineDatasets": "Registros biológicos de {NUMBER_FORMATED} {NUMBER, plural, one{conjunto de datos} other{conjuntos de datos}} en el conjunto de datos derivado",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{registro biológico} other{registros biológicos}} en el conjunto de datos derivado",
     "title": "Título",
     "description": "Descripción",
     "originalDownloadDOI": ""
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registro} other{registros}} descargados",
-    "nRecordsDownloaded": "{NUMBER_FORMATED} {NUMBER, plural, one{registro biológico} other{registros biológicos}}  en la descarga",
+    "nRecordsDownloaded": "{NUMBER_FORMATED} {NUMBER, plural, one{registro biológico} other{registros biológicos}} en la descarga",
     "nConstituentDatasets": "Incluye registros de {NUMBER_FORMATTED} {NUMBER, select, one{conjunto de datos} other{conjuntos de datos}}",
     "fileNotAvailable": "El archivo ya no está disponible para descarga",
     "downloadDeletionWarning": "Esta descarga no se ha citado y es posible eliminarla despues de {DATE}.",
-    "occurrenceDownload": "Descarga de datos de presencia",
+    "occurrenceDownload": "Descarga de registros biológicos",
     "brokenDownload": "Descarga interrumpida",
     "contactHelpdesk": "Contacta con el servicio de asistencia técnica",
     "cancelled": "Cancelada",
