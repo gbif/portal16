@@ -88,7 +88,10 @@ function userProfileCtrl($cookies, User, BUILD_VERSION, LOCALE, regexPatterns, $
             vm.profileFormInvalid = false;
             User.update(vm.profile)
                 .then(function() {
-                    toastService.error({translate: 'profile.accountInfoUpdated'});
+                    if (vm.original.email !== vm.profile.email) {
+                      toastService.warning({translate: 'profile.verficationLinkSent'});
+                    }
+                    toastService.info({translate: 'profile.accountInfoUpdated'});
                     vm.original = JSON.parse(JSON.stringify(vm.profile));
                     vm.inEditMode = false;
                     vm.editModeChanged();
