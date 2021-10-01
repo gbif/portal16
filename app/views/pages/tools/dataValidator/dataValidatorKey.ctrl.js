@@ -14,20 +14,33 @@ angular
     .controller('dataValidatorKeyCtrl', dataValidatorKeyCtrl);
 
 /** @ngInject */
-function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env, LOCALE_MAPPINGS, LOCALE) {
+function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env, LOCALE_MAPPINGS, LOCALE) {
     var vm = this;
     vm.moment = moment;
     vm.dataApi = env.dataApi;
     vm.$state = $state;
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
-    vm.resourceToValidate = {};
+    
+    // *********** set basic auth for dev purposes
 
+    if (window.location.search) {
+        var params = window.location.search.substring(1).split('&');
+        var query = {};
+        for (var i = 0; i < params.length; i++) {
+            var param = params[i].split('=');
+            if (param.length === 2) {
+                query[param[0]] = param[1];
+            }
+        }
+        if (query.basic) {
+            vm.forDevelopmentOnlyAuth = query.basic;
+        }
+    }
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
     vm.remarks = {};
     vm.criticalIssues = {};
     vm.dwcextensions = DwcExtension.get();
-
     Remarks.then(function(response) {
         vm.remarks = {};
         response.data.map(function(remark) {
@@ -46,13 +59,19 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
 
     vm.getValidationResults = function(jobid) {
-        $http.get(
+        /* $http.get(
             vm.dataApi + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
 
-        ).success(function(data) {
-            vm.startTimestamp = moment(data.startTimestamp).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().fromNow();
-            vm.generatedDateFormatted = moment(data.startTimestamp).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('MMMM Do YYYY, h:mm a');
-            vm.generatedDate = moment(data.startTimestamp).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('LL');
+        ) */
+        $http({
+            method: 'GET',
+            url: vm.dataApi + 'validation/' + jobid,
+            headers: {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth}
+        })
+        .success(function(data) {
+            vm.startTimestamp = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().fromNow();
+            vm.generatedDateFormatted = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('MMMM Do YYYY, h:mm a');
+            vm.generatedDate = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('LL');
            handleValidationSubmitResponse(data);
         }).error(function(err, status) { // data, status, headers, config
             if ((err && err.statusCode === 404) || status === 404) {
@@ -86,12 +105,14 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     vm.retries404 = 10;
     function handleValidationSubmitResponse(data) {
         vm.jobStatus = data.status;
-        if ((data.status === 'RUNNING' || data.status === 'ACCEPTED' || data.status === 'NOT_FOUND') && data.jobId) {
+        vm.steps = _.get(data, 'metrics.stepTypes', []);
+
+        if ((data.status === 'QUEUED' || data.status === 'RUNNING' || data.status === 'SUBMITTED' || data.status === 'ACCEPTED' || data.status === 'NOT_FOUND') && data.key) {
             /* currently the validator webservice may return 404 and then after a few attempts it will return 200
                 We give it 5 attempts before throwing 404
 
              */
-            vm.jobId = data.jobId;
+            vm.jobId = data.key;
             if (data.status === 'NOT_FOUND') {
                 vm.retries404--;
             } else {
@@ -104,12 +125,12 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
                         handleWSError(data, 404);
                     } else {
-                        $sessionStorage.gbifRunningValidatonJob = data.jobId;
+                        $sessionStorage.gbifRunningValidatonJob = data.key;
                         // pretend the job is running if we haven´t reached 404 retry limit
                         if (data.status === 'NOT_FOUND' && vm.retries404 > 0) {
                             vm.jobStatus = 'CONTACTING_SERVER';
                         }
-                        if (data.status === 'RUNNING' && data.result) {
+                        if (data.status === 'RUNNING' || data.status === 'SUBMITTED' && data.result) {
                             vm.dwcextensions.$promise.then(function() {
                                 handleValidationResult(data);
                             });
@@ -122,7 +143,8 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
             }, 1000);
         } else if (data.status === 'FAILED') {
             delete $sessionStorage.gbifRunningValidatonJob;
-            handleFailedJob(data);
+           // handleFailedJob(data);
+           handleValidationResult(data);
         } else if (data.status === 'FINISHED') {
             delete $sessionStorage.gbifRunningValidatonJob;
 
@@ -152,9 +174,10 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
     vm.getIssueSeverity = getIssueSeverity;
 
     function handleValidationResult(responseData) {
-        var data = responseData.result;
-
-        data.results.sort(function(a, b) {
+        var data = responseData.metrics;
+        vm.steps = _.get(data, 'stepTypes', []);
+        vm.file = _.get(responseData, 'file');
+        data.files.sort(function(a, b) {
             if (a.fileType === 'CORE' && b.fileType !== 'CORE') {
                 return -1;
             } else if (a.fileType !== 'CORE' && b.fileType === 'CORE') {
@@ -166,10 +189,10 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
         vm.extensionCount = 0;
 
-        for (var i = 0; i < data.results.length; i++) {
-            if (data.results[i].fileType === 'CORE') {
-                vm.coreDataType = data.results[i].rowType;
-            } else if (data.results[i].fileType === 'EXTENSION') {
+        for (var i = 0; i < data.files.length; i++) {
+            if (data.files[i].fileType === 'CORE') {
+                vm.coreDataType = data.files[i].rowType;
+            } else if (data.files[i].fileType === 'EXTENSION') {
                 vm.extensionCount++;
             }
         }
@@ -181,7 +204,7 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
         vm.validationResults.summary.issueTypesFound = {};
         vm.unknownTermMap = {};
 
-        angular.forEach(data.results, function(resourceResult) {
+        angular.forEach(data.files, function(resourceResult) {
             var vmResourceResult = _.omit(resourceResult, 'issues');
             // the order of the evaluationCategory is important
             vmResourceResult.issues = _.orderBy(resourceResult.issues, function(value) {
@@ -258,15 +281,15 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
                 // rewrite sample to exclude redundant information (e.g. evaluationType)
 
-                issueBlock = _.omit(value, 'sample');
-                angular.forEach(value.sample, function(sample) {
-                    this.sample = this.sample || [];
+                issueBlock = value; // _.omit(value, 'samples');
+ /*                angular.forEach(value.samples, function(sample) {
+                    this.samples = this.samples || [];
                     issueSample = {};
                     issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);
                     issueSample.relatedData = sample.relatedData;
                     issueSample.allData = _.assign({}, issueSample.issueData, issueSample.relatedData);
-                    this.sample.push(issueSample);
-                }, issueBlock);
+                    this.samples.push(issueSample);
+                }, issueBlock); */
 
                 if (issueBlock.related) {
                     issueBlock.sample = _.sortBy(issueBlock.sample, [function(o) {
@@ -275,13 +298,15 @@ function dataValidatorKeyCtrl($http, $stateParams, $state, $timeout, DwcExtensio
 
                     ]);
                 }
-
-
-                if (issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData && issueBlock.sample[0].relatedData) {
-                    issueBlock.headers = Object.keys(issueBlock.sample[0].issueData).concat(Object.keys(issueBlock.sample[0].relatedData));
-                } else if (issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData) {
-                    issueBlock.headers = Object.keys(issueBlock.sample[0].issueData);
+                if (issueBlock.samples && issueBlock.samples.length === 0) {
+                    delete issueBlock.samples;
                 }
+
+              /*   if (issueBlock.samples && issueBlock.samples.length > 0 && issueBlock.samples[0].issueData && issueBlock.samples[0].relatedData) {
+                    issueBlock.headers = Object.keys(issueBlock.samples[0].issueData).concat(Object.keys(issueBlock.samples[0].relatedData));
+                } else if (issueBlock.samples && issueBlock.samples.length > 0 && issueBlock.samples[0].issueData) {
+                    issueBlock.headers = Object.keys(issueBlock.samples[0].issueData);
+                } */
 
                 this[value.issueCategory].push(issueBlock);
             }, vmResourceResult.issuesMap);

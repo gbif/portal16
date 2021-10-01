@@ -4,6 +4,7 @@ var fixedUtil = require('../../dataset/key/main/submenu');
 
 require('../../../components/fileUpload/fileUpload.directive');
 require('./feedback.service');
+require('./intro/steps.directive');
 var _ = require('lodash');
 
 angular
@@ -11,7 +12,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($scope, $http, $state, $sessionStorage, User, AUTH_EVENTS, validatorFeedbackService, env) {
+function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, User, AUTH_EVENTS, validatorFeedbackService, env, Upload) {
     var vm = this;
     vm.dataApi = env.dataApi;
 
@@ -19,16 +20,58 @@ function dataValidatorCtrl($scope, $http, $state, $sessionStorage, User, AUTH_EV
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
 
     vm.resourceToValidate = {};
+    // *********** set basic auth for dev purposes
+    if (window.location.search) {
+        var params = window.location.search.substring(1).split('&');
+        var query = {};
+        for (var i = 0; i < params.length; i++) {
+            var param = params[i].split('=');
+            if (param.length === 2) {
+                query[param[0]] = param[1];
+            }
+        }
+        if (query.basic) {
+            vm.forDevelopmentOnlyAuth = query.basic;
+        }
+    }
+
+
     vm.handleUploadFile = function(params) {
+        // start upload
+        vm.uploadProcess = Upload.upload({
+            url: vm.dataApi + 'validation',
+           // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
+            headers: {'Authorization': 'Basic '+vm.forDevelopmentOnlyAuth},
+            data: {
+                file: params.files
+            },
+            arrayKey: ''
+        });
+
+        vm.uploadProcess.then(function(response) {
+            $timeout(function() {
+                $state.go('dataValidatorKey', {jobid: response.data.key});
+                //vm.state = vm.states.UPLOADED;
+                //vm.result = response.data;
+            });
+        }, function(response) {
+            $timeout(function() {
+                handleFailedJob(response.data)
+            });
+        }, function(evt) {
+            vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+    };
+/*     vm.handleUploadFile = function(params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
         vm.jobStatus = 'SUBMITTED';
         $http({
-            url: vm.dataApi + 'validator/jobserver/submit',
+            url: vm.dataApi + 'validation', // 'validator/jobserver/submit',
             method: 'POST',
             data: formData,
             transformRequest: angular.identity,
-            headers: {'Content-Type': undefined},
+            headers: {'Content-Type': 'multipart/form-data', 'Authorization': 'Bearer ' + User.getAuthToken()},
             transformResponse: function(response, headersGetter, status) {
                 return (status !== 415) ? JSON.parse(response) : {message: response};
             }
@@ -37,7 +80,7 @@ function dataValidatorCtrl($scope, $http, $state, $sessionStorage, User, AUTH_EV
         }).error(function(data, status) {
             handleWSError(data, status);
         });
-    };
+    }; */
 
     vm.handleFileUrl = function(params) {
         vm.jobStatus = 'FETCHING';
