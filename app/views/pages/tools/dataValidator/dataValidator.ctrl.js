@@ -41,7 +41,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
         vm.uploadProcess = Upload.upload({
             url: vm.dataApi + 'validation',
            // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
-            headers: {'Authorization': 'Basic '+vm.forDevelopmentOnlyAuth},
+            headers: {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth},
             data: {
                 file: params.files
             },
@@ -51,12 +51,15 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
         vm.uploadProcess.then(function(response) {
             $timeout(function() {
                 $state.go('dataValidatorKey', {jobid: response.data.key});
-                //vm.state = vm.states.UPLOADED;
-                //vm.result = response.data;
+                // vm.state = vm.states.UPLOADED;
+                // vm.result = response.data;
             });
         }, function(response) {
+            if (response.status === 403) {
+                alert('Auth failed, please use ?basic=xxxxxxxxxx for testing :-)');
+            }
             $timeout(function() {
-                handleFailedJob(response.data)
+                handleFailedJob(response.data);
             });
         }, function(evt) {
             vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
@@ -82,16 +85,47 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
         });
     }; */
 
-    vm.handleFileUrl = function(params) {
+    /* vm.handleFileUrl = function(params) {
         vm.jobStatus = 'FETCHING';
-        var url = vm.dataApi + 'validator/jobserver/submiturl';
-        $http({url: url, params: params, method: 'POST'})
+        var url = vm.dataApi + 'validation/url'; // 'validator/jobserver/submiturl';
+        var formData = new FormData();
+        formData.append('fileUrl', params.fileUrl);
+        $http({url: url, method: 'POST', data: formData, headers: {'Content-Type': 'multipart/form-data', 'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth}})
             .success(function(data, status) {
                 handleValidationSubmitResponse(data, status);
             })
             .error(function(data, status) {
                 handleWSError(data, status);
             });
+    }; */
+
+    vm.handleFileUrl = function(params) {
+        vm.uploadProcess = Upload.upload({
+            url: vm.dataApi + 'validation/url',
+           // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
+            headers: {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth},
+            data: {
+                fileUrl: params.fileUrl
+            },
+            arrayKey: ''
+        });
+
+        vm.uploadProcess.then(function(response) {
+            $timeout(function() {
+                $state.go('dataValidatorKey', {jobid: response.data.key});
+                // vm.state = vm.states.UPLOADED;
+                // vm.result = response.data;
+            });
+        }, function(response) {
+            if (response.status === 403) {
+                alert('Auth failed, please use ?basic=xxxxxxxxxx for testing :-)');
+            }
+            $timeout(function() {
+                handleFailedJob(response.data);
+            });
+        }, function(evt) {
+            vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
     };
 
 

@@ -107,7 +107,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
         vm.jobStatus = data.status;
         vm.steps = _.get(data, 'metrics.stepTypes', []);
 
-        if ((data.status === 'QUEUED' || data.status === 'RUNNING' || data.status === 'SUBMITTED' || data.status === 'ACCEPTED' || data.status === 'NOT_FOUND') && data.key) {
+        if ((data.status === 'DOWNLOADING' || data.status === 'QUEUED' || data.status === 'RUNNING' || data.status === 'SUBMITTED' || data.status === 'ACCEPTED' || data.status === 'NOT_FOUND') && data.key) {
             /* currently the validator webservice may return 404 and then after a few attempts it will return 200
                 We give it 5 attempts before throwing 404
 
@@ -130,7 +130,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
                         if (data.status === 'NOT_FOUND' && vm.retries404 > 0) {
                             vm.jobStatus = 'CONTACTING_SERVER';
                         }
-                        if (data.status === 'RUNNING' || data.status === 'SUBMITTED' && data.result) {
+                        if (data.status === 'DOWNLOADING' || data.status === 'QUEUED' || data.status === 'RUNNING' || data.status === 'SUBMITTED' && data.result) {
                             vm.dwcextensions.$promise.then(function() {
                                 handleValidationResult(data);
                             });
@@ -177,6 +177,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
         var data = responseData.metrics;
         vm.steps = _.get(data, 'stepTypes', []);
         vm.file = _.get(responseData, 'file');
+        vm.fileSize = !_.isNaN(_.get(responseData, 'fileSize')) ? (Number(_.get(responseData, 'fileSize')) / 100000).toFixed(2) : undefined;
         data.files.sort(function(a, b) {
             if (a.fileType === 'CORE' && b.fileType !== 'CORE') {
                 return -1;

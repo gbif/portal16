@@ -120,6 +120,50 @@
       "darwinCoreExtensions": "Darwin core extensions",
       "metaData": "Meta data",
       "summary": "Summary"
-    }
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "Uploading archive",
+        "FINISHED": "Archive uploaded",
+        "PENDING": "Upload archive",
+        "FAILED": "Upload failed"
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "Validating archive",
+        "FINISHED": "Archive validated",
+        "PENDING": "Validate archive",
+        "FAILED": "Validation failed"
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "Extracting data",
+        "FINISHED": "Data extracted",
+        "PENDING": "Extract data",
+        "FAILED": "Extraction failed"
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "Interpreting data",
+        "FINISHED": "Data interpreted",
+        "PENDING": "Interpret data",
+        "FAILED": "Interpretation failed"
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "Indexing data",
+        "FINISHED": "Data indexed",
+        "PENDING": "Index data",
+        "FAILED": "Indexing failed"
+
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "Collecting metrics",
+        "FINISHED": "Metrics collected",
+        "PENDING": "Collect metrics",
+        "FAILED": "Metrics failed"
+
+      }
+    },
+    "validatingFile": "validating",
+    "fileName": "File name"
+
   }
+
 }

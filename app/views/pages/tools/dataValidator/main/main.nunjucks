@@ -1,4 +1,4 @@
-<div class="submenu-wrapper white-background ng-cloak" id="submenuWrapper" ng-if="vm.jobStatus==='FINISHED' || vm.jobStatus==='FAILED' || (vm.jobStatus==='RUNNING' && vm.validationResults)">
+<div class="submenu-wrapper white-background ng-cloak" id="submenuWrapper" ng-if="vm.jobStatus==='QUEUED' || vm.jobStatus==='FINISHED' || vm.jobStatus==='FAILED' || (vm.jobStatus==='RUNNING' && vm.validationResults)">
     <div id="validationResults">
         <section class="horizontal-stripe--paddingless white-background">
             <div class="container--desktop">

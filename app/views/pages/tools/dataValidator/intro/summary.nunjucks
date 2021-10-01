@@ -121,6 +121,13 @@
                     {#</dd>#}
                 {#</div>#}
                 <div>
+                    <dt translate="validation.fileName"></dt>
+                    <dd >
+                    {{vm.file}}
+
+                    </dd>
+                </div>
+                <div>
                     <dt translate="validation.fileFormat.title"></dt>
                     <dd translate="validation.fileFormat.{{ vm.validationResults.summary.fileFormat }}">
 
