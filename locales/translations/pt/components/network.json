@@ -5,11 +5,11 @@
       "summary": "Sumário",
       "homepage": "Página inicial",
       "metrics": "Métricas",
-      "datasets": "Rede",
+      "datasets": "Conjuntos de dados",
       "publishers": "Publicadores"
     },
     "registeredDate": "Registado {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} participando {NUMBER, select, 1{conjunto de dados} other{conjuntos de dados}}",
-    "nParticipatingPublishers": ""
+    "nParticipatingPublishers": "{NUMBER_FORMATED} {NUMBER, plural, one{publicador} other{publicadores}} participante"
   }
 }
