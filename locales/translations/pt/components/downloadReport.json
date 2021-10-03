@@ -23,19 +23,19 @@
     "largeDownload": "Transferência grande",
     "requestingFullDownload": "Estás a solicitar uma transferência completa de todos os dados de ocorrência no GBIF.",
     "occFiltersExplainedHere": "Isto é possível, mas podes querer filtrar os dados antes de descarregar. Isto pode ser feito através de nossos filtros de ocorrência. Como fazer está explicado cá [here](/ news/3K5oLzZXi0yG0SEO8E6c88/top-tip-using-filters-and-facets-on-gbiforg)",
-    "estSizeIs": "O tamanho estimado da transferência é {SIZE_FORMATTED}",
+    "estSizeIs": "O tamanho estimado da transferência é {SIZE_FORMATTED}. Numa ligação de internet de {CONNECTION_SPEED} Mb/s, isto levaria {DOWNLOAD_TIME_FORMATTED} {DOWNLOAD_TIME, plural, one{hora} other{horas}} para transferir.",
     "estDLtimes": "Tempo de transferência estimado:",
     "nMbitConn": "conexão Mbit {NUMBER}",
-    "onceDownloaded": "Após a transferência do ficheiro, precisarás de {SIZE_FORMATTED} de espaço livre em disco para descomprimir os dados.",
+    "onceDownloaded": "Após a transferência do ficheiro, precisará aproximadamente de {SIZE_FORMATTED} de espaço livre em disco para descomprimir os dados.",
     "datasetHasNumRows": "O conjunto de dados tem {NUMBER_FORMATTED} linhas de dados.",
-    "youWillNotBeAble": "Os dados não poderão ser visualizados ou analisados em Excel ou aplicação similar. Para trabalhar com estes dados é necessário o conhecimento prévio em e.g. R, Phyton ou bancos de dados relacionais.",
-    "difficultToAnalyse": "Um conjunto de dados deste tamanho é difícil de analisar em um computador desktop normal. Provavelmente necessitará aceder a algum tipo de serviço de computação distribuída.",
+    "youWillNotBeAble": "Os dados não poderão ser visualizados ou analisados em Excel ou numa aplicação similar. Para trabalhar com estes dados é necessário o conhecimento prévio de uma ferramenta como R, Phyton ou bases de dados relacionais.",
+    "difficultToAnalyse": "Não poderá visualizar ou analisar os dados em aplicações como o Excel ou similar. Um conjunto de dados deste tamanho é difícil de analisar num computador comum. Provavelmente precisará aceder a um serviço de computação distribuído ou ferramenta de 'Big Data'.",
     "hours": "Horas",
     "minute": "Minuto",
     "minutes": "Minutos"
   },
   "downloadOptions": {
-    "title": "Opções de download",
+    "title": "Opções de transferência",
     "content": {
       "rawData": "Dados brutos",
       "interpretedData": "Dados interpretados",
@@ -45,13 +45,13 @@
       "estimatedSize": "Tamanho estimado dos dados"
     },
     "fileFormats": {
-      "tabCsv": "CSV delimitado por aba"
+      "tabCsv": "CSV delimitado por tabulador"
     },
     "tableValues": {
       "yes": "✔",
       "yesIfAvailable": "✔ (se disponível)",
       "yesLinks": "✔ (links)",
-      "no": "  "
+      "no": "✘"
     }
   }
 }
