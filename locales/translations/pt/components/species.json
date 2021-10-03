@@ -68,7 +68,7 @@
     "basionym": "Basiónimo",
     "nVernacularNames": "{NUMBER, plural, one{nome vernacular} other{nomes vernaculares}}",
     "nameUsagesApplied": "Uso de nomes aplicados aos registos no GBIF",
-    "appearsIn": "Aparece em {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{conjunto de dados} other{conjuntos de dados}}:",
+    "appearsIn": "Aparece em {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, plural, one{conjunto de dados} other{conjuntos de dados}}",
     "viewOccurrences": "Ver registos",
     "seeAlso": "Ver também",
     "viewInGbifBackbone": "Ver no backbone do GBIF",
@@ -81,7 +81,7 @@
     "lastCrawled": "Rastreada ontem {DATE_FORMATTED}",
     "extensions": "Extensões",
     "taxa": "Taxa",
-    "mediatedThrough": "Mediada através",
+    "mediatedThrough": "Mediado através de",
     "taxonIdentifiers": "Identificadores de taxon",
     "whyDoubtful": "Quando é um taxon \"dubio\""
   }
