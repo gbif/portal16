@@ -1,9 +1,9 @@
 
     <div class="stepper-wrapper">
-      <div class="stepper-item" ng-class="{'completed' : step.status === 'FINISHED', 'active': step.status === 'RUNNING'}" ng-repeat="step in vm.sortedSteps">
+      <div class="stepper-item" ng-class="{'completed' : step.status === 'FINISHED', 'active': step.status === 'RUNNING' || step.status === 'QUEUED'}" ng-repeat="step in vm.sortedSteps">
         <div class="step-counter">
         <span ng-if="step.status && step.status === 'FINISHED'" class="gb-icon-solid-check step-finished"></span>
-        <span ng-if="step.status === 'PENDING'" class="gb-icon-clock step-waiting"></span>
+        <span ng-if="step.status === 'PENDING' || step.status === 'QUEUED'" class="gb-icon-clock step-waiting"></span>
         <span ng-if="step.status === 'FAILED'" class="gb-icon-close_L step-failed"></span>
         <md-progress-circular ng-if="step.status && step.status === 'RUNNING'" md-diameter="14px">
         </div>

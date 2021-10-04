@@ -7,7 +7,7 @@
             <th translate="validation.termsFrequency.term"></th>
             <th translate="validation.termsFrequency.count"></th>
             <th translate="validation.termsFrequency.percentage"></th>
-           <!-- <th translate="validation.termsFrequency.interpreted" ng-if="resultPerResource.interpretedValueCounts"> </th> -->
+            <th translate="validation.termsFrequency.interpreted" ng-if="resultPerResource.indexedCount || resultPerResource.indexedCount === 0"> </th> 
         </tr>
         </thead>
         <tbody>
@@ -20,14 +20,27 @@
             <td>
                 {{ k.rawIndexed | localNumber:gb.locale }}
             </td>
-            <td>
-
-      <!--<span>{{ k.percentage }}%</span>-->
+            <td ng-if="k.interpretedIndexed || k.interpretedIndexed === 0">
 
                 <span class="termFrequencyStats__circle">
                     <round-progress
                             max="100"
-                            current="k.rawIndexed / resultPerResource.count | formatAsPercentage"
+                            current="k.interpretedIndexed / resultPerResource.indexedCount | formatAsPercentage"
+                            bgcolor="#dbefef"
+                            color="#71b171"
+                            responsive="true">
+                    </round-progress>
+
+                </span>
+                <span class="termFrequencyStats__percentage">{{ k.interpretedIndexed / resultPerResource.indexedCount | formatAsPercentage}}%</span>
+
+            </td>
+            <td ng-if="!k.interpretedIndexed && k.interpretedIndexed !== 0">
+
+                <span class="termFrequencyStats__circle">
+                    <round-progress
+                            max="100"
+                            current="(k.rawIndexed / resultPerResource.count) | formatAsPercentage"
                             bgcolor="#dbefef"
                             color="#71b171"
                             responsive="true">
@@ -37,6 +50,7 @@
                 <span class="termFrequencyStats__percentage">{{ k.rawIndexed / resultPerResource.count | formatAsPercentage}}%</span>
 
             </td>
+            <td ng-if="resultPerResource.indexedCount || resultPerResource.indexedCount === 0">{{ k.interpretedIndexed | localNumber:gb.locale }}</td>
         </tr>
         </tbody>
     </table>

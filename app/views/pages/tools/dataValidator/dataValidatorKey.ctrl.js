@@ -143,8 +143,8 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
             }, 1000);
         } else if (data.status === 'FAILED') {
             delete $sessionStorage.gbifRunningValidatonJob;
-           // handleFailedJob(data);
-           handleValidationResult(data);
+            handleFailedJob(data);
+           // handleValidationResult(data);
         } else if (data.status === 'FINISHED') {
             delete $sessionStorage.gbifRunningValidatonJob;
 
@@ -177,7 +177,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
         var data = responseData.metrics;
         vm.steps = _.get(data, 'stepTypes', []);
         vm.file = _.get(responseData, 'file');
-        vm.fileSize = !_.isNaN(_.get(responseData, 'fileSize')) ? (Number(_.get(responseData, 'fileSize')) / 100000).toFixed(2) : undefined;
+        vm.fileSize = !_.isNaN(_.get(responseData, 'fileSize')) ? (Number(_.get(responseData, 'fileSize')) / 100000).toFixed(1) : undefined;
         data.files.sort(function(a, b) {
             if (a.fileType === 'CORE' && b.fileType !== 'CORE') {
                 return -1;
@@ -378,6 +378,8 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
 
 
     function handleFailedJob(data) {
+        vm.file = _.get(data, 'file');
+        vm.fileSize = !_.isNaN(_.get(data, 'fileSize')) ? (Number(_.get(data, 'fileSize')) / 100000).toFixed(1) : undefined;
         vm.jobStatus = data.status;
         vm.errorCode = _.get(data, 'result.errorCode');
         vm.errorMessage = _.get(data, 'result.errorMessage');

@@ -53,6 +53,7 @@
         "title": "Meta descriptor"
       }
     },
+    "fileSize": "File size",
     "fileSizeLimit": "File size limit: 100 mb",
     "receivedMediaType": "Media Type",
     "uniqueIdentifier": "Unique identifier",
@@ -79,6 +80,7 @@
       "interpreted": "Interpreted"
     },
     "interpretedCounts": {
+      "indexed": "Number of records indexed",
       "date": "Number of interpreted dates",
       "taxon": "Number of rows with interpreted taxon",
       "location": "Number of interpreted coordinates"
@@ -126,38 +128,44 @@
         "RUNNING": "Uploading archive",
         "FINISHED": "Archive uploaded",
         "PENDING": "Upload archive",
-        "FAILED": "Upload failed"
+        "FAILED": "Upload failed",
+        "QUEUED": "Upload queued"
       },
       "VALIDATOR_VALIDATE_ARCHIVE": {
         "RUNNING": "Validating archive",
         "FINISHED": "Archive validated",
         "PENDING": "Validate archive",
-        "FAILED": "Validation failed"
+        "FAILED": "Validation failed",
+        "QUEUED": "Validation queued"
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "Extracting data",
         "FINISHED": "Data extracted",
         "PENDING": "Extract data",
-        "FAILED": "Extraction failed"
+        "FAILED": "Extraction failed",
+        "QUEUED": "Extraction queued"
       },
       "VALIDATOR_VERBATIM_TO_INTERPRETED": {
         "RUNNING": "Interpreting data",
         "FINISHED": "Data interpreted",
         "PENDING": "Interpret data",
-        "FAILED": "Interpretation failed"
+        "FAILED": "Interpretation failed",
+        "QUEUED": "Interpretation queued"
       },
       "VALIDATOR_INTERPRETED_TO_INDEX": {
         "RUNNING": "Indexing data",
         "FINISHED": "Data indexed",
         "PENDING": "Index data",
-        "FAILED": "Indexing failed"
+        "FAILED": "Indexing failed",
+        "QUEUED": "Indexing queued"
 
       },
       "VALIDATOR_COLLECT_METRICS": {
         "RUNNING": "Collecting metrics",
         "FINISHED": "Metrics collected",
         "PENDING": "Collect metrics",
-        "FAILED": "Metrics failed"
+        "FAILED": "Metrics failed",
+        "QUEUED": "Metrics queued"
 
       }
     },

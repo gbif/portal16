@@ -72,13 +72,13 @@
                                                     </dd>
                                                 </div>
 
-                                              {#  <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['dwc:year']">
-                                                    <dt translate="validation.interpretedCounts.date"></dt>
+                                               <div class="col-xs-6" ng-if="resultPerResource.indexedCount || resultPerResource.indexedCount === 0">
+                                                    <dt translate="validation.interpretedCounts.indexed"></dt>
                                                     <dd>
-                                                        {{ resultPerResource.interpretedValueCounts['dwc:year'] | localNumber:gb.locale }}
+                                                        {{ resultPerResource.indexedCount | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
-
+{# 
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
                                                     <dt translate="validation.interpretedCounts.taxon"></dt>
                                                     <dd>
