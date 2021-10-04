@@ -65,7 +65,10 @@ module.exports = function(app, config) {
                     workerSrc: [
                         'blob:'
                     ],
-                    upgradeInsecureRequests: []
+                    upgradeInsecureRequests: [],
+                    frameAncestors: [
+                      'https://www.onezoom.org'
+                    ]
                   }
 
           },
