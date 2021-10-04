@@ -5,8 +5,8 @@
   },
   "species": {
     "distribution": {
-      "presentIn": "Presente em {country}",
-      "presentInNonCountry": "Presente em {location}",
+      "presentIn": "{status} em {country}",
+      "presentInNonCountry": "{status} em {location}",
       "threatStatus": "Estatuto de ameaça: {status}",
       "establishmentMeans": "Forma de estabelecimento: {status}",
       "distributionPlural": "Distribuição",
@@ -21,8 +21,8 @@
       "verbatim": "Original"
     },
     "invasives": {
-      "nInvadedCountries": "Registada como invasora em {NUMBER_FORMATED} {NUMBER, select, 1{país o isla} other{países o islas}}",
-      "invasiveIn": "Registada como invasora em",
+      "nInvadedCountries": "Registado como invasor em {NUMBER_FORMATED} {NUMBER, plural, one{país ou ilha} other{países ou ilhas}}",
+      "invasiveIn": "Registada como introduzida em",
       "accordingTo": "De acordo com",
       "occurrenceCount": "Ocorrências no GBIF",
       "seeAllCountries": "Mostrar tudo",
@@ -43,8 +43,8 @@
     "term": "Termo",
     "value": "Valor",
     "classification": "Classificação",
-    "sourcePlural": "{NUMBER, select, 1{fonte} other{fontes}}",
-    "nMoreDatasets": "{NUMBER} mais {NUMBER, select, 1{conjunto de dados} other{conjuntos de dados}}",
+    "sourcePlural": "{NUMBER, plural, one{fonte} other{fontes}}",
+    "nMoreDatasets": "{NUMBER} mais {NUMBER, plural, one{conjunto de dados} other{conjuntos de dados}}",
     "acceptedName": "Nome aceito",
     "synonym": "Sinónimo",
     "description": "Descrição",
@@ -66,9 +66,9 @@
     "publishedIn": "Publicado em",
     "tradeRestrictions": "Restrições comerciais",
     "basionym": "Basiónimo",
-    "nVernacularNames": "{NUMBER, select, 1{nome comum} other{nomes comuns}}",
+    "nVernacularNames": "{NUMBER, plural, one{nome vernacular} other{nomes vernaculares}}",
     "nameUsagesApplied": "Uso de nomes aplicados aos registos no GBIF",
-    "appearsIn": "Aparece em {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{conjunto de dados} other{conjuntos de dados}}:",
+    "appearsIn": "Aparece em {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, plural, one{conjunto de dados} other{conjuntos de dados}}",
     "viewOccurrences": "Ver registos",
     "seeAlso": "Ver também",
     "viewInGbifBackbone": "Ver no backbone do GBIF",
@@ -81,8 +81,8 @@
     "lastCrawled": "Rastreada ontem {DATE_FORMATTED}",
     "extensions": "Extensões",
     "taxa": "Taxa",
-    "mediatedThrough": "Mediada através",
+    "mediatedThrough": "Mediado através de",
     "taxonIdentifiers": "Identificadores de taxon",
-    "whyDoubtful": ""
+    "whyDoubtful": "Quando é um taxon \"dubio\""
   }
 }
