@@ -74,6 +74,7 @@
     "gadmGid": "行政区域 (gadm.org)",
     "lifeStage": "生活型・世代型",
     "dwcaExtension": "DWCA拡張形式",
-    "isInCluster": ""
+    "isInCluster": "",
+    "iucnRedListCategory": ""
   }
 }
