@@ -77,6 +77,8 @@
           "MARINE": "海洋",
           "PHYLOGENETICS": "系統發育",
           "SPECIES_DISTRIBUTIONS": "物種分布",
+          "INFRASTRUCTURE": "",
+          "DNA": "",
           "TAXONOMY": "分類學"
         },
         "purposes": {
