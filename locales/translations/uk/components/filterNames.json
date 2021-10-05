@@ -74,6 +74,7 @@
     "gadmGid": "Адміністративний поділ (gadm.org)",
     "lifeStage": "Життєва стадія",
     "dwcaExtension": "Розширення DWCA",
-    "isInCluster": ""
+    "isInCluster": "",
+    "iucnRedListCategory": ""
   }
 }
