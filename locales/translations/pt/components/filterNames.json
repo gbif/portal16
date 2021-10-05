@@ -74,6 +74,7 @@
     "gadmGid": "Áreas administrativas (gadm.org)",
     "lifeStage": "Estágio de desenvolvimento",
     "dwcaExtension": "Extensão DWCA",
-    "isInCluster": "Está em cluster"
+    "isInCluster": "Está em cluster",
+    "iucnRedListCategory": ""
   }
 }
