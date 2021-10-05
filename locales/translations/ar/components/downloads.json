@@ -75,5 +75,14 @@
   },
   "myDownloads": {
     "title": "تنزيلاتي"
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
   }
 }
