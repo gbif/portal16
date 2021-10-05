@@ -77,6 +77,8 @@
           "MARINE": "Marine",
           "PHYLOGENETICS": "Phylogenetics",
           "SPECIES_DISTRIBUTIONS": "Species distributions",
+          "INFRASTRUCTURE": "Infrastructure",
+          "DNA": "DNA",
           "TAXONOMY": "Taxonomy"
         },
         "purposes": {
