@@ -99,16 +99,16 @@
       "people": ""
     },
     "contact": {
-      "phone": "",
+      "phone": "Teléfono",
       "email": "Correo electrónico",
-      "fax": "",
+      "fax": "Número de Fax",
       "mailingAddress": "Dirección postal",
       "physicalAddress": "",
       "contacts": "Contactos",
       "address": "Dirección",
       "province": "",
-      "postalCode": "",
-      "city": "",
+      "postalCode": "Código postal",
+      "city": "Ciudad/Pueblo",
       "country": "País"
     }
   }
