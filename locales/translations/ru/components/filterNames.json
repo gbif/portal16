@@ -74,6 +74,7 @@
     "gadmGid": "",
     "lifeStage": "Стадия жизненного цикла",
     "dwcaExtension": "",
-    "isInCluster": ""
+    "isInCluster": "",
+    "iucnRedListCategory": ""
   }
 }

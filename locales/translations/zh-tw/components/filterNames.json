@@ -74,6 +74,7 @@
     "gadmGid": "行政區域",
     "lifeStage": "生活史階段",
     "dwcaExtension": "達爾文延伸集",
-    "isInCluster": "在（資料）叢集上"
+    "isInCluster": "在（資料）叢集上",
+    "iucnRedListCategory": ""
   }
 }

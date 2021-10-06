@@ -74,6 +74,7 @@
     "gadmGid": "",
     "lifeStage": "",
     "dwcaExtension": "",
-    "isInCluster": ""
+    "isInCluster": "",
+    "iucnRedListCategory": ""
   }
 }

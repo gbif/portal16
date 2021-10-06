@@ -75,5 +75,14 @@
   },
   "myDownloads": {
     "title": "Mis descargas"
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
   }
 }

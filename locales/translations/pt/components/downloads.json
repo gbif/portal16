@@ -75,5 +75,14 @@
   },
   "myDownloads": {
     "title": "Minhas transferências"
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
   }
 }
