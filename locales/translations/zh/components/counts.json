@@ -4,7 +4,7 @@
         "pCitations": "{NUMBER, plural, 1{引用} other{引用}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{记录} other{记录}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{结果} other{结果}}",
-        "nCollections": "",
+        "nCollections": "{NUMBER_FORMATED} {NUMBER, plural, one{收藏品} other{收藏品}}",
         "nInstitutions": "",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select,1{活动}other{活动}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{安装}other{安装}}",
