@@ -89,6 +89,6 @@
     "verficationLinkSent": "我们已向您的电子邮箱发送了含有确认链接的邮件。欢迎加入GBIF。",
     "resetPasswordRequest": "密码重置请求",
     "resetPasswordMessage": "我们已经给您发送了一封含有重置密码链接的电子邮件。",
-    "derivedDatasets": ""
+    "derivedDatasets": "派生数据集"
   }
 }
