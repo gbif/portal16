@@ -20,7 +20,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
     vm.dataApi = env.dataApi;
     vm.$state = $state;
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
-    
+
     // *********** set basic auth for dev purposes
 
     if (window.location.search) {
@@ -200,7 +200,8 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
 
         vm.validationResults = {
             summary: _.omit(data, 'results'),
-            results: []
+            results: [],
+            indexeable: _.get(data, 'indexeable')
         };
         vm.validationResults.summary.issueTypesFound = {};
         vm.unknownTermMap = {};

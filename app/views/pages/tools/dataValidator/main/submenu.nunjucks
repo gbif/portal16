@@ -38,7 +38,7 @@
                 <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName}}Block" ng-repeat="resultPerResource in vm.validationResults.results | filter: {fileType:'CORE' }">
                     <a ng-href="#{{resultPerResource.fileName}}"  class="text-uppercase">{{resultPerResource.fileName}}</a>
                     <ul >
-                        <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.terms && resultPerResource.fileType !== 'METADATA'">
+                        <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.terms && resultPerResource.terms.length > 0 && resultPerResource.fileType !== 'METADATA'">
                             <a ng-href="#{{resultPerResource.fileName}}-TermsFrequency"  class="subitem" >
                             <span class="issue-bullet discreet--very" >●</span>
                             {{ 'validation.termsFrequency.title' | translate }}</a>
@@ -57,7 +57,7 @@
                 <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName}}Block" ng-repeat="resultPerResource in vm.validationResults.results | filter: {fileType:'EXTENSION' } ">
                     <a ng-href="#{{resultPerResource.fileName}}"  class="text-uppercase">{{resultPerResource.fileName}}</a>
                     <ul >
-                        <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.terms && resultPerResource.fileType !== 'METADATA'">
+                        <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.terms && resultPerResource.terms.length > 0 && resultPerResource.fileType !== 'METADATA'">
                             <a ng-href="#{{resultPerResource.fileName}}-TermsFrequency"  class="subitem" >
                                 <span class="issue-bullet discreet--very" >●</span>
                                 {{ 'validation.termsFrequency.title' | translate }}</a>

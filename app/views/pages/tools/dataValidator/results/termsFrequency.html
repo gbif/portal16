@@ -1,7 +1,7 @@
-<h3 translate="validation.termsFrequency.title" ></h3>
-<div>
+<h3 translate="validation.termsFrequency.title" ng-if="resultPerResource.terms && resultPerResource.terms.length > 0" ></h3>
+<div ng-if="resultPerResource.terms && resultPerResource.terms.length > 0">
     <!-- CORE -->
-    <table class="table table-bordered table-striped" ng-if="resultPerResource.terms" >
+    <table class="table table-bordered table-striped"  >
         <thead>
         <tr>
             <th translate="validation.termsFrequency.term"></th>

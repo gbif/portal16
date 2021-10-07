@@ -39,9 +39,9 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     vm.handleUploadFile = function(params) {
         // start upload
         vm.uploadProcess = Upload.upload({
-            url: vm.dataApi + 'validation',
+            url: vm.dataApi + 'validation', // '/api/validation',
            // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
-            headers: {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth},
+            headers: vm.forDevelopmentOnlyAuth ? {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth} : {'Authorization': 'Bearer ' + User.getAuthToken()},
             data: {
                 file: params.files
             },
@@ -101,10 +101,10 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
 
     vm.handleFileUrl = function(params) {
         vm.uploadProcess = Upload.upload({
-            url: vm.dataApi + 'validation/url',
+            url: vm.dataApi + 'validation/url', // '/api/validation/url',
            // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
-            headers: {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth},
-            data: {
+           headers: vm.forDevelopmentOnlyAuth ? {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth} : {'Authorization': 'Bearer ' + User.getAuthToken()},
+           data: {
                 fileUrl: params.fileUrl
             },
             arrayKey: ''
