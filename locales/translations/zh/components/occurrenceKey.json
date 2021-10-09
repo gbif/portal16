@@ -94,12 +94,12 @@
     "sequenced": "序列",
     "treatment": "治疗",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "当前的",
+      "relatedOccurrences": "相关的事件",
+      "similarBecause": "类似的，因为",
+      "matchedRecord": "匹配的记录",
+      "noMatches": "没有候选关系",
+      "explainer": "这是一个实验性的特性，它突出显示可能的重复和/或相关事件。"
     }
   },
   "interpretationRemarks": {
