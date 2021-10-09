@@ -1,6 +1,6 @@
 {
   "phrases": {
-    "pleaseCiteAs": "",
+    "pleaseCiteAs": "请在出版物中使用此引文",
     "copy": "复制",
     "contactHelpdesk": "联系服务台",
     "defaultPageTitle": "GBIF",
@@ -21,9 +21,9 @@
     "404Text": "这个页面可能之前存在过，但现在我们找不到了。\n请尝试我们的 [搜索功能](/search) 来查找。\n欢迎随时通过 [helpdesk@gbif.org](mailto:helpdesk@gbif.org)来联系我们。",
     "changeLanguage": "更改语言",
     "noData": "没有数据",
-    "payloadTooLarge": "",
+    "payloadTooLarge": "请求超出了允许的范围。请减少并重试。请联系helpdesk@gbif.org寻求帮助。",
     "readMore": "阅读更多",
-    "share": "",
+    "share": "共享",
     "loginRequiredDueToSpam": "请登录以继续。"
   }
 }
