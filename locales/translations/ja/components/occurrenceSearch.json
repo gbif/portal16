@@ -30,6 +30,9 @@
     "polygonSimplifiedToFewerPoints": "ポリゴンが簡素化されました: ポイントの数を減らしました。",
     "largeQueryLengthWarning": "クエリのURLが2,000文字を超えているため対応していないブラウザがあるかもしれません。長く複雑なクエリにはダウンロードAPIのご利用をご検討ください。",
     "didYouMean": "検索結果は {RANK}: '{NAME}' に一致します。この分類群のみに限定して検索しますか？",
-    "clickToUseAcceptedTaxon": "クリックして、分類群の承認された名前で検索します。すべてのシノニムが含まれるため、より多くのデータが表示される可能性があります。"
+    "clickToUseAcceptedTaxon": "クリックして、分類群の承認された名前で検索します。すべてのシノニムが含まれるため、より多くのデータが表示される可能性があります。",
+    "helpText": {
+      "continent": ""
+    }
   }
 }
