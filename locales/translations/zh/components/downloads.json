@@ -7,7 +7,7 @@
     "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{发生} other{发生}} in derived 数据集",
     "title": "标题",
     "description": "描述",
-    "originalDownloadDOI": ""
+    "originalDownloadDOI": "从下载得到的数据集"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{出现记录} other{出现记录}}",
@@ -21,7 +21,7 @@
     "cancelled": "已取消",
     "cancel": "取消",
     "download": "下载",
-    "records": "",
+    "records": "记录",
     "occurrences": "出现记录",
     "largeQueryMessage": "非常大的过滤器。有关详细信息，请参阅下载。",
     "date": "日期",
