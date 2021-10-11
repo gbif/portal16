@@ -97,6 +97,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
 
   vm.filters.continent = {
     titleTranslation: 'filterNames.continent',
+    helpText: 'occurrenceSearch.helpText.continent',
     queryKey: 'continent',
     filter: OccurrenceFilter,
     enumTranslationPath: 'continent.',
