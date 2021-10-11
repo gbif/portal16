@@ -30,6 +30,9 @@
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "",
     "didYouMean": "",
-    "clickToUseAcceptedTaxon": ""
+    "clickToUseAcceptedTaxon": "",
+    "helpText": {
+      "continent": ""
+    }
   }
 }
