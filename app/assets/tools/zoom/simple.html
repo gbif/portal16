@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Image zoom</title>
+  <script src="https://openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
+  <style>
+    html, body, .container, .area, .error {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #eee;
+    }
+    .container {
+      position: relative;
+    }
+    .nav {
+      position: absolute!important;
+      bottom: 0;
+      z-index: 100;
+      width: 100%;
+      text-align: center;
+    }
+    .nav>div {
+      background: white;
+      margin: auto;
+      display: inline-block
+    }
+    .nav button {
+      background: white;
+      border-radius: none;
+      color: #333;
+      display: inline-block;
+      margin: 0;
+      border: none;
+    }
+    .full-page {
+      display: none!important;
+    }
+    button svg {
+      height: 30px;
+      width: 30px;
+    }
+    .error {
+      color: tomato;
+      font-size: 18px;
+      text-align: center;
+      display: none;
+    }
+    .error > div {
+      margin: auto;
+      width: 400px;
+      max-width: 100%;
+      padding-top: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="error" id="error">
+    <div id="error-message">
+      Unable to load the provided image. The image might no longer exists or it could be an unsupported format.
+    </div>
+  </div>
+
+  <noscript>
+    <div class="error" style="display: block;">
+      <div>
+        Javascript is required for this page to work
+      </div>
+    </div>
+  </noscript>
+
+  <div class="container" id="workingArea">
+    
+    <div class="nav" id="toolbarDiv">
+      <div>
+        <button id="zoom-in">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"></path></svg>
+        </button>
+        <button id="zoom-out">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"></path></svg>
+        </button>
+        <button id="home">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"></path></svg>
+        </button>
+        <button id="full-page" class="full-page">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="area" class="area">
+      <script type="text/javascript">
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const src = urlParams.get('src');
+        const disableFullScreen = urlParams.get('disableFullScreen');
+        
+        if (typeof disableFullScreen !== 'string') document.getElementById('full-page').classList.remove('full-page');
+
+        if (typeof src !== 'string') {
+          document.getElementById('workingArea').style.display = 'none';
+          document.getElementById('error').style.display = 'block';
+          document.getElementById('error-message').innerHTML = 'Missing image src in url. Use by adding an image url. E.g. ?src=https://images/123.jpg';
+        }
+        if (typeof src === 'string') {
+          var viewer = OpenSeadragon({
+            id:            "area",
+            tileSources:   {
+              type: 'image',
+              url:  src
+            },
+            showNavigator:  false,
+            toolbar:        "toolbarDiv",
+            zoomInButton:   "zoom-in",
+            zoomOutButton:  "zoom-out",
+            homeButton:     "home",
+            fullPageButton: disableFullScreen ? null : "full-page",
+            minZoomImageRatio: .7, // The minimum percentage ( expressed as a number between 0 and 1 ) of the viewport height or width at which the zoom out will be constrained. Setting it to 0, for example will allow you to zoom out infinity.
+            maxZoomPixelRatio: 3, //The maximum ratio to allow a zoom-in to affect the highest level pixel ratio. This can be set to Infinity to allow 'infinite' zooming into the image though it is less effective visually if the HTML5 Canvas is not available on the viewing device.
+          });
+
+          // other relevant event type "add-item-failed"
+          viewer.addHandler("open-failed", function (data) {
+            document.getElementById('workingArea').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+          });
+        }
+      </script>
+    </div>
+  </div>
+
+</body>
+</html>
