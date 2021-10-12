@@ -11,7 +11,7 @@ require('./directives/treatment.directive.js');
 require('./directives/wikidataIdentifiers.directive.js');
 require('./directives/distributions.directive.js');
 
-// require('./directives/typeSpecimen.directive.js');
+require('./directives/typeSpecimen.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');

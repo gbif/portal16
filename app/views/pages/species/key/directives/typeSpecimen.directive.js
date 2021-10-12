@@ -2,6 +2,7 @@
 
 var angular = require('angular'),
     _ = require('lodash');
+console.log(2345);
 
 angular
     .module('portal')
@@ -29,7 +30,8 @@ function typeSpecimenDirective() {
 
         OccurrenceTableSearch.query({
             taxonKey: vm.key,
-            typeStatus: '*'
+            // eslint-disable-next-line max-len
+            typeStatus: ['TYPE', 'TYPE_SPECIES', 'TYPE_GENUS', 'ALLOLECTOTYPE', 'ALLONEOTYPE', 'ALLOTYPE', 'COTYPE', 'EPITYPE', 'EXEPITYPE', 'EXHOLOTYPE', 'EXISOTYPE', 'EXLECTOTYPE', 'EXNEOTYPE', 'EXPARATYPE', 'EXSYNTYPE', 'EXTYPE', 'HAPANTOTYPE', 'HOLOTYPE', 'ICONOTYPE', 'ISOLECTOTYPE', 'ISOPARATYPE', 'ISONEOTYPE', 'ISOSYNTYPE', 'ISOTYPE', 'LECTOTYPE', 'NEOTYPE', 'PARALECTOTYPE', 'PARANEOTYPE', 'PARATYPE', 'PLASTOHOLOTYPE', 'PLASTOISOTYPE', 'PLASTOLECTOTYPE', 'PLASTONEOTYPE', 'PLASTOPARATYPE', 'PLASTOSYNTYPE', 'PLASTOTYPE', 'SECONDARYTYPE', 'SUPPLEMENTARYTYPE', 'SYNTYPE', 'TOPOTYPE', 'ORIGINALMATERIAL']
 
         }, function(data) {
             // remove higher rank matches
