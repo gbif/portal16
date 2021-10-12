@@ -2,7 +2,6 @@
 
 var angular = require('angular'),
     _ = require('lodash');
-console.log(2345);
 
 angular
     .module('portal')
