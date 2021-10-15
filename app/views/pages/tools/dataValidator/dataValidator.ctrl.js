@@ -39,7 +39,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     vm.handleUploadFile = function(params) {
         // start upload
         vm.uploadProcess = Upload.upload({
-            url: '/api/validation', // vm.dataApi + 'validation', // '/api/validation',
+            url: vm.dataApi + 'validation', // '/api/validation',
            // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
             headers: vm.forDevelopmentOnlyAuth ? {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth} : {'Authorization': 'Bearer ' + User.getAuthToken()},
             data: {
