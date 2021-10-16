@@ -20,7 +20,7 @@ function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, Collecti
     vm.key = $stateParams.key;
     vm.$state = $state;
     vm.institution = InstitutionKey.get({key: vm.key});
-    vm.collections = CollectionSearch.query({institution: vm.key});
+    vm.collections = CollectionSearch.query({institution: vm.key, limit: 500});
     vm.occurrences = OccurrenceSearch.query({institution_key: vm.key, limit: 0});
 
     vm.institution.$promise
