@@ -75,6 +75,6 @@
     "lifeStage": "Life stage",
     "dwcaExtension": "DWCA extension",
     "isInCluster": "Is in cluster",
-    "iucnRedListCategory": ""
+    "iucnRedListCategory": "IUCN Red List Category"
   }
 }
