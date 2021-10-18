@@ -1,12 +1,12 @@
 {
   "iucnRedListCategory": {
-    "LC": "",
+    "LC": "Least concern",
     "VU": "Vulnerable",
-    "NT": "",
-    "DD": "",
+    "NT": "Near threatened",
+    "DD": "Data deficient",
     "EN": "Endangered",
-    "CR": "",
+    "CR": "Critically endangered",
     "EX": "Extinct",
-    "EW": ""
+    "EW": "Extinct in the wild"
   }
 }
