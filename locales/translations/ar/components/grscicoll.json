@@ -13,6 +13,7 @@
     "description": "التوصيف",
     "institutionName": "اسم المؤسسة",
     "code": "الرمز",
+    "alternativeCodes": "",
     "statusOfCollection": "حالة المجموعة",
     "personalCollection": "مجموعة شخصية",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "رمز المؤسسة",
+    "alternativeCodes": "",
     "statusOfInstitution": "حالة المؤسسة",
     "additionalNames": "اسماء اضافية",
     "description": "توصيف",
