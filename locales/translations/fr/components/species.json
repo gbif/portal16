@@ -62,6 +62,7 @@
     "iucnStatus": "Statut UICN",
     "references": "Références",
     "source": "Source",
+    "typeSpecimens": "",
     "inLanguage": "En {language}",
     "publishedIn": "Publié dans",
     "tradeRestrictions": "Restrictions commerciales",
