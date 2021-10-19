@@ -62,6 +62,7 @@
     "iucnStatus": "IUCN 狀態",
     "references": "參考資料",
     "source": "來源",
+    "typeSpecimens": "",
     "inLanguage": "以 {language}",
     "publishedIn": "發布於",
     "tradeRestrictions": "貿易限制",
