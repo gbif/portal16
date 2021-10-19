@@ -62,6 +62,7 @@
     "iucnStatus": "IUCN status",
     "references": "Referencer",
     "source": "Kilde",
+    "typeSpecimens": "",
     "inLanguage": "På {language}",
     "publishedIn": "Publiceret i",
     "tradeRestrictions": "Handelsristriktioner",

@@ -13,6 +13,7 @@
     "description": "描述",
     "institutionName": "機構名稱",
     "code": "蒐藏代碼",
+    "alternativeCodes": "",
     "statusOfCollection": "蒐藏狀態",
     "personalCollection": "私人典藏",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "標本數量",
     "code": "機構代碼",
+    "alternativeCodes": "",
     "statusOfInstitution": "機構狀態",
     "additionalNames": "其他名稱",
     "description": "描述",

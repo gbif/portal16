@@ -13,6 +13,7 @@
     "description": "Description",
     "institutionName": "Nom de l'institution",
     "code": "Code",
+    "alternativeCodes": "",
     "statusOfCollection": "Statut de la collection",
     "personalCollection": "Collection personnelle",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "Code de l'institution",
+    "alternativeCodes": "",
     "statusOfInstitution": "Statut de l'institution",
     "additionalNames": "Autres noms",
     "description": "Description",

@@ -13,6 +13,7 @@
     "description": "Описание",
     "institutionName": "Название организации",
     "code": "Акроним",
+    "alternativeCodes": "",
     "statusOfCollection": "Статус коллекции",
     "personalCollection": "Личная коллекция",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "Сокращенное название организации",
+    "alternativeCodes": "",
     "statusOfInstitution": "Статус организации",
     "additionalNames": "Другие названия",
     "description": "Описание",
