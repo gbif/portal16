@@ -1,7 +1,6 @@
 'use strict';
 
 let gulp = require('gulp'),
-    path = require('path'),
     yargs = require('yargs').argv,
     config = rootRequire('config/build'),
     g = require('gulp-load-plugins')(),
@@ -10,7 +9,7 @@ let gulp = require('gulp'),
 /**
  * What is the github commit used for this build. this value is filled when building with Jenkins
  */
-gulp.task('env-constants', [], function() {
+gulp.task('env-constants', function() {
     return gulp.src(config.envConstants.path)
         .pipe(g.replace('{{COMMIT}}', COMMIT))
         .pipe(g.rename(function(path) {

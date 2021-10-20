@@ -18,20 +18,20 @@ let gulp = require('gulp'),
     g = require('gulp-load-plugins')();
 
 
-gulp.task('stylus-reload', ['bootstrap-style'], function() {
+gulp.task('bootstrap-style', function() {
+  return gulp.src(config.bootstrap.root)
+      .pipe(g.less())
+      .pipe(gulp.dest(config.bootstrap.dest));
+});
+
+gulp.task('stylus-reload', gulp.series('bootstrap-style', function() {
     return buildStylus()
         .pipe(browserSync.stream());
-});
+}));
 
-gulp.task('stylus', ['bootstrap-style'], function() {
+gulp.task('stylus', gulp.series('bootstrap-style', function() {
     return buildStylus();
-});
-
-gulp.task('bootstrap-style', function() {
-    return gulp.src(config.bootstrap.root)
-        .pipe(g.less())
-        .pipe(gulp.dest(config.bootstrap.dest));
-});
+}));
 
 gulp.task('vendor-styles', function() {
     let vendor = 'css/vendor';
@@ -103,7 +103,7 @@ function buildStylus() {
         .pipe(gulp.dest(path.join(config.paths.dist, dest)));
 }
 
-gulp.task('ieStyle', [], function() {
+gulp.task('ieStyle', function() {
     let ieProcessors = [
         require('postcss-unmq')({
             type: 'screen',
@@ -118,7 +118,7 @@ gulp.task('ieStyle', [], function() {
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/base/ie')));
 });
 
-gulp.task('styles-reload', [], function(callback) {
+gulp.task('styles-reload', function(callback) {
     runSequence(
         ['stylus-reload'],
         ['ieStyle'],
