@@ -14,8 +14,8 @@ router.get('/*.:ext?', function(req, res, next) {
     resourceSearch.search({urlAlias: urlAlias, contentType: ['article', 'composition']}, req.__)
       .then(function(response) {
         if (response.count === 1) {
-          var entry = response.results[0];
-          var contentType = entry.contentType;
+          let entry = response.results[0];
+          let contentType = entry.contentType;
           resource.getByAlias(urlAlias, 2, false, res.locals.gb.locales.current, contentType)
             .then(function(contentItem) {
                 helper.renderPage(req, res, next, contentItem, 'pages/resource/key/' + contentType + '/' + contentType);
@@ -35,5 +35,4 @@ router.get('/*.:ext?', function(req, res, next) {
         console.log(err);
         next(err);
       });
-    
 });

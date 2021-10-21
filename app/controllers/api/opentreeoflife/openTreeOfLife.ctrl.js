@@ -8,7 +8,7 @@ let express = require('express'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../config/log');
 
-const agent = new https.Agent({rejectUnauthorized: false})
+const agent = new https.Agent({rejectUnauthorized: false});
 
 module.exports = function(app) {
     app.use('/api', router);

@@ -1,7 +1,7 @@
 'use strict';
 let Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence,
     Node = require('../../../models/gbifdata/gbifdata').Node,
-    request = rootRequire('app/helpers/request'),
+    // request = rootRequire('app/helpers/request'),
     getAnnotations = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     localeFromQuery = require('../../../middleware/i18n/localeFromQuery'),
     locales = require('../../../../config/config').locales,
@@ -89,42 +89,42 @@ async function parseOccurrence(path) {
 }
 
 // yet another awful hack to fit Annosys in.
-async function getComments(config) {
-    let options = {
-        url: config.commentsUrl,
-        json: true,
-        maxAttempts: 1
-    };
+// async function getComments(config) {
+//     let options = {
+//         url: config.commentsUrl,
+//         json: true,
+//         maxAttempts: 1
+//     };
 
-    let response = await request(options);
-    if (response.statusCode == 200 && _.get(response, 'body.' + config.commentsCountField, 0) > 0) {
-        let comments = {
-            results: response.body[config.commentsListField],
-            count: response.body[config.commentsCountField],
-            url: config.allCommentsUrl
-        };
+//     let response = await request(options);
+//     if (response.statusCode == 200 && _.get(response, 'body.' + config.commentsCountField, 0) > 0) {
+//         let comments = {
+//             results: response.body[config.commentsListField],
+//             count: response.body[config.commentsCountField],
+//             url: config.allCommentsUrl
+//         };
 
-        comments.results = _.map(_.slice(comments.results, 0, 5), function(comment) {
-            let item = {
-                title: comment[config.commentTitle],
-                createdAt: comment[config.commentCreated]
-            };
-            let commentUrl = config.commentUrlTemplate;
-            for (let i = 0; i < config.keys.length; i++) {
-                let key = config.keys[i];
-                let val = comment[key] || '';
-                commentUrl = commentUrl.replace('{{' + key + '}}', val);
-            }
-            item.url = commentUrl;
-            return item;
-        });
-        return comments;
-    }
-    return {
-        count: 0,
-        comments: []
-    };
-}
+//         comments.results = _.map(_.slice(comments.results, 0, 5), function(comment) {
+//             let item = {
+//                 title: comment[config.commentTitle],
+//                 createdAt: comment[config.commentCreated]
+//             };
+//             let commentUrl = config.commentUrlTemplate;
+//             for (let i = 0; i < config.keys.length; i++) {
+//                 let key = config.keys[i];
+//                 let val = comment[key] || '';
+//                 commentUrl = commentUrl.replace('{{' + key + '}}', val);
+//             }
+//             item.url = commentUrl;
+//             return item;
+//         });
+//         return comments;
+//     }
+//     return {
+//         count: 0,
+//         comments: []
+//     };
+// }
 
 function getContacts(contacts) {
     let adminContacts = contacts.filter(function(contact) {

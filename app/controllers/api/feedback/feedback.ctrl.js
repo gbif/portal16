@@ -7,7 +7,7 @@ let express = require('express'),
     config = rootRequire('config/config'),
     fs = require('fs'),
     credentials = rootRequire('config/credentials').portalFeedback,
-    spamHelper = require('../../../models/verification/spam/spam'),
+    // spamHelper = require('../../../models/verification/spam/spam'),
     useragent = require('useragent'),
     feedbackContentType = require('./feedbackContentType'),
     _ = require('lodash'),
@@ -81,17 +81,17 @@ function isValid(formData) {
     return true;
 }
 
-function isSpam(req, formData) {
-    let message = {
-        req: req,
-        text: formData.description || '',
-        title: formData.title
-    };
-    if (spamHelper.isSpam(message)) {
-        return true;
-    }
-    return false;
-}
+// function isSpam(req, formData) {
+//     let message = {
+//         req: req,
+//         text: formData.description || '',
+//         title: formData.title
+//     };
+//     if (spamHelper.isSpam(message)) {
+//         return true;
+//     }
+//     return false;
+// }
 
 function createIssue(req, data, cb) {
     let agent = useragent.parse(req.headers['user-agent']),
