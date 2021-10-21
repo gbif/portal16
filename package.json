@@ -11,7 +11,7 @@
     "watch:server": "NODE_ENV=local npx nodemon app.js -- --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials --redirects=/etc/portal16/redirects",
     "watch:client": "node node_modules/gulp/bin/gulp.js dev",
     "install": "mkdir -p reports;",
-    "ci-test": "node spec/unit-server.js;"
+    "test": "node spec/unit-server.js;"
   },
   "dependencies": {
     "@turf/turf": "^5.1.6",
