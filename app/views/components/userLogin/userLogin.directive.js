@@ -289,14 +289,14 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
             var pathname = location.pathname;
 
             // put a cookie in case of redirection to '/user/profile' page
-            if (pathname.indexOf("/user/profile") !== -1) {
+            if (pathname.indexOf('/user/profile') !== -1) {
                 $cookies.put('isRedirectedFromLogin', true, {
                     path: '/'
                 });
             }
 
             // change interface language (except '/user/profile' page)
-            if (vm.user.settings.locale && LOCALE !== vm.user.settings.locale && pathname.indexOf("/user/profile") === -1) {
+            if (vm.user.settings.locale && LOCALE !== vm.user.settings.locale && pathname.indexOf('/user/profile') === -1) {
                 var localePrefix = vm.user.settings.locale === 'en' ? '' : '/' + vm.user.settings.locale;
                 if (_.startsWith(pathname, '/' + LOCALE + '/')) {
                     pathname = pathname.substr(LOCALE.length + 1);
