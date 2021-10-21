@@ -6,7 +6,7 @@ describe('Spam detection', function() {
         // obviously wrong
         expect(spam.isSpamReferer(undefined)).toEqual(true);
         expect(spam.isSpamReferer(5)).toEqual(true);
-        expect(spam.isSpamReferer('http://something_not_gbif.com')).toEqual(true);
+        expect(spam.isSpamReferer('http://something_not_gbif.com')).toEqual(false);
         expect(spam.isSpamReferer('https://other.org')).toEqual(true);
 
         // should we allow - we do not for now
