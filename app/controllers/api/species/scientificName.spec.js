@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 let sciName = require('./scientificName.ctrl'),
