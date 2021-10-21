@@ -21,10 +21,11 @@ let config = {
         'Lightbox': true
     },
     rules: {
+        'no-trailing-spaces': 'off',
         'comma-dangle': [2, 'never'],
-        'no-console': 0, // temporary disabled untli they have been evaluated and perhaps replaced with log statements
+        'no-console': 0,
         'require-jsdoc': 0,
-        'max-len': [2, { "code": 200 }],
+        'max-len': 'off',
         'new-cap': 0,
         'no-invalid-this': 0,
         'no-var': 0,
