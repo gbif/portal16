@@ -9,8 +9,7 @@ let gulp = require('gulp'),
     serverConfig = rootRequire('config/config'),
     config = rootRequire('config/build'),
     browserSync = require('browser-sync').create(),
-    yargs = require('yargs').argv,
-    nodemon = require('gulp-nodemon');
+    yargs = require('yargs').argv;
 
 gulp.task('server', gulp.series('server-lint', function(cb) {
     let started = false;
@@ -52,7 +51,7 @@ gulp.task('server', gulp.series('server-lint', function(cb) {
     //     });
 }));
 
-gulp.task('browser-sync', gulp.series('server', function() {
+gulp.task('browser-sync', function() {
   console.log('Starting browser-synced site at http://localhost:' + config.browsersync.port);
   return browserSync.init(null, {
       proxy: 'http://localhost:' + serverConfig.port,
@@ -62,4 +61,4 @@ gulp.task('browser-sync', gulp.series('server', function() {
       port: config.browsersync.port,
       ui: config.browsersync.ui
   });
-}));
+});

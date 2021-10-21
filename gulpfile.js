@@ -65,21 +65,18 @@ gulp.task('test-drive-development', function (callback) {
 
 gulp.task('test', gulp.series('test-client', 'test-server'));
 
-gulp.task('watch', gulp.series('browser-sync', function () {
-    gulp.watch([
-        path.join(config.paths.src, '/**/*.styl'),
-        path.join(config.paths.src, '/**/*.less'),
-        path.join(config.paths.src, '/**/*.css')
-    ], ['styles-reload']);
+gulp.task('watch', function () {
+  gulp.watch([
+    path.join(config.paths.src, '/**/*.styl'),
+    path.join(config.paths.src, '/**/*.less'),
+    path.join(config.paths.src, '/**/*.css')
+  ], gulp.series('styles-reload'));
 
-    // gulp.watch([config.js.client.watch], ['scripts-reload'/*, 'client-lint'*/]); //, 'dataRepo', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home'//removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
+  //, 'dataRepo', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home' //removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
+  gulp.watch(config.js.client.watch, gulp.series('scripts-reload', 'client-lint'));
 
-    gulp.watch([config.js.client.watch], ['client-lint', 'scripts-reload']).on('change', browserSync.reload);
-
-    gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], ['templates']).on('change', browserSync.reload);
-
-    // browserSync.watch('app/views/**/*.nunjucks').on('change', browserSync.reload);
-}));
+  gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], gulp.series('templates'));
+});
 
 gulp.task('dev', function (callback) {
     runSequence(
