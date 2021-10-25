@@ -15,8 +15,8 @@
       "GRBIO_ID": "",
       "GRBIO_URI": "",
       "GRSCICOLL_URI": "全球科学收藏登记 通用资源识别号",
-      "ROR": "",
-      "GRID": "",
+      "ROR": "注册表的资源",
+      "GRID": "全球资源信息的数据库",
       "GRSCICOLL_ID": "全球科学收藏登记 识别"
     }
   }

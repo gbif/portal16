@@ -13,7 +13,7 @@
     "description": "描述",
     "institutionName": "机构名称",
     "code": "代码",
-    "alternativeCodes": "",
+    "alternativeCodes": "替代代码",
     "statusOfCollection": "馆藏状态",
     "personalCollection": "个人收藏",
     "isPersonalCollection": {
@@ -50,7 +50,7 @@
     "indexHerbariorumIdentifier": "索引植物标本馆 ID",
     "numberSpecimens": "标本数",
     "code": "机构代码",
-    "alternativeCodes": "",
+    "alternativeCodes": "替代代码",
     "statusOfInstitution": "机构状态",
     "additionalNames": "其他名称",
     "description": "描述",
