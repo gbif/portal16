@@ -153,7 +153,7 @@
     "nunjucks-markdown": "^2.0.0",
     "object-hash": "1.1.4",
     "octonode": "^0.7.6",
-    "openlayers": "^4.6.4",
+    "openlayers": "^4.6.5",
     "passport": "^0.3.2",
     "passport-facebook": "^3.0.0",
     "passport-github2": "^0.1.11",
@@ -203,8 +203,14 @@
   ],
   "license": "Apache 2.0",
   "nodemonConfig": {
-    "ignore": ["app/views/"],
-    "watch": ["app.js", "config/", "app/"],
+    "ignore": [
+      "app/views/"
+    ],
+    "watch": [
+      "app.js",
+      "config/",
+      "app/"
+    ],
     "delay": 2500
   },
   "engines": {
