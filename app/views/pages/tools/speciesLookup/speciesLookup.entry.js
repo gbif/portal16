@@ -121,8 +121,14 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         };
         SpeciesMatch.query(query, function(data) {
             item.match = data;
-            vm.setItem(item, data);
-            callback();
+
+            Species.get({id: data.usageKey}, function(speciesData) {
+                data.authorship = speciesData.authorship;
+                vm.setItem(item, data);
+                callback();
+            }, function() {
+                callback('match went wrong');
+            });
         }, function() {
             callback('match went wrong');
         });
@@ -140,7 +146,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
 
     vm.setItem = function(item, selected) {
         // eslint-disable-next-line max-len
-        var fields = ['scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey', 'accepted', 'acceptedKey'];
+        var fields = ['scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey', 'accepted', 'acceptedKey', 'canonicalName', 'authorship'];
         fields.forEach(function(field) {
             item[field] = selected[field];
         });
@@ -192,7 +198,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
     };
 
     vm.generateCsv = function() {
-        var fields = ['occurrenceId', 'verbatimScientificName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
+        var fields = ['occurrenceId', 'verbatimScientificName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'canonicalName', 'authorship'];
         var csvContent = '';
 
         // write column names

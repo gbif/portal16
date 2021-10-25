@@ -75,5 +75,14 @@
   },
   "myDownloads": {
     "title": "マイダウンロード"
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
   }
 }

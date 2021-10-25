@@ -2,7 +2,7 @@
   "occurrence": {
     "tabs": {
       "details": "详细信息",
-      "cluster": ""
+      "cluster": "集群"
     },
     "typeOf": "{NAME} 的 {TYPE}",
     "coordinates": "坐标",
@@ -56,7 +56,7 @@
       "noIdentifier": "没有提供媒体标识符",
       "noPlaybackSupport": "您的浏览器不支持播放此媒体所需的格式。",
       "takeMeThere": "尝试发布者网站的版本",
-      "notWorkingTryPublishers": "",
+      "notWorkingTryPublishers": "媒体回放不像预期的那样工作？",
       "download": "下载媒体档案",
       "byRightsHolder": "由 {RIGHTSHOLDER}",
       "licensedUnder": "根据{{LICENSE}}的许可",
@@ -91,15 +91,15 @@
     },
     "occurrence": "出现记录",
     "inLanguage": "在 {LANGUAGE_TRANSLATED}",
-    "sequenced": "",
+    "sequenced": "序列",
     "treatment": "治疗",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "当前的",
+      "relatedOccurrences": "相关的事件",
+      "similarBecause": "类似的，因为",
+      "matchedRecord": "匹配的记录",
+      "noMatches": "没有候选关系",
+      "explainer": "这是一个实验性的特性，它突出显示可能的重复和/或相关事件。"
     }
   },
   "interpretationRemarks": {

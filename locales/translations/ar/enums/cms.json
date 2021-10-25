@@ -77,6 +77,8 @@
           "MARINE": "بحري",
           "PHYLOGENETICS": "تطور السلالات",
           "SPECIES_DISTRIBUTIONS": "توزعات الأنواع",
+          "INFRASTRUCTURE": "",
+          "DNA": "",
           "TAXONOMY": "التصنيف"
         },
         "purposes": {

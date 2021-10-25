@@ -98,7 +98,7 @@ config.bootstrap = {
 config.js = {
     server: {
         paths: [loc('app/**/*.js'), loc('app.js'), loc('config/**/*.js'), '!' + loc('app/views/**/*.js'), '!' + loc('app/assets/**/*.*'), '!public/**', '!node_modules/**', '!bower_components/**'],
-        testPaths: [loc('app.spec.js'), loc('app/**/*.spec.js'), '!' + loc('app/views/**/*.spec.js')]
+        testPaths: [loc('app/**/*.spec.js'), '!' + loc('app/views/**/*.spec.js')]
     },
     client: {
         paths: [loc('app/views/**/*.js'), '!' + loc('app/views/**/*.spec.js')],

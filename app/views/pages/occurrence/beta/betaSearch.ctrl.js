@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 'use strict';
 
-var angular = require('angular'),
-  _ = require('lodash');
+var angular = require('angular');
 
 angular
   .module('portal')

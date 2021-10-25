@@ -38,7 +38,7 @@
           "REGIONAL": "区域性基金",
           "SMALL": "小额经费",
           "NATIONAL": "国家基金",
-          "DATA_USE": "",
+          "DATA_USE": "数据使用授权",
           "undefined": "未指定的"
         },
         "projectStatus": {
@@ -77,6 +77,8 @@
           "MARINE": "海洋",
           "PHYLOGENETICS": "系统发育",
           "SPECIES_DISTRIBUTIONS": "物种分布",
+          "INFRASTRUCTURE": "",
+          "DNA": "",
           "TAXONOMY": "分类学"
         },
         "purposes": {

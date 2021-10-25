@@ -202,6 +202,8 @@
                         'UUID',
                         'FTP',
                         'URI',
+                        'ROR',
+                        'GRID',
                         'GRBIO_URI',
                         'GRSCICOLL_URI'
                         ].indexOf(identifier.type) >= 0;

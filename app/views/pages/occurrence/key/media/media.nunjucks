@@ -17,7 +17,7 @@
                             </div>
                         {% endif %}
                         {% if media.type === 'StillImage' %}
-                            <a href="{$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
+                            <a href="/tools/zoom/simple.html?src={$ _meta.imageCacheUrl $}{$ media.identifier | encodeURI $}" class="imgContainer">
                                 <img src="{$ _meta.imageCacheUrl $}fit-in/500x/{$ media.identifier | encodeURI $}"
                                     onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
                             </a>

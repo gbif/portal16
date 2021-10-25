@@ -11,7 +11,6 @@
 'use strict';
 
 let gulp = require('gulp'),
-    path = require('path'),
     config = rootRequire('config/build'),
     browserSync = require('browser-sync'),
     g = require('gulp-load-plugins')();

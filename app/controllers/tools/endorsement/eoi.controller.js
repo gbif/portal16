@@ -1,7 +1,7 @@
 'use strict';
 let auth = require('../../auth/auth.service'),
     log = require('../../../../config/log'),
-    spamHelper = require('../../../models/verification/spam/spam'),
+    // spamHelper = require('../../../models/verification/spam/spam'),
     Node = rootRequire('app/models/node/node'),
     eoi = require('./eoi.model');
 

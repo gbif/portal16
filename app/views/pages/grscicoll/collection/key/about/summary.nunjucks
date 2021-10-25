@@ -17,6 +17,16 @@
 				<dt class="col-md-4 col-xs-12" translate="collection.code"></dt>
 				<dd class="col-md-8 col-xs-12">{{collectionKey.collection.code}}</dd>
 			</div>
+      <div class="row" ng-if="collectionKey.collection.alternativeCodes">
+				<dt class="col-md-4 col-xs-12" translate="collection.alternativeCodes"></dt>
+				<dd class="col-md-8 col-xs-12">
+          <ul class="inline-bullet-list">
+						<li ng-repeat="alternativeCode in collectionKey.collection.alternativeCodes">
+							{{alternativeCode.code}} <span class="discreet--very">{{alternativeCode.description}}</span>
+						</li>
+					</ul>
+        </dd>
+			</div>
 			<div class="row">
 				<dt class="col-md-4 col-xs-12" translate="collection.statusOfCollection"></dt>
 				<dd class="col-md-8 col-xs-12" translate="collection.isActive.{{collectionKey.collection.active}}"></dd>
@@ -77,7 +87,10 @@
 					<ul class="inline-bullet-list">
 						<li ng-repeat="identifier in collectionKey.collection.identifiers | visibleIdentifier" xng-if="identifier.type !== 'GRBIO_ID'">
 							<a ng-if="identifier.identifier | startsWith:'http' " ng-href="{{identifier.identifier}}" class="doi"><span translate="enum.identifierType.{{identifier.type}}">{{identifier.type}}</span><span>{{ identifier.identifier }}</span></a>
-							<span ng-if="!(identifier.identifier | startsWith:'http') " ng-href="{{identifier.identifier}}" class="doi"><span translate="enum.identifierType.{{identifier.type}}">{{identifier.type}}</span><span>{{ identifier.identifier }}</span></span>
+							<span ng-if="!(identifier.identifier | startsWith:'http') " ng-href="{{identifier.identifier}}" class="doi">
+                <span translate="enum.identifierType.{{identifier.type}}">{{identifier.type}}</span>
+                <span>{{ identifier.identifier }}</span>
+              </span>
 						</li>
 					</ul>
 				</dd>

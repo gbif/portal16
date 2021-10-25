@@ -7,7 +7,7 @@ angular
   .controller('occurrenceKeyClusterCtrl', occurrenceKeyClusterCtrl);
 
 /** @ngInject */
-function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, Occurrence, OccurrenceRelated, OccurrenceFragment) {
+function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKeys, Occurrence, OccurrenceRelated, OccurrenceFragment) {
   var vm = this;
   vm.$state = $state;
   vm.key = $stateParams.key;
@@ -101,7 +101,7 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, Occurrence,
   };
 
   // we do not model treatments, but we know this publisher is all about treatments
-  var treatmentPublishers = ['7ce8aef0-9e92-11dc-8738-b8a03c50a862'];
+  var treatmentPublishers = constantKeys.treatmentPublishers;
 
   vm.isTreatment = function(occurrence) {
     return treatmentPublishers.indexOf(occurrence.publishingOrgKey) > -1;

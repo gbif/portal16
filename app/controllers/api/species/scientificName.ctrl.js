@@ -3,7 +3,7 @@ let express = require('express'),
     router = express.Router(),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     ranks = require('../../../models/enums/allEnums').rank,
-    request = rootRequire('app/helpers/request'),
+    request = require('../../../helpers/request'),
     cors = require('cors'),
     Q = require('q');
 
