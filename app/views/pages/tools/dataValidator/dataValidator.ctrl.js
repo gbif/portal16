@@ -15,7 +15,6 @@ angular
 function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, User, AUTH_EVENTS, validatorFeedbackService, env, Upload) {
     var vm = this;
     vm.dataApi = env.dataApi;
-
     vm.$state = $state;
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
 
@@ -55,7 +54,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
                 // vm.result = response.data;
             });
         }, function(response) {
-            if (response.status === 403) {
+            if (response.status === 403 || response.status === 401) {
                 alert('Auth failed, please use ?basic=xxxxxxxxxx for testing :-)');
             }
             $timeout(function() {
@@ -65,7 +64,8 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
             vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
     };
-/*     vm.handleUploadFile = function(params) {
+
+     vm.handleUploadFile = function(params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
         vm.jobStatus = 'SUBMITTED';
@@ -74,16 +74,13 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
             method: 'POST',
             data: formData,
             transformRequest: angular.identity,
-            headers: {'Content-Type': 'multipart/form-data', 'Authorization': 'Bearer ' + User.getAuthToken()},
-            transformResponse: function(response, headersGetter, status) {
-                return (status !== 415) ? JSON.parse(response) : {message: response};
-            }
+            headers: {'Content-Type': 'multipart/form-data', 'Authorization': 'Bearer ' + User.getAuthToken()}
         }).success(function(data, status) {
             handleValidationSubmitResponse(data, status);
         }).error(function(data, status) {
             handleWSError(data, status);
         });
-    }; */
+    }; 
 
     /* vm.handleFileUrl = function(params) {
         vm.jobStatus = 'FETCHING';

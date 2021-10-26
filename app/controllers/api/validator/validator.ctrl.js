@@ -53,7 +53,10 @@ router.post('/validation', auth.appendUser(), async function(req, res) {
             userName: user.userName,
             body: req.body,
             url: apiConfig.validator.url,
-            canonicalPath: apiConfig.validator.canonical
+            canonicalPath: apiConfig.validator.canonical,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
         };
         let response = await authOperations.authenticatedRequest(options);
         if (response.statusCode !== 200) {
