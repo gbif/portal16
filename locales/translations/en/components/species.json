@@ -5,7 +5,7 @@
   },
   "species": {
     "literature": {
-      "introText": ""
+      "introText": "[GBIF-relevant](/faq?question=literature-relevance) literature explicitly focused on taxon"
     },
     "distribution": {
       "presentIn": "{status} in {country}",
