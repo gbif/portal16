@@ -42,7 +42,7 @@
             "litPublisher": ""
         },
         "helpText": {
-            "gbifTaxonKey": ""
+            "gbifTaxonKey": "Nota: La aplicación de este filtro excluirá los trabajos que no se centren explícitamente en un taxón/taxa específico"
         }
     }
 }
