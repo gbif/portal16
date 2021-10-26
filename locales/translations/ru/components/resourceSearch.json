@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "",
             "paperDoi": "",
             "litSource": "Журнал",
+            "gbifTaxonKey": "Латинское название",
             "litPublisher": "Издательство"
+        },
+        "helpText": {
+            "gbifTaxonKey": ""
         }
     }
 }
