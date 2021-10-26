@@ -4,6 +4,9 @@
     "figures": ""
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "Forekommer i {country}",
       "presentInNonCountry": "Forekommer i {location}",
@@ -18,6 +21,7 @@
       "treatment": "",
       "metrics": "Metrisk",
       "referenceTaxon": "Reference takson",
+      "literature": "Litteratur",
       "verbatim": "Original"
     },
     "invasives": {
