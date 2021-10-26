@@ -62,6 +62,7 @@
     "iucnStatus": "IUCN status",
     "references": "References",
     "source": "Source",
+    "typeSpecimens": "Type specimens",
     "inLanguage": "In {language}",
     "publishedIn": "Published in",
     "tradeRestrictions": "Trade restrictions",

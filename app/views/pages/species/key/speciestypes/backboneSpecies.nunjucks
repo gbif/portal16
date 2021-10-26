@@ -19,6 +19,8 @@
     </div>
     <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
         <div class="container--desktop">
+            <type-specimen ng-if="speciesKey2.isSpeciesOrBelow" key="{{ speciesKey2.key }}" rank="{{ speciesKey2.species.rank }}"></type-specimen>
+
             <name-usages species="speciesKey2.species" synonyms="speciesKey2.synonyms" ng-if="speciesKey2.synonyms.$resolved && speciesKey2.synonyms.results.length > 0 && speciesKey2.isSpeciesOrBelow && speciesKey2.occurrences.$resolved && speciesKey2.occurrences.count > 0"></name-usages>
             <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow" ng-repeat="description in speciesKey2.descriptions.results | filter:{ type: '!Distribution'} | limitTo: 1">
                 <h4 class="card-header" translate="species.description"></h4>
@@ -41,6 +43,7 @@
                 <h4 class="card-header">{{'species.references' | translate}}</h4>
                 <references key="{{ speciesKey2.key }}" references="speciesKey2.references"></references>
             </div>
+            
             <vernacular-names key="{{ speciesKey2.key }}" is-nub="{{ speciesKey2.isNub }}" ></vernacular-names>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
@@ -49,9 +52,6 @@
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
                     <species-datasets type="OCCURRENCE" key="{{ speciesKey2.key }}"></species-datasets>
                 </div>
-            </div>
-            <div class=" m-t-1">
-                <type-specimen key="{{ speciesKey2.key }}" rank="{{ speciesKey2.species.rank }}"></type-specimen>
             </div>
             <div class="m-t-1" >
                 <h4 class="card-header" ng-bind-html="'species.citation' | translate | md2html"></h4>

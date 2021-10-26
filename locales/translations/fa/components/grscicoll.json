@@ -13,6 +13,7 @@
     "description": "توضیحات",
     "institutionName": "",
     "code": "",
+    "alternativeCodes": "",
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "",
+    "alternativeCodes": "",
     "statusOfInstitution": "",
     "additionalNames": "",
     "description": "توضیحات",

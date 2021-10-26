@@ -74,6 +74,7 @@
     "gadmGid": "GID GADM ",
     "lifeStage": "Etapa de vida",
     "dwcaExtension": "Extensión DWCA",
-    "isInCluster": "Está en cluster"
+    "isInCluster": "Está en cluster",
+    "iucnRedListCategory": ""
   }
 }

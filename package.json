@@ -7,10 +7,11 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=prod node app.js",
-    "local": "node locales/build.js; node locales/createMock.js; NODE_ENV=local node node_modules/gulp/bin/gulp.js --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials --redirects=/etc/portal16/redirects",
+    "build:locales": "node locales/build.js; node locales/createMock.js;",
+    "watch:server": "NODE_ENV=local npx nodemon app.js -- --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials --redirects=/etc/portal16/redirects",
+    "watch:client": "node node_modules/gulp/bin/gulp.js dev",
     "install": "mkdir -p reports;",
-    "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;",
-    "test": "node node_modules/gulp/bin/gulp.js test;"
+    "test": "node spec/unit-server.js;"
   },
   "dependencies": {
     "@turf/turf": "^5.1.6",
@@ -41,7 +42,7 @@
     "body-parser": "^1.13.3",
     "bootstrap": "3.3.7",
     "browser-sync": "^2.10.1",
-    "browserify": "^13.0.1",
+    "browserify": "^17.0.0",
     "btoa": "^1.1.2",
     "bunyan": "^1.8.12",
     "bunyan-logstash": "https://registry.npmjs.org/bunyan-logstash/-/bunyan-logstash-0.3.4.tgz",
@@ -72,7 +73,7 @@
     "fuse.js": "^3.2.0",
     "get-urls": "^5.0.1",
     "glob": "^7.0.3",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean-css": "^2.0.13",
@@ -104,8 +105,9 @@
     "gulp-stylus": "^2.0.0",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
+    "gulp4-run-sequence": "^1.0.1",
     "helmet": "^4.1.0",
-    "highcharts": "^6.0.4",
+    "highcharts": "^9.0.0",
     "html-entities": "^1.2.0",
     "html-truncate": "^1.2.1",
     "humanize-plus": "^1.8.2",
@@ -180,8 +182,8 @@
     "url-join": "^1.1.0",
     "url-regex": "^4.0.0",
     "useragent": "^2.3.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.7.0",
     "wellknown": "^0.5.0",
     "wikibase-sdk": "^7.0.8",
@@ -199,5 +201,13 @@
   "keywords": [
     "gbif"
   ],
-  "license": "Apache 2.0"
+  "license": "Apache 2.0",
+  "nodemonConfig": {
+    "ignore": ["app/views/"],
+    "watch": ["app.js", "config/", "app/"],
+    "delay": 2500
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }

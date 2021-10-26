@@ -17,14 +17,6 @@ function lintNotify(file) {
     // }
 }
 
-gulp.task('lint', ['client-lint'], function() {
-    return gulp.src(config.js.server.paths.concat(['!**/*.spec.js']))
-        .pipe(g.eslint())
-        .pipe(g.eslint.format()) // stdout
-        .pipe(g.eslint.format('checkstyle', fs.createWriteStream('reports/checkstyle_server.xml')))
-        .pipe(g.if(!config.isProd, g.notify(lintNotify), g.util.noop()));
-});
-
 gulp.task('server-lint', function() {
     return gulp.src(config.js.server.paths.concat(['!**/*.spec.js']))
         .pipe(g.eslint())
@@ -40,3 +32,12 @@ gulp.task('client-lint', function() {
         .pipe(g.eslint.format('checkstyle', fs.createWriteStream('reports/checkstyle_client.xml')))
         .pipe(g.if(!config.isProd, g.notify(lintNotify), g.util.noop()));
 });
+
+
+gulp.task('lint', gulp.series('client-lint', function() {
+  return gulp.src(config.js.server.paths.concat(['!**/*.spec.js']))
+      .pipe(g.eslint())
+      .pipe(g.eslint.format()) // stdout
+      .pipe(g.eslint.format('checkstyle', fs.createWriteStream('reports/checkstyle_server.xml')))
+      .pipe(g.if(!config.isProd, g.notify(lintNotify), g.util.noop()));
+}));

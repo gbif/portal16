@@ -20,7 +20,7 @@ function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, Collecti
     vm.key = $stateParams.key;
     vm.$state = $state;
     vm.institution = InstitutionKey.get({key: vm.key});
-    vm.collections = CollectionSearch.query({institution: vm.key});
+    vm.collections = CollectionSearch.query({institution: vm.key, limit: 500});
     vm.occurrences = OccurrenceSearch.query({institution_key: vm.key, limit: 0});
 
     vm.institution.$promise
@@ -32,6 +32,16 @@ function institutionKeyCtrl(Page, $state, $stateParams, InstitutionKey, Collecti
           if (irnIdentifier) {
             vm.irn = irnIdentifier.identifier.substr(12);
           }
+          data.identifiers.forEach(function(x) {
+            if (x.identifier.indexOf('http') !== 0) {
+              if (x.type === 'ROR') {
+                x.identifier = 'https://ror.org/' + x.identifier;
+              }
+              if (x.type === 'GRID') {
+                x.identifier = 'https://grid.ac/institutes/' + x.identifier;
+              }
+            }
+          });
         })
         .catch(function() {
           // ignore failures

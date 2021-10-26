@@ -149,7 +149,7 @@ gulp.task('build:vendor', () => {
         b.require(lib);
     });
 
-    b.bundle()
+    return b.bundle()
         .pipe(source('vendor.js'))
         .pipe(buffer())
         .pipe(g.sourcemaps.init({loadMaps: true}))

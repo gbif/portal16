@@ -13,6 +13,7 @@
     "description": "Descripción",
     "institutionName": "Nombre de la Institución",
     "code": "Código",
+    "alternativeCodes": "Códigos alternativos",
     "statusOfCollection": "Estado de la colección",
     "personalCollection": "Colección personal",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "Código de la institución",
+    "alternativeCodes": "Códigos alternativos",
     "statusOfInstitution": "Estado de la institución",
     "additionalNames": "Nombre adicional",
     "description": "Descripción",
@@ -99,16 +101,16 @@
       "people": ""
     },
     "contact": {
-      "phone": "",
+      "phone": "Teléfono",
       "email": "Correo electrónico",
-      "fax": "",
+      "fax": "Número de Fax",
       "mailingAddress": "Dirección postal",
       "physicalAddress": "",
       "contacts": "Contactos",
       "address": "Dirección",
       "province": "",
-      "postalCode": "",
-      "city": "",
+      "postalCode": "Código postal",
+      "city": "Ciudad/Pueblo",
       "country": "País"
     }
   }

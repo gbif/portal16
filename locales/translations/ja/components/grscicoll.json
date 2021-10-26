@@ -13,6 +13,7 @@
     "description": "説明",
     "institutionName": "機関名",
     "code": "コード",
+    "alternativeCodes": "",
     "statusOfCollection": "コレクションのステータス",
     "personalCollection": "個人コレクション",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "機関コード",
+    "alternativeCodes": "",
     "statusOfInstitution": "機関の状態",
     "additionalNames": "その他の名称",
     "description": "説明",

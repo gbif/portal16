@@ -15,6 +15,8 @@
       "GRBIO_ID": "GRBIO ID",
       "GRBIO_URI": "GRBIO URI",
       "GRSCICOLL_URI": "GRSCICOLL URI",
+      "ROR": "ROR",
+      "GRID": "GRID",
       "GRSCICOLL_ID": "GRSCICOLL ID"
     }
   }

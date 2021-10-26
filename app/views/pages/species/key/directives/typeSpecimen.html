@@ -1,12 +1,12 @@
 <div class="m-t-1" ng-if="vm.specimen && vm.specimen.length >0">
-    <h4 class="card-header">Type specimen</h4>
+    <h4 class="card-header" translate="species.typeSpecimens">Type specimens</h4>
     <div>
         <section id="type-specimen" class="card--references card">
             <div class="tableList discreet">
                 <ul>
                     <li ng-repeat="occ in vm.specimen " class="card--references__item">
                         <div>
-                            <small>{{occ.typeStatus}}:</small>
+                            <span style="font-weight: bold" translate="typeStatus.{{occ.typeStatus}}">{{occ.typeStatus}}:</span>
                             <span ng-show="occ.recordedBy">
                                 {{occ.recordedBy}}<span ng-show="occ.year"> ({{occ.year}})</span><span ng-show="occ.country"> {{occ.country}}</span>.
                             </span>
@@ -21,7 +21,7 @@
                                 </span>
                             </a>
                             <div class="small">
-                                Source: <a ng-href="/dataset/{{occ.datasetKey}}">{{occ._datasetKey.title}}</a>
+                                <span translate="species.source">Sourcex</span>: <a ng-href="/dataset/{{occ.datasetKey}}">{{occ._datasetKey.title}}</a>
                             </div>
                         </div>
                     </li>

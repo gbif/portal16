@@ -7,7 +7,7 @@
     "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{occurrence} other{occurrences}} no conjunto de dados derivado",
     "title": "Título",
     "description": "Descrição",
-    "originalDownloadDOI": ""
+    "originalDownloadDOI": "Dataset derivado do download"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{ocorrência incluída} other{ocorrências incluídas}} na transferência",
@@ -21,7 +21,7 @@
     "cancelled": "Cancelada",
     "cancel": "Cancelar",
     "download": "Transferir",
-    "records": "",
+    "records": "Registos",
     "occurrences": "Ocorrências",
     "largeQueryMessage": "Filtro muito grande. Consulte a transferência para obter mais detalhes.",
     "date": "Data",
@@ -75,5 +75,14 @@
   },
   "myDownloads": {
     "title": "Minhas transferências"
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
   }
 }

@@ -13,6 +13,7 @@
     "description": "Опис",
     "institutionName": "Назва установи",
     "code": "Код",
+    "alternativeCodes": "",
     "statusOfCollection": "Статус колекції",
     "personalCollection": "Приватна колекція",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "Скорочена назва, акронім, або код установи",
+    "alternativeCodes": "",
     "statusOfInstitution": "Статус установи",
     "additionalNames": "Додаткові назви",
     "description": "Опис",

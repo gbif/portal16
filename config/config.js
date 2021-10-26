@@ -44,7 +44,12 @@ let path = require('path'),
         publisher: {
             'GRIIS': 'cdef28b1-db4e-4c58-aa71-3c5238c2d0b5',
             'PLAZI': '7ce8aef0-9e92-11dc-8738-b8a03c50a862'
-        }
+        },
+        treatmentPublishers: [ // this is a mess and not in a config file. It has to be used tomorrow morning, so uuids from multiple environments will be added in one array
+          '8d5e227d-ddf8-45f5-953e-e54be3e65ad1', // BHL UAT
+          'ad0aba77-575f-45d4-bdf7-aacbd27e01b2', // BHL prod
+          '7ce8aef0-9e92-11dc-8738-b8a03c50a862' // Plazi in UAT and prod
+        ]
     },
     elasticContentful = yargs.elasticContentful,
     apidocs = 'https://gbif.github.io/gbif-api/apidocs/org/gbif/api',
@@ -95,7 +100,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://localhost:9000', // 'http://blast.gbif-dev.org',
-        graphQL: 'http://graphql.gbif-staging.org/graphql',
+        graphQL: 'http://graphql.gbif.org/graphql',
         healthUpdateFrequency: 240000
     },
 
