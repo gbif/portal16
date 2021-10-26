@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "Derived dataset DOI",
             "paperDoi": "DOI",
             "litSource": "Journal",
+            "gbifTaxonKey": "Scientific name",
             "litPublisher": "Journal publisher"
+        },
+        "helpText": {
+            "gbifTaxonKey": ""
         }
     }
 }
