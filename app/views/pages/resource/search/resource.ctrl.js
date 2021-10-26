@@ -7,7 +7,7 @@ angular
     .controller('resourceCtrl', resourceCtrl);
 
 /** @ngInject */
-function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, suggestEndpoints, Page, enums, NAV_EVENTS, BUILD_VERSION, $translate) {
+function resourceCtrl($state, ResourceFilter, $rootScope, Species, Dataset, Publisher, suggestEndpoints, Page, enums, NAV_EVENTS, BUILD_VERSION, $translate) {
     var vm = this;
     vm.state = ResourceFilter.getState();
     $translate('resourceSearch.title').then(function(title) {
@@ -130,6 +130,41 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
             suggestShortName: 'title',
             suggestKey: 'key'
         }
+    };
+
+    vm.filters.taxonKey = {
+      titleTranslation: 'resourceSearch.filters.gbifTaxonKey',
+      helpText: 'resourceSearch.helpText.gbifTaxonKey',
+      queryKey: 'gbifTaxonKey',
+      filter: ResourceFilter,
+      expand: {
+        resource: Species,
+        expandedTitle: 'scientificName'
+      },
+      facets: {
+        hasFacets: false,
+        facetKey: 'TAXON_KEY'
+      },
+      search: {
+        isSearchable: true,
+        suggestEndpoint: suggestEndpoints.taxon,
+        defaultParams: {
+          datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+        },
+        suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
+        suggestTitle: function(data) {
+          return {
+            scientificName: _.get(data, 'scientificName'),
+            key: _.get(data, 'key'),
+            accepted: _.get(data, 'accepted'),
+            acceptedKey: _.get(data, 'acceptedKey'),
+            synonym: _.get(data, 'synonym')
+          };
+        }, // 'scientificName',
+        suggestTitleTemplate: '/templates/components/filterTaxon/suggestTaxonTitleTemplate.html?v=' + BUILD_VERSION,
+        suggestShortName: 'title',
+        suggestKey: 'key'
+      }
     };
 
     vm.filters.litSource = {

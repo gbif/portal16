@@ -161,6 +161,10 @@ router.get('/species/key.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/species/key/speciesKey.template.nunjucks');
 });
 
+router.get('/species/key/literature.html', function(req, res, next) {
+  helper.renderPage(req, res, next, {}, 'pages/species/key/literature/literature.template.nunjucks');
+});
+
 router.get('/dataset/key.html', function(req, res, next) {
     helper.renderPage(req, res, next, {
         kibanaIndex: env.kibanaIndex,
