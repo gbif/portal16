@@ -42,7 +42,7 @@
             "litPublisher": "Journal publisher"
         },
         "helpText": {
-            "gbifTaxonKey": ""
+            "gbifTaxonKey": "Note: Applying this filter will exclude papers not explicitly focused on (a) specific taxon/taxa"
         }
     }
 }
