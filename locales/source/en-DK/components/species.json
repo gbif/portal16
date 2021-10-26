@@ -5,7 +5,7 @@
   },
   "species": {
     "literature": {
-      "introText": "TODO for Daniel: brief explanation of what literature goes here. https://github.com/gbif/portal-feedback/issues/3671"
+      "introText": "[GBIF-relevant](/faq?question=literature-relevance) literature explicitly focused on taxon"
     },
     "distribution": {
       "presentIn": "{status} in {country}",

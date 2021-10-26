@@ -10,11 +10,11 @@
             <div class="col-xs-12 ng-cloak" ng-if="speciesKey2.literature.count > 0 || speciesKey2.literature.count > 0">
                 <div>
                   <span class="gb-icon-info"></span>
-                  <div style="display: inline" translate="resourceSearch.helpText.gbifTaxonKey"></div>
+                  <div style="display: inline-block" ng-bind-html="'species.literature.introText' | translate | md2html"></div>
                 </div>
                 
                 <div class="card-header clearfix">
-                  <span class="card-header" translate="species.distribution.distributionPlural"></span>
+                  <span class="card-header" tx="search.nResults" tx-nr="speciesKey2.literature.count"></span>
                   <a class="gb-icon-filters pull-right inherit noUnderline m-r-05"
                       ui-sref="resourceSearchList({contentType: 'literature', gbifTaxonKey: speciesKey2.key})"></a>
                 </div>
