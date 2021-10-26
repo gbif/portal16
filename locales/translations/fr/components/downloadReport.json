@@ -48,10 +48,10 @@
       "tabCsv": ""
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (si disponible)",
+      "yesLinks": "✔ (liens)",
+      "no": "✘"
     }
   }
 }
