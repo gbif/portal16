@@ -62,7 +62,7 @@
     "iucnStatus": "IUCN状态",
     "references": "参考文献",
     "source": "来源",
-    "typeSpecimens": "",
+    "typeSpecimens": "模式标本",
     "inLanguage": "在 {language} 中",
     "publishedIn": "已发布",
     "tradeRestrictions": "贸易限制",

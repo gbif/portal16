@@ -103,7 +103,7 @@
         "gulp-util": "^3.0.7",
         "gulp4-run-sequence": "^1.0.1",
         "helmet": "^4.1.0",
-        "highcharts": "^6.0.4",
+        "highcharts": "^9.0.0",
         "html-entities": "^1.2.0",
         "html-truncate": "^1.2.1",
         "humanize-plus": "^1.8.2",
@@ -12900,9 +12900,9 @@
       }
     },
     "node_modules/highcharts": {
-      "version": "6.0.4",
-      "resolved": "https://registry.npmjs.org/highcharts/-/highcharts-6.0.4.tgz",
-      "integrity": "sha512-NCcqc2Qu9NoBX0coVbxTckVte4eDmobfHg9mwPsqd1v92Wizs5ygYX9NvkYW2l7xMkkxkApgamNW39cNkonNmw=="
+      "version": "9.0.0",
+      "resolved": "https://registry.npmjs.org/highcharts/-/highcharts-9.0.0.tgz",
+      "integrity": "sha512-MJCtidFytGSQvsV3OEM+vFTLpjUcp7jmFpLn8h3oL4WKp0gxUOQg6Nw00sqMWGdiadst0gOZO4804zynTcYjZQ=="
     },
     "node_modules/hmac-drbg": {
       "version": "1.0.1",
@@ -36304,9 +36304,9 @@
       "integrity": "sha512-KWy75fYN8hOG2Rhl8e5B3WhOzb0by1boQum85TiddIE9iu6gV+TXbUjVC17wfej0o/ZUpqB9kxM0NFCZRMzf+Q=="
     },
     "highcharts": {
-      "version": "6.0.4",
-      "resolved": "https://registry.npmjs.org/highcharts/-/highcharts-6.0.4.tgz",
-      "integrity": "sha512-NCcqc2Qu9NoBX0coVbxTckVte4eDmobfHg9mwPsqd1v92Wizs5ygYX9NvkYW2l7xMkkxkApgamNW39cNkonNmw=="
+      "version": "9.0.0",
+      "resolved": "https://registry.npmjs.org/highcharts/-/highcharts-9.0.0.tgz",
+      "integrity": "sha512-MJCtidFytGSQvsV3OEM+vFTLpjUcp7jmFpLn8h3oL4WKp0gxUOQg6Nw00sqMWGdiadst0gOZO4804zynTcYjZQ=="
     },
     "hmac-drbg": {
       "version": "1.0.1",
