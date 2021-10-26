@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "DOI del conjunto de datos derivado",
             "paperDoi": "DOI",
             "litSource": "",
+            "gbifTaxonKey": "Nombre científico",
             "litPublisher": ""
+        },
+        "helpText": {
+            "gbifTaxonKey": ""
         }
     }
 }
