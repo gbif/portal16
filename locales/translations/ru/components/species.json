@@ -4,6 +4,9 @@
     "figures": ""
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "Обитает в {country}",
       "presentInNonCountry": "Обитает в {location}",
@@ -18,6 +21,7 @@
       "treatment": "",
       "metrics": "Показатели",
       "referenceTaxon": "Референсный таксон",
+      "literature": "Литературные данные",
       "verbatim": "По первоисточнику"
     },
     "invasives": {

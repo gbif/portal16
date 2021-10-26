@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "",
             "paperDoi": "",
             "litSource": "",
+            "gbifTaxonKey": "",
             "litPublisher": ""
+        },
+        "helpText": {
+            "gbifTaxonKey": ""
         }
     }
 }

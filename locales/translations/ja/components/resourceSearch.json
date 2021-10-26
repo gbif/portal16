@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "得られたデータセットのDOI",
             "paperDoi": "DOI",
             "litSource": "ジャーナル",
+            "gbifTaxonKey": "学名",
             "litPublisher": "ジャーナル出版社"
+        },
+        "helpText": {
+            "gbifTaxonKey": ""
         }
     }
 }

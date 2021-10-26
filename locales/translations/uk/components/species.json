@@ -4,6 +4,9 @@
     "figures": "Зображення"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "МІсцезнаходження: {country}",
       "presentInNonCountry": "МІсцезнаходження: {location}",
@@ -18,6 +21,7 @@
       "treatment": "Таксономічна картка",
       "metrics": "Показники",
       "referenceTaxon": "Референтний таксон",
+      "literature": "Літературні дані",
       "verbatim": "Першоджерело"
     },
     "invasives": {

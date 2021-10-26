@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "DOI du jeu de données dérivé",
             "paperDoi": "DOI",
             "litSource": "Journal",
+            "gbifTaxonKey": "Nom scientifique du taxon",
             "litPublisher": "Éditeur de journaux"
+        },
+        "helpText": {
+            "gbifTaxonKey": "Note: L'application de ce filtre exclura les documents qui ne sont pas explicitement axés sur un ou des taxons spécifiques"
         }
     }
 }
