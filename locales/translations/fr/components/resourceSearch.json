@@ -42,7 +42,7 @@
             "litPublisher": "Éditeur de journaux"
         },
         "helpText": {
-            "gbifTaxonKey": ""
+            "gbifTaxonKey": "Note: L'application de ce filtre exclura les papiers qui ne sont pas explicitement axés sur un ou des taxons spécifiques"
         }
     }
 }
