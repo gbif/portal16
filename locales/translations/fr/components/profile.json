@@ -4,14 +4,14 @@
       "failed": {
         "FACEBOOK": "Impossible de se connecter à Facebook",
         "GITHUB": "Impossible de se connecter à Github",
-        "GOOGLE": ""
+        "GOOGLE": "Impossible de se connecter avec Google"
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "Impossible de se connecter à Facebook",
         "GITHUB": "Impossible de se connecter à Github",
-        "GOOGLE": ""
+        "GOOGLE": "Impossible de se connecter avec Google"
       }
     },
     "error": {
@@ -89,6 +89,6 @@
     "verficationLinkSent": "Nous vous avons envoyé un courriel avec un lien de vérification afin de s'assurer que c'est bien votre courriel. Bienvenue à GBIF",
     "resetPasswordRequest": "Demande de réinitialisation de mot de passe",
     "resetPasswordMessage": "Nous vous avons envoyé un courriel avec un lien pour réinitialiser votre mot de passe.",
-    "derivedDatasets": ""
+    "derivedDatasets": "Jeux de données dérivés"
   }
 }
