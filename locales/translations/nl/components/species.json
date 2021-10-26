@@ -4,6 +4,9 @@
     "figures": ""
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "",
       "presentInNonCountry": "",
@@ -18,6 +21,7 @@
       "treatment": "",
       "metrics": "",
       "referenceTaxon": "",
+      "literature": "",
       "verbatim": ""
     },
     "invasives": {
