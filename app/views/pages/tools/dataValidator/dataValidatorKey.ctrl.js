@@ -232,6 +232,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
             results: [],
             indexeable: _.get(data, 'indexeable')
         };
+        vm.validationResults.summary.fileFormat = _.get(responseData, 'fileFormat')
         vm.validationResults.summary.issueTypesFound = {};
         vm.unknownTermMap = {};
 
@@ -257,7 +258,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
 
 
             vmResourceResult.issuesMap = {};
-            var issueBlock, issueSample;
+            var issueBlock;
 
             var unknownTermIssueSamples = _.map(_.filter(resourceResult.issues, function(i) {
                 return i.issue === 'UNKNOWN_TERM';

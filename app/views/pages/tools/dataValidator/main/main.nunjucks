@@ -122,7 +122,7 @@
                                         </div>
 
                                         <a href="" id="{{ resultPerResource.fileName+'-TermsFrequency'}}" ng-if="resultPerResource.terms  && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'"></a>
-                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.terms && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'">
+                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.terms && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR' && resultPerResource.count !== 0">
                                             {% include('../results/termsFrequency.html') %}
                                         {#<ng-include#}
                                                 {#src="'/api/template/tools/dataValidator/results/termsFrequency.html?v=' + vm.BUILD_VERSION"  ></ng-include>#}

@@ -136,18 +136,18 @@
 
                     </dd>
                 </div>
-                <div>
+               <!-- <div>
                     <dt translate="validation.fileSize"></dt>
                     <dd >{{ vm.fileSize }} mb
 
                     </dd>
-                </div>
+                </div> 
                 <div>
                     <dt translate="validation.receivedMediaType"></dt>
                     <dd >{{ vm.validationResults.summary.receivedMediaType }}
 
                     </dd>
-                </div>
+                </div> -->
                 <div>
                     <dt translate="validation.coreRowType">Core row type</dt>
                     <dd >
