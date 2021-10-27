@@ -56,30 +56,59 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
             return s;
         });
     });
-
+/*     
+    vm.getToken = function() {
+        return new Promise(function(resolve, reject) {
+            if (vm.token) {
+                resolve(vm.token);
+            } else {
+            $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
+            .success(function(data, status) {
+                vm.token = data.token;
+                resolve(vm.token);
+            })
+            .error(function(data, status) {
+                handleWSError(data, status);
+                reject();
+            });
+            }
+          });
+    }; */
+    vm.getToken = function() {
+        return vm.token ? Promise.resolve() : $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
+        .success(function(data, status) {
+            vm.token = data.token;
+        })
+        .error(function(data, status) {
+            handleWSError(data, status);
+        });
+    };
 
     vm.getValidationResults = function(jobid) {
         /* $http.get(
             vm.dataApi + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
 
         ) */
-        $http({
-            method: 'GET',
-            url: vm.dataApi + 'validation/' + jobid,
-            headers: {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth}
-        })
-        .success(function(data) {
-            vm.startTimestamp = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().fromNow();
-            vm.generatedDateFormatted = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('MMMM Do YYYY, h:mm a');
-            vm.generatedDate = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('LL');
-           handleValidationSubmitResponse(data);
-        }).error(function(err, status) { // data, status, headers, config
-            if ((err && err.statusCode === 404) || status === 404) {
-                handleValidationSubmitResponse(err);
-            } else {
-                handleWSError(err, status);
-            }
-        });
+        vm.getToken().then(function() {
+            $http({
+                method: 'GET',
+                url: vm.dataApi + 'validation/' + jobid,
+                headers: {'Authorization': 'Bearer ' + vm.token}
+            })
+            .success(function(data) {
+                vm.startTimestamp = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().fromNow();
+                vm.generatedDateFormatted = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('MMMM Do YYYY, h:mm a');
+                vm.generatedDate = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('LL');
+               handleValidationSubmitResponse(data);
+            }).error(function(err, status) { // data, status, headers, config
+                if ((err && err.statusCode === 404) || status === 404) {
+                    handleValidationSubmitResponse(err);
+                } else {
+                    handleWSError(err, status);
+                }
+            });
+        }
+        );
     };
 
     if ($stateParams.jobid) {

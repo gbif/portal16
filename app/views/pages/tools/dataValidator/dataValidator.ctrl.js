@@ -19,32 +19,29 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
 
     vm.resourceToValidate = {};
-    // *********** set basic auth for dev purposes
-    if (window.location.search) {
-        var params = window.location.search.substring(1).split('&');
-        var query = {};
-        for (var i = 0; i < params.length; i++) {
-            var param = params[i].split('=');
-            if (param.length === 2) {
-                query[param[0]] = param[1];
-            }
-        }
-        if (query.basic) {
-            vm.forDevelopmentOnlyAuth = query.basic;
-        }
-    }
 
+    
+    vm.getToken = function() {
+        return vm.token ? Promise.resolve() : $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
+        .success(function(data, status) {
+            vm.token = data.token;
+        })
+        .error(function(data, status) {
+            handleWSError(data, status);
+        });
+    };
 
     vm.handleUploadFile = function(params) {
         // start upload
-        vm.uploadProcess = Upload.upload({
-            url: vm.dataApi + 'validation', // '/api/validation',
-           // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
-            headers: vm.forDevelopmentOnlyAuth ? {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth} : {'Authorization': 'Bearer ' + User.getAuthToken()},
-            data: {
-                file: params.files
-            },
-            arrayKey: ''
+        vm.uploadProcess = vm.getToken().then(function() {
+            return Upload.upload({
+                url: vm.dataApi + 'validation',
+                headers: {'Authorization': 'Bearer ' + vm.token},
+                data: {
+                    file: params.files
+                },
+                arrayKey: ''
+            });
         });
 
         vm.uploadProcess.then(function(response) {
@@ -54,9 +51,6 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
                 // vm.result = response.data;
             });
         }, function(response) {
-            if (response.status === 403 || response.status === 401) {
-                alert('Auth failed, please use ?basic=xxxxxxxxxx for testing :-)');
-            }
             $timeout(function() {
                 handleFailedJob(response.data);
             });
@@ -65,7 +59,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
         });
     };
 
-     vm.handleUploadFile = function(params) {
+/*      vm.handleUploadFile = function(params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
         vm.jobStatus = 'SUBMITTED';
@@ -80,7 +74,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
         }).error(function(data, status) {
             handleWSError(data, status);
         });
-    }; 
+    };  */
 
     /* vm.handleFileUrl = function(params) {
         vm.jobStatus = 'FETCHING';
@@ -97,15 +91,17 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     }; */
 
     vm.handleFileUrl = function(params) {
-        vm.uploadProcess = Upload.upload({
+        vm.uploadProcess = vm.getToken().then(function() {
+            return Upload.upload({
             url: vm.dataApi + 'validation/url', // '/api/validation/url',
            // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
-           headers: vm.forDevelopmentOnlyAuth ? {'Authorization': 'Basic ' + vm.forDevelopmentOnlyAuth} : {'Authorization': 'Bearer ' + User.getAuthToken()},
+           headers: {'Authorization': 'Bearer ' + vm.token},
            data: {
                 fileUrl: params.fileUrl
             },
             arrayKey: ''
         });
+    });
 
         vm.uploadProcess.then(function(response) {
             $timeout(function() {
