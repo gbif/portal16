@@ -380,15 +380,19 @@
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
                             {$ trowCol(url="/{UUID}", method="DELETE", auth=true, description="Deletes the collection. The collection entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowCol(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contact", description="Lists all contacts for the collection") $}
-                            {$ trowCol(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the collection. The UUID key of the contact must be passed in the body.") $}
-                            {$ trowCol(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the collection the contact with key {UUID}") $}
+                            {$ trowCol(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contact", description="(Deprecated) Lists all contacts for the collection") $}
+                            {$ trowCol(url="/{UUID}/contact", method="POST", auth=true, description="(Deprecated) Adds a contact to the collection. The UUID key of the contact must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="(Deprecated) Deletes the contact with key {UUID} from the collection") $}
+                            {$ trowCol(url="/{UUID}/contactPerson", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contactPerson", description="Lists all contacts for the collection") $}
+                            {$ trowCol(url="/{UUID}/contactPerson", method="POST", auth=true, description="Adds a contact to the collection. The contact must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/contactPerson/{ID}", method="PUT", auth=true, description="Updates the contact with key {ID} of the collection. The updated contact must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/contactPerson/{ID}", method="DELETE", auth=true, description="Deletes the contact with key {ID} from the collection") $}
                             {$ trowCol(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/identifier", description="Lists the identifiers of the collection") $}
                             {$ trowCol(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new collection identifier") $}
-                            {$ trowCol(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the collection the identifier with ID {ID}") $}
+                            {$ trowCol(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes the identifier with ID {ID} from the collection") $}
                             {$ trowCol(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a collection") $}
                             {$ trowCol(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the collection") $}
-                            {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the collection the tag with ID {ID}") $}
+                            {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the tag with ID {ID} from the collection") $}
                             {$ trowCol(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/machineTag", description="Lists all machine tags for a collection") $}
                             {$ trowCol(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a collection machine tag") $}
                             {$ trowCol(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the collection machine tag with machine tag identifier {ID}") $}
@@ -426,15 +430,19 @@
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
                             {$ trowInst(url="/{UUID}", method="DELETE", auth=true, description="Deletes the institution. The institution entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contact", description="Lists all contacts for the institution") $}
-                            {$ trowInst(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the institution. The UUID key of the contact must be passed in the body.") $}
-                            {$ trowInst(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the institution the contact with key {UUID}") $}
+                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contact", description="(Deprecated) Lists all contacts for the institution") $}
+                            {$ trowInst(url="/{UUID}/contact", method="POST", auth=true, description="(Deprecated) Adds a contact to the institution. The UUID key of the contact must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="(Deprecated) Deletes the contact with key {UUID} from the institution") $}
+                            {$ trowInst(url="/{UUID}/contactPerson", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contactPerson", description="Lists all contacts for the institution") $}
+                            {$ trowInst(url="/{UUID}/contactPerson", method="POST", auth=true, description="Adds a contact to the institution. The contact must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/contactPerson/{ID}", method="PUT", auth=true, description="Updates the contact with key {ID} of the institution. The updated contact must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/contactPerson/{ID}", method="DELETE", auth=true, description="Deletes the contact with key {ID} from the institution") $}
                             {$ trowInst(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/identifier", description="Lists the identifiers of the institution") $}
                             {$ trowInst(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new institution identifier") $}
-                            {$ trowInst(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the institution the identifier with ID {ID}") $}
+                            {$ trowInst(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes the identifier with ID {ID} from the institution") $}
                             {$ trowInst(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a institution") $}
                             {$ trowInst(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the institution") $}
-                            {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the institution the tag with ID {ID}") $}
+                            {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the tag with ID {ID} from the institution") $}
                             {$ trowInst(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/machineTag", description="Lists all machine tags for a institution") $}
                             {$ trowInst(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a institution machine tag") $}
                             {$ trowInst(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the institution machine tag with machine tag identifier {ID}") $}
@@ -461,6 +469,8 @@
                     <section id="person" class="white-background page--developer__anchor">
                         <h4>Person</h4>
                         <p>
+                            NOTE: this API is deprecated and replaced with the contactPerson endpoints of collections and institutions (see above).
+
                             This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Person.java">person</a> entity.
                             A person can be associated with a primary <a href="#collection">collection</a> and a primary <a href="#institution">institution</a>.
                             As mentioned before, a person can also be a contact in the <a href="#collection">collection</a> and <a href="#institution">institution</a> entities.
