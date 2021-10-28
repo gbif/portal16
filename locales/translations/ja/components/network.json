@@ -5,9 +5,11 @@
       "summary": "概要",
       "homepage": "ホームページ",
       "metrics": "メトリクス",
-      "datasets": "ネットワーク"
+      "datasets": "ネットワーク",
+      "publishers": ""
     },
     "registeredDate": "登録日 {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} 参加している {NUMBER, select, 1{データセット} other{データセット}}"
+    "nParticipatingDatasets": "{NUMBER_FORMATED} 参加している {NUMBER, select, 1{データセット} other{データセット}}",
+    "nParticipatingPublishers": ""
   }
 }

@@ -29,6 +29,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('betaSearch', {
+          parent: 'localization',
+          url: '/occurrence-search/beta',
+          views: {
+              main: {
+                templateUrl: '/templates/pages/occurrence/beta/betaSearch.html?v=' + BUILD_VERSION,
+                  controller: 'betaSearchCtrl',
+                  controllerAs: 'betaSearch'
+              }
+          }
+      })
         .state('occurrenceKey', {
             parent: 'localization',
             url: '/occurrence/{key:[0-9]+}',
@@ -61,7 +72,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         .state('occurrenceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
-            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&identified_by&recorded_by_id&identified_by_id&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&type_status&organism_id&locality&water_body&state_province&protocol&license&repatriated&{advanced:bool}&geometry&event_id&parent_event_id&sampling_protocol&installation_key&network_key&programme&project_id&verbatim_scientific_name&taxon_id&organism_quantity&organism_quantity_type&sample_size_unit&sample_size_value&relative_organism_quantity&institution_key&collection_key&coordinateUncertaintyInMeters&occurrence_status&gadm_gid',
+            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&identified_by&recorded_by_id&identified_by_id&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&type_status&organism_id&locality&water_body&state_province&protocol&license&repatriated&{advanced:bool}&geometry&event_id&parent_event_id&sampling_protocol&installation_key&network_key&programme&project_id&verbatim_scientific_name&taxon_id&organism_quantity&organism_quantity_type&sample_size_unit&sample_size_value&relative_organism_quantity&institution_key&collection_key&coordinateUncertaintyInMeters&occurrence_status&gadm_gid&hosting_organization_key&life_stage&is_in_cluster&dwca_extension',
             params: {
                 advanced: {
                     value: false,
@@ -340,7 +351,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         .state('resourceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
-            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&relevance&countriesOfResearcher&countriesOfCoverage&_showPastEvents&gbifDatasetKey&publishingOrganizationKey&gbifDownloadKey&peerReview&openAccess&projectId&contractCountry&publisher&source',
+            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&relevance&countriesOfResearcher&countriesOfCoverage&_showPastEvents&gbifDatasetKey&publishingOrganizationKey&gbifDownloadKey&peerReview&openAccess&projectId&contractCountry&publisher&source&doi&gbifDerivedDatasetDoi',
             views: {
                 main: {
                     templateUrl: '/templates/pages/resource/search/resource.html?v=' + BUILD_VERSION,
@@ -385,6 +396,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('collectionKeyMetrics', {
+          parent: 'collectionKey',
+          url: '/metrics',
+          templateUrl: '/templates/pages/grscicoll/collection/key/metrics/collectionKeyMetrics.html?v=' + BUILD_VERSION,
+          controller: 'collectionKeyMetricsCtrl',
+          controllerAs: 'collectionKeyMetrics'
+      })
         .state('grscicollInstitutionSearch', {
             parent: 'grscicoll',
             url: '/institution/search?q&offset',
@@ -402,6 +420,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                     controllerAs: 'institutionKey'
                 }
             }
+        })
+        .state('institutionKeyMetrics', {
+            parent: 'institutionKey',
+            url: '/metrics',
+            templateUrl: '/templates/pages/grscicoll/institution/key/metrics/institutionKeyMetrics.html?v=' + BUILD_VERSION,
+            controller: 'institutionKeyMetricsCtrl',
+            controllerAs: 'institutionKeyMetrics'
         })
         .state('grscicollPersonSearch', {
             parent: 'grscicoll',
@@ -533,6 +558,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'networkDatasetCtrl',
             controllerAs: 'networkDataset'
         })
+        .state('networkPublisher', {
+          parent: 'network',
+          url: '/publisher?offset',
+          templateUrl: '/templates/pages/network/key/publisher/networkPublisher.html?v=' + BUILD_VERSION,
+          controller: 'networkPublisherCtrl',
+          controllerAs: 'networkPublisher'
+      })
         .state('networkMetrics', {
             parent: 'network',
             url: '/metrics',
@@ -724,6 +756,45 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                     templateUrl: '/api/template/tools/dataRepository/key.html?v=' + BUILD_VERSION,
                     controller: 'dataRepositoryKeyCtrl',
                     controllerAs: 'dataRepositoryKey'
+                }
+            }
+        })
+        .state('derivedDataset', {
+            parent: 'localization',
+            url: '/derived-dataset',
+            views: {
+                main: {
+                    templateUrl: '/api/template/tools/derivedDataset.html?v=' + BUILD_VERSION,
+                    controller: 'derivedDatasetCtrl',
+                    controllerAs: 'derivedDataset'
+                }
+            }
+        })
+        .state('derivedDatasetUpload', {
+            parent: 'derivedDataset',
+            url: '/register',
+            params: {
+                record: null
+            },
+            templateUrl: '/api/template/tools/derivedDataset/upload.html?v=' + BUILD_VERSION,
+            controller: 'derivedDatasetUploadCtrl',
+            controllerAs: 'derivedDatasetUpload'
+        })
+        .state('derivedDatasetAbout', {
+            parent: 'derivedDataset',
+            url: '/about',
+            templateUrl: '/api/template/tools/derivedDataset/about.html?v=' + BUILD_VERSION,
+            controller: 'derivedDatasetAboutCtrl',
+            controllerAs: 'derivedDatasetAbout'
+        })
+        .state('derivedDatasetKey', {
+            parent: 'localization',
+            url: '/derivedDataset/:prefix/:suffix',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/derivedDataset/derivedDataset.html?v=' + BUILD_VERSION,
+                    controller: 'derivedDatasetKeyCtrl',
+                    controllerAs: 'derivedDatasetKey'
                 }
             }
         })

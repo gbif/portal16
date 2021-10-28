@@ -1,6 +1,6 @@
 {
   "filterNames": {
-    "occurrenceStatus": "",
+    "occurrenceStatus": "オカレンスステータス",
     "month": "月",
     "catalogNumber": "カタログ番号",
     "year": "年",
@@ -15,10 +15,10 @@
     "mediaType": "メディアの種類",
     "recordedBy": "採集者・観察者",
     "recordedById": "採集者・観察者ID",
-    "identifiedBy": "",
+    "identifiedBy": "同定者",
     "identifiedById": "同定者ID",
     "eventDate": "イベント日付",
-    "eventID": "イベントID",
+    "eventId": "",
     "samplingProtocol": "サンプリング手順",
     "location": "場所",
     "coordinateUncertaintyInMeters": "座標の不確実性（m）",
@@ -42,6 +42,7 @@
     "decimalLatitude": "１０進法の緯度",
     "decimalLongitude": "１０進法の経度",
     "publishingOrg": "出版者",
+    "hostingOrganizationKey": "",
     "kingdomKey": "界",
     "phylumKey": "門",
     "classKey": "綱",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "相対生物数",
     "collectionKey": "コレクション",
     "institutionKey": "機関",
-    "gadmGid": ""
+    "gadmGid": "行政区域 (gadm.org)",
+    "lifeStage": "",
+    "dwcaExtension": "",
+    "isInCluster": ""
   }
 }

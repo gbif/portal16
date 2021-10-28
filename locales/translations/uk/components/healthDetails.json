@@ -4,6 +4,7 @@
         "systemLoad": "Завантаженість системи",
         "messages": "Повідомлення",
         "version": "Версія",
+        "releaseNotes": "",
         "nInQueue": "{NUMBER} у черзі",
         "status": {
             "OPERATIONAL": "Працює",

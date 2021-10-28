@@ -4,6 +4,11 @@
       "title": "مجموعه ها",
       "description": ""
     },
+    "tabs": {
+      "summary": "",
+      "homepage": "",
+      "metrics": ""
+    },
     "headerTitle": "مجموعه",
     "description": "توضیحات",
     "institutionName": "",
@@ -35,8 +40,13 @@
       "title": "",
       "description": ""
     },
+    "tabs": {
+      "summary": "",
+      "homepage": "",
+      "metrics": ""
+    },
     "headerTitle": "",
-    "indexHerbariorumRecord": "",
+    "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "",
     "statusOfInstitution": "",

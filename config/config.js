@@ -26,7 +26,8 @@ let path = require('path'),
         dataset: {
             backbone: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
             col: '7ddf754f-d193-4cc9-b351-99906754a03b',
-            eod: '4fa7b334-ce0d-4e88-aaae-2e0c138d049e'
+            eod: '4fa7b334-ce0d-4e88-aaae-2e0c138d049e',
+            iucn: '19491596-35ae-4a91-9a98-85cf505f1bd3'
         },
         node: {
             'secretariat': '02c40d2a-1cba-4633-90b7-e36e5e97aba8',
@@ -54,7 +55,7 @@ let path = require('path'),
 let config = {
     local: {
         env: 'dev',
-        healthEnv: 'prod',
+        healthEnv: 'uat',
         root: rootPath,
         app: {
             name: 'portal - local'
@@ -80,7 +81,7 @@ let config = {
         verification: verification || (rootPath + '/app/models/verification/sample'),
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
         registry: registry || 'https://registry.gbif.org',
         oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
@@ -93,7 +94,8 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://localhost:9000',
+        blastApi: 'http://localhost:9000', // 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: 240000
     },
 
@@ -135,6 +137,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-dev.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -179,6 +182,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -220,6 +224,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-uat.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -232,13 +237,13 @@ let config = {
         port: port || 80,
         serverProtocol: 'http:',
         apidocs: apidocs,
-        managementToolsSite: '//registry.gbif-uat.org/',
-        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
-        dataApi: dataApi || '//api.gbif-uat.org/v1/',
-        tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',
-        basemapTileApi: basemapTileApi || '//tile.gbif-uat.org',
-        identityApi: identityApi || '//api.gbif-uat.org/v1/',
-        analyticsImg: analyticsImg || 'www.gbif-uat.org/sites/default/files/gbif_analytics/',
+        managementToolsSite: '//registry.gbif.org/',
+        dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
+        dataApi: dataApi || '//api.gbif.org/v1/',
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
+        basemapTileApi: basemapTileApi || '//tile.gbif.org',
+        identityApi: identityApi || '//api.gbif.org/v1/',
+        analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://www.gbif-staging.org',
         topDomain: 'gbif-staging.org',
         credentials: credentials || '/etc/portal16/credentials',
@@ -247,8 +252,8 @@ let config = {
         verification: verification || '/var/lib/human-verification/images',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif-uat.org:9200/',
-        registry: registry || 'https://registry.gbif-uat.org',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
+        registry: registry || 'https://registry.gbif.org',
         oozie: oozie || '//c4master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c4master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//private-logs.gbif.org:5601/',
@@ -261,6 +266,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -302,6 +308,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-staging.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -343,6 +350,7 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-dev.org/graphql',
         healthUpdateFrequency: healthUpdateFrequency
     }
 };

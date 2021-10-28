@@ -31,7 +31,7 @@
                 <div class="site-footer__social">
                     <a href="https://www.facebook.com/gbifnews" class="btn btn-lg btn-circle"><i class="gb-icon-facebook"></i></a>
                     <a href="https://twitter.com/GBIF" class="btn btn-lg btn-circle"><i class="gb-icon-twitter"></i></a>
-                    <a href="https://www.linkedin.com/company/global-biodiversity-information-facility" class="btn btn-lg btn-circle"><i class="gb-icon-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/gbif" class="btn btn-lg btn-circle"><i class="gb-icon-linkedin"></i></a>
                     <a href="https://www.youtube.com/user/GBIFvideo" class="btn btn-lg btn-circle"><i class="gb-icon-youtube"></i></a>
                     <a href="https://vimeo.com/gbif" class="btn btn-lg btn-circle"><i class="gb-icon-vimeo"></i></a>
                     <a href="https://www.instagram.com/gbifs/" class="btn btn-lg btn-circle"><i class="gb-icon-instagram"></i></a>

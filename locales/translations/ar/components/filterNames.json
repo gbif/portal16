@@ -18,7 +18,7 @@
     "identifiedBy": "تم تحديده بواسطة",
     "identifiedById": " تم تحديده بواسطة المعرف",
     "eventDate": "تاريخ الحدث",
-    "eventID": "معرف الحدث",
+    "eventId": "",
     "samplingProtocol": "بروتوكول اخذ العينات",
     "location": "الموقع",
     "coordinateUncertaintyInMeters": " الإرتياب في الاحداثيات بالأمتار",
@@ -42,6 +42,7 @@
     "decimalLatitude": "خط العرض العشري",
     "decimalLongitude": "خط الطول العشري",
     "publishingOrg": "الناشر",
+    "hostingOrganizationKey": "المنظمة المضيفة",
     "kingdomKey": "المملكة",
     "phylumKey": "الشعبة",
     "classKey": "الصف",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "كمية الكائن النسبية",
     "collectionKey": "مجموعة",
     "institutionKey": "مؤسسة",
-    "gadmGid": "GADM GID"
+    "gadmGid": "قاعدة البيانات العالمية للمناطق الادارية والخرائط (gadm.org) ",
+    "lifeStage": "مرحلة الحياة",
+    "dwcaExtension": "لاحقة DWCA",
+    "isInCluster": ""
   }
 }

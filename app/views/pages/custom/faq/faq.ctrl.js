@@ -8,7 +8,7 @@ angular
     .controller('faqCtrl', faqCtrl);
 
 /** @ngInject */
-function faqCtrl($sce, $rootScope, NAV_EVENTS, Page, $state, $stateParams, ResourceSearch, ResourceItem, $location, $anchorScroll) {
+function faqCtrl($sce, $rootScope, NAV_EVENTS, LOCALE, Page, $state, $stateParams, ResourceSearch, ResourceItem, $location, $anchorScroll) {
     var vm = this;
     vm.limit = 300;
     vm.maxSize = 5;
@@ -16,8 +16,8 @@ function faqCtrl($sce, $rootScope, NAV_EVENTS, Page, $state, $stateParams, Resou
     vm.question = $stateParams.question;
     vm.q = $stateParams.q;
     Page.drawer(false);
-    vm.faqItem = ResourceItem.get({contentType: 'article', urlAlias: '/faq'});
-    vm.answers = ResourceSearch.query({q: vm.q, contentType: 'help', limit: vm.limit, offset: vm.offset});
+    vm.faqItem = ResourceItem.get({contentType: 'article', urlAlias: '/faq', locale: LOCALE});
+    vm.answers = ResourceSearch.query({q: vm.q, contentType: 'help', limit: vm.limit, offset: vm.offset, locale: LOCALE});
 
     vm.search = function() {
         vm.answer = undefined;

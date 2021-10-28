@@ -5,9 +5,11 @@
       "summary": "Resumé",
       "homepage": "",
       "metrics": "Metrisk",
-      "datasets": ""
+      "datasets": "",
+      "publishers": ""
     },
     "registeredDate": "Registreret {DATE}",
-    "nParticipatingDatasets": ""
+    "nParticipatingDatasets": "",
+    "nParticipatingPublishers": ""
   }
 }

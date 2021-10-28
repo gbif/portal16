@@ -9,6 +9,7 @@
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select,1{活动}other{活动}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select,1{安装}other{安装}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select,1{出现记录}other{出现记录}}",
+        "nOccurrencesHosted": "{NUMBER_FORMATED} {NUMBER, select, 1{宿主发生记录} other{宿主发生记录}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, select,1{出现记录}other{出现记录}}关于",
         "nOccurrencesPublished": "已发布 {NUMBER_FORMATED} {NUMBER, select,1{出现记录}other{出现记录}}",
         "nEndorsedPublishers": "已认可 {NUMBER_FORMATED} {NUMBER, select,1{发布者}other{发布者}}",

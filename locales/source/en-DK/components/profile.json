@@ -26,6 +26,8 @@
     "loginText": "Login",
     "register": "Register",
     "downloads": "Downloads",
+    "newEmail": "New email",
+    "updateEmail": "Change email",
     "repeatPassword": "Repeat password",
     "repeatNewPassword": "Repeat new password",
     "passwordsNotIdentical": "The two passwords are not identical",
@@ -76,6 +78,7 @@
     "stopEditing": "Stop editing",
     "firstName": "First name",
     "lastName": "Last name",
+    "language": "Language",
     "save": "Save",
     "currentPassword": "Current password",
     "invalidProfileUpdate": "Invalid profile update",
@@ -85,6 +88,7 @@
     "passwordChangeInvalid": "Invalid password - if you have forgotten your password, then log out and use the password reset",
     "verficationLinkSent": "You have been sent an email with a verification link to ensure it is your mail. Welcome to GBIF",
     "resetPasswordRequest": "Password reset request",
-    "resetPasswordMessage": "We have sent you a mail with a link to reset your password."
+    "resetPasswordMessage": "We have sent you a mail with a link to reset your password.",
+    "derivedDatasets": "Derived datasets"
   }
 }

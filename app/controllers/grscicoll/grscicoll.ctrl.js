@@ -19,6 +19,7 @@ router.get('/grscicoll/collection/search', render);
 router.get('/grscicoll/institution/search', render);
 router.get('/grscicoll/person/search', render);
 
+router.get('/grscicoll/collection/:key/metrics', renderCollection);
 router.get('/grscicoll/collection/:key', renderCollection);
 function renderCollection(req, res, next) {
     let collectionKey = req.params.key;
@@ -39,7 +40,9 @@ function renderCollection(req, res, next) {
         });
 }
 
+router.get('/grscicoll/institution/:key/metrics', renderInstitution);
 router.get('/grscicoll/institution/:key', renderInstitution);
+
 function renderInstitution(req, res, next) {
     let institutionKey = req.params.key;
     if (!utils.isGuid(institutionKey)) {

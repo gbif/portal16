@@ -2,6 +2,7 @@
 
 var angular = require('angular');
 require('./dataset/networkDataset.ctrl');
+require('./publisher/networkPublisher.ctrl');
 require('./metrics/networkMetrics.ctrl');
 
 angular
@@ -9,7 +10,7 @@ angular
     .controller('networkKeyCtrl', networkKeyCtrl);
 
 /** @ngInject */
-function networkKeyCtrl(Page, $state, $stateParams, ResourceItem, Network, OccurrenceSearch, NetworkDatasets, $anchorScroll) {
+function networkKeyCtrl(Page, $state, $stateParams, ResourceItem, Network, OccurrenceSearch, NetworkDatasets, NetworkPublishers, $anchorScroll) {
     var vm = this;
     vm.$state = $state;
     Page.drawer(false);
@@ -34,6 +35,18 @@ function networkKeyCtrl(Page, $state, $stateParams, ResourceItem, Network, Occur
             }
         );
     };
+
+    vm.getPublishers = function() {
+        NetworkPublishers.get({id: vm.key, limit: 0},
+            function(response) {
+                vm.publishers = response;
+            },
+            function() {
+                // TODO handle errors
+            }
+        );
+    };
+    vm.getPublishers();
 
     vm.setPageNumbers = function() {
         vm.offset = $stateParams.offset || 0;

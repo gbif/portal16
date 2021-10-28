@@ -26,8 +26,8 @@
     "loginText": "Iniciar sesión",
     "register": "Registrarse",
     "downloads": "Descargas",
-    "newEmail": "Nuevo correo electrónico",
-    "updateEmail": "Cambiar correo electrónico",
+    "newEmail": "Nueva dirección de correo electrónico",
+    "updateEmail": "Modificar la dirección de correo electrónico",
     "repeatPassword": "Repita la contraseña",
     "repeatNewPassword": "Repite de nuevo la contraseña",
     "passwordsNotIdentical": "Las dos contraseñas no coinciden",
@@ -78,6 +78,7 @@
     "stopEditing": "Dejar de editar",
     "firstName": "Nombre",
     "lastName": "Apellido(s)",
+    "language": "Idioma",
     "save": "Guardar",
     "currentPassword": "Contraseña actual",
     "invalidProfileUpdate": "Actualización de perfil no válida",
@@ -87,6 +88,7 @@
     "passwordChangeInvalid": "Contraseña incorrecta - si has olvidado tu contraseña, cierra sesión y utiliza reestablecer contraseña",
     "verficationLinkSent": "Te hemos enviado un correo electrónico con un enlace de verificación para asegurarnos que es tu cuenta de correo electrónico. Bienvenido a GBIF",
     "resetPasswordRequest": "Reestablecimiento de contraseña solicitado",
-    "resetPasswordMessage": "Te hemos enviado un correo electrónico con un enlace para reestablecer tu contraseña."
+    "resetPasswordMessage": "Te hemos enviado un correo electrónico con un enlace para reestablecer tu contraseña.",
+    "derivedDatasets": ""
   }
 }

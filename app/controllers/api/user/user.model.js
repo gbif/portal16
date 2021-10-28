@@ -23,6 +23,7 @@ module.exports = {
     sanitizeUpdatedUser: sanitizeUpdatedUser,
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
+    createPredicateDownload: createPredicateDownload,
     changePassword: changePassword,
     cancelDownload: cancelDownload,
     changeEmail: changeEmail
@@ -221,6 +222,33 @@ async function createSimpleDownload(user, query) {
     return response.body;
 }
 
+async function createPredicateDownload(user, query) {
+  query = query || {};
+  expect(query, 'download query').to.be.an('object');
+  expect(user.userName, 'user name').to.be.a('string');
+
+  let email = user.email;
+
+  let options = {
+      url: apiConfig.occurrenceSearchDownload.url,
+      canonicalPath: apiConfig.occurrenceSearchDownload.canonical,
+      body: {
+          creator: user.userName,
+          notificationAddresses: email ? [email] : undefined,
+          sendNotification: true,
+          format: query.format || 'SIMPLE_CSV',
+          predicate: query.predicate
+      },
+      userName: user.userName,
+      method: 'POST'
+  };
+  let response = await authOperations.authenticatedRequest(options);
+  if (response.statusCode !== 201) {
+      throw response;
+  }
+  return response.body;
+}
+
 async function cancelDownload(user, key) {
     expect(key, 'download query').to.be.a('string');
     expect(user.userName, 'user name').to.be.a('string');
@@ -284,6 +312,7 @@ function getClientUser(user) {
         roles: user.roles,
         settings: {
             country: user.settings.country,
+            locale: user.settings.locale,
             has_read_gdpr_terms: user.settings.has_read_gdpr_terms
         },
         connectedAcounts: {
@@ -306,6 +335,7 @@ function sanitizeUpdatedUser(user) {
         email: user.email,
         settings: {
             country: user.settings.country,
+            locale: user.settings.locale,
             has_read_gdpr_terms: user.settings.has_read_gdpr_terms
         }
     };

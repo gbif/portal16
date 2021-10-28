@@ -65,6 +65,19 @@ translationMap['de-MOCK'] = 'gsw';
 translationMap['ko-MOCK'] = 'kor';
 translationMap['ar-MOCK'] = 'ara';
 
+// what names are used in the vocabulary for the the languages on the website
+let vocabularyMap = _.keyBy(locales); // assume that it is the same locale name used
+// overwrites
+vocabularyMap['es'] = 'es-ES';
+vocabularyMap['fr'] = 'fr-FR';
+vocabularyMap['jp'] = 'ja-JP';
+vocabularyMap['ru'] = 'ru-RU';
+vocabularyMap['uk'] = 'uk-UA';
+vocabularyMap['pt'] = 'pt-PT';
+vocabularyMap['da'] = 'da-DK';
+vocabularyMap['zh'] = 'zh-CN';
+vocabularyMap['zh-tw'] = 'zh-TW';
+
 // Moment occasionally use other names for the languages. Provide them here
 let momentMap = _.keyBy(locales); // default to use the same language codes
 
@@ -107,6 +120,7 @@ module.exports = {
         jsLocale: removeConfigurationForUnused(jsLocaleMap),
         translation: removeConfigurationForUnused(translationMap),
         numbers: removeConfigurationForUnused(numberMap),
+        vocabulary: removeConfigurationForUnused(vocabularyMap),
         rtl: removeConfigurationForUnused(rtlLocaleMap)
     }
 };

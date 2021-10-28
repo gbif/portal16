@@ -35,7 +35,11 @@
             <div class="container--narrow">
                 <p class="small discreet text-uppercase text-center">€ {{ {$ main.fields.fundsAllocated $} | localNumber}} <span translate="resource.fundedBy"></span></p>
             </div>
+            {% if main.fields.overrideProgrammeFunding | isNotEmpty %}
+            {$ funderMacro.organisationsAndParticipants(main.fields.overrideProgrammeFunding, resolved) $}
+            {% else %}
             {$ funderMacro.organisationsAndParticipants(resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations, resolved) $}
+            {% endif %}
         </div>
         {% endif %}
 

@@ -68,7 +68,8 @@ router.get('/search/articleResult.html', function(req, res, next) {
 });
 
 router.get('/search/datasetResult.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/datasetSearchResult');
+    let excludeCounts = req.query.excludeCounts === 'true';
+    helper.renderPage(req, res, next, {excludeCounts: excludeCounts}, 'pages/dataset/datasetSearchResult');
 });
 
 router.get('/collection/key.html', function(req, res, next) {
@@ -88,7 +89,8 @@ router.get('/search/speciesResult.html', function(req, res, next) {
 });
 
 router.get('/search/publisherResult.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/publisher/publisherSearchResult');
+    let excludeCounts = req.query.excludeCounts === 'true';
+    helper.renderPage(req, res, next, {excludeCounts: excludeCounts}, 'pages/publisher/publisherSearchResult');
 });
 
 router.get('/publisher/key.html', function(req, res, next) {
@@ -117,6 +119,10 @@ router.get('/search/participantResult.html', function(req, res, next) {
 
 router.get('/network.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/network/key/networkKey.template.nunjucks');
+});
+
+router.get('/search/networkResult.html', function(req, res, next) {
+  helper.renderPage(req, res, next, {}, 'pages/network/networkSearchResult');
 });
 
 router.get('/machineVision.html', function(req, res, next) {
@@ -272,6 +278,22 @@ router.get('/tools/dataRepository/about.html', function(req, res, next) {
 
 router.get('/tools/dataRepository/key.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/upload/key/dataRepositoryKey.template.nunjucks');
+});
+
+router.get('/tools/derivedDataset.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/derivedDataset/derivedDataset.template.nunjucks');
+});
+
+router.get('/tools/derivedDataset/upload.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/derivedDataset/upload/derivedDatasetUpload.template.nunjucks');
+});
+
+router.get('/tools/derivedDataset/about.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/derivedDataset/about/derivedDatasetAbout.template.nunjucks');
+});
+
+router.get('/derivedDataset/key.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/derivedDataset/key/derivedDatasetKey.nunjucks');
 });
 
 router.get('/search/sequenceResult.html', function(req, res, next) {

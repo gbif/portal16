@@ -28,6 +28,10 @@ let apiConfig = {
         url: baseUrl + 'dataset/',
         canonical: 'dataset'
     },
+    derivedDataset: {
+        url: baseUrl + 'derivedDataset/',
+        canonical: 'derivedDataset'
+    },
     datasetDoi: {
       url: baseUrl + 'dataset/doi/'
   },
@@ -84,7 +88,8 @@ let apiConfig = {
         url: baseUrl + 'occurrence/download/user/'
     },
     occurrenceSearchDownload: {
-        url: baseUrl + 'occurrence/download/request/'
+        url: baseUrl + 'occurrence/download/request/',
+        canonical: 'occurrence/download/request/'
     },
     occurrenceCancelDownload: {
         url: baseUrl + 'occurrence/download/request/'
@@ -218,7 +223,7 @@ let apiConfig = {
         url: 'http://gbrds.gbif.org/registry/extensions.json'
     },
     openTreeOfLife: {
-        url: 'http://api.opentreeoflife.org/v3/'
+        url: 'https://api.opentreeoflife.org/v3/'
     },
     elkSearch: {
         url: elk + 'elasticsearch/'
@@ -228,6 +233,9 @@ let apiConfig = {
     },
     blast: {
         url: baseConfig.blastApi
+    },
+    graphQL: {
+      url: baseConfig.graphQL
     }
 };
 

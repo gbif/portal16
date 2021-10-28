@@ -7,6 +7,12 @@
 					<a href="" ui-sref="institutionKey({key:collectionKey.institution.key})">{{collectionKey.institution.name}}</a>
 				</dd>
 			</div>
+      <div class="row" ng-if="collectionKey.irn">
+				<dt class="col-md-4 col-xs-12" translate="institution.indexHerbariorumIdentifier"></dt>
+				<dd class="col-md-8 col-xs-12">
+          <a ng-href="http://sweetgum.nybg.org/science/ih/herbarium-details/?irn={{collectionKey.irn}}">{{collectionKey.irn}}</a>
+        </dd>
+			</div>
 			<div class="row">
 				<dt class="col-md-4 col-xs-12" translate="collection.code"></dt>
 				<dd class="col-md-8 col-xs-12">{{collectionKey.collection.code}}</dd>

@@ -112,6 +112,7 @@
     "or": "або",
     "selectFile": "Оберіть файл",
     "fetchFileFromLocation": "Завантажити файл з локації",
+    "started": "",
     "tabs": {
       "newDataValidation": "Нова валідація даних",
       "newValidation": "Нова валідація",

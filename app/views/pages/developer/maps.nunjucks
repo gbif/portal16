@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-10">
             <section id="features" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Feature overview</h3>
 
                     <p style="text-align: center">
@@ -71,7 +71,7 @@
             </section>
 
             <section id="format" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Tile formats</h3>
                     <p>Two tile formats are available: <strong>vector tiles</strong> and <strong>raster tiles</strong>.
                         The raster tiles are generated from the vector tiles.</p>
@@ -85,7 +85,7 @@
             </section>
 
             <section id="spec" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>The tile URL format</h3>
                     <p>
                         The format of the URL is as follows:
@@ -161,31 +161,31 @@
             </section>
 
             <section id="layers" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Search parameters</h3>
                     <p>
                         Without any additional parameters, all occurrences will be returned.
                     </p>
 
                     <p>
-                        <em>One</em> primary search parameter is permitted, from these: <code>taxonKey</code>, <code>datasetKey</code>, <code>country</code>, <code>networkKey</code>, <code>publishingOrg</code>, <code>publishingCountry</code>.
+                        <em>One</em> primary search parameter is permitted, from these: <code><a href="./occurrence#p_taxonKey">taxonKey</a></code>, <code><a href="./occurrence#p_datasetKey">datasetKey</a></code>, <code><a href="./occurrence#p_country">country</a></code>, <code><a href="./occurrence#p_networkKey">networkKey</a></code>, <code><a href="./occurrence#p_publishingOrg">publishingOrg</a></code>, <code><a href="./occurrence#p_publishingCountry">publishingCountry</a></code>.
                     </p>
 
                     <p>
-                        This can be combined with the parameter <code>country</code>, this limits the primary search to occurrences in that country.
+                        This can be combined with the parameter <code><a href="./occurrence#p_country">country</a></code>, this limits the primary search to occurrences in that country.
                     </p>
 
                     <p>
-                        An additional parameter <code>year</code> limits the occurrences within a range of years, for example <code>2000,2010</code>.
+                        An additional parameter <code><a href="./occurrence#p_year">year</a></code> limits the occurrences within a range of years, for example <code>2000,2010</code>.
                     </p>
 
                     <p>
-                        The final parameter <code>basisOfRecord</code> can be given multiple times to include records with that <a href="http://rs.tdwg.org/dwc/terms/#basisOfRecord">basis of record</a>.
+                        The final parameter <code><code><a href="./occurrence#p_basisOfRecord">basisOfRecord</a></code></code> can be given multiple times to include records with that <a href="http://rs.tdwg.org/dwc/terms/#basisOfRecord">basis of record</a>.
                         The full list is: <code>OBSERVATION</code>, <code>HUMAN_OBSERVATION</code>, <code>MACHINE_OBSERVATION</code>, <code>MATERIAL_SAMPLE</code>, <code>PRESERVED_SPECIMEN</code>, <code>FOSSIL_SPECIMEN</code>, <code>LIVING_SPECIMEN</code>, <code>LITERATURE</code>, <code>UNKNOWN</code>.
                     </p>
 
                     <p>
-                        Ad-hoc queried tiles can have any query supported by the occurrence search API, but are much slower to retrieve, and are limited to WGS84 projection (see below).  Prefer density tiles whenever possible.
+                        Ad-hoc queried tiles can have any query supported by the occurrence search API, but are much slower to retrieve, and are limited to WGS84 projection (see below). Prefer density tiles whenever possible.
                     </p>
 
                     <p>Examples:
@@ -233,7 +233,7 @@
             </section>
 
             <section id="projections" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Projections</h3>
                     <p>The projection declares how coordinates on Earth are transformed to a two dimensional surface.</p>
 
@@ -245,7 +245,7 @@
             </section>
 
             <section id="colors" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <h3>Map styling</h3>
                     <p>
                         Vector styles must be coloured by the client &mdash; you decide!
@@ -341,7 +341,7 @@
             </section>
 
             <section id="capabilities" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <div class="row">
                         <h3>Capabilities endpoint</h3>
                         <p>A summary of the data available for a <code>density</code> search is available using the capabilities endpoint.  The URL format is</p>
@@ -366,7 +366,7 @@
             </section>
 
             <section id="preview" class="white-background page--developer__anchor">
-                <div class="container--narrow">
+                <div class="container--fluid">
                     <div class="row">
                         <h3>Preview</h3>
                         <p>A preview tool is in development.  Meanwhile, look at the <a href="https://tile.gbif.org/ui/">base map examples</a>,

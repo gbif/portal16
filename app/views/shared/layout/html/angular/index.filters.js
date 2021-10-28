@@ -40,6 +40,15 @@
                 return text.charAt(0) + text.slice(1).toLowerCase().replace(/_/g, ' ');
             };
         })
+        .filter('vocabularyLabel', function(LOCALE_MAPPINGS, LOCALE) {
+          return function(concept) {
+              if (typeof concept === 'undefined') {
+                  return 'Unknown';
+              }
+              var vocabLocale = LOCALE_MAPPINGS.vocabulary[LOCALE] || 'en';
+              return concept.label ? concept.label[vocabLocale] || concept.label.en || concept.name : concept.name;
+          };
+      })
         .filter('startsWith', function() {
             return function(text, match) {
                 if (typeof text === 'undefined') {
@@ -308,6 +317,11 @@
         .filter('capitalizeFirstLetter', function() {
             return function(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
+            };
+        })
+        .filter('deCapitalizeFirstLetter', function() {
+            return function(string) {
+                return string.charAt(0).toLowerCase() + string.slice(1);
             };
         });
 })();

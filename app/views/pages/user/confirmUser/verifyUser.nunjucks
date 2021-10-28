@@ -1,7 +1,7 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes confirmUser imageWithCaption">
+    <article class="wrapper-horizontal-stripes confirmUser imageWithCaption" ng-controller="confirmUserCtrl as confirmUser">
         <section class="horizontal-stripe article-header">
             <div class="container--narrow">
                 <div class="card card--spaced">
@@ -9,7 +9,7 @@
                         <div class="text-center">
                             <div class="h3" translate="profile.welcome"></div>
                             <p>{$ __('profile.emailVerification') $}</p>
-                            <form action="/user/confirm" method="post">
+                            <form action="{$ gb.locales.urlPrefix $}/user/confirm" method="post">
                               <input hidden type="text" name="code" value="{$ challengeCode $}">
                               <input hidden type="text" name="username" value="{$ userName $}">
                               <button class="gb-button--brand">

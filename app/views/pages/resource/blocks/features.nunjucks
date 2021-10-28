@@ -1,0 +1,26 @@
+<section class="home">
+  <h4 class="card-header">{$ main.fields.title $}</h4>
+  <div class="featureBlock">
+    {% for featureRef in main.fields.features %}
+      {% set feature = resolved.Entry[featureRef.sys.id].fields %}
+      {% set image = resolved.Asset[feature.primaryImage.sys.id].fields %}
+        <article class="feature card card--spaced card--flexible article-box hoverBox">
+            {% if feature.primaryImage %}
+                <a href="{$ feature.url | localizeLink(gb.locales.urlPrefix) $}" class="card__stripe article-box__image">
+                    <img src="{$ _meta.imageCache $}600x300/http:{$ image.file.url | encodeURI $}"
+                          alt="" class="article-thumb">
+                    <span class="article-box__type">{$ __("homepage.featureTypes.news" ) $}</span>
+                </a>
+            {% endif %}
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="{$ feature.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ feature.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
+                    </h4>
+                    {# <div class="article-box__footer">{$ article.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div> #}
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+  </div>
+</section>

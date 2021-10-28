@@ -61,6 +61,7 @@ function use(app, locales, defaultLocale) {
                 locales: locales,
                 config: localeConfig,
                 rtl: localeConfig.localeMappings.rtl[queryLocale],
+                vocabularyMapping: localeConfig.localeMappings.vocabulary,
                 originalUrl: req.originalUrl,
                 url: req.url,
                 domain: config.domain

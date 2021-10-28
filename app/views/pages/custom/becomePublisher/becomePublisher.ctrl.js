@@ -170,11 +170,36 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         setPinOnMap({coordinate: map.getView().getCenter()});
     };
 
+    function sanitizeLatLong(latLong) {
+        var latitude = Number(latLong[1]);
+        var longitude = Number(latLong[0]);
+        function moveIntoBounds(num, step) {
+            var min = 0 - step;
+            var max = step;
+            if (num <= max && num >= min) {
+                return num;
+            } else if (num < min) {
+                var l = num;
+                while (l < min) {
+                    l = (l + (step * 2));
+                }
+                return l;
+            } else if (num > max) {
+                var h = num;
+                while (h > max) {
+                    h = (h - (step * 2));
+                }
+                return h;
+            }
+        }
+        return [moveIntoBounds(longitude, 180), moveIntoBounds(latitude, 90)];
+    }
     function setPinOnMap(evt) {
         var latLong = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
+        var sanitizedLatLong = sanitizeLatLong(latLong);
         $timeout(function() {
-            vm.form.latitude = latLong[1];
-            vm.form.longitude = latLong[0];
+            vm.form.latitude = sanitizedLatLong[1]; // latLong[1];
+            vm.form.longitude = sanitizedLatLong[0]; // latLong[0];
         }, 0);
 
         if (vm.dynamicPinLayer !== undefined) {

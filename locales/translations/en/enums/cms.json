@@ -35,9 +35,10 @@
           "Nodes guidance": "Nodes guidance"
         },
         "projectGrantType": {
-          "REGIONAL": "Regional grant",
-          "SMALL": "Small grant",
-          "NATIONAL": "National grant",
+          "REGIONAL": "Regional biodiversity data mobilization grant",
+          "SMALL": "Institution-level biodiversity data mobilization grant",
+          "NATIONAL": "National biodiversity data mobilization grant",
+          "DATA_USE": "Data-use grant",
           "undefined": "Not specified"
         },
         "projectStatus": {

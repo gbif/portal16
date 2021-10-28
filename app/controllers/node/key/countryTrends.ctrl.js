@@ -39,11 +39,13 @@ function renderPartialTrendsPage(req, res, next, country, isAbout, template) {
                 imgUrls: {// TODO more or less just copied from Markus' initial implemetation. Not translatable
                     from: {
                         thumbBase: imageCacheUrl + 'fit-in/300x250/https://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/',
-                        imgBase: imageCacheUrl + 'https://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/'
+                        imgBase: imageCacheUrl + 'https://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/',
+                        analyticsFigureUrl: 'https://' + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/',
                     },
                     about: {
                         thumbBase: imageCacheUrl + 'fit-in/300x250/https://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/',
-                        imgBase: imageCacheUrl + 'https://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/'
+                        imgBase: imageCacheUrl + 'https://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/',
+                        analyticsFigureUrl: 'https://' + cfg.analyticsImg + 'country/' + country.code + '/about/figure/'
                     }
                 },
                 _meta: {

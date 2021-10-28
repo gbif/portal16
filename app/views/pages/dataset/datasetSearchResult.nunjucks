@@ -31,6 +31,7 @@
                 <span translate="dataset.keywords" dir="auto"></span>: <span ng-bind-html="result.highlights.keywords" dir="auto"></span>
             </p>
             <ul class="list-chips" ng-if="result.type != 'METADATA'">
+                {% if not excludeCounts %}
                 <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">
                     <a ui-sref="occurrenceSearchTable({dataset_key:result.key})"><span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}" count-translation="counts.nOccurrences">&nbsp;</span></a>
                 </li>
@@ -40,6 +41,7 @@
                 <li class="asyncIf--isHidden" async-if="/api/resource/search?contentType=literature&gbifDatasetKey={{ result.key }}">
                     <a ui-sref="resourceSearchList({gbifDatasetKey:result.key, contentType:'literature'})"><span count="/api/resource/search?contentType=literature&gbifDatasetKey={{ result.key }}" count-translation="counts.nCitations">&nbsp;</span></a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>

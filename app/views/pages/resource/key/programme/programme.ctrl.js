@@ -18,14 +18,14 @@ function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
     };
     var tabs = ['about', 'news', 'events', 'projects'];
 
-    ResourceSearch.query({q: vm.key, contentType: 'project', limit: 500}, function(data) {
+    ResourceSearch.query({programmeId: vm.key, contentType: 'project', limit: 500}, function(data) {
         // filter results since we ask by free text query. the API for some reason do not support querying by programme id. This would be nice to have
         data.results = _.filter(data.results, function(e) {
             return _.get(e, 'programme.id') == vm.key;
         });
         _.forEach(data.results, function(e) {
-e.call = _.get(e.call, 'title');
-});
+          e.call = _.get(e.call, 'title');
+        });
         data.count = data.results.length;
         vm.projects = data;
     });

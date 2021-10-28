@@ -57,7 +57,10 @@
       "noPlaybackSupport": "Ваш браузер не підтримує формат, необхідний для відтворення цього медіафайлу.",
       "takeMeThere": "Спробуйте версію, представлену на сайті видавця",
       "notWorkingTryPublishers": "",
-      "download": "Завантажити медіафайл"
+      "download": "Завантажити медіафайл",
+      "byRightsHolder": "",
+      "licensedUnder": "",
+      "suggestedCitation": ""
     },
     "title": {
       "inCountry": {

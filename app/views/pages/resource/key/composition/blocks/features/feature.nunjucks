@@ -1,0 +1,23 @@
+{% set image = resolved.Asset[feature.fields.primaryImage.sys.id].fields %}
+<article class="feature card card--spaced card--flexible featureCard hoverBox">
+    {% if feature.fields.primaryImage %}
+        <a href="{$ feature.fields.url | localizeLink(gb.locales.urlPrefix) $}" class="card__stripe featureCard__image">
+            <img src="{$ _meta.imageCache $}600x300/http:{$ image.file.url | encodeURI $}"
+                  alt="" class="article-thumb">
+            {% if feature.fields.cardType %}
+              <span class="featureCard__type">{$ __("homepage.featureTypes." + feature.fields.cardType ) $}</span>
+            {% endif %}
+        </a>
+    {% endif %}
+    <div class="card__stripe--expandable inherit">
+        <div class="card__content">
+            {% if feature.fields.cardType %}
+              <span class="featureCard__contentType">{$ __("homepage.featureTypes." + feature.fields.cardType ) $}</span>
+            {% endif %}
+            <h4 class="featureCard__title">
+                <a href="{$ feature.fields.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ feature.fields.title | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
+            </h4>
+            <div class="featureCard__footer featureCard__comment">{$ feature.fields.comment | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
+        </div>
+    </div>
+</article>

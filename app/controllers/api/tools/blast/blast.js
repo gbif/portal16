@@ -1,7 +1,8 @@
 'use strict';
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     scientificName = require('../../species/scientificName.ctrl'),
-    request = rootRequire('app/helpers/request');
+    request = rootRequire('app/helpers/request'),
+    _ = require('lodash');
 
 async function blast(seq) {
     let url = apiConfig.blast.url + '/blast';
@@ -26,13 +27,19 @@ async function blast(seq) {
 async function decorateWithGBIFspecies(e) {
     let url = apiConfig.taxon.url + 'match2?name=' + e.name;
     let nub = await request({method: 'GET', url: url, json: true});
-    e.nubMatch = nub.body;
-    if (e.nubMatch && e.nubMatch.usage) {
-        let formatted = await scientificName.getParsedName(
-            e.nubMatch.usage.key
-        );
-        e.nubMatch.usage.formattedName = formatted;
-        return e;
+    let nubMatch = nub.body;
+    if (['UNRANKED', 'SPECIES'].includes(_.get(nubMatch, 'usage.rank'))) {
+        const species = nubMatch.classification.find((t) => t.rank === 'SPECIES');
+        if (_.get(species, 'name') === e.name || _.get(nubMatch, 'usage.name') === e.name) {
+            let formatted = await scientificName.getParsedName(
+                nubMatch.usage.key
+            );
+            nubMatch.usage.formattedName = formatted;
+            e.nubMatch = nubMatch;
+            return e;
+        } else {
+            return e;
+        }
     } else {
         return e;
     }

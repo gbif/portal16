@@ -57,7 +57,10 @@
       "noPlaybackSupport": "Su navegador no soporta el formato necesario para reproducir este medio.",
       "takeMeThere": "Prueba la versión en el sitio del publicador",
       "notWorkingTryPublishers": "",
-      "download": "Descargar media"
+      "download": "Descargar media",
+      "byRightsHolder": "por {RIGHTSHOLDER}",
+      "licensedUnder": "bajo una licencia {{LICENSE}}",
+      "suggestedCitation": "Atribución sugerida"
     },
     "title": {
       "inCountry": {

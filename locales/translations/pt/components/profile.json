@@ -26,8 +26,8 @@
     "loginText": "Iniciar sessão",
     "register": "Registar",
     "downloads": "Transferências",
-    "newEmail": "Novo e-mail",
-    "updateEmail": "Alterar e-mail",
+    "newEmail": "Novo endereço de e-mail",
+    "updateEmail": "Alterar endereço de e-mail",
     "repeatPassword": "Repetir a palavra-passe",
     "repeatNewPassword": "Repetir a nova palavra-passe",
     "passwordsNotIdentical": "As duas palavras-passe não são idênticas",
@@ -78,6 +78,7 @@
     "stopEditing": "Interromper a edição",
     "firstName": "Primeiro nome",
     "lastName": "Último nome",
+    "language": "Idioma",
     "save": "Guardar",
     "currentPassword": "Palavra-passe atual",
     "invalidProfileUpdate": "Atualização do perfil inválido",
@@ -87,6 +88,7 @@
     "passwordChangeInvalid": "Palavra-passe inválida - se esqueceu a sua palavra-passe, encerrar a sessão e use a redefinição de palavra-passe",
     "verficationLinkSent": "Foi-lhe enviado um e-mail com um link de verificação para confirmar que este é o seu endereço de email. Bem-vindo ao GBIF",
     "resetPasswordRequest": "Pedido de reposição da palavra-passe",
-    "resetPasswordMessage": "Enviamos-lhe um e-mail para redefinir a sua palavra-passe."
+    "resetPasswordMessage": "Enviamos-lhe um e-mail para redefinir a sua palavra-passe.",
+    "derivedDatasets": ""
   }
 }

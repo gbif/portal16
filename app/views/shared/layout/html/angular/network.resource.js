@@ -25,6 +25,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('NetworkPublishers', function($resource, env) {
+          return $resource(env.dataApi + 'network/:id/organization', null, {
+                  'query': {
+                      method: 'GET',
+                      isArray: false
+                  }
+              }
+          );
+      })
     ;
 })();
 

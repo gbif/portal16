@@ -18,7 +18,7 @@
     "identifiedBy": "Identified by",
     "identifiedById": "Identified by ID",
     "eventDate": "Event date",
-    "eventID": "Event ID",
+    "eventId": "Event ID",
     "samplingProtocol": "Sampling protocol",
     "location": "Location",
     "coordinateUncertaintyInMeters": "Coordinate uncertainty in meters",
@@ -42,6 +42,7 @@
     "decimalLatitude": "Decimal latitude",
     "decimalLongitude": "Decimal longitude",
     "publishingOrg": "Publisher",
+    "hostingOrganizationKey": "Hosting organisation",
     "kingdomKey": "Kingdom",
     "phylumKey": "Phylum",
     "classKey": "Class",
@@ -70,6 +71,9 @@
     "relativeOrganismQuantity": "Relative organism quantity",
     "collectionKey" : "Collection",
     "institutionKey" : "Institution",
-    "gadmGid" : "GADM"
+    "gadmGid" : "GADM",
+    "lifeStage" : "Life stage",
+    "dwcaExtension" : "DWCA extension",
+    "isInCluster" : "Is in cluster"
   }
 }

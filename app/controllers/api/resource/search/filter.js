@@ -31,6 +31,18 @@ function getRangeParts(str) {
     }
 }
 
+function getNestedFilter(field, value, path) {
+    return {
+        'nested': {
+            'ignore_unmapped': true,
+            'path': [
+                path
+            ],
+            'query': getFilter(path + '.' + field, value)
+        }
+    };
+}
+
 function getFilter(field, value, isRange) {
     // Create the term filter
     let filterTerm = {};
@@ -62,5 +74,6 @@ function getFilter(field, value, isRange) {
 }
 
 module.exports = {
-    getFilter: getFilter
+    getFilter: getFilter,
+    getNestedFilter: getNestedFilter
 };

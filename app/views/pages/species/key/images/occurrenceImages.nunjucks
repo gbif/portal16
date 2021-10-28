@@ -3,7 +3,7 @@
     <div class="galleryBar">
         <div>
             <a ng-click="portal.gaEvent('species', 'gallery', 'occurrence')" ng-repeat="occurrence in speciesKey2.images.results" ui-sref="occurrenceKey({key:occurrence.key})" ng-if="occurrence._image" class="galleryBar__img showBroken inherit noUnderline hoverBox">
-                <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
+                <img ng-src="{{ occurrence._image.identifier | imgCache:200 }}" gb-load>
             </a>
         </div>
         <a ng-click="portal.gaEvent('species', 'gallery', 'more')" ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand" ng-if="speciesKey2.images.count > 1" translate="galleryBar.seeAllImages"></a>
