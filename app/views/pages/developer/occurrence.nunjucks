@@ -733,7 +733,7 @@
                         <tr>
                                 <td>geoDistance</td>
                                 <td>geoDistance predicate that checks if coordinates are within a specified distance of a geographical coordinate. <br/>
-                                Supported units: in (inch), yd (yards), ft (feet), km (kilometers), mmi (nautical miles), mm (milimiters), cm "centimeters", mi (miles), m (meters)</td>
+                                Supported units: in (inch), yd (yards), ft (feet), km (kilometers), mmi (nautical miles), mm (milimiters), cm centimeters, mi (miles) and m (meters)</td>
                                 <td>
                                     <code class="block">
                                         {<br/>
