@@ -160,8 +160,7 @@ async function getParsedName(speciesKey) {
 
 function formatName(name) {
     let n = '';
-
-    if (name.type == 'SCIENTIFIC' || name.type == 'CULTIVAR' || name.type == 'DOUBTFUL') {
+    if (name.scientificName.indexOf('×') === -1 && (name.type == 'SCIENTIFIC' || name.type == 'CULTIVAR' || name.type == 'DOUBTFUL')) {
         if (name.rankMarker && ranks.indexOf(rankMarkerMap[name.rankMarker]) > FAMILY_RANK_INDEX) {
             if ((name.genusOrAbove || name.specificEpithet) && name.scientificName.indexOf('×') === -1) {
                 n += '<i>' + add(name.genusOrAbove) + add(name.specificEpithet) + '</i>';
@@ -191,7 +190,7 @@ function formatName(name) {
         } else {
             n += add(name.genusOrAbove);
         }
-    } else if (name.type == 'HYBRID') {
+    } else if (name.type == 'HYBRID' || name.scientificName.indexOf('×') > -1) {
         n += '<i>' + add(name.scientificName) + '</i>';
     } else if (name.type == 'CANDIDATUS') {
         let candName = name.genusOrAbove;
