@@ -42,7 +42,7 @@
             "litPublisher": "期刊出版者"
         },
         "helpText": {
-            "gbifTaxonKey": ""
+            "gbifTaxonKey": "注意：套用此篩選條件將排除非明確專注於特定分類群的論文發表"
         }
     }
 }
