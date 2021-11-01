@@ -21,21 +21,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
     vm.$state = $state;
     vm.toggleFeedback = validatorFeedbackService.toggleFeedback;
 
-    // *********** set basic auth for dev purposes
 
-    if (window.location.search) {
-        var params = window.location.search.substring(1).split('&');
-        var query = {};
-        for (var i = 0; i < params.length; i++) {
-            var param = params[i].split('=');
-            if (param.length === 2) {
-                query[param[0]] = param[1];
-            }
-        }
-        if (query.basic) {
-            vm.forDevelopmentOnlyAuth = query.basic;
-        }
-    }
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
     vm.remarks = {};
@@ -56,24 +42,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
             return s;
         });
     });
-/*     
-    vm.getToken = function() {
-        return new Promise(function(resolve, reject) {
-            if (vm.token) {
-                resolve(vm.token);
-            } else {
-            $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
-            .success(function(data, status) {
-                vm.token = data.token;
-                resolve(vm.token);
-            })
-            .error(function(data, status) {
-                handleWSError(data, status);
-                reject();
-            });
-            }
-          });
-    }; */
+
     vm.getToken = function() {
         return vm.token ? Promise.resolve() : $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
         .success(function(data, status) {
@@ -206,7 +175,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
         var data = responseData.metrics;
         vm.steps = _.get(data, 'stepTypes', []);
         vm.file = _.get(responseData, 'file');
-        vm.fileSize = !_.isNaN(_.get(responseData, 'fileSize')) ? (Number(_.get(responseData, 'fileSize')) / 100000).toFixed(1) : undefined;
+        vm.fileSize = !_.isNaN(_.get(responseData, 'fileSize')) ? (Number(_.get(responseData, 'fileSize')) / 1000000).toFixed(1) : undefined;
         data.files.sort(function(a, b) {
             if (a.fileType === 'CORE' && b.fileType !== 'CORE') {
                 return -1;
@@ -232,7 +201,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
             results: [],
             indexeable: _.get(data, 'indexeable')
         };
-        vm.validationResults.summary.fileFormat = _.get(responseData, 'fileFormat')
+        vm.validationResults.summary.fileFormat = _.get(responseData, 'fileFormat');
         vm.validationResults.summary.issueTypesFound = {};
         vm.unknownTermMap = {};
 
@@ -410,7 +379,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
 
     function handleFailedJob(data) {
         vm.file = _.get(data, 'file');
-        vm.fileSize = !_.isNaN(_.get(data, 'fileSize')) ? (Number(_.get(data, 'fileSize')) / 100000).toFixed(1) : undefined;
+        vm.fileSize = !_.isNaN(_.get(data, 'fileSize')) ? (Number(_.get(data, 'fileSize')) / 1000000).toFixed(1) : undefined;
         vm.jobStatus = data.status;
         vm.errorCode = _.get(data, 'result.errorCode');
         vm.errorMessage = _.get(data, 'result.errorMessage');

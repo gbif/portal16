@@ -13,7 +13,7 @@ angular
     .controller('dataValidatorDocumentCtrl', dataValidatorDocumentCtrl);
 
 /** @ngInject */
-function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env, $translate) {
+function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env, $translate, User) {
     var vm = this;
     vm.$state = $state;
     vm.dataApi = env.dataApi;
@@ -21,34 +21,44 @@ function dataValidatorDocumentCtrl($http, $state, $stateParams, Page, env, $tran
         Page.setTitle(title);
     });
     Page.drawer(false);
-
+    vm.getToken = function() {
+        return vm.token ? Promise.resolve() : $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
+        .success(function(data, status) {
+            vm.token = data.token;
+        })
+        .error(function(data, status) {
+            // TODO
+        });
+    };
     vm.getEML = function(jobid) {
-        $http.get(
-            vm.dataApi + 'validator/jobserver/output/' + jobid + '/DATASET_OBJECT', {params: {nonse: Math.random()}}
-
-        ).success(function(data) {
-            vm.eml = data.content;
-            console.log(data);
-            if (_.get(vm.eml, 'temporalCoverages')) {
-                vm.eml.temporalCoverages.forEach(function(c) {
-                    if (c.end) {
-                        c.end_date = moment(c.end).toISOString();
-                    }
-                    if (c.start) {
-                        c.start_date = moment(c.start).toISOString();
-                    }
-                    if (c.period) {
-                        c.period_date = moment(c.period).toISOString();
-                    }
+        vm.getToken().then(function() {
+            $http.get(
+                vm.dataApi + 'validation/' + jobid + '/eml', {headers: {'Authorization': 'Bearer ' + vm.token}}
+    
+            ).success(function(data) {
+                vm.eml = data;
+                console.log(data);
+                if (_.get(vm.eml, 'temporalCoverages')) {
+                    vm.eml.temporalCoverages.forEach(function(c) {
+                        if (c.end) {
+                            c.end_date = moment(c.end).toISOString();
+                        }
+                        if (c.start) {
+                            c.start_date = moment(c.start).toISOString();
+                        }
+                        if (c.period) {
+                            c.period_date = moment(c.period).toISOString();
+                        }
+                    });
+                }
+                vm.coverages = geoJsonFromCoverage(vm.eml.geographicCoverages);
+                vm.originators = _.filter(vm.eml.contacts, function(c) {
+                    return c.type === 'ORIGINATOR';
                 });
-            }
-            vm.coverages = geoJsonFromCoverage(vm.eml.geographicCoverages);
-            vm.originators = _.filter(vm.eml.contacts, function(c) {
-                return c.type === 'ORIGINATOR';
+            }).error(function(err, status, headers) { // data, status, headers, config
+    
+               // TODO
             });
-        }).error(function(err, status, headers) { // data, status, headers, config
-
-           // TODO
         });
     };
 
